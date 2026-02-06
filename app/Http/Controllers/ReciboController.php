@@ -43,10 +43,7 @@ class ReciboController extends Controller
             ], 404);
         }
 
-        // TODO: Validar permisos según rol
-        // - Admin: puede descargar cualquiera
-        // - Operativo: solo pagos generados por flujo operativo
-        // Por ahora, sin auth real, se permite a todos
+        // Permisos: auth:sanctum en ruta (ADMIN y OPERATIVO pueden acceder)
 
         try {
             $forceRegenerate = $request->boolean('regenerar', false);
@@ -113,9 +110,7 @@ class ReciboController extends Controller
             ], 400);
         }
 
-        // TODO: Validar permisos según rol
-        // - Solo Admin debería poder descargar recibos de liquidación
-        // Por ahora, sin auth real, se permite a todos
+        // Permisos: auth:sanctum + ensure.admin en ruta (solo ADMIN)
 
         try {
             $forceRegenerate = $request->boolean('regenerar', false);

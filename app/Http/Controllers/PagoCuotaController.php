@@ -28,8 +28,7 @@ class PagoCuotaController extends Controller
     public function storeOperativo(StorePagoCuotaOperativoRequest $request): JsonResponse
     {
         try {
-            // TODO: Obtener usuario autenticado
-            $usuarioOperativoId = $request->input('usuario_operativo_id', 1);
+            $usuarioOperativoId = auth()->id();
 
             $resultado = $this->pagoCuotaService->registrarPagoCuotaOperativo([
                 'alumno_id' => $request->alumno_id,
@@ -61,8 +60,7 @@ class PagoCuotaController extends Controller
     public function storeAdmin(StorePagoCuotaAdminRequest $request): JsonResponse
     {
         try {
-            // TODO: Obtener usuario admin autenticado
-            $usuarioAdminId = $request->input('usuario_admin_id', 1);
+            $usuarioAdminId = auth()->id();
 
             $resultado = $this->pagoCuotaService->registrarPagoCuotaAdmin([
                 'alumno_id' => $request->alumno_id,
@@ -94,8 +92,7 @@ class PagoCuotaController extends Controller
     public function condonar(CondonarDeudaRequest $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener usuario admin autenticado
-            $adminId = $request->input('usuario_admin_id', 1);
+            $adminId = auth()->id();
 
             $deuda = $this->pagoCuotaService->condonarDeuda(
                 $id,
@@ -122,8 +119,7 @@ class PagoCuotaController extends Controller
     public function ajustar(AjustarDeudaRequest $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener usuario admin autenticado
-            $adminId = $request->input('usuario_admin_id', 1);
+            $adminId = auth()->id();
 
             $deuda = $this->pagoCuotaService->ajustarDeuda(
                 $id,

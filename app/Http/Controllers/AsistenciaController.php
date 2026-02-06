@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAsistenciaRequest;
+use App\Http\Requests\StoreAsistenciaBulkRequest;
+use App\Models\Asistencia;
+use App\Models\Clase;
 use App\Services\ClaseService;
 use Illuminate\Http\JsonResponse;
 
@@ -13,6 +16,87 @@ class AsistenciaController extends Controller
     public function __construct(ClaseService $claseService)
     {
         $this->claseService = $claseService;
+    }
+
+    /**
+     * Listar asistencias de una clase
+     *
+     * GET /api/asistencias/clase/{claseId}
+     */
+    public function indexByClase(int $claseId): JsonResponse
+    {
+        $clase = Clase::find($claseId);
+
+        if (!$clase) {
+            return response()->json([
+                'success' => false,
+                'error' => ['code' => 'NOT_FOUND', 'message' => 'Clase no encontrada.'],
+            ], 404);
+        }
+
+        $asistencias = Asistencia::with('alumno')
+            ->where('clase_id', $claseId)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'clase_id' => $claseId,
+                'fecha' => $clase->fecha,
+                'asistencias' => $asistencias,
+                'total' => $asistencias->count(),
+                'presentes' => $asistencias->where('presente', true)->count(),
+            ],
+        ]);
+    }
+
+    /**
+     * Registrar asistencias bulk para una clase
+     *
+     * POST /api/asistencias/clase/{claseId}
+     */
+    public function storeBulk(StoreAsistenciaBulkRequest $request, int $claseId): JsonResponse
+    {
+        $clase = Clase::find($claseId);
+
+        if (!$clase) {
+            return response()->json([
+                'success' => false,
+                'error' => ['code' => 'NOT_FOUND', 'message' => 'Clase no encontrada.'],
+            ], 404);
+        }
+
+        if ($clase->cancelada) {
+            return response()->json([
+                'success' => false,
+                'error' => ['code' => 'CLASE_CANCELADA', 'message' => 'No se pueden registrar asistencias en una clase cancelada.'],
+            ], 409);
+        }
+
+        $items = $request->validated()['items'];
+        $registradas = [];
+
+        foreach ($items as $item) {
+            $asistencia = Asistencia::updateOrCreate(
+                [
+                    'clase_id' => $claseId,
+                    'alumno_id' => $item['alumno_id'],
+                ],
+                [
+                    'presente' => $item['presente'],
+                ]
+            );
+            $registradas[] = $asistencia;
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Asistencias registradas.',
+            'data' => [
+                'clase_id' => $claseId,
+                'registradas' => count($registradas),
+            ],
+        ], 201);
     }
 
     /**

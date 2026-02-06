@@ -22,21 +22,18 @@ class EnsureAdmin
                 'success' => false,
                 'error' => [
                     'code' => 'UNAUTHENTICATED',
-                    'message' => 'Debe iniciar sesión para acceder a este recurso.',
                 ],
             ], 401);
         }
 
-        // Verificar rol admin (soporta ambos nombres: role y rol)
-        $isAdmin = ($user->role ?? null) === 'ADMIN'
-                || ($user->rol ?? null) === 'ADMIN';
+        // Verificar rol admin
+        $isAdmin = $user->rol === 'ADMIN';
 
         if (!$isAdmin) {
             return response()->json([
                 'success' => false,
                 'error' => [
                     'code' => 'FORBIDDEN_ADMIN_ONLY',
-                    'message' => 'Este recurso requiere permisos de administrador.',
                 ],
             ], 403);
         }

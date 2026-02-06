@@ -37,15 +37,7 @@ class MovimientoOperativoController extends Controller
     public function store(StoreMovimientoOperativoRequest $request): JsonResponse
     {
         try {
-            // TODO: Obtener usuario desde auth cuando esté implementado
-            $usuarioOperativoId = $request->input('usuario_operativo_id');
-
-            if (!$usuarioOperativoId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere usuario_operativo_id.',
-                ], 422);
-            }
+            $usuarioOperativoId = auth()->id();
 
             $movimiento = $this->cajaService->registrarMovimientoOperativo([
                 'usuario_operativo_id' => $usuarioOperativoId,

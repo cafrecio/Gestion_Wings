@@ -69,14 +69,7 @@ class CierreDiaController extends Controller
     public function admin(Request $request): JsonResponse
     {
         try {
-            // TODO: Validar que sea ADMIN cuando exista RBAC formal
-            // Por ahora check simple si hay usuario autenticado
-            if (!auth()->id()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Usuario no autenticado.',
-                ], 401);
-            }
+            // El middleware ensure.admin ya valida autenticación y rol
 
             // Fecha obligatoria para admin
             if (!$request->has('fecha')) {

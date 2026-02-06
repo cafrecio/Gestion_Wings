@@ -96,15 +96,7 @@ class CajaOperativaController extends Controller
     public function cajaAbierta(Request $request): JsonResponse
     {
         try {
-            // TODO: Obtener usuario desde auth cuando esté implementado
-            $usuarioId = $request->input('usuario_id');
-
-            if (!$usuarioId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere usuario_id.',
-                ], 422);
-            }
+            $usuarioId = auth()->id();
 
             $caja = $this->cajaService->obtenerCajaAbierta($usuarioId);
 
@@ -140,15 +132,7 @@ class CajaOperativaController extends Controller
     public function cerrar(CerrarCajaRequest $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener usuario desde auth cuando esté implementado
-            $usuarioId = $request->input('usuario_id');
-
-            if (!$usuarioId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere usuario_id.',
-                ], 422);
-            }
+            $usuarioId = auth()->id();
 
             $caja = $this->cajaService->cerrarCajaOperativa($id, $usuarioId, false);
 
@@ -177,15 +161,7 @@ class CajaOperativaController extends Controller
     public function cerrarComoAdmin(Request $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener admin desde auth y validar rol
-            $adminId = $request->input('admin_id');
-
-            if (!$adminId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere admin_id.',
-                ], 422);
-            }
+            $adminId = auth()->id();
 
             $caja = $this->cajaService->cerrarCajaOperativa($id, $adminId, true);
 
@@ -214,15 +190,7 @@ class CajaOperativaController extends Controller
     public function validar(Request $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener admin desde auth y validar rol
-            $adminId = $request->input('admin_id');
-
-            if (!$adminId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere admin_id.',
-                ], 422);
-            }
+            $adminId = auth()->id();
 
             $caja = $this->cajaService->validarCaja($id, $adminId);
 
@@ -251,15 +219,7 @@ class CajaOperativaController extends Controller
     public function rechazar(RechazarCajaRequest $request, int $id): JsonResponse
     {
         try {
-            // TODO: Obtener admin desde auth y validar rol
-            $adminId = $request->input('admin_id');
-
-            if (!$adminId) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Se requiere admin_id.',
-                ], 422);
-            }
+            $adminId = auth()->id();
 
             $caja = $this->cajaService->rechazarCaja(
                 $id,

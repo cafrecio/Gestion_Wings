@@ -27,9 +27,11 @@ class BloqueoCajaViejaOperativo
             return $next($request);
         }
 
-        // TODO: Si es ADMIN -> permitir (cuando exista sistema de roles)
-        // Por ahora asumimos que todos los que llegan aquí son operativos
-        // ya que este middleware solo se aplica a rutas operativas
+        // ADMIN puede operar sin restricciones
+        $user = auth()->user();
+        if ($user && $user->rol === 'ADMIN') {
+            return $next($request);
+        }
 
         // Buscar caja vieja ABIERTA
         $cajaVieja = $this->buscarCajaViejaAbierta($userId);
