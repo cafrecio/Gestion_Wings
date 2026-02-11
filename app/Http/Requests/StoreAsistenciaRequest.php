@@ -23,6 +23,8 @@ class StoreAsistenciaRequest extends FormRequest
             'clase_id' => 'required|exists:clases,id',
             'alumno_id' => 'required|exists:alumnos,id',
             'presente' => 'required|boolean',
+            'motivo_exceso' => 'nullable|in:EXTRA,RECUPERA',
+            'detalle_exceso' => 'nullable|string|max:500',
         ];
     }
 

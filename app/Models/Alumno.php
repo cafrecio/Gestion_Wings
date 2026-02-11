@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Alumno extends Model
 {
@@ -146,5 +147,15 @@ class Alumno extends Model
     public function deudaCuotas(): HasMany
     {
         return $this->hasMany(DeudaCuota::class);
+    }
+
+    public function revisionesCobranza(): HasMany
+    {
+        return $this->hasMany(AlumnoRevisionCobranza::class);
+    }
+
+    public function asistenciaExcesos(): HasMany
+    {
+        return $this->hasMany(AsistenciaExceso::class);
     }
 }

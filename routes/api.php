@@ -8,6 +8,7 @@ use App\Http\Controllers\CashflowMovimientoController;
 use App\Http\Controllers\CashflowSaldoController;
 use App\Http\Controllers\CierreDiaController;
 use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\CobranzaController;
 use App\Http\Controllers\LiquidacionController;
 use App\Http\Controllers\MovimientoOperativoController;
 use App\Http\Controllers\OperativoController;
@@ -67,6 +68,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('pagos')->group(function () {
         Route::post('/', [PagoController::class, 'store']);
     });
+
+    // Estado de cobranza individual
+    Route::get('/alumnos/{id}/estado-cobranza', [CobranzaController::class, 'estadoAlumno']);
+
+    // Filtrar alumnos por estado de cobranza
+    Route::get('/cobranza/alumnos', [CobranzaController::class, 'alumnosPorEstado']);
 
     // Rutas específicas de Alumno relacionadas con Pagos
     Route::prefix('alumnos/{alumnoId}')->group(function () {
@@ -187,6 +194,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
         // Saldo cashflow acumulado hasta una fecha
         Route::get('/cashflow/saldo', [CashflowSaldoController::class, 'saldoAFecha']);
+
+        // Dashboard y revisión de cobranza
+        Route::prefix('cobranza')->group(function () {
+            Route::get('/dashboard', [CobranzaController::class, 'dashboard']);
+            Route::get('/revision', [CobranzaController::class, 'indexRevision']);
+            Route::post('/revision/{id}/resolver', [CobranzaController::class, 'resolverRevision']);
+        });
 
         // Pago de cuota - Admin
         Route::post('/cuotas/pagos', [PagoCuotaController::class, 'storeAdmin']);

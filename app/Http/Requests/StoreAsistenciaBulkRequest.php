@@ -17,6 +17,8 @@ class StoreAsistenciaBulkRequest extends FormRequest
             'items' => 'required|array|min:1',
             'items.*.alumno_id' => 'required|exists:alumnos,id',
             'items.*.presente' => 'required|boolean',
+            'items.*.motivo_exceso' => 'nullable|in:EXTRA,RECUPERA',
+            'items.*.detalle_exceso' => 'nullable|string|max:500',
         ];
     }
 

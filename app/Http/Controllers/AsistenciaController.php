@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAsistenciaRequest;
 use App\Http\Requests\StoreAsistenciaBulkRequest;
 use App\Models\Asistencia;
+use App\Models\AsistenciaExceso;
 use App\Models\Clase;
 use App\Services\ClaseService;
 use Illuminate\Http\JsonResponse;
@@ -75,6 +76,7 @@ class AsistenciaController extends Controller
 
         $items = $request->validated()['items'];
         $registradas = [];
+        $excesos = [];
 
         foreach ($items as $item) {
             $asistencia = Asistencia::updateOrCreate(
@@ -87,16 +89,63 @@ class AsistenciaController extends Controller
                 ]
             );
             $registradas[] = $asistencia;
+
+            // Control de exceso si está presente
+            if ($item['presente']) {
+                $infoSemana = $this->claseService->contarAsistenciasSemana(
+                    $item['alumno_id'],
+                    $clase->fecha->format('Y-m-d')
+                );
+
+                if ($infoSemana['excede']) {
+                    $motivoExceso = $item['motivo_exceso'] ?? null;
+                    $excesoInfo = [
+                        'alumno_id' => $item['alumno_id'],
+                        'info_semana' => $infoSemana,
+                        'motivo' => $motivoExceso,
+                        'recuperacion_valida' => null,
+                    ];
+
+                    if ($motivoExceso) {
+                        if ($motivoExceso === AsistenciaExceso::MOTIVO_RECUPERA) {
+                            $excesoInfo['recuperacion_valida'] = $this->claseService->verificarRecuperacion(
+                                $item['alumno_id'],
+                                $clase->fecha->format('Y-m-d')
+                            );
+                            $detalle = $item['detalle_exceso'] ?? null;
+                            if (!$excesoInfo['recuperacion_valida']) {
+                                $detalle = ($detalle ? $detalle . ' | ' : '') . 'Recupero sin déficit previo';
+                            }
+                        }
+
+                        AsistenciaExceso::create([
+                            'asistencia_id' => $asistencia->id,
+                            'alumno_id' => $item['alumno_id'],
+                            'fecha_clase' => $clase->fecha->format('Y-m-d'),
+                            'motivo' => $motivoExceso,
+                            'detalle' => $detalle ?? $item['detalle_exceso'] ?? null,
+                        ]);
+                    }
+
+                    $excesos[] = $excesoInfo;
+                }
+            }
         }
 
-        return response()->json([
+        $response = [
             'success' => true,
             'message' => 'Asistencias registradas.',
             'data' => [
                 'clase_id' => $claseId,
                 'registradas' => count($registradas),
             ],
-        ], 201);
+        ];
+
+        if (!empty($excesos)) {
+            $response['data']['excesos'] = $excesos;
+        }
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -108,18 +157,63 @@ class AsistenciaController extends Controller
     public function store(StoreAsistenciaRequest $request): JsonResponse
     {
         try {
+            $validated = $request->validated();
+
             $asistencia = $this->claseService->registrarAsistencia(
-                $request->validated()['clase_id'],
-                $request->validated()['alumno_id'],
-                $request->validated()['presente']
+                $validated['clase_id'],
+                $validated['alumno_id'],
+                $validated['presente']
             );
 
             $asistencia->load(['clase', 'alumno']);
 
+            $responseData = $asistencia->toArray();
+
+            // Control de exceso si está presente
+            if ($validated['presente']) {
+                $infoSemana = $this->claseService->contarAsistenciasSemana(
+                    $validated['alumno_id'],
+                    $asistencia->clase->fecha->format('Y-m-d')
+                );
+
+                $responseData['info_semana'] = $infoSemana;
+
+                if ($infoSemana['excede']) {
+                    $motivoExceso = $validated['motivo_exceso'] ?? null;
+                    $detalle = $validated['detalle_exceso'] ?? null;
+                    $recuperacionValida = null;
+
+                    if ($motivoExceso) {
+                        if ($motivoExceso === AsistenciaExceso::MOTIVO_RECUPERA) {
+                            $recuperacionValida = $this->claseService->verificarRecuperacion(
+                                $validated['alumno_id'],
+                                $asistencia->clase->fecha->format('Y-m-d')
+                            );
+                            if (!$recuperacionValida) {
+                                $detalle = ($detalle ? $detalle . ' | ' : '') . 'Recupero sin déficit previo';
+                            }
+                        }
+
+                        AsistenciaExceso::create([
+                            'asistencia_id' => $asistencia->id,
+                            'alumno_id' => $validated['alumno_id'],
+                            'fecha_clase' => $asistencia->clase->fecha->format('Y-m-d'),
+                            'motivo' => $motivoExceso,
+                            'detalle' => $detalle,
+                        ]);
+                    }
+
+                    $responseData['exceso'] = [
+                        'motivo' => $motivoExceso,
+                        'recuperacion_valida' => $recuperacionValida,
+                    ];
+                }
+            }
+
             return response()->json([
                 'success' => true,
                 'message' => 'Asistencia registrada exitosamente.',
-                'data' => $asistencia,
+                'data' => $responseData,
             ], 201);
 
         } catch (\Exception $e) {

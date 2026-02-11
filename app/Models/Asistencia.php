@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Asistencia extends Model
 {
@@ -33,5 +34,10 @@ class Asistencia extends Model
     public function alumno(): BelongsTo
     {
         return $this->belongsTo(Alumno::class);
+    }
+
+    public function exceso(): HasOne
+    {
+        return $this->hasOne(AsistenciaExceso::class);
     }
 }

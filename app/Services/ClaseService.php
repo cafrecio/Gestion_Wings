@@ -2,11 +2,12 @@
 
 namespace App\Services;
 
+use App\Models\Alumno;
+use App\Models\AlumnoPlan;
 use App\Models\Asistencia;
 use App\Models\Clase;
 use App\Models\ClaseProfesor;
 use App\Models\Profesor;
-use App\Models\Alumno;
 use Carbon\Carbon;
 
 class ClaseService
@@ -199,6 +200,99 @@ class ClaseService
                 );
             }
         }
+    }
+
+    /**
+     * Contar asistencias de la semana para un alumno y comparar con su plan.
+     * Semana = lunes a domingo.
+     *
+     * @param int $alumnoId
+     * @param string $fechaClase Fecha de la clase (Y-m-d)
+     * @return array {asistencias_semana, plan_semana, excede}
+     */
+    public function contarAsistenciasSemana(int $alumnoId, string $fechaClase): array
+    {
+        $fecha = Carbon::parse($fechaClase);
+        $lunes = $fecha->copy()->startOfWeek(Carbon::MONDAY);
+        $domingo = $fecha->copy()->endOfWeek(Carbon::SUNDAY);
+
+        $asistenciasSemana = Asistencia::where('alumno_id', $alumnoId)
+            ->where('presente', true)
+            ->whereHas('clase', function ($query) use ($lunes, $domingo) {
+                $query->whereBetween('fecha', [$lunes->toDateString(), $domingo->toDateString()]);
+            })
+            ->count();
+
+        // Obtener plan activo del alumno
+        $alumnoPlan = AlumnoPlan::where('alumno_id', $alumnoId)
+            ->where('activo', true)
+            ->with('plan')
+            ->first();
+
+        $planSemana = $alumnoPlan && $alumnoPlan->plan
+            ? $alumnoPlan->plan->clases_por_semana
+            : null;
+
+        $excede = $planSemana !== null && $asistenciasSemana > $planSemana;
+
+        return [
+            'asistencias_semana' => $asistenciasSemana,
+            'plan_semana' => $planSemana,
+            'excede' => $excede,
+        ];
+    }
+
+    /**
+     * Verificar si un alumno puede recuperar clase: busca déficit en semanas
+     * anteriores del mismo mes.
+     *
+     * @param int $alumnoId
+     * @param string $fechaClase
+     * @return bool true si hay déficit en alguna semana anterior del mes
+     */
+    public function verificarRecuperacion(int $alumnoId, string $fechaClase): bool
+    {
+        $fecha = Carbon::parse($fechaClase);
+        $inicioMes = $fecha->copy()->startOfMonth();
+        $lunesActual = $fecha->copy()->startOfWeek(Carbon::MONDAY);
+
+        // Obtener plan
+        $alumnoPlan = AlumnoPlan::where('alumno_id', $alumnoId)
+            ->where('activo', true)
+            ->with('plan')
+            ->first();
+
+        if (!$alumnoPlan || !$alumnoPlan->plan) {
+            return false;
+        }
+
+        $planSemana = $alumnoPlan->plan->clases_por_semana;
+
+        // Iterar semanas anteriores del mismo mes
+        $lunes = $inicioMes->copy()->startOfWeek(Carbon::MONDAY);
+
+        while ($lunes->lt($lunesActual)) {
+            $domingo = $lunes->copy()->endOfWeek(Carbon::SUNDAY);
+
+            // Solo contar días dentro del mes
+            $inicioConteo = $lunes->lt($inicioMes) ? $inicioMes->toDateString() : $lunes->toDateString();
+            $finConteo = $domingo->toDateString();
+
+            $asistencias = Asistencia::where('alumno_id', $alumnoId)
+                ->where('presente', true)
+                ->whereHas('clase', function ($query) use ($inicioConteo, $finConteo) {
+                    $query->whereBetween('fecha', [$inicioConteo, $finConteo]);
+                })
+                ->count();
+
+            if ($asistencias < $planSemana) {
+                return true; // Hay déficit
+            }
+
+            $lunes->addWeek();
+        }
+
+        return false;
     }
 
     /**

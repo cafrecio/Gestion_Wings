@@ -178,7 +178,24 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 
 ---
 
-## 10) Documentos existentes en repo (inventario real)
+## 10) Motor Estados + Cobranza + Control Asistencia/Plan
+
+### 10.1 Contrato
+- ⏳ `Wings-contrato-estadosAlum-cobranza-asistencia-V1.md`  
+  
+### 10.2 ER
+- ⏳ `Wings-ER-estadosAlum-cobranza-asistencia-V1.md`
+
+### 10.3 Camino feliz
+- ⏳ `Wings-CF-estadosAlum-cobranza-asistencia-V1.md`  
+  (Login → token → llamadas típicas)
+
+### 10.4 Decisiones Front
+- ⏳ `Wings-Contrato-Front-estadosAlum-cobranza-asistencia-V1.md`
+
+---
+
+## 11) Documentos existentes en repo (inventario real)
 
 ✅ Existen estos 4 MD:
 

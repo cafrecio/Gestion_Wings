@@ -340,7 +340,7 @@ class PagoCuotaService
      * Busca por vigencia de fechas (fecha_desde/fecha_hasta), no solo por activo=true.
      * Si hay más de uno aplicable, elige el de mayor fecha_desde (más reciente).
      */
-    private function obtenerPlanParaPeriodo(int $alumnoId, string $periodo): ?AlumnoPlan
+    public function obtenerPlanParaPeriodo(int $alumnoId, string $periodo): ?AlumnoPlan
     {
         $periodStart = Carbon::parse($periodo . '-01');
         $periodEnd = $periodStart->copy()->endOfMonth();
