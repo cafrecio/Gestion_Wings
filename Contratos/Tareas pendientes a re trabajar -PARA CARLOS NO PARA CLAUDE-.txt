@@ -1,0 +1,23 @@
+10) Reingeniería de deuda (lo que querés) — lo bajé al llano
+
+Lo que proponés es un motor de deuda mensual + estados operativos, más inteligente que “generar deudas a lo pavote”.
+
+10.a Qué querés que pase cada inicio de mes (ej: 1 de febrero)
+
+Para cada alumno activo:
+
+Si tuvo asistencias en enero → se genera deuda de febrero.
+
+Si no tuvo asistencias en enero y tampoco pagó enero → el sistema pregunta al administrativo qué hacer (para no inventar deuda futura).
+
+Si tuvo asistencias en enero y no pagó enero → igual generás febrero, pero además lo marcás como Deudor.
+
+10.b Estados que querés (operativos, visibles)
+
+Al día: del 1 al 10 si la deuda recién existe y todavía está “en ventana”.
+
+Moroso: del 11 a fin de mes si no pagó.
+
+Deudor: si arrastra deuda anterior impaga (ej: no pagó enero y ya estamos generando febrero).
+
+Esto está bueno, pero ojo: esto NO es “Caso 2”. Esto es diseño de comportamiento que pega directo en backend y UX (y seguramente entra en Caso 3 también).

@@ -42,10 +42,10 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 2) Alumno–Grupo–Deporte–Deuda (base de identidad + deuda por período)
 
 ### 2.1 Contrato
-- ✅ `Contratos/contrato_base_v_1_alumno_grupo_deporte_y_deuda.md`
+- ✅ `Wings-contrato-alumno-grupo-deporte-deuda-v3.md`
 
 ### 2.2 ER
-- ⏳ `Wings-ER-Alumno-Grupo-Deporte-Deuda-V1.md`
+- ✅ `Wings-ER-Alumno-Grupo-Deporte-Deuda-V2.md`
 
 ### 2.3 Camino feliz
 - ⏳ `Wings-CF-Alumno-Grupo-Deporte-Deuda-V1.md`  
@@ -62,11 +62,11 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 > En el repo **no hay documento contractual** específico de “Pagos de cuota / deuda / imputación”, aunque sí hay implementación en backend.
 
 ### 3.1 Contrato
-- ⏳ `Wings-Contrato-Cuotas-Deudas-Pagos-V1.md`  
+- ✅ `Wings-contrato-cuotas-deudas-pagos-V1`  
   (Qué genera un pago operativo vs admin, cómo se imputa, qué significa condonar/ajustar, qué se imprime)
 
 ### 3.2 ER
-- ⏳ `Wings-ER-Cuotas-Deudas-Pagos-V1.md`  
+- ✅ `Wings-ER-cuotas-deudas-pagos-V1.md`  
   (DeudaCuota ↔ Pago ↔ (pivot) PagoDeudaCuota, y relación con movimientos/cashflow)
 
 ### 3.3 Camino feliz

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\AlumnoPlan;
 use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
 use App\Models\MovimientoOperativo;
@@ -35,12 +36,16 @@ class PagoCuotaService
         return DB::transaction(function () use ($data) {
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
-            $montoTotal = $this->calcularMontoTotal($data['items']);
+            $items = $this->ordenarItemsPorPeriodo($data['items']);
+            $montoTotal = $this->calcularMontoTotal($items);
 
-            // Validar y procesar deudas
+            // Validar FIFO antes de aplicar pagos
+            $this->validarFifo($data['alumno_id'], $items);
+
+            // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             $deudasActualizadas = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
-                $data['items']
+                $items
             );
 
             // Crear el pago
@@ -52,7 +57,7 @@ class PagoCuotaService
             );
 
             // Relacionar pago con deudas
-            $this->relacionarPagoConDeudas($pago, $data['items'], $deudasActualizadas);
+            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
 
             // Crear movimiento operativo (abre caja si no existe)
             // Usa método interno para permitir subrubro reservado "Cuota Mensual"
@@ -62,7 +67,7 @@ class PagoCuotaService
                 'subrubro_id' => $subruboCuota->id,
                 'monto' => $montoTotal,
                 'fecha' => $fechaPago,
-                'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $data['items'], $data['observaciones'] ?? null),
+                'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
             ]);
 
             $resultado = [
@@ -97,12 +102,16 @@ class PagoCuotaService
         return DB::transaction(function () use ($data) {
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
-            $montoTotal = $this->calcularMontoTotal($data['items']);
+            $items = $this->ordenarItemsPorPeriodo($data['items']);
+            $montoTotal = $this->calcularMontoTotal($items);
 
-            // Validar y procesar deudas
+            // Validar FIFO antes de aplicar pagos
+            $this->validarFifo($data['alumno_id'], $items);
+
+            // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             $deudasActualizadas = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
-                $data['items']
+                $items
             );
 
             // Crear el pago
@@ -114,7 +123,7 @@ class PagoCuotaService
             );
 
             // Relacionar pago con deudas
-            $this->relacionarPagoConDeudas($pago, $data['items'], $deudasActualizadas);
+            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
 
             // Crear movimiento en cashflow directo
             $movimiento = CashflowMovimiento::create([
@@ -122,7 +131,7 @@ class PagoCuotaService
                 'subrubro_id' => $subruboCuota->id,
                 'tipo_caja_id' => $data['tipo_caja_id'],
                 'monto' => $montoTotal,
-                'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $data['items'], $data['observaciones'] ?? null),
+                'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
                 'usuario_admin_id' => $data['usuario_admin_id'],
                 'referencia_tipo' => 'PAGO_CUOTA',
                 'referencia_id' => $pago->id,
@@ -250,13 +259,7 @@ class PagoCuotaService
         $deudasActualizadas = [];
 
         foreach ($items as $item) {
-            $deuda = DeudaCuota::where('alumno_id', $alumnoId)
-                ->where('periodo', $item['periodo'])
-                ->first();
-
-            if (!$deuda) {
-                throw new \Exception("No existe deuda para el alumno {$alumnoId} en período {$item['periodo']}. Primero debe generarse la deuda.");
-            }
+            $deuda = $this->obtenerOcrearDeuda($alumnoId, $item['periodo']);
 
             if ($deuda->estado === DeudaCuota::ESTADO_PAGADA) {
                 throw new \Exception("La deuda del período {$item['periodo']} ya está completamente pagada.");
@@ -284,6 +287,112 @@ class PagoCuotaService
         }
 
         return $deudasActualizadas;
+    }
+
+    /**
+     * Obtener o crear DeudaCuota para un alumno/período.
+     * Si no existe y el período es vigente o futuro, la crea automáticamente
+     * usando el precio del plan activo del alumno.
+     * Si el período es pasado, exige creación manual por admin.
+     */
+    private function obtenerOcrearDeuda(int $alumnoId, string $periodo): DeudaCuota
+    {
+        $deuda = DeudaCuota::where('alumno_id', $alumnoId)
+            ->where('periodo', $periodo)
+            ->first();
+
+        if ($deuda) {
+            return $deuda;
+        }
+
+        // No permitir crear deuda para períodos pasados
+        $periodoVigente = Carbon::now('America/Argentina/Buenos_Aires')->format('Y-m');
+        if ($periodo < $periodoVigente) {
+            throw new \Exception(
+                "No se puede crear deuda para un período pasado ({$periodo}). Debe crearla un administrador."
+            );
+        }
+
+        // Buscar el plan que aplica al período por vigencia de fechas
+        $alumnoPlan = $this->obtenerPlanParaPeriodo($alumnoId, $periodo);
+
+        if (!$alumnoPlan || !$alumnoPlan->plan) {
+            throw new \Exception(
+                "Alumno sin plan aplicable para el período {$periodo}."
+            );
+        }
+
+        $precioMensual = $alumnoPlan->plan->precio_mensual;
+
+        // firstOrCreate para idempotencia (protege contra race conditions por unique constraint)
+        return DeudaCuota::firstOrCreate(
+            ['alumno_id' => $alumnoId, 'periodo' => $periodo],
+            [
+                'monto_original' => $precioMensual,
+                'monto_pagado' => 0,
+                'estado' => DeudaCuota::ESTADO_PENDIENTE,
+            ]
+        );
+    }
+
+    /**
+     * Obtener el AlumnoPlan que aplica a un período dado.
+     * Busca por vigencia de fechas (fecha_desde/fecha_hasta), no solo por activo=true.
+     * Si hay más de uno aplicable, elige el de mayor fecha_desde (más reciente).
+     */
+    private function obtenerPlanParaPeriodo(int $alumnoId, string $periodo): ?AlumnoPlan
+    {
+        $periodStart = Carbon::parse($periodo . '-01');
+        $periodEnd = $periodStart->copy()->endOfMonth();
+
+        // Buscar plan cuya vigencia cubra el período:
+        // fecha_desde <= último día del mes AND (fecha_hasta is null OR fecha_hasta >= primer día del mes)
+        $alumnoPlan = AlumnoPlan::where('alumno_id', $alumnoId)
+            ->where('fecha_desde', '<=', $periodEnd->toDateString())
+            ->where(function ($query) use ($periodStart) {
+                $query->whereNull('fecha_hasta')
+                      ->orWhere('fecha_hasta', '>=', $periodStart->toDateString());
+            })
+            ->orderByDesc('fecha_desde')
+            ->first();
+
+        return $alumnoPlan;
+    }
+
+    /**
+     * Ordenar items por período ascendente para garantizar imputación FIFO.
+     */
+    private function ordenarItemsPorPeriodo(array $items): array
+    {
+        usort($items, fn($a, $b) => strcmp($a['periodo'], $b['periodo']));
+        return $items;
+    }
+
+    /**
+     * Validar regla FIFO fuerte: las deudas más viejas deben pagarse completas
+     * antes de imputar a períodos posteriores. Solo la última deuda (por orden
+     * cronológico) puede quedar parcial.
+     */
+    private function validarFifo(int $alumnoId, array $items): void
+    {
+        if (count($items) <= 1) {
+            return;
+        }
+
+        // Items ya vienen ordenados por periodo ASC
+        for ($i = 0; $i < count($items) - 1; $i++) {
+            $item = $items[$i];
+            $deuda = $this->obtenerOcrearDeuda($alumnoId, $item['periodo']);
+            $saldoPendiente = $deuda->saldo_pendiente;
+
+            if ($item['monto'] < $saldoPendiente) {
+                throw new \Exception(
+                    "FIFO: La deuda del período {$item['periodo']} tiene saldo pendiente de "
+                    . "\${$saldoPendiente} y debe pagarse completa antes de imputar a períodos "
+                    . "posteriores. Monto enviado: \${$item['monto']}."
+                );
+            }
+        }
     }
 
     /**
