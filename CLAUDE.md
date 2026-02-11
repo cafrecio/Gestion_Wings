@@ -5,10 +5,24 @@
 - API REST con Sanctum, sin frontend propio
 - Tests: PHPUnit con SQLite :memory:
 
-## Base de datos — Mantener sincronizada
+## Base de datos — SIEMPRE mantener sincronizada
+
+**REGLA OBLIGATORIA PARA CLAUDE:** Cada vez que se haga un commit, SIEMPRE exportar primero el dump actualizado de la BD. Cada vez que se empiece una sesión y se sospeche que el dump cambió (ej: después de un pull), importar el dump.
 
 El archivo `database/dump.sql` contiene el dump completo de la BD (estructura + datos).
-Se versiona en el repo para que todos trabajen con la misma BD.
+Se versiona en el repo para que al clonar o hacer pull en cualquier máquina se tenga la misma BD.
+
+### Comandos de sincronización
+
+```bash
+# EXPORTAR (antes de cada commit que toque la BD o migraciones):
+"C:/xampp/mysql/bin/mysqldump.exe" -u root gestion_wings > database/dump.sql
+
+# IMPORTAR (al clonar, o después de pull si el dump cambió):
+"C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
+```
+
+También hay scripts bash disponibles: `bash scripts/db-export.sh` y `bash scripts/db-import.sh`.
 
 ### Al clonar el repo (setup inicial)
 
@@ -17,36 +31,31 @@ Se versiona en el repo para que todos trabajen con la misma BD.
 cp .env.example .env
 php artisan key:generate
 
-# 2. Restaurar la BD desde el dump
-bash scripts/db-import.sh
+# 2. Crear la BD e importar el dump
+"C:/xampp/mysql/bin/mysql.exe" -u root -e "CREATE DATABASE IF NOT EXISTS gestion_wings"
+"C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
 
 # 3. Instalar dependencias
 composer install
 npm install && npm run build
 ```
 
-### Después de cambios en la BD (nuevos datos, migraciones, seeders)
+### Flujo de trabajo con commits
 
-```bash
-# Exportar el estado actual de la BD al dump
-bash scripts/db-export.sh
-
-# Commitear el dump actualizado
-git add database/dump.sql
-git commit -m "Update database dump"
-```
+1. Hacer cambios (migraciones, seeders, datos manuales, etc.)
+2. **SIEMPRE** exportar el dump antes de commitear: `"C:/xampp/mysql/bin/mysqldump.exe" -u root gestion_wings > database/dump.sql`
+3. Incluir `database/dump.sql` en el commit
+4. Push
 
 ### Al hacer pull (si el dump cambió)
 
 ```bash
-# Restaurar la BD desde el dump actualizado
-bash scripts/db-import.sh
+"C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
 ```
 
 ### Notas
-- Los scripts leen credenciales de `.env` automáticamente.
-- Detectan XAMPP en `C:\xampp\mysql\bin` y agregan al PATH si es necesario.
-- `db-import.sh` crea la base de datos si no existe.
+- Los scripts en `scripts/` leen credenciales de `.env` automáticamente
+- Detectan XAMPP en `C:\xampp\mysql\bin` y agregan al PATH si es necesario
 - Si no hay dump disponible, se puede levantar desde cero: `php artisan migrate --seed`
 
 ## Tests

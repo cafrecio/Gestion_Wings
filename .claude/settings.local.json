@@ -18,7 +18,26 @@
       "Bash(git pull:*)",
       "Bash(git checkout:*)",
       "Bash(git commit:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(git stash pop:*)",
+      "Bash(git stash drop:*)",
+      "Bash(ls:*)",
+      "Bash(dir:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx vite build)",
+      "Bash(npm install:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(tr:*)",
+      "Bash(C:xamppmysqlbinmysqldump -u root gestion_wings)",
+      "Bash(\"C:/xampp/mysql/bin/mysqldump.exe\" -u root gestion_wings)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" add database/gestion_wings.sql \"Contratos/Wings-Index documentacion final-v1.1.md\" .claude/settings.local.json)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" status --short)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" add \"Contratos/Menu Wings.md\")",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" add database/dump.sql CLAUDE.md \"Contratos/Menu Wings.md\" .claude/settings.local.json)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" rm --cached database/gestion_wings.sql)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" add .claude/settings.local.json)",
+      "Bash(git -C \"c:/xampp/htdocs/Gestion_Wings\" commit -m \"$\\(cat <<''EOF''\nAdd database dump, docs, and DB sync rules for Claude\n\n- Export full database dump to database/dump.sql \\(portable across machines\\)\n- Update CLAUDE.md with mandatory DB sync rule: always export dump before commits\n- Add Contratos/Menu Wings.md documentation\n- Remove duplicate gestion_wings.sql \\(unified as dump.sql\\)\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
