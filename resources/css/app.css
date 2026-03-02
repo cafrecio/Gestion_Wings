@@ -6,8 +6,899 @@
 @source '../**/*.js';
 
 @theme {
+    /* ── Tipografía ─────────────────────────────────────────────────────── */
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-wings-primary: #E6252F;
-    --color-wings-primary-hover: #C61E27;
+
+    /* ── Neutrales fríos (base) ─────────────────────────────────────────── */
+    --color-bg: #F4F6F8;
+    --color-surface: #FFFFFF;
+    --color-surface-alt: #EEF2F6;
+    --color-border: #D8E0EA;
+    --color-text: #111827;
+    --color-text-muted: #6B7280;
+
+    /* ── Marca (acento controlado) ──────────────────────────────────────── */
+    --color-brand: #BE123C;
+
+    /* ── Semánticos ─────────────────────────────────────────────────────── */
+    --color-success: #16A34A;
+    --color-warning: #F59E0B;
+    --color-info: #2563EB;
+    --color-danger: #B91C1C;
+
+    /* ── Deportes / categóricos (solo rail e íconos, no fondos) ─────────── */
+    --color-sport-patin: #FF1493;
+    --color-sport-futbol: #00FFD6;
+    --color-sport-otro: #5B5B5B;
+
+    /* ── Radius ─────────────────────────────────────────────────────────── */
+    --radius-card: 12px;
+    --radius-btn: 6px;
+
+    /* ── Spacing de Card ────────────────────────────────────────────────── */
+    --space-card-pad: 16px;
+    --space-card-gap: 12px;
+    --space-actions-gap: 12px;
+    --space-icon-gap: 8px;
+
+    /* ── Chrome del sistema (Module Header + acento primario visual) ───────── */
+    --color-chrome: #4A4A4A;
+
+    /* ── Compatibilidad (alias para no romper referencias existentes) ────── */
+    --color-wings-primary: var(--color-brand);
+    --color-wings-primary-hover: #A30F33;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE GLOBAL
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+}
+
+a {
+    color: var(--color-brand);
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+a:hover {
+    color: var(--color-wings-primary-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HELPERS: SUPERFICIES Y BORDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Superficie principal: cards, paneles */
+.ds-surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 1px 4px rgba(17, 24, 39, 0.08);
+}
+
+/* Superficie alternativa: SOLO inputs/controles (FilterBar), NO paneles grandes */
+.ds-surface-alt {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-btn);
+}
+
+/* Borde neutral reutilizable */
+.ds-border {
+    border-color: var(--color-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HELPERS: RAIL POR DEPORTE
+   Solo borde izquierdo (indicador); nunca como fondo de card o sección
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-rail {
+    width: 6px;
+    flex-shrink: 0;
+    border-radius: 999px;
+}
+
+.ds-rail--patin  { background: var(--color-sport-patin);  }
+.ds-rail--futbol { background: var(--color-sport-futbol); }
+.ds-rail--otro   { background: var(--color-sport-otro);   }
+
+/* Íconos por deporte */
+.ds-icon--patin  { color: var(--color-sport-patin);  }
+.ds-icon--futbol { color: var(--color-sport-futbol); }
+.ds-icon--otro   { color: var(--color-sport-otro);   }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HELPERS: SEMÁFORO DOT
+   Circulito de estado; semántica definida por la vista.
+   Sin tooltip por ahora (se implementa en componente luego).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.ds-dot--success { background: var(--color-success); }
+.ds-dot--warning { background: var(--color-warning); }
+.ds-dot--danger  { background: var(--color-danger);  }
+.ds-dot--neutral { background: var(--color-sport-otro); } /* gris "Otro" como neutral */
+.ds-dot--active  { background: var(--color-success); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILIDADES DE TEXTO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Truncado en 1 línea (default para celdas de info) */
+.ds-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Clamp a 2 líneas */
+.ds-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENTE: DS-CARD
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-card {
+    position: relative;      /* ancla el overlay link */
+    display: flex;
+    width: 100%;
+    gap: 0;
+    overflow: hidden;        /* recorta el rail al border-radius de ds-surface */
+    transition: box-shadow 150ms ease;
+}
+
+/* Overlay clickeable: cubre header + info; actions quedan encima vía z-index */
+.ds-card__link {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-card);
+    z-index: 1;
+}
+
+/* Rail izquierdo (6px, sin border-radius propio: overflow:hidden del padre lo recorta) */
+.ds-card__rail {
+    flex: 0 0 6px;
+}
+
+/* Área de contenido */
+.ds-card__content {
+    flex: 1;
+    min-width: 0;            /* evita desbordamiento en flex */
+    padding: var(--space-card-pad);
+}
+
+/* Header: dot + título */
+.ds-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--space-card-gap);
+    font-weight: 800;
+}
+
+/* Grid de info */
+.ds-card__info {
+    display: grid;
+    gap: var(--space-card-gap);
+    margin-bottom: var(--space-card-gap);
+}
+
+.ds-card__info[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ds-card__info[data-cols="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ds-card__info[data-cols="5"] { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+/* Celdas de info: min-width:0 obligatorio para ellipsis dentro de grid */
+.ds-card__info > * { min-width: 0; }
+
+/* Label sobre el valor dentro de cada celda de info */
+.ds-info-label {
+    display: block;
+    font-size: 0.625rem;        /* 10px */
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+}
+
+/* Truncado automático según data-lines */
+.ds-card__info[data-lines="1"] > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ds-card__info[data-lines="2"] > * {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Acciones: z-index encima del overlay link */
+.ds-card__actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: var(--space-actions-gap);
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Estados interactivos */
+.ds-card:hover       { box-shadow: 0 10px 26px rgba(17, 24, 39, 0.10); }
+.ds-card:focus-within { outline: 3px solid rgba(37, 99, 235, 0.18); outline-offset: 2px; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENTE: DS-BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base */
+.ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-icon-gap);         /* 8px */
+    width: 112px;
+    height: 36px;
+    padding: 0 16px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: background 150ms ease, box-shadow 150ms ease,
+                border-color 150ms ease, opacity 150ms ease;
+}
+
+.ds-btn:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-info) 30%, transparent);
+    outline-offset: 2px;
+}
+
+/* ── Variantes ───────────────────────────────────────────────────────────── */
+
+/* Primary: sólido neutro oscuro (NO rojo) */
+.ds-btn--primary {
+    background: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-surface);
+}
+
+.ds-btn--primary:hover:not(:disabled):not(.ds-btn--loading) {
+    box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.12); /* overlay negro sutil */
+}
+
+/* Secondary: outline neutro */
+.ds-btn--secondary {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.ds-btn--secondary:hover:not(:disabled):not(.ds-btn--loading) {
+    background: var(--color-surface-alt); /* válido como hover de control */
+}
+
+/* Ghost: sin borde, muy liviano */
+.ds-btn--ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-text);
+}
+
+.ds-btn--ghost:hover:not(:disabled):not(.ds-btn--loading) {
+    background: var(--color-surface-alt);
+}
+
+/* Danger: SIEMPRE outline rojo, nunca sólido */
+.ds-btn--danger {
+    background: transparent;
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.ds-btn--danger:hover:not(:disabled):not(.ds-btn--loading) {
+    background: color-mix(in srgb, var(--color-danger) 8%, transparent);
+}
+
+/* ── Disabled ────────────────────────────────────────────────────────────── */
+
+.ds-btn:disabled,
+.ds-btn[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ── Loading ─────────────────────────────────────────────────────────────── */
+
+.ds-btn--loading {
+    cursor: wait;
+    pointer-events: none;
+}
+
+/* Spinner CSS sin hex: usa currentColor para heredar color de la variante */
+.ds-btn__spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-radius: 999px;
+    flex-shrink: 0;
+    animation: ds-spin 0.6s linear infinite;
+}
+
+@keyframes ds-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Icon-only: 36×36, sin texto visible ─────────────────────────────────── */
+
+.ds-btn--icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENTE: DS-TOGGLE (switch booleano)
+   ON = success (verde) | OFF = neutro gris
+   Solo para estados booleanos; para 3 valores usar ds-dot.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Wrapper: label es el elemento interactivo */
+.ds-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+}
+
+.ds-toggle--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Ícono opcional */
+.ds-toggle__icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+}
+
+/* Texto: OFF por defecto; ON visible cuando checked (:has en label) */
+.ds-toggle__text {
+    font-weight: 800;
+    color: var(--color-text-muted);     /* OFF: gris */
+    white-space: nowrap;
+    transition: color 150ms ease;
+}
+
+.ds-toggle .is-on  { display: none; }
+.ds-toggle .is-off { display: inline; }
+
+.ds-toggle:has(.ds-toggle__input:checked) .is-on  { display: inline; }
+.ds-toggle:has(.ds-toggle__input:checked) .is-off { display: none; }
+
+.ds-toggle:has(.ds-toggle__input:checked) .ds-toggle__text {
+    color: var(--color-text);           /* ON: texto pleno */
+}
+
+/* Input visually-hidden pero focusable */
+.ds-toggle__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* Track: 34×18px, gris por defecto */
+.ds-toggle__track {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 34px;
+    height: 18px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-alt);   /* OFF: gris claro */
+    flex-shrink: 0;
+    transition: background 200ms ease, border-color 200ms ease;
+}
+
+/* Track ON: verde */
+.ds-toggle__input:checked + .ds-toggle__track {
+    background: var(--color-success);
+    border-color: var(--color-success);
+}
+
+/* Thumb: círculo blanco dentro del track */
+.ds-toggle__thumb {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transform: translateY(-50%) translateX(0);
+    transition: transform 200ms ease, border-color 200ms ease;
+    box-shadow: 0 1px 3px rgba(17, 24, 39, 0.12);
+}
+
+/* Thumb ON: se desplaza a la derecha */
+.ds-toggle__input:checked + .ds-toggle__track .ds-toggle__thumb {
+    transform: translateY(-50%) translateX(16px);
+    border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+}
+
+/* Focus-visible: ring en el track (input está oculto) */
+.ds-toggle__input:focus-visible + .ds-toggle__track {
+    outline: 3px solid color-mix(in srgb, var(--color-info) 30%, transparent);
+    outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENTE: DS-MODULE-HEADER
+   Barra de módulo: fondo --color-chrome, texto blanco
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-module-header {
+    background: linear-gradient(135deg, var(--color-brand) 0%, #9A0F30 100%);
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.ds-module-header__inner {
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ds-module-header__icon {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+}
+
+.ds-module-header__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYOUT CANÓNICO DS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+.ds-sidebar {
+    background: var(--color-chrome);
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.ds-main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ds-topbar {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ds-content {
+    flex: 1;
+    padding: 16px;
+    width: 100%;
+}
+
+.ds-footer {
+    margin-top: auto;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+}
+
+.ds-footer__inner {
+    padding: 12px 16px;
+    color: var(--color-text-muted);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+/* Logo en sidebar oscuro: pill blanco que preserva los colores del logo */
+.ds-sidebar img {
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+    height: 2.5rem;
+    width: auto;
+}
+
+/* ── Navegación sidebar ──────────────────────────────────────────────────── */
+
+.ds-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: var(--radius-btn);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: background 150ms ease, color 150ms ease;
+}
+
+.ds-nav-link:hover {
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+}
+
+.ds-nav-link--active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* ── Flash messages ──────────────────────────────────────────────────────── */
+
+.ds-flash {
+    padding: 12px 16px;
+    border-radius: var(--radius-btn);
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    border: 1px solid;
+}
+
+.ds-flash--success {
+    background: color-mix(in srgb, var(--color-success) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-success) 30%, transparent);
+    color: var(--color-success);
+}
+
+.ds-flash--error {
+    background: color-mix(in srgb, var(--color-danger) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-danger) 30%, transparent);
+    color: var(--color-danger);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LEGADO — redefinidos para tema claro (mantener compatibilidad con vistas
+   que aún usan estas clases antes de ser migradas)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* wings-input: inputs y selects, compatible con DS light */
+.wings-input {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-btn);
+    color: var(--color-text);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.wings-input:focus {
+    outline: none;
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 15%, transparent);
+}
+
+.wings-input::placeholder { color: var(--color-text-muted); }
+
+/* Color aliases (text-wings-* → tokens DS) */
+.text-wings       { color: var(--color-text); }
+.text-wings-muted { color: var(--color-text-muted); }
+.text-wings-soft  { color: var(--color-text); }
+
+/* glass-card → ds-surface compat */
+.glass-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 1px 4px rgba(17, 24, 39, 0.08);
+}
+
+.glass-card-sm {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-btn);
+}
+
+/* wings-btn → brand button compat */
+.wings-btn {
+    background: var(--color-brand);
+    border-radius: var(--radius-btn);
+    color: var(--color-surface);
+    transition: background 150ms ease;
+}
+
+.wings-btn:hover  { background: var(--color-wings-primary-hover); }
+.wings-btn:active { transform: scale(0.98); }
+.wings-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CYELIKE — ALUMNOS
+   CSS copiado de cye-styles.css. Hex → tokens Wings. Estructura idéntica.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── filtros-card (copia exacta de CyE, hex → tokens) ───────────────────── */
+
+.filtros-card {
+    background: var(--color-surface);
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+/* Fila interna: flexbox en lugar del Bootstrap row g-3 de CyE */
+.filtros-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    align-items: center;
+}
+
+.filtros-actions {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Controles: altura 48px, borde 2px como CyE */
+.filtros-control {
+    height: 48px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.filtros-control:focus {
+    outline: none;
+    border-color: var(--color-chrome);
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-chrome) 15%, transparent);
+}
+
+.filtros-control::placeholder { color: var(--color-text-muted); }
+
+.filtros-select {
+    width: 180px;
+    cursor: pointer;
+}
+
+/* search-input-group: copia exacta de CyE */
+.search-input-group {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-input-group .filtros-control {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    font-size: 1.1rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    color: var(--color-text-muted);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* ── stats-bar (copia exacta de CyE, hex → tokens) ──────────────────────── */
+
+.stats-bar {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stats-info {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.stats-info strong {
+    color: var(--color-chrome);
+    font-weight: 600;
+}
+
+/* ── alumno-card (clon de cliente-card, hex → tokens + rail deporte) ─────── */
+
+.alumno-card {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--color-sport-otro);
+    transition: all 0.3s ease;
+}
+
+.alumno-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+/* Rail por deporte (border-left override) */
+.alumno-card--patin  { border-left-color: var(--color-sport-patin);  }
+.alumno-card--futbol { border-left-color: var(--color-sport-futbol); }
+.alumno-card--otro   { border-left-color: var(--color-sport-otro);   }
+
+/* alumno-card-header (clon de cliente-card-header) */
+.alumno-card-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+/* alumno-dot (clon de cliente-estado) */
+.alumno-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.alumno-dot--success { background: var(--color-success); box-shadow: 0 0 8px color-mix(in srgb, var(--color-success) 50%, transparent); }
+.alumno-dot--warning { background: var(--color-warning); }
+.alumno-dot--danger  { background: var(--color-danger);  }
+.alumno-dot--neutral { background: var(--color-sport-otro); }
+.alumno-dot--active  { background: var(--color-success); }
+
+/* alumno-nombre (clon de cliente-nombre) */
+.alumno-nombre {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* alumno-info (clon de cliente-info) */
+.alumno-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+/* info-item / info-icon / info-label / info-value (idénticos a CyE, hex → tokens) */
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+.info-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    color: var(--color-chrome);
+}
+
+/* Icono adopta color deporte según card modifier (como CyE usa --cye-primary en todos) */
+.alumno-card--patin  .info-icon { color: var(--color-sport-patin);  }
+.alumno-card--futbol .info-icon { color: var(--color-sport-futbol); }
+
+.info-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-right: 0.5rem;
+    white-space: nowrap;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--color-text);
+    min-width: 0;
+}
+
+/* alumno-actions (clon de cliente-actions) */
+.alumno-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* empty-state (copia exacta de CyE, hex → tokens) */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--color-text-muted);
+}
+
+.empty-state__icon {
+    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-chrome);
+    opacity: 0.5;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    margin: 0;
 }
