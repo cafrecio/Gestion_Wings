@@ -43,9 +43,7 @@ Route::prefix('auth')->group(function () {
 // RUTAS PÚBLICAS (consulta sin auth)
 // ========================================
 
-// Consultas de deudas (público/operativo)
-Route::get('/alumnos/{alumnoId}/deudas', [PagoCuotaController::class, 'indexByAlumno']);
-Route::get('/deudas/{id}', [PagoCuotaController::class, 'show']);
+// Consultas de deudas — movidas a rutas protegidas (ver abajo)
 
 // Rutas de Reglas de Primer Pago
 Route::get('/reglas-primer-pago/dia/{dia}', [PagoController::class, 'reglasDisponibles']);
@@ -63,6 +61,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rutas de Alumnos
     Route::apiResource('alumnos', AlumnoController::class);
+
+    // Consultas de deudas
+    Route::get('/alumnos/{alumnoId}/deudas', [PagoCuotaController::class, 'indexByAlumno']);
+    Route::get('/deudas/{id}', [PagoCuotaController::class, 'show']);
 
     // Rutas de Pagos
     Route::prefix('pagos')->group(function () {

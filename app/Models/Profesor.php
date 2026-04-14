@@ -15,6 +15,10 @@ class Profesor extends Model
         'deporte_id',
         'nombre',
         'apellido',
+        'dni',
+        'fecha_nacimiento',
+        'direccion',
+        'localidad',
         'email',
         'telefono',
         'valor_hora',
@@ -24,6 +28,7 @@ class Profesor extends Model
 
     protected $casts = [
         'activo' => 'boolean',
+        'fecha_nacimiento' => 'date',
         'valor_hora' => 'decimal:2',
         'porcentaje_comision' => 'decimal:2',
     ];

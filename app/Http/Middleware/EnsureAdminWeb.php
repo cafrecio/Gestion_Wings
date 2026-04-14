@@ -10,8 +10,12 @@ class EnsureAdminWeb
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()?->rol !== 'ADMIN') {
-            abort(403);
+        if (! $request->user()) {
+            return redirect()->route('login');
+        }
+
+        if ($request->user()->rol !== 'ADMIN') {
+            return redirect()->route('operativo.caja');
         }
 
         return $next($request);

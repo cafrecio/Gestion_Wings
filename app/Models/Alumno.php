@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Alumno extends Model
 {
+    protected $attributes = [
+        'activo' => true,
+    ];
+
     protected $fillable = [
         'nombre',
         'apellido',
@@ -43,20 +47,6 @@ class Alumno extends Model
             // Setear fecha_alta automáticamente si no se proveyó
             if (empty($alumno->fecha_alta)) {
                 $alumno->fecha_alta = Carbon::now()->toDateString();
-            }
-
-            // Si el alumno es mayor de edad, forzar campos de tutor a null (defensivo)
-            if (!$alumno->esMenorDeEdad()) {
-                $alumno->nombre_tutor = null;
-                $alumno->telefono_tutor = null;
-            }
-        });
-
-        static::updating(function ($alumno) {
-            // Si el alumno es mayor de edad, forzar campos de tutor a null (defensivo)
-            if (!$alumno->esMenorDeEdad()) {
-                $alumno->nombre_tutor = null;
-                $alumno->telefono_tutor = null;
             }
         });
     }

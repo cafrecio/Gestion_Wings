@@ -14,7 +14,7 @@
     --color-bg: #F4F6F8;
     --color-surface: #FFFFFF;
     --color-surface-alt: #EEF2F6;
-    --color-border: #D8E0EA;
+    --color-border: #C4CED8;
     --color-text: #111827;
     --color-text-muted: #6B7280;
 
@@ -29,7 +29,7 @@
 
     /* ── Deportes / categóricos (solo rail e íconos, no fondos) ─────────── */
     --color-sport-patin: #FF1493;
-    --color-sport-futbol: #00FFD6;
+    --color-sport-futbol: #51D1F6;
     --color-sport-otro: #5B5B5B;
 
     /* ── Radius ─────────────────────────────────────────────────────────── */
@@ -44,6 +44,11 @@
 
     /* ── Chrome del sistema (Module Header + acento primario visual) ───────── */
     --color-chrome: #4A4A4A;
+
+    /* ── Botones de acción (paleta slate — no compite con el rojo de marca) ── */
+    --color-btn-primary:   #4A6880;   /* slate medio — acción principal */
+    --color-btn-secondary: #6888A0;   /* slate claro — acción secundaria */
+    --color-btn-danger:    #C07878;   /* rosa apagado — acción destructiva */
 
     /* ── Compatibilidad (alias para no romper referencias existentes) ────── */
     --color-wings-primary: var(--color-brand);
@@ -282,48 +287,52 @@ a:hover {
 
 /* ── Variantes ───────────────────────────────────────────────────────────── */
 
-/* Primary: sólido neutro oscuro (NO rojo) */
+/* Primary: slate medio — acción principal */
 .ds-btn--primary {
-    background: var(--color-text);
-    border-color: var(--color-text);
+    background: var(--color-btn-primary);
+    border-color: var(--color-btn-primary);
     color: var(--color-surface);
 }
 
 .ds-btn--primary:hover:not(:disabled):not(.ds-btn--loading) {
-    box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.12); /* overlay negro sutil */
+    box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.12);
+    color: var(--color-surface);
 }
 
-/* Secondary: outline neutro */
+/* Secondary: slate claro — acción secundaria */
 .ds-btn--secondary {
-    background: transparent;
-    border-color: var(--color-border);
-    color: var(--color-text);
+    background: var(--color-btn-secondary);
+    border-color: var(--color-btn-secondary);
+    color: var(--color-surface);
 }
 
 .ds-btn--secondary:hover:not(:disabled):not(.ds-btn--loading) {
-    background: var(--color-surface-alt); /* válido como hover de control */
+    box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.12);
+    color: var(--color-surface);
 }
 
-/* Ghost: sin borde, muy liviano */
+/* Ghost: solo para chrome del sistema (topbar, etc.) — no usar en contenido */
 .ds-btn--ghost {
     background: transparent;
     border-color: transparent;
-    color: var(--color-text);
+    color: var(--color-text-muted);
 }
 
 .ds-btn--ghost:hover:not(:disabled):not(.ds-btn--loading) {
     background: var(--color-surface-alt);
+    color: var(--color-text);
 }
 
-/* Danger: SIEMPRE outline rojo, nunca sólido */
+/* Danger: sólido rosa apagado — acción destructiva */
 .ds-btn--danger {
-    background: transparent;
-    border-color: var(--color-danger);
-    color: var(--color-danger);
+    background: var(--color-btn-danger);
+    border-color: var(--color-btn-danger);
+    color: var(--color-surface);
 }
 
 .ds-btn--danger:hover:not(:disabled):not(.ds-btn--loading) {
-    background: color-mix(in srgb, var(--color-danger) 8%, transparent);
+    box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.12);
+    color: var(--color-surface);
 }
 
 /* ── Disabled ────────────────────────────────────────────────────────────── */
@@ -440,10 +449,10 @@ a:hover {
     transition: background 200ms ease, border-color 200ms ease;
 }
 
-/* Track ON: verde */
+/* Track ON: slate primario */
 .ds-toggle__input:checked + .ds-toggle__track {
-    background: var(--color-success);
-    border-color: var(--color-success);
+    background: var(--color-btn-primary);
+    border-color: var(--color-btn-primary);
 }
 
 /* Thumb: círculo blanco dentro del track */
@@ -464,7 +473,7 @@ a:hover {
 /* Thumb ON: se desplaza a la derecha */
 .ds-toggle__input:checked + .ds-toggle__track .ds-toggle__thumb {
     transform: translateY(-50%) translateX(16px);
-    border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+    border-color: color-mix(in srgb, var(--color-btn-primary) 40%, transparent);
 }
 
 /* Focus-visible: ring en el track (input está oculto) */
@@ -561,13 +570,21 @@ a:hover {
     font-size: 12px;
 }
 
-/* Logo en sidebar oscuro: pill blanco que preserva los colores del logo */
+/* Logo en sidebar oscuro: pill blanco centrado */
+.ds-sidebar .ds-logo-wrap {
+    display: flex;
+    justify-content: center;
+}
 .ds-sidebar img {
+    display: block;
     background: white;
-    border-radius: 8px;
-    padding: 4px 8px;
-    height: 2.5rem;
-    width: auto;
+    border-radius: 10px;
+    padding: 6px 12px;
+    max-width: calc(100% - 16px);
+    height: auto;
+    max-height: 5rem;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 /* ── Navegación sidebar ──────────────────────────────────────────────────── */
@@ -634,11 +651,44 @@ a:hover {
 
 .wings-input:focus {
     outline: none;
-    border-color: var(--color-brand);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 15%, transparent);
+    border-color: var(--color-btn-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-btn-primary) 20%, transparent);
 }
 
 .wings-input::placeholder { color: var(--color-text-muted); }
+
+/* money-input-wrap: input con prefijo $ */
+.money-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.money-prefix {
+    position: absolute;
+    left: 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+.money-input-wrap .money-input {
+    padding-left: 1.75rem;
+}
+
+/* Form label helpers */
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: .75rem;
+    font-weight: 500;
+    margin-bottom: .375rem;
+    color: var(--color-text-muted);
+}
+.form-label svg { flex-shrink: 0; }
+.form-required { color: var(--color-danger); font-weight: 600; margin-left: 1px; }
 
 /* Color aliases (text-wings-* → tokens DS) */
 .text-wings       { color: var(--color-text); }
@@ -680,7 +730,7 @@ a:hover {
 
 .filtros-card {
     background: var(--color-surface);
-    border: none;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -758,8 +808,11 @@ a:hover {
 .stats-bar {
     background: var(--color-surface);
     border-radius: 8px;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .stats-info {
@@ -781,6 +834,7 @@ a:hover {
     padding: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
     border-left: 4px solid var(--color-sport-otro);
     transition: all 0.3s ease;
 }
@@ -820,7 +874,7 @@ a:hover {
 
 /* alumno-nombre (clon de cliente-nombre) */
 .alumno-nombre {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-text);
     margin: 0;
@@ -830,8 +884,8 @@ a:hover {
 /* alumno-info (clon de cliente-info) */
 .alumno-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
     margin-bottom: 0.75rem;
 }
 
@@ -842,10 +896,10 @@ a:hover {
 }
 
 .info-icon {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
-    margin-right: 0.5rem;
+    margin-right: 0.375rem;
     color: var(--color-chrome);
 }
 
@@ -854,13 +908,14 @@ a:hover {
 .alumno-card--futbol .info-icon { color: var(--color-sport-futbol); }
 
 .info-label {
-    font-size: 0.85rem;
+    font-size: 0.72rem;
     color: var(--color-text-muted);
-    margin-right: 0.5rem;
+    margin-right: 0.375rem;
     white-space: nowrap;
 }
 
 .info-value {
+    font-size: 0.72rem;
     font-weight: 500;
     color: var(--color-text);
     min-width: 0;
