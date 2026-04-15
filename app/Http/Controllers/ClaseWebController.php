@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
+use App\Models\Asistencia;
+use App\Models\AsistenciaExceso;
 use App\Models\Clase;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Models\Profesor;
+use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ClaseWebController extends Controller
 {
+    public function __construct(private ClaseService $claseService) {}
+
     public function index(Request $request)
     {
         // Default: current week Monday to Sunday
@@ -141,9 +147,79 @@ class ClaseWebController extends Controller
 
     public function show(int $id)
     {
-        $clase = Clase::with(['grupo.deporte', 'profesores'])->findOrFail($id);
+        $clase = Clase::with(['grupo.deporte', 'profesores', 'asistencias.alumno'])->findOrFail($id);
 
-        return view('clases.show', compact('clase'));
+        $alumnos = Alumno::where('grupo_id', $clase->grupo_id)
+            ->where('activo', true)
+            ->orderBy('apellido')
+            ->orderBy('nombre')
+            ->get();
+
+        $asistenciasMap = $clase->asistencias->keyBy('alumno_id');
+
+        $infoSemana = [];
+        foreach ($alumnos as $alumno) {
+            $infoSemana[$alumno->id] = $this->claseService->contarAsistenciasSemana(
+                $alumno->id,
+                $clase->fecha->format('Y-m-d')
+            );
+        }
+
+        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana'));
+    }
+
+    public function storeAsistencias(Request $request, int $id)
+    {
+        $clase = Clase::findOrFail($id);
+
+        if ($clase->cancelada) {
+            if ($request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'La clase está cancelada. No se pueden registrar asistencias.',
+                ], 422);
+            }
+            return back()->with('error', 'La clase está cancelada.');
+        }
+
+        $items = $request->input('items', []);
+
+        foreach ($items as $item) {
+            $alumnoId = (int) ($item['alumno_id'] ?? 0);
+            $presente  = (bool) ($item['presente'] ?? false);
+            $motivo    = in_array($item['motivo_exceso'] ?? '', ['EXTRA', 'RECUPERA'])
+                ? $item['motivo_exceso']
+                : 'EXTRA';
+
+            $asistencia = Asistencia::updateOrCreate(
+                ['clase_id' => $clase->id, 'alumno_id' => $alumnoId],
+                ['presente' => $presente]
+            );
+
+            if ($presente) {
+                $info = $this->claseService->contarAsistenciasSemana(
+                    $alumnoId,
+                    $clase->fecha->format('Y-m-d')
+                );
+                if ($info['excede']) {
+                    AsistenciaExceso::updateOrCreate(
+                        ['asistencia_id' => $asistencia->id],
+                        [
+                            'alumno_id'  => $alumnoId,
+                            'fecha_clase' => $clase->fecha->format('Y-m-d'),
+                            'motivo'     => $motivo,
+                        ]
+                    );
+                }
+            }
+        }
+
+        if ($request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest') {
+            return response()->json(['success' => true, 'message' => 'Asistencias guardadas.']);
+        }
+
+        return redirect()->route('web.clases.show', $clase->id)
+            ->with('success', 'Asistencias guardadas.');
     }
 
     public function edit(int $id)
