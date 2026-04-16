@@ -12,6 +12,7 @@ use App\Models\Profesor;
 use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClaseWebController extends Controller
 {
@@ -19,17 +20,32 @@ class ClaseWebController extends Controller
 
     public function index(Request $request)
     {
-        // Default: current week Monday to Sunday
+        $esAdmin = Auth::user()->rol === 'ADMIN';
+        $hoy = Carbon::now();
+        $semanaDelMes = (int) ceil($hoy->day / 7);
+
+        $defaultDesde = $hoy->copy()->subMonth()->startOfMonth()->format('Y-m-d');
+        $defaultHasta = $semanaDelMes >= 3
+            ? $hoy->copy()->addMonth()->endOfMonth()->format('Y-m-d')
+            : $hoy->copy()->endOfMonth()->format('Y-m-d');
+
         $fechaDesde = $request->filled('fecha_desde')
             ? $request->input('fecha_desde')
-            : Carbon::now()->startOfWeek(Carbon::MONDAY)->format('Y-m-d');
+            : $defaultDesde;
 
         $fechaHasta = $request->filled('fecha_hasta')
             ? $request->input('fecha_hasta')
-            : Carbon::now()->endOfWeek(Carbon::SUNDAY)->format('Y-m-d');
+            : $defaultHasta;
 
-        $query = Clase::with(['grupo.deporte', 'profesores'])
-            ->orderBy('fecha')
+        if (!$esAdmin) {
+            $limiteOperativo = $hoy->copy()->subMonth()->startOfMonth()->format('Y-m-d');
+            if ($fechaDesde < $limiteOperativo) {
+                $fechaDesde = $limiteOperativo;
+            }
+        }
+
+        $query = Clase::with(['grupo.deporte', 'profesores', 'asistencias'])
+            ->orderBy('fecha', 'desc')
             ->orderBy('hora_inicio');
 
         $query->whereBetween('fecha', [$fechaDesde, $fechaHasta]);
@@ -52,7 +68,7 @@ class ClaseWebController extends Controller
         $grupos   = Grupo::with('deporte')->where('activo', true)->orderBy('nombre')->get();
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
 
-        return view('clases.index', compact('clases', 'grupos', 'deportes', 'fechaDesde', 'fechaHasta'));
+        return view('clases.index', compact('clases', 'grupos', 'deportes', 'fechaDesde', 'fechaHasta', 'esAdmin'));
     }
 
     public function create()
@@ -165,7 +181,10 @@ class ClaseWebController extends Controller
             );
         }
 
-        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana'));
+        $profesoresDisponibles = Profesor::where('activo', true)->orderBy('apellido')->get();
+        $esAdmin = Auth::user()->rol === 'ADMIN';
+
+        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles', 'esAdmin'));
     }
 
     public function storeAsistencias(Request $request, int $id)
@@ -259,13 +278,52 @@ class ClaseWebController extends Controller
             ->with('success', 'Clase actualizada correctamente.');
     }
 
-    public function toggleCancelada(int $id)
+    public function toggleCancelada(Request $request, int $id)
     {
         $clase = Clase::findOrFail($id);
-        $clase->update(['cancelada' => !$clase->cancelada]);
+        $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
-        $estado = $clase->cancelada ? 'cancelada' : 'activada';
-        return back()->with('success', "Clase {$estado} correctamente.");
+        if (!$clase->cancelada) {
+            // Cancelar: requiere motivo
+            $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
+            $clase->update([
+                'cancelada'          => true,
+                'motivo_cancelacion' => $request->input('motivo_cancelacion'),
+            ]);
+            $mensaje = 'Clase cancelada.';
+        } else {
+            // Reactivar: solo admin
+            if (Auth::user()->rol !== 'ADMIN') {
+                if ($esJson) {
+                    return response()->json(['success' => false, 'message' => 'Sin permisos para reactivar.'], 403);
+                }
+                return back()->with('error', 'Sin permisos para reactivar la clase.');
+            }
+            $clase->update(['cancelada' => false, 'motivo_cancelacion' => null]);
+            $mensaje = 'Clase reactivada.';
+        }
+
+        if ($esJson) {
+            return response()->json(['success' => true, 'message' => $mensaje, 'cancelada' => $clase->cancelada]);
+        }
+        return back()->with('success', $mensaje);
+    }
+
+    public function actualizarProfesores(Request $request, int $id)
+    {
+        $clase = Clase::findOrFail($id);
+        $profesoresIds = $request->input('profesores', []);
+        $clase->profesores()->sync($profesoresIds);
+
+        $textoProfesores = $clase->profesores()->orderBy('apellido')->get()
+            ->map(fn($p) => $p->apellido . ', ' . $p->nombre)
+            ->implode(' · ') ?: 'Sin asignar';
+
+        return response()->json([
+            'success'    => true,
+            'message'    => 'Profesores actualizados.',
+            'profesores' => $textoProfesores,
+        ]);
     }
 
     public function toggleValidada(int $id)

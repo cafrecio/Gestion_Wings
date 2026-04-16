@@ -77,21 +77,20 @@ Route::middleware('auth')->group(function () {
     // Grupos show — todos los autenticados (después de /create para evitar conflicto de rutas)
     Route::get('/grupos/{id}', [GrupoWebController::class, 'show'])->name('web.grupos.show');
 
-    // Clases — show y asistencias para todos los autenticados
-    // IMPORTANTE: /clases/create y /clases/{id}/edit van DENTRO del grupo admin,
-    // pero se registran ANTES de /clases/{id} para evitar conflicto.
+    // Clases — escritura solo admin (PRIMERO para que /clases/create no colisione con /clases/{id})
     Route::middleware('ensure.admin.web')->group(function () {
-        Route::get('/clases', [ClaseWebController::class, 'index'])->name('web.clases.index');
         Route::get('/clases/create', [ClaseWebController::class, 'create'])->name('web.clases.create');
         Route::post('/clases', [ClaseWebController::class, 'store'])->name('web.clases.store');
         Route::get('/clases/{id}/edit', [ClaseWebController::class, 'edit'])->name('web.clases.edit');
         Route::put('/clases/{id}', [ClaseWebController::class, 'update'])->name('web.clases.update');
-        Route::patch('/clases/{id}/cancelar', [ClaseWebController::class, 'toggleCancelada'])->name('web.clases.toggle-cancelada');
         Route::patch('/clases/{id}/validar', [ClaseWebController::class, 'toggleValidada'])->name('web.clases.toggle-validada');
     });
-    // show y asistencias fuera del grupo admin (accesible a operativo también)
+    // Clases — accesibles para todos los roles autenticados
+    Route::get('/clases', [ClaseWebController::class, 'index'])->name('web.clases.index');
     Route::get('/clases/{id}', [ClaseWebController::class, 'show'])->name('web.clases.show');
     Route::post('/clases/{id}/asistencias', [ClaseWebController::class, 'storeAsistencias'])->name('web.clases.asistencias');
+    Route::patch('/clases/{id}/cancelar', [ClaseWebController::class, 'toggleCancelada'])->name('web.clases.toggle-cancelada');
+    Route::patch('/clases/{id}/profesores', [ClaseWebController::class, 'actualizarProfesores'])->name('web.clases.profesores');
 
     // Profesores — solo admin
     Route::middleware('ensure.admin.web')->group(function () {

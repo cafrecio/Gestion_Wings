@@ -19,6 +19,7 @@ class Clase extends Model
         'hora_fin',
         'validada_para_liquidacion',
         'cancelada',
+        'motivo_cancelacion',
     ];
 
     protected $casts = [
