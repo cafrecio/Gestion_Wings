@@ -68,7 +68,7 @@
 
             <div class="alumno-card-header">
                 <span class="alumno-dot alumno-dot--neutral" title="Estado"></span>
-                <h3 class="alumno-nombre">{{ $grupo->nombre }}</h3>
+                <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
             </div>
 
             <div class="alumno-info">

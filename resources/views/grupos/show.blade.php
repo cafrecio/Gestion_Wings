@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $grupo->nombre . ' – Wings')
-@section('module-title', $grupo->nombre)
+@section('title', $grupo->nombre_completo . ' – Wings')
+@section('module-title', $grupo->nombre_completo)
 
 @section('content')
 
@@ -36,18 +36,23 @@
 
             <div>
                 <p class="flex items-center gap-1.5 mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
-                    <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    Nombre
-                </p>
-                <p class="text-sm font-medium text-wings">{{ $grupo->nombre }}</p>
-            </div>
-
-            <div>
-                <p class="flex items-center gap-1.5 mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     Deporte
                 </p>
                 <p class="text-sm font-medium text-wings">{{ $grupo->deporte->nombre ?? '–' }}</p>
+            </div>
+
+            <div>
+                <p class="flex items-center gap-1.5 mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+                    <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/></svg>
+                    Nivel
+                </p>
+                <p class="text-sm font-medium text-wings">
+                    {{ $grupo->nivel->nombre ?? '–' }}
+                    @if($grupo->nivel?->descripcion)
+                        <span class="text-xs font-normal text-wings-muted"> — {{ $grupo->nivel->descripcion }}</span>
+                    @endif
+                </p>
             </div>
 
             <div>

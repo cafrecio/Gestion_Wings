@@ -56,7 +56,7 @@
                     {{ $clase->grupo->deporte->nombre ?? '–' }}
                 </span>
                 <span style="font-size:0.88rem; font-weight:600; color:var(--color-text);">
-                    {{ $clase->grupo->nombre }}
+                    {{ $clase->grupo->nombre_completo }}
                 </span>
             </div>
 

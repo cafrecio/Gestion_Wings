@@ -44,7 +44,7 @@ class ClaseWebController extends Controller
             }
         }
 
-        $query = Clase::with(['grupo.deporte', 'profesores', 'asistencias'])
+        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->orderBy('fecha', 'desc')
             ->orderBy('hora_inicio');
 
@@ -65,7 +65,13 @@ class ClaseWebController extends Controller
         }
 
         $clases   = $query->paginate(20)->withQueryString();
-        $grupos   = Grupo::with('deporte')->where('activo', true)->orderBy('nombre')->get();
+        $grupos   = Grupo::with(['deporte', 'nivel'])
+            ->where('activo', true)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
 
         return view('clases.index', compact('clases', 'grupos', 'deportes', 'fechaDesde', 'fechaHasta', 'esAdmin'));
@@ -73,7 +79,13 @@ class ClaseWebController extends Controller
 
     public function create()
     {
-        $grupos    = Grupo::with(['deporte', 'planesActivos'])->where('activo', true)->orderBy('nombre')->get();
+        $grupos    = Grupo::with(['deporte', 'nivel', 'planesActivos'])
+            ->where('activo', true)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
         $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
 
         return view('clases.create', compact('grupos', 'profesores'));
@@ -163,7 +175,7 @@ class ClaseWebController extends Controller
 
     public function show(int $id)
     {
-        $clase = Clase::with(['grupo.deporte', 'profesores', 'asistencias.alumno'])->findOrFail($id);
+        $clase = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias.alumno'])->findOrFail($id);
 
         $alumnos = Alumno::where('grupo_id', $clase->grupo_id)
             ->where('activo', true)

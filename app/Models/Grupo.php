@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Grupo extends Model
 {
     protected $fillable = [
-        'nombre',
         'deporte_id',
+        'nivel_id',
         'activo',
     ];
 
@@ -24,6 +24,32 @@ class Grupo extends Model
     public function deporte(): BelongsTo
     {
         return $this->belongsTo(Deporte::class);
+    }
+
+    /**
+     * Relación con Nivel
+     */
+    public function nivel(): BelongsTo
+    {
+        return $this->belongsTo(Nivel::class);
+    }
+
+    /**
+     * Nombre compuesto calculado: "{Deporte} — {Nivel}"
+     */
+    public function getNombreCompletoAttribute(): string
+    {
+        $dep = $this->relationLoaded('deporte') ? ($this->deporte->nombre ?? '') : '';
+        $niv = $this->relationLoaded('nivel')   ? ($this->nivel->nombre   ?? '') : '';
+        return $dep . ' — ' . $niv;
+    }
+
+    /**
+     * Alias para backward compatibility (servicios usan $grupo->nombre)
+     */
+    public function getNombreAttribute(): string
+    {
+        return $this->getNombreCompletoAttribute();
     }
 
     /**

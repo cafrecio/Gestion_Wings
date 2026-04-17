@@ -6,19 +6,26 @@ use App\Models\AlumnoPlan;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
+use App\Models\Nivel;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class GrupoWebController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Grupo::with(['deporte', 'planesActivos']);
+        $query = Grupo::with(['deporte', 'nivel', 'planesActivos'])
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')
+            ->orderBy('niveles.nombre')
+            ->select('grupos.*');
 
         if ($request->filled('deporte_id')) {
-            $query->where('deporte_id', $request->input('deporte_id'));
+            $query->where('grupos.deporte_id', $request->input('deporte_id'));
         }
 
-        $grupos   = $query->orderBy('nombre')->paginate(12)->withQueryString();
+        $grupos   = $query->paginate(12)->withQueryString();
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
 
         return view('grupos.index', compact('grupos', 'deportes'));
@@ -27,30 +34,39 @@ class GrupoWebController extends Controller
     public function create()
     {
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
+        $niveles  = Nivel::orderBy('nombre')->get();
 
-        return view('grupos.create', compact('deportes'));
+        return view('grupos.create', compact('deportes', 'niveles'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre'                         => 'required|string|max:255',
             'deporte_id'                     => 'required|exists:deportes,id',
+            'nivel_id'                       => [
+                'required',
+                'exists:niveles,id',
+                Rule::unique('grupos')->where(fn($q) =>
+                    $q->where('deporte_id', $request->input('deporte_id'))
+                ),
+            ],
             'planes'                         => 'nullable|array',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
             'planes.*.precio_mensual'        => 'required|numeric|min:0',
         ], [
-            'nombre.required'                        => 'El nombre es obligatorio.',
             'deporte_id.required'                    => 'Debe seleccionar un deporte.',
             'deporte_id.exists'                      => 'El deporte seleccionado no existe.',
+            'nivel_id.required'                      => 'Debe seleccionar un nivel.',
+            'nivel_id.exists'                        => 'El nivel seleccionado no existe.',
+            'nivel_id.unique'                        => 'Ya existe un grupo con ese deporte y nivel.',
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
             'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',
         ]);
 
         $grupo = Grupo::create([
-            'nombre'     => $validated['nombre'],
             'deporte_id' => $validated['deporte_id'],
+            'nivel_id'   => $validated['nivel_id'],
             'activo'     => true,
         ]);
 
@@ -71,6 +87,7 @@ class GrupoWebController extends Controller
     {
         $grupo = Grupo::with([
             'deporte',
+            'nivel',
             'planes' => fn($q) => $q->orderBy('clases_por_semana'),
             'alumnos',
         ])->findOrFail($id);
@@ -82,10 +99,13 @@ class GrupoWebController extends Controller
     {
         $grupo = Grupo::with([
             'deporte',
+            'nivel',
             'planes' => fn($q) => $q->orderBy('clases_por_semana'),
         ])->findOrFail($id);
 
-        return view('grupos.edit', compact('grupo'));
+        $niveles = Nivel::orderBy('nombre')->get();
+
+        return view('grupos.edit', compact('grupo', 'niveles'));
     }
 
     public function update(Request $request, int $id)
@@ -93,19 +113,17 @@ class GrupoWebController extends Controller
         $grupo = Grupo::findOrFail($id);
 
         $validated = $request->validate([
-            'nombre'                         => 'required|string|max:255',
             'planes'                         => 'nullable|array',
             'planes.*.id'                    => 'nullable|integer',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
             'planes.*.precio_mensual'        => 'required|numeric|min:0',
         ], [
-            'nombre.required'                        => 'El nombre es obligatorio.',
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
             'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',
         ]);
 
-        $grupo->update(['nombre' => $validated['nombre']]);
+        // nivel_id no cambia en edición
 
         $planes = collect($validated['planes'] ?? []);
         $idsSubmitted = $planes->pluck('id')->filter()->map(fn($v) => (int) $v)->all();

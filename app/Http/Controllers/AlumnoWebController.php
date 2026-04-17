@@ -15,7 +15,7 @@ class AlumnoWebController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Alumno::with(['deporte', 'grupo']);
+        $query = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel']);
 
         if ($request->filled('deporte_id')) {
             $query->where('deporte_id', $request->input('deporte_id'));
@@ -40,7 +40,13 @@ class AlumnoWebController extends Controller
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
-        $grupos = Grupo::where('activo', true)->orderBy('nombre')->get();
+        $grupos = Grupo::with(['deporte', 'nivel'])
+            ->where('activo', true)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
 
         return view('alumnos.index', compact('alumnos', 'deportes', 'grupos'));
     }
@@ -52,7 +58,7 @@ class AlumnoWebController extends Controller
             return response()->json([]);
         }
 
-        $results = Alumno::with('grupo')
+        $results = Alumno::with(['grupo.deporte', 'grupo.nivel'])
             ->where(function ($query) use ($q) {
                 $query->where('nombre', 'like', "%{$q}%")
                       ->orWhere('apellido', 'like', "%{$q}%")
@@ -64,7 +70,7 @@ class AlumnoWebController extends Controller
             ->map(fn($a) => [
                 'id'    => $a->id,
                 'label' => $a->apellido . ', ' . $a->nombre,
-                'sub'   => implode(' · ', array_filter([$a->dni, $a->grupo->nombre ?? null])),
+                'sub'   => implode(' · ', array_filter([$a->dni, $a->grupo->nombre_completo ?? null])),
                 'url'   => route('web.alumnos.show', $a->id),
             ]);
 
@@ -73,7 +79,7 @@ class AlumnoWebController extends Controller
 
     public function show(int $id)
     {
-        $alumno = Alumno::with(['deporte', 'grupo', 'planActivo.plan'])->findOrFail($id);
+        $alumno = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel', 'planActivo.plan'])->findOrFail($id);
 
         return view('alumnos.show', compact('alumno'));
     }
@@ -81,7 +87,13 @@ class AlumnoWebController extends Controller
     public function create()
     {
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
-        $grupos   = Grupo::with('planesActivos')->where('activo', true)->orderBy('nombre')->get();
+        $grupos   = Grupo::with(['deporte', 'nivel', 'planesActivos'])
+            ->where('activo', true)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
 
         $grupoPlanesJson = $grupos->mapWithKeys(fn($g) => [
             $g->id => $g->planesActivos
@@ -133,7 +145,14 @@ class AlumnoWebController extends Controller
     {
         $alumno   = Alumno::with(['deporte', 'planActivo'])->findOrFail($id);
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
-        $grupos   = Grupo::with('planesActivos')->where('activo', true)->where('deporte_id', $alumno->deporte_id)->orderBy('nombre')->get();
+        $grupos   = Grupo::with(['deporte', 'nivel', 'planesActivos'])
+            ->where('activo', true)
+            ->where('grupos.deporte_id', $alumno->deporte_id)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
 
         $grupoPlanesJson = $grupos->mapWithKeys(fn($g) => [
             $g->id => $g->planesActivos

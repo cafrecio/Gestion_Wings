@@ -110,8 +110,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                         <option value="{{ $grupo->id }}"
                                 data-deporte="{{ $grupo->deporte->nombre ?? '' }}"
                                 {{ old('grupo_id') == $grupo->id ? 'selected' : '' }}>
-                            {{ $grupo->nombre }}
-                            @if($grupo->deporte) ({{ $grupo->deporte->nombre }}) @endif
+                            {{ $grupo->nombre_completo }}
                         </option>
                     @endforeach
                 </select>

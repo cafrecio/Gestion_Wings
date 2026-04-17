@@ -99,6 +99,15 @@
                         </svg>
                         Rubros
                     </a>
+
+                    <a href="{{ route('web.niveles.index') }}"
+                       class="ds-nav-link {{ request()->is('niveles*') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                        </svg>
+                        Niveles
+                    </a>
                 @endif
             @endauth
         </nav>

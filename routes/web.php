@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoWebController;
 use App\Http\Controllers\ClaseWebController;
 use App\Http\Controllers\DeporteWebController;
 use App\Http\Controllers\GrupoWebController;
+use App\Http\Controllers\NivelWebController;
 use App\Http\Controllers\ProfesorWebController;
 use App\Http\Controllers\RubroWebController;
 use App\Http\Controllers\SubrubroWebController;
@@ -91,6 +92,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/clases/{id}/asistencias', [ClaseWebController::class, 'storeAsistencias'])->name('web.clases.asistencias');
     Route::patch('/clases/{id}/cancelar', [ClaseWebController::class, 'toggleCancelada'])->name('web.clases.toggle-cancelada');
     Route::patch('/clases/{id}/profesores', [ClaseWebController::class, 'actualizarProfesores'])->name('web.clases.profesores');
+
+    // Niveles — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/niveles', [NivelWebController::class, 'index'])->name('web.niveles.index');
+        Route::get('/niveles/create', [NivelWebController::class, 'create'])->name('web.niveles.create');
+        Route::post('/niveles', [NivelWebController::class, 'store'])->name('web.niveles.store');
+        Route::get('/niveles/{id}/edit', [NivelWebController::class, 'edit'])->name('web.niveles.edit');
+        Route::put('/niveles/{id}', [NivelWebController::class, 'update'])->name('web.niveles.update');
+        Route::delete('/niveles/{id}', [NivelWebController::class, 'destroy'])->name('web.niveles.destroy');
+    });
 
     // Profesores — solo admin
     Route::middleware('ensure.admin.web')->group(function () {

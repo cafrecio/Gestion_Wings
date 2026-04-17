@@ -24,7 +24,7 @@
         </div>
         <div>
             <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">Grupo</p>
-            <p class="text-sm font-medium text-wings">{{ $alumno->grupo->nombre ?? '–' }}</p>
+            <p class="text-sm font-medium text-wings">{{ $alumno->grupo->nombre_completo ?? '–' }}</p>
         </div>
         <div>
             <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">Total pendiente</p>

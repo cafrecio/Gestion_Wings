@@ -73,7 +73,7 @@ class WebController extends Controller
 
     public function caja(Request $request)
     {
-        $query = Alumno::with(['deporte', 'grupo'])
+        $query = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel'])
             ->where('activo', true)
             ->whereHas('deudaCuotas', fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE))
             ->with(['deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo')]);
@@ -95,7 +95,7 @@ class WebController extends Controller
     public function cajaAlumnoCobro(int $id)
     {
         $alumno = Alumno::with([
-            'deporte', 'grupo',
+            'deporte', 'grupo.deporte', 'grupo.nivel',
             'deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo'),
         ])->findOrFail($id);
 

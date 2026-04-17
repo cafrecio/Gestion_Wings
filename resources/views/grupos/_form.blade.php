@@ -10,19 +10,6 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 @endphp
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {{-- Nombre --}}
-    <div>
-        <label for="nombre" class="{{ $labelClass }}">
-            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Nombre <span class="form-required">*</span>
-        </label>
-        <input type="text" id="nombre" name="nombre"
-               value="{{ old('nombre', $grupo->nombre ?? '') }}"
-               required autofocus
-               class="w-full px-4 py-2.5 text-sm wings-input" placeholder="Nombre del grupo">
-        @error('nombre') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
-    </div>
-
     {{-- Deporte: fijo en edición, seleccionable en create --}}
     <div>
         <label for="deporte_id" class="{{ $labelClass }}">
@@ -43,6 +30,30 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
                 @endforeach
             </select>
             @error('deporte_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @endif
+    </div>
+
+    {{-- Nivel: fijo en edición, seleccionable en create --}}
+    <div>
+        <label for="nivel_id" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/></svg>
+            Nivel <span class="form-required">*</span>
+        </label>
+        @if(isset($grupo))
+            <p class="w-full px-4 py-2.5 text-sm wings-input" style="opacity: 0.6; cursor: not-allowed;">{{ $grupo->nivel->nombre ?? '–' }}</p>
+            <input type="hidden" name="nivel_id" value="{{ $grupo->nivel_id }}">
+        @else
+            <select id="nivel_id" name="nivel_id" required
+                    class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                <option value="">Seleccionar nivel...</option>
+                @foreach($niveles as $nivel)
+                    <option value="{{ $nivel->id }}" {{ old('nivel_id') == $nivel->id ? 'selected' : '' }}>
+                        {{ $nivel->nombre }}
+                        @if($nivel->descripcion) — {{ $nivel->descripcion }} @endif
+                    </option>
+                @endforeach
+            </select>
+            @error('nivel_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
         @endif
     </div>
 </div>
