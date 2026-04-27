@@ -20,61 +20,67 @@ class ClaseWebController extends Controller
 
     public function index(Request $request)
     {
+        $ahora   = Carbon::now();
+        $hoy     = $ahora->format('Y-m-d');
         $esAdmin = Auth::user()->rol === 'ADMIN';
-        $hoy = Carbon::now();
-        $semanaDelMes = (int) ceil($hoy->day / 7);
 
-        $defaultDesde = $hoy->copy()->subMonth()->startOfMonth()->format('Y-m-d');
-        $defaultHasta = $semanaDelMes >= 3
-            ? $hoy->copy()->addMonth()->endOfMonth()->format('Y-m-d')
-            : $hoy->copy()->endOfMonth()->format('Y-m-d');
+        // 1. Clases de HOY — siempre todas, sin filtro
+        $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
+            ->whereDate('fecha', $hoy)
+            ->orderBy('hora_inicio')
+            ->get();
 
-        $fechaDesde = $request->filled('fecha_desde')
-            ? $request->input('fecha_desde')
-            : $defaultDesde;
+        // 2. Clases que NO son hoy — con filtros del request
+        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
+            ->whereDate('fecha', '!=', $hoy)
+            ->orderBy('fecha', 'desc')
+            ->orderBy('hora_inicio', 'desc');
 
-        $fechaHasta = $request->filled('fecha_hasta')
-            ? $request->input('fecha_hasta')
-            : $defaultHasta;
-
+        // Límite temporal según rol
         if (!$esAdmin) {
-            $limiteOperativo = $hoy->copy()->subMonth()->startOfMonth()->format('Y-m-d');
-            if ($fechaDesde < $limiteOperativo) {
-                $fechaDesde = $limiteOperativo;
-            }
+            $limiteOperativo = Carbon::now()->subMonth()->startOfMonth()->format('Y-m-d');
+            $query->whereDate('fecha', '>=', $limiteOperativo);
         }
 
-        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
-            ->orderBy('fecha', 'desc')
-            ->orderBy('hora_inicio');
+        if ($request->filled('fecha')) {
+            $query->whereDate('fecha', $request->input('fecha'));
+        }
 
-        $query->whereBetween('fecha', [$fechaDesde, $fechaHasta]);
+        if ($request->filled('deporte_id')) {
+            $query->whereHas('grupo', fn($q) =>
+                $q->where('deporte_id', $request->input('deporte_id'))
+            );
+        }
 
         if ($request->filled('grupo_id')) {
             $query->where('grupo_id', $request->input('grupo_id'));
         }
 
-        if ($request->filled('deporte_id')) {
-            $query->whereHas('grupo', function ($q) use ($request) {
-                $q->where('deporte_id', $request->input('deporte_id'));
-            });
+        if ($request->filled('profesor_id')) {
+            $query->whereHas('profesores', fn($q) =>
+                $q->where('profesores.id', $request->input('profesor_id'))
+            );
         }
 
-        if ($request->filled('cancelada')) {
-            $query->where('cancelada', $request->boolean('cancelada'));
-        }
+        // Estado se filtra por JS en la vista
+        $filtroEstado = $request->input('estado', '');
 
-        $clases   = $query->paginate(20)->withQueryString();
-        $grupos   = Grupo::with(['deporte', 'nivel'])
+        $clasesFiltradas = $query->paginate(20)->withQueryString();
+
+        $grupos = Grupo::with(['deporte', 'nivel'])
             ->where('grupos.activo', true)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
             ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
-            ->select('grupos.*')
-            ->get();
-        $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
+            ->select('grupos.*')->get();
+        $deportes   = Deporte::where('activo', true)->orderBy('nombre')->get();
+        $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
 
-        return view('clases.index', compact('clases', 'grupos', 'deportes', 'fechaDesde', 'fechaHasta', 'esAdmin'));
+        return view('clases.index', compact(
+            'clasesHoy', 'clasesFiltradas',
+            'grupos', 'deportes', 'profesores',
+            'ahora', 'esAdmin', 'filtroEstado'
+        ));
     }
 
     public function create()
