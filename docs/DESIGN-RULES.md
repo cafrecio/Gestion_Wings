@@ -15,7 +15,14 @@
 - **Prohibido en el header**: botones, badges, observaciones, subtítulos, íconos de acción, fechas.
 - La observación/descripción va **debajo** del header como `<p>` separado, con el mismo indentado que el texto del título (`padding-left: 1.5rem`).
 
-### 1.2 Acciones del card van abajo
+### 1.2 alumno-info — filas del card
+
+- **NO agregar filas extra** si hay espacio en blanco disponible. Maximizar densidad horizontal antes de añadir una nueva fila.
+- Si los datos caben en una sola fila, usar `grid-template-columns: repeat(N, 1fr)` explícito en el `div.alumno-info` (no depender del auto-fit).
+- **No usar** `grid-column: 1 / -1` para forzar un dato a fila propia salvo que sea estrictamente necesario (ej: texto muy largo que no cabe en el grid).
+- Ejemplo: 3 datos → `style="grid-template-columns: repeat(3, 1fr);"` en el `div.alumno-info`, sin span de columnas.
+
+### 1.3 Acciones del card van abajo
 - Las acciones (Editar, Eliminar, etc.) van en `alumno-actions` al pie del card.
 - `alumno-actions` tiene `border-top: 1px solid var(--color-border)` como separador visual.
 - El botón secundario de "crear hijo" (ej: "+ Subrubro") va alineado a la derecha dentro de `alumno-actions` usando `margin-left: auto`.

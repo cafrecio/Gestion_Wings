@@ -41,7 +41,7 @@ class AlumnoWebController extends Controller
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
         $grupos = Grupo::with(['deporte', 'nivel'])
-            ->where('activo', true)
+            ->where('grupos.activo', true)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
             ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
@@ -88,7 +88,7 @@ class AlumnoWebController extends Controller
     {
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
         $grupos   = Grupo::with(['deporte', 'nivel', 'planesActivos'])
-            ->where('activo', true)
+            ->where('grupos.activo', true)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
             ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
@@ -146,7 +146,7 @@ class AlumnoWebController extends Controller
         $alumno   = Alumno::with(['deporte', 'planActivo'])->findOrFail($id);
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
         $grupos   = Grupo::with(['deporte', 'nivel', 'planesActivos'])
-            ->where('activo', true)
+            ->where('grupos.activo', true)
             ->where('grupos.deporte_id', $alumno->deporte_id)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')

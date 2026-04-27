@@ -66,7 +66,7 @@ class ClaseWebController extends Controller
 
         $clases   = $query->paginate(20)->withQueryString();
         $grupos   = Grupo::with(['deporte', 'nivel'])
-            ->where('activo', true)
+            ->where('grupos.activo', true)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
             ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
@@ -80,7 +80,7 @@ class ClaseWebController extends Controller
     public function create()
     {
         $grupos    = Grupo::with(['deporte', 'nivel', 'planesActivos'])
-            ->where('activo', true)
+            ->where('grupos.activo', true)
             ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
             ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
             ->orderBy('deportes.nombre')->orderBy('niveles.nombre')

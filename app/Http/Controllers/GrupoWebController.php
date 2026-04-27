@@ -168,6 +168,25 @@ class GrupoWebController extends Controller
             ->with('success', 'Grupo actualizado correctamente.');
     }
 
+    public function checkDisponible(Request $request)
+    {
+        $deporteId = $request->input('deporte_id');
+        $nivelId   = $request->input('nivel_id');
+
+        if (!$deporteId || !$nivelId) {
+            return response()->json(['disponible' => true]);
+        }
+
+        $query = Grupo::where('deporte_id', $deporteId)
+                      ->where('nivel_id', $nivelId);
+
+        if ($request->filled('grupo_id')) {
+            $query->where('id', '!=', $request->input('grupo_id'));
+        }
+
+        return response()->json(['disponible' => !$query->exists()]);
+    }
+
     public function toggleActivo(int $id)
     {
         $grupo = Grupo::findOrFail($id);

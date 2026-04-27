@@ -71,14 +71,14 @@
                 <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
             </div>
 
-            <div class="alumno-info">
+            <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="info-item">
                     <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     <span class="info-label">Deporte:</span>
-                    <span class="info-value ds-truncate">{{ $grupo->deporte->nombre ?? '–' }}</span>
+                    <span class="info-value">{{ $grupo->deporte->nombre ?? '–' }}</span>
                 </div>
                 <div class="info-item">
                     <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                     <span class="info-label">Alumnos activos:</span>
                     <span class="info-value">{{ $alumnosActivos }}</span>
                 </div>
-                <div class="info-item" style="grid-column: 1 / -1;">
+                <div class="info-item">
                     <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>

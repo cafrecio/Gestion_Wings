@@ -17,6 +17,10 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                class="w-full px-4 py-2.5 text-sm wings-input"
                placeholder="Ej: Principiantes">
         @error('nombre') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        <div id="error-nombre-nivel"
+             style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
+            Ya existe un nivel con un nombre similar.
+        </div>
     </div>
 
     {{-- Descripción --}}
@@ -34,3 +38,47 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
     </div>
 
 </div>
+
+{{-- Campo oculto con el id del nivel actual (vacío en create) --}}
+<input type="hidden" id="nivel-id-actual" value="{{ $nivel->id ?? '' }}">
+
+<script>
+(function () {
+    const input     = document.getElementById('nombre');
+    const errorDiv  = document.getElementById('error-nombre-nivel');
+    const btnSubmit = document.querySelector('[type="submit"]');
+    const nivelId   = document.getElementById('nivel-id-actual').value;
+
+    if (!input) return;
+
+    async function verificar() {
+        const nombre = input.value.trim();
+        if (!nombre) {
+            errorDiv.style.display = 'none';
+            if (btnSubmit) btnSubmit.disabled = false;
+            return;
+        }
+        let url = '/niveles/check-disponible?nombre=' + encodeURIComponent(nombre);
+        if (nivelId) url += '&nivel_id=' + nivelId;
+        try {
+            const res  = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+            const data = await res.json();
+            if (!data.disponible) {
+                errorDiv.style.display = 'block';
+                if (btnSubmit) btnSubmit.disabled = true;
+            } else {
+                errorDiv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+            }
+        } catch(e) {
+            errorDiv.style.display = 'none';
+            if (btnSubmit) btnSubmit.disabled = false;
+        }
+    }
+
+    input.addEventListener('blur', verificar);
+    input.addEventListener('input', function () {
+        if (errorDiv.style.display !== 'none') verificar();
+    });
+})();
+</script>

@@ -5,6 +5,12 @@
 
 @section('content')
 <div class="filtros-card">
+    @if($nivelesExistentes->isNotEmpty())
+        <p style="font-size:0.72rem; color:var(--color-text-muted); margin-bottom:6px;">
+            Niveles existentes: {{ $nivelesExistentes->pluck('nombre')->join(', ') }}
+        </p>
+    @endif
+
     <form method="POST" action="{{ route('web.niveles.store') }}">
         @csrf
         @include('niveles._form')

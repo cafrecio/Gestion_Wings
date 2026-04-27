@@ -75,6 +75,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('/grupo-planes/{planId}', [GrupoWebController::class, 'destroyPlan'])->name('web.grupos.plans.destroy');
     });
 
+    // Grupos check-disponible — debe ir ANTES de /grupos/{id}
+    Route::get('/grupos/check-disponible', [GrupoWebController::class, 'checkDisponible'])->name('web.grupos.check-disponible');
+
     // Grupos show — todos los autenticados (después de /create para evitar conflicto de rutas)
     Route::get('/grupos/{id}', [GrupoWebController::class, 'show'])->name('web.grupos.show');
 
@@ -98,6 +101,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/niveles', [NivelWebController::class, 'index'])->name('web.niveles.index');
         Route::get('/niveles/create', [NivelWebController::class, 'create'])->name('web.niveles.create');
         Route::post('/niveles', [NivelWebController::class, 'store'])->name('web.niveles.store');
+        Route::get('/niveles/check-disponible', [NivelWebController::class, 'checkDisponible'])->name('web.niveles.check-disponible');
         Route::get('/niveles/{id}/edit', [NivelWebController::class, 'edit'])->name('web.niveles.edit');
         Route::put('/niveles/{id}', [NivelWebController::class, 'update'])->name('web.niveles.update');
         Route::delete('/niveles/{id}', [NivelWebController::class, 'destroy'])->name('web.niveles.destroy');

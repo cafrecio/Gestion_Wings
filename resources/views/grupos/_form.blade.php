@@ -58,6 +58,15 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
     </div>
 </div>
 
+{{-- Campo oculto con el id del grupo actual (vacío en create) --}}
+<input type="hidden" id="grupo-id-actual" value="{{ $grupo->id ?? '' }}">
+
+{{-- Error en tiempo real para combinación deporte+nivel --}}
+<div id="error-deporte-nivel"
+     style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
+    Ya existe un grupo con ese deporte y nivel.
+</div>
+
 {{-- Precios por frecuencia --}}
 <div class="mt-5 pt-4" style="border-top: 1px solid var(--color-border);">
 
@@ -134,6 +143,45 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 </div>
 
 <script>
+(function () {
+    const selectDeporte = document.getElementById('deporte_id');
+    const selectNivel   = document.getElementById('nivel_id');
+    const errorDiv      = document.getElementById('error-deporte-nivel');
+    const btnSubmit     = document.querySelector('[type="submit"]');
+    const grupoId       = document.getElementById('grupo-id-actual').value;
+
+    if (selectDeporte && selectNivel) {
+        async function verificarDisponible() {
+            const deporteId = selectDeporte.value;
+            const nivelId   = selectNivel.value;
+            if (!deporteId || !nivelId) {
+                errorDiv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+                return;
+            }
+            let url = '/grupos/check-disponible?deporte_id=' + deporteId + '&nivel_id=' + nivelId;
+            if (grupoId) url += '&grupo_id=' + grupoId;
+            try {
+                const res  = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+                const data = await res.json();
+                if (!data.disponible) {
+                    errorDiv.style.display = 'block';
+                    if (btnSubmit) btnSubmit.disabled = true;
+                } else {
+                    errorDiv.style.display = 'none';
+                    if (btnSubmit) btnSubmit.disabled = false;
+                }
+            } catch(e) {
+                errorDiv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+            }
+        }
+
+        selectDeporte.addEventListener('change', verificarDisponible);
+        selectNivel.addEventListener('change', verificarDisponible);
+    }
+})();
+
 (function () {
     let idx = {{ $planesExistentes->count() }};
     const container = document.getElementById('planes-container');
