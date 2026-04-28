@@ -479,9 +479,8 @@ a:hover {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .ds-module-header {
-    background: linear-gradient(135deg, var(--color-brand) 0%, #9A0F30 100%);
+    background: var(--color-chrome);
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .ds-module-header__inner {
@@ -559,6 +558,87 @@ a:hover {
     color: var(--color-text-muted);
     font-weight: 700;
     font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRIDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.ds-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .ds-grid-2, .ds-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.ds-table thead th {
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface-alt);
+}
+
+.ds-table tbody td {
+    padding: 9px 12px;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+}
+
+.ds-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ds-table tbody tr:hover td {
+    background: var(--color-surface-alt);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ds-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ds-badge--success {
+    background: color-mix(in srgb, var(--color-success) 12%, transparent);
+    color: var(--color-success);
+}
+
+.ds-badge--danger {
+    background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+    color: var(--color-danger);
 }
 
 /* Logo en sidebar oscuro: pill blanco que preserva los colores del logo */

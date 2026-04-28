@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Rubro;
+use App\Models\Alumno;
+use App\Models\Deporte;
 
 class WebController extends Controller
 {
@@ -45,7 +48,11 @@ class WebController extends Controller
 
     public function adminDashboard()
     {
-        return view('admin.dashboard');
+        $rubros   = Rubro::with('subrubros')->orderBy('tipo')->orderBy('nombre')->get();
+        $deportes = Deporte::withCount('alumnos')->get();
+        $totalAlumnos = Alumno::count();
+
+        return view('admin.dashboard', compact('rubros', 'deportes', 'totalAlumnos'));
     }
 
     public function caja()
