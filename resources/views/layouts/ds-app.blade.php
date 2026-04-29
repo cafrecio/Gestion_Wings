@@ -60,6 +60,14 @@
                               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                     Clases
+                    @if($badgeClasesPendientes > 0)
+                        <span style="margin-left:auto; background:var(--color-danger);
+                                     color:#fff; font-size:0.65rem; font-weight:700;
+                                     padding:1px 6px; border-radius:999px; min-width:18px;
+                                     text-align:center;">
+                            {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
+                        </span>
+                    @endif
                 </a>
 
                 @if(Auth::user()->rol === 'ADMIN')

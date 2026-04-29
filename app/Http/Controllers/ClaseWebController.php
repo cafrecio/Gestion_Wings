@@ -31,10 +31,12 @@ class ClaseWebController extends Controller
             ->get();
 
         // 2. Clases que NO son hoy — con filtros del request
+        $hayFiltros = $request->hasAny(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
+
         $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->whereDate('fecha', '!=', $hoy)
-            ->orderBy('fecha', 'desc')
-            ->orderBy('hora_inicio', 'desc');
+            ->orderBy('fecha', 'asc')
+            ->orderBy('hora_inicio', 'asc');
 
         // Límite temporal según rol
         if (!$esAdmin) {
@@ -42,28 +44,30 @@ class ClaseWebController extends Controller
             $query->whereDate('fecha', '>=', $limiteOperativo);
         }
 
-        if ($request->filled('fecha')) {
-            $query->whereDate('fecha', $request->input('fecha'));
+        if (!$hayFiltros) {
+            // Default: solo futuras desde mañana; JS filtrará por estado=programada
+            $query->whereDate('fecha', '>', today());
+        } else {
+            if ($request->filled('fecha')) {
+                $query->whereDate('fecha', $request->input('fecha'));
+            }
+            if ($request->filled('deporte_id')) {
+                $query->whereHas('grupo', fn($q) =>
+                    $q->where('deporte_id', $request->input('deporte_id'))
+                );
+            }
+            if ($request->filled('grupo_id')) {
+                $query->where('grupo_id', $request->input('grupo_id'));
+            }
+            if ($request->filled('profesor_id')) {
+                $query->whereHas('profesores', fn($q) =>
+                    $q->where('profesores.id', $request->input('profesor_id'))
+                );
+            }
         }
 
-        if ($request->filled('deporte_id')) {
-            $query->whereHas('grupo', fn($q) =>
-                $q->where('deporte_id', $request->input('deporte_id'))
-            );
-        }
-
-        if ($request->filled('grupo_id')) {
-            $query->where('grupo_id', $request->input('grupo_id'));
-        }
-
-        if ($request->filled('profesor_id')) {
-            $query->whereHas('profesores', fn($q) =>
-                $q->where('profesores.id', $request->input('profesor_id'))
-            );
-        }
-
-        // Estado se filtra por JS en la vista
-        $filtroEstado = $request->input('estado', '');
+        // Estado se filtra por JS; sin filtros se muestra solo "programada"
+        $filtroEstado = $hayFiltros ? $request->input('estado', '') : 'programada';
 
         $clasesFiltradas = $query->paginate(20)->withQueryString();
 
