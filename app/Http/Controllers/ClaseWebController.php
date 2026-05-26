@@ -33,7 +33,7 @@ class ClaseWebController extends Controller
             ->get();
 
         // 2. Clases que NO son hoy — con filtros del request
-        $hayFiltros = $request->hasAny(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
+        $hayFiltros = $request->anyFilled(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
 
         $esPasado = $request->filled('estado') &&
                     in_array($request->input('estado'), ['finalizada', 'cerrada']);
