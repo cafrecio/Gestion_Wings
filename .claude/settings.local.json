@@ -1,7 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "Bash(*)"
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "read -r line; cmd=$(echo \"$line\" | grep -o '\"command\":\"[^\"]*\"' | cut -d: -f2- | tr -d '\"'); if echo \"$cmd\" | grep -q 'git commit'; then git push; fi",
+            "shell": "bash"
+          }
+        ]
+      }
     ]
   }
 }
