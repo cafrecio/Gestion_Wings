@@ -31,15 +31,26 @@ class ClaseWebController extends Controller
             ->get();
 
         // 2. Clases que NO son hoy — con filtros del request
-        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
-            ->whereDate('fecha', '!=', $hoy)
-            ->orderBy('fecha', 'desc')
-            ->orderBy('hora_inicio', 'desc');
+        $manana = Carbon::tomorrow()->format('Y-m-d');
 
-        // Límite temporal según rol
+        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
+            ->whereDate('fecha', '!=', $hoy);
+
+        // Sin filtro de fecha explícito: mostrar desde mañana (más útil para el usuario)
+        // Con filtro explícito: respetar lo que pidió el usuario
+        if (!$request->filled('fecha')) {
+            $query->whereDate('fecha', '>=', $manana)
+                  ->orderBy('fecha', 'asc')
+                  ->orderBy('hora_inicio', 'asc');
+        } else {
+            $query->orderBy('fecha', 'asc')
+                  ->orderBy('hora_inicio', 'asc');
+        }
+
+        // Límite temporal según rol (solo hacia atrás, si el usuario filtra fechas pasadas)
         if (!$esAdmin) {
-            $limiteOperativo = Carbon::now()->subMonth()->startOfMonth()->format('Y-m-d');
-            $query->whereDate('fecha', '>=', $limiteOperativo);
+            $limiteAtras = Carbon::now()->subDays(35)->format('Y-m-d');
+            $query->whereDate('fecha', '>=', $limiteAtras);
         }
 
         if ($request->filled('fecha')) {

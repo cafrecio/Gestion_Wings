@@ -814,11 +814,19 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 12px;
 }
 
 .stats-info {
     color: var(--color-text-muted);
     font-size: 0.95rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.stats-bar > .ds-btn {
+    flex-shrink: 0;
 }
 
 .stats-info strong {
