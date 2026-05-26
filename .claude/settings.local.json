@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "read -r line; cmd=$(echo \"$line\" | grep -o '\"command\":\"[^\"]*\"' | cut -d: -f2- | tr -d '\"'); if echo \"$cmd\" | grep -q 'git commit'; then git push; fi",
+            "command": "read -r line; cmd=$(echo \"$line\" | grep -o '\"command\":\"[^\"]*\"' | cut -d: -f2- | tr -d '\"'); if echo \"$cmd\" | grep -q 'git commit'; then git push; fi; if echo \"$cmd\" | grep -q 'git pull'; then \"C:/xampp/mysql/bin/mysql.exe\" -u root gestion_wings < database/dump.sql; fi",
             "shell": "bash"
           }
         ]
