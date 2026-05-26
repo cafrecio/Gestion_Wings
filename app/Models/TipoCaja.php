@@ -11,11 +11,14 @@ class TipoCaja extends Model
 
     protected $fillable = [
         'nombre',
+        'descripcion',
+        'permite_descubierto',
         'activo',
     ];
 
     protected $casts = [
-        'activo' => 'boolean',
+        'activo'              => 'boolean',
+        'permite_descubierto' => 'boolean',
     ];
 
     /**

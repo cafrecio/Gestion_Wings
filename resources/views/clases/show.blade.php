@@ -74,7 +74,7 @@
                             style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
                                    border:1px solid var(--color-border); background:transparent;
                                    color:var(--color-text-muted); cursor:pointer; font-family:inherit;">
-                        Modificar profesores
+                        Modificar
                     </button>
                 @endif
             </div>
@@ -131,8 +131,8 @@
                     </form>
                 @endif
 
-                {{-- Validar/Desvalidar: solo admin --}}
-                @if($esAdmin)
+                {{-- Validar: solo admin, solo si no validada y sin presentes --}}
+                @if($esAdmin && !$clase->validada_para_liquidacion && $cantPresentes === 0)
                     <form method="POST" action="{{ route('web.clases.toggle-validada', $clase->id) }}" style="display:inline;">
                         @csrf @method('PATCH')
                         <button type="submit"
@@ -190,15 +190,25 @@
                            border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
                            border:none; font-family:inherit;
                            background:var(--color-btn-danger); color:var(--color-surface);">
-                Confirmar
+                Cancelar esta
             </button>
+            @if($esAdmin && $clase->serie_id)
+                <button id="btn-cancelar-serie"
+                        style="display:inline-flex; align-items:center; justify-content:center;
+                               height:32px; padding:0 12px; font-size:0.82rem; font-weight:600;
+                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                               border:1px solid var(--color-btn-danger); font-family:inherit;
+                               background:transparent; color:var(--color-btn-danger);">
+                    Cancelar serie
+                </button>
+            @endif
             <button id="btn-cerrar-cancelar"
                     style="display:inline-flex; align-items:center; justify-content:center;
                            width:96px; height:32px; font-size:0.82rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
                            border:none; font-family:inherit;
                            background:var(--color-btn-secondary); color:var(--color-surface);">
-                Cancelar
+                Cerrar
             </button>
         </div>
         <span id="flash-cancelar" style="display:none; font-size:0.78rem; font-weight:600; margin-top:6px;"></span>
@@ -377,7 +387,7 @@
                    border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
                    border:none; font-family:inherit;
                    background:var(--color-btn-primary); color:var(--color-surface);">
-        Guardar asistencias
+        Guardar
     </button>
 </div>
 @endif
@@ -464,18 +474,19 @@
             })
             .finally(function () {
                 btnGuardar.disabled = false;
-                btnGuardar.textContent = 'Guardar asistencias';
+                btnGuardar.textContent = 'Guardar';
             });
         });
     }
 
     // ── Panel de cancelación ────────────────────────────────────────────────
-    const btnAbrirCancelar   = document.getElementById('btn-abrir-cancelar');
-    const panelCancelar      = document.getElementById('panel-cancelar');
+    const btnAbrirCancelar     = document.getElementById('btn-abrir-cancelar');
+    const panelCancelar        = document.getElementById('panel-cancelar');
     const btnConfirmarCancelar = document.getElementById('btn-confirmar-cancelar');
-    const btnCerrarCancelar  = document.getElementById('btn-cerrar-cancelar');
-    const inputMotivo        = document.getElementById('input-motivo-cancelacion');
-    const flashCancelar      = document.getElementById('flash-cancelar');
+    const btnCancelarSerie     = document.getElementById('btn-cancelar-serie');
+    const btnCerrarCancelar    = document.getElementById('btn-cerrar-cancelar');
+    const inputMotivo          = document.getElementById('input-motivo-cancelacion');
+    const flashCancelar        = document.getElementById('flash-cancelar');
 
     if (btnAbrirCancelar) {
         btnAbrirCancelar.addEventListener('click', function () {
@@ -488,27 +499,34 @@
             panelCancelar.style.display = 'none';
         });
     }
-    if (btnConfirmarCancelar) {
-        btnConfirmarCancelar.addEventListener('click', function () {
-            const motivo = inputMotivo ? inputMotivo.value.trim() : '';
-            if (!motivo) {
-                flashCancelar.style.display = 'block';
-                flashCancelar.textContent = 'El motivo es obligatorio.';
-                flashCancelar.style.color = 'var(--color-danger)';
-                return;
-            }
-            btnConfirmarCancelar.disabled = true;
-            btnConfirmarCancelar.textContent = '…';
 
-            fetch('/clases/' + claseId + '/cancelar', {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
-                body: JSON.stringify({ motivo_cancelacion: motivo }),
-            })
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-                if (d.success) {
-                    // Actualizar UI sin recargar
+    function ejecutarCancelacion(cancelarSerie) {
+        const motivo = inputMotivo ? inputMotivo.value.trim() : '';
+        if (!motivo) {
+            flashCancelar.style.display = 'block';
+            flashCancelar.textContent = 'El motivo es obligatorio.';
+            flashCancelar.style.color = 'var(--color-danger)';
+            return;
+        }
+        if (btnConfirmarCancelar) { btnConfirmarCancelar.disabled = true; btnConfirmarCancelar.textContent = '…'; }
+        if (btnCancelarSerie)     { btnCancelarSerie.disabled = true;     btnCancelarSerie.textContent = '…'; }
+        flashCancelar.style.display = 'none';
+
+        fetch('/clases/' + claseId + '/cancelar', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
+            body: JSON.stringify({ motivo_cancelacion: motivo, cancelar_serie: cancelarSerie }),
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            if (d.success) {
+                if (cancelarSerie) {
+                    // Recargar para reflejar el estado de toda la serie
+                    flashCancelar.style.display = 'block';
+                    flashCancelar.textContent = '✓ ' + d.message;
+                    flashCancelar.style.color = 'var(--color-success)';
+                    setTimeout(function () { location.reload(); }, 1500);
+                } else {
                     panelCancelar.style.display = 'none';
                     btnAbrirCancelar.style.display = 'none';
                     const badge = document.getElementById('badge-estado');
@@ -517,33 +535,38 @@
                         badge.style.background = 'color-mix(in srgb, var(--color-danger) 15%, transparent)';
                         badge.style.color = 'var(--color-danger)';
                     }
-                    // Deshabilitar cards de alumnos
                     document.querySelectorAll('.alumno-asistencia-card').forEach(function (c) {
                         c.style.opacity = '0.6';
                         c.style.pointerEvents = 'none';
                     });
                     if (btnGuardar) btnGuardar.disabled = true;
-                    // Mostrar banner
                     const banner = document.createElement('div');
                     banner.className = 'ds-flash ds-flash--error mb-4';
                     banner.textContent = 'Esta clase está cancelada. No se pueden registrar asistencias.';
                     panelCancelar.insertAdjacentElement('afterend', banner);
-                } else {
-                    flashCancelar.style.display = 'block';
-                    flashCancelar.textContent = '✗ ' + (d.message || 'Error.');
-                    flashCancelar.style.color = 'var(--color-danger)';
                 }
-            })
-            .catch(function () {
+            } else {
                 flashCancelar.style.display = 'block';
-                flashCancelar.textContent = '✗ Error de conexión.';
+                flashCancelar.textContent = '✗ ' + (d.message || 'Error.');
                 flashCancelar.style.color = 'var(--color-danger)';
-            })
-            .finally(function () {
-                btnConfirmarCancelar.disabled = false;
-                btnConfirmarCancelar.textContent = 'Confirmar';
-            });
+            }
+        })
+        .catch(function () {
+            flashCancelar.style.display = 'block';
+            flashCancelar.textContent = '✗ Error de conexión.';
+            flashCancelar.style.color = 'var(--color-danger)';
+        })
+        .finally(function () {
+            if (btnConfirmarCancelar) { btnConfirmarCancelar.disabled = false; btnConfirmarCancelar.textContent = 'Cancelar esta'; }
+            if (btnCancelarSerie)     { btnCancelarSerie.disabled = false;     btnCancelarSerie.textContent = 'Cancelar serie'; }
         });
+    }
+
+    if (btnConfirmarCancelar) {
+        btnConfirmarCancelar.addEventListener('click', function () { ejecutarCancelacion(false); });
+    }
+    if (btnCancelarSerie) {
+        btnCancelarSerie.addEventListener('click', function () { ejecutarCancelacion(true); });
     }
 
     // ── Panel de profesores ─────────────────────────────────────────────────

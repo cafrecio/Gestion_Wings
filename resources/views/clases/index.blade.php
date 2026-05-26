@@ -208,12 +208,10 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
             <select name="estado" id="filter-estado"
                     class="filtros-control filtros-select">
                 <option value="">Todos los estados</option>
-                <option value="programada"   {{ request('estado') === 'programada'   ? 'selected' : '' }}>Programada</option>
-                <option value="por_comenzar" {{ request('estado') === 'por_comenzar' ? 'selected' : '' }}>Por comenzar</option>
-                <option value="en_curso"     {{ request('estado') === 'en_curso'     ? 'selected' : '' }}>En curso</option>
-                <option value="finalizada"   {{ request('estado') === 'finalizada'   ? 'selected' : '' }}>Finalizada</option>
-                <option value="cerrada"      {{ request('estado') === 'cerrada'      ? 'selected' : '' }}>Cerrada</option>
-                <option value="cancelada"    {{ request('estado') === 'cancelada'    ? 'selected' : '' }}>Cancelada</option>
+                <option value="programada" {{ request('estado') === 'programada' ? 'selected' : '' }}>Programada</option>
+                <option value="finalizada" {{ request('estado') === 'finalizada' ? 'selected' : '' }}>Finalizada</option>
+                <option value="cerrada"    {{ request('estado') === 'cerrada'    ? 'selected' : '' }}>Cerrada</option>
+                <option value="cancelada"  {{ request('estado') === 'cancelada'  ? 'selected' : '' }}>Cancelada</option>
             </select>
 
             <input type="date" name="fecha"
@@ -355,18 +353,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 @push('scripts')
 <script>
 (function () {
-    const filtroEstado = "{{ $filtroEstado }}";
-
-    // 1. Filtro de estado por JS sobre los cards del listado inferior
-    if (filtroEstado) {
-        document.querySelectorAll('#clases-listado .alumno-card').forEach(function (card) {
-            if (card.dataset.estado !== filtroEstado) {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    // 2. Auto-scroll de la ventana de hoy a la clase actual o próxima
+    // 1. Auto-scroll de la ventana de hoy a la clase actual o próxima
     (function () {
         const container = document.getElementById('clases-hoy-container');
         if (!container) return;

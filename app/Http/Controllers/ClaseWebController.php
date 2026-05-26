@@ -13,6 +13,7 @@ use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ClaseWebController extends Controller
 {
@@ -27,16 +28,21 @@ class ClaseWebController extends Controller
         // 1. Clases de HOY — siempre todas, sin filtro
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->whereDate('fecha', $hoy)
+            ->where('cancelada', false)
             ->orderBy('hora_inicio')
             ->get();
 
         // 2. Clases que NO son hoy — con filtros del request
         $hayFiltros = $request->hasAny(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
 
+        $esPasado = $request->filled('estado') &&
+                    in_array($request->input('estado'), ['finalizada', 'cerrada']);
+        $dir = $esPasado ? 'desc' : 'asc';
+
         $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->whereDate('fecha', '!=', $hoy)
-            ->orderBy('fecha', 'asc')
-            ->orderBy('hora_inicio', 'asc');
+            ->orderBy('fecha', $dir)
+            ->orderBy('hora_inicio', $dir);
 
         // Límite temporal según rol
         if (!$esAdmin) {
@@ -45,8 +51,8 @@ class ClaseWebController extends Controller
         }
 
         if (!$hayFiltros) {
-            // Default: solo futuras desde mañana; JS filtrará por estado=programada
-            $query->whereDate('fecha', '>', today());
+            $query->where('cancelada', false)
+                  ->whereDate('fecha', '>', today());
         } else {
             if ($request->filled('fecha')) {
                 $query->whereDate('fecha', $request->input('fecha'));
@@ -64,10 +70,24 @@ class ClaseWebController extends Controller
                     $q->where('profesores.id', $request->input('profesor_id'))
                 );
             }
+            if ($request->filled('estado')) {
+                match ($request->input('estado')) {
+                    'cancelada'  => $query->where('cancelada', true),
+                    'programada' => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '>', today()),
+                    'finalizada' => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true)),
+                    'cerrada'    => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->whereHas('asistencias', fn($q) => $q->where('presente', true)),
+                    default      => null,
+                };
+            }
         }
-
-        // Estado se filtra por JS; sin filtros se muestra solo "programada"
-        $filtroEstado = $hayFiltros ? $request->input('estado', '') : 'programada';
 
         $clasesFiltradas = $query->paginate(20)->withQueryString();
 
@@ -83,7 +103,7 @@ class ClaseWebController extends Controller
         return view('clases.index', compact(
             'clasesHoy', 'clasesFiltradas',
             'grupos', 'deportes', 'profesores',
-            'ahora', 'esAdmin', 'filtroEstado'
+            'ahora', 'esAdmin'
         ));
     }
 
@@ -141,6 +161,7 @@ class ClaseWebController extends Controller
         $count = 0;
 
         if ($tipo === 'recurrente') {
+            $serieId    = Str::uuid()->toString();
             $diasSemana = array_map('intval', $request->input('dias_semana', []));
             $desde = Carbon::parse($validated['fecha_desde']);
             $hasta = Carbon::parse($validated['fecha_hasta']);
@@ -150,6 +171,7 @@ class ClaseWebController extends Controller
                 // Carbon dayOfWeek: 0=Sunday, 1=Monday ... 6=Saturday
                 if (in_array($current->dayOfWeek, $diasSemana)) {
                     $clase = Clase::create([
+                        'serie_id'    => $serieId,
                         'grupo_id'    => $validated['grupo_id'],
                         'fecha'       => $current->format('Y-m-d'),
                         'hora_inicio' => $validated['hora_inicio'],
@@ -166,6 +188,7 @@ class ClaseWebController extends Controller
             }
         } else {
             $clase = Clase::create([
+                'serie_id'    => null,
                 'grupo_id'    => $validated['grupo_id'],
                 'fecha'       => $validated['fecha'],
                 'hora_inicio' => $validated['hora_inicio'],
@@ -265,7 +288,7 @@ class ClaseWebController extends Controller
 
     public function edit(int $id)
     {
-        $clase      = Clase::with(['grupo.deporte', 'profesores'])->findOrFail($id);
+        $clase      = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores'])->findOrFail($id);
         $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
 
         return view('clases.edit', compact('clase', 'profesores'));
@@ -306,13 +329,25 @@ class ClaseWebController extends Controller
         $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
         if (!$clase->cancelada) {
-            // Cancelar: requiere motivo
             $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
-            $clase->update([
-                'cancelada'          => true,
-                'motivo_cancelacion' => $request->input('motivo_cancelacion'),
-            ]);
-            $mensaje = 'Clase cancelada.';
+            $motivo = $request->input('motivo_cancelacion');
+
+            if ($request->boolean('cancelar_serie') && $clase->serie_id) {
+                $count = Clase::where('serie_id', $clase->serie_id)
+                    ->where('cancelada', false)
+                    ->whereDate('fecha', '>=', today())
+                    ->update([
+                        'cancelada'          => true,
+                        'motivo_cancelacion' => $motivo,
+                    ]);
+                $mensaje = "{$count} clase(s) de la serie canceladas.";
+            } else {
+                $clase->update([
+                    'cancelada'          => true,
+                    'motivo_cancelacion' => $motivo,
+                ]);
+                $mensaje = 'Clase cancelada.';
+            }
         } else {
             // Reactivar: solo admin
             if (Auth::user()->rol !== 'ADMIN') {
