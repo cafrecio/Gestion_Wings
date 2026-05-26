@@ -80,16 +80,17 @@ class LiquidacionService
         })
             ->whereBetween('fecha', [$fechaInicio, $fechaFin])
             ->where('cancelada', false)
+            ->where(function ($q) {
+                $q->where('validada_para_liquidacion', true)
+                  ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
+            })
+            ->with('grupo')
             ->get();
 
         $total = 0;
         $valorHora = $profesor->valor_hora ?? 0;
 
         foreach ($clasesDelProfesor as $clase) {
-            if (!$clase->esLiquidable()) {
-                continue;
-            }
-
             $monto = $valorHora;
 
             LiquidacionDetalle::create([
@@ -423,6 +424,10 @@ class LiquidacionService
         })
             ->whereBetween('fecha', [$fechaInicio, $fechaFin])
             ->where('cancelada', false)
+            ->where(function ($q) {
+                $q->where('validada_para_liquidacion', true)
+                  ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
+            })
             ->with('grupo')
             ->get();
 
@@ -431,10 +436,6 @@ class LiquidacionService
         $valorHora = $profesor->valor_hora ?? 0;
 
         foreach ($clasesDelProfesor as $clase) {
-            if (!$clase->esLiquidable()) {
-                continue;
-            }
-
             $detalles[] = [
                 'tipo' => 'clase',
                 'referencia_id' => $clase->id,

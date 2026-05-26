@@ -13,6 +13,7 @@ class Clase extends Model
     protected $table = 'clases';
 
     protected $fillable = [
+        'serie_id',
         'grupo_id',
         'fecha',
         'hora_inicio',

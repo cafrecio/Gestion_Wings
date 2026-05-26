@@ -4,8 +4,10 @@ use App\Http\Controllers\AlumnoWebController;
 use App\Http\Controllers\ClaseWebController;
 use App\Http\Controllers\DeporteWebController;
 use App\Http\Controllers\GrupoWebController;
+use App\Http\Controllers\LiquidacionWebController;
 use App\Http\Controllers\NivelWebController;
 use App\Http\Controllers\ProfesorWebController;
+use App\Http\Controllers\TipoCajaWebController;
 use App\Http\Controllers\RubroWebController;
 use App\Http\Controllers\SubrubroWebController;
 use App\Http\Controllers\WebController;
@@ -95,6 +97,29 @@ Route::middleware('auth')->group(function () {
     Route::post('/clases/{id}/asistencias', [ClaseWebController::class, 'storeAsistencias'])->name('web.clases.asistencias');
     Route::patch('/clases/{id}/cancelar', [ClaseWebController::class, 'toggleCancelada'])->name('web.clases.toggle-cancelada');
     Route::patch('/clases/{id}/profesores', [ClaseWebController::class, 'actualizarProfesores'])->name('web.clases.profesores');
+
+    // Liquidaciones — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/liquidaciones', [LiquidacionWebController::class, 'index'])->name('web.liquidaciones.index');
+        Route::get('/liquidaciones/crear', [LiquidacionWebController::class, 'create'])->name('web.liquidaciones.create');
+        Route::post('/liquidaciones', [LiquidacionWebController::class, 'store'])->name('web.liquidaciones.store');
+        Route::get('/liquidaciones/{id}', [LiquidacionWebController::class, 'show'])->name('web.liquidaciones.show');
+        Route::post('/liquidaciones/{id}/cerrar', [LiquidacionWebController::class, 'cerrar'])->name('web.liquidaciones.cerrar');
+        Route::post('/liquidaciones/{id}/recalcular', [LiquidacionWebController::class, 'recalcular'])->name('web.liquidaciones.recalcular');
+        Route::delete('/liquidaciones/{id}', [LiquidacionWebController::class, 'eliminar'])->name('web.liquidaciones.eliminar');
+        Route::post('/liquidaciones/{id}/pagar', [LiquidacionWebController::class, 'pagar'])->name('web.liquidaciones.pagar');
+    });
+
+    // Tipos de Caja — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/tipos-caja', [TipoCajaWebController::class, 'index'])->name('web.tipos-caja.index');
+        Route::get('/tipos-caja/create', [TipoCajaWebController::class, 'create'])->name('web.tipos-caja.create');
+        Route::post('/tipos-caja', [TipoCajaWebController::class, 'store'])->name('web.tipos-caja.store');
+        Route::get('/tipos-caja/check-disponible', [TipoCajaWebController::class, 'checkDisponible'])->name('web.tipos-caja.check-disponible');
+        Route::get('/tipos-caja/{id}/edit', [TipoCajaWebController::class, 'edit'])->name('web.tipos-caja.edit');
+        Route::put('/tipos-caja/{id}', [TipoCajaWebController::class, 'update'])->name('web.tipos-caja.update');
+        Route::delete('/tipos-caja/{id}', [TipoCajaWebController::class, 'destroy'])->name('web.tipos-caja.destroy');
+    });
 
     // Niveles — solo admin
     Route::middleware('ensure.admin.web')->group(function () {

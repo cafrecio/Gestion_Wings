@@ -13,6 +13,7 @@ use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ClaseWebController extends Controller
 {
@@ -27,25 +28,21 @@ class ClaseWebController extends Controller
         // 1. Clases de HOY — siempre todas, sin filtro
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->whereDate('fecha', $hoy)
+            ->where('cancelada', false)
             ->orderBy('hora_inicio')
             ->get();
 
         // 2. Clases que NO son hoy — con filtros del request
-        $manana = Carbon::tomorrow()->format('Y-m-d');
+        $hayFiltros = $request->hasAny(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
+
+        $esPasado = $request->filled('estado') &&
+                    in_array($request->input('estado'), ['finalizada', 'cerrada']);
+        $dir = $esPasado ? 'desc' : 'asc';
 
         $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
-            ->whereDate('fecha', '!=', $hoy);
-
-        // Sin filtro de fecha explícito: mostrar desde mañana (más útil para el usuario)
-        // Con filtro explícito: respetar lo que pidió el usuario
-        if (!$request->filled('fecha')) {
-            $query->whereDate('fecha', '>=', $manana)
-                  ->orderBy('fecha', 'asc')
-                  ->orderBy('hora_inicio', 'asc');
-        } else {
-            $query->orderBy('fecha', 'asc')
-                  ->orderBy('hora_inicio', 'asc');
-        }
+            ->whereDate('fecha', '!=', $hoy)
+            ->orderBy('fecha', $dir)
+            ->orderBy('hora_inicio', $dir);
 
         // Límite temporal según rol (solo hacia atrás, si el usuario filtra fechas pasadas)
         if (!$esAdmin) {
@@ -53,28 +50,44 @@ class ClaseWebController extends Controller
             $query->whereDate('fecha', '>=', $limiteAtras);
         }
 
-        if ($request->filled('fecha')) {
-            $query->whereDate('fecha', $request->input('fecha'));
+        if (!$hayFiltros) {
+            $query->where('cancelada', false)
+                  ->whereDate('fecha', '>', today());
+        } else {
+            if ($request->filled('fecha')) {
+                $query->whereDate('fecha', $request->input('fecha'));
+            }
+            if ($request->filled('deporte_id')) {
+                $query->whereHas('grupo', fn($q) =>
+                    $q->where('deporte_id', $request->input('deporte_id'))
+                );
+            }
+            if ($request->filled('grupo_id')) {
+                $query->where('grupo_id', $request->input('grupo_id'));
+            }
+            if ($request->filled('profesor_id')) {
+                $query->whereHas('profesores', fn($q) =>
+                    $q->where('profesores.id', $request->input('profesor_id'))
+                );
+            }
+            if ($request->filled('estado')) {
+                match ($request->input('estado')) {
+                    'cancelada'  => $query->where('cancelada', true),
+                    'programada' => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '>', today()),
+                    'finalizada' => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true)),
+                    'cerrada'    => $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->whereHas('asistencias', fn($q) => $q->where('presente', true)),
+                    default      => null,
+                };
+            }
         }
-
-        if ($request->filled('deporte_id')) {
-            $query->whereHas('grupo', fn($q) =>
-                $q->where('deporte_id', $request->input('deporte_id'))
-            );
-        }
-
-        if ($request->filled('grupo_id')) {
-            $query->where('grupo_id', $request->input('grupo_id'));
-        }
-
-        if ($request->filled('profesor_id')) {
-            $query->whereHas('profesores', fn($q) =>
-                $q->where('profesores.id', $request->input('profesor_id'))
-            );
-        }
-
-        // Estado se filtra por JS en la vista
-        $filtroEstado = $request->input('estado', '');
 
         $clasesFiltradas = $query->paginate(20)->withQueryString();
 
@@ -90,7 +103,7 @@ class ClaseWebController extends Controller
         return view('clases.index', compact(
             'clasesHoy', 'clasesFiltradas',
             'grupos', 'deportes', 'profesores',
-            'ahora', 'esAdmin', 'filtroEstado'
+            'ahora', 'esAdmin'
         ));
     }
 
@@ -148,6 +161,7 @@ class ClaseWebController extends Controller
         $count = 0;
 
         if ($tipo === 'recurrente') {
+            $serieId    = Str::uuid()->toString();
             $diasSemana = array_map('intval', $request->input('dias_semana', []));
             $desde = Carbon::parse($validated['fecha_desde']);
             $hasta = Carbon::parse($validated['fecha_hasta']);
@@ -157,6 +171,7 @@ class ClaseWebController extends Controller
                 // Carbon dayOfWeek: 0=Sunday, 1=Monday ... 6=Saturday
                 if (in_array($current->dayOfWeek, $diasSemana)) {
                     $clase = Clase::create([
+                        'serie_id'    => $serieId,
                         'grupo_id'    => $validated['grupo_id'],
                         'fecha'       => $current->format('Y-m-d'),
                         'hora_inicio' => $validated['hora_inicio'],
@@ -173,6 +188,7 @@ class ClaseWebController extends Controller
             }
         } else {
             $clase = Clase::create([
+                'serie_id'    => null,
                 'grupo_id'    => $validated['grupo_id'],
                 'fecha'       => $validated['fecha'],
                 'hora_inicio' => $validated['hora_inicio'],
@@ -272,7 +288,7 @@ class ClaseWebController extends Controller
 
     public function edit(int $id)
     {
-        $clase      = Clase::with(['grupo.deporte', 'profesores'])->findOrFail($id);
+        $clase      = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores'])->findOrFail($id);
         $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
 
         return view('clases.edit', compact('clase', 'profesores'));
@@ -313,13 +329,25 @@ class ClaseWebController extends Controller
         $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
         if (!$clase->cancelada) {
-            // Cancelar: requiere motivo
             $request->validate(['motivo_cancelacion' => 'required|string|max:255']);
-            $clase->update([
-                'cancelada'          => true,
-                'motivo_cancelacion' => $request->input('motivo_cancelacion'),
-            ]);
-            $mensaje = 'Clase cancelada.';
+            $motivo = $request->input('motivo_cancelacion');
+
+            if ($request->boolean('cancelar_serie') && $clase->serie_id) {
+                $count = Clase::where('serie_id', $clase->serie_id)
+                    ->where('cancelada', false)
+                    ->whereDate('fecha', '>=', today())
+                    ->update([
+                        'cancelada'          => true,
+                        'motivo_cancelacion' => $motivo,
+                    ]);
+                $mensaje = "{$count} clase(s) de la serie canceladas.";
+            } else {
+                $clase->update([
+                    'cancelada'          => true,
+                    'motivo_cancelacion' => $motivo,
+                ]);
+                $mensaje = 'Clase cancelada.';
+            }
         } else {
             // Reactivar: solo admin
             if (Auth::user()->rol !== 'ADMIN') {
