@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profesor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ class UsuarioWebController extends Controller
 {
     public function index()
     {
-        $usuarios = User::orderBy('name')->paginate(30);
+        $usuarios = User::with('profesor')->orderBy('name')->paginate(30);
 
         return view('usuarios.index', compact('usuarios'));
     }
@@ -21,17 +22,28 @@ class UsuarioWebController extends Controller
     {
         $roles = User::getRoles();
 
-        return view('usuarios.create', compact('roles'));
+        $profesoresSinUsuario = Profesor::where('activo', true)
+            ->whereDoesntHave('user')
+            ->orderBy('apellido')
+            ->get();
+
+        return view('usuarios.create', compact('roles', 'profesoresSinUsuario'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name'                  => 'required|string|max:255',
-            'email'                 => 'required|email|unique:users,email',
-            'password'              => ['required', 'confirmed', Password::min(8)],
-            'rol'                   => 'required|in:ADMIN,OPERATIVO,PROFESOR',
-        ], [
+        $rules = [
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
+            'password' => ['required', 'confirmed', Password::min(8)],
+            'rol'      => 'required|in:ADMIN,OPERATIVO,PROFESOR',
+        ];
+
+        if ($request->input('rol') === User::ROL_PROFESOR) {
+            $rules['profesor_id'] = 'required|exists:profesores,id';
+        }
+
+        $request->validate($rules, [
             'name.required'         => 'El nombre es obligatorio.',
             'email.required'        => 'El email es obligatorio.',
             'email.email'           => 'El email no tiene un formato válido.',
@@ -40,13 +52,26 @@ class UsuarioWebController extends Controller
             'password.confirmed'    => 'Las contraseñas no coinciden.',
             'rol.required'          => 'El rol es obligatorio.',
             'rol.in'                => 'El rol seleccionado no es válido.',
+            'profesor_id.required'  => 'Debe seleccionar el profesor vinculado.',
+            'profesor_id.exists'    => 'El profesor seleccionado no existe.',
         ]);
 
+        $profesorId = null;
+
+        if ($request->input('rol') === User::ROL_PROFESOR) {
+            $profesor = Profesor::findOrFail($request->profesor_id);
+            if ($profesor->user) {
+                return back()->withInput()->with('error', 'Ese profesor ya tiene un usuario asignado.');
+            }
+            $profesorId = $profesor->id;
+        }
+
         User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'rol'      => $request->rol,
+            'name'        => $request->name,
+            'email'       => $request->email,
+            'password'    => Hash::make($request->password),
+            'rol'         => $request->rol,
+            'profesor_id' => $profesorId,
         ]);
 
         return redirect()->route('web.usuarios.index')
@@ -55,41 +80,67 @@ class UsuarioWebController extends Controller
 
     public function edit(int $id)
     {
-        $usuario = User::findOrFail($id);
+        $usuario = User::with('profesor')->findOrFail($id);
         $roles   = User::getRoles();
 
-        return view('usuarios.edit', compact('usuario', 'roles'));
+        $profesoresSinUsuario = Profesor::where('activo', true)
+            ->where(function ($q) use ($usuario) {
+                $q->whereDoesntHave('user')
+                  ->orWhere('id', $usuario->profesor_id);
+            })
+            ->orderBy('apellido')
+            ->get();
+
+        return view('usuarios.edit', compact('usuario', 'roles', 'profesoresSinUsuario'));
     }
 
     public function update(Request $request, int $id)
     {
         $usuario = User::findOrFail($id);
 
-        // Prevenir que el usuario cambie su propio rol
         if (Auth::id() === $usuario->id && $request->rol !== $usuario->rol) {
             return back()->withInput()->with('error', 'No podés cambiar tu propio rol.');
         }
 
-        $request->validate([
+        $rules = [
             'name'  => 'required|string|max:255',
             'email' => "required|email|unique:users,email,{$usuario->id}",
             'rol'   => 'required|in:ADMIN,OPERATIVO,PROFESOR',
-        ], [
-            'name.required'  => 'El nombre es obligatorio.',
-            'email.required' => 'El email es obligatorio.',
-            'email.email'    => 'El email no tiene un formato válido.',
-            'email.unique'   => 'Ya existe un usuario con ese email.',
-            'rol.required'   => 'El rol es obligatorio.',
-            'rol.in'         => 'El rol seleccionado no es válido.',
-        ]);
-
-        $data = [
-            'name'  => $request->name,
-            'email' => $request->email,
-            'rol'   => $request->rol,
         ];
 
-        // Contraseña es opcional en edición
+        if ($request->input('rol') === User::ROL_PROFESOR) {
+            $rules['profesor_id'] = 'required|exists:profesores,id';
+        }
+
+        $request->validate($rules, [
+            'name.required'         => 'El nombre es obligatorio.',
+            'email.required'        => 'El email es obligatorio.',
+            'email.email'           => 'El email no tiene un formato válido.',
+            'email.unique'          => 'Ya existe un usuario con ese email.',
+            'rol.required'          => 'El rol es obligatorio.',
+            'rol.in'                => 'El rol seleccionado no es válido.',
+            'profesor_id.required'  => 'Debe seleccionar el profesor vinculado.',
+            'profesor_id.exists'    => 'El profesor seleccionado no existe.',
+        ]);
+
+        $profesorId = null;
+
+        if ($request->input('rol') === User::ROL_PROFESOR) {
+            $profesor = Profesor::findOrFail($request->profesor_id);
+            // Verificar que no esté vinculado a otro usuario distinto al actual
+            if ($profesor->user && $profesor->user->id !== $usuario->id) {
+                return back()->withInput()->with('error', 'Ese profesor ya tiene un usuario asignado.');
+            }
+            $profesorId = $profesor->id;
+        }
+        // Si el rol cambia a no-PROFESOR, limpiar profesor_id
+        $data = [
+            'name'        => $request->name,
+            'email'       => $request->email,
+            'rol'         => $request->rol,
+            'profesor_id' => $profesorId,
+        ];
+
         if ($request->filled('password')) {
             $request->validate([
                 'password' => ['confirmed', Password::min(8)],

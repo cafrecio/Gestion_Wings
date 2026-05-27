@@ -112,6 +112,36 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
         </p>
         @endif
         @error('rol') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+
+        {{-- Panel profesor: visible solo cuando se selecciona rol PROFESOR --}}
+        <div id="panel-profesor" style="display:none; margin-top:12px;">
+            <label class="{{ $labelClass }}">
+                Profesor vinculado <span class="form-required">*</span>
+            </label>
+
+            @if($profesoresSinUsuario->isEmpty())
+                <p style="color:var(--color-warning); font-size:0.82rem;">
+                    Todos los profesores activos ya tienen usuario asignado.
+                </p>
+            @else
+                <select name="profesor_id" id="profesor_id"
+                        class="w-full px-4 py-2.5 text-sm wings-input">
+                    <option value="">Seleccionar profesor...</option>
+                    @foreach($profesoresSinUsuario as $prof)
+                        <option value="{{ $prof->id }}"
+                            {{ old('profesor_id', $usuario->profesor_id ?? '') == $prof->id ? 'selected' : '' }}>
+                            {{ $prof->apellido }}, {{ $prof->nombre }}
+                            — {{ $prof->deporte->nombre ?? 'Sin deporte' }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('profesor_id')
+                    <p class="text-xs mt-1" style="color:var(--color-danger);">
+                        {{ $message }}
+                    </p>
+                @enderror
+            @endif
+        </div>
     </div>
 
 </div>
@@ -195,5 +225,23 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
             });
         });
     });
+
+    /* Mostrar/ocultar panel profesor según rol */
+    const panelProfesor = document.getElementById('panel-profesor');
+
+    function actualizarPanelProfesor() {
+        const rolSeleccionado = document.querySelector('.rol-label input[type=radio]:checked');
+        if (panelProfesor) {
+            panelProfesor.style.display =
+                (rolSeleccionado && rolSeleccionado.value === 'PROFESOR') ? 'block' : 'none';
+        }
+    }
+
+    document.querySelectorAll('.rol-label input[type=radio]').forEach(function (radio) {
+        radio.addEventListener('change', actualizarPanelProfesor);
+    });
+
+    // Ejecutar al cargar para el caso de edición con rol ya seleccionado
+    actualizarPanelProfesor();
 })();
 </script>
