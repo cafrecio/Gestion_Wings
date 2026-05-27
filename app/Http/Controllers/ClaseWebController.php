@@ -21,9 +21,10 @@ class ClaseWebController extends Controller
 
     public function index(Request $request)
     {
-        $ahora   = Carbon::now();
-        $hoy     = $ahora->format('Y-m-d');
-        $esAdmin = Auth::user()->rol === 'ADMIN';
+        $ahora      = Carbon::now();
+        $hoy        = $ahora->format('Y-m-d');
+        $esAdmin    = Auth::user()->isAdmin();
+        $esProfesor = Auth::user()->isProfesor();
 
         // 1. Clases de HOY — siempre todas, sin filtro
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
@@ -103,7 +104,7 @@ class ClaseWebController extends Controller
         return view('clases.index', compact(
             'clasesHoy', 'clasesFiltradas',
             'grupos', 'deportes', 'profesores',
-            'ahora', 'esAdmin'
+            'ahora', 'esAdmin', 'esProfesor'
         ));
     }
 
@@ -227,9 +228,10 @@ class ClaseWebController extends Controller
         }
 
         $profesoresDisponibles = Profesor::where('activo', true)->orderBy('apellido')->get();
-        $esAdmin = Auth::user()->rol === 'ADMIN';
+        $esAdmin    = Auth::user()->isAdmin();
+        $esProfesor = Auth::user()->isProfesor();
 
-        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles', 'esAdmin'));
+        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles', 'esAdmin', 'esProfesor'));
     }
 
     public function storeAsistencias(Request $request, int $id)

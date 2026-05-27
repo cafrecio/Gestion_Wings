@@ -77,7 +77,7 @@
                 <strong>0</strong> alumnos encontrados
             @endif
         </div>
-        @if(Auth::user()->rol === 'ADMIN')
+        @if(auth()->user()->isAdmin() || auth()->user()->isOperativo())
             <x-ds.button variant="primary" href="{{ route('web.alumnos.create') }}">
                 Nuevo
             </x-ds.button>

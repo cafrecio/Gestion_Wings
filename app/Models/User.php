@@ -14,6 +14,10 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROL_ADMIN     = 'ADMIN';
+    const ROL_OPERATIVO = 'OPERATIVO';
+    const ROL_PROFESOR  = 'PROFESOR';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'rol',
+        'activo',
     ];
 
     /**
@@ -45,7 +50,8 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
+            'activo'            => 'boolean',
         ];
     }
 
@@ -73,11 +79,32 @@ class User extends Authenticatable
         return $this->hasMany(CashflowMovimiento::class, 'usuario_admin_id');
     }
 
-    /**
-     * Verificar si el usuario es administrador
-     */
+    public static function getRoles(): array
+    {
+        return [
+            self::ROL_ADMIN     => 'Administrador',
+            self::ROL_OPERATIVO => 'Operativo',
+            self::ROL_PROFESOR  => 'Profesor',
+        ];
+    }
+
     public function isAdmin(): bool
     {
-        return $this->rol === 'ADMIN';
+        return $this->rol === self::ROL_ADMIN;
+    }
+
+    public function isOperativo(): bool
+    {
+        return $this->rol === self::ROL_OPERATIVO;
+    }
+
+    public function isProfesor(): bool
+    {
+        return $this->rol === self::ROL_PROFESOR;
+    }
+
+    public function isActivo(): bool
+    {
+        return (bool) $this->activo;
     }
 }

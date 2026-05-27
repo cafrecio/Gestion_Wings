@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoWebController;
+use App\Http\Controllers\UsuarioWebController;
 use App\Http\Controllers\ClaseWebController;
 use App\Http\Controllers\DeporteWebController;
 use App\Http\Controllers\GrupoWebController;
@@ -130,6 +131,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/niveles/{id}/edit', [NivelWebController::class, 'edit'])->name('web.niveles.edit');
         Route::put('/niveles/{id}', [NivelWebController::class, 'update'])->name('web.niveles.update');
         Route::delete('/niveles/{id}', [NivelWebController::class, 'destroy'])->name('web.niveles.destroy');
+    });
+
+    // Usuarios — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/usuarios', [UsuarioWebController::class, 'index'])->name('web.usuarios.index');
+        Route::get('/usuarios/create', [UsuarioWebController::class, 'create'])->name('web.usuarios.create');
+        Route::post('/usuarios', [UsuarioWebController::class, 'store'])->name('web.usuarios.store');
+        Route::get('/usuarios/check-email', [UsuarioWebController::class, 'checkEmail'])->name('web.usuarios.check-email');
+        Route::get('/usuarios/{id}/edit', [UsuarioWebController::class, 'edit'])->name('web.usuarios.edit');
+        Route::put('/usuarios/{id}', [UsuarioWebController::class, 'update'])->name('web.usuarios.update');
+        Route::patch('/usuarios/{id}/toggle-activo', [UsuarioWebController::class, 'toggleActivo'])->name('web.usuarios.toggle-activo');
     });
 
     // Profesores — solo admin

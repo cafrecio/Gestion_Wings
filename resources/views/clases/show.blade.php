@@ -21,14 +21,6 @@
 
 @section('content')
 
-{{-- Flash messages --}}
-@if(session('success'))
-    <div class="ds-flash ds-flash--success mb-4">{{ session('success') }}</div>
-@endif
-@if(session('error'))
-    <div class="ds-flash ds-flash--error mb-4">{{ session('error') }}</div>
-@endif
-
 {{-- ── Header de la clase ─────────────────────────────────────────────────── --}}
 <div class="filtros-card mb-3" style="padding:0; overflow:hidden;">
     <div style="display:flex;">
@@ -103,8 +95,8 @@
             {{-- Acciones --}}
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
 
-                {{-- Cancelar clase: panel inline (solo si no cancelada) --}}
-                @if(!$clase->cancelada)
+                {{-- Cancelar clase: panel inline (solo si no cancelada, no para profesor) --}}
+                @if(!$clase->cancelada && !$esProfesor)
                     <button id="btn-abrir-cancelar"
                             style="display:inline-flex; align-items:center; justify-content:center;
                                    width:96px; height:32px; font-size:0.82rem; font-weight:600;

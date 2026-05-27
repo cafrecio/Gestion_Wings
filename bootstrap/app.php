@@ -17,8 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'bloqueo.caja.vieja' => \App\Http\Middleware\BloqueoCajaViejaOperativo::class,
-            'ensure.admin' => \App\Http\Middleware\EnsureAdmin::class,
-            'ensure.admin.web' => \App\Http\Middleware\EnsureAdminWeb::class,
+            'ensure.admin'      => \App\Http\Middleware\EnsureAdmin::class,
+            'ensure.admin.web'  => \App\Http\Middleware\EnsureAdminWeb::class,
+            'ensure.profesor.web' => \App\Http\Middleware\EnsureProfesorWeb::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

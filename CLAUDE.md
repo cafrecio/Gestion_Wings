@@ -74,6 +74,20 @@ Los tests corren sobre SQLite :memory: (configurado en `phpunit.xml`), no tocan 
 - `app/Services/LiquidacionService.php` — Liquidaciones a profesores
 - `app/Services/CashflowService.php` — Movimientos de cashflow
 
+## Roles de usuario
+
+Tres roles definidos como constantes en `App\Models\User`:
+
+| Constante        | Valor       | Acceso                                                        |
+|------------------|-------------|---------------------------------------------------------------|
+| `ROL_ADMIN`      | `ADMIN`     | Todo el sistema. Login → `/admin/dashboard`                  |
+| `ROL_OPERATIVO`  | `OPERATIVO` | Caja, alumnos, clases. Login → `/caja`                       |
+| `ROL_PROFESOR`   | `PROFESOR`  | Solo clases (index, show, asistencias). Login → `/clases`    |
+
+Middlewares:
+- `ensure.admin.web` → solo ADMIN (redirige PROFESOR a `/clases`, OPERATIVO a `/caja`)
+- `ensure.profesor.web` → solo PROFESOR (redirige ADMIN a `/admin/dashboard`, OPERATIVO a `/caja`)
+
 ## Contratos
 
 Los documentos de negocio están en `Contratos/`. Consultar antes de modificar reglas de negocio.

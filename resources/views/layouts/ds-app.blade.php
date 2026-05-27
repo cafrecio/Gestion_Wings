@@ -27,113 +27,148 @@
         {{-- Nav --}}
         <nav class="flex flex-col gap-1">
             @auth
-                @if(Auth::user()->rol === 'ADMIN')
-                    <a href="{{ route('admin.dashboard') }}"
-                       class="ds-nav-link {{ request()->is('admin/dashboard') ? 'ds-nav-link--active' : '' }}">
+
+                @if(Auth::user()->isProfesor())
+
+                    {{-- ── Sidebar mínimo para PROFESOR ── --}}
+                    <a href="{{ route('web.clases.index') }}"
+                       class="ds-nav-link {{ request()->is('clases*') ? 'ds-nav-link--active' : '' }}">
                         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
-                        Dashboard
+                        Clases
+                        @if($badgeClasesPendientes > 0)
+                            <span style="margin-left:auto; background:var(--color-danger);
+                                         color:#fff; font-size:0.65rem; font-weight:700;
+                                         padding:1px 6px; border-radius:999px; min-width:18px;
+                                         text-align:center;">
+                                {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
+                            </span>
+                        @endif
                     </a>
+
                 @else
-                    <a href="{{ route('operativo.caja') }}"
-                       class="ds-nav-link {{ request()->is('caja') ? 'ds-nav-link--active' : '' }}">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                        Caja
-                    </a>
-                @endif
 
-                <a href="{{ route('web.alumnos.index') }}"
-                   class="ds-nav-link {{ request()->is('alumnos*') ? 'ds-nav-link--active' : '' }}">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
-                    </svg>
-                    Alumnos
-                </a>
-
-                <a href="{{ route('web.clases.index') }}"
-                   class="ds-nav-link {{ request()->is('clases*') ? 'ds-nav-link--active' : '' }}">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    Clases
-                    @if($badgeClasesPendientes > 0)
-                        <span style="margin-left:auto; background:var(--color-danger);
-                                     color:#fff; font-size:0.65rem; font-weight:700;
-                                     padding:1px 6px; border-radius:999px; min-width:18px;
-                                     text-align:center;">
-                            {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
-                        </span>
+                    {{-- ── Sidebar completo para ADMIN y OPERATIVO ── --}}
+                    @if(Auth::user()->isAdmin())
+                        <a href="{{ route('admin.dashboard') }}"
+                           class="ds-nav-link {{ request()->is('admin/dashboard') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="{{ route('operativo.caja') }}"
+                           class="ds-nav-link {{ request()->is('caja') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
                     @endif
-                </a>
 
-                @if(Auth::user()->rol === 'ADMIN')
-                <a href="{{ route('web.profesores.index') }}"
-                   class="ds-nav-link {{ request()->is('profesores*') ? 'ds-nav-link--active' : '' }}">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                    Profesores
-                </a>
-                @endif
-
-                {{-- Separador visual --}}
-                <div style="height:1px; background:rgba(255,255,255,0.1); margin: 6px 0;"></div>
-
-                <a href="{{ route('web.grupos.index') }}"
-                   class="ds-nav-link {{ request()->is('grupos*') ? 'ds-nav-link--active' : '' }}">
-                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    Grupos
-                </a>
-
-                @if(Auth::user()->rol === 'ADMIN')
-                    <a href="{{ route('web.deportes.index') }}"
-                       class="ds-nav-link {{ request()->is('deportes*') ? 'ds-nav-link--active' : '' }}">
+                    <a href="{{ route('web.alumnos.index') }}"
+                       class="ds-nav-link {{ request()->is('alumnos*') ? 'ds-nav-link--active' : '' }}">
                         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
                         </svg>
-                        Deportes
+                        Alumnos
                     </a>
 
-                    <a href="{{ route('web.rubros.index') }}"
-                       class="ds-nav-link {{ request()->is('rubros*') ? 'ds-nav-link--active' : '' }}">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                        </svg>
-                        Rubros
-                    </a>
-
-                    <a href="{{ route('web.niveles.index') }}"
-                       class="ds-nav-link {{ request()->is('niveles*') ? 'ds-nav-link--active' : '' }}">
+                    <a href="{{ route('web.clases.index') }}"
+                       class="ds-nav-link {{ request()->is('clases*') ? 'ds-nav-link--active' : '' }}">
                         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
-                        Niveles
+                        Clases
+                        @if($badgeClasesPendientes > 0)
+                            <span style="margin-left:auto; background:var(--color-danger);
+                                         color:#fff; font-size:0.65rem; font-weight:700;
+                                         padding:1px 6px; border-radius:999px; min-width:18px;
+                                         text-align:center;">
+                                {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
+                            </span>
+                        @endif
                     </a>
 
-                    <a href="{{ route('web.tipos-caja.index') }}"
-                       class="ds-nav-link {{ request()->is('tipos-caja*') ? 'ds-nav-link--active' : '' }}">
+                    @if(Auth::user()->isAdmin())
+                    <a href="{{ route('web.profesores.index') }}"
+                       class="ds-nav-link {{ request()->is('profesores*') ? 'ds-nav-link--active' : '' }}">
                         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                        Tipos de Caja
+                        Profesores
+                    </a>
+                    @endif
+
+                    {{-- Separador visual --}}
+                    <div style="height:1px; background:rgba(255,255,255,0.1); margin: 6px 0;"></div>
+
+                    <a href="{{ route('web.grupos.index') }}"
+                       class="ds-nav-link {{ request()->is('grupos*') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Grupos
                     </a>
 
-                    <a href="{{ route('web.liquidaciones.index') }}"
-                       class="ds-nav-link {{ request()->is('liquidaciones*') ? 'ds-nav-link--active' : '' }}">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                        </svg>
-                        Liquidaciones
-                    </a>
+                    @if(Auth::user()->isAdmin())
+                        <a href="{{ route('web.deportes.index') }}"
+                           class="ds-nav-link {{ request()->is('deportes*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Deportes
+                        </a>
+
+                        <a href="{{ route('web.rubros.index') }}"
+                           class="ds-nav-link {{ request()->is('rubros*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                            Rubros
+                        </a>
+
+                        <a href="{{ route('web.niveles.index') }}"
+                           class="ds-nav-link {{ request()->is('niveles*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                            </svg>
+                            Niveles
+                        </a>
+
+                        <a href="{{ route('web.tipos-caja.index') }}"
+                           class="ds-nav-link {{ request()->is('tipos-caja*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            Tipos de Caja
+                        </a>
+
+                        <a href="{{ route('web.liquidaciones.index') }}"
+                           class="ds-nav-link {{ request()->is('liquidaciones*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            Liquidaciones
+                        </a>
+
+                        <a href="{{ route('web.usuarios.index') }}"
+                           class="ds-nav-link {{ request()->is('usuarios*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Usuarios
+                        </a>
+                    @endif
+
                 @endif
             @endauth
         </nav>
@@ -186,6 +221,17 @@
 @stack('scripts')
 
 <script>
+/* ── flash auto-dismiss (3s + fade 0.5s) ── */
+(function () {
+    setTimeout(function () {
+        document.querySelectorAll('.ds-flash').forEach(function (el) {
+            el.style.transition = 'opacity 0.5s ease';
+            el.style.opacity = '0';
+            setTimeout(function () { el.remove(); }, 500);
+        });
+    }, 3000);
+})();
+
 /* ── money-input: formato numérico con separador de miles (punto) ── */
 (function () {
     function toDisplay(raw) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\DeudaCuota;
 use App\Models\TipoCaja;
+use App\Models\User;
 use App\Services\PagoCuotaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -153,10 +154,10 @@ class WebController extends Controller
 
     private function redirectByRole($user)
     {
-        if ($user->rol === 'ADMIN') {
-            return redirect('/admin/dashboard');
-        }
-
-        return redirect('/caja');
+        return match ($user->rol) {
+            User::ROL_ADMIN    => redirect()->route('admin.dashboard'),
+            User::ROL_PROFESOR => redirect()->route('web.clases.index'),
+            default            => redirect()->route('operativo.caja'),
+        };
     }
 }
