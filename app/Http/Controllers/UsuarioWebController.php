@@ -156,15 +156,22 @@ class UsuarioWebController extends Controller
             ->with('success', 'Usuario actualizado correctamente.');
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $usuario = User::findOrFail($id);
 
         if ($usuario->id === Auth::id()) {
+            if ($request->expectsJson()) {
+                return response()->json(['error' => 'No podés inactivarte a vos mismo.'], 403);
+            }
             return back()->with('error', 'No podés inactivarte a vos mismo.');
         }
 
         $usuario->update(['activo' => !$usuario->activo]);
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $usuario->activo]);
+        }
 
         return back();
     }

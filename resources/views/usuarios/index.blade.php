@@ -87,17 +87,13 @@
     <div class="alumno-actions">
         <a href="{{ route('web.usuarios.edit', $usuario->id) }}" style="{{ $btnBSec }}">Editar</a>
 
-        <form class="toggle-activo-form"
-              method="POST"
-              action="{{ route('web.usuarios.toggle-activo', $usuario->id) }}">
-            @csrf @method('PATCH')
-            <x-ds.toggle
-                labelOn="Activo"
-                labelOff="Inactivo"
-                :checked="$activo"
-                :disabled="$esSelf"
-            />
-        </form>
+        <x-ds.toggle
+            labelOn="Activo"
+            labelOff="Inactivo"
+            :checked="$activo"
+            :disabled="$esSelf"
+            data-url="{{ route('web.usuarios.toggle-activo', $usuario->id) }}"
+        />
     </div>
 
 </div>
@@ -124,13 +120,38 @@
 
 @push('scripts')
 <script>
-document.querySelectorAll('.toggle-activo-form').forEach(function (form) {
-    var toggle = form.querySelector('.ds-toggle__input');
-    if (toggle && !toggle.disabled) {
-        toggle.addEventListener('change', function () {
-            form.submit();
+(function () {
+    var csrf = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
+
+    document.querySelectorAll('.ds-toggle[data-url]').forEach(function (label) {
+        var input = label.querySelector('.ds-toggle__input');
+        if (!input || input.disabled) return;
+
+        input.addEventListener('change', function () {
+            var url  = label.dataset.url;
+            var card = label.closest('.alumno-card');
+
+            fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'X-CSRF-TOKEN':     csrf,
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept':           'application/json',
+                    'Content-Type':     'application/json',
+                },
+            })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data.activo !== undefined && card) {
+                    card.style.opacity = data.activo ? '' : '0.6';
+                }
+            })
+            .catch(function () {
+                // revertir visualmente si falló
+                input.checked = !input.checked;
+            });
         });
-    }
-});
+    });
+})();
 </script>
 @endpush

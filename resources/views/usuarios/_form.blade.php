@@ -136,7 +136,7 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
                     @endforeach
                 </select>
                 @error('profesor_id')
-                    <p class="text-xs mt-1" style="color:var(--color-danger);">
+                    <p id="error-profesor-id" class="text-xs mt-1" style="color:var(--color-danger);">
                         {{ $message }}
                     </p>
                 @enderror
@@ -243,5 +243,14 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
 
     // Ejecutar al cargar para el caso de edición con rol ya seleccionado
     actualizarPanelProfesor();
+
+    /* Ocultar error profesor_id al seleccionar un valor */
+    const profesorSelect = document.getElementById('profesor_id');
+    if (profesorSelect) {
+        profesorSelect.addEventListener('change', function () {
+            const errorEl = document.getElementById('error-profesor-id');
+            if (errorEl && this.value) errorEl.style.display = 'none';
+        });
+    }
 })();
 </script>
