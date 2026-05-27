@@ -31,7 +31,7 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
                required maxlength="255" tabindex="2"
                class="w-full px-4 py-2.5 text-sm wings-input"
                placeholder="usuario@ejemplo.com">
-        @error('email') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @error('email') <p id="error-email-usuario-sv" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
         <div id="error-email-usuario"
              style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
             Ya existe un usuario con ese email.
@@ -49,7 +49,7 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
                minlength="8" tabindex="3"
                class="w-full px-4 py-2.5 text-sm wings-input"
                placeholder="{{ isset($usuario) ? 'Dejar en blanco para no cambiar' : 'Mínimo 8 caracteres' }}">
-        @error('password') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @error('password') <p id="error-password-usuario" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
     {{-- Confirmar contraseña --}}
@@ -156,6 +156,8 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
     const btnSubmit   = document.querySelector('[type="submit"]');
     const usuarioId   = document.getElementById('usuario-id-actual').value;
 
+    const emailErrorSv = document.getElementById('error-email-usuario-sv');
+
     async function verificarEmail() {
         const email = emailInput ? emailInput.value.trim() : '';
         if (!email) { emailError.style.display = 'none'; habilitarSubmit(); return; }
@@ -169,6 +171,7 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
                 deshabilitarSubmit();
             } else {
                 emailError.style.display = 'none';
+                if (emailErrorSv) emailErrorSv.style.display = 'none';
                 habilitarSubmit();
             }
         } catch(e) {
@@ -198,12 +201,15 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
         return pw !== '' && pwc !== '' && pw !== pwc;
     }
 
+    const pwErrorSv = document.getElementById('error-password-usuario');
+
     function verificarPassword() {
         if (hayErrorPassword()) {
             pwError.style.display = 'block';
             deshabilitarSubmit();
         } else {
             pwError.style.display = 'none';
+            if (pwErrorSv) pwErrorSv.style.display = 'none';
             if (emailError.style.display === 'none') habilitarSubmit();
         }
     }

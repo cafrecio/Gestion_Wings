@@ -68,7 +68,7 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
                        required
                        class="w-full px-4 py-2.5 text-sm wings-input">
                 <p id="hora-fin-error" class="text-xs mt-1" style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
-                @error('hora_fin') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
+                @error('hora_fin') <p id="error-hora-fin" class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
             </div>
 
         </div>
@@ -125,6 +125,8 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
     const horaFin      = document.getElementById('hora_fin');
     const horaFinError = document.getElementById('hora-fin-error');
 
+    const horaFinErrorSv = document.getElementById('error-hora-fin');
+
     function validarHoras() {
         if (!horaInicio.value || !horaFin.value) return;
         if (horaFin.value <= horaInicio.value) {
@@ -132,6 +134,7 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
             horaFin.setCustomValidity('La hora de fin debe ser posterior a la hora de inicio.');
         } else {
             horaFinError.style.display = 'none';
+            if (horaFinErrorSv) horaFinErrorSv.style.display = 'none';
             horaFin.setCustomValidity('');
         }
     }

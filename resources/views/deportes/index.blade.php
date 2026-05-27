@@ -43,16 +43,12 @@
             </div>
 
             <div class="alumno-actions">
-                <form class="toggle-activo-form"
-                      method="POST"
-                      action="{{ route('web.deportes.toggle-activo', $deporte->id) }}">
-                    @csrf @method('PATCH')
-                    <x-ds.toggle
-                        labelOn="Activo"
-                        labelOff="Inactivo"
-                        :checked="(bool) $deporte->activo"
-                    />
-                </form>
+                <x-ds.toggle
+                    labelOn="Activo"
+                    labelOff="Inactivo"
+                    :checked="(bool) $deporte->activo"
+                    data-url="{{ route('web.deportes.toggle-activo', $deporte->id) }}"
+                />
 
                 <x-ds.button variant="secondary"
                              href="{{ route('web.deportes.edit', $deporte->id) }}">
@@ -77,12 +73,3 @@
 
 @endsection
 
-@push('scripts')
-<script>
-document.querySelectorAll('.toggle-activo-form').forEach(form => {
-    form.querySelector('.ds-toggle__input').addEventListener('change', function () {
-        form.submit();
-    });
-});
-</script>
-@endpush

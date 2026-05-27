@@ -65,10 +65,14 @@ class DeporteWebController extends Controller
         return redirect()->route('web.deportes.index')->with('success', 'Deporte actualizado correctamente.');
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $deporte = Deporte::findOrFail($id);
         $deporte->update(['activo' => !$deporte->activo]);
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $deporte->activo]);
+        }
 
         $estado = $deporte->activo ? 'activado' : 'desactivado';
         return back()->with('success', "Deporte {$estado} correctamente.");

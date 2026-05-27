@@ -89,13 +89,16 @@ class ProfesorWebController extends Controller
         return redirect()->route('web.profesores.index')->with('success', 'Profesor actualizado correctamente.');
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $profesor = Profesor::findOrFail($id);
         $profesor->update(['activo' => !$profesor->activo]);
 
-        $estado = $profesor->activo ? 'activado' : 'desactivado';
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $profesor->activo]);
+        }
 
+        $estado = $profesor->activo ? 'activado' : 'desactivado';
         return back()->with('success', "Profesor {$estado} correctamente.");
     }
 

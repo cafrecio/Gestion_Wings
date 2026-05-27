@@ -221,6 +221,45 @@
 @stack('scripts')
 
 <script>
+/* ── toggle activo global: fetch PATCH sin recarga ─────────────────────
+   Aplica a cualquier <x-ds.toggle data-url="..."> del sistema.
+   Toggles de formulario (permite_descubierto, afecta_caja, etc.) no
+   tienen data-url y no son interceptados.
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    var csrf = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
+
+    document.querySelectorAll('.ds-toggle[data-url]').forEach(function (label) {
+        var input = label.querySelector('.ds-toggle__input');
+        if (!input || input.disabled) return;
+
+        input.addEventListener('change', function () {
+            var url  = label.dataset.url;
+            var card = label.closest('.alumno-card');
+
+            fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'X-CSRF-TOKEN':     csrf,
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept':           'application/json',
+                    'Content-Type':     'application/json',
+                },
+            })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data.activo !== undefined && card) {
+                    card.style.opacity = data.activo ? '' : '0.6';
+                }
+            })
+            .catch(function () {
+                // revertir estado visual si la petición falló
+                input.checked = !input.checked;
+            });
+        });
+    });
+})();
+
 /* ── flash auto-dismiss (3s + fade 0.5s) ── */
 (function () {
     setTimeout(function () {

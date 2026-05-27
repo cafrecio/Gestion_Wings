@@ -16,7 +16,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                required autofocus maxlength="100"
                class="w-full px-4 py-2.5 text-sm wings-input"
                placeholder="Ej: Caja Chica">
-        @error('nombre') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @error('nombre') <p id="error-nombre-tipo-caja-sv" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
         <div id="error-nombre-tipo-caja"
              style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
             Ya existe un tipo de caja con ese nombre.
@@ -64,6 +64,8 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 
     if (!input) return;
 
+    const errorSv = document.getElementById('error-nombre-tipo-caja-sv');
+
     async function verificar() {
         const nombre = input.value.trim();
         if (!nombre) {
@@ -81,6 +83,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                 if (btnSubmit) btnSubmit.disabled = true;
             } else {
                 errorDiv.style.display = 'none';
+                if (errorSv) errorSv.style.display = 'none';
                 if (btnSubmit) btnSubmit.disabled = false;
             }
         } catch(e) {

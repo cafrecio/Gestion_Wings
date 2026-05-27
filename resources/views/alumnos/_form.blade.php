@@ -49,7 +49,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                max="{{ date('Y-m-d') }}"
                class="w-full px-4 py-2.5 text-sm wings-input">
         <p id="fecha-nacimiento-error" class="text-xs mt-1" style="color: var(--color-danger); display:none;"></p>
-        @error('fecha_nacimiento') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @error('fecha_nacimiento') <p id="error-fecha-nacimiento" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
     {{-- Celular --}}
@@ -76,7 +76,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         <input type="text" id="email" name="email" value="{{ old('email', $alumno->email ?? '') }}"
                class="w-full px-4 py-2.5 text-sm wings-input" placeholder="email@ejemplo.com">
         <p id="email-error" class="text-xs mt-1" style="color: var(--color-danger); display:none;"></p>
-        @error('email') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @error('email') <p id="error-email-alumno" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
     {{-- Deporte: fijo en edición (DNI:Deporte es 1:1), seleccionable en create --}}
@@ -248,8 +248,9 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
     });
 
     // Validación fecha de nacimiento en tiempo real
-    const fechaInput = document.getElementById('fecha_nacimiento');
-    const fechaError = document.getElementById('fecha-nacimiento-error');
+    const fechaInput   = document.getElementById('fecha_nacimiento');
+    const fechaError   = document.getElementById('fecha-nacimiento-error');
+    const fechaErrorSv = document.getElementById('error-fecha-nacimiento');
     if (fechaInput && fechaError) {
         fechaInput.addEventListener('input', function () {
             const val = this.value;
@@ -267,14 +268,16 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             } else {
                 fechaError.style.display = 'none';
                 fechaError.textContent = '';
+                if (fechaErrorSv) fechaErrorSv.style.display = 'none';
                 this.setCustomValidity('');
             }
         });
     }
 
     // Validación email en tiempo real
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('email-error');
+    const emailInput   = document.getElementById('email');
+    const emailError   = document.getElementById('email-error');
+    const emailErrorSv = document.getElementById('error-email-alumno');
     if (emailInput && emailError) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         function validarEmail() {
@@ -284,6 +287,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             } else {
                 emailError.style.display = 'none';
                 emailError.textContent = '';
+                if (emailErrorSv) emailErrorSv.style.display = 'none';
             }
         }
         emailInput.addEventListener('blur', validarEmail);
@@ -291,6 +295,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             if (!this.value || emailRegex.test(this.value)) {
                 emailError.style.display = 'none';
                 emailError.textContent = '';
+                if (emailErrorSv) emailErrorSv.style.display = 'none';
             }
         });
     }

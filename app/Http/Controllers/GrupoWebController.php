@@ -187,13 +187,16 @@ class GrupoWebController extends Controller
         return response()->json(['disponible' => !$query->exists()]);
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $grupo = Grupo::findOrFail($id);
         $grupo->update(['activo' => !$grupo->activo]);
 
-        $estado = $grupo->activo ? 'activado' : 'desactivado';
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $grupo->activo]);
+        }
 
+        $estado = $grupo->activo ? 'activado' : 'desactivado';
         return back()->with('success', "Grupo {$estado} correctamente.");
     }
 

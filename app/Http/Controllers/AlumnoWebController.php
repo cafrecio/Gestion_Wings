@@ -132,10 +132,14 @@ class AlumnoWebController extends Controller
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno creado correctamente.');
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $alumno = Alumno::findOrFail($id);
         $alumno->update(['activo' => !$alumno->activo]);
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $alumno->activo]);
+        }
 
         $estado = $alumno->activo ? 'activado' : 'desactivado';
         return back()->with('success', "Alumno {$estado} correctamente.");

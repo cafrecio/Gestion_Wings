@@ -169,16 +169,12 @@
                     Editar
                 </x-ds.button>
 
-                <form class="toggle-activo-form"
-                      method="POST"
-                      action="{{ route('web.profesores.toggle-activo', $profesor->id) }}">
-                    @csrf @method('PATCH')
-                    <x-ds.toggle
-                        labelOn="Activo"
-                        labelOff="Inactivo"
-                        :checked="(bool) $profesor->activo"
-                    />
-                </form>
+                <x-ds.toggle
+                    labelOn="Activo"
+                    labelOff="Inactivo"
+                    :checked="(bool) $profesor->activo"
+                    data-url="{{ route('web.profesores.toggle-activo', $profesor->id) }}"
+                />
             </div>
 
         </div>
@@ -207,12 +203,6 @@
 
 @push('scripts')
 <script>
-document.querySelectorAll('.toggle-activo-form').forEach(form => {
-    form.querySelector('.ds-toggle__input').addEventListener('change', function () {
-        form.submit();
-    });
-});
-
 (function () {
     const filterForm    = document.querySelector('form[method="GET"]');
     const deporteSelect = document.getElementById('filter-deporte');
