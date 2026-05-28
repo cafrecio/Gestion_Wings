@@ -222,7 +222,7 @@
 
 <script>
 /* ── toggle activo global: fetch PATCH sin recarga ─────────────────────
-   Aplica a cualquier <x-ds.toggle data-url="..."> del sistema.
+   Aplica a cualquier .ds-toggle[data-url] del sistema.
    Toggles de formulario (permite_descubierto, afecta_caja, etc.) no
    tienen data-url y no son interceptados.
 ──────────────────────────────────────────────────────────────────── */
