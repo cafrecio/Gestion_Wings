@@ -106,6 +106,8 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 - Izquierda: conteo/info del módulo (puede incluir badge de tipo si aplica).
 - Derecha: único botón primario de la sección (Objeto A).
 - Un `stats-bar` por sección, no por card individual.
+- **Aplica también a subsecciones dentro de una misma vista** (ej: "Reglas de primer cobro" dentro de Configuración). Si una subsección tiene acción primaria (Agregar, Nuevo), va en el `stats-bar` de esa subsección, no debajo de las cards ni flotando solo en la página.
+- El botón de acción primaria de una subsección inline (sin página propia) usa `x-ds.button variant="primary"` igual que en vistas completas.
 
 ---
 

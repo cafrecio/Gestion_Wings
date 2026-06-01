@@ -87,7 +87,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (1,'Juan','Pérez',NULL,'2001-02-11','555-0001',NULL,NULL,'juan@example.com',2,3,'2026-01-05',1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(2,'María','González',NULL,'2006-02-11','555-0002',NULL,NULL,'maria@example.com',1,2,'2026-01-18',1,'2026-02-11 17:47:42','2026-03-08 11:36:38'),(3,'Carlos','Rodríguez',NULL,'2011-02-11','555-0003','Roberto Rodríguez','555-0004',NULL,1,1,'2026-01-27',1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(4,'Vanina','Attorresi','11966411','2017-03-13','1167675827','Graciela','1167675827','vaninaatto@hotmail.com',2,3,'2026-03-08',1,'2026-03-08 16:19:16','2026-03-08 16:25:22'),(5,'Morena','Attorresi','44333666','2020-03-31','1167675827','Vani','1167675827','vaninaatto@hotmail.com',2,3,'2026-03-08',1,'2026-03-08 16:27:22','2026-03-08 16:27:22');
+INSERT INTO `alumnos` VALUES (1,'Juan','Pérez',NULL,'2001-02-11','555-0001',NULL,NULL,'juan@example.com',2,3,'2026-01-05',1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(2,'María','González',NULL,'2006-02-11','555-0002',NULL,NULL,'maria@example.com',1,2,'2026-01-18',1,'2026-02-11 17:47:42','2026-03-08 11:36:38'),(3,'Carlos','Rodríguez',NULL,'2011-02-11','555-0003','Roberto Rodríguez','555-0004',NULL,1,1,'2026-01-27',1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(4,'Vanina','Attorresi','11966411','2017-03-13','1167675827','Graciela','1167675827','vaninaatto@hotmail.com',2,3,'2026-03-08',1,'2026-03-08 16:19:16','2026-03-08 16:25:22'),(5,'Morena','Attorresi','44333666','2020-03-31','1167675827','Vani','1167675827','vaninaatto@hotmail.com',2,3,'2026-03-08',1,'2026-03-08 16:27:22','2026-05-28 12:04:40');
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +174,7 @@ CREATE TABLE `asistencias` (
   KEY `asistencias_alumno_id_foreign` (`alumno_id`),
   CONSTRAINT `asistencias_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE CASCADE,
   CONSTRAINT `asistencias_clase_id_foreign` FOREIGN KEY (`clase_id`) REFERENCES `clases` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,6 +183,7 @@ CREATE TABLE `asistencias` (
 
 LOCK TABLES `asistencias` WRITE;
 /*!40000 ALTER TABLE `asistencias` DISABLE KEYS */;
+INSERT INTO `asistencias` VALUES (1,25,5,1,'2026-05-28 12:27:54','2026-05-28 12:27:54'),(2,25,4,1,'2026-05-28 12:27:54','2026-05-28 12:27:54'),(3,25,1,1,'2026-05-28 12:27:54','2026-05-28 12:27:54');
 /*!40000 ALTER TABLE `asistencias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,6 +382,36 @@ INSERT INTO `clases` VALUES (1,NULL,3,'2026-03-02','17:00:00','18:00:00',0,0,NUL
 UNLOCK TABLES;
 
 --
+-- Table structure for table `configuraciones`
+--
+
+DROP TABLE IF EXISTS `configuraciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `configuraciones` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `clave` varchar(100) NOT NULL,
+  `valor` varchar(255) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `tipo` varchar(20) NOT NULL DEFAULT 'string',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `configuraciones_clave_unique` (`clave`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `configuraciones`
+--
+
+LOCK TABLES `configuraciones` WRITE;
+/*!40000 ALTER TABLE `configuraciones` DISABLE KEYS */;
+INSERT INTO `configuraciones` VALUES (1,'dias_gracia_cobranza','10','Días del mes hasta los cuales un alumno se considera Al día sin haber pagado','integer','2026-05-29 03:35:43','2026-05-29 03:35:43'),(2,'dia_generacion_deuda','1','Día del mes en que se genera automáticamente la deuda mensual','integer','2026-05-29 03:35:43','2026-05-29 03:35:43');
+/*!40000 ALTER TABLE `configuraciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `deportes`
 --
 
@@ -404,7 +435,7 @@ CREATE TABLE `deportes` (
 
 LOCK TABLES `deportes` WRITE;
 /*!40000 ALTER TABLE `deportes` DISABLE KEYS */;
-INSERT INTO `deportes` VALUES (1,'Fútbol','COMISION',1,'2026-02-11 17:47:42','2026-03-08 21:02:55'),(2,'Patín','HORA',1,'2026-03-02 04:08:05','2026-03-02 04:08:05');
+INSERT INTO `deportes` VALUES (1,'Fútbol','COMISION',1,'2026-02-11 17:47:42','2026-05-28 12:04:54'),(2,'Patín','HORA',1,'2026-03-02 04:08:05','2026-03-02 04:08:05');
 /*!40000 ALTER TABLE `deportes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -558,7 +589,7 @@ CREATE TABLE `grupos` (
 
 LOCK TABLES `grupos` WRITE;
 /*!40000 ALTER TABLE `grupos` DISABLE KEYS */;
-INSERT INTO `grupos` VALUES (1,1,1,1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(2,1,2,1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(3,2,1,1,'2026-03-02 04:08:05','2026-03-02 04:08:05'),(5,2,3,1,'2026-03-09 13:04:04','2026-03-09 13:04:04'),(6,1,3,1,'2026-04-27 01:20:57','2026-04-27 01:20:57');
+INSERT INTO `grupos` VALUES (1,1,1,1,'2026-02-11 17:47:42','2026-02-11 17:47:42'),(2,1,2,1,'2026-02-11 17:47:42','2026-05-28 12:05:09'),(3,2,1,1,'2026-03-02 04:08:05','2026-03-02 04:08:05'),(5,2,3,1,'2026-03-09 13:04:04','2026-03-09 13:04:04'),(6,1,3,1,'2026-04-27 01:20:57','2026-04-27 01:20:57');
 /*!40000 ALTER TABLE `grupos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -712,7 +743,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -721,7 +752,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8),(55,'2026_05_29_003356_create_configuraciones_table',9);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -963,7 +994,7 @@ CREATE TABLE `profesores` (
 
 LOCK TABLES `profesores` WRITE;
 /*!40000 ALTER TABLE `profesores` DISABLE KEYS */;
-INSERT INTO `profesores` VALUES (1,2,'Jorge','Mitre','22333444','1977-12-13','Peru 1185','CABA','jmitre@gmail.com','1155554444',10000.00,NULL,1,'2026-03-08 21:35:00','2026-03-08 21:35:00'),(2,2,'Romina','Heredia','29888777','1986-10-10','Calle Falsa 1345','San Justo','rheredia@gmail.com','1199998888',8000.00,NULL,1,'2026-03-08 21:37:59','2026-03-08 21:37:59'),(3,1,'Joaquin','Perez','99555666','1995-01-08','Mitre 1234','CABA','jperez@gmail.com','1177778888',NULL,25.00,1,'2026-03-08 21:41:15','2026-03-08 21:41:15');
+INSERT INTO `profesores` VALUES (1,2,'Jorge','Mitre','22333444','1977-12-13','Peru 1185','CABA','jmitre@gmail.com','1155554444',10000.00,NULL,1,'2026-03-08 21:35:00','2026-03-08 21:35:00'),(2,2,'Romina','Heredia','29888777','1986-10-10','Calle Falsa 1345','San Justo','rheredia@gmail.com','1199998888',8000.00,NULL,1,'2026-03-08 21:37:59','2026-05-28 12:05:23'),(3,1,'Joaquin','Perez','99555666','1995-01-08','Mitre 1234','CABA','jperez@gmail.com','1177778888',NULL,25.00,1,'2026-03-08 21:41:15','2026-03-08 21:41:15');
 /*!40000 ALTER TABLE `profesores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1051,7 +1082,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('L4Md1z6mzvzGnkISSl0uqQ16qOy9Wxg7WoBMjbvX',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR3BMenZia3NBRFZkSVJQdXoxZnFiVUZOelRDeGwwZGZPNlFvcHdVTiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvdXN1YXJpb3MvNS9lZGl0Ijt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3VzdWFyaW9zIjtzOjU6InJvdXRlIjtzOjE4OiJ3ZWIudXN1YXJpb3MuaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=',1779916307),('ufKuq5dYnCePCTIMxeisRWRarMak73T6y0mx0pwA',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YToyOntzOjY6Il90b2tlbiI7czo0MDoiUDdmbUZsU3V4WmNnWFIzTkFjSnRVM1VRSUlNWWZEV3BFOXBXVU9OcCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1779912714);
+INSERT INTO `sessions` VALUES ('AF43JhjJ4XOmdXjzIUqW2NMRzCmp6LDDVug340b2',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiV2hKdDRreVViQVcyOEp4cE1KNWR6MHhGTlF2VHhOOGNReXFhVW5VYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3J1YnJvcyI7czo1OiJyb3V0ZSI7czoxNjoid2ViLnJ1YnJvcy5pbmRleCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1780284485);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1162,4 +1193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-27 18:26:28
+-- Dump completed on 2026-06-01  0:40:49

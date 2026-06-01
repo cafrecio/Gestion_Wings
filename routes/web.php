@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AlumnoWebController;
+use App\Http\Controllers\ConfiguracionWebController;
+use App\Http\Controllers\ReglaPrimerPagoWebController;
 use App\Http\Controllers\UsuarioWebController;
 use App\Http\Controllers\ClaseWebController;
 use App\Http\Controllers\DeporteWebController;
@@ -21,6 +23,7 @@ Route::get('/', function () {
 Route::get('/login', [WebController::class, 'loginForm'])->name('login');
 Route::post('/login', [WebController::class, 'login']);
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
+Route::get('/logout', fn() => redirect()->route('login'));
 
 Route::middleware('auth')->group(function () {
     Route::get('/caja', [WebController::class, 'caja'])->name('operativo.caja');
@@ -142,6 +145,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/usuarios/{id}/edit', [UsuarioWebController::class, 'edit'])->name('web.usuarios.edit');
         Route::put('/usuarios/{id}', [UsuarioWebController::class, 'update'])->name('web.usuarios.update');
         Route::patch('/usuarios/{id}/toggle-activo', [UsuarioWebController::class, 'toggleActivo'])->name('web.usuarios.toggle-activo');
+    });
+
+    // Configuraciones — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/configuraciones', [ConfiguracionWebController::class, 'index'])->name('web.configuraciones.index');
+        // Reglas primer pago — ANTES de /configuraciones/{clave}
+        Route::post('/configuraciones/primer-pago', [ReglaPrimerPagoWebController::class, 'store'])->name('web.config.primer-pago.store');
+        Route::put('/configuraciones/primer-pago/{id}', [ReglaPrimerPagoWebController::class, 'update'])->name('web.config.primer-pago.update');
+        Route::delete('/configuraciones/primer-pago/{id}', [ReglaPrimerPagoWebController::class, 'destroy'])->name('web.config.primer-pago.destroy');
+        Route::patch('/configuraciones/{clave}', [ConfiguracionWebController::class, 'update'])->name('web.configuraciones.update');
     });
 
     // Profesores — solo admin
