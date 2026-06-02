@@ -54,6 +54,14 @@ class CajaOperativa extends Model
     }
 
     /**
+     * Alias de usuarioOperativo para compatibilidad
+     */
+    public function usuario(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->usuarioOperativo();
+    }
+
+    /**
      * Relación con Movimientos Operativos
      */
     public function movimientos(): HasMany

@@ -23,8 +23,22 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         </div>
     </div>
 
-    {{-- Descripción --}}
+    {{-- Abreviatura --}}
     <div>
+        <label for="abreviatura" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4"/></svg>
+            Abreviatura <span class="form-required">*</span>
+        </label>
+        <input type="text" id="abreviatura" name="abreviatura"
+               value="{{ old('abreviatura', $tipoCaja->abreviatura ?? '') }}"
+               required maxlength="5"
+               class="w-full px-4 py-2.5 text-sm wings-input"
+               placeholder="Ej: EFT">
+        @error('abreviatura') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Descripción --}}
+    <div class="md:col-span-2">
         <label for="descripcion" class="{{ $labelClass }}">
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
             Descripción

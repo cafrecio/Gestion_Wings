@@ -17,6 +17,7 @@ class MovimientoOperativo extends Model
         'monto',
         'observaciones',
         'usuario_id',
+        'alumno_id',
     ];
 
     protected $casts = [
@@ -54,5 +55,13 @@ class MovimientoOperativo extends Model
     public function usuario(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Relación con Alumno (nullable — solo en cobros de cuota)
+     */
+    public function alumno(): BelongsTo
+    {
+        return $this->belongsTo(Alumno::class);
     }
 }

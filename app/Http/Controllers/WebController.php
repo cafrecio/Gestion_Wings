@@ -157,7 +157,7 @@ class WebController extends Controller
         return match ($user->rol) {
             User::ROL_ADMIN    => redirect()->route('admin.dashboard'),
             User::ROL_PROFESOR => redirect()->route('web.clases.index'),
-            default            => redirect()->route('operativo.caja'),
+            default            => redirect()->route('web.caja.index'),
         };
     }
 }

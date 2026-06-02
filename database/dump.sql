@@ -262,7 +262,7 @@ CREATE TABLE `cajas_operativas` (
   CONSTRAINT `cajas_operativas_usuario_admin_cierre_id_foreign` FOREIGN KEY (`usuario_admin_cierre_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `cajas_operativas_usuario_admin_validacion_id_foreign` FOREIGN KEY (`usuario_admin_validacion_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `cajas_operativas_usuario_operativo_id_foreign` FOREIGN KEY (`usuario_operativo_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,6 +271,7 @@ CREATE TABLE `cajas_operativas` (
 
 LOCK TABLES `cajas_operativas` WRITE;
 /*!40000 ALTER TABLE `cajas_operativas` DISABLE KEYS */;
+INSERT INTO `cajas_operativas` VALUES (2,2,'2026-06-02 05:11:55',NULL,'ABIERTA',0,NULL,NULL,NULL,NULL,'2026-06-02 08:11:55','2026-06-02 08:11:55');
 /*!40000 ALTER TABLE `cajas_operativas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -743,7 +744,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -752,7 +753,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8),(55,'2026_05_29_003356_create_configuraciones_table',9);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8),(55,'2026_05_29_003356_create_configuraciones_table',9),(56,'2026_06_01_080524_add_abreviatura_to_tipos_caja_table',10),(57,'2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table',10);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -772,6 +773,7 @@ CREATE TABLE `movimientos_operativos` (
   `monto` decimal(12,2) NOT NULL,
   `observaciones` text DEFAULT NULL,
   `usuario_id` bigint(20) unsigned NOT NULL,
+  `alumno_id` bigint(20) unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -779,11 +781,13 @@ CREATE TABLE `movimientos_operativos` (
   KEY `movimientos_operativos_tipo_caja_id_foreign` (`tipo_caja_id`),
   KEY `movimientos_operativos_subrubro_id_foreign` (`subrubro_id`),
   KEY `movimientos_operativos_usuario_id_foreign` (`usuario_id`),
+  KEY `movimientos_operativos_alumno_id_foreign` (`alumno_id`),
+  CONSTRAINT `movimientos_operativos_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE SET NULL,
   CONSTRAINT `movimientos_operativos_caja_operativa_id_foreign` FOREIGN KEY (`caja_operativa_id`) REFERENCES `cajas_operativas` (`id`) ON DELETE CASCADE,
   CONSTRAINT `movimientos_operativos_subrubro_id_foreign` FOREIGN KEY (`subrubro_id`) REFERENCES `subrubros` (`id`) ON DELETE CASCADE,
   CONSTRAINT `movimientos_operativos_tipo_caja_id_foreign` FOREIGN KEY (`tipo_caja_id`) REFERENCES `tipos_caja` (`id`) ON DELETE CASCADE,
   CONSTRAINT `movimientos_operativos_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -792,6 +796,7 @@ CREATE TABLE `movimientos_operativos` (
 
 LOCK TABLES `movimientos_operativos` WRITE;
 /*!40000 ALTER TABLE `movimientos_operativos` DISABLE KEYS */;
+INSERT INTO `movimientos_operativos` VALUES (2,2,'2026-06-02',3,2,20000.00,'Camila Garzon',2,NULL,'2026-06-02 08:11:55','2026-06-02 08:11:55');
 /*!40000 ALTER TABLE `movimientos_operativos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1082,7 +1087,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('AF43JhjJ4XOmdXjzIUqW2NMRzCmp6LDDVug340b2',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiV2hKdDRreVViQVcyOEp4cE1KNWR6MHhGTlF2VHhOOGNReXFhVW5VYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3J1YnJvcyI7czo1OiJyb3V0ZSI7czoxNjoid2ViLnJ1YnJvcy5pbmRleCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1780284485);
+INSERT INTO `sessions` VALUES ('57gFdLjCXwDuE0SU0J2n7DyiA62047KrgkgiHzBy',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoid1NKZXlqSjFwV1lvZUVTZ0o3dEFKa2dUblVBQjVxT0lNdnZMSlA3RCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvY2FqYS9tb3ZpbWllbnRvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvbW92aW1pZW50byI7czo1OiJyb3V0ZSI7czoxOToid2ViLmNhamEubW92aW1pZW50byI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1780387798),('frOG7PX0SbfhR0Evz4p3RA6aVO7aUxJlz2RoBy3I',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoid1diN1lYVTNsejBrRVBBamVpblp5aFBjYTVvREx3UkNaUVFZNHRqOCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3RpcG9zLWNhamEiO3M6NToicm91dGUiO3M6MjA6IndlYi50aXBvcy1jYWphLmluZGV4Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1780305174),('gbg3l9G1WmtqjKEyESUG7tIJNmMSA1QbQ0Kw6u0o',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVGNoSWRqVmRQTTRGUXJXYW15cjlTVGV2dWxtSFdnVG9HMkVZaE5CdSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvY2FqYS9tb3ZpbWllbnRvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvbW92aW1pZW50byI7czo1OiJyb3V0ZSI7czoxOToid2ViLmNhamEubW92aW1pZW50byI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1780387798),('lyCSnwdxvWn5XYR9MEjRtEawcZKNkScjC3PWalEl',2,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRXNCVXIxSm5MZEthS0FvY1B5MW5vczBHSUxBejVyTFVjWkd6RWRBeCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvY2FqYS9tb3ZpbWllbnRvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvMi9kZXRhbGxlIjtzOjU6InJvdXRlIjtzOjE2OiJ3ZWIuY2FqYS5kZXRhbGxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9',1780389271),('Otuae2NN6OLLiCI17AusmkLStHqFqakN6lSDEqQh',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYzRyS3FIZlVNc0NQSUYySTVacUwxQk1xNkE3SmhQSVJac3JUWFVyaCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvY2FqYS9tb3ZpbWllbnRvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvbW92aW1pZW50byI7czo1OiJyb3V0ZSI7czoxOToid2ViLmNhamEubW92aW1pZW50byI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1780387798),('zHU2mHTu03D0ohizSLLGEcLbCqwAsaoijVAI75Xy',2,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoidkdVS2VkYnRuR003Q0NYVktLNmNWdzdocGRQOW5PazV2UFhDUnk4ViI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEiO3M6NToicm91dGUiO3M6MTQ6IndlYi5jYWphLmluZGV4Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9',1780351209);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1129,13 +1134,14 @@ DROP TABLE IF EXISTS `tipos_caja`;
 CREATE TABLE `tipos_caja` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
+  `abreviatura` varchar(5) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   `permite_descubierto` tinyint(1) NOT NULL DEFAULT 0,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1144,7 +1150,7 @@ CREATE TABLE `tipos_caja` (
 
 LOCK TABLES `tipos_caja` WRITE;
 /*!40000 ALTER TABLE `tipos_caja` DISABLE KEYS */;
-INSERT INTO `tipos_caja` VALUES (1,'Efectivo',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(2,'Banco',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(3,'Mercado Pago',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19');
+INSERT INTO `tipos_caja` VALUES (1,'Efectivo','EFT',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(2,'Banco Nacion','BNC','CTA CTE Banco Nación',1,1,'2026-03-08 19:28:19','2026-06-01 09:09:45'),(3,'Mercado Pago','MP',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(4,'Banco Nacion ahorro',NULL,'Caja de ahorro Banco Nación',1,1,'2026-06-01 09:12:54','2026-06-01 09:12:54');
 /*!40000 ALTER TABLE `tipos_caja` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1193,4 +1199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-01  0:40:49
+-- Dump completed on 2026-06-02  6:08:37

@@ -11,6 +11,7 @@ class TipoCaja extends Model
 
     protected $fillable = [
         'nombre',
+        'abreviatura',
         'descripcion',
         'permite_descubierto',
         'activo',

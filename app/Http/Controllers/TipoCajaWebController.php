@@ -25,15 +25,19 @@ class TipoCajaWebController extends Controller
     {
         $request->validate([
             'nombre'      => 'required|string|max:100|unique:tipos_caja,nombre',
+            'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
         ], [
-            'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.max'      => 'El nombre no puede tener más de 100 caracteres.',
-            'nombre.unique'   => 'Ya existe un tipo de caja con ese nombre.',
+            'nombre.required'      => 'El nombre es obligatorio.',
+            'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
+            'nombre.unique'        => 'Ya existe un tipo de caja con ese nombre.',
+            'abreviatura.required' => 'La abreviatura es obligatoria.',
+            'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
         ]);
 
         TipoCaja::create([
             'nombre'              => $request->nombre,
+            'abreviatura'         => strtoupper($request->abreviatura),
             'descripcion'         => $request->descripcion,
             'permite_descubierto' => $request->boolean('permite_descubierto'),
         ]);
@@ -54,15 +58,19 @@ class TipoCajaWebController extends Controller
 
         $request->validate([
             'nombre'      => "required|string|max:100|unique:tipos_caja,nombre,{$tipoCaja->id}",
+            'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
         ], [
-            'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.max'      => 'El nombre no puede tener más de 100 caracteres.',
-            'nombre.unique'   => 'Ya existe un tipo de caja con ese nombre.',
+            'nombre.required'      => 'El nombre es obligatorio.',
+            'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
+            'nombre.unique'        => 'Ya existe un tipo de caja con ese nombre.',
+            'abreviatura.required' => 'La abreviatura es obligatoria.',
+            'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
         ]);
 
         $tipoCaja->update([
             'nombre'              => $request->nombre,
+            'abreviatura'         => strtoupper($request->abreviatura),
             'descripcion'         => $request->descripcion,
             'permite_descubierto' => $request->boolean('permite_descubierto'),
         ]);
@@ -76,8 +84,9 @@ class TipoCajaWebController extends Controller
         $tipoCaja = TipoCaja::withCount(['movimientosOperativos', 'cashflowMovimientos'])
             ->findOrFail($id);
 
-        if ($tipoCaja->movimientos_operativos_count > 0 || $tipoCaja->cashflow_movimientos_count > 0) {
-            return back()->with('error', 'No se puede eliminar: tiene movimientos asociados.');
+        $total = $tipoCaja->movimientos_operativos_count + $tipoCaja->cashflow_movimientos_count;
+        if ($total > 0) {
+            return back()->with('error', "No se puede eliminar: tiene {$total} movimiento(s) asociados.");
         }
 
         $tipoCaja->delete();

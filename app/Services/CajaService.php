@@ -261,6 +261,46 @@ class CajaService
     }
 
     /**
+     * Registrar un movimiento en una caja ya abierta (sin abrir automáticamente).
+     *
+     * Solo subrubros OPERATIVO no reservados. Uso manual del operativo desde la vista.
+     *
+     * @param int $cajaId
+     * @param array $data [tipo_caja_id, subrubro_id, monto, observaciones?, fecha?, alumno_id?]
+     * @return MovimientoOperativo
+     * @throws \Exception
+     */
+    public function registrarMovimientoEnCaja(int $cajaId, array $data): MovimientoOperativo
+    {
+        $caja = CajaOperativa::findOrFail($cajaId);
+
+        if ($caja->estado !== 'ABIERTA') {
+            throw new \Exception('La caja no está abierta.');
+        }
+
+        $subrubro = Subrubro::findOrFail($data['subrubro_id']);
+
+        if ($subrubro->es_reservado_sistema) {
+            throw new \Exception("El subrubro '{$subrubro->nombre}' es reservado del sistema y no puede usarse manualmente.");
+        }
+
+        if ($subrubro->permitido_para !== 'OPERATIVO') {
+            throw new \Exception('El subrubro seleccionado no está permitido para usuarios operativos.');
+        }
+
+        return MovimientoOperativo::create([
+            'caja_operativa_id' => $cajaId,
+            'fecha'             => $data['fecha'] ?? Carbon::now()->toDateString(),
+            'tipo_caja_id'      => $data['tipo_caja_id'],
+            'subrubro_id'       => $data['subrubro_id'],
+            'monto'             => $data['monto'],
+            'observaciones'     => $data['observaciones'] ?? null,
+            'usuario_id'        => $caja->usuario_operativo_id,
+            'alumno_id'         => $data['alumno_id'] ?? null,
+        ]);
+    }
+
+    /**
      * Obtener cajas pendientes de validación (CERRADAS)
      *
      * @return \Illuminate\Database\Eloquent\Collection

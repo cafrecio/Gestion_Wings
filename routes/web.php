@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AlumnoWebController;
+use App\Http\Controllers\CajaWebController;
+use App\Http\Controllers\CashflowWebController;
 use App\Http\Controllers\ConfiguracionWebController;
+use App\Http\Controllers\MovimientoWebController;
 use App\Http\Controllers\ReglaPrimerPagoWebController;
 use App\Http\Controllers\UsuarioWebController;
 use App\Http\Controllers\ClaseWebController;
@@ -26,12 +29,47 @@ Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
 Route::middleware('auth')->group(function () {
-    Route::get('/caja', [WebController::class, 'caja'])->name('operativo.caja');
-    Route::get('/caja/{id}/cobrar', [WebController::class, 'cajaAlumnoCobro'])->name('operativo.caja.cobrar');
-    Route::post('/caja/{id}/cobrar', [WebController::class, 'cajaRegistrarPago'])->name('operativo.caja.pagar');
+    // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
+    Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
+    Route::get('/caja/movimiento', [CajaWebController::class, 'movimientoForm'])->name('web.caja.movimiento');
+    Route::post('/caja/movimiento', [CajaWebController::class, 'movimientoStore'])->name('web.caja.movimiento.store');
+    Route::get('/caja/cobrar', [CajaWebController::class, 'cobrarCuotaSelect'])->name('web.caja.cobrar-cuota');
+    Route::get('/caja/cobrar/{alumnoId}', [CajaWebController::class, 'cobrar'])->name('web.caja.cobrar');
+    Route::post('/caja/cobrar/{alumnoId}', [CajaWebController::class, 'pagar'])->name('web.caja.pagar');
+
+    // Vistas de una caja específica (resumen, detalle, editar)
+    Route::get('/caja/{id}/resumen', [CajaWebController::class, 'resumen'])->name('web.caja.resumen');
+    Route::get('/caja/{id}/detalle', [CajaWebController::class, 'detalle'])->name('web.caja.detalle');
+    Route::get('/caja/{id}/editar', [CajaWebController::class, 'editarForm'])->name('web.caja.editar');
+    Route::post('/caja/{id}/editar', [CajaWebController::class, 'editarStore'])->name('web.caja.editar.store');
+    Route::post('/caja/{id}/cerrar', [CajaWebController::class, 'cerrar'])->name('web.caja.cerrar');
+
+    // Editar / eliminar movimiento individual
+    Route::get('/caja/{cajaId}/movimientos/{movId}/editar', [CajaWebController::class, 'editarMovimientoForm'])->name('web.caja.movimientos.editar');
+    Route::put('/caja/{cajaId}/movimientos/{movId}', [CajaWebController::class, 'updateMovimiento'])->name('web.caja.movimientos.update');
+    Route::delete('/caja/{cajaId}/movimientos/{movId}', [CajaWebController::class, 'destroyMovimiento'])->name('web.caja.movimientos.destroy');
+
+    // /cajas → alias de /caja
+    Route::get('/cajas', fn() => redirect()->route('web.caja.index'))->name('web.cajas.index');
+    // /cajas/{id} → compat con links viejos
+    Route::get('/cajas/{id}', fn($id) => redirect()->route('web.caja.detalle', $id))->name('web.cajas.show');
+
+    // Compatibilidad backward — vieja ruta de cobro
+    Route::get('/caja/{id}/cobrar', fn($id) => redirect()->route('web.caja.cobrar', $id));
+
+    // ── Admin: validación/rechazo de cajas ────────────────────────────────
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::post('/cajas/{id}/validar', [CajaWebController::class, 'validar'])->name('web.cajas.validar');
+        Route::post('/cajas/{id}/rechazar', [CajaWebController::class, 'rechazar'])->name('web.cajas.rechazar');
+    });
+
+    // ── Movimientos (admin y operativo) ──────────────────────────────────
+    Route::get('/movimientos', [MovimientoWebController::class, 'index'])->name('web.movimientos.index');
 
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/admin/dashboard', [WebController::class, 'adminDashboard'])->name('admin.dashboard');
+        Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
+        Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
     });
 
     // Alumnos CRUD — accesible para todos los roles autenticados (ADMIN y OPERATIVO)
