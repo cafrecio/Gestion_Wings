@@ -6,11 +6,6 @@
 @section('content')
 
 @php
-$btnB     = 'display:inline-flex; align-items:center; justify-content:center; height:32px; font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap; text-decoration:none; border:none; font-family:inherit; padding:0 14px;';
-$btnBSec  = $btnB . ' background:var(--color-btn-secondary); color:var(--color-surface);';
-$btnBPrim = $btnB . ' background:var(--color-btn-primary); color:#fff;';
-$btnBDang = $btnB . ' background:var(--color-btn-danger); color:#fff;';
-
 $estadoColor = match($caja->estado) {
     'ABIERTA'   => 'var(--color-warning)',
     'CERRADA'   => 'var(--color-text-muted)',
@@ -57,24 +52,31 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         movimiento{{ $caja->movimientos->count() !== 1 ? 's' : '' }}
     </div>
     <div style="display:flex; gap:8px; align-items:center;">
-        @if($caja->estado === 'ABIERTA' && $esPropietario)
-            <a href="{{ route('web.caja.cobrar-cuota') }}" style="{{ $btnBSec }}">Cobrar cuota</a>
-            <a href="{{ route('web.caja.editar', $caja->id) }}" style="{{ $btnBSec }}">Registrar movimiento</a>
+        @if(in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esPropietario)
+            <a href="{{ route('web.caja.cobrar-cuota') }}"
+               class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
+            <a href="{{ route('web.caja.editar', $caja->id) }}"
+               class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Nuevo</a>
             <form method="POST" action="{{ route('web.caja.cerrar', $caja->id) }}"
                   onsubmit="return confirm('¿Cerrar la caja?')">
                 @csrf
-                <button type="submit" style="{{ $btnBDang }}">Cerrar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-danger); color:#fff;">Cerrar</button>
             </form>
         @endif
         @if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA')
-            <button type="button" onclick="abrirRechazar()" style="{{ $btnBDang }}">Rechazar</button>
+            <button type="button" onclick="abrirRechazar()"
+                    class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>
             <form method="POST" action="{{ route('web.cajas.validar', $caja->id) }}">
                 @csrf
-                <button type="submit" style="{{ $btnBPrim }}">Validar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-btn-primary); color:#fff;">Validar</button>
             </form>
         @endif
-        <a href="{{ route('web.caja.detalle', $caja->id) }}" style="{{ $btnBSec }}">Ver detalle</a>
-        <a href="{{ route('web.caja.index') }}" style="{{ $btnBSec }}">Volver</a>
+        <a href="{{ route('web.caja.detalle', $caja->id) }}"
+           class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Detalle</a>
+        <a href="{{ route('web.caja.index') }}"
+           class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Volver</a>
     </div>
 </div>
 
@@ -200,8 +202,9 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                    style="display:block; width:100%; margin-bottom:1rem;">
             <div style="display:flex; gap:8px; justify-content:flex-end;">
                 <button type="button" onclick="document.getElementById('modal-rechazar').style.display='none'"
-                        style="{{ $btnBSec }}">Cancelar</button>
-                <button type="submit" style="{{ $btnBDang }}">Rechazar</button>
+                        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cancelar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>
             </div>
         </form>
     </div>

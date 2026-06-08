@@ -62,8 +62,10 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
                 </p>
             </div>
             <div style="display:flex; gap:8px; flex-shrink:0;">
-                <a href="{{ route('web.caja.movimiento') }}" style="{{ $btnBPrim }}; width:auto; padding:0 16px;">Registrar movimiento</a>
-                <a href="{{ route('web.caja.cobrar-cuota') }}" style="{{ $btnBSec }}; width:auto; padding:0 16px;">Cobrar cuota</a>
+                <a href="{{ route('web.caja.movimiento') }}"
+                   class="ds-btn" style="background:var(--color-btn-primary); color:#fff;">Nuevo</a>
+                <a href="{{ route('web.caja.cobrar-cuota') }}"
+                   class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
             </div>
         </div>
     </div>

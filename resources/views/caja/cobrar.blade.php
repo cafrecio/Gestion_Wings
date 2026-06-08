@@ -98,7 +98,7 @@
 
     {{-- Tipo de pago + observaciones --}}
     <div class="filtros-card mb-4">
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem;">
             <div>
                 <label for="tipo_caja_id"
                        style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
@@ -128,6 +128,16 @@
                        class="w-full px-4 py-2.5 text-sm wings-input"
                        placeholder="Opcional">
             </div>
+            <div>
+                <label for="fecha_pago"
+                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
+                    Fecha del pago
+                </label>
+                <input type="date" id="fecha_pago" name="fecha_pago"
+                       value="{{ old('fecha_pago', now()->format('Y-m-d')) }}"
+                       max="{{ now()->format('Y-m-d') }}"
+                       class="w-full px-4 py-2.5 text-sm wings-input">
+            </div>
         </div>
 
         <div id="resumen-total" class="mt-4 pt-4" style="border-top:1px solid var(--color-border); display:none;">
@@ -141,7 +151,11 @@
     {{-- Acciones --}}
     <div class="filtros-actions" style="justify-content:flex-end;">
         <x-ds.button variant="secondary" href="{{ route('web.caja.cobrar-cuota') }}">Cancelar</x-ds.button>
-        <x-ds.button variant="primary" type="submit" id="btn-cobrar" :disabled="true">Cobrar</x-ds.button>
+        <button type="submit" id="btn-cobrar" disabled
+                class="ds-btn"
+                style="background:var(--color-btn-primary); color:#fff; opacity:0.4; cursor:not-allowed;">
+            Cobrar
+        </button>
     </div>
 
 </form>
@@ -185,10 +199,14 @@
         if (algunaCuota && tipoCaja) {
             resumen.style.display = '';
             totalLabel.textContent = '$' + total.toLocaleString('es-AR', { maximumFractionDigits: 0 });
-            btnCobrar.removeAttribute('disabled');
+            btnCobrar.disabled = false;
+            btnCobrar.style.opacity = '1';
+            btnCobrar.style.cursor = 'pointer';
         } else {
             resumen.style.display = 'none';
-            btnCobrar.setAttribute('disabled', 'disabled');
+            btnCobrar.disabled = true;
+            btnCobrar.style.opacity = '0.4';
+            btnCobrar.style.cursor = 'not-allowed';
         }
     }
 

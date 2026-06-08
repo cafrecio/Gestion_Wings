@@ -369,6 +369,7 @@ class CajaWebController extends Controller
             'observaciones'  => 'nullable|string|max:500',
             'montos_cuota'   => 'array',
             'montos_cuota.*' => 'nullable|numeric|min:0.01',
+            'fecha_pago'     => 'nullable|date|before_or_equal:today',
         ]);
 
         $deudas = DeudaCuota::where('alumno_id', $alumnoId)
@@ -397,7 +398,7 @@ class CajaWebController extends Controller
                 'tipo_caja_id'         => $request->input('tipo_caja_id'),
                 'usuario_operativo_id' => $user->id,
                 'items'                => $items,
-                'fecha_pago'           => today()->toDateString(),
+                'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
                 'observaciones'        => $request->input('observaciones'),
             ]);
 
