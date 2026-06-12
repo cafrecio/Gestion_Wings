@@ -91,3 +91,11 @@ Middlewares:
 ## Contratos
 
 Los documentos de negocio están en `Contratos/`. Consultar antes de modificar reglas de negocio.
+
+## Design System
+
+Antes de crear o modificar cualquier vista Blade, leer:
+`docs/wings-design/SKILL.md`
+
+El checklist del final de ese archivo es obligatorio antes de entregar cualquier vista.
+Si algún punto del checklist falla, el código NO se entrega hasta corregirlo.
