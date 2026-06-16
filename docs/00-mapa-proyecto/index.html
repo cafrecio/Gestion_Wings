@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wings - Mapa del Proyecto</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #65758b;
+      --border: #d8dee8;
+      --accent: #155e75;
+      --ok: #16794c;
+      --warn: #9a6700;
+      --bad: #b42318;
+      --partial: #7c3aed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      background: #17212f;
+      color: #fff;
+      padding: 28px 32px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 28px; }
+    header p { margin: 0; color: #c9d3df; max-width: 980px; }
+    main { max-width: 1280px; margin: 0 auto; padding: 24px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 0 0 18px;
+      padding: 18px;
+    }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    h3 { margin: 14px 0 8px; font-size: 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfe;
+    }
+    .card h3 { margin-top: 0; }
+    .tag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      margin-bottom: 8px;
+    }
+    .ok { color: var(--ok); background: #e9f8ef; border-color: #b7e4c7; }
+    .partial { color: var(--partial); background: #f1edff; border-color: #d8ccff; }
+    .warn { color: var(--warn); background: #fff7df; border-color: #f0d487; }
+    .bad { color: var(--bad); background: #fff0ed; border-color: #f4b5ad; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 4px 0; }
+    code {
+      background: #eef2f7;
+      border: 1px solid #dce3ec;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #eef2f7; }
+    .note { color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wings - Mapa Actual del Proyecto</h1>
+    <p>Base de trabajo para ordenar el repo, detectar contradicciones y planificar pruebas, seguridad, seeders, limpieza de datos y despliegue. La fuente de verdad textual es <code>docs/00-estado/ESTADO-ACTUAL.md</code>.</p>
+  </header>
+
+  <main>
+    <nav>
+      <a href="#estructura">Estructura</a>
+      <a href="#modulos">Modulos</a>
+      <a href="#documentacion">Documentacion</a>
+      <a href="#contradicciones">Contradicciones</a>
+      <a href="#pendientes">Pendientes</a>
+      <a href="#tests">Tests</a>
+      <a href="#proximos">Proximos pasos</a>
+    </nav>
+
+    <section id="estructura">
+      <h2>Estructura del Repo</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Aplicacion</h3>
+          <ul>
+            <li><code>app/Http/Controllers</code>: controladores web y API.</li>
+            <li><code>app/Services</code>: reglas de negocio principales.</li>
+            <li><code>app/Models</code>: modelos Eloquent.</li>
+            <li><code>app/Http/Requests</code>: validaciones.</li>
+            <li><code>app/Console/Commands</code>: comandos artisan propios.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Interfaz</h3>
+          <ul>
+            <li><code>resources/views</code>: Blade web.</li>
+            <li><code>resources/views/layouts</code>: layouts base.</li>
+            <li><code>resources/views/components/ds</code>: componentes del design system.</li>
+            <li><code>resources/css/app.css</code>: tokens y estilos globales.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Datos y ejecucion</h3>
+          <ul>
+            <li><code>database/migrations</code>: estructura de BD.</li>
+            <li><code>database/seeders</code>: datos iniciales.</li>
+            <li><code>database/dump.sql</code>: dump versionado.</li>
+            <li><code>routes/web.php</code> y <code>routes/api.php</code>: entrada web/API.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Documentacion</h3>
+          <ul>
+            <li><code>docs/00-estado</code>: estado vigente.</li>
+            <li><code>docs/02-contratos</code>: contratos de negocio.</li>
+            <li><code>docs/03-diseno-ui</code>: design system.</li>
+            <li><code>docs/99-archivo</code>: historico.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="modulos">
+      <h2>Mapa por Modulo</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Alumnos</h3>
+          <p>CRUD web, autocomplete, toggle activo, relacion con deporte, grupo y plan.</p>
+          <ul>
+            <li><code>AlumnoWebController</code></li>
+            <li><code>Alumno</code>, <code>AlumnoPlan</code></li>
+            <li><code>resources/views/alumnos</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Grupos, Deportes, Niveles</h3>
+          <p>ABM y relaciones comerciales. GrupoPlan representa frecuencia/precio.</p>
+          <ul>
+            <li><code>GrupoWebController</code>, <code>DeporteWebController</code>, <code>NivelWebController</code></li>
+            <li><code>Grupo</code>, <code>GrupoPlan</code>, <code>Deporte</code>, <code>Nivel</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag partial">Parcial / core listo</span>
+          <h3>Cuotas, Deudas, Pagos</h3>
+          <p>Core FIFO implementado. Falta recuperar tests y validar flujo completo con seeders reales.</p>
+          <ul>
+            <li><code>PagoCuotaService</code></li>
+            <li><code>DeudaCuota</code>, <code>Pago</code>, <code>PagoDeudaCuota</code></li>
+            <li><code>PagoCuotaServiceTest</code> falla antes de probar logica por SQLite.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Caja Operativa</h3>
+          <p>Apertura automatica al movimiento, cierre, rechazo, validacion e integracion a cashflow.</p>
+          <ul>
+            <li><code>CajaService</code></li>
+            <li><code>CajaWebController</code></li>
+            <li><code>resources/views/caja</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Cashflow</h3>
+          <p>Movimientos administrativos directos y movimientos reflejados desde caja validada.</p>
+          <ul>
+            <li><code>CashflowService</code></li>
+            <li><code>CashflowIntegracionCajaService</code></li>
+            <li><code>CashflowWebController</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag partial">Parcial</span>
+          <h3>Cobranza Mensual</h3>
+          <p>Hay command y servicio de estado, pero falta validar scheduler, vistas web y reglas completas de deuda fantasma.</p>
+          <ul>
+            <li><code>GenerarDeudasMensualesCommand</code></li>
+            <li><code>CobranzaEstadoService</code></li>
+            <li><code>AlumnoRevisionCobranza</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Clases y Asistencias</h3>
+          <p>Modulo web con clases, asistencias y estados. Hay pendiente de pulido visual y performance del badge.</p>
+          <ul>
+            <li><code>ClaseWebController</code></li>
+            <li><code>ClaseService</code></li>
+            <li><code>resources/views/clases</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag partial">Parcial</span>
+          <h3>Liquidaciones y Recibos</h3>
+          <p>Liquidaciones implementadas. Recibos PDF tienen servicio/vistas; falta revisar experiencia web completa.</p>
+          <ul>
+            <li><code>LiquidacionService</code></li>
+            <li><code>LiquidacionPagoService</code></li>
+            <li><code>ReciboService</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag ok">Implementado</span>
+          <h3>Usuarios y Roles</h3>
+          <p>Gestion web de usuarios, roles y vinculacion con profesor.</p>
+          <ul>
+            <li><code>UsuarioWebController</code></li>
+            <li><code>User</code></li>
+            <li><code>resources/views/usuarios</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="documentacion">
+      <h2>Documentacion Organizada</h2>
+      <table>
+        <tr><th>Carpeta</th><th>Contenido</th><th>Uso</th></tr>
+        <tr><td><code>docs/00-estado</code></td><td>Estado actual y estados anteriores</td><td>Fuente de verdad y comparacion historica.</td></tr>
+        <tr><td><code>docs/00-mapa-proyecto</code></td><td>Este HTML</td><td>Mapa visual de trabajo.</td></tr>
+        <tr><td><code>docs/01-producto</code></td><td>Plan maestro, menu</td><td>Vision funcional general.</td></tr>
+        <tr><td><code>docs/02-contratos</code></td><td>Contratos por modulo</td><td>Reglas de negocio cerradas o base de implementacion.</td></tr>
+        <tr><td><code>docs/03-diseno-ui</code></td><td>Design system, skill, reglas</td><td>Obligatorio antes de tocar vistas.</td></tr>
+        <tr><td><code>docs/04-tecnico</code></td><td>Setup y entorno</td><td>Instalacion, BD y operaciones tecnicas.</td></tr>
+        <tr><td><code>docs/05-pendientes</code></td><td>Pendientes crudos</td><td>Material a revisar y transformar en tareas.</td></tr>
+        <tr><td><code>docs/99-archivo</code></td><td>Historico y documentos viejos</td><td>Referencia, no fuente de verdad vigente.</td></tr>
+      </table>
+    </section>
+
+    <section id="contradicciones">
+      <h2>Contradicciones a Tener Presentes</h2>
+      <table>
+        <tr><th>Tema</th><th>Documento viejo</th><th>Estado actual</th></tr>
+        <tr><td>Laravel</td><td>Laravel 11</td><td><code>composer.json</code> usa Laravel 12.</td></tr>
+        <tr><td>Motor mensual</td><td>No implementado</td><td>Existe command, pero esta parcial.</td></tr>
+        <tr><td>API de deudas</td><td>Publicas</td><td>Hoy estan protegidas por Sanctum.</td></tr>
+        <tr><td>PDFs</td><td>Solo vistas sin endpoints</td><td>Hay servicio y rutas API; falta validar flujo web.</td></tr>
+        <tr><td>Cobrar alumno</td><td>Siempre visible y accionable</td><td>En index actual esta deshabilitado.</td></tr>
+      </table>
+    </section>
+
+    <section id="pendientes">
+      <h2>Pendientes de Producto y Tecnicos</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag bad">Prioridad alta</span>
+          <h3>Tests</h3>
+          <p>La suite falla por migracion incompatible con SQLite. Hay que decidir estrategia de test antes de tocar mas core.</p>
+        </div>
+        <div class="card">
+          <span class="tag bad">Prioridad alta</span>
+          <h3>Cobranza</h3>
+          <p>Cerrar estado de cobranza, revision de actividad, deuda fantasma, dashboard operativo y vistas web.</p>
+        </div>
+        <div class="card">
+          <span class="tag warn">Importante</span>
+          <h3>Seeders y BD</h3>
+          <p>Limpiar datos y crear seeders representativos para prueba funcional completa.</p>
+        </div>
+        <div class="card">
+          <span class="tag warn">Importante</span>
+          <h3>Seguridad</h3>
+          <p>Revisar policies, permisos por rol, exposicion API y preparacion para VPS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tests">
+      <h2>Estado de Tests</h2>
+      <p>Ultima ejecucion observada: <code>php artisan test</code>.</p>
+      <ul>
+        <li>Pasan los tests base de ejemplo.</li>
+        <li>Falla <code>Tests\Feature\PagoCuotaServiceTest</code>.</li>
+        <li>Causa: migracion con <code>ALTER TABLE grupos MODIFY nivel_id...</code>, sintaxis no soportada por SQLite.</li>
+        <li>Conclusion: hoy no hay validacion automatica confiable del core de pagos.</li>
+      </ul>
+    </section>
+
+    <section id="proximos">
+      <h2>Proximos Pasos Sugeridos</h2>
+      <ol>
+        <li>Confirmar esta estructura documental como base.</li>
+        <li>Corregir o redefinir estrategia de tests.</li>
+        <li>Auditar cobranza mensual contra contratos.</li>
+        <li>Limpiar BD y crear seeders de prueba funcional completa.</li>
+        <li>Armar plan de pruebas manuales.</li>
+        <li>Revisar seguridad y preparar despliegue VPS.</li>
+      </ol>
+      <p class="note">Este mapa no reemplaza a <code>ESTADO-ACTUAL.md</code>; lo acompana para navegar el proyecto.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wings - Guia de Prueba Funcional</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #667085;
+      --border: #d8dee8;
+      --head: #17212f;
+      --accent: #155e75;
+      --ok: #16794c;
+      --warn: #9a6700;
+      --bad: #b42318;
+      --soft-ok: #e9f8ef;
+      --soft-warn: #fff7df;
+      --soft-bad: #fff0ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      background: var(--head);
+      color: #fff;
+      padding: 28px 32px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 28px; }
+    header p { margin: 0; color: #cbd5e1; max-width: 980px; }
+    main { max-width: 1220px; margin: 0 auto; padding: 24px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    nav a {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    h3 { margin: 14px 0 8px; font-size: 16px; }
+    p { margin: 8px 0; }
+    code {
+      background: #eef2f7;
+      border: 1px solid #dce3ec;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #eef2f7; }
+    ul, ol { margin: 8px 0 0 22px; padding: 0; }
+    li { margin: 5px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .ok { color: var(--ok); background: var(--soft-ok); border-color: #b7e4c7; }
+    .warn { color: var(--warn); background: var(--soft-warn); border-color: #f0d487; }
+    .bad { color: var(--bad); background: var(--soft-bad); border-color: #f4b5ad; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .report {
+      white-space: pre-wrap;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+    @media print {
+      nav { display: none; }
+      body { background: #fff; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wings - Guia de Prueba Funcional</h1>
+    <p>Documento para que un colaborador pruebe el sistema de punta a punta, registre fallas y ayude a definir seeders realistas. Esta prueba no busca que todo salga bien: busca descubrir exactamente que funciona y que no.</p>
+  </header>
+
+  <main>
+    <nav>
+      <a href="#preparacion">Preparacion</a>
+      <a href="#datos">Datos minimos</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#flujos">Flujos completos</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#reporte">Reporte</a>
+    </nav>
+
+    <section id="preparacion">
+      <h2>1. Preparacion</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="badge warn">Antes de empezar</span>
+          <ul>
+            <li>Entrar a la URL indicada por Carlos o por el equipo.</li>
+            <li>Usar navegador Chrome o Edge actualizado.</li>
+            <li>No corregir datos durante la prueba sin anotarlo.</li>
+            <li>Tomar captura de pantalla ante cada falla.</li>
+            <li>Registrar el usuario/rol usado en cada caso.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge warn">Usuarios esperados</span>
+          <ul>
+            <li>Admin.</li>
+            <li>Operativo.</li>
+            <li>Profesor.</li>
+          </ul>
+          <p class="muted">Las credenciales las debe entregar quien prepara la prueba.</p>
+        </div>
+        <div class="card">
+          <span class="badge bad">Importante</span>
+          <p>Si un dato necesario no existe, no inventar cualquier cosa: registrar que falta dato de prueba. Eso sirve para crear seeders utiles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="datos">
+      <h2>2. Datos Minimos que Deben Existir</h2>
+      <table>
+        <tr><th>Area</th><th>Datos necesarios</th><th>Para que sirve</th></tr>
+        <tr><td>Usuarios</td><td>1 admin, 2 operativos, 2 profesores</td><td>Probar roles, permisos y flujos cruzados.</td></tr>
+        <tr><td>Catalogos</td><td>Deportes, niveles, tipos de caja, rubros, subrubros, reglas primer pago</td><td>Que los formularios tengan opciones reales.</td></tr>
+        <tr><td>Grupos</td><td>Patin y futbol, varios niveles, planes 1x/2x/3x semana</td><td>Probar inscripcion y precios.</td></tr>
+        <tr><td>Alumnos</td><td>Al dia, morosos, deudores, pago parcial, inactivos, cambio de plan</td><td>Probar cobranza realista.</td></tr>
+        <tr><td>Deudas</td><td>Mes actual, meses anteriores, pagadas, parciales, condonadas</td><td>Probar FIFO y estados.</td></tr>
+        <tr><td>Caja</td><td>Caja abierta, cerrada, rechazada, validada y caja vieja</td><td>Probar ciclo operativo/admin.</td></tr>
+        <tr><td>Clases</td><td>Hoy, pasadas, futuras, canceladas, serie recurrente</td><td>Probar asistencia y estados.</td></tr>
+        <tr><td>Liquidaciones</td><td>Profesor por hora y por comision, liquidacion abierta/cerrada/pagada</td><td>Probar pago a profesores y recibos.</td></tr>
+      </table>
+    </section>
+
+    <section id="checklist">
+      <h2>3. Checklist por Modulo</h2>
+      <p>Marcar cada caso como OK, Falla o No aplica. Si falla, completar reporte.</p>
+
+      <table>
+        <tr><th>#</th><th>Modulo</th><th>Rol</th><th>Prueba</th><th>OK/Falla/NA</th><th>Notas</th></tr>
+        <tr><td>1</td><td>Login/logout</td><td>Todos</td><td>Entrar y salir con cada rol.</td><td></td><td></td></tr>
+        <tr><td>2</td><td>Redireccion por rol</td><td>Todos</td><td>Admin a dashboard, operativo a caja, profesor a clases.</td><td></td><td></td></tr>
+        <tr><td>3</td><td>Usuarios</td><td>Admin</td><td>Crear, editar, inactivar y vincular profesor.</td><td></td><td></td></tr>
+        <tr><td>4</td><td>Configuracion</td><td>Admin</td><td>Editar configuraciones y reglas primer pago.</td><td></td><td></td></tr>
+        <tr><td>5</td><td>Deportes</td><td>Admin</td><td>Crear, editar, activar/inactivar.</td><td></td><td></td></tr>
+        <tr><td>6</td><td>Niveles</td><td>Admin</td><td>Crear, editar, validar duplicados.</td><td></td><td></td></tr>
+        <tr><td>7</td><td>Grupos</td><td>Admin</td><td>Crear grupo, agregar planes, editar.</td><td></td><td></td></tr>
+        <tr><td>8</td><td>Alumnos</td><td>Admin/Operativo</td><td>Crear alumno, buscar, filtrar, editar, cambiar plan.</td><td></td><td></td></tr>
+        <tr><td>9</td><td>Deudas</td><td>Admin/Operativo</td><td>Ver deuda de alumno y estado esperado.</td><td></td><td></td></tr>
+        <tr><td>10</td><td>Cobro cuota</td><td>Operativo</td><td>Cobrar cuota desde caja.</td><td></td><td></td></tr>
+        <tr><td>11</td><td>FIFO</td><td>Operativo/Admin</td><td>Intentar pagar periodo nuevo sin cubrir viejo.</td><td></td><td></td></tr>
+        <tr><td>12</td><td>Caja</td><td>Operativo</td><td>Crear movimiento, ver resumen/detalle, cerrar.</td><td></td><td></td></tr>
+        <tr><td>13</td><td>Validacion caja</td><td>Admin</td><td>Validar caja cerrada y revisar cashflow.</td><td></td><td></td></tr>
+        <tr><td>14</td><td>Rechazo caja</td><td>Admin/Operativo</td><td>Rechazar, editar, cerrar de nuevo, validar.</td><td></td><td></td></tr>
+        <tr><td>15</td><td>Cashflow</td><td>Admin</td><td>Cargar movimiento directo y revisar listado.</td><td></td><td></td></tr>
+        <tr><td>16</td><td>Clases</td><td>Admin</td><td>Crear clase unica y recurrente.</td><td></td><td></td></tr>
+        <tr><td>17</td><td>Asistencias</td><td>Operativo/Profesor</td><td>Tomar asistencia de una clase.</td><td></td><td></td></tr>
+        <tr><td>18</td><td>Cancelacion clase</td><td>Admin/Operativo</td><td>Cancelar clase y, si aplica, serie.</td><td></td><td></td></tr>
+        <tr><td>19</td><td>Liquidaciones</td><td>Admin</td><td>Generar, revisar, recalcular, cerrar.</td><td></td><td></td></tr>
+        <tr><td>20</td><td>Pago liquidacion</td><td>Admin</td><td>Pagar liquidacion y revisar impacto.</td><td></td><td></td></tr>
+        <tr><td>21</td><td>Recibos</td><td>Admin/Operativo</td><td>Abrir o descargar recibo de cuota/liquidacion.</td><td></td><td></td></tr>
+        <tr><td>22</td><td>Cobranza mensual</td><td>Admin</td><td>Revisar dashboard/revision si existen datos.</td><td></td><td></td></tr>
+      </table>
+    </section>
+
+    <section id="flujos">
+      <h2>4. Flujos Completos Obligatorios</h2>
+
+      <h3>A. Alumno -> Deuda -> Cobro -> Caja -> Cashflow</h3>
+      <ol>
+        <li>Entrar como operativo.</li>
+        <li>Elegir alumno con deuda pendiente.</li>
+        <li>Cobrar cuota.</li>
+        <li>Confirmar que se abre caja si no existia.</li>
+        <li>Ver resumen y detalle de caja.</li>
+        <li>Cerrar caja.</li>
+        <li>Entrar como admin.</li>
+        <li>Validar caja.</li>
+        <li>Confirmar movimiento en cashflow.</li>
+      </ol>
+
+      <h3>B. FIFO y pago parcial</h3>
+      <ol>
+        <li>Elegir alumno con deuda vieja y deuda nueva.</li>
+        <li>Intentar pagar deuda nueva sin completar vieja.</li>
+        <li>Confirmar rechazo.</li>
+        <li>Pagar vieja completa y dejar ultima parcial.</li>
+        <li>Confirmar saldos.</li>
+      </ol>
+
+      <h3>C. Clase -> Asistencia -> Liquidacion -> Pago</h3>
+      <ol>
+        <li>Entrar como admin y crear clase.</li>
+        <li>Entrar como profesor u operativo y cargar asistencia.</li>
+        <li>Entrar como admin y generar liquidacion.</li>
+        <li>Revisar detalle.</li>
+        <li>Cerrar y pagar liquidacion.</li>
+        <li>Revisar recibo o impacto en cashflow.</li>
+      </ol>
+
+      <h3>D. Caja rechazada</h3>
+      <ol>
+        <li>Operativo carga movimientos y cierra caja.</li>
+        <li>Admin rechaza caja.</li>
+        <li>Operativo edita o agrega movimiento.</li>
+        <li>Operativo vuelve a cerrar.</li>
+        <li>Admin valida.</li>
+      </ol>
+    </section>
+
+    <section id="seguridad">
+      <h2>5. Pruebas de Seguridad por Rol</h2>
+      <table>
+        <tr><th>Caso</th><th>Resultado esperado</th><th>OK/Falla/NA</th><th>Notas</th></tr>
+        <tr><td>Operativo entra a <code>/admin/dashboard</code></td><td>Bloqueo o redireccion.</td><td></td><td></td></tr>
+        <tr><td>Operativo entra a <code>/cashflow/movimiento</code></td><td>Bloqueo o redireccion.</td><td></td><td></td></tr>
+        <tr><td>Profesor entra a <code>/alumnos</code></td><td>Bloqueo o redireccion.</td><td></td><td></td></tr>
+        <tr><td>Profesor intenta crear clase por URL</td><td>Bloqueo o redireccion.</td><td></td><td></td></tr>
+        <tr><td>Operativo intenta validar caja por URL</td><td>Bloqueo o 403.</td><td></td><td></td></tr>
+        <tr><td>API protegida sin token</td><td>401.</td><td></td><td></td></tr>
+      </table>
+    </section>
+
+    <section id="reporte">
+      <h2>6. Plantilla de Reporte de Falla</h2>
+      <p>Copiar y completar por cada problema encontrado.</p>
+      <div class="report">Fecha:
+Probador:
+Rol usado:
+URL:
+Modulo:
+
+Datos usados:
+
+Pasos:
+1.
+2.
+3.
+
+Resultado esperado:
+
+Resultado obtenido:
+
+Captura adjunta:
+Si / No
+
+Severidad:
+Bloqueante / Alta / Media / Baja
+
+Tipo:
+Bug funcional / Falta dato de prueba / Falta seeder / UI / Permisos / Decision de negocio
+
+Comentario:</div>
+    </section>
+  </main>
+</body>
+</html>

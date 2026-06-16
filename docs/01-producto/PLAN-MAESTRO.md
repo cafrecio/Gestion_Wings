@@ -223,11 +223,11 @@ El patrón a replicar en todo el sistema:
 
 | Propósito | Archivo |
 |-----------|---------|
-| Contratos negocio | `Contratos/` |
+| Contratos negocio | `docs/02-contratos/` |
 | Layout canónico | `resources/views/layouts/ds-app.blade.php` |
 | Vista referencia DS | `resources/views/alumnos/index.blade.php` |
 | CSS tokens y componentes | `resources/css/app.css` |
 | Servicio core pagos | `app/Services/PagoCuotaService.php` |
 | Servicio caja | `app/Services/CajaService.php` |
 | Tests principales | `tests/Feature/PagoCuotaServiceTest.php` |
-| Este plan | `docs/PLAN-MAESTRO.md` |
+| Este plan | `docs/01-producto/PLAN-MAESTRO.md` |

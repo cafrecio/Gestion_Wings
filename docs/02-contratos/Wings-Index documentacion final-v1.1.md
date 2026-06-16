@@ -24,10 +24,10 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 1) Caja + Cashflow (operación diaria + cash real)
 
 ### 1.1 Contrato
-- ✅ `Contratos/Wings-Contrato-Caja-Cashflow-V4.md`
+- ✅ `docs/02-contratos/Wings-Contrato-Caja-Cashflow-V4.md`
 
 ### 1.2 ER
-- ✅ `Contratos/Wings-ER-Caja-Cashflow-V4.md`
+- ✅ `docs/02-contratos/Wings-ER-Caja-Cashflow-V4.md`
 
 ### 1.3 Camino feliz
 - ⏳ `Wings-CF-Caja-Cashflow-V1.md`  
@@ -101,7 +101,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 5) Liquidaciones (cálculo + cierre + pago + recibo)
 
 ### 5.1 Contrato
-- ✅ `docs/LIQUIDACIONES_CONTRATO_V2.md`
+- ✅ `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md`
 
 ### 5.2 ER
 - ⏳ `Wings-ER-Liquidaciones-V2.md`
@@ -199,10 +199,10 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 
 ✅ Existen estos 4 MD:
 
-1. `Contratos/Wings-Contrato-Caja-Cashflow-V2.md`  
-2. `Contratos/Wings-ER-Caja-Cashflow-V2.2.md`  
-3. `Contratos/contrato_base_v_1_alumno_grupo_deporte_y_deuda.md`  
-4. `docs/LIQUIDACIONES_CONTRATO_V2.md`
+1. `docs/99-archivo/` si aparece una version historica V2  
+2. `docs/99-archivo/` si aparece una version historica V2.2  
+3. `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v3.md`  
+4. `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md`
 
 Todo lo demás marcado como ⏳ **no existe todavía en el repo**.
 
