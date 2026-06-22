@@ -376,13 +376,36 @@ a:hover {
     to { transform: rotate(360deg); }
 }
 
-/* ── Icon-only: 36×36, sin texto visible ─────────────────────────────────── */
+/* ── Icon-only: 32×32, sin texto visible ─────────────────────────────────── */
 
 .ds-btn--icon {
     width: 32px;
     height: 32px;
     padding: 0;
 }
+
+/* ── Row: botón de fila de tabla (Obj C — outline, 72×28) ───────────────── */
+
+.ds-btn-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 28px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    font-family: inherit;
+    background: none;
+    border: 1px solid;
+    padding: 0;
+    line-height: 1;
+}
+.ds-btn-row--sec  { color: var(--color-btn-secondary); border-color: var(--color-btn-secondary); }
+.ds-btn-row--dang { color: var(--color-btn-danger);    border-color: var(--color-btn-danger); }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    COMPONENTE: DS-TOGGLE (switch booleano)

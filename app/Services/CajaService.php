@@ -139,12 +139,15 @@ class CajaService
         // Crear movimiento
         return MovimientoOperativo::create([
             'caja_operativa_id' => $caja->id,
-            'fecha' => $data['fecha'] ?? Carbon::now()->toDateString(),
-            'tipo_caja_id' => $data['tipo_caja_id'],
-            'subrubro_id' => $data['subrubro_id'],
-            'monto' => $data['monto'],
-            'observaciones' => $data['observaciones'] ?? null,
-            'usuario_id' => $usuarioOperativoId,
+            'fecha'             => $data['fecha'] ?? Carbon::now()->toDateString(),
+            'tipo_caja_id'      => $data['tipo_caja_id'],
+            'subrubro_id'       => $data['subrubro_id'],
+            'monto'             => $data['monto'],
+            'observaciones'     => $data['observaciones'] ?? null,
+            'usuario_id'        => $usuarioOperativoId,
+            'alumno_id'         => $data['alumno_id'] ?? null,
+            'pago_id'           => $data['pago_id'] ?? null,
+            'estado'            => 'ACTIVO',
         ]);
     }
 

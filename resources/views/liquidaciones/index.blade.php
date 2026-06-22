@@ -161,6 +161,7 @@
         <a href="{{ route('web.liquidaciones.show', $liq->id) }}" style="{{ $btnBSec }}">Ver</a>
         @if($liq->estaAbierta())
             <form method="POST" action="{{ route('web.liquidaciones.eliminar', $liq->id) }}"
+                  style="display:contents;"
                   onsubmit="return confirm('¿Eliminar esta liquidación?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>

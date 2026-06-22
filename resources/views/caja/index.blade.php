@@ -132,7 +132,8 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 
     <div class="alumno-actions">
         @if($canEdit)
-            <a href="{{ route('web.caja.editar', $caja->id) }}" style="{{ $btnBSec }}">Editar</a>
+            <a href="{{ route('web.caja.cobrar-cuota') }}" style="{{ $btnBSec }}">Cobrar</a>
+            <a href="{{ route('web.caja.editar', $caja->id) }}" style="{{ $btnBSec }}">Agregar</a>
         @endif
         <a href="{{ route('web.caja.resumen', $caja->id) }}" style="{{ $btnBPrim }}">Resumen</a>
         <a href="{{ route('web.caja.detalle', $caja->id) }}" style="{{ $btnBSec }}">Detalle</a>

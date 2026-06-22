@@ -11,6 +11,7 @@ use App\Models\PagoDeudaCuota;
 use App\Models\Subrubro;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PagoCuotaService
 {
@@ -63,11 +64,13 @@ class PagoCuotaService
             // Usa método interno para permitir subrubro reservado "Cuota Mensual"
             $movimiento = $this->cajaService->registrarMovimientoOperativoInterno([
                 'usuario_operativo_id' => $data['usuario_operativo_id'],
-                'tipo_caja_id' => $data['tipo_caja_id'],
-                'subrubro_id' => $subruboCuota->id,
-                'monto' => $montoTotal,
-                'fecha' => $fechaPago,
-                'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
+                'tipo_caja_id'         => $data['tipo_caja_id'],
+                'subrubro_id'          => $subruboCuota->id,
+                'monto'                => $montoTotal,
+                'fecha'                => $fechaPago,
+                'observaciones'        => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
+                'alumno_id'            => $data['alumno_id'],
+                'pago_id'              => $pago->id,
             ]);
 
             $resultado = [
@@ -482,6 +485,69 @@ class PagoCuotaService
             $texto .= " - {$observaciones}";
         }
         return $texto;
+    }
+
+    /**
+     * Cancelar un cobro de cuota operativo.
+     * Revierte el monto de las deudas, anula el pago y marca el movimiento como CANCELADO.
+     * Solo funciona si la caja está ABIERTA.
+     * Solo funciona en movimientos que tengan pago_id (cobros registrados con el nuevo flujo).
+     *
+     * Nota: pago.estado pasa a 'ANULADO' (estado agregado via migración 2026_06_21).
+     *
+     * @throws \Exception
+     */
+    public function cancelarCobroOperativo(int $movimientoId, string $motivo, int $usuarioId): void
+    {
+        DB::transaction(function () use ($movimientoId, $motivo, $usuarioId) {
+            $movimiento = MovimientoOperativo::with(['cajaOperativa'])->findOrFail($movimientoId);
+
+            if (!$movimiento->pago_id) {
+                throw new \Exception('Este cobro no tiene registro de pago vinculado. No se puede cancelar automáticamente.');
+            }
+
+            if ($movimiento->cajaOperativa->estado !== 'ABIERTA') {
+                throw new \Exception('Solo se puede cancelar un cobro mientras la caja esté abierta.');
+            }
+
+            if ($movimiento->estado === 'CANCELADO') {
+                throw new \Exception('Este movimiento ya fue cancelado.');
+            }
+
+            $pago = Pago::findOrFail($movimiento->pago_id);
+
+            $pagoDeudas = PagoDeudaCuota::with('deudaCuota')
+                ->where('pago_id', $pago->id)
+                ->get();
+
+            foreach ($pagoDeudas as $pd) {
+                $deuda = $pd->deudaCuota;
+
+                $deuda->monto_pagado = max(0, (float) $deuda->monto_pagado - (float) $pd->monto_aplicado);
+
+                // DeudaCuota no tiene estado PARCIAL — después de revertir siempre es PENDIENTE
+                // salvo que haya otro pago anterior que la haya dejado pagada
+                if ((float) $deuda->monto_pagado >= (float) $deuda->monto_original) {
+                    $deuda->estado = DeudaCuota::ESTADO_PAGADA;
+                } else {
+                    $deuda->estado = DeudaCuota::ESTADO_PENDIENTE;
+                }
+
+                $deuda->observaciones = $this->agregarObservacion(
+                    $deuda->observaciones,
+                    "[CANCELADO] Pago #{$pago->id} revertido - {$motivo}"
+                );
+
+                $deuda->save();
+            }
+
+            $pago->estado = 'ANULADO';
+            $pago->save();
+
+            $movimiento->estado = 'CANCELADO';
+            $movimiento->motivo_cancelacion = $motivo;
+            $movimiento->save();
+        });
     }
 
     /**

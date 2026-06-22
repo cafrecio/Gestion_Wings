@@ -53,6 +53,7 @@
         <div class="alumno-actions">
             <a href="{{ route('web.niveles.edit', $nivel->id) }}" style="{{ $btnBSec }}">Editar</a>
             <form method="POST" action="{{ route('web.niveles.destroy', $nivel->id) }}"
+                  style="display:contents;"
                   onsubmit="return confirm('¿Eliminar el nivel «{{ $nivel->nombre }}»?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>

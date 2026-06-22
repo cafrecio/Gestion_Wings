@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -18,11 +19,15 @@ class MovimientoOperativo extends Model
         'observaciones',
         'usuario_id',
         'alumno_id',
+        'pago_id',
+        'estado',
+        'motivo_cancelacion',
     ];
 
     protected $casts = [
-        'fecha' => 'date',
-        'monto' => 'decimal:2',
+        'fecha'  => 'date',
+        'monto'  => 'decimal:2',
+        'estado' => 'string',
     ];
 
     /**
@@ -63,5 +68,18 @@ class MovimientoOperativo extends Model
     public function alumno(): BelongsTo
     {
         return $this->belongsTo(Alumno::class);
+    }
+
+    /**
+     * Relación con Pago (nullable — solo en cobros de cuota registrados con el nuevo flujo)
+     */
+    public function pago(): BelongsTo
+    {
+        return $this->belongsTo(Pago::class);
+    }
+
+    public function scopeActivos(Builder $query): Builder
+    {
+        return $query->where('estado', 'ACTIVO');
     }
 }

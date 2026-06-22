@@ -18,12 +18,16 @@ class SubrubroWebController extends Controller
 
     public function store(Request $request, int $rubroId)
     {
-        $rubro = Rubro::findOrFail($rubroId);
+        $rubro = Rubro::with('subrubros')->findOrFail($rubroId);
+
+        if ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)) {
+            return redirect()->route('web.rubros.index')
+                ->with('error', 'Este rubro es administrado por el sistema y no permite subrubros adicionales.');
+        }
 
         $validated = $request->validate([
-            'nombre'        => 'required|string|max:255|unique:subrubros,nombre',
+            'nombre'         => 'required|string|max:255|unique:subrubros,nombre',
             'permitido_para' => 'nullable|in:ADMIN,OPERATIVO',
-            'afecta_caja'   => 'boolean',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.unique'   => 'Ya existe un subrubro con ese nombre.',
@@ -63,7 +67,6 @@ class SubrubroWebController extends Controller
         $validated = $request->validate([
             'nombre'         => ['required', 'string', 'max:255', Rule::unique('subrubros', 'nombre')->ignore($subrubro->id)],
             'permitido_para' => 'nullable|in:ADMIN,OPERATIVO',
-            'afecta_caja'    => 'boolean',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.unique'   => 'Ya existe un subrubro con ese nombre.',

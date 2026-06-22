@@ -71,6 +71,7 @@
         <div class="alumno-actions">
             <a href="{{ route('web.tipos-caja.edit', $tipoCaja->id) }}" style="{{ $btnBSec }}">Editar</a>
             <form method="POST" action="{{ route('web.tipos-caja.destroy', $tipoCaja->id) }}"
+                  style="display:contents;"
                   onsubmit="return confirm('¿Eliminar el tipo de caja «{{ $tipoCaja->nombre }}»?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>

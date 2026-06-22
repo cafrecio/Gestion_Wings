@@ -18,13 +18,6 @@
     $btnBDang = $btnB . ' background:var(--color-btn-danger);    color:var(--color-surface);';
     $btnBPrim = $btnB . ' background:var(--color-btn-primary);   color:var(--color-surface);';
 
-    // ── Objeto C: botones de fila de tabla (Editar / Eliminar del subrubro) ─
-    $btnC = 'display:inline-block; width:64px; height:26px; line-height:26px;'
-          . ' font-size:0.72rem; font-weight:600; text-align:center;'
-          . ' border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;'
-          . ' background:none; border:1px solid; padding:0; font-family:inherit;';
-    $btnCSec  = $btnC . ' color:var(--color-btn-secondary); border-color:var(--color-btn-secondary);';
-    $btnCDang = $btnC . ' color:var(--color-btn-danger);    border-color:var(--color-btn-danger);';
 @endphp
 
 
@@ -76,9 +69,6 @@
                         <tr style="border-bottom:1px solid var(--color-border);">
                             <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                 {{ $subrubro->nombre }}
-                                @if($subrubro->es_reservado_sistema)
-                                    <span style="font-size:0.65rem; color:var(--color-text-muted); font-weight:400; margin-left:0.3rem;">(sistema)</span>
-                                @endif
                             </td>
                             <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                             <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
@@ -87,10 +77,10 @@
                             <td style="padding:0.45rem 0; text-align:right;">
                                 @unless($subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
-                                        <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" style="{{ $btnCSec }}">Editar</a>
-                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:inline;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
+                                        <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
+                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
                                             @csrf @method('DELETE')
-                                            <button type="submit" style="{{ $btnCDang }}">Eliminar</button>
+                                            <button type="submit" class="ds-btn-row ds-btn-row--dang">Eliminar</button>
                                         </form>
                                     </div>
                                 @endunless
@@ -101,15 +91,18 @@
             </table>
         @endif
 
+        @php $rubroReservado = $rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
+        @unless($rubroReservado)
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
-            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:inline;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
+            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>
             <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-left:auto;">+ Subrubro</a>
         </div>
+        @endunless
 
     </div>
 @empty
@@ -165,9 +158,6 @@
                         <tr style="border-bottom:1px solid var(--color-border);">
                             <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                 {{ $subrubro->nombre }}
-                                @if($subrubro->es_reservado_sistema)
-                                    <span style="font-size:0.65rem; color:var(--color-text-muted); font-weight:400; margin-left:0.3rem;">(sistema)</span>
-                                @endif
                             </td>
                             <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                             <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
@@ -176,10 +166,10 @@
                             <td style="padding:0.45rem 0; text-align:right;">
                                 @unless($subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
-                                        <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" style="{{ $btnCSec }}">Editar</a>
-                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:inline;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
+                                        <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
+                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
                                             @csrf @method('DELETE')
-                                            <button type="submit" style="{{ $btnCDang }}">Eliminar</button>
+                                            <button type="submit" class="ds-btn-row ds-btn-row--dang">Eliminar</button>
                                         </form>
                                     </div>
                                 @endunless
@@ -190,15 +180,18 @@
             </table>
         @endif
 
+        @php $rubroReservado = $rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
+        @unless($rubroReservado)
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
-            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:inline;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
+            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>
             <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-left:auto;">+ Subrubro</a>
         </div>
+        @endunless
 
     </div>
 @empty

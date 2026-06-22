@@ -35,6 +35,8 @@
             Sin deudas pendientes
         @endif
     </div>
+    <a href="{{ route('web.caja.index') }}"
+       class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Volver</a>
 </div>
 
 @forelse($alumnos as $alumno)

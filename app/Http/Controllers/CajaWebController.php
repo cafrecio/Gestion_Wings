@@ -121,7 +121,8 @@ class CajaWebController extends Controller
             'usuarioOperativo',
             'movimientos.tipoCaja',
             'movimientos.subrubro.rubro',
-            'movimientos.alumno',
+            'movimientos.alumno.deporte',
+            'movimientos.pago.deudasCuota',
         ])->findOrFail($id);
 
         if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
@@ -257,6 +258,10 @@ class CajaWebController extends Controller
 
         $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
 
+        if (!is_null($movimiento->alumno_id)) {
+            return back()->with('error', 'Los cobros de cuota no se pueden eliminar directamente. Usá la opción Cancelar.');
+        }
+
         if ($movimiento->subrubro?->es_reservado_sistema) {
             return back()->with('error', 'No se puede eliminar un movimiento generado automáticamente por el sistema.');
         }
@@ -264,6 +269,47 @@ class CajaWebController extends Controller
         $movimiento->delete();
 
         return back()->with('success', 'Movimiento eliminado.');
+    }
+
+    // ── Cancelar cobro de cuota ───────────────────────────────────────────
+
+    public function cancelarMovimientoForm(int $cajaId, int $movId)
+    {
+        $user = Auth::user();
+        $caja = CajaOperativa::findOrFail($cajaId);
+
+        if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
+            abort(403);
+        }
+
+        if ($caja->estado !== 'ABIERTA') {
+            return redirect()->route('web.caja.detalle', $cajaId)
+                ->with('error', 'Solo se puede cancelar un cobro con la caja abierta.');
+        }
+
+        $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
+
+        if (is_null($movimiento->alumno_id)) {
+            abort(403, 'Solo se pueden cancelar cobros de cuota.');
+        }
+
+        return view('caja.cancelar-movimiento', compact('caja', 'movimiento'));
+    }
+
+    public function cancelarMovimiento(Request $request, int $cajaId, int $movId)
+    {
+        $request->validate([
+            'motivo' => 'required|string|max:500',
+        ]);
+
+        try {
+            $this->pagoCuotaService->cancelarCobroOperativo($movId, $request->input('motivo'), Auth::id());
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+
+        return redirect()->route('web.caja.detalle', $cajaId)
+            ->with('success', 'Cobro cancelado y deuda revertida.');
     }
 
     // ── Cerrar / Validar / Rechazar ───────────────────────────────────────

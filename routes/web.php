@@ -44,8 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/caja/{id}/editar', [CajaWebController::class, 'editarStore'])->name('web.caja.editar.store');
     Route::post('/caja/{id}/cerrar', [CajaWebController::class, 'cerrar'])->name('web.caja.cerrar');
 
-    // Editar / eliminar movimiento individual
+    // Editar / eliminar / cancelar movimiento individual
     Route::get('/caja/{cajaId}/movimientos/{movId}/editar', [CajaWebController::class, 'editarMovimientoForm'])->name('web.caja.movimientos.editar');
+    Route::get('/caja/{cajaId}/movimientos/{movId}/cancelar', [CajaWebController::class, 'cancelarMovimientoForm'])->name('web.caja.movimientos.cancelar');
+    Route::post('/caja/{cajaId}/movimientos/{movId}/cancelar', [CajaWebController::class, 'cancelarMovimiento'])->name('web.caja.movimientos.cancelar.store');
     Route::put('/caja/{cajaId}/movimientos/{movId}', [CajaWebController::class, 'updateMovimiento'])->name('web.caja.movimientos.update');
     Route::delete('/caja/{cajaId}/movimientos/{movId}', [CajaWebController::class, 'destroyMovimiento'])->name('web.caja.movimientos.destroy');
 
