@@ -5,6 +5,7 @@ use App\Http\Controllers\CajaWebController;
 use App\Http\Controllers\CashflowWebController;
 use App\Http\Controllers\CobranzaWebController;
 use App\Http\Controllers\OperativoDashboardController;
+use App\Http\Controllers\RevisionCobranzaWebController;
 use App\Http\Controllers\ConfiguracionWebController;
 use App\Http\Controllers\MovimientoWebController;
 use App\Http\Controllers\ReciboController;
@@ -80,6 +81,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
         Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
+        Route::get('/revision-cobranza', [RevisionCobranzaWebController::class, 'index'])->name('web.revision-cobranza.index');
+        Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');
     });
 
     // Alumnos CRUD — accesible para todos los roles autenticados (ADMIN y OPERATIVO)

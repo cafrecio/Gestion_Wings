@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\AlumnoPlan;
+use App\Models\AlumnoRevisionCobranza;
 use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
 use App\Models\MovimientoOperativo;
@@ -60,6 +61,11 @@ class PagoCuotaService
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
+
+            // Si el alumno tenía una revisión de cobranza pendiente, reactivar automáticamente
+            foreach ($items as $item) {
+                AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
+            }
 
             // Crear movimiento operativo (abre caja si no existe)
             // Usa método interno para permitir subrubro reservado "Cuota Mensual"
@@ -129,6 +135,11 @@ class PagoCuotaService
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
+
+            // Si el alumno tenía una revisión de cobranza pendiente, reactivar automáticamente
+            foreach ($items as $item) {
+                AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
+            }
 
             // Crear movimiento en cashflow directo
             $movimiento = CashflowMovimiento::create([

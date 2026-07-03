@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAsistenciaRequest;
 use App\Http\Requests\StoreAsistenciaBulkRequest;
+use App\Models\AlumnoRevisionCobranza;
 use App\Models\Asistencia;
 use App\Models\AsistenciaExceso;
 use App\Models\Clase;
 use App\Services\ClaseService;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 
 class AsistenciaController extends Controller
@@ -77,6 +79,7 @@ class AsistenciaController extends Controller
         $items = $request->validated()['items'];
         $registradas = [];
         $excesos = [];
+        $periodoClase = Carbon::parse($clase->fecha)->format('Y-m');
 
         foreach ($items as $item) {
             $asistencia = Asistencia::updateOrCreate(
@@ -89,6 +92,11 @@ class AsistenciaController extends Controller
                 ]
             );
             $registradas[] = $asistencia;
+
+            // Si el alumno está en revisión de cobranza y asiste, reactivar automáticamente
+            if ($item['presente']) {
+                AlumnoRevisionCobranza::reactivarAuto($item['alumno_id'], $periodoClase);
+            }
 
             // Control de exceso si está presente
             if ($item['presente']) {

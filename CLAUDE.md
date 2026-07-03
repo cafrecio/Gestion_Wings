@@ -7,6 +7,7 @@ Este archivo orienta el trabajo dentro del repo. No reemplaza la documentacion v
 Antes de modificar funcionalidad, leer:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`
+- `docs/05-pendientes/DEFINICIONES-PENDIENTES.md` — funcionalidades definidas en conversacion pero no implementadas aun. Leer SIEMPRE antes de tocar caja, cobros, alumnos o sidebar.
 
 Ese archivo es la fuente de verdad del estado actual del proyecto. Si otro documento contradice `ESTADO-ACTUAL.md`, no asumir: registrar la contradiccion y resolverla antes de implementar.
 
