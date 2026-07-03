@@ -10,7 +10,7 @@ $user      = Auth::user();
 $esAdmin   = $user->isAdmin();
 $esProp    = $user->id === $caja->usuario_operativo_id;
 
-$hasEditar    = in_array($caja->estado, ['ABIERTA']) && $esProp;
+$hasEditar    = in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esProp;
 $hasCheckbox  = $esAdmin && $caja->estado === 'CERRADA';
 
 $estadoColor = match($caja->estado) {
@@ -30,6 +30,7 @@ $movimientosActivos = $caja->movimientos->where('estado', 'ACTIVO');
 $ingresos  = $movimientosActivos->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'INGRESO')->sum('monto');
 $egresos   = $movimientosActivos->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO')->sum('monto');
 $totalMovs = $caja->movimientos->count();
+$hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 @endphp
 
 {{-- ── Info de la caja ─────────────────────────────────────────────────── --}}
@@ -90,7 +91,9 @@ $totalMovs = $caja->movimientos->count();
             @if($hasEditar)
                 <col style="width:148px">
             @elseif($hasCheckbox)
-                <col style="width:40px">
+                <col style="width:{{ $hasRecibo ? '110px' : '40px' }}">
+            @elseif($hasRecibo)
+                <col style="width:72px">
             @endif
         </colgroup>
         <thead>
@@ -101,10 +104,8 @@ $totalMovs = $caja->movimientos->count();
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Alumno / Obs.</th>
                 <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
-                @if($hasEditar || $hasCheckbox)
-                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">
-                    @if($hasCheckbox) Ver @endif
-                </th>
+                @if($hasEditar || $hasCheckbox || $hasRecibo)
+                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);"></th>
                 @endif
             </tr>
         </thead>
@@ -165,11 +166,17 @@ $totalMovs = $caja->movimientos->count();
                     @if($esCancelado)
                         <span style="font-size:0.72rem; font-weight:600; color:var(--color-danger);">Cancelado</span>
                     @elseif($esCuota)
-                        <button type="button"
-                                class="ds-btn-row ds-btn-row--dang"
-                                onclick="abrirCancelar({{ $mov->id }}, '{{ route('web.caja.movimientos.cancelar.store', [$caja->id, $mov->id]) }}')">
-                            Cancelar
-                        </button>
+                        <div style="display:flex; gap:6px; justify-content:center;">
+                            @if($mov->pago_id)
+                            <a href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1"
+                               class="ds-btn-row ds-btn-row--sec" target="_blank">Recibo</a>
+                            @endif
+                            <button type="button"
+                                    class="ds-btn-row ds-btn-row--dang"
+                                    onclick="abrirCancelar({{ $mov->id }}, '{{ route('web.caja.movimientos.cancelar.store', [$caja->id, $mov->id]) }}')">
+                                Cancelar
+                            </button>
+                        </div>
                     @else
                         <div style="display:flex; gap:6px; justify-content:center;">
                             <a href="{{ route('web.caja.movimientos.editar', [$caja->id, $mov->id]) }}"
@@ -186,8 +193,24 @@ $totalMovs = $caja->movimientos->count();
                 </td>
                 @elseif($hasCheckbox)
                 <td style="padding:8px 12px; text-align:center;">
+                    @if($esCuota && $mov->pago_id && !$esCancelado)
+                    <div style="display:flex; gap:6px; justify-content:center; align-items:center;">
+                        <a href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1"
+                           class="ds-btn-row ds-btn-row--sec" target="_blank">Recibo</a>
+                        <input type="checkbox" class="mov-check"
+                               style="width:15px; height:15px; cursor:pointer; accent-color:var(--color-btn-primary);">
+                    </div>
+                    @else
                     <input type="checkbox" class="mov-check"
                            style="width:15px; height:15px; cursor:pointer; accent-color:var(--color-btn-primary);">
+                    @endif
+                </td>
+                @elseif($hasRecibo)
+                <td style="padding:8px 12px; text-align:center;">
+                    @if($esCuota && $mov->pago_id && !$esCancelado)
+                    <a href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1"
+                       class="ds-btn-row ds-btn-row--sec" target="_blank">Recibo</a>
+                    @endif
                 </td>
                 @endif
             </tr>
@@ -203,7 +226,7 @@ $totalMovs = $caja->movimientos->count();
                 <td style="padding:8px 12px; font-size:0.9rem; font-weight:700; color:var(--color-text); text-align:right;">
                     ${{ number_format($movimientosActivos->sum('monto'), 0, ',', '.') }}
                 </td>
-                @if($hasEditar || $hasCheckbox)
+                @if($hasEditar || $hasCheckbox || $hasRecibo)
                 <td></td>
                 @endif
             </tr>

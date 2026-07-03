@@ -96,9 +96,9 @@
         @endif
     </div>
 
-    {{-- Tipo de pago + observaciones --}}
+    {{-- Tipo de pago + forma + fecha + observaciones --}}
     <div class="filtros-card mb-4">
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:1rem;">
             <div>
                 <label for="tipo_caja_id"
                        style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
@@ -118,15 +118,19 @@
                 @enderror
             </div>
             <div>
-                <label for="observaciones"
+                <label for="forma_pago_id"
                        style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
-                    Observaciones
+                    Forma de pago
                 </label>
-                <input type="text" id="observaciones" name="observaciones"
-                       value="{{ old('observaciones') }}"
-                       maxlength="500"
-                       class="w-full px-4 py-2.5 text-sm wings-input"
-                       placeholder="Opcional">
+                <select id="forma_pago_id" name="forma_pago_id"
+                        class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                    <option value="">— Sin especificar —</option>
+                    @foreach($formasPago as $fp)
+                        <option value="{{ $fp->id }}" {{ old('forma_pago_id') == $fp->id ? 'selected' : '' }}>
+                            {{ $fp->nombre }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div>
                 <label for="fecha_pago"
@@ -137,6 +141,17 @@
                        value="{{ old('fecha_pago', now()->format('Y-m-d')) }}"
                        max="{{ now()->format('Y-m-d') }}"
                        class="w-full px-4 py-2.5 text-sm wings-input">
+            </div>
+            <div>
+                <label for="observaciones"
+                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
+                    Observaciones
+                </label>
+                <input type="text" id="observaciones" name="observaciones"
+                       value="{{ old('observaciones') }}"
+                       maxlength="500"
+                       class="w-full px-4 py-2.5 text-sm wings-input"
+                       placeholder="Opcional">
             </div>
         </div>
 

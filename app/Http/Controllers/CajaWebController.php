@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\CajaOperativa;
 use App\Models\DeudaCuota;
+use App\Models\FormaPago;
 use App\Models\MovimientoOperativo;
 use App\Models\Rubro;
 use App\Models\Subrubro;
@@ -214,8 +215,8 @@ class CajaWebController extends Controller
             abort(403);
         }
 
-        if ($caja->estado !== 'ABIERTA') {
-            return back()->with('error', 'Solo se pueden editar movimientos de una caja abierta.');
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+            return back()->with('error', 'Solo se pueden editar movimientos de una caja abierta o rechazada.');
         }
 
         $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
@@ -252,8 +253,8 @@ class CajaWebController extends Controller
             abort(403);
         }
 
-        if ($caja->estado !== 'ABIERTA') {
-            return back()->with('error', 'Solo se pueden eliminar movimientos de una caja abierta.');
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+            return back()->with('error', 'Solo se pueden eliminar movimientos de una caja abierta o rechazada.');
         }
 
         $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
@@ -282,9 +283,9 @@ class CajaWebController extends Controller
             abort(403);
         }
 
-        if ($caja->estado !== 'ABIERTA') {
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
             return redirect()->route('web.caja.detalle', $cajaId)
-                ->with('error', 'Solo se puede cancelar un cobro con la caja abierta.');
+                ->with('error', 'Solo se puede cancelar un cobro con la caja abierta o rechazada.');
         }
 
         $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
@@ -298,6 +299,13 @@ class CajaWebController extends Controller
 
     public function cancelarMovimiento(Request $request, int $cajaId, int $movId)
     {
+        $user = Auth::user();
+        $caja = CajaOperativa::findOrFail($cajaId);
+
+        if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
+            abort(403);
+        }
+
         $request->validate([
             'motivo' => 'required|string|max:500',
         ]);
@@ -398,9 +406,10 @@ class CajaWebController extends Controller
             'deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo'),
         ])->findOrFail($alumnoId);
 
-        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        $tiposCaja  = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        $formasPago = FormaPago::where('activo', true)->orderBy('nombre')->get();
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago'));
     }
 
     public function pagar(Request $request, int $alumnoId)
@@ -410,6 +419,7 @@ class CajaWebController extends Controller
 
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
+            'forma_pago_id'  => 'nullable|exists:formas_pago,id',
             'periodos'       => 'required|array|min:1',
             'periodos.*'     => 'required|string|regex:/^\d{4}-\d{2}$/',
             'observaciones'  => 'nullable|string|max:500',
@@ -442,6 +452,7 @@ class CajaWebController extends Controller
             $this->pagoCuotaService->registrarPagoCuotaOperativo([
                 'alumno_id'            => $alumnoId,
                 'tipo_caja_id'         => $request->input('tipo_caja_id'),
+                'forma_pago_id'        => $request->filled('forma_pago_id') ? (int) $request->input('forma_pago_id') : null,
                 'usuario_operativo_id' => $user->id,
                 'items'                => $items,
                 'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),

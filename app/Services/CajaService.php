@@ -164,8 +164,8 @@ class CajaService
     {
         $caja = CajaOperativa::findOrFail($cajaId);
 
-        if ($caja->estado !== 'ABIERTA') {
-            throw new \Exception('La caja no está abierta.');
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+            throw new \Exception('La caja no está en estado editable.');
         }
 
         if (!$esAdmin && $caja->usuario_operativo_id !== $usuarioId) {
@@ -277,8 +277,8 @@ class CajaService
     {
         $caja = CajaOperativa::findOrFail($cajaId);
 
-        if ($caja->estado !== 'ABIERTA') {
-            throw new \Exception('La caja no está abierta.');
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+            throw new \Exception('La caja no está en estado editable.');
         }
 
         $subrubro = Subrubro::findOrFail($data['subrubro_id']);

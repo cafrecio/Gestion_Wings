@@ -66,13 +66,15 @@ class UsuarioWebController extends Controller
             $profesorId = $profesor->id;
         }
 
-        User::create([
+        $user = new User([
             'name'        => $request->name,
             'email'       => $request->email,
             'password'    => Hash::make($request->password),
-            'rol'         => $request->rol,
             'profesor_id' => $profesorId,
         ]);
+        $user->rol    = $request->rol;
+        $user->activo = true;
+        $user->save();
 
         return redirect()->route('web.usuarios.index')
             ->with('success', 'Usuario creado correctamente.');
@@ -133,13 +135,10 @@ class UsuarioWebController extends Controller
             }
             $profesorId = $profesor->id;
         }
-        // Si el rol cambia a no-PROFESOR, limpiar profesor_id
-        $data = [
-            'name'        => $request->name,
-            'email'       => $request->email,
-            'rol'         => $request->rol,
-            'profesor_id' => $profesorId,
-        ];
+        $usuario->name        = $request->name;
+        $usuario->email       = $request->email;
+        $usuario->rol         = $request->rol;
+        $usuario->profesor_id = $profesorId;
 
         if ($request->filled('password')) {
             $request->validate([
@@ -147,10 +146,10 @@ class UsuarioWebController extends Controller
             ], [
                 'password.confirmed' => 'Las contraseñas no coinciden.',
             ]);
-            $data['password'] = Hash::make($request->password);
+            $usuario->password = Hash::make($request->password);
         }
 
-        $usuario->update($data);
+        $usuario->save();
 
         return redirect()->route('web.usuarios.index')
             ->with('success', 'Usuario actualizado correctamente.');
@@ -167,7 +166,8 @@ class UsuarioWebController extends Controller
             return back()->with('error', 'No podés inactivarte a vos mismo.');
         }
 
-        $usuario->update(['activo' => !$usuario->activo]);
+        $usuario->activo = !$usuario->activo;
+        $usuario->save();
 
         if ($request->expectsJson()) {
             return response()->json(['activo' => (bool) $usuario->activo]);

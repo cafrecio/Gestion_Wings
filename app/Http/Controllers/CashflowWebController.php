@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CashflowMovimiento;
 use App\Models\Rubro;
 use App\Models\TipoCaja;
 use App\Services\CashflowService;
@@ -11,6 +12,49 @@ use Illuminate\Support\Facades\Auth;
 class CashflowWebController extends Controller
 {
     public function __construct(private CashflowService $cashflowService) {}
+
+    public function index(Request $request)
+    {
+        $anio       = (int) $request->input('anio', now()->year);
+        $mes        = $request->filled('mes') ? (int) $request->input('mes') : null;
+        $tipoCajaId = $request->filled('tipo_caja_id') ? (int) $request->input('tipo_caja_id') : null;
+        $tipo       = in_array($request->input('tipo'), ['INGRESO', 'EGRESO']) ? $request->input('tipo') : null;
+
+        $movimientos = CashflowMovimiento::with(['subrubro.rubro', 'tipoCaja', 'usuarioAdmin'])
+            ->whereYear('fecha', $anio)
+            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
+            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+            ->when($tipo, fn($q) => $q->whereHas('subrubro.rubro', fn($r) => $r->where('tipo', $tipo)))
+            ->orderBy('fecha', 'desc')
+            ->paginate(30)
+            ->withQueryString();
+
+        $totalIngresos = CashflowMovimiento::whereYear('fecha', $anio)
+            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
+            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+            ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))
+            ->sum('monto');
+
+        $totalEgresos = CashflowMovimiento::whereYear('fecha', $anio)
+            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
+            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+            ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))
+            ->sum('monto');
+
+        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        $aniosDisponibles = CashflowMovimiento::selectRaw('YEAR(fecha) as anio')
+            ->distinct()->orderBy('anio', 'desc')->pluck('anio');
+
+        if ($aniosDisponibles->isEmpty()) {
+            $aniosDisponibles = collect([now()->year]);
+        }
+
+        return view('cashflow.index', compact(
+            'movimientos', 'tiposCaja', 'aniosDisponibles',
+            'anio', 'mes', 'tipoCajaId', 'tipo',
+            'totalIngresos', 'totalEgresos'
+        ));
+    }
 
     public function create()
     {

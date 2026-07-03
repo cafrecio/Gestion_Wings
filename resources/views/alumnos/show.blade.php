@@ -105,12 +105,56 @@
         </div>
 
         {{-- Estado de cobranza --}}
+        @php
+            $ecEstado = $estadoCobranza['estado'];
+            $ecColor  = match($ecEstado) {
+                'AL_DIA' => 'var(--color-success)',
+                'MOROSO' => 'var(--color-warning)',
+                'DEUDOR' => 'var(--color-danger)',
+                default  => 'var(--color-text-muted)',
+            };
+            $ecLabel  = match($ecEstado) {
+                'AL_DIA' => 'Al día',
+                'MOROSO' => 'Moroso',
+                'DEUDOR' => 'Deudor',
+                default  => $ecEstado,
+            };
+            $ecDeudas = $estadoCobranza['deudas_pendientes'];
+            $ecGracia = $estadoCobranza['dias_gracia_restantes'];
+            $meses    = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        @endphp
         <div class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">
             <p class="flex items-center gap-1.5 mb-2" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
                 <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Estado de cobranza
             </p>
-            <p class="text-xs text-wings-muted" style="opacity: 0.6;">Disponible cuando haya movimientos registrados.</p>
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <span style="font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:999px;
+                             background:color-mix(in srgb, {{ $ecColor }} 15%, transparent);
+                             color:{{ $ecColor }};">{{ $ecLabel }}</span>
+                @if($ecGracia > 0)
+                    <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $ecGracia }} día{{ $ecGracia !== 1 ? 's' : '' }} de gracia</span>
+                @endif
+            </div>
+            @if($ecDeudas->isNotEmpty())
+            <div style="margin-top:8px; display:flex; flex-direction:column; gap:4px;">
+                @foreach($ecDeudas as $deuda)
+                @php
+                    [$yr, $mo] = explode('-', $deuda->periodo);
+                    $periodoLabel = ($meses[(int)$mo] ?? $mo) . ' ' . $yr;
+                    $saldo = (float)$deuda->saldo_pendiente;
+                @endphp
+                <div style="display:flex; justify-content:space-between; align-items:center;
+                            padding:4px 8px; border-radius:6px;
+                            background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
+                    <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
+                    <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }};">
+                        ${{ number_format($saldo, 0, ',', '.') }}
+                    </span>
+                </div>
+                @endforeach
+            </div>
+            @endif
         </div>
 
         {{-- Tutor --}}

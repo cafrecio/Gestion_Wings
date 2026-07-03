@@ -132,6 +132,18 @@
                     </form>
                 @endif
 
+                @if($esPagada)
+                <a href="{{ route('web.recibos.liquidacion', $liquidacion->id) }}?inline=1"
+                   target="_blank"
+                   style="display:inline-flex; align-items:center; justify-content:center;
+                          width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                          border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                          text-decoration:none; border:none; font-family:inherit;
+                          background:var(--color-btn-secondary); color:var(--color-surface);">
+                    Recibo
+                </a>
+                @endif
+
                 <a href="{{ route('web.liquidaciones.index') }}"
                    style="display:inline-flex; align-items:center; justify-content:center;
                           width:96px; height:32px; font-size:0.82rem; font-weight:600;

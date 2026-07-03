@@ -18,7 +18,7 @@ class EnsureProfesorWeb
         if ($request->user()->rol !== User::ROL_PROFESOR) {
             return match ($request->user()->rol) {
                 User::ROL_ADMIN    => redirect()->route('admin.dashboard'),
-                default            => redirect()->route('operativo.caja'),
+                default            => redirect()->route('web.caja.index'),
             };
         }
 

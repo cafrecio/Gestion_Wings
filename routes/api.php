@@ -40,15 +40,6 @@ Route::prefix('auth')->group(function () {
 });
 
 // ========================================
-// RUTAS PÚBLICAS (consulta sin auth)
-// ========================================
-
-// Consultas de deudas — movidas a rutas protegidas (ver abajo)
-
-// Rutas de Reglas de Primer Pago
-Route::get('/reglas-primer-pago/dia/{dia}', [PagoController::class, 'reglasDisponibles']);
-
-// ========================================
 // RUTAS PROTEGIDAS (requieren auth:sanctum)
 // ========================================
 
@@ -58,6 +49,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    // Reglas de primer pago (requiere auth)
+    Route::get('/reglas-primer-pago/dia/{dia}', [PagoController::class, 'reglasDisponibles']);
 
     // Rutas de Alumnos
     Route::apiResource('alumnos', AlumnoController::class);

@@ -3,8 +3,11 @@
 use App\Http\Controllers\AlumnoWebController;
 use App\Http\Controllers\CajaWebController;
 use App\Http\Controllers\CashflowWebController;
+use App\Http\Controllers\CobranzaWebController;
+use App\Http\Controllers\OperativoDashboardController;
 use App\Http\Controllers\ConfiguracionWebController;
 use App\Http\Controllers\MovimientoWebController;
+use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\ReglaPrimerPagoWebController;
 use App\Http\Controllers\UsuarioWebController;
 use App\Http\Controllers\ClaseWebController;
@@ -65,13 +68,18 @@ Route::middleware('auth')->group(function () {
         Route::post('/cajas/{id}/rechazar', [CajaWebController::class, 'rechazar'])->name('web.cajas.rechazar');
     });
 
+    // Dashboard operativo
+    Route::get('/operativo', [OperativoDashboardController::class, 'index'])->name('web.operativo.dashboard');
+
     // ── Movimientos (admin y operativo) ──────────────────────────────────
     Route::get('/movimientos', [MovimientoWebController::class, 'index'])->name('web.movimientos.index');
 
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/admin/dashboard', [WebController::class, 'adminDashboard'])->name('admin.dashboard');
+        Route::get('/cashflow', [CashflowWebController::class, 'index'])->name('web.cashflow.index');
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
+        Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
     });
 
     // Alumnos CRUD — accesible para todos los roles autenticados (ADMIN y OPERATIVO)
@@ -84,28 +92,28 @@ Route::middleware('auth')->group(function () {
     Route::put('/alumnos/{id}', [AlumnoWebController::class, 'update'])->name('web.alumnos.update');
     Route::patch('/alumnos/{id}/toggle-activo', [AlumnoWebController::class, 'toggleActivo'])->name('web.alumnos.toggle-activo');
 
-    // Deportes CRUD (admin only)
-    Route::get('/deportes', [DeporteWebController::class, 'index'])->name('web.deportes.index');
-    Route::get('/deportes/create', [DeporteWebController::class, 'create'])->name('web.deportes.create');
-    Route::post('/deportes', [DeporteWebController::class, 'store'])->name('web.deportes.store');
-    Route::get('/deportes/{id}/edit', [DeporteWebController::class, 'edit'])->name('web.deportes.edit');
-    Route::put('/deportes/{id}', [DeporteWebController::class, 'update'])->name('web.deportes.update');
-    Route::patch('/deportes/{id}/toggle-activo', [DeporteWebController::class, 'toggleActivo'])->name('web.deportes.toggle-activo');
+    // Deportes, Rubros y Subrubros — solo admin
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/deportes', [DeporteWebController::class, 'index'])->name('web.deportes.index');
+        Route::get('/deportes/create', [DeporteWebController::class, 'create'])->name('web.deportes.create');
+        Route::post('/deportes', [DeporteWebController::class, 'store'])->name('web.deportes.store');
+        Route::get('/deportes/{id}/edit', [DeporteWebController::class, 'edit'])->name('web.deportes.edit');
+        Route::put('/deportes/{id}', [DeporteWebController::class, 'update'])->name('web.deportes.update');
+        Route::patch('/deportes/{id}/toggle-activo', [DeporteWebController::class, 'toggleActivo'])->name('web.deportes.toggle-activo');
 
-    // Rubros CRUD
-    Route::get('/rubros', [RubroWebController::class, 'index'])->name('web.rubros.index');
-    Route::get('/rubros/create', [RubroWebController::class, 'create'])->name('web.rubros.create');
-    Route::post('/rubros', [RubroWebController::class, 'store'])->name('web.rubros.store');
-    Route::get('/rubros/{id}/edit', [RubroWebController::class, 'edit'])->name('web.rubros.edit');
-    Route::put('/rubros/{id}', [RubroWebController::class, 'update'])->name('web.rubros.update');
-    Route::delete('/rubros/{id}', [RubroWebController::class, 'destroy'])->name('web.rubros.destroy');
+        Route::get('/rubros', [RubroWebController::class, 'index'])->name('web.rubros.index');
+        Route::get('/rubros/create', [RubroWebController::class, 'create'])->name('web.rubros.create');
+        Route::post('/rubros', [RubroWebController::class, 'store'])->name('web.rubros.store');
+        Route::get('/rubros/{id}/edit', [RubroWebController::class, 'edit'])->name('web.rubros.edit');
+        Route::put('/rubros/{id}', [RubroWebController::class, 'update'])->name('web.rubros.update');
+        Route::delete('/rubros/{id}', [RubroWebController::class, 'destroy'])->name('web.rubros.destroy');
 
-    // Subrubros CRUD (nested under rubros)
-    Route::get('/rubros/{rubroId}/subrubros/create', [SubrubroWebController::class, 'create'])->name('web.subrubros.create');
-    Route::post('/rubros/{rubroId}/subrubros', [SubrubroWebController::class, 'store'])->name('web.subrubros.store');
-    Route::get('/rubros/{rubroId}/subrubros/{id}/edit', [SubrubroWebController::class, 'edit'])->name('web.subrubros.edit');
-    Route::put('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'update'])->name('web.subrubros.update');
-    Route::delete('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'destroy'])->name('web.subrubros.destroy');
+        Route::get('/rubros/{rubroId}/subrubros/create', [SubrubroWebController::class, 'create'])->name('web.subrubros.create');
+        Route::post('/rubros/{rubroId}/subrubros', [SubrubroWebController::class, 'store'])->name('web.subrubros.store');
+        Route::get('/rubros/{rubroId}/subrubros/{id}/edit', [SubrubroWebController::class, 'edit'])->name('web.subrubros.edit');
+        Route::put('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'update'])->name('web.subrubros.update');
+        Route::delete('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'destroy'])->name('web.subrubros.destroy');
+    });
 
     // Grupos — lectura para todos los autenticados
     Route::get('/grupos', [GrupoWebController::class, 'index'])->name('web.grupos.index');
@@ -206,5 +214,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/profesores/{id}/edit', [ProfesorWebController::class, 'edit'])->name('web.profesores.edit');
         Route::put('/profesores/{id}', [ProfesorWebController::class, 'update'])->name('web.profesores.update');
         Route::patch('/profesores/{id}/toggle-activo', [ProfesorWebController::class, 'toggleActivo'])->name('web.profesores.toggle-activo');
+    });
+
+    // Recibos PDF — descarga desde la web
+    Route::get('/recibos/cuota/{pagoId}', [ReciboController::class, 'cuota'])->name('web.recibos.cuota');
+    Route::middleware('ensure.admin.web')->group(function () {
+        Route::get('/recibos/liquidacion/{liquidacionId}', [ReciboController::class, 'liquidacion'])->name('web.recibos.liquidacion');
     });
 });

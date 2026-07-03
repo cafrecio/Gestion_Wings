@@ -141,7 +141,7 @@ class LiquidacionService
 
         $alumnosConPago = Pago::where('mes', $mes)
             ->where('anio', $anio)
-            ->where('estado', 'pagado')
+            ->whereIn('estado', ['pagado', 'COMPLETADO'])
             ->whereHas('alumno', function ($query) use ($deporteId) {
                 $query->where('deporte_id', $deporteId)
                     ->where('activo', true);
@@ -467,7 +467,7 @@ class LiquidacionService
 
         $alumnosConPago = Pago::where('mes', $mes)
             ->where('anio', $anio)
-            ->where('estado', 'pagado')
+            ->whereIn('estado', ['pagado', 'COMPLETADO'])
             ->whereHas('alumno', function ($query) use ($deporteId) {
                 $query->where('deporte_id', $deporteId)
                     ->where('activo', true);

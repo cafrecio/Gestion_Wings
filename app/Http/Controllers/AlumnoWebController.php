@@ -6,6 +6,7 @@ use App\Models\Alumno;
 use App\Models\AlumnoPlan;
 use App\Models\Deporte;
 use App\Models\Grupo;
+use App\Services\CobranzaEstadoService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -77,11 +78,13 @@ class AlumnoWebController extends Controller
         return response()->json($results);
     }
 
-    public function show(int $id)
+    public function show(int $id, CobranzaEstadoService $cobranzaService)
     {
         $alumno = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel', 'planActivo.plan'])->findOrFail($id);
 
-        return view('alumnos.show', compact('alumno'));
+        $estadoCobranza = $cobranzaService->estadoAlumno($alumno->id);
+
+        return view('alumnos.show', compact('alumno', 'estadoCobranza'));
     }
 
     public function create()

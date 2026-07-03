@@ -18,7 +18,7 @@ class EnsureAdminWeb
             if ($request->user()->rol === 'PROFESOR') {
                 return redirect()->route('web.clases.index');
             }
-            return redirect()->route('operativo.caja');
+            return redirect()->route('web.caja.index');
         }
 
         return $next($request);

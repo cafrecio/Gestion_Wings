@@ -54,7 +54,8 @@ class PagoCuotaService
                 $data['alumno_id'],
                 $montoTotal,
                 $fechaPago,
-                $data['observaciones'] ?? null
+                $data['observaciones'] ?? null,
+                $data['forma_pago_id'] ?? null
             );
 
             // Relacionar pago con deudas
@@ -122,7 +123,8 @@ class PagoCuotaService
                 $data['alumno_id'],
                 $montoTotal,
                 $fechaPago,
-                $data['observaciones'] ?? null
+                $data['observaciones'] ?? null,
+                $data['forma_pago_id'] ?? null
             );
 
             // Relacionar pago con deudas
@@ -437,7 +439,7 @@ class PagoCuotaService
     /**
      * Crear el registro de pago.
      */
-    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones): Pago
+    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, ?int $formaPagoId = null): Pago
     {
         $fechaCarbon = Carbon::parse($fechaPago);
 
@@ -450,7 +452,7 @@ class PagoCuotaService
             'monto_base' => $montoTotal,
             'porcentaje_aplicado' => 100,
             'monto_final' => $montoTotal,
-            'forma_pago_id' => null,
+            'forma_pago_id' => $formaPagoId,
             'fecha_pago' => $fechaPago,
             'observaciones' => $observaciones,
             'estado' => 'COMPLETADO',
@@ -506,8 +508,8 @@ class PagoCuotaService
                 throw new \Exception('Este cobro no tiene registro de pago vinculado. No se puede cancelar automáticamente.');
             }
 
-            if ($movimiento->cajaOperativa->estado !== 'ABIERTA') {
-                throw new \Exception('Solo se puede cancelar un cobro mientras la caja esté abierta.');
+            if (!in_array($movimiento->cajaOperativa->estado, ['ABIERTA', 'RECHAZADA'])) {
+                throw new \Exception('Solo se puede cancelar un cobro mientras la caja esté abierta o rechazada.');
             }
 
             if ($movimiento->estado === 'CANCELADO') {
