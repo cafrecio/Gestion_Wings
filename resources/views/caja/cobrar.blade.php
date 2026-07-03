@@ -35,6 +35,20 @@
     </div>
 </div>
 
+@if($reglaPrimerPago)
+<div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning);">
+    <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-warning); margin-bottom:4px;">
+        Primer pago — descuento automático
+    </p>
+    <p style="font-size:0.85rem; color:var(--color-text);">
+        Se aplica <strong>{{ number_format($reglaPrimerPago->porcentaje, 0) }}%</strong>
+        del valor de la cuota (regla: {{ $reglaPrimerPago->nombre }},
+        días {{ $reglaPrimerPago->dia_desde }}–{{ $reglaPrimerPago->dia_hasta }} del mes).
+        El monto se ajusta automáticamente al confirmar.
+    </p>
+</div>
+@endif
+
 <form method="POST" action="{{ route('web.caja.pagar', $alumno->id) }}" id="cobrar-form">
     @csrf
 

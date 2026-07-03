@@ -7,6 +7,8 @@ use App\Models\CajaOperativa;
 use App\Models\DeudaCuota;
 use App\Models\FormaPago;
 use App\Models\MovimientoOperativo;
+use App\Models\Pago;
+use App\Models\ReglaPrimerPago;
 use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
@@ -409,7 +411,17 @@ class CajaWebController extends Controller
         $tiposCaja  = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $formasPago = FormaPago::where('activo', true)->orderBy('nombre')->get();
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago'));
+        // Regla de primer pago — informativa para mostrar en el formulario
+        $reglaPrimerPago = null;
+        $esPrimerPago    = !Pago::where('alumno_id', $alumnoId)->exists();
+        if ($esPrimerPago && $alumno->fecha_alta) {
+            $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
+            if ($reglas->count() === 1) {
+                $reglaPrimerPago = $reglas->first();
+            }
+        }
+
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago'));
     }
 
     public function pagar(Request $request, int $alumnoId)

@@ -10,6 +10,7 @@ use App\Models\DeudaCuota;
 use App\Models\MovimientoOperativo;
 use App\Models\Pago;
 use App\Models\PagoDeudaCuota;
+use App\Models\ReglaPrimerPago;
 use App\Models\Subrubro;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -40,6 +41,14 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
+
+            // Regla de primer pago: ajustar montos si aplica
+            [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
+            if ($porcentaje < 100) {
+                $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+                $this->ajustarDeudas($data['alumno_id'], $items);
+            }
+
             $montoTotal = $this->calcularMontoTotal($items);
 
             // Validar FIFO antes de aplicar pagos
@@ -57,7 +66,9 @@ class PagoCuotaService
                 $montoTotal,
                 $fechaPago,
                 $data['observaciones'] ?? null,
-                $data['forma_pago_id'] ?? null
+                $data['forma_pago_id'] ?? null,
+                $porcentaje,
+                $reglaId
             );
 
             // Relacionar pago con deudas
@@ -115,6 +126,14 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
+
+            // Regla de primer pago: ajustar montos si aplica
+            [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
+            if ($porcentaje < 100) {
+                $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+                $this->ajustarDeudas($data['alumno_id'], $items);
+            }
+
             $montoTotal = $this->calcularMontoTotal($items);
 
             // Validar FIFO antes de aplicar pagos
@@ -132,7 +151,9 @@ class PagoCuotaService
                 $montoTotal,
                 $fechaPago,
                 $data['observaciones'] ?? null,
-                $data['forma_pago_id'] ?? null
+                $data['forma_pago_id'] ?? null,
+                $porcentaje,
+                $reglaId
             );
 
             // Relacionar pago con deudas
@@ -453,24 +474,78 @@ class PagoCuotaService
     /**
      * Crear el registro de pago.
      */
-    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, ?int $formaPagoId = null): Pago
+    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, ?int $formaPagoId = null, float $porcentaje = 100.0, ?int $reglaId = null): Pago
     {
         $fechaCarbon = Carbon::parse($fechaPago);
+        $montoBase   = $porcentaje < 100
+            ? round($montoTotal / ($porcentaje / 100), 2)
+            : $montoTotal;
 
         return Pago::create([
-            'alumno_id' => $alumnoId,
-            'plan_id' => null,
-            'regla_primer_pago_id' => null,
-            'mes' => $fechaCarbon->month,
-            'anio' => $fechaCarbon->year,
-            'monto_base' => $montoTotal,
-            'porcentaje_aplicado' => 100,
-            'monto_final' => $montoTotal,
-            'forma_pago_id' => $formaPagoId,
-            'fecha_pago' => $fechaPago,
-            'observaciones' => $observaciones,
-            'estado' => 'COMPLETADO',
+            'alumno_id'            => $alumnoId,
+            'plan_id'              => null,
+            'regla_primer_pago_id' => $reglaId,
+            'mes'                  => $fechaCarbon->month,
+            'anio'                 => $fechaCarbon->year,
+            'monto_base'           => $montoBase,
+            'porcentaje_aplicado'  => $porcentaje,
+            'monto_final'          => $montoTotal,
+            'forma_pago_id'        => $formaPagoId,
+            'fecha_pago'           => $fechaPago,
+            'observaciones'        => $observaciones,
+            'estado'               => 'COMPLETADO',
         ]);
+    }
+
+    /**
+     * Detecta si aplica una regla de primer pago y devuelve [porcentaje, reglaId].
+     * Solo aplica cuando el alumno no tiene ningún Pago previo.
+     */
+    private function calcularReglaPrimerPago(int $alumnoId): array
+    {
+        if (Pago::where('alumno_id', $alumnoId)->exists()) {
+            return [100.0, null];
+        }
+
+        $alumno = Alumno::find($alumnoId);
+        if (!$alumno || !$alumno->fecha_alta) {
+            return [100.0, null];
+        }
+
+        $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
+
+        if ($reglas->count() === 1) {
+            $regla = $reglas->first();
+            return [(float) $regla->porcentaje, $regla->id];
+        }
+
+        return [100.0, null];
+    }
+
+    /**
+     * Escala los montos de los items por un porcentaje.
+     */
+    private function aplicarPorcentajeAItems(array $items, float $porcentaje): array
+    {
+        $factor = $porcentaje / 100;
+        return array_map(fn($item) => [
+            'periodo' => $item['periodo'],
+            'monto'   => round((float) $item['monto'] * $factor, 2),
+        ], $items);
+    }
+
+    /**
+     * Ajusta monto_original de deudas existentes al monto descontado (primer pago).
+     * Necesario para que queden PAGADAS correctamente cuando el monto aplicado coincide.
+     */
+    private function ajustarDeudas(int $alumnoId, array $items): void
+    {
+        foreach ($items as $item) {
+            DeudaCuota::where('alumno_id', $alumnoId)
+                ->where('periodo', $item['periodo'])
+                ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                ->update(['monto_original' => $item['monto']]);
+        }
     }
 
     /**
