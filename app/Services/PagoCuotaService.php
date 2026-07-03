@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Alumno;
 use App\Models\AlumnoPlan;
 use App\Models\AlumnoRevisionCobranza;
 use App\Models\CashflowMovimiento;
@@ -62,7 +63,8 @@ class PagoCuotaService
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
 
-            // Si el alumno tenía una revisión de cobranza pendiente, reactivar automáticamente
+            // Si el alumno estaba inactivo o en revisión, reactivar al pagar
+            Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
@@ -136,7 +138,8 @@ class PagoCuotaService
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
 
-            // Si el alumno tenía una revisión de cobranza pendiente, reactivar automáticamente
+            // Si el alumno estaba inactivo o en revisión, reactivar al pagar
+            Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
