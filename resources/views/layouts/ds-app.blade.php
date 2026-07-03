@@ -56,6 +56,14 @@
                             </svg>
                             Dashboard
                         </a>
+                        <a href="{{ route('web.revision-cobranza.index') }}"
+                           class="ds-nav-link {{ request()->is('revision-cobranza*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Cobranza
+                        </a>
                         <a href="{{ route('web.caja.index') }}"
                            class="ds-nav-link {{ request()->is('caja') || request()->is('cajas*') ? 'ds-nav-link--active' : '' }}">
                             <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,20 +72,19 @@
                             Caja
                         </a>
                     @else
+                        <a href="{{ route('web.operativo.dashboard') }}"
+                           class="ds-nav-link {{ request()->is('operativo*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Inicio
+                        </a>
                         <a href="{{ route('web.caja.index') }}"
                            class="ds-nav-link {{ request()->is('caja*') ? 'ds-nav-link--active' : '' }}">
                             <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
                             Caja
-                        </a>
-                        <a href="{{ route('web.movimientos.index') }}"
-                           class="ds-nav-link {{ request()->is('movimientos*') ? 'ds-nav-link--active' : '' }}">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                            </svg>
-                            Movimientos
                         </a>
                     @endif
 
@@ -180,13 +187,13 @@
                             Movimientos
                         </a>
 
-                        <a href="{{ route('web.cashflow.movimiento') }}"
+                        <a href="{{ route('web.cashflow.index') }}"
                            class="ds-nav-link {{ request()->is('cashflow*') ? 'ds-nav-link--active' : '' }}">
                             <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
-                            Mov. directo
+                            Cashflow
                         </a>
 
                         <a href="{{ route('web.configuraciones.index') }}"

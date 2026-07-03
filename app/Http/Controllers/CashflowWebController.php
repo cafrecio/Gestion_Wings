@@ -98,6 +98,6 @@ class CashflowWebController extends Controller
             return back()->with('error', $e->getMessage())->withInput();
         }
 
-        return redirect()->route('web.caja.index')->with('success', 'Movimiento directo registrado en cashflow.');
+        return redirect()->route('web.cashflow.index')->with('success', 'Movimiento directo registrado en cashflow.');
     }
 }

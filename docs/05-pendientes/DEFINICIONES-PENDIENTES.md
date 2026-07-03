@@ -6,7 +6,7 @@ Este archivo documenta funcionalidades cuyo comportamiento fue **definido en con
 
 ## 1. Revisión de alumnos — parte del proceso de generación de deudas mensuales
 
-**Estado:** No implementado. El modelo `AlumnoRevisionCobranza` existe y hay rutas API, pero no hay lógica en el comando ni UI web.
+**Estado:** Parcialmente implementado (2026-07-03). Reactivación automática implementada: `AlumnoRevisionCobranza::reactivarAuto()` se llama desde `PagoCuotaService` y `AsistenciaController`. UI de revisión manual existe. Pendiente: verificar lógica de detección POSIBLE_INACTIVO en `GenerarDeudasMensualesCommand`.
 
 ### Regla de detección (se evalúa el 1 de cada mes en `GenerarDeudasMensualesCommand`)
 
@@ -53,7 +53,7 @@ No hay deadline para la revisión — se resuelve solo cuando el alumno vuelve o
 
 ## 2. Regla de primer pago — no aplicada en PagoCuotaService
 
-**Estado:** Parcialmente implementado. La regla existe y es configurable, pero el servicio actual no la aplica.
+**Estado:** Implementado (2026-07-03). `calcularReglaPrimerPago()` aplicado en `PagoCuotaService`.
 
 **El problema:**  
 Cuando un alumno ingresa a mitad de mes, la primera cuota debería prorratearse según los días que quedan. Ejemplo: si ingresa el día 20 de un mes de 30 días, paga ~33% de la cuota mensual.
