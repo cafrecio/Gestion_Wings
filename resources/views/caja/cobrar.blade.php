@@ -35,6 +35,35 @@
     </div>
 </div>
 
+{{-- Selector de plan (solo si el grupo tiene más de uno) --}}
+@if($planesDisponibles->count() > 1)
+<div class="filtros-card mb-4">
+    <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
+        Plan — frecuencia semanal
+    </p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;" id="plan-options">
+        @foreach($planesDisponibles as $plan)
+        @php $veces = $plan->clases_por_semana === 1 ? '1 vez/semana' : $plan->clases_por_semana . ' veces/semana'; @endphp
+        <label style="
+            display:flex; align-items:center; gap:8px; padding:8px 14px;
+            border:1px solid var(--color-border); border-radius:8px;
+            background:var(--color-surface); cursor:pointer;
+            transition:border-color 0.15s, background 0.15s;
+        " class="plan-label {{ $alumno->planActivo?->plan_id == $plan->id ? 'plan-label--active' : '' }}">
+            <input type="radio"
+                   name="nuevo_plan_id"
+                   value="{{ $plan->id }}"
+                   data-precio="{{ (int) $plan->precio_mensual }}"
+                   {{ $alumno->planActivo?->plan_id == $plan->id ? 'checked' : '' }}
+                   style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
+            <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
+            <span style="font-size:0.78rem; color:var(--color-text-muted);">${{ number_format($plan->precio_mensual, 0, ',', '.') }}/mes</span>
+        </label>
+        @endforeach
+    </div>
+</div>
+@endif
+
 @if($reglaPrimerPago)
 <div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning);">
     <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-warning); margin-bottom:4px;">
@@ -263,6 +292,45 @@
         row.addEventListener('mouseenter', function () { this.style.background = 'var(--color-surface-alt)'; });
         row.addEventListener('mouseleave', function () { this.style.background = 'var(--color-surface)'; });
     });
+
+    // Cambio de plan: actualizar montos sugeridos
+    var planRadios = document.querySelectorAll('input[name="nuevo_plan_id"]');
+
+    function aplicarEstiloPlan() {
+        planRadios.forEach(function (r) {
+            var label = r.closest('.plan-label');
+            if (!label) return;
+            if (r.checked) {
+                label.style.borderColor = 'var(--color-btn-primary)';
+                label.style.background  = 'var(--color-surface-alt)';
+            } else {
+                label.style.borderColor = 'var(--color-border)';
+                label.style.background  = 'var(--color-surface)';
+            }
+        });
+    }
+
+    planRadios.forEach(function (r) {
+        r.addEventListener('change', function () {
+            aplicarEstiloPlan();
+            var nuevoPrecio = parseInt(this.dataset.precio, 10);
+            if (isNaN(nuevoPrecio) || nuevoPrecio <= 0) return;
+
+            // Actualizar todos los inputs al precio sugerido del nuevo plan
+            checks.forEach(function (chk) {
+                var periodo = chk.dataset.periodo;
+                var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
+                if (!inp) return;
+                var saldo = parseFloat(chk.dataset.saldo) || 0;
+                var sugerido = Math.min(nuevoPrecio, saldo);
+                inp.value = sugerido.toLocaleString('es-AR', { maximumFractionDigits: 0 });
+            });
+
+            actualizar();
+        });
+    });
+
+    aplicarEstiloPlan();
 })();
 </script>
 @endpush

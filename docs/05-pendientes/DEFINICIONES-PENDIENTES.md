@@ -82,7 +82,7 @@ Nunca consulta `ReglaPrimerPago`.
 
 ## 3. Cambio de plan durante el flujo de cobro
 
-**Estado:** No implementado.
+**Estado:** Implementado (2026-07-03).
 
 **El problema:**  
 Un alumno puede querer cambiar de plan al momento de cobrar (ej. de 2 veces/semana a 1 vez/semana, o de 1 a 3). Esto cambia el monto de la cuota. Hoy el operativo tendría que salir del flujo de cobro, cambiar el plan en la ficha del alumno, y volver a cobrar.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\AlumnoPlan;
 use App\Models\CajaOperativa;
 use App\Models\DeudaCuota;
 use App\Models\FormaPago;
@@ -409,7 +410,7 @@ class CajaWebController extends Controller
         }
 
         $alumno = Alumno::with([
-            'deporte', 'grupo',
+            'deporte', 'grupo.planesActivos',
             'planActivo.plan',
             'deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo'),
         ])->findOrFail($alumnoId);
@@ -421,8 +422,11 @@ class CajaWebController extends Controller
                 ->with('error', 'El alumno no tiene un plan activo. Asigná un plan antes de cobrar.');
         }
 
-        $tiposCaja  = TipoCaja::where('activo', true)->orderBy('nombre')->get();
-        $formasPago = FormaPago::where('activo', true)->orderBy('nombre')->get();
+        $tiposCaja        = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        $formasPago       = FormaPago::where('activo', true)->orderBy('nombre')->get();
+        $planesDisponibles = $alumno->grupo
+            ? $alumno->grupo->planesActivos->sortBy('clases_por_semana')->values()
+            : collect();
 
         // Regla de primer pago — informativa para mostrar en el formulario
         $reglaPrimerPago     = null;
@@ -445,7 +449,7 @@ class CajaWebController extends Controller
             }
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago', 'motivoPrimerPago'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles'));
     }
 
     public function pagar(Request $request, int $alumnoId)
@@ -462,7 +466,22 @@ class CajaWebController extends Controller
             'montos_cuota'   => 'array',
             'montos_cuota.*' => 'nullable|numeric|min:0.01',
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
+            'nuevo_plan_id'  => ['nullable', 'exists:grupo_planes,id'],
         ]);
+
+        // Registrar cambio de plan antes del pago
+        if ($request->filled('nuevo_plan_id')) {
+            $nuevoPlanId = (int) $request->input('nuevo_plan_id');
+            $alumno->loadMissing('planActivo');
+            if (!$alumno->planActivo || $alumno->planActivo->plan_id !== $nuevoPlanId) {
+                AlumnoPlan::create([
+                    'alumno_id'   => $alumno->id,
+                    'plan_id'     => $nuevoPlanId,
+                    'fecha_desde' => today(),
+                    'activo'      => true,
+                ]);
+            }
+        }
 
         $deudas = DeudaCuota::where('alumno_id', $alumnoId)
             ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
