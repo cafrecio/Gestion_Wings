@@ -12,47 +12,15 @@ El núcleo funciona: alta de alumnos, cobro de cuotas, caja operativa, validaci�
 
 ---
 
-## PRIORIDAD ALTA — Bloquean o esconden funcionalidad implementada
+## RESUELTOS (2026-07-03)
 
-### 1. Sidebar admin no tiene link a Revisión de Cobranza
-**Problema:** La pantalla `/revision-cobranza` existe y funciona, pero no hay ningún link en el menú lateral del admin. Solo se puede acceder escribiendo la URL a mano.
-**Archivo:** `resources/views/layouts/ds-app.blade.php`
-**Fix:** Agregar ítem "Cobranza" apuntando a `route('web.revision-cobranza.index')` en el bloque ADMIN.
-
-### 2. Sidebar operativo no tiene link al Dashboard Operativo
-**Problema:** La ruta `/operativo` (dashboard del operativo) existe y funciona, pero el sidebar operativo no tiene ningún link "Inicio" ni "Dashboard" que lleve ahí. El operativo entra y va directo a Caja.
-**Archivo:** `resources/views/layouts/ds-app.blade.php`
-**Fix:** Agregar ítem "Inicio" apuntando a `route('web.operativo.dashboard')` como primer ítem del bloque OPERATIVO.
-
-### 3. Sidebar admin: "Cashflow" lleva al formulario de carga, no al historial
-**Problema:** El ítem "Mov. directo" lleva al formulario de carga de un movimiento. El historial de cashflow (`/cashflow`) es completamente inaccesible desde la navegación. Un admin que quiere ver los movimientos históricos no puede.
-**Archivo:** `resources/views/layouts/ds-app.blade.php`
-**Fix:** Cambiar el link a `route('web.cashflow.index')` y renombrarlo "Cashflow". El botón "Nuevo" dentro de la vista de historial da acceso al formulario de carga.
-
-### 4. Redirect post-guardado de movimiento cashflow va a Caja en lugar de Cashflow
-**Problema:** Después de guardar un movimiento directo, el admin queda en la lista de cajas en lugar de ver el historial de cashflow donde debería poder confirmar lo que acaba de cargar.
-**Archivo:** `app/Http/Controllers/CashflowWebController.php` — método `store()`
-**Fix:** Cambiar redirect a `route('web.cashflow.index')`.
-
----
-
-## PRIORIDAD ALTA — Pantallas incompletas con impacto directo en operación
-
-### 5. Dashboard operativo: faltan las tres secciones definidas
-**Problema:** El dashboard operativo solo muestra stats de caja del día. Las tres secciones pendientes son:
-
-**a) Alumnos con deuda** — lista clickeable de alumnos activos con deuda pendiente. El servicio `CobranzaEstadoService` ya tiene la lógica. El click debe ir directo a cobrar.
-
-**b) Clases del día** — clases asignadas al operativo con indicador de si ya tiene asistencia cargada o no. El operativo necesita saber qué clases tiene y cuáles le falta tomar lista.
-
-**c) Cajas rechazadas** — si el admin rechazó alguna caja anterior (no solo del día), mostrar alerta prominente. Actualmente no hay ningún aviso visible.
-
-**Archivos:** `app/Http/Controllers/OperativoDashboardController.php`, `resources/views/operativo/dashboard.blade.php`
-
-### 6. Ficha de alumno (show): historial de pagos y asistencias vacíos
-**Problema:** La columna derecha de la ficha del alumno muestra dos bloques con el texto "disponible próximamente": historial de pagos y asistencias del mes. Es la parte más visible de la ficha y está explícitamente incompleta.
-**Archivo:** `resources/views/alumnos/show.blade.php`
-**Fix:** Implementar historial de pagos (últimos N pagos del alumno con fecha, monto y períodos) y resumen de asistencias del mes actual.
+- ~~Sidebar admin sin link a Revisión de Cobranza~~ → ítem "Cobranza" agregado.
+- ~~Sidebar operativo sin link al dashboard~~ → ítem "Inicio" agregado; login operativo redirige ahí.
+- ~~"Mov. directo" llevaba al formulario~~ → renombrado "Cashflow", apunta al historial.
+- ~~Redirect post-guardado cashflow iba a Caja~~ → va a `web.cashflow.index`.
+- ~~Dashboard operativo incompleto~~ → agregadas las tres secciones: alumnos con deuda (top 8 por saldo, botón Cobrar), clases de hoy (con indicador de lista cargada), alerta de cajas rechazadas con motivo.
+- ~~Ficha alumno con "disponible próximamente"~~ → historial de últimos 8 pagos con períodos + asistencias del mes con fechas.
+- ~~Dot de estado siempre gris en lista de alumnos~~ → dot dinámico al día/moroso/deudor calculado en 1 query bulk.
 
 ---
 
