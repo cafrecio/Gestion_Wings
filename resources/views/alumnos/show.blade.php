@@ -194,21 +194,68 @@
     <div class="md:col-span-2 flex flex-col gap-4">
 
         {{-- Pagos --}}
-        <div class="filtros-card flex-1" style="border: 1px dashed var(--color-border);">
-            <p class="flex items-center gap-1.5 mb-2" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+        <div class="filtros-card flex-1">
+            <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
                 <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Historial de pagos
             </p>
-            <p class="text-xs text-wings-muted" style="opacity: 0.6;">Últimos pagos + cuota actual — disponible próximamente.</p>
+            @if($ultimosPagos->isEmpty())
+                <p class="text-xs" style="color:var(--color-text-muted); opacity:.6;">Sin pagos registrados.</p>
+            @else
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                @foreach($ultimosPagos as $pago)
+                @php
+                    $periodos = $pago->deudasCuota->pluck('periodo')
+                        ->map(fn($p) => ($meses[(int) explode('-', $p)[1]] ?? explode('-', $p)[1]) . ' ' . explode('-', $p)[0])
+                        ->join(', ');
+                    if (!$periodos && $pago->mes && $pago->anio) {
+                        $periodos = ($meses[$pago->mes] ?? $pago->mes) . ' ' . $pago->anio;
+                    }
+                @endphp
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;
+                            padding:5px 8px; border-radius:6px;
+                            background:color-mix(in srgb, var(--color-border) 40%, transparent);">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $pago->fecha_pago?->format('d/m/Y') ?? '–' }}</span>
+                        @if($periodos)
+                        <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · {{ $periodos }}</span>
+                        @endif
+                    </div>
+                    <span style="font-size:0.75rem; font-weight:700; color:var(--color-success); white-space:nowrap;">
+                        ${{ number_format($pago->monto_final, 0, ',', '.') }}
+                    </span>
+                </div>
+                @endforeach
+                </div>
+            @endif
         </div>
 
         {{-- Asistencias --}}
-        <div class="filtros-card flex-1" style="border: 1px dashed var(--color-border);">
-            <p class="flex items-center gap-1.5 mb-2" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+        <div class="filtros-card flex-1">
+            @php
+                $mesActual = \Carbon\Carbon::now('America/Argentina/Buenos_Aires');
+                $mesLabel  = ($meses[$mesActual->month] ?? '') . ' ' . $mesActual->year;
+            @endphp
+            <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
                 <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                Asistencias del mes
+                Asistencias — {{ $mesLabel }}
             </p>
-            <p class="text-xs text-wings-muted" style="opacity: 0.6;">Disponible cuando haya asistencias registradas.</p>
+            @if($asistenciasMes->isEmpty())
+                <p class="text-xs" style="color:var(--color-text-muted); opacity:.6;">Sin asistencias en {{ $mesLabel }}.</p>
+            @else
+                <p style="font-size:1rem; font-weight:700; color:var(--color-success); margin-bottom:8px;">
+                    {{ $asistenciasMes->count() }} clase{{ $asistenciasMes->count() !== 1 ? 's' : '' }}
+                </p>
+                <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                @foreach($asistenciasMes as $as)
+                    <span style="font-size:0.72rem; padding:2px 8px; border-radius:999px;
+                                 background:color-mix(in srgb, var(--color-success) 12%, transparent);
+                                 color:var(--color-success);">
+                        {{ $as->clase?->fecha?->format('d/m') ?? '–' }}
+                    </span>
+                @endforeach
+                </div>
+            @endif
         </div>
 
     </div>

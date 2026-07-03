@@ -97,7 +97,9 @@
         <div class="alumno-card alumno-card--{{ $rail }}">
 
             <div class="alumno-card-header">
-                <span class="alumno-dot alumno-dot--neutral" title="Estado (pendiente)"></span>
+                @php $dotClass = $estadosCobranza[$alumno->id] ?? 'neutral'; @endphp
+                <span class="alumno-dot alumno-dot--{{ $dotClass }}"
+                      title="{{ match($dotClass) { 'success' => 'Al día', 'warning' => 'Moroso', 'danger' => 'Deudor', default => 'Inactivo' } }}"></span>
                 <h3 class="alumno-nombre">{{ $alumno->apellido }}, {{ $alumno->nombre }}</h3>
             </div>
 

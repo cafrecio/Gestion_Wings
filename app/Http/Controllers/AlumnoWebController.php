@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
+use App\Models\DeudaCuota;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Services\CobranzaEstadoService;
@@ -50,7 +51,29 @@ class AlumnoWebController extends Controller
             ->select('grupos.*')
             ->get();
 
-        return view('alumnos.index', compact('alumnos', 'deportes', 'grupos'));
+        // Estados de cobranza en bulk (1 query para toda la página)
+        $periodoVigente = now('America/Argentina/Buenos_Aires')->format('Y-m');
+        $diaActual      = (int) now('America/Argentina/Buenos_Aires')->format('d');
+        $deudasPorAlumno = DeudaCuota::whereIn('alumno_id', $alumnos->pluck('id'))
+            ->whereNotIn('estado', [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
+            ->whereRaw('monto_pagado < monto_original')
+            ->get()
+            ->groupBy('alumno_id');
+
+        $estadosCobranza = [];
+        foreach ($alumnos as $a) {
+            if (!$a->activo) { $estadosCobranza[$a->id] = 'neutral'; continue; }
+            $d = $deudasPorAlumno->get($a->id, collect());
+            if ($d->filter(fn($x) => $x->periodo < $periodoVigente)->isNotEmpty()) {
+                $estadosCobranza[$a->id] = 'danger'; continue;
+            }
+            if ($d->firstWhere('periodo', $periodoVigente) && $diaActual > 10) {
+                $estadosCobranza[$a->id] = 'warning'; continue;
+            }
+            $estadosCobranza[$a->id] = 'success';
+        }
+
+        return view('alumnos.index', compact('alumnos', 'deportes', 'grupos', 'estadosCobranza'));
     }
 
     public function autocomplete(Request $request)
@@ -86,7 +109,23 @@ class AlumnoWebController extends Controller
 
         $estadoCobranza = $cobranzaService->estadoAlumno($alumno->id);
 
-        return view('alumnos.show', compact('alumno', 'estadoCobranza'));
+        $ultimosPagos = $alumno->pagos()
+            ->with('deudasCuota')
+            ->orderByDesc('fecha_pago')
+            ->limit(8)
+            ->get();
+
+        $asistenciasMes = $alumno->asistencias()
+            ->with('clase')
+            ->whereHas('clase', fn($q) => $q
+                ->whereMonth('fecha', now()->month)
+                ->whereYear('fecha', now()->year)
+            )
+            ->where('presente', true)
+            ->get()
+            ->sortBy(fn($as) => $as->clase?->fecha);
+
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes'));
     }
 
     public function create()
