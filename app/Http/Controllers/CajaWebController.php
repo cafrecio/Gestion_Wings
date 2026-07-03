@@ -329,6 +329,11 @@ class CajaWebController extends Controller
         $user    = Auth::user();
         $esAdmin = $user->isAdmin();
 
+        $caja = CajaOperativa::findOrFail($id);
+        if (!$esAdmin && $caja->usuario_operativo_id !== $user->id) {
+            abort(403);
+        }
+
         try {
             $this->cajaService->cerrarCajaOperativa($id, $user->id, $esAdmin);
         } catch (\Exception $e) {
@@ -380,7 +385,7 @@ class CajaWebController extends Controller
             ->with(['deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo')]);
 
         if ($request->filled('search')) {
-            $s = $request->input('search');
+            $s = addcslashes($request->input('search'), '%_\\');
             $query->where(fn($q) => $q
                 ->where('nombre', 'like', "%{$s}%")
                 ->orWhere('apellido', 'like', "%{$s}%")

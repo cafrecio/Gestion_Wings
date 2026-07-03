@@ -26,6 +26,13 @@ class EnsureAdmin
             ], 401);
         }
 
+        if (!$user->isActivo()) {
+            return response()->json([
+                'success' => false,
+                'error' => ['code' => 'ACCOUNT_DISABLED'],
+            ], 403);
+        }
+
         // Verificar rol admin
         $isAdmin = $user->rol === 'ADMIN';
 

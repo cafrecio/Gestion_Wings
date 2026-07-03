@@ -35,13 +35,14 @@ class RevisionCobranzaService
 
             if ($resolucion === AlumnoRevisionCobranza::RESOLUCION_CONTINUA) {
                 $alumnoPlan = $revision->alumno->planActivo;
-                if ($alumnoPlan && $alumnoPlan->plan) {
-                    $this->pagoCuotaService->crearDeudaSiNoExiste(
-                        $revision->alumno_id,
-                        $revision->periodo_objetivo,
-                        $alumnoPlan->plan->precio_mensual
-                    );
+                if (!$alumnoPlan || !$alumnoPlan->plan) {
+                    throw new \Exception('El alumno no tiene un plan activo. Asigná un plan antes de resolver como Continúa.');
                 }
+                $this->pagoCuotaService->crearDeudaSiNoExiste(
+                    $revision->alumno_id,
+                    $revision->periodo_objetivo,
+                    $alumnoPlan->plan->precio_mensual
+                );
             } elseif ($resolucion === AlumnoRevisionCobranza::RESOLUCION_INACTIVO) {
                 $revision->alumno->update(['activo' => false]);
 

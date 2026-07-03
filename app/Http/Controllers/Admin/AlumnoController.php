@@ -28,7 +28,7 @@ class AlumnoController extends Controller
         }
 
         if ($request->has('search')) {
-            $search = $request->input('search');
+            $search = addcslashes($request->input('search'), '%_\\');
             $query->where(function ($q) use ($search) {
                 $q->where('nombre', 'like', "%{$search}%")
                   ->orWhere('apellido', 'like', "%{$search}%")

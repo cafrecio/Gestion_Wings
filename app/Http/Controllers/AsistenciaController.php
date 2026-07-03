@@ -11,6 +11,7 @@ use App\Models\Clase;
 use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 class AsistenciaController extends Controller
 {
@@ -81,64 +82,66 @@ class AsistenciaController extends Controller
         $excesos = [];
         $periodoClase = Carbon::parse($clase->fecha)->format('Y-m');
 
-        foreach ($items as $item) {
-            $asistencia = Asistencia::updateOrCreate(
-                [
-                    'clase_id' => $claseId,
-                    'alumno_id' => $item['alumno_id'],
-                ],
-                [
-                    'presente' => $item['presente'],
-                ]
-            );
-            $registradas[] = $asistencia;
-
-            // Si el alumno está en revisión de cobranza y asiste, reactivar automáticamente
-            if ($item['presente']) {
-                AlumnoRevisionCobranza::reactivarAuto($item['alumno_id'], $periodoClase);
-            }
-
-            // Control de exceso si está presente
-            if ($item['presente']) {
-                $infoSemana = $this->claseService->contarAsistenciasSemana(
-                    $item['alumno_id'],
-                    $clase->fecha->format('Y-m-d')
-                );
-
-                if ($infoSemana['excede']) {
-                    $motivoExceso = $item['motivo_exceso'] ?? null;
-                    $excesoInfo = [
+        DB::transaction(function () use ($items, $claseId, $clase, $periodoClase, &$registradas, &$excesos) {
+            foreach ($items as $item) {
+                $asistencia = Asistencia::updateOrCreate(
+                    [
+                        'clase_id' => $claseId,
                         'alumno_id' => $item['alumno_id'],
-                        'info_semana' => $infoSemana,
-                        'motivo' => $motivoExceso,
-                        'recuperacion_valida' => null,
-                    ];
+                    ],
+                    [
+                        'presente' => $item['presente'],
+                    ]
+                );
+                $registradas[] = $asistencia;
 
-                    if ($motivoExceso) {
-                        if ($motivoExceso === AsistenciaExceso::MOTIVO_RECUPERA) {
-                            $excesoInfo['recuperacion_valida'] = $this->claseService->verificarRecuperacion(
-                                $item['alumno_id'],
-                                $clase->fecha->format('Y-m-d')
-                            );
-                            $detalle = $item['detalle_exceso'] ?? null;
-                            if (!$excesoInfo['recuperacion_valida']) {
-                                $detalle = ($detalle ? $detalle . ' | ' : '') . 'Recupero sin déficit previo';
+                // Si el alumno está en revisión de cobranza y asiste, reactivar automáticamente
+                if ($item['presente']) {
+                    AlumnoRevisionCobranza::reactivarAuto($item['alumno_id'], $periodoClase);
+                }
+
+                // Control de exceso si está presente
+                if ($item['presente']) {
+                    $infoSemana = $this->claseService->contarAsistenciasSemana(
+                        $item['alumno_id'],
+                        $clase->fecha->format('Y-m-d')
+                    );
+
+                    if ($infoSemana['excede']) {
+                        $motivoExceso = $item['motivo_exceso'] ?? null;
+                        $excesoInfo = [
+                            'alumno_id' => $item['alumno_id'],
+                            'info_semana' => $infoSemana,
+                            'motivo' => $motivoExceso,
+                            'recuperacion_valida' => null,
+                        ];
+
+                        if ($motivoExceso) {
+                            if ($motivoExceso === AsistenciaExceso::MOTIVO_RECUPERA) {
+                                $excesoInfo['recuperacion_valida'] = $this->claseService->verificarRecuperacion(
+                                    $item['alumno_id'],
+                                    $clase->fecha->format('Y-m-d')
+                                );
+                                $detalle = $item['detalle_exceso'] ?? null;
+                                if (!$excesoInfo['recuperacion_valida']) {
+                                    $detalle = ($detalle ? $detalle . ' | ' : '') . 'Recupero sin déficit previo';
+                                }
                             }
+
+                            AsistenciaExceso::create([
+                                'asistencia_id' => $asistencia->id,
+                                'alumno_id' => $item['alumno_id'],
+                                'fecha_clase' => $clase->fecha->format('Y-m-d'),
+                                'motivo' => $motivoExceso,
+                                'detalle' => $detalle ?? $item['detalle_exceso'] ?? null,
+                            ]);
                         }
 
-                        AsistenciaExceso::create([
-                            'asistencia_id' => $asistencia->id,
-                            'alumno_id' => $item['alumno_id'],
-                            'fecha_clase' => $clase->fecha->format('Y-m-d'),
-                            'motivo' => $motivoExceso,
-                            'detalle' => $detalle ?? $item['detalle_exceso'] ?? null,
-                        ]);
+                        $excesos[] = $excesoInfo;
                     }
-
-                    $excesos[] = $excesoInfo;
                 }
             }
-        }
+        });
 
         $response = [
             'success' => true,

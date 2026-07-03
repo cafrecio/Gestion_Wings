@@ -551,10 +551,15 @@ class PagoCuotaService
     private function ajustarDeudas(int $alumnoId, array $items): void
     {
         foreach ($items as $item) {
-            DeudaCuota::where('alumno_id', $alumnoId)
+            $actualizado = DeudaCuota::where('alumno_id', $alumnoId)
                 ->where('periodo', $item['periodo'])
                 ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                ->whereRaw('monto_pagado < ?', [$item['monto']])
                 ->update(['monto_original' => $item['monto']]);
+
+            if (!$actualizado) {
+                Log::warning('ajustarDeudas: omitida para alumno '.$alumnoId.' período '.$item['periodo'].' (monto_pagado >= monto descontado '.$item['monto'].')');
+            }
         }
     }
 

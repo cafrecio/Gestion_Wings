@@ -31,7 +31,7 @@ class AlumnoWebController extends Controller
         }
 
         if ($request->filled('search')) {
-            $search = $request->input('search');
+            $search = addcslashes($request->input('search'), '%_\\');
             $query->where(function ($q) use ($search) {
                 $q->where('nombre', 'like', "%{$search}%")
                   ->orWhere('apellido', 'like', "%{$search}%")
@@ -58,12 +58,13 @@ class AlumnoWebController extends Controller
         if (strlen($q) < 2) {
             return response()->json([]);
         }
+        $qEscaped = addcslashes($q, '%_\\');
 
         $results = Alumno::with(['grupo.deporte', 'grupo.nivel'])
-            ->where(function ($query) use ($q) {
-                $query->where('nombre', 'like', "%{$q}%")
-                      ->orWhere('apellido', 'like', "%{$q}%")
-                      ->orWhere('dni', 'like', "%{$q}%");
+            ->where(function ($query) use ($qEscaped) {
+                $query->where('nombre', 'like', "%{$qEscaped}%")
+                      ->orWhere('apellido', 'like', "%{$qEscaped}%")
+                      ->orWhere('dni', 'like', "%{$qEscaped}%");
             })
             ->orderBy('apellido')->orderBy('nombre')
             ->limit(8)
