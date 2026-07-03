@@ -151,7 +151,10 @@
             </div>
 
             <div class="alumno-actions">
-                <x-ds.button variant="secondary" :disabled="true">Cobrar</x-ds.button>
+                @if($alumno->activo)
+                <x-ds.button variant="secondary"
+                             href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
+                @endif
 
                 <x-ds.button variant="primary"
                              href="{{ route('web.alumnos.show', $alumno->id) }}">
