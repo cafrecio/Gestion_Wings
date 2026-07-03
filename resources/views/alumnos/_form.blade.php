@@ -124,7 +124,8 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 <div id="plan-section" class="mt-4" style="{{ isset($alumno) ? '' : 'display:none' }}">
     <label for="plan_id" class="{{ $labelClass }}">
         <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Frecuencia semanal @unless(isset($alumno))<span class="form-required">*</span>@endunless
+        Frecuencia semanal
+        @if(!isset($alumno) || (isset($tienePlanValido) && !$tienePlanValido))<span class="form-required">*</span>@endif
         <span class="text-wings-muted font-normal">(define el precio mensual)</span>
     </label>
     <select id="plan_id" name="plan_id" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">

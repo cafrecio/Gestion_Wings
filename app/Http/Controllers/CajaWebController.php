@@ -410,8 +410,16 @@ class CajaWebController extends Controller
 
         $alumno = Alumno::with([
             'deporte', 'grupo',
+            'planActivo.plan',
             'deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo'),
         ])->findOrFail($alumnoId);
+
+        // Bloquear cobro si el alumno no tiene un plan activo con precio válido
+        if (!$alumno->planActivo || !$alumno->planActivo->plan) {
+            return redirect()
+                ->route('web.alumnos.edit', $alumno->id)
+                ->with('error', 'El alumno no tiene un plan activo. Asigná un plan antes de cobrar.');
+        }
 
         $tiposCaja  = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $formasPago = FormaPago::where('activo', true)->orderBy('nombre')->get();

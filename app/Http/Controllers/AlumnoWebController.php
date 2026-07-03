@@ -10,6 +10,7 @@ use App\Services\CobranzaEstadoService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class AlumnoWebController extends Controller
@@ -124,14 +125,16 @@ class AlumnoWebController extends Controller
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
         ]));
 
-        $alumno = Alumno::create(Arr::except($validated, ['plan_id']));
+        DB::transaction(function () use ($validated) {
+            $alumno = Alumno::create(Arr::except($validated, ['plan_id']));
 
-        AlumnoPlan::create([
-            'alumno_id'   => $alumno->id,
-            'plan_id'     => $validated['plan_id'],
-            'fecha_desde' => today(),
-            'activo'      => true,
-        ]);
+            AlumnoPlan::create([
+                'alumno_id'   => $alumno->id,
+                'plan_id'     => $validated['plan_id'],
+                'fecha_desde' => today(),
+                'activo'      => true,
+            ]);
+        });
 
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno creado correctamente.');
     }
@@ -151,7 +154,7 @@ class AlumnoWebController extends Controller
 
     public function edit(int $id)
     {
-        $alumno   = Alumno::with(['deporte', 'planActivo'])->findOrFail($id);
+        $alumno   = Alumno::with(['deporte', 'planActivo.plan'])->findOrFail($id);
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
         $grupos   = Grupo::with(['deporte', 'nivel', 'planesActivos'])
             ->where('grupos.activo', true)
@@ -178,11 +181,21 @@ class AlumnoWebController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $alumno = Alumno::findOrFail($id);
+        $alumno = Alumno::with('planActivo.plan')->findOrFail($id);
+        $tienePlanValido = $alumno->planActivo && $alumno->planActivo->plan;
 
         $rules = $this->validationRules($request);
         $rules['dni'] = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->ignore($alumno->id)->where('deporte_id', $request->input('deporte_id', $alumno->deporte_id))];
-        $validated = $request->validate($rules, $this->validationMessages());
+
+        // Plan obligatorio si el alumno no tiene uno vigente
+        if (!$tienePlanValido) {
+            $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
+        }
+
+        $validated = $request->validate($rules, array_merge($this->validationMessages(), [
+            'plan_id.required' => 'Debe seleccionar la frecuencia semanal.',
+            'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
+        ]));
 
         $alumno->update(Arr::except($validated, ['plan_id']));
 
