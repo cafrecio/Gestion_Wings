@@ -503,20 +503,30 @@ class PagoCuotaService
      */
     private function calcularReglaPrimerPago(int $alumnoId): array
     {
-        if (Pago::where('alumno_id', $alumnoId)->exists()) {
+        $alumno     = Alumno::find($alumnoId);
+        $tienePagos = Pago::where('alumno_id', $alumnoId)->exists();
+
+        if (!$alumno) {
             return [100.0, null];
         }
 
-        $alumno = Alumno::find($alumnoId);
-        if (!$alumno || !$alumno->fecha_alta) {
+        // Caso 1: alumno sin pagos previos (nuevo) — usa día de fecha_alta
+        if (!$tienePagos && $alumno->fecha_alta) {
+            $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
+            if ($reglas->count() === 1) {
+                return [(float) $reglas->first()->porcentaje, $reglas->first()->id];
+            }
             return [100.0, null];
         }
 
-        $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
-
-        if ($reglas->count() === 1) {
-            $regla = $reglas->first();
-            return [(float) $regla->porcentaje, $regla->id];
+        // Caso 2: alumno inactivo que vuelve (ya conoce el lugar) — usa día de hoy
+        if (!$alumno->activo && $tienePagos) {
+            $diaHoy = Carbon::now('America/Argentina/Buenos_Aires')->day;
+            $reglas  = ReglaPrimerPago::obtenerReglaPorDia($diaHoy);
+            if ($reglas->count() === 1) {
+                return [(float) $reglas->first()->porcentaje, $reglas->first()->id];
+            }
+            return [100.0, null];
         }
 
         return [100.0, null];

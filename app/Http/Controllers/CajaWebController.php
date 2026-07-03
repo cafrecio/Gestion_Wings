@@ -412,16 +412,27 @@ class CajaWebController extends Controller
         $formasPago = FormaPago::where('activo', true)->orderBy('nombre')->get();
 
         // Regla de primer pago — informativa para mostrar en el formulario
-        $reglaPrimerPago = null;
-        $esPrimerPago    = !Pago::where('alumno_id', $alumnoId)->exists();
-        if ($esPrimerPago && $alumno->fecha_alta) {
+        $reglaPrimerPago     = null;
+        $motivoPrimerPago    = null;
+        $tienePagos          = Pago::where('alumno_id', $alumnoId)->exists();
+
+        if (!$tienePagos && $alumno->fecha_alta) {
+            // Alumno nuevo: usa día de fecha_alta
             $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
             if ($reglas->count() === 1) {
-                $reglaPrimerPago = $reglas->first();
+                $reglaPrimerPago  = $reglas->first();
+                $motivoPrimerPago = 'nuevo';
+            }
+        } elseif (!$alumno->activo && $tienePagos) {
+            // Alumno inactivo que vuelve: usa día de hoy
+            $reglas = ReglaPrimerPago::obtenerReglaPorDia(now()->day);
+            if ($reglas->count() === 1) {
+                $reglaPrimerPago  = $reglas->first();
+                $motivoPrimerPago = 'reingreso';
             }
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago', 'motivoPrimerPago'));
     }
 
     public function pagar(Request $request, int $alumnoId)

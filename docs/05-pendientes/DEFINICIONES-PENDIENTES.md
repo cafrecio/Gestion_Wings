@@ -10,11 +10,15 @@ Este archivo documenta funcionalidades cuyo comportamiento fue **definido en con
 
 ### Regla de detección (se evalúa el 1 de cada mes en `GenerarDeudasMensualesCommand`)
 
-Un alumno activo **NO genera deuda** y pasa a estado `POSIBLE_INACTIVO` si cumple cualquiera de estos casos:
-- **Caso 1:** Pagó el mes anterior pero no tuvo asistencias en ese mes.
-- **Caso 2:** No pagó el mes anterior y no tuvo asistencias en ese mes.
+Un alumno activo **NO genera deuda** y pasa a estado `POSIBLE_INACTIVO` si:
+- No tuvo asistencias en el mes anterior, Y
+- No realizó ningún pago en el mes anterior.
 
-Criterio único: **cero asistencias en el mes anterior**, sin importar si pagó o no.
+Este criterio cubre todos los casos:
+- Alumno nuevo que tuvo clase de prueba y no volvió ni pagó → el mes siguiente cumple la condición.
+- Alumno existente que dejó de venir y pagar → ídem.
+
+No hace falta ninguna lógica adicional de "N meses de ausencia" — el comando mensual ya detecta el abandono en el primer mes sin actividad.
 
 ### Reactivación automática
 
@@ -22,7 +26,7 @@ El estado `POSIBLE_INACTIVO` se revierte a `ACTIVO` automáticamente si:
 - El alumno **asiste a una clase**, O
 - El alumno **realiza un pago**.
 
-Estos eventos deben chequear el estado y reactivar. No hay deadline para la revisión — se resuelve solo cuando el alumno vuelve o cuando admin/operativo lo gestiona manualmente.
+No hay deadline para la revisión — se resuelve solo cuando el alumno vuelve o cuando admin/operativo lo gestiona manualmente.
 
 ### Flujo de revisión manual (admin u operativo)
 
