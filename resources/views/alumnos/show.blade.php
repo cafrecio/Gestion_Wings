@@ -20,6 +20,15 @@
         background: {{ $alumno->activo ? 'color-mix(in srgb, var(--color-success) 15%, transparent)' : 'color-mix(in srgb, var(--color-danger) 15%, transparent)' }};
         color: {{ $alumno->activo ? 'var(--color-success)' : 'var(--color-danger)' }};
     ">{{ $alumno->activo ? 'Activo' : 'Inactivo' }}</span>
+    @if(!$alumno->activo)
+    <form method="POST" action="{{ route('web.alumnos.toggle-activo', $alumno->id) }}" style="display:inline;">
+        @csrf @method('PATCH')
+        <button type="submit" class="ds-btn ds-btn--primary"
+                onclick="return confirm('¿Reactivar a {{ $alumno->nombre }} {{ $alumno->apellido }}?')">
+            Reactivar
+        </button>
+    </form>
+    @endif
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.edit', $alumno->id) }}">Editar</x-ds.button>
 </div>
 
