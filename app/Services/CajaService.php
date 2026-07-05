@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\CajaOperativa;
 use App\Models\MovimientoOperativo;
 use App\Models\Subrubro;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -71,19 +72,24 @@ class CajaService
         // Validar caja vieja antes de cualquier operación
         $this->validarCajaViejaAbierta($usuarioOperativoId);
 
-        // Buscar caja abierta existente
-        $cajaAbierta = $this->obtenerCajaAbierta($usuarioOperativoId);
+        // Serializar aperturas concurrentes (doble submit): el lock sobre la
+        // fila del usuario obliga a la segunda request a esperar y encontrar
+        // la caja que creó la primera, en lugar de abrir una duplicada.
+        return DB::transaction(function () use ($usuarioOperativoId) {
+            User::whereKey($usuarioOperativoId)->lockForUpdate()->first();
 
-        if ($cajaAbierta) {
-            return $cajaAbierta;
-        }
+            $cajaAbierta = $this->obtenerCajaAbierta($usuarioOperativoId);
 
-        // Crear nueva caja
-        return CajaOperativa::create([
-            'usuario_operativo_id' => $usuarioOperativoId,
-            'apertura_at' => Carbon::now(),
-            'estado' => 'ABIERTA',
-        ]);
+            if ($cajaAbierta) {
+                return $cajaAbierta;
+            }
+
+            return CajaOperativa::create([
+                'usuario_operativo_id' => $usuarioOperativoId,
+                'apertura_at' => Carbon::now(),
+                'estado' => 'ABIERTA',
+            ]);
+        });
     }
 
     /**

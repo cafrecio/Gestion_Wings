@@ -306,6 +306,28 @@
     });
 })();
 
+/* ── anti doble-submit global: la segunda pulsación no dispara otro POST ── */
+(function () {
+    document.addEventListener('submit', function (e) {
+        if (e.defaultPrevented) return; // un confirm() cancelado no cuenta
+        var form = e.target;
+        if (form.dataset.submitted === '1') { e.preventDefault(); return; }
+        form.dataset.submitted = '1';
+        setTimeout(function () {
+            form.querySelectorAll('button[type=submit], input[type=submit]')
+                .forEach(function (b) { b.disabled = true; });
+        }, 0);
+    });
+    // volver con el botón atrás (bfcache) debe rehabilitar los formularios
+    window.addEventListener('pageshow', function () {
+        document.querySelectorAll('form[data-submitted]').forEach(function (form) {
+            delete form.dataset.submitted;
+            form.querySelectorAll('button[type=submit], input[type=submit]')
+                .forEach(function (b) { b.disabled = false; });
+        });
+    });
+})();
+
 /* ── flash auto-dismiss (3s + fade 0.5s) ── */
 (function () {
     setTimeout(function () {
