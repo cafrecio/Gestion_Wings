@@ -112,7 +112,7 @@
                 <col style="width:120px;">
             </colgroup>
             <thead>
-                <tr style="border-bottom:1px solid var(--color-border);">
+                <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
                     <th style="{{ $th }}">Fecha</th>
                     <th style="{{ $th }}">Detalle</th>
                     <th style="{{ $th }}">Medio</th>

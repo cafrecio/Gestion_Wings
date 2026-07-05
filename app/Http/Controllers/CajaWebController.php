@@ -218,14 +218,20 @@ class CajaWebController extends Controller
             abort(403);
         }
 
-        $porTipo = $caja->movimientos
+        // Solo movimientos activos: los cancelados no cuentan plata
+        $movsActivos = $caja->movimientos->where('estado', 'ACTIVO');
+
+        // Por medio: neto con signo (un egreso en efectivo resta del cajón)
+        $porTipo = $movsActivos
             ->groupBy('tipo_caja_id')
             ->map(fn($movs) => [
                 'tipo'  => $movs->first()->tipoCaja,
-                'total' => $movs->sum('monto'),
+                'total' => $movs->sum(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO'
+                    ? -abs((float) $m->monto)
+                    : abs((float) $m->monto)),
             ])->values();
 
-        $porRubro = $caja->movimientos
+        $porRubro = $movsActivos
             ->filter(fn($m) => $m->subrubro?->rubro !== null)
             ->groupBy(fn($m) => $m->subrubro->rubro_id)
             ->map(fn($movs) => [
@@ -233,15 +239,16 @@ class CajaWebController extends Controller
                 'total' => $movs->sum('monto'),
             ])->values();
 
-        $ingresos = (float) $caja->movimientos
+        $ingresos = (float) $movsActivos
             ->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'INGRESO')
             ->sum('monto');
-        $egresos = (float) $caja->movimientos
+        $egresos = (float) $movsActivos
             ->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO')
             ->sum('monto');
         $neto = $ingresos - $egresos;
+        $numMovimientos = $movsActivos->count();
 
-        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto'));
+        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto', 'numMovimientos'));
     }
 
     // ── Detalle: tabla de movimientos ────────────────────────────────────

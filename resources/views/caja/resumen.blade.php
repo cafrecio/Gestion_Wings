@@ -48,8 +48,8 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 {{-- ── Stats + acciones ─────────────────────────────────────────────────── --}}
 <div class="stats-bar mb-4">
     <div class="stats-info">
-        <strong>{{ $caja->movimientos->count() }}</strong>
-        movimiento{{ $caja->movimientos->count() !== 1 ? 's' : '' }}
+        <strong>{{ $numMovimientos }}</strong>
+        movimiento{{ $numMovimientos !== 1 ? 's' : '' }}
     </div>
     <div style="display:flex; gap:8px; align-items:center;">
         @if(in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esPropietario)
@@ -80,7 +80,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
     </div>
 </div>
 
-@if($caja->movimientos->isEmpty())
+@if($numMovimientos === 0)
 <div class="empty-state" style="padding:2rem 0;">
     <svg class="empty-state__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -118,8 +118,9 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                 <td style="padding:8px 12px; font-size:0.82rem; color:var(--color-text);">
                     {{ $fila['tipo']?->nombre ?? '–' }}
                 </td>
-                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-success); text-align:right;">
-                    ${{ number_format($fila['total'], 0, ',', '.') }}
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right;
+                           color:{{ $fila['total'] >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
+                    {{ $fila['total'] < 0 ? '−' : '' }}${{ number_format(abs($fila['total']), 0, ',', '.') }}
                 </td>
             </tr>
             @endforeach
