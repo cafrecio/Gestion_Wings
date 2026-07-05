@@ -41,10 +41,10 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         <select id="permitido_para" name="permitido_para" required
                 class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
             @php $permActual = old('permitido_para', $subrubro->permitido_para ?? 'OPERATIVO'); @endphp
-            <option value="OPERATIVO" {{ $permActual === 'OPERATIVO' ? 'selected' : '' }}>Operativo (caja diaria)</option>
-            <option value="ADMIN"     {{ $permActual === 'ADMIN'     ? 'selected' : '' }}>Admin (cashflow directo)</option>
+            <option value="OPERATIVO" {{ $permActual === 'OPERATIVO' ? 'selected' : '' }}>Ambos</option>
+            <option value="ADMIN"     {{ $permActual === 'ADMIN'     ? 'selected' : '' }}>Solo Admin</option>
         </select>
-        <p class="text-xs mt-1" style="color: var(--color-text-muted);">El admin siempre ve todos los movimientos.</p>
+        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Ambos": el operativo lo usa en su caja y el admin en cashflow. "Solo Admin": el operativo no lo ve ni lo usa.</p>
         @error('permitido_para') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 

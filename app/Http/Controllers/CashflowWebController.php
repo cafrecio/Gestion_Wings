@@ -58,10 +58,9 @@ class CashflowWebController extends Controller
 
     public function create()
     {
+        // El admin puede usar cualquier subrubro no reservado (los OPERATIVO son "ambos")
         $rubros = Rubro::with(['subrubros' => function ($q) {
             $q->where('es_reservado_sistema', false)
-              ->where('permitido_para', 'ADMIN')
-              ->where('nombre', '!=', 'Cuota Mensual')
               ->orderBy('nombre');
         }])->orderBy('nombre')->get()
         ->filter(fn($r) => $r->subrubros->isNotEmpty())
