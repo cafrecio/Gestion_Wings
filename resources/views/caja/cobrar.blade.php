@@ -138,13 +138,13 @@
         @endif
     </div>
 
-    {{-- Tipo de pago + forma + fecha + observaciones --}}
+    {{-- Medio de pago + fecha + observaciones --}}
     <div class="filtros-card mb-4">
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:1rem;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem;">
             <div>
                 <label for="tipo_caja_id"
                        style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
-                    Tipo de pago <span class="form-required">*</span>
+                    Medio de pago <span class="form-required">*</span>
                 </label>
                 <select id="tipo_caja_id" name="tipo_caja_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
@@ -158,21 +158,6 @@
                 @error('tipo_caja_id')
                     <p style="font-size:0.75rem; color:var(--color-danger); margin-top:4px;">{{ $message }}</p>
                 @enderror
-            </div>
-            <div>
-                <label for="forma_pago_id"
-                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
-                    Forma de pago
-                </label>
-                <select id="forma_pago_id" name="forma_pago_id"
-                        class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
-                    <option value="">— Sin especificar —</option>
-                    @foreach($formasPago as $fp)
-                        <option value="{{ $fp->id }}" {{ old('forma_pago_id') == $fp->id ? 'selected' : '' }}>
-                            {{ $fp->nombre }}
-                        </option>
-                    @endforeach
-                </select>
             </div>
             <div>
                 <label for="fecha_pago"

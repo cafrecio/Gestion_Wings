@@ -7,7 +7,6 @@ use App\Models\AlumnoPlan;
 use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
-use App\Models\FormaPago;
 use App\Models\MovimientoOperativo;
 use App\Models\Pago;
 use App\Models\ReglaPrimerPago;
@@ -558,7 +557,6 @@ class CajaWebController extends Controller
         }
 
         $tiposCaja        = TipoCaja::where('activo', true)->orderBy('nombre')->get();
-        $formasPago       = FormaPago::where('activo', true)->orderBy('nombre')->get();
         $planesDisponibles = $alumno->grupo
             ? $alumno->grupo->planesActivos->sortBy('clases_por_semana')->values()
             : collect();
@@ -584,7 +582,7 @@ class CajaWebController extends Controller
             }
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'formasPago', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles'));
     }
 
     public function pagar(Request $request, int $alumnoId)
@@ -594,7 +592,6 @@ class CajaWebController extends Controller
 
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
-            'forma_pago_id'  => 'nullable|exists:formas_pago,id',
             'periodos'       => 'required|array|min:1',
             'periodos.*'     => 'required|string|regex:/^\d{4}-\d{2}$/',
             'observaciones'  => 'nullable|string|max:500',
@@ -642,7 +639,6 @@ class CajaWebController extends Controller
             $this->pagoCuotaService->registrarPagoCuotaOperativo([
                 'alumno_id'            => $alumnoId,
                 'tipo_caja_id'         => $request->input('tipo_caja_id'),
-                'forma_pago_id'        => $request->filled('forma_pago_id') ? (int) $request->input('forma_pago_id') : null,
                 'usuario_operativo_id' => $user->id,
                 'items'                => $items,
                 'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
