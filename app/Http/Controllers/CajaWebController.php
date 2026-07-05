@@ -7,6 +7,7 @@ use App\Models\AlumnoPlan;
 use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
+use App\Models\GrupoPlan;
 use App\Models\MovimientoOperativo;
 use App\Models\Pago;
 use App\Models\ReglaPrimerPago;
@@ -20,6 +21,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
 {
@@ -598,10 +600,12 @@ class CajaWebController extends Controller
             'montos_cuota'   => 'array',
             'montos_cuota.*' => 'nullable|numeric|min:0.01',
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
-            'nuevo_plan_id'  => ['nullable', 'exists:grupo_planes,id'],
+            'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
         ]);
 
-        // Registrar cambio de plan antes del pago
+        // Registrar cambio de plan antes del pago.
+        // El cambio rige hacia adelante: se actualiza la deuda del mes en
+        // curso al precio nuevo (paga anticipado); las anteriores no se tocan.
         if ($request->filled('nuevo_plan_id')) {
             $nuevoPlanId = (int) $request->input('nuevo_plan_id');
             $alumno->loadMissing('planActivo');
@@ -612,6 +616,14 @@ class CajaWebController extends Controller
                     'fecha_desde' => today(),
                     'activo'      => true,
                 ]);
+
+                $precioNuevo = (float) GrupoPlan::findOrFail($nuevoPlanId)->precio_mensual;
+                $periodoActual = now('America/Argentina/Buenos_Aires')->format('Y-m');
+                DeudaCuota::where('alumno_id', $alumno->id)
+                    ->where('periodo', $periodoActual)
+                    ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                    ->whereRaw('monto_pagado <= ?', [$precioNuevo])
+                    ->update(['monto_original' => $precioNuevo]);
             }
         }
 

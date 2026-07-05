@@ -61,6 +61,9 @@
         </label>
         @endforeach
     </div>
+    <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
+        El cambio de plan aplica a la cuota del mes en curso y a las siguientes. Las cuotas anteriores conservan su valor.
+    </p>
 </div>
 @endif
 
@@ -108,6 +111,7 @@
                                value="{{ $deuda->periodo }}"
                                class="cuota-check"
                                data-saldo="{{ $deuda->saldo_pendiente }}"
+                               data-pagado="{{ (float) $deuda->monto_pagado }}"
                                data-periodo="{{ $deuda->periodo }}"
                                style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
                         <div style="flex:1; cursor:default;">
@@ -301,13 +305,15 @@
             var nuevoPrecio = parseInt(this.dataset.precio, 10);
             if (isNaN(nuevoPrecio) || nuevoPrecio <= 0) return;
 
-            // Actualizar todos los inputs al precio sugerido del nuevo plan
+            // El cambio de plan rige hacia adelante: solo la cuota del mes en
+            // curso toma el precio nuevo. Las deudas anteriores no se tocan.
+            var periodoActual = '{{ now('America/Argentina/Buenos_Aires')->format('Y-m') }}';
             checks.forEach(function (chk) {
-                var periodo = chk.dataset.periodo;
-                var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
+                if (chk.dataset.periodo !== periodoActual) return;
+                var inp = document.querySelector('.monto-cuota[data-periodo="' + periodoActual + '"]');
                 if (!inp) return;
-                var saldo = parseFloat(chk.dataset.saldo) || 0;
-                var sugerido = Math.min(nuevoPrecio, saldo);
+                var pagado = parseFloat(chk.dataset.pagado) || 0;
+                var sugerido = Math.max(nuevoPrecio - pagado, 0);
                 inp.value = sugerido.toLocaleString('es-AR', { maximumFractionDigits: 0 });
             });
 
