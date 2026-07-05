@@ -5,11 +5,24 @@
 
 @section('content')
 
+@php
+    // Estilos repetidos de tabla (patrón $btnB de caja/index)
+    $th = 'padding:10px 14px; text-align:left; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);';
+    $rowBorder = 'border-bottom:1px solid color-mix(in srgb, var(--color-border) 55%, transparent);';
+    $lbl = 'font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);';
+@endphp
+
+{{-- Columna de lectura: el historial es un log angosto; sin tope, en monitores
+     anchos la columna Detalle se convierte en un océano vacío. 980px llena un
+     1366 y respira centrado en 1920. --}}
+<div style="max-width:980px; margin-inline:auto;">
+
 {{-- ── Filtros ─────────────────────────────────────────────────────────── --}}
 <form method="GET" action="{{ route('web.caja.historial') }}">
     <div class="filtros-card mb-3">
-        <div class="filtros-row">
 
+        {{-- Fila 1: qué busco --}}
+        <div class="filtros-row" style="margin-bottom:.75rem;">
             <div class="search-input-group">
                 <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,7 +36,7 @@
                        autocomplete="off">
             </div>
 
-            <select name="subrubro_id" class="filtros-control filtros-select" style="width:auto;">
+            <select name="subrubro_id" class="filtros-control filtros-select">
                 <option value="">Todos los subrubros</option>
                 @foreach($subrubros as $sub)
                     <option value="{{ $sub->id }}" {{ request('subrubro_id') == $sub->id ? 'selected' : '' }}>
@@ -32,25 +45,35 @@
                 @endforeach
             </select>
 
-            <select name="tipo" class="filtros-control filtros-select" style="width:auto;">
+            <select name="tipo" class="filtros-control filtros-select">
                 <option value="">Ingresos y egresos</option>
                 <option value="INGRESO" {{ request('tipo') === 'INGRESO' ? 'selected' : '' }}>Ingresos</option>
                 <option value="EGRESO"  {{ request('tipo') === 'EGRESO'  ? 'selected' : '' }}>Egresos</option>
             </select>
+        </div>
 
-            <input type="date" name="desde" value="{{ request('desde') }}"
-                   min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
-                   class="filtros-control" style="width:auto;" title="Desde">
+        {{-- Fila 2: cuándo + acciones --}}
+        <div class="filtros-row">
+            <label style="display:flex; align-items:center; gap:8px;">
+                <span style="{{ $lbl }}">Desde</span>
+                <input type="date" name="desde" value="{{ request('desde') }}"
+                       min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
+                       class="filtros-control" style="width:160px;">
+            </label>
 
-            <input type="date" name="hasta" value="{{ request('hasta') }}"
-                   min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
-                   class="filtros-control" style="width:auto;" title="Hasta">
+            <label style="display:flex; align-items:center; gap:8px;">
+                <span style="{{ $lbl }}">Hasta</span>
+                <input type="date" name="hasta" value="{{ request('hasta') }}"
+                       min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
+                       class="filtros-control" style="width:160px;">
+            </label>
 
             <div class="filtros-actions">
                 <x-ds.button variant="primary" type="submit">Filtrar</x-ds.button>
                 <x-ds.button variant="secondary" href="{{ route('web.caja.historial') }}">Limpiar</x-ds.button>
             </div>
         </div>
+
     </div>
 </form>
 
@@ -76,55 +99,57 @@
     <p>No hay movimientos para los filtros seleccionados.</p>
 </div>
 @else
-<div class="filtros-card" style="padding:0; overflow-x:auto;">
-    <table style="width:100%; min-width:640px; border-collapse:collapse; table-layout:fixed;">
-        <colgroup>
-            <col style="width:96px;">
-            <col>
-            <col style="width:110px;">
-            <col style="width:140px;">
-            <col style="width:130px;">
-        </colgroup>
-        <thead>
-            <tr style="border-bottom:1px solid var(--color-border);">
-                <th style="padding:10px 14px; text-align:left; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Fecha</th>
-                <th style="padding:10px 14px; text-align:left; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Detalle</th>
-                <th style="padding:10px 14px; text-align:left; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Medio</th>
-                <th style="padding:10px 14px; text-align:left; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
-                <th style="padding:10px 14px; text-align:right; font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($filas as $f)
-            @php $esIngreso = $f->tipo === 'INGRESO'; @endphp
-            <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted); white-space:nowrap;">
-                    {{ $f->fecha->format('d/m/Y') }}
-                </td>
-                <td style="padding:10px 14px; overflow:hidden;">
-                    <p class="ds-truncate" style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
-                        {{ $f->subrubro }}
-                    </p>
-                    @if($f->alumno || $f->obs)
-                    <p class="ds-truncate" style="font-size:0.75rem; color:var(--color-text-muted);">
-                        {{ $f->alumno ?? $f->obs }}
-                    </p>
-                    @endif
-                </td>
-                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted);">
-                    <span class="ds-truncate" style="display:block;">{{ $f->medio }}</span>
-                </td>
-                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted);">
-                    <span class="ds-truncate" style="display:block;">{{ $f->usuario }}</span>
-                </td>
-                <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap;
-                           color:{{ $esIngreso ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                    {{ $esIngreso ? '+' : '−' }}${{ number_format($f->monto, 0, ',', '.') }}
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+<div class="filtros-card" style="padding:0; overflow:hidden;">
+    <div style="overflow-x:auto;">
+        <table style="width:100%; min-width:640px; border-collapse:collapse; table-layout:fixed;">
+            <colgroup>
+                <col style="width:104px;">
+                <col>
+                <col style="width:116px;">
+                <col style="width:128px;">
+                <col style="width:120px;">
+            </colgroup>
+            <thead>
+                <tr style="border-bottom:1px solid var(--color-border);">
+                    <th style="{{ $th }}">Fecha</th>
+                    <th style="{{ $th }}">Detalle</th>
+                    <th style="{{ $th }}">Medio</th>
+                    <th style="{{ $th }}">Registró</th>
+                    <th style="{{ $th }} text-align:right;">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($filas as $f)
+                @php $esIngreso = $f->tipo === 'INGRESO'; @endphp
+                <tr @unless($loop->last) style="{{ $rowBorder }}" @endunless>
+                    <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted); white-space:nowrap;">
+                        {{ $f->fecha->format('d/m/Y') }}
+                    </td>
+                    <td style="padding:10px 14px; overflow:hidden;">
+                        <p class="ds-truncate" style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
+                            {{ $f->subrubro }}
+                        </p>
+                        @if($f->alumno || $f->obs)
+                        <p class="ds-truncate" style="font-size:0.75rem; color:var(--color-text-muted);">
+                            {{ $f->alumno ?? $f->obs }}
+                        </p>
+                        @endif
+                    </td>
+                    <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted);">
+                        <span class="ds-truncate" style="display:block;">{{ $f->medio }}</span>
+                    </td>
+                    <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted);">
+                        <span class="ds-truncate" style="display:block;">{{ $f->usuario }}</span>
+                    </td>
+                    <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap;
+                               color:{{ $esIngreso ? 'var(--color-success)' : 'var(--color-danger)' }};">
+                        {{ $esIngreso ? '+' : '−' }}${{ number_format($f->monto, 0, ',', '.') }}
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endif
 
@@ -138,5 +163,7 @@
 <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:12px;">
     Se muestran los movimientos de los últimos 90 días.
 </p>
+
+</div>{{-- /columna de lectura --}}
 
 @endsection

@@ -42,6 +42,7 @@ El plan vigente para probar todo el sistema esta en `docs/06-pruebas/PLAN-PRUEBA
 | Estado anterior dice PDFs sin endpoints | Hay servicio, vistas y rutas API de recibos | Marcar como parcial hasta validar flujo web completo. |
 | Documento dice boton Cobrar siempre visible y accionable en alumnos | En `alumnos/index` figura deshabilitado | Pendiente funcional/UI. |
 | `CLAUDE.md` apuntaba a `Contratos/` y docs viejos | Documentos se reorganizaron bajo `docs/` | `CLAUDE.md` debe apuntar a rutas nuevas. |
+| `wings-design/SKILL.md` dice `ds-content` con `max-width` 1200px | `app.css` no implementa ese tope; las vistas anchas se estiran al monitor completo | Decidir: implementar el tope en `app.css` o corregir SKILL.md. Mientras tanto `caja/historial` usa tope propio de 980px. |
 
 ## Pendientes Inmediatos
 

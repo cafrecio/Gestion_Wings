@@ -117,8 +117,10 @@ class CajaWebController extends Controller
         $movsAdmin = CashflowMovimiento::with(['subrubro.rubro', 'usuarioAdmin', 'tipoCaja'])
             ->whereIn('subrubro_id', $idsVisibles)
             ->when($subrubroFiltro, fn($q) => $q->where('subrubro_id', $subrubroFiltro))
+            // CAJA_OPERATIVA la escribe CashflowIntegracionCajaService;
+            // MOVIMIENTO_OPERATIVO la escribió el DemoSeeder para lo mismo
             ->where(fn($q) => $q->whereNull('referencia_tipo')
-                                ->orWhere('referencia_tipo', '!=', 'CAJA_OPERATIVA'))
+                                ->orWhereNotIn('referencia_tipo', ['CAJA_OPERATIVA', 'MOVIMIENTO_OPERATIVO']))
             ->whereBetween('fecha', [$desde->toDateString(), $hasta->toDateString()])
             ->get();
 
