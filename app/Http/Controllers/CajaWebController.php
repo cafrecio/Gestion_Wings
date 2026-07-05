@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
 use App\Models\CajaOperativa;
+use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
 use App\Models\FormaPago;
 use App\Models\MovimientoOperativo;
@@ -16,7 +17,9 @@ use App\Models\TipoCaja;
 use App\Models\User;
 use App\Services\CajaService;
 use App\Services\PagoCuotaService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class CajaWebController extends Controller
@@ -72,6 +75,129 @@ class CajaWebController extends Controller
         }
 
         return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes'));
+    }
+
+    // ── Historial: movimientos del último trimestre (solo lectura) ───────
+    // Une movimientos de cajas operativas y cashflow directo del admin,
+    // limitado a subrubros permitidos para OPERATIVO. Los asientos de cashflow
+    // con referencia CAJA_OPERATIVA se excluyen porque duplican la caja.
+
+    public function historial(Request $request)
+    {
+        $tz          = 'America/Argentina/Buenos_Aires';
+        $desdeLimite = now($tz)->subDays(90)->startOfDay();
+
+        $desde = $desdeLimite;
+        if ($request->filled('desde')) {
+            $desdePedida = Carbon::parse($request->input('desde'), $tz)->startOfDay();
+            $desde = $desdePedida->greaterThan($desdeLimite) ? $desdePedida : $desdeLimite;
+        }
+        $hasta = $request->filled('hasta')
+            ? Carbon::parse($request->input('hasta'), $tz)->endOfDay()
+            : now($tz)->endOfDay();
+
+        $subrubrosVisibles = Subrubro::with('rubro')
+            ->where('permitido_para', 'OPERATIVO')
+            ->orderBy('nombre')
+            ->get();
+        $idsVisibles = $subrubrosVisibles->pluck('id');
+
+        $subrubroFiltro = $request->input('subrubro_id');
+        $tipoFiltro     = $request->input('tipo'); // INGRESO | EGRESO
+
+        // Fuente 1: movimientos de cajas operativas (activos, cualquier operativo)
+        $movsCaja = MovimientoOperativo::with(['subrubro.rubro', 'alumno', 'usuario', 'tipoCaja'])
+            ->activos()
+            ->whereIn('subrubro_id', $idsVisibles)
+            ->when($subrubroFiltro, fn($q) => $q->where('subrubro_id', $subrubroFiltro))
+            ->whereBetween('fecha', [$desde->toDateString(), $hasta->toDateString()])
+            ->get();
+
+        // Fuente 2: cashflow directo del admin (sin los reflejos de cajas)
+        $movsAdmin = CashflowMovimiento::with(['subrubro.rubro', 'usuarioAdmin', 'tipoCaja'])
+            ->whereIn('subrubro_id', $idsVisibles)
+            ->when($subrubroFiltro, fn($q) => $q->where('subrubro_id', $subrubroFiltro))
+            ->where(fn($q) => $q->whereNull('referencia_tipo')
+                                ->orWhere('referencia_tipo', '!=', 'CAJA_OPERATIVA'))
+            ->whereBetween('fecha', [$desde->toDateString(), $hasta->toDateString()])
+            ->get();
+
+        // Alumnos de los cobros de cuota hechos por admin (via Pago referenciado)
+        $pagosIds = $movsAdmin->where('referencia_tipo', 'PAGO_CUOTA')->pluck('referencia_id')->filter();
+        $alumnosPorPago = $pagosIds->isEmpty()
+            ? collect()
+            : Pago::with('alumno')->whereIn('id', $pagosIds)->get()->keyBy('id');
+
+        $filas = collect();
+
+        foreach ($movsCaja as $m) {
+            $filas->push((object) [
+                'fecha'    => $m->fecha,
+                'tipo'     => $m->subrubro?->rubro?->tipo ?? 'INGRESO',
+                'subrubro' => $m->subrubro?->nombre ?? '–',
+                'medio'    => $m->tipoCaja?->nombre ?? '–',
+                'alumno'   => $m->alumno ? $m->alumno->apellido . ', ' . $m->alumno->nombre : null,
+                'obs'      => $m->observaciones,
+                'usuario'  => $m->usuario?->name ?? '–',
+                'monto'    => abs((float) $m->monto),
+                'orden'    => $m->created_at,
+            ]);
+        }
+
+        foreach ($movsAdmin as $m) {
+            $alumno = null;
+            if ($m->referencia_tipo === 'PAGO_CUOTA') {
+                $a = $alumnosPorPago->get($m->referencia_id)?->alumno;
+                $alumno = $a ? $a->apellido . ', ' . $a->nombre : null;
+            }
+            $filas->push((object) [
+                'fecha'    => $m->fecha,
+                'tipo'     => $m->subrubro?->rubro?->tipo ?? 'INGRESO',
+                'subrubro' => $m->subrubro?->nombre ?? '–',
+                'medio'    => $m->tipoCaja?->nombre ?? '–',
+                'alumno'   => $alumno,
+                'obs'      => $m->observaciones,
+                'usuario'  => $m->usuarioAdmin?->name ?? '–',
+                'monto'    => abs((float) $m->monto),
+                'orden'    => $m->created_at,
+            ]);
+        }
+
+        if ($tipoFiltro === 'INGRESO' || $tipoFiltro === 'EGRESO') {
+            $filas = $filas->where('tipo', $tipoFiltro);
+        }
+
+        if ($request->filled('search')) {
+            $s = mb_strtolower(trim($request->input('search')));
+            $filas = $filas->filter(fn($f) =>
+                ($f->alumno && str_contains(mb_strtolower($f->alumno), $s)) ||
+                ($f->obs && str_contains(mb_strtolower($f->obs), $s)) ||
+                str_contains(mb_strtolower($f->subrubro), $s)
+            );
+        }
+
+        $filas = $filas->sortBy([['fecha', 'desc'], ['orden', 'desc']])->values();
+
+        $totalIngresos = $filas->where('tipo', 'INGRESO')->sum('monto');
+        $totalEgresos  = $filas->where('tipo', 'EGRESO')->sum('monto');
+
+        $porPagina  = 30;
+        $pagina     = LengthAwarePaginator::resolveCurrentPage();
+        $paginadas  = new LengthAwarePaginator(
+            $filas->forPage($pagina, $porPagina)->values(),
+            $filas->count(),
+            $porPagina,
+            $pagina,
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
+
+        return view('caja.historial', [
+            'filas'          => $paginadas,
+            'subrubros'      => $subrubrosVisibles,
+            'totalIngresos'  => $totalIngresos,
+            'totalEgresos'   => $totalEgresos,
+            'desdeLimite'    => $desdeLimite,
+        ]);
     }
 
     // ── Resumen: dashboard de una caja ───────────────────────────────────

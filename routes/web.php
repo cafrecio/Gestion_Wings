@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
     Route::get('/caja/movimiento', [CajaWebController::class, 'movimientoForm'])->name('web.caja.movimiento');
     Route::post('/caja/movimiento', [CajaWebController::class, 'movimientoStore'])->name('web.caja.movimiento.store');
+    Route::get('/caja/historial', [CajaWebController::class, 'historial'])->name('web.caja.historial');
     Route::get('/caja/cobrar', [CajaWebController::class, 'cobrarCuotaSelect'])->name('web.caja.cobrar-cuota');
     Route::get('/caja/cobrar/{alumnoId}', [CajaWebController::class, 'cobrar'])->name('web.caja.cobrar');
     Route::post('/caja/cobrar/{alumnoId}', [CajaWebController::class, 'pagar'])->name('web.caja.pagar');

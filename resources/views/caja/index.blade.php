@@ -78,6 +78,7 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         <strong>{{ $cajas->count() }}</strong>
         {{ $cajas->count() === 1 ? 'caja' : 'cajas' }}
     </div>
+    <x-ds.button variant="secondary" href="{{ route('web.caja.historial') }}">Historial</x-ds.button>
 </div>
 
 {{-- ── Cards ─────────────────────────────────────────────────────────────── --}}
