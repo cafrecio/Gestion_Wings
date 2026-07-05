@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlumnoRevisionCobranza;
 use App\Models\CajaOperativa;
 use App\Models\Clase;
 use App\Models\DeudaCuota;
@@ -40,10 +41,9 @@ class OperativoDashboardController extends Controller
         }
 
         // Cajas rechazadas pendientes de regularizar (cualquier fecha)
-        $cajasRechazadas = CajaOperativa::where('usuario_operativo_id', $user->id)
+        $cajasRechazadasCount = CajaOperativa::where('usuario_operativo_id', $user->id)
             ->where('estado', 'RECHAZADA')
-            ->orderByDesc('apertura_at')
-            ->get();
+            ->count();
 
         // Clases del día con indicador de asistencia cargada
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel'])
@@ -53,19 +53,20 @@ class OperativoDashboardController extends Controller
             ->orderBy('hora_inicio')
             ->get();
 
-        // Alumnos activos con deuda, ordenados por saldo (mayor primero)
-        $deudores = DeudaCuota::selectRaw('alumno_id, SUM(monto_original - monto_pagado) as saldo, COUNT(*) as cuotas')
-            ->whereNotIn('estado', [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
+        // Cantidad de alumnos activos con deuda
+        $alumnosConDeuda = DeudaCuota::whereNotIn('estado', [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
             ->whereRaw('monto_pagado < monto_original')
             ->whereHas('alumno', fn($q) => $q->where('activo', true))
-            ->groupBy('alumno_id')
-            ->orderByDesc('saldo')
-            ->with('alumno.grupo')
-            ->get();
+            ->distinct('alumno_id')
+            ->count('alumno_id');
+
+        // Cantidad de alumnos en revisión (posibles inactivos)
+        $posiblesInactivos = AlumnoRevisionCobranza::where('estado_revision', AlumnoRevisionCobranza::ESTADO_PENDIENTE)
+            ->count();
 
         return view('operativo.dashboard', compact(
             'estado', 'cajas', 'totalCobradoHoy', 'numCobrosHoy', 'hoyAr',
-            'cajasRechazadas', 'clasesHoy', 'deudores'
+            'cajasRechazadasCount', 'clasesHoy', 'alumnosConDeuda', 'posiblesInactivos'
         ));
     }
 }

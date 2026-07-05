@@ -34,30 +34,18 @@ $fechaLabel  = $diaSemana . ', ' . $hoyAr->day . ' de ' . $meses[$hoyAr->month] 
 @endif
 
 {{-- Cajas rechazadas --}}
-@if($cajasRechazadas->isNotEmpty())
+@if($cajasRechazadasCount > 0)
 <div class="filtros-card mb-4" style="border-left:4px solid var(--color-danger);">
-    <p style="font-size:0.75rem; color:var(--color-danger); font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">
-        {{ $cajasRechazadas->count() === 1 ? 'Caja rechazada' : $cajasRechazadas->count() . ' cajas rechazadas' }}
-    </p>
-    <p style="font-size:0.85rem; color:var(--color-text); margin-bottom:10px;">
-        El administrador rechazó {{ $cajasRechazadas->count() === 1 ? 'una caja tuya. Revisala y corregí lo observado.' : 'cajas tuyas. Revisalas y corregí lo observado.' }}
-    </p>
-    <div style="display:flex; flex-direction:column; gap:6px;">
-        @foreach($cajasRechazadas as $cr)
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
-                    padding:6px 10px; border-radius:6px;
-                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);">
-            <div style="min-width:0;">
-                <span style="font-size:0.78rem; font-weight:600; color:var(--color-text);">
-                    {{ $cr->apertura_at->setTimezone('America/Argentina/Buenos_Aires')->format('d/m/Y H:i') }}
-                </span>
-                @if($cr->motivo_rechazo)
-                <span style="font-size:0.75rem; color:var(--color-text-muted);"> — {{ $cr->motivo_rechazo }}</span>
-                @endif
-            </div>
-            <a href="{{ route('web.caja.detalle', $cr->id) }}" class="ds-btn-row ds-btn-row--sec">Detalle</a>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <div>
+            <p style="font-size:0.75rem; color:var(--color-danger); font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">
+                {{ $cajasRechazadasCount === 1 ? 'Tenés 1 caja rechazada' : 'Tenés ' . $cajasRechazadasCount . ' cajas rechazadas' }}
+            </p>
+            <p style="font-size:0.85rem; color:var(--color-text);">
+                El administrador {{ $cajasRechazadasCount === 1 ? 'rechazó una caja tuya' : 'rechazó cajas tuyas' }}. Revisá el motivo y corregí lo observado.
+            </p>
         </div>
-        @endforeach
+        <a href="{{ route('web.caja.index') }}" class="ds-btn-row ds-btn-row--sec">Ver</a>
     </div>
 </div>
 @endif
@@ -191,42 +179,25 @@ $fechaLabel  = $diaSemana . ', ' . $hoyAr->day . ' de ' . $meses[$hoyAr->month] 
         @endif
     </div>
 
-    {{-- Alumnos con deuda --}}
+    {{-- Alumnos --}}
     <div>
         <div class="stats-bar mb-2">
-            <div class="stats-info">
-                Alumnos con deuda — <strong>{{ $deudores->count() }}</strong>
+            <div class="stats-info">Alumnos</div>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;">
+            <a href="{{ route('web.alumnos.index') }}" class="filtros-card" style="text-align:center; padding:1rem; text-decoration:none;">
+                <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Con deuda</p>
+                <p style="font-size:1.8rem; font-weight:800; color:{{ $alumnosConDeuda > 0 ? 'var(--color-danger)' : 'var(--color-success)' }};">
+                    {{ $alumnosConDeuda }}
+                </p>
+            </a>
+            <div class="filtros-card" style="text-align:center; padding:1rem;">
+                <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Posibles inactivos</p>
+                <p style="font-size:1.8rem; font-weight:800; color:{{ $posiblesInactivos > 0 ? 'var(--color-warning)' : 'var(--color-text)' }};">
+                    {{ $posiblesInactivos }}
+                </p>
             </div>
         </div>
-        @if($deudores->isEmpty())
-        <div class="filtros-card" style="text-align:center; padding:1.25rem;">
-            <p style="font-size:0.82rem; color:var(--color-success); font-weight:600;">Sin deudas pendientes. Todo al día.</p>
-        </div>
-        @else
-        <div style="display:flex; flex-direction:column; gap:6px;">
-            @foreach($deudores->take(8) as $d)
-            @if($d->alumno)
-            <div class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;">
-                <div style="min-width:0;">
-                    <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);" class="ds-truncate">
-                        {{ $d->alumno->apellido }}, {{ $d->alumno->nombre }}
-                    </p>
-                    <p style="font-size:0.72rem; color:var(--color-text-muted);">
-                        {{ $d->cuotas }} cuota{{ $d->cuotas > 1 ? 's' : '' }}
-                        — <span style="color:var(--color-danger); font-weight:700;">${{ number_format($d->saldo, 0, ',', '.') }}</span>
-                    </p>
-                </div>
-                <a href="{{ route('web.caja.cobrar', $d->alumno_id) }}" class="ds-btn-row ds-btn-row--sec">Cobrar</a>
-            </div>
-            @endif
-            @endforeach
-            @if($deudores->count() > 8)
-            <p style="font-size:0.75rem; color:var(--color-text-muted); text-align:center; padding:4px;">
-                y {{ $deudores->count() - 8 }} más — <a href="{{ route('web.alumnos.index') }}" style="color:var(--color-text); font-weight:600;">ver alumnos</a>
-            </p>
-            @endif
-        </div>
-        @endif
     </div>
 
 </div>
