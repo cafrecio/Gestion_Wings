@@ -27,10 +27,11 @@ class SubrubroWebController extends Controller
 
         $validated = $request->validate([
             'nombre'         => 'required|string|max:255|unique:subrubros,nombre',
-            'permitido_para' => 'nullable|in:ADMIN,OPERATIVO',
+            'permitido_para' => 'required|in:ADMIN,OPERATIVO',
         ], [
-            'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.unique'   => 'Ya existe un subrubro con ese nombre.',
+            'nombre.required'         => 'El nombre es obligatorio.',
+            'nombre.unique'           => 'Ya existe un subrubro con ese nombre.',
+            'permitido_para.required' => 'Elegí quién puede usar el subrubro.',
         ]);
 
         $validated['rubro_id']    = $rubro->id;
@@ -66,10 +67,11 @@ class SubrubroWebController extends Controller
 
         $validated = $request->validate([
             'nombre'         => ['required', 'string', 'max:255', Rule::unique('subrubros', 'nombre')->ignore($subrubro->id)],
-            'permitido_para' => 'nullable|in:ADMIN,OPERATIVO',
+            'permitido_para' => 'required|in:ADMIN,OPERATIVO',
         ], [
-            'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.unique'   => 'Ya existe un subrubro con ese nombre.',
+            'nombre.required'         => 'El nombre es obligatorio.',
+            'nombre.unique'           => 'Ya existe un subrubro con ese nombre.',
+            'permitido_para.required' => 'Elegí quién puede usar el subrubro.',
         ]);
 
         $validated['afecta_caja'] = $request->boolean('afecta_caja');
