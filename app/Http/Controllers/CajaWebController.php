@@ -58,9 +58,9 @@ class CajaWebController extends Controller
                 $cajaVieja = true;
             }
 
+            // Últimos 30 días (no mes calendario: el día 1 debe verse la caja de ayer)
             $cajas = CajaOperativa::where('usuario_operativo_id', $user->id)
-                ->whereYear('apertura_at', now()->year)
-                ->whereMonth('apertura_at', now()->month)
+                ->where('apertura_at', '>=', now()->subDays(30)->startOfDay())
                 ->with(['movimientos'])
                 ->orderByDesc('apertura_at')
                 ->get();
