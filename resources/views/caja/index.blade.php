@@ -116,18 +116,34 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
     </p>
     @endif
 
-    <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
+    @php
+        $movAct  = $caja->movimientos->where('estado', 'ACTIVO');
+        $ingCaja = $movAct->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'INGRESO')->sum('monto');
+        $egrCaja = $movAct->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO')->sum('monto');
+        $netoCaja = $ingCaja - $egrCaja;
+    @endphp
+    <div class="alumno-info" style="grid-template-columns: repeat(5, 1fr);">
         <div class="info-item">
             <span class="info-label">Estado</span>
             <span class="info-value" style="color:{{ $estadoColor }}; font-weight:700;">{{ $caja->estado }}</span>
         </div>
         <div class="info-item">
             <span class="info-label">Movimientos</span>
-            <span class="info-value">{{ $caja->movimientos->count() }}</span>
+            <span class="info-value">{{ $movAct->count() }}</span>
         </div>
         <div class="info-item">
-            <span class="info-label">Total</span>
-            <span class="info-value">${{ number_format($caja->movimientos->sum('monto'), 0, ',', '.') }}</span>
+            <span class="info-label">Ingresos</span>
+            <span class="info-value" style="color:var(--color-success);">${{ number_format($ingCaja, 0, ',', '.') }}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Egresos</span>
+            <span class="info-value" style="color:var(--color-danger);">${{ number_format($egrCaja, 0, ',', '.') }}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Neto</span>
+            <span class="info-value" style="font-weight:700; color:{{ $netoCaja >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
+                {{ $netoCaja < 0 ? '−' : '' }}${{ number_format(abs($netoCaja), 0, ',', '.') }}
+            </span>
         </div>
     </div>
 

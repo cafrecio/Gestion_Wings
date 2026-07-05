@@ -44,7 +44,7 @@ class CajaWebController extends Controller
             $mes        = $request->input('mes', now()->format('Y-m'));
             [$year, $month] = explode('-', $mes);
 
-            $query = CajaOperativa::with(['usuarioOperativo', 'movimientos'])
+            $query = CajaOperativa::with(['usuarioOperativo', 'movimientos.subrubro.rubro'])
                 ->whereYear('apertura_at', $year)
                 ->whereMonth('apertura_at', $month);
 
@@ -63,7 +63,7 @@ class CajaWebController extends Controller
             // Últimos 30 días (no mes calendario: el día 1 debe verse la caja de ayer)
             $cajas = CajaOperativa::where('usuario_operativo_id', $user->id)
                 ->where('apertura_at', '>=', now()->subDays(30)->startOfDay())
-                ->with(['movimientos'])
+                ->with(['movimientos.subrubro.rubro'])
                 ->orderByDesc('apertura_at')
                 ->get();
 

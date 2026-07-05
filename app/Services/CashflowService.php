@@ -22,18 +22,24 @@ class CashflowService
      */
     public function registrarMovimientoAdmin(array $data): CashflowMovimiento
     {
-        $subrubro = Subrubro::findOrFail($data['subrubro_id']);
+        $subrubro = Subrubro::with('rubro')->findOrFail($data['subrubro_id']);
         if ($subrubro->es_reservado_sistema && empty($data['referencia_tipo'])) {
             throw new \Exception(
                 'Este subrubro lo administra el sistema. Usá el flujo correspondiente (ej. cobro de cuotas).'
             );
         }
 
+        // Convención de signo del cashflow: ingresos positivos, egresos negativos
+        // (igual que CashflowIntegracionCajaService y LiquidacionPagoService)
+        $monto = $subrubro->rubro?->tipo === 'EGRESO'
+            ? -abs((float) $data['monto'])
+            : abs((float) $data['monto']);
+
         return CashflowMovimiento::create([
             'fecha' => $data['fecha'] ?? Carbon::now()->toDateString(),
             'subrubro_id' => $data['subrubro_id'],
             'tipo_caja_id' => $data['tipo_caja_id'],
-            'monto' => $data['monto'],
+            'monto' => $monto,
             'observaciones' => $data['observaciones'] ?? null,
             'usuario_admin_id' => $data['usuario_admin_id'],
             'referencia_tipo' => $data['referencia_tipo'] ?? null,

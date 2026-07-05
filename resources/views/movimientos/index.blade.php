@@ -63,7 +63,10 @@
     <div class="stats-info">
         <strong>{{ $movimientos->total() }}</strong> movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
         @if($movimientos->total() > 0)
-            &nbsp;·&nbsp; Total: <strong>${{ number_format($total, 0, ',', '.') }}</strong>
+            @php $netoMovs = $totalIngresos - $totalEgresos; @endphp
+            &nbsp;·&nbsp; Ingresos <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
+            &nbsp;·&nbsp; Egresos <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
+            &nbsp;·&nbsp; Neto <strong style="color:{{ $netoMovs >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">{{ $netoMovs < 0 ? '−' : '' }}${{ number_format(abs($netoMovs), 0, ',', '.') }}</strong>
         @endif
     </div>
 </div>

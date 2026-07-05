@@ -35,11 +35,12 @@ class CashflowWebController extends Controller
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))
             ->sum('monto');
 
-        $totalEgresos = CashflowMovimiento::whereYear('fecha', $anio)
+        // Los egresos se guardan negativos; para mostrar se usa el valor absoluto
+        $totalEgresos = abs(CashflowMovimiento::whereYear('fecha', $anio)
             ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
             ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))
-            ->sum('monto');
+            ->sum('monto'));
 
         $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $aniosDisponibles = CashflowMovimiento::selectRaw('YEAR(fecha) as anio')

@@ -57,7 +57,11 @@ class MovimientoWebController extends Controller
             );
         }
 
-        $total       = $query->sum('monto');
+        // Totales solo de movimientos activos, separados por tipo (nunca mezclar I+E)
+        $totalIngresos = (clone $query)->where('estado', 'ACTIVO')
+            ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))->sum('monto');
+        $totalEgresos  = (clone $query)->where('estado', 'ACTIVO')
+            ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))->sum('monto');
         $movimientos = $query->orderByDesc('fecha')->orderByDesc('created_at')->paginate(30)->withQueryString();
 
         $tiposCaja  = TipoCaja::orderBy('nombre')->get();
@@ -68,7 +72,7 @@ class MovimientoWebController extends Controller
             : collect();
 
         return view('movimientos.index', compact(
-            'movimientos', 'total', 'tiposCaja', 'rubros', 'subrubros', 'operativos'
+            'movimientos', 'totalIngresos', 'totalEgresos', 'tiposCaja', 'rubros', 'subrubros', 'operativos'
         ));
     }
 }

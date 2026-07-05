@@ -223,8 +223,10 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                     &nbsp;·&nbsp;
                     Egresos: <strong style="color:var(--color-danger);">${{ number_format($egresos, 0, ',', '.') }}</strong>
                 </td>
-                <td style="padding:8px 12px; font-size:0.9rem; font-weight:700; color:var(--color-text); text-align:right;">
-                    ${{ number_format($movimientosActivos->sum('monto'), 0, ',', '.') }}
+                @php $netoDetalle = $ingresos - $egresos; @endphp
+                <td style="padding:8px 12px; font-size:0.9rem; font-weight:700; text-align:right;
+                           color:{{ $netoDetalle >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
+                    {{ $netoDetalle < 0 ? '−' : '' }}${{ number_format(abs($netoDetalle), 0, ',', '.') }}
                 </td>
                 @if($hasEditar || $hasCheckbox || $hasRecibo)
                 <td></td>

@@ -156,7 +156,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                     {{ $mov->observaciones ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
-                    ${{ number_format((float)$mov->monto, 0, ',', '.') }}
+                    {{ $tipoRubro === 'EGRESO' ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                     {{ $mov->usuarioAdmin?->name ?? '–' }}
