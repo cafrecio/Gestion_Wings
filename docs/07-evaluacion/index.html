@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wings — Evaluación integral del sistema</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1b1f24; --muted:#6b7280; --line:#e5e7eb;
+    --brand:#be123c; --brand2:#9a0f30;
+    --crit:#b91c1c; --alta:#ea580c; --media:#ca8a04; --baja:#6b7280;
+    --ok:#15803d; --recBg:#ecfdf5; --recLine:#86efac;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14171c; --card:#1c2027; --ink:#e6e8 eb; --ink:#e6e8eb; --muted:#9aa2ad; --line:#2b313a;
+      --recBg:#0f2a1c; --recLine:#1f5133; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+  header.top{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:34px 20px;margin-bottom:26px}
+  header.top .inner{max-width:1080px;margin:0 auto}
+  header.top h1{margin:0 0 6px;font-size:1.7rem;font-weight:800;letter-spacing:.02em}
+  header.top p{margin:0;opacity:.9;font-size:.95rem}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
+  .legend span{font-size:.8rem;display:flex;align-items:center;gap:6px;opacity:.95}
+  .dot{width:10px;height:10px;border-radius:99px;display:inline-block}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center}
+  .kpi b{display:block;font-size:1.9rem;font-weight:800;line-height:1}
+  .kpi small{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+  .intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin-bottom:30px;font-size:.9rem;color:var(--muted)}
+  section.theme{margin-bottom:34px}
+  .theme-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:4px}
+  .theme-h h2{margin:0;font-size:1.25rem;font-weight:800}
+  .theme-h a{font-size:.8rem;color:var(--brand);text-decoration:none;font-weight:600}
+  .theme-h a:hover{text-decoration:underline}
+  .theme-sub{font-size:.82rem;color:var(--muted);margin:2px 0 14px}
+  .finding{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .fh{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none}
+  .fh:hover{background:color-mix(in srgb,var(--line) 30%,transparent)}
+  .sev{flex-shrink:0;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#fff;padding:3px 8px;border-radius:99px;min-width:64px;text-align:center}
+  .sev.crit{background:var(--crit)} .sev.alta{background:var(--alta)} .sev.media{background:var(--media)} .sev.baja{background:var(--baja)}
+  .fid{font-weight:800;font-size:.9rem;flex-shrink:0;font-variant-numeric:tabular-nums;color:var(--muted);min-width:44px}
+  .ftitle{font-weight:600;font-size:.94rem;flex:1}
+  .chev{color:var(--muted);transition:transform .15s;flex-shrink:0}
+  .finding.open .chev{transform:rotate(90deg)}
+  .fbody{display:none;padding:0 16px 16px 16px;border-top:1px solid var(--line)}
+  .finding.open .fbody{display:block}
+  .fbody .what{font-size:.9rem;margin:12px 0 4px}
+  .fbody .where{font-size:.78rem;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:12px;word-break:break-word}
+  .sols{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+  .sol{font-size:.87rem;padding:9px 12px;border:1px solid var(--line);border-radius:8px;display:flex;gap:8px;align-items:flex-start}
+  .sol .code{font-weight:800;font-variant-numeric:tabular-nums;color:var(--muted);flex-shrink:0}
+  .sol.rec{background:var(--recBg);border-color:var(--recLine)}
+  .sol.rec .code{color:var(--ok)}
+  .star{color:var(--ok);font-weight:800}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .filters button{font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+  .filters button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <h1>Wings — Evaluación integral del sistema</h1>
+    <p>Auditoría por 8 ejes: seguridad, datos, backend, frontend, tres perfiles de usuario y análisis integral. Cada problema tiene su código (S1.0, D1.0…) y sus soluciones alternativas; la recomendada lleva ⭐.</p>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--crit)"></i>Crítica</span>
+      <span><i class="dot" style="background:var(--alta)"></i>Alta</span>
+      <span><i class="dot" style="background:var(--media)"></i>Media</span>
+      <span><i class="dot" style="background:var(--baja)"></i>Baja</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="kpis">
+    <div class="kpi"><b>58</b><small>Hallazgos</small></div>
+    <div class="kpi"><b style="color:var(--crit)">4</b><small>Críticos</small></div>
+    <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos</small></div>
+    <div class="kpi"><b style="color:var(--media)">18</b><small>Medios</small></div>
+    <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
+  </div>
+
+  <div class="intro">
+    <b>Cómo leer esto.</b> Es una guía, no el detalle completo: cada eje tiene su reporte largo en su carpeta (link "Ver reporte"). Un problema = un código (ej. <b>S1.0</b>). Debajo, sus soluciones posibles (<b>SS1.1</b>, <b>SS1.2</b>…) son <i>opciones entre las que elegís vos</i>, no pasos. La marcada con ⭐ es la que recomiendo, con el resto como alternativa. Tocá cada problema para desplegarlo.
+    Los 4 críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo), <b>S2</b> (API sin control de rol), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests).
+  </div>
+
+  <div class="filters">
+    <button class="active" data-f="all">Todos</button>
+    <button data-f="crit">Solo críticos</button>
+    <button data-f="alta">Crít. + altos</button>
+  </div>
+
+  <!-- SEGURIDAD -->
+  <section class="theme" data-theme="seg">
+    <div class="theme-h"><h2>🔒 Seguridad</h2><a href="seguridad/REPORTE-SEGURIDAD.md">Ver reporte →</a></div>
+    <p class="theme-sub">Permisos, datos expuestos, inyección y superficie de ataque. La API es el foco de riesgo.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S1.0</span><span class="ftitle">dump.sql versionado expone hashes de contraseñas; admin y operativo comparten hash y la clave es "password"</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El dump completo de la BD se commitea al repo con la tabla users y sus hashes bcrypt reales. Cualquiera con acceso al repo tiene las llaves; con "password" ni hace falta crackear.</p><p class="where">database/dump.sql</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS1.1 ⭐</span><span>Sacar la tabla users del dump (<code>--ignore-table</code>) y rotar YA las contraseñas reales a unas fuertes y únicas.</span></li><li class="sol"><span class="code">SS1.2</span><span>Dejar de versionar dump.sql (gitignore) y reconstruir con migraciones+seeders; purgar el historial.</span></li><li class="sol"><span class="code">SS1.3</span><span>Encriptar el dump antes de commitear (git-crypt).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S2.0</span><span class="ftitle">API: alumnos, pagos, liquidaciones y clases sin control de rol</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Todo eso está bajo auth:sanctum a secas. Un token de PROFESOR u OPERATIVO puede crear/borrar alumnos, liquidaciones y disparar pagos por la API — cosas que en la web están bajo ensure.admin. Escalada de privilegios.</p><p class="where">routes/api.php:57,64-115 · AlumnoController.php (sin gate)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS2.1 ⭐</span><span>Agregar el middleware de rol correcto a cada grupo de rutas de la API, igual que en la web.</span></li><li class="sol"><span class="code">SS2.2</span><span>Si la API no se consume, deshabilitarla entera hasta que haya un consumidor y se diseñen sus permisos.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S3.0</span><span class="ftitle">Recibos PDF sin verificación de propiedad (IDOR)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El recibo de un pago se sirve por pagoId sin comprobar derechos. Cualquier usuario autenticado itera IDs y baja los recibos de todos los alumnos (nombres, montos).</p><p class="where">routes/api.php:298-299</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS3.1 ⭐</span><span>Verificar propiedad/rol antes de generar el PDF (admin todos, operativo los suyos, profesor ninguno).</span></li><li class="sol"><span class="code">SS3.2</span><span>Como mínimo exigir ensure.admin en la ruta del recibo de cuota.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S4.0</span><span class="ftitle">API login sin throttle (fuerza bruta)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El login de la API no limita intentos (la web sí). Combinado con claves débiles conocidas (S1), es la vía práctica de entrada.</p><p class="where">routes/api.php:34</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS4.1 ⭐</span><span>Agregar throttle:10,1 al login de la API, igual que en la web.</span></li><li class="sol"><span class="code">SS4.2</span><span>Throttle por IP a nivel proxy además del de Laravel.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S5.0</span><span class="ftitle">Sin política de fuerza de contraseña al crear usuarios</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Nada exige longitud ni complejidad. Es lo que permitió que "password" sea clave de producción.</p><p class="where">flujo de alta de usuarios</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS5.1 ⭐</span><span>Aplicar Password::min(8)->mixedCase()->numbers() y forzar cambio de las claves actuales.</span></li><li class="sol"><span class="code">SS5.2</span><span>Mínimo longitud ≥8 y rechazo de comunes.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S6.0</span><span class="ftitle">La API completa no se usa pero queda expuesta</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">131 rutas en espejo de la web, sin consumidor. S2/S3/S4 son síntomas de que se construyó sin el cuidado de permisos de la web.</p><p class="where">routes/api.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS6.1 ⭐</span><span>Si no hay app móvil planificada, deshabilitar api.php hasta tener consumidor. Cierra S2/S3/S4 de un saque.</span></li><li class="sol"><span class="code">SS6.2</span><span>Si va a usarse: gate por ruta, throttle, tests y documentación.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">S7.0</span><span class="ftitle">Confirmar APP_DEBUG=false en producción</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Con debug activo, cualquier excepción expone stack traces, queries y config. Las capturas de error del desarrollo muestran debug=true.</p><p class="where">.env producción · config/app.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS7.1 ⭐</span><span>Garantizar APP_DEBUG=false y APP_ENV=production en el deploy real.</span></li><li class="sol"><span class="code">SS7.2</span><span>Página de error 500 genérica.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">S8.0</span><span class="ftitle">Confirmar flags Secure/HttpOnly de la cookie en producción</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">En producción la cookie de sesión debe ser Secure (HTTPS), HttpOnly y SameSite. Si el deploy queda en HTTP, la sesión es robable.</p><p class="where">config/session.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS8.1 ⭐</span><span>HTTPS obligatorio + SESSION_SECURE_COOKIE=true + SameSite configurado. Verificar en el deploy.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="theme" data-theme="dat">
+    <div class="theme-h"><h2>🗄️ Arquitectura de datos</h2><a href="datos/REPORTE-DATOS.md">Ver reporte →</a></div>
+    <p class="theme-sub">Base bien construida (dinero en decimal, FKs, índices). El problema serio es un UNIQUE mal diseñado.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">D1.0</span><span class="ftitle">El UNIQUE de alumno_planes rompe el 2º cambio de plan (bomba latente)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">activo es NOT NULL y hay UNIQUE(alumno_id, activo). Al cerrar planes con activo=0, un alumno puede cambiar de plan una sola vez: el segundo cambio da violación de constraint → error 500. Hoy no estalló porque nadie cambió dos veces.</p><p class="where">migration create_alumno_planes:24 · AlumnoPlan.php:33-40</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD1.1 ⭐</span><span>Hacer activo nullable y guardar NULL (no 0) en los cerrados; MySQL permite múltiples NULL, el UNIQUE sigue garantizando un solo activo. Migrar los 0 a NULL.</span></li><li class="sol"><span class="code">SD1.2</span><span>Quitar el UNIQUE de la BD y enforcar en aplicación (el boot ya lo hace).</span></li><li class="sol"><span class="code">SD1.3</span><span>Índice único parcial emulado con columna generada (más complejo).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D2.0</span><span class="ftitle">referencia_tipo es string libre con valores inconsistentes para lo mismo</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El servicio marca el reflejo de caja como CAJA_OPERATIVA pero el seeder usó MOVIMIENTO_OPERATIVO para lo mismo. Ya causó el bug de movimientos duplicados en el historial.</p><p class="where">cashflow_movimientos.referencia_tipo</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD2.1 ⭐</span><span>Constantes/enum en el modelo y usarlas en todos lados; normalizar los datos existentes.</span></li><li class="sol"><span class="code">SD2.2</span><span>Al menos documentar el conjunto válido y corregir el seeder.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D3.0</span><span class="ftitle">Liquidación acopla profesor↔subrubro por nombre exacto</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El pago de liquidación busca un subrubro cuyo nombre es "Deporte-Nombre Apellido". Si el nombre cambia o el subrubro no existe, falla con error genérico sin aviso.</p><p class="where">LiquidacionPagoService · LiquidacionWebController:276</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD3.1 ⭐</span><span>Agregar subrubro_id (FK) al profesor y usar la relación en vez del nombre.</span></li><li class="sol"><span class="code">SD3.2</span><span>Mínimo: verificar existencia antes de mostrar el formulario y avisar.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D4.0</span><span class="ftitle">Columna muerta pagos.forma_pago_id (con su FK y tabla)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La forma de pago se quitó del flujo pero quedó la columna, su FK y la tabla formas_pago sin uso.</p><p class="where">pagos.forma_pago_id · tabla formas_pago</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD4.1 ⭐</span><span>Si no vuelve, migración que elimine la columna, la FK y la tabla (y su pantalla de config).</span></li><li class="sol"><span class="code">SD4.2</span><span>Dejar la columna pero sacarla de fillable y de las vistas.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D5.0</span><span class="ftitle">Índice redundante en deuda_cuotas</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Coexisten index(alumno_id,periodo) y unique(alumno_id,periodo) sobre las mismas columnas. El UNIQUE ya indexa; el otro es redundante.</p><p class="where">migration create_deuda_cuotas:27,30</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD5.1 ⭐</span><span>Migración que elimine el índice redundante.</span></li><li class="sol"><span class="code">SD5.2</span><span>Dejarlo (costo bajo, es ruido).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D6.0</span><span class="ftitle">Estados de negocio como strings libres, sin dominio cerrado</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Los estados (deuda, caja, pago, liquidación, revisión) viven solo como constantes PHP; la BD acepta cualquier string. Un typo mete un estado inválido que nadie detecta.</p><p class="where">deuda_cuotas.estado · cajas_operativas.estado · etc.</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SD6.1 ⭐</span><span>Migrar a enum de MySQL o cast a Enum de PHP 8. Empezar por las de plata.</span></li><li class="sol"><span class="code">SD6.2</span><span>Mínimo: tests + CHECK constraint donde MariaDB lo permita.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- BACKEND -->
+  <section class="theme" data-theme="back">
+    <div class="theme-h"><h2>⚙️ Backend</h2><a href="backend/REPORTE-BACKEND.md">Ver reporte →</a></div>
+    <p class="theme-sub">Buena capa de services y transacciones. El patrón dominante: una API paralela con lógica vieja y divergente.</p>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B1.0</span><span class="ftitle">Dos sistemas de pago en paralelo (API vs web) con lógica divergente</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La API usa PagoService (viejo) y la web PagoCuotaService (actual, con FIFO y cambio de plan corregido). Un pago por API no pasa por los arreglos de la web.</p><p class="where">PagoService vs PagoCuotaService</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB1.1 ⭐</span><span>Unificar en PagoCuotaService y eliminar PagoService (o deshabilitar la API de pagos si no se consume).</span></li><li class="sol"><span class="code">SB1.2</span><span>Que ambos controllers deleguen en un único service.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B2.0</span><span class="ftitle">Dos resoluciones de "revisión de cobranza" con vocabularios distintos</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La API usa GENERAR_DEUDA/MARCAR_INACTIVO (sin guardar nota/usuario/fecha); la web usa CONTINUA/INACTIVO (completo). Según por dónde se resuelva, queda distinta traza.</p><p class="where">CobranzaEstadoService:180 vs RevisionCobranzaService</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB2.1 ⭐</span><span>Dejar RevisionCobranzaService como único y eliminar resolverRevision() de CobranzaEstadoService.</span></li><li class="sol"><span class="code">SB2.2</span><span>Documentar la vía API como legacy hasta borrarla.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B3.0</span><span class="ftitle">API AlumnoController a medio construir pero expuesto</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">index, create y edit tienen cuerpo vacío pero apiResource los publica. GET /api/alumnos no devuelve nada útil, y sin gate de rol (S2).</p><p class="where">AlumnoController.php:15-25,74-92</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB3.1 ⭐</span><span>Completar o quitar los stubs; no exponer por apiResource lo no implementado.</span></li><li class="sol"><span class="code">SB3.2</span><span>Eliminar el controller y su ruta (parte de B4).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B4.0</span><span class="ftitle">La API entera duplica la web sin consumidor</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">B1, B2, B3 y S2/S3/S4 son síntomas de lo mismo: una API completa que el front no usa, con lógica vieja y permisos flojos.</p><p class="where">routes/api.php (131 rutas)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB4.1 ⭐</span><span>Deshabilitar api.php hasta tener consumidor. Cierra B1/B2/B3 y S2/S3/S4 de un golpe.</span></li><li class="sol"><span class="code">SB4.2</span><span>Si va a usarse: unificar services, completar controllers, permisos y tests.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B5.0</span><span class="ftitle">Validación de unicidad case-insensitive copiada en 5+ lugares</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El chequeo whereRaw('LOWER(nombre)=?') está copiado con variaciones en niveles, tipos-caja y subrubros. Cambiar la regla implica tocar todos.</p><p class="where">NivelWebController · TipoCajaWebController · Store/UpdateSubrubroRequest</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB5.1 ⭐</span><span>Extraer a una Rule custom reutilizable o scope de modelo.</span></li><li class="sol"><span class="code">SB5.2</span><span>Collation case-insensitive en las columnas y unique normal.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B6.0</span><span class="ftitle">Lógica de timezone/fecha dispersa</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Mezcla de now(), today() y Carbon con TZ Argentina explícita. Cerca de medianoche pueden diferir.</p><p class="where">CajaWebController · PagoCuotaService · OperativoDashboardController</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB6.1 ⭐</span><span>Fijar app.timezone en config y unificar en now()/today() o un helper hoyAr().</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B7.0</span><span class="ftitle">Diseño de API inconsistente (recursos + RPC + doble controller de alumnos)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Mezcla apiResource, prefijos admin/*, rutas sueltas, y alumnos accesible por dos controllers/caminos.</p><p class="where">routes/api.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SB7.1 ⭐</span><span>Si se conserva, rediseñar con criterio único (REST + gate por middleware) y un solo controller de alumnos.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- FRONTEND -->
+  <section class="theme" data-theme="front">
+    <div class="theme-h"><h2>🎨 Frontend / Design System</h2><a href="frontend/REPORTE-FRONTEND.md">Ver reporte →</a></div>
+    <p class="theme-sub">Fecha y dinero son consistentes (fortaleza). El resto: botones en 4 implementaciones, dos rojos, y cero responsive.</p>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F1.0</span><span class="ftitle">El sistema de botones está fragmentado en 4 implementaciones</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El mismo botón se construye de 4 formas (x-ds.button, variables PHP inline, inline crudo, ds-btn+override). No hay fuente única y divergen.</p><p class="where">caja/*, operativo, cashflow, cobranza, revision-cobranza, clases/show vs alumnos/index</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF1.1 ⭐</span><span>Migrar TODO a x-ds.button + .ds-btn-row, eliminando variables inline.</span></li><li class="sol"><span class="code">SF1.2</span><span>Extender el componente con una prop para los casos que no encajan.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F2.0</span><span class="ftitle">Dos rojos distintos para la misma acción destructiva</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Cerrar/Rechazar/Eliminar/Cancelar aparecen en dos intensidades de rojo (--color-btn-danger vs --color-danger) sin criterio.</p><p class="where">caja/show vs caja/resumen, detalle, operativo</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF2.1 ⭐</span><span>Unificar todo destructivo en .ds-btn--danger como dicta el DS.</span></li><li class="sol"><span class="code">SF2.2</span><span>Si se reserva el rojo intenso para caja, documentarlo y aplicarlo consistente.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F3.0</span><span class="ftitle">Etiquetas de botón con más de una palabra + verbos divergentes</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Cerrar caja", "Nueva caja", "Cancelar serie" violan la regla de una palabra. Y "agregar movimiento" usa Nuevo/Agregar/Movimiento según la vista.</p><p class="where">operativo/dashboard, clases/show, caja/*</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF3.1 ⭐</span><span>Renombrar a una palabra y unificar verbos; "Cancelar serie" → checkbox modificador.</span></li><li class="sol"><span class="code">SF3.2</span><span>Glosario de verbos canónicos en DESIGN-RULES.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F4.0</span><span class="ftitle">Dot de estado con clases CSS inexistentes: no pinta</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Usa alumno-dot--activo/--inactivo que no existen en el CSS; el semáforo queda apagado (bug visible).</p><p class="where">profesores/index:77</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF4.1 ⭐</span><span>Usar --success/--neutral como usuarios/index.</span></li><li class="sol"><span class="code">SF4.2</span><span>Agregar los alias al CSS (peor: multiplica nombres).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F5.0</span><span class="ftitle">"secondary" rellena en casi todo, contorneada en Caja</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Ver" es relleno en alumnos/grupos pero contorneado en caja/show. Misma jerarquía, dos apariencias. El SKILL y el CSS también se contradicen.</p><p class="where">app.css:317 vs caja/show, revision-cobranza</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF5.1 ⭐</span><span>Unificar en el relleno del CSS vía x-ds.button.</span></li><li class="sol"><span class="code">SF5.2</span><span>Redefinir el DS a contorneado (toca CSS + todas las vistas).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F6.0</span><span class="ftitle">Sin responsividad: layout de 2 columnas fijas, cero @media</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">app.css no tiene ninguna @media; el sidebar de 240px nunca colapsa. En celular todo queda apretado con scroll horizontal. Golpea de lleno al PROFESOR (UP1).</p><p class="where">app.css:558-562 (0 media queries)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF6.1 ⭐</span><span>@media(max-width:768px) que colapse el sidebar a drawer/hamburguesa y pase a una columna.</span></li><li class="sol"><span class="code">SF6.2</span><span>Mínimo: sidebar off-canvas + 1 columna en móvil + overflow-x en tablas.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F7.0</span><span class="ftitle">Estado/badge dentro del header del card (viola regla 1.1)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Varias vistas meten un badge de estado en el header del card, que la regla reserva para dot + título.</p><p class="where">profesores, liquidaciones, revision-cobranza, operativo</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF7.1 ⭐</span><span>Mover el estado al info-grid o codificarlo en el color del dot.</span></li><li class="sol"><span class="code">SF7.2</span><span>Permitir el badge en DESIGN-RULES y aplicarlo en TODOS los listados igual.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F8.0</span><span class="ftitle">Dos estilos de barra de filtros conviviendo</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El mismo componente tiene dos alturas y bordes según la vista (.filtros-control 48px vs grid+wings-input 40px).</p><p class="where">alumnos/caja/movimientos vs cobranza/cashflow/liquidaciones</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF8.1 ⭐</span><span>Estandarizar en .filtros-control y migrar las 4 vistas del otro estilo.</span></li><li class="sol"><span class="code">SF8.2</span><span>Crear x-ds.filterbar para no volver a divergir.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F9.0</span><span class="ftitle">Altura del botón primario inconsistente (32/36/38px)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Filtrar"/"Nuevo" miden distinto según la vista. El tamaño documentado (112×36) ni existe.</p><p class="where">app.css:274 vs cobranza:68, revision-cobranza:166</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF9.1 ⭐</span><span>Implementar el Objeto A real (.ds-btn--page 112×36) en los stats-bar y unificar el resto en 32px.</span></li><li class="sol"><span class="code">SF9.2</span><span>Si todo es 32px, quitar la referencia a 112×36 de la doc.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F10.0</span><span class="ftitle">color:#fff y hex hardcodeados en Blade</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El SKILL prohíbe hex en Blade; existe --color-surface. El login usa #E6252F, que ni es el rojo de marca.</p><p class="where">caja/*, operativo, login (excepto pdfs/* que son DomPDF)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF10.1 ⭐</span><span>#fff→var(--color-surface), #E6252F→var(--color-brand).</span></li><li class="sol"><span class="code">SF10.2</span><span>Excluir pdfs/* del DS en la doc (DomPDF no resuelve var()).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F11.0</span><span class="ftitle">ds-content sin max-width: "océanos vacíos" en monitores anchos</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El SKILL dice 1200px pero el CSS no lo implementa; solo caja/historial lo parcha a mano (980px). El resto se estira sin tope.</p><p class="where">app.css:592-596</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF11.1 ⭐</span><span>max-width en .ds-content y borrar el parche de historial.</span></li><li class="sol"><span class="code">SF11.2</span><span>Decidir el valor (1200 vs 980) y dejarlo escrito.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F12.0</span><span class="ftitle">Module header: gradiente rojo real contradice la doc (chrome gris)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El header es un degradé rojo con #9A0F30 hardcodeado, no el gris que dice el SKILL. Induce a error a quien programe una vista nueva.</p><p class="where">app.css:528-531 vs SKILL.md:81,96</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF12.1 ⭐</span><span>Actualizar el SKILL al gradiente real y tokenizar #9A0F30.</span></li><li class="sol"><span class="code">SF12.2</span><span>Volver al gris chrome (más disruptivo).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F13.0</span><span class="ftitle">Filtros: auto-submit vs botón "Filtrar" inconsistente</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">En unas vistas el select recarga solo; en otras hay que apretar Filtrar. Comportamiento impredecible.</p><p class="where">cashflow/revision/clases/alumnos vs cobranza/movimientos/caja/liquidaciones</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF13.1 ⭐</span><span>Un modelo único: auto-submit en selects + botón solo para el texto.</span></li><li class="sol"><span class="code">SF13.2</span><span>Documentar la regla en DESIGN-RULES.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">F14.0</span><span class="ftitle">caja/cobrar: submit deshabilitado reinventado</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Duplica a mano el estado disabled que el DS ya define en .ds-btn:disabled.</p><p class="where">caja/cobrar:200-204</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF14.1 ⭐</span><span>Usar x-ds.button :disabled y togglear btn.disabled, dejando el estilo al CSS.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">F15.0</span><span class="ftitle">Detalles de formato: signo −/– y token de ghost</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Conviven el signo menos U+2212 y el en-dash. ds-btn--ghost usa un token distinto al que dice la doc.</p><p class="where">caja/detalle, movimientos vs caja/resumen</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SF15.1 ⭐</span><span>Estandarizar el signo en − y alinear la doc de ghost con el CSS.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDAD: ADMIN -->
+  <section class="theme" data-theme="ua">
+    <div class="theme-h"><h2>👤 Usuario ADMIN (dueña del negocio)</h2><a href="funcionalidad/REPORTE-ADMIN.md">Ver reporte →</a></div>
+    <p class="theme-sub">Quiere control de la plata sin perder tiempo. El dashboard le muestra la deuda pero no lo que entró.</p>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">UA1.0</span><span class="ftitle">El dashboard no muestra cuánto entró (solo lo que le deben)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Lo primero que quiere saber la dueña es cuánto se cobró hoy y en el mes, y no está. Tiene que ir caja por caja.</p><p class="where">admin/dashboard</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA1.1 ⭐</span><span>Agregar "Cobrado hoy" y "Cobrado en el mes" arriba, grandes.</span></li><li class="sol"><span class="code">SUA1.2</span><span>Mini-gráfico de ingresos de los últimos meses.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">UA2.0</span><span class="ftitle">No ve de una qué cajas tiene que validar</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Validar cajas es su control principal, pero no hay aviso de cuántas la esperan. Se le acumulan sin avisar.</p><p class="where">dashboard / caja</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA2.1 ⭐</span><span>Aviso en dashboard + número en el menú "N cajas para validar" que lleve a la lista.</span></li><li class="sol"><span class="code">SUA2.2</span><span>Filtro rápido "pendientes de validar" destacado en Caja.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UA3.0</span><span class="ftitle">Los números del dashboard no son clickeables</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Con deuda: 5" pero no puede tocar para ver quiénes. El número genera la pregunta y no da la respuesta.</p><p class="where">admin/dashboard</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA3.1 ⭐</span><span>Que cada número lleve a la lista que representa.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UA4.0</span><span class="ftitle">Al pagar una liquidación puede fallar sin avisar antes</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Si la config del profe no está bien, el pago falla al confirmar con un error que no entiende (ligado a D3).</p><p class="where">liquidaciones</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA4.1 ⭐</span><span>Verificar antes de mostrar el botón y avisar con mensaje claro + link para arreglar.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UA5.0</span><span class="ftitle">No puede corregir ni borrar un movimiento de cashflow mal cargado</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Un gasto con monto equivocado queda mal para siempre y le ensucia los números.</p><p class="where">cashflow</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA5.1 ⭐</span><span>Permitir al menos eliminar (idealmente editar), con registro de quién y cuándo.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UA6.0</span><span class="ftitle">Los accesos rápidos del dashboard no son los que usa</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Son Alumnos/Grupos/Rubros; Rubros casi no lo toca. Faltan validar cajas, cobranza, liquidaciones.</p><p class="where">admin/dashboard</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA6.1 ⭐</span><span>Reemplazar por los de uso diario: Cajas a validar, Cobranza, Liquidaciones.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UA7.0</span><span class="ftitle">El menú no avisa de la cobranza pendiente</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Para saber si hay posibles inactivos hay que entrar a la pantalla.</p><p class="where">menú / cobranza</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUA7.1 ⭐</span><span>Badge con el número de revisiones pendientes en el ítem Cobranza.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDAD: OPERATIVO -->
+  <section class="theme" data-theme="uo">
+    <div class="theme-h"><h2>👤 Usuario OPERATIVO (recepción, hora pico)</h2><a href="funcionalidad/REPORTE-OPERATIVO.md">Ver reporte →</a></div>
+    <p class="theme-sub">El flujo de cobro quedó claro. Lo que queda es sacar clics con la cola encima.</p>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UO1.0</span><span class="ftitle">Cobrar lleva dos pantallas (buscar y después cobrar)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Con cola, primero busca al alumno y recién en la siguiente cobra: un clic y una carga de más por persona.</p><p class="where">caja/cobrar</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUO1.1 ⭐</span><span>Que al elegir al alumno vaya directo al formulario ya cargado.</span></li><li class="sol"><span class="code">SUO1.2</span><span>Buscador de cobro en el propio dashboard.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UO2.0</span><span class="ftitle">"¿Pagó mayo?" se responde en dos lados</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Los pagos del alumno están tanto en su ficha como en el historial; con el apuro no sabe cuál abrir.</p><p class="where">ficha alumno / historial</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUO2.1 ⭐</span><span>Un acceso directo y único a "sus pagos" desde el buscador/ficha.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UO3.0</span><span class="ftitle">El botón Cobrar no está siempre a mano</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Al entrar a la caja hay que buscar el botón de cobrar.</p><p class="where">caja / resumen</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUO3.1 ⭐</span><span>Botón Cobrar siempre visible y destacado en la caja abierta y el dashboard.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UO4.0</span><span class="ftitle">Falta confirmación clara post-cobro + recibo</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Con la cola encima quiere estar seguro de que quedó registrado y por cuánto, sin ir a chequear.</p><p class="where">caja/cobrar</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUO4.1 ⭐</span><span>Cartel "Cobrado $X a Fulano" y ofrecer el recibo ahí mismo.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDAD: PROFESOR -->
+  <section class="theme" data-theme="up">
+    <div class="theme-h"><h2>👤 Usuario PROFESOR (celular, entre clases)</h2><a href="funcionalidad/REPORTE-PROFESOR.md">Ver reporte →</a></div>
+    <p class="theme-sub">Toma lista desde el celular en la cancha. El problema central: la app no es móvil.</p>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">UP1.0</span><span class="ftitle">La pantalla no funciona en el celular (sin diseño móvil)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El menú de 240px no se esconde en el teléfono; todo queda apretado con scroll horizontal. El profe solo usa el celular en la cancha (raíz técnica: F6).</p><p class="where">todas (clases, detalle)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUP1.1 ⭐</span><span>Que en el celular el menú se esconda tras una hamburguesa y la lista ocupe toda la pantalla.</span></li><li class="sol"><span class="code">SUP1.2</span><span>Al menos agrandar tarjetas y botón guardar y evitar el scroll lateral.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UP2.0</span><span class="ftitle">No ve directo la clase de hoy</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Le aparecen todas las clases y tiene que buscar la de ahora, con los pibes esperando.</p><p class="where">clases (listado)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUP2.1 ⭐</span><span>Arriba "Tu clase de ahora/hoy" con el botón de tomar lista, y las demás abajo.</span></li><li class="sol"><span class="code">SUP2.2</span><span>Ordenar con las de hoy primero y resaltadas.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP3.0</span><span class="ftitle">Le muestran botones que no son para él</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Modificar profesores" o cancelar la clase lo distraen de lo único que hace: marcar presentes.</p><p class="where">clase detalle</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUP3.1 ⭐</span><span>Esconder esas acciones para el profe y dejar arriba solo la lista y el guardar.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP4.0</span><span class="ftitle">Falta confirmación clara de que la lista se guardó</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Con el apuro quiere estar seguro de que la lista quedó guardada y no la perdió.</p><p class="where">clase detalle</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SUP4.1 ⭐</span><span>Cartel grande de "Lista guardada" que se vea de un vistazo.</span></li></ul></div>
+    </div>
+  </section>
+
+  <!-- INTEGRAL -->
+  <section class="theme" data-theme="int">
+    <div class="theme-h"><h2>🧭 Análisis integral</h2><a href="ANALISIS-INTEGRAL.md">Ver reporte →</a></div>
+    <p class="theme-sub">Lo transversal: completitud, red de seguridad y deuda de documentación para dejarlo 100% funcional.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">I1.0</span><span class="ftitle">Sistema que maneja plata prácticamente sin tests</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Solo 4 archivos de test (2 son ejemplos de Laravel, 1 roto). Todos los bugs de dinero pasaron a producción sin que nada los detectara. Es el riesgo #1 para "quedar 100% funcional".</p><p class="where">tests/ (4 archivos)</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI1.1 ⭐</span><span>BD MariaDB de test + tests de los flujos de plata (cobro FIFO, cambio de plan, cierre de caja, neteo, integración caja→cashflow).</span></li><li class="sol"><span class="code">SI1.2</span><span>Arreglar solo la migración incompatible para que la suite corra en SQLite.</span></li><li class="sol"><span class="code">SI1.3</span><span>No hacer tests (inaceptable para caja).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">I2.0</span><span class="ftitle">La API (131 rutas) es un universo paralelo sin consumidor</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Existe casi en espejo de la web pero nadie la consume. Es superficie de ataque y mantenimiento sin beneficio (ver S6, B4).</p><p class="where">routes/api.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI2.1 ⭐</span><span>Si no hay app móvil, podar/quitar la API.</span></li><li class="sol"><span class="code">SI2.2</span><span>Si sí: congelar, documentar (OpenAPI) y asegurar como ciudadano de primera.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">I3.0</span><span class="ftitle">Documentación de contratos con versiones contradictorias conviviendo</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">En docs/02-contratos/ conviven V1..V4 de los mismos contratos. Al volver no se sabe cuál es la verdad — es lo que desorienta.</p><p class="where">docs/02-contratos/</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI3.1 ⭐</span><span>Una sola versión viva por contrato (la última verificada contra el código); el resto a 99-archivo.</span></li><li class="sol"><span class="code">SI3.2</span><span>Regenerar los contratos desde el código actual y archivar los viejos.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">I4.0</span><span class="ftitle">El seeder no representa la operación real (causa de bugs invisibles)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Solo cobra cuotas en efectivo, un operativo, sin egresos ni cancelaciones ni rechazos. Con datos así los totales parecen correctos aunque la lógica esté mal — por eso los bugs de dinero fueron invisibles.</p><p class="where">DemoSeeder.php</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI4.1 ⭐</span><span>Rehacer con datos que ejerciten todos los flujos (egresos, varios medios, 2 operativos, cancelaciones, rechazos, deudores, inactivos, cambios de plan).</span></li><li class="sol"><span class="code">SI4.2</span><span>Mantener el actual + un segundo seeder "estrés" con casos borde.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">I5.0</span><span class="ftitle">Timezone: lógica de fecha dispersa y potencialmente inconsistente</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Mezcla now()/today()/Carbon con TZ explícita. Cerca de medianoche "hoy" puede diferir — riesgo en cierres y período vigente (ver B6).</p><p class="where">varios controllers/services</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI5.1 ⭐</span><span>Fijar app.timezone en config + uso uniforme. Verificar la TZ del server.</span></li><li class="sol"><span class="code">SI5.2</span><span>Auditar caso por caso los usos de fecha.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">I6.0</span><span class="ftitle">Esquema: dump vs migraciones sin verificar equivalencia</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Se versionan dump Y migraciones sin garantía de que migrate:fresh produzca el mismo esquema. Un colaborador nuevo podría levantar algo distinto a producción.</p><p class="where">database/dump.sql + 59 migraciones</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI6.1 ⭐</span><span>Verificar que migrate:fresh == dump; si no, corregir migraciones. Dump solo para datos.</span></li><li class="sol"><span class="code">SI6.2</span><span>Tratar el dump como única fuente (pierde trazabilidad).</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">I7.0</span><span class="ftitle">Vista muerta y código legacy sin podar</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">caja/show.blade.php (ninguna ruta la usa, con el patrón viejo de totales), CobranzaEstadoService::resolverRevision (legacy API) y la columna forma_pago_id suman ruido.</p><p class="where">caja/show · CobranzaEstadoService · pagos.forma_pago_id</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SI7.1 ⭐</span><span>Barrido de limpieza: eliminar la vista muerta y el método legacy; decidir la columna.</span></li><li class="sol"><span class="code">SI7.2</span><span>Dejarlo (acumula ruido).</span></li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    Wings · Evaluación generada el 2026-07-13 · Detalle completo en cada carpeta de <code>docs/07-evaluacion/</code>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.fh').forEach(function(h){
+    h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+  });
+  document.querySelectorAll('.filters button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      var f=b.dataset.f;
+      document.querySelectorAll('.finding').forEach(function(fd){
+        var s=fd.dataset.sev;
+        var show = f==='all' || (f==='crit'&&s==='crit') || (f==='alta'&&(s==='crit'||s==='alta'));
+        fd.style.display = show?'':'none';
+      });
+      document.querySelectorAll('section.theme').forEach(function(sec){
+        var any=[...sec.querySelectorAll('.finding')].some(x=>x.style.display!=='none');
+        sec.style.display=any?'':'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
