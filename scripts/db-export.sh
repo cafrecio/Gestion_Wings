@@ -40,7 +40,12 @@ fi
 # --routines --triggers: incluir procedimientos y triggers si existen
 # --skip-comments: dump más limpio
 # --complete-insert: INSERT con nombres de columna (más robusto)
-$MYSQLDUMP_CMD --routines --triggers --skip-comments --complete-insert "$DB_DATABASE" > "$DUMP_FILE"
+# --ignore-table=...users: NUNCA versionar hashes de contraseñas reales
+$MYSQLDUMP_CMD --routines --triggers --skip-comments --complete-insert \
+    --ignore-table="$DB_DATABASE.users" \
+    "$DB_DATABASE" > "$DUMP_FILE"
 
 echo "Dump guardado en: database/dump.sql ($(wc -c < "$DUMP_FILE" | tr -d ' ') bytes)"
+echo "La tabla 'users' se excluyó a propósito (contiene contraseñas)."
+echo "Después de importar hay que correr: php artisan db:seed --class=UserSeeder"
 echo "Listo. Commiteá database/dump.sql para versionar la BD."

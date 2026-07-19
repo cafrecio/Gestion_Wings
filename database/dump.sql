@@ -36,7 +36,7 @@ CREATE TABLE `alumno_planes` (
   KEY `alumno_planes_plan_id_foreign` (`plan_id`),
   CONSTRAINT `alumno_planes_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE CASCADE,
   CONSTRAINT `alumno_planes_plan_id_foreign` FOREIGN KEY (`plan_id`) REFERENCES `grupo_planes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `cache` (
 
 LOCK TABLES `cache` WRITE;
 /*!40000 ALTER TABLE `cache` DISABLE KEYS */;
-INSERT INTO `cache` VALUES ('wings-cache-5c785c036466adea360111aa28563bfd556b5fba','i:1;',1783263339),('wings-cache-5c785c036466adea360111aa28563bfd556b5fba:timer','i:1783263339;',1783263339);
+INSERT INTO `cache` VALUES ('wings-cache-5c785c036466adea360111aa28563bfd556b5fba','i:1;',1783908898),('wings-cache-5c785c036466adea360111aa28563bfd556b5fba:timer','i:1783908898;',1783908898);
 /*!40000 ALTER TABLE `cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,7 +468,7 @@ CREATE TABLE `deuda_cuotas` (
   UNIQUE KEY `deuda_cuotas_alumno_periodo_unique` (`alumno_id`,`periodo`),
   KEY `deuda_cuotas_alumno_id_periodo_index` (`alumno_id`,`periodo`),
   CONSTRAINT `deuda_cuotas_alumno_id_foreign` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -802,7 +802,7 @@ CREATE TABLE `movimientos_operativos` (
   CONSTRAINT `movimientos_operativos_subrubro_id_foreign` FOREIGN KEY (`subrubro_id`) REFERENCES `subrubros` (`id`) ON DELETE CASCADE,
   CONSTRAINT `movimientos_operativos_tipo_caja_id_foreign` FOREIGN KEY (`tipo_caja_id`) REFERENCES `tipos_caja` (`id`) ON DELETE CASCADE,
   CONSTRAINT `movimientos_operativos_usuario_id_foreign` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -862,7 +862,7 @@ CREATE TABLE `pago_deuda_cuota` (
   KEY `pago_deuda_cuota_deuda_cuota_id_foreign` (`deuda_cuota_id`),
   CONSTRAINT `pago_deuda_cuota_deuda_cuota_id_foreign` FOREIGN KEY (`deuda_cuota_id`) REFERENCES `deuda_cuotas` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pago_deuda_cuota_pago_id_foreign` FOREIGN KEY (`pago_id`) REFERENCES `pagos` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -907,7 +907,7 @@ CREATE TABLE `pagos` (
   CONSTRAINT `pagos_forma_pago_id_foreign` FOREIGN KEY (`forma_pago_id`) REFERENCES `formas_pago` (`id`),
   CONSTRAINT `pagos_plan_id_foreign` FOREIGN KEY (`plan_id`) REFERENCES `grupo_planes` (`id`),
   CONSTRAINT `pagos_regla_primer_pago_id_foreign` FOREIGN KEY (`regla_primer_pago_id`) REFERENCES `reglas_primer_pago` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1103,7 +1103,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('r9AvjCwvypqvoalm9ZPLbZHTDd57ejt52tg4cQfL',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiU2JMclg5czJWVUtSY25oZjdPTldDeTZIRUlDdHhOb0Zad2F0dUJhVyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyNzoiaHR0cDovL2dlc3Rpb24td2luZ3MvZ3J1cG9zIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3J1YnJvcyI7czo1OiJyb3V0ZSI7czoxNjoid2ViLnJ1YnJvcy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1783264753),('wqeNMytItJxaAA8buwKtzYYoJ44KttHxD82ZPnDl',2,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoidmN4R3o2RUhXcUQ0d1J6S2Q3akJPUGo2NVN2eURUSHRMaTRCRzNOYiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMDoiaHR0cDovL2dlc3Rpb24td2luZ3Mvb3BlcmF0aXZvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvODAvcmVzdW1lbiI7czo1OiJyb3V0ZSI7czoxNjoid2ViLmNhamEucmVzdW1lbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==',1783266761);
+INSERT INTO `sessions` VALUES ('0iuVNCMtvHv2ZG1lwmTaNsNCNJRY5cOtauwAbxaL',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoibTQxR0tnNVVWNXUyZFVlbXJ1ZU9zY2w4NHR2TWJUZ2pGTzJhZzFJcCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2xvZ2luIjtzOjU6InJvdXRlIjtzOjU6ImxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1783899795),('3llokzWXpPlp116HgeMF7C92kcDt1Gl1WtBcGbDO',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNlRmd0J3MndpR2FpWEEyVVF4b3lDY3NmWTJoTWFRdmhEc1hDSkhFZCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNToiaHR0cDovL2dlc3Rpb24td2luZ3MvY2FqYS9jb2JyYXIvMzIiO31zOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czoyNjoiaHR0cDovL2dlc3Rpb24td2luZ3MvbG9naW4iO3M6NToicm91dGUiO3M6NToibG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1783289250),('r9AvjCwvypqvoalm9ZPLbZHTDd57ejt52tg4cQfL',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiU2JMclg5czJWVUtSY25oZjdPTldDeTZIRUlDdHhOb0Zad2F0dUJhVyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyNzoiaHR0cDovL2dlc3Rpb24td2luZ3MvZ3J1cG9zIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL3J1YnJvcyI7czo1OiJyb3V0ZSI7czoxNjoid2ViLnJ1YnJvcy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==',1783264753),('So6dgFxefkEVdxzQ7H7M6QiSpXmyTSbKsTqHQAyu',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiMlNBdDdHcVVXU2F0WUpnd3BlZzJZd1ZROXJrdjJlOVpsOHZnTFV2WSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2xvZ2luIjtzOjU6InJvdXRlIjtzOjU6ImxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1784323919),('u8IPgRYApPs1pZmXCV2TZEaMsIjyM23eeCrxuLcx',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWndIUUl0RWlNbEVRZVlhVDRFa2R5Q0c3UkcyUnZPRzZFaVhUd3pyeSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyODoiaHR0cDovL2dlc3Rpb24td2luZ3MvYWx1bW5vcyI7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjI2OiJodHRwOi8vZ2VzdGlvbi13aW5ncy9sb2dpbiI7czo1OiJyb3V0ZSI7czo1OiJsb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1784242373),('wqeNMytItJxaAA8buwKtzYYoJ44KttHxD82ZPnDl',2,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoidmN4R3o2RUhXcUQ0d1J6S2Q3akJPUGo2NVN2eURUSHRMaTRCRzNOYiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMDoiaHR0cDovL2dlc3Rpb24td2luZ3Mvb3BlcmF0aXZvIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2NhamEvY29icmFyLzMyIjtzOjU6InJvdXRlIjtzOjE1OiJ3ZWIuY2FqYS5jb2JyYXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=',1783267182),('XBkA37cvhWNv2fvc88WxOJ4yrhZ29LKf3pf2OXCT',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiVjM2bGxUa29aZE9tYmlPZEp4YkdSNlJPSUI1Wmdhdm5iNWdHU2RPayI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2xvZ2luIjtzOjU6InJvdXRlIjtzOjU6ImxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1783639572),('zGUdiaGgNISDOKr97pm4HKZt6OtBM3aIYvVIVvkD',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQlM0bGY2RTVtVmpjenRYMWI1Nmk2OHcwMmlRdFNsSHNmd1lFRkJhZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly9nZXN0aW9uLXdpbmdzL2FsdW1ub3MiO3M6NToicm91dGUiO3M6MTc6IndlYi5hbHVtbm9zLmluZGV4Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9',1783908848);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1169,42 +1169,6 @@ LOCK TABLES `tipos_caja` WRITE;
 INSERT INTO `tipos_caja` VALUES (1,'Efectivo','EFT',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(2,'Banco Nación','BNA','CTA CTE Banco Nación',1,1,'2026-03-08 19:28:19','2026-06-22 08:22:29'),(3,'Mercado Pago','MP',NULL,0,1,'2026-03-08 19:28:19','2026-03-08 19:28:19'),(4,'Banco Nacion ahorro',NULL,'Caja de ahorro Banco Nación',1,1,'2026-06-01 09:12:54','2026-06-01 09:12:54'),(5,'Banco Galicia','BGA',NULL,1,1,'2026-06-22 03:00:56','2026-06-22 03:00:56');
 /*!40000 ALTER TABLE `tipos_caja` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `rol` enum('ADMIN','OPERATIVO','PROFESOR') DEFAULT 'OPERATIVO',
-  `profesor_id` bigint(20) unsigned DEFAULT NULL,
-  `activo` tinyint(1) NOT NULL DEFAULT 1,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`),
-  KEY `users_profesor_id_foreign` (`profesor_id`),
-  CONSTRAINT `users_profesor_id_foreign` FOREIGN KEY (`profesor_id`) REFERENCES `profesores` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin Test','admin@wings.com','ADMIN',NULL,1,NULL,'$2y$12$fJB9bHRM.C8XL42nSbh18uYF/OOa/qbWKAEZi5zBFcs1Kq4c9L1na',NULL,'2026-02-11 22:12:27','2026-03-02 06:03:20'),(2,'Operativo Test','operativo@wings.com','OPERATIVO',NULL,1,NULL,'$2y$12$fJB9bHRM.C8XL42nSbh18uYF/OOa/qbWKAEZi5zBFcs1Kq4c9L1na',NULL,'2026-02-11 22:12:27','2026-05-28 00:11:25'),(3,'Operativo2','operativo2@wing.com','OPERATIVO',NULL,0,NULL,'$2y$12$c5attVupUQP7.qiJEsXny.f/N2UcLxu5V.Io9hWkKv8RfS46S0Bt.',NULL,'2026-05-27 11:45:55','2026-05-27 17:26:08'),(4,'Profesor','profesor@wing.com','PROFESOR',1,1,NULL,'$2y$12$dePJoG3Gn3qOMXxFMB8AxeTd.2U43O/JaQogb/DwVRvsJhqFG4QH6',NULL,'2026-05-27 11:47:44','2026-05-27 19:50:53'),(5,'Profesor2','profesor2@wings.com','PROFESOR',2,1,NULL,'$2y$12$MHje4dURCKArxFHVd/LzXeEBmaospDx091pNiCkUNmJs3.CMsEUu2',NULL,'2026-05-27 11:59:53','2026-05-28 00:01:21');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1215,4 +1179,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-05 12:58:53
+-- Dump completed on 2026-07-19  8:46:30

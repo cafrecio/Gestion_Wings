@@ -61,19 +61,24 @@ Reglas criticas:
 
 ## Base de datos - mantener sincronizada
 
-El archivo `database/dump.sql` contiene el dump completo de la BD y se versiona con el repo.
+El archivo `database/dump.sql` contiene el dump de la BD (sin la tabla `users`, ver mas abajo) y se versiona con el repo.
+
+**IMPORTANTE - seguridad:** la tabla `users` NUNCA se versiona. Contiene hashes de contraseñas reales; versionarla es exponer credenciales en el historial de git. Siempre exportar con `--ignore-table`, exactamente como en el comando de abajo. No usar `mysqldump` sin ese flag para este proyecto.
 
 Exportar antes de commits que toquen BD, migraciones, seeders o datos relevantes:
 
 ```bash
-"C:/xampp/mysql/bin/mysqldump.exe" -u root gestion_wings > database/dump.sql
+"C:/xampp/mysql/bin/mysqldump.exe" -u root --ignore-table=gestion_wings.users gestion_wings > database/dump.sql
 ```
 
 Importar al clonar o despues de un pull si cambio el dump:
 
 ```bash
 "C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
+php artisan db:seed --class=UserSeeder
 ```
+
+El import deja `users` vacia (la migracion crea la tabla, el dump no trae sus filas). El segundo comando crea las cuentas de acceso; ver `database/seeders/UserSeeder.php` para el detalle de contraseñas.
 
 Tambien existen:
 

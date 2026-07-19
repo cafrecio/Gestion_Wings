@@ -49,3 +49,7 @@ echo "Importando dump en $DB_DATABASE..."
 $MYSQL_CMD "$DB_DATABASE" < "$DUMP_FILE"
 
 echo "Listo. BD restaurada desde database/dump.sql."
+echo ""
+echo "El dump NO incluye la tabla 'users' (por seguridad, no se versiona)."
+echo "Creá las cuentas de acceso con:"
+echo "  php artisan db:seed --class=UserSeeder"
