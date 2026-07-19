@@ -1,33 +1,37 @@
 # Reporte de auditoría de backend — Wings
 
-Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existe una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume. La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
+Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existía una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume — quedó deshabilitada el 2026-07-13 (fix de seguridad S2), lo que neutraliza B1-B4 de raíz. La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
 
-### B1.0 — Dos sistemas de pago en paralelo (API vs web) con lógica divergente
+### B1.0 — Dos sistemas de pago en paralelo (API vs web) con lógica divergente — ⚠️ riesgo neutralizado, limpieza pendiente
 **Severidad:** Alta
+**Estado:** Con `routes/api.php` deshabilitada (fix S2, 2026-07-13) es imposible que un pago entre por `PagoService`/API — el riesgo de comportamiento divergente ya no puede ocurrir. `PagoService.php` sigue existiendo como código muerto sin eliminar; sacarlo es limpieza (I7.0), no una urgencia.
 **Dónde:** `app/Services/PagoService.php` (usado por `PagoController` API, `routes/api.php:65`) vs `app/Services/PagoCuotaService.php` (usado por el flujo web de cobro, `CajaWebController`).
 **Qué pasa:** Hay dos servicios que registran pagos con reglas distintas. `PagoService` (el viejo, API) aplica su propia versión de regla de primer pago y cambio de plan; `PagoCuotaService` (el actual, web) tiene la lógica FIFO, el cambio de plan hacia adelante y las correcciones recientes. Un pago hecho por la API y uno por la web NO pasan por el mismo código: los arreglos que se hicieron en el flujo web (cambio de plan, neteo, etc.) no están en el de la API. Doble mantenimiento y comportamiento inconsistente según por dónde entre el pago.
 **Soluciones:**
 - SB1.1 ⭐ Unificar en `PagoCuotaService` (el que tiene la lógica correcta y probada). Que `PagoController` de la API lo use, o directamente deshabilitar la API de pagos si no se consume (ver B4). Eliminar `PagoService`.
 - SB1.2 Si la API debe seguir viva, hacer que ambos controllers deleguen en un único service y borrar el duplicado.
 
-### B2.0 — Dos implementaciones de "resolver revisión de cobranza" con vocabularios distintos
+### B2.0 — Dos implementaciones de "resolver revisión de cobranza" con vocabularios distintos — ⚠️ riesgo neutralizado, limpieza pendiente
 **Severidad:** Alta
+**Estado:** La vía API (`CobranzaController`) ya no es alcanzable (fix S2). No puede volver a crearse un registro con el vocabulario viejo. `CobranzaEstadoService::resolverRevision()` sigue en el código sin usar (I7.0).
 **Dónde:** `CobranzaEstadoService::resolverRevision()` (`app/Services/CobranzaEstadoService.php:180`, usado por `CobranzaController` API con acciones `GENERAR_DEUDA`/`MARCAR_INACTIVO`) vs `RevisionCobranzaService` (usado por el flujo web con acciones `CONTINUA`/`INACTIVO`).
 **Qué pasa:** La misma decisión de negocio (¿el alumno posible-inactivo sigue o no?) tiene dos implementaciones con nombres de acción diferentes y comportamiento distinto: la de la API no guarda nota, ni usuario, ni timestamp de la resolución; la web sí. Según por dónde se resuelva, queda distinta traza. Riesgo de datos incoherentes en la misma tabla `alumnos_revision_cobranza`.
 **Soluciones:**
 - SB2.1 ⭐ Dejar `RevisionCobranzaService` (web, más completo) como único, y que la API —si sigue— delegue en él con el mismo vocabulario. Eliminar `resolverRevision()` de `CobranzaEstadoService`.
 - SB2.2 Mínimo: documentar que la vía API es legacy y no debe usarse, hasta poder borrarla.
 
-### B3.0 — API `AlumnoController` a medio construir pero expuesto
+### B3.0 — API `AlumnoController` a medio construir pero expuesto — ✅ RESUELTO (2026-07-13)
 **Severidad:** Media
+**Resolución:** `routes/api.php` deshabilitada (fix S2) — el controller a medias ya no responde a ninguna request.
 **Dónde:** `app/Http/Controllers/AlumnoController.php:15-17,23-25,74-92` (`index`, `create`, `edit`, y otros métodos con cuerpo `//` vacío) expuestos por `Route::apiResource('alumnos', ...)` en `routes/api.php:57`.
 **Qué pasa:** El controller REST de alumnos tiene métodos stub vacíos: `GET /api/alumnos` (index) no devuelve nada útil, `edit` está vacío. La ruta está publicada igual. Es una API "fantasma": responde 200 con contenido vacío o incompleto, y (por S2) sin control de rol. Superficie publicada que no hace lo que promete.
 **Soluciones:**
 - SB3.1 ⭐ Si la API se conserva, completar o quitar los métodos stub y no exponer via `apiResource` los que no están implementados (declarar rutas explícitas solo de lo que existe).
 - SB3.2 Si no se consume, eliminar el controller y su ruta (parte de B4).
 
-### B4.0 — La API entera duplica la web sin consumidor conocido
+### B4.0 — La API entera duplica la web sin consumidor conocido — ✅ RESUELTO (2026-07-13)
 **Severidad:** Media
+**Resolución:** `routes/api.php` deshabilitada en `bootstrap/app.php` (SB4.1, misma acción que resolvió S2/S3/S4/S6). Verificado con `route:list --path=api` vacío y `/api/*` → 404.
 **Dónde:** `routes/api.php` completo (131 rutas), en espejo de `routes/web.php`.
 **Qué pasa:** B1, B2, B3 y los hallazgos de seguridad S2/S3/S4 son todos síntomas de lo mismo: se construyó una API REST completa que el front Blade no usa, quedó con lógica más vieja, controllers a medias y permisos flojos. Es superficie de mantenimiento, riesgo y confusión sin retorno. (Ver integral I2.0 y seguridad S6.0.)
 **Soluciones:**
@@ -66,10 +70,10 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 
 | ID | Severidad | Título | Recomendación |
 |----|-----------|--------|---------------|
-| B1 | Alta | Dos sistemas de pago (API PagoService vs web PagoCuotaService) | Unificar en PagoCuotaService (SB1.1) |
-| B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | Dejar RevisionCobranzaService único (SB2.1) |
-| B3 | Media | API AlumnoController a medias pero expuesto | Completar o quitar stubs (SB3.1) |
-| B4 | Media | API entera duplica la web sin consumidor | Deshabilitar api.php hasta tener consumidor (SB4.1) |
+| B4 | Media | API entera duplica la web sin consumidor | ✅ Resuelto — api.php deshabilitada (SB4.1) |
+| B1 | Alta | Dos sistemas de pago (API PagoService vs web PagoCuotaService) | ⚠️ Neutralizado (API off) — PagoService queda como código muerto |
+| B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | ⚠️ Neutralizado (API off) — resolverRevision() queda como código muerto |
+| B3 | Media | API AlumnoController a medias pero expuesto | ✅ Resuelto — api.php deshabilitada |
 | B5 | Media | Validación unicidad case-insensitive copiada x5 | Regla/scope reutilizable (SB5.1) |
 | B6 | Baja | Timezone/fecha disperso | Fijar TZ en config + uso uniforme (SB6.1) |
-| B7 | Baja | Diseño de API inconsistente | Rediseñar con criterio único si se conserva (SB7.1) |
+| B7 | Baja | Diseño de API inconsistente | Sin objeto mientras la API esté deshabilitada |

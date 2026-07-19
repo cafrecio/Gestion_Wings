@@ -79,8 +79,8 @@
 <div class="wrap">
 
   <div class="kpis">
-    <div class="kpi"><b>58</b><small>Hallazgos</small></div>
-    <div class="kpi"><b style="color:var(--crit)">3</b><small>Críticos (1 resuelto)</small></div>
+    <div class="kpi"><b>59</b><small>Hallazgos</small></div>
+    <div class="kpi"><b style="color:var(--crit)">2</b><small>Críticos abiertos (2 de 4 resueltos)</small></div>
     <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos</small></div>
     <div class="kpi"><b style="color:var(--media)">18</b><small>Medios</small></div>
     <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
@@ -88,7 +88,7 @@
 
   <div class="intro">
     <b>Cómo leer esto.</b> Es una guía, no el detalle completo: cada eje tiene su reporte largo en su carpeta (link "Ver reporte"). Un problema = un código (ej. <b>S1.0</b>). Debajo, sus soluciones posibles (<b>SS1.1</b>, <b>SS1.2</b>…) son <i>opciones entre las que elegís vos</i>, no pasos. La marcada con ⭐ es la que recomiendo, con el resto como alternativa. Tocá cada problema para desplegarlo.
-    Los críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo — ✅ resuelto 2026-07-13), <b>S2</b> (API sin control de rol), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests).
+    Los críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo — ✅ resuelto), <b>S2</b> (API sin control de rol — ✅ resuelto), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests). Al resolver S2 (apagar la API) se encontró un hallazgo nuevo, <b>S9</b>: la ruta de recibos por WEB tiene el mismo problema y sí la usa gente de verdad.
   </div>
 
   <div class="filters">
@@ -107,19 +107,24 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> 5/5 contraseñas rotadas a hashes únicos. Dump re-exportado con <code>--ignore-table=gestion_wings.users</code> — la tabla ya no viaja por git. Nuevo <code>UserSeeder.php</code> recrea cuentas sin contraseñas versionadas. Pendiente aparte (no incluido, requiere autorización): purgar el historial de git donde los hashes viejos ya quedaron.</p></div>
     </div>
 
-    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S2.0</span><span class="ftitle">API: alumnos, pagos, liquidaciones y clases sin control de rol</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">Todo eso está bajo auth:sanctum a secas. Un token de PROFESOR u OPERATIVO puede crear/borrar alumnos, liquidaciones y disparar pagos por la API — cosas que en la web están bajo ensure.admin. Escalada de privilegios.</p><p class="where">routes/api.php:57,64-115 · AlumnoController.php (sin gate)</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS2.1 ⭐</span><span>Agregar el middleware de rol correcto a cada grupo de rutas de la API, igual que en la web.</span></li><li class="sol"><span class="code">SS2.2</span><span>Si la API no se consume, deshabilitarla entera hasta que haya un consumidor y se diseñen sus permisos.</span></li></ul></div>
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S2.0</span><span class="ftitle">✅ RESUELTO — API: alumnos, pagos, liquidaciones y clases sin control de rol</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Todo eso estaba bajo auth:sanctum a secas. Un token de PROFESOR u OPERATIVO podía crear/borrar alumnos, liquidaciones y disparar pagos por la API — cosas que en la web están bajo ensure.admin. Escalada de privilegios.</p><p class="where">routes/api.php:57,64-115 · AlumnoController.php (sin gate)</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> se verificó primero que no hay ningún consumidor real (cero fetch/axios a /api/ en el front, sin config/cors.php) — auditar rol por ruta hubiera sido inventar permisos para un caso de uso inexistente. Se aplicó SS2.2: <code>routes/api.php</code> deshabilitada en <code>bootstrap/app.php</code>. Verificado: /api/* → 404, la web sigue en 200. Esto resuelve también S3, S4 y S6 de un saque.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S3.0</span><span class="ftitle">Recibos PDF sin verificación de propiedad (IDOR)</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El recibo de un pago se sirve por pagoId sin comprobar derechos. Cualquier usuario autenticado itera IDs y baja los recibos de todos los alumnos (nombres, montos).</p><p class="where">routes/api.php:298-299</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS3.1 ⭐</span><span>Verificar propiedad/rol antes de generar el PDF (admin todos, operativo los suyos, profesor ninguno).</span></li><li class="sol"><span class="code">SS3.2</span><span>Como mínimo exigir ensure.admin en la ruta del recibo de cuota.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S3.0</span><span class="ftitle">✅ RESUELTO vía API — Recibos PDF sin verificación de propiedad (IDOR)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El recibo de un pago se servía por pagoId sin comprobar derechos, vía API. Cualquier usuario autenticado podía iterar IDs y bajar los recibos de todos los alumnos.</p><p class="where">routes/api.php:298-299</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> junto con S2 (API deshabilitada). <b>Pero</b>: al investigar se encontró que el mismo problema existe en la ruta WEB equivalente, que sí tiene uso real — ver <b>S9.0</b>, nuevo, sin resolver.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S4.0</span><span class="ftitle">API login sin throttle (fuerza bruta)</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El login de la API no limita intentos (la web sí). Combinado con claves débiles conocidas (S1), es la vía práctica de entrada.</p><p class="where">routes/api.php:34</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS4.1 ⭐</span><span>Agregar throttle:10,1 al login de la API, igual que en la web.</span></li><li class="sol"><span class="code">SS4.2</span><span>Throttle por IP a nivel proxy además del de Laravel.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S4.0</span><span class="ftitle">✅ RESUELTO — API login sin throttle (fuerza bruta)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El login de la API no limitaba intentos (la web sí). Combinado con claves débiles conocidas (S1), era la vía práctica de entrada.</p><p class="where">routes/api.php:34</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> la ruta /api/auth/login dejó de existir junto con toda la API (fix S2).</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S9.0</span><span class="ftitle">NUEVO — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR real)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Encontrado al verificar el impacto de apagar la API para S2: la ruta <code>web.recibos.cuota</code> (la que <b>de verdad usa</b> caja/detalle para el botón de recibo) está solo bajo <code>auth</code>, sin gate de rol. Un PROFESOR logueado puede pedir <code>/recibos/cuota/1</code>, <code>/2</code>… y bajar el recibo de cualquier alumno: nombre, monto, períodos. Mismo problema que S3 pero acá sí hay usuarios reales expuestos todos los días.</p><p class="where">routes/web.php:224 · ReciboController.php:35-78 (método cuota())</p>
+      <ul class="sols"><li class="sol rec"><span class="code">SS9.1 ⭐</span><span>En cuota(): verificar rol y dueño del pago antes de generar el PDF — admin cualquiera, operativo solo los de sus cajas, profesor nunca. 403 si no corresponde.</span></li><li class="sol"><span class="code">SS9.2</span><span>Mínimo rápido: agregar ensure.admin.web a la ruta, como ya tiene web.recibos.liquidacion. El operativo pierde ver recibos de otros; corta la fuga en una línea.</span></li></ul></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S5.0</span><span class="ftitle">Sin política de fuerza de contraseña al crear usuarios</span><span class="chev">▶</span></div>
@@ -127,9 +132,9 @@
       <ul class="sols"><li class="sol rec"><span class="code">SS5.1 ⭐</span><span>Aplicar Password::min(8)->mixedCase()->numbers() y forzar cambio de las claves actuales.</span></li><li class="sol"><span class="code">SS5.2</span><span>Mínimo longitud ≥8 y rechazo de comunes.</span></li></ul></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S6.0</span><span class="ftitle">La API completa no se usa pero queda expuesta</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">131 rutas en espejo de la web, sin consumidor. S2/S3/S4 son síntomas de que se construyó sin el cuidado de permisos de la web.</p><p class="where">routes/api.php</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS6.1 ⭐</span><span>Si no hay app móvil planificada, deshabilitar api.php hasta tener consumidor. Cierra S2/S3/S4 de un saque.</span></li><li class="sol"><span class="code">SS6.2</span><span>Si va a usarse: gate por ruta, throttle, tests y documentación.</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S6.0</span><span class="ftitle">✅ RESUELTO — La API completa no se usa pero queda expuesta</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">131 rutas en espejo de la web, sin consumidor. S2/S3/S4 eran síntomas de que se construyó sin el cuidado de permisos de la web.</p><p class="where">routes/api.php</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> — mismo cambio que S2 (deshabilitada en bootstrap/app.php).</p></div>
     </div>
 
     <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">S7.0</span><span class="ftitle">Confirmar APP_DEBUG=false en producción</span><span class="chev">▶</span></div>
@@ -184,24 +189,24 @@
     <div class="theme-h"><h2>⚙️ Backend</h2><a href="backend/REPORTE-BACKEND.md">Ver reporte →</a></div>
     <p class="theme-sub">Buena capa de services y transacciones. El patrón dominante: una API paralela con lógica vieja y divergente.</p>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B1.0</span><span class="ftitle">Dos sistemas de pago en paralelo (API vs web) con lógica divergente</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">La API usa PagoService (viejo) y la web PagoCuotaService (actual, con FIFO y cambio de plan corregido). Un pago por API no pasa por los arreglos de la web.</p><p class="where">PagoService vs PagoCuotaService</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB1.1 ⭐</span><span>Unificar en PagoCuotaService y eliminar PagoService (o deshabilitar la API de pagos si no se consume).</span></li><li class="sol"><span class="code">SB1.2</span><span>Que ambos controllers deleguen en un único service.</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B4.0</span><span class="ftitle">✅ RESUELTO — La API entera duplica la web sin consumidor</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">B1, B2, B3 y S2/S3/S4 eran síntomas de lo mismo: una API completa que el front no usa, con lógica vieja y permisos flojos.</p><p class="where">routes/api.php (131 rutas)</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> api.php deshabilitada en bootstrap/app.php. Verificado con route:list y /api/* → 404.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B2.0</span><span class="ftitle">Dos resoluciones de "revisión de cobranza" con vocabularios distintos</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">La API usa GENERAR_DEUDA/MARCAR_INACTIVO (sin guardar nota/usuario/fecha); la web usa CONTINUA/INACTIVO (completo). Según por dónde se resuelva, queda distinta traza.</p><p class="where">CobranzaEstadoService:180 vs RevisionCobranzaService</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB2.1 ⭐</span><span>Dejar RevisionCobranzaService como único y eliminar resolverRevision() de CobranzaEstadoService.</span></li><li class="sol"><span class="code">SB2.2</span><span>Documentar la vía API como legacy hasta borrarla.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B1.0</span><span class="ftitle">⚠️ Riesgo neutralizado — Dos sistemas de pago en paralelo (API vs web) con lógica divergente</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La API usaba PagoService (viejo) y la web PagoCuotaService (actual, con FIFO y cambio de plan corregido). Un pago por API no pasaba por los arreglos de la web.</p><p class="where">PagoService vs PagoCuotaService</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)">Con la API apagada (B4) es imposible que un pago entre por ahí. PagoService.php sigue existiendo como código muerto — eliminarlo es limpieza (I7.0), no urgente.</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B3.0</span><span class="ftitle">API AlumnoController a medio construir pero expuesto</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">index, create y edit tienen cuerpo vacío pero apiResource los publica. GET /api/alumnos no devuelve nada útil, y sin gate de rol (S2).</p><p class="where">AlumnoController.php:15-25,74-92</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB3.1 ⭐</span><span>Completar o quitar los stubs; no exponer por apiResource lo no implementado.</span></li><li class="sol"><span class="code">SB3.2</span><span>Eliminar el controller y su ruta (parte de B4).</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B2.0</span><span class="ftitle">⚠️ Riesgo neutralizado — Dos resoluciones de "revisión de cobranza" con vocabularios distintos</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La API usaba GENERAR_DEUDA/MARCAR_INACTIVO (sin guardar nota/usuario/fecha); la web usa CONTINUA/INACTIVO (completo).</p><p class="where">CobranzaEstadoService:180 vs RevisionCobranzaService</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)">Con la API apagada, ya no puede crearse un registro con el vocabulario viejo. resolverRevision() queda como código muerto (I7.0).</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B4.0</span><span class="ftitle">La API entera duplica la web sin consumidor</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">B1, B2, B3 y S2/S3/S4 son síntomas de lo mismo: una API completa que el front no usa, con lógica vieja y permisos flojos.</p><p class="where">routes/api.php (131 rutas)</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB4.1 ⭐</span><span>Deshabilitar api.php hasta tener consumidor. Cierra B1/B2/B3 y S2/S3/S4 de un golpe.</span></li><li class="sol"><span class="code">SB4.2</span><span>Si va a usarse: unificar services, completar controllers, permisos y tests.</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B3.0</span><span class="ftitle">✅ RESUELTO — API AlumnoController a medio construir pero expuesto</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">index, create y edit tenían cuerpo vacío pero apiResource los publicaba, sin gate de rol (S2).</p><p class="where">AlumnoController.php:15-25,74-92</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> — mismo cambio que B4, el controller ya no responde a nada.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B5.0</span><span class="ftitle">Validación de unicidad case-insensitive copiada en 5+ lugares</span><span class="chev">▶</span></div>

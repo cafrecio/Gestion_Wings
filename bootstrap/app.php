@@ -11,7 +11,14 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
-        api: __DIR__.'/../routes/api.php',
+        // api: __DIR__.'/../routes/api.php', // DESHABILITADA (fix S2, 2026-07-13)
+        // routes/api.php quedó expuesta sin control de rol (alumnos, pagos,
+        // liquidaciones editables por CUALQUIER usuario autenticado, incluso
+        // PROFESOR) y sin consumidor real: nada en resources/ ni config/cors.php
+        // le pega. Ver docs/07-evaluacion/seguridad/REPORTE-SEGURIDAD.md S2.0.
+        // Para reactivarla: descomentar la línea de arriba y antes cerrar cada
+        // grupo de rutas con el middleware de rol correcto (S2), agregar
+        // throttle al login (S4) y auditoría de ownership en recibos (S3).
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )

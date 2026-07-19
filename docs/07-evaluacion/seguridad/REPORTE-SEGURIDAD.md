@@ -1,6 +1,6 @@
 # Reporte de auditoría de seguridad — Wings
 
-Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources/views, config/ y archivos versionados. **8 hallazgos** (2 críticos, 3 altos, 2 medios, 1 bajo). El grueso del riesgo está en la API REST, que está sub-protegida y sin uso conocido por el front. Al final se listan las superficies verificadas como SANAS para no re-auditarlas.
+Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources/views, config/ y archivos versionados. **9 hallazgos** (2 críticos, 3 altos, 2 medios, 2 bajos). El grueso del riesgo estaba en la API REST, que quedó deshabilitada (fix S2, 2026-07-13) por no tener consumidor real. Al final se listan las superficies verificadas como SANAS para no re-auditarlas.
 
 ### S1.0 — dump.sql versionado expone hashes de contraseñas reales — ✅ RESUELTO (2026-07-13)
 **Severidad:** Crítica
@@ -12,24 +12,27 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 - SS1.2 Dejar de versionar `dump.sql` por completo (agregarlo a `.gitignore`) y confiar solo en migraciones + seeders para reconstruir. Purgar el historial de git donde ya está.
 - SS1.3 Encriptar el dump antes de commitear (git-crypt). Más fricción, sigue siendo dato sensible en el repo.
 
-### S2.0 — API: alumnos, pagos, liquidaciones y clases sin control de rol
+### S2.0 — API: alumnos, pagos, liquidaciones y clases sin control de rol — ✅ RESUELTO (2026-07-13)
 **Severidad:** Crítica
+**Resolución:** Se verificó primero que no hay ningún consumidor real (cero `fetch`/`axios` a `/api/` en `resources/`, sin `config/cors.php`, `config/sanctum.php` sin tocar) — auditar rol por ruta hubiera sido inventar permisos para un caso de uso inexistente. Se aplicó SS2.2: `routes/api.php` deshabilitada en `bootstrap/app.php` (comentada la línea `api:` de `withRouting()`, con la razón y los pasos para reactivarla documentados ahí mismo). Verificado: `/api/*` devuelve 404, la web sigue en 200, `route:list --path=api` vacío. Esto también resuelve S3 (recibo por API) y S4 (login API sin throttle) porque la superficie que explotaban ya no existe.
 **Dónde:** `routes/api.php:57` (`apiResource('alumnos')`), `:64-80` (pagos, cambiar-plan), `:104-115` (liquidaciones store/show/destroy/cerrar/recalcular), `:83-87` (clases store), `:90-101` (asistencias). Controller confirmado sin gate: `app/Http/Controllers/AlumnoController.php` (no tiene isAdmin/isProfesor/authorize en ningún método).
 **Qué pasa:** Todo eso está bajo `auth:sanctum` a secas, sin `ensure.admin`. Cualquier usuario autenticado — incluido un PROFESOR o un OPERATIVO — con un token válido puede `POST/PUT/DELETE` alumnos, crear o borrar liquidaciones, cambiar planes y disparar pagos vía API, cosas que en la web están bajo `ensure.admin.web`. Es escalada de privilegios directa: el rol se controla en la web pero la API es la puerta de atrás abierta.
 **Soluciones:**
 - SS2.1 ⭐ Auditar cada grupo de rutas de `api.php` y agregar el middleware de rol correcto (`ensure.admin`, o uno de operativo) igual que en la web. Nada que la web restrinja por rol puede quedar en la API con solo `auth:sanctum`.
 - SS2.2 Si la API no se usa (ver análisis integral I2), desactivarla entera hasta que haya un consumidor real y se diseñen sus permisos.
 
-### S3.0 — Recibos PDF sin verificación de propiedad (IDOR)
+### S3.0 — Recibos PDF sin verificación de propiedad (IDOR) — ✅ RESUELTO vía API (2026-07-13) · ⚠️ sigue abierto vía web, ver S9
 **Severidad:** Alta
+**Resolución parcial:** La ruta API (`/api/recibos/cuota/{pagoId}`) murió junto con toda la API (fix S2). Pero al investigar se encontró que el mismo problema existe en la ruta WEB equivalente, que sí tiene uso real — ver **S9.0**, hallazgo nuevo, no resuelto.
 **Dónde:** `routes/api.php:298-299` — `GET /recibos/cuota/{pagoId}` y `/info` solo bajo `auth:sanctum` (a diferencia de los de liquidación en `:302-305`, que sí tienen `ensure.admin`).
 **Qué pasa:** El recibo de un pago se sirve por `pagoId` sin comprobar que el usuario tenga derecho a ese pago. Cualquier usuario autenticado puede iterar IDs (`1, 2, 3…`) y bajar los recibos de todos los alumnos: nombres, montos, períodos. Fuga de datos de terceros.
 **Soluciones:**
 - SS3.1 ⭐ Verificar propiedad/rol antes de generar el PDF: admin ve todos; operativo solo los de sus cajas; profesor ninguno. Abortar 403 si no corresponde.
 - SS3.2 Como mínimo, exigir `ensure.admin` en la ruta del recibo de cuota si por ahora solo el admin/operativo debe bajarlos.
 
-### S4.0 — API login sin throttle (fuerza bruta)
+### S4.0 — API login sin throttle (fuerza bruta) — ✅ RESUELTO (2026-07-13)
 **Severidad:** Alta
+**Resolución:** La ruta `/api/auth/login` dejó de existir junto con toda la API (fix S2). Ya no hay endpoint de login sin throttle.
 **Dónde:** `routes/api.php:34` — `POST /auth/login` sin middleware `throttle`. (La web sí lo tiene: `routes/web.php` login con `throttle:10,1`.)
 **Qué pasa:** El endpoint de login de la API no limita intentos. Un atacante puede probar miles de contraseñas por minuto contra `/api/auth/login` sin bloqueo. Combinado con S1 (contraseñas débiles conocidas), es la vía práctica de entrada.
 **Soluciones:**
@@ -44,8 +47,9 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 - SS5.1 ⭐ Aplicar `Password::min(8)->mixedCase()->numbers()` (regla de Laravel) en la validación de alta/edición de usuarios, y forzar cambio de las contraseñas actuales.
 - SS5.2 Mínimo: longitud ≥ 8 y rechazo de una lista corta de comunes.
 
-### S6.0 — La API completa no se usa pero queda expuesta
+### S6.0 — La API completa no se usa pero queda expuesta — ✅ RESUELTO (2026-07-13)
 **Severidad:** Media
+**Resolución:** Deshabilitada en `bootstrap/app.php` (mismo cambio que resolvió S2). Reactivable cuando exista un consumidor real, con la lista de deberes (S2/S3/S4) documentada ahí mismo.
 **Dónde:** `routes/api.php` (131 rutas) vs el front Blade que consume `routes/web.php`.
 **Qué pasa:** Es superficie de ataque viva sin beneficio: cada endpoint es algo que asegurar, versionar y mantener, sin ningún consumidor que lo justifique. S2, S3 y S4 son todos síntomas de que la API se construyó y quedó sin el cuidado de permisos que sí recibió la web. (Ver análisis integral I2.0.)
 **Soluciones:**
@@ -67,6 +71,14 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 **Soluciones:**
 - SS8.1 ⭐ En producción: HTTPS obligatorio, `SESSION_SECURE_COOKIE=true`, `HttpOnly` (default de Laravel) y `SameSite` configurado. Verificar en el deploy real.
 
+### S9.0 — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR) — hallazgo nuevo, 2026-07-13
+**Severidad:** Alta
+**Dónde:** `routes/web.php:224` — `GET /recibos/cuota/{pagoId}` registrada dentro de `Route::middleware('auth')` a secas, sin `ensure.admin.web` (a diferencia de `web.recibos.liquidacion` en la línea de al lado, que sí lo tiene). Controller: `app/Http/Controllers/ReciboController.php:35-78`, método `cuota()` — no valida rol ni dueño del pago, solo que el `pagoId` exista.
+**Qué pasa:** Encontrado al verificar el impacto real de apagar la API para S2: esta es la ruta que **de verdad usa el producto** — `caja/detalle.blade.php:171,198,211` linkea acá para el botón de descargar/ver recibo. Como solo exige estar logueado (cualquier rol), un **PROFESOR** —que por diseño solo debería ver clases y asistencias— puede entrar a `/recibos/cuota/1`, `/recibos/cuota/2`, etc. e ir bajando el recibo de cualquier alumno: nombre, monto, períodos pagados. Es el mismo IDOR que se documentó en S3 para la API, pero acá sí hay un usuario real expuesto todos los días.
+**Soluciones:**
+- SS9.1 ⭐ En `cuota()`: cargar el `Pago` con su `alumno`/movimiento asociado y verificar rol — ADMIN ve cualquiera; OPERATIVO solo pagos de sus propias cajas (`MovimientoOperativo::where('usuario_id', auth()->id())` vía el `pago_id`); PROFESOR nunca. Devolver 403 si no corresponde, antes de generar el PDF.
+- SS9.2 Mínimo rápido: agregar `ensure.admin.web` a la ruta como ya tiene `web.recibos.liquidacion`, aceptando que el operativo pierda la posibilidad de ver recibos de otros. Menos preciso que SS9.1 pero corta la fuga en una línea.
+
 ---
 
 ## Superficies verificadas como SANAS (no re-auditar)
@@ -81,11 +93,12 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 
 | ID | Severidad | Título | Recomendación |
 |----|-----------|--------|---------------|
-| S1 | Crítica | dump.sql versionado expone hashes + password "password" | Sacar users del dump + rotar claves (SS1.1) |
-| S2 | Crítica | API alumnos/pagos/liquidaciones sin gate de rol | Middleware de rol por ruta (SS2.1) |
-| S3 | Alta | Recibos PDF sin verificación de propiedad (IDOR) | Verificar propiedad/rol antes del PDF (SS3.1) |
-| S4 | Alta | API login sin throttle | Agregar throttle al login API (SS4.1) |
+| S1 | Crítica | dump.sql versionado expone hashes + password "password" | ✅ Resuelto — sacado del dump + rotadas (SS1.1) |
+| S2 | Crítica | API alumnos/pagos/liquidaciones sin gate de rol | ✅ Resuelto — API deshabilitada (SS2.2) |
+| S9 | Alta | Recibo de cuota por WEB sin control de rol (IDOR real) | Verificar propiedad/rol antes del PDF (SS9.1) |
+| S3 | Alta | Recibos PDF por API sin verificación de propiedad (IDOR) | ✅ Resuelto — API deshabilitada (S2) |
+| S4 | Alta | API login sin throttle | ✅ Resuelto — API deshabilitada (S2) |
 | S5 | Media | Sin política de fuerza de contraseña | Regla Password::min(8)->mixedCase() (SS5.1) |
-| S6 | Media | API expuesta sin consumidor | Deshabilitar/podar hasta tener consumidor (SS6.1) |
+| S6 | Media | API expuesta sin consumidor | ✅ Resuelto — deshabilitada (SS6.1) |
 | S7 | Baja | Confirmar APP_DEBUG=false en producción | Forzar debug off en prod (SS7.1) |
 | S8 | Baja | Confirmar flags Secure/HttpOnly de cookie | HTTPS + SESSION_SECURE_COOKIE (SS8.1) |
