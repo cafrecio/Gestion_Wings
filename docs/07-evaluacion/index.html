@@ -80,7 +80,7 @@
 
   <div class="kpis">
     <div class="kpi"><b>58</b><small>Hallazgos</small></div>
-    <div class="kpi"><b style="color:var(--crit)">4</b><small>Críticos</small></div>
+    <div class="kpi"><b style="color:var(--crit)">3</b><small>Críticos (1 resuelto)</small></div>
     <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos</small></div>
     <div class="kpi"><b style="color:var(--media)">18</b><small>Medios</small></div>
     <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
@@ -88,7 +88,7 @@
 
   <div class="intro">
     <b>Cómo leer esto.</b> Es una guía, no el detalle completo: cada eje tiene su reporte largo en su carpeta (link "Ver reporte"). Un problema = un código (ej. <b>S1.0</b>). Debajo, sus soluciones posibles (<b>SS1.1</b>, <b>SS1.2</b>…) son <i>opciones entre las que elegís vos</i>, no pasos. La marcada con ⭐ es la que recomiendo, con el resto como alternativa. Tocá cada problema para desplegarlo.
-    Los 4 críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo), <b>S2</b> (API sin control de rol), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests).
+    Los críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo — ✅ resuelto 2026-07-13), <b>S2</b> (API sin control de rol), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests).
   </div>
 
   <div class="filters">
@@ -102,9 +102,9 @@
     <div class="theme-h"><h2>🔒 Seguridad</h2><a href="seguridad/REPORTE-SEGURIDAD.md">Ver reporte →</a></div>
     <p class="theme-sub">Permisos, datos expuestos, inyección y superficie de ataque. La API es el foco de riesgo.</p>
 
-    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S1.0</span><span class="ftitle">dump.sql versionado expone hashes de contraseñas; admin y operativo comparten hash y la clave es "password"</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El dump completo de la BD se commitea al repo con la tabla users y sus hashes bcrypt reales. Cualquiera con acceso al repo tiene las llaves; con "password" ni hace falta crackear.</p><p class="where">database/dump.sql</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS1.1 ⭐</span><span>Sacar la tabla users del dump (<code>--ignore-table</code>) y rotar YA las contraseñas reales a unas fuertes y únicas.</span></li><li class="sol"><span class="code">SS1.2</span><span>Dejar de versionar dump.sql (gitignore) y reconstruir con migraciones+seeders; purgar el historial.</span></li><li class="sol"><span class="code">SS1.3</span><span>Encriptar el dump antes de commitear (git-crypt).</span></li></ul></div>
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S1.0</span><span class="ftitle">✅ RESUELTO — dump.sql versionado expone hashes de contraseñas; admin y operativo compartían hash y la clave era "password"</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El dump completo de la BD se commiteaba al repo con la tabla users y sus hashes bcrypt reales. Cualquiera con acceso al repo tenía las llaves; con "password" ni hacía falta crackear.</p><p class="where">database/dump.sql</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> 5/5 contraseñas rotadas a hashes únicos. Dump re-exportado con <code>--ignore-table=gestion_wings.users</code> — la tabla ya no viaja por git. Nuevo <code>UserSeeder.php</code> recrea cuentas sin contraseñas versionadas. Pendiente aparte (no incluido, requiere autorización): purgar el historial de git donde los hashes viejos ya quedaron.</p></div>
     </div>
 
     <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S2.0</span><span class="ftitle">API: alumnos, pagos, liquidaciones y clases sin control de rol</span><span class="chev">▶</span></div>

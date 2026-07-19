@@ -2,8 +2,9 @@
 
 Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources/views, config/ y archivos versionados. **8 hallazgos** (2 críticos, 3 altos, 2 medios, 1 bajo). El grueso del riesgo está en la API REST, que está sub-protegida y sin uso conocido por el front. Al final se listan las superficies verificadas como SANAS para no re-auditarlas.
 
-### S1.0 — dump.sql versionado expone hashes de contraseñas reales
+### S1.0 — dump.sql versionado expone hashes de contraseñas reales — ✅ RESUELTO (2026-07-13)
 **Severidad:** Crítica
+**Resolución:** Contraseñas rotadas (5/5 usuarios, hashes únicos). `dump.sql` re-exportado con `--ignore-table=gestion_wings.users` — la tabla ya no viaja por git. Nuevo `database/seeders/UserSeeder.php` recrea cuentas sin contraseñas versionadas. Pendiente aparte, no incluido: purgar el historial de git donde los hashes viejos ya quedaron (requiere reescribir historia + force-push, acción destructiva que necesita autorización explícita).
 **Dónde:** `database/dump.sql` (versionado en git, referenciado en `CLAUDE.md` como práctica obligatoria antes de cada commit)
 **Qué pasa:** El dump completo de la BD se commitea al repo, incluyendo la tabla `users` con sus hashes bcrypt reales. Los usuarios admin (id 1) y operativo (id 2) comparten el mismo hash, y la contraseña conocida es `password`. Cualquiera con acceso al repo (o si el repo se filtra/es público) tiene los hashes para crackear offline, y con "password" ni hace falta. Es la llave del sistema de plata, en texto plano de facto.
 **Soluciones:**
