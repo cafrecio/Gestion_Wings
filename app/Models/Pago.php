@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Pago extends Model
 {
@@ -99,14 +98,5 @@ class Pago extends Model
     public function pagosDeuda(): HasMany
     {
         return $this->hasMany(PagoDeudaCuota::class);
-    }
-
-    /**
-     * Movimiento operativo que registró este pago (nullable — un pago
-     * cobrado directo por admin vía CashflowMovimiento no tiene uno).
-     */
-    public function movimientoOperativo(): HasOne
-    {
-        return $this->hasOne(MovimientoOperativo::class);
     }
 }

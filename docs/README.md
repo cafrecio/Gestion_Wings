@@ -29,6 +29,7 @@ El mapa visual de trabajo esta en:
 1. Antes de tocar funcionalidad, revisar `00-estado/ESTADO-ACTUAL.md`.
 2. Si un documento historico contradice el estado actual, prevalece `ESTADO-ACTUAL.md`.
 3. Los contratos en `02-contratos/` prevalecen sobre notas sueltas cuando describen reglas de negocio cerradas.
-4. Para vistas Blade o CSS, revisar siempre `03-diseno-ui/wings-design/SKILL.md`.
-5. Para seeders o pruebas funcionales, revisar siempre `06-pruebas/PLAN-PRUEBAS-FUNCIONALES.md`.
-6. No usar `README.md` raiz como fuente de verdad del proyecto; se conserva como archivo base de Laravel.
+4. Antes de tocar cualquier control de acceso (permisos, roles, `abort(403)`, filtros por usuario), revisar siempre `02-contratos/PERMISOS-ROLES.md`.
+5. Para vistas Blade o CSS, revisar siempre `03-diseno-ui/wings-design/SKILL.md`.
+6. Para seeders o pruebas funcionales, revisar siempre `06-pruebas/PLAN-PRUEBAS-FUNCIONALES.md`.
+7. No usar `README.md` raiz como fuente de verdad del proyecto; se conserva como archivo base de Laravel.

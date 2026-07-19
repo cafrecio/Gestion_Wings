@@ -130,13 +130,17 @@ La carga de datos debe permitir probar flujos reales: alumno, deuda, cobro, caja
 
 ## Roles
 
-Tres roles definidos en `App\Models\User`:
+Tres roles definidos en `App\Models\User`.
+
+**ANTES de tocar cualquier control de acceso (middlewares, `abort(403)`, `if ($user->isX())`, filtros de listados por usuario) leer `docs/02-contratos/PERMISOS-ROLES.md`.** Es la fuente de verdad y existe porque el modelo de permisos se malinterpretó varias veces.
+
+Regla que se equivoca una y otra vez: **el OPERATIVO NO ve "solo lo suyo".** El rol define el dominio de trabajo, no la propiedad de los registros. El operativo ve y opera sobre todo lo del negocio que le corresponde por rubro/funcion (alumnos, cobros, cobranza, caja, clases), incluido lo que hizo el admin. Y el ADMIN nunca tiene menos poder que el operativo.
 
 | Rol | Acceso esperado |
 |---|---|
 | `ADMIN` | Acceso total. Dashboard admin, cashflow, configuracion, usuarios, validaciones y liquidaciones. |
-| `OPERATIVO` | Caja propia, alumnos, cobro de cuotas, clases y asistencias. |
-| `PROFESOR` | Clases y asistencias, con sidebar minimo. |
+| `OPERATIVO` | Toda la operacion diaria: alumnos, cobro de cuotas, caja, cobranza, clases y asistencias. Ve lo del admin en los rubros que comparten (`permitido_para=OPERATIVO` = ambos). |
+| `PROFESOR` | Solo clases y asistencias, con sidebar minimo. No participa de plata ni alumnos. |
 
 Middlewares relevantes:
 
