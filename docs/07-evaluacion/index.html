@@ -88,7 +88,7 @@
 
   <div class="intro">
     <b>Cómo leer esto.</b> Es una guía, no el detalle completo: cada eje tiene su reporte largo en su carpeta (link "Ver reporte"). Un problema = un código (ej. <b>S1.0</b>). Debajo, sus soluciones posibles (<b>SS1.1</b>, <b>SS1.2</b>…) son <i>opciones entre las que elegís vos</i>, no pasos. La marcada con ⭐ es la que recomiendo, con el resto como alternativa. Tocá cada problema para desplegarlo.
-    Los críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo — ✅ resuelto), <b>S2</b> (API sin control de rol — ✅ resuelto), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests). Al resolver S2 (apagar la API) se encontró un hallazgo nuevo, <b>S9</b>: la ruta de recibos por WEB tiene el mismo problema y sí la usa gente de verdad.
+    Los críticos son los que romperían plata o exponen el sistema: <b>S1</b> (contraseñas en el repo — ✅ resuelto), <b>S2</b> (API sin control de rol — ✅ resuelto), <b>D1</b> (2º cambio de plan revienta) e <b>I1</b> (sin tests). Al resolver S2 (apagar la API) se encontró un hallazgo nuevo, <b>S9</b> (recibo de cuota por WEB con el mismo problema, pero con uso real) — también resuelto.
   </div>
 
   <div class="filters">
@@ -122,9 +122,9 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13:</b> la ruta /api/auth/login dejó de existir junto con toda la API (fix S2).</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S9.0</span><span class="ftitle">NUEVO — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR real)</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">Encontrado al verificar el impacto de apagar la API para S2: la ruta <code>web.recibos.cuota</code> (la que <b>de verdad usa</b> caja/detalle para el botón de recibo) está solo bajo <code>auth</code>, sin gate de rol. Un PROFESOR logueado puede pedir <code>/recibos/cuota/1</code>, <code>/2</code>… y bajar el recibo de cualquier alumno: nombre, monto, períodos. Mismo problema que S3 pero acá sí hay usuarios reales expuestos todos los días.</p><p class="where">routes/web.php:224 · ReciboController.php:35-78 (método cuota())</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SS9.1 ⭐</span><span>En cuota(): verificar rol y dueño del pago antes de generar el PDF — admin cualquiera, operativo solo los de sus cajas, profesor nunca. 403 si no corresponde.</span></li><li class="sol"><span class="code">SS9.2</span><span>Mínimo rápido: agregar ensure.admin.web a la ruta, como ya tiene web.recibos.liquidacion. El operativo pierde ver recibos de otros; corta la fuga en una línea.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S9.0</span><span class="ftitle">✅ RESUELTO — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR real)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Encontrado al verificar el impacto de apagar la API para S2: la ruta <code>web.recibos.cuota</code> (la que <b>de verdad usa</b> caja/detalle para el botón de recibo) estaba solo bajo <code>auth</code>, sin gate de rol. Un PROFESOR logueado podía pedir <code>/recibos/cuota/1</code>, <code>/2</code>… y bajar el recibo de cualquier alumno.</p><p class="where">routes/web.php:224 · ReciboController.php · Pago.php</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SS9.1): nueva relación <code>Pago::movimientoOperativo()</code> para saber quién cobró cada pago. En <code>cuota()</code>: ADMIN ve cualquiera, OPERATIVO solo si es el dueño del movimiento, cualquier otro caso (PROFESOR incluido) → 403. Probado con los 4 casos reales: admin 200, dueño 200, otro operativo 403, profesor 403.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S5.0</span><span class="ftitle">Sin política de fuerza de contraseña al crear usuarios</span><span class="chev">▶</span></div>

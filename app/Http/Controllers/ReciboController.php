@@ -35,7 +35,7 @@ class ReciboController extends Controller
     public function cuota(Request $request, int $pagoId)
     {
         // Validar que el pago existe
-        $pago = Pago::find($pagoId);
+        $pago = Pago::with('movimientoOperativo')->find($pagoId);
         if (!$pago) {
             return response()->json([
                 'error' => 'Pago no encontrado',
@@ -43,7 +43,16 @@ class ReciboController extends Controller
             ], 404);
         }
 
-        // Permisos: auth:sanctum en ruta (ADMIN y OPERATIVO pueden acceder)
+        // Permisos: ADMIN ve cualquier recibo. OPERATIVO solo el de un pago
+        // que él mismo cobró (vía su movimiento operativo). PROFESOR nunca.
+        $user = $request->user();
+        $esDueño = $user->isOperativo()
+            && $pago->movimientoOperativo
+            && $pago->movimientoOperativo->usuario_id === $user->id;
+
+        if (!$user->isAdmin() && !$esDueño) {
+            abort(403, 'No tenés permiso para ver este recibo.');
+        }
 
         try {
             $forceRegenerate = $request->boolean('regenerar', false);

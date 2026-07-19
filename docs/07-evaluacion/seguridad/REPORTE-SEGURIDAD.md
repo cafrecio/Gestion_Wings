@@ -71,8 +71,9 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 **Soluciones:**
 - SS8.1 ⭐ En producción: HTTPS obligatorio, `SESSION_SECURE_COOKIE=true`, `HttpOnly` (default de Laravel) y `SameSite` configurado. Verificar en el deploy real.
 
-### S9.0 — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR) — hallazgo nuevo, 2026-07-13
+### S9.0 — Recibo de cuota por WEB sin control de rol ni de propiedad (IDOR) — ✅ RESUELTO (2026-07-13)
 **Severidad:** Alta
+**Resolución:** Aplicado SS9.1. `Pago::movimientoOperativo()` (nueva relación `hasOne`) permite saber quién cobró cada pago. En `ReciboController::cuota()`: ADMIN ve cualquier recibo; OPERATIVO solo si `pago->movimientoOperativo->usuario_id === auth()->id()`; cualquier otro caso (incluido PROFESOR) → `abort(403)`. Probado con los 4 casos reales contra un pago existente: admin 200, operativo dueño 200, otro operativo 403, profesor 403.
 **Dónde:** `routes/web.php:224` — `GET /recibos/cuota/{pagoId}` registrada dentro de `Route::middleware('auth')` a secas, sin `ensure.admin.web` (a diferencia de `web.recibos.liquidacion` en la línea de al lado, que sí lo tiene). Controller: `app/Http/Controllers/ReciboController.php:35-78`, método `cuota()` — no valida rol ni dueño del pago, solo que el `pagoId` exista.
 **Qué pasa:** Encontrado al verificar el impacto real de apagar la API para S2: esta es la ruta que **de verdad usa el producto** — `caja/detalle.blade.php:171,198,211` linkea acá para el botón de descargar/ver recibo. Como solo exige estar logueado (cualquier rol), un **PROFESOR** —que por diseño solo debería ver clases y asistencias— puede entrar a `/recibos/cuota/1`, `/recibos/cuota/2`, etc. e ir bajando el recibo de cualquier alumno: nombre, monto, períodos pagados. Es el mismo IDOR que se documentó en S3 para la API, pero acá sí hay un usuario real expuesto todos los días.
 **Soluciones:**
@@ -95,7 +96,7 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 |----|-----------|--------|---------------|
 | S1 | Crítica | dump.sql versionado expone hashes + password "password" | ✅ Resuelto — sacado del dump + rotadas (SS1.1) |
 | S2 | Crítica | API alumnos/pagos/liquidaciones sin gate de rol | ✅ Resuelto — API deshabilitada (SS2.2) |
-| S9 | Alta | Recibo de cuota por WEB sin control de rol (IDOR real) | Verificar propiedad/rol antes del PDF (SS9.1) |
+| S9 | Alta | Recibo de cuota por WEB sin control de rol (IDOR real) | ✅ Resuelto — check de rol/dueño en cuota() (SS9.1) |
 | S3 | Alta | Recibos PDF por API sin verificación de propiedad (IDOR) | ✅ Resuelto — API deshabilitada (S2) |
 | S4 | Alta | API login sin throttle | ✅ Resuelto — API deshabilitada (S2) |
 | S5 | Media | Sin política de fuerza de contraseña | Regla Password::min(8)->mixedCase() (SS5.1) |
