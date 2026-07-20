@@ -31,11 +31,13 @@ class AlumnoPlan extends Model
         parent::boot();
 
         static::creating(function ($alumnoPlan) {
-            // Si se marca como activo, desactivar el plan activo anterior
+            // Si se marca como activo, cerrar el plan activo anterior.
+            // Se cierra con activo=NULL (no false) para no chocar con otros
+            // planes ya cerrados en el UNIQUE(alumno_id, activo). Ver D1.
             if ($alumnoPlan->activo) {
                 self::where('alumno_id', $alumnoPlan->alumno_id)
                     ->where('activo', true)
-                    ->update(['activo' => false, 'fecha_hasta' => now()]);
+                    ->update(['activo' => null, 'fecha_hasta' => now()]);
             }
         });
     }
