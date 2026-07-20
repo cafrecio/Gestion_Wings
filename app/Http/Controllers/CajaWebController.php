@@ -118,15 +118,16 @@ class CajaWebController extends Controller
         $movsAdmin = CashflowMovimiento::with(['subrubro.rubro', 'usuarioAdmin', 'tipoCaja'])
             ->whereIn('subrubro_id', $idsVisibles)
             ->when($subrubroFiltro, fn($q) => $q->where('subrubro_id', $subrubroFiltro))
-            // CAJA_OPERATIVA la escribe CashflowIntegracionCajaService;
-            // MOVIMIENTO_OPERATIVO la escribió el DemoSeeder para lo mismo
+            // Excluir los reflejos de caja (REF_CAJA): duplican lo que ya
+            // se lista desde movimientos_operativos. Tras D2 el valor viejo
+            // 'MOVIMIENTO_OPERATIVO' del seeder quedó normalizado a REF_CAJA.
             ->where(fn($q) => $q->whereNull('referencia_tipo')
-                                ->orWhereNotIn('referencia_tipo', ['CAJA_OPERATIVA', 'MOVIMIENTO_OPERATIVO']))
+                                ->orWhere('referencia_tipo', '!=', CashflowMovimiento::REF_CAJA))
             ->whereBetween('fecha', [$desde->toDateString(), $hasta->toDateString()])
             ->get();
 
         // Alumnos de los cobros de cuota hechos por admin (via Pago referenciado)
-        $pagosIds = $movsAdmin->where('referencia_tipo', 'PAGO_CUOTA')->pluck('referencia_id')->filter();
+        $pagosIds = $movsAdmin->where('referencia_tipo', CashflowMovimiento::REF_PAGO_CUOTA)->pluck('referencia_id')->filter();
         $alumnosPorPago = $pagosIds->isEmpty()
             ? collect()
             : Pago::with('alumno')->whereIn('id', $pagosIds)->get()->keyBy('id');
@@ -149,7 +150,7 @@ class CajaWebController extends Controller
 
         foreach ($movsAdmin as $m) {
             $alumno = null;
-            if ($m->referencia_tipo === 'PAGO_CUOTA') {
+            if ($m->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA) {
                 $a = $alumnosPorPago->get($m->referencia_id)?->alumno;
                 $alumno = $a ? $a->apellido . ', ' . $a->nombre : null;
             }

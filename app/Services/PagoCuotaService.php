@@ -173,7 +173,7 @@ class PagoCuotaService
                 'monto' => $montoTotal,
                 'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
                 'usuario_admin_id' => $data['usuario_admin_id'],
-                'referencia_tipo' => 'PAGO_CUOTA',
+                'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA,
                 'referencia_id' => $pago->id,
             ]);
 

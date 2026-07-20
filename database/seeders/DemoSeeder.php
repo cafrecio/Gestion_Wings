@@ -509,7 +509,7 @@ class DemoSeeder extends Seeder
             ->get();
 
         $existentes = DB::table('cashflow_movimientos')
-            ->where('referencia_tipo', 'MOVIMIENTO_OPERATIVO')
+            ->where('referencia_tipo', \App\Models\CashflowMovimiento::REF_CAJA)
             ->pluck('referencia_id')
             ->toArray();
 
@@ -523,7 +523,7 @@ class DemoSeeder extends Seeder
                 'monto'            => $mov->monto,
                 'observaciones'    => "Integración caja - mov #{$mov->id}",
                 'usuario_admin_id' => $admin->id,
-                'referencia_tipo'  => 'MOVIMIENTO_OPERATIVO',
+                'referencia_tipo'  => \App\Models\CashflowMovimiento::REF_CAJA,
                 'referencia_id'    => $mov->id,
                 'created_at'       => $this->now,
                 'updated_at'       => $this->now,

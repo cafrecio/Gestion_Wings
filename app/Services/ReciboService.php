@@ -282,7 +282,7 @@ class ReciboService
         }
 
         // Buscar en CashflowMovimiento
-        $cashflow = \App\Models\CashflowMovimiento::where('referencia_tipo', 'PAGO_CUOTA')
+        $cashflow = \App\Models\CashflowMovimiento::where('referencia_tipo', \App\Models\CashflowMovimiento::REF_PAGO_CUOTA)
             ->where('referencia_id', $pago->id)
             ->with('tipoCaja')
             ->first();

@@ -33,7 +33,7 @@ class LiquidacionPagoService
             // Verificar si ya está pagada (idempotencia)
             if ($liquidacion->estaPagada()) {
                 // Ya pagada, verificar que existe el cashflow
-                $cashflowExistente = CashflowMovimiento::where('referencia_tipo', 'LIQUIDACION')
+                $cashflowExistente = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_LIQUIDACION)
                     ->where('referencia_id', $liquidacionId)
                     ->first();
 
@@ -69,7 +69,7 @@ class LiquidacionPagoService
             $tipoCajaId = $data['tipo_caja_id'];
 
             // Verificar idempotencia en cashflow
-            $cashflowExistente = CashflowMovimiento::where('referencia_tipo', 'LIQUIDACION')
+            $cashflowExistente = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_LIQUIDACION)
                 ->where('referencia_id', $liquidacionId)
                 ->first();
 
@@ -108,7 +108,7 @@ class LiquidacionPagoService
                 'monto' => $montoNegativo,
                 'observaciones' => $obsCompleta,
                 'usuario_admin_id' => $adminId,
-                'referencia_tipo' => 'LIQUIDACION',
+                'referencia_tipo' => CashflowMovimiento::REF_LIQUIDACION,
                 'referencia_id' => $liquidacionId,
             ]);
 

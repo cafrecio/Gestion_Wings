@@ -29,7 +29,7 @@ class CashflowIntegracionCajaService
         }
 
         // Verificar idempotencia: si ya existen asientos para esta caja, no hacer nada
-        $existenAsientos = CashflowMovimiento::where('referencia_tipo', 'CAJA_OPERATIVA')
+        $existenAsientos = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_CAJA)
             ->where('referencia_id', $cajaId)
             ->exists();
 
@@ -68,7 +68,7 @@ class CashflowIntegracionCajaService
                 'monto' => $montoConSigno,
                 'observaciones' => $movimiento->observaciones,
                 'usuario_admin_id' => $adminId,
-                'referencia_tipo' => 'CAJA_OPERATIVA',
+                'referencia_tipo' => CashflowMovimiento::REF_CAJA,
                 'referencia_id' => $cajaId,
             ]);
         }
