@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pago extends Model
 {
+    // Estados válidos (coinciden con el ENUM de la columna estado). D6.
+    const ESTADO_COMPLETADO = 'COMPLETADO';
+    const ESTADO_ANULADO    = 'ANULADO';
+
     protected $fillable = [
         'alumno_id',
         'plan_id',

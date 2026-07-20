@@ -10,6 +10,10 @@ class MovimientoOperativo extends Model
 {
     protected $table = 'movimientos_operativos';
 
+    // Estados válidos (coinciden con el ENUM de la columna estado). D6.
+    const ESTADO_ACTIVO    = 'ACTIVO';
+    const ESTADO_CANCELADO = 'CANCELADO';
+
     protected $fillable = [
         'caja_operativa_id',
         'fecha',

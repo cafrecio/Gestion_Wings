@@ -10,6 +10,12 @@ class CajaOperativa extends Model
 {
     protected $table = 'cajas_operativas';
 
+    // Estados válidos (coinciden con el ENUM de la columna estado). D6.
+    const ESTADO_ABIERTA   = 'ABIERTA';
+    const ESTADO_CERRADA   = 'CERRADA';
+    const ESTADO_VALIDADA  = 'VALIDADA';
+    const ESTADO_RECHAZADA = 'RECHAZADA';
+
     protected $fillable = [
         'usuario_operativo_id',
         'apertura_at',
