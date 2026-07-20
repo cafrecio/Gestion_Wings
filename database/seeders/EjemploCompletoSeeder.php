@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
 use App\Models\Deporte;
-use App\Models\FormaPago;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\ReglaPrimerPago;
@@ -29,13 +28,7 @@ class EjemploCompletoSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Crear Formas de Pago
-        $efectivo = FormaPago::create(['nombre' => 'Efectivo', 'activo' => true]);
-        $debito = FormaPago::create(['nombre' => 'Débito', 'activo' => true]);
-        $credito = FormaPago::create(['nombre' => 'Crédito', 'activo' => true]);
-        FormaPago::create(['nombre' => 'Transferencia', 'activo' => true]);
-
-        // 2. Crear Reglas de Primer Pago
+        // 1. Crear Reglas de Primer Pago
         ReglaPrimerPago::create([
             'nombre' => 'Primera quincena (1-15)',
             'dia_desde' => 1,
@@ -205,8 +198,7 @@ class EjemploCompletoSeeder extends Seeder
         $this->command->info('   {');
         $this->command->info('     "alumno_id": 1,');
         $this->command->info('     "mes": 1,');
-        $this->command->info('     "anio": 2026,');
-        $this->command->info('     "forma_pago_id": 1');
+        $this->command->info('     "anio": 2026');
         $this->command->info('   }');
         $this->command->newLine();
         $this->command->info('   Resultado esperado:');

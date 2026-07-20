@@ -27,7 +27,6 @@ class PagoController extends Controller
      *   "alumno_id": 1,
      *   "mes": 1,
      *   "anio": 2026,
-     *   "forma_pago_id": 1,
      *   "fecha_pago": "2026-01-25",        // Requerido
      *   "observaciones": "Pago inicial",   // Opcional
      *   "porcentaje_manual": 70.00,        // Opcional
@@ -41,7 +40,6 @@ class PagoController extends Controller
                 alumnoId: $request->validated('alumno_id'),
                 mes: $request->validated('mes'),
                 anio: $request->validated('anio'),
-                formaPagoId: $request->validated('forma_pago_id'),
                 fechaPago: $request->validated('fecha_pago'),
                 observaciones: $request->validated('observaciones'),
                 porcentajeManual: $request->validated('porcentaje_manual'),
@@ -49,7 +47,7 @@ class PagoController extends Controller
             );
 
             // Cargar relaciones para la respuesta
-            $pago->load(['alumno', 'plan.grupo', 'formaPago', 'reglaPrimerPago']);
+            $pago->load(['alumno', 'plan.grupo', 'reglaPrimerPago']);
 
             return response()->json([
                 'success' => true,
@@ -77,7 +75,7 @@ class PagoController extends Controller
             $alumno = Alumno::findOrFail($alumnoId);
 
             $pagos = $alumno->pagos()
-                ->with(['plan.grupo', 'formaPago', 'reglaPrimerPago'])
+                ->with(['plan.grupo', 'reglaPrimerPago'])
                 ->orderBy('anio', 'desc')
                 ->orderBy('mes', 'desc')
                 ->get();

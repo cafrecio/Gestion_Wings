@@ -66,7 +66,6 @@ class PagoCuotaService
                 $montoTotal,
                 $fechaPago,
                 $data['observaciones'] ?? null,
-                $data['forma_pago_id'] ?? null,
                 $porcentaje,
                 $reglaId
             );
@@ -151,7 +150,6 @@ class PagoCuotaService
                 $montoTotal,
                 $fechaPago,
                 $data['observaciones'] ?? null,
-                $data['forma_pago_id'] ?? null,
                 $porcentaje,
                 $reglaId
             );
@@ -474,7 +472,7 @@ class PagoCuotaService
     /**
      * Crear el registro de pago.
      */
-    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, ?int $formaPagoId = null, float $porcentaje = 100.0, ?int $reglaId = null): Pago
+    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, float $porcentaje = 100.0, ?int $reglaId = null): Pago
     {
         $fechaCarbon = Carbon::parse($fechaPago);
         $montoBase   = $porcentaje < 100
@@ -490,10 +488,9 @@ class PagoCuotaService
             'monto_base'           => $montoBase,
             'porcentaje_aplicado'  => $porcentaje,
             'monto_final'          => $montoTotal,
-            'forma_pago_id'        => $formaPagoId,
             'fecha_pago'           => $fechaPago,
             'observaciones'        => $observaciones,
-            'estado'               => 'COMPLETADO',
+            'estado'               => Pago::ESTADO_COMPLETADO,
         ]);
     }
 

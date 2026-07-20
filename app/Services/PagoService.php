@@ -24,7 +24,6 @@ class PagoService
      * @param int $alumnoId
      * @param int $mes (1-12)
      * @param int $anio
-     * @param int $formaPagoId
      * @param string $fechaPago - Fecha de pago (fecha de negocio)
      * @param string|null $observaciones - Observaciones opcionales
      * @param float|null $porcentajeManual - Override manual del porcentaje (0-100)
@@ -36,7 +35,6 @@ class PagoService
         int $alumnoId,
         int $mes,
         int $anio,
-        int $formaPagoId,
         string $fechaPago,
         ?string $observaciones = null,
         ?float $porcentajeManual = null,
@@ -84,10 +82,9 @@ class PagoService
             'monto_base' => $montoBase,
             'porcentaje_aplicado' => $porcentajeAplicado,
             'monto_final' => $montoFinal,
-            'forma_pago_id' => $formaPagoId,
             'fecha_pago' => $fechaPago,
             'observaciones' => $observaciones,
-            'estado' => 'pagado',
+            'estado' => Pago::ESTADO_COMPLETADO,
         ]);
 
         return $pago;

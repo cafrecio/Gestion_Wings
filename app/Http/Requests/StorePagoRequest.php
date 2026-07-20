@@ -29,8 +29,6 @@ class StorePagoRequest extends FormRequest
                 'min:2020',
                 'max:' . (Carbon::now()->year + 1),
             ],
-            'forma_pago_id' => 'required|exists:formas_pago,id',
-
             // Fecha de pago (fecha de negocio)
             'fecha_pago' => 'required|date|date_format:Y-m-d',
 
@@ -61,9 +59,6 @@ class StorePagoRequest extends FormRequest
             'anio.integer' => 'El año debe ser un número.',
             'anio.min' => 'El año no puede ser anterior a 2020.',
             'anio.max' => 'El año no puede ser mayor al año siguiente.',
-
-            'forma_pago_id.required' => 'Debe seleccionar una forma de pago.',
-            'forma_pago_id.exists' => 'La forma de pago seleccionada no existe.',
 
             'fecha_pago.required' => 'La fecha de pago es obligatoria.',
             'fecha_pago.date' => 'La fecha de pago debe ser una fecha válida.',

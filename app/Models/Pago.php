@@ -22,7 +22,6 @@ class Pago extends Model
         'monto_base',
         'porcentaje_aplicado',
         'monto_final',
-        'forma_pago_id',
         'fecha_pago',
         'observaciones',
         'estado',
@@ -76,14 +75,6 @@ class Pago extends Model
     public function reglaPrimerPago(): BelongsTo
     {
         return $this->belongsTo(ReglaPrimerPago::class, 'regla_primer_pago_id');
-    }
-
-    /**
-     * Relación con FormaPago
-     */
-    public function formaPago(): BelongsTo
-    {
-        return $this->belongsTo(FormaPago::class, 'forma_pago_id');
     }
 
     /**

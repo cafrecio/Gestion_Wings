@@ -82,7 +82,7 @@
     <div class="kpi"><b>59</b><small>Hallazgos</small></div>
     <div class="kpi"><b style="color:var(--crit)">1</b><small>Crítico abierto (3 de 4 resueltos)</small></div>
     <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos (varios resueltos)</small></div>
-    <div class="kpi"><b style="color:var(--media)">18</b><small>Medios</small></div>
+    <div class="kpi"><b style="color:var(--media)">18</b><small>Medios (varios resueltos)</small></div>
     <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
   </div>
 
@@ -168,19 +168,19 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD3.1): nueva FK profesores.subrubro_id; alta y edición la asignan; la liquidación usa la FK. <b>Eliminado el fallback peligroso</b>: sin subrubro, el pago frena con mensaje accionable en vez de imputar mal. Migración ató los 6 profesores existentes a su cajón correcto. Probado: cada profe resuelve el suyo, sin subrubro → null, profe nuevo queda vinculado.</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D4.0</span><span class="ftitle">Columna muerta pagos.forma_pago_id (con su FK y tabla)</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D4.0</span><span class="ftitle">✅ RESUELTO — Columna muerta pagos.forma_pago_id (con su FK y tabla)</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">La forma de pago se quitó del flujo pero quedó la columna, su FK y la tabla formas_pago sin uso.</p><p class="where">pagos.forma_pago_id · tabla formas_pago</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD4.1 ⭐</span><span>Si no vuelve, migración que elimine la columna, la FK y la tabla (y su pantalla de config).</span></li><li class="sol"><span class="code">SD4.2</span><span>Dejar la columna pero sacarla de fillable y de las vistas.</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD4.1): la forma de pago no vuelve. Migración elimina columna, FK y tabla (0 pagos la usaban). Código limpio: modelo FormaPago y su seeder eliminados; Pago, servicios, controller, request y seeders sin referencias. Probado: el cobro funciona sin la columna.</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D5.0</span><span class="ftitle">Índice redundante en deuda_cuotas</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">Coexisten index(alumno_id,periodo) y unique(alumno_id,periodo) sobre las mismas columnas. El UNIQUE ya indexa; el otro es redundante.</p><p class="where">migration create_deuda_cuotas:27,30</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD5.1 ⭐</span><span>Migración que elimine el índice redundante.</span></li><li class="sol"><span class="code">SD5.2</span><span>Dejarlo (costo bajo, es ruido).</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D5.0</span><span class="ftitle">✅ RESUELTO — Índice redundante en deuda_cuotas</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Coexistían index(alumno_id,periodo) y unique(alumno_id,periodo) sobre las mismas columnas. El UNIQUE ya indexa; el otro era redundante.</p><p class="where">migration create_deuda_cuotas</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD5.1): migración elimina el índice redundante.</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D6.0</span><span class="ftitle">Estados de negocio como strings libres, sin dominio cerrado</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">Los estados (deuda, caja, pago, liquidación, revisión) viven solo como constantes PHP; la BD acepta cualquier string. Un typo mete un estado inválido que nadie detecta.</p><p class="where">deuda_cuotas.estado · cajas_operativas.estado · etc.</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD6.1 ⭐</span><span>Migrar a enum de MySQL o cast a Enum de PHP 8. Empezar por las de plata.</span></li><li class="sol"><span class="code">SD6.2</span><span>Mínimo: tests + CHECK constraint donde MariaDB lo permita.</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D6.0</span><span class="ftitle">✅ RESUELTO — Estados: enum ya existía; faltaba limpiar pagos.estado y constantes</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Verificado contra la BD: las columnas de estado YA eran ENUM (el reporte inicial asumió mal que eran strings libres). Lo real: pagos.estado arrastraba valores legacy (pagado/parcial/adeuda) con default viejo, y faltaban constantes en varios modelos.</p><p class="where">pagos.estado · CajaOperativa · MovimientoOperativo · Pago</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD6.1): pagos.estado queda ENUM(COMPLETADO,ANULADO) default COMPLETADO. Constantes de estado agregadas a CajaOperativa, MovimientoOperativo y Pago (DeudaCuota ya las tenía).</p></div>
     </div>
   </section>
 

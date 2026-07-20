@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
 
         // Seeders de datos base para el sistema de pagos
         $this->call([
-            FormaPagoSeeder::class,
             ReglaPrimerPagoSeeder::class,
         ]);
 
