@@ -80,8 +80,8 @@
 
   <div class="kpis">
     <div class="kpi"><b>59</b><small>Hallazgos</small></div>
-    <div class="kpi"><b style="color:var(--crit)">2</b><small>Críticos abiertos (2 de 4 resueltos)</small></div>
-    <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos</small></div>
+    <div class="kpi"><b style="color:var(--crit)">1</b><small>Crítico abierto (3 de 4 resueltos)</small></div>
+    <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos (varios resueltos)</small></div>
     <div class="kpi"><b style="color:var(--media)">18</b><small>Medios</small></div>
     <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
   </div>
@@ -153,19 +153,19 @@
     <div class="theme-h"><h2>🗄️ Arquitectura de datos</h2><a href="datos/REPORTE-DATOS.md">Ver reporte →</a></div>
     <p class="theme-sub">Base bien construida (dinero en decimal, FKs, índices). El problema serio es un UNIQUE mal diseñado.</p>
 
-    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">D1.0</span><span class="ftitle">El UNIQUE de alumno_planes rompe el 2º cambio de plan (bomba latente)</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">activo es NOT NULL y hay UNIQUE(alumno_id, activo). Al cerrar planes con activo=0, un alumno puede cambiar de plan una sola vez: el segundo cambio da violación de constraint → error 500. Hoy no estalló porque nadie cambió dos veces.</p><p class="where">migration create_alumno_planes:24 · AlumnoPlan.php:33-40</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD1.1 ⭐</span><span>Hacer activo nullable y guardar NULL (no 0) en los cerrados; MySQL permite múltiples NULL, el UNIQUE sigue garantizando un solo activo. Migrar los 0 a NULL.</span></li><li class="sol"><span class="code">SD1.2</span><span>Quitar el UNIQUE de la BD y enforcar en aplicación (el boot ya lo hace).</span></li><li class="sol"><span class="code">SD1.3</span><span>Índice único parcial emulado con columna generada (más complejo).</span></li></ul></div>
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">D1.0</span><span class="ftitle">✅ RESUELTO — El UNIQUE de alumno_planes rompía el 2º cambio de plan (bomba latente)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">activo era NOT NULL y había UNIQUE(alumno_id, activo). Al cerrar planes con activo=0, un alumno podía cambiar de plan una sola vez: el segundo cambio daba violación de constraint → error 500. No había estallado porque nadie cambió dos veces.</p><p class="where">migration create_alumno_planes:24 · AlumnoPlan.php</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD1.1): migración hace activo nullable, los cerrados pasan a NULL, y el boot cierra con NULL. Probado: 3 cambios de plan seguidos OK, queda 1 activo y 3 cerrados en NULL.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D2.0</span><span class="ftitle">referencia_tipo es string libre con valores inconsistentes para lo mismo</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El servicio marca el reflejo de caja como CAJA_OPERATIVA pero el seeder usó MOVIMIENTO_OPERATIVO para lo mismo. Ya causó el bug de movimientos duplicados en el historial.</p><p class="where">cashflow_movimientos.referencia_tipo</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD2.1 ⭐</span><span>Constantes/enum en el modelo y usarlas en todos lados; normalizar los datos existentes.</span></li><li class="sol"><span class="code">SD2.2</span><span>Al menos documentar el conjunto válido y corregir el seeder.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D2.0</span><span class="ftitle">✅ RESUELTO — referencia_tipo string libre con valores inconsistentes</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El servicio marcaba el reflejo de caja como CAJA_OPERATIVA pero el seeder usó MOVIMIENTO_OPERATIVO para lo mismo. Causó el bug de movimientos duplicados en el historial.</p><p class="where">cashflow_movimientos.referencia_tipo</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD2.1): constantes REF_CAJA/REF_PAGO_CUOTA/REF_LIQUIDACION en el modelo, usadas en todos lados y en el seeder. Migración normalizó los 145 registros legacy. Historial sin duplicados.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D3.0</span><span class="ftitle">Liquidación acopla profesor↔subrubro por nombre exacto</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El pago de liquidación busca un subrubro cuyo nombre es "Deporte-Nombre Apellido". Si el nombre cambia o el subrubro no existe, falla con error genérico sin aviso.</p><p class="where">LiquidacionPagoService · LiquidacionWebController:276</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SD3.1 ⭐</span><span>Agregar subrubro_id (FK) al profesor y usar la relación en vez del nombre.</span></li><li class="sol"><span class="code">SD3.2</span><span>Mínimo: verificar existencia antes de mostrar el formulario y avisar.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D3.0</span><span class="ftitle">✅ RESUELTO — Liquidación acoplaba profesor↔subrubro por nombre exacto</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El pago de liquidación buscaba el subrubro por nombre reconstruido, y si no lo encontraba caía a "cualquier subrubro de Sueldos" — en la práctica <b>todos los sueldos iban al cajón del primer profesor</b>. Se confirmó en los datos: los cajones se llaman "Sueldo - Apellido, Nombre" y el código los buscaba como "Deporte-Nombre Apellido", nunca coincidían.</p><p class="where">profesores.subrubro_id · LiquidacionWebController · ProfesorWebController</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> (SD3.1): nueva FK profesores.subrubro_id; alta y edición la asignan; la liquidación usa la FK. <b>Eliminado el fallback peligroso</b>: sin subrubro, el pago frena con mensaje accionable en vez de imputar mal. Migración ató los 6 profesores existentes a su cajón correcto. Probado: cada profe resuelve el suyo, sin subrubro → null, profe nuevo queda vinculado.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D4.0</span><span class="ftitle">Columna muerta pagos.forma_pago_id (con su FK y tabla)</span><span class="chev">▶</span></div>

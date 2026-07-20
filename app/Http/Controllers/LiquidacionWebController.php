@@ -235,7 +235,11 @@ class LiquidacionWebController extends Controller
         $subrubro = $this->resolverSubrubroProfesor($liquidacion->profesor);
 
         if (!$subrubro) {
-            return back()->with('error', 'No se encontró un subrubro válido para registrar el pago. Configure el rubro "Sueldos".');
+            $prof = $liquidacion->profesor;
+            return back()->with('error',
+                "El profesor {$prof->nombre} {$prof->apellido} no tiene un subrubro de sueldos asignado. " .
+                'Editá y guardá su ficha para regenerarlo antes de pagar la liquidación.'
+            );
         }
 
         try {
@@ -256,27 +260,11 @@ class LiquidacionWebController extends Controller
 
     private function resolverSubrubroProfesor(\App\Models\Profesor $profesor): ?Subrubro
     {
-        // Subrubro creado automáticamente al dar de alta al profesor
-        $nombreSubrubro = ($profesor->deporte->nombre ?? 'Sin deporte')
-            . '-' . $profesor->nombre . ' ' . $profesor->apellido;
-
-        $subrubro = Subrubro::where('nombre', $nombreSubrubro)
-            ->whereHas('rubro', fn($q) => $q->where('nombre', 'Sueldos'))
-            ->first();
-
-        if ($subrubro) {
-            return $subrubro;
-        }
-
-        // Fallback: cualquier subrubro ADMIN bajo rubro Sueldos
-        $rubroSueldos = Rubro::where('nombre', 'Sueldos')->first();
-
-        if ($rubroSueldos) {
-            return Subrubro::where('rubro_id', $rubroSueldos->id)
-                ->where('permitido_para', 'ADMIN')
-                ->first();
-        }
-
-        return null;
+        // D3: el subrubro de sueldos está vinculado al profesor por FK. Ya no
+        // se reconstruye el nombre ni se cae a "cualquier subrubro de Sueldos"
+        // (ese fallback podía imputar el sueldo al cajón de otro profesor).
+        // Si el profesor no tiene subrubro asignado, se devuelve null y el
+        // flujo de pago avisa y frena — nunca imputa a uno equivocado.
+        return $profesor->subrubro;
     }
 }

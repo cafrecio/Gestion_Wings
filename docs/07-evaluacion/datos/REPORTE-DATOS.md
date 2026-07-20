@@ -2,8 +2,9 @@
 
 Auditoría de migraciones (59), modelos (27) y su uso en services/controllers, verificada contra la BD real MariaDB. **6 hallazgos** (1 crítico, 2 altos, 3 medios). En general la base está bien construida (dinero en `decimal`, FKs con constraint, buena cobertura de índices y uniques de negocio); el problema serio es un `UNIQUE` mal diseñado que convierte el cambio de plan en una bomba de tiempo.
 
-### D1.0 — `alumno_planes`: el UNIQUE impide cambiar de plan más de una vez (bomba latente)
+### D1.0 — `alumno_planes`: el UNIQUE impide cambiar de plan más de una vez (bomba latente) — ✅ RESUELTO (2026-07-13)
 **Severidad:** Crítica
+**Resolución (SD1.1):** Migración `2026_07_19_140000_alumno_planes_activo_nullable` — `activo` pasa a nullable, los cerrados existentes (0) → NULL, y `AlumnoPlan::boot()` cierra con `activo=NULL`. Probado: 3 cambios de plan seguidos sobre el mismo alumno, todos OK, queda 1 activo y 3 cerrados en NULL.
 **Dónde:** `database/migrations/2026_01_12_091959_create_alumno_planes_table.php:24` — `unique(['alumno_id','activo'], 'unique_alumno_plan_activo')`; columna `activo` = `tinyint(1) NOT NULL default 1`. Modelo: `app/Models/AlumnoPlan.php:33-40` (boot cierra el plan anterior con `activo=false`).
 **Qué pasa:** El boot pone los planes viejos en `activo=0`. Como `activo` es NOT NULL y hay UNIQUE en `(alumno_id, activo)`, un alumno puede tener a lo sumo **una** fila con `activo=0`. Secuencia real: plan A→B funciona (queda A en 0, B en 1). Pero A→B→**C** falla: al cerrar B a `activo=0` ya existe A con `activo=0` → violación de UNIQUE → **error 500**. Contradice de lleno la regla de negocio que se acaba de implementar (cambio de plan hacia adelante) y la premisa de "el historial de AlumnoPlan se guarda, no se sobreescribe". Hoy no estalló solo porque ningún alumno cambió de plan dos veces (verificado en la BD: 0 alumnos con >1 plan inactivo). El primer alumno que lo haga rompe el flujo de cobro.
 **Soluciones:**
@@ -11,16 +12,18 @@ Auditoría de migraciones (59), modelos (27) y su uso en services/controllers, v
 - SD1.2 Quitar el UNIQUE de la BD y enforcar "un plan activo" solo en aplicación (el boot ya lo hace). Pierde la garantía a nivel BD.
 - SD1.3 Índice único parcial `WHERE activo=1` (MariaDB no lo soporta nativo como Postgres; se emula con columna generada). Más complejo, mismo resultado que SD1.1.
 
-### D2.0 — `referencia_tipo` es string libre con valores inconsistentes para lo mismo
+### D2.0 — `referencia_tipo` es string libre con valores inconsistentes para lo mismo — ✅ RESUELTO (2026-07-13)
 **Severidad:** Alta
+**Resolución (SD2.1):** Constantes `REF_CAJA`, `REF_PAGO_CUOTA`, `REF_LIQUIDACION` en el modelo `CashflowMovimiento`, usadas en todos los services/controllers y en el DemoSeeder. Migración `2026_07_20_053440_normalizar_referencia_tipo_cashflow` normalizó los 145 registros `MOVIMIENTO_OPERATIVO` → `CAJA_OPERATIVA`. Probado: historial sin duplicados.
 **Dónde:** `cashflow_movimientos.referencia_tipo` (string nullable, `2026_02_01_100006:21`). Valores en uso: `CAJA_OPERATIVA` (`CashflowIntegracionCajaService:71`), `MOVIMIENTO_OPERATIVO` (DemoSeeder), `PAGO_CUOTA` (`PagoCuotaService:176`), `LIQUIDACION` (`LiquidacionPagoService:111`), `SEED`, y `NULL`.
 **Qué pasa:** No hay enum ni constantes: cada quien escribe el string a mano. El servicio real marca el reflejo de caja como `CAJA_OPERATIVA`, pero el seeder usó `MOVIMIENTO_OPERATIVO` para exactamente lo mismo. Eso ya causó el bug de movimientos duplicados en el historial (el filtro no reconocía las copias del seeder). Un campo de tipado semántico sin dominio cerrado es una fuente permanente de incoherencia.
 **Soluciones:**
 - SD2.1 ⭐ Definir constantes en el modelo `CashflowMovimiento` (`REF_CAJA`, `REF_PAGO_CUOTA`, `REF_LIQUIDACION`) y usarlas en todos lados; normalizar los datos existentes (`MOVIMIENTO_OPERATIVO`→`CAJA_OPERATIVA`). Idealmente `enum` de MySQL o cast a enum de PHP 8.
 - SD2.2 Al menos documentar el conjunto válido y corregir el seeder para no volver a divergir.
 
-### D3.0 — Acoplamiento por string exacto en liquidaciones (subrubro por nombre)
+### D3.0 — Acoplamiento por string exacto en liquidaciones (subrubro por nombre) — ✅ RESUELTO (2026-07-13)
 **Severidad:** Alta
+**Resolución (SD3.1):** Nueva FK `profesores.subrubro_id` (migración `2026_07_20_053556_add_subrubro_id_to_profesores`). El alta y la edición de profesor asignan el subrubro por FK; `resolverSubrubroProfesor()` usa `$profesor->subrubro` y **se eliminó el fallback peligroso** (que imputaba a "cualquier subrubro de Sueldos" — en la práctica todos los sueldos iban al cajón del primer profesor). Si un profesor no tiene subrubro, el pago frena con mensaje accionable en vez de imputar mal. La migración ató los profesores existentes por ambos formatos de nombre históricos. Probado: cada profesor resuelve su propio cajón; sin subrubro → null (no imputa a otro); profe nuevo queda vinculado.
 **Dónde:** `LiquidacionPagoService` / `LiquidacionWebController:276` — el pago de liquidación busca un subrubro cuyo nombre es exactamente `"{Deporte}-{Nombre Apellido}"` del profesor.
 **Qué pasa:** La relación profesor↔subrubro de liquidación se resuelve por coincidencia de string, no por FK. Si el nombre del profesor cambia, o el subrubro se creó con otro formato, el pago falla con error genérico y sin aviso previo. Es un dato que debería estar relacionado por ID, no reconstruido por concatenación.
 **Soluciones:**
@@ -61,9 +64,9 @@ Auditoría de migraciones (59), modelos (27) y su uso en services/controllers, v
 
 | ID | Severidad | Título | Recomendación |
 |----|-----------|--------|---------------|
-| D1 | Crítica | UNIQUE de alumno_planes rompe el 2º cambio de plan | activo nullable + NULL en cerrados (SD1.1) |
-| D2 | Alta | referencia_tipo string libre e inconsistente | Constantes/enum + normalizar datos (SD2.1) |
-| D3 | Alta | Liquidación acopla profesor↔subrubro por nombre | FK subrubro_id en profesor (SD3.1) |
+| D1 | Crítica | UNIQUE de alumno_planes rompe el 2º cambio de plan | ✅ Resuelto — activo nullable + NULL en cerrados (SD1.1) |
+| D2 | Alta | referencia_tipo string libre e inconsistente | ✅ Resuelto — constantes + normalización (SD2.1) |
+| D3 | Alta | Liquidación acopla profesor↔subrubro por nombre | ✅ Resuelto — FK subrubro_id en profesor (SD3.1) |
 | D4 | Media | Columna muerta pagos.forma_pago_id | Migración que la elimine (SD4.1) |
 | D5 | Media | Índice redundante en deuda_cuotas | Eliminar el índice duplicado (SD5.1) |
 | D6 | Media | Estados como strings sin dominio cerrado | Migrar a enum (SD6.1) |

@@ -753,7 +753,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -762,7 +762,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8),(55,'2026_05_29_003356_create_configuraciones_table',9),(56,'2026_06_01_080524_add_abreviatura_to_tipos_caja_table',10),(57,'2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table',10),(58,'2026_06_21_133825_add_estado_fields_to_movimientos_operativos',11),(59,'2026_06_21_133826_add_anulado_to_pagos_estado',11),(60,'2026_07_03_024012_add_resolucion_to_alumnos_revision_cobranza_table',12),(61,'2026_07_19_140000_alumno_planes_activo_nullable',13),(62,'2026_07_20_053440_normalizar_referencia_tipo_cashflow',14);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_01_12_021412_create_deportes_table',1),(5,'2026_01_12_021419_create_grupos_table',1),(6,'2026_01_12_021505_create_alumnos_table',1),(7,'2026_01_12_023548_create_personal_access_tokens_table',1),(8,'2026_01_12_032445_remove_es_menor_from_alumnos_table',1),(9,'2026_01_12_034430_remove_horario_from_grupos_table',1),(10,'2026_01_12_034453_create_grupo_planes_table',1),(11,'2026_01_12_091852_create_reglas_primer_pago_table',1),(12,'2026_01_12_091900_create_formas_pago_table',1),(13,'2026_01_12_091912_create_pagos_table',1),(14,'2026_01_12_091959_create_alumno_planes_table',1),(15,'2026_01_25_115528_add_fecha_pago_to_pagos_table',1),(16,'2026_01_27_000001_create_profesores_table',1),(17,'2026_01_27_000002_create_clases_table',1),(18,'2026_01_27_000003_create_clase_profesor_table',1),(19,'2026_01_27_000004_create_asistencias_table',1),(20,'2026_01_28_000001_add_tipo_liquidacion_to_deportes_table',1),(21,'2026_01_28_000002_add_liquidacion_fields_to_profesores_table',1),(22,'2026_01_28_000003_add_liquidacion_fields_to_clases_table',1),(23,'2026_01_28_000004_create_liquidaciones_table',1),(24,'2026_01_28_000005_create_liquidacion_detalles_table',1),(25,'2026_02_01_000001_add_dni_to_alumnos_table',1),(26,'2026_02_01_000002_create_deuda_cuotas_table',1),(27,'2026_02_01_100001_create_rubros_table',1),(28,'2026_02_01_100002_create_subrubros_table',1),(29,'2026_02_01_100003_create_tipos_caja_table',1),(30,'2026_02_01_100004_create_cajas_operativas_table',1),(31,'2026_02_01_100005_create_movimientos_operativos_table',1),(32,'2026_02_01_100006_create_cashflow_movimientos_table',1),(33,'2026_02_01_100007_add_motivo_rechazo_to_cajas_operativas_table',1),(34,'2026_02_02_000001_add_observaciones_to_deuda_cuotas_table',1),(35,'2026_02_02_000001_add_tipo_caja_id_to_cashflow_movimientos_table',1),(36,'2026_02_02_000002_create_pago_deuda_cuota_table',1),(37,'2026_02_02_000003_add_es_reservado_sistema_to_subrubros_table',1),(38,'2026_02_03_000001_add_pago_fields_to_liquidaciones_table',1),(39,'2026_02_06_063616_add_rol_to_users_table',1),(40,'2026_02_11_000001_fix_pagos_nullable_for_cuota_flow',2),(41,'2026_02_11_000002_add_unique_nombre_to_subrubros_table',2),(42,'2026_02_12_000001_create_alumnos_revision_cobranza_table',2),(43,'2026_02_12_000002_create_asistencia_excesos_table',2),(44,'2026_03_08_181502_add_datos_personales_to_profesores_table',3),(45,'2026_04_16_081012_add_motivo_cancelacion_to_clases_table',4),(47,'2026_04_17_040409_create_niveles_table',5),(48,'2026_04_17_040414_refactor_grupos_add_nivel_remove_nombre',5),(49,'2026_04_30_141020_add_serie_id_to_clases_table',6),(50,'2026_04_30_150000_add_descripcion_to_tipos_caja_table',6),(51,'2026_04_30_205414_add_permite_descubierto_to_tipos_caja_table',6),(52,'2026_05_27_082557_update_rol_enum_in_users_table',6),(53,'2026_05_27_085302_add_activo_to_users_table',7),(54,'2026_05_27_154622_add_profesor_id_to_users_table',8),(55,'2026_05_29_003356_create_configuraciones_table',9),(56,'2026_06_01_080524_add_abreviatura_to_tipos_caja_table',10),(57,'2026_06_01_080526_add_alumno_id_to_movimientos_operativos_table',10),(58,'2026_06_21_133825_add_estado_fields_to_movimientos_operativos',11),(59,'2026_06_21_133826_add_anulado_to_pagos_estado',11),(60,'2026_07_03_024012_add_resolucion_to_alumnos_revision_cobranza_table',12),(61,'2026_07_19_140000_alumno_planes_activo_nullable',13),(62,'2026_07_20_053440_normalizar_referencia_tipo_cashflow',14),(64,'2026_07_20_053556_add_subrubro_id_to_profesores',15);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -999,14 +999,17 @@ CREATE TABLE `profesores` (
   `telefono` varchar(255) DEFAULT NULL,
   `valor_hora` decimal(10,2) DEFAULT NULL,
   `porcentaje_comision` decimal(5,2) DEFAULT NULL,
+  `subrubro_id` bigint(20) unsigned DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `profesores_dni_unique` (`dni`),
   KEY `profesores_deporte_id_foreign` (`deporte_id`),
-  CONSTRAINT `profesores_deporte_id_foreign` FOREIGN KEY (`deporte_id`) REFERENCES `deportes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `profesores_subrubro_id_foreign` (`subrubro_id`),
+  CONSTRAINT `profesores_deporte_id_foreign` FOREIGN KEY (`deporte_id`) REFERENCES `deportes` (`id`),
+  CONSTRAINT `profesores_subrubro_id_foreign` FOREIGN KEY (`subrubro_id`) REFERENCES `subrubros` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1015,7 +1018,7 @@ CREATE TABLE `profesores` (
 
 LOCK TABLES `profesores` WRITE;
 /*!40000 ALTER TABLE `profesores` DISABLE KEYS */;
-INSERT INTO `profesores` VALUES (1,1,'Jorge','Mitre','20100001','1985-03-12','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(2,1,'Ana','López','20100002','1990-07-25','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(3,1,'Carlos','Rodríguez','20100003','1988-11-03','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(4,1,'Marcela','Fernández','20100004','1992-05-18','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(5,2,'Roberto','García','20100005','1983-09-30','Sin datos','Buenos Aires',NULL,NULL,NULL,30.00,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(6,2,'Diego','Martínez','20100006','1987-02-14','Sin datos','Buenos Aires',NULL,NULL,NULL,30.00,1,'2026-06-22 08:22:30','2026-06-22 08:22:30');
+INSERT INTO `profesores` VALUES (1,1,'Jorge','Mitre','20100001','1985-03-12','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,43,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(2,1,'Ana','López','20100002','1990-07-25','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,44,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(3,1,'Carlos','Rodríguez','20100003','1988-11-03','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,45,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(4,1,'Marcela','Fernández','20100004','1992-05-18','Sin datos','Buenos Aires',NULL,NULL,10000.00,NULL,46,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(5,2,'Roberto','García','20100005','1983-09-30','Sin datos','Buenos Aires',NULL,NULL,NULL,30.00,47,1,'2026-06-22 08:22:30','2026-06-22 08:22:30'),(6,2,'Diego','Martínez','20100006','1987-02-14','Sin datos','Buenos Aires',NULL,NULL,NULL,30.00,48,1,'2026-06-22 08:22:30','2026-06-22 08:22:30');
 /*!40000 ALTER TABLE `profesores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1127,7 +1130,7 @@ CREATE TABLE `subrubros` (
   UNIQUE KEY `subrubros_nombre_unique` (`nombre`),
   KEY `subrubros_rubro_id_foreign` (`rubro_id`),
   CONSTRAINT `subrubros_rubro_id_foreign` FOREIGN KEY (`rubro_id`) REFERENCES `rubros` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1179,4 +1182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-20  5:35:39
+-- Dump completed on 2026-07-20  5:42:33

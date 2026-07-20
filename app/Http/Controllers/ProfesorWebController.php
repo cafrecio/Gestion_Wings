@@ -86,6 +86,10 @@ class ProfesorWebController extends Controller
 
         $profesor->update($validated);
 
+        // Asegura el subrubro de sueldos y su vínculo por FK (D3). Cubre a
+        // profesores viejos que quedaron sin subrubro_id tras la migración.
+        $this->crearSubrubroProfesor($profesor);
+
         return redirect()->route('web.profesores.index')->with('success', 'Profesor actualizado correctamente.');
     }
 
@@ -115,7 +119,7 @@ class ProfesorWebController extends Controller
             return;
         }
 
-        Subrubro::firstOrCreate(
+        $subrubro = Subrubro::firstOrCreate(
             ['nombre' => $nombreSubrubro],
             [
                 'rubro_id'             => $rubroSueldos->id,
@@ -124,6 +128,10 @@ class ProfesorWebController extends Controller
                 'es_reservado_sistema' => true,
             ]
         );
+
+        // Vincular el subrubro al profesor por FK (D3): la liquidación lo
+        // resuelve por este id, no reconstruyendo el nombre.
+        $profesor->update(['subrubro_id' => $subrubro->id]);
     }
 
     private function validationRules(?int $profesorId = null): array

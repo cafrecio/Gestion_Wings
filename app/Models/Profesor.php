@@ -24,6 +24,7 @@ class Profesor extends Model
         'telefono',
         'valor_hora',
         'porcentaje_comision',
+        'subrubro_id',
         'activo',
     ];
 
@@ -58,6 +59,15 @@ class Profesor extends Model
     public function liquidaciones(): HasMany
     {
         return $this->hasMany(Liquidacion::class);
+    }
+
+    /**
+     * Subrubro de sueldos donde se imputan los pagos de liquidación de
+     * este profesor. Vínculo por FK (D3), ya no por nombre reconstruido.
+     */
+    public function subrubro(): BelongsTo
+    {
+        return $this->belongsTo(Subrubro::class);
     }
 
     /**
