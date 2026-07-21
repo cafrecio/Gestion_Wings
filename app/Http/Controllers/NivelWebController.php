@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nivel;
+use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
 
 class NivelWebController extends Controller
@@ -21,26 +22,13 @@ class NivelWebController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nombre'      => 'required|string|max:100',
+        $request->validate([
+            'nombre'      => ['required', 'string', 'max:100', new NombreUnico(Nivel::class, mensaje: 'Ya existe un nivel con un nombre similar.')],
             'descripcion' => 'nullable|string|max:255',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.max'      => 'El nombre no puede tener más de 100 caracteres.',
         ]);
-
-        $nombreNormalizado = $this->normalizarNombre($validated['nombre']);
-
-        $existe = Nivel::whereRaw(
-            'LOWER(CONVERT(nombre USING utf8mb4)) = ?',
-            [$nombreNormalizado]
-        )->exists();
-
-        if ($existe) {
-            return back()
-                ->withErrors(['nombre' => 'Ya existe un nivel con un nombre similar.'])
-                ->withInput();
-        }
 
         Nivel::create($request->only('nombre', 'descripcion'));
 
@@ -49,20 +37,14 @@ class NivelWebController extends Controller
 
     public function checkDisponible(Request $request)
     {
-        $nombre  = $request->input('nombre', '');
+        $nombre  = trim($request->input('nombre', ''));
         $nivelId = $request->input('nivel_id');
 
-        if (empty(trim($nombre))) {
+        if ($nombre === '') {
             return response()->json(['disponible' => true]);
         }
 
-        $normalizado = $this->normalizarNombre($nombre);
-
-        $existe = Nivel::whereRaw(
-            'LOWER(CONVERT(nombre USING utf8mb4)) = ?',
-            [$normalizado]
-        )->when($nivelId, fn($q) => $q->where('id', '!=', $nivelId))
-         ->exists();
+        $existe = NombreUnico::existe(Nivel::class, $nombre, $nivelId ? (int) $nivelId : null);
 
         return response()->json(['disponible' => !$existe]);
     }
@@ -77,26 +59,13 @@ class NivelWebController extends Controller
     {
         $nivel = Nivel::findOrFail($id);
 
-        $validated = $request->validate([
-            'nombre'      => 'required|string|max:100',
+        $request->validate([
+            'nombre'      => ['required', 'string', 'max:100', new NombreUnico(Nivel::class, ignoreId: $nivel->id, mensaje: 'Ya existe un nivel con un nombre similar.')],
             'descripcion' => 'nullable|string|max:255',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.max'      => 'El nombre no puede tener más de 100 caracteres.',
         ]);
-
-        $nombreNormalizado = $this->normalizarNombre($validated['nombre']);
-
-        $existe = Nivel::whereRaw(
-            'LOWER(CONVERT(nombre USING utf8mb4)) = ?',
-            [$nombreNormalizado]
-        )->where('id', '!=', $nivel->id)->exists();
-
-        if ($existe) {
-            return back()
-                ->withErrors(['nombre' => 'Ya existe un nivel con un nombre similar.'])
-                ->withInput();
-        }
 
         $nivel->update($request->only('nombre', 'descripcion'));
 
@@ -114,16 +83,5 @@ class NivelWebController extends Controller
         $nivel->delete();
 
         return redirect()->route('web.niveles.index')->with('success', 'Nivel eliminado.');
-    }
-
-    private function normalizarNombre(string $nombre): string
-    {
-        $nombre = mb_strtolower(trim($nombre));
-        $nombre = strtr($nombre, [
-            'á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u',
-            'ü'=>'u','ñ'=>'n','à'=>'a','è'=>'e','ì'=>'i',
-            'ò'=>'o','ù'=>'u',
-        ]);
-        return preg_replace('/\s+/', ' ', $nombre);
     }
 }

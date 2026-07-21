@@ -1,6 +1,6 @@
 # Reporte de auditoría de backend — Wings
 
-Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existía una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume — quedó deshabilitada el 2026-07-13 (fix de seguridad S2), lo que neutraliza B1-B4 de raíz. B6 resuelto el 2026-07-21 (fijado el timezone real de riesgo, que era el de MySQL). La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
+Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existía una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume — quedó deshabilitada el 2026-07-13 (fix de seguridad S2), lo que neutraliza B1-B4 de raíz. B5 y B6 resueltos el 2026-07-21 (regla de unicidad unificada; timezone real de riesgo, que era el de MySQL). La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
 
 ### B1.0 — Dos sistemas de pago en paralelo (API vs web) con lógica divergente — ⚠️ riesgo neutralizado, limpieza pendiente
 **Severidad:** Alta
@@ -38,10 +38,13 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 - SB4.1 ⭐ Decisión de producto: si no hay app móvil planificada, deshabilitar `routes/api.php` (comentar el `require` o el archivo). Cierra B1/B2/B3 y S2/S3/S4 de un golpe. Reactivable cuando haya consumidor real.
 - SB4.2 Si va a usarse, congelarla, unificar services con la web (B1/B2), completar controllers (B3) y ponerle permisos y tests.
 
-### B5.0 — Validación de unicidad case-insensitive copiada en 3+ lugares
+### B5.0 — Validación de unicidad case-insensitive copiada en 3+ lugares — ✅ RESUELTO (2026-07-21)
 **Severidad:** Media
 **Dónde:** `NivelWebController:34,61,90`, `TipoCajaWebController:107`, `StoreSubrubroRequest:34`, `UpdateSubrubroRequest:34` — todos repiten el patrón `whereRaw('LOWER(nombre) = ?', [...])` para chequear nombre duplicado ignorando mayúsculas.
 **Qué pasa:** La misma lógica de "no permitir nombres que difieran solo en mayúsculas/acentos" está copiada y pegada con variaciones (uno usa `CONVERT(... USING utf8mb4)`, otros no). Cambiar la regla implica tocar 5+ lugares y es fácil que queden inconsistentes.
+**Investigación previa a la corrección:** las columnas `nombre` ya usan collation `utf8mb4_unicode_ci` en MySQL — case-insensitive de por sí (`'patin'='PATIN'` es true), por lo que el `LOWER(nombre)` de TipoCaja/Subrubro era en gran parte redundante. Pero esa collation **no** ignora acentos (`'patin'='patín'` es false): el paso extra de Nivel (`CONVERT... USING utf8mb4` + acentos plegados en PHP) hacía algo genuinamente distinto y más estricto que TipoCaja/Subrubro, sin razón documentada para el trato diferente — el drift de política ya había ocurrido. Se verificaron los datos existentes (niveles, tipos_caja, subrubros): ningún par de nombres distintos difiere solo por acento, así que endurecer la regla a nivel global no rompe ningún registro actual.
+**Resolución (SB5.1):** nueva clase `App\Rules\NombreUnico` (implementa `ValidationRule`), única fuente de verdad: normaliza mayúsculas + acentos y chequea existencia con exclusión opcional de un ID propio (para ediciones). Adoptada la política más estricta (case + acento insensible) para los tres catálogos, no solo Nivel. Reemplaza las 6 copias en `NivelWebController` (store/update/checkDisponible), `TipoCajaWebController` (store/update/checkDisponible — antes usaba el `unique` nativo de Laravel solo en store/update) y ambos `Store/UpdateSubrubroRequest`. Se eliminó el método `normalizarNombre()` de `NivelWebController`, que quedó sin uso.
+**Probado:** duplicado con acento+mayúscula rechazado en los 3 catálogos; nombre genuinamente nuevo aceptado; editar un registro sin cambiar su nombre no se autorrechaza (exclusión por ID); el check AJAX de disponibilidad usa la misma lógica que el guardado real.
 **Soluciones:**
 - SB5.1 ⭐ Extraer a una regla de validación reutilizable (`Rule` custom `UniqueCaseInsensitive`) o un scope de modelo, y usarla en todos. Una sola fuente de verdad.
 - SB5.2 Definir collation case-insensitive en las columnas de nombre y usar `unique` normal (menos código, resuelve en BD).
@@ -77,6 +80,6 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 | B1 | Alta | Dos sistemas de pago (API PagoService vs web PagoCuotaService) | ⚠️ Neutralizado (API off) — PagoService queda como código muerto |
 | B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | ⚠️ Neutralizado (API off) — resolverRevision() queda como código muerto |
 | B3 | Media | API AlumnoController a medias pero expuesto | ✅ Resuelto — api.php deshabilitada |
-| B5 | Media | Validación unicidad case-insensitive copiada x5 | Regla/scope reutilizable (SB5.1) |
+| B5 | Media | Validación unicidad case-insensitive copiada x5 | ✅ Resuelto — Rule NombreUnico única fuente de verdad (SB5.1) |
 | B6 | Baja | Timezone/fecha disperso | ✅ Resuelto — DB fija time_zone=-03:00 (riesgo real era MySQL, no PHP) |
 | B7 | Baja | Diseño de API inconsistente | Sin objeto mientras la API esté deshabilitada |

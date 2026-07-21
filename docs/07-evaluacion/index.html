@@ -209,9 +209,9 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-13</b> — mismo cambio que B4, el controller ya no responde a nada.</p></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B5.0</span><span class="ftitle">Validación de unicidad case-insensitive copiada en 5+ lugares</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El chequeo whereRaw('LOWER(nombre)=?') está copiado con variaciones en niveles, tipos-caja y subrubros. Cambiar la regla implica tocar todos.</p><p class="where">NivelWebController · TipoCajaWebController · Store/UpdateSubrubroRequest</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB5.1 ⭐</span><span>Extraer a una Rule custom reutilizable o scope de modelo.</span></li><li class="sol"><span class="code">SB5.2</span><span>Collation case-insensitive en las columnas y unique normal.</span></li></ul></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B5.0</span><span class="ftitle">✅ RESUELTO — Validación de unicidad case-insensitive copiada en 5+ lugares</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El chequeo whereRaw('LOWER(nombre)=?') estaba copiado con variaciones en niveles, tipos-caja y subrubros. Cambiar la regla implicaba tocar todos.</p><p class="where">NivelWebController · TipoCajaWebController · Store/UpdateSubrubroRequest</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SB5.1): las columnas ya usan collation utf8mb4_unicode_ci (case-insensitive de por sí, pero NO ignora acentos) — solo Nivel plegaba acentos, TipoCaja/Subrubro no, sin razón documentada. Nueva clase App\Rules\NombreUnico, única fuente de verdad, adoptando la política más estricta (case+acento) en los tres catálogos. Verificado contra los datos: ningún nombre existente choca al endurecer la regla. Probado: duplicado con acento rechazado en los 3 catálogos, nombre nuevo aceptado, autoedición sin falso rechazo, AJAX usa la misma lógica que el guardado real.</p></div>
     </div>
 
     <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B6.0</span><span class="ftitle">✅ RESUELTO — Lógica de timezone/fecha dispersa</span><span class="chev">▶</span></div>

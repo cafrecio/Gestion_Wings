@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoCaja;
+use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
 
 class TipoCajaWebController extends Controller
@@ -24,13 +25,12 @@ class TipoCajaWebController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'      => 'required|string|max:100|unique:tipos_caja,nombre',
+            'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
             'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
         ], [
             'nombre.required'      => 'El nombre es obligatorio.',
             'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
-            'nombre.unique'        => 'Ya existe un tipo de caja con ese nombre.',
             'abreviatura.required' => 'La abreviatura es obligatoria.',
             'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
         ]);
@@ -57,13 +57,12 @@ class TipoCajaWebController extends Controller
         $tipoCaja = TipoCaja::findOrFail($id);
 
         $request->validate([
-            'nombre'      => "required|string|max:100|unique:tipos_caja,nombre,{$tipoCaja->id}",
+            'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
             'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
         ], [
             'nombre.required'      => 'El nombre es obligatorio.',
             'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
-            'nombre.unique'        => 'Ya existe un tipo de caja con ese nombre.',
             'abreviatura.required' => 'La abreviatura es obligatoria.',
             'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
         ]);
@@ -104,9 +103,7 @@ class TipoCajaWebController extends Controller
             return response()->json(['disponible' => true]);
         }
 
-        $existe = TipoCaja::whereRaw('LOWER(nombre) = ?', [mb_strtolower($nombre)])
-            ->when($tipoCajaId, fn($q) => $q->where('id', '!=', $tipoCajaId))
-            ->exists();
+        $existe = NombreUnico::existe(TipoCaja::class, $nombre, $tipoCajaId ? (int) $tipoCajaId : null);
 
         return response()->json(['disponible' => !$existe]);
     }

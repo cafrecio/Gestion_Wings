@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use App\Models\Subrubro;
+use App\Rules\NombreUnico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreSubrubroRequest extends FormRequest
@@ -16,26 +17,10 @@ class StoreSubrubroRequest extends FormRequest
     {
         return [
             'rubro_id' => 'required|exists:rubros,id',
-            'nombre' => 'required|string|max:100',
+            'nombre' => ['required', 'string', 'max:100', new NombreUnico(Subrubro::class, mensaje: "Ya existe un subrubro con el nombre '{$this->input('nombre')}'.")],
             'permitido_para' => 'required|in:OPERATIVO,ADMIN',
             'afecta_caja' => 'boolean',
             'es_reservado_sistema' => 'boolean',
         ];
-    }
-
-    public function withValidator($validator): void
-    {
-        $validator->after(function ($validator) {
-            if ($validator->errors()->has('nombre')) {
-                return;
-            }
-
-            $nombre = $this->input('nombre');
-            $existe = Subrubro::whereRaw('LOWER(nombre) = ?', [mb_strtolower($nombre)])->exists();
-
-            if ($existe) {
-                $validator->errors()->add('nombre', "Ya existe un subrubro con el nombre '{$nombre}'.");
-            }
-        });
     }
 }
