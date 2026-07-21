@@ -83,7 +83,7 @@
     <div class="kpi"><b style="color:var(--crit)">1</b><small>Crítico abierto (3 de 4 resueltos)</small></div>
     <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos (varios resueltos)</small></div>
     <div class="kpi"><b style="color:var(--media)">18</b><small>Medios (varios resueltos)</small></div>
-    <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos</small></div>
+    <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos (algunos resueltos)</small></div>
   </div>
 
   <div class="intro">
@@ -214,14 +214,14 @@
       <ul class="sols"><li class="sol rec"><span class="code">SB5.1 ⭐</span><span>Extraer a una Rule custom reutilizable o scope de modelo.</span></li><li class="sol"><span class="code">SB5.2</span><span>Collation case-insensitive en las columnas y unique normal.</span></li></ul></div>
     </div>
 
-    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B6.0</span><span class="ftitle">Lógica de timezone/fecha dispersa</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">Mezcla de now(), today() y Carbon con TZ Argentina explícita. Cerca de medianoche pueden diferir.</p><p class="where">CajaWebController · PagoCuotaService · OperativoDashboardController</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB6.1 ⭐</span><span>Fijar app.timezone en config y unificar en now()/today() o un helper hoyAr().</span></li></ul></div>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B6.0</span><span class="ftitle">✅ RESUELTO — Lógica de timezone/fecha dispersa</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Mezcla de now(), today() y Carbon con TZ Argentina explícita en varios controllers/services.</p><p class="where">config/database.php (conexiones mysql/mariadb)</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21:</b> investigado antes de tocar nada — <code>config('app.timezone')</code> YA estaba fijo en Argentina y <code>now()</code> ya coincidía con la versión explícita (no era un bug real). El riesgo de verdad estaba en la BD: la conexión MySQL/MariaDB no fijaba <code>time_zone</code> (quedaba en SYSTEM, heredado del SO). En un VPS que arranque en UTC, <code>created_at</code>/<code>updated_at</code> habrían quedado 3hs desalineados. Se agregó <code>'timezone' =&gt; '-03:00'</code> a ambas conexiones (offset fijo, no nombre de zona, porque las tablas zoneinfo de MySQL suelen faltar en instalaciones nuevas). Probado: sesión nueva → time_zone=-03:00, NOW() de MySQL = now() de PHP.</p></div>
     </div>
 
-    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B7.0</span><span class="ftitle">Diseño de API inconsistente (recursos + RPC + doble controller de alumnos)</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">B7.0</span><span class="ftitle">Diseño de API inconsistente — sin objeto mientras esté deshabilitada</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">Mezcla apiResource, prefijos admin/*, rutas sueltas, y alumnos accesible por dos controllers/caminos.</p><p class="where">routes/api.php</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SB7.1 ⭐</span><span>Si se conserva, rediseñar con criterio único (REST + gate por middleware) y un solo controller de alumnos.</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:color-mix(in srgb, var(--muted) 12%, transparent);border:1px solid var(--line)">Desde S2 (2026-07-13) routes/api.php está deshabilitada — ninguna de estas rutas responde. Rediseñar un archivo que no se carga no tiene efecto hoy; hacerlo recién cuando exista un consumidor real y <b>antes</b> de reactivarla (ver I2.0).</p></div>
     </div>
   </section>
 

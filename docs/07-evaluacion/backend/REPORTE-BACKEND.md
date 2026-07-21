@@ -1,6 +1,6 @@
 # Reporte de auditoría de backend — Wings
 
-Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existía una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume — quedó deshabilitada el 2026-07-13 (fix de seguridad S2), lo que neutraliza B1-B4 de raíz. La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
+Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y requests. **7 hallazgos** (2 altos, 3 medios, 2 bajos). El patrón dominante: existía una API completa construida en paralelo a la web, con lógica más vieja y a veces divergente, que nadie consume — quedó deshabilitada el 2026-07-13 (fix de seguridad S2), lo que neutraliza B1-B4 de raíz. B6 resuelto el 2026-07-21 (fijado el timezone real de riesgo, que era el de MySQL). La capa de services y la cobertura de transacciones en los flujos de plata son una fortaleza.
 
 ### B1.0 — Dos sistemas de pago en paralelo (API vs web) con lógica divergente — ⚠️ riesgo neutralizado, limpieza pendiente
 **Severidad:** Alta
@@ -46,19 +46,22 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 - SB5.1 ⭐ Extraer a una regla de validación reutilizable (`Rule` custom `UniqueCaseInsensitive`) o un scope de modelo, y usarla en todos. Una sola fuente de verdad.
 - SB5.2 Definir collation case-insensitive en las columnas de nombre y usar `unique` normal (menos código, resuelve en BD).
 
-### B6.0 — Lógica de timezone/fecha dispersa
+### B6.0 — Lógica de timezone/fecha dispersa — ✅ RESUELTO (2026-07-21)
 **Severidad:** Baja
 **Dónde:** mezcla de `now()`, `today()`, `Carbon::now('America/Argentina/Buenos_Aires')`, `->format('Y-m')` en `CajaWebController`, `PagoCuotaService`, `OperativoDashboardController`, `CobranzaEstadoService`.
 **Qué pasa:** Algunos cálculos de "hoy"/"período vigente" usan la TZ Argentina explícita y otros el `now()` del server. Cerca de medianoche, o si el server no está en esa TZ, pueden diferir. (Ver integral I5.0.)
-**Soluciones:**
-- SB6.1 ⭐ Fijar `app.timezone` a `America/Argentina/Buenos_Aires` en `config/app.php` y unificar en `now()`/`today()`, o un helper `hoyAr()`. Verificar la TZ del server de producción.
+**Investigación previa a la corrección:** `config('app.timezone')` YA estaba fijado a `America/Argentina/Buenos_Aires` (no era un hallazgo real — se verificó que `now()` y `Carbon::now('America/Argentina/Buenos_Aires')` ya devuelven el mismo valor porque Laravel aplica ese config globalmente). El riesgo real y no documentado estaba en la **base de datos**: la conexión MySQL/MariaDB no fijaba `time_zone`, así que quedaba en `SYSTEM` — heredaba el reloj del sistema operativo del server. En un VPS nuevo (que suele traer el SO en UTC de fábrica), `NOW()`/`CURRENT_TIMESTAMP` de MySQL (usado para `created_at`/`updated_at`) habría quedado 3 horas desalineado del resto de la aplicación, sin que ningún test lo detectara.
+**Resolución:** `config/database.php` — se agrega `'timezone' => env('DB_TIMEZONE', '-03:00')` a las conexiones `mysql` y `mariadb`. Laravel envía `SET time_zone='-03:00'` en cada conexión nueva, así que MySQL queda alineado con PHP sin importar el reloj del SO. Se usa el **offset fijo**, no el nombre de zona IANA, porque las tablas de zoneinfo de MySQL suelen faltar en instalaciones nuevas (haría que el `SET` fallara en silencio); Argentina no tiene horario de verano desde 2009, así que el offset fijo es seguro y no requiere esas tablas.
+**Probado:** conexión nueva → `SELECT @@session.time_zone` devuelve `-03:00`; `NOW()` de MySQL y `now()` de PHP coinciden exactamente.
+**Alcance no incluido:** no se unificaron los `Carbon::now('America/Argentina/Buenos_Aires')` explícitos dispersos en el código a `now()` a secas — es limpieza de estilo (ambos ya son equivalentes), sin riesgo real, se deja para cuando haya presupuesto de limpieza general (ver I7.0).
 
-### B7.0 — Endpoints de API con nombres/estructura inconsistentes
+### B7.0 — Endpoints de API con nombres/estructura inconsistentes — sin objeto mientras la API esté deshabilitada
 **Severidad:** Baja
 **Dónde:** `routes/api.php` — conviven `apiResource('alumnos')`, prefijos `admin/*`, rutas sueltas (`/user`, `/reglas-primer-pago/dia/{dia}`), y dos controllers de alumnos (`AlumnoController` y `Admin\AlumnoController`) para lo mismo con rutas distintas (`/alumnos` vs `/admin/alumnos`).
 **Qué pasa:** No hay un criterio único de diseño REST: recursos, acciones RPC y prefijos de rol mezclados; alumnos accesible por dos caminos con dos controllers. Dificulta entender qué endpoint es la verdad.
-**Soluciones:**
-- SB7.1 ⭐ Si la API se conserva (B4), rediseñar con un criterio único (recursos REST + gate de rol por middleware, no por controller duplicado) y un solo controller de alumnos.
+**Por qué no se toca ahora:** desde el fix de S2 (2026-07-13), `routes/api.php` está deshabilitada en `bootstrap/app.php` — ninguna de estas rutas responde. Rediseñar el criterio REST de un archivo de rutas que no se carga sería trabajo sin efecto medible hoy. Cuando exista un consumidor real de la API (ver I2.0), este rediseño debe hacerse **antes** de reactivarla, no después.
+**Soluciones (para cuando se reactive):**
+- SB7.1 ⭐ Rediseñar con un criterio único (recursos REST + gate de rol por middleware, no por controller duplicado) y un solo controller de alumnos.
 
 ## Fortalezas verificadas (no tocar)
 
@@ -75,5 +78,5 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 | B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | ⚠️ Neutralizado (API off) — resolverRevision() queda como código muerto |
 | B3 | Media | API AlumnoController a medias pero expuesto | ✅ Resuelto — api.php deshabilitada |
 | B5 | Media | Validación unicidad case-insensitive copiada x5 | Regla/scope reutilizable (SB5.1) |
-| B6 | Baja | Timezone/fecha disperso | Fijar TZ en config + uso uniforme (SB6.1) |
+| B6 | Baja | Timezone/fecha disperso | ✅ Resuelto — DB fija time_zone=-03:00 (riesgo real era MySQL, no PHP) |
 | B7 | Baja | Diseño de API inconsistente | Sin objeto mientras la API esté deshabilitada |

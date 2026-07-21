@@ -58,6 +58,12 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            // Fija la sesión de la conexión en horario Argentina (offset fijo:
+            // sin DST desde 2009) para que NOW()/CURRENT_TIMESTAMP de MySQL
+            // (created_at/updated_at) no dependan del reloj del SO del server.
+            // Se usa el offset, no el nombre de zona, porque las tablas de
+            // zoneinfo de MySQL suelen faltar en instalaciones nuevas (B6.0).
+            'timezone' => env('DB_TIMEZONE', '-03:00'),
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
@@ -78,6 +84,8 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            // Ver comentario en la conexión 'mysql' (B6.0).
+            'timezone' => env('DB_TIMEZONE', '-03:00'),
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
