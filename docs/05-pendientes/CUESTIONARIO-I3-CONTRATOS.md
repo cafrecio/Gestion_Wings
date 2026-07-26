@@ -52,14 +52,16 @@ Código real, hoy:
 
 ## B) Puntos que ESTÁN en la app pero no tienen contrato que diga cómo deberían funcionar
 
-### B1. Clases/Asistencias — el solapamiento de horarios no se valida en el flujo real
+> **B1 y B2 resueltos (2026-07-26)** — ver `docs/02-contratos/Wings-Contrato-Clases-Asistencias-V1.md`, primer contrato completo del módulo, con reglas adicionales sobre fecha pasada, cambio de profesores y corrección de asistencia definidas junto al usuario e implementadas en código.
+
+### B1. Clases/Asistencias — el solapamiento de horarios no se valida en el flujo real ✅ RESUELTO
 Existe `ClaseService::validarSolapamientoProfesor()` y `validarSolapamientoAlumno()`: en teoría impiden que un profesor o un alumno queden en dos clases que se solapan en fecha+horario. **Pero** el flujo web real (`ClaseWebController::store()`, `actualizarProfesores()`, guardado de asistencias) nunca llama a esos métodos — asigna profesores con `sync()` y guarda asistencia con `updateOrCreate()` directo. En su lugar, cuando un alumno excede su plan semanal, el sistema real usa `AsistenciaExceso` con motivo `EXTRA` o `RECUPERA`: no bloquea, etiqueta.
 
 **Pregunta:** ¿Cuál es la regla que realmente querés?
 - (a) Nunca bloquear solapamiento — solo registrar exceso semanal como hace hoy (lo que pasa en los hechos), y `ClaseService::validarSolapamiento*` queda como código muerto para podar después.
 - (b) Sí debería bloquear solapamiento de horario (como dice `ClaseService`) y hoy hay un bug real porque el flujo web no lo está llamando.
 
-### B2. Clases recurrentes sin chequeo de solapamiento entre sí
+### B2. Clases recurrentes sin chequeo de solapamiento entre sí ✅ RESUELTO
 `store()` permite crear una serie completa (mismo horario, varios días de la semana, rango de fechas) sin validar contra clases ya existentes del mismo profesor/grupo.
 
 **Pregunta:** si un admin carga mal una serie y el mismo profesor termina con series solapadas, ¿debería bloquearse, o es aceptable y queda a criterio del admin?

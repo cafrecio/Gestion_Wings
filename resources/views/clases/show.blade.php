@@ -14,6 +14,8 @@
 
     $cantPresentes = $asistenciasMap->where('presente', true)->count();
     $profesoresActualesIds = $clase->profesores->pluck('id')->toArray();
+    $esPasada = $clase->fecha->lt(today());
+    $puedeModificarProfesores = !$esProfesor && (!$esPasada || $esAdmin);
 @endphp
 
 @section('title', $fechaTexto . ' — ' . $clase->grupo->nombre . ' – Wings')
@@ -61,7 +63,7 @@
                         <span style="opacity:0.5;">Sin profesor asignado</span>
                     @endif
                 </span>
-                @if(!$clase->cancelada && !$esProfesor)
+                @if(!$clase->cancelada && $puedeModificarProfesores)
                     <button id="btn-modificar-profesores"
                             style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
                                    border:1px solid var(--color-border); background:transparent;
@@ -227,6 +229,19 @@
                 </label>
             @endforeach
         </div>
+        @if($esPasada)
+            <div style="margin-bottom:12px;">
+                <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 6px;">
+                    Esta clase ya pasó — indicá el motivo del cambio
+                </p>
+                <input type="text" id="input-motivo-profesores"
+                       placeholder="Ej: Se asignó mal al cargar, cubrió una suplencia..."
+                       maxlength="255"
+                       style="width:100%; max-width:420px; padding:8px 12px; font-size:0.82rem;
+                              border:1px solid var(--color-border); border-radius:var(--radius-btn);
+                              background:var(--color-surface); color:var(--color-text); font-family:inherit;">
+            </div>
+        @endif
         <div style="display:flex; gap:8px; align-items:center;">
             <button id="btn-guardar-profesores"
                     style="display:inline-flex; align-items:center; justify-content:center;
@@ -377,6 +392,20 @@
 
 {{-- Botón guardar asistencias --}}
 @if($alumnos->isNotEmpty())
+@if($esPasada)
+    <div style="margin-top:16px; padding:12px 16px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); border-radius:var(--radius-card);">
+        <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 8px;">
+            Esta clase ya pasó — indicá el motivo de la corrección
+        </p>
+        <input type="text" id="input-motivo-asistencias"
+               placeholder="Ej: Se nos pasó cargar a un alumno, se marcó por error..."
+               maxlength="255"
+               style="width:100%; padding:8px 12px; font-size:0.82rem;
+                      border:1px solid var(--color-border); border-radius:var(--radius-btn);
+                      background:var(--color-surface); color:var(--color-text); font-family:inherit;">
+    </div>
+@endif
 <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px;">
     <button id="btn-guardar-asistencias"
             {{ $clase->cancelada ? 'disabled' : '' }}
@@ -397,6 +426,7 @@
 (function () {
     const infoSemana = @json($infoSemana);
     const claseId    = {{ $clase->id }};
+    const esPasada   = @json($esPasada);
     const csrf       = document.querySelector('meta[name="csrf-token"]').content;
 
     // ── Contador de presentes ───────────────────────────────────────────────
@@ -455,8 +485,17 @@
         }, ok ? 3000 : 4500);
     }
 
+    const inputMotivoAsistencias = document.getElementById('input-motivo-asistencias');
+
     if (btnGuardar) {
         btnGuardar.addEventListener('click', function () {
+            const motivo = inputMotivoAsistencias ? inputMotivoAsistencias.value.trim() : '';
+            if (esPasada && !motivo) {
+                mostrarToast('Indicá el motivo de la corrección.', false);
+                if (inputMotivoAsistencias) inputMotivoAsistencias.focus();
+                return;
+            }
+
             const items = [];
             document.querySelectorAll('.alumno-asistencia-card').forEach(function (card) {
                 const aid    = card.dataset.alumnoId;
@@ -470,7 +509,7 @@
             fetch('/clases/' + claseId + '/asistencias', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
-                body: JSON.stringify({ items: items }),
+                body: JSON.stringify({ items: items, motivo: motivo }),
             })
             .then(function (r) { return r.json(); })
             .then(function (d) {
@@ -594,41 +633,66 @@
             panelProfs.style.display = 'none';
         });
     }
+    const inputMotivoProfs = document.getElementById('input-motivo-profesores');
+
+    function guardarProfesores(confirmar) {
+        const ids = [];
+        document.querySelectorAll('.prof-checkbox:checked').forEach(function (cb) {
+            ids.push(parseInt(cb.value));
+        });
+        const motivo = inputMotivoProfs ? inputMotivoProfs.value.trim() : '';
+
+        btnGuardarProfs.disabled = true;
+        btnGuardarProfs.textContent = '…';
+        flashProfs.style.display = 'none';
+
+        fetch('/clases/' + claseId + '/profesores', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
+            body: JSON.stringify({ profesores: ids, motivo: motivo, confirmar: !!confirmar }),
+        })
+        .then(function (r) { return r.json().then(function (d) { return { status: r.status, body: d }; }); })
+        .then(function (res) {
+            const d = res.body;
+            if (d.success) {
+                panelProfs.style.display = 'none';
+                if (textoProfs) textoProfs.textContent = d.profesores;
+            } else if (res.status === 409 && d.requiere_confirmacion) {
+                if (confirm(d.message)) {
+                    guardarProfesores(true);
+                    return;
+                }
+                flashProfs.style.display = 'inline';
+                flashProfs.textContent = 'Cambio no aplicado.';
+                flashProfs.style.color = 'var(--color-text-muted)';
+            } else {
+                flashProfs.style.display = 'inline';
+                flashProfs.textContent = '✗ ' + (d.message || 'Error.');
+                flashProfs.style.color = 'var(--color-danger)';
+            }
+        })
+        .catch(function () {
+            flashProfs.style.display = 'inline';
+            flashProfs.textContent = '✗ Error de conexión.';
+            flashProfs.style.color = 'var(--color-danger)';
+        })
+        .finally(function () {
+            btnGuardarProfs.disabled = false;
+            btnGuardarProfs.textContent = 'Guardar';
+        });
+    }
+
     if (btnGuardarProfs) {
         btnGuardarProfs.addEventListener('click', function () {
-            const ids = [];
-            document.querySelectorAll('.prof-checkbox:checked').forEach(function (cb) {
-                ids.push(parseInt(cb.value));
-            });
-            btnGuardarProfs.disabled = true;
-            btnGuardarProfs.textContent = '…';
-            flashProfs.style.display = 'none';
-
-            fetch('/clases/' + claseId + '/profesores', {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf, 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' },
-                body: JSON.stringify({ profesores: ids }),
-            })
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-                if (d.success) {
-                    panelProfs.style.display = 'none';
-                    if (textoProfs) textoProfs.textContent = d.profesores;
-                } else {
-                    flashProfs.style.display = 'inline';
-                    flashProfs.textContent = '✗ ' + (d.message || 'Error.');
-                    flashProfs.style.color = 'var(--color-danger)';
-                }
-            })
-            .catch(function () {
+            const motivo = inputMotivoProfs ? inputMotivoProfs.value.trim() : '';
+            if (esPasada && !motivo) {
                 flashProfs.style.display = 'inline';
-                flashProfs.textContent = '✗ Error de conexión.';
+                flashProfs.textContent = '✗ Indicá el motivo del cambio.';
                 flashProfs.style.color = 'var(--color-danger)';
-            })
-            .finally(function () {
-                btnGuardarProfs.disabled = false;
-                btnGuardarProfs.textContent = 'Guardar';
-            });
+                if (inputMotivoProfs) inputMotivoProfs.focus();
+                return;
+            }
+            guardarProfesores(false);
         });
     }
 })();

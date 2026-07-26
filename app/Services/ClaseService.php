@@ -327,15 +327,16 @@ class ClaseService
      *
      * @param int $claseId
      * @param int $alumnoId
+     * @param int|null $excluirAsistenciaId Asistencia propia a excluir (re-guardado de la misma clase)
      * @return array [puede_asistir: bool, razon: string|null]
      */
-    public function verificarDisponibilidadAlumno(int $claseId, int $alumnoId): array
+    public function verificarDisponibilidadAlumno(int $claseId, int $alumnoId, ?int $excluirAsistenciaId = null): array
     {
         try {
             $clase = Clase::findOrFail($claseId);
             $alumno = Alumno::findOrFail($alumnoId);
 
-            $this->validarSolapamientoAlumno($alumno, $clase);
+            $this->validarSolapamientoAlumno($alumno, $clase, $excluirAsistenciaId);
 
             return [
                 'puede_asistir' => true,

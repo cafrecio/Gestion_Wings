@@ -53,6 +53,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                     </label>
                     <input type="date" id="fecha_desde" name="fecha_desde"
                            value="{{ old('fecha_desde') }}"
+                           min="{{ date('Y-m-d') }}"
                            class="w-full px-4 py-2.5 text-sm wings-input">
                     @error('fecha_desde') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
                 </div>

@@ -8,11 +8,14 @@ use App\Models\AsistenciaExceso;
 use App\Models\Clase;
 use App\Models\Deporte;
 use App\Models\Grupo;
+use App\Models\Liquidacion;
+use App\Models\LiquidacionDetalle;
 use App\Models\Profesor;
 use App\Services\ClaseService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ClaseWebController extends Controller
@@ -147,7 +150,7 @@ class ClaseWebController extends Controller
         ];
 
         if ($tipo === 'recurrente') {
-            $rules['fecha_desde']   = 'required|date';
+            $rules['fecha_desde']   = 'required|date|after_or_equal:today';
             $rules['fecha_hasta']   = 'required|date|after_or_equal:fecha_desde';
             $rules['dias_semana']   = 'required|array|min:1';
             $rules['dias_semana.*'] = 'in:0,1,2,3,4,5,6';
@@ -164,6 +167,7 @@ class ClaseWebController extends Controller
             'fecha.required'       => 'La fecha es obligatoria.',
             'fecha.after_or_equal' => 'La fecha debe ser hoy o posterior.',
             'fecha_desde.required' => 'La fecha de inicio es obligatoria.',
+            'fecha_desde.after_or_equal' => 'No se puede crear una clase con fecha pasada.',
             'fecha_hasta.required' => 'La fecha de fin es obligatoria.',
             'fecha_hasta.after_or_equal' => 'La fecha hasta debe ser igual o posterior a fecha desde.',
             'dias_semana.required' => 'Debe seleccionar al menos un día de la semana.',
@@ -171,52 +175,78 @@ class ClaseWebController extends Controller
         ]);
 
         $profesoresIds = $request->input('profesores', []);
-        $count = 0;
 
-        if ($tipo === 'recurrente') {
-            $serieId    = Str::uuid()->toString();
-            $diasSemana = array_map('intval', $request->input('dias_semana', []));
-            $desde = Carbon::parse($validated['fecha_desde']);
-            $hasta = Carbon::parse($validated['fecha_hasta']);
+        try {
+            $count = DB::transaction(function () use ($tipo, $validated, $profesoresIds, $request) {
+                $creadas = 0;
 
-            $current = $desde->copy();
-            while ($current->lte($hasta)) {
-                // Carbon dayOfWeek: 0=Sunday, 1=Monday ... 6=Saturday
-                if (in_array($current->dayOfWeek, $diasSemana)) {
+                if ($tipo === 'recurrente') {
+                    $serieId    = Str::uuid()->toString();
+                    $diasSemana = array_map('intval', $request->input('dias_semana', []));
+                    $desde = Carbon::parse($validated['fecha_desde']);
+                    $hasta = Carbon::parse($validated['fecha_hasta']);
+
+                    $current = $desde->copy();
+                    while ($current->lte($hasta)) {
+                        // Carbon dayOfWeek: 0=Sunday, 1=Monday ... 6=Saturday
+                        if (in_array($current->dayOfWeek, $diasSemana)) {
+                            $clase = Clase::create([
+                                'serie_id'    => $serieId,
+                                'grupo_id'    => $validated['grupo_id'],
+                                'fecha'       => $current->format('Y-m-d'),
+                                'hora_inicio' => $validated['hora_inicio'],
+                                'hora_fin'    => $validated['hora_fin'],
+                                'cancelada'   => false,
+                                'validada_para_liquidacion' => false,
+                            ]);
+                            $this->asignarProfesoresValidando($clase, $profesoresIds);
+                            $creadas++;
+                        }
+                        $current->addDay();
+                    }
+                } else {
                     $clase = Clase::create([
-                        'serie_id'    => $serieId,
+                        'serie_id'    => null,
                         'grupo_id'    => $validated['grupo_id'],
-                        'fecha'       => $current->format('Y-m-d'),
+                        'fecha'       => $validated['fecha'],
                         'hora_inicio' => $validated['hora_inicio'],
                         'hora_fin'    => $validated['hora_fin'],
                         'cancelada'   => false,
                         'validada_para_liquidacion' => false,
                     ]);
-                    if (!empty($profesoresIds)) {
-                        $clase->profesores()->sync($profesoresIds);
-                    }
-                    $count++;
+                    $this->asignarProfesoresValidando($clase, $profesoresIds);
+                    $creadas = 1;
                 }
-                $current->addDay();
-            }
-        } else {
-            $clase = Clase::create([
-                'serie_id'    => null,
-                'grupo_id'    => $validated['grupo_id'],
-                'fecha'       => $validated['fecha'],
-                'hora_inicio' => $validated['hora_inicio'],
-                'hora_fin'    => $validated['hora_fin'],
-                'cancelada'   => false,
-                'validada_para_liquidacion' => false,
-            ]);
-            if (!empty($profesoresIds)) {
-                $clase->profesores()->sync($profesoresIds);
-            }
-            $count = 1;
+
+                return $creadas;
+            });
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', $e->getMessage());
         }
 
         return redirect()->route('web.clases.index')
             ->with('success', "{$count} clase(s) creada(s).");
+    }
+
+    /**
+     * Asignar profesores a una clase validando solapamiento de horario.
+     * Lanza excepción (sin asignar nada) si algún profesor ya tiene otra
+     * clase que se solapa en fecha+horario.
+     */
+    private function asignarProfesoresValidando(Clase $clase, array $profesoresIds): void
+    {
+        if (empty($profesoresIds)) {
+            return;
+        }
+
+        foreach ($profesoresIds as $profesorId) {
+            $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, (int) $profesorId);
+            if (!$chequeo['puede_asignar']) {
+                throw new \Exception($chequeo['razon']);
+            }
+        }
+
+        $clase->profesores()->sync($profesoresIds);
     }
 
     public function show(int $id)
@@ -248,10 +278,11 @@ class ClaseWebController extends Controller
 
     public function storeAsistencias(Request $request, int $id)
     {
-        $clase = Clase::findOrFail($id);
+        $clase  = Clase::findOrFail($id);
+        $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
         if ($clase->cancelada) {
-            if ($request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest') {
+            if ($esJson) {
                 return response()->json([
                     'success' => false,
                     'message' => 'La clase está cancelada. No se pueden registrar asistencias.',
@@ -260,8 +291,44 @@ class ClaseWebController extends Controller
             return back()->with('error', 'La clase está cancelada.');
         }
 
+        $esPasada = $clase->fecha->lt(today());
+        $motivoCorreccion = trim((string) $request->input('motivo', ''));
+
+        if ($esPasada && $motivoCorreccion === '') {
+            $mensaje = 'Esta clase ya pasó: indicá el motivo de la corrección.';
+            if ($esJson) {
+                return response()->json(['success' => false, 'message' => $mensaje], 422);
+            }
+            return back()->with('error', $mensaje);
+        }
+
         $items = $request->input('items', []);
 
+        // Primera pasada: validar solapamiento de todos los presentes antes
+        // de guardar nada (todo-o-nada, no queremos guardado parcial).
+        $errores = [];
+        foreach ($items as $item) {
+            $alumnoId = (int) ($item['alumno_id'] ?? 0);
+            $presente = (bool) ($item['presente'] ?? false);
+
+            if ($presente) {
+                $existente = Asistencia::where('clase_id', $clase->id)->where('alumno_id', $alumnoId)->first();
+                $chequeo = $this->claseService->verificarDisponibilidadAlumno($clase->id, $alumnoId, $existente?->id);
+                if (!$chequeo['puede_asistir']) {
+                    $errores[] = $chequeo['razon'];
+                }
+            }
+        }
+
+        if (!empty($errores)) {
+            $mensaje = implode(' ', $errores);
+            if ($esJson) {
+                return response()->json(['success' => false, 'message' => $mensaje], 422);
+            }
+            return back()->with('error', $mensaje);
+        }
+
+        // Segunda pasada: guardar.
         foreach ($items as $item) {
             $alumnoId = (int) ($item['alumno_id'] ?? 0);
             $presente  = (bool) ($item['presente'] ?? false);
@@ -269,9 +336,14 @@ class ClaseWebController extends Controller
                 ? $item['motivo_exceso']
                 : 'EXTRA';
 
+            $datosAsistencia = ['presente' => $presente];
+            if ($esPasada) {
+                $datosAsistencia['motivo_correccion'] = $motivoCorreccion;
+            }
+
             $asistencia = Asistencia::updateOrCreate(
                 ['clase_id' => $clase->id, 'alumno_id' => $alumnoId],
-                ['presente' => $presente]
+                $datosAsistencia
             );
 
             if ($presente) {
@@ -292,7 +364,7 @@ class ClaseWebController extends Controller
             }
         }
 
-        if ($request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest') {
+        if ($esJson) {
             return response()->json(['success' => true, 'message' => 'Asistencias guardadas.']);
         }
 
@@ -397,8 +469,73 @@ class ClaseWebController extends Controller
         }
 
         $clase = Clase::findOrFail($id);
-        $profesoresIds = $request->input('profesores', []);
+        $esPasada = $clase->fecha->lt(today());
+
+        if ($esPasada) {
+            if (!Auth::user()->isAdmin()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta clase ya pasó: solo un administrador puede cambiar sus profesores.',
+                ], 403);
+            }
+
+            $motivo = trim((string) $request->input('motivo', ''));
+            if ($motivo === '') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta clase ya pasó: indicá el motivo del cambio de profesor.',
+                ], 422);
+            }
+        }
+
+        $profesoresIds = array_map('intval', $request->input('profesores', []));
+        $actualesIds   = $clase->profesores()->pluck('profesores.id')->toArray();
+        $removidos     = array_diff($actualesIds, $profesoresIds);
+        $agregados     = array_diff($profesoresIds, $actualesIds);
+
+        // Clase pasada + se saca un profesor que ya cobró esa clase en una
+        // liquidación PAGADA: se avisa al admin, que puede confirmar igual.
+        if ($esPasada && !empty($removidos) && !$request->boolean('confirmar')) {
+            $avisos = [];
+            foreach ($removidos as $profesorId) {
+                $detalle = LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+                    ->where('referencia_id', $clase->id)
+                    ->whereHas('liquidacion', function ($q) use ($profesorId) {
+                        $q->where('profesor_id', $profesorId)
+                          ->where('estado_pago', Liquidacion::ESTADO_PAGO_PAGADA);
+                    })
+                    ->with('liquidacion.profesor')
+                    ->first();
+
+                if ($detalle) {
+                    $liq = $detalle->liquidacion;
+                    $fechaPago = $liq->pagada_fecha ? $liq->pagada_fecha->format('d/m/Y') : '—';
+                    $avisos[] = "Esta clase ya fue pagada en la liquidación #{$liq->id} de {$liq->profesor->nombre_completo}, fecha de pago {$fechaPago}.";
+                }
+            }
+
+            if (!empty($avisos)) {
+                return response()->json([
+                    'success' => false,
+                    'requiere_confirmacion' => true,
+                    'message' => implode(' ', $avisos) . ' ¿Confirmás el cambio de todos modos?',
+                ], 409);
+            }
+        }
+
+        // Validar solapamiento solo para los profesores nuevos que se agregan.
+        foreach ($agregados as $profesorId) {
+            $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, $profesorId);
+            if (!$chequeo['puede_asignar']) {
+                return response()->json(['success' => false, 'message' => $chequeo['razon']], 422);
+            }
+        }
+
         $clase->profesores()->sync($profesoresIds);
+
+        if ($esPasada) {
+            $clase->update(['motivo_cambio_profesor' => $motivo]);
+        }
 
         $textoProfesores = $clase->profesores()->orderBy('apellido')->get()
             ->map(fn($p) => $p->apellido . ', ' . $p->nombre)

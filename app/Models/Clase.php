@@ -21,6 +21,7 @@ class Clase extends Model
         'validada_para_liquidacion',
         'cancelada',
         'motivo_cancelacion',
+        'motivo_cambio_profesor',
     ];
 
     protected $casts = [

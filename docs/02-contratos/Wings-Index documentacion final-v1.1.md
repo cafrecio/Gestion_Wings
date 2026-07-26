@@ -82,8 +82,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 4) Clases + Asistencias (control operativo)
 
 ### 4.1 Contrato
-- ⏳ `Wings-Contrato-Clases-Asistencias-V1.md`  
-  (Solapamientos, profesores múltiples, alumno no puede estar en dos clases simultáneas)
+- ✅ `docs/02-contratos/Wings-Contrato-Clases-Asistencias-V1.md` (2026-07-26, vía cuestionario I3.0)
 
 ### 4.2 ER
 - ⏳ `Wings-ER-Clases-Asistencias-V1.md`  
