@@ -10,6 +10,8 @@
 
 ## 3.a Registro de pago de cuota
 
+✅ **Nota (2026-07-26):** este es el único flujo de pago vigente. Existió antes un "flujo de pago regular" (tabla `pagos` con `plan_id`, `mes`/`año`, `regla_primer_pago_id`, `forma_pago_id`, estado en `pagado/parcial/adeuda`), implementado en `PagoService.php` y alcanzable solo por la API. Quedó **legacy**: la API está deshabilitada desde S2, `forma_pago_id` se eliminó en D4 y esos valores de estado se eliminaron del ENUM en D6. `PagoService.php` sigue en el repo pero sin consumidor real. Este contrato documenta exclusivamente el flujo de cuota (el que se usa hoy).
+
 El pago de cuota puede realizarse desde:
 - Flujo OPERATIVO (impacta en CajaOperativa)
 - Flujo ADMIN (impacta directo en Cashflow)
@@ -110,13 +112,11 @@ Admin:
 
 ## 3.h Estado del pago
 
-Valores oficiales en columna estado de pagos:
-- 'pagado'
-- 'parcial'
-- 'adeuda'
-- 'COMPLETADO' (flujo de cuota)
+✅ **Corregido (2026-07-26):** valor real de la columna `estado` de `pagos`, tras la limpieza de **D6.0**:
+- `'COMPLETADO'` (pago de cuota, el único flujo vigente)
+- `'ANULADO'`
 
-La columna se mantiene como ENUM en base de datos.
+Los valores `'pagado'`, `'parcial'`, `'adeuda'` **ya no existen** en el ENUM real de la base de datos. Pertenecían al "flujo de pago regular" (ver nota de la sección 3.a más abajo), que es **legacy** — no se usa desde que existe el flujo de cuota vía `DeudaCuota`/`PagoCuotaService`. La columna se mantiene como ENUM en base de datos.
 
 ---
 

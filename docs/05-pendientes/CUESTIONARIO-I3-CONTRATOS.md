@@ -8,12 +8,14 @@ Fecha: 2026-07-26.
 
 ## A) Contradicciones entre versiones — hay que dirimir cuál gana
 
-### A1. `alumno_planes.activo` — ER V2 vs esquema real
+> **A1, A2, A3, A5 respondidas y aplicadas (2026-07-26).** A4 y A6 y todo B/C quedan pendientes: se retoman **módulo por módulo** (un tema del índice a la vez, con su propio cuestionario), no en un solo documento.
+
+### A1. `alumno_planes.activo` — ER V2 vs esquema real ✅ RESUELTO
 El ER V2 (`Wings-ER-Alumno-Grupo-Deporte-Deuda-V2.md`) dice que `activo` es `bool` NOT NULL con `UNIQUE(alumno_id, activo)`. El esquema real, desde el fix de **D1.0**, tiene `activo` NULLABLE: los planes cerrados pasan a `NULL` (no a `false`) para no chocar entre sí en el índice único.
 
 **Pregunta:** ¿Actualizamos el ER V2 para reflejar el estado real (nullable + planes cerrados en NULL), dejando una nota de por qué (el UNIQUE con NOT NULL rompía el segundo cambio de plan)? ¿O hay alguna razón de negocio para preferir el diseño viejo que no contemplé?
 
-### A2. `pagos.estado` y `forma_pago_id` — ambos V1 (ER y Contrato) vs código real
+### A2. `pagos.estado` y `forma_pago_id` — ambos V1 (ER y Contrato) vs código real ✅ RESUELTO (confirmado: era legacy)
 Los dos documentos de "cuotas-deudas-pagos" V1 describen:
 - `pagos.estado` ENUM con 4 valores: `pagado | parcial | adeuda | COMPLETADO`.
 - Un campo `forma_pago_id` vigente en `pagos`.
@@ -26,7 +28,7 @@ Código real, hoy:
 
 **Pregunta:** ¿Confirmás que el "flujo de pago regular" descrito en el V1 es un modelo **superado**, reemplazado enteramente por el flujo de cuota vía `DeudaCuota`/`PagoCuotaService`? Si es así, reescribo el contrato para un solo flujo y anoto el viejo como histórico. Si en cambio ese flujo regular sigue vigente para algún caso de uso real que no estoy viendo, decime cuál para no borrarlo del contrato por error.
 
-### A3. `tipo_liquidacion`: "POR_HORA/POR_COMISION" vs "HORA/COMISION"
+### A3. `tipo_liquidacion`: "POR_HORA/POR_COMISION" vs "HORA/COMISION" ✅ RESUELTO
 `LIQUIDACIONES_CONTRATO_V2.md` usa `POR_HORA`/`POR_COMISION` en todo su texto. El ER V2 de alumno-grupo-deporte-deuda dice `HORA | COMISION` (sin prefijo). El ENUM real en la migración y las constantes del modelo `Deporte` son `HORA`/`COMISION`.
 
 **Pregunta:** ¿Corrijo el texto de `LIQUIDACIONES_CONTRATO_V2.md` para usar los valores reales (`HORA`/`COMISION`), ya que hoy contradice tanto al código como al otro contrato?
@@ -36,7 +38,7 @@ Código real, hoy:
 
 **Pregunta:** ¿Ampliamos este contrato para cubrir también el flujo de pago (ya implementado), o preferís un documento separado ("Pago de Liquidaciones") para no tocar un contrato que ya está "cerrado" en lo suyo?
 
-### A5. `User.rol` en el ER de Caja-Cashflow V4 no incluye PROFESOR
+### A5. `User.rol` en el ER de Caja-Cashflow V4 no incluye PROFESOR ✅ RESUELTO
 `Wings-ER-Caja-Cashflow-V4.md` documenta `User.rol (enum: ADMIN | OPERATIVO)`. El modelo real tiene tres roles (`ADMIN | OPERATIVO | PROFESOR`), documentados aparte en `PERMISOS-ROLES.md`.
 
 **Pregunta:** ¿Agrego PROFESOR al ER aclarando que no participa de Caja/Cashflow (por eso quedó afuera), o lo dejamos así porque este ER es específico del caso de uso y no pretende documentar el modelo `User` completo?

@@ -83,11 +83,13 @@ Relaciones:
 - plan_id (FK → grupo_planes.id)
 - fecha_desde (date)
 - fecha_hasta (date, nullable)
-- activo (bool)
+- activo (bool, **nullable**) ✅ (corregido tras D1.0)
 - created_at, updated_at
 
 Restricción:
 - UNIQUE(alumno_id, activo)  (solo 1 plan activo por alumno)
+
+✅ **Corrección post D1.0 (2026-07-26):** `activo` es NULLABLE, no `NOT NULL`. Cuando se cierra un plan (deja de estar activo), pasa a `NULL`, no a `false`. Motivo: con `activo` `NOT NULL` y `UNIQUE(alumno_id, activo)`, el segundo cambio de plan de un mismo alumno chocaba contra el primer plan ya cerrado (dos filas con `activo=false` para el mismo `alumno_id` violan el único). MySQL permite múltiples `NULL` en un índice único, así que los planes cerrados en `NULL` conviven sin problema, y el único activo (`activo=true`) sigue siendo garantizado por el mismo índice. Ver migración `2026_07_19_140000_alumno_planes_activo_nullable.php` y `docs/07-evaluacion/datos/REPORTE-DATOS.md` D1.0.
 
 Relaciones:
 - AlumnoPlan N ── 1 Alumno

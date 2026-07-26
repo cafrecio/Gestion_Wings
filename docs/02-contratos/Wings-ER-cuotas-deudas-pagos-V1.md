@@ -35,20 +35,20 @@ Relaciones:
 - id (PK)
 - alumno_id (FK → alumnos.id)
 
-**Campos del flujo “pago regular” (existen en el mismo registro):**
-- plan_id (FK → grupo_planes.id, NULLABLE)  
+**Campos del flujo “pago regular” legacy (existen en el mismo registro, sin uso real):**
+- plan_id (FK → grupo_planes.id, NULLABLE)
 - regla_primer_pago_id (FK → reglas_primer_pago.id, nullable)
 - mes (tinyint)
 - anio (smallint)
 - monto_base (decimal 10,2)
 - porcentaje_aplicado (decimal 5,2)
 - monto_final (decimal 10,2)
-- forma_pago_id (FK → formas_pago.id, NULLABLE)
+- ~~forma_pago_id~~ ✅ **eliminado (D4.0)** — columna, FK y tabla `formas_pago` ya no existen.
 
-**Estado (compartido por ambos flujos):**
-- estado (ENUM: `pagado` | `parcial` | `adeuda` | `COMPLETADO`, default `pagado`)
+**Estado:**
+- estado (ENUM: `COMPLETADO` | `ANULADO`) ✅ **corregido (D6.0)** — antes admitía también `pagado`/`parcial`/`adeuda`, valores legacy ya eliminados del ENUM real.
 
-**Campos de negocio (para ambos flujos):**
+**Campos de negocio:**
 - fecha_pago (date)
 - observaciones (text, nullable)
 - created_at, updated_at
@@ -58,8 +58,8 @@ Relaciones:
 - Pago N ── N DeudaCuota (vía pivote)
 
 Nota importante (para entender el modelo sin mezclar casos):
-- Este caso de uso usa el registro `pagos` con `estado='COMPLETADO'` y típicamente `plan_id=NULL`, `forma_pago_id=NULL`.
-- El “pago regular” (otro flujo) usa `estado` en (`pagado`,`parcial`,`adeuda`) y puede tener plan/forma.
+- Este caso de uso (Cuotas) usa el registro `pagos` con `estado='COMPLETADO'` y `plan_id=NULL`.
+- El “pago regular” (`plan_id`, `mes`/`anio`, etc.) es el flujo **legacy** de `PagoService.php`, solo alcanzable por la API — deshabilitada desde S2. No tiene consumidor real hoy; se documenta acá solo para explicar por qué esos campos siguen en la tabla.
 
 ---
 

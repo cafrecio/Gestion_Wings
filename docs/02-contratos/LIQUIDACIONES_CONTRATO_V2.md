@@ -7,7 +7,7 @@
 El **Deporte** es el eje del modelo. Define:
 
 - `nombre`: Nombre del deporte
-- `tipo_liquidacion`: Enum (`POR_HORA` | `POR_COMISION`)
+- `tipo_liquidacion`: Enum (`HORA` | `COMISION`)
 - `activo`: Boolean
 
 ```
@@ -95,7 +95,7 @@ El **Deporte** es el eje del modelo. Define:
 
 ## 3. Lógica de Cálculo por Tipo
 
-### 3.1 Liquidación POR_HORA
+### 3.1 Liquidación HORA
 
 **Premisa:** El profesor cobra por cada clase válida que dictó.
 
@@ -123,7 +123,7 @@ Asistencias: 5 alumnos presentes
 → Liquidación María: +$1200 por esta clase
 ```
 
-### 3.2 Liquidación POR_COMISION
+### 3.2 Liquidación COMISION
 
 **Premisa:** El profesor cobra comisión por alumnos que:
 1. Pagaron en el período
@@ -285,7 +285,7 @@ El monto viene del PAGO del alumno.
 
 ## 7. Casos de Uso
 
-### Caso 1: Natación (POR_HORA)
+### Caso 1: Natación (HORA)
 ```
 Deporte: Natación (tipo=HORA)
 Profesor: Laura (valor_hora=1500)
@@ -295,7 +295,7 @@ Liquidación:
 - 10 clases × $1500 = $15.000
 ```
 
-### Caso 2: Fútbol (POR_COMISION)
+### Caso 2: Fútbol (COMISION)
 ```
 Deporte: Fútbol (tipo=COMISION)
 Profesor: Carlos (porcentaje=10%)

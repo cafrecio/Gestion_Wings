@@ -106,7 +106,9 @@
 
 - id (PK)
 - name / email / etc
-- rol (enum: ADMIN | OPERATIVO)
+- rol (enum: ADMIN | OPERATIVO | PROFESOR) ✅ (corregido — falta PROFESOR)
+
+✅ **Corrección (2026-07-26):** el rol real incluye PROFESOR (ver `docs/02-contratos/PERMISOS-ROLES.md`, fuente de verdad de roles). Se documenta acá para que el ER quede completo, pero **PROFESOR no participa de Caja ni de Cashflow** — su dominio es exclusivamente Clases y Asistencias. Todo lo demás de este documento (apertura, cierre, validación, rechazo) es exclusivo de OPERATIVO/ADMIN, sin cambios.
 
 ---
 
