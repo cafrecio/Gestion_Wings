@@ -204,9 +204,9 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)">Con la API apagada (B4) es imposible que un pago entre por ahí. PagoService.php sigue existiendo como código muerto — eliminarlo es limpieza (I7.0), no urgente.</p></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B2.0</span><span class="ftitle">⚠️ Riesgo neutralizado — Dos resoluciones de "revisión de cobranza" con vocabularios distintos</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">B2.0</span><span class="ftitle">✅ RESUELTO — Dos resoluciones de "revisión de cobranza" con vocabularios distintos</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">La API usaba GENERAR_DEUDA/MARCAR_INACTIVO (sin guardar nota/usuario/fecha); la web usa CONTINUA/INACTIVO (completo).</p><p class="where">CobranzaEstadoService:180 vs RevisionCobranzaService</p>
-      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)">Con la API apagada, ya no puede crearse un registro con el vocabulario viejo. resolverRevision() queda como código muerto (I7.0).</p></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-26</b> (I7.0): <code>resolverRevision()</code> eliminado junto con su único caller en <code>CobranzaController</code>, la ruta API y el FormRequest que solo él usaba. <code>RevisionCobranzaService</code> (web) queda como única implementación.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">B3.0</span><span class="ftitle">✅ RESUELTO — API AlumnoController a medio construir pero expuesto</span><span class="chev">▶</span></div>
@@ -439,9 +439,9 @@
       <ul class="sols"><li class="sol rec"><span class="code">SI6.1 ⭐</span><span>Verificar que migrate:fresh == dump; si no, corregir migraciones. Dump solo para datos.</span></li><li class="sol"><span class="code">SI6.2</span><span>Tratar el dump como única fuente (pierde trazabilidad).</span></li></ul></div>
     </div>
 
-    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">I7.0</span><span class="ftitle">Vista muerta y código legacy sin podar</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">I7.0</span><span class="ftitle">✅ RESUELTO — Vista muerta y código legacy sin podar</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">caja/show.blade.php (ninguna ruta la usa, con el patrón viejo de totales), CobranzaEstadoService::resolverRevision (legacy API) y la columna forma_pago_id suman ruido.</p><p class="where">caja/show · CobranzaEstadoService · pagos.forma_pago_id</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SI7.1 ⭐</span><span>Barrido de limpieza: eliminar la vista muerta y el método legacy; decidir la columna.</span></li><li class="sol"><span class="code">SI7.2</span><span>Dejarlo (acumula ruido).</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-26:</b> vista eliminada (confirmado que ninguna ruta la renderiza — <code>web.cajas.show</code> redirige a <code>web.caja.detalle</code>). <code>resolverRevision()</code> eliminado junto con su caller, ruta API y FormRequest asociados (ver <b>B2.0</b>). La columna <code>forma_pago_id</code> ya estaba resuelta por <b>D4</b>. Verificado con <code>php -l</code> y <code>route:list</code> sin errores.</p></div>
     </div>
   </section>
 

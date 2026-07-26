@@ -56,12 +56,13 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 - SI6.1 ⭐ Verificar que `migrate:fresh` produce un esquema idéntico al dump; si no, corregir las migraciones. El dump queda solo para datos, las migraciones para esquema.
 - SI6.2 Abandonar migraciones y tratar el dump como única fuente (pierde trazabilidad; no recomendado).
 
-### I7.0 — Vista muerta y código legacy sin podar
+### I7.0 — Vista muerta y código legacy sin podar — ✅ RESUELTO (2026-07-26)
 **Severidad:** Baja
 **Dónde:** `resources/views/caja/show.blade.php` (ninguna ruta la renderiza); `CobranzaEstadoService::resolverRevision()` (no llamado desde ningún controller web); columna `pagos.forma_pago_id` (el campo se quitó del flujo pero la columna quedó).
 **Qué pasa:** Código y vistas que ya no se usan pero siguen apareciendo en búsquedas y auditorías, sumando ruido y confundiendo (la vista muerta tiene el patrón viejo de totales mal sumados).
+**Resolución:** las tres cosas ya estaban muertas por caminos distintos y se confirmó antes de tocar nada. `caja/show.blade.php` eliminada (la única ruta que mencionaba "show" para cajas, `web.cajas.show`, redirige a `web.caja.detalle` y nunca renderizó esta vista). `CobranzaEstadoService::resolverRevision()` eliminado junto con su único caller (`CobranzaController::resolverRevision()`, API), la ruta API asociada y el FormRequest que solo él usaba (`ResolverRevisionCobranzaRequest`) — todo alcanzable únicamente por la API, ya apagada desde S2. La columna `pagos.forma_pago_id` ya se había eliminado en **D4** (columna, FK y tabla completas). `php -l` y `route:list` verificados sin errores tras el barrido.
 **Soluciones:**
-- SI7.1 ⭐ Barrido de limpieza: eliminar la vista muerta y el método legacy; decidir si la columna `forma_pago_id` se conserva por histórico o se migra fuera.
+- SI7.1 ⭐ Barrido de limpieza: eliminar la vista muerta y el método legacy; decidir si la columna `forma_pago_id` se conserva por histórico o se migra fuera. Aplicado.
 - SI7.2 Dejarlo (acumula ruido).
 
 ## Tabla resumen
@@ -74,7 +75,7 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 | I4 | Alta | Seeder irreal esconde bugs | Rehacer con todos los flujos reales (SI4.1) |
 | I5 | Media | Timezone disperso | Fijar TZ en config + uso uniforme (SI5.1) |
 | I6 | Media | Esquema: dump vs migraciones sin verificar | Verificar migrate:fresh == dump (SI6.1) |
-| I7 | Baja | Vista muerta y código legacy | Barrido de limpieza (SI7.1) |
+| I7 | Baja | Vista muerta y código legacy | ✅ Resuelto — barrido de limpieza (SI7.1) |
 
 ---
 

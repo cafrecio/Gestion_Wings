@@ -195,7 +195,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::prefix('cobranza')->group(function () {
             Route::get('/dashboard', [CobranzaController::class, 'dashboard']);
             Route::get('/revision', [CobranzaController::class, 'indexRevision']);
-            Route::post('/revision/{id}/resolver', [CobranzaController::class, 'resolverRevision']);
         });
 
         // Pago de cuota - Admin

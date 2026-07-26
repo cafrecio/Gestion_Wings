@@ -11,9 +11,9 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 - SB1.1 ⭐ Unificar en `PagoCuotaService` (el que tiene la lógica correcta y probada). Que `PagoController` de la API lo use, o directamente deshabilitar la API de pagos si no se consume (ver B4). Eliminar `PagoService`.
 - SB1.2 Si la API debe seguir viva, hacer que ambos controllers deleguen en un único service y borrar el duplicado.
 
-### B2.0 — Dos implementaciones de "resolver revisión de cobranza" con vocabularios distintos — ⚠️ riesgo neutralizado, limpieza pendiente
+### B2.0 — Dos implementaciones de "resolver revisión de cobranza" con vocabularios distintos — ✅ RESUELTO (2026-07-26)
 **Severidad:** Alta
-**Estado:** La vía API (`CobranzaController`) ya no es alcanzable (fix S2). No puede volver a crearse un registro con el vocabulario viejo. `CobranzaEstadoService::resolverRevision()` sigue en el código sin usar (I7.0).
+**Estado:** La vía API (`CobranzaController`) ya no era alcanzable (fix S2). Al hacer el barrido de limpieza de I7.0 se eliminó directamente `CobranzaEstadoService::resolverRevision()`, su único caller (`CobranzaController::resolverRevision()`), la ruta API asociada y el `ResolverRevisionCobranzaRequest` que solo él usaba. Ya no puede crearse un registro con el vocabulario viejo porque el código que lo hacía no existe más. `RevisionCobranzaService` (web) queda como única implementación.
 **Dónde:** `CobranzaEstadoService::resolverRevision()` (`app/Services/CobranzaEstadoService.php:180`, usado por `CobranzaController` API con acciones `GENERAR_DEUDA`/`MARCAR_INACTIVO`) vs `RevisionCobranzaService` (usado por el flujo web con acciones `CONTINUA`/`INACTIVO`).
 **Qué pasa:** La misma decisión de negocio (¿el alumno posible-inactivo sigue o no?) tiene dos implementaciones con nombres de acción diferentes y comportamiento distinto: la de la API no guarda nota, ni usuario, ni timestamp de la resolución; la web sí. Según por dónde se resuelva, queda distinta traza. Riesgo de datos incoherentes en la misma tabla `alumnos_revision_cobranza`.
 **Soluciones:**
@@ -78,7 +78,7 @@ Auditoría de rutas (web 137 / API 131), controllers (44), services (15) y reque
 |----|-----------|--------|---------------|
 | B4 | Media | API entera duplica la web sin consumidor | ✅ Resuelto — api.php deshabilitada (SB4.1) |
 | B1 | Alta | Dos sistemas de pago (API PagoService vs web PagoCuotaService) | ⚠️ Neutralizado (API off) — PagoService queda como código muerto |
-| B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | ⚠️ Neutralizado (API off) — resolverRevision() queda como código muerto |
+| B2 | Alta | Dos resoluciones de revisión con vocabularios distintos | ✅ Resuelto — resolverRevision() eliminado junto con su ruta y FormRequest (I7.0) |
 | B3 | Media | API AlumnoController a medias pero expuesto | ✅ Resuelto — api.php deshabilitada |
 | B5 | Media | Validación unicidad case-insensitive copiada x5 | ✅ Resuelto — Rule NombreUnico única fuente de verdad (SB5.1) |
 | B6 | Baja | Timezone/fecha disperso | ✅ Resuelto — DB fija time_zone=-03:00 (riesgo real era MySQL, no PHP) |

@@ -3,11 +3,9 @@
 namespace App\Services;
 
 use App\Models\Alumno;
-use App\Models\AlumnoRevisionCobranza;
 use App\Models\DeudaCuota;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 class CobranzaEstadoService
 {
@@ -168,58 +166,6 @@ class CobranzaEstadoService
             'por_deporte' => array_values($porDeporte),
             'por_grupo' => array_values($porGrupo),
         ];
-    }
-
-    /**
-     * Resolver un item de la cola de revisión.
-     *
-     * @param int $revisionId
-     * @param string $accion GENERAR_DEUDA | MARCAR_INACTIVO
-     * @return AlumnoRevisionCobranza
-     */
-    public function resolverRevision(int $revisionId, string $accion): AlumnoRevisionCobranza
-    {
-        return DB::transaction(function () use ($revisionId, $accion) {
-            $revision = AlumnoRevisionCobranza::findOrFail($revisionId);
-
-            if ($revision->estado_revision !== AlumnoRevisionCobranza::ESTADO_PENDIENTE) {
-                throw new \Exception("Esta revisión ya fue resuelta.");
-            }
-
-            switch ($accion) {
-                case 'GENERAR_DEUDA':
-                    $alumnoPlan = $this->pagoCuotaService->obtenerPlanParaPeriodo(
-                        $revision->alumno_id,
-                        $revision->periodo_objetivo
-                    );
-
-                    if (!$alumnoPlan || !$alumnoPlan->plan) {
-                        throw new \Exception(
-                            "Alumno sin plan aplicable para el período {$revision->periodo_objetivo}."
-                        );
-                    }
-
-                    $this->pagoCuotaService->crearDeudaSiNoExiste(
-                        $revision->alumno_id,
-                        $revision->periodo_objetivo,
-                        $alumnoPlan->plan->precio_mensual
-                    );
-                    break;
-
-                case 'MARCAR_INACTIVO':
-                    Alumno::where('id', $revision->alumno_id)
-                        ->update(['activo' => false]);
-                    break;
-
-                default:
-                    throw new \Exception("Acción no válida: {$accion}");
-            }
-
-            $revision->estado_revision = AlumnoRevisionCobranza::ESTADO_RESUELTO;
-            $revision->save();
-
-            return $revision;
-        });
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ResolverRevisionCobranzaRequest;
 use App\Models\AlumnoRevisionCobranza;
 use App\Services\CobranzaEstadoService;
 use Illuminate\Http\JsonResponse;
@@ -99,29 +98,4 @@ class CobranzaController extends Controller
         ]);
     }
 
-    /**
-     * Resolver una revisión de cobranza.
-     *
-     * POST /api/admin/cobranza/revision/{id}/resolver
-     */
-    public function resolverRevision(ResolverRevisionCobranzaRequest $request, int $id): JsonResponse
-    {
-        try {
-            $revision = $this->cobranzaService->resolverRevision(
-                $id,
-                $request->validated()['accion']
-            );
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Revisión resuelta exitosamente.',
-                'data' => $revision->load('alumno'),
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'error' => ['code' => 'ERROR', 'message' => $e->getMessage()],
-            ], 422);
-        }
-    }
 }
