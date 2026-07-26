@@ -221,13 +221,23 @@
 
     </aside>
 
+    {{-- Overlay: solo visible en mobile cuando el sidebar está abierto --}}
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
     {{-- ── Columna principal ────────────────────────────────────────────── --}}
     <div class="ds-main">
 
         {{-- Topbar --}}
         <div class="ds-topbar">
             @auth
-                <span class="text-sm text-[var(--color-text-muted)]">{{ Auth::user()->name }}</span>
+                <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ Auth::user()->name }}</span>
+                </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-ds.button variant="ghost" type="submit">Salir</x-ds.button>
@@ -325,6 +335,36 @@
             form.querySelectorAll('button[type=submit], input[type=submit]')
                 .forEach(function (b) { b.disabled = false; });
         });
+    });
+})();
+
+/* ── menú móvil: sidebar colapsable con botón hamburguesa (UP1.0) ── */
+(function () {
+    var toggle  = document.getElementById('ds-menu-toggle');
+    var sidebar = document.querySelector('.ds-sidebar');
+    var overlay = document.getElementById('ds-sidebar-overlay');
+    if (!toggle || !sidebar || !overlay) return;
+
+    function abrir() {
+        sidebar.classList.add('ds-sidebar--open');
+        overlay.classList.add('ds-sidebar-overlay--visible');
+    }
+    function cerrar() {
+        sidebar.classList.remove('ds-sidebar--open');
+        overlay.classList.remove('ds-sidebar-overlay--visible');
+    }
+
+    toggle.addEventListener('click', function () {
+        sidebar.classList.contains('ds-sidebar--open') ? cerrar() : abrir();
+    });
+    overlay.addEventListener('click', cerrar);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') cerrar();
+    });
+    // Cerrar automáticamente al tocar un link del menú (si no, queda
+    // tapando la pantalla después de navegar).
+    sidebar.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', cerrar);
     });
 })();
 

@@ -608,6 +608,62 @@ a:hover {
     font-size: 12px;
 }
 
+/* Botón hamburguesa: solo visible en mobile (ver media query abajo) */
+.ds-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-text);
+    flex-shrink: 0;
+    padding: 0;
+}
+
+/* ── Responsive: sidebar colapsable detrás de hamburguesa (UP1.0 / F6.0) ──
+   Antes .ds-layout era un grid de 240px fijos siempre; en celular el
+   contenido quedaba apretado en el resto y forzaba scroll horizontal.
+   Debajo de 768px el sidebar pasa a ser un drawer off-canvas. ──────────── */
+@media (max-width: 768px) {
+    .ds-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ds-sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: 240px;
+        max-width: 85vw;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .ds-sidebar.ds-sidebar--open {
+        transform: translateX(0);
+    }
+
+    .ds-sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+    }
+
+    .ds-sidebar-overlay.ds-sidebar-overlay--visible {
+        display: block;
+    }
+
+    .ds-menu-toggle {
+        display: inline-flex;
+    }
+}
+
 /* Logo en sidebar oscuro: pill blanco centrado */
 .ds-sidebar .ds-logo-wrap {
     display: flex;
