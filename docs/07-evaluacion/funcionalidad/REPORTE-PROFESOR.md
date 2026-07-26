@@ -22,10 +22,11 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 - SUP1.1 ⭐ Que en el celular el menú se esconda detrás de un botón (hamburguesa) y la lista de alumnos ocupe toda la pantalla.
 - SUP1.2 Que por lo menos las tarjetas de alumnos y el botón de guardar se agranden y no haya que mover la pantalla para los costados.
 
-### UP2.0 — No veo directo la clase de hoy
+### UP2.0 — No veo directo la clase de hoy — ✅ RESUELTO (2026-07-21)
 **Vista:** Clases (listado)
 **Severidad:** Media
-**Qué me pasa:** Cuando entro me aparecen todas mis clases y tengo que buscar cuál es la de ahora. Con los pibes esperando, quiero que lo primero sea la clase que estoy por dar y su lista.
+**Resolución (SUP2.1):** las clases de hoy ya aparecían arriba de todo, pero el problema real era que se mezclaban las de TODOS los profesores. Ahora "Tus clases de hoy" muestra solo las mías, arriba; las de otros profes quedan en "Otras clases de hoy (N)" colapsado debajo, sin ocultarlas. Admin y operativo ven exactamente lo mismo que antes, sin cambios.
+**Qué me pasaba:** Cuando entraba me aparecían todas las clases de hoy de todos los profesores y tenía que buscar cuál era la mía. Con los pibes esperando, quería que lo primero fuera mi clase.
 **Soluciones:**
 - SUP2.1 ⭐ Que arriba de todo aparezca "Tu clase de ahora / de hoy" con el botón de tomar lista, y las demás abajo.
 - SUP2.2 Ordenar la lista con las de hoy primero y resaltadas.
@@ -49,6 +50,6 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 | ID | Severidad | Vista | Problema |
 |----|-----------|-------|----------|
 | UP1 | Alta | Todas | ✅ Resuelto — sidebar colapsable con hamburguesa (SUP1.1) |
-| UP2 | Media | Clases | No veo directo la clase de hoy |
+| UP2 | Media | Clases | ✅ Resuelto — "Tus clases de hoy" separadas de las de otros (SUP2.1) |
 | UP3 | Baja | Clase detalle | Botones que no son para mí me estorban |
 | UP4 | Baja | Clase detalle | Falta confirmación clara de que la lista se guardó |
