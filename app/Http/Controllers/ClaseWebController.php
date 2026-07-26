@@ -339,6 +339,14 @@ class ClaseWebController extends Controller
 
     public function toggleCancelada(Request $request, int $id)
     {
+        // Cancelar/reactivar una clase es acción de admin/operativo (dominio
+        // "clases" de PERMISOS-ROLES.md), no del profesor. El botón ya estaba
+        // oculto para el profesor en la vista, pero el endpoint no lo
+        // exigía — cualquiera podía llamarlo directo. UP3.0 / S9-like gap.
+        if (Auth::user()->isProfesor()) {
+            abort(403, 'No tenés permiso para esta acción.');
+        }
+
         $clase = Clase::findOrFail($id);
         $esJson = $request->expectsJson() || $request->header('X-Requested-With') === 'XMLHttpRequest';
 
@@ -382,6 +390,12 @@ class ClaseWebController extends Controller
 
     public function actualizarProfesores(Request $request, int $id)
     {
+        // Reasignar profesores es acción de admin/operativo, no del propio
+        // profesor. Mismo motivo que toggleCancelada() arriba.
+        if (Auth::user()->isProfesor()) {
+            abort(403, 'No tenés permiso para esta acción.');
+        }
+
         $clase = Clase::findOrFail($id);
         $profesoresIds = $request->input('profesores', []);
         $clase->profesores()->sync($profesoresIds);

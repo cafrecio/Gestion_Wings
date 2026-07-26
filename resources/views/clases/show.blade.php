@@ -61,7 +61,7 @@
                         <span style="opacity:0.5;">Sin profesor asignado</span>
                     @endif
                 </span>
-                @if(!$clase->cancelada)
+                @if(!$clase->cancelada && !$esProfesor)
                     <button id="btn-modificar-profesores"
                             style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
                                    border:1px solid var(--color-border); background:transparent;
@@ -368,10 +368,16 @@
     </div>
 @endforelse
 
+{{-- UP4.0: cartel grande e imposible de perder al guardar asistencias --}}
+<div id="toast-asistencias"
+     style="display:none; position:fixed; top:16px; left:50%; transform:translateX(-50%);
+            z-index:200; padding:14px 28px; border-radius:var(--radius-card);
+            font-size:1rem; font-weight:700; text-align:center; max-width:90vw;
+            box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>
+
 {{-- Botón guardar asistencias --}}
 @if($alumnos->isNotEmpty())
 <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px;">
-    <span id="flash-asistencias" style="display:none; font-size:0.82rem; font-weight:600;"></span>
     <button id="btn-guardar-asistencias"
             {{ $clase->cancelada ? 'disabled' : '' }}
             style="display:inline-flex; align-items:center; justify-content:center;
@@ -434,9 +440,23 @@
 
     // ── Guardar asistencias ─────────────────────────────────────────────────
     const btnGuardar = document.getElementById('btn-guardar-asistencias');
+    const toast       = document.getElementById('toast-asistencias');
+    let toastTimeout  = null;
+
+    function mostrarToast(mensaje, ok) {
+        if (!toast) return;
+        clearTimeout(toastTimeout);
+        toast.textContent = (ok ? '✓ ' : '✗ ') + mensaje;
+        toast.style.background = ok ? 'var(--color-success)' : 'var(--color-danger)';
+        toast.style.color = '#fff';
+        toast.style.display = 'block';
+        toastTimeout = setTimeout(function () {
+            toast.style.display = 'none';
+        }, ok ? 3000 : 4500);
+    }
+
     if (btnGuardar) {
         btnGuardar.addEventListener('click', function () {
-            const flash = document.getElementById('flash-asistencias');
             const items = [];
             document.querySelectorAll('.alumno-asistencia-card').forEach(function (card) {
                 const aid    = card.dataset.alumnoId;
@@ -446,7 +466,6 @@
             });
             btnGuardar.disabled = true;
             btnGuardar.textContent = '…';
-            flash.style.display = 'none';
 
             fetch('/clases/' + claseId + '/asistencias', {
                 method: 'POST',
@@ -455,14 +474,10 @@
             })
             .then(function (r) { return r.json(); })
             .then(function (d) {
-                flash.style.display = 'inline';
-                flash.textContent = d.success ? ('✓ ' + d.message) : ('✗ ' + (d.message || 'Error.'));
-                flash.style.color = d.success ? 'var(--color-success)' : 'var(--color-danger)';
+                mostrarToast(d.success ? (d.message || 'Lista guardada.') : (d.message || 'Error.'), !!d.success);
             })
             .catch(function () {
-                flash.style.display = 'inline';
-                flash.textContent = '✗ Error de conexión.';
-                flash.style.color = 'var(--color-danger)';
+                mostrarToast('Error de conexión.', false);
             })
             .finally(function () {
                 btnGuardar.disabled = false;
