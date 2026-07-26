@@ -30,7 +30,7 @@ class CobranzaEstadoService
      */
     public function estadoAlumno(int $alumnoId, ?Carbon $fecha = null): array
     {
-        $fecha = $fecha ?? Carbon::now('America/Argentina/Buenos_Aires');
+        $fecha = $fecha ?? Carbon::now();
         $periodoVigente = $fecha->format('Y-m');
         $diaActual = (int) $fecha->format('d');
 
@@ -91,7 +91,7 @@ class CobranzaEstadoService
         }
 
         $alumnos = $query->get();
-        $fecha = Carbon::now('America/Argentina/Buenos_Aires');
+        $fecha = Carbon::now();
 
         $resultado = $alumnos->map(function (Alumno $alumno) use ($fecha) {
             $info = $this->calcularEstadoDesdeDeudas($alumno->deudaCuotas, $fecha);
@@ -113,7 +113,7 @@ class CobranzaEstadoService
      */
     public function resumenDashboard(?Carbon $fecha = null): array
     {
-        $fecha = $fecha ?? Carbon::now('America/Argentina/Buenos_Aires');
+        $fecha = $fecha ?? Carbon::now();
 
         $alumnos = Alumno::where('activo', true)
             ->with(['deudaCuotas', 'deporte', 'grupo'])

@@ -28,7 +28,7 @@ class GenerarDeudasMensualesCommand extends Command
 
     public function handle(): int
     {
-        $ahora = Carbon::now('America/Argentina/Buenos_Aires');
+        $ahora = Carbon::now();
 
         // Determinar período objetivo
         $periodoInput = $this->option('periodo');

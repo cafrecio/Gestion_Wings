@@ -63,7 +63,7 @@ class LiquidacionPagoService
             // Parsear fecha de pago (default: hoy en TZ Argentina)
             $fechaPago = isset($data['fecha_pago']) && $data['fecha_pago']
                 ? Carbon::parse($data['fecha_pago'])->toDateString()
-                : Carbon::now('America/Argentina/Buenos_Aires')->toDateString();
+                : Carbon::now()->toDateString();
 
             $adminId = $data['admin_id'];
             $tipoCajaId = $data['tipo_caja_id'];

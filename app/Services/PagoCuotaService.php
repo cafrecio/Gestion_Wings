@@ -344,7 +344,7 @@ class PagoCuotaService
         }
 
         // No permitir crear deuda para períodos pasados
-        $periodoVigente = Carbon::now('America/Argentina/Buenos_Aires')->format('Y-m');
+        $periodoVigente = Carbon::now()->format('Y-m');
         if ($periodo < $periodoVigente) {
             throw new \Exception(
                 "No se puede crear deuda para un período pasado ({$periodo}). Debe crearla un administrador."
@@ -466,7 +466,7 @@ class PagoCuotaService
         if ($fecha) {
             return Carbon::parse($fecha)->toDateString();
         }
-        return Carbon::now('America/Argentina/Buenos_Aires')->toDateString();
+        return Carbon::now()->toDateString();
     }
 
     /**
@@ -518,7 +518,7 @@ class PagoCuotaService
 
         // Caso 2: alumno inactivo que vuelve (ya conoce el lugar) — usa día de hoy
         if (!$alumno->activo && $tienePagos) {
-            $diaHoy = Carbon::now('America/Argentina/Buenos_Aires')->day;
+            $diaHoy = Carbon::now()->day;
             $reglas  = ReglaPrimerPago::obtenerReglaPorDia($diaHoy);
             if ($reglas->count() === 1) {
                 return [(float) $reglas->first()->porcentaje, $reglas->first()->id];
@@ -658,7 +658,7 @@ class PagoCuotaService
      */
     private function agregarObservacion(?string $existente, string $nueva): string
     {
-        $timestamp = Carbon::now('America/Argentina/Buenos_Aires')->format('Y-m-d H:i:s');
+        $timestamp = Carbon::now()->format('Y-m-d H:i:s');
         $nuevaConFecha = "[{$timestamp}] {$nueva}";
 
         if ($existente) {

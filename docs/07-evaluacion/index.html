@@ -429,9 +429,9 @@
       <ul class="sols"><li class="sol rec"><span class="code">SI4.1 ⭐</span><span>Rehacer con datos que ejerciten todos los flujos (egresos, varios medios, 2 operativos, cancelaciones, rechazos, deudores, inactivos, cambios de plan).</span></li><li class="sol"><span class="code">SI4.2</span><span>Mantener el actual + un segundo seeder "estrés" con casos borde.</span></li></ul></div>
     </div>
 
-    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">I5.0</span><span class="ftitle">Timezone: lógica de fecha dispersa y potencialmente inconsistente</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">I5.0</span><span class="ftitle">✅ RESUELTO — Timezone: lógica de fecha dispersa y potencialmente inconsistente</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">Mezcla now()/today()/Carbon con TZ explícita. Cerca de medianoche "hoy" puede diferir — riesgo en cierres y período vigente (ver B6).</p><p class="where">varios controllers/services</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SI5.1 ⭐</span><span>Fijar app.timezone en config + uso uniforme. Verificar la TZ del server.</span></li><li class="sol"><span class="code">SI5.2</span><span>Auditar caso por caso los usos de fecha.</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-26:</b> el riesgo real (conexión MySQL sin TZ fija) ya estaba corregido en <b>B6.0</b>. Se unificaron los 11 usos restantes de <code>Carbon::now('America/Argentina/Buenos_Aires')</code> a <code>Carbon::now()</code> a secas (ya equivalentes) en 5 archivos. Probado con datos reales, sin cambio de comportamiento.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">I6.0</span><span class="ftitle">Esquema: dump vs migraciones sin verificar equivalencia</span><span class="chev">▶</span></div>

@@ -47,7 +47,7 @@ class ReciboService
         // Preparar datos para la vista
         $data = [
             'numero_recibo' => "CUOTA-{$pagoId}",
-            'fecha_emision' => Carbon::now('America/Argentina/Buenos_Aires'),
+            'fecha_emision' => Carbon::now(),
             'fecha_pago' => $pago->fecha_pago,
             'alumno' => [
                 'nombre' => trim(($pago->alumno->nombre ?? '') . ' ' . ($pago->alumno->apellido ?? '')),
@@ -109,7 +109,7 @@ class ReciboService
         // Preparar datos para la vista
         $data = [
             'numero_recibo' => "LIQ-{$liquidacionId}",
-            'fecha_emision' => Carbon::now('America/Argentina/Buenos_Aires'),
+            'fecha_emision' => Carbon::now(),
             'fecha_pago' => $liquidacion->pagada_fecha,
             'profesor' => [
                 'nombre' => $liquidacion->profesor->nombre_completo ?? $liquidacion->profesor->nombre ?? 'N/D',

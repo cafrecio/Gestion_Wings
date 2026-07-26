@@ -40,12 +40,13 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 - SI4.1 ⭐ Rehacer el seeder con datos que ejerciten TODOS los flujos: egresos en varios medios de pago, dos operativos, cobros del admin, cancelaciones, cajas rechazadas, deudores con distintas antigüedades, posibles inactivos, cambios de plan. Guía: `docs/06-pruebas/PLAN-PRUEBAS-FUNCIONALES.md`.
 - SI4.2 Mantener el seeder actual pero agregar un segundo seeder "estrés" con los casos borde.
 
-### I5.0 — Timezone: lógica de fecha dispersa y potencialmente inconsistente
+### I5.0 — Timezone: lógica de fecha dispersa y potencialmente inconsistente — ✅ RESUELTO (2026-07-26)
 **Severidad:** Media
 **Dónde:** Mezcla de `now()`, `today()`, `Carbon::now('America/Argentina/Buenos_Aires')` y `->format('Y-m')` en controllers y services (ej. `CajaWebController`, `PagoCuotaService`, `CobranzaEstadoService`).
 **Qué pasa:** Algunas partes usan la TZ Argentina explícita y otras el `now()` del server. Si el server no está en esa TZ, "hoy" puede diferir según qué función se llamó — riesgo en cierres de caja de fin de día y en "período vigente" de deudas cerca de medianoche.
+**Resolución:** el riesgo real (la conexión MySQL sin `time_zone` fijo) ya se había corregido en **B6.0** — se verificó ahí mismo que `config('app.timezone')` ya era `America/Argentina/Buenos_Aires` y que `now()` y `Carbon::now('America/Argentina/Buenos_Aires')` ya devuelven exactamente el mismo valor. Lo que quedaba de I5.0 era la mezcla de estilo en sí (11 usos de `Carbon::now('America/Argentina/Buenos_Aires')`/`->today(...)` conviviendo con `now()`/`today()` a secas en `CobranzaEstadoService`, `ReciboService`, `PagoCuotaService`, `LiquidacionPagoService` y `GenerarDeudasMensualesCommand`). Se unificó todo a `Carbon::now()`/`now()` sin el argumento de zona, ya redundante. Cero cambio de comportamiento — probado contra datos reales (`estadoAlumno`, `resumenDashboard`) con transacción y rollback, y comparando `now()` de PHP contra `NOW()` de MySQL: coinciden exactamente.
 **Soluciones:**
-- SI5.1 ⭐ Fijar `app.timezone` a `America/Argentina/Buenos_Aires` en `config/app.php` y usar `now()`/`today()` de forma uniforme, o centralizar en un helper `hoyAr()`. Verificar que la TZ del server coincida.
+- SI5.1 ⭐ Fijar `app.timezone` a `America/Argentina/Buenos_Aires` en `config/app.php` y usar `now()`/`today()` de forma uniforme. Aplicado (el `app.timezone` ya estaba fijo desde antes; se completó unificando los usos explícitos restantes).
 - SI5.2 Auditar caso por caso los usos de fecha (más trabajo, mismo resultado).
 
 ### I6.0 — Sin control de versión de esquema verificable (dump como fuente de verdad)
@@ -73,7 +74,7 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 | I2 | Alta | API de 131 rutas sin consumidor | Decidir: podar o congelar+documentar (SI2.1) |
 | I3 | Alta | Contratos con versiones contradictorias | Una versión viva por contrato, resto a archivo (SI3.1) |
 | I4 | Alta | Seeder irreal esconde bugs | Rehacer con todos los flujos reales (SI4.1) |
-| I5 | Media | Timezone disperso | Fijar TZ en config + uso uniforme (SI5.1) |
+| I5 | Media | Timezone disperso | ✅ Resuelto — riesgo real ya corregido en B6, estilo unificado (SI5.1) |
 | I6 | Media | Esquema: dump vs migraciones sin verificar | Verificar migrate:fresh == dump (SI6.1) |
 | I7 | Baja | Vista muerta y código legacy | ✅ Resuelto — barrido de limpieza (SI7.1) |
 
