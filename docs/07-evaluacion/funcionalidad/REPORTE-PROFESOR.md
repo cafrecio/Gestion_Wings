@@ -31,17 +31,19 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 - SUP2.1 ⭐ Que arriba de todo aparezca "Tu clase de ahora / de hoy" con el botón de tomar lista, y las demás abajo.
 - SUP2.2 Ordenar la lista con las de hoy primero y resaltadas.
 
-### UP3.0 — Me muestran botones que no son para mí
+### UP3.0 — Me muestran botones que no son para mí — ✅ RESUELTO (2026-07-21)
 **Vista:** Clase — detalle
 **Severidad:** Baja
-**Qué me pasa:** Arriba de la lista hay cosas como "Modificar profesores" o cancelar la clase, que yo no uso y me distraen de lo único que vine a hacer, que es marcar presentes.
+**Resolución (SUP3.1):** "Cancelar" ya estaba oculto para el profesor; "Modificar" (reasignar profesores) no. Se le agregó la misma condición. Al aplicar el criterio en el backend se encontró que **ninguno de los dos endpoints validaba rol** (`toggleCancelada`, `actualizarProfesores`) — cualquier usuario autenticado podía llamarlos directo aunque el botón estuviera oculto, mismo patrón que S9. Se agregó `abort(403)` para PROFESOR en ambos; admin/operativo sin cambios.
+**Qué me pasaba:** Arriba de la lista había cosas como "Modificar profesores" o cancelar la clase, que yo no uso y me distraían de lo único que vine a hacer, que es marcar presentes.
 **Soluciones:**
 - SUP3.1 ⭐ Esconder esas acciones para el profe (o mandarlas abajo) y dejar arriba solo la lista y el guardar.
 
-### UP4.0 — Confirmar que la lista se guardó
+### UP4.0 — Confirmar que la lista se guardó — ✅ RESUELTO (2026-07-21)
 **Vista:** Clase — detalle
 **Severidad:** Baja
-**Qué me pasa:** Marco los presentes pero quiero estar seguro, con el apuro, de que quedó guardado y no perdí la lista.
+**Resolución (SUP4.1):** el texto chico al lado del botón se reemplazó por un cartel fijo arriba de toda la pantalla, grande, con fondo de color (verde éxito / rojo error) y auto-dismiss (3s / 4.5s). Imposible de perder con apuro.
+**Qué me pasaba:** Marcaba los presentes pero quería estar seguro, con el apuro, de que quedó guardado y no perdí la lista.
 **Soluciones:**
 - SUP4.1 ⭐ Un cartel bien claro de "Lista guardada" después de guardar, grande, que se vea de un vistazo.
 
@@ -51,5 +53,5 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 |----|-----------|-------|----------|
 | UP1 | Alta | Todas | ✅ Resuelto — sidebar colapsable con hamburguesa (SUP1.1) |
 | UP2 | Media | Clases | ✅ Resuelto — "Tus clases de hoy" separadas de las de otros (SUP2.1) |
-| UP3 | Baja | Clase detalle | Botones que no son para mí me estorban |
-| UP4 | Baja | Clase detalle | Falta confirmación clara de que la lista se guardó |
+| UP3 | Baja | Clase detalle | ✅ Resuelto — botón oculto + backend protegido (SUP3.1) |
+| UP4 | Baja | Clase detalle | ✅ Resuelto — cartel grande al guardar (SUP4.1) |

@@ -81,6 +81,15 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 - SS9.1 ⭐ En `cuota()`: cargar el `Pago` con su `alumno`/movimiento asociado y verificar rol — ADMIN ve cualquiera; OPERATIVO solo pagos de sus propias cajas (`MovimientoOperativo::where('usuario_id', auth()->id())` vía el `pago_id`); PROFESOR nunca. Devolver 403 si no corresponde, antes de generar el PDF.
 - SS9.2 Mínimo rápido: agregar `ensure.admin.web` a la ruta como ya tiene `web.recibos.liquidacion`, aceptando que el operativo pierda la posibilidad de ver recibos de otros. Menos preciso que SS9.1 pero corta la fuga en una línea.
 
+### S10.0 — Cancelar clase y reasignar profesores sin control de rol en el backend — ✅ RESUELTO (2026-07-21)
+**Severidad:** Alta
+**Dónde:** `app/Http/Controllers/ClaseWebController.php` — métodos `toggleCancelada()` y `actualizarProfesores()`, expuestos por `routes/web.php:154-155` sin ningún middleware de rol (mismo nivel que `web.clases.index`, accesible a cualquier autenticado).
+**Qué pasa:** Encontrado al resolver UP3.0 (`docs/07-evaluacion/funcionalidad/REPORTE-PROFESOR.md`): la vista ya ocultaba el botón "Cancelar" al PROFESOR, pero el endpoint `PATCH /clases/{id}/cancelar` no lo exigía — cualquier usuario autenticado podía cancelar una clase o reasignar sus profesores llamando la API directo, sin pasar por el botón. Mismo patrón exacto que S9 (esconder el botón no protege la acción).
+**Resolución:** `abort(403)` al inicio de ambos métodos si `Auth::user()->isProfesor()`. ADMIN y OPERATIVO sin cambios (dominio "clases" les corresponde a ambos, per `docs/02-contratos/PERMISOS-ROLES.md`). Probado con datos reales: profesor bloqueado con 403 en los dos endpoints; admin sigue pudiendo llamarlos (200), sin regresión.
+**Soluciones:**
+- SS10.1 ⭐ `abort(403)` para PROFESOR al inicio del método, igual que se hizo. Aplicado.
+- SS10.2 Middleware de rol a nivel de ruta en vez de chequeo inline — más explícito pero requeriría un middleware nuevo solo para "excluir profesor" (no existe hoy; `ensure.admin.web` excluye también a operativo, que sí debe poder usar estas acciones).
+
 ---
 
 ## Superficies verificadas como SANAS (no re-auditar)
@@ -104,3 +113,4 @@ Auditoría sobre app/Http, routes/web.php, routes/api.php, app/Models, resources
 | S6 | Media | API expuesta sin consumidor | ✅ Resuelto — deshabilitada (SS6.1) |
 | S7 | Baja | Confirmar APP_DEBUG=false en producción | Forzar debug off en prod (SS7.1) |
 | S8 | Baja | Confirmar flags Secure/HttpOnly de cookie | HTTPS + SESSION_SECURE_COOKIE (SS8.1) |
+| S10 | Alta | Cancelar clase / reasignar profesores sin control de rol (backend) | ✅ Resuelto — abort(403) para PROFESOR (SS10.1) |

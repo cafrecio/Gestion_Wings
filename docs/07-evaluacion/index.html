@@ -79,9 +79,9 @@
 <div class="wrap">
 
   <div class="kpis">
-    <div class="kpi"><b>59</b><small>Hallazgos</small></div>
+    <div class="kpi"><b>60</b><small>Hallazgos</small></div>
     <div class="kpi"><b style="color:var(--crit)">1</b><small>Crítico abierto (3 de 4 resueltos)</small></div>
-    <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos (varios resueltos)</small></div>
+    <div class="kpi"><b style="color:var(--alta)">15</b><small>Altos (varios resueltos)</small></div>
     <div class="kpi"><b style="color:var(--media)">18</b><small>Medios (varios resueltos)</small></div>
     <div class="kpi"><b style="color:var(--baja)">22</b><small>Bajos (algunos resueltos)</small></div>
   </div>
@@ -145,6 +145,11 @@
     <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">S8.0</span><span class="ftitle">Confirmar flags Secure/HttpOnly de la cookie en producción</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">En producción la cookie de sesión debe ser Secure (HTTPS), HttpOnly y SameSite. Si el deploy queda en HTTP, la sesión es robable.</p><p class="where">config/session.php</p>
       <ul class="sols"><li class="sol rec"><span class="code">SS8.1 ⭐</span><span>HTTPS obligatorio + SESSION_SECURE_COOKIE=true + SameSite configurado. Verificar en el deploy.</span></li></ul></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S10.0</span><span class="ftitle">✅ RESUELTO — Cancelar clase y reasignar profesores sin control de rol en el backend</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Encontrado al resolver UP3.0: la vista ocultaba "Cancelar"/"Modificar" al PROFESOR, pero <code>toggleCancelada()</code> y <code>actualizarProfesores()</code> no validaban rol — cualquier autenticado podía llamarlos directo. Mismo patrón que S9.</p><p class="where">app/Http/Controllers/ClaseWebController.php · routes/web.php:154-155</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21:</b> <code>abort(403)</code> para PROFESOR al inicio de ambos métodos. Admin/operativo sin cambios. Probado con datos reales: profesor bloqueado, admin sigue operando.</p></div>
     </div>
   </section>
 
@@ -388,14 +393,14 @@
       <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SUP2.1): "Tus clases de hoy" muestra solo las propias, arriba; las de otros profes quedan colapsadas en "Otras clases de hoy (N)" debajo, sin ocultarlas. Admin/operativo sin cambios. Probado con datos reales: profesor ve 1 propia + 1 colapsada, admin ve las 2 juntas sin split.</p></div>
     </div>
 
-    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP3.0</span><span class="ftitle">Le muestran botones que no son para él</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP3.0</span><span class="ftitle">✅ RESUELTO — Le muestran botones que no son para él</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">"Modificar profesores" o cancelar la clase lo distraen de lo único que hace: marcar presentes.</p><p class="where">clase detalle</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SUP3.1 ⭐</span><span>Esconder esas acciones para el profe y dejar arriba solo la lista y el guardar.</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SUP3.1): "Modificar" ahora se oculta al profesor igual que "Cancelar". Al aplicar el criterio en el backend se encontró que ninguno de los dos endpoints validaba rol — ver <b>S10.0</b>, nuevo, también resuelto.</p></div>
     </div>
 
-    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP4.0</span><span class="ftitle">Falta confirmación clara de que la lista se guardó</span><span class="chev">▶</span></div>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">UP4.0</span><span class="ftitle">✅ RESUELTO — Falta confirmación clara de que la lista se guardó</span><span class="chev">▶</span></div>
       <div class="fbody"><p class="what">Con el apuro quiere estar seguro de que la lista quedó guardada y no la perdió.</p><p class="where">clase detalle</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SUP4.1 ⭐</span><span>Cartel grande de "Lista guardada" que se vea de un vistazo.</span></li></ul></div>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SUP4.1): cartel fijo arriba de la pantalla, grande, con color (verde/rojo) y auto-dismiss. Reemplaza el texto chico anterior.</p></div>
     </div>
   </section>
 
