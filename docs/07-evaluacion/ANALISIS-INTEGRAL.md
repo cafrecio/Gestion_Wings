@@ -15,14 +15,17 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 - SI1.2 Arreglar solo la migración incompatible para que la suite corra en SQLite (más rápido, menos fiel al entorno real).
 - SI1.3 No hacer tests (status quo). Inaceptable para un sistema de caja.
 
-### I2.0 — La API (131 rutas) es un universo paralelo sin consumidor
+### I2.0 — La API (131 rutas) es un universo paralelo sin consumidor — ✅ RESUELTO (2026-07-26)
 **Severidad:** Alta
-**Dónde:** `routes/api.php` (131 rutas) vs `routes/web.php` (137). El front (Blade) no consume la API; usa las rutas web.
-**Qué pasa:** Existe una API REST casi en espejo de toda la funcionalidad web, pero nadie la usa desde el sistema actual. Cada endpoint es superficie de ataque y mantenimiento. Si no hay una app móvil planificada que la consuma, son 131 puertas que hay que asegurar y mantener sin beneficio.
+**Dónde:** `routes/api.php` (106 rutas reales al día de esta resolución — ver nota de conteo) vs `routes/web.php` (137). El front (Blade) no consume la API; usa las rutas web.
+**Qué pasa:** Existe una API REST casi en espejo de toda la funcionalidad web, pero nadie la usa desde el sistema actual. Cada endpoint es superficie de ataque y mantenimiento. Si no hay una app móvil planificada que la consuma, son puertas que hay que asegurar y mantener sin beneficio.
+**Decisión de producto (consultada con el usuario):** SÍ hay (o puede haber pronto) una app móvil que va a consumir esta API. Se aplica **SI2.2**: congelar y documentar, no podar.
+**Resolución:** se generó `docs/04-tecnico/api-openapi.yaml`, un catálogo OpenAPI 3.0 liviano de las 106 rutas reales (76 paths), extraído directamente de `routes/api.php` reactivándola solo de forma temporal en memoria (vía `route:list --json`, revirtiendo `bootstrap/app.php` en el mismo paso) para evitar transcripción manual. Cada operación documenta método, path, controller/acción y el **rol mínimo real** que exige su middleware (`ADMIN` vía `EnsureAdmin`, o `AUTENTICADO sin gate adicional — ver S2.0` para las que solo tienen `auth:sanctum`). Es catálogo liviano por decisión explícita: sin schemas de request/response por endpoint (alcance conversado, no de facto). El archivo aclara en su descripción que la API sigue deshabilitada en `bootstrap/app.php` — nada de esto se sirve hoy. `routes/api.php` NO se tocó (queda igual que tras S2, comentada).
+**Alcance no incluido:** documentación completa de request/response (Scribe u OpenAPI con schemas reales) — se dejó fuera por decisión de alcance, no por límite técnico; si se decide reactivar la API para la app móvil, ahí sí conviene ese nivel de detalle y, sobre todo, cerrar el gate de rol por endpoint que hoy falta (S2.0/S9-S10 ya son el precedente del patrón "UI oculta pero backend no valida").
 **Soluciones:**
-- SI2.1 ⭐ Decisión de producto: si NO hay app móvil en el horizonte, podar la API a lo mínimo (o quitarla). Menos superficie, menos mantenimiento.
-- SI2.2 Si SÍ va a haber app móvil, congelar la API, documentarla (OpenAPI) y cubrirla con la auditoría de seguridad como ciudadano de primera.
-- SI2.3 Dejarla como está: acumula deuda y riesgo silenciosamente.
+- SI2.1 Decisión de producto: si NO hay app móvil en el horizonte, podar la API a lo mínimo (o quitarla). Menos superficie, menos mantenimiento. **No aplicada** — sí hay app móvil en el horizonte.
+- SI2.2 ⭐ Si SÍ va a haber app móvil, congelar la API, documentarla (OpenAPI) y cubrirla con la auditoría de seguridad como ciudadano de primera. **Aplicada** (catálogo liviano; falta el gate de rol por endpoint para cuando se reactive — no es parte de esta resolución, es la condición para reactivar).
+- SI2.3 Dejarla como está: acumula deuda y riesgo silenciosamente. Descartada.
 
 ### I3.0 — Documentación de contratos con versiones contradictorias conviviendo
 **Severidad:** Alta
@@ -71,7 +74,7 @@ Vista transversal del sistema, lo que ningún reporte por-tema captura: completi
 | ID | Severidad | Título | Recomendación |
 |----|-----------|--------|---------------|
 | I1 | Crítica | Sin tests en sistema de plata | BD de test + tests de flujos de dinero (SI1.1) |
-| I2 | Alta | API de 131 rutas sin consumidor | Decidir: podar o congelar+documentar (SI2.1) |
+| I2 | Alta | API de 131 rutas sin consumidor | ✅ Resuelto — congelada y catalogada en OpenAPI, hay app móvil futura (SI2.2) |
 | I3 | Alta | Contratos con versiones contradictorias | Una versión viva por contrato, resto a archivo (SI3.1) |
 | I4 | Alta | Seeder irreal esconde bugs | Rehacer con todos los flujos reales (SI4.1) |
 | I5 | Media | Timezone disperso | ✅ Resuelto — riesgo real ya corregido en B6, estilo unificado (SI5.1) |

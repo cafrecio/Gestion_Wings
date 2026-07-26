@@ -1,0 +1,872 @@
+openapi: 3.0.3
+info:
+  title: 'Wings API (CONGELADA -- no se sirve en produccion)'
+  version: "1.0.0-frozen"
+  description: >-
+    Catalogo liviano de la API REST de Wings, generado desde las rutas reales
+    de routes/api.php el 2026-07-26. La API esta deshabilitada desde el fix
+    de seguridad S2 (2026-07-13): routes/api.php existe en el repo pero
+    bootstrap/app.php NO la carga, asi que ningun endpoint de aca responde
+    en produccion ni en local. Ver docs/07-evaluacion/seguridad/REPORTE-SEGURIDAD.md
+    (S2.0-S4.0, S6.0) y docs/07-evaluacion/ANALISIS-INTEGRAL.md (I2.0).
+    Este documento cataloga metodo, path, controller/accion y el rol minimo
+    requerido por el middleware de cada ruta -- NO incluye request/response
+    body detallado (decision de alcance: catalogo liviano, no documentacion
+    completa). Sirve para saber que existe antes de decidir si se reactiva
+    para una futura app movil, y como insumo de auditoria de seguridad si
+    eso llega a pasar (S2.0 exige gate de rol correcto por endpoint antes
+    de reactivar, no solo auth:sanctum).
+servers:
+  - url: /api
+    description: 'Prefijo real (la API completa esta deshabilitada, ver arriba)'
+tags:
+  - name: 'Admin - Alumnos'
+  - name: 'Admin - Cashflow'
+  - name: 'Admin - Cierres-dia'
+  - name: 'Admin - Clases'
+  - name: 'Admin - Cobranza'
+  - name: 'Admin - Cuotas'
+  - name: 'Admin - Deportes'
+  - name: 'Admin - Grupos'
+  - name: 'Admin - Liquidaciones'
+  - name: 'Admin - Profesores'
+  - name: 'Admin - Rubros'
+  - name: 'Admin - Subrubros'
+  - name: 'Admin - Tipos-caja'
+  - name: 'Alumnos'
+  - name: 'Asistencias'
+  - name: 'Auth'
+  - name: 'Cajas'
+  - name: 'Cashflow-movimientos'
+  - name: 'Cierres-dia'
+  - name: 'Clases'
+  - name: 'Cobranza'
+  - name: 'Cuotas'
+  - name: 'Deudas'
+  - name: 'Liquidaciones'
+  - name: 'Movimientos-operativos'
+  - name: 'Operativo'
+  - name: 'Pagos'
+  - name: 'Profesores'
+  - name: 'Recibos'
+  - name: 'Reglas-primer-pago'
+  - name: 'User'
+paths:
+  /admin/alumnos:
+    get:
+      tags: ['Admin - Alumnos']
+      summary: 'App\Http\Controllers\Admin\AlumnoController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Alumnos']
+      summary: 'App\Http\Controllers\Admin\AlumnoController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/alumnos/{id}:
+    get:
+      tags: ['Admin - Alumnos']
+      summary: 'App\Http\Controllers\Admin\AlumnoController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Alumnos']
+      summary: 'App\Http\Controllers\Admin\AlumnoController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Alumnos']
+      summary: 'App\Http\Controllers\Admin\AlumnoController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cashflow/saldo:
+    get:
+      tags: ['Admin - Cashflow']
+      summary: 'App\Http\Controllers\CashflowSaldoController@saldoAFecha'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cashflow/saldos:
+    get:
+      tags: ['Admin - Cashflow']
+      summary: 'App\Http\Controllers\CashflowSaldoController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cierres-dia:
+    get:
+      tags: ['Admin - Cierres-dia']
+      summary: 'App\Http\Controllers\CierreDiaController@admin'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/clases:
+    get:
+      tags: ['Admin - Clases']
+      summary: 'App\Http\Controllers\Admin\ClaseController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Clases']
+      summary: 'App\Http\Controllers\Admin\ClaseController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/clases/{id}:
+    get:
+      tags: ['Admin - Clases']
+      summary: 'App\Http\Controllers\Admin\ClaseController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Clases']
+      summary: 'App\Http\Controllers\Admin\ClaseController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Clases']
+      summary: 'App\Http\Controllers\Admin\ClaseController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cobranza/dashboard:
+    get:
+      tags: ['Admin - Cobranza']
+      summary: 'App\Http\Controllers\CobranzaController@dashboard'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cobranza/revision:
+    get:
+      tags: ['Admin - Cobranza']
+      summary: 'App\Http\Controllers\CobranzaController@indexRevision'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cuotas/deudas:
+    post:
+      tags: ['Admin - Cuotas']
+      summary: 'App\Http\Controllers\PagoCuotaController@storeDeuda'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cuotas/deudas/{id}/ajustar:
+    post:
+      tags: ['Admin - Cuotas']
+      summary: 'App\Http\Controllers\PagoCuotaController@ajustar'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cuotas/deudas/{id}/condonar:
+    post:
+      tags: ['Admin - Cuotas']
+      summary: 'App\Http\Controllers\PagoCuotaController@condonar'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/cuotas/pagos:
+    post:
+      tags: ['Admin - Cuotas']
+      summary: 'App\Http\Controllers\PagoCuotaController@storeAdmin'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/deportes:
+    get:
+      tags: ['Admin - Deportes']
+      summary: 'App\Http\Controllers\Admin\DeporteController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Deportes']
+      summary: 'App\Http\Controllers\Admin\DeporteController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/deportes/{id}:
+    get:
+      tags: ['Admin - Deportes']
+      summary: 'App\Http\Controllers\Admin\DeporteController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Deportes']
+      summary: 'App\Http\Controllers\Admin\DeporteController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Deportes']
+      summary: 'App\Http\Controllers\Admin\DeporteController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/grupos:
+    get:
+      tags: ['Admin - Grupos']
+      summary: 'App\Http\Controllers\Admin\GrupoController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Grupos']
+      summary: 'App\Http\Controllers\Admin\GrupoController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/grupos/{id}:
+    get:
+      tags: ['Admin - Grupos']
+      summary: 'App\Http\Controllers\Admin\GrupoController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Grupos']
+      summary: 'App\Http\Controllers\Admin\GrupoController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Grupos']
+      summary: 'App\Http\Controllers\Admin\GrupoController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/liquidaciones/{id}/pagar:
+    post:
+      tags: ['Admin - Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@pagar'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/profesores:
+    get:
+      tags: ['Admin - Profesores']
+      summary: 'App\Http\Controllers\Admin\ProfesorController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Profesores']
+      summary: 'App\Http\Controllers\Admin\ProfesorController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/profesores/{id}:
+    get:
+      tags: ['Admin - Profesores']
+      summary: 'App\Http\Controllers\Admin\ProfesorController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Profesores']
+      summary: 'App\Http\Controllers\Admin\ProfesorController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Profesores']
+      summary: 'App\Http\Controllers\Admin\ProfesorController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/rubros:
+    get:
+      tags: ['Admin - Rubros']
+      summary: 'App\Http\Controllers\Admin\RubroController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Rubros']
+      summary: 'App\Http\Controllers\Admin\RubroController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/rubros/{id}:
+    get:
+      tags: ['Admin - Rubros']
+      summary: 'App\Http\Controllers\Admin\RubroController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Rubros']
+      summary: 'App\Http\Controllers\Admin\RubroController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Rubros']
+      summary: 'App\Http\Controllers\Admin\RubroController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/subrubros:
+    get:
+      tags: ['Admin - Subrubros']
+      summary: 'App\Http\Controllers\Admin\SubrubroController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Subrubros']
+      summary: 'App\Http\Controllers\Admin\SubrubroController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/subrubros/{id}:
+    get:
+      tags: ['Admin - Subrubros']
+      summary: 'App\Http\Controllers\Admin\SubrubroController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Subrubros']
+      summary: 'App\Http\Controllers\Admin\SubrubroController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Subrubros']
+      summary: 'App\Http\Controllers\Admin\SubrubroController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/tipos-caja:
+    get:
+      tags: ['Admin - Tipos-caja']
+      summary: 'App\Http\Controllers\Admin\TipoCajaController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Admin - Tipos-caja']
+      summary: 'App\Http\Controllers\Admin\TipoCajaController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /admin/tipos-caja/{id}:
+    get:
+      tags: ['Admin - Tipos-caja']
+      summary: 'App\Http\Controllers\Admin\TipoCajaController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Admin - Tipos-caja']
+      summary: 'App\Http\Controllers\Admin\TipoCajaController@update'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Admin - Tipos-caja']
+      summary: 'App\Http\Controllers\Admin\TipoCajaController@destroy'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\AlumnoController@index'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\AlumnoController@store'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumnoId}/cambiar-plan:
+    post:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\PagoController@cambiarPlan'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumnoId}/deudas:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\PagoCuotaController@indexByAlumno'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumnoId}/pagos:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\PagoController@index'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumnoId}/proximo-pago:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\PagoController@proximoPago'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumnoId}/puede-pagar:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\PagoController@verificarPuedePagar'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{alumno}:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\AlumnoController@show'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    put:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\AlumnoController@update'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\AlumnoController@destroy'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /alumnos/{id}/estado-cobranza:
+    get:
+      tags: ['Alumnos']
+      summary: 'App\Http\Controllers\CobranzaController@estadoAlumno'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /asistencias:
+    post:
+      tags: ['Asistencias']
+      summary: 'App\Http\Controllers\AsistenciaController@store'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /asistencias/clase/{claseId}:
+    get:
+      tags: ['Asistencias']
+      summary: 'App\Http\Controllers\AsistenciaController@indexByClase'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Asistencias']
+      summary: 'App\Http\Controllers\AsistenciaController@storeBulk'
+      x-rol-minimo: 'AUTENTICADO (+ regla de negocio: bloqueo de caja vieja)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /asistencias/clase/{claseId}/alumno/{alumnoId}/disponibilidad:
+    get:
+      tags: ['Asistencias']
+      summary: 'App\Http\Controllers\AsistenciaController@verificarDisponibilidadAlumno'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /auth/login:
+    post:
+      tags: ['Auth']
+      summary: 'App\Http\Controllers\AuthController@login'
+      x-rol-minimo: 'PUBLICA (sin auth)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /auth/logout:
+    post:
+      tags: ['Auth']
+      summary: 'App\Http\Controllers\AuthController@logout'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /auth/me:
+    get:
+      tags: ['Auth']
+      summary: 'App\Http\Controllers\AuthController@me'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@index'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/abierta:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@cajaAbierta'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/mias:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@misCajas'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/pendientes:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@pendientes'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{cajaId}/movimientos:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\MovimientoOperativoController@indexByCaja'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@show'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}/cerrar:
+    post:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@cerrar'
+      x-rol-minimo: 'AUTENTICADO (+ regla de negocio: bloqueo de caja vieja)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}/cerrar-admin:
+    post:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@cerrarComoAdmin'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}/rechazar:
+    post:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@rechazar'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}/resumen:
+    get:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@resumen'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cajas/{id}/validar:
+    post:
+      tags: ['Cajas']
+      summary: 'App\Http\Controllers\CajaOperativaController@validar'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cashflow-movimientos:
+    get:
+      tags: ['Cashflow-movimientos']
+      summary: 'App\Http\Controllers\CashflowMovimientoController@index'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    post:
+      tags: ['Cashflow-movimientos']
+      summary: 'App\Http\Controllers\CashflowMovimientoController@store'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cashflow-movimientos/{id}:
+    get:
+      tags: ['Cashflow-movimientos']
+      summary: 'App\Http\Controllers\CashflowMovimientoController@show'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cierres-dia:
+    get:
+      tags: ['Cierres-dia']
+      summary: 'App\Http\Controllers\CierreDiaController@operativo'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /clases:
+    post:
+      tags: ['Clases']
+      summary: 'App\Http\Controllers\ClaseController@store'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /clases/asignar-profesor:
+    post:
+      tags: ['Clases']
+      summary: 'App\Http\Controllers\ClaseController@asignarProfesor'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /clases/{claseId}/profesor/{profesorId}/disponibilidad:
+    get:
+      tags: ['Clases']
+      summary: 'App\Http\Controllers\ClaseController@verificarDisponibilidadProfesor'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cobranza/alumnos:
+    get:
+      tags: ['Cobranza']
+      summary: 'App\Http\Controllers\CobranzaController@alumnosPorEstado'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /cuotas/pagos:
+    post:
+      tags: ['Cuotas']
+      summary: 'App\Http\Controllers\PagoCuotaController@storeOperativo'
+      x-rol-minimo: 'AUTENTICADO (+ regla de negocio: bloqueo de caja vieja)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /deudas/{id}:
+    get:
+      tags: ['Deudas']
+      summary: 'App\Http\Controllers\PagoCuotaController@show'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones:
+    post:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@store'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones/preview:
+    get:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@preview'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones/resumen/{mes}/{anio}:
+    get:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@resumenPeriodo'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones/{id}:
+    get:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@show'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+    delete:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@destroy'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones/{id}/cerrar:
+    post:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@cerrar'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /liquidaciones/{id}/recalcular:
+    post:
+      tags: ['Liquidaciones']
+      summary: 'App\Http\Controllers\LiquidacionController@recalcular'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /movimientos-operativos:
+    post:
+      tags: ['Movimientos-operativos']
+      summary: 'App\Http\Controllers\MovimientoOperativoController@store'
+      x-rol-minimo: 'AUTENTICADO (+ regla de negocio: bloqueo de caja vieja)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /operativo/estado-hoy:
+    get:
+      tags: ['Operativo']
+      summary: 'App\Http\Controllers\OperativoController@estadoHoy'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /pagos:
+    post:
+      tags: ['Pagos']
+      summary: 'App\Http\Controllers\PagoController@store'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /profesores/{profesorId}/liquidaciones:
+    get:
+      tags: ['Profesores']
+      summary: 'App\Http\Controllers\LiquidacionController@indexByProfesor'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /recibos/cuota/{pagoId}:
+    get:
+      tags: ['Recibos']
+      summary: 'App\Http\Controllers\ReciboController@cuota'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /recibos/cuota/{pagoId}/info:
+    get:
+      tags: ['Recibos']
+      summary: 'App\Http\Controllers\ReciboController@infoCuota'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /recibos/liquidacion/{liquidacionId}:
+    get:
+      tags: ['Recibos']
+      summary: 'App\Http\Controllers\ReciboController@liquidacion'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /recibos/liquidacion/{liquidacionId}/info:
+    get:
+      tags: ['Recibos']
+      summary: 'App\Http\Controllers\ReciboController@infoLiquidacion'
+      x-rol-minimo: 'ADMIN'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /reglas-primer-pago/dia/{dia}:
+    get:
+      tags: ['Reglas-primer-pago']
+      summary: 'App\Http\Controllers\PagoController@reglasDisponibles'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
+  /user:
+    get:
+      tags: ['User']
+      summary: 'Closure inline (routes/api.php)'
+      x-rol-minimo: 'AUTENTICADO (sin gate de rol adicional en la ruta -- ver S2.0)'
+      responses:
+        "200":
+          description: 'OK (ver controller -- sin schema detallado, catalogo liviano)'
