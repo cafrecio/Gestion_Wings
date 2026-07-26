@@ -61,10 +61,11 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 @endphp
 
 {{-- Sección B — Ventana de hoy --}}
+@php $tituloHoy = $esProfesor ? 'Tus clases de hoy' : 'Clases de hoy'; @endphp
 <div class="stats-bar mb-2">
     <div class="stats-info" style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;">
-        Clases de hoy — {{ \Carbon\Carbon::now()->locale('es')->isoFormat('dddd D [de] MMMM') }}
-        · <strong>{{ $clasesHoy->count() }}</strong> clase(s)
+        {{ $tituloHoy }} — {{ \Carbon\Carbon::now()->locale('es')->isoFormat('dddd D [de] MMMM') }}
+        · <strong>{{ $misClasesHoy->count() }}</strong> clase(s)
     </div>
     @if($esAdmin)
         <x-ds.button variant="primary" href="{{ route('web.clases.create') }}">
@@ -77,92 +78,36 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
      style="max-height:240px; overflow-y:auto; display:flex;
             flex-direction:column; gap:0; scroll-behavior:smooth;">
 
-    @forelse($clasesHoy as $clase)
-        @php
-            $estado = claseEstado($clase, $ahora);
-            $dot    = estadoDot($estado);
-            $label  = estadoLabel($estado);
-            $color  = estadoColor($estado);
-            $dep    = mb_strtolower($clase->grupo->deporte->nombre ?? '');
-            $dep    = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
-            $rail   = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
-        @endphp
-
-        <div class="alumno-card alumno-card--{{ $rail }}"
-             id="clase-hoy-{{ $clase->id }}"
-             data-estado="{{ $estado }}"
-             style="{{ $clase->cancelada ? 'opacity:0.6;' : '' }}">
-
-            <div class="alumno-card-header">
-                <span class="alumno-dot alumno-dot--{{ $dot }}"
-                      style="color:{{ $color }};"></span>
-                <h3 class="alumno-nombre">
-                    {{ $clase->hora_inicio->format('H:i') }}
-                    –
-                    {{ $clase->hora_fin->format('H:i') }}
-                    <span style="font-weight:400; color:var(--color-text-muted);
-                                 font-size:0.82rem; margin-left:6px;">
-                        {{ $label }}
-                    </span>
-                </h3>
-            </div>
-
-            <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <span class="info-label">Grupo:</span>
-                    <span class="info-value">{{ $clase->grupo->nombre_completo }}</span>
-                </div>
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                    <span class="info-label">Profesores:</span>
-                    <span class="info-value">
-                        {{ $clase->profesores->isNotEmpty()
-                           ? $clase->profesores->map(fn($p) => $p->apellido)->implode(' · ')
-                           : '–' }}
-                    </span>
-                </div>
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span class="info-label">Asistencia:</span>
-                    <span class="info-value"
-                          style="color:{{ $clase->asistencias->where('presente', true)->count() > 0 ? 'var(--color-success)' : 'var(--color-text-muted)' }};">
-                        {{ $clase->asistencias->where('presente', true)->count() > 0 ? 'Cargada' : 'Pendiente' }}
-                    </span>
-                </div>
-            </div>
-
-            <div class="alumno-actions">
-                <x-ds.button variant="primary"
-                             href="{{ route('web.clases.show', $clase->id) }}">
-                    Ver
-                </x-ds.button>
-                @if($esAdmin)
-                    <x-ds.button variant="secondary"
-                                 href="{{ route('web.clases.edit', $clase->id) }}">
-                        Editar
-                    </x-ds.button>
-                @endif
-            </div>
-
-        </div>
+    @forelse($misClasesHoy as $clase)
+        @include('clases._card', ['clase' => $clase, 'modo' => 'hoy'])
     @empty
         <div style="padding:24px; text-align:center;
                     color:var(--color-text-muted); font-size:0.85rem;">
-            No hay clases programadas para hoy.
+            @if($esProfesor)
+                No tenés clases programadas para hoy.
+            @else
+                No hay clases programadas para hoy.
+            @endif
         </div>
     @endforelse
 
 </div>
+
+{{-- UP2.0: para el profesor, las clases de HOY de los demás quedan
+     disponibles pero colapsadas — no le estorban, no se le ocultan. --}}
+@if($esProfesor && $otrasClasesHoy->isNotEmpty())
+    <details style="margin-top:0.5rem;">
+        <summary style="cursor:pointer; font-size:0.75rem; font-weight:600;
+                         color:var(--color-text-muted); padding:6px 2px;">
+            Otras clases de hoy ({{ $otrasClasesHoy->count() }})
+        </summary>
+        <div style="display:flex; flex-direction:column; gap:0; margin-top:6px;">
+            @foreach($otrasClasesHoy as $clase)
+                @include('clases._card', ['clase' => $clase, 'modo' => 'hoy'])
+            @endforeach
+        </div>
+    </details>
+@endif
 
 {{-- Sección C — Separador --}}
 <div style="height:1px; background:var(--color-border); margin:1rem 0;"></div>
@@ -248,87 +193,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 <div id="clases-listado">
 
     @forelse($clasesFiltradas as $clase)
-        @php
-            $estado = claseEstado($clase, $ahora);
-            $dot    = estadoDot($estado);
-            $label  = estadoLabel($estado);
-            $color  = estadoColor($estado);
-            $dep    = mb_strtolower($clase->grupo->deporte->nombre ?? '');
-            $dep    = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
-            $rail   = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
-        @endphp
-
-        <div class="alumno-card alumno-card--{{ $rail }}"
-             data-estado="{{ $estado }}"
-             style="{{ $clase->cancelada ? 'opacity:0.6;' : '' }}">
-
-            <div class="alumno-card-header">
-                <span class="alumno-dot alumno-dot--{{ $dot }}"
-                      style="color:{{ $color }};"></span>
-                <h3 class="alumno-nombre">
-                    {{ $diasSemana[$clase->fecha->dayOfWeek] }}
-                    {{ $clase->fecha->format('d/m/Y') }}
-                    —
-                    {{ $clase->hora_inicio->format('H:i') }}
-                    a
-                    {{ $clase->hora_fin->format('H:i') }}
-                    <span style="font-weight:400; color:var(--color-text-muted);
-                                 font-size:0.82rem; margin-left:6px;">
-                        {{ $label }}
-                    </span>
-                </h3>
-            </div>
-
-            <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <span class="info-label">Grupo:</span>
-                    <span class="info-value">{{ $clase->grupo->nombre_completo }}</span>
-                </div>
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                    <span class="info-label">Profesores:</span>
-                    <span class="info-value">
-                        {{ $clase->profesores->isNotEmpty()
-                           ? $clase->profesores->map(fn($p) => $p->apellido)->implode(' · ')
-                           : '–' }}
-                    </span>
-                </div>
-                <div class="info-item">
-                    <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span class="info-label">Asistencia:</span>
-                    <span class="info-value"
-                          style="color:{{ $clase->asistencias->where('presente', true)->count() > 0
-                                         ? 'var(--color-success)' : 'var(--color-text-muted)' }};">
-                        {{ $clase->asistencias->where('presente', true)->count() > 0
-                           ? 'Cargada' : 'Pendiente' }}
-                    </span>
-                </div>
-            </div>
-
-            <div class="alumno-actions">
-                <x-ds.button variant="primary"
-                             href="{{ route('web.clases.show', $clase->id) }}">
-                    Ver
-                </x-ds.button>
-                @if($esAdmin)
-                    <x-ds.button variant="secondary"
-                                 href="{{ route('web.clases.edit', $clase->id) }}">
-                        Editar
-                    </x-ds.button>
-                @endif
-            </div>
-
-        </div>
+        @include('clases._card', ['clase' => $clase, 'modo' => 'listado'])
     @empty
         <div class="empty-state">
             <svg class="empty-state__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

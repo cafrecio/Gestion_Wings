@@ -33,6 +33,18 @@ class ClaseWebController extends Controller
             ->orderBy('hora_inicio')
             ->get();
 
+        // UP2.0: el profesor entraba y veía TODAS las clases de hoy de TODOS
+        // los profesores mezcladas, y tenía que buscar la suya. Se separan
+        // en "tus clases" (prioridad, arriba) y "otras clases" (contexto,
+        // colapsado) sin sacarle visibilidad a nadie — solo se reordena.
+        $miProfesorId    = $esProfesor ? Auth::user()->profesor_id : null;
+        $misClasesHoy    = $clasesHoy;
+        $otrasClasesHoy  = collect();
+        if ($esProfesor && $miProfesorId) {
+            $misClasesHoy   = $clasesHoy->filter(fn($c) => $c->profesores->contains('id', $miProfesorId))->values();
+            $otrasClasesHoy = $clasesHoy->reject(fn($c) => $c->profesores->contains('id', $miProfesorId))->values();
+        }
+
         // 2. Clases que NO son hoy — con filtros del request
         $hayFiltros = $request->anyFilled(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
 
@@ -102,7 +114,7 @@ class ClaseWebController extends Controller
         $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
 
         return view('clases.index', compact(
-            'clasesHoy', 'clasesFiltradas',
+            'clasesHoy', 'misClasesHoy', 'otrasClasesHoy', 'clasesFiltradas',
             'grupos', 'deportes', 'profesores',
             'ahora', 'esAdmin', 'esProfesor'
         ));
