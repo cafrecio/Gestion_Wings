@@ -148,11 +148,10 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 
 ---
 
-## 8) Auth + Roles (ADMIN / OPERATIVO)
+## 8) Auth + Roles (ADMIN / OPERATIVO / PROFESOR)
 
 ### 8.1 Contrato
-- ⏳ `Wings-Contrato-Auth-Roles-V1.md`  
-  (Qué puede hacer cada rol a nivel operativo, sin entrar en tecnicismos)
+- ✅ `docs/02-contratos/PERMISOS-ROLES.md` (cierra este ítem — es el contrato de qué puede hacer cada rol, con casos concretos resueltos. Corregido el nombre: el índice decía "ADMIN/OPERATIVO", falta PROFESOR desde siempre.)
 
 ### 8.2 ER
 - ⏳ `Wings-ER-Auth-Roles-V1.md` (mínimo: User.rol)

@@ -67,6 +67,14 @@ El operativo ve todos los movimientos de subrubros `OPERATIVO` de los últimos 9
 ### Caja
 El operativo abre/opera/cierra cajas. La única restricción "de propiedad" legítima que existe es que un operativo no puede **cerrar** la caja abierta de otro operativo (integridad del arqueo, no privacidad). Ver `CajaWebController::cerrar()`. Pero **ver** el historial y los movimientos no está restringido por propiedad.
 
+### Clases + Asistencias — excepción deliberada a la regla de oro
+Ver `docs/02-contratos/Wings-Contrato-Clases-Asistencias-V1.md` para el detalle completo. Resumen de la única excepción real que existe hoy a "operativo = dominio completo":
+- **Crear, editar y validar-para-liquidación una clase**: exclusivo ADMIN. El operativo no puede.
+- **Cambiar profesores, cancelar clase, tomar/corregir asistencia**: ADMIN y OPERATIVO (dominio compartido, como en el resto del sistema) — con una excepción adicional: reasignar profesores de una clase con **fecha ya pasada** queda restringido a ADMIN, aunque en clases de hoy/futuras el operativo sí puede.
+- Un PROFESOR puede ver y tomar asistencia de **cualquier** clase, no solo las propias (cubre suplencias) — pero nunca crear, editar, cancelar/reactivar ni reasignar profesores.
+
+Esta es la única área del sistema donde el operativo tiene, a propósito, menos poder que en el resto de su dominio — se dejó así explícitamente al definir el contrato de Clases (2026-07-26), no es un error a corregir.
+
 ---
 
 ## Cómo aplicar esto al escribir código
