@@ -723,6 +723,7 @@ class CajaWebController extends Controller
     {
         return Rubro::with(['subrubros' => function ($q) use ($user) {
             $q->where('es_reservado_sistema', false)
+              ->where('activo', true)
               ->where('nombre', '!=', 'Cuota Mensual');
             if (!$user->isAdmin()) {
                 $q->where('permitido_para', 'OPERATIVO')->where('afecta_caja', true);

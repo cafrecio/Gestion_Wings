@@ -29,8 +29,11 @@
     <div class="alumno-card">
 
         <div class="alumno-card-header">
-            <span class="alumno-dot alumno-dot--neutral"></span>
+            <span class="alumno-dot {{ $tipoCaja->activo ? 'alumno-dot--success' : 'alumno-dot--neutral' }}"></span>
             <h3 class="alumno-nombre">{{ $tipoCaja->nombre }}</h3>
+            @unless($tipoCaja->activo)
+                <span style="font-size:0.7rem; color:var(--color-text-muted);">(inactivo)</span>
+            @endunless
         </div>
 
         @if($tipoCaja->descripcion)
@@ -70,11 +73,9 @@
 
         <div class="alumno-actions">
             <a href="{{ route('web.tipos-caja.edit', $tipoCaja->id) }}" style="{{ $btnBSec }}">Editar</a>
-            <form method="POST" action="{{ route('web.tipos-caja.destroy', $tipoCaja->id) }}"
-                  style="display:contents;"
-                  onsubmit="return confirm('¿Eliminar el tipo de caja «{{ $tipoCaja->nombre }}»?')">
-                @csrf @method('DELETE')
-                <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
+            <form method="POST" action="{{ route('web.tipos-caja.toggle-activo', $tipoCaja->id) }}" style="display:contents;">
+                @csrf @method('PATCH')
+                <button type="submit" style="{{ $tipoCaja->activo ? $btnBDang : $btnBSec }}">{{ $tipoCaja->activo ? 'Desactivar' : 'Activar' }}</button>
             </form>
         </div>
 

@@ -66,7 +66,9 @@ Existe `ClaseService::validarSolapamientoProfesor()` y `validarSolapamientoAlumn
 
 **Pregunta:** si un admin carga mal una serie y el mismo profesor termina con series solapadas, ¿debería bloquearse, o es aceptable y queda a criterio del admin?
 
-### B3. Catálogos contables — borrar un subrubro con historial
+> **B3 y B4 resueltos (2026-07-26)** — ver `docs/02-contratos/Wings-Contrato-Catalogos-Contables-V1.md` y `docs/02-contratos/Wings-Contrato-Recibos-PDF-V1.md`.
+
+### B3. Catálogos contables — borrar un subrubro con historial ✅ RESUELTO
 Hoy el único freno para editar/borrar un Rubro/Subrubro es el flag `es_reservado_sistema`. No hay chequeo de si el subrubro tiene `movimientos_operativos` o `cashflow_movimientos` históricos antes de borrarlo.
 
 **Pregunta:** si un admin borra un subrubro con historial, ¿qué debería pasar?
@@ -74,7 +76,7 @@ Hoy el único freno para editar/borrar un Rubro/Subrubro es el flag `es_reservad
 - (b) Permitirlo (¿la FK actual explota, o queda huérfana?).
 - (c) No "borrar" nunca — solo desactivar (¿existe ya un flag `activo` para esto?).
 
-### B4. Recibos PDF — sin contrato de contenido
+### B4. Recibos PDF — sin contrato de contenido ✅ RESUELTO
 `ReciboService` genera hoy el PDF con `numero_recibo`, `fecha_emision`, `fecha_pago`, datos de alumno, etc. (cuota y liquidación). No hay documento que diga qué debe contener oficialmente, cuándo se puede regenerar, ni naming/versionado.
 
 **Pregunta:** ¿lo que genera el service HOY es el contrato definitivo (lo documento tal cual), o falta algo que hoy no muestra (ej. datos fiscales, numeración correlativa real, etc.)?

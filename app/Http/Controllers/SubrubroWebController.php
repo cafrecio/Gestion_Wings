@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Rubro;
 use App\Models\Subrubro;
+use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class SubrubroWebController extends Controller
 {
@@ -26,11 +26,10 @@ class SubrubroWebController extends Controller
         }
 
         $validated = $request->validate([
-            'nombre'         => 'required|string|max:255|unique:subrubros,nombre',
+            'nombre'         => ['required', 'string', 'max:255', new NombreUnico(Subrubro::class, mensaje: 'Ya existe un subrubro con ese nombre.')],
             'permitido_para' => 'required|in:ADMIN,OPERATIVO',
         ], [
             'nombre.required'         => 'El nombre es obligatorio.',
-            'nombre.unique'           => 'Ya existe un subrubro con ese nombre.',
             'permitido_para.required' => 'Elegí quién puede usar el subrubro.',
         ]);
 
@@ -66,11 +65,10 @@ class SubrubroWebController extends Controller
         }
 
         $validated = $request->validate([
-            'nombre'         => ['required', 'string', 'max:255', Rule::unique('subrubros', 'nombre')->ignore($subrubro->id)],
+            'nombre'         => ['required', 'string', 'max:255', new NombreUnico(Subrubro::class, ignoreId: $subrubro->id, mensaje: 'Ya existe un subrubro con ese nombre.')],
             'permitido_para' => 'required|in:ADMIN,OPERATIVO',
         ], [
             'nombre.required'         => 'El nombre es obligatorio.',
-            'nombre.unique'           => 'Ya existe un subrubro con ese nombre.',
             'permitido_para.required' => 'Elegí quién puede usar el subrubro.',
         ]);
 
@@ -81,17 +79,18 @@ class SubrubroWebController extends Controller
         return redirect()->route('web.rubros.index')->with('success', 'Subrubro actualizado correctamente.');
     }
 
-    public function destroy(int $rubroId, int $id)
+    public function toggleActivo(int $rubroId, int $id)
     {
         $subrubro = Subrubro::where('rubro_id', $rubroId)->findOrFail($id);
 
         if ($subrubro->es_reservado_sistema) {
             return redirect()->route('web.rubros.index')
-                ->with('error', 'No se puede eliminar: subrubro reservado del sistema.');
+                ->with('error', 'No se puede desactivar: subrubro reservado del sistema.');
         }
 
-        $subrubro->delete();
+        $subrubro->update(['activo' => !$subrubro->activo]);
 
-        return redirect()->route('web.rubros.index')->with('success', 'Subrubro eliminado correctamente.');
+        $estado = $subrubro->activo ? 'activado' : 'desactivado';
+        return redirect()->route('web.rubros.index')->with('success', "Subrubro {$estado} correctamente.");
     }
 }

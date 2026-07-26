@@ -116,7 +116,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/rubros/{rubroId}/subrubros', [SubrubroWebController::class, 'store'])->name('web.subrubros.store');
         Route::get('/rubros/{rubroId}/subrubros/{id}/edit', [SubrubroWebController::class, 'edit'])->name('web.subrubros.edit');
         Route::put('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'update'])->name('web.subrubros.update');
-        Route::delete('/rubros/{rubroId}/subrubros/{id}', [SubrubroWebController::class, 'destroy'])->name('web.subrubros.destroy');
+        Route::patch('/rubros/{rubroId}/subrubros/{id}/toggle-activo', [SubrubroWebController::class, 'toggleActivo'])->name('web.subrubros.toggle-activo');
     });
 
     // Grupos — lectura para todos los autenticados
@@ -174,7 +174,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/tipos-caja/check-disponible', [TipoCajaWebController::class, 'checkDisponible'])->name('web.tipos-caja.check-disponible');
         Route::get('/tipos-caja/{id}/edit', [TipoCajaWebController::class, 'edit'])->name('web.tipos-caja.edit');
         Route::put('/tipos-caja/{id}', [TipoCajaWebController::class, 'update'])->name('web.tipos-caja.update');
-        Route::delete('/tipos-caja/{id}', [TipoCajaWebController::class, 'destroy'])->name('web.tipos-caja.destroy');
+        Route::patch('/tipos-caja/{id}/toggle-activo', [TipoCajaWebController::class, 'toggleActivo'])->name('web.tipos-caja.toggle-activo');
     });
 
     // Niveles — solo admin

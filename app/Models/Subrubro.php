@@ -14,11 +14,13 @@ class Subrubro extends Model
         'permitido_para',
         'afecta_caja',
         'es_reservado_sistema',
+        'activo',
     ];
 
     protected $casts = [
         'afecta_caja' => 'boolean',
         'es_reservado_sistema' => 'boolean',
+        'activo' => 'boolean',
     ];
 
     /**

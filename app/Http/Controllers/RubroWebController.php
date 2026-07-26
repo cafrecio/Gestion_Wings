@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rubro;
+use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class RubroWebController extends Controller
 {
@@ -23,12 +23,11 @@ class RubroWebController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre'      => 'required|string|max:255|unique:rubros,nombre',
+            'nombre'      => ['required', 'string', 'max:255', new NombreUnico(Rubro::class, mensaje: 'Ya existe un rubro con ese nombre.')],
             'tipo'        => 'required|in:INGRESO,EGRESO',
             'observacion' => 'nullable|string',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.unique'   => 'Ya existe un rubro con ese nombre.',
             'tipo.required'   => 'El tipo es obligatorio.',
             'tipo.in'         => 'El tipo debe ser INGRESO o EGRESO.',
         ]);
@@ -50,12 +49,11 @@ class RubroWebController extends Controller
         $rubro = Rubro::findOrFail($id);
 
         $validated = $request->validate([
-            'nombre'      => ['required', 'string', 'max:255', Rule::unique('rubros', 'nombre')->ignore($rubro->id)],
+            'nombre'      => ['required', 'string', 'max:255', new NombreUnico(Rubro::class, ignoreId: $rubro->id, mensaje: 'Ya existe un rubro con ese nombre.')],
             'tipo'        => 'required|in:INGRESO,EGRESO',
             'observacion' => 'nullable|string',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
-            'nombre.unique'   => 'Ya existe un rubro con ese nombre.',
             'tipo.required'   => 'El tipo es obligatorio.',
             'tipo.in'         => 'El tipo debe ser INGRESO o EGRESO.',
         ]);

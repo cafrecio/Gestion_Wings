@@ -27,12 +27,6 @@ class ReciboService
     public function generarReciboCuota(int $pagoId, bool $forceRegenerate = false): string
     {
         $rutaRelativa = $this->obtenerRutaReciboCuota($pagoId);
-        $rutaCompleta = storage_path('app/' . $rutaRelativa);
-
-        // Si existe y no forzamos regeneración, retornar
-        if (!$forceRegenerate && Storage::exists($rutaRelativa)) {
-            return $rutaRelativa;
-        }
 
         // Cargar pago con relaciones necesarias
         $pago = Pago::with([
@@ -40,6 +34,15 @@ class ReciboService
             'deudasCuota',
             'pagosDeuda.deudaCuota',
         ])->findOrFail($pagoId);
+
+        $esAnulado = $pago->estado === Pago::ESTADO_ANULADO;
+
+        // Si existe y no forzamos regeneración, retornar — salvo que el pago
+        // esté anulado: el PDF cacheado pudo generarse antes de la
+        // anulación y no tendría la marca, así que ahí siempre regeneramos.
+        if (!$forceRegenerate && !$esAnulado && Storage::exists($rutaRelativa)) {
+            return $rutaRelativa;
+        }
 
         // Buscar el tipo de caja desde movimientos relacionados
         $tipoCaja = $this->obtenerTipoCajaPago($pago);
@@ -49,6 +52,7 @@ class ReciboService
             'numero_recibo' => "CUOTA-{$pagoId}",
             'fecha_emision' => Carbon::now(),
             'fecha_pago' => $pago->fecha_pago,
+            'anulado' => $esAnulado,
             'alumno' => [
                 'nombre' => trim(($pago->alumno->nombre ?? '') . ' ' . ($pago->alumno->apellido ?? '')),
                 'dni' => $pago->alumno->dni ?? 'N/D',

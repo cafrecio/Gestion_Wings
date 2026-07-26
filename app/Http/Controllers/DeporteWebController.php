@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deporte;
+use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class DeporteWebController extends Controller
 {
@@ -23,11 +23,10 @@ class DeporteWebController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre'           => 'required|string|max:255|unique:deportes,nombre',
+            'nombre'           => ['required', 'string', 'max:255', new NombreUnico(Deporte::class, mensaje: 'Ya existe un deporte con ese nombre.')],
             'tipo_liquidacion' => 'required|in:HORA,COMISION',
         ], [
             'nombre.required'           => 'El nombre es obligatorio.',
-            'nombre.unique'             => 'Ya existe un deporte con ese nombre.',
             'tipo_liquidacion.required' => 'Debe seleccionar el tipo de liquidación.',
             'tipo_liquidacion.in'       => 'El tipo de liquidación no es válido.',
         ]);
@@ -51,11 +50,10 @@ class DeporteWebController extends Controller
         $deporte = Deporte::findOrFail($id);
 
         $validated = $request->validate([
-            'nombre'           => ['required', 'string', 'max:255', Rule::unique('deportes', 'nombre')->ignore($deporte->id)],
+            'nombre'           => ['required', 'string', 'max:255', new NombreUnico(Deporte::class, ignoreId: $deporte->id, mensaje: 'Ya existe un deporte con ese nombre.')],
             'tipo_liquidacion' => 'required|in:HORA,COMISION',
         ], [
             'nombre.required'           => 'El nombre es obligatorio.',
-            'nombre.unique'             => 'Ya existe un deporte con ese nombre.',
             'tipo_liquidacion.required' => 'Debe seleccionar el tipo de liquidación.',
             'tipo_liquidacion.in'       => 'El tipo de liquidación no es válido.',
         ]);

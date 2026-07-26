@@ -78,20 +78,14 @@ class TipoCajaWebController extends Controller
             ->with('success', 'Tipo de caja actualizado correctamente.');
     }
 
-    public function destroy(int $id)
+    public function toggleActivo(int $id)
     {
-        $tipoCaja = TipoCaja::withCount(['movimientosOperativos', 'cashflowMovimientos'])
-            ->findOrFail($id);
+        $tipoCaja = TipoCaja::findOrFail($id);
+        $tipoCaja->update(['activo' => !$tipoCaja->activo]);
 
-        $total = $tipoCaja->movimientos_operativos_count + $tipoCaja->cashflow_movimientos_count;
-        if ($total > 0) {
-            return back()->with('error', "No se puede eliminar: tiene {$total} movimiento(s) asociados.");
-        }
-
-        $tipoCaja->delete();
-
+        $estado = $tipoCaja->activo ? 'activado' : 'desactivado';
         return redirect()->route('web.tipos-caja.index')
-            ->with('success', 'Tipo de caja eliminado.');
+            ->with('success', "Tipo de caja {$estado}.");
     }
 
     public function checkDisponible(Request $request)

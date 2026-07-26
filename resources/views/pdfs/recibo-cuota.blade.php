@@ -38,6 +38,17 @@
             color: #6b7280;
         }
 
+        .sello-anulado {
+            text-align: center;
+            background: #dc2626;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
         .recibo-numero {
             background-color: #1e40af;
             color: white;
@@ -193,6 +204,9 @@
     </style>
 </head>
 <body>
+    @if($anulado ?? false)
+        <div class="sello-anulado">✗ RECIBO ANULADO — el pago fue cancelado</div>
+    @endif
     <div class="header">
         <h1>WINGS</h1>
         <div class="subtitle">Academia Deportiva</div>

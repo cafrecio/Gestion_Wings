@@ -66,9 +66,10 @@
                 </thead>
                 <tbody>
                     @foreach($rubro->subrubros as $subrubro)
-                        <tr style="border-bottom:1px solid var(--color-border);">
+                        <tr style="border-bottom:1px solid var(--color-border); {{ $subrubro->activo ? '' : 'opacity:0.55;' }}">
                             <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                 {{ $subrubro->nombre }}
+                                @unless($subrubro->activo)<span style="font-size:0.68rem; color:var(--color-text-muted);">(inactivo)</span>@endunless
                             </td>
                             <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                             <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
@@ -78,9 +79,9 @@
                                 @unless($subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
                                         <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
-                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
-                                            @csrf @method('DELETE')
-                                            <button type="submit" class="ds-btn-row ds-btn-row--dang">Eliminar</button>
+                                        <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
+                                            @csrf @method('PATCH')
+                                            <button type="submit" class="ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>
                                         </form>
                                     </div>
                                 @endunless
@@ -155,9 +156,10 @@
                 </thead>
                 <tbody>
                     @foreach($rubro->subrubros as $subrubro)
-                        <tr style="border-bottom:1px solid var(--color-border);">
+                        <tr style="border-bottom:1px solid var(--color-border); {{ $subrubro->activo ? '' : 'opacity:0.55;' }}">
                             <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                 {{ $subrubro->nombre }}
+                                @unless($subrubro->activo)<span style="font-size:0.68rem; color:var(--color-text-muted);">(inactivo)</span>@endunless
                             </td>
                             <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                             <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
@@ -167,9 +169,9 @@
                                 @unless($subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
                                         <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
-                                        <form method="POST" action="{{ route('web.subrubros.destroy', [$rubro->id, $subrubro->id]) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($subrubro->nombre) }}?')">
-                                            @csrf @method('DELETE')
-                                            <button type="submit" class="ds-btn-row ds-btn-row--dang">Eliminar</button>
+                                        <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
+                                            @csrf @method('PATCH')
+                                            <button type="submit" class="ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>
                                         </form>
                                     </div>
                                 @endunless

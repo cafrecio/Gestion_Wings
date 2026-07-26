@@ -117,8 +117,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 6) Catálogos contables (Rubros/Subrubros/Tipos de Caja)
 
 ### 6.1 Contrato
-- ⏳ `Wings-Contrato-Catalogos-Contables-V1.md`  
-  (Rubro define naturaleza INGRESO/EGRESO; subrubro hereda; reservado del sistema)
+- ✅ `docs/02-contratos/Wings-Contrato-Catalogos-Contables-V1.md` (2026-07-26, vía cuestionario I3.0)
 
 ### 6.2 ER
 - ⏳ `Wings-ER-Catalogos-Contables-V1.md`
@@ -134,8 +133,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 7) Recibos PDF (cuotas + liquidaciones)
 
 ### 7.1 Contrato
-- ⏳ `Wings-Contrato-Recibos-PDF-V1.md`  
-  (Qué debe contener, naming, cuándo se genera, re-generación, permisos operativos “en criollo”)
+- ✅ `docs/02-contratos/Wings-Contrato-Recibos-PDF-V1.md` (2026-07-26, vía cuestionario I3.0)
 
 ### 7.2 ER
 - ⏳ (no aplica como ER completo; si querés, mini-ER) `Wings-ER-Recibos-PDF-V1.md`

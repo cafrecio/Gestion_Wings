@@ -166,7 +166,7 @@ class LiquidacionWebController extends Controller
             $detalle->setRelation('referencia', $map->get($detalle->referencia_id));
         }
 
-        $tiposCaja = TipoCaja::orderBy('nombre')->get();
+        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
 
         $saldosPorTipoCaja = CashflowMovimiento::selectRaw('tipo_caja_id, SUM(monto) as saldo')
             ->groupBy('tipo_caja_id')
