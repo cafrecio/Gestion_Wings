@@ -43,8 +43,10 @@ Auditoría de consistencia visual y UX sobre `resources/views/` contra `wings-de
 - SF5.2 Alternativa: redefinir el DS a contorneado (toca CSS + todas las vistas; más caro).
 - SF5.3 En cualquier caso corregir la tabla de variantes del SKILL.
 
-### F6.0 — Sin responsividad: layout de 2 columnas fijas sin breakpoint
+### F6.0 — Sin responsividad: layout de 2 columnas fijas sin breakpoint — ✅ RESUELTO (2026-07-21)
 **Severidad:** Alta
+**Resolución (SF6.1):** debajo de 768px el sidebar pasa a ser un drawer off-canvas con botón hamburguesa en el topbar, overlay de fondo, y se cierra solo al navegar. `.ds-layout` pasa a una columna. Arriba de 768px sin cambios. Ver detalle en `funcionalidad/REPORTE-PROFESOR.md` UP1.0 (mismo fix).
+**Alcance no incluido (parte de SF6.2):** no se auditó `overflow-x:auto` en las tablas anchas (`movimientos`, `cashflow`, `caja/detalle`) — esas vistas las usa admin/operativo, no el profesor (que solo ve `clases`, basado en cards, no tablas), así que quedaron fuera del alcance de UP1.0. Si en el futuro admin/operativo reportan el mismo problema en celular, retomar ahí.
 **Dónde:** `app.css:558-562` `.ds-layout { grid-template-columns: 240px 1fr }`. `app.css` no contiene **ninguna** `@media` (verificado: 0). `.ds-sidebar` siempre 240px.
 **Qué pasa:** En celular el sidebar de 240px queda fijo sin colapsar ni hamburguesa, comiéndose el ancho y forzando scroll horizontal. Afecta de lleno a `clases/index` y `clases/show` (asistencias), justo lo que usa el PROFESOR desde el teléfono. Las tablas anchas (`movimientos`, `cashflow`, `caja/detalle`) agravan el desborde.
 **Soluciones:**
@@ -129,7 +131,7 @@ Auditoría de consistencia visual y UX sobre `resources/views/` contra `wings-de
 | F3 | Alta | Etiquetas multi-palabra + verbos divergentes | Renombrar a 1 palabra + glosario (SF3.1) |
 | F4 | Alta | Dot con clases inexistentes (profesores) | Usar `--success/--neutral` (SF4.1) |
 | F5 | Alta | "secondary" relleno vs contorneado | Unificar en relleno del DS (SF5.1) |
-| F6 | Alta | Sin responsividad / sidebar fijo 240px | `@media` con sidebar drawer (SF6.1) |
+| F6 | Alta | Sin responsividad / sidebar fijo 240px | ✅ Resuelto — sidebar drawer con hamburguesa (SF6.1) |
 | F7 | Media | Badge de estado en header de card | Mover a info-grid o al dot (SF7.1) |
 | F8 | Media | Dos estilos de barra de filtros | Estandarizar en `.filtros-control` (SF8.1) |
 | F9 | Media | Altura de primario 32/36/38 | Implementar Objeto A real (SF9.1) |

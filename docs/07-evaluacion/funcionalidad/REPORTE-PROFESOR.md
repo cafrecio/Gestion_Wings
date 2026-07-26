@@ -13,10 +13,11 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 
 ---
 
-### UP1.0 — La pantalla no funciona en el celular (sin diseño móvil)
+### UP1.0 — La pantalla no funciona en el celular (sin diseño móvil) — ✅ RESUELTO (2026-07-21)
 **Vista:** todas (Clases, detalle)
 **Severidad:** Alta
-**Qué me pasa:** El menú de la izquierda ocupa siempre lo mismo y no se esconde en el teléfono, así que todo lo demás queda apretado y tengo que mover la pantalla para los costados. Yo nunca uso una computadora, uso el celular en la cancha, y así se me hace difícil tomar lista rápido.
+**Resolución (SUP1.1):** debajo de 768px el menú ahora se esconde detrás de un botón hamburguesa; se desliza como panel encima de la pantalla y se cierra solo al tocar afuera o al elegir una opción. El contenido ya usa el ancho completo. Arriba de 768px (compu) no cambió nada.
+**Qué me pasaba:** El menú de la izquierda ocupaba siempre lo mismo y no se escondía en el teléfono, así que todo lo demás quedaba apretado y tenía que mover la pantalla para los costados. Yo nunca uso una computadora, uso el celular en la cancha, y así se me hacía difícil tomar lista rápido.
 **Soluciones:**
 - SUP1.1 ⭐ Que en el celular el menú se esconda detrás de un botón (hamburguesa) y la lista de alumnos ocupe toda la pantalla.
 - SUP1.2 Que por lo menos las tarjetas de alumnos y el botón de guardar se agranden y no haya que mover la pantalla para los costados.
@@ -47,7 +48,7 @@ No tengo un "mis clases de hoy" directo: entro a Clases y están todas, tengo qu
 
 | ID | Severidad | Vista | Problema |
 |----|-----------|-------|----------|
-| UP1 | Alta | Todas | No funciona bien en el celular (sin diseño móvil) |
+| UP1 | Alta | Todas | ✅ Resuelto — sidebar colapsable con hamburguesa (SUP1.1) |
 | UP2 | Media | Clases | No veo directo la clase de hoy |
 | UP3 | Baja | Clase detalle | Botones que no son para mí me estorban |
 | UP4 | Baja | Clase detalle | Falta confirmación clara de que la lista se guardó |

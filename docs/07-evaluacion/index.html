@@ -255,9 +255,9 @@
       <ul class="sols"><li class="sol rec"><span class="code">SF5.1 ⭐</span><span>Unificar en el relleno del CSS vía x-ds.button.</span></li><li class="sol"><span class="code">SF5.2</span><span>Redefinir el DS a contorneado (toca CSS + todas las vistas).</span></li></ul></div>
     </div>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F6.0</span><span class="ftitle">Sin responsividad: layout de 2 columnas fijas, cero @media</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">app.css no tiene ninguna @media; el sidebar de 240px nunca colapsa. En celular todo queda apretado con scroll horizontal. Golpea de lleno al PROFESOR (UP1).</p><p class="where">app.css:558-562 (0 media queries)</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SF6.1 ⭐</span><span>@media(max-width:768px) que colapse el sidebar a drawer/hamburguesa y pase a una columna.</span></li><li class="sol"><span class="code">SF6.2</span><span>Mínimo: sidebar off-canvas + 1 columna en móvil + overflow-x en tablas.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F6.0</span><span class="ftitle">✅ RESUELTO — Sin responsividad: layout de 2 columnas fijas, cero @media</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">app.css no tenía ninguna @media; el sidebar de 240px nunca colapsaba. En celular todo quedaba apretado con scroll horizontal. Golpeaba de lleno al PROFESOR (UP1).</p><p class="where">app.css · layouts/ds-app.blade.php</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SF6.1): @media(max-width:768px) — sidebar drawer off-canvas + botón hamburguesa + overlay, se cierra solo al navegar. Arriba de 768px sin cambios. <b>No incluido</b> (parte de SF6.2): overflow-x en tablas anchas de admin/operativo (movimientos, cashflow) — fuera del alcance porque el profesor solo ve clases (cards, no tablas).</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F7.0</span><span class="ftitle">Estado/badge dentro del header del card (viola regla 1.1)</span><span class="chev">▶</span></div>
@@ -378,9 +378,9 @@
     <div class="theme-h"><h2>👤 Usuario PROFESOR (celular, entre clases)</h2><a href="funcionalidad/REPORTE-PROFESOR.md">Ver reporte →</a></div>
     <p class="theme-sub">Toma lista desde el celular en la cancha. El problema central: la app no es móvil.</p>
 
-    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">UP1.0</span><span class="ftitle">La pantalla no funciona en el celular (sin diseño móvil)</span><span class="chev">▶</span></div>
-      <div class="fbody"><p class="what">El menú de 240px no se esconde en el teléfono; todo queda apretado con scroll horizontal. El profe solo usa el celular en la cancha (raíz técnica: F6).</p><p class="where">todas (clases, detalle)</p>
-      <ul class="sols"><li class="sol rec"><span class="code">SUP1.1 ⭐</span><span>Que en el celular el menú se esconda tras una hamburguesa y la lista ocupe toda la pantalla.</span></li><li class="sol"><span class="code">SUP1.2</span><span>Al menos agrandar tarjetas y botón guardar y evitar el scroll lateral.</span></li></ul></div>
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">UP1.0</span><span class="ftitle">✅ RESUELTO — La pantalla no funciona en el celular (sin diseño móvil)</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El menú de 240px no se escondía en el teléfono; todo quedaba apretado con scroll horizontal. El profe solo usa el celular en la cancha (raíz técnica: F6).</p><p class="where">todas (clases, detalle)</p>
+      <p style="font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)"><b>Resuelto 2026-07-21</b> (SUP1.1): en el celular el menú se esconde tras un botón hamburguesa y la lista ocupa toda la pantalla; se cierra solo al elegir una opción. Mismo fix que F6.0.</p></div>
     </div>
 
     <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">UP2.0</span><span class="ftitle">No ve directo la clase de hoy</span><span class="chev">▶</span></div>
