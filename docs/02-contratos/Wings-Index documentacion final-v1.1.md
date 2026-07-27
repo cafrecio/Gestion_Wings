@@ -169,8 +169,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 > **Pero** no hay documentación “por caso de uso” cerrada aún (más allá de Caja/Cashflow y Alumno–Grupo–Deporte–Deuda).
 
 ### 9.1 Contrato general ABM (si querés uno único)
-- ⏳ `Wings-Contrato-ABM-Admin-V1.md`  
-  (Listar / crear / editar / borrar + restricciones “no borrar si tiene hijos”)
+- ✅ `docs/02-contratos/Wings-Contrato-ABM-Admin-V1.md` (2026-07-26, vía cuestionario I3.0)
 
 ---
 
