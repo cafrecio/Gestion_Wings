@@ -623,6 +623,14 @@ a:hover {
     padding: 0;
 }
 
+/* Overlay del drawer mobile: oculto por defecto en TODOS los tamaños.
+   Sin esta regla base quedaba como grid item visible de .ds-layout en
+   desktop: ocupaba la columna 1fr del contenido y empujaba .ds-main a una
+   segunda fila de 240px, rompiendo el layout de todas las páginas. */
+.ds-sidebar-overlay {
+    display: none;
+}
+
 /* ── Responsive: sidebar colapsable detrás de hamburguesa (UP1.0 / F6.0) ──
    Antes .ds-layout era un grid de 240px fijos siempre; en celular el
    contenido quedaba apretado en el resto y forzaba scroll horizontal.
