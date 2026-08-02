@@ -50,16 +50,25 @@ Regla general: crear/editar/validar clases queda exclusivo de ADMIN — es una e
 
 **Clase de fecha pasada:**
 - Solo ADMIN puede tocar los profesores.
-- El campo `motivo` es obligatorio (se guarda en `clases.motivo_cambio_profesor`).
+- El campo `motivo` es obligatorio **solo si la clase ya tenía profesor asignado** (se guarda en `clases.motivo_cambio_profesor`). Si la clase pasó sin ningún profesor cargado, asignarlo es la **primera carga**, no un cambio: no se pide motivo. Ver 4.e para el criterio general.
 - Si el profesor que se saca/reemplaza **ya cobró esa clase** en una liquidación con `estado_pago = PAGADA` (se busca en `liquidacion_detalles` con `tipo_referencia='clase'` y `referencia_id` = la clase), el sistema **no bloquea**, pero **avisa** al admin con el número de liquidación, el profesor y la fecha de pago, y pide confirmación explícita antes de aplicar el cambio (`HTTP 409` con `requiere_confirmacion: true`; el admin reenvía con `confirmar: true` para forzarlo).
 - Este chequeo solo aplica a deportes con liquidación `tipo=HORA` (donde `liquidacion_detalles` referencia la clase directamente). En deportes `COMISION` la liquidación se calcula por alumno/pago, no por clase, así que no hay vínculo directo clase→liquidación para avisar.
 
 ---
 
-## 4.e Corrección de asistencia
+## 4.e Corrección de asistencia — criterio general del motivo
 
-- Guardar asistencia de una clase de **hoy**: sin motivo, como siempre.
-- Guardar/corregir asistencia de una clase **pasada**: el campo `motivo` es obligatorio para toda la tanda que se guarda en esa llamada (ej. "se nos pasó cargar a Josefa", "se marcó por error"). Se persiste en `asistencias.motivo_correccion` en cada fila tocada por esa llamada.
+**El motivo justifica una CORRECCIÓN, nunca una carga.** La regla es la misma para asistencias y para profesores:
+
+| Situación | ¿Pide motivo? |
+|---|---|
+| Clase de **hoy** | No, nunca |
+| Clase **pasada** que nunca tuvo lista tomada / profesor asignado | **No** — es la primera carga (se traspapeló, se cargó tarde). No hay nada que justificar |
+| Clase **pasada** que ya tenía lista tomada / profesor asignado | **Sí** — se está cambiando un dato ya registrado |
+
+- Cuando aplica, el `motivo` es obligatorio para toda la tanda que se guarda en esa llamada (ej. "se nos pasó cargar a Josefa", "se marcó por error"). Se persiste en `asistencias.motivo_correccion` en cada fila tocada por esa llamada.
+- En la primera carga el campo `motivo_correccion` queda en `NULL` — así se distingue después una lista cargada tarde de una lista corregida.
+- El recuadro del motivo **no se muestra en pantalla** cuando no aplica, para no pedir que se justifique algo que no ocurrió.
 - Re-guardar una asistencia ya existente (ej. confirmar de nuevo sin cambios) no se autobloquea por "solapamiento consigo misma" — la validación de solapamiento excluye la fila de asistencia que se está actualizando.
 
 ---

@@ -14,7 +14,7 @@
 
     $cantPresentes = $asistenciasMap->where('presente', true)->count();
     $profesoresActualesIds = $clase->profesores->pluck('id')->toArray();
-    $esPasada = $clase->fecha->lt(today());
+    // $esPasada, $correccionAsistencia y $correccionProfesores vienen del controller.
     $puedeModificarProfesores = !$esProfesor && (!$esPasada || $esAdmin);
 @endphp
 
@@ -229,10 +229,10 @@
                 </label>
             @endforeach
         </div>
-        @if($esPasada)
+        @if($correccionProfesores)
             <div style="margin-bottom:12px;">
                 <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 6px;">
-                    Esta clase ya pasó — indicá el motivo del cambio
+                    Ya tenía profesor asignado — indicá el motivo del cambio
                 </p>
                 <input type="text" id="input-motivo-profesores"
                        placeholder="Ej: Se asignó mal al cargar, cubrió una suplencia..."
@@ -392,11 +392,11 @@
 
 {{-- Botón guardar asistencias --}}
 @if($alumnos->isNotEmpty())
-@if($esPasada)
+@if($correccionAsistencia)
     <div style="margin-top:16px; padding:12px 16px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
                 border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); border-radius:var(--radius-card);">
         <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 8px;">
-            Esta clase ya pasó — indicá el motivo de la corrección
+            Estás corrigiendo una lista ya tomada — indicá el motivo
         </p>
         <input type="text" id="input-motivo-asistencias"
                placeholder="Ej: Se nos pasó cargar a un alumno, se marcó por error..."
@@ -426,7 +426,10 @@
 (function () {
     const infoSemana = @json($infoSemana);
     const claseId    = {{ $clase->id }};
-    const esPasada   = @json($esPasada);
+    // El motivo solo se exige cuando se corrige algo YA cargado, no en la
+    // primera carga de una clase que quedó sin tomar.
+    const requiereMotivoAsistencia = @json($correccionAsistencia);
+    const requiereMotivoProfesores = @json($correccionProfesores);
     const csrf       = document.querySelector('meta[name="csrf-token"]').content;
 
     // ── Contador de presentes ───────────────────────────────────────────────
@@ -490,7 +493,7 @@
     if (btnGuardar) {
         btnGuardar.addEventListener('click', function () {
             const motivo = inputMotivoAsistencias ? inputMotivoAsistencias.value.trim() : '';
-            if (esPasada && !motivo) {
+            if (requiereMotivoAsistencia && !motivo) {
                 mostrarToast('Indicá el motivo de la corrección.', false);
                 if (inputMotivoAsistencias) inputMotivoAsistencias.focus();
                 return;
@@ -685,7 +688,7 @@
     if (btnGuardarProfs) {
         btnGuardarProfs.addEventListener('click', function () {
             const motivo = inputMotivoProfs ? inputMotivoProfs.value.trim() : '';
-            if (esPasada && !motivo) {
+            if (requiereMotivoProfesores && !motivo) {
                 flashProfs.style.display = 'inline';
                 flashProfs.textContent = '✗ Indicá el motivo del cambio.';
                 flashProfs.style.color = 'var(--color-danger)';

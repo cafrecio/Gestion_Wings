@@ -273,7 +273,17 @@ class ClaseWebController extends Controller
         $esAdmin    = Auth::user()->isAdmin();
         $esProfesor = Auth::user()->isProfesor();
 
-        return view('clases.show', compact('clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles', 'esAdmin', 'esProfesor'));
+        // Solo se pide motivo cuando se está CORRIGIENDO algo ya cargado en
+        // una clase que ya pasó. Si nunca se cargó, es la primera carga y no
+        // hay nada que justificar.
+        $esPasada             = $clase->fecha->lt(today());
+        $correccionAsistencia = $esPasada && $clase->asistencias->isNotEmpty();
+        $correccionProfesores = $esPasada && $clase->profesores->isNotEmpty();
+
+        return view('clases.show', compact(
+            'clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
+            'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores'
+        ));
     }
 
     public function storeAsistencias(Request $request, int $id)
@@ -291,11 +301,17 @@ class ClaseWebController extends Controller
             return back()->with('error', 'La clase está cancelada.');
         }
 
-        $esPasada = $clase->fecha->lt(today());
-        $motivoCorreccion = trim((string) $request->input('motivo', ''));
+        // El motivo justifica una CORRECCIÓN, no una carga. Si la clase ya
+        // pasó pero nunca se le tomó lista, esto es la primera carga (se
+        // traspapeló, se cargó tarde) y no hay nada que justificar. Solo se
+        // pide motivo cuando ya existe una lista previa que se está cambiando.
+        $esPasada           = $clase->fecha->lt(today());
+        $yaTieneAsistencias = Asistencia::where('clase_id', $clase->id)->exists();
+        $esCorreccion       = $esPasada && $yaTieneAsistencias;
+        $motivoCorreccion   = trim((string) $request->input('motivo', ''));
 
-        if ($esPasada && $motivoCorreccion === '') {
-            $mensaje = 'Esta clase ya pasó: indicá el motivo de la corrección.';
+        if ($esCorreccion && $motivoCorreccion === '') {
+            $mensaje = 'Esta clase ya tenía lista tomada: indicá el motivo de la corrección.';
             if ($esJson) {
                 return response()->json(['success' => false, 'message' => $mensaje], 422);
             }
@@ -337,7 +353,7 @@ class ClaseWebController extends Controller
                 : 'EXTRA';
 
             $datosAsistencia = ['presente' => $presente];
-            if ($esPasada) {
+            if ($esCorreccion) {
                 $datosAsistencia['motivo_correccion'] = $motivoCorreccion;
             }
 
@@ -468,30 +484,33 @@ class ClaseWebController extends Controller
             abort(403, 'No tenés permiso para esta acción.');
         }
 
-        $clase = Clase::findOrFail($id);
+        $clase    = Clase::findOrFail($id);
         $esPasada = $clase->fecha->lt(today());
-
-        if ($esPasada) {
-            if (!Auth::user()->isAdmin()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Esta clase ya pasó: solo un administrador puede cambiar sus profesores.',
-                ], 403);
-            }
-
-            $motivo = trim((string) $request->input('motivo', ''));
-            if ($motivo === '') {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Esta clase ya pasó: indicá el motivo del cambio de profesor.',
-                ], 422);
-            }
-        }
 
         $profesoresIds = array_map('intval', $request->input('profesores', []));
         $actualesIds   = $clase->profesores()->pluck('profesores.id')->toArray();
         $removidos     = array_diff($actualesIds, $profesoresIds);
         $agregados     = array_diff($profesoresIds, $actualesIds);
+
+        // Igual que en las asistencias: el motivo justifica un CAMBIO. Si la
+        // clase pasó sin ningún profesor asignado, esto es la primera carga
+        // (quedó sin cargar en su momento) y no hay nada que justificar.
+        $esCorreccion = $esPasada && !empty($actualesIds);
+        $motivo       = trim((string) $request->input('motivo', ''));
+
+        if ($esPasada && !Auth::user()->isAdmin()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Esta clase ya pasó: solo un administrador puede cambiar sus profesores.',
+            ], 403);
+        }
+
+        if ($esCorreccion && $motivo === '') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Esta clase ya tenía profesor asignado: indicá el motivo del cambio.',
+            ], 422);
+        }
 
         // Clase pasada + se saca un profesor que ya cobró esa clase en una
         // liquidación PAGADA: se avisa al admin, que puede confirmar igual.
@@ -533,7 +552,7 @@ class ClaseWebController extends Controller
 
         $clase->profesores()->sync($profesoresIds);
 
-        if ($esPasada) {
+        if ($esCorreccion) {
             $clase->update(['motivo_cambio_profesor' => $motivo]);
         }
 
