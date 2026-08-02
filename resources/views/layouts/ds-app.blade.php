@@ -28,24 +28,22 @@
                 @if(Auth::user()->isProfesor())
 
                     {{-- ── Sidebar mínimo para PROFESOR ── --}}
-                    <div class="ds-nav-row">
-                        <a href="{{ route('web.clases.index') }}"
-                           class="ds-nav-link {{ request()->is('clases*') ? 'ds-nav-link--active' : '' }}"
-                           style="flex:1; min-width:0;">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                            Clases
+                    <a href="{{ route('web.clases.index') }}"
+                       class="ds-nav-link {{ request()->is('clases*') && !request()->filled('estado') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                    @if($badgeClasesPendientes > 0)
+                        <a href="{{ route('web.clases.index', ['estado' => 'finalizada']) }}"
+                           class="ds-nav-sublink {{ request('estado') === 'finalizada' ? 'ds-nav-sublink--active' : '' }}"
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">{{ $badgeClasesPendientes }}</span>
                         </a>
-                        @if($badgeClasesPendientes > 0)
-                            <a href="{{ route('web.clases.index', ['estado' => 'finalizada']) }}"
-                               class="ds-nav-badge"
-                               title="{{ $badgeClasesPendientes }} clase(s) sin lista tomada — ver listado">
-                                {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
-                            </a>
-                        @endif
-                    </div>
+                    @endif
 
                 @else
 
@@ -98,24 +96,22 @@
                         Alumnos
                     </a>
 
-                    <div class="ds-nav-row">
-                        <a href="{{ route('web.clases.index') }}"
-                           class="ds-nav-link {{ request()->is('clases*') ? 'ds-nav-link--active' : '' }}"
-                           style="flex:1; min-width:0;">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                            Clases
+                    <a href="{{ route('web.clases.index') }}"
+                       class="ds-nav-link {{ request()->is('clases*') && !request()->filled('estado') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                    @if($badgeClasesPendientes > 0)
+                        <a href="{{ route('web.clases.index', ['estado' => 'finalizada']) }}"
+                           class="ds-nav-sublink {{ request('estado') === 'finalizada' ? 'ds-nav-sublink--active' : '' }}"
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">{{ $badgeClasesPendientes }}</span>
                         </a>
-                        @if($badgeClasesPendientes > 0)
-                            <a href="{{ route('web.clases.index', ['estado' => 'finalizada']) }}"
-                               class="ds-nav-badge"
-                               title="{{ $badgeClasesPendientes }} clase(s) sin lista tomada — ver listado">
-                                {{ $badgeClasesPendientes > 99 ? '99+' : $badgeClasesPendientes }}
-                            </a>
-                        @endif
-                    </div>
+                    @endif
 
                     @if(Auth::user()->isAdmin())
                     <a href="{{ route('web.profesores.index') }}"

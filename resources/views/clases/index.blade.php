@@ -11,16 +11,18 @@ function claseEstado($clase, $ahora): string {
     $fecha  = $clase->fecha->format('Y-m-d');
     $inicio = \Carbon\Carbon::parse($fecha . ' ' . $clase->hora_inicio->format('H:i'));
     $fin    = \Carbon\Carbon::parse($fecha . ' ' . $clase->hora_fin->format('H:i'));
+    // "Cerrada" = resuelta para liquidación: tiene presentes o el admin la
+    // validó a mano. "Finalizada" = pasó y sigue trabando el pago.
+    $resuelta = $clase->validada_para_liquidacion
+                || $clase->asistencias->where('presente', true)->count() > 0;
     if ($clase->fecha->isToday()) {
         if ($ahora->lt($inicio->copy()->subHour())) return 'programada';
         if ($ahora->lt($inicio))                    return 'por_comenzar';
         if ($ahora->lte($fin))                      return 'en_curso';
-        return $clase->asistencias->where('presente', true)->count() > 0
-               ? 'cerrada' : 'finalizada';
+        return $resuelta ? 'cerrada' : 'finalizada';
     }
     if ($clase->fecha->isFuture()) return 'programada';
-    return $clase->asistencias->where('presente', true)->count() > 0
-           ? 'cerrada' : 'finalizada';
+    return $resuelta ? 'cerrada' : 'finalizada';
 }
 
 function estadoDot(string $estado): string {

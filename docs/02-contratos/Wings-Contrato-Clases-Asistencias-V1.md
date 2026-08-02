@@ -79,6 +79,25 @@ Decisión explícita: **un PROFESOR puede ver y tomar asistencia de cualquier cl
 
 ---
 
+## 4.f-bis Clases que traban el pago — "Sin asistencia"
+
+Una clase pasada **no se puede liquidar** hasta que tenga al menos un presente cargado o el admin la marque `validada_para_liquidacion`. Sin eso, al profesor no se le paga (ver `LIQUIDACIONES_CONTRATO_V2.md` 2.3).
+
+Por eso el menú expone un atajo permanente `Clases › Sin asistencia` con el conteo, que lleva al listado filtrado (`?estado=finalizada`):
+
+- **Se cuentan todas, sin ventana de tiempo.** Una clase de hace seis meses sin lista sigue trabando plata, así que no se la deja de contar por vieja.
+- **Se excluyen las `validada_para_liquidacion = true`**: ya están resueltas, se pagan igual.
+- El sub-ítem **solo aparece si hay pendientes**; en cero desaparece del menú.
+- El conteo usa exactamente la misma consulta que el filtro al que lleva, para que el número anunciado sea el que se ve al hacer click.
+- El recorte de 35 días hacia atrás que el listado aplica a OPERATIVO y PROFESOR **no rige en este filtro**: si no, el número no coincidiría y además no podrían abrir la clase vieja que tienen que cargar.
+
+Los dos estados de una clase pasada quedan complementarios y sin huecos:
+
+| Estado | Significado | Condición |
+|---|---|---|
+| `finalizada` | Sin resolver, no se paga | sin presentes **y** no validada |
+| `cerrada` | Resuelta para pago | con presentes **o** validada |
+
 ## 4.g Cancelación de clase
 
 - Cancelar (con `motivo_cancelacion` obligatorio) o reactivar (`motivo_cancelacion` se limpia) no toca las asistencias ya cargadas — quedan tal cual en la base.

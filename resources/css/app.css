@@ -709,34 +709,44 @@ a:hover {
     color: #fff;
 }
 
-/* Fila de nav con badge: el badge es su propio link (acceso directo al
-   listado filtrado), por eso no puede ir anidado dentro del <a> del menú. */
-.ds-nav-row {
+/* Sub-ítem del menú: atajo a un listado filtrado. Es su propia fila (no un
+   badge dentro del link padre) para que se lea qué hace y sea un link real.
+   Solo se muestra cuando hay algo pendiente. */
+.ds-nav-sublink {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    padding: 6px 12px 6px 34px;
+    border-radius: var(--radius-btn);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: background 150ms ease, color 150ms ease;
 }
 
-.ds-nav-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.ds-nav-sublink:hover {
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+}
+
+.ds-nav-sublink--active {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+.ds-nav-count {
+    margin-left: auto;
     flex-shrink: 0;
     min-width: 18px;
     padding: 1px 6px;
-    margin-right: 12px;
     border-radius: 999px;
     background: var(--color-danger);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 700;
     line-height: 1.4;
-    text-decoration: none;
-    transition: filter 150ms ease;
-}
-
-.ds-nav-badge:hover {
-    filter: brightness(1.15);
+    text-align: center;
 }
 
 .ds-nav-link--active {

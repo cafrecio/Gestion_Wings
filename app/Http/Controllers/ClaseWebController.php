@@ -60,8 +60,13 @@ class ClaseWebController extends Controller
             ->orderBy('fecha', $dir)
             ->orderBy('hora_inicio', $dir);
 
-        // Límite temporal según rol (solo hacia atrás, si el usuario filtra fechas pasadas)
-        if (!$esAdmin) {
+        // Límite temporal según rol (solo hacia atrás, si el usuario filtra fechas pasadas).
+        // Excepción: el filtro "finalizada" es el atajo de "sin asistencia" del
+        // menú, y esas clases traban el pago del profesor sin importar qué tan
+        // viejas sean. Ahí se ve todo el historial, o el número del menú no
+        // coincidiría y encima no se podría cargar una lista vieja.
+        $atajoSinAsistencia = $request->input('estado') === 'finalizada';
+        if (!$esAdmin && !$atajoSinAsistencia) {
             $limiteAtras = Carbon::now()->subDays(35)->format('Y-m-d');
             $query->whereDate('fecha', '>=', $limiteAtras);
         }
@@ -92,14 +97,20 @@ class ClaseWebController extends Controller
                     'programada' => $query
                         ->where('cancelada', false)
                         ->whereDate('fecha', '>', today()),
+                    // Sin resolver: no se puede liquidar hasta que se cargue la
+                    // lista o el admin la valide a mano.
                     'finalizada' => $query
                         ->where('cancelada', false)
                         ->whereDate('fecha', '<', today())
+                        ->where('validada_para_liquidacion', false)
                         ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true)),
+                    // Resuelta para pago: tiene presentes o fue validada a mano.
                     'cerrada'    => $query
                         ->where('cancelada', false)
                         ->whereDate('fecha', '<', today())
-                        ->whereHas('asistencias', fn($q) => $q->where('presente', true)),
+                        ->where(fn($q) => $q
+                            ->where('validada_para_liquidacion', true)
+                            ->orWhereHas('asistencias', fn($a) => $a->where('presente', true))),
                     default      => null,
                 };
             }
