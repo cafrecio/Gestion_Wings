@@ -709,6 +709,36 @@ a:hover {
     color: #fff;
 }
 
+/* Fila de nav con badge: el badge es su propio link (acceso directo al
+   listado filtrado), por eso no puede ir anidado dentro del <a> del menú. */
+.ds-nav-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ds-nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 18px;
+    padding: 1px 6px;
+    margin-right: 12px;
+    border-radius: 999px;
+    background: var(--color-danger);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: filter 150ms ease;
+}
+
+.ds-nav-badge:hover {
+    filter: brightness(1.15);
+}
+
 .ds-nav-link--active {
     background: rgba(255, 255, 255, 0.18);
     color: #fff;
