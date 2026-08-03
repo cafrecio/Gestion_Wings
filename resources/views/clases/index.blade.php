@@ -117,11 +117,11 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 {{-- Sección D — Filtros --}}
 <form method="GET" action="{{ route('web.clases.index') }}" id="filter-form">
     <div class="filtros-card">
-        <div class="filtros-row" style="flex-wrap:wrap; gap:8px;">
+        <div class="filtros-row" style="gap:8px;">
 
             <select id="filter-deporte" name="deporte_id"
                     class="filtros-control filtros-select">
-                <option value="">Todos los deportes</option>
+                <option value="">Deporte</option>
                 @foreach($deportes as $deporte)
                     <option value="{{ $deporte->id }}"
                             {{ request('deporte_id') == $deporte->id ? 'selected' : '' }}>
@@ -132,7 +132,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
             <select id="filter-grupo" name="grupo_id"
                     class="filtros-control filtros-select">
-                <option value="">Todos los grupos</option>
+                <option value="">Grupo</option>
                 @foreach($grupos as $grupo)
                     <option value="{{ $grupo->id }}"
                             data-deporte="{{ $grupo->deporte_id }}"
@@ -143,7 +143,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
             </select>
 
             <select name="profesor_id" class="filtros-control filtros-select">
-                <option value="">Todos los profesores</option>
+                <option value="">Profesor</option>
                 @foreach($profesores as $profesor)
                     <option value="{{ $profesor->id }}"
                             {{ request('profesor_id') == $profesor->id ? 'selected' : '' }}>
@@ -154,7 +154,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
             <select name="estado" id="filter-estado"
                     class="filtros-control filtros-select">
-                <option value="">Todos los estados</option>
+                <option value="">Estado</option>
                 <option value="programada" {{ request('estado') === 'programada' ? 'selected' : '' }}>Programada</option>
                 <option value="finalizada" {{ request('estado') === 'finalizada' ? 'selected' : '' }}>Finalizada</option>
                 <option value="cerrada"    {{ request('estado') === 'cerrada'    ? 'selected' : '' }}>Cerrada</option>
@@ -167,10 +167,10 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
             <select name="orden" id="filter-orden"
                     class="filtros-control filtros-select">
-                <option value="">Orden por defecto</option>
-                <option value="fecha_desc" {{ request('orden') === 'fecha_desc' ? 'selected' : '' }}>Fecha ↓ más recientes</option>
-                <option value="fecha_asc"  {{ request('orden') === 'fecha_asc'  ? 'selected' : '' }}>Fecha ↑ más antiguas</option>
-                <option value="grupo"      {{ request('orden') === 'grupo'      ? 'selected' : '' }}>Grupo (A–Z)</option>
+                <option value="">Orden</option>
+                <option value="fecha_desc" {{ request('orden') === 'fecha_desc' ? 'selected' : '' }}>Más recientes</option>
+                <option value="fecha_asc"  {{ request('orden') === 'fecha_asc'  ? 'selected' : '' }}>Más antiguas</option>
+                <option value="grupo"      {{ request('orden') === 'grupo'      ? 'selected' : '' }}>Grupo A–Z</option>
             </select>
 
             <div class="filtros-actions" style="margin-left:auto;">

@@ -916,17 +916,29 @@ a:hover {
 
 .filtros-control::placeholder { color: var(--color-text-muted); }
 
-/* Todos los controles de la barra de filtros con el MISMO ancho.
-   180px cortaba las etiquetas: la más larga en uso es "Fútbol — Principiantes"
-   (22 caracteres ≈ 180px de texto + 32px de padding + ~20px de la flecha
-   nativa del select). 240px entra con margen. */
+/* Barra de filtros: SIEMPRE en un solo renglón, con los controles todos del
+   mismo ancho. Con anchos fijos en px la fila desbordaba y los botones se
+   iban a un segundo renglón desalineados. Con flex:1 1 0 + min-width:0 los
+   controles se reparten el espacio en partes iguales y se encogen juntos;
+   los botones no se encogen nunca. */
+.filtros-row {
+    flex-wrap: nowrap;
+}
+
 .filtros-select,
 .filtros-control[type="date"] {
-    width: 240px;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    text-overflow: ellipsis;
 }
 
 .filtros-select {
     cursor: pointer;
+}
+
+.filtros-actions {
+    flex-shrink: 0;
 }
 
 /* search-input-group: copia exacta de CyE */
