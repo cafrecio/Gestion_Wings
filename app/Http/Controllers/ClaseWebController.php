@@ -51,14 +51,30 @@ class ClaseWebController extends Controller
         // 2. Clases que NO son hoy — con filtros del request
         $hayFiltros = $request->anyFilled(['fecha', 'estado', 'deporte_id', 'grupo_id', 'profesor_id']);
 
+        // Orden por defecto: si se están mirando clases pasadas, lo más
+        // reciente primero; si son futuras, lo más próximo primero. El usuario
+        // puede forzar otro orden desde el selector.
         $esPasado = $request->filled('estado') &&
                     in_array($request->input('estado'), ['finalizada', 'cerrada']);
         $dir = $esPasado ? 'desc' : 'asc';
 
         $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
-            ->whereDate('fecha', '!=', $hoy)
-            ->orderBy('fecha', $dir)
-            ->orderBy('hora_inicio', $dir);
+            ->whereDate('fecha', '!=', $hoy);
+
+        match ($request->input('orden')) {
+            'fecha_desc' => $query->orderBy('fecha', 'desc')->orderBy('hora_inicio', 'desc'),
+            'fecha_asc'  => $query->orderBy('fecha', 'asc')->orderBy('hora_inicio', 'asc'),
+            // Por grupo: se ordena por deporte y nivel, que es lo que compone
+            // el nombre visible del grupo (no existe columna 'nombre').
+            'grupo'      => $query
+                ->join('grupos', 'clases.grupo_id', '=', 'grupos.id')
+                ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+                ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+                ->orderBy('deportes.nombre')->orderBy('niveles.nombre')
+                ->orderBy('clases.fecha', $dir)
+                ->select('clases.*'),
+            default      => $query->orderBy('fecha', $dir)->orderBy('hora_inicio', $dir),
+        };
 
         // Límite temporal según rol (solo hacia atrás, si el usuario filtra fechas pasadas).
         // Excepción: el filtro "finalizada" es el atajo de "sin asistencia" del

@@ -163,8 +163,15 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
             <input type="date" name="fecha"
                    value="{{ request('fecha') }}"
-                   class="filtros-control"
-                   style="width:auto;">
+                   class="filtros-control">
+
+            <select name="orden" id="filter-orden"
+                    class="filtros-control filtros-select">
+                <option value="">Orden por defecto</option>
+                <option value="fecha_desc" {{ request('orden') === 'fecha_desc' ? 'selected' : '' }}>Fecha ↓ más recientes</option>
+                <option value="fecha_asc"  {{ request('orden') === 'fecha_asc'  ? 'selected' : '' }}>Fecha ↑ más antiguas</option>
+                <option value="grupo"      {{ request('orden') === 'grupo'      ? 'selected' : '' }}>Grupo (A–Z)</option>
+            </select>
 
             <div class="filtros-actions" style="margin-left:auto;">
                 <x-ds.button variant="secondary"
@@ -266,6 +273,11 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
         if (grupoSelect) {
             grupoSelect.addEventListener('change', function () { filterForm.submit(); });
+        }
+
+        const ordenSelect = document.getElementById('filter-orden');
+        if (ordenSelect) {
+            ordenSelect.addEventListener('change', function () { filterForm.submit(); });
         }
     })();
 })();

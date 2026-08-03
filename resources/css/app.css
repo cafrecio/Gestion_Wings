@@ -916,8 +916,16 @@ a:hover {
 
 .filtros-control::placeholder { color: var(--color-text-muted); }
 
+/* Todos los controles de la barra de filtros con el MISMO ancho.
+   180px cortaba las etiquetas: la más larga en uso es "Fútbol — Principiantes"
+   (22 caracteres ≈ 180px de texto + 32px de padding + ~20px de la flecha
+   nativa del select). 240px entra con margen. */
+.filtros-select,
+.filtros-control[type="date"] {
+    width: 240px;
+}
+
 .filtros-select {
-    width: 180px;
     cursor: pointer;
 }
 
