@@ -39,7 +39,7 @@
             {{-- flex 1/1 contra el flex 2 del buscador: los tres controles
                  reparten la fila y ningún select recorta su texto --}}
             <select name="subrubro_id" class="filtros-control filtros-select" style="width:auto; flex:1; min-width:205px;">
-                <option value="">Todos los subrubros</option>
+                <option value="">Subrubro</option>
                 @foreach($subrubros as $sub)
                     <option value="{{ $sub->id }}" {{ request('subrubro_id') == $sub->id ? 'selected' : '' }}>
                         {{ $sub->nombre }}
@@ -48,7 +48,7 @@
             </select>
 
             <select name="tipo" class="filtros-control filtros-select" style="width:auto; flex:1; min-width:190px;">
-                <option value="">Ingresos y egresos</option>
+                <option value="">Ingreso / Egreso</option>
                 <option value="INGRESO" {{ request('tipo') === 'INGRESO' ? 'selected' : '' }}>Ingresos</option>
                 <option value="EGRESO"  {{ request('tipo') === 'EGRESO'  ? 'selected' : '' }}>Egresos</option>
             </select>

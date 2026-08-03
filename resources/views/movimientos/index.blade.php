@@ -10,20 +10,20 @@
 {{-- Filtros --}}
 <form method="GET" action="{{ route('web.movimientos.index') }}">
     <div class="filtros-card mb-4">
-        <div class="filtros-row" style="flex-wrap:wrap; gap:8px;">
+        <div class="filtros-row" style="gap:8px;">
             <input type="date" name="desde" value="{{ request('desde') }}"
                    class="filtros-control" style="width:auto;" title="Desde">
             <input type="date" name="hasta" value="{{ request('hasta') }}"
                    class="filtros-control" style="width:auto;" title="Hasta">
 
             <select name="tipo" class="filtros-control filtros-select" style="width:auto;">
-                <option value="">I/E</option>
+                <option value="">Ingreso / Egreso</option>
                 <option value="INGRESO" {{ request('tipo') === 'INGRESO' ? 'selected' : '' }}>Ingreso</option>
                 <option value="EGRESO"  {{ request('tipo') === 'EGRESO'  ? 'selected' : '' }}>Egreso</option>
             </select>
 
             <select name="tipo_caja_id" class="filtros-control filtros-select" style="width:auto;">
-                <option value="">Todos los medios</option>
+                <option value="">Medio</option>
                 @foreach($tiposCaja as $tipo)
                     <option value="{{ $tipo->id }}" {{ request('tipo_caja_id') == $tipo->id ? 'selected' : '' }}>
                         {{ $tipo->abreviatura ?: $tipo->nombre }}
@@ -32,7 +32,7 @@
             </select>
 
             <select name="rubro_id" class="filtros-control filtros-select" style="width:auto;">
-                <option value="">Todos los rubros</option>
+                <option value="">Rubro</option>
                 @foreach($rubros as $rubro)
                     <option value="{{ $rubro->id }}" {{ request('rubro_id') == $rubro->id ? 'selected' : '' }}>
                         {{ $rubro->nombre }}
@@ -42,7 +42,7 @@
 
             @if($esAdmin)
             <select name="usuario_id" class="filtros-control filtros-select" style="width:auto;">
-                <option value="">Todos los operativos</option>
+                <option value="">Operativo</option>
                 @foreach($operativos as $op)
                     <option value="{{ $op->id }}" {{ request('usuario_id') == $op->id ? 'selected' : '' }}>
                         {{ $op->name }}

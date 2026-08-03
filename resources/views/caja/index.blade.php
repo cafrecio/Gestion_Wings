@@ -20,7 +20,7 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
     <div class="filtros-card mb-4">
         <div class="filtros-row">
             <select name="operativo_id" class="filtros-control filtros-select" style="width:auto;">
-                <option value="">Todos los operativos</option>
+                <option value="">Operativo</option>
                 @foreach($operativos as $op)
                     <option value="{{ $op->id }}" {{ request('operativo_id') == $op->id ? 'selected' : '' }}>
                         {{ $op->name }}

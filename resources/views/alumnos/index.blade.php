@@ -38,7 +38,7 @@
 
                 {{-- Deporte --}}
                 <select id="filter-deporte" name="deporte_id" class="filtros-control filtros-select">
-                    <option value="">Todos los deportes</option>
+                    <option value="">Deporte</option>
                     @foreach($deportes as $deporte)
                         <option value="{{ $deporte->id }}"
                                 {{ request('deporte_id') == $deporte->id ? 'selected' : '' }}>
@@ -49,7 +49,7 @@
 
                 {{-- Grupo --}}
                 <select id="filter-grupo" name="grupo_id" class="filtros-control filtros-select">
-                    <option value="">Todos los grupos</option>
+                    <option value="">Grupo</option>
                     @foreach($grupos as $grupo)
                         <option value="{{ $grupo->id }}"
                                 {{ request('grupo_id') == $grupo->id ? 'selected' : '' }}>
