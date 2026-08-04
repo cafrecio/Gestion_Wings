@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wings — Evaluación integral v02</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1b1f24; --muted:#6b7280; --line:#e5e7eb;
+    --brand:#be123c; --brand2:#9a0f30;
+    --crit:#b91c1c; --alta:#ea580c; --media:#ca8a04; --baja:#6b7280;
+    --ok:#15803d; --recBg:#ecfdf5; --recLine:#86efac;
+    --warnBg:#fef2f2; --warnLine:#fca5a5;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14171c; --card:#1c2027; --ink:#e6e8eb; --muted:#9aa2ad; --line:#2b313a;
+      --recBg:#0f2a1c; --recLine:#1f5133; --warnBg:#2a1010; --warnLine:#7f1d1d; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+  header.top{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:34px 20px;margin-bottom:26px}
+  header.top .inner{max-width:1080px;margin:0 auto}
+  header.top h1{margin:0 0 6px;font-size:1.7rem;font-weight:800;letter-spacing:.02em}
+  header.top p{margin:0;opacity:.9;font-size:.95rem}
+  header.top .meta{margin-top:12px;font-size:.8rem;opacity:.85;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
+  .legend span{font-size:.8rem;display:flex;align-items:center;gap:6px;opacity:.95}
+  .dot{width:10px;height:10px;border-radius:99px;display:inline-block}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center}
+  .kpi b{display:block;font-size:1.9rem;font-weight:800;line-height:1}
+  .kpi small{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+  .alerta{background:var(--warnBg);border:1px solid var(--warnLine);border-left:4px solid var(--crit);border-radius:10px;padding:16px 20px;margin-bottom:26px}
+  .alerta h3{margin:0 0 8px;font-size:1rem;font-weight:800;color:var(--crit)}
+  .alerta p{margin:0 0 10px;font-size:.9rem}
+  .alerta ul{margin:0;padding-left:20px;font-size:.87rem}
+  .alerta li{margin-bottom:5px}
+  .intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:14px 18px;margin-bottom:26px;font-size:.9rem;color:var(--muted)}
+  section.theme{margin-bottom:34px}
+  .theme-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:4px}
+  .theme-h h2{margin:0;font-size:1.25rem;font-weight:800}
+  .theme-h a{font-size:.8rem;color:var(--brand);text-decoration:none;font-weight:600}
+  .theme-h a:hover{text-decoration:underline}
+  .theme-sub{font-size:.82rem;color:var(--muted);margin:2px 0 14px}
+  .finding{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .fh{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none}
+  .fh:hover{background:color-mix(in srgb,var(--line) 30%,transparent)}
+  .sev{flex-shrink:0;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#fff;padding:3px 8px;border-radius:99px;min-width:64px;text-align:center}
+  .sev.crit{background:var(--crit)} .sev.alta{background:var(--alta)} .sev.media{background:var(--media)} .sev.baja{background:var(--baja)}
+  .fid{font-weight:800;font-size:.9rem;flex-shrink:0;font-variant-numeric:tabular-nums;color:var(--muted);min-width:60px}
+  .ftitle{font-weight:600;font-size:.94rem;flex:1}
+  .chev{color:var(--muted);transition:transform .15s;flex-shrink:0}
+  .finding.open .chev{transform:rotate(90deg)}
+  .fbody{display:none;padding:0 16px 16px 16px;border-top:1px solid var(--line)}
+  .finding.open .fbody{display:block}
+  .fbody .what{font-size:.9rem;margin:12px 0 4px}
+  .fbody .where{font-size:.78rem;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:10px;word-break:break-word}
+  .fbody .cons{font-size:.87rem;padding:9px 12px;border-radius:8px;background:var(--recBg);border:1px solid var(--recLine)}
+  .estado{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+  th{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .filters button{font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+  .filters button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .cta{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 18px;border-radius:8px;margin-bottom:26px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <h1>Wings — Evaluación integral v02</h1>
+    <p>Auditoría técnica, funcional y de seguridad realizada con agentes independientes de solo lectura. No se modificó código ni datos.</p>
+    <div class="meta">2026-08-04 · rama <b>main</b> · commit <b>b31f8d7</b> · 41 hallazgos</div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--crit)"></i>Crítica</span>
+      <span><i class="dot" style="background:var(--alta)"></i>Alta</span>
+      <span><i class="dot" style="background:var(--media)"></i>Media</span>
+      <span><i class="dot" style="background:var(--baja)"></i>Baja</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="cta" href="./ANALISIS-INTEGRAL-v02.md">Ver el informe completo →</a>
+
+  <div class="kpis">
+    <div class="kpi"><b>41</b><small>Hallazgos</small></div>
+    <div class="kpi"><b style="color:var(--crit)">7</b><small>Críticos</small></div>
+    <div class="kpi"><b style="color:var(--alta)">14</b><small>Altos</small></div>
+    <div class="kpi"><b style="color:var(--media)">14</b><small>Medios</small></div>
+    <div class="kpi"><b style="color:var(--baja)">6</b><small>Bajos</small></div>
+    <div class="kpi"><b style="color:var(--ok)">39</b><small>Confirmados</small></div>
+  </div>
+
+  <div class="alerta">
+    <h3>Lo más urgente no es de seguridad</h3>
+    <p><b>El sistema lleva tres meses sin emitir deuda, y el tablero de cobranza informa que todos los alumnos están al día.</b> Verificado contra datos reales: la última deuda emitida es de <b>2026-05</b>. Junio, julio y agosto no fueron facturados; los 35 alumnos activos figuran <code>AL_DIA</code>; la tabla de revisión tiene 0 filas.</p>
+    <p>Son tres fallas encadenadas y <b>ninguna produce un error visible</b>:</p>
+    <ul>
+      <li><b>C-01</b> — nada ejecuta <code>schedule:run</code>: el comando mensual nunca se dispara.</li>
+      <li><b>F-02</b> — aunque corriera, no crearía ninguna deuda: la ventana de elegibilidad está mal calculada.</li>
+      <li><b>F-03</b> — sin deuda emitida, el estado cae en el <code>else</code> y devuelve AL_DIA. La falta de facturación se reporta como salud.</li>
+    </ul>
+    <p style="margin-top:10px;margin-bottom:0"><b>Agravante (F-05):</b> no existe forma de emitir deuda de un período pasado desde la aplicación, así que esos tres meses <b>no son cobrables</b> por la vía normal.</p>
+  </div>
+
+  <div class="intro">
+    <b>Cómo leer esto.</b> Cada hallazgo tiene severidad y <b>estado de verificación</b>: CONFIRMADO (verificado leyendo el código o consultando la base), PROBABLE (sospecha fundada) o RECOMENDACIÓN. Hacé clic en cualquiera para ver evidencia y consecuencia.
+    <br><br>
+    <b>Dos advertencias.</b> (1) La auditoría fue <b>estática</b>: no se dispararon peticiones autenticadas para explotar los hallazgos de acceso. (2) <b>No se re-verificaron uno por uno los hallazgos de la v01</b> que figuraban resueltos — que algo no aparezca acá no significa que esté corregido.
+  </div>
+
+  <div class="filters">
+    <button data-f="all" class="active">Todos</button>
+    <button data-f="crit">Solo críticos</button>
+    <button data-f="alta">Críticos + altos</button>
+  </div>
+
+  <!-- FUNCIONALIDAD -->
+  <section class="theme">
+    <div class="theme-h"><h2>⚙️ Funcionalidad y reglas de negocio</h2><a href="./ANALISIS-INTEGRAL-v02.md">Ver detalle →</a></div>
+    <p class="theme-sub">Contiene el hallazgo más grave de la auditoría. El sistema no avisa cuando deja de funcionar.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">F-02</span><span class="ftitle">El comando de generación de deudas no crea ninguna deuda<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El período objetivo es mes+1 y la ventana de elegibilidad es "el mes anterior al objetivo" = el mes en curso. El schedule lo corre el día 1 a las 06:00, cuando el mes en curso no tiene ni una asistencia ni un pago.</p><p class="where">app/Console/Commands/GenerarDeudasMensualesCommand.php:42,46,86-119 · routes/console.php:12</p>
+      <p class="cons">La condición de elegibilidad es <b>siempre falsa</b> → 0 deudas creadas y N alumnos a revisión. La facturación mensual pasa a depender de que un admin resuelva a mano una revisión por alumno, todos los meses.</p></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">F-03</span><span class="ftitle">Sin deuda emitida, el sistema informa a todos los alumnos como AL_DIA<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La rama que marca MOROSO exige que exista deuda vigente. Si no hay deuda generada, ninguna rama dispara y cae al else → AL_DIA.</p><p class="where">app/Services/CobranzaEstadoService.php:49-56 (duplicado en :195-202)</p>
+      <p class="cons">Verificado con datos reales: <code>MAX(periodo)</code> = 2026-05, hoy es agosto, 35/35 alumnos AL_DIA. <b>F-02 no produce ninguna alarma.</b> Es una falla silenciosa de todo el circuito de ingresos.</p></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">F-01/D-04</span><span class="ftitle">Los movimientos cancelados entran igual al cashflow al validar la caja<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Todo el sistema calcula plata sobre estado ACTIVO — hay hasta un comentario explícito al respecto. El único punto que no filtra es justamente el que escribe en el libro contable. El scope <code>activos()</code> existe y no se usa acá.</p><p class="where">app/Services/CashflowIntegracionCajaService.php:47-73</p>
+      <p class="cons">Un cobro cancelado se asienta en cashflow por su monto completo. Como el reflejo es idempotente por caja, <b>una vez validada no hay forma de corregirlo</b>. Detectado de forma independiente por dos auditorías.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F-05</span><span class="ftitle">Deuda de período pasado, condonación y ajuste no tienen ruta web<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El sistema rechaza crear deuda pasada con el mensaje "Debe crearla un administrador", pero esa capacidad no existe en la aplicación: solo se invoca desde la API deshabilitada y desde el comando.</p><p class="where">app/Services/PagoCuotaService.php:207-266, 345-352</p>
+      <p class="cons">Una cuota vieja no emitida es <b>incobrable</b>, y el error deriva a una función inexistente. Tampoco hay forma de perdonar una deuda: el alumno queda DEUDOR permanente.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">F-04</span><span class="ftitle">Liquidación cerrada es irreversible y bloquea el período del profesor<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Cerrar no valida nada: ni total &gt; 0, ni que el período haya terminado. No existe reapertura; recalcular y eliminar rechazan CERRADA; y no se puede generar una segunda para ese profesor+mes.</p><p class="where">app/Services/LiquidacionService.php:202-212, 258-266, 424-433</p>
+      <p class="cons">Cerrar de más deja el slot muerto: las clases de ese profesor en ese mes <b>nunca se pagan</b>. Agravante: toggle de validación y des-cancelar clase cambian el insumo de una liquidación ya cerrada sin ningún chequeo.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F-06</span><span class="ftitle">FIFO fuerte no se valida cuando se paga un solo período<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El contrato lo declara regla freeze, pero el validador sale antes de mirar nada si hay un único ítem, y solo compara entre los ítems enviados — nunca contra las deudas no incluidas.</p><p class="where">app/Services/PagoCuotaService.php:412-435</p>
+      <p class="cons">Un alumno con enero, febrero y mayo pendientes puede pagar solo mayo. La antigüedad de la mora se distorsiona.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F-07</span><span class="ftitle">La regla de primer pago descuenta todos los períodos del pago<span class="estado">PROBABLE</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El porcentaje se aplica a la lista completa de ítems y el ajuste reescribe el monto original de cada uno.</p><p class="where">app/Services/PagoCuotaService.php:47-50, 131-134, 508-540</p>
+      <p class="cons">Un alumno nuevo con regla del 50% que abona 3 meses juntos paga los 3 al 50%, y la rebaja queda <b>persistida</b>. <b>Requiere definición de negocio</b> antes de tocar código.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">F-08</span><span class="ftitle">La comisión del profesor se calcula sobre la fecha de cobro, no sobre el período<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El pago graba mes/año desde la fecha de pago, y la liquidación filtra por ese campo. Pero un pago puede cubrir N períodos y su monto es la suma de todos.</p><p class="where">app/Services/LiquidacionService.php:141-186 (clonado en :467-512)</p>
+      <p class="cons">Si un alumno cancela 3 meses en agosto, el profesor cobra comisión por los 3 en agosto y $0 en los meses cubiertos. Como la cobranza es anticipada, el desfase es <b>sistemático</b>. Requiere definición de negocio.</p></div>
+    </div>
+  </section>
+
+  <!-- SEGURIDAD Y PERMISOS -->
+  <section class="theme">
+    <div class="theme-h"><h2>🔒 Seguridad, roles y permisos</h2><a href="./ANALISIS-INTEGRAL-v02.md">Ver detalle →</a></div>
+    <p class="theme-sub">El núcleo está sano (sin SQLi, XSS ni CSRF). El problema es que el control de rol es decorativo en el bloque que cuelga de <code>auth</code>.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S-01</span><span class="ftitle">El rol PROFESOR tiene acceso completo a Alumnos y Caja<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El middleware <code>ensure.profesor.web</code> existe pero no se aplica a ninguna ruta. Alumnos, Caja, Movimientos y Dashboard operativo cuelgan solo de <code>auth</code>, y ningún controller verifica el rol. El sidebar esconde los enlaces; el servidor no valida.</p><p class="where">routes/web.php:35-97 · app/Http/Controllers/AlumnoWebController.php · app/Http/Middleware/EnsureProfesorWeb.php (sin usos)</p>
+      <p class="cons">Un profesor puede editar cualquier alumno, leer 90 días de historial financiero y <b>registrar cobros de cuota reales</b> escribiendo la URL. Contradice PERMISOS-ROLES.md.</p></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">S-02/P-01</span><span class="ftitle">Un usuario desactivado puede iniciar sesión y operar<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El login ejecuta <code>Auth::attempt()</code> sin verificar <code>activo</code>. La verificación solo existe dentro de los middleware de admin.</p><p class="where">app/Http/Controllers/WebController.php:22-38</p>
+      <p class="cons">Dar de baja a un empleado <b>no le quita el acceso operativo</b>: sigue cobrando cuotas y moviendo caja. Solo se le cierra el panel admin. En la base hay hoy un usuario OPERATIVO con <code>activo=0</code>.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">P-02</span><span class="ftitle">Un operativo puede anular el cobro de otro operativo (IDOR)<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Valida que la caja pertenezca al usuario, pero pasa el id del movimiento sin verificar que pertenezca a esa caja. La versión GET del mismo flujo sí hace el scope correcto: el chequeo existe y se evade saltando el formulario.</p><p class="where">app/Http/Controllers/CajaWebController.php:440-461 (comparar :417-438)</p>
+      <p class="cons">La deuda del alumno se revierte, el pago pasa a ANULADO y el movimiento a CANCELADO, imputado a otra caja. Descuadre de arqueo y borrado de cobranza legítima.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">P-03</span><span class="ftitle">Editar un movimiento saltea la validación de rubro permitido<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Toda alta pasa por el service, que exige <code>permitido_para = OPERATIVO</code>. La edición escribe directo al modelo y solo chequea el subrubro viejo, nunca el nuevo.</p><p class="where">app/Http/Controllers/CajaWebController.php:349-385</p>
+      <p class="cons">Un operativo reclasifica su movimiento a un rubro exclusivo del admin (Sueldos, Servicios), contaminando el cashflow y volviéndolo invisible en el historial.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">P-05</span><span class="ftitle">La misma información financiera es pública en un módulo y privada en otro<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Dos vistas sobre los mismos registros con criterios opuestos: <code>/caja/historial</code> no filtra por rol ni propiedad; <code>/movimientos</code> filtra por propiedad pero no por rubro.</p><p class="where">CajaWebController.php:86-127 vs MovimientoWebController.php:26-30</p>
+      <p class="cons">El control es ilusorio: lo que un módulo oculta, el otro lo muestra entero.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S-03</span><span class="ftitle">El dump versionado incluye sesiones autenticadas y tokens<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Se exporta con <code>--ignore-table</code> solo para <code>users</code>. Las tablas <code>sessions</code> y <code>personal_access_tokens</code> sí se exportan con datos, y el dump está en git. Con <code>SESSION_ENCRYPT=false</code> los payloads son base64 plano.</p><p class="where">database/dump.sql · CLAUDE.md (comando de export)</p>
+      <p class="cons">3 de 11 payloads contienen sesión autenticada. Los identificadores de sesión <b>son el valor de la cookie</b>. La exclusión de <code>users</code> sí funciona bien.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">S-04</span><span class="ftitle">APP_DEBUG=true con stack traces devueltos al cliente<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Cualquier excepción no capturada renderiza la página de debug con el SQL completo, host y puerto de la base, y rutas del servidor.</p><p class="where">.env · app/Http/Controllers/ReciboController.php:80-85</p>
+      <p class="cons">Divulgación de toda la estructura interna al primer error. Se potencia con S-11, que es un disparador trivial de 500.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">P-04</span><span class="ftitle">Contradicción con PERMISOS-ROLES.md sobre ver la caja ajena<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El contrato dice que "ver el historial y los movimientos no está restringido por propiedad". El código lo restringe en 8 puntos.</p><p class="where">docs/02-contratos/PERMISOS-ROLES.md:64-68 vs CajaWebController.php (8 ubicaciones)</p>
+      <p class="cons">La fuente que aplica realmente es <b>el código</b>. Rompe la operación descrita en el propio contrato. <b>Requiere decisión de producto.</b></p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S-07</span><span class="ftitle">Sin auditoría de accesos ni de acciones sobre dinero<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">No existe tabla de auditoría en las 35 tablas, ni listeners de eventos. Solo 3 llamadas a <code>Log::</code> en toda la app, las tres para errores técnicos.</p><p class="where">ausencia estructural · app/Providers/AppServiceProvider.php</p>
+      <p class="cons">Ante un descuadre de caja o la explotación de S-01/S-02, <b>no hay forma de reconstruir quién hizo qué</b>. Agravante: el borrado de movimientos es físico y sin rastro.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">S-05/S-06/S-08/S-09/P-06…P-10</span><span class="ftitle">Throttle débil, contraseñas sin política, dependencias vulnerables, PII en logs, y otros<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Agrupados: throttle de 10/min por IP sin límite por cuenta ni registro de intentos (S-05); solo <code>Password::min(8)</code>, sin cambio propio ni recuperación (S-06); 38 avisos de composer, 5 HIGH, incluidos 4 CVE en dompdf, motor de los recibos (S-08); nombre, DNI y teléfono de alumnos en el log (S-09); al ADMIN se le ofrecen subrubros que el sistema le rechaza (P-06); middlewares registrados y muertos (P-08); <code>users.rol</code> nullable con fail-open a operativo (P-09); sin salvaguarda de "último admin" (P-10).</p><p class="where">ver informe completo</p>
+      <p class="cons">Nota positiva: el login <b>no</b> permite enumeración de usuarios, y el hashing con bcrypt es correcto.</p></div>
+    </div>
+
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Baja</span><span class="fid">S-10…S-13</span><span class="ftitle">Cookie sin endurecer, fechas sin validar, middleware inoperante, API latente<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Cookie sin <code>Secure</code> ni cifrado (S-10); <code>/caja/historial</code> rompe con 500 ante una fecha inválida (S-11); <code>bloqueo.caja.vieja</code> no aplicado y con regex que solo reconoce rutas <code>api/</code> (S-12); <code>routes/api.php</code> sigue en el repo a un descomentado de reactivarse (S-13).</p><p class="where">config/session.php · CajaWebController.php:92-98 · bootstrap/app.php</p>
+      <p class="cons">S-12 es peor que inútil: aplicarlo hoy dejaría al operativo sin poder cerrar su caja vieja.</p></div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="theme">
+    <div class="theme-h"><h2>🗄️ Base de datos e integridad</h2><a href="./ANALISIS-INTEGRAL-v02.md">Ver detalle →</a></div>
+    <p class="theme-sub">Bien construida y los invariantes <b>hoy cuadran exactamente</b>. Casi todos los hallazgos son bugs latentes: se activan con el primer uso de "Cancelar".</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">D-01</span><span class="ftitle">Sobrepago silencioso: se imputa menos de lo que se registra<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Se acredita a la deuda el mínimo entre el monto y el saldo, pero el pivote y el pago guardan el monto completo. No hay validación de tope: los FormRequests solo exigen <code>numeric|min:0.01</code>.</p><p class="where">app/Services/PagoCuotaService.php:311 vs :574</p>
+      <p class="cons">Rompe el invariante <code>deuda.monto_pagado = Σ imputaciones</code>. Dinero cobrado sin contraparte de deuda. Aún no ocurrió en los datos.</p></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">D-02</span><span class="ftitle">El reflejo caja→cashflow apunta al movimiento, no a la caja<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El service escribe el id de la caja, pero hay 145 filas con 145 referencias distintas, 65 de ellas mayores al id de caja más alto. El origen es el seeder.</p><p class="where">CashflowIntegracionCajaService.php:32-33,72 · DemoSeeder.php:512-527</p>
+      <p class="cons">El guard de idempotencia <b>no reconoce esos asientos</b>: re-validar cualquiera de esas 65 cajas duplicaría el cashflow. La trazabilidad para conciliación está rota.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D-03/D-06</span><span class="ftitle">Faltan locks: doble validación de caja y doble cobro concurrente<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Validar caja abre transacción pero lee sin <code>lockForUpdate</code>, y la idempotencia es un <code>exists()</code> sin lock. En el cobro, <b>no hay un solo <code>lockForUpdate</code> en todo PagoCuotaService</b>.</p><p class="where">CajaService.php:206-232 · PagoCuotaService.php:313-345</p>
+      <p class="cons">Doble click en Validar duplica el cashflow. Dos cobros simultáneos: ambos leen el mismo saldo, el segundo pisa al primero, pero <b>ambos pagos quedan creados</b>. El patrón correcto ya existe en el repo (CajaService.php:78-79) y no se aplicó acá.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D-05</span><span class="ftitle">Cancelar un cobro no borra sus imputaciones<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Revierte el monto pagado y marca el pago ANULADO, pero deja intactas las filas del pivote.</p><p class="where">app/Services/PagoCuotaService.php:603-651</p>
+      <p class="cons">Después de <b>una sola cancelación</b> se rompe permanentemente el invariante que hoy permite auditar la integridad del dinero.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">D-07</span><span class="ftitle">Cadenas ON DELETE CASCADE que borran la contabilidad<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">De 27 FKs en cascada, tres tocan dinero. Borrar al admin borra <b>157 asientos por $3.534.000</b>. Borrar un usuario borra 80 cajas y 147 movimientos.</p><p class="where">information_schema · users, alumnos → tablas de dinero</p>
+      <p class="cons">La protección es <b>100% aplicativa</b>: no existe ruta web de borrado, pero un DELETE manual, un seeder o un futuro CRUD destruye la contabilidad sin error.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">D-08/D-09/D-10</span><span class="ftitle">Caja única sin constraint, condonar/ajustar sin guardas, tipos de monto dispares<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">"Una sola caja ABIERTA por usuario" solo se sostiene con un lock aplicativo, sin índice único (D-08). Condonar y ajustar no verifican el monto ya pagado y reescriben deuda histórica sin transacción (D-09). Montos en <code>decimal(10,2)</code> y <code>(12,2)</code> mezclados, sin CHECK de dominio (D-10).</p><p class="where">ver informe completo</p>
+      <p class="cons">D-09 incluye un caso que contradice la regla documentada de no reescribir deuda anterior, y falla en silencio con solo un <code>Log::warning</code>.</p></div>
+    </div>
+  </section>
+
+  <!-- CALIDAD, PRUEBAS, RENDIMIENTO, CONFIG -->
+  <section class="theme">
+    <div class="theme-h"><h2>🧱 Arquitectura, pruebas, rendimiento y configuración</h2><a href="./ANALISIS-INTEGRAL-v02.md">Ver detalle →</a></div>
+    <p class="theme-sub">Una página caída, cero cobertura de negocio, y el proceso mensual que nunca corre.</p>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">A-01</span><span class="ftitle">/cobranza está caída: devuelve 500 siempre<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Ordena los grupos por <code>nombre</code>, columna que una migración eliminó. El modelo la repuso solo como accessor PHP, que Eloquent no puede traducir a SQL.</p><p class="where">app/Http/Controllers/CobranzaWebController.php:27</p>
+      <p class="cons">Error real: <code>Unknown column 'nombre' in 'order clause'</code>. El módulo para ver quién debe está <b>inaccesible</b>. Arreglo de 10 minutos.</p></div>
+    </div>
+
+    <div class="finding" data-sev="crit"><div class="fh"><span class="sev crit">Crítica</span><span class="fid">T-01</span><span class="ftitle">La suite no cubre nada: 12 de 14 tests fallan<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Ejecución real: <code>Tests: 12 failed, 2 passed (3 assertions)</code>. Los 2 que pasan son los stubs de scaffold. Los 12 restantes fallan en <code>setUp</code>, antes de ejercitar una línea de negocio.</p><p class="where">tests/ · php artisan test</p>
+      <p class="cons">Cobertura efectiva de negocio: <b>0%</b>. Esto explica que A-01 pasara desapercibida. <b>Contradice CLAUDE.md</b>, que afirma que "los tests base pasan".</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">C-01</span><span class="ftitle">Nada ejecuta schedule:run: la generación mensual nunca corre<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what"><code>schtasks /query</code> devuelve 0 entradas que mencionen php o artisan. No hay .bat de scheduler. Sin <code>schedule:run</code> cada minuto, Laravel nunca evalúa la expresión cron.</p><p class="where">routes/console.php:13 · entorno Windows/XAMPP</p>
+      <p class="cons">Es la causa raíz operativa de F-03. No da error: simplemente <b>no pasa nada el día 1</b>. Arreglo de 30 minutos.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">A-02</span><span class="ftitle">El accessor del nombre de grupo degrada a " — " en silencio<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">Lee las relaciones solo si están cargadas; si no, concatena vacíos. Nunca devuelve null, así que todo <code>?? 'Sin grupo'</code> río abajo es código muerto.</p><p class="where">app/Models/Grupo.php:40-53 · LiquidacionService.php:87,104</p>
+      <p class="cons">La liquidación <b>persiste</b> esa descripción, que va al recibo PDF del profesor: queda el grupo en blanco en un comprobante de pago, ya escrito e inmutable. Se materializa en la próxima liquidación.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">A-03</span><span class="ftitle">Cuatro definiciones divergentes de "deuda impaga"<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">El dashboard del admin usa solo <code>estado = PENDIENTE</code>; los del operativo usan un criterio más amplio; el modelo usa un tercero.</p><p class="where">WebController:53-57 · AlumnoWebController:57-59 · OperativoDashboardController:57-58 · DeudaCuota:70-74</p>
+      <p class="cons">El ADMIN ve <b>menos</b> deuda que el OPERATIVO sobre los mismos datos, lo que contradice la regla de oro del proyecto. Se activa el día que alguien ajuste una cuota.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">R-01</span><span class="ftitle">El View Composer global escanea dos tablas completas en cada render<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">EXPLAIN real: full scan de clases (658 filas) y asistencias (3.517), materializado. Además <code>whereDate()</code> envuelve la columna y anula el índice.</p><p class="where">app/Providers/AppServiceProvider.php:20-38</p>
+      <p class="cons">~4.200 filas por request, incluidos login, redirects y PDFs donde el badge ni se muestra. Tolerable hoy; el escaneo es lineal y asistencias crece ~3.500/año.</p></div>
+    </div>
+
+    <div class="finding" data-sev="alta"><div class="fh"><span class="sev alta">Alta</span><span class="fid">T-02</span><span class="ftitle">Una migración con MODIFY bloquea RefreshDatabase entero<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">5 de 68 migraciones usan <code>DB::statement</code> con sintaxis MySQL. La que rompe es la de refactor de grupos.</p><p class="where">database/migrations/2026_04_17_040414_*</p>
+      <p class="cons">Nota positiva: <code>phpunit.xml</code> usa sqlite en memoria correctamente — <b>no</b> apunta a la base real. No hay riesgo de que los tests borren datos.</p></div>
+    </div>
+
+    <div class="finding" data-sev="media"><div class="fh"><span class="sev media">Media</span><span class="fid">A-04/R-02/R-03/C-02/DOC-01</span><span class="ftitle">Estados de cobranza triplicados, cargas duplicadas, índices faltantes, .env.example incompleto, regla de mora sin contrato<span class="estado">CONFIRMADO</span></span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">La máquina de estados de cobranza está escrita tres veces, una con el umbral hardcodeado (A-04). Cobranza carga la tabla de alumnos dos veces por request, sin paginar (R-02). Faltan índices en las columnas de filtro de los dashboards (R-03). <code>.env.example</code> no declara ninguna variable de base de datos (C-02). Y la regla de mora <b>no tiene contrato</b>: el documento que la cubriría la excluye explícitamente (DOC-01).</p><p class="where">ver informe completo</p>
+      <p class="cons"><b>DOC-01 es causa, no síntoma:</b> sin contrato, cada implementación eligió su propio criterio. Es lo que produjo A-03 y A-04.</p></div>
+    </div>
+  </section>
+
+  <!-- ESTADO POR AREA -->
+  <section class="theme">
+    <div class="theme-h"><h2>📊 Estado general por área</h2></div>
+    <table>
+      <thead><tr><th>Área</th><th>Estado</th><th>Comentario</th></tr></thead>
+      <tbody>
+        <tr><td>Funcionalidad y reglas de negocio</td><td>🔴 Crítico</td><td>Facturación detenida sin aviso; liquidación cerrada irreversible</td></tr>
+        <tr><td>Seguridad</td><td>🟠 Alto</td><td>Núcleo sano; el problema es el control de rol</td></tr>
+        <tr><td>Roles y permisos</td><td>🔴 Crítico</td><td>Lo admin bien protegido; el bloque <code>auth</code> sin separar OPERATIVO/PROFESOR</td></tr>
+        <tr><td>Base de datos e integridad</td><td>🟠 Alto</td><td>Bien construida; invariantes hoy cuadran; bugs latentes en cancelación</td></tr>
+        <tr><td>Arquitectura y calidad</td><td>🟠 Alto</td><td>Una página caída; reglas duplicadas con criterios divergentes</td></tr>
+        <tr><td>Pruebas</td><td>🔴 Crítico</td><td>0% de cobertura efectiva de negocio</td></tr>
+        <tr><td>Rendimiento</td><td>🟡 Medio</td><td>Nada urgente al volumen actual</td></tr>
+        <tr><td>Configuración</td><td>🟠 Alto</td><td>Scheduler no corre; APP_DEBUG=true; dump con sesiones</td></tr>
+        <tr><td>Documentación</td><td>🟡 Medio</td><td>4 contradicciones; la regla de mora no tiene contrato</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- VERIFICADO SANO -->
+  <section class="theme">
+    <div class="theme-h"><h2>✅ Verificado y sano</h2></div>
+    <p class="theme-sub">Se revisó y no presenta problemas. Documentado para que una próxima auditoría no repita el trabajo.</p>
+    <div class="finding" data-sev="baja"><div class="fh"><span class="sev baja">Info</span><span class="fid">—</span><span class="ftitle">Resultados negativos confirmados</span><span class="chev">▶</span></div>
+      <div class="fbody"><p class="what">
+      <b>Exposición HTTP:</b> el vhost apunta a <code>public/</code> — <code>.env</code>, el dump, <code>composer.json</code> y el código fuente dan <b>404</b>. Verificado con peticiones reales.<br>
+      <b>SQL Injection:</b> las 14 apariciones de <code>whereRaw</code>/<code>DB::raw</code> usan literales o bindings. Los LIKE escapan correctamente.<br>
+      <b>XSS:</b> las 56 ocurrencias de <code>{!! !!}</code> son todas atributos SVG estáticos. Ningún dato de usuario sin escapar.<br>
+      <b>CSRF:</b> ningún formulario POST sin token; las 13 llamadas fetch envían el header.<br>
+      <b>Mass assignment:</b> <code>User::$fillable</code> excluye <code>rol</code> y <code>activo</code>.<br>
+      <b>Recibos PDF:</b> fuera del webroot, sin symlink público, rutas desde IDs enteros.<br>
+      <b>Contraseñas:</b> bcrypt con 12 rounds y cast <code>hashed</code>. La tabla <code>users</code> sí está excluida del dump.<br>
+      <b>Invariantes de dinero:</b> 0 divergencias en 145 pagos y 170 deudas. 0 montos con signo incorrecto.<br>
+      <b>Rutas administrativas:</b> las ~60 rutas admin están todas protegidas, sin excepciones.<br>
+      <b>Transacciones:</b> los flujos principales de dinero están todos dentro de <code>DB::transaction</code>.
+      </p></div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAS -->
+  <section class="theme">
+    <div class="theme-h"><h2>🔄 Diferencias respecto de la versión anterior</h2></div>
+    <p class="theme-sub">La v01 cerró con 60 hallazgos (1 crítico abierto, 15 altos, 18 medios, 22 bajos).</p>
+    <div class="intro" style="border-left-color:var(--alta)">
+      <b>Numeración nueva e independiente.</b> Los IDs de v02 no se corresponden con los de v01: esta auditoría se hizo desde cero contra el código actual.<br><br>
+      <b>No se verificó el estado de los hallazgos de v01.</b> Varios figuraban como resueltos; esta auditoría no los re-auditó uno por uno. <b>Que algo no aparezca acá no significa que haya sido corregido.</b><br><br>
+      <b>Hallazgos nuevos más graves que cualquiera de v01:</b> la facturación detenida (F-02/F-03/C-01), el módulo Cobranza caído (A-01) y el estado real de la suite de tests (T-01) no aparecían en la versión anterior.<br><br>
+      <b>Sobre el versionado:</b> no existía convención previa — los archivos anteriores son <code>ANALISIS-INTEGRAL.md</code> e <code>index.html</code>, sin sufijo. Se los trata como v01 y <b>no fueron modificados, renombrados ni eliminados</b>.
+    </div>
+  </section>
+
+  <footer>
+    Wings · Evaluación v02 generada el 2026-08-04 · commit <code>b31f8d7</code><br>
+    Informe completo: <a href="./ANALISIS-INTEGRAL-v02.md">ANALISIS-INTEGRAL-v02.md</a> ·
+    Versión anterior sin modificar: <a href="./index.html">index.html</a>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.fh').forEach(function(h){
+    h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+  });
+  document.querySelectorAll('.filters button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      var f=b.dataset.f;
+      document.querySelectorAll('.finding').forEach(function(fd){
+        var s=fd.dataset.sev;
+        var show = f==='all' || (f==='crit'&&s==='crit') || (f==='alta'&&(s==='crit'||s==='alta'));
+        fd.style.display = show?'':'none';
+      });
+      document.querySelectorAll('section.theme').forEach(function(sec){
+        var any=[...sec.querySelectorAll('.finding')].some(x=>x.style.display!=='none');
+        var tieneFindings = sec.querySelectorAll('.finding').length > 0;
+        sec.style.display = (!tieneFindings || any) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
