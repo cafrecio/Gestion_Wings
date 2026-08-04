@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión Wings · Comparativa v02 vs v03</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--card:#101d2f;--line:#293b54;--text:#eaf0f8;--muted:#a5b4c8;--blue:#72b7ff;--red:#ff7373;--orange:#ffb15e;--green:#72d6a0;--gray:#94a3b8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#07111f,#0d192a 65%,#101928);color:var(--text);font:15.5px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+    main{width:min(1180px,calc(100% - 32px));margin:auto;padding:48px 0 72px}.eyebrow{color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:10px 0 14px}h2{font-size:1.45rem;margin:40px 0 14px}h3{font-size:1.05rem;margin:0 0 9px}.lead,.muted{color:var(--muted)}.lead{font-size:1.08rem;max-width:900px}.card{background:rgba(16,29,47,.94);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:0 14px 40px rgba(0,0,0,.17)}
+    .meta,.metrics,.new{display:grid;gap:12px}.meta{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin:25px 0}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.metric strong{font-size:1.45rem}.v02{color:var(--gray)}.v03{color:var(--blue)}
+    .notice{border-left:5px solid var(--orange);margin:22px 0}.new{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:850;letter-spacing:.03em}.persist{background:#214f3c;color:#bff4d6}.expanded{background:#194d70;color:#c7e8ff}.newtag{background:#6e3033;color:#ffe0e0}.unverified{background:#554928;color:#ffe8a8}.reframed{background:#47376d;color:#e4d9ff}.conditional{background:#414b5a;color:#e1e8f2}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px;background:rgba(16,29,47,.94)}table{border-collapse:collapse;width:100%;min-width:850px}th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}th{position:sticky;top:0;background:#17263a;color:#cfe2fa;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}tr:last-child td{border-bottom:0}tbody tr:hover{background:#14243a}code{color:#c7ddfa}a{color:#9bcaff}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.button{display:inline-block;text-decoration:none;padding:13px 16px;border-radius:11px;background:var(--blue);color:#07111f;font-weight:850}.button.secondary{background:#1a2b42;color:var(--text);border:1px solid var(--line)}ul{padding-left:1.2rem}li+li{margin-top:7px}footer{border-top:1px solid var(--line);margin-top:40px;padding-top:18px;color:var(--muted)}
+    @media(max-width:700px){main{padding-top:30px}.metrics{grid-template-columns:1fr}.metric{grid-template-columns:1fr auto}h1{font-size:2.2rem}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Gestión Wings · Auditoría</div>
+  <h1>Comparativa v02 vs v03</h1>
+  <p class="lead">Qué persiste, qué se amplió y qué encontró la revisión v03. Esta página no considera corregido un problema simplemente porque no volvió a aparecer.</p>
+
+  <section class="meta">
+    <div class="card"><div class="muted">Corte v03</div><strong>04/08/2026 · 05:49</strong></div>
+    <div class="card"><div class="muted">Rama</div><strong>main</strong></div>
+    <div class="card"><div class="muted">Commit</div><code>c763933ec34bbb44c1f88325af5c0b5b4eb5b566</code></div>
+    <div class="card"><div class="muted">Cambios de código desde v02</div><strong>Ninguno</strong></div>
+  </section>
+
+  <section class="card notice">
+    <h3>Advertencia sobre los números de v02</h3>
+    <p>v02 declara 41 hallazgos y severidades 7/14/14/6, pero sus tablas enumeran 53 referencias; descontando dos duplicados explícitos quedan 51 identificadores lógicos. Por eso los números de v02 se muestran como <em>declarados</em>, no como una base estadística fiable.</p>
+  </section>
+
+  <h2>Resumen cuantitativo</h2>
+  <section class="metrics">
+    <div class="card metric"><span>Hallazgos declarados</span><span><strong class="v02">41*</strong> → <strong class="v03">57</strong></span></div>
+    <div class="card metric"><span>Críticos declarados</span><span><strong class="v02">7*</strong> → <strong class="v03">6</strong></span></div>
+    <div class="card metric"><span>Altos declarados</span><span><strong class="v02">14*</strong> → <strong class="v03">31</strong></span></div>
+    <div class="card metric"><span>Medios declarados</span><span><strong class="v02">14*</strong> → <strong class="v03">15</strong></span></div>
+    <div class="card metric"><span>Bajos declarados</span><span><strong class="v02">6*</strong> → <strong class="v03">4</strong></span></div>
+    <div class="card metric"><span>Suite automatizada</span><span><strong class="v02">12↓ / 2↑</strong> → <strong class="v03">12↓ / 2↑</strong></span></div>
+  </section>
+
+  <h2>Qué agregó v03</h2>
+  <section class="new">
+    <article class="card"><span class="tag newtag">NUEVO · CRÍTICO</span><h3>XSS almacenado</h3><p>Datos persistidos de alumnos llegan por JSON a <code>innerHTML</code>. v02 había informado incorrectamente que no había XSS.</p></article>
+    <article class="card"><span class="tag newtag">NUEVO · CRÍTICO</span><h3>Credenciales y datos demo en deploy</h3><p>El instalador ejecuta seeders generales: crea una cuenta operativa predecible y movimientos financieros de prueba.</p></article>
+    <article class="card"><span class="tag newtag">NUEVO · ALTO</span><h3>Asistencias inconsistentes</h3><p>Se acepta un alumno de otro grupo y el guardado de una lista puede quedar parcialmente ejecutado.</p></article>
+    <article class="card"><span class="tag newtag">NUEVO · ALTO</span><h3>Cambio de plan no atómico</h3><p>Plan y deuda pueden cambiar aunque el cobro falle después.</p></article>
+    <article class="card"><span class="tag newtag">NUEVO · ALTO</span><h3>Carrera al pagar liquidaciones</h3><p>Dos solicitudes concurrentes pueden crear dos egresos para una liquidación.</p></article>
+    <article class="card"><span class="tag expanded">AMPLIADO</span><h3>Infraestructura y documentación</h3><p>v03 incorporó ACL Windows, backup/restore, deploy no atómico, settings inertes y fuente de verdad obsoleta.</p></article>
+  </section>
+
+  <h2>Lectura general</h2>
+  <section class="card">
+    <ul>
+      <li>No hay evidencia de mejora entre v02 y v03 porque no hubo cambios de aplicación.</li>
+      <li>Persisten los núcleos de permisos, cuentas inactivas, dump sensible, sobrepagos, cancelaciones, concurrencia, cascadas, tests y scheduler.</li>
+      <li>v03 corrige formulaciones demasiado absolutas: <code>/cobranza</code> siempre en 500 y “el generador nunca crea deuda” quedan no revalidados.</li>
+      <li>La prioridad práctica cambia: XSS y seeding de deploy se suman a permisos e integridad financiera como contención inmediata.</li>
+    </ul>
+  </section>
+
+  <h2>Mapa completo de v02</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID v02</th><th>Estado en v03</th><th>Destino / lectura actual</th></tr></thead>
+      <tbody>
+        <tr><td>S-01</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-001: profesor conserva acceso servidor a dinero, alumnos y PII.</td></tr>
+        <tr><td>S-02 / P-01</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-002: login y revocación siguen sin control global de activo.</td></tr>
+        <tr><td>S-03</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-008: dump con PII, pagos, PAT y sesiones.</td></tr>
+        <tr><td>S-04</td><td><span class="tag reframed">REFORMULADO</span></td><td>AUD-009 y AUD-046: debug/HTTP más mensajes internos.</td></tr>
+        <tr><td>S-05 / S-06 / S-07</td><td><span class="tag persist">PERSISTEN</span></td><td>Throttle, política de contraseña y auditoría se absorben en autenticación/observabilidad.</td></tr>
+        <tr><td>S-08</td><td><span class="tag expanded">ACTUALIZADO</span></td><td>AUD-007: 38 avisos Composer y 10 npm confirmados.</td></tr>
+        <tr><td>S-09</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>No se reprodujo PII del log; AUD-049 cubre política y retención.</td></tr>
+        <tr><td>S-10</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-009 y AUD-053: sesión y headers.</td></tr>
+        <tr><td>S-11 / S-12</td><td><span class="tag unverified">PARCIAL</span></td><td>Fechas no priorizadas; middleware/scheduler absorbido por AUD-023.</td></tr>
+        <tr><td>S-13</td><td><span class="tag conditional">CONDICIONAL</span></td><td>AUD-026: API apagada, insegura si se reactiva.</td></tr>
+        <tr><td>P-02 / P-07</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-010: POST permite cancelar movimiento de otra caja.</td></tr>
+        <tr><td>P-03</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-022: edición saltea reglas del subrubro nuevo.</td></tr>
+        <tr><td>P-04 / P-05</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-001, AUD-031 y AUD-038: visibilidad distinta por pantalla.</td></tr>
+        <tr><td>P-06</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>UX admin específica no comprobada.</td></tr>
+        <tr><td>P-08</td><td><span class="tag persist">PERSISTE</span></td><td>Middleware profesor sin uso; controles dispersos.</td></tr>
+        <tr><td>P-09</td><td><span class="tag reframed">REFORMULADO</span></td><td>Enum/default existen; el riesgo fail-open permanece. DB real no consultada.</td></tr>
+        <tr><td>P-10</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>Último admin no probado; revocación persiste en AUD-002.</td></tr>
+        <tr><td>D-01</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-005: sobrepago no conciliado.</td></tr>
+        <tr><td>D-02</td><td><span class="tag expanded">PERSISTE / ACLARADO</span></td><td>AUD-015: contrato, servicio y seeder usan referencias distintas.</td></tr>
+        <tr><td>D-03</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-016: doble validación de caja.</td></tr>
+        <tr><td>D-04 / F-01</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-006: cancelados entran al cashflow.</td></tr>
+        <tr><td>D-05</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-017: pivote sigue activo tras anulación.</td></tr>
+        <tr><td>D-06</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-014: deuda sin lock.</td></tr>
+        <tr><td>D-07</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-025: cascadas borran historia.</td></tr>
+        <tr><td>D-08</td><td><span class="tag reframed">MITIGACIÓN APLICATIVA</span></td><td>Sin unique de caja abierta; apertura sí bloquea User.</td></tr>
+        <tr><td>D-09</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-021: ajuste debajo de pagado y condonación parcial.</td></tr>
+        <tr><td>D-10</td><td><span class="tag persist">PERSISTE · BAJO</span></td><td>Precisiones DECIMAL distintas; absorbido en integridad.</td></tr>
+        <tr><td>A-01</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>No hubo request autenticado ni DB; no se afirma corrección.</td></tr>
+        <tr><td>A-02</td><td><span class="tag persist">PERSISTE · NO PRIORIZADO</span></td><td>Accessor todavía depende de relaciones cargadas.</td></tr>
+        <tr><td>A-03 / A-04</td><td><span class="tag reframed">REFORMULADO</span></td><td>AUD-039, AUD-043 y AUD-044: motor sin contrato y lógica duplicada.</td></tr>
+        <tr><td>T-01 / T-02</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-027 y AUD-028: cuatro migraciones incompatibles y cobertura nula.</td></tr>
+        <tr><td>R-01</td><td><span class="tag reframed">REFORMULADO</span></td><td>AUD-044: View Composer global y regla duplicada.</td></tr>
+        <tr><td>R-02</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-031: cobranza carga todo dos veces.</td></tr>
+        <tr><td>R-03</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-048: índices y filtros no sargables.</td></tr>
+        <tr><td>C-01</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-023: falta disparador y el período apunta al mes siguiente.</td></tr>
+        <tr><td>C-02</td><td><span class="tag reframed">REFORMULADO</span></td><td>Variables existen comentadas; riesgo real es deploy local/debug/root.</td></tr>
+        <tr><td>F-02</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>El código sí puede crear; v03 confirma scheduler/período, no “ninguna deuda”.</td></tr>
+        <tr><td>F-03</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-039: sin deuda se muestra AL_DIA.</td></tr>
+        <tr><td>F-04</td><td><span class="tag conditional">DEFINICIÓN PENDIENTE</span></td><td>Inmutabilidad confirmada; severidad depende del contrato de negocio.</td></tr>
+        <tr><td>F-05</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-037: capacidades solo en API apagada.</td></tr>
+        <tr><td>F-06</td><td><span class="tag persist">PERSISTE</span></td><td>AUD-013: FIFO omite deuda anterior.</td></tr>
+        <tr><td>F-07</td><td><span class="tag unverified">NO REVALIDADO</span></td><td>No se afirma corrección.</td></tr>
+        <tr><td>F-08</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-020: fecha de cobro y datos actuales mutables.</td></tr>
+        <tr><td>DOC-01</td><td><span class="tag expanded">PERSISTE / AMPLIADO</span></td><td>AUD-037, AUD-039 y AUD-052.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Conclusión</h2>
+  <section class="card">
+    <p>No hubo una mejora verificable del sistema entre las dos auditorías. v03 aumenta la confianza en los riesgos anteriores, corrige afirmaciones que v02 no podía sostener de forma absoluta y descubre fallas críticas omitidas.</p>
+    <p class="muted">Una futura v04 debería clasificar cada hallazgo como corregido y verificado, persiste, no revisado o no aplicable por decisión documentada.</p>
+  </section>
+
+  <nav class="actions">
+    <a class="button" href="ANALISIS-INTEGRAL-v03.md">Abrir análisis completo v03</a>
+    <a class="button secondary" href="COMPARATIVA-v02-v03.md">Ver versión Markdown</a>
+    <a class="button secondary" href="index-v03.html">Volver al resumen v03</a>
+  </nav>
+
+  <footer>Documento generado en modo de solo lectura sobre código y datos. No se modificaron archivos v02.</footer>
+</main>
+</body>
+</html>
