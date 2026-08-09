@@ -451,8 +451,11 @@ class CajaWebController extends Controller
             'motivo' => 'required|string|max:500',
         ]);
 
+        $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)
+            ->findOrFail($movId);
+
         try {
-            $this->pagoCuotaService->cancelarCobroOperativo($movId, $request->input('motivo'), Auth::id());
+            $this->pagoCuotaService->cancelarCobroOperativo($movimiento->id, $request->input('motivo'), Auth::id());
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
