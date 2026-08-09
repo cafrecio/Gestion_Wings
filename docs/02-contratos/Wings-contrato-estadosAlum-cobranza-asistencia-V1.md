@@ -37,26 +37,45 @@ De ahí se desprende todo lo demás. La gente paga cuando cobra, y eso no suele 
 
 **Regla para resolver dudas futuras:** ante cualquier caso ambiguo, preguntarse *"¿corresponde salir a reclamar este pago?"*. Si la respuesta es no, el alumno está AL DÍA.
 
-### Los tres estados
+### Los cuatro estados
 
-| Estado | Definición |
-|---|---|
-| **AL DÍA** | Tiene todos sus pagos realizados. Incluye al que todavía no pagó el mes corriente pero está dentro de los días de gracia: no hay nada que reclamar. |
-| **MOROSO** | Pasaron los días de gracia y debe el **mes corriente** (solo ese). Se activa el seguimiento. |
-| **DEUDOR** | Debe algún mes **ya cerrado** (anterior al corriente), **o nunca pagó ninguna cuota**. |
+| Estado | Definición | ¿Hay que reclamar? |
+|---|---|---|
+| **AL DÍA** | Pagó el mes anterior y el corriente. | No |
+| **EN PLAZO** | Pagó el mes anterior, debe el corriente, y **todavía está dentro de los días de gracia**. | No, todavía no |
+| **MOROSO** | Pasó el día de gracia configurado y debe el **mes corriente**. | Sí |
+| **DEUDOR** | Arrastra un mes **ya cerrado** sin pagar, **o nunca pagó ninguna cuota**. | Sí, con más urgencia |
 
-### Ejemplo concreto (gracia = 10 días)
+La escala parte al medio: los dos primeros son *"no hay nada que hacer"*, los dos últimos son *"hay que salir a cobrar"*. Ese corte es el que usa quien trabaja la cobranza.
+
+### Orden de evaluación (importa)
+
+Los estados se evalúan **en este orden**, y el primero que da verdadero gana:
+
+1. **¿Arrastra algún mes cerrado sin pagar, o nunca pagó?** → DEUDOR
+2. **¿Debe el mes corriente y ya pasó el día de gracia?** → MOROSO
+3. **¿Debe el mes corriente pero sigue dentro de la gracia?** → EN PLAZO
+4. Si no → AL DÍA
+
+**DEUDOR gana sobre todo lo demás.** Alguien que pagó agosto pero debe julio, el 5 de agosto es DEUDOR — no EN PLAZO — porque arrastra un mes cerrado. Sin este orden explícito, es un error casi garantizado al implementar.
+
+### Ejemplos concretos (con gracia configurada en 10 días)
 
 | Fecha | Situación del alumno | Estado |
 |---|---|---|
-| 5 de agosto | No pagó agosto | **AL DÍA** (dentro de gracia) |
-| 15 de agosto | No pagó agosto | **MOROSO** |
-| 1 de septiembre | Sigue debiendo agosto | **DEUDOR** |
+| 5 de agosto | Pagó julio y agosto | **AL DÍA** |
+| 5 de agosto | Pagó julio, no pagó agosto | **EN PLAZO** |
+| 15 de agosto | Pagó julio, no pagó agosto | **MOROSO** |
+| 5 de agosto | No pagó julio | **DEUDOR** (arrastra mes cerrado, sin importar agosto) |
+| 1 de septiembre | Pagó agosto, no pagó septiembre | **EN PLAZO** |
+| 1 de septiembre | No pagó agosto | **DEUDOR** |
 | 15 de septiembre | Pagó agosto, no pagó septiembre | **MOROSO** |
 | 15 de septiembre | Debe agosto y septiembre | **DEUDOR** |
 | Cualquier fecha | Alumno nuevo que nunca pagó | **DEUDOR** |
 
-> **Confirmar este cuadro antes de implementar.** Es la forma más rápida de detectar si la regla quedó mal entendida.
+**El paso de MOROSO a DEUDOR es automático:** un moroso de agosto se convierte en deudor el 1 de septiembre, sin que nadie haga nada, porque agosto pasa a ser un mes cerrado.
+
+> El día de gracia es **configuración**, nunca un número fijo en el código. Los ejemplos usan 10 porque es el valor actual; si mañana pasa a 15, los estados tienen que acompañar solos.
 
 ---
 
@@ -88,10 +107,16 @@ El contador de clases es **interno**: no se muestra en pantalla. Solo se lleva p
 
 Un cliente que se atrasa es normal y pasa. No se lo trata como al nuevo.
 
-- **MOROSO** (debe el mes corriente): **entra normalmente, sin justificar.** Quien toma asistencia lo ve, nada más.
-- **DEUDOR** (debe un mes ya cerrado): **hay que justificar** para dejarlo entrar (ver §7).
+| Estado | Al tomar asistencia |
+|---|---|
+| **AL DÍA** | Entra. Nada que mostrar. |
+| **EN PLAZO** | Entra normalmente. |
+| **MOROSO** | **Entra normalmente, sin justificar.** Quien toma asistencia lo ve, nada más. |
+| **DEUDOR** | **Hay que justificar** para dejarlo entrar (ver §7). |
 
-O sea: el mes corriente impago se ve pero no traba. El mes cerrado impago sí.
+O sea: **el mes corriente impago se ve pero no traba. El mes cerrado impago sí.**
+
+La lógica es la misma que la de los estados: mientras el reclamo todavía no corresponde —o recién empieza— no tiene sentido frenar a nadie. Cuando el alumno arrastra un mes cerrado, ahí sí alguien tiene que hacerse cargo de la decisión de dejarlo pasar.
 
 ---
 
@@ -152,7 +177,8 @@ Son dos cosas distintas y no deben confundirse:
 
 | Regla | Estado |
 |---|---|
-| Los tres estados de cobranza se calculan | ✅ Implementado, pero con criterio distinto al de §2 y **escrito tres veces** con divergencias |
+| Los cuatro estados de cobranza | ⚠️ Hoy se calculan **tres** (AL_DIA / MOROSO / DEUDOR), con criterio distinto al de §2 y **escritos tres veces** con divergencias. **EN PLAZO no existe**: hoy se mezcla dentro de AL DÍA |
+| Orden de evaluación con DEUDOR primero | ⚠️ El orden actual coincide, pero no está documentado en el código ni cubierto por ningún test |
 | Días de gracia configurables | ❌ Hardcodeado (constante `DIA_GRACIA = 10`) |
 | DEUDOR cuando nunca pagó ninguna cuota | ❌ No contemplado como disparador explícito |
 | El estado se usa para algo | ❌ **Se calcula y no se consume.** No bloquea, no advierte, no condiciona nada |
@@ -183,7 +209,8 @@ Definidas en la misma conversación, se registran acá para que no se pierdan:
 
 - Un alumno es nuevo únicamente hasta su primer pago registrado.
 - El alumno nuevo tiene dos clases de margen; a partir de la tercera sin pagar, se justifica.
-- MOROSO no requiere justificación; DEUDOR sí.
+- Son cuatro estados: AL DÍA, EN PLAZO, MOROSO y DEUDOR. Se evalúan en orden y DEUDOR gana sobre todos.
+- AL DÍA, EN PLAZO y MOROSO no requieren justificación para entrar a clase; DEUDOR sí.
 - Ninguna de las cuatro excepciones bloquea la operación: todas permiten, exigen motivo y notifican al admin.
 - Los días de gracia son configuración, nunca un valor fijo en el código.
 - Ver movimientos ajenos es legítimo; ver la caja ajena no.
