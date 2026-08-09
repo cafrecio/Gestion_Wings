@@ -266,7 +266,7 @@ Son dos cosas distintas y no deben confundirse:
 | Orden de evaluación con DEUDOR primero | ✅ **Implementado y verificado** con los casos contractuales, incluido mes cerrado impago aunque el corriente esté pagado |
 | Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
 | DEUDOR cuando nunca pagó ninguna cuota | ✅ **Implementado y verificado** como primer criterio de evaluación |
-| El estado se usa para algo | ❌ **Se calcula y no se consume.** No bloquea, no advierte, no condiciona nada |
+| El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |
 | Contador de clases del alumno nuevo | ❌ No existe |

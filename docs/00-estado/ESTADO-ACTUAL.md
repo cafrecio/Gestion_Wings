@@ -82,8 +82,7 @@ El plan vigente para probar todo el sistema esta en `docs/06-pruebas/PLAN-PRUEBA
 | Item | Riesgo |
 |---|---|
 | Cobertura automatizada todavía escasa | La suite corre, pero aún faltan pruebas de varios flujos críticos de dinero y seguridad. |
-| `CajaService::abrirCajaSiNoExiste()` sin lock transaccional fuerte | Posible doble caja con requests simultaneos. |
-| FIFO de pagos sin lock de filas | Posible saldo corrupto con pagos paralelos. |
+| Locks de concurrencia sin prueba paralela sobre MariaDB | Caja y pagos usan `lockForUpdate`, cubierto estructuralmente y por idempotencia secuencial; falta una prueba con dos conexiones reales sobre MariaDB. |
 | `AlumnoPlan` corrige planes activos solo en `creating()` | Un `update()` directo puede dejar dos planes activos. |
 | Montos tratados como float en parte del dominio | Riesgo de precision contable. |
 | `View::composer('*')` para badge de clases | Query global en cada render. |
