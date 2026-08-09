@@ -69,6 +69,34 @@ Es el único mecanismo que detecta al alumno que dejó de venir sin avisar. Sin 
 
 > **Nota:** hasta ahora el sistema tenía un tercer criterio de generación automática —*haber pagado el mes anterior*— que se **elimina**. Un alumno que paga pero deja de venir es exactamente el caso que la cola de revisión existe para detectar; darle deuda automática lo volvía invisible.
 
+### El monto sale del plan activo
+
+La deuda se genera **según el plan activo del alumno** al momento de generarla.
+
+**Si el alumno cambia de plan para el mes en curso, la deuda de ese mes se actualiza** al precio del plan nuevo. Rige hacia adelante: las deudas de meses anteriores **no se tocan nunca**.
+
+### Bajar de plan a mitad de mes
+
+Si el cambio es **hacia un plan menor**, antes de aplicarlo hay que verificar **si el alumno ya tomó más clases de las que el plan nuevo cubre**.
+
+**Caso de referencia:**
+
+> El alumno tiene plan de 2 veces por semana. Las dos primeras semanas del mes toma las 4 clases que le corresponden. El día 15 viene a pagar y pide bajar a 1 clase por semana.
+>
+> Ya consumió más clases de las que el plan de 1 por semana le habría permitido en ese lapso. **El cambio se aplica al mes siguiente, no al corriente.** El mes en curso se cobra al plan viejo.
+
+La razón es simple: ya recibió el servicio del plan alto. Bajarlo retroactivamente sería cobrarle menos por clases que ya tomó.
+
+**Subir de plan** no tiene esta restricción: aplica al mes en curso, porque el alumno pasa a tener derecho a más clases y la cuota sube en consecuencia.
+
+> ⚠️ **PROVISORIO — pendiente de confirmación con el cliente.** Esta regla quedó asentada tal como se acordó, pero está sujeta a revisión.
+>
+> Al confirmarla, precisar contra qué se compara exactamente el consumo:
+> - **contra lo transcurrido** (en el ejemplo: 2 semanas × 1 clase = 2 permitidas, tomó 4 → no puede bajar), o
+> - **contra el mes completo** (1 clase × 4 semanas = 4 permitidas, tomó 4 → estaría justo en el límite).
+>
+> El ejemplo dado apunta a la primera lectura. La diferencia cambia el resultado en los casos de borde, así que conviene cerrarlo antes de implementar.
+
 ---
 
 ## 3. Estados de cobranza
@@ -231,6 +259,10 @@ Son dos cosas distintas y no deben confundirse:
 | Criterio a eliminar: "pagó el mes anterior" | ⚠️ **Existe y hay que sacarlo** (ver nota al final de §2) |
 | La cola se cierra sola con una asistencia o un pago | ✅ **Implementado correctamente** en los tres puntos que corresponden |
 | Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
+| El monto sale del plan activo | ✅ Implementado |
+| Al cambiar de plan se actualiza la deuda del mes en curso | ✅ **Implementado correctamente** en el flujo de cobro, y solo toca el período corriente: las deudas anteriores no se reescriben |
+| Al **bajar** de plan, verificar clases ya tomadas | ❌ **No existe ningún chequeo.** Hoy se aplica la baja al mes en curso sin mirar cuántas clases consumió. El bloque de cambio de plan no consulta asistencias |
+| Insumo para ese chequeo | ⚠️ Existe `contarAsistenciasSemana()`, que ya compara asistencias contra el plan. Serviría de base |
 
 ### Estados, acceso y excepciones (§3 a §10)
 
