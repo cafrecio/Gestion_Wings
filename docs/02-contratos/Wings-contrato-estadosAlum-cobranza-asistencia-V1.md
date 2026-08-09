@@ -255,8 +255,8 @@ Son dos cosas distintas y no deben confundirse:
 | Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
 | El monto sale del plan activo | ✅ Implementado |
 | Al cambiar de plan se actualiza la deuda del mes en curso | ✅ **Implementado correctamente** en el flujo de cobro, y solo toca el período corriente: las deudas anteriores no se reescriben |
-| Al **bajar** de plan, diferir al mes siguiente si ya asistió | ❌ **No existe ningún chequeo.** Hoy la baja se aplica al mes en curso sin mirar si el alumno asistió. El bloque de cambio de plan no consulta asistencias |
-| Al **subir** de plan, aplicar siempre al mes en curso | ✅ Es lo que hace hoy (aplica siempre, sin distinguir subida de bajada) |
+| Al **bajar** de plan, diferir al mes siguiente si ya asistió | ✅ **Implementado y verificado.** Una prueba de flujo completo confirma que basta una asistencia y que la deuda corriente conserva el plan anterior |
+| Al **subir** de plan, aplicar siempre al mes en curso | ✅ **Implementado y verificado**, incluso cuando ya hubo asistencia en el mes |
 
 ### Estados, acceso y excepciones (§3 a §10)
 

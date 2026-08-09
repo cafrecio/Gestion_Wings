@@ -62,7 +62,7 @@
         @endforeach
     </div>
     <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
-        El cambio de plan aplica a la cuota del mes en curso y a las siguientes. Las cuotas anteriores conservan su valor.
+        Las subidas aplican al mes en curso. Las bajas aplican al mes siguiente si ya hubo asistencia este mes.
     </p>
 </div>
 @endif

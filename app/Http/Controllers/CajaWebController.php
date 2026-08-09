@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
+use App\Models\Asistencia;
 use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
 use App\Models\DeudaCuota;
@@ -605,26 +606,46 @@ class CajaWebController extends Controller
         ]);
 
         // Registrar cambio de plan antes del pago.
-        // El cambio rige hacia adelante: se actualiza la deuda del mes en
-        // curso al precio nuevo (paga anticipado); las anteriores no se tocan.
         if ($request->filled('nuevo_plan_id')) {
             $nuevoPlanId = (int) $request->input('nuevo_plan_id');
-            $alumno->loadMissing('planActivo');
+            $alumno->loadMissing('planActivo.plan');
             if (!$alumno->planActivo || $alumno->planActivo->plan_id !== $nuevoPlanId) {
+                $planAnterior = $alumno->planActivo;
+                $nuevoPlan = GrupoPlan::findOrFail($nuevoPlanId);
+                $esBaja = $planAnterior?->plan
+                    && $nuevoPlan->clases_por_semana < $planAnterior->plan->clases_por_semana;
+                $tieneAsistenciaEsteMes = $esBaja && Asistencia::where('alumno_id', $alumno->id)
+                    ->where('presente', true)
+                    ->whereHas('clase', fn($query) => $query
+                        ->whereBetween('fecha', [
+                            now()->startOfMonth()->toDateString(),
+                            now()->endOfMonth()->toDateString(),
+                        ]))
+                    ->exists();
+                $aplicaMesSiguiente = $esBaja && $tieneAsistenciaEsteMes;
+                $fechaDesde = $aplicaMesSiguiente
+                    ? now()->addMonthNoOverflow()->startOfMonth()
+                    : today();
+
                 AlumnoPlan::create([
                     'alumno_id'   => $alumno->id,
                     'plan_id'     => $nuevoPlanId,
-                    'fecha_desde' => today(),
+                    'fecha_desde' => $fechaDesde,
                     'activo'      => true,
                 ]);
 
-                $precioNuevo = (float) GrupoPlan::findOrFail($nuevoPlanId)->precio_mensual;
-                $periodoActual = now('America/Argentina/Buenos_Aires')->format('Y-m');
-                DeudaCuota::where('alumno_id', $alumno->id)
-                    ->where('periodo', $periodoActual)
-                    ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                    ->whereRaw('monto_pagado <= ?', [$precioNuevo])
-                    ->update(['monto_original' => $precioNuevo]);
+                if ($aplicaMesSiguiente) {
+                    $planAnterior?->update([
+                        'fecha_hasta' => $fechaDesde->copy()->subDay(),
+                    ]);
+                } else {
+                    $precioNuevo = (float) $nuevoPlan->precio_mensual;
+                    DeudaCuota::where('alumno_id', $alumno->id)
+                        ->where('periodo', now()->format('Y-m'))
+                        ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                        ->whereRaw('monto_pagado <= ?', [$precioNuevo])
+                        ->update(['monto_original' => $precioNuevo]);
+                }
             }
         }
 
