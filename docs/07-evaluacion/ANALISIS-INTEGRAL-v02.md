@@ -15,9 +15,16 @@ El sistema está **funcionalmente operativo y su núcleo de dinero está razonab
 
 ### Lo más urgente no es de seguridad
 
-**El sistema lleva tres meses sin emitir deuda, y el tablero de cobranza informa que todos los alumnos están al día.**
+> ⚠️ **CORRECCIÓN POSTERIOR (2026-08-09).** Este apartado afirmaba que *"el sistema lleva tres meses sin emitir deuda"* como si fuera pérdida real de facturación. **Es incorrecto.** La base analizada contiene **datos de prueba sembrados por `DemoSeeder`**, en un entorno XAMPP local donde nunca existió un scheduler. Esos datos van a ser borrados y regenerados.
+>
+> **Lo que se cae:** que el negocio haya perdido tres meses de ingresos.
+> **Lo que sigue en pie sin cambios:** los defectos de código descritos abajo (F-02 y F-03), que romperían la facturación en un servidor real. C-01 pasa de defecto a tarea de instalación del VPS.
+>
+> El error fue de método: se leyeron datos de demo como si fueran producción, y se extrajo una conclusión de negocio más grande que la evidencia.
 
-Verificado contra datos reales: la última deuda emitida es de **2026-05**; hoy es agosto. Junio, julio y agosto no fueron facturados. Los 35 alumnos activos figuran `AL_DIA`. La tabla de revisión de cobranza tiene 0 filas: el proceso mensual **nunca corrió**.
+**El sistema no genera deuda, y cuando no la genera informa que todos los alumnos están al día.**
+
+Estado de la base analizada: la última deuda es de **2026-05**, los 35 alumnos activos figuran `AL_DIA` y la tabla de revisión de cobranza tiene 0 filas — el proceso mensual nunca corrió en este entorno.
 
 Son tres fallas encadenadas, y ninguna produce un error visible:
 

@@ -99,7 +99,8 @@
 
   <div class="alerta">
     <h3>Lo más urgente no es de seguridad</h3>
-    <p><b>El sistema lleva tres meses sin emitir deuda, y el tablero de cobranza informa que todos los alumnos están al día.</b> Verificado contra datos reales: la última deuda emitida es de <b>2026-05</b>. Junio, julio y agosto no fueron facturados; los 35 alumnos activos figuran <code>AL_DIA</code>; la tabla de revisión tiene 0 filas.</p>
+    <p style="background:rgba(0,0,0,0.06); padding:10px 12px; border-radius:6px;"><b>⚠️ Corrección posterior (2026-08-09).</b> Este bloque afirmaba que el negocio llevaba tres meses sin facturar. <b>Es incorrecto:</b> la base analizada tiene datos de prueba sembrados por <code>DemoSeeder</code>, en un XAMPP local sin scheduler. <b>Se cae</b> la pérdida de facturación; <b>siguen en pie</b> los defectos de código F-02 y F-03, que romperían la facturación en un servidor real.</p>
+    <p><b>El sistema no genera deuda, y cuando no la genera informa que todos los alumnos están al día.</b> En la base analizada la última deuda es de <b>2026-05</b>, los 35 alumnos activos figuran <code>AL_DIA</code> y la tabla de revisión tiene 0 filas: el proceso nunca corrió en ese entorno.</p>
     <p>Son tres fallas encadenadas y <b>ninguna produce un error visible</b>:</p>
     <ul>
       <li><b>C-01</b> — nada ejecuta <code>schedule:run</code>: el comando mensual nunca se dispara.</li>
