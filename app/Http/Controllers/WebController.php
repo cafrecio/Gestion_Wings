@@ -27,6 +27,16 @@ class WebController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            if (!Auth::user()->isActivo()) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return redirect()->route('login')->withErrors([
+                    'email' => 'Tu cuenta fue desactivada.',
+                ])->onlyInput('email');
+            }
+
             $request->session()->regenerate();
 
             return $this->redirectByRole(Auth::user());

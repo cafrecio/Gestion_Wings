@@ -29,6 +29,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'ensure.admin.web'  => \App\Http\Middleware\EnsureAdminWeb::class,
             'ensure.profesor.web' => \App\Http\Middleware\EnsureProfesorWeb::class,
             'reject.profesor.web' => \App\Http\Middleware\RejectProfesorWeb::class,
+            'ensure.active.web' => \App\Http\Middleware\EnsureActiveUserWeb::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -32,7 +32,7 @@ Route::post('/login', [WebController::class, 'login'])->middleware('throttle:10,
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'ensure.active.web'])->group(function () {
     Route::middleware('reject.profesor.web')->group(function () {
     // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
