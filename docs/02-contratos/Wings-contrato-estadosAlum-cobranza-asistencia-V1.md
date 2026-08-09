@@ -75,27 +75,21 @@ La deuda se genera **según el plan activo del alumno** al momento de generarla.
 
 **Si el alumno cambia de plan para el mes en curso, la deuda de ese mes se actualiza** al precio del plan nuevo. Rige hacia adelante: las deudas de meses anteriores **no se tocan nunca**.
 
-### Bajar de plan a mitad de mes
+### Cuándo aplica el cambio de plan
 
-Si el cambio es **hacia un plan menor**, antes de aplicarlo hay que verificar **si el alumno ya tomó más clases de las que el plan nuevo cubre**.
+| Cambio | Condición | Desde cuándo aplica |
+|---|---|---|
+| **Bajar** | Ya asistió a alguna clase este mes | **Mes siguiente.** El corriente se cobra al plan viejo |
+| **Bajar** | No tiene ninguna asistencia este mes | **Mes en curso.** Se actualiza la deuda |
+| **Subir** | Siempre | **Mes en curso**, cuando quiera |
 
-**Caso de referencia:**
+**La pregunta es una sola: ¿asistió a alguna clase este mes?** No hay que contar clases ni compararlas contra el cupo del plan — alcanza con saber si asistió o no.
 
-> El alumno tiene plan de 2 veces por semana. Las dos primeras semanas del mes toma las 4 clases que le corresponden. El día 15 viene a pagar y pide bajar a 1 clase por semana.
->
-> Ya consumió más clases de las que el plan de 1 por semana le habría permitido en ese lapso. **El cambio se aplica al mes siguiente, no al corriente.** El mes en curso se cobra al plan viejo.
+**Por qué:** si ya tomó clases bajo el plan alto, ya recibió ese servicio. Bajarle la cuota retroactivamente sería cobrarle menos por algo que ya consumió. Si todavía no vino, no consumió nada y no hay motivo para hacerlo esperar.
 
-La razón es simple: ya recibió el servicio del plan alto. Bajarlo retroactivamente sería cobrarle menos por clases que ya tomó.
+**Subir no tiene restricción** porque va a favor del negocio y del alumno: pasa a tener derecho a más clases y la cuota acompaña.
 
-**Subir de plan** no tiene esta restricción: aplica al mes en curso, porque el alumno pasa a tener derecho a más clases y la cuota sube en consecuencia.
-
-> ⚠️ **PROVISORIO — pendiente de confirmación con el cliente.** Esta regla quedó asentada tal como se acordó, pero está sujeta a revisión.
->
-> Al confirmarla, precisar contra qué se compara exactamente el consumo:
-> - **contra lo transcurrido** (en el ejemplo: 2 semanas × 1 clase = 2 permitidas, tomó 4 → no puede bajar), o
-> - **contra el mes completo** (1 clase × 4 semanas = 4 permitidas, tomó 4 → estaría justo en el límite).
->
-> El ejemplo dado apunta a la primera lectura. La diferencia cambia el resultado en los casos de borde, así que conviene cerrarlo antes de implementar.
+> ⚠️ **Pendiente de confirmación con el cliente.** La regla está cerrada y es inequívoca, pero se asienta sujeta a su visto bueno.
 
 ---
 
@@ -261,8 +255,8 @@ Son dos cosas distintas y no deben confundirse:
 | Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
 | El monto sale del plan activo | ✅ Implementado |
 | Al cambiar de plan se actualiza la deuda del mes en curso | ✅ **Implementado correctamente** en el flujo de cobro, y solo toca el período corriente: las deudas anteriores no se reescriben |
-| Al **bajar** de plan, verificar clases ya tomadas | ❌ **No existe ningún chequeo.** Hoy se aplica la baja al mes en curso sin mirar cuántas clases consumió. El bloque de cambio de plan no consulta asistencias |
-| Insumo para ese chequeo | ⚠️ Existe `contarAsistenciasSemana()`, que ya compara asistencias contra el plan. Serviría de base |
+| Al **bajar** de plan, diferir al mes siguiente si ya asistió | ❌ **No existe ningún chequeo.** Hoy la baja se aplica al mes en curso sin mirar si el alumno asistió. El bloque de cambio de plan no consulta asistencias |
+| Al **subir** de plan, aplicar siempre al mes en curso | ✅ Es lo que hace hoy (aplica siempre, sin distinguir subida de bajada) |
 
 ### Estados, acceso y excepciones (§3 a §10)
 
