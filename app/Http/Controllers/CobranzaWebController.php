@@ -24,7 +24,14 @@ class CobranzaWebController extends Controller
         $resumen = $this->cobranzaService->resumenDashboard();
 
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();
-        $grupos   = Grupo::where('activo', true)->orderBy('nombre')->get();
+        $grupos = Grupo::with(['deporte', 'nivel'])
+            ->where('grupos.activo', true)
+            ->join('deportes', 'grupos.deporte_id', '=', 'deportes.id')
+            ->join('niveles', 'grupos.nivel_id', '=', 'niveles.id')
+            ->orderBy('deportes.nombre')
+            ->orderBy('niveles.nombre')
+            ->select('grupos.*')
+            ->get();
 
         return view('cobranza.index', compact(
             'alumnos', 'resumen', 'deportes', 'grupos',
