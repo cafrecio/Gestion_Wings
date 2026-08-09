@@ -247,10 +247,10 @@ Son dos cosas distintas y no deben confundirse:
 |---|---|
 | Estructura general: con asistencia → deuda, sin asistencia → cola de revisión | ✅ **Implementado y correcto.** El comando `cobranza:generar-deudas` ya funciona así, y es idempotente (no duplica deuda existente) |
 | El proceso corre el día 1 de cada mes | ⚠️ Está programado, pero **nada lo ejecuta**: no hay tarea de sistema que dispare el scheduler. Nunca corrió |
-| Genera la cuota del mes que empieza mirando el mes que terminó | ❌ **Está corrido un mes.** Hoy genera la cuota del mes *siguiente* mirando el mes *corriente*, que el día 1 está vacío. Por eso manda a todos a revisión y no crea ninguna deuda |
+| Genera la cuota del mes que empieza mirando el mes que terminó | ✅ **Implementado y verificado.** El 1 de septiembre genera septiembre evaluando agosto; prueba automatizada confirma además que no genera octubre |
 | Criterio 1: asistencia el mes anterior | ✅ Implementado |
-| Criterio 2: alta + pago dentro de los últimos 15 días | ❌ No existe |
-| Criterio a eliminar: "pagó el mes anterior" | ⚠️ **Existe y hay que sacarlo** (ver nota al final de §2) |
+| Criterio 2: alta + pago dentro de los últimos 15 días | ✅ **Implementado y verificado** con fechas de alta y pago recientes |
+| Criterio a eliminar: "pagó el mes anterior" | ✅ **Implementado y verificado.** Un alumno antiguo que solo pagó el período anterior pasa a revisión si no asistió |
 | La cola se cierra sola con una asistencia o un pago | ✅ **Implementado correctamente** en los tres puntos que corresponden |
 | Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
 | El monto sale del plan activo | ✅ Implementado |

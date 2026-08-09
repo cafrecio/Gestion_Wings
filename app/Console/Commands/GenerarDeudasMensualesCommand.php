@@ -14,7 +14,7 @@ use Illuminate\Console\Command;
 class GenerarDeudasMensualesCommand extends Command
 {
     protected $signature = 'cobranza:generar-deudas
-        {--periodo= : Período objetivo YYYY-MM (default: mes siguiente al actual)}';
+        {--periodo= : Período objetivo YYYY-MM (default: mes actual)}';
 
     protected $description = 'Genera deudas de cuota mensual para alumnos activos elegibles';
 
@@ -39,7 +39,7 @@ class GenerarDeudasMensualesCommand extends Command
             }
             $periodo = $periodoInput;
         } else {
-            $periodo = $ahora->copy()->addMonth()->format('Y-m');
+            $periodo = $ahora->format('Y-m');
         }
 
         // Mes anterior al período objetivo (para verificar asistencias)
@@ -81,9 +81,6 @@ class GenerarDeudasMensualesCommand extends Command
             }
 
             // Verificar elegibilidad estricta contra el período anterior
-            $mesAnteriorMes = $periodoAnterior->month;
-            $mesAnteriorAnio = $periodoAnterior->year;
-
             $tieneAsistenciasMesAnterior = Asistencia::where('alumno_id', $alumno->id)
                 ->where('presente', true)
                 ->whereHas('clase', function ($query) use ($mesAnteriorInicio, $mesAnteriorFin) {
@@ -91,12 +88,18 @@ class GenerarDeudasMensualesCommand extends Command
                 })
                 ->exists();
 
-            $tienePagoPeriodoAnterior = Pago::where('alumno_id', $alumno->id)
-                ->where('mes', $mesAnteriorMes)
-                ->where('anio', $mesAnteriorAnio)
+            $limiteReciente = $ahora->copy()->subDays(15)->startOfDay();
+            $altaReciente = $alumno->fecha_alta
+                && $alumno->fecha_alta->betweenIncluded($limiteReciente, $ahora);
+            $tienePagoReciente = $altaReciente && Pago::where('alumno_id', $alumno->id)
+                ->where('estado', Pago::ESTADO_COMPLETADO)
+                ->whereBetween('fecha_pago', [
+                    $limiteReciente->toDateString(),
+                    $ahora->toDateString(),
+                ])
                 ->exists();
 
-            if ($tieneAsistenciasMesAnterior || $tienePagoPeriodoAnterior) {
+            if ($tieneAsistenciasMesAnterior || $tienePagoReciente) {
                 // Elegible: crear deuda
                 $this->pagoCuotaService->crearDeudaSiNoExiste(
                     $alumno->id,
@@ -113,7 +116,7 @@ class GenerarDeudasMensualesCommand extends Command
                         'periodo_objetivo' => $periodo,
                     ],
                     [
-                        'motivo' => 'SIN_ASISTENCIAS_NI_PAGO_PERIODO_ANTERIOR',
+                        'motivo' => 'SIN_ASISTENCIAS_NI_ALTA_PAGO_RECIENTES',
                         'estado_revision' => AlumnoRevisionCobranza::ESTADO_PENDIENTE,
                     ]
                 );
