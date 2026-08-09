@@ -360,12 +360,6 @@ class CajaWebController extends Controller
             return back()->with('error', 'Solo se pueden editar movimientos de una caja abierta o rechazada.');
         }
 
-        $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
-
-        if ($movimiento->subrubro?->es_reservado_sistema) {
-            return back()->with('error', 'No se puede editar un movimiento generado automáticamente por el sistema.');
-        }
-
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
@@ -374,13 +368,17 @@ class CajaWebController extends Controller
             'observaciones' => 'required|string|max:500',
         ]);
 
-        $movimiento->update([
-            'tipo_caja_id'  => $request->input('tipo_caja_id'),
-            'subrubro_id'   => $request->input('subrubro_id'),
-            'monto'         => $request->input('monto'),
-            'fecha'         => $request->input('fecha'),
-            'observaciones' => $request->input('observaciones'),
-        ]);
+        try {
+            $this->cajaService->actualizarMovimientoEnCaja($cajaId, $movId, [
+                'tipo_caja_id' => $request->input('tipo_caja_id'),
+                'subrubro_id' => $request->input('subrubro_id'),
+                'monto' => $request->input('monto'),
+                'fecha' => $request->input('fecha'),
+                'observaciones' => $request->input('observaciones'),
+            ]);
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage())->withInput();
+        }
 
         return redirect()->route('web.caja.detalle', $cajaId)->with('success', 'Movimiento actualizado.');
     }

@@ -105,14 +105,7 @@ class CajaService
      */
     public function registrarMovimientoOperativo(array $data): MovimientoOperativo
     {
-        $subrubro = Subrubro::findOrFail($data['subrubro_id']);
-
-        // Bloquear subrubros reservados del sistema
-        if ($subrubro->es_reservado_sistema) {
-            throw new \Exception(
-                "El subrubro '{$subrubro->nombre}' es reservado del sistema y no puede usarse manualmente. Use el flujo correspondiente."
-            );
-        }
+        $this->validarSubrubroManual($data['subrubro_id']);
 
         return $this->registrarMovimientoOperativoInterno($data);
     }
@@ -287,15 +280,7 @@ class CajaService
             throw new \Exception('La caja no está en estado editable.');
         }
 
-        $subrubro = Subrubro::findOrFail($data['subrubro_id']);
-
-        if ($subrubro->es_reservado_sistema) {
-            throw new \Exception("El subrubro '{$subrubro->nombre}' es reservado del sistema y no puede usarse manualmente.");
-        }
-
-        if ($subrubro->permitido_para !== 'OPERATIVO') {
-            throw new \Exception('El subrubro seleccionado no está permitido para usuarios operativos.');
-        }
+        $this->validarSubrubroManual($data['subrubro_id']);
 
         return MovimientoOperativo::create([
             'caja_operativa_id' => $cajaId,
@@ -307,6 +292,58 @@ class CajaService
             'usuario_id'        => $caja->usuario_operativo_id,
             'alumno_id'         => $data['alumno_id'] ?? null,
         ]);
+    }
+
+    /**
+     * Actualizar un movimiento manual dentro de una caja editable.
+     */
+    public function actualizarMovimientoEnCaja(int $cajaId, int $movimientoId, array $data): MovimientoOperativo
+    {
+        $caja = CajaOperativa::findOrFail($cajaId);
+
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+            throw new \Exception('La caja no está en estado editable.');
+        }
+
+        $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)
+            ->findOrFail($movimientoId);
+
+        if ($movimiento->subrubro?->es_reservado_sistema) {
+            throw new \Exception('No se puede editar un movimiento generado automáticamente por el sistema.');
+        }
+
+        $this->validarSubrubroManual($data['subrubro_id']);
+
+        $movimiento->update([
+            'tipo_caja_id' => $data['tipo_caja_id'],
+            'subrubro_id' => $data['subrubro_id'],
+            'monto' => $data['monto'],
+            'fecha' => $data['fecha'],
+            'observaciones' => $data['observaciones'],
+        ]);
+
+        return $movimiento;
+    }
+
+    private function validarSubrubroManual(int $subrubroId): Subrubro
+    {
+        $subrubro = Subrubro::findOrFail($subrubroId);
+
+        if ($subrubro->es_reservado_sistema) {
+            throw new \Exception(
+                "El subrubro '{$subrubro->nombre}' es reservado del sistema y no puede usarse manualmente."
+            );
+        }
+
+        if ($subrubro->permitido_para !== 'OPERATIVO') {
+            throw new \Exception('El subrubro seleccionado no está permitido para usuarios operativos.');
+        }
+
+        if (!$subrubro->afecta_caja) {
+            throw new \Exception('El subrubro seleccionado no afecta la caja operativa.');
+        }
+
+        return $subrubro;
     }
 
     /**
