@@ -56,7 +56,9 @@ return new class extends Migration
         Schema::table('grupos', function (Blueprint $table) {
             $table->dropForeign(['nivel_id']);
         });
-        DB::statement('ALTER TABLE grupos MODIFY nivel_id bigint unsigned NOT NULL');
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('ALTER TABLE grupos MODIFY nivel_id bigint unsigned NOT NULL');
+        }
         Schema::table('grupos', function (Blueprint $table) {
             $table->foreign('nivel_id')->references('id')->on('niveles');
             $table->unique(['deporte_id', 'nivel_id'], 'grupos_deporte_nivel_unique');

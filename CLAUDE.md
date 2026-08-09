@@ -26,7 +26,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 - Laravel 12 + PHP 8.2 + MariaDB, corriendo en XAMPP local.
 - Frontend web con Blade, Tailwind CSS/Vite y JavaScript vanilla.
 - API REST con Sanctum para integraciones.
-- Tests con PHPUnit. Atencion: al 2026-06-15 la suite no esta confiable porque falla por una migracion incompatible con SQLite.
+- Tests con PHPUnit sobre SQLite en memoria. Las migraciones con sintaxis exclusiva de MySQL omiten esos statements durante los tests.
 - Timezone funcional esperada: `America/Argentina/Buenos_Aires`.
 
 ## Rutas documentales
@@ -99,11 +99,10 @@ Comando:
 php artisan test
 ```
 
-Estado actual:
+Estado actual (2026-08-09):
 
-- Los tests base pasan.
-- `Tests\Feature\PagoCuotaServiceTest` falla antes de probar la logica porque una migracion usa sintaxis MySQL `MODIFY`, no soportada por SQLite.
-- Antes de confiar en la suite hay que corregir migraciones para SQLite o definir una BD MariaDB de test.
+- La suite completa pasa: 14 tests, 28 aserciones.
+- Los `DB::statement` con sintaxis MySQL `MODIFY` están condicionados al driver `mysql`, por lo que SQLite puede ejecutar todas las migraciones de prueba.
 
 ## Pruebas funcionales y seeders
 

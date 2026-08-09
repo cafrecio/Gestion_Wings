@@ -1,6 +1,6 @@
 # Wings - Estado Actual
 
-> Actualizado: 2026-06-15  
+> Actualizado: 2026-08-09
 > Alcance: documentacion y orden del repo. No modifica logica funcional.
 
 Este archivo es la fuente de verdad para entender donde esta parado el proyecto. Si otro documento del repo contradice este archivo, se debe actualizar el documento viejo o registrar la contradiccion aca antes de implementar.
@@ -30,7 +30,7 @@ El plan vigente para probar todo el sistema esta en `docs/06-pruebas/PLAN-PRUEBA
 | PDFs | Servicio y vistas existen; revisar integracion web completa | `ReciboService`, `resources/views/pdfs` |
 | Cobranza mensual | Implementacion parcial | `GenerarDeudasMensualesCommand`, `CobranzaEstadoService` |
 | Design system | Implementado, pero requiere disciplina estricta | `docs/03-diseno-ui/wings-design/SKILL.md`, `resources/css/app.css` |
-| Tests | No confiables en este momento | `php artisan test` falla por migracion incompatible con SQLite |
+| Tests | Suite base operativa sobre SQLite en memoria | `php artisan test`: 14 tests y 28 aserciones pasan |
 
 ## Contradicciones Detectadas y Resolucion
 
@@ -46,9 +46,9 @@ El plan vigente para probar todo el sistema esta en `docs/06-pruebas/PLAN-PRUEBA
 
 ## Pendientes Inmediatos
 
-1. Recuperar suite de tests.
-   - Hoy `php artisan test` falla porque una migracion ejecuta `ALTER TABLE grupos MODIFY nivel_id...`, sintaxis MySQL que SQLite no soporta.
-   - Antes de avanzar fuerte, hay que decidir si los tests corren en SQLite compatible o en MariaDB de test.
+1. Ampliar la suite de tests recuperada.
+   - Las migraciones con `MODIFY` exclusivo de MySQL ya están condicionadas por driver y la suite corre completa en SQLite.
+   - Falta agregar cobertura de los flujos críticos de cobranza, seguridad, caja y cancelaciones.
 
 2. Validar estado real del modulo cobranza.
    - Revisar command mensual, scheduler, reglas de asistencia del mes anterior, alertas, inactivacion y deuda fantasma.
@@ -81,7 +81,7 @@ El plan vigente para probar todo el sistema esta en `docs/06-pruebas/PLAN-PRUEBA
 
 | Item | Riesgo |
 |---|---|
-| Tests rotos por SQLite/migraciones | No hay red de seguridad automatica. |
+| Cobertura automatizada todavía escasa | La suite corre, pero aún faltan pruebas de varios flujos críticos de dinero y seguridad. |
 | `CajaService::abrirCajaSiNoExiste()` sin lock transaccional fuerte | Posible doble caja con requests simultaneos. |
 | FIFO de pagos sin lock de filas | Posible saldo corrupto con pagos paralelos. |
 | `AlumnoPlan` corrige planes activos solo en `creating()` | Un `update()` directo puede dejar dos planes activos. |

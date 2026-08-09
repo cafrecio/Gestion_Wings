@@ -14,15 +14,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        DB::statement(
-            "ALTER TABLE pagos MODIFY COLUMN estado ENUM('COMPLETADO','ANULADO') NOT NULL DEFAULT 'COMPLETADO'"
-        );
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement(
+                "ALTER TABLE pagos MODIFY COLUMN estado ENUM('COMPLETADO','ANULADO') NOT NULL DEFAULT 'COMPLETADO'"
+            );
+        }
     }
 
     public function down(): void
     {
-        DB::statement(
-            "ALTER TABLE pagos MODIFY COLUMN estado ENUM('pagado','parcial','adeuda','COMPLETADO','ANULADO') NOT NULL DEFAULT 'pagado'"
-        );
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement(
+                "ALTER TABLE pagos MODIFY COLUMN estado ENUM('pagado','parcial','adeuda','COMPLETADO','ANULADO') NOT NULL DEFAULT 'pagado'"
+            );
+        }
     }
 };
