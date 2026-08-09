@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
-use App\Models\DeudaCuota;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Services\CobranzaEstadoService;
@@ -16,7 +15,7 @@ use Illuminate\Validation\Rule;
 
 class AlumnoWebController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, CobranzaEstadoService $cobranzaService)
     {
         $query = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel']);
 
@@ -51,27 +50,7 @@ class AlumnoWebController extends Controller
             ->select('grupos.*')
             ->get();
 
-        // Estados de cobranza en bulk (1 query para toda la página)
-        $periodoVigente = now('America/Argentina/Buenos_Aires')->format('Y-m');
-        $diaActual      = (int) now('America/Argentina/Buenos_Aires')->format('d');
-        $deudasPorAlumno = DeudaCuota::whereIn('alumno_id', $alumnos->pluck('id'))
-            ->whereNotIn('estado', [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
-            ->whereRaw('monto_pagado < monto_original')
-            ->get()
-            ->groupBy('alumno_id');
-
-        $estadosCobranza = [];
-        foreach ($alumnos as $a) {
-            if (!$a->activo) { $estadosCobranza[$a->id] = 'neutral'; continue; }
-            $d = $deudasPorAlumno->get($a->id, collect());
-            if ($d->filter(fn($x) => $x->periodo < $periodoVigente)->isNotEmpty()) {
-                $estadosCobranza[$a->id] = 'danger'; continue;
-            }
-            if ($d->firstWhere('periodo', $periodoVigente) && $diaActual > 10) {
-                $estadosCobranza[$a->id] = 'warning'; continue;
-            }
-            $estadosCobranza[$a->id] = 'success';
-        }
+        $estadosCobranza = $cobranzaService->estadosParaAlumnos($alumnos->getCollection());
 
         return view('alumnos.index', compact('alumnos', 'deportes', 'grupos', 'estadosCobranza'));
     }

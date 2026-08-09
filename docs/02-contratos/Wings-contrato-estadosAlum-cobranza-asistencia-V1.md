@@ -21,7 +21,7 @@ El servicio se paga **por adelantado**, entendido así:
 **Días de gracia:** existe un margen configurable desde el principio del mes. La gente no cobra su sueldo el día 1, y se trata con clientes, no con morosos presuntos.
 
 - El valor es **configuración del sistema**, no una constante en el código.
-- Valor actual en el código: 10 días (hardcodeado — ver §11).
+- Valor actual en configuración: 10 días.
 
 **Pago de varios meses juntos:** fuera de alcance. Si alguna vez ocurre, se registran cobros separados, uno por mes. No se construye funcionalidad para esto.
 
@@ -262,10 +262,10 @@ Son dos cosas distintas y no deben confundirse:
 
 | Regla | Estado |
 |---|---|
-| Los cuatro estados de cobranza | ⚠️ Hoy se calculan **tres** (AL_DIA / MOROSO / DEUDOR), con criterio distinto al de §3 y **escritos tres veces** con divergencias. **EN PLAZO no existe**: hoy se mezcla dentro de AL DÍA |
-| Orden de evaluación con DEUDOR primero | ⚠️ El orden actual coincide, pero no está documentado en el código ni cubierto por ningún test |
-| Días de gracia configurables | ❌ Hardcodeado (constante `DIA_GRACIA = 10`) |
-| DEUDOR cuando nunca pagó ninguna cuota | ❌ No contemplado como disparador explícito |
+| Los cuatro estados de cobranza | ✅ **Implementado y verificado.** AL_DIA / EN_PLAZO / MOROSO / DEUDOR se calculan en una única implementación consumida por las pantallas de cobranza y alumnos |
+| Orden de evaluación con DEUDOR primero | ✅ **Implementado y verificado** con los casos contractuales, incluido mes cerrado impago aunque el corriente esté pagado |
+| Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
+| DEUDOR cuando nunca pagó ninguna cuota | ✅ **Implementado y verificado** como primer criterio de evaluación |
 | El estado se usa para algo | ❌ **Se calcula y no se consume.** No bloquea, no advierte, no condiciona nada |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |

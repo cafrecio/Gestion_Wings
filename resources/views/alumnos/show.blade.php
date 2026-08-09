@@ -118,12 +118,14 @@
             $ecEstado = $estadoCobranza['estado'];
             $ecColor  = match($ecEstado) {
                 'AL_DIA' => 'var(--color-success)',
+                'EN_PLAZO' => 'var(--color-info)',
                 'MOROSO' => 'var(--color-warning)',
                 'DEUDOR' => 'var(--color-danger)',
                 default  => 'var(--color-text-muted)',
             };
             $ecLabel  = match($ecEstado) {
                 'AL_DIA' => 'Al día',
+                'EN_PLAZO' => 'En plazo',
                 'MOROSO' => 'Moroso',
                 'DEUDOR' => 'Deudor',
                 default  => $ecEstado,

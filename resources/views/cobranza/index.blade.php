@@ -8,12 +8,13 @@
 @php
 $totalActivos = $resumen['total_alumnos_activos'];
 $cAlDia  = $resumen['por_estado']['AL_DIA']  ?? 0;
+$cEnPlazo = $resumen['por_estado']['EN_PLAZO'] ?? 0;
 $cMoroso = $resumen['por_estado']['MOROSO'] ?? 0;
 $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 @endphp
 
 {{-- Cards resumen --}}
-<div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-bottom:1rem;">
+<div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:12px; margin-bottom:1rem;">
     <div class="filtros-card" style="text-align:center; padding:1rem;">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Total activos</p>
         <p style="font-size:1.8rem; font-weight:800; color:var(--color-text);">{{ $totalActivos }}</p>
@@ -21,6 +22,10 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-success);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-success); margin-bottom:4px;">Al día</p>
         <p style="font-size:1.8rem; font-weight:800; color:var(--color-success);">{{ $cAlDia }}</p>
+    </div>
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-info);">
+        <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-info); margin-bottom:4px;">En plazo</p>
+        <p style="font-size:1.8rem; font-weight:800; color:var(--color-info);">{{ $cEnPlazo }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-warning);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-warning); margin-bottom:4px;">Morosos</p>
@@ -41,6 +46,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
             <select name="estado" class="w-full px-3 py-2 text-sm wings-input">
                 <option value="">Todos</option>
                 <option value="AL_DIA"  {{ $estadoFiltro === 'AL_DIA'  ? 'selected' : '' }}>Al día</option>
+                <option value="EN_PLAZO" {{ $estadoFiltro === 'EN_PLAZO' ? 'selected' : '' }}>En plazo</option>
                 <option value="MOROSO"  {{ $estadoFiltro === 'MOROSO'  ? 'selected' : '' }}>Moroso</option>
                 <option value="DEUDOR"  {{ $estadoFiltro === 'DEUDOR'  ? 'selected' : '' }}>Deudor</option>
             </select>
@@ -119,12 +125,14 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                 $ec = $alumno->estado_cobranza ?? 'AL_DIA';
                 $ecColor = match($ec) {
                     'AL_DIA' => 'var(--color-success)',
+                    'EN_PLAZO' => 'var(--color-info)',
                     'MOROSO' => 'var(--color-warning)',
                     'DEUDOR' => 'var(--color-danger)',
                     default  => 'var(--color-text-muted)',
                 };
                 $ecLabel = match($ec) {
                     'AL_DIA' => 'Al día',
+                    'EN_PLAZO' => 'En plazo',
                     'MOROSO' => 'Moroso',
                     'DEUDOR' => 'Deudor',
                     default  => $ec,

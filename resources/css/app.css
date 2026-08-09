@@ -1040,6 +1040,7 @@ a:hover {
 }
 
 .alumno-dot--success { background: var(--color-success); box-shadow: 0 0 8px color-mix(in srgb, var(--color-success) 50%, transparent); }
+.alumno-dot--info    { background: var(--color-info); }
 .alumno-dot--warning { background: var(--color-warning); }
 .alumno-dot--danger  { background: var(--color-danger);  }
 .alumno-dot--neutral { background: var(--color-sport-otro); }

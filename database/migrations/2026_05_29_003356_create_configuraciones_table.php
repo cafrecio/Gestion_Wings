@@ -22,7 +22,7 @@ return new class extends Migration
             [
                 'clave'       => 'dias_gracia_cobranza',
                 'valor'       => '10',
-                'descripcion' => 'Días del mes hasta los cuales un alumno se considera Al día sin haber pagado',
+                'descripcion' => 'Días del mes durante los cuales una cuota corriente impaga se considera En plazo',
                 'tipo'        => 'integer',
                 'created_at'  => now(),
                 'updated_at'  => now(),

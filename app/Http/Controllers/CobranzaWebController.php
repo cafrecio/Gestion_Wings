@@ -13,7 +13,12 @@ class CobranzaWebController extends Controller
 
     public function index(Request $request)
     {
-        $estadoFiltro = in_array($request->input('estado'), ['AL_DIA', 'MOROSO', 'DEUDOR'])
+        $estadoFiltro = in_array($request->input('estado'), [
+            CobranzaEstadoService::ESTADO_AL_DIA,
+            CobranzaEstadoService::ESTADO_EN_PLAZO,
+            CobranzaEstadoService::ESTADO_MOROSO,
+            CobranzaEstadoService::ESTADO_DEUDOR,
+        ])
             ? $request->input('estado')
             : null;
         $deporteId = $request->filled('deporte_id') ? (int) $request->input('deporte_id') : null;

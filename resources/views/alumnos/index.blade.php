@@ -97,9 +97,27 @@
         <div class="alumno-card alumno-card--{{ $rail }}">
 
             <div class="alumno-card-header">
-                @php $dotClass = $estadosCobranza[$alumno->id] ?? 'neutral'; @endphp
+                @php
+                    $estadoCobranza = $alumno->activo
+                        ? ($estadosCobranza[$alumno->id] ?? 'AL_DIA')
+                        : null;
+                    $dotClass = match($estadoCobranza) {
+                        'AL_DIA' => 'success',
+                        'EN_PLAZO' => 'info',
+                        'MOROSO' => 'warning',
+                        'DEUDOR' => 'danger',
+                        default => 'neutral',
+                    };
+                    $estadoTitle = match($estadoCobranza) {
+                        'AL_DIA' => 'Al día',
+                        'EN_PLAZO' => 'En plazo',
+                        'MOROSO' => 'Moroso',
+                        'DEUDOR' => 'Deudor',
+                        default => 'Inactivo',
+                    };
+                @endphp
                 <span class="alumno-dot alumno-dot--{{ $dotClass }}"
-                      title="{{ match($dotClass) { 'success' => 'Al día', 'warning' => 'Moroso', 'danger' => 'Deudor', default => 'Inactivo' } }}"></span>
+                      title="{{ $estadoTitle }}"></span>
                 <h3 class="alumno-nombre">{{ $alumno->apellido }}, {{ $alumno->nombre }}</h3>
             </div>
 
