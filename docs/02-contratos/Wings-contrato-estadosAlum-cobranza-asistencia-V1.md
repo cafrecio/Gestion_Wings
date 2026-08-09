@@ -29,12 +29,20 @@ El servicio se paga **por adelantado**, entendido así:
 
 ## 2. Estados de cobranza
 
-Tres estados, y solo tres:
+### Para qué existen estos estados
+
+**Categorizar a alguien como MOROSO o DEUDOR sirve para activar la cobranza y el seguimiento del pago.** No es una etiqueta descriptiva ni un juicio sobre el cliente: es el disparador de una gestión.
+
+De ahí se desprende todo lo demás. La gente paga cuando cobra, y eso no suele caer el día 1 del mes. Marcar como moroso a alguien el día 2 no tendría ningún sentido: no hay nada que gestionar, todavía no se atrasó nadie. Por eso existen los días de gracia — no son una concesión, son el reconocimiento de cómo cobra la gente.
+
+**Regla para resolver dudas futuras:** ante cualquier caso ambiguo, preguntarse *"¿corresponde salir a reclamar este pago?"*. Si la respuesta es no, el alumno está AL DÍA.
+
+### Los tres estados
 
 | Estado | Definición |
 |---|---|
-| **AL DÍA** | No debe nada vencido. Incluye al que todavía no pagó el mes corriente pero está dentro de los días de gracia. |
-| **MOROSO** | Pasaron los días de gracia y debe el **mes corriente** (solo ese). |
+| **AL DÍA** | Tiene todos sus pagos realizados. Incluye al que todavía no pagó el mes corriente pero está dentro de los días de gracia: no hay nada que reclamar. |
+| **MOROSO** | Pasaron los días de gracia y debe el **mes corriente** (solo ese). Se activa el seguimiento. |
 | **DEUDOR** | Debe algún mes **ya cerrado** (anterior al corriente), **o nunca pagó ninguna cuota**. |
 
 ### Ejemplo concreto (gracia = 10 días)
