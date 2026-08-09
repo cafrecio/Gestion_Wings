@@ -21,7 +21,7 @@ class CashflowIntegracionCajaService
      */
     public function reflejarCajaEnCashflow(int $cajaId, int $adminId): void
     {
-        $caja = CajaOperativa::with(['movimientos.subrubro.rubro'])->findOrFail($cajaId);
+        $caja = CajaOperativa::findOrFail($cajaId);
 
         // Solo cajas VALIDADAS pueden reflejarse en cashflow
         if ($caja->estado !== 'VALIDADA') {
@@ -38,13 +38,18 @@ class CashflowIntegracionCajaService
             return;
         }
 
-        // Si no hay movimientos, no hay nada que reflejar
-        if ($caja->movimientos->isEmpty()) {
+        $movimientos = $caja->movimientos()
+            ->activos()
+            ->with('subrubro.rubro')
+            ->get();
+
+        // Si no hay movimientos activos, no hay nada que reflejar
+        if ($movimientos->isEmpty()) {
             return;
         }
 
         // Crear asientos en cashflow por cada movimiento operativo
-        foreach ($caja->movimientos as $movimiento) {
+        foreach ($movimientos as $movimiento) {
             $subrubro = $movimiento->subrubro;
             $rubro = $subrubro->rubro;
 
