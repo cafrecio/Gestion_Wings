@@ -259,10 +259,16 @@
             li.setAttribute('role', 'option');
             li.dataset.index = i;
             li.style.cssText = 'padding:8px 12px; cursor:pointer; display:flex; flex-direction:column; gap:1px;';
-            li.innerHTML = `
-                <span style="font-size:0.82rem; font-weight:600; color:var(--color-text);">${r.label}</span>
-                <span style="font-size:0.7rem; color:var(--color-text-muted);">${r.sub}</span>
-            `;
+
+            const label = document.createElement('span');
+            label.style.cssText = 'font-size:0.82rem; font-weight:600; color:var(--color-text);';
+            label.textContent = r.label;
+            li.appendChild(label);
+
+            const sub = document.createElement('span');
+            sub.style.cssText = 'font-size:0.7rem; color:var(--color-text-muted);';
+            sub.textContent = r.sub;
+            li.appendChild(sub);
             li.addEventListener('mousedown', (e) => {
                 e.preventDefault();
                 window.location.href = r.url;
