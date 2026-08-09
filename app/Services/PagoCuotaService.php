@@ -55,7 +55,7 @@ class PagoCuotaService
             $this->validarFifo($data['alumno_id'], $items);
 
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
-            $deudasActualizadas = $this->aplicarPagoADeudas(
+            [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
                 $items
             );
@@ -71,7 +71,7 @@ class PagoCuotaService
             );
 
             // Relacionar pago con deudas
-            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
+            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
@@ -139,7 +139,7 @@ class PagoCuotaService
             $this->validarFifo($data['alumno_id'], $items);
 
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
-            $deudasActualizadas = $this->aplicarPagoADeudas(
+            [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
                 $items
             );
@@ -155,7 +155,7 @@ class PagoCuotaService
             );
 
             // Relacionar pago con deudas
-            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas);
+            $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
@@ -289,12 +289,13 @@ class PagoCuotaService
      *
      * @param int $alumnoId
      * @param array $items [['periodo' => 'YYYY-MM', 'monto' => float], ...]
-     * @return DeudaCuota[]
+     * @return array{0: array<string, DeudaCuota>, 1: array<string, float>}
      * @throws \Exception
      */
     private function aplicarPagoADeudas(int $alumnoId, array $items): array
     {
         $deudasActualizadas = [];
+        $montosAplicados = [];
 
         foreach ($items as $item) {
             $deuda = $this->obtenerOcrearDeuda($alumnoId, $item['periodo']);
@@ -308,7 +309,15 @@ class PagoCuotaService
             }
 
             $saldoPendiente = $deuda->saldo_pendiente;
-            $montoAplicar = min($item['monto'], $saldoPendiente);
+            $montoSolicitado = (float) $item['monto'];
+
+            if ($montoSolicitado > $saldoPendiente) {
+                throw new \Exception(
+                    "El monto para el período {$item['periodo']} supera el saldo pendiente."
+                );
+            }
+
+            $montoAplicar = $montoSolicitado;
 
             if ($montoAplicar <= 0) {
                 throw new \Exception("El monto a aplicar debe ser mayor a 0 para el período {$item['periodo']}.");
@@ -322,9 +331,10 @@ class PagoCuotaService
 
             $deuda->save();
             $deudasActualizadas[$item['periodo']] = $deuda;
+            $montosAplicados[$item['periodo']] = $montoAplicar;
         }
 
-        return $deudasActualizadas;
+        return [$deudasActualizadas, $montosAplicados];
     }
 
     /**
@@ -563,7 +573,12 @@ class PagoCuotaService
     /**
      * Relacionar el pago con las deudas en la tabla pivote.
      */
-    private function relacionarPagoConDeudas(Pago $pago, array $items, array $deudasActualizadas): void
+    private function relacionarPagoConDeudas(
+        Pago $pago,
+        array $items,
+        array $deudasActualizadas,
+        array $montosAplicados
+    ): void
     {
         foreach ($items as $item) {
             $deuda = $deudasActualizadas[$item['periodo']] ?? null;
@@ -571,7 +586,7 @@ class PagoCuotaService
                 PagoDeudaCuota::create([
                     'pago_id' => $pago->id,
                     'deuda_cuota_id' => $deuda->id,
-                    'monto_aplicado' => $item['monto'],
+                    'monto_aplicado' => $montosAplicados[$item['periodo']],
                 ]);
             }
         }

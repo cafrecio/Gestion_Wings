@@ -214,6 +214,40 @@ class PagoCuotaServiceTest extends TestCase
         $this->assertEquals(1, $count);
     }
 
+    public function test_rechaza_item_que_supera_el_saldo_pendiente(): void
+    {
+        Carbon::setTestNow('2026-02-15');
+
+        $data = $this->crearAlumnoConPlan(
+            precioMensual: 20000,
+            fechaDesde: '2026-01-01',
+        );
+        $deuda = DeudaCuota::create([
+            'alumno_id' => $data['alumno']->id,
+            'periodo' => '2026-02',
+            'monto_original' => 20000,
+            'monto_pagado' => 15000,
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]);
+
+        try {
+            $this->pagarAdmin($data['alumno']->id, [
+                ['periodo' => '2026-02', 'monto' => 6000],
+            ]);
+            $this->fail('El servicio aceptó un monto mayor al saldo pendiente.');
+        } catch (\Exception $e) {
+            $this->assertStringContainsString('supera el saldo pendiente', $e->getMessage());
+        }
+
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'id' => $deuda->id,
+            'monto_pagado' => '15000.00',
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]);
+        $this->assertDatabaseCount('pagos', 0);
+        $this->assertDatabaseCount('pago_deuda_cuota', 0);
+    }
+
     // ---------------------------------------------------------------
     // TEST 2: Bloqueo de período pasado
     // ---------------------------------------------------------------
