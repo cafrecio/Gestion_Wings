@@ -176,8 +176,8 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 10) Motor Estados + Cobranza + Control Asistencia/Plan
 
 ### 10.1 Contrato
-- ⏳ `Wings-contrato-estadosAlum-cobranza-asistencia-V1.md`  
-  
+- ✅ `docs/02-contratos/Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` (2026-08-09). Cerrado como acuerdo de negocio; **la mayor parte todavía no está implementada** — ver la tabla de estado del propio documento.
+
 ### 10.2 ER
 - ⏳ `Wings-ER-estadosAlum-cobranza-asistencia-V1.md`
 
