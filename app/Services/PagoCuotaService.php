@@ -644,6 +644,8 @@ class PagoCuotaService
                 $deuda->save();
             }
 
+            PagoDeudaCuota::where('pago_id', $pago->id)->delete();
+
             $pago->estado = 'ANULADO';
             $pago->save();
 
