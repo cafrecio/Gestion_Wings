@@ -9,7 +9,7 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
-use App\Services\CashflowIntegracionCajaService;
+use App\Services\CajaService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -25,7 +25,7 @@ class CashflowIntegracionCajaServiceTest extends TestCase
             'usuario_operativo_id' => $operativo->id,
             'apertura_at' => now(),
             'cierre_at' => now(),
-            'estado' => CajaOperativa::ESTADO_VALIDADA,
+            'estado' => CajaOperativa::ESTADO_CERRADA,
         ]);
         $tipoCaja = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
         $rubro = Rubro::create([
@@ -43,8 +43,9 @@ class CashflowIntegracionCajaServiceTest extends TestCase
         $this->crearMovimiento($caja, $tipoCaja, $subrubro, $operativo, 1000, MovimientoOperativo::ESTADO_ACTIVO);
         $this->crearMovimiento($caja, $tipoCaja, $subrubro, $operativo, 9000, MovimientoOperativo::ESTADO_CANCELADO);
 
-        app(CashflowIntegracionCajaService::class)
-            ->reflejarCajaEnCashflow($caja->id, $admin->id);
+        $service = app(CajaService::class);
+        $service->validarCaja($caja->id, $admin->id);
+        $service->validarCaja($caja->id, $admin->id);
 
         $this->assertDatabaseCount('cashflow_movimientos', 1);
         $this->assertDatabaseHas('cashflow_movimientos', [

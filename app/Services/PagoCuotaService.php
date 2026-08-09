@@ -38,6 +38,8 @@ class PagoCuotaService
     public function registrarPagoCuotaOperativo(array $data): array
     {
         return DB::transaction(function () use ($data) {
+            $this->bloquearAlumnoParaPago($data['alumno_id']);
+
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
@@ -122,6 +124,8 @@ class PagoCuotaService
     public function registrarPagoCuotaAdmin(array $data): array
     {
         return DB::transaction(function () use ($data) {
+            $this->bloquearAlumnoParaPago($data['alumno_id']);
+
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
@@ -338,6 +342,17 @@ class PagoCuotaService
     }
 
     /**
+     * Serializa todos los cobros del mismo alumno, incluso cuando la deuda
+     * todavía no existe y debe crearse dentro de la transacción.
+     */
+    private function bloquearAlumnoParaPago(int $alumnoId): Alumno
+    {
+        return Alumno::whereKey($alumnoId)
+            ->lockForUpdate()
+            ->firstOrFail();
+    }
+
+    /**
      * Obtener o crear DeudaCuota para un alumno/período.
      * Si no existe y el período es vigente o futuro, la crea automáticamente
      * usando el precio del plan activo del alumno.
@@ -347,6 +362,7 @@ class PagoCuotaService
     {
         $deuda = DeudaCuota::where('alumno_id', $alumnoId)
             ->where('periodo', $periodo)
+            ->lockForUpdate()
             ->first();
 
         if ($deuda) {

@@ -199,7 +199,9 @@ class CajaService
     public function validarCaja(int $cajaId, int $adminId): CajaOperativa
     {
         return DB::transaction(function () use ($cajaId, $adminId) {
-            $caja = CajaOperativa::findOrFail($cajaId);
+            $caja = CajaOperativa::whereKey($cajaId)
+                ->lockForUpdate()
+                ->firstOrFail();
 
             // Si está abierta, cerrarla primero como admin
             if ($caja->estado === 'ABIERTA') {
