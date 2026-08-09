@@ -33,6 +33,7 @@ Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
 Route::middleware('auth')->group(function () {
+    Route::middleware('reject.profesor.web')->group(function () {
     // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
     Route::get('/caja/movimiento', [CajaWebController::class, 'movimientoForm'])->name('web.caja.movimiento');
@@ -69,12 +70,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/cajas/{id}/validar', [CajaWebController::class, 'validar'])->name('web.cajas.validar');
         Route::post('/cajas/{id}/rechazar', [CajaWebController::class, 'rechazar'])->name('web.cajas.rechazar');
     });
+    });
 
+    Route::middleware('reject.profesor.web')->group(function () {
     // Dashboard operativo
     Route::get('/operativo', [OperativoDashboardController::class, 'index'])->name('web.operativo.dashboard');
 
     // ── Movimientos (admin y operativo) ──────────────────────────────────
     Route::get('/movimientos', [MovimientoWebController::class, 'index'])->name('web.movimientos.index');
+    });
 
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/admin/dashboard', [WebController::class, 'adminDashboard'])->name('admin.dashboard');
@@ -86,7 +90,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');
     });
 
-    // Alumnos CRUD — accesible para todos los roles autenticados (ADMIN y OPERATIVO)
+    // Alumnos CRUD — accesible para ADMIN y OPERATIVO
+    Route::middleware('reject.profesor.web')->group(function () {
     Route::get('/alumnos', [AlumnoWebController::class, 'index'])->name('web.alumnos.index');
     Route::get('/alumnos/autocomplete', [AlumnoWebController::class, 'autocomplete'])->name('web.alumnos.autocomplete');
     Route::get('/alumnos/create', [AlumnoWebController::class, 'create'])->name('web.alumnos.create');
@@ -95,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/alumnos/{id}/edit', [AlumnoWebController::class, 'edit'])->name('web.alumnos.edit');
     Route::put('/alumnos/{id}', [AlumnoWebController::class, 'update'])->name('web.alumnos.update');
     Route::patch('/alumnos/{id}/toggle-activo', [AlumnoWebController::class, 'toggleActivo'])->name('web.alumnos.toggle-activo');
+    });
 
     // Deportes, Rubros y Subrubros — solo admin
     Route::middleware('ensure.admin.web')->group(function () {
@@ -119,7 +125,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('/rubros/{rubroId}/subrubros/{id}/toggle-activo', [SubrubroWebController::class, 'toggleActivo'])->name('web.subrubros.toggle-activo');
     });
 
-    // Grupos — lectura para todos los autenticados
+    Route::middleware('reject.profesor.web')->group(function () {
+    // Grupos — lectura para ADMIN y OPERATIVO
     Route::get('/grupos', [GrupoWebController::class, 'index'])->name('web.grupos.index');
 
     // Grupos — escritura solo admin
@@ -136,8 +143,9 @@ Route::middleware('auth')->group(function () {
     // Grupos check-disponible — debe ir ANTES de /grupos/{id}
     Route::get('/grupos/check-disponible', [GrupoWebController::class, 'checkDisponible'])->name('web.grupos.check-disponible');
 
-    // Grupos show — todos los autenticados (después de /create para evitar conflicto de rutas)
+    // Grupos show — ADMIN y OPERATIVO (después de /create para evitar conflicto de rutas)
     Route::get('/grupos/{id}', [GrupoWebController::class, 'show'])->name('web.grupos.show');
+    });
 
     // Clases — escritura solo admin (PRIMERO para que /clases/create no colisione con /clases/{id})
     Route::middleware('ensure.admin.web')->group(function () {
