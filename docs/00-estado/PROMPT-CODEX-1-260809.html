@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Codex 1 - 260809</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --paper: #ffffff;
+      --canvas: #f4f7fb;
+      --line: #dce3ee;
+      --blue: #2457d6;
+      --blue-soft: #eaf0ff;
+      --green: #087a55;
+      --green-soft: #e8f7f0;
+      --amber: #996000;
+      --amber-soft: #fff5dc;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --shadow: 0 18px 50px rgba(32, 51, 84, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, #dfe9ff 0, transparent 28rem),
+        linear-gradient(180deg, #f8faff 0, var(--canvas) 42rem);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 64px);
+      color: #fff;
+      background: linear-gradient(135deg, #142d68 0%, #2457d6 58%, #397ee9 100%);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: -100px;
+      top: -130px;
+      border: 54px solid rgba(255, 255, 255, .10);
+      border-radius: 50%;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .78;
+    }
+
+    h1 { max-width: 760px; margin: 0; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -.04em; }
+    .lead { max-width: 760px; margin: 22px 0 0; font-size: clamp(1rem, 2vw, 1.22rem); color: #eaf0ff; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 26px;
+      padding: 9px 14px;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .status::before { content: ""; width: 9px; height: 9px; background: #76f0bf; border-radius: 50%; box-shadow: 0 0 0 5px rgba(118, 240, 191, .14); }
+
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: -24px 28px 38px; position: relative; }
+    .metric { padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 10px 28px rgba(32, 51, 84, .08); }
+    .metric strong { display: block; color: var(--blue); font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1; }
+    .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: .9rem; }
+
+    section { margin-top: 44px; }
+    h2 { margin: 0 0 8px; font-size: clamp(1.55rem, 3vw, 2.2rem); letter-spacing: -.025em; }
+    .section-intro { max-width: 760px; margin: 0 0 24px; color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { padding: 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 8px 26px rgba(32, 51, 84, .055); }
+    .card h3 { margin: 0 0 10px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .icon { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 16px; border-radius: 13px; background: var(--blue-soft); color: var(--blue); font-size: 1.2rem; font-weight: 900; }
+
+    .plain-list { margin: 14px 0 0; padding: 0; list-style: none; }
+    .plain-list li { position: relative; padding: 8px 0 8px 28px; }
+    .plain-list li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+
+    .callout { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 26px; border-radius: 20px; }
+    .callout.ok { background: var(--green-soft); border: 1px solid #bce7d5; }
+    .callout.warn { background: var(--amber-soft); border: 1px solid #f1d99f; }
+    .callout .mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.72); font-size: 1.25rem; font-weight: 900; }
+    .callout h3 { margin: 0 0 6px; }
+    .callout p { margin: 0; color: #4d5a70; }
+
+    .pending { border-left: 4px solid var(--amber); }
+    .pending li::before { content: "—"; color: var(--amber); }
+
+    details { margin-top: 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+    summary { padding: 18px 20px; cursor: pointer; font-weight: 750; }
+    details ol { margin: 0; padding: 0 26px 22px 48px; color: var(--muted); }
+    details li { padding: 4px 0; }
+    code { padding: 2px 6px; color: #33415c; background: #edf1f7; border-radius: 6px; font-size: .88em; }
+
+    footer { margin-top: 52px; padding-top: 22px; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
+
+    @media (max-width: 720px) {
+      main { width: min(100% - 20px, 1120px); padding-top: 10px; }
+      .hero { border-radius: 20px; }
+      .metrics { grid-template-columns: 1fr; margin: 16px 0 34px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; padding: 0; }
+      .hero, .metric, .card { box-shadow: none; }
+      .hero { border-radius: 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      details { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Informe de trabajo · Wings</p>
+      <h1>Prompt Codex 1 - 260809</h1>
+      <p class="lead">Se corrigió el circuito central de cobranza, se reforzó la seguridad de accesos y se protegió la consistencia del dinero. Esta página cuenta qué cambió, en términos simples.</p>
+      <div class="status">Trabajo del alcance acordado terminado</div>
+    </header>
+
+    <div class="metrics" aria-label="Resultados principales">
+      <div class="metric"><strong>15</strong><span>cambios guardados por separado</span></div>
+      <div class="metric"><strong>33</strong><span>pruebas automáticas aprobadas</span></div>
+      <div class="metric"><strong>107</strong><span>comprobaciones sin errores</span></div>
+    </div>
+
+    <section>
+      <h2>En pocas palabras</h2>
+      <p class="section-intro">El sistema ahora toma decisiones de cobranza con una sola regla, protege mejor quién puede ver y operar información sensible, y evita varios casos en los que un pago o una cancelación podían dejar datos incoherentes.</p>
+      <div class="callout ok">
+        <div class="mark">✓</div>
+        <div>
+          <h3>El proyecto quedó estable en las comprobaciones disponibles</h3>
+          <p>Las pruebas, la generación de archivos para producción, las pantallas y las rutas del sistema se validaron correctamente al finalizar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Qué quedó mejor</h2>
+      <p class="section-intro">Los cambios se agrupan en cuatro áreas que impactan directamente en el uso cotidiano.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">$</div>
+          <h3>Cobranza más clara</h3>
+          <p>Se arregló la pantalla que fallaba y se unificó la forma de decidir si un alumno está al día, dentro del plazo, moroso o deudor.</p>
+          <ul class="plain-list">
+            <li>La cuota usa la actividad del mes ya cerrado.</li>
+            <li>Los días de gracia son configurables.</li>
+            <li>Las deudas anteriores tienen la prioridad correcta.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">↗</div>
+          <h3>Cambios de plan coherentes</h3>
+          <p>Si una persona ya asistió durante el mes, una reducción de plan empieza el mes siguiente. Una mejora de plan puede aplicarse de inmediato.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◉</div>
+          <h3>Accesos más seguros</h3>
+          <p>Los profesores conservan el acceso a clases, pero no pueden operar alumnos, caja ni movimientos. Los usuarios desactivados ya no pueden entrar ni mantener una sesión abierta.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">≡</div>
+          <h3>Dinero mejor protegido</h3>
+          <p>Se reforzaron pagos, cancelaciones y movimientos para que siempre afecten a la caja y deuda correctas.</p>
+          <ul class="plain-list">
+            <li>No se acepta pagar más que la deuda.</li>
+            <li>Una cancelación limpia también sus imputaciones.</li>
+            <li>Los movimientos cancelados no alteran el saldo.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>También se corrigieron riesgos silenciosos</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Texto malicioso en búsquedas</h3>
+          <p>El autocomplete ahora muestra como texto cualquier contenido almacenado, en vez de interpretarlo como instrucciones de una página web.</p>
+        </article>
+        <article class="card">
+          <h3>Operaciones simultáneas</h3>
+          <p>Las filas sensibles de caja, alumnos y deudas se bloquean mientras se valida una operación, reduciendo el riesgo de que dos cobros al mismo tiempo se pisen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Qué se comprobó</h2>
+      <p class="section-intro">No se dio por terminado solo porque “se veía bien”. Se hicieron comprobaciones automáticas y de construcción del proyecto.</p>
+      <ul class="plain-list card">
+        <li>33 pruebas automáticas completas y 107 comprobaciones aprobadas.</li>
+        <li>Las pantallas se pudieron compilar sin errores.</li>
+        <li>Las rutas del sistema cargaron correctamente.</li>
+        <li>El paquete de producción del frontend se generó correctamente.</li>
+        <li>La configuración de dependencias del proyecto resultó válida.</li>
+        <li>El archivo histórico <code>database/dump.sql</code> no fue tocado.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lo que todavía no está hecho</h2>
+      <p class="section-intro">Estos temas no formaban parte de las correcciones cerradas. Quedan visibles para no confundir “no incluido” con “resuelto”.</p>
+      <div class="card pending">
+        <ul class="plain-list">
+          <li>Aviso al administrador cuando se toma asistencia.</li>
+          <li>Regla especial para alumnos nuevos a partir de la tercera clase.</li>
+          <li>Excepciones por asistencias justificadas.</li>
+          <li>Una cola de revisión prioritaria antes de los operativos.</li>
+          <li>Instalación o verificación de la tarea programada en el VPS.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="callout warn">
+        <div class="mark">!</div>
+        <div>
+          <h3>Una validación recomendable antes de producción</h3>
+          <p>Las protecciones para operaciones simultáneas están implementadas y revisadas, pero la prueba automatizada usa una base liviana. Conviene simular dos pagos reales al mismo tiempo sobre MariaDB antes de dar por validado ese escenario extremo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Detalle de los cambios guardados</h2>
+      <p class="section-intro">Cada corrección importante se guardó por separado, para poder entenderla, revisarla o revertirla sin mezclar temas.</p>
+      <details>
+        <summary>Ver los 15 cambios técnicos</summary>
+        <ol>
+          <li>Preparar las pruebas para trabajar también con SQLite.</li>
+          <li>Corregir el orden de grupos en cobranza.</li>
+          <li>Generar la cuota con actividad del mes cerrado.</li>
+          <li>Unificar los estados de cobranza.</li>
+          <li>Diferir una baja de plan cuando ya hubo asistencia.</li>
+          <li>Restringir operaciones sensibles para profesores.</li>
+          <li>Cerrar el acceso de usuarios desactivados.</li>
+          <li>Proteger el autocomplete frente a HTML almacenado.</li>
+          <li>Vincular correctamente cancelación, movimiento y caja.</li>
+          <li>Validar el subrubro al editar movimientos.</li>
+          <li>Excluir movimientos cancelados del reflejo de caja.</li>
+          <li>Eliminar imputaciones al cancelar un cobro.</li>
+          <li>Impedir pagos superiores al saldo adeudado.</li>
+          <li>Proteger caja y cobros ante operaciones concurrentes.</li>
+          <li>Actualizar la documentación de cobranza y concurrencia.</li>
+        </ol>
+      </details>
+    </section>
+
+    <footer>
+      Informe generado el 9 de agosto de 2026 · Proyecto Wings · Documento explicativo para seguimiento humano.
+    </footer>
+  </main>
+</body>
+</html>

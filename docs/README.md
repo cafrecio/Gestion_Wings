@@ -6,6 +6,11 @@ La fuente de verdad operativa es:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`
 
+El informe del ultimo ciclo de trabajo esta disponible en dos formatos:
+
+- `docs/00-estado/PROMPT-CODEX-1-260809.md` — traspaso tecnico para Claude Code.
+- `docs/00-estado/PROMPT-CODEX-1-260809.html` — resumen explicado para personas no tecnicas.
+
 El mapa visual de trabajo esta en:
 
 - `docs/00-mapa-proyecto/index.html`
