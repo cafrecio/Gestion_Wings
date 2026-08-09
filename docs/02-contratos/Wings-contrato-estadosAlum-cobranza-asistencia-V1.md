@@ -2,11 +2,11 @@
 
 **Caso de uso (Index):** 10) Motor de estados + Cobranza + Control de asistencia/plan
 **Versión:** V1
-**Estado:** CERRADO como acuerdo de negocio · **NO implementado en su mayor parte** (ver §10)
+**Estado:** CERRADO como acuerdo de negocio · **NO implementado en su mayor parte** (ver §11)
 **Fecha:** 2026-08-09
 **Origen:** definido con el usuario en conversación, a partir del hallazgo DOC-01 de la auditoría v02/v03: esta regla gobierna el módulo de Cobranza y el color de estado de cada alumno, pero **no estaba escrita en ningún lado**. Por eso quedó implementada tres veces con criterios divergentes.
 
-> ⚠️ **Advertencia de lectura.** Este documento describe **lo que el negocio necesita**, no lo que el sistema hace hoy. La sección §10 dice, punto por punto, qué está implementado y qué no. No asumir que algo funciona porque está acá.
+> ⚠️ **Advertencia de lectura.** Este documento describe **lo que el negocio necesita**, no lo que el sistema hace hoy. La sección §11 dice, punto por punto, qué está implementado y qué no. No asumir que algo funciona porque está acá.
 
 ---
 
@@ -21,13 +21,57 @@ El servicio se paga **por adelantado**, entendido así:
 **Días de gracia:** existe un margen configurable desde el principio del mes. La gente no cobra su sueldo el día 1, y se trata con clientes, no con morosos presuntos.
 
 - El valor es **configuración del sistema**, no una constante en el código.
-- Valor actual en el código: 10 días (hardcodeado — ver §10).
+- Valor actual en el código: 10 días (hardcodeado — ver §11).
 
 **Pago de varios meses juntos:** fuera de alcance. Si alguna vez ocurre, se registran cobros separados, uno por mes. No se construye funcionalidad para esto.
 
 ---
 
-## 2. Estados de cobranza
+## 2. Generación de la deuda mensual
+
+### Cuándo corre
+
+**El día 1 de cada mes.** Genera la deuda **del mes que empieza**, mirando la actividad **del mes que terminó**.
+
+Ejemplo: el 1 de septiembre se genera la cuota de **septiembre**, evaluando las asistencias de **agosto**.
+
+### A quién se le genera
+
+El universo son los **alumnos activos**. Dentro de ese universo, se genera deuda automática si cumple **alguna** de estas dos:
+
+1. **Tuvo al menos una asistencia el mes anterior.** Vino, sigue siendo alumno, se le cobra.
+2. **Se dio de alta y pagó dentro de los últimos 15 días.** Es el alumno recién incorporado que todavía no tuvo clases: nadie se anota y paga para no venir.
+
+### Si no cumple ninguna: no se genera deuda, se pregunta
+
+**No se asume nada.** El alumno pasa a una **cola de revisión**, con la pregunta: *¿sigue siendo alumno?*
+
+| Respuesta | Qué pasa |
+|---|---|
+| **Sigue activo** | Se le genera la deuda del período. |
+| **Ya no viene** | No se genera deuda. |
+
+### La cola se cierra sola
+
+Si antes de que alguien responda **el alumno registra una asistencia o un pago**, la pregunta se responde sola: está activo. Se le genera la deuda y sale de la cola.
+
+Es la respuesta más confiable de todas, porque es un hecho y no una opinión.
+
+### Cómo se pide la confirmación
+
+**A cualquier operativo o administrador que se conecte**, y se insiste hasta que todos los alumnos pendientes estén respondidos.
+
+No es una pantalla a la que haya que ir a buscar: el sistema la pone adelante. Mientras queden alumnos sin responder, la facturación de ese mes está incompleta, y eso tiene que ser visible.
+
+### Por qué existe esta cola
+
+Es el único mecanismo que detecta al alumno que dejó de venir sin avisar. Sin él, o se le factura a alguien que ya no es cliente, o se deja de facturar a alguien que sí lo es. Las dos cosas se descubren tarde y mal.
+
+> **Nota:** hasta ahora el sistema tenía un tercer criterio de generación automática —*haber pagado el mes anterior*— que se **elimina**. Un alumno que paga pero deja de venir es exactamente el caso que la cola de revisión existe para detectar; darle deuda automática lo volvía invisible.
+
+---
+
+## 3. Estados de cobranza
 
 ### Para qué existen estos estados
 
@@ -79,7 +123,7 @@ Los estados se evalúan **en este orden**, y el primero que da verdadero gana:
 
 ---
 
-## 3. Alumno nuevo vs alumno con historia
+## 4. Alumno nuevo vs alumno con historia
 
 **Un alumno es NUEVO hasta que paga su primera cuota.** Punto. En cuanto registra su primer pago, deja de serlo para siempre.
 
@@ -89,7 +133,7 @@ No se hace ninguna distinción adicional por antigüedad. Un alumno de dos años
 
 ---
 
-## 4. Acceso a clase — alumno NUEVO
+## 5. Acceso a clase — alumno NUEVO
 
 Un alumno nuevo que no pagó tiene un margen de dos clases:
 
@@ -97,13 +141,13 @@ Un alumno nuevo que no pagó tiene un margen de dos clases:
 |---|---|
 | **1ª** | Entra. Es la clase de prueba. |
 | **2ª** | Entra. El pago puede estar registrándose durante la clase. |
-| **3ª en adelante** | **No hay motivo para que entre sin haber pagado.** Si igual se lo deja entrar, hay que justificarlo (ver §7). |
+| **3ª en adelante** | **No hay motivo para que entre sin haber pagado.** Si igual se lo deja entrar, hay que justificarlo (ver §8). |
 
 El contador de clases es **interno**: no se muestra en pantalla. Solo se lleva para alumnos nuevos, y deja de importar en cuanto pagan.
 
 ---
 
-## 5. Acceso a clase — alumno CON HISTORIA
+## 6. Acceso a clase — alumno CON HISTORIA
 
 Un cliente que se atrasa es normal y pasa. No se lo trata como al nuevo.
 
@@ -112,7 +156,7 @@ Un cliente que se atrasa es normal y pasa. No se lo trata como al nuevo.
 | **AL DÍA** | Entra. Nada que mostrar. |
 | **EN PLAZO** | Entra normalmente. |
 | **MOROSO** | **Entra normalmente, sin justificar.** Quien toma asistencia lo ve, nada más. |
-| **DEUDOR** | **Hay que justificar** para dejarlo entrar (ver §7). |
+| **DEUDOR** | **Hay que justificar** para dejarlo entrar (ver §8). |
 
 O sea: **el mes corriente impago se ve pero no traba. El mes cerrado impago sí.**
 
@@ -120,7 +164,7 @@ La lógica es la misma que la de los estados: mientras el reclamo todavía no co
 
 ---
 
-## 6. Qué ve quien toma asistencia
+## 7. Qué ve quien toma asistencia
 
 **Siempre**, sin excepción: quien toma asistencia —profesor u operativo— **ve la condición de cada alumno** al lado de su nombre.
 
@@ -128,16 +172,16 @@ Nadie debería tener que ir a otra pantalla a averiguar si el alumno está en co
 
 ---
 
-## 7. Excepción justificada — mecanismo único
+## 8. Excepción justificada — mecanismo único
 
 Cuatro situaciones distintas usan **exactamente el mismo mecanismo**. No son cuatro funciones, es una:
 
 | Situación | Cuándo aplica |
 |---|---|
-| Alumno nuevo entra a la 3ª clase o posterior sin haber pagado | §4 |
-| Alumno con historia en estado DEUDOR asiste a clase | §5 |
+| Alumno nuevo entra a la 3ª clase o posterior sin haber pagado | §5 |
+| Alumno con historia en estado DEUDOR asiste a clase | §6 |
 | Alumno asiste a más clases de las que su plan cubre | control de plan |
-| Se registra un cobro parcial de una cuota | §8 |
+| Se registra un cobro parcial de una cuota | §9 |
 
 **En todos los casos:**
 
@@ -149,16 +193,16 @@ La lógica es: el que está en el mostrador o en la cancha sabe lo que está hac
 
 ---
 
-## 8. Pago parcial
+## 9. Pago parcial
 
 **Está permitido.** Un cliente puede tener un problema económico y pagar una parte.
 
 - La cuota queda con parte pagada y parte pendiente.
-- Requiere **justificación** y **notificación al administrador**, igual que §7.
+- Requiere **justificación** y **notificación al administrador**, igual que §8.
 
 ---
 
-## 9. Visibilidad: movimientos vs caja
+## 10. Visibilidad: movimientos vs caja
 
 Son dos cosas distintas y no deben confundirse:
 
@@ -171,13 +215,28 @@ Son dos cosas distintas y no deben confundirse:
 
 ---
 
-## 10. Estado de implementación
+## 11. Estado de implementación
 
 **Nada de lo anterior debe darse por funcionando.** Estado real al 2026-08-09:
 
+### Generación de la deuda (§2)
+
 | Regla | Estado |
 |---|---|
-| Los cuatro estados de cobranza | ⚠️ Hoy se calculan **tres** (AL_DIA / MOROSO / DEUDOR), con criterio distinto al de §2 y **escritos tres veces** con divergencias. **EN PLAZO no existe**: hoy se mezcla dentro de AL DÍA |
+| Estructura general: con asistencia → deuda, sin asistencia → cola de revisión | ✅ **Implementado y correcto.** El comando `cobranza:generar-deudas` ya funciona así, y es idempotente (no duplica deuda existente) |
+| El proceso corre el día 1 de cada mes | ⚠️ Está programado, pero **nada lo ejecuta**: no hay tarea de sistema que dispare el scheduler. Nunca corrió |
+| Genera la cuota del mes que empieza mirando el mes que terminó | ❌ **Está corrido un mes.** Hoy genera la cuota del mes *siguiente* mirando el mes *corriente*, que el día 1 está vacío. Por eso manda a todos a revisión y no crea ninguna deuda |
+| Criterio 1: asistencia el mes anterior | ✅ Implementado |
+| Criterio 2: alta + pago dentro de los últimos 15 días | ❌ No existe |
+| Criterio a eliminar: "pagó el mes anterior" | ⚠️ **Existe y hay que sacarlo** (ver nota al final de §2) |
+| La cola se cierra sola con una asistencia o un pago | ✅ **Implementado correctamente** en los tres puntos que corresponden |
+| Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
+
+### Estados, acceso y excepciones (§3 a §10)
+
+| Regla | Estado |
+|---|---|
+| Los cuatro estados de cobranza | ⚠️ Hoy se calculan **tres** (AL_DIA / MOROSO / DEUDOR), con criterio distinto al de §3 y **escritos tres veces** con divergencias. **EN PLAZO no existe**: hoy se mezcla dentro de AL DÍA |
 | Orden de evaluación con DEUDOR primero | ⚠️ El orden actual coincide, pero no está documentado en el código ni cubierto por ningún test |
 | Días de gracia configurables | ❌ Hardcodeado (constante `DIA_GRACIA = 10`) |
 | DEUDOR cuando nunca pagó ninguna cuota | ❌ No contemplado como disparador explícito |
@@ -192,11 +251,11 @@ Son dos cosas distintas y no deben confundirse:
 | Movimientos visibles para todos | ⚠️ El historial sí; `/movimientos` filtra por caja propia y **no debería** |
 | Caja restringida a su dueño | ✅ Implementado correctamente |
 
-**Deuda técnica asociada:** hoy existen tres campos de "motivo" dispersos (exceso de plan, corrección de asistencia, cambio de profesor). Al implementar §7 conviene unificarlos en un registro único de excepciones, no agregar un cuarto.
+**Deuda técnica asociada:** hoy existen tres campos de "motivo" dispersos (exceso de plan, corrección de asistencia, cambio de profesor). Al implementar §8 conviene unificarlos en un registro único de excepciones, no agregar un cuarto.
 
 ---
 
-## 11. Reglas relacionadas, ya acordadas
+## 12. Reglas relacionadas, ya acordadas
 
 Definidas en la misma conversación, se registran acá para que no se pierdan:
 
@@ -205,7 +264,7 @@ Definidas en la misma conversación, se registran acá para que no se pierdan:
 
 ---
 
-## 12. Reglas Freeze
+## 13. Reglas Freeze
 
 - Un alumno es nuevo únicamente hasta su primer pago registrado.
 - El alumno nuevo tiene dos clases de margen; a partir de la tercera sin pagar, se justifica.
@@ -219,10 +278,10 @@ Cualquier cambio futuro requiere versión V2 explícita.
 
 ---
 
-## 13. Estado del documento
+## 14. Estado del documento
 
 🔒 **CERRADO como acuerdo de negocio.** Define qué debe hacer el sistema.
 
-**No cerrado como implementación:** la mayor parte de §2 a §8 no está construida. Al implementar cada punto, actualizar la tabla de §10 con una de estas cuatro salidas, nunca otra:
+**No cerrado como implementación:** la mayor parte de §2 a §9 no está construida. Al implementar cada punto, actualizar la tabla de §11 con una de estas cuatro salidas, nunca otra:
 
 **implementado y verificado** · **pendiente** · **implementado sin verificar (y por qué)** · **descartado (y por qué)**
