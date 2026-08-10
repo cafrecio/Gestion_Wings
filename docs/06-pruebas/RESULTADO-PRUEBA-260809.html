@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultado de prueba funcional - 260809</title>
+  <style>
+    :root {
+      --ink: #192230;
+      --muted: #687386;
+      --paper: #fff;
+      --bg: #f3f6fa;
+      --line: #dde4ed;
+      --navy: #152c5b;
+      --blue: #2763db;
+      --blue-soft: #eaf1ff;
+      --green: #087a55;
+      --green-soft: #e9f8f1;
+      --red: #b42318;
+      --red-soft: #fff0ee;
+      --amber: #9a6700;
+      --amber-soft: #fff6dd;
+      --shadow: 0 18px 48px rgba(26, 45, 76, .10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 0, #dce8ff 0, transparent 27rem),
+        linear-gradient(180deg, #f9fbff, var(--bg) 44rem);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+    main { width: min(1120px, calc(100% - 28px)); margin: 0 auto; padding: 42px 0 70px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(32px, 6vw, 68px);
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy), #2458c6 64%, #3a7aed);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      right: -105px;
+      top: -155px;
+      border: 58px solid rgba(255,255,255,.09);
+      border-radius: 50%;
+    }
+    .eyebrow { margin: 0 0 12px; font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .78; }
+    h1 { max-width: 780px; margin: 0; font-size: clamp(2.15rem, 5vw, 4rem); line-height: 1.03; letter-spacing: -.045em; }
+    .lead { max-width: 790px; margin: 22px 0 0; color: #e6edff; font-size: clamp(1rem, 2vw, 1.22rem); }
+    .status { display: inline-flex; gap: 9px; align-items: center; margin-top: 26px; padding: 9px 14px; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; font-weight: 750; font-size: .9rem; }
+    .status::before { content: ""; width: 9px; height: 9px; background: #ffd56a; border-radius: 50%; box-shadow: 0 0 0 5px rgba(255,213,106,.15); }
+    .score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; margin: -24px 28px 42px; }
+    .score-card { padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 10px 28px rgba(26,45,76,.08); }
+    .score-card strong { display: block; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1; }
+    .score-card span { display: block; margin-top: 8px; color: var(--muted); font-size: .92rem; }
+    .green { color: var(--green); } .red { color: var(--red); } .blue { color: var(--blue); }
+    section { margin-top: 46px; }
+    h2 { margin: 0 0 8px; font-size: clamp(1.55rem, 3vw, 2.15rem); letter-spacing: -.025em; }
+    .intro { max-width: 790px; margin: 0 0 24px; color: var(--muted); }
+    .case-grid { display: grid; gap: 18px; }
+    .case { display: grid; grid-template-columns: 92px 1fr; overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 8px 24px rgba(26,45,76,.05); }
+    .case-result { display: grid; place-items: center; padding: 22px 12px; text-align: center; font-size: .78rem; font-weight: 900; letter-spacing: .06em; }
+    .case.pass .case-result { color: var(--green); background: var(--green-soft); }
+    .case.fail .case-result { color: var(--red); background: var(--red-soft); }
+    .case-body { padding: 23px 26px; }
+    .case-body h3 { margin: 0 0 7px; font-size: 1.12rem; }
+    .case-body p { margin: 0; color: var(--muted); }
+    .case-body ul { margin: 12px 0 0; padding-left: 20px; color: #465267; }
+    .case-body li { margin: 5px 0; }
+    .callout { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 26px; border-radius: 20px; }
+    .callout.fail { background: var(--red-soft); border: 1px solid #f1c8c3; }
+    .callout.ok { background: var(--green-soft); border: 1px solid #bee7d5; }
+    .mark { display: grid; place-items: center; width: 44px; height: 44px; background: rgba(255,255,255,.75); border-radius: 50%; font-weight: 900; font-size: 1.25rem; }
+    .callout h3 { margin: 0 0 6px; }
+    .callout p { margin: 0; color: #4f5a6e; }
+    .plain { margin: 0; padding: 0; list-style: none; }
+    .plain li { position: relative; padding: 8px 0 8px 29px; }
+    .plain li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+    details { margin-top: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+    summary { padding: 18px 20px; cursor: pointer; font-weight: 780; }
+    details > div { padding: 0 20px 20px; color: var(--muted); }
+    code { padding: 2px 6px; color: #344159; background: #edf1f6; border-radius: 6px; font-size: .88em; }
+    footer { margin-top: 54px; padding-top: 22px; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
+    @media (max-width: 720px) {
+      main { width: min(100% - 18px, 1120px); padding-top: 9px; }
+      .hero { border-radius: 20px; }
+      .score { grid-template-columns: 1fr; margin: 16px 0 36px; }
+      .case { grid-template-columns: 1fr; }
+      .case-result { min-height: 56px; }
+    }
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; padding: 0; }
+      .hero, .score-card, .case { box-shadow: none; }
+      .hero { border-radius: 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Wings · Prueba real de punta a punta</p>
+      <h1>Resultado de prueba funcional - 260809</h1>
+      <p class="lead">Se hicieron cobros, cierres de caja, cancelaciones, asistencia y control de horarios usando la aplicación real. Tres recorridos funcionaron completos y dos revelaron problemas concretos.</p>
+      <div class="status">Prueba terminada · datos restaurados</div>
+    </header>
+
+    <div class="score" aria-label="Resultado general">
+      <div class="score-card"><strong class="blue">5</strong><span>recorridos completos ejecutados</span></div>
+      <div class="score-card"><strong class="green">3</strong><span>casos que pasaron</span></div>
+      <div class="score-card"><strong class="red">2</strong><span>casos con fallas reales</span></div>
+    </div>
+
+    <section>
+      <h2>La conclusión importante</h2>
+      <p class="intro">Cobrar y cancelar funcionan bien. Los dos problemas están después: una caja puede quedar validada sin llevar el dinero al cashflow, y la asistencia de una clase de hoy no modifica el contador del menú.</p>
+      <div class="callout fail">
+        <div class="mark">!</div>
+        <div>
+          <h3>La falla más seria está en la validación de caja</h3>
+          <p>La caja quedó marcada como VALIDADA, pero los $28.000 no ingresaron al cashflow. Es peligroso porque visualmente parece un proceso terminado aunque el saldo administrativo no cambió.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Resultado caso por caso</h2>
+      <p class="intro">Un caso solo se consideró aprobado cuando coincidieron la base de datos y las demás pantallas.</p>
+      <div class="case-grid">
+        <article class="case pass">
+          <div class="case-result">PASA</div>
+          <div class="case-body">
+            <h3>1. Cobrar una cuota</h3>
+            <p>Se cobraron $28.000 en efectivo. La deuda quedó pagada, se registraron pago, imputación y movimiento, y todavía no apareció en cashflow.</p>
+            <ul><li>Visible en detalle, movimientos e historial.</li><li>La alumna cambió a “Al día”.</li><li>El recibo mostró período, medio y monto correctos.</li></ul>
+          </div>
+        </article>
+
+        <article class="case fail">
+          <div class="case-result">FALLA</div>
+          <div class="case-body">
+            <h3>2. Cerrar y validar la caja</h3>
+            <p>La caja se cerró y quedó VALIDADA, pero el ingreso no llegó a cashflow y Efectivo siguió en $4.230.000.</p>
+            <ul><li>Repetir la validación no duplicó registros.</li><li>La causa es una colisión con referencias históricas: la caja nueva número 83 se confundió con una referencia vieja número 83.</li></ul>
+          </div>
+        </article>
+
+        <article class="case pass">
+          <div class="case-result">PASA</div>
+          <div class="case-body">
+            <h3>3. Cancelar un cobro</h3>
+            <p>Se cobró y luego se canceló otro pago de $33.000. La deuda volvió atrás y la caja dejó de contar ese dinero.</p>
+            <ul><li>Pago ANULADO y movimiento CANCELADO.</li><li>La imputación fue eliminada.</li><li>El recibo mostró un sello rojo de anulación.</li><li>Al validar, el movimiento cancelado no llegó al cashflow.</li></ul>
+          </div>
+        </article>
+
+        <article class="case fail">
+          <div class="case-result">FALLA</div>
+          <div class="case-body">
+            <h3>4. Tomar asistencia como profesor</h3>
+            <p>Se guardaron ocho alumnos, cuatro presentes y cuatro ausentes. La clase cambió a Cerrada y el profesor no vio acciones administrativas.</p>
+            <ul><li>Todos los motivos de corrección quedaron vacíos, como corresponde a una primera carga.</li><li>El contador “Sin asistencia” permaneció en 156: no bajó.</li><li>El sistema excluye del contador todas las clases de hoy, aunque ya hayan terminado.</li></ul>
+          </div>
+        </article>
+
+        <article class="case pass">
+          <div class="case-result">PASA</div>
+          <div class="case-body">
+            <h3>5. Impedir horarios superpuestos</h3>
+            <p>Se intentó asignar a Jorge Mitre a otra clase en el mismo horario. El sistema nombró al profesor en el mensaje y no creó la clase.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>El sistema quedó como estaba</h2>
+      <p class="intro">Las operaciones se hicieron con datos reales, pero todo lo creado para la prueba fue retirado al terminar.</p>
+      <div class="callout ok">
+        <div class="mark">✓</div>
+        <div>
+          <h3>Restauración comprobada</h3>
+          <p>Las dos deudas recuperaron sus saldos, la caja anterior volvió a estar abierta y no quedaron pagos, cajas, movimientos, clases, asistencias, recibos ni sesiones temporales.</p>
+        </div>
+      </div>
+      <ul class="plain" style="margin-top:18px">
+        <li>Los totales de cashflow son exactamente los mismos que al comenzar.</li>
+        <li>No quedó ninguna clase creada el 9 de agosto.</li>
+        <li>No se modificó <code>database/dump.sql</code>.</li>
+        <li>No se arreglaron las fallas durante la prueba.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Qué conviene hacer ahora</h2>
+      <p class="intro">Son dos correcciones independientes. Lo más seguro es resolverlas y probarlas por separado.</p>
+      <div class="case-grid">
+        <article class="case">
+          <div class="case-result" style="color:var(--blue);background:var(--blue-soft)">1</div>
+          <div class="case-body"><h3>Corregir la referencia de cashflow</h3><p>Una caja nueva no debe considerarse procesada solo porque su número coincide con una referencia histórica a un movimiento.</p></div>
+        </article>
+        <article class="case">
+          <div class="case-result" style="color:var(--blue);background:var(--blue-soft)">2</div>
+          <div class="case-body"><h3>Alinear el contador de asistencia</h3><p>Si una clase de hoy ya terminó y todavía no tiene lista, debe entrar en el número del menú para que al guardar la asistencia ese número baje.</p></div>
+        </article>
+      </div>
+
+      <details>
+        <summary>Ver ubicación técnica de las dos fallas</summary>
+        <div>
+          <p><code>app/Services/CashflowIntegracionCajaService.php:31</code> - comprobación de idempotencia que colisiona con referencias históricas.</p>
+          <p><code>app/Providers/AppServiceProvider.php:32</code> - el badge usa fecha menor a hoy y excluye todo el día actual.</p>
+        </div>
+      </details>
+    </section>
+
+    <footer>Informe generado el 9 de agosto de 2026 · Proyecto Wings · Cinco flujos reales, sin correcciones durante la prueba.</footer>
+  </main>
+</body>
+</html>

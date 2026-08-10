@@ -11,6 +11,11 @@ El informe del ultimo ciclo de trabajo esta disponible en dos formatos:
 - `docs/00-estado/PROMPT-CODEX-1-260809.md` — traspaso tecnico para Claude Code.
 - `docs/00-estado/PROMPT-CODEX-1-260809.html` — resumen explicado para personas no tecnicas.
 
+El resultado de la prueba funcional cerrada del 9 de agosto de 2026 esta en:
+
+- `docs/06-pruebas/RESULTADO-PRUEBA-260809.md` — evidencia tecnica y traspaso para Claude Code.
+- `docs/06-pruebas/RESULTADO-PRUEBA-260809.html` — informe ejecutivo explicado para el usuario.
+
 El mapa visual de trabajo esta en:
 
 - `docs/00-mapa-proyecto/index.html`
