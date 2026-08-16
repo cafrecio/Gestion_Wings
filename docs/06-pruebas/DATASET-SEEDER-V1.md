@@ -1,5 +1,10 @@
 # Dataset del seeder de prueba - V1
 
+> **NO IMPLEMENTAR TODAVÍA.** El seeder se construye **al final**, cuando el
+> sistema ya funcione, para la prueba de funcionamiento completa. Hacerlo antes
+> obliga a rehacerlo después de cada corrección. Este documento queda escrito y
+> esperando.
+
 Este documento **define exactamente** qué filas debe crear el seeder de prueba.
 No es una guía ni una sugerencia: es la lista de datos a transcribir.
 
