@@ -2,366 +2,359 @@
 
 > **Objetivo:** sistema en línea, seguro y contablemente confiable el **viernes 28/08/2026**.
 > **Servidor:** AlmaLinux 9 · **Datos:** base limpia + import selectivo · **Arranque:** producción real, todos los roles.
-> **Elaborado:** lunes 24/08/2026, sobre `main` @ `bfc3a87`.
+> **Rebasado:** martes 25/08/2026 a los 4 días que quedan.
+> **Versión visual navegable:** artifact "Wings Go-Live" — tablero con el detalle exhaustivo de cada tarea.
+
+> ### ANTES DE EJECUTAR CUALQUIER TAREA DE ESTE PLAN, LEER `AGENTS.md`
+> Contiene las reglas que no se negocian, en especial que **el diseño no se toca**.
 
 ---
 
-## 0. Diagnóstico verificado hoy
+## 0. Diagnóstico verificado
 
-No hereda afirmaciones de `ANALISIS-INTEGRAL-v03.md`. Cada línea fue comprobada contra el código actual.
-
-### Ya resuelto (verificado)
+### Cerrado y comprobado
 
 | Ítem | Evidencia |
 |---|---|
-| PROFESOR no puede tocar caja, alumnos ni dinero | `reject.profesor.web` aplicado en `routes/web.php:36,75,94,128` |
-| Usuario desactivado no entra y pierde la sesión | `ensure.active.web` en `routes/web.php:35` |
+| PROFESOR no alcanza caja, alumnos ni dinero | `reject.profesor.web` — `routes/web.php:36,75,94,128` |
+| Usuario desactivado no entra y pierde la sesión | `ensure.active.web` — `routes/web.php:35` |
 | XSS almacenado en autocomplete | `alumnos/index.blade.php:263-271` usa `textContent` |
 | API REST sin control de rol | Apagada en `bootstrap/app.php:14` |
-| **Inyección SQL** | Sin vectores. Los 13 usos de `DB::raw/whereRaw/selectRaw` son parametrizados o con columnas literales |
+| **Inyección SQL** | Sin vectores. Los 13 usos de `DB::raw` / `whereRaw` / `selectRaw` son parametrizados |
 | Sobrepago sobre el saldo de la deuda | Rechazado en `PagoCuotaService` |
 | Movimientos cancelados hacia cashflow | Excluidos |
 | Cancelar movimiento de otra caja (IDOR) | Scopeado por caja |
-| Vulnerabilidades npm de producción | `npm audit --omit=dev` → **0** |
+| Vulnerabilidades npm de producción | `npm audit --omit=dev` da 0 |
+| **Matriz de permisos** | 268 pruebas GET × 4 roles el 25/08: 0 errores 500, 0 accesos indebidos |
+| **Integridad estructural** | 127 rutas cargan · 54 vistas referenciadas existen · 0 includes rotos · 0 errores de sintaxis · 33 tests pasan |
 
 ### Bloqueantes abiertos
 
-| # | Hallazgo | Evidencia | Riesgo |
-|---|---|---|---|
-| **B1** | `DatabaseSeeder` crea `test@example.com` con password `password` y carga cashflow de prueba | `database/seeders/DatabaseSeeder.php:20-36`, `UserFactory.php:29` | Cuenta conocida en producción |
-| **B2** | `database/dump.sql` versionado con 27 tablas de datos reales: alumnos, pagos, `personal_access_tokens`, `sessions`, profesores | `git ls-files database/dump.sql` | PII y tokens en el repo y en su historia |
-| **B3** | Hook `pre-commit` reexporta el dump en **cada** commit | `.git/hooks/pre-commit` | Mantiene B2 vivo automáticamente |
-| **B4** | `.env` en `local`, `APP_DEBUG=true`, `APP_URL` en HTTP, DB con `root` sin password | `.env` | Trazas expuestas, credenciales sin TLS |
-| **B5** | Sin headers de seguridad (CSP, HSTS, X-Frame-Options, X-Content-Type-Options) | No hay middleware de headers | Clickjacking, sniffing, sin defensa en profundidad |
-| **B6** | **FIFO evadible**: `validarFifo` retorna en el primer `if` cuando hay un solo ítem y nunca consulta deudas anteriores impagas | `PagoCuotaService.php:442-444` | Se cobra marzo con febrero impago |
-| **B7** | Asistencias sin transacción y sin validar que el alumno pertenezca al grupo | `ClaseWebController.php:374-408` | Escritura parcial, asistencia de alumno ajeno |
-| **B8** | 44 advisories en 15 paquetes PHP (Laravel 12.46, Guzzle 7.10, DOMPDF 3.1.4, CommonMark 2.8) | `composer audit --locked` | Vulnerabilidades conocidas |
-| **B9** | Suite corre sobre SQLite, no sobre MariaDB | `phpunit.xml` | Las migraciones y el SQL real de producción no se prueban |
-| **B10** | Sin CI, sin backups probados, sin scheduler en servidor | — | Sin red de contención |
-| **B11** | `deploy-wings.bat` es un instalador de XAMPP en Windows | — | No existe procedimiento de deploy a servidor |
-
----
-
-## 1. Plan por días
-
-### D1 — Lunes 24/08 · Blindaje de código
-
-**Objetivo del día:** que el código sea seguro *antes* de tocar el servidor.
-
-| # | Tarea | Archivos | Cierra |
-|---|---|---|---|
-| 1.1 | Desactivar el hook `pre-commit` que exporta el dump | `.git/hooks/pre-commit` | B3 |
-| 1.2 | `git rm --cached database/dump.sql` + agregarlo a `.gitignore` + rotar todo `personal_access_token` y sesión que contenga | `.gitignore` | B2 |
-| 1.3 | `CatalogosSeeder` idempotente (rubros, subrubros, tipos de caja, deportes, niveles, reglas primer pago). Reemplaza al dump como forma de levantar una instancia | `database/seeders/` | B1, B2 |
-| 1.4 | `DatabaseSeeder` solo llama catálogos. `test@example.com` se muda a `TestSeeder`. `DemoSeeder` y `TestSeeder` abortan si `app()->environment('production')` | `DatabaseSeeder.php` | B1 |
-| 1.5 | Comando `wings:crear-admin` — crea el primer admin pidiendo password por consola, sin default | `app/Console/Commands/` | B1 |
-| 1.6 | Middleware `SecurityHeaders` global: `Content-Security-Policy`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: same-origin`, `Permissions-Policy`, `Strict-Transport-Security` (solo bajo HTTPS) | `app/Http/Middleware/` | B5 |
-| 1.7 | `.env.production.example`: `APP_ENV=production`, `APP_DEBUG=false`, `SESSION_SECURE_COOKIE=true`, `SESSION_ENCRYPT=true`, `SESSION_SAME_SITE=strict`, `LOG_LEVEL=warning`, usuario DB dedicado | raíz | B4 |
-| 1.8 | Comando `wings:preflight` — aborta el deploy si: `APP_DEBUG=true`, `APP_ENV≠production`, `APP_KEY` vacía, `DB_USERNAME=root`, `APP_URL` sin `https`, `SESSION_SECURE_COOKIE≠true`, existe `test@example.com`, existe usuario con password débil conocida | `app/Console/Commands/` | B4 |
-| 1.9 | **FIFO fuerte real**: quitar el early return. Antes de imputar, consultar todas las `DeudaCuota` del alumno con período anterior al menor ítem enviado y saldo > 0. Si existe alguna, rechazar | `PagoCuotaService.php:440` | B6 |
-| 1.10 | Asistencias: envolver en `DB::transaction`, validar por FormRequest que cada `alumno_id` esté en el grupo de la clase y que la estructura sea válida | `ClaseWebController.php` | B7 |
-| 1.11 | Endurecer login: `throttle:5,1` por IP + email, y bloqueo temporal tras N fallos | `routes/web.php` | — |
-
-**Cierre del día:** `php artisan test` en verde + `/security-review` sobre el branch.
-
----
-
-### D2 — Martes 25/08 · Servidor AlmaLinux 9
-
-**Objetivo del día:** infraestructura lista, con TLS, y un deploy repetible.
-
-**2.1 — Base del sistema**
-```bash
-dnf update -y
-dnf install -y epel-release
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module reset php -y && dnf module enable php:remi-8.3 -y
-dnf install -y php php-fpm php-mysqlnd php-mbstring php-xml php-bcmath php-gd php-zip php-intl php-opcache \
-               nginx mariadb-server git unzip policycoreutils-python-utils fail2ban
-```
-> AlmaLinux 9 trae PHP 8.0 de fábrica; `composer.json` exige `^8.2`. El repo Remi es obligatorio, no opcional.
-
-**2.2 — Hardening del host**
-- `firewalld`: abrir solo 22, 80, 443. Cerrar 3306.
-- SSH: `PermitRootLogin no`, `PasswordAuthentication no`, solo clave pública.
-- `fail2ban` activo sobre `sshd` y sobre el log de nginx.
-- SELinux en **enforcing** (no lo desactives — es la mitad del valor de AlmaLinux):
-  ```bash
-  semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/wings/shared/storage(/.*)?"
-  semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/wings/current/bootstrap/cache(/.*)?"
-  restorecon -Rv /var/www/wings
-  setsebool -P httpd_can_network_connect_db on
-  ```
-
-**2.3 — MariaDB**
-- `mysql_secure_installation`: password de root, sin usuarios anónimos, sin acceso remoto de root.
-- `bind-address = 127.0.0.1`.
-- Usuario de aplicación con privilegios mínimos, **nunca root**:
-  ```sql
-  CREATE DATABASE wings CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-  CREATE USER 'wings_app'@'localhost' IDENTIFIED BY '<password fuerte>';
-  GRANT SELECT, INSERT, UPDATE, DELETE ON wings.* TO 'wings_app'@'localhost';
-  ```
-  > Para `migrate` hacen falta ALTER/CREATE/DROP/INDEX/REFERENCES. Opción recomendada: un segundo usuario `wings_migrate` con esos permisos, usado solo durante el deploy.
-- `time_zone = '-03:00'` (ya contemplado en `config/database.php`).
-
-**2.4 — Layout y permisos**
-```
-/var/www/wings/
-├── releases/20260825-1430/     ← cada deploy
-├── shared/
-│   ├── .env                    ← 600, root:nginx
-│   └── storage/
-└── current -> releases/…       ← symlink atómico
-```
-- `nginx` sirve `current/public`. **Nada fuera de `public/` debe ser alcanzable.**
-- Verificar explícitamente que devuelven 404: `/.env`, `/database/dump.sql`, `/storage/logs/laravel.log`, `/.git/config`.
-
-**2.5 — TLS**
-- `certbot --nginx` con Let's Encrypt.
-- Redirect 301 de 80 → 443.
-- HSTS con `max-age=31536000; includeSubDomains`.
-- Objetivo: **A o A+ en SSL Labs**.
-
-**2.6 — Deploy atómico** (`deploy.sh`, idempotente y con rollback)
-```
-git fetch && checkout <tag>  →  composer install --no-dev --optimize-autoloader
-npm ci && npm run build      →  symlink shared/.env y shared/storage
-php artisan wings:preflight  →  ABORTA si algo está mal
-php artisan migrate --force  →  config:cache · route:cache · view:cache
-ln -sfn releases/<nuevo> current  →  systemctl reload php-fpm nginx
-```
-Rollback = repuntar el symlink al release anterior. Retener 5 releases.
-
-**2.7 — Scheduler** (systemd timer, no cron)
-```ini
-# /etc/systemd/system/wings-scheduler.timer  → OnCalendar=*:0/1
-# /etc/systemd/system/wings-scheduler.service
-ExecStart=/usr/bin/php /var/www/wings/current/artisan schedule:run
-```
-Verificar que `cobranza:generar-deudas` (agendado en `routes/console.php:12` para el día 1 a las 06:00) efectivamente dispara.
-
-**2.8 — Backups**
-- `mysqldump` diario 03:00 → cifrado con `age` o `gpg` → fuera del webroot.
-- Copia a destino externo (S3/Backblaze/otro host). Un backup en el mismo disco no es un backup.
-- Retención 14 días.
-- **Restore drill obligatorio el jueves.** Un backup sin restore probado no cuenta.
-
----
-
-### D3 — Miércoles 26/08 · Dependencias, datos y red de pruebas
-
-| # | Tarea | Cierra |
+| # | Hallazgo | Evidencia |
 |---|---|---|
-| 3.1 | Rama `chore/deps`: `composer update` dentro de los constraints → suite completa → medir advisories restantes. Los que queden, documentar por qué | B8 |
-| 3.2 | Segunda conexión `mysql_testing` en `config/database.php` y `phpunit.xml` apuntando a MariaDB. La suite pasa a correr sobre el motor real | B9 |
-| 3.3 | **Tests P0** (detalle en §2) | B9 |
-| 3.4 | Script de import selectivo: catálogos + alumnos + planes vigentes. **Sin** pagos, caja, movimientos, asistencias ni liquidaciones. Validación posterior: todo saldo de caja y cashflow en 0 | — |
-| 3.5 | CI en GitHub Actions: `php artisan test` + `composer audit` + `php -l` en cada push a `main` | B10 |
-| 3.6 | Corregir el `README.md` raíz (hoy es el genérico de Laravel) | — |
+| **B1** | `DatabaseSeeder` crea `test@example.com` con password `password` y carga cashflow de prueba | `DatabaseSeeder.php:20-36`, `UserFactory.php:29` |
+| **B2** | `database/dump.sql` versionado con 27 tablas reales: alumnos, pagos, tokens, sesiones | `git ls-files database/dump.sql` |
+| **B3** | Hook `pre-commit` reexporta el dump en cada commit | `.git/hooks/pre-commit` |
+| **B4** | `.env` en local, `APP_DEBUG=true`, HTTP, DB con root sin password | `.env` |
+| **B5** | Sin headers de seguridad | No hay middleware |
+| **B6** | **FIFO evadible**: retorno anticipado con un solo ítem, nunca consulta deudas viejas | `PagoCuotaService.php:442-444` |
+| **B7** | Asistencias sin transacción y sin validar pertenencia al grupo | `ClaseWebController.php:374-408` |
+| **B8** | 44 advisories en 15 paquetes PHP | `composer audit --locked` |
+| **B9** | La suite corre en SQLite, no en MariaDB | `phpunit.xml` |
+| **B10** | Sin CI, sin backups probados, sin scheduler en servidor | — |
+| **B11** | No existe procedimiento de deploy a servidor | `deploy-wings.bat` es un instalador de XAMPP |
 
 ---
 
-### D4 — Jueves 27/08 · Prueba funcional sobre el servidor real
+## 1. Por qué este orden
 
-Este es el día que decide si el viernes se sube o no.
+1. **El código antes que el servidor.** Un servidor perfecto con código inseguro sigue siendo inseguro. Y el blindaje no necesita SSH.
+2. **La fuga de datos, antes que todo.** 1.1 y 1.2 van primeras porque el hook sigue armado: cada commit sube más datos. Es el único problema que empeora solo.
+3. **El seeder antes de sacar el dump.** El dump es hoy el único mecanismo para sincronizar la BD entre máquinas. Primero el reemplazo, después el retiro.
+4. **Dependencias el miércoles, no el martes.** Actualizar librerías rompe cosas; con la suite verde como referencia se sabe qué rompió qué.
+5. **Los tests después del servidor.** Para probar de verdad hace falta MariaDB. En SQLite darían verde sin significar nada.
+6. **La prueba funcional después del primer deploy.** TLS, permisos, SELinux y timezone solo aparecen en el servidor.
+7. **El jueves cierra, el viernes ejecuta.** Si el jueves no cerró, el go-live pasa al lunes 31.
 
-| # | Prueba | Criterio de aprobación |
+---
+
+## D1 · Martes 25/08 — Blindaje de código
+
+Todo local. No hace falta el servidor.
+
+| # | Tarea | Cierra | Est. |
+|---|---|---|---|
+| 1.1 | Desactivar el hook `pre-commit` que exporta la base | B3 | 5 min |
+| 1.2 | Sacar `dump.sql` del repo y rotar tokens | B2 | 30 min |
+| 1.3 | `CatalogosSeeder` idempotente que reemplace al dump | B2 | 1.5 h |
+| 1.4 | Sanear seeders y blindarlos contra producción | B1 | 40 min |
+| 1.5 | Comando `wings:crear-admin` | B1 | 30 min |
+| 1.6 | Middleware `SecurityHeaders`: los 5 headers sin riesgo | B5 | 45 min |
+| **1.6b** | **CSP en modo reporte — TAREA SUPERVISADA** | B5 | 1 h |
+| 1.7 | `.env.production.example` con el perfil de producción | B4 | 25 min |
+| 1.8 | Comando `wings:preflight` que aborte el deploy | B4 | 1 h |
+| 1.9 | **FIFO fuerte real** | B6 | 1.5 h |
+| 1.10 | Asistencias transaccionales y validadas | B7 | 1 h |
+| 1.11 | Endurecer el login a `throttle:5,1` | — | 20 min |
+| ~~1.11b~~ | ~~Guardar funciones de Blade con `function_exists`~~ — **HECHO 25/08** | — | — |
+| 1.12 | Limpiar la tabla `formas_pago` de la base local | — | 10 min |
+| 1.13 | Cierre: suite completa y `/security-review` | — | 30 min |
+
+### Detalle de las tareas críticas
+
+**1.1 — Desactivar el hook.** Es el mecanismo que mantiene la fuga viva: cada commit reexporta la base con alumnos, pagos y sesiones y la sube a GitHub.
+
+    mv .git/hooks/pre-commit .git/hooks/pre-commit.disabled
+
+Los hooks no se versionan: hay que repetirlo en cada máquina.
+*Verificación:* un commit de prueba no incluye `dump.sql`.
+
+**1.2 — Sacar el dump del repo.**
+
+    git rm --cached database/dump.sql
+    echo "database/dump.sql" >> .gitignore
+
+Después invalidar lo expuesto: vaciar `personal_access_tokens` y `sessions`. La historia de Git sigue conteniendo los datos; limpiarla queda diferido a post go-live.
+*Verificación:* `git ls-files database/dump.sql` no devuelve nada y el archivo sigue en disco.
+*Depende de:* 1.1 y 1.3.
+
+**1.3 — CatalogosSeeder.** Cubre rubros, subrubros, tipos de caja, deportes, niveles y reglas de primer pago. Idempotente con `updateOrCreate` sobre clave natural. Sin un solo dato personal adentro.
+*Verificación:* sobre base vacía, `migrate --seed` la deja utilizable; correrlo dos veces no cambia ninguna fila.
+*Si no se hace:* se saca el dump y no queda forma de reconstruir la base.
+
+**1.4 — Sanear seeders.** `DatabaseSeeder` pasa a llamar solo a catálogos; la cuenta de prueba se muda a `TestSeeder`; ambos seeders de datos abortan en producción.
+
+    if (app()->environment('production')) {
+        throw new \RuntimeException('Este seeder no corre en produccion.');
+    }
+
+*Verificación:* con `APP_ENV=production`, `db:seed` no crea ningún usuario.
+
+**1.6 — Headers de seguridad, la parte sin riesgo.** Estos cinco se aplican directo:
+
+    X-Frame-Options            DENY
+    X-Content-Type-Options     nosniff
+    Referrer-Policy            same-origin
+    Permissions-Policy         camera=(), microphone=(), geolocation=()
+    Strict-Transport-Security  max-age=31536000    (solo bajo HTTPS)
+
+*Verificación:* `curl -I` muestra los cinco.
+
+**1.6b — CSP. TAREA SUPERVISADA, NO LA TOMA UN AGENTE SOLO.**
+
+Las vistas usan `style="..."` y `<script>` inline en todos lados. Una CSP estricta de manual **destruye visualmente la aplicación**: se cae el layout, se pierden los colores y los rails de deporte quedan sin pintar.
+
+Secuencia obligatoria:
+
+1. Empezar con `Content-Security-Policy-Report-Only`, que registra sin bloquear.
+2. Recorrer la aplicación completa con la consola del navegador abierta y juntar la lista real de violaciones.
+3. Recién ahí endurecer, con las excepciones ya conocidas y verificadas.
+4. Después de activar el modo bloqueante, revisar visualmente alumnos, caja, cobrar, clases y liquidaciones.
+
+**Nunca activar la CSP bloqueante en un solo paso.** Ver `AGENTS.md` §2.
+
+**1.9 — FIFO fuerte real.** El problema está en el retorno anticipado de `validarFifo`:
+
+    if (count($items) <= 1) {
+        return;      // esta es la puerta
+    }
+
+Antes de imputar hay que buscar todas las `DeudaCuota` del alumno con período anterior al menor ítem enviado y saldo mayor a cero. Si existe alguna, rechazar el cobro nombrando el período que falta. **La validación va en el servicio, no en la vista**: hoy la interfaz lo disimula pero el servicio no lo garantiza.
+*Verificación:* alumno con febrero impago, cobro de marzo como ítem único. Hoy pasa; después debe rechazar.
+*Si no se hace:* se acumulan deudas viejas invisibles. El alumno figura al día, la caja cierra bien, y el descubrimiento llega meses después sin forma de reconstruir qué pasó.
+
+**1.10 — Asistencias.** Envolver el bucle de guardado en `DB::transaction` y agregar un FormRequest que valide la estructura completa y que cada `alumno_id` pertenezca al grupo de esa clase.
+*Verificación:* alumno de otro grupo, rechaza sin escribir nada; fallo intermedio, no queda ninguna asistencia guardada.
+*Si no se hace:* aparecen asistencias de alumnos que no eran de esa clase, y esas asistencias alimentan la liquidación de los profesores.
+
+**1.12 — `formas_pago`.** La migración `drop_forma_pago` la eliminó, pero sobrevivió en la base local porque al importar el dump solo se ejecuta lo que el dump contiene. Si se exporta desde esa máquina, la tabla vuelve al repo y le deshace la migración a todos.
+
+    DROP TABLE IF EXISTS formas_pago;
+
+---
+
+## D2 · Miércoles 26/08 — Servidor y dependencias
+
+| # | Tarea | Cierra | Est. |
+|---|---|---|---|
+| 2.1 | Provisión base de AlmaLinux 9 | B11 | 1 h |
+| 2.2 | Hardening del host | B10 | 1 h |
+| 2.3 | MariaDB con usuarios de privilegio mínimo | B4 | 40 min |
+| 2.4 | Layout de directorios y verificación de exposición | B11 | 45 min |
+| 2.5 | TLS con Let's Encrypt y HSTS | B4 | 30 min |
+| 2.6 | `deploy.sh` atómico con rollback | B11 | 1.5 h |
+| 2.7 | Scheduler como systemd timer | B10 | 25 min |
+| 2.8 | Backups cifrados con destino externo | B10 | 1 h |
+| 2.9 | Actualizar dependencias, 44 advisories | B8 | 2 h |
+
+**2.1 — Base del sistema.** AlmaLinux 9 trae PHP 8.0 de fábrica y `composer.json` exige `^8.2`: el repo Remi es obligatorio, no opcional.
+
+    dnf update -y
+    dnf install -y epel-release
+    dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+    dnf module reset php -y && dnf module enable php:remi-8.3 -y
+    dnf install -y php php-fpm php-mysqlnd php-mbstring php-xml php-bcmath \
+                   php-gd php-zip php-intl php-opcache nginx mariadb-server \
+                   git unzip policycoreutils-python-utils fail2ban
+
+*Verificación:* `php -v` devuelve 8.3 y los tres servicios arrancan y quedan habilitados al boot.
+
+**2.2 — Hardening del host.** Firewalld abre solo 22, 80 y 443, con el 3306 cerrado. SSH sin root y sin autenticación por contraseña. Fail2ban sobre `sshd` y sobre el log de nginx. **SELinux en enforcing** — no desactivarlo, es la mitad del valor de haber elegido AlmaLinux:
+
+    semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/wings/shared/storage(/.*)?"
+    semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/wings/current/bootstrap/cache(/.*)?"
+    restorecon -Rv /var/www/wings
+    setsebool -P httpd_can_network_connect_db on
+
+*Verificación:* un escaneo desde afuera solo ve 22, 80 y 443; `sestatus` dice enforcing.
+
+**2.3 — MariaDB.** `mysql_secure_installation`, `bind-address = 127.0.0.1`, `time_zone = '-03:00'`. Dos usuarios distintos, la aplicación nunca entra como root:
+
+    CREATE DATABASE wings CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+    -- el que usa la app en el dia a dia
+    CREATE USER 'wings_app'@'localhost' IDENTIFIED BY '<fuerte>';
+    GRANT SELECT, INSERT, UPDATE, DELETE ON wings.* TO 'wings_app'@'localhost';
+
+    -- solo durante el deploy, para migrate
+    CREATE USER 'wings_migrate'@'localhost' IDENTIFIED BY '<fuerte>';
+    GRANT ALL ON wings.* TO 'wings_migrate'@'localhost';
+
+*Verificación:* con `wings_app`, un `DROP TABLE` es rechazado y la aplicación funciona igual.
+
+**2.4 — Layout y exposición.**
+
+    /var/www/wings/
+    ├── releases/20260826-1430/     cada deploy
+    ├── shared/.env                 600, root:nginx
+    ├── shared/storage/
+    └── current -> releases/...     symlink atomico
+
+Nginx sirve `current/public` y nada más.
+*Verificación obligatoria:* pedir por HTTP `/.env`, `/database/dump.sql`, `/storage/logs/laravel.log` y `/.git/config`. Los cuatro deben devolver **404**.
+
+**2.5 — TLS.** Certbot con Let's Encrypt, redirect 301 de 80 a 443, HSTS a un año, renovación automática verificada.
+*Verificación:* SSL Labs con calificación A o superior.
+
+**2.6 — deploy.sh atómico.**
+
+    git fetch && checkout <tag>
+    composer install --no-dev --optimize-autoloader
+    npm ci && npm run build
+    ln -s shared/.env  y  shared/storage
+    php artisan wings:preflight        aborta si algo esta mal
+    php artisan migrate --force
+    php artisan config:cache route:cache view:cache
+    ln -sfn releases/<nuevo> current   el cambio atomico
+    systemctl reload php-fpm nginx
+
+Rollback: repuntar el symlink al release anterior y recargar. Segundos, no minutos. Retener los últimos 5 releases.
+
+**2.7 — Scheduler.** Timer de systemd cada minuto ejecutando `schedule:run`. Confirmar que la zona horaria del sistema sea `America/Argentina/Buenos_Aires`.
+*Si no se hace:* el 1 de septiembre no se genera la cuota del mes y la cobranza queda parada sin aviso.
+
+**2.8 — Backups.** `mysqldump` diario a las 03:00, cifrado con `age` o `gpg`, guardado fuera del webroot y **copiado a un destino externo**. Retención 14 días. Un backup en el mismo disco que la base no es un backup. El restore se prueba el jueves (3.8), no se asume.
+
+**2.9 — Dependencias.** En rama aparte, nunca directo sobre `main`:
+
+    git checkout -b chore/deps
+    composer update
+    php artisan test
+    composer audit --locked
+
+Los advisories que queden vivos se documentan con el motivo, no se ignoran en silencio.
+*Verificación:* sin avisos critical ni high, y la suite completa en verde.
+
+---
+
+## D3 · Jueves 27/08 — Datos, pruebas y verificación
+
+El día más cargado. Es el que decide si el viernes se sube.
+
+| # | Tarea | Est. |
 |---|---|---|
-| 4.1 | Smoke de las 124 rutas × 4 sujetos (ADMIN, OPERATIVO, PROFESOR, anónimo) | Ningún 500. Ningún 200 donde corresponde 403 |
-| 4.2 | Recorrido completo de `docs/06-pruebas/PLAN-PRUEBAS-FUNCIONALES.md` sobre el servidor con TLS | Los 2 flujos troncales cierran sin error |
-| 4.3 | **Concurrencia real en MariaDB**: dos conexiones pagando la misma deuda a la vez | Una gana, otra falla limpio. Cero saldos corruptos. *(Es el límite que el ciclo anterior dejó explícitamente abierto)* |
-| 4.4 | Scheduler: forzar `cobranza:generar-deudas` y reejecutarlo | Idempotente: la segunda corrida no duplica deuda |
-| 4.5 | **Restore drill**: borrar la BD del servidor y restaurar del backup cifrado | Restaura completa. Cronometrar RTO |
-| 4.6 | Exposición: `/.env`, `/database/dump.sql`, `/storage/logs/`, `/.git/` | 404 en todos |
-| 4.7 | `/code-review ultra` sobre el branch de la semana | Sin hallazgos críticos abiertos |
-| 4.8 | SSL Labs | A o superior |
+| 3.1 | Mover la suite de SQLite a MariaDB | 1 h |
+| 3.2 | Escribir los tests P0 | 3 h |
+| 3.3 | CI en GitHub Actions | 40 min |
+| 3.4 | Script de import selectivo | 1.5 h |
+| 3.5 | Primer deploy real al servidor | 1 h |
+| 3.6 | Smoke de todas las rutas por rol | 1 h |
+| 3.7 | Prueba de concurrencia real sobre MariaDB | 1 h |
+| 3.8 | Restore drill del backup | 45 min |
+| 3.9 | Verificar el scheduler en vivo | 20 min |
+| 3.10 | Recorrido funcional manual sobre el servidor | 2 h |
+| 3.11 | Revisión de código completa | 40 min |
 
-**Regla del día:** todo lo que falle se corrige el jueves. Si algo del gate (§3) sigue rojo el jueves a la noche, el viernes no se sube.
+**3.1 — Suite sobre MariaDB.** Los 33 tests actuales pasan pero corren sobre SQLite, que es otra base: las migraciones reales, el `CONVERT` de `NombreUnico` y los `lockForUpdate` directamente no se ejecutan ahí. Agregar una conexión `mysql_testing` contra una base `wings_test` dedicada.
+
+**3.2 — Tests P0.** Los que sostienen la plata:
+
+- **Matriz de roles** — cada rol × cada ruta × cada método, con URL directa e IDs ajenos. Y verificar que después de un 403 **no quedó ninguna escritura**.
+- **Invariante contable** — `pago = suma de imputaciones = movimiento de caja = incremento de deuda`. Es el test más importante del sistema.
+- **FIFO** — deuda vieja impaga más intento de cobrar la nueva como ítem único.
+- **Caja** — abrir, mover, cerrar, rechazar, corregir, validar. Con caja mixta y doble validación.
+- **Cancelación** — propia, ajena, repetida y concurrente.
+- **Asistencias** — alumno ajeno, inexistente, duplicado y fallo intermedio.
+
+**3.4 — Import selectivo.** Traer catálogos, alumnos reales y sus planes vigentes. **No traer** pagos, cajas, movimientos, asistencias, liquidaciones ni deudas. La parte crítica es lo que no se trae: si entra el historial de prueba, la contabilidad arranca contaminada y no hay forma de separarla después.
+*Verificación:* después del import, todo saldo de caja y de cashflow da **cero**.
+
+**3.6 — Smoke por rol.** Ya existe una base funcionando: el script de 268 pruebas GET usado el 25/08. Extenderlo a los métodos mutantes con CSRF.
+*Verificación:* ningún 500 en ninguna combinación, y ningún 200 donde correspondía 403.
+
+**3.7 — Concurrencia real.** Es el límite que el ciclo anterior dejó explícitamente abierto: los bloqueos están escritos pero nunca se probaron con dos conexiones simultáneas de verdad.
+*Verificación:* una operación gana y la otra falla con error claro; los saldos quedan consistentes.
+
+**3.8 — Restore drill.** Borrar la base del servidor a propósito y restaurarla del backup cifrado del día. Cronometrar: ese número es el tiempo real de recuperación.
+*Si no se hace:* creés tener respaldo hasta el día que lo necesitás.
+
+**3.10 — Recorrido funcional.** Usar el plan de `docs/06-pruebas/`, pero sobre el servidor con TLS y no sobre XAMPP. Los dos circuitos completos: alumno → deuda → cobro → caja → validación → cashflow, y clase → asistencia → liquidación → pago. Registrar todo sin corregir en el momento: primero la lista, después los arreglos.
 
 ---
 
-### D5 — Viernes 28/08 · Go-live
+## D4 · Viernes 28/08 — Gate y go-live
 
-1. Tag `v1.0.0` y congelamiento de código.
-2. `wings:preflight` en verde sobre el servidor.
-3. Import selectivo de datos reales.
-4. Crear los usuarios reales (admin, operativos, profesores) con passwords fuertes. **Borrar toda cuenta de prueba.**
-5. Verificar que `test@example.com` no existe.
-6. Backup manual antes de abrir.
-7. Activar monitoreo de errores.
-8. Firmar el gate (§3) punto por punto.
-9. Apertura de caja real con vos presente.
+No se programa. Se ejecutan los pasos y se abre la caja.
 
----
-
-## 2. Plan de testeo
-
-Cinco capas. Ninguna reemplaza a la otra.
-
-### Capa 1 — Automatizada sobre MariaDB (PHPUnit)
-
-Hoy hay 33 tests sobre SQLite. Faltan los que sostienen el dinero:
-
-| Grupo | Casos |
+| # | Paso |
 |---|---|
-| **Matriz de roles** | ADMIN / OPERATIVO / PROFESOR / inactivo / anónimo × cada ruta × cada método. Incluye acceso por URL directa y con IDs ajenos. Verificar que tras un 403 **no quedó ninguna escritura** |
-| **Invariante contable** | `pago.monto_final == Σ imputaciones == movimiento de caja == incremento de deuda`. Es la prueba más importante del sistema |
-| **FIFO** | Deuda vieja impaga + intento de pagar la nueva con un solo ítem → debe rechazar (hoy pasa) |
-| **Sobrepago** | Monto > saldo → rechazo, sin escrituras |
-| **Cancelación** | Propia, ajena, repetida y concurrente. Pivote y cashflow conciliados |
-| **Caja** | `abrir → mover → cerrar → rechazar → corregir → validar`, caja mixta con movimientos cancelados, doble validación |
-| **Cambio de plan + fallo** | Si el pago falla después del cambio de plan, no persiste nada |
-| **Asistencias** | Alumno ajeno, inexistente, duplicado, fallo intermedio → rollback total |
-| **Scheduler** | Día 1 con período explícito, pago anulado, reejecución idempotente |
-| **Liquidaciones** | Doble pago concurrente, dos liquidaciones consumiendo el mismo saldo |
-
-### Capa 2 — Smoke de rutas por rol
-Script que autentica cada rol y recorre las 124 rutas. Corre en CI. Detecta 500 y permisos invertidos en segundos.
-
-### Capa 3 — E2E de navegador (Playwright)
-Los 6 flujos donde una regresión cuesta plata:
-1. Login por rol y redirección correcta.
-2. Alta de alumno con plan.
-3. Cobro de cuota → caja → recibo PDF.
-4. Cierre y validación de caja → reflejo en cashflow.
-5. Clase → asistencia → liquidación → pago.
-6. Cancelación de un cobro y su reversión completa.
-
-### Capa 4 — Manual guiada
-`docs/06-pruebas/PLAN-PRUEBAS-FUNCIONALES.md` y `GUIA-PRUEBA-COLABORADOR.html`, ejecutados sobre el servidor real, no sobre XAMPP.
-
-### Capa 5 — Infraestructura
-Restore drill · scheduler real · SSL Labs · exposición de archivos · headers · límites de subida · rotación de logs.
+| 4.1 | Corregir lo que falló el jueves — única ventana del día |
+| 4.2 | Tag `v1.0.0` y congelamiento de código |
+| 4.3 | `wings:preflight` en verde sobre el servidor |
+| 4.4 | Import de los datos reales |
+| 4.5 | Crear los usuarios reales y borrar los de prueba |
+| 4.6 | Backup manual antes de abrir |
+| 4.7 | Activar el monitoreo de errores |
+| 4.8 | Firmar el gate de 17 condiciones |
+| 4.9 | Apertura de la primera caja real, acompañada |
 
 ---
 
-## 3. Gate de go-live
+## 2. Gate de go-live
 
-Checklist binaria. Si alguna línea está en rojo el jueves a la noche, **no se sube el viernes**.
+Se firma el jueves a la noche, no el viernes a la mañana. Si alguna está en rojo, **no se sube**.
 
-- [ ] `wings:preflight` verde en el servidor
-- [ ] `APP_DEBUG=false` y `APP_ENV=production`
-- [ ] HTTPS forzado, HSTS activo, SSL Labs ≥ A
+- [ ] `wings:preflight` en verde en el servidor
+- [ ] Debug apagado y entorno en producción
+- [ ] HTTPS forzado, HSTS activo, SSL Labs A o superior
 - [ ] Headers de seguridad presentes en la respuesta
-- [ ] DB con usuario dedicado, no root; puerto 3306 cerrado al exterior
-- [ ] `/.env`, `/database/dump.sql`, `/storage/logs/`, `/.git/` devuelven 404
+- [ ] Base con usuario dedicado y 3306 cerrado al exterior
+- [ ] `.env`, dump, logs y `.git` devuelven 404
 - [ ] Ninguna cuenta de prueba ni password conocida
-- [ ] `dump.sql` fuera del repo y tokens rotados
-- [ ] Matriz de roles: 0 accesos indebidos
-- [ ] Invariante contable: 0 fallos
+- [ ] Dump fuera del repo y tokens rotados
+- [ ] Matriz de roles: cero accesos indebidos
+- [ ] Invariante contable: cero fallos
 - [ ] FIFO no evadible
 - [ ] Concurrencia real probada sobre MariaDB
-- [ ] Backup cifrado **con restore probado**
+- [ ] Backup cifrado con restore probado
 - [ ] Scheduler disparando de verdad
 - [ ] Suite completa en verde sobre MariaDB
-- [ ] Advisories critical/high de composer en 0
+- [ ] Advisories critical y high en cero
 - [ ] Monitoreo de errores recibiendo eventos
 
 ---
 
-## 4. Riesgo residual y mitigación
+## 3. Riesgo residual y mitigación
 
-Salir el viernes a producción real, con el sistema como fuente de verdad del dinero desde el día 1, es **agresivo**. El código viene de una auditoría de 57 hallazgos de la cual se cerró una parte, y varias cosas (atomicidad de cambios de plan, duplicación de algoritmos financieros, PDF síncrono, N+1) quedan abiertas por diseño de este plan: no son bloqueantes de seguridad, pero sí de robustez.
+Salir el viernes con el sistema como fuente de verdad del dinero desde el día uno es agresivo. Quedan abiertas a propósito: la atomicidad del cambio de plan más cobro, los algoritmos financieros duplicados, el PDF síncrono y varios N+1. No son bloqueantes de seguridad, pero sí de robustez.
 
-Mitigaciones que recomiendo aplicar igual:
-
-1. **Conciliación diaria las primeras 2 semanas.** Al cerrar cada día: caja física vs. sistema. Una diferencia detectada el mismo día se arregla; una detectada al mes, no.
-2. **Backup automático antes de cada cierre de caja**, no solo el diario de las 03:00.
-3. **Método actual en paralelo 2 semanas.** No como doble carga completa: solo anotar los totales del día aparte, para poder contrastar.
-4. **Un solo operativo la primera semana.** Menos superficie de concurrencia mientras se estabiliza.
-5. **Ventana de corrección**: los primeros 15 días, un admin revisa cada cobro cancelado y cada ajuste de deuda.
+1. **Conciliación diaria** las primeras dos semanas: caja física contra sistema al cerrar cada día.
+2. **Backup antes de cada cierre de caja**, no solo el automático de las 03:00.
+3. **Método actual en paralelo** dos semanas, solo anotando los totales del día para contrastar.
+4. **Un solo operativo la primera semana**: menos superficie de concurrencia mientras se estabiliza.
+5. **Ventana de corrección**: los primeros 15 días un admin revisa cada cobro cancelado y cada ajuste de deuda.
 
 ---
 
-## 5. Trabajo diferido (post go-live)
+## 4. Trabajo diferido (post go-live)
 
-Ordenado por lo que primero va a doler:
-
-| Prioridad | Ítem | Referencia |
+| Prioridad | Ítem | Ref |
 |---|---|---|
-| Alta | Transaccionalidad de cambio de plan + cobro | AUD-012 |
+| Alta | Transaccionalidad de cambio de plan más cobro | AUD-012 |
 | Alta | Recibo PDF a cola con reintento | AUD-045 |
 | Media | N+1 en asistencias, cobranza y generador mensual | AUD-029 a AUD-032 |
 | Media | Unificar los algoritmos financieros duplicados | AUD-043 |
 | Media | Policies en vez de middleware por ruta | AUD-028 |
-| Media | Revisar cascadas que pueden borrar historia financiera | AUD-025 |
+| Media | Cascadas que pueden borrar historia financiera | AUD-025 |
 | Baja | Limpiar la historia de Git del `dump.sql` | AUD-008 |
 | Baja | Contrato completo de la API antes de reactivarla | AUD-026 |
-
----
-
-## 6. Herramientas — evaluación
-
-### 6.1 MCP
-
-| Servidor | Para qué sirve acá | Prioridad |
-|---|---|---|
-| **Playwright MCP** | Manejo un navegador real: entro con cada rol, lleno el formulario de cobro, verifico que la caja cerró, saco capturas. Es la diferencia entre "los tests pasan" y "la app funciona". Cubre la Capa 3 del plan de testeo y sirve para reproducir bugs que reportes en lenguaje natural | **Alta** |
-| **Sentry MCP** | Leer los errores de producción desde acá sin entrar por SSH. Con producción real desde el día 1, esto vale mucho la primera semana | **Alta (post-deploy)** |
-| **Filesystem / Git / GitHub** | Redundantes: ya tengo Read/Write/Bash y `gh` CLI | No instalar |
-| **MCP de MariaDB** | Redundante: ya consulto con el cliente `mysql` | No instalar |
-| **Context7 (docs de librerías)** | Docs actualizadas de Laravel 12. Útil pero marginal: el proyecto usa 4 dependencias directas | Baja |
-
-Instalación (verificar el comando exacto al momento de correrlo):
-```bash
-claude mcp add playwright -- npx -y @playwright/mcp@latest
-```
-
-### 6.2 Skills a crear en `.claude/skills/`
-
-Hoy no hay ninguna. Cada una evita que yo re-derive contexto en cada sesión:
-
-| Skill | Contenido | Por qué |
-|---|---|---|
-| `wings-deploy` | El runbook del §D2 completo, con los comandos reales del servidor | Deploy repetible sin reconstruirlo cada vez |
-| `wings-preflight` | Checklist de seguridad pre-deploy + el gate del §3 | Que nunca se suba algo sin pasar por la lista |
-| `wings-db` | Reglas de export/import, hoy enterradas en `CLAUDE.md` | Se invoca cuando hace falta, en vez de ocupar contexto siempre |
-| `wings-design` | Mover `docs/03-diseno-ui/wings-design/SKILL.md` a `.claude/skills/wings-design/SKILL.md` | **Ya está escrito como skill pero no está registrado.** Registrado, se carga solo cuando toco Blade |
-| `wings-test` | Cómo correr la suite en MariaDB y qué cubre cada grupo | — |
-
-### 6.3 Skills que ya tenés y conviene usar esta semana
-
-| Skill | Cuándo |
-|---|---|
-| `/security-review` | Al cerrar cada día de código (D1 y D3) |
-| `/code-review ultra` | Jueves, como parte del gate |
-| `/fewer-permission-prompts` | Cuanto antes: `.claude/settings.json` tiene **170 permisos ad-hoc acumulados**, ilegible e inmantenible |
-| `/run` | Levantar la app para verificar cambios |
-| `/loop` | Monitoreo post-launch (revisar logs y errores cada X minutos) |
-
-### 6.4 Herramientas de desarrollo
-
-| Herramienta | Para qué | Prioridad |
-|---|---|---|
-| **Larastan (PHPStan nivel 5+)** | Encuentra bugs de tipo y null sin ejecutar nada. En un dominio con montos como float y arrays sueltos, esto sí encuentra cosas reales | **Alta** |
-| **MariaDB de test** | La suite hoy corre en SQLite: las migraciones reales, el `CONVERT(... USING utf8mb4)` de `NombreUnico` y los `lockForUpdate` **no se prueban** | **Alta** |
-| **GitHub Actions** | Tests + `composer audit` en cada push | **Alta** |
-| **Playwright** (además del MCP) | Los E2E quedan versionados y corren en CI, no solo cuando yo los ejecuto | **Alta** |
-| **Sentry** (free tier alcanza) | Errores de producción con stack trace, sin `APP_DEBUG=true` | **Alta** |
-| **`age` o `gpg`** | Cifrar los backups | **Alta** |
-| **fail2ban** | Brute force sobre SSH y sobre `/login` | **Alta** |
-| **PCOV** | Medir cobertura real | Media |
-| **Laravel Pint** | Formato consistente | Baja |
-| **Laravel Telescope** | Debug local. **Nunca en producción** | Baja |
-| **Redis** | Cache, sesiones y cola. Mejora el PDF síncrono | Post-launch |
-
-### 6.5 Hooks recomendados
-
-| Hook | Acción |
-|---|---|
-| PostToolUse en `Edit`/`Write` de `*.php` | `php -l` — detecta el error de sintaxis en el momento, no en el deploy |
-| PreToolUse en `git commit` | Correr la suite. Reemplaza al hook actual que exporta el dump |
-| **Eliminar** el `pre-commit` actual | Es el que mantiene la PII entrando al repo |
-
----
-
-## 7. Qué necesito de vos
-
-| Cuándo | Qué |
-|---|---|
-| **Hoy** | Acceso SSH al servidor AlmaLinux 9 y el dominio apuntado por DNS |
-| **Hoy** | Confirmar qué alumnos y planes son reales (para el import selectivo del miércoles) |
-| Martes | Un destino externo para los backups (S3, Backblaze u otro host) |
-| Miércoles | La lista de usuarios reales: nombre, email y rol de cada uno |
-| Jueves | 2–3 horas tuyas para el recorrido funcional del §4.2 |

@@ -4,6 +4,11 @@ Este archivo orienta el trabajo dentro del repo. No reemplaza la documentacion v
 
 ## Regla principal
 
+**Si sos un agente distinto de Claude Code (Codex u otro), leer primero `AGENTS.md`.**
+Ese archivo contiene las reglas que no se negocian — en especial que el diseno
+(`resources/views/**`, `resources/css/app.css`) no se toca sin pedido explicito.
+
+
 Antes de modificar funcionalidad, leer:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`

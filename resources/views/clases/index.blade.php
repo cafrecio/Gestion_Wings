@@ -6,6 +6,7 @@
 @section('content')
 
 @php
+if (!function_exists('claseEstado')) {
 function claseEstado($clase, $ahora): string {
     if ($clase->cancelada) return 'cancelada';
     $fecha  = $clase->fecha->format('Y-m-d');
@@ -25,6 +26,8 @@ function claseEstado($clase, $ahora): string {
     return $resuelta ? 'cerrada' : 'finalizada';
 }
 
+}
+if (!function_exists('estadoDot')) {
 function estadoDot(string $estado): string {
     return match($estado) {
         'en_curso'     => 'success',
@@ -36,6 +39,8 @@ function estadoDot(string $estado): string {
     };
 }
 
+}
+if (!function_exists('estadoLabel')) {
 function estadoLabel(string $estado): string {
     return match($estado) {
         'programada'   => 'Programada',
@@ -48,6 +53,8 @@ function estadoLabel(string $estado): string {
     };
 }
 
+}
+if (!function_exists('estadoColor')) {
 function estadoColor(string $estado): string {
     return match($estado) {
         'en_curso'     => 'var(--color-success)',
@@ -59,6 +66,7 @@ function estadoColor(string $estado): string {
     };
 }
 
+}
 $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 @endphp
 

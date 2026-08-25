@@ -14,6 +14,7 @@
     $btnBSec  = $btnB . ' width:96px; background:var(--color-btn-secondary); color:var(--color-surface);';
     $btnBDang = $btnB . ' width:96px; background:var(--color-btn-danger); color:var(--color-surface);';
 
+    if (!function_exists('dotLiquidacion')) {
     function dotLiquidacion(string $estado, string $estadoPago): string {
         if ($estadoPago === 'PAGADA') {
             return 'background:var(--color-success)';
@@ -23,6 +24,7 @@
             'CERRADA' => 'background:var(--color-text-muted)',
             default   => 'background:var(--color-text-muted)',
         };
+    }
     }
 @endphp
 
