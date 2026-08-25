@@ -187,6 +187,8 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 | Necesidad | Ruta |
 |---|---|
 | **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION-260828.md` |
+| **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
+| Pasos manuales por máquina y pendientes del dueño | `docs/00-estado/CHECKLIST-CARLOS.md` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Permisos y roles | `docs/02-contratos/PERMISOS-ROLES.md` |
 | Design system | `docs/03-diseno-ui/` |

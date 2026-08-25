@@ -12,6 +12,7 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 Antes de modificar funcionalidad, leer:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`
+- `docs/00-estado/CHECKLIST-CARLOS.md` — pasos manuales por maquina y pendientes del duenio. **Si estas arrancando en otra computadora, empeza por ahi.**
 - `docs/07-evaluacion/index.html` — evaluacion integral vigente (seguridad, datos, backend, frontend, 3 perfiles de usuario, integral). Fuente de verdad de lo que falta. Leer SIEMPRE antes de tocar caja, cobros, alumnos o sidebar. Las listas viejas quedaron archivadas en `docs/99-archivo/pendientes-viejos/`.
 
 Ese archivo es la fuente de verdad del estado actual del proyecto. Si otro documento contradice `ESTADO-ACTUAL.md`, no asumir: registrar la contradiccion y resolverla antes de implementar.
@@ -39,6 +40,9 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 | Necesidad | Ruta |
 |---|---|
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
+| Pasos manuales por maquina y pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |
+| Plan de produccion vigente | `docs/00-estado/PLAN-PRODUCCION-260828.md` |
+| Orden de trabajo de Codex | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | Mapa HTML del repo | `docs/00-mapa-proyecto/index.html` |
 | Indice documental | `docs/README.md` |
 | Producto / vision general | `docs/01-producto/` |
@@ -65,6 +69,16 @@ Reglas criticas:
 - No introducir Alpine.js ni Livewire.
 
 ## Base de datos - mantener sincronizada
+
+> **AVISO — esto cambia con la tarea 1.2 del plan de produccion.**
+> `database/dump.sql` sale del repo porque contiene datos personales reales de
+> alumnos, pagos, tokens y sesiones. El hook `pre-commit` que lo exportaba en cada
+> commit ya fue desactivado (renombrado a `pre-commit.disabled`), **pero solo en una
+> maquina**: los hooks no se versionan, hay que desactivarlo en cada computadora.
+> Ver `docs/00-estado/CHECKLIST-CARLOS.md` seccion A1.
+> El reemplazo para levantar una base es `CatalogosSeeder` + `wings:crear-admin`.
+> Lo de abajo sigue siendo valido solo hasta que esa tarea se cierre.
+
 
 El archivo `database/dump.sql` contiene el dump de la BD (sin la tabla `users`, ver mas abajo) y se versiona con el repo.
 
