@@ -169,6 +169,36 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 
 ---
 
+## 6b. Frenar ante contradicciones — NO improvisar
+
+Si una tarea contradice lo que ves en el código, en los datos o en otro documento:
+**pará y preguntá.** No elijas vos la interpretación que parece más razonable.
+
+Esto vale para todo, no solo para diseño:
+
+- El plan pide algo que los datos reales no permiten.
+- Dos documentos dicen cosas distintas.
+- La tarea parece requerir tocar un archivo prohibido.
+- El criterio de aceptación no se puede cumplir como está escrito.
+- Encontrás algo que parece un bug pero no está en tu tarea.
+
+Al frenar, reportá tres cosas:
+
+1. Qué dice la tarea.
+2. Qué encontraste en el código o en los datos.
+3. Las opciones que ves, sin elegir ninguna.
+
+**Por qué existe esta regla:** el proyecto arrastra contradicciones entre
+documentación y código. Una decisión improvisada que parece obvia puede deshacer
+un arreglo anterior. Ejemplo real: los subrubros `Sueldo - Apellido, Nombre`
+parecen datos personales que habría que reemplazar por categorías genéricas, pero
+son generados automáticamente por profesor y unificarlos rompería el desglose de
+sueldos en el cashflow, reintroduciendo un bug ya corregido.
+
+Frenar nunca es un error. Improvisar sí.
+
+---
+
 ## 7. Reglas generales
 
 1. No tocar lógica funcional si el pedido es solo documental u organizativo.
