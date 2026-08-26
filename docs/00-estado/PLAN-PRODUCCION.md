@@ -68,12 +68,12 @@ el go-live del 4/09 al **1/09**.
 
 ### Cronograma
 
-| Día | Bloque | Horas |
+| Día | Bloque | Horas de trabajo |
 |---|---|---|
-| **Jue 27** | Código: terminar D1 completo | 11 |
+| **Jue 27** | Blindaje: seguridad y los dos bugs de plata | 11 |
 | **Vie 28** | Servidor y dependencias | 9 |
-| **Sáb 29** | Seeder de prueba | 7 |
-| **Dom 30** | Tests P0, CI, suite MariaDB, primer deploy | 10 |
+| **Sáb 29** | Código: seeder de prueba | 7 |
+| **Dom 30** | Código: tests P0, CI, y primer deploy | 10 |
 | **Lun 31** | Verificación técnica, recorrido funcional, correcciones | 7 |
 | **Mar 1/09** | Gate y go-live | 4 |
 
