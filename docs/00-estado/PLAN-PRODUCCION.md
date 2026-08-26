@@ -53,43 +53,54 @@ sin esos datos no hay nada que probar.
 
 ---
 
-## 1. Fecha nueva: viernes 4/09
+## 1. Fecha nueva: martes 1/09
 
-Y depende de una sola cosa.
+Con el sábado 29 y el domingo 30 disponibles, entran dos jornadas más. Eso adelanta
+el go-live del 4/09 al **1/09**.
 
-### El go-live es "el acceso al servidor + 5 días hábiles"
-
-Mientras no haya SSH, D2 no arranca, y D3 depende de D2. La fecha no se mueve por
-esfuerzo: se mueve por cuándo llega ese dato.
+### Sigue dependiendo del acceso al servidor
 
 | Si el SSH llega… | Go-live |
 |---|---|
-| Jueves 27 | **Viernes 4/09** |
-| Viernes 28 | Lunes 7/09 |
+| Jueves 27 | **Martes 1/09** |
+| Viernes 28 | Miércoles 2/09 |
 | Semana que viene | Se recalcula |
 
-### Cronograma con SSH el jueves 27
+### Cronograma
 
-| Día | Bloque |
-|---|---|
-| **Jue 27** | Terminar D1 completo |
-| **Vie 28** | Servidor y dependencias |
-| **Lun 31** | Seeder de prueba |
-| **Mar 1/09** | Tests P0, CI, suite sobre MariaDB |
-| **Mié 2/09** | Primer deploy, smoke, concurrencia, restore drill |
-| **Jue 3/09** | Recorrido funcional y correcciones |
-| **Vie 4/09** | Gate y go-live |
+| Día | Bloque | Horas |
+|---|---|---|
+| **Jue 27** | Código: terminar D1 completo | 11 |
+| **Vie 28** | Servidor y dependencias | 9 |
+| **Sáb 29** | Seeder de prueba | 7 |
+| **Dom 30** | Tests P0, CI, suite MariaDB, primer deploy | 10 |
+| **Lun 31** | Verificación técnica, recorrido funcional, correcciones | 7 |
+| **Mar 1/09** | Gate y go-live | 4 |
 
-### Ojo con el 1 de septiembre
+**El gate se firma el lunes 31 a la noche.** Si algo queda en rojo, el go-live se
+corre al miércoles 2. No se sube con el gate abierto.
 
-El proceso mensual de generación de cuotas está agendado para el día 1 a las 06:00.
-Si salimos el 4, ese disparo automático ya pasó y el sistema todavía no estaba
-arriba.
+### La deuda del primer mes se carga a mano — sí o sí
 
-**La cuota de septiembre hay que generarla a mano** después del import, con el
-período explícito. Es un paso del viernes 4, no un problema.
+Verificado en `GenerarDeudasMensualesCommand.php:84-101`. El proceso mensual genera
+la cuota solo si el alumno cumple una de dos condiciones:
 
----
+- tuvo **asistencias el mes anterior**, o
+- se dio de alta hace menos de 15 días **y ya pagó**.
+
+Una base de producción recién cargada no cumple ninguna: no hay asistencias de
+agosto porque el sistema no estaba arriba, y los alumnos existentes tienen fecha de
+alta vieja.
+
+**Resultado si se deja correr solo: los manda a todos a la cola de revisión y no
+genera ni una deuda.**
+
+Por eso la cuota del primer mes se carga junto con los datos iniciales, como parte
+del arranque. No es un problema del proceso mensual: es que el primer mes no tiene
+mes anterior. A partir de octubre funciona solo.
+
+Esto **elimina la ventaja de salir antes del 1 de septiembre**: la generación
+automática de ese día no iba a servir de todos modos.
 
 ## 2. Bloqueantes
 
@@ -244,7 +255,7 @@ Uno en el mismo disco que la base no es un backup. El restore se prueba el miér
 
 ---
 
-## D3 · Lunes 31/08 — Seeder de prueba
+## D3 · Sábado 29/08 — Seeder de prueba
 
 Un solo bloque, porque es grande y no se puede hacer a medias.
 
@@ -274,13 +285,16 @@ coincide, falla. Si falla, no se entrega.
 
 ---
 
-## D4 · Martes 1/09 — Pruebas automatizadas
+## D4 · Domingo 30/08 — Pruebas automatizadas y primer deploy
 
 | # | Tarea | Ejecuta | Cierra | Est. |
 |---|---|---|---|---|
 | 4.1 | Mover la suite de SQLite a MariaDB | Codex | B9 | 1 h |
 | 4.2 | Escribir los tests P0 | Supervisada | B9 | 3 h |
 | 4.3 | CI en GitHub Actions | Codex | B10 | 40 min |
+| 4.4 | **Primer deploy real al servidor** | Codex | B11 | 1 h |
+
+**4.4 — El primer deploy** es la primera vez que el código corre fuera de una máquina de desarrollo. Todo lo implícito en XAMPP se hace explícito: permisos, rutas, zona horaria, SELinux.
 
 **4.2 — Los tests que sostienen la plata:**
 
@@ -296,44 +310,40 @@ coincide, falla. Si falla, no se entrega.
 
 ---
 
-## D5 · Miércoles 2/09 — Deploy y verificación técnica
+## D5 · Lunes 31/08 — Verificación técnica y recorrido funcional
 
 | # | Tarea | Ejecuta | Est. |
 |---|---|---|---|
-| 5.1 | Primer deploy real al servidor | Codex | 1 h |
-| 5.2 | Smoke de todas las rutas por rol | Codex | 1 h |
-| 5.3 | Prueba de concurrencia real sobre MariaDB | Supervisada | 1 h |
-| 5.4 | Restore drill del backup | Codex | 45 min |
-| 5.5 | Verificar el scheduler en vivo | Codex | 20 min |
+| 5.1 | Smoke de todas las rutas por rol | Codex | 1 h |
+| 5.2 | Prueba de concurrencia real sobre MariaDB | Supervisada | 1 h |
+| 5.3 | Restore drill del backup | Codex | 45 min |
+| 5.4 | Verificar el scheduler en vivo | Codex | 20 min |
+| 5.5 | **Recorrido funcional completo sobre el servidor** | **Carlos** | 2 h |
+| 5.6 | Revisión de código completa | Supervisada | 40 min |
+| 5.7 | Corregir lo que aparezca | Supervisada | variable |
 
-**5.2** — Ya existe base: el script de 268 pruebas GET del 25/08. Extenderlo a
+**5.1** — Ya existe base: el script de 268 pruebas GET del 25/08. Extenderlo a
 métodos mutantes con CSRF.
 
-**5.3** — Los `lockForUpdate` existen pero nunca se probaron con dos conexiones
+**5.2** — Los `lockForUpdate` existen pero nunca se probaron con dos conexiones
 simultáneas reales.
 
-**5.4** — Borrar la base del servidor y restaurarla del backup cifrado.
+**5.3** — Borrar la base del servidor y restaurarla del backup cifrado.
 Cronometrar: ese número es el tiempo real de recuperación.
 
 ---
 
-## D6 · Jueves 3/09 — Recorrido funcional
-
-| # | Tarea | Ejecuta | Est. |
-|---|---|---|---|
-| 6.1 | Recorrido funcional completo sobre el servidor | **Carlos** | 2 h |
-| 6.2 | Revisión de código completa | Supervisada | 40 min |
-| 6.3 | Corregir lo que aparezca | Supervisada | variable |
-
-**6.1** — Sobre el servidor con TLS, con los datos del seeder de prueba. Los dos
-circuitos completos: alumno → deuda → cobro → caja → validación → cashflow, y
-clase → asistencia → liquidación → pago.
+**5.5 — El recorrido funcional.** Sobre el servidor con TLS, con los datos del
+seeder de prueba. Los dos circuitos completos: alumno → deuda → cobro → caja →
+validación → cashflow, y clase → asistencia → liquidación → pago.
 
 Registrar todo sin corregir en el momento: primero la lista, después los arreglos.
 
+**5.7 — Es la última ventana de corrección.** Lo que no entre acá no sale el martes.
+
 ---
 
-## D7 · Viernes 4/09 — Gate y go-live
+## D6 · Martes 1/09 — Gate y go-live
 
 | # | Paso |
 |---|---|
@@ -342,19 +352,19 @@ Registrar todo sin corregir en el momento: primero la lista, después los arregl
 | 7.3 | `wings:preflight` en verde sobre el servidor |
 | 7.4 | Base limpia y carga de datos reales por el cliente |
 | 7.5 | Crear los usuarios reales y borrar los de prueba |
-| 7.6 | **Generar la cuota de septiembre a mano**, con el período explícito |
+| 7.6 | **Cargar la deuda del primer mes junto con los datos** — ver seccion 1 |
 | 7.7 | Backup manual antes de abrir |
 | 7.8 | Activar el monitoreo de errores |
 | 7.9 | Apertura de la primera caja real, acompañada |
 
-**7.6 es fácil de olvidar.** El disparo automático del 1 de septiembre pasó con el
-sistema todavía abajo.
+**7.6 no es opcional.** El proceso mensual no puede generar la primera cuota: una
+base recién cargada no tiene mes anterior. Ver la sección 1.
 
 ---
 
 ## 5. Gate de go-live
 
-Se firma el jueves 3. Si alguna está en rojo, **no se sube**.
+Se firma el lunes 31 a la noche. Si alguna está en rojo, **no se sube**.
 
 - [ ] `wings:preflight` en verde en el servidor
 - [ ] Debug apagado y entorno en producción
@@ -411,6 +421,6 @@ pertenece a un módulo que no se usa hasta fin de septiembre.
 | 2 | Dominio apuntado a la IP | Pendiente |
 | 3 | Destino externo para los backups | Pendiente |
 | 4 | Lista de usuarios reales | Pendiente |
-| 5 | 2 horas de Carlos el jueves 3/09 | Pendiente |
+| 5 | 2 horas de Carlos el lunes 31/08 | Pendiente |
 
 Explicación de qué es cada cosa: `docs/00-estado/CHECKLIST-CARLOS.md`.
