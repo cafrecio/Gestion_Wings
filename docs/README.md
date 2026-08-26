@@ -6,6 +6,10 @@ La fuente de verdad operativa es:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`
 
+La continuidad del trabajo entre las computadoras de CyE y CAB se registra en:
+
+- `docs/00-estado/LOG-CODEX.md`
+
 El informe del ultimo ciclo de trabajo esta disponible en dos formatos:
 
 - `docs/00-estado/PROMPT-CODEX-1-260809.md` — traspaso tecnico para Claude Code.

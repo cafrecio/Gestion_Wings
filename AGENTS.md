@@ -188,6 +188,7 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 |---|---|
 | **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION-260828.md` |
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
+| **Bitácora compartida de Codex** | `docs/00-estado/LOG-CODEX.md` |
 | Pasos manuales por máquina y pendientes del dueño | `docs/00-estado/CHECKLIST-CARLOS.md` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Permisos y roles | `docs/02-contratos/PERMISOS-ROLES.md` |
@@ -196,3 +197,20 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 | Pruebas funcionales | `docs/06-pruebas/` |
 | Evaluación integral | `docs/07-evaluacion/index.html` |
 | Guía extendida | `CLAUDE.md` |
+
+---
+
+## 9. Bitácora compartida entre computadoras
+
+Los chats son locales y no sirven como memoria compartida. La continuidad del
+proyecto se registra en `docs/00-estado/LOG-CODEX.md`.
+
+Identidad obligatoria al firmar cada entrada:
+
+- En la computadora de CyE: **Codex CyE**.
+- En la computadora de Carlos en su casa: **Codex CAB**.
+
+Antes de empezar una tarea, leer la bitácora. Antes de cerrar una tarea que haya
+producido cambios, agregar una entrada breve con: objetivo, cambios reales,
+decisiones, verificaciones y pendiente siguiente. No registrar contraseñas,
+tokens, datos personales ni información sensible.
