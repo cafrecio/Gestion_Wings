@@ -14,6 +14,20 @@
 
 ---
 
+## 2026-08-26 17:24 — Codex CyE
+
+**Tarea:** 1.3 — `CatalogosSeeder` idempotente.
+
+**Cambios:** creado `database/seeders/CatalogosSeeder.php` con deportes, niveles, rubros, subrubros, tipos de caja y reglas de primer pago. Incluye los nombres literales obligatorios `Cuota Mensual` y `Sueldos`; no incluye subrubros personales de profesores, que se crean al registrar cada profesor. Agregadas dos pruebas de aceptación.
+
+**Verificación:** base SQLite temporal vacía migrada y sembrada correctamente; segunda ejecución correcta; comparación exacta de filas sin modificaciones; `Cuota Mensual=1`, `Sueldos=1`, `Usuarios=0`; 35 pruebas y 120 aserciones aprobadas; vistas compilan; diff de vistas y CSS vacío.
+
+**Commit:** `feat(seed): crear catalogos base sin datos personales`.
+
+**Siguiente paso:** tarea 1.2, sacar `database/dump.sql` del repositorio después de sincronizar.
+
+---
+
 ## 2026-08-26 11:41 — Codex CyE
 
 **Objetivo:** eliminar Redis del PHP local porque Wings no lo utiliza.
