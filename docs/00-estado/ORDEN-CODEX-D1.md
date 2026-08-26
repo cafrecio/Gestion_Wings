@@ -1,7 +1,7 @@
-# Orden de trabajo — Codex — D1 (martes 25/08)
+# Orden de trabajo — Codex — D1 (jueves 27/08)
 
 > **Leer `AGENTS.md` completo antes de tocar un archivo.** No se repite acá.
-> Criterios de aceptación detallados: `docs/00-estado/PLAN-PRODUCCION-260828.md`.
+> Criterios de aceptación detallados: `docs/00-estado/PLAN-PRODUCCION.md`.
 
 ---
 
@@ -31,6 +31,11 @@ php -l <cada archivo tocado>
 ## Orden de ejecución
 
 Las dependencias importan: 1.3 antes que 1.2, y 1.7 antes que 1.8.
+
+> **1.3 ya está escrita y sin commitear.** Cerrarla y commitearla primero.
+> El contenido de los catálogos lo define el cliente: el seeder solo deja el
+> sistema arrancable. Dos nombres son obligatorios porque el código los busca
+> literalmente: el subrubro `Cuota Mensual` y el rubro `Sueldos`.
 
 ### Bloque A — el que destraba la fuga de datos
 

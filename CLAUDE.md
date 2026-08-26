@@ -41,7 +41,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 |---|---|
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Pasos manuales por maquina y pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |
-| Plan de produccion vigente | `docs/00-estado/PLAN-PRODUCCION-260828.md` |
+| Plan de produccion vigente | `docs/00-estado/PLAN-PRODUCCION.md` |
 | Orden de trabajo de Codex | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | Mapa HTML del repo | `docs/00-mapa-proyecto/index.html` |
 | Indice documental | `docs/README.md` |

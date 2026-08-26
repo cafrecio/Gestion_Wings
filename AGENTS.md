@@ -27,7 +27,7 @@ Si una tarea parece requerir tocarlos: **frenar y preguntar.** No improvisar.
 ### Por qué esta regla existe
 
 Ninguna de las tareas del plan de producción vigente
-(`docs/00-estado/PLAN-PRODUCCION-260828.md`) necesita modificar una vista ni el
+(`docs/00-estado/PLAN-PRODUCCION.md`) necesita modificar una vista ni el
 CSS. Si un cambio aparece ahí, casi siempre significa que se entendió mal la
 tarea.
 
@@ -165,7 +165,7 @@ git diff --stat -- resources/views resources/css    # debe estar vacío
 ```
 
 Y verificar el criterio de aceptación específico que la tarea declara en
-`docs/00-estado/PLAN-PRODUCCION-260828.md`.
+`docs/00-estado/PLAN-PRODUCCION.md`.
 
 ---
 
@@ -216,7 +216,7 @@ Frenar nunca es un error. Improvisar sí.
 
 | Necesidad | Ruta |
 |---|---|
-| **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION-260828.md` |
+| **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION.md` |
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | **Bitácora compartida de Codex** | `docs/00-estado/LOG-CODEX.md` |
 | Pasos manuales por máquina y pendientes del dueño | `docs/00-estado/CHECKLIST-CARLOS.md` |

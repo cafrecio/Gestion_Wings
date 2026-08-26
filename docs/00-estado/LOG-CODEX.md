@@ -34,7 +34,7 @@
 
 - Rama: `main`.
 - Commit: `06eb669`.
-- Plan vigente: `docs/00-estado/PLAN-PRODUCCION-260828.md`.
+- Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 - Orden vigente de Codex: `docs/00-estado/ORDEN-CODEX-D1.md`.
 - El lote D1 figura pendiente salvo las tareas ya marcadas como hechas en el plan.
 
