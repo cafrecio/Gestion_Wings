@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use Carbon\Carbon;
-use Database\Seeders\CatalogosSeeder;
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -27,16 +27,18 @@ class CatalogosSeederTest extends TestCase
         parent::tearDown();
     }
 
-    public function test_deja_los_catalogos_base_sin_datos_personales(): void
+    public function test_database_seeder_deja_solo_los_catalogos_base(): void
     {
-        $this->seed(CatalogosSeeder::class);
+        $this->seed(DatabaseSeeder::class);
 
         $this->assertDatabaseCount('deportes', 2);
+        $this->assertDatabaseCount('niveles', 3);
         $this->assertDatabaseCount('rubros', 8);
         $this->assertDatabaseCount('subrubros', 15);
         $this->assertDatabaseCount('tipos_caja', 5);
         $this->assertDatabaseCount('reglas_primer_pago', 3);
         $this->assertDatabaseCount('users', 0);
+        $this->assertDatabaseCount('cashflow_movimientos', 0);
 
         foreach (['Principiantes', 'Intermedias', 'Avanzadas'] as $nivel) {
             $this->assertDatabaseHas('niveles', ['nombre' => $nivel]);
@@ -60,11 +62,11 @@ class CatalogosSeederTest extends TestCase
     public function test_es_idempotente_y_la_segunda_ejecucion_no_modifica_filas(): void
     {
         Carbon::setTestNow('2026-08-26 12:00:00');
-        $this->seed(CatalogosSeeder::class);
+        $this->seed(DatabaseSeeder::class);
         $primeraEjecucion = $this->snapshot();
 
         Carbon::setTestNow('2026-08-26 13:00:00');
-        $this->seed(CatalogosSeeder::class);
+        $this->seed(DatabaseSeeder::class);
 
         $this->assertSame($primeraEjecucion, $this->snapshot());
     }

@@ -33,6 +33,10 @@ class DemoSeeder extends Seeder
 
     public function run(): void
     {
+        if (app()->environment('production')) {
+            throw new \RuntimeException('DemoSeeder no puede ejecutarse en produccion.');
+        }
+
         $this->now          = now()->toDateTimeString();
         $this->hoy          = Carbon::today();
         $this->inicioClases = Carbon::parse('2026-01-05');

@@ -14,9 +14,33 @@
 
 ---
 
+## 2026-08-27 17:27 — Codex CyE
+
+**Tareas:** corrección conjunta 1.3 + 1.4 — fuente única de catálogos y seeders seguros.
+
+**Cambios:** `DatabaseSeeder` llama únicamente a `CatalogosSeeder`; eliminados los cinco seeders viejos ya sin invocaciones; `test@example.com` pasó a un `TestSeeder` explícito; `DemoSeeder` y `TestSeeder` abortan en producción; agregada una migración nueva que elimina únicamente niveles legacy sin grupos y registra por `Log::warning` los que conserva por tener referencias. La migración de abril no se modificó.
+
+**Aceptación literal:** sobre una base SQLite descartable vacía se ejecutó `php artisan migrate:fresh --seed`, sin indicar un seeder manualmente. La segunda ejecución de `php artisan db:seed` mantuvo los mismos conteos:
+
+- Rubros: **8**.
+- Subrubros: **15**.
+- Tipos de caja: **5**.
+- Deportes: **2**.
+- Niveles: **3** (`Principiantes`, `Intermedias`, `Avanzadas`).
+- Usuarios: **0**.
+- Movimientos de cashflow: **0**.
+- `Cuota Mensual`: **1**.
+- `Sueldos`: **1**.
+
+**Verificación:** 38 pruebas y 130 aserciones aprobadas; archivos PHP sin errores de sintaxis; vistas compilan; diff de vistas y CSS vacío.
+
+**Siguiente paso:** commit y push de la corrección conjunta; después continúa la tarea 1.2.
+
+---
+
 ## 2026-08-26 17:24 — Codex CyE
 
-**Tarea:** 1.3 — `CatalogosSeeder` idempotente.
+**Tarea:** 1.3 — primera implementación de `CatalogosSeeder`; quedó incompleta y fue corregida junto con 1.4 en la entrada del 27/08.
 
 **Cambios:** creado `database/seeders/CatalogosSeeder.php` con deportes, niveles, rubros, subrubros, tipos de caja y reglas de primer pago. Incluye los nombres literales obligatorios `Cuota Mensual` y `Sueldos`; no incluye subrubros personales de profesores, que se crean al registrar cada profesor. Agregadas dos pruebas de aceptación.
 

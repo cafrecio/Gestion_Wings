@@ -53,13 +53,10 @@ php artisan db:seed
 ```
 
 Los seeders cargan datos esenciales del sistema:
-- FormaPagoSeeder (formas de pago)
-- ReglaPrimerPagoSeeder (reglas de primer pago)
-- RubrosSeeder (rubros de caja)
-- SubrubrosSeeder (subrubros de caja)
-- TiposCajaSeeder (tipos de caja)
-- CashflowMovimientoSeeder (movimientos iniciales cashflow)
-- Usuario test: test@example.com
+- CatalogosSeeder (deportes, niveles, rubros, subrubros, tipos de caja y reglas de primer pago)
+
+El seeding normal no crea usuarios ni movimientos. Para datos de prueba se usa
+`TestSeeder` de forma explícita y únicamente fuera de producción.
 
 ### 7. Instalar dependencias de Node y compilar assets
 ```bash
