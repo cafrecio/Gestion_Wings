@@ -12,6 +12,7 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 Antes de modificar funcionalidad, leer:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`
+- `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**
 - `docs/00-estado/CHECKLIST-CARLOS.md` — pasos manuales por maquina y pendientes del duenio. **Si estas arrancando en otra computadora, empeza por ahi.**
 - `docs/07-evaluacion/index.html` — evaluacion integral vigente (seguridad, datos, backend, frontend, 3 perfiles de usuario, integral). Fuente de verdad de lo que falta. Leer SIEMPRE antes de tocar caja, cobros, alumnos o sidebar. Las listas viejas quedaron archivadas en `docs/99-archivo/pendientes-viejos/`.
 
@@ -40,6 +41,8 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 | Necesidad | Ruta |
 |---|---|
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
+| Bitacora de Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
+| Bitacora de Codex | `docs/00-estado/LOG-CODEX.md` |
 | Pasos manuales por maquina y pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |
 | Plan de produccion vigente | `docs/00-estado/PLAN-PRODUCCION.md` |
 | Orden de trabajo de Codex | `docs/00-estado/ORDEN-CODEX-D1.md` |

@@ -218,7 +218,8 @@ Frenar nunca es un error. Improvisar sí.
 |---|---|
 | **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION.md` |
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
-| **Bitácora compartida de Codex** | `docs/00-estado/LOG-CODEX.md` |
+| **Bitácora de Codex** | `docs/00-estado/LOG-CODEX.md` |
+| **Bitácora de Claude Code** | `docs/00-estado/LOG-CLAUDE.md` |
 | Pasos manuales por máquina y pendientes del dueño | `docs/00-estado/CHECKLIST-CARLOS.md` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Permisos y roles | `docs/02-contratos/PERMISOS-ROLES.md` |
@@ -230,17 +231,43 @@ Frenar nunca es un error. Improvisar sí.
 
 ---
 
-## 9. Bitácora compartida entre computadoras
+## 9. Bitácoras compartidas entre computadoras
 
 Los chats son locales y no sirven como memoria compartida. La continuidad del
-proyecto se registra en `docs/00-estado/LOG-CODEX.md`.
+proyecto se registra en el repositorio.
 
-Identidad obligatoria al firmar cada entrada:
+**Hay dos bitácoras, una por agente:**
 
-- En la computadora de CyE: **Codex CyE**.
-- En la computadora de Carlos en su casa: **Codex CAB**.
+| Agente | Archivo |
+|---|---|
+| Codex | `docs/00-estado/LOG-CODEX.md` |
+| Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
 
-Antes de empezar una tarea, leer la bitácora. Antes de cerrar una tarea que haya
-producido cambios, agregar una entrada breve con: objetivo, cambios reales,
-decisiones, verificaciones y pendiente siguiente. No registrar contraseñas,
-tokens, datos personales ni información sensible.
+Están separadas a propósito: cada agente escribe en la suya y así no se pisan al
+trabajar en paralelo.
+
+**Cada agente lee las dos y escribe solo en la suya.**
+
+Identidad obligatoria al firmar cada entrada, según la computadora:
+
+| Computadora | Codex firma | Claude firma |
+|---|---|---|
+| CyE | **Codex CyE** | **Claude CyE** |
+| Casa de Carlos | **Codex CAB** | **Claude CAB** |
+
+Antes de empezar una tarea, leer ambas bitácoras. Antes de cerrar una tarea que
+haya producido cambios, agregar una entrada breve con: objetivo, cambios reales,
+decisiones, verificaciones y pendiente siguiente.
+
+**Entradas más nuevas arriba.** No registrar contraseñas, tokens, datos personales
+ni información sensible.
+
+### Obligación específica de Claude Code
+
+Claude verifica el trabajo que reporta Codex. **Esa verificación se registra en
+`LOG-CLAUDE.md` con el resultado real, no con lo que dijo el reporte** — incluyendo
+cuando la verificación rechaza una tarea y por qué.
+
+Motivo: ya pasó una vez. La tarea 1.3 se reportó terminada y la verificación
+encontró que el criterio se había validado con `--class=CatalogosSeeder` en lugar
+del `migrate --seed` literal, y que el defecto seguía presente.

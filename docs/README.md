@@ -9,6 +9,7 @@ La fuente de verdad operativa es:
 La continuidad del trabajo entre las computadoras de CyE y CAB se registra en:
 
 - `docs/00-estado/LOG-CODEX.md`
+- `docs/00-estado/LOG-CLAUDE.md`
 
 El informe del ultimo ciclo de trabajo esta disponible en dos formatos:
 
