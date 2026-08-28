@@ -185,7 +185,7 @@ Todo local, no necesita servidor.
 | 1.4 | Sanear seeders y blindarlos contra producción | Codex | B1 | 40 min |
 | 1.5 | Comando `wings:crear-admin` | Codex | B1 | 30 min |
 | 1.6 | `SecurityHeaders`: los 5 headers sin riesgo | Codex | B5 | 45 min |
-| **1.6b** | **CSP en modo reporte** | **Supervisada** | B5 | 1 h |
+| **1.6b** | **CSP — PRIORITARIA, obligatoria antes de subir** | **Supervisada** | B5 | 4 h |
 | 1.7 | `.env.production.example` | Codex | B4 | 25 min |
 | 1.8 | Comando `wings:preflight` | Codex | B4 | 1 h |
 | **1.9** | **FIFO fuerte real** | **Supervisada** | B6 | 1.5 h |
@@ -198,9 +198,30 @@ Todo local, no necesita servidor.
 **1.9 y 1.9b van juntas.** Arreglar el FIFO aumenta los pagos rechazados, y cada
 rechazo deja un cambio de plan huérfano si 1.9b no está.
 
-**1.6b nunca en un solo paso.** Arranca en `Content-Security-Policy-Report-Only`,
-se juntan las violaciones reales recorriendo la app, y recién ahí se endurece. Las
-vistas usan `style="..."` inline en todos lados.
+### 1.6b — CSP. Obligatoria antes de subir.
+
+**Medido el 28/08:** 1.054 atributos `style` escritos a mano en 66 vistas (447
+valores distintos, ya usando los tokens del diseño) y 24 archivos con `<script>`
+incrustado.
+
+**Decisión: no hay que sacar los estilos.** Un estilo inline no ejecuta código,
+solo pinta. El riesgo real es el JavaScript. Entonces:
+
+- `script-src` **estricto** — ahí está el peligro.
+- `style-src` **permisivo** — ahí está el diseño.
+
+Con eso hay protección contra inyección de código y **no se rompe una sola
+pantalla**. Los 1.054 estilos quedan como están.
+
+**El trabajo real son los 24 archivos con JavaScript incrustado:** se mueven a
+archivos aparte o se les firma con hash. Entre 3 y 5 horas.
+
+**Secuencia obligatoria igual:** arrancar en `Content-Security-Policy-Report-Only`,
+recorrer la app juntando violaciones reales, y recién ahí endurecer. Revisar a ojo
+alumnos, caja, cobrar, clases y liquidaciones.
+
+**Definir la política por subdominio, no una sola para todo el dominio:** la web
+comercial va a tener sus propios estilos y scripts.
 
 ---
 
@@ -421,7 +442,26 @@ pertenece a un módulo que no se usa hasta fin de septiembre.
 
 ---
 
-## 8. Lo que bloquea hoy
+## 8. Mejoras posteriores — no bloquean el go-live
+
+Se pueden hacer con el sistema ya en línea.
+
+### Sacar los estilos escritos a mano de las vistas
+
+**No es un problema de seguridad**: con la CSP resuelta como dice la 1.6b, esos
+estilos no son un riesgo. **Es un problema de mantenimiento**: hoy cambiar un color
+implica tocar 66 archivos.
+
+Son 1.054 ocurrencias con 447 valores distintos. Los 20 patrones más repetidos
+cubren cerca de un tercio del total, así que conviene atacar esos primero y dejar
+la cola larga para después.
+
+Toca vistas y CSS, o sea que **va con Carlos mirando**, nunca delegada. Ver
+`AGENTS.md` §1.
+
+---
+
+## 9. Lo que bloquea hoy
 
 | # | Necesito | Estado |
 |---|---|---|
