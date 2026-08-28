@@ -19,6 +19,93 @@
 
 ## 2026-08-28 — Claude CyE
 
+**Objetivo:** revisar una por una las 12 tareas del bloque 1, preguntando de cada
+una: qué hace, para qué, si el problema es real, si omitimos algo, y qué aporta a
+dejar el sistema funcionando en el servidor.
+
+### Contexto nuevo que cambió decisiones
+
+Carlos informó la arquitectura destino: un dominio `gestionar-te.com.ar` con la web
+comercial, y subdominios por cliente. Wings es un caso particular con base propia;
+el futuro `gestionclubes` será multi-inquilino sobre base compartida.
+
+**Consecuencia inmediata verificada:** `SESSION_DOMAIN` debe quedar vacío. Si se
+pone el dominio padre, la cookie de sesión vale para todos los subdominios y un
+cliente de gestionclubes llevaría sesión válida hacia el sistema de Wings. Entra
+como chequeo del módulo 1.7.
+
+**Consecuencia 2:** el servidor se arma para varios sitios desde el principio —una
+carpeta por sitio, un nginx por subdominio, certificado wildcard— no para uno solo.
+Rehacerlo después cuesta; hacerlo bien de entrada, no.
+
+### Cambios al plan
+
+| Qué | Decisión |
+|---|---|
+| **1.2** sacar el dump | **Movida al go-live** como paso 7.3b. No aporta nada a que el sistema funcione; su valor aparece justo antes de cargar datos reales |
+| **1.6b** CSP | **Reformulada y sube a prioritaria.** Medido: 1.054 estilos inline en 66 vistas, 447 valores distintos, y 24 archivos con script incrustado |
+| **1.7 + 1.8** | **Fusionadas en un módulo.** Eran la misma lista vista dos veces; separadas se desincronizan |
+| **1.10** asistencias | **Separada en dos prioridades** |
+| Estilos inline | **A sección 8**, mejoras posteriores al go-live |
+
+### El hallazgo que abarató la CSP
+
+Un estilo inline no ejecuta código, solo pinta. El riesgo real es el JavaScript.
+Entonces: `script-src` estricto y `style-src` permisivo. Hay protección contra
+inyección **y no se rompe una sola pantalla**. Los 1.054 estilos quedan como están.
+
+Eso baja la tarea de "rehacer el diseño" a "ordenar 24 archivos de JavaScript".
+
+Sacar los estilos inline pasa a ser un problema de **mantenimiento**, no de
+seguridad: hoy cambiar un color implica tocar 66 archivos. Va después del go-live y
+con Carlos mirando, porque toca vistas y CSS.
+
+### Verificación que corrigió una afirmación mía
+
+Sobre la tarea 1.10 afirmé que se podía marcar asistencia de un alumno ajeno.
+Carlos observó que el profesor solo ve a los de su grupo. **Verificado en
+`ClaseWebController.php:283`**: la lista se arma con `where('grupo_id', ...)` y solo
+alumnos activos. Por pantalla no es alcanzable.
+
+La tarea queda partida: el **guardado a medias es ALTA** —pasa sin que nadie haga
+nada raro, y alimenta la liquidación del profesor— y el **alumno ajeno es BAJA**,
+porque requiere armar un pedido a mano salteando la interfaz.
+
+### Regla de negocio confirmada
+
+La regla de cuándo aplica un cambio de plan estaba escrita pero sujeta al visto
+bueno del cliente. **Vanina lo dio.** Asentado en
+`Wings-contrato-estadosAlum-cobranza-asistencia-V1.md`.
+
+Bajar aplica el mes siguiente si ya asistió a alguna clase este mes, y el mes en
+curso si no asistió. Subir aplica siempre en el mes en curso.
+
+### Contraseñas de entrega
+
+Se descartó el patrón `V4n1n4*2026`: es el nombre de la persona con sustituciones
+típicas más el año, que es el primer patrón que prueban las herramientas, y lo
+adivina cualquiera que la conozca.
+
+**Criterio adoptado:** frases de tres palabras del tipo `gimnasia-patin-jueves`.
+Más fáciles de recordar y tipear, y más resistentes. Una por persona, sin cambio
+periódico obligatorio.
+
+### Estado del bloque 1
+
+Doce tareas revisadas: 3 cerradas, 9 pendientes.
+
+**Bloqueantes:** 1.5 crear-admin, 1.6b CSP, 1.7 configuración, 1.9 FIFO, 1.9b
+atomicidad del plan.
+**Altas:** 1.6 headers, 1.10 guardado de asistencias, 1.11 login, 1.13 cierre.
+**Bajas:** 1.12 tabla muerta.
+
+**Siguiente paso:** decidir si se revisan los bloques 2 a 6 con el mismo método, o
+se pasa directo al rediseño del plan por prioridades.
+
+---
+
+## 2026-08-28 — Claude CyE
+
 **Objetivo:** corregir un patrón propio de afirmar hechos sin verificarlos.
 
 **Error 2, detectado por Carlos:** afirmé que el dump exponía datos personales de
