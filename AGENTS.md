@@ -199,6 +199,43 @@ Frenar nunca es un error. Improvisar sí.
 
 ---
 
+## 6c. Protocolo de verificación — antes de afirmar un hecho
+
+Aplica a todos los agentes. Existe porque ya produjo dos decisiones tomadas sobre
+datos falsos.
+
+**1. Contar no es mirar.** Nunca concluir sobre datos a partir de un agregado.
+Antes de afirmar qué *son* los datos, mirar filas concretas con `LIMIT 5`. Un
+`COUNT` responde cuántos, nunca qué.
+
+**2. Severidad sin alcanzabilidad es ruido.** Antes de calificar algo de grave,
+comprobar que alguien puede llegar: ¿hay ruta? ¿hay botón? ¿está habilitado el
+router? Si no es alcanzable, no es urgente, aunque un documento diga CRÍTICO.
+
+**3. Separar verificado de inferido, explícitamente.** Si no se comprobó, decirlo.
+Nunca presentar una inferencia con el tono de un hecho.
+
+**4. Reportar, no alarmar.** Dar el hecho y su alcance; la urgencia la decide el
+dueño del proyecto.
+
+**5. Heredar un hallazgo de un documento es inferir, no verificar.** Toda auditoría
+o reporte previo se revalida contra el código actual antes de repetirse.
+
+### Los dos casos que originaron esta regla
+
+**AUD-021.** La auditoría lo marcaba CRÍTICO: ajustar una deuda deja plata sin
+registrar. Se relató como hecho actual. Un grep mostraba que solo existe en
+`PagoCuotaController`, que es de API, y la API está apagada en `bootstrap/app.php`.
+No es alcanzable.
+
+**Los 36 alumnos del dump.** Un `COUNT` devolvió "36 con DNI, 36 menores" y se
+concluyó que el dump exponía datos de 36 chicos reales. Los DNI eran `30000001`,
+`30000002`, `30000003`, los celulares `11-4500-0001` y los emails vacíos. Datos
+generados por un seeder. Un `SELECT ... LIMIT 5` lo habría resuelto antes de
+plantear el problema.
+
+---
+
 ## 7. Reglas generales
 
 1. No tocar lógica funcional si el pedido es solo documental u organizativo.

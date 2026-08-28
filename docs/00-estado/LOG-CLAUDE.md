@@ -17,6 +17,38 @@
 
 ---
 
+## 2026-08-28 — Claude CyE
+
+**Objetivo:** corregir un patrón propio de afirmar hechos sin verificarlos.
+
+**Error 2, detectado por Carlos:** afirmé que el dump exponía datos personales de
+36 menores reales. Los alumnos los había creado un seeder anterior: DNI
+correlativos desde `30000001`, celulares `11-4500-0001`, emails vacíos, token
+llamado `test`. Llegué a la conclusión con un `COUNT` y `SUM(edad<18)`, **sin mirar
+una sola fila**. Un `LIMIT 5` lo resolvía; lo corrí recién cuando me corrigió.
+
+**Error 1, mismo patrón:** relaté AUD-021 como crítico heredando la severidad de la
+auditoría. Un grep mostraba que solo vive en un controlador de API y la API está
+apagada. No era alcanzable.
+
+**Consecuencia real:** decisiones del proyecto discutidas sobre datos falsos, y
+tiempo perdido.
+
+**Corrección:** protocolo de verificación agregado a `AGENTS.md` sección 6c, con
+los dos casos documentados como ejemplo. Cinco reglas: contar no es mirar;
+severidad sin alcanzabilidad es ruido; separar verificado de inferido; reportar en
+vez de alarmar; heredar un hallazgo es inferir, no verificar.
+
+**Reclasificación:** **B2 baja de crítico a higiene.** No hay fuga de datos
+personales, no hay que limpiar la historia de Git, no hay que rotar nada con
+urgencia. La tarea 1.2 sigue valiendo, pero por otros motivos: el día que se carguen
+alumnos reales ese archivo empieza a tenerlos, son 500 KB que cambian enteros en cada
+commit, y el seeder ya lo reemplaza.
+
+**Siguiente paso:** actualizar el plan con la reclasificación de B2.
+
+---
+
 ## 2026-08-26 — Claude CyE
 
 **Objetivo:** verificar el cierre de las tareas 1.3 y 1.4 reportado por Codex.
