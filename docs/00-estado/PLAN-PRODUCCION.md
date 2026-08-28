@@ -107,7 +107,7 @@ automática de ese día no iba a servir de todos modos.
 | # | Hallazgo | Evidencia |
 |---|---|---|
 | **B1** | `DatabaseSeeder` crea `test@example.com` con password `password` | `DatabaseSeeder.php:20-36` |
-| **B2** | `database/dump.sql` versionado con 27 tablas de datos reales | `git ls-files database/dump.sql` |
+| **B2** | `database/dump.sql` versionado. **Higiene, no fuga**: los 36 alumnos son inventados, DNI correlativos. Se resuelve en el go-live, antes de cargar datos reales | `git ls-files database/dump.sql` |
 | ~~**B3**~~ | ~~Hook `pre-commit` reexporta el dump~~ | **CERRADO** |
 | **B4** | `.env` en local, `APP_DEBUG=true`, HTTP, DB con root sin password | `.env` |
 | **B5** | Sin headers de seguridad | No hay middleware |
@@ -182,7 +182,6 @@ Todo local, no necesita servidor.
 | # | Tarea | Ejecuta | Cierra | Est. |
 |---|---|---|---|---|
 | 1.3 | Cerrar y commitear `CatalogosSeeder` | Codex | B2 | 30 min |
-| 1.2 | Sacar `dump.sql` del repo y rotar tokens | Codex | B2 | 30 min |
 | 1.4 | Sanear seeders y blindarlos contra producción | Codex | B1 | 40 min |
 | 1.5 | Comando `wings:crear-admin` | Codex | B1 | 30 min |
 | 1.6 | `SecurityHeaders`: los 5 headers sin riesgo | Codex | B5 | 45 min |
@@ -350,12 +349,21 @@ Registrar todo sin corregir en el momento: primero la lista, después los arregl
 | 7.1 | Firmar el gate de 18 condiciones |
 | 7.2 | Tag `v1.0.0` y congelamiento |
 | 7.3 | `wings:preflight` en verde sobre el servidor |
+| **7.3b** | **Sacar `dump.sql` del repo** — antes de que existan datos reales | 30 min |
 | 7.4 | Base limpia y carga de datos reales por el cliente |
 | 7.5 | Crear los usuarios reales y borrar los de prueba |
 | 7.6 | **Cargar la deuda del primer mes junto con los datos** — ver seccion 1 |
 | 7.7 | Backup manual antes de abrir |
 | 7.8 | Activar el monitoreo de errores |
 | 7.9 | Apertura de la primera caja real, acompañada |
+
+**7.3b — por qué acá y no antes.** Hoy los 36 alumnos del dump son inventados: DNI
+correlativos desde `30000001`. **No hay ninguna fuga.** Lo que sí es real es que el
+mecanismo sigue apuntando a la base, y en el paso 7.4 esa base pasa a tener alumnos
+de verdad. La tarea vale ahí, no antes: no aporta nada a que el sistema funcione.
+
+Incluye actualizar los 16 documentos y 2 scripts que hoy mencionan el dump, y
+desactivar el hook `pre-commit` **en la máquina de casa**, donde sigue armado.
 
 **7.6 no es opcional.** El proceso mensual no puede generar la primera cuota: una
 base recién cargada no tiene mes anterior. Ver la sección 1.
