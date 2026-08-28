@@ -189,7 +189,7 @@ Todo local, no necesita servidor.
 | **1.7** | **Módulo de configuración de producción** — plantilla y chequeo, juntos | Codex | B4 | 1.5 h |
 | **1.9** | **FIFO fuerte real** | **Supervisada** | B6 | 1.5 h |
 | **1.9b** | **Atomicidad del cambio de plan** | **Supervisada** | B12 | 2 h |
-| 1.10 | Asistencias transaccionales y validadas | Codex | B7 | 1 h |
+| 1.10 | Asistencias: guardado todo-o-nada **(ALTA)** + validar pertenencia **(BAJA)** | Codex | B7 | 1 h |
 | 1.11 | Endurecer el login a `throttle:5,1` | Codex | — | 20 min |
 | 1.12 | Limpiar `formas_pago` de la base local | Codex | — | 10 min |
 | 1.13 | Cierre: suite completa y `/security-review` | Supervisada | — | 30 min |
