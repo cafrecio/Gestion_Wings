@@ -30,7 +30,9 @@ php -l <cada archivo tocado>
 
 ## Orden de ejecución
 
-Las dependencias importan: 1.3 antes que 1.2, y 1.7 antes que 1.8.
+**1.7 es un modulo unico:** la plantilla `.env.production.example` y el comando
+`wings:preflight` van en el mismo commit. Antes eran 1.7 y 1.8 separadas; se
+fusionaron porque separadas se desincronizan. Ver el plan.
 
 > **1.3 ya está escrita y sin commitear.** Cerrarla y commitearla primero.
 > El contenido de los catálogos lo define el cliente: el seeder solo deja el
@@ -113,7 +115,10 @@ Crear el primer administrador de forma interactiva y segura.
 
 ### Bloque C — configuración de producción
 
-**1.7 · `.env.production.example`** · 25 min · cierra B4 · **antes de 1.8**
+**1.7 · Modulo de configuracion de produccion** · 1.5 h · cierra B4
+
+La plantilla y el comando que la verifica, **en el mismo commit**. Cada valor que
+se agregue a la plantilla se agrega al chequeo al mismo tiempo.
 
 ```
 APP_ENV=production
@@ -130,7 +135,7 @@ Plantilla sin ningún secreto real. No tocar el `.env` local.
 
 ---
 
-**1.8 · Comando `wings:preflight`** · 1 h · cierra B4 · **depende de 1.7**
+**Segunda mitad de 1.7 — el comando `wings:preflight`**
 
 Aborta el despliegue si algo está mal configurado. Sale con código distinto de cero
 para que `deploy.sh` se corte.

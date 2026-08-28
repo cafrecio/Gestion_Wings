@@ -186,8 +186,7 @@ Todo local, no necesita servidor.
 | 1.5 | Comando `wings:crear-admin` | Codex | B1 | 30 min |
 | 1.6 | `SecurityHeaders`: los 5 headers sin riesgo | Codex | B5 | 45 min |
 | **1.6b** | **CSP — PRIORITARIA, obligatoria antes de subir** | **Supervisada** | B5 | 4 h |
-| 1.7 | `.env.production.example` | Codex | B4 | 25 min |
-| 1.8 | Comando `wings:preflight` | Codex | B4 | 1 h |
+| **1.7** | **Módulo de configuración de producción** — plantilla y chequeo, juntos | Codex | B4 | 1.5 h |
 | **1.9** | **FIFO fuerte real** | **Supervisada** | B6 | 1.5 h |
 | **1.9b** | **Atomicidad del cambio de plan** | **Supervisada** | B12 | 2 h |
 | 1.10 | Asistencias transaccionales y validadas | Codex | B7 | 1 h |
@@ -197,6 +196,37 @@ Todo local, no necesita servidor.
 
 **1.9 y 1.9b van juntas.** Arreglar el FIFO aumenta los pagos rechazados, y cada
 rechazo deja un cambio de plan huérfano si 1.9b no está.
+
+### 1.7 — Módulo de configuración de producción
+
+**Van juntas y en un solo commit.** Antes eran dos tareas: la plantilla
+`.env.production.example` y el comando `wings:preflight`. Es la misma lista vista
+dos veces — una escribe el valor correcto, la otra verifica que esté puesto.
+
+**Separadas se desincronizan:** alguien agrega un valor a la plantilla y se olvida
+del chequeo. El chequeo sigue dando verde sobre una configuración que ya no
+alcanza, y como da verde nadie mira. Es peor que no tener chequeo.
+
+**Regla:** cada valor que se agregue a la plantilla se agrega, en el mismo commit,
+al comando que lo verifica.
+
+| Valor | Plantilla | Chequeo | Si falla |
+|---|---|---|---|
+| Modo diagnóstico apagado | sí | sí | Un error muestra código y claves en pantalla |
+| Entorno en producción | sí | sí | Perfil de desarrollo sirviendo en internet |
+| Clave de cifrado presente | — | sí | Sesiones inseguras |
+| Base con usuario propio, no administrador | sí | sí | Un fallo da control total de los datos |
+| Dirección con candado | sí | sí | Las contraseñas viajan legibles |
+| Cookie de sesión cifrada y con candado | sí | sí | La sesión viaja legible por la wifi |
+| **Cookie limitada al subdominio** | sí | sí | La sesión de un inquilino valdría en otro |
+| No existe ninguna cuenta de prueba | — | sí | Puerta abierta con contraseña conocida |
+| **Existe al menos un administrador** | — | sí | Se despliega un sistema al que nadie puede entrar |
+
+Las dos últimas no son valores de configuración: viven solo en el comando.
+
+El comando sale con código distinto de cero para que `deploy.sh` se corte solo.
+
+---
 
 ### 1.6b — CSP. Obligatoria antes de subir.
 
