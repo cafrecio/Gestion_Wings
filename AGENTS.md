@@ -70,6 +70,20 @@ lados.** Una CSP estricta de manual (`default-src 'self'` sin `'unsafe-inline'`)
 **destruye visualmente la aplicación entera**: se cae el layout, se pierden los
 colores y los rails de deporte quedan sin pintar.
 
+### La medida concreta del riesgo — verificada el 28/08
+
+| Qué | Cuánto |
+|---|---|
+| Atributos `style="..."` escritos a mano en las vistas | **1.054** |
+| Archivos de vista que los contienen | **66** |
+| Archivos con `<script>` incrustado | **24** |
+
+Una CSP de manual bloquea las 1.054 de una sola vez. La aplicación queda sin
+colores, sin layout y sin los rieles de color por deporte.
+
+**Esta es la única tarea del plan capaz de destruir el diseño.** Por eso no la
+ejecuta ningún agente sin supervisión, y por eso el modo reporte no es opcional.
+
 ### Cómo se implementa la CSP en este proyecto
 
 Obligatorio, en este orden:
