@@ -89,7 +89,8 @@ La deuda se genera **según el plan activo del alumno** al momento de generarla.
 
 **Subir no tiene restricción** porque va a favor del negocio y del alumno: pasa a tener derecho a más clases y la cuota acompaña.
 
-> ⚠️ **Pendiente de confirmación con el cliente.** La regla está cerrada y es inequívoca, pero se asienta sujeta a su visto bueno.
+> ✅ **Confirmada por el cliente el 28/08/2026.** Vanina dio el visto bueno a la
+> regla tal como está escrita arriba. Deja de estar sujeta a revisión.
 
 ---
 
