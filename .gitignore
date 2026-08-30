@@ -27,6 +27,11 @@ Thumbs.db
 # Credenciales del servidor: NUNCA al repositorio.
 # Un archivo con claves commiteado queda en el historial de git para siempre,
 # aunque después se borre. Ver AGENTS.md seccion 3.
-docs/08-VPS/*credenciales*
-docs/08-VPS/*credentials*
+# Todo lo de la carpeta del servidor queda afuera, SALVO la documentacion .md.
+# Se hace al reves a proposito: cualquier archivo nuevo que caiga ahi
+# -credenciales, registros, exportes, chats- queda protegido por defecto,
+# sin depender de que alguien acierte el nombre.
+docs/08-VPS/*
+!docs/08-VPS/*.md
+
 docs/06-pruebas/Credenciales*
