@@ -39,9 +39,14 @@ class Grupo extends Model
      */
     public function getNombreCompletoAttribute(): string
     {
-        $dep = $this->relationLoaded('deporte') ? ($this->deporte->nombre ?? '') : '';
-        $niv = $this->relationLoaded('nivel')   ? ($this->nivel->nombre   ?? '') : '';
-        return $dep . ' — ' . $niv;
+        $this->loadMissing(['deporte', 'nivel']);
+
+        $partes = array_filter([
+            $this->deporte?->nombre,
+            $this->nivel?->nombre,
+        ], fn ($nombre) => filled($nombre));
+
+        return $partes ? implode(' — ', $partes) : 'Sin grupo';
     }
 
     /**

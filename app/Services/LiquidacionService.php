@@ -84,7 +84,7 @@ class LiquidacionService
                 $q->where('validada_para_liquidacion', true)
                   ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
             })
-            ->with('grupo')
+            ->with(['grupo.deporte', 'grupo.nivel'])
             ->get();
 
         $total = 0;
@@ -428,7 +428,7 @@ class LiquidacionService
                 $q->where('validada_para_liquidacion', true)
                   ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
             })
-            ->with('grupo')
+            ->with(['grupo.deporte', 'grupo.nivel'])
             ->get();
 
         $detalles = [];

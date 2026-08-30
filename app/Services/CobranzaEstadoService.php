@@ -86,7 +86,13 @@ class CobranzaEstadoService
         ?int $grupoId = null
     ): Collection {
         $query = Alumno::where('activo', true)
-            ->with(['deudaCuotas', 'deporte', 'grupo', 'planActivo.plan'])
+            ->with([
+                'deudaCuotas',
+                'deporte',
+                'grupo.deporte',
+                'grupo.nivel',
+                'planActivo.plan',
+            ])
             ->withExists([
                 'pagos as tiene_pagos_registrados' => fn($q) => $q
                     ->where('estado', Pago::ESTADO_COMPLETADO),
@@ -131,7 +137,7 @@ class CobranzaEstadoService
         $fecha = $fecha ?? Carbon::now();
 
         $alumnos = Alumno::where('activo', true)
-            ->with(['deudaCuotas', 'deporte', 'grupo'])
+            ->with(['deudaCuotas', 'deporte', 'grupo.deporte', 'grupo.nivel'])
             ->withExists([
                 'pagos as tiene_pagos_registrados' => fn($q) => $q
                     ->where('estado', Pago::ESTADO_COMPLETADO),

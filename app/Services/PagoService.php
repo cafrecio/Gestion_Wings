@@ -206,9 +206,12 @@ class PagoService
      */
     public function obtenerProximoPago(int $alumnoId): ?array
     {
-        $alumno = Alumno::findOrFail($alumnoId);
+        $alumno = Alumno::with([
+            'planActivo.plan.grupo.deporte',
+            'planActivo.plan.grupo.nivel',
+        ])->findOrFail($alumnoId);
 
-        $planActivo = $alumno->planActivo()->first();
+        $planActivo = $alumno->planActivo;
         if (!$planActivo) {
             return null;
         }

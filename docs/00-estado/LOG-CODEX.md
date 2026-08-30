@@ -14,6 +14,28 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — D1 nombres de grupo en documentos
+
+**Corregido en el origen.** `Grupo::nombre_completo` ahora carga `deporte` y
+`nivel` cuando faltan y nunca devuelve un nombre vacío. Las consultas masivas de
+liquidaciones y cobranza cargan ambas relaciones para evitar una consulta por fila;
+`PagoService` carga la cadena del plan activo. El uso señalado en
+`AlumnoWebController::autocomplete()` ya tenía `grupo.deporte` y `grupo.nivel`, por
+lo que D1 no necesitó modificarlo.
+
+**Regresión comprobada antes del arreglo:** el accesor devolvía `" — "` y una
+liquidación real generaba `"Clase 02/03/2026 -  —  (Validada manual)"`. Después del
+arreglo, el detalle contiene `"Patín — Inicial"`; el test también cubre el acceso a
+un grupo recuperado sin relaciones precargadas.
+
+**Verificación:** 53 pruebas y 219 aserciones aprobadas; sintaxis PHP correcta en
+los cinco archivos PHP de D1; vistas compiladas. D1 no modificó vistas ni CSS. Al
+cerrar apareció trabajo local concurrente, ajeno a este commit, en el formulario y
+controlador de alumnos para `fecha_alta`; se preservó sin incluirlo. La incorporación
+de `fecha_alta` queda fuera de D1 y requiere su autorización separada.
+
+---
+
 ## 2026-08-30 — Codex CAB — cierre C3
 
 **1.9 cerrada por reemplazo contractual, no por ampliar el FIFO.** Se contrastaron
