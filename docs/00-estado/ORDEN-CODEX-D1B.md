@@ -175,17 +175,36 @@ anterior** al más viejo de los que se están pagando. Si lo hay:
 responde HTTP 409 con `requiere_confirmacion`. Usar el mismo mecanismo en vez de
 inventar otro.
 
-### Límite importante
+### La vista SÍ está autorizada — con condiciones
 
-La parte de **backend entra en este lote**: detección, respuesta de confirmación,
-guardado del motivo y notificación al administrador.
+Carlos autorizó tocar la vista de cobro el 30/08, **solo para esta tarea**. No habilita
+ningún otro cambio visual.
 
-**La parte visual NO.** Mostrar el aviso y pedir el motivo en pantalla toca
-`resources/views/**`, que está prohibido por `AGENTS.md` §1. Carlos tiene que
-autorizarlo por separado.
+**El modal no se diseña: se copia.** Ya existe uno que resuelve exactamente este
+problema —confirmar una acción pidiendo un motivo— en
+`resources/views/caja/detalle.blade.php`, líneas **244 a 265** (modal "cancelar
+cobro"). Replicar esa estructura:
 
-Dejá el backend cerrado y funcionando, con el 409 comprobado por test, y anotá en
-`LOG-CODEX.md` que la vista quedó pendiente de autorización.
+- Fondo `position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000`, centrado.
+- Caja interior con `var(--color-surface)`, `var(--radius-card)`, `padding:1.5rem`,
+  `max-width:440px`.
+- Título en `0.9rem` peso 600, bajada en `0.78rem` con `var(--color-text-muted)`.
+- `<textarea name="motivo" required maxlength="500">` con clase `wings-input`.
+- Botonera `display:flex; gap:8px; justify-content:flex-end` con dos botones `ds-btn`.
+- Clic en el fondo cierra el modal.
+
+**Diferencia con el modal que copiás:** cancelar un cobro es destructivo y usa
+`var(--color-danger)`. Este no lo es —se está cobrando— así que va con el botón
+primario normal, no con el rojo.
+
+**Botones de una sola palabra:** `Cerrar` y `Cobrar`. Nunca "Cobrar igual" ni
+"Confirmar cobro".
+
+**Prohibido:** hardcodear un color hex, introducir Alpine o Livewire, tocar
+`app.css`, o modificar cualquier otra vista.
+
+*Verificación al cerrar:* `git diff --stat -- resources/views` debe mostrar
+**únicamente** la vista de cobro. Si aparece otro archivo, revertir.
 
 *Aceptación:* alumno que debe marzo, mayo y junio. Cobrar solo junio devuelve el aviso
 con **2 meses anteriores** y el monto sumado de marzo y mayo, y **no escribe nada**.
