@@ -14,6 +14,30 @@
 
 ---
 
+## 2026-08-30 — Codex CAB
+
+**Objetivo:** iniciar el lote D1B por A1 (atomicidad del cambio de plan y el pago),
+con la regresión obligatoria de deuda vieja impaga y cobro de solo el período nuevo.
+
+**Contradicción verificada — lote detenido según `AGENTS.md` §6b.** La orden afirma
+que el FIFO ya implementado debe rechazar ese pedido. En el código actual,
+`PagoCuotaService::validarFifo()` retorna sin validar cuando recibe un solo ítem y
+solo examina los períodos incluidos en el pedido; no consulta deudas anteriores que
+quedaron fuera. Se ejecutó la regresión indicada con deuda de julio impaga y pedido
+solo por agosto: el pago fue aceptado y redirigió a caja, en vez de producir el error
+FIFO. La prueba temporal se retiró para no dejar la suite rota.
+
+**Opciones, sin elegir ninguna:** (1) ampliar primero el FIFO para consultar y
+rechazar deudas anteriores no incluidas, lo que implica que 1.9 no estaba cerrada;
+(2) cambiar la aceptación de A1 para forzar el rollback mediante otro error real del
+pago; (3) probar el rollback enviando deuda vieja y período nuevo en el mismo pedido,
+que sí activa el FIFO actual pero no cumple el escenario literal de la orden.
+
+**Cambios funcionales:** ninguno. **Pendiente:** definición del dueño antes de
+implementar A1 o continuar las otras seis tareas.
+
+---
+
 ## 2026-08-27 17:27 — Codex CyE
 
 **Tareas:** corrección conjunta 1.3 + 1.4 — fuente única de catálogos y seeders seguros.
