@@ -52,6 +52,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 | Contratos de negocio | `docs/02-contratos/` |
 | Design system y reglas UI | `docs/03-diseno-ui/` |
 | Setup tecnico | `docs/04-tecnico/` |
+| **Servidor y credenciales** | `docs/04-tecnico/SERVIDOR.md` — apunta afuera del repo: son de la plataforma Gestionar-te, no de Wings |
 | Pendientes crudos | `docs/05-pendientes/` |
 | Pruebas funcionales | `docs/06-pruebas/` |
 | Historico / archivo | `docs/99-archivo/` |
