@@ -23,3 +23,10 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /tmpclaude-*
+
+# Credenciales del servidor: NUNCA al repositorio.
+# Un archivo con claves commiteado queda en el historial de git para siempre,
+# aunque después se borre. Ver AGENTS.md seccion 3.
+docs/08-VPS/*credenciales*
+docs/08-VPS/*credentials*
+docs/06-pruebas/Credenciales*
