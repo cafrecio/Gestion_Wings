@@ -14,6 +14,28 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — dependencias sin avisos de seguridad
+
+**Actualización:** `composer update` renovó 73 paquetes dentro de los rangos ya
+declarados. `barryvdh/laravel-dompdf` pasó de 3.1.1 a 3.1.2 y su motor
+`dompdf/dompdf` de 3.1.4 a 3.1.6. `laravel/tinker` permaneció en la rama 2
+(2.11.0 a 2.11.1). `composer.json` no se modificó; solo cambió el lock.
+
+**Recibo real:** se regeneró el recibo de cuota 145 con datos existentes y se
+abrieron sus dos páginas A5 mediante render PNG. Cabecera, datos, período, total,
+medio de cobro, observaciones y firma quedaron legibles, sin cortes,
+superposiciones, glifos rotos ni imágenes faltantes. Se comparó contra el recibo 1,
+cacheado en julio con Dompdf 3.1.4: ya tenía las mismas dos páginas y distribución,
+por lo que no hubo regresión de paginado.
+
+**Verificación:** 65 pruebas y 252 aserciones aprobadas; `composer validate
+--strict` correcto; `composer audit --locked` informa **0 advertencias**. No se
+tocaron archivos PHP, por lo que no hubo archivos aplicables a `php -l`. Vistas
+compiladas y diff de vistas/CSS vacío. Los PNG temporales de inspección se
+eliminaron; el PDF regenerado permanece en el storage local no versionado.
+
+---
+
 ## 2026-08-30 — Codex CAB — cuenta ADMIN protegida
 
 **Decisión contractual:** se mantuvieron los tres roles. `es_superadmin` es una
