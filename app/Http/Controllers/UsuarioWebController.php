@@ -13,7 +13,13 @@ class UsuarioWebController extends Controller
 {
     public function index()
     {
-        $usuarios = User::with('profesor')->orderBy('name')->paginate(30);
+        $usuarios = User::with('profesor')
+            ->where(function ($query) {
+                $query->where('es_superadmin', false)
+                    ->orWhere('id', Auth::id());
+            })
+            ->orderBy('name')
+            ->paginate(30);
 
         return view('usuarios.index', compact('usuarios'));
     }
@@ -83,6 +89,7 @@ class UsuarioWebController extends Controller
     public function edit(int $id)
     {
         $usuario = User::with('profesor')->findOrFail($id);
+        $this->autorizarCuentaProtegida($usuario);
         $roles   = User::getRoles();
 
         $profesoresSinUsuario = Profesor::where('activo', true)
@@ -99,6 +106,7 @@ class UsuarioWebController extends Controller
     public function update(Request $request, int $id)
     {
         $usuario = User::findOrFail($id);
+        $this->autorizarCuentaProtegida($usuario);
 
         if (Auth::id() === $usuario->id && $request->rol !== $usuario->rol) {
             return back()->withInput()->with('error', 'No podés cambiar tu propio rol.');
@@ -158,6 +166,7 @@ class UsuarioWebController extends Controller
     public function toggleActivo(Request $request, int $id)
     {
         $usuario = User::findOrFail($id);
+        $this->autorizarCuentaProtegida($usuario);
 
         if ($usuario->id === Auth::id()) {
             if ($request->expectsJson()) {
@@ -190,5 +199,12 @@ class UsuarioWebController extends Controller
             ->exists();
 
         return response()->json(['disponible' => !$existe]);
+    }
+
+    private function autorizarCuentaProtegida(User $usuario): void
+    {
+        if ($usuario->es_superadmin && $usuario->id !== Auth::id()) {
+            abort(403);
+        }
     }
 }

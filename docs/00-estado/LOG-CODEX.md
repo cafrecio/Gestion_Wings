@@ -14,6 +14,32 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — cuenta ADMIN protegida
+
+**Decisión contractual:** se mantuvieron los tres roles. `es_superadmin` es una
+marca de integridad sobre una cuenta ADMIN, no un rol ni un permiso adicional; no
+cambia rutas, middlewares ni la matriz ADMIN/OPERATIVO/PROFESOR. La excepción quedó
+documentada en `PERMISOS-ROLES.md`.
+
+**Cambios reales:** migración booleana con valor predeterminado `false`; el listado
+solo muestra cuentas protegidas a sí mismas; `edit`, `update` y `toggleActivo`
+responden 403 para cualquier otro usuario antes de validar o escribir. El alta y la
+edición web ignoran intentos de establecer la marca. `wings:crear-admin
+--superadmin` es la única vía de alta protegida. El preflight conserva su consulta
+por rol ADMIN activo y se probó expresamente con una cuenta protegida.
+
+**Regresión:** antes del bloqueo fallaban seis escenarios: visibilidad, acceso a la
+edición, cambio de datos, contraseña, rol y estado activo. Después del arreglo pasan,
+incluido que la cuenta protegida se vea a sí misma y administre a otro ADMIN.
+
+**Verificación:** 65 pruebas y 252 aserciones aprobadas; siete archivos PHP sin
+errores de sintaxis; vistas compiladas; diff de vistas y CSS vacío. La migración se
+aplicó en CAB y la columna quedó `tinyint(1)`, predeterminado `0`. No se creó ni se
+marcó ninguna cuenta real: Carlos debe ejecutar el comando con su email y una
+contraseña que no se registre en el repo.
+
+---
+
 ## 2026-08-30 — Codex CAB — D1 nombres de grupo en documentos
 
 **Corregido en el origen.** `Grupo::nombre_completo` ahora carga `deporte` y

@@ -24,6 +24,22 @@ Un operativo que entra al mostrador tiene que poder atender a cualquier alumno, 
 | **OPERATIVO** | Recepción / mostrador | Toda la operación diaria: alumnos, cobros de cuota, caja, cobranza, clases y asistencias. Ve lo del admin en lo que comparten rubro. |
 | **PROFESOR** | Docente | Solo clases y asistencias. No participa de plata ni de alumnos. |
 
+### Cuenta ADMIN protegida (no es un cuarto rol)
+
+Puede existir una cuenta con rol `ADMIN` marcada como superadministrador protegido.
+La marca no agrega rutas, acciones ni dominios: conserva exactamente los permisos de
+un ADMIN. Su única función es proteger la administración de esa identidad:
+
+- Para cualquier otra cuenta, incluso otro ADMIN, no aparece en el listado de
+  usuarios y sus rutas de edición, cambio de contraseña, cambio de rol y activación
+  responden 403.
+- La cuenta protegida puede verse y administrarse a sí misma, y administra a los
+  demás usuarios con las facultades normales de ADMIN.
+- La marca solo se asigna por consola; el alta y la edición web no pueden establecerla.
+
+Esto es una restricción de integridad sobre una cuenta concreta, no una división del
+dominio ADMIN ni una excepción a la matriz de rutas por rol.
+
 ### Regla de oro entre ADMIN y OPERATIVO
 
 **El ADMIN nunca puede tener menos poder que el OPERATIVO.** Si el operativo puede hacer/ver algo, el admin también — siempre. No puede existir una acción disponible para el operativo y negada al admin. (Esto ya se corrigió una vez en los subrubros: la opción de permiso es "Solo Admin" o "Ambos", nunca "Solo Operativo".)

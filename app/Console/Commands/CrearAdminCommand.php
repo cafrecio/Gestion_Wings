@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 class CrearAdminCommand extends Command
 {
-    protected $signature = 'wings:crear-admin';
+    protected $signature = 'wings:crear-admin
+                            {--superadmin : Crea una cuenta administradora protegida}';
 
     protected $description = 'Crea de forma interactiva la cuenta administradora inicial';
 
@@ -44,6 +45,7 @@ class CrearAdminCommand extends Command
         $usuario->password = Hash::make($password);
         $usuario->rol = User::ROL_ADMIN;
         $usuario->activo = true;
+        $usuario->es_superadmin = (bool) $this->option('superadmin');
         $usuario->save();
 
         $this->info('Administrador creado correctamente.');

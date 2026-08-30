@@ -54,4 +54,21 @@ class CrearAdminCommandTest extends TestCase
 
         $this->assertDatabaseCount('users', 0);
     }
+
+    public function test_opcion_superadmin_crea_una_cuenta_protegida(): void
+    {
+        $this->artisan('wings:crear-admin', ['--superadmin' => true])
+            ->expectsQuestion('Email del administrador', 'carlos@wings.test')
+            ->expectsQuestion('Nombre del administrador', 'Carlos')
+            ->expectsQuestion('Contraseña (mínimo 12 caracteres)', 'frase-segura-carlos')
+            ->expectsOutput('Administrador creado correctamente.')
+            ->assertSuccessful();
+
+        $this->assertDatabaseHas('users', [
+            'email' => 'carlos@wings.test',
+            'rol' => User::ROL_ADMIN,
+            'activo' => true,
+            'es_superadmin' => true,
+        ]);
+    }
 }

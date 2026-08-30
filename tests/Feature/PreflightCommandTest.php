@@ -52,4 +52,20 @@ class PreflightCommandTest extends TestCase
             ->expectsOutput('[ERROR] APP_DEBUG=false: Un error podría mostrar código y claves.')
             ->assertFailed();
     }
+
+    public function test_superadmin_protegido_cuenta_como_administrador_activo(): void
+    {
+        User::query()->delete();
+        User::factory()->create([
+            'email' => 'carlos@wings.test.ar',
+            'rol' => User::ROL_ADMIN,
+            'activo' => true,
+            'es_superadmin' => true,
+        ]);
+
+        $this->artisan('wings:preflight')
+            ->expectsOutput('[OK] Administrador activo presente')
+            ->expectsOutput('Preflight aprobado.')
+            ->assertSuccessful();
+    }
 }
