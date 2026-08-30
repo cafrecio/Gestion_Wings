@@ -81,16 +81,87 @@ los servicios `cwpsrv`, `cwp-phpfpm`, `httpd` y `mariadb` siguen activos.
 | rsync | presente |
 | composer | **instalado el 30/08**, corriendo sobre PHP 8.2 |
 
-## Lo que falta para que Wings corra
+## Despliegue — hecho el 30/08/2026
 
-1. Crear el subdominio en CWP. El certificado sale solo.
-2. Crear la base de datos y un usuario propio, sin privilegios de administrador.
-3. Subir el código y instalar dependencias.
-4. Apuntar la raíz del sitio a la carpeta `public` de Laravel, **no** a la raíz
-   del proyecto.
-5. Hacer que ese sitio use PHP 8.2 y no el 7.4 del panel.
-6. Configuración de producción y `wings:preflight` en verde.
-7. Tarea programada para el proceso mensual.
+**Wings está en línea en `https://wings.gestionar-te.com.ar`**, con el preflight
+aprobado en sus 12 verificaciones.
+
+### Cómo quedó armado
+
+| Pieza | Dónde |
+|---|---|
+| Código | `/home/wings/app`, clonado del repositorio |
+| Usuario del sistema | `wings`, con contraseña bloqueada |
+| Motor PHP | Pool propio `wings` en PHP 8.2, socket `/var/opt/remi/php82/run/php-fpm/wings.sock` |
+| Sitio | `/usr/local/apache/conf.d/wings.conf` — HTTP con redirección y HTTPS |
+| Raíz web | `/home/wings/app/public`, **no** la raíz del proyecto |
+| Certificado | Let's Encrypt, vence 28/11/2026, renovación por `acme.sh` |
+| Tarea programada | Cron del usuario `wings`, cada minuto |
+
+### Tres trampas que aparecieron y cómo se resolvieron
+
+**El sitio no se aplicaba.** Los vhosts de CWP usan la IP explícita
+(`2.25.204.38:80`) y el nuevo se creó con comodín (`*:80`). Apache los trata como
+grupos separados y el comodín nunca se evaluaba: todo caía en la página por
+defecto del panel. **Se corrigió usando la misma IP explícita.**
+
+**Faltaba `proxy_fcgi`.** Estaba comentado en `httpd.conf`, así que Apache no
+podía hablar con PHP 8.2. Se descomentó. Hay copia en `httpd.conf.bak-wings`.
+
+**El socket daba permiso denegado.** El pool se creó con dueño `apache`, pero el
+Apache de CWP **corre como `nobody`**. Se cambió `listen.owner` y `listen.group`
+a `nobody`.
+
+**La validación del certificado daba 404.** CWP tiene un desvío **global** en
+`autossl_proxy.conf` que manda todas las validaciones a
+`/usr/local/apache/autossl_tmp`, sin importar el sitio. Poner el archivo en la
+carpeta de Wings no servía. Se emitió usando esa carpeta como raíz de validación,
+que es la vía que el panel espera.
+
+> **Regla general que dejan estas cuatro:** en este servidor manda CWP. Cuando algo
+> no funciona, la causa suele ser una configuración global del panel, no el sitio.
+
+### Por qué el sitio vive fuera de `conf.d/vhosts/`
+
+Esa carpeta la reconstruye CWP. `wings.conf` está un nivel arriba, en `conf.d/`,
+que Apache carga igual pero el panel no toca.
+
+### El diseño se compila en el servidor
+
+`public/build` está en `.gitignore`, así que los archivos compilados **no viajan
+en el repositorio**. Se instaló Node 20 y el despliegue corre `npm ci` y
+`npm run build`. Si eso se saltea, el sistema se ve sin estilos.
+
+## Lo que falta
+
+1. **Configurar Laravel para trabajar detrás de Cloudflare.** Ver abajo, es lo más
+   urgente.
+2. Cerrar los puertos que no se usan.
+3. Backups con destino externo y restauración probada.
+4. Un `deploy.sh` que repita todo esto sin pasos a mano.
+5. Rotar las claves que quedan y dejar un solo archivo de credenciales.
+
+## Cloudflare: el dominio no apunta al servidor
+
+`gestionar-te.com.ar` **resuelve a Cloudflare**, no al servidor. El DNS lo
+administra Cloudflare, no el `named` que tiene la máquina — esa zona local está de
+adorno.
+
+El subdominio de Wings se creó **sin proxy (nube gris)** para que la validación
+del certificado funcione.
+
+### Consecuencia que hay que arreglar en el código
+
+**Laravel no está configurado para confiar en un proxy** (no hay `trustProxies` en
+`bootstrap/app.php`, verificado). Si se activa el proxy de Cloudflare:
+
+- La aplicación vería **la misma IP para todos los usuarios**. El límite de
+  `throttle:5,1` del login pasaría a contar a todos juntos: **cinco intentos
+  fallidos de cualquiera dejarían afuera al club entero**.
+- Creería que no hay cifrado y armaría las direcciones con `http://`: enlaces de
+  recuperación rotos y posibles bucles de redirección.
+
+**No activar la nube naranja hasta que eso esté resuelto.**
 
 ## Riesgos de seguridad detectados
 
