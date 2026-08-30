@@ -250,7 +250,9 @@ class AlumnoWebController extends Controller
             // Obligatoria: la columna es NOT NULL y el boot() del modelo solo
             // completa la fecha al crear, no al actualizar.
             'fecha_alta' => 'required|date',
-            'celular' => 'nullable|string|max:255',
+            // Obligatorio: la columna es NOT NULL, asi que dejarlo vacio no daba
+            // un mensaje de validacion sino un error 500 contra la base.
+            'celular' => 'required|string|max:255',
             'email' => 'nullable|email|max:255',
             'deporte_id' => 'required|exists:deportes,id',
             'grupo_id' => 'required|exists:grupos,id',
