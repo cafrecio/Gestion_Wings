@@ -331,6 +331,56 @@ No requieren código. Solo verificar y dejarlo asentado en `LOG-CODEX.md`:
 
 ---
 
+# Bloque D — agregado el 30/08
+
+## D1 · El nombre de grupo sale vacío en documentos reales · 1 h
+
+**Verificado leyendo el código el 30/08, no heredado de un reporte.**
+
+`Grupo` arma su nombre concatenando deporte y nivel, pero **solo si esas relaciones ya
+están cargadas** (`app/Models/Grupo.php:42-43`):
+
+```php
+$dep = $this->relationLoaded('deporte') ? ($this->deporte->nombre ?? '') : '';
+$niv = $this->relationLoaded('nivel')   ? ($this->nivel->nombre   ?? '') : '';
+```
+
+Si no lo están, devuelve **cadena vacía en silencio**. Y como devuelve `''` y no `null`,
+los seis `?? 'Sin grupo'` repartidos por el código **nunca actúan**: el operador `??`
+solo salta con nulo.
+
+`LiquidacionService.php:431` carga `->with('grupo')` pero no `grupo.deporte` ni
+`grupo.nivel`. Resultado confirmado en datos reales: el detalle de liquidación imprime
+`"Clase 02/03/2026 -  — "`, y eso **sale en los recibos que se le entregan al profesor**.
+
+### Los seis lugares afectados
+
+| Archivo | Línea |
+|---|---|
+| `app/Services/LiquidacionService.php` | 104 y 445 |
+| `app/Services/CobranzaEstadoService.php` | 181 |
+| `app/Services/PagoService.php` | 229 y 245 |
+| `app/Http/Controllers/AlumnoWebController.php` | 78 (usa `nombre_completo`, verificar si tiene el mismo defecto) |
+
+### Qué hacer
+
+**El arreglo es central, no parche por parche.** Que el accesor deje de fallar en
+silencio: si las relaciones no están cargadas, que las cargue (`loadMissing`) en vez de
+devolver vacío.
+
+**Y además** agregar el eager load en las consultas que recorren varios registros
+—empezando por `LiquidacionService.php:431` con `grupo.deporte` y `grupo.nivel`— para no
+generar una consulta por fila.
+
+Las dos cosas: la primera garantiza que nunca salga vacío, la segunda que no se degrade
+el rendimiento.
+
+*Aceptación:* generar el detalle de una liquidación con clases reales y verificar que
+**ninguna** descripción quede con el nombre vacío. Test que cubra el caso de relaciones
+no cargadas.
+
+---
+
 # Fuera de este lote
 
 | # | Tarea | Por qué no va ahora |
