@@ -14,6 +14,27 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — cierre C3
+
+**1.9 cerrada por reemplazo contractual, no por ampliar el FIFO.** Se contrastaron
+los dos contratos vigentes: `Wings-contrato-cuotas-deudas-pagos-V1.md` §3.e define
+FIFO cuando un mismo pago cubre múltiples períodos, y
+`Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` §9b define los períodos que
+quedan fuera. Son coherentes: `PagoCuotaService::validarFifo()` sigue invocado en los
+flujos OPERATIVO y ADMIN y ordena lo incluido en un cobro; A2 avisa antes de guardar,
+exige motivo y notifica al administrador si quedan meses anteriores omitidos. B6 deja
+de considerarse defecto por decisión del dueño.
+
+**1.12 confirmada.** La consulta a `information_schema.TABLES` sobre la base local
+`gestion_wings` devolvió cero filas para `formas_pago`. No quedan referencias de
+ejecución en `app/`, `config/`, `routes/` ni `tests/`; las únicas menciones técnicas
+están en migraciones históricas que crean y luego eliminan la tabla y su FK.
+
+**Verificación:** 51 pruebas y 211 aserciones aprobadas; vistas compilan; diff de
+vistas y CSS vacío. No hubo cambios funcionales en C3.
+
+---
+
 ## 2026-08-30 — Codex CAB — lote D1B retomado
 
 **Completado y commiteado:** A1 hizo atómicos el cambio de plan, la reescritura de
