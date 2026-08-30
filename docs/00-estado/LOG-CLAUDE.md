@@ -17,6 +17,54 @@
 
 ---
 
+## 2026-08-30 — Claude CAB
+
+**Objetivo:** arranque de jornada en la máquina de casa: bajar el repo, leer
+`AGENTS.md` y `CLAUDE.md` antes de tocar la base, y dejar el entorno sincronizado.
+
+**Cambios:** ninguno de código. Se aplicó en la base local la única migración
+pendiente (`2026_08_27_000001_normalizar_niveles_catalogos`) y se corrió el setup
+post-pull del checklist (`composer install`, `npm install`, `npm run build`).
+
+### Decisiones y hallazgos
+
+**1. No se hizo dump, en ninguna de las dos direcciones.** Exportar quedó prohibido
+por `AGENTS.md` §3. Importar no correspondía: el pull no modificó `database/dump.sql`.
+La instrucción vieja que tenía Claude en memoria —dumpear antes de cada commit, y
+además sin `--ignore-table`— quedó corregida.
+
+**2. El hook `pre-commit` está limpio en CAB.** Solo existe el `.sample` de Git. El
+paso A1 del checklist ya está cubierto en esta máquina; no hay nada que auto-exporte.
+
+**3. `database/dump.sql` sigue trackeado.** La tarea 1.2 continúa abierta, como
+indica la bitácora de Codex.
+
+**4. Corrección de premisa sobre el dump.** `AGENTS.md` §3 justifica sacarlo diciendo
+que contiene "datos personales reales de alumnos". Se verificaron filas concretas: los
+36 alumnos son generados por seeder (DNI correlativos desde `3000000x`, celulares
+correlativos, emails vacíos). **No hay datos de chicos reales.** Lo que sí hay y no
+debería estar en un repositorio son **11 sesiones y 3 access tokens**. La decisión de
+sacar el dump sigue siendo correcta; el motivo escrito no lo es y conviene corregirlo
+para que nadie lo discuta después desde una premisa falsa.
+
+**5. Contradicción detectada, no resuelta.** La migración de niveles trata
+`Principiantes` como nombre legacy a eliminar cuando no tiene grupos asociados, pero
+`CatalogosSeeder.php:36` lo crea como uno de los tres niveles canónicos. En CAB no
+tuvo efecto porque `Principiantes` tiene 2 grupos y quedó conservado. El riesgo
+aparece en un `migrate` sobre una base ya sembrada donde ese nivel todavía no tenga
+grupos: se borraría un catálogo válido en silencio. No se modificó nada — queda para
+que lo defina quien es dueño de esa tarea.
+
+**Verificación:** 38 pruebas y 130 aserciones aprobadas; 127 rutas; migración aplicada
+sin borrar filas y los tres niveles (`Principiantes`, `Intermedias`, `Avanzadas`)
+intactos después de correrla; build de Vite correcto.
+
+**Siguiente paso:** tarea 1.2 sigue en manos de Codex. Del lado de Claude, pendientes
+del cierre anterior: nombre de grupo vacío en el detalle de liquidación (llega a los
+recibos de profesores) y `fecha_alta` ausente del formulario de alumno.
+
+---
+
 ## 2026-08-28 — Claude CyE
 
 **Objetivo:** revisar una por una las 12 tareas del bloque 1, preguntando de cada
