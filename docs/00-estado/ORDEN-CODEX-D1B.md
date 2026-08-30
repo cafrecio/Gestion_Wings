@@ -50,7 +50,7 @@ Verificado leyendo código y base, no heredado de un documento:
 | 1.1 | Hook `pre-commit` | **Cerrada.** En CAB solo existe el `.sample` |
 | 1.3 | `CatalogosSeeder` | **Cerrada** |
 | 1.4 | Sanear seeders | **Cerrada** |
-| 1.9 | FIFO fuerte | **CORREGIDO 30/08 — sigue abierto.** Ver más abajo |
+| 1.9 | FIFO fuerte | **Cerrada por reemplazo el 30/08**, no por implementación. Ver C3 |
 | 1.12 | Limpiar `formas_pago` | **Sin trabajo.** La tabla ya no existe en la base |
 | 1.11 | Throttle de login | **Parcial.** Hay `throttle:10,1`; el plan pide `5,1` |
 | 1.5 | `wings:crear-admin` | **No existe.** Solo está `GenerarDeudasMensualesCommand` |
@@ -59,7 +59,11 @@ Verificado leyendo código y base, no heredado de un documento:
 | 1.10 | Asistencias todo-o-nada | **Pendiente.** El guardado no está en transacción |
 | 1.9b | Atomicidad del cambio de plan | **Pendiente y ya alcanzable** — ver abajo |
 
-### Corrección del 30/08 — el FIFO NO está resuelto
+### Corrección del 30/08 — qué pasó con el FIFO
+
+> **Cierre:** este apartado registra un error y su resolución. El desenlace está al
+> final: 1.9 quedó **cerrada por reemplazo** y el comportamiento definitivo es el del
+> contrato §9b. No es una tarea pendiente.
 
 En la primera versión de esta orden di 1.9 por cerrada. **Estaba mal.** Verifiqué que
 `validarFifo()` existía y que se invocaba, y di por hecho lo que validaba sin leer qué
@@ -107,9 +111,13 @@ que el plan advertía que había que evitar.
 - Líneas **673-687**: recién ahí se intenta el pago, dentro de un `try/catch` que
   devuelve el error **sin revertir nada**.
 
-No hay ninguna transacción en el archivo. Si el pago falla —y el FIFO ahora lo hace
-fallar— el operativo ve "no se registró el pago", pero el alumno **ya quedó con el
-plan cambiado y la deuda del mes reescrita**.
+No hay ninguna transacción en el archivo. Si el pago falla **por cualquier motivo**, el
+operativo ve "no se registró el pago", pero el alumno **ya quedó con el plan cambiado y
+la deuda del mes reescrita**.
+
+> Una versión anterior decía acá que el FIFO era el que provocaba el fallo. **Era
+> falso** y de ahí salió el criterio equivocado de aceptación. El defecto de atomicidad
+> es real igual: no depende de qué haga fallar al pago.
 
 **Qué hacer:** el cambio de plan, la reescritura de la deuda y el registro del pago
 tienen que ser **una sola unidad**. O pasan los tres, o no pasa ninguno.
