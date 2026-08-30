@@ -310,8 +310,22 @@ Hoy `routes/web.php:31` tiene `throttle:10,1`. El plan pide `throttle:5,1`.
 
 No requieren código. Solo verificar y dejarlo asentado en `LOG-CODEX.md`:
 
-- **1.9 FIFO:** confirmar que `validarFifo()` cubre las dos rutas de pago y que
-  rechaza el caso de deuda vieja impaga con cobro del período nuevo.
+- **1.9 FIFO — corregido el 30/08.** El texto anterior de este punto todavía pedía que
+  el FIFO *rechazara* el cobro de un mes con deuda anterior. **Estaba mal y contradecía
+  al contrato §9b**, que Carlos definió el mismo día. Codex lo detectó y frenó, que es
+  lo que corresponde.
+
+  **1.9 queda cerrada por reemplazo, no por implementación.** El comportamiento
+  definitivo son dos piezas que ya existen:
+
+  1. `validarFifo()` valida el orden **dentro de un mismo cobro**: si se pagan varios
+     meses juntos, los viejos se cancelan completos antes de imputar a los nuevos. Eso
+     está bien como está y **no se toca**.
+  2. Los meses que quedan **afuera** del cobro los cubre A2: se avisa, se pide motivo y
+     se notifica al administrador. No se bloquea.
+
+  Solo hay que confirmar que ambas piezas están y dejarlo asentado. El hallazgo B6
+  "FIFO evadible" se cierra con esta decisión: dejar de considerarse un defecto.
 - **1.12 `formas_pago`:** la tabla ya no existe en la base. Confirmar que tampoco
   quedan referencias en el código.
 
