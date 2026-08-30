@@ -14,6 +14,34 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — prueba humana finalizada por bloqueo en B2
+
+Se retomó `PRUEBA-HUMANA-V1.md` en A3 y se operó exclusivamente desde el
+navegador sobre `wings_test`, sin llamar servicios, escribir directamente en la
+base ni corregir código. A3–A8 y A10–A13 pasaron. A9 falló: el editor de planes
+aceptó y guardó un precio cero; al escribir un valor negativo eliminó el signo y
+guardó el importe como positivo. Los dos registros adicionales quedaron en la
+base descartable.
+
+B1 pasó: las siete rutas administrativas probadas con el rol operativo
+redirigieron a Caja. La cadena se frenó en B2: Caja no mostró deudas pendientes,
+la búsqueda del alumno no devolvió cuotas y la pantalla individual indicó total
+pendiente cero con el botón de cobro deshabilitado. No se registró pago,
+movimiento ni caja. B3–D2 quedaron `NO SE PUDO` para no fabricar el estado
+faltante ni saltear el eslabón roto.
+
+Incidencia del ejecutor: al reutilizar un formulario validado se creó un profesor
+adicional con datos de prueba. No se eliminó; está separado del resultado de A5
+en el informe para no atribuirlo a Wings y para que un recuento posterior no lo
+confunda con duplicación del sistema.
+
+El detalle paso por paso, incluidos mensajes y escrituras observadas, quedó en
+`docs/06-pruebas/RESULTADO-PRUEBA-HUMANA-V1.md`. Verificación final: 65 pruebas y
+253 aserciones aprobadas; las vistas compilan; `resources/views/**` y
+`resources/css/**` no tienen cambios. No se tocó lógica funcional.
+
+---
+
 ## 2026-08-30 — Codex CAB — prueba humana pausada en A2
 
 Se inició `PRUEBA-HUMANA-V1.md` exclusivamente desde el navegador sobre
