@@ -50,7 +50,7 @@ Verificado leyendo código y base, no heredado de un documento:
 | 1.1 | Hook `pre-commit` | **Cerrada.** En CAB solo existe el `.sample` |
 | 1.3 | `CatalogosSeeder` | **Cerrada** |
 | 1.4 | Sanear seeders | **Cerrada** |
-| 1.9 | FIFO fuerte | **Ya implementado.** `validarFifo()` se invoca desde las dos rutas de pago |
+| 1.9 | FIFO fuerte | **CORREGIDO 30/08 — sigue abierto.** Ver más abajo |
 | 1.12 | Limpiar `formas_pago` | **Sin trabajo.** La tabla ya no existe en la base |
 | 1.11 | Throttle de login | **Parcial.** Hay `throttle:10,1`; el plan pide `5,1` |
 | 1.5 | `wings:crear-admin` | **No existe.** Solo está `GenerarDeudasMensualesCommand` |
@@ -58,6 +58,32 @@ Verificado leyendo código y base, no heredado de un documento:
 | 1.7 | Configuración de producción | **No existe** `.env.production.example` ni `wings:preflight` |
 | 1.10 | Asistencias todo-o-nada | **Pendiente.** El guardado no está en transacción |
 | 1.9b | Atomicidad del cambio de plan | **Pendiente y ya alcanzable** — ver abajo |
+
+### Corrección del 30/08 — el FIFO NO está resuelto
+
+En la primera versión de esta orden di 1.9 por cerrada. **Estaba mal.** Verifiqué que
+`validarFifo()` existía y que se invocaba, y di por hecho lo que validaba sin leer qué
+hacía. Codex lo encontró al intentar escribir el test de A1.
+
+`PagoCuotaService.php:442-444`:
+
+```php
+if (count($items) <= 1) {
+    return;
+}
+```
+
+La función **solo controla el orden entre los períodos que se cobran juntos.** Nunca
+mira las deudas que quedaron afuera del cobro. Si un alumno debe mayo y junio y se
+cobra únicamente junio, llega un solo ítem, la función se va sin validar y el pago se
+acepta con mayo impago.
+
+Es exactamente el hallazgo **B6 "FIFO evadible"** del plan, que citaba estas mismas
+líneas como evidencia. Sigue abierto y es alcanzable desde la pantalla de cobro, donde
+el operativo elige qué períodos paga.
+
+**No se corrige en este lote:** cambiarlo define si se puede cobrar un mes dejando otro
+anterior impago, y eso es una regla de negocio que decide Carlos, no un agente.
 
 ---
 
@@ -94,15 +120,31 @@ tienen que ser **una sola unidad**. O pasan los tres, o no pasa ninguno.
   aplica al mes siguiente; sin asistencia, al mes en curso; subir siempre al mes en
   curso. Está en `Wings-contrato-estadosAlum-cobranza-asistencia-V1.md`.
 
-**Aceptación — test de regresión obligatorio.** Alumno con una deuda vieja impaga.
-En un mismo pedido: cambiar de plan y pagar **solo el período nuevo**. El FIFO debe
-rechazar el pago, y después del rechazo hay que verificar:
+**Aceptación — test de regresión obligatorio.**
+
+> **Corrección del 30/08.** La versión anterior de este criterio pedía disparar el
+> fallo con una deuda vieja impaga cobrando solo el período nuevo. **Ese criterio
+> estaba mal**: el FIFO actual no valida ese caso, así que el pago se acepta y el
+> test nunca llega a probar la atomicidad. Codex lo detectó y frenó el lote, que es
+> exactamente lo que corresponde. El defecto del FIFO es real y quedó abierto como
+> tarea aparte; **no bloquea esta**.
+
+Lo que hay que probar acá es **una sola cosa: que si el pago falla, no queda nada
+escrito.** Da igual por qué falla.
+
+Por eso el disparador del fallo es libre y lo elegís vos. Lo más limpio es forzar
+que el servicio de pago lance una excepción —con un doble o un mock de
+`PagoCuotaService`— en vez de depender de una regla de negocio concreta. Así el test
+prueba la transacción y no una validación que mañana puede cambiar.
+
+Con el pago fallando, verificar que **después del fallo**:
 
 - no se creó ninguna fila nueva en `alumno_planes`;
 - `deuda_cuotas.monto_original` del mes en curso quedó **igual que antes**;
 - no se creó ningún `pago` ni `movimiento_operativo`.
 
-Si el test no falla contra el código actual, está mal escrito.
+Si el test pasa contra el código actual, está mal escrito: hoy el cambio de plan
+persiste igual.
 
 ---
 
