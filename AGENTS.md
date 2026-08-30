@@ -235,6 +235,30 @@ dueño del proyecto.
 **5. Heredar un hallazgo de un documento es inferir, no verificar.** Toda auditoría
 o reporte previo se revalida contra el código actual antes de repetirse.
 
+### Los cuatro gatillos — agregados el 30/08/2026
+
+Las cinco reglas de arriba son principios, y los principios se leen y se incumplen igual:
+esta sección existía desde el 28/08 y el 30/08 se violó otra vez, frenando dos veces a
+Codex. Lo que faltaba no era el enunciado sino el paso mecánico. **Estos cuatro son
+acciones, no ideas.**
+
+| Cuándo | Qué hacer, sin excepción |
+|---|---|
+| Antes de escribir que algo **está implementado, hecho o funciona** | Leer **el cuerpo de la función**. No el nombre, no el docblock, no que se invoque desde el lugar correcto |
+| Antes de commitear la **corrección de un documento** | `grep` de todas las menciones del tema en ese documento. Nunca editar de memoria dónde se escribió |
+| En **cada afirmación** de un informe o reporte | Marcarla como **verificada** o **inferida**. Si no se comprobó, decirlo |
+| Antes de entregar un **prompt o una orden de trabajo** | Releerla contra el estado real de los documentos y del código que referencia |
+
+**El caso que los originó.** Un comando mostró en pantalla el cuerpo de `validarFifo()`,
+incluida la línea `if (count($items) <= 1) return;` que la desactiva. Se leyó esa salida
+y se escribió igual "ya implementado", porque se verificó que la función **existiera** y
+se **invocara**, y se reportó sobre lo que **hacía**. El plan de producción decía la
+verdad y se lo pisó.
+
+De ahí salió un criterio de aceptación imposible de cumplir, y al corregirlo se editaron
+tres lugares del documento y se olvidó un cuarto, que quedó contradiciendo al contrato.
+**Los dos frenos los detectó Codex, ninguno el autor del error.**
+
 ### Los dos casos que originaron esta regla
 
 **AUD-021.** La auditoría lo marcaba CRÍTICO: ajustar una deuda deja plata sin
