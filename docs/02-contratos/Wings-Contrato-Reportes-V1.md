@@ -22,7 +22,7 @@ las deudas, las liquidaciones y las asistencias. Falta mostrarlos.
 | Rol | Qué ve |
 |---|---|
 | **ADMIN** | Los tres reportes completos |
-| **OPERATIVO** | **Solo la lista de deudas** —porque su trabajo es cobrar— y **su caja del día** |
+| **OPERATIVO** | **La lista de deudas** y **los alumnos que dejaron de venir** —las dos son trabajo de seguimiento— más **su caja del día** |
 | **PROFESOR** | Ningún reporte |
 
 **El operativo no ve valores agregados, ni resultados, ni comparaciones, ni gastos de
@@ -176,20 +176,40 @@ tiene valor real a partir del segundo semestre de uso.
 Para un club es plata que se va sin aviso: alguien deja de asistir y sigue figurando
 como activo durante semanas.
 
-### La definición: por clases, no por semanas
+### La definición: un mes de ausencia, medido en clases
 
-**Se considera que un alumno dejó de venir cuando no asistió a las últimas 3 clases de
-su grupo.**
+**Un alumno dejó de venir cuando faltó a la cantidad de clases que su plan cubre en un
+mes.** Ocho para el que va dos veces por semana, doce para el de tres.
 
-**No** se usa "hace tres semanas que no viene". Si el club cerró por vacaciones o se
-cancelaron clases, nadie faltó a nada, y el criterio por tiempo llenaría la lista de
-avisos falsos. Contando clases efectivamente dadas, el aviso aparece solo cuando el
-alumno realmente dejó de ir.
+Son dos decisiones, y cada una resuelve un problema distinto:
+
+**El umbral es un mes**, no una semana ni dos. Alguien que falta tres clases estuvo
+engripado; no se fue. Avisar antes solo genera ruido y hace que se deje de mirar el
+reporte.
+
+**Se cuenta en clases dictadas, no en días de calendario.** Si el club cierra en enero,
+por calendario **todos** los alumnos aparecerían como que dejaron de venir, todos los
+años. Contando clases, si no hubo clases nadie acumula faltas y el reporte se queda
+callado solo, sin necesidad de marcarle nada.
 
 ### Orden
 
 **Primero los que además deben plata.** Ese es el que ya se fue y todavía nadie se
 enteró.
+
+### Quién lo ve
+
+**Admin y operativo.** Es la segunda excepción a la regla: igual que las deudas, es
+trabajo de seguimiento, y el que llama para cobrar es el mismo que llama para preguntar
+por qué no viene más.
+
+### Pendiente futuro, fuera de alcance: marcar vacaciones
+
+Para **gestionclubes**, conviene poder marcar semanas o meses de vacaciones del club.
+
+No hace falta para este reporte —contar clases ya lo resuelve— sino **para los
+gráficos**: sin eso, enero aparece como un pozo de ingresos, como si hubiera sido un
+mal mes en vez de un mes cerrado.
 
 ---
 
