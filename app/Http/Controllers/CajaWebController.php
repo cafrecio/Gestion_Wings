@@ -22,6 +22,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
@@ -606,79 +607,79 @@ class CajaWebController extends Controller
             'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
         ]);
 
-        // Registrar cambio de plan antes del pago.
-        if ($request->filled('nuevo_plan_id')) {
-            $nuevoPlanId = (int) $request->input('nuevo_plan_id');
-            $alumno->loadMissing('planActivo.plan');
-            if (!$alumno->planActivo || $alumno->planActivo->plan_id !== $nuevoPlanId) {
-                $planAnterior = $alumno->planActivo;
-                $nuevoPlan = GrupoPlan::findOrFail($nuevoPlanId);
-                $esBaja = $planAnterior?->plan
-                    && $nuevoPlan->clases_por_semana < $planAnterior->plan->clases_por_semana;
-                $tieneAsistenciaEsteMes = $esBaja && Asistencia::where('alumno_id', $alumno->id)
-                    ->where('presente', true)
-                    ->whereHas('clase', fn($query) => $query
-                        ->whereBetween('fecha', [
-                            now()->startOfMonth()->toDateString(),
-                            now()->endOfMonth()->toDateString(),
-                        ]))
-                    ->exists();
-                $aplicaMesSiguiente = $esBaja && $tieneAsistenciaEsteMes;
-                $fechaDesde = $aplicaMesSiguiente
-                    ? now()->addMonthNoOverflow()->startOfMonth()
-                    : today();
-
-                AlumnoPlan::create([
-                    'alumno_id'   => $alumno->id,
-                    'plan_id'     => $nuevoPlanId,
-                    'fecha_desde' => $fechaDesde,
-                    'activo'      => true,
-                ]);
-
-                if ($aplicaMesSiguiente) {
-                    $planAnterior?->update([
-                        'fecha_hasta' => $fechaDesde->copy()->subDay(),
-                    ]);
-                } else {
-                    $precioNuevo = (float) $nuevoPlan->precio_mensual;
-                    DeudaCuota::where('alumno_id', $alumno->id)
-                        ->where('periodo', now()->format('Y-m'))
-                        ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                        ->whereRaw('monto_pagado <= ?', [$precioNuevo])
-                        ->update(['monto_original' => $precioNuevo]);
-                }
-            }
-        }
-
-        $deudas = DeudaCuota::where('alumno_id', $alumnoId)
-            ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-            ->whereIn('periodo', $request->input('periodos'))
-            ->orderBy('periodo')
-            ->get();
-
-        if ($deudas->isEmpty()) {
-            return back()->with('error', 'No se encontraron deudas pendientes para los períodos seleccionados.');
-        }
-
-        $montosEnviados = $request->input('montos_cuota', []);
-
-        $items = $deudas->map(function ($d) use ($montosEnviados) {
-            $montoSolicitado = isset($montosEnviados[$d->periodo])
-                ? (float) $montosEnviados[$d->periodo]
-                : (float) $d->saldo_pendiente;
-            $monto = min($montoSolicitado, (float) $d->saldo_pendiente);
-            return ['periodo' => $d->periodo, 'monto' => max($monto, 0.01)];
-        })->values()->all();
-
         try {
-            $this->pagoCuotaService->registrarPagoCuotaOperativo([
-                'alumno_id'            => $alumnoId,
-                'tipo_caja_id'         => $request->input('tipo_caja_id'),
-                'usuario_operativo_id' => $user->id,
-                'items'                => $items,
-                'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
-                'observaciones'        => $request->input('observaciones'),
-            ]);
+            DB::transaction(function () use ($request, $alumno, $alumnoId, $user) {
+                if ($request->filled('nuevo_plan_id')) {
+                    $nuevoPlanId = (int) $request->input('nuevo_plan_id');
+                    $alumno->loadMissing('planActivo.plan');
+                    if (!$alumno->planActivo || $alumno->planActivo->plan_id !== $nuevoPlanId) {
+                        $planAnterior = $alumno->planActivo;
+                        $nuevoPlan = GrupoPlan::findOrFail($nuevoPlanId);
+                        $esBaja = $planAnterior?->plan
+                            && $nuevoPlan->clases_por_semana < $planAnterior->plan->clases_por_semana;
+                        $tieneAsistenciaEsteMes = $esBaja && Asistencia::where('alumno_id', $alumno->id)
+                            ->where('presente', true)
+                            ->whereHas('clase', fn($query) => $query
+                                ->whereBetween('fecha', [
+                                    now()->startOfMonth()->toDateString(),
+                                    now()->endOfMonth()->toDateString(),
+                                ]))
+                            ->exists();
+                        $aplicaMesSiguiente = $esBaja && $tieneAsistenciaEsteMes;
+                        $fechaDesde = $aplicaMesSiguiente
+                            ? now()->addMonthNoOverflow()->startOfMonth()
+                            : today();
+
+                        AlumnoPlan::create([
+                            'alumno_id'   => $alumno->id,
+                            'plan_id'     => $nuevoPlanId,
+                            'fecha_desde' => $fechaDesde,
+                            'activo'      => true,
+                        ]);
+
+                        if ($aplicaMesSiguiente) {
+                            $planAnterior?->update([
+                                'fecha_hasta' => $fechaDesde->copy()->subDay(),
+                            ]);
+                        } else {
+                            $precioNuevo = (float) $nuevoPlan->precio_mensual;
+                            DeudaCuota::where('alumno_id', $alumno->id)
+                                ->where('periodo', now()->format('Y-m'))
+                                ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                                ->whereRaw('monto_pagado <= ?', [$precioNuevo])
+                                ->update(['monto_original' => $precioNuevo]);
+                        }
+                    }
+                }
+
+                $deudas = DeudaCuota::where('alumno_id', $alumnoId)
+                    ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                    ->whereIn('periodo', $request->input('periodos'))
+                    ->orderBy('periodo')
+                    ->get();
+
+                if ($deudas->isEmpty()) {
+                    throw new \RuntimeException('No se encontraron deudas pendientes para los períodos seleccionados.');
+                }
+
+                $montosEnviados = $request->input('montos_cuota', []);
+                $items = $deudas->map(function ($d) use ($montosEnviados) {
+                    $montoSolicitado = isset($montosEnviados[$d->periodo])
+                        ? (float) $montosEnviados[$d->periodo]
+                        : (float) $d->saldo_pendiente;
+                    $monto = min($montoSolicitado, (float) $d->saldo_pendiente);
+                    return ['periodo' => $d->periodo, 'monto' => max($monto, 0.01)];
+                })->values()->all();
+
+                $this->pagoCuotaService->registrarPagoCuotaOperativo([
+                    'alumno_id'            => $alumnoId,
+                    'tipo_caja_id'         => $request->input('tipo_caja_id'),
+                    'usuario_operativo_id' => $user->id,
+                    'items'                => $items,
+                    'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
+                    'observaciones'        => $request->input('observaciones'),
+                ]);
+            });
 
             return redirect()->route('web.caja.index')
                 ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.");

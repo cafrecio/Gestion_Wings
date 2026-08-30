@@ -17,6 +17,7 @@ use App\Models\TipoCaja;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Mockery\MockInterface;
 use Tests\TestCase;
 
 class CambioPlanCobroTest extends TestCase
@@ -153,6 +154,41 @@ class CambioPlanCobroTest extends TestCase
             'periodo' => '2026-08',
             'monto_original' => '60000.00',
         ]);
+    }
+
+    public function test_fallo_del_pago_revierte_cambio_de_plan_y_deuda(): void
+    {
+        $this->mock(\App\Services\PagoCuotaService::class, function (MockInterface $mock) {
+            $mock->shouldReceive('registrarPagoCuotaOperativo')
+                ->once()
+                ->andThrow(new \RuntimeException('Fallo simulado del pago'));
+        });
+
+        $cantidadPlanesAntes = AlumnoPlan::where('alumno_id', $this->alumno->id)->count();
+
+        $this->actingAs($this->operativo)
+            ->from(route('web.caja.cobrar', $this->alumno->id))
+            ->post(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-08'],
+                'montos_cuota' => ['2026-08' => 20000],
+                'nuevo_plan_id' => $this->planBajo->id,
+                'fecha_pago' => '2026-08-15',
+            ])
+            ->assertRedirect(route('web.caja.cobrar', $this->alumno->id))
+            ->assertSessionHas('error', 'Fallo simulado del pago');
+
+        $this->assertSame(
+            $cantidadPlanesAntes,
+            AlumnoPlan::where('alumno_id', $this->alumno->id)->count()
+        );
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $this->alumno->id,
+            'periodo' => '2026-08',
+            'monto_original' => '40000.00',
+        ]);
+        $this->assertDatabaseCount('pagos', 0);
+        $this->assertDatabaseCount('movimientos_operativos', 0);
     }
 
     private function crearPlan(int $clasesPorSemana, float $precio): GrupoPlan
