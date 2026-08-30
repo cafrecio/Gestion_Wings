@@ -14,6 +14,40 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — lote D1B retomado
+
+**Completado y commiteado:** A1 hizo atómicos el cambio de plan, la reescritura de
+deuda y el pago (`fb473ce`); A2 agregó aviso 409, motivo obligatorio, registro en el
+pago y notificación por correo a administradores activos cuando se dejan meses
+anteriores pendientes (`51b7570`); B1 creó `wings:crear-admin` con contraseña oculta,
+control de fuerza y duplicados (`5914cab`); B2 agregó la plantilla de producción y
+`wings:preflight` sincronizados (`3a050fa`); B3 agregó los cinco headers sin CSP y sin
+reactivar la API (`c6ce1d6`); C1 hizo atómico el guardado de asistencias y rechaza
+alumnos ajenos al grupo (`dab369f`); C2 limitó el login a cinco intentos por minuto
+(`04a7903`).
+
+**Verificación real:** 51 pruebas y 211 aserciones aprobadas al cerrar C2; sintaxis
+PHP correcta; vistas compilan; cada tarea cerró con diff de vistas/CSS vacío salvo
+A2, cuyo único archivo visual fue `resources/views/caja/cobrar.blade.php`, autorizado
+expresamente. No se agregó CSP, no se tocó `app.css`, el plan ni la evaluación.
+
+**Contradicción verificada — C3 detenido según `AGENTS.md` §6b.** La corrección de
+la propia orden y el contrato §9b establecen que cobrar un período dejando otro
+anterior impago no se bloquea: se avisa, se exige motivo y se notifica. A2 implementa
+y prueba esa regla. Sin embargo C3 todavía exige confirmar que `validarFifo()`
+"rechaza el caso de deuda vieja impaga con cobro del período nuevo". Cumplir esa
+frase desharía A2 y violaría el contrato.
+
+**Opciones, sin elegir ninguna:** (1) corregir C3 para verificar el FIFO solo entre
+los períodos incluidos en un mismo cobro y verificar A2 para los períodos omitidos;
+(2) declarar 1.9 reemplazada por §9b y cerrar únicamente contra la regla de aviso;
+(3) restaurar el bloqueo fuerte, lo que requiere cambiar el contrato y retirar A2.
+
+**Quedó afuera:** C3 no se cerró y no se afirmó el estado actual de `formas_pago` en
+esta retomada. Los archivos locales previos de Carlos permanecieron intactos.
+
+---
+
 ## 2026-08-30 — Codex CAB
 
 **Objetivo:** iniciar el lote D1B por A1 (atomicidad del cambio de plan y el pago),
