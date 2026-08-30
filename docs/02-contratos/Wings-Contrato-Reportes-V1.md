@@ -142,9 +142,59 @@ alta cada uno. **Para el operativo hay que crear el subrubro a mano**, marcado c
 
 ---
 
+## 5b. Comparación contra el mes anterior
+
+Cada número del resultado del mes se muestra **junto al del mes anterior**, con la
+diferencia.
+
+Sin eso el reporte dice cuánto se ganó, pero no si se viene mejor o peor, que es la
+pregunta que realmente se hace el dueño.
+
+Sirve **desde el segundo mes** de uso.
+
+## 5c. Evolución de los últimos doce meses
+
+Un panel con gráficos: ingresos contra egresos por mes, el resultado, la cantidad de
+alumnos activos y la deuda acumulada.
+
+**Es viable técnicamente.** El sistema ya compila JavaScript con Vite, así que una
+biblioteca de gráficos entra por el mismo canal, sin introducir Alpine ni Livewire
+—que están prohibidos por `AGENTS.md`— y sin código incrustado en las páginas, que es
+justo lo que se está sacando por la CSP.
+
+### Advertencia de expectativa
+
+**Los doce meses de historia no existen.** El historial arranca el día que se carguen
+los primeros datos reales. Durante los primeros meses el gráfico va a mostrar dos o
+tres barras y va a parecer incompleto, sin estarlo.
+
+Conviene construirlo igual —se llena solo— pero **con la expectativa correcta**: recién
+tiene valor real a partir del segundo semestre de uso.
+
+## 5d. Alumnos que dejaron de venir
+
+Para un club es plata que se va sin aviso: alguien deja de asistir y sigue figurando
+como activo durante semanas.
+
+### La definición: por clases, no por semanas
+
+**Se considera que un alumno dejó de venir cuando no asistió a las últimas 3 clases de
+su grupo.**
+
+**No** se usa "hace tres semanas que no viene". Si el club cerró por vacaciones o se
+cancelaron clases, nadie faltó a nada, y el criterio por tiempo llenaría la lista de
+avisos falsos. Contando clases efectivamente dadas, el aviso aparece solo cuando el
+alumno realmente dejó de ir.
+
+### Orden
+
+**Primero los que además deben plata.** Ese es el que ya se fue y todavía nadie se
+enteró.
+
+---
+
 ## 6. Qué NO entra en esta versión
 
-- Comparación contra el mes anterior o evolución histórica.
 - Proyecciones.
 - Exportar a Excel o PDF.
 - Reportes de asistencia por alumno o por profesor.
