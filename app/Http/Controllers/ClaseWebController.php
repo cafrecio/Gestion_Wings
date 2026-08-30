@@ -350,9 +350,20 @@ class ClaseWebController extends Controller
         // Primera pasada: validar solapamiento de todos los presentes antes
         // de guardar nada (todo-o-nada, no queremos guardado parcial).
         $errores = [];
+        $alumnosDelGrupo = Alumno::where('grupo_id', $clase->grupo_id)
+            ->whereIn('id', collect($items)->pluck('alumno_id')->map(fn($id) => (int) $id)->filter())
+            ->pluck('id')
+            ->map(fn($id) => (int) $id)
+            ->all();
+
         foreach ($items as $item) {
             $alumnoId = (int) ($item['alumno_id'] ?? 0);
             $presente = (bool) ($item['presente'] ?? false);
+
+            if (!in_array($alumnoId, $alumnosDelGrupo, true)) {
+                $errores[] = 'El alumno indicado no pertenece al grupo de la clase.';
+                continue;
+            }
 
             if ($presente) {
                 $existente = Asistencia::where('clase_id', $clase->id)->where('alumno_id', $alumnoId)->first();
@@ -371,41 +382,43 @@ class ClaseWebController extends Controller
             return back()->with('error', $mensaje);
         }
 
-        // Segunda pasada: guardar.
-        foreach ($items as $item) {
-            $alumnoId = (int) ($item['alumno_id'] ?? 0);
-            $presente  = (bool) ($item['presente'] ?? false);
-            $motivo    = in_array($item['motivo_exceso'] ?? '', ['EXTRA', 'RECUPERA'])
-                ? $item['motivo_exceso']
-                : 'EXTRA';
+        // Segunda pasada: guardar como una sola unidad.
+        DB::transaction(function () use ($items, $clase, $esCorreccion, $motivoCorreccion) {
+            foreach ($items as $item) {
+                $alumnoId = (int) ($item['alumno_id'] ?? 0);
+                $presente  = (bool) ($item['presente'] ?? false);
+                $motivo    = in_array($item['motivo_exceso'] ?? '', ['EXTRA', 'RECUPERA'])
+                    ? $item['motivo_exceso']
+                    : 'EXTRA';
 
-            $datosAsistencia = ['presente' => $presente];
-            if ($esCorreccion) {
-                $datosAsistencia['motivo_correccion'] = $motivoCorreccion;
-            }
+                $datosAsistencia = ['presente' => $presente];
+                if ($esCorreccion) {
+                    $datosAsistencia['motivo_correccion'] = $motivoCorreccion;
+                }
 
-            $asistencia = Asistencia::updateOrCreate(
-                ['clase_id' => $clase->id, 'alumno_id' => $alumnoId],
-                $datosAsistencia
-            );
-
-            if ($presente) {
-                $info = $this->claseService->contarAsistenciasSemana(
-                    $alumnoId,
-                    $clase->fecha->format('Y-m-d')
+                $asistencia = Asistencia::updateOrCreate(
+                    ['clase_id' => $clase->id, 'alumno_id' => $alumnoId],
+                    $datosAsistencia
                 );
-                if ($info['excede']) {
-                    AsistenciaExceso::updateOrCreate(
-                        ['asistencia_id' => $asistencia->id],
-                        [
-                            'alumno_id'  => $alumnoId,
-                            'fecha_clase' => $clase->fecha->format('Y-m-d'),
-                            'motivo'     => $motivo,
-                        ]
+
+                if ($presente) {
+                    $info = $this->claseService->contarAsistenciasSemana(
+                        $alumnoId,
+                        $clase->fecha->format('Y-m-d')
                     );
+                    if ($info['excede']) {
+                        AsistenciaExceso::updateOrCreate(
+                            ['asistencia_id' => $asistencia->id],
+                            [
+                                'alumno_id'  => $alumnoId,
+                                'fecha_clase' => $clase->fecha->format('Y-m-d'),
+                                'motivo'     => $motivo,
+                            ]
+                        );
+                    }
                 }
             }
-        }
+        });
 
         if ($esJson) {
             return response()->json(['success' => true, 'message' => 'Asistencias guardadas.']);
