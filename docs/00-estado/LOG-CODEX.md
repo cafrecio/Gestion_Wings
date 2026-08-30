@@ -14,6 +14,82 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — CSP medida en modo reporte
+
+**Política aplicada:** el middleware agrega únicamente
+`Content-Security-Policy-Report-Only`. `script-src` admite solo `'self'`;
+`style-src` conserva `'self' 'unsafe-inline' https:` para no afectar los 1.054
+estilos inline conocidos. No existe un header `Content-Security-Policy`
+bloqueante y no se modificó ninguna vista ni CSS.
+
+**Recorrido real:** se visitaron 55 pantallas (login y 54 rutas autenticadas) con
+un ADMIN local temporal. Para contar sin depender de que la consola automatizada
+expusiera su canal interno de seguridad, durante el recorrido se apuntó
+temporalmente `report-uri` a un colector local y luego se retiró. El navegador
+emitió **85 reportes reales**, todos `script-src-elem` con `blocked-uri: inline`:
+55 corresponden al bloque de `layouts/ds-app.blade.php` presente en cada
+respuesta y 30 a bloques de las pantallas o parciales. No hubo reportes de
+estilos ni de archivos JavaScript externos. El recorrido terminó sin errores de
+navegación. Los atributos `on*` no generan reporte hasta ejecutar su evento; se
+inventariaron además 45 instancias renderizadas y 38 declaraciones fuente, sin
+accionarlas para no provocar operaciones funcionales.
+
+**Inventario por archivo:** `S` es la cantidad estable de bloques `<script>` en
+el fuente, `H` la de atributos manejadores inline y `R` los reportes reales
+observados en este recorrido. `E` = extracción directa a un archivo; `D` =
+extracción con puente de datos Blade (`data-*` o JSON); `L` = reemplazar el
+atributo por un listener desde archivo externo.
+
+| Archivo | S | H | R | Resolución |
+|---|---:|---:|---:|---|
+| `admin/dashboard.blade.php` | 0 | 6 | 0 | L |
+| `alumnos/_form.blade.php` | 1 | 0 | 2 | E+D |
+| `alumnos/index.blade.php` | 1 | 0 | 1 | E+D |
+| `alumnos/show.blade.php` | 0 | 1 | 0 | L |
+| `auth/login.blade.php` | 1 | 0 | 1 | E |
+| `caja/cobrar.blade.php` | 1 | 0 | 1 | E+D |
+| `caja/detalle.blade.php` | 2 | 5 | 0 | E+L |
+| `caja/editar.blade.php` | 1 | 0 | 1 | E+D |
+| `caja/movimiento.blade.php` | 1 | 0 | 2 | E+D |
+| `caja/resumen.blade.php` | 1 | 3 | 0 | E+L |
+| `cashflow/index.blade.php` | 0 | 4 | 0 | L |
+| `cashflow/movimiento.blade.php` | 1 | 0 | 1 | E+D |
+| `clases/create.blade.php` | 1 | 0 | 1 | E |
+| `clases/edit.blade.php` | 1 | 0 | 1 | E |
+| `clases/index.blade.php` | 1 | 0 | 1 | E |
+| `clases/show.blade.php` | 1 | 0 | 1 | E+D |
+| `configuraciones/index.blade.php` | 1 | 0 | 1 | E |
+| `grupos/_form.blade.php` | 1 | 0 | 2 | E+D |
+| `grupos/index.blade.php` | 1 | 0 | 1 | E |
+| `grupos/show.blade.php` | 0 | 5 | 0 | L |
+| `layouts/ds-app.blade.php` | 1 | 0 | 55 | E |
+| `liquidaciones/create.blade.php` | 1 | 2 | 1 | E+D+L |
+| `liquidaciones/index.blade.php` | 0 | 1 | 0 | L |
+| `liquidaciones/show.blade.php` | 0 | 3 | 0 | L |
+| `niveles/_form.blade.php` | 1 | 0 | 2 | E |
+| `niveles/index.blade.php` | 0 | 1 | 0 | L |
+| `profesores/_form.blade.php` | 2 | 0 | 4 | E+D |
+| `profesores/index.blade.php` | 1 | 0 | 1 | E |
+| `revision-cobranza/index.blade.php` | 1 | 5 | 1 | E+L |
+| `rubros/index.blade.php` | 0 | 2 | 0 | L |
+| `tipos-caja/_form.blade.php` | 1 | 0 | 2 | E |
+| `usuarios/_form.blade.php` | 1 | 0 | 2 | E |
+
+**Resultado para el bloque siguiente:** hay 26 bloques `<script>` en 24 archivos:
+16 se extraen directamente y 10 necesitan separar los datos generados por Blade.
+Los 38 manejadores inline de 12 archivos requieren listeners externos. Los dos
+scripts de `caja/detalle` y el de `caja/resumen` no se renderizaron con los datos
+actuales, pero permanecen en el fuente y deben incluirse en la migración. No se
+activó bloqueo; esa decisión sigue pendiente de revisión visual con Carlos.
+
+**Verificación final:** 65 pruebas y 253 aserciones aprobadas; sintaxis PHP
+correcta en middleware y test; vistas compiladas; diff de vistas/CSS vacío. Una
+respuesta HTTP real contiene el header de reporte con la política indicada y no
+contiene CSP bloqueante. La cuenta y el colector locales de auditoría fueron
+eliminados al terminar.
+
+---
+
 ## 2026-08-30 — Codex CAB — dependencias sin avisos de seguridad
 
 **Actualización:** `composer update` renovó 73 paquetes dentro de los rangos ya
