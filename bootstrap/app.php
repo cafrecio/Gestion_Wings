@@ -30,7 +30,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'ensure.profesor.web' => \App\Http\Middleware\EnsureProfesorWeb::class,
             'reject.profesor.web' => \App\Http\Middleware\RejectProfesorWeb::class,
             'ensure.active.web' => \App\Http\Middleware\EnsureActiveUserWeb::class,
+            'security.headers' => \App\Http\Middleware\SecurityHeaders::class,
         ]);
+
+        $middleware->appendToGroup('web', ['security.headers']);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // 419 CSRF expirado → login. TokenMismatchException es convertida a
