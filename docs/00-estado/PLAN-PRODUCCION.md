@@ -413,8 +413,35 @@ correlativos desde `30000001`. **No hay ninguna fuga.** Lo que sí es real es qu
 mecanismo sigue apuntando a la base, y en el paso 7.4 esa base pasa a tener alumnos
 de verdad. La tarea vale ahí, no antes: no aporta nada a que el sistema funcione.
 
-Incluye actualizar los 16 documentos y 2 scripts que hoy mencionan el dump, y
-desactivar el hook `pre-commit` **en la máquina de casa**, donde sigue armado.
+### Cuál es el riesgo, explicado sin tecnicismos
+
+Verificado el 30/08/2026, y hay un dato nuevo que nadie había comprobado:
+**el repositorio de Wings es público.** Cualquiera en internet lo puede descargar.
+
+Para entender por qué eso importa hay que saber una cosa de Git: **guarda todas las
+versiones de todos los archivos, para siempre.** Borrar un archivo hoy no lo saca del
+historial; sigue ahí, y se puede recuperar. Es un cuaderno donde se escribe con tinta.
+
+Entonces:
+
+| Momento | Qué contiene el dump | Riesgo |
+|---|---|---|
+| **Hoy** | Alumnos inventados, sesiones y tokens del XAMPP local | **Ninguno.** Esos tokens están atados a otra base y a otra clave de cifrado; contra el servidor no sirven |
+| **Después del paso 7.4** | Nombres, DNI y teléfonos de chicos reales | **Publicación permanente** si alguien exporta por costumbre |
+
+**Por eso la tarea va antes de cargar datos reales, no después.** Después ya no se
+arregla borrando el archivo: habría que reescribir la historia del repositorio, avisar
+a las familias, y aun así quedan copias en cualquiera que lo haya clonado.
+
+No es urgente hoy. **Es irreversible mañana.** Esa es toda la diferencia.
+
+### Corrección verificada el 30/08
+
+El texto anterior decía que el hook `pre-commit` seguía armado en la máquina de casa.
+**Es falso:** en CAB solo existe el `pre-commit.sample` que trae Git, que no hace nada.
+Nada exporta la base automáticamente en esa computadora.
+
+Sigue pendiente actualizar los 16 documentos y 2 scripts que mencionan el dump.
 
 **7.6 no es opcional.** El proceso mensual no puede generar la primera cuota: una
 base recién cargada no tiene mes anterior. Ver la sección 1.
