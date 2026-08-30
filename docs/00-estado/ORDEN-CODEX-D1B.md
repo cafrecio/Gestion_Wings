@@ -82,8 +82,12 @@ Es exactamente el hallazgo **B6 "FIFO evadible"** del plan, que citaba estas mis
 líneas como evidencia. Sigue abierto y es alcanzable desde la pantalla de cobro, donde
 el operativo elige qué períodos paga.
 
-**No se corrige en este lote:** cambiarlo define si se puede cobrar un mes dejando otro
-anterior impago, y eso es una regla de negocio que decide Carlos, no un agente.
+**Carlos ya lo definió el 30/08, y no es lo que proponía el plan.** El cobro de un mes
+suelto **no se bloquea**: se avisa, se pide motivo y se notifica al administrador. La
+regla quedó escrita en `Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` §9b y se
+implementa en la tarea **A2** de esta orden.
+
+**No convertir esto en un bloqueo.** Es una decisión tomada, no un defecto pendiente.
 
 ---
 
@@ -145,6 +149,48 @@ Con el pago fallando, verificar que **después del fallo**:
 
 Si el test pasa contra el código actual, está mal escrito: hoy el cambio de plan
 persiste igual.
+
+---
+
+## A2 · Aviso al cobrar dejando deuda anterior · 1.5 h · cierra B6 · **depende de A1**
+
+Regla nueva, definida por Carlos el 30/08 y escrita en
+`Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` **§9b**. Leerla antes de
+implementar.
+
+**Depende de A1 porque toca el mismo método** (`CajaWebController::pagar()`). No
+arrancar hasta tener A1 commiteada.
+
+**Qué hay que hacer.** Al confirmar un cobro, detectar si queda pendiente **algún mes
+anterior** al más viejo de los que se están pagando. Si lo hay:
+
+1. **No guardar todavía.** Devolver el aviso con la cantidad de meses, los períodos y
+   el monto total pendiente.
+2. Si el operativo confirma, **exigir un motivo** y recién ahí registrar el cobro.
+3. **Notificar al administrador**, igual que el resto de las excepciones de §8.
+
+**No bloquear el cobro.** Es una decisión tomada: se avisa, no se impide.
+
+**Ya existe un patrón para esto en el repo:** el aviso de liquidación ya pagada, que
+responde HTTP 409 con `requiere_confirmacion`. Usar el mismo mecanismo en vez de
+inventar otro.
+
+### Límite importante
+
+La parte de **backend entra en este lote**: detección, respuesta de confirmación,
+guardado del motivo y notificación al administrador.
+
+**La parte visual NO.** Mostrar el aviso y pedir el motivo en pantalla toca
+`resources/views/**`, que está prohibido por `AGENTS.md` §1. Carlos tiene que
+autorizarlo por separado.
+
+Dejá el backend cerrado y funcionando, con el 409 comprobado por test, y anotá en
+`LOG-CODEX.md` que la vista quedó pendiente de autorización.
+
+*Aceptación:* alumno que debe marzo, mayo y junio. Cobrar solo junio devuelve el aviso
+con **2 meses anteriores** y el monto sumado de marzo y mayo, y **no escribe nada**.
+Reintentar con motivo registra el cobro y deja el motivo guardado. Cobrar los tres
+juntos no dispara ningún aviso.
 
 ---
 
@@ -268,7 +314,8 @@ No requieren código. Solo verificar y dejarlo asentado en `LOG-CODEX.md`:
 | Orden | Tarea | Est. |
 |---|---|---|
 | 1 | A1 · 1.9b atomicidad del cambio de plan | 2 h |
-| 2 | B1 · 1.5 `wings:crear-admin` | 30 min |
+| 2 | A2 · aviso al cobrar dejando deuda anterior (solo backend) | 1.5 h |
+| 3 | B1 · 1.5 `wings:crear-admin` | 30 min |
 | 3 | B2 · 1.7 configuración de producción | 1.5 h |
 | 4 | B3 · 1.6 los cinco headers | 45 min |
 | 5 | C1 · 1.10 asistencias todo-o-nada | 1 h |

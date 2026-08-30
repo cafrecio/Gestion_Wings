@@ -205,6 +205,7 @@ Cuatro situaciones distintas usan **exactamente el mismo mecanismo**. No son cua
 | Alumno con historia en estado DEUDOR asiste a clase | §6 |
 | Alumno asiste a más clases de las que su plan cubre | control de plan |
 | Se registra un cobro parcial de una cuota | §9 |
+| Se cobra un mes dejando impago uno anterior | §9b |
 
 **En todos los casos:**
 
@@ -222,6 +223,36 @@ La lógica es: el que está en el mostrador o en la cancha sabe lo que está hac
 
 - La cuota queda con parte pagada y parte pendiente.
 - Requiere **justificación** y **notificación al administrador**, igual que §8.
+
+---
+
+## 9b. Cobro que deja impaga una deuda anterior
+
+**Está permitido.** El operativo elige qué meses cobra y el sistema no lo bloquea.
+
+**Regla:** si al confirmar el cobro queda pendiente **algún mes anterior** al que se está pagando, el sistema avisa antes de guardar, indicando cuántos meses son y por cuánta plata.
+
+> Quedan 2 meses anteriores impagos por $56.000 (marzo, mayo). ¿Cobrás igual solo junio?
+
+A partir de ahí aplica el mecanismo de §8: se permite, se pide **motivo obligatorio** y se **notifica al administrador**.
+
+**Cuándo no avisa:** si se pagan todos los meses anteriores junto con el actual, o si no hay ninguno anterior pendiente.
+
+### Por qué existe
+
+La pantalla de cobro **ya muestra todas las deudas pendientes**, ordenadas de la más vieja a la más nueva. El problema nunca fue de información: es que el sistema no dice nada cuando se deja una atrás.
+
+El caso real es la distracción, no la mala fe. El operativo tilda el mes que el alumno le nombra, no mira el resto de la lista, y la deuda vieja queda arrastrándose sin que nadie se entere.
+
+### Decisión explícita: esto reemplaza al "FIFO fuerte"
+
+El plan de producción proponía que el sistema **rechazara** el cobro de un mes con otro anterior impago (hallazgo B6, "FIFO evadible").
+
+**Se descartó.** Se trata con clientes, no con gente a la que hay que vigilar. Bloquear el cobro en el mostrador crea un problema real para evitar uno hipotético.
+
+La imputación FIFO **dentro de un mismo cobro** sigue vigente: si se pagan varios meses juntos, los viejos se cancelan completos antes de imputar a los nuevos. Lo que se descarta es impedir el cobro de un mes suelto.
+
+> **No "arreglar" esto convirtiéndolo en un bloqueo.** Es una decisión tomada, no un defecto pendiente.
 
 ---
 
