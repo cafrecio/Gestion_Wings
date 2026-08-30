@@ -14,6 +14,42 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — despliegue repetible con rollback
+
+**Cambio real:** se agregó `scripts/deploy.sh` con los valores actuales del
+servidor (`/home/wings/app`, usuario `wings`, `/usr/bin/php82`). Ejecuta sin
+tuberías y comprueba por separado mantenimiento, `git pull --ff-only`, Composer
+invocado mediante PHP 8.2, instalación y build de npm, migraciones, las tres
+cachés, permisos, salida de mantenimiento y `wings:preflight`. El paso de
+migración usa `wings_migrate` mediante variables solo para ese proceso; la clave
+se pide sin eco o se recibe por `WINGS_MIGRATE_PASSWORD`, y no se escribe en el
+repo ni en `.env`.
+
+**Rollback:** antes de actualizar guarda `HEAD` y una copia de `public/build`. Si
+cualquier paso falla, restaura el commit con `git reset --hard`, reinstala las
+dependencias y recompila el diseño de ese commit, rehace configuración, rutas y
+vistas, restaura permisos y ejecuta `artisan up`. Si Laravel no puede retirar el
+modo mantenimiento, elimina únicamente su archivo `storage/framework/down`. El
+proceso conserva el código de error original y nunca informa éxito después de un
+fallo.
+
+**Límite explícito:** no ejecuta `migrate:rollback` automático. La orden define
+la vuelta al commit y una reversión genérica de DDL en MariaDB puede destruir
+datos; cualquier migración que no sea compatible hacia atrás necesita su propio
+procedimiento de reversión antes de desplegarse.
+
+**Regresión local:** `tests/Deployment/deploy_rollback_test.sh` arma dos commits y
+un remoto descartables, hace fallar la migración con código 42 y verifica el
+resultado real: vuelve al SHA anterior y a su contenido, recompone las cachés,
+sale de mantenimiento, deja el checkout limpio y termina con código 42. La prueba
+pasó. No se ejecutó el script contra el servidor.
+
+**Verificación:** sintaxis Bash correcta en ambos archivos; 65 pruebas y 253
+aserciones PHP aprobadas; los comandos reales `config:cache`, `route:cache` y
+`view:cache` funcionan en el proyecto. Vistas y CSS no fueron modificados.
+
+---
+
 ## 2026-08-30 — Codex CAB — CSP medida en modo reporte
 
 **Política aplicada:** el middleware agrega únicamente
