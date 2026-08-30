@@ -16,6 +16,7 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
+use App\Notifications\CobroConDeudaAnteriorNotification;
 use App\Services\CajaService;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
@@ -23,6 +24,8 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
@@ -605,10 +608,51 @@ class CajaWebController extends Controller
             'montos_cuota.*' => 'nullable|numeric|min:0.01',
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
             'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
+            'confirmar_deuda_anterior' => 'nullable|boolean',
+            'motivo' => 'nullable|string|max:500',
         ]);
 
+        $periodosSolicitados = collect($request->input('periodos'))->sort()->values();
+        $periodoMasAntiguo = $periodosSolicitados->first();
+        $deudasAnteriores = DeudaCuota::where('alumno_id', $alumnoId)
+            ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+            ->where('periodo', '<', $periodoMasAntiguo)
+            ->orderBy('periodo')
+            ->get();
+        $requiereAvisoDeudaAnterior = $deudasAnteriores->isNotEmpty();
+
+        if ($requiereAvisoDeudaAnterior && !$request->boolean('confirmar_deuda_anterior')) {
+            return response()->json([
+                'success' => false,
+                'requiere_confirmacion' => true,
+                'cantidad_meses' => $deudasAnteriores->count(),
+                'periodos' => $deudasAnteriores->pluck('periodo')->values()->all(),
+                'monto_total' => (float) $deudasAnteriores->sum('saldo_pendiente'),
+                'message' => sprintf(
+                    'Quedan %d meses anteriores impagos por $%s (%s).',
+                    $deudasAnteriores->count(),
+                    number_format((float) $deudasAnteriores->sum('saldo_pendiente'), 0, ',', '.'),
+                    $deudasAnteriores->pluck('periodo')->implode(', ')
+                ),
+            ], 409);
+        }
+
+        if ($requiereAvisoDeudaAnterior) {
+            $request->validate([
+                'motivo' => 'required|string|max:500',
+            ]);
+        }
+
+        $motivoDeudaAnterior = $requiereAvisoDeudaAnterior
+            ? trim((string) $request->input('motivo'))
+            : null;
+        $observacionesPago = implode("\n", array_filter([
+            $request->input('observaciones'),
+            $motivoDeudaAnterior ? "Motivo por deuda anterior: {$motivoDeudaAnterior}" : null,
+        ]));
+
         try {
-            DB::transaction(function () use ($request, $alumno, $alumnoId, $user) {
+            $resultadoPago = DB::transaction(function () use ($request, $alumno, $alumnoId, $user, $observacionesPago) {
                 if ($request->filled('nuevo_plan_id')) {
                     $nuevoPlanId = (int) $request->input('nuevo_plan_id');
                     $alumno->loadMissing('planActivo.plan');
@@ -671,15 +715,36 @@ class CajaWebController extends Controller
                     return ['periodo' => $d->periodo, 'monto' => max($monto, 0.01)];
                 })->values()->all();
 
-                $this->pagoCuotaService->registrarPagoCuotaOperativo([
+                return $this->pagoCuotaService->registrarPagoCuotaOperativo([
                     'alumno_id'            => $alumnoId,
                     'tipo_caja_id'         => $request->input('tipo_caja_id'),
                     'usuario_operativo_id' => $user->id,
                     'items'                => $items,
                     'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
-                    'observaciones'        => $request->input('observaciones'),
+                    'observaciones'        => $observacionesPago ?: null,
                 ]);
             });
+
+            if ($requiereAvisoDeudaAnterior) {
+                try {
+                    $administradores = User::where('rol', User::ROL_ADMIN)
+                        ->where('activo', true)
+                        ->get();
+                    Notification::send($administradores, new CobroConDeudaAnteriorNotification(
+                        alumno: $alumno,
+                        pagoId: $resultadoPago['pago']->id,
+                        periodos: $deudasAnteriores->pluck('periodo')->values()->all(),
+                        montoPendiente: (float) $deudasAnteriores->sum('saldo_pendiente'),
+                        motivo: $motivoDeudaAnterior,
+                        operativo: $user
+                    ));
+                } catch (\Throwable $errorNotificacion) {
+                    Log::error('No se pudo notificar el cobro con deuda anterior.', [
+                        'pago_id' => $resultadoPago['pago']->id,
+                        'error' => $errorNotificacion->getMessage(),
+                    ]);
+                }
+            }
 
             return redirect()->route('web.caja.index')
                 ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.");

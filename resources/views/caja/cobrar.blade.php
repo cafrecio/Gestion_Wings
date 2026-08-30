@@ -199,12 +199,32 @@
         <x-ds.button variant="secondary" href="{{ route('web.caja.cobrar-cuota') }}">Cancelar</x-ds.button>
         <button type="submit" id="btn-cobrar" disabled
                 class="ds-btn"
-                style="background:var(--color-btn-primary); color:#fff; opacity:0.4; cursor:not-allowed;">
+                style="background:var(--color-btn-primary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">
             Cobrar
         </button>
     </div>
 
 </form>
+
+{{-- Aviso por cobro con deudas anteriores pendientes --}}
+<div id="modal-deuda-anterior" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
+        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Deudas anteriores pendientes</p>
+        <p id="mensaje-deuda-anterior" style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;"></p>
+        <form id="form-confirmar-deuda-anterior">
+            <textarea name="motivo" required maxlength="500" rows="3"
+                      placeholder="Motivo del cobro..."
+                      class="w-full px-4 py-2.5 text-sm wings-input"
+                      style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button type="button" id="cerrar-deuda-anterior"
+                        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-btn-primary); color:var(--color-surface);">Cobrar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 @endsection
 
@@ -217,6 +237,12 @@
     var btnCobrar   = document.getElementById('btn-cobrar');
     var resumen     = document.getElementById('resumen-total');
     var totalLabel  = document.getElementById('total-label');
+    var cobrarForm  = document.getElementById('cobrar-form');
+    var modalDeuda  = document.getElementById('modal-deuda-anterior');
+    var mensajeDeuda = document.getElementById('mensaje-deuda-anterior');
+    var formConfirmarDeuda = document.getElementById('form-confirmar-deuda-anterior');
+    var cerrarDeuda = document.getElementById('cerrar-deuda-anterior');
+    var datosCobroPendientes = null;
 
     function parseMonto(str) {
         // Remove thousand separators (dots) and replace comma decimal with dot
@@ -276,6 +302,79 @@
     });
 
     selectTipo.addEventListener('change', actualizar);
+
+    function cerrarModalDeuda() {
+        modalDeuda.style.display = 'none';
+        formConfirmarDeuda.reset();
+        datosCobroPendientes = null;
+    }
+
+    function abrirModalDeuda(datos, formData) {
+        datosCobroPendientes = formData;
+        mensajeDeuda.textContent = datos.message;
+        modalDeuda.style.display = 'flex';
+        formConfirmarDeuda.querySelector('textarea[name="motivo"]').focus();
+    }
+
+    function enviarCobro(formData) {
+        btnCobrar.disabled = true;
+
+        fetch(cobrarForm.action, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: formData
+        }).then(function (response) {
+            if (response.redirected) {
+                window.location.assign(response.url);
+                return null;
+            }
+
+            return response.json().then(function (datos) {
+                return { status: response.status, ok: response.ok, datos: datos };
+            });
+        }).then(function (resultado) {
+            if (!resultado) return;
+
+            if (resultado.status === 409 && resultado.datos.requiere_confirmacion) {
+                abrirModalDeuda(resultado.datos, formData);
+                return;
+            }
+
+            if (!resultado.ok) {
+                window.alert(resultado.datos.message || 'No se pudo registrar el cobro.');
+            }
+        }).catch(function () {
+            window.alert('No se pudo registrar el cobro.');
+        }).finally(function () {
+            actualizar();
+        });
+    }
+
+    cobrarForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        enviarCobro(new FormData(cobrarForm));
+    });
+
+    formConfirmarDeuda.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!datosCobroPendientes) return;
+
+        var motivo = formConfirmarDeuda.querySelector('textarea[name="motivo"]').value.trim();
+        if (!motivo) return;
+
+        datosCobroPendientes.set('confirmar_deuda_anterior', '1');
+        datosCobroPendientes.set('motivo', motivo);
+        modalDeuda.style.display = 'none';
+        enviarCobro(datosCobroPendientes);
+    });
+
+    cerrarDeuda.addEventListener('click', cerrarModalDeuda);
+    modalDeuda.addEventListener('click', function (event) {
+        if (event.target === modalDeuda) cerrarModalDeuda();
+    });
 
     document.querySelectorAll('.cuota-row').forEach(function (row) {
         row.addEventListener('mouseenter', function () { this.style.background = 'var(--color-surface-alt)'; });

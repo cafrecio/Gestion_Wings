@@ -15,8 +15,10 @@ use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
+use App\Notifications\CobroConDeudaAnteriorNotification;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
@@ -191,6 +193,110 @@ class CambioPlanCobroTest extends TestCase
         $this->assertDatabaseCount('movimientos_operativos', 0);
     }
 
+    public function test_cobrar_un_mes_dejando_anteriores_devuelve_aviso_sin_escribir(): void
+    {
+        $this->crearEscenarioDeudasAnteriores();
+        $cantidadPlanesAntes = AlumnoPlan::where('alumno_id', $this->alumno->id)->count();
+
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-06'],
+                'montos_cuota' => ['2026-06' => 40000],
+                'fecha_pago' => '2026-08-15',
+            ])
+            ->assertStatus(409)
+            ->assertJson([
+                'requiere_confirmacion' => true,
+                'cantidad_meses' => 2,
+                'periodos' => ['2026-03', '2026-05'],
+                'monto_total' => 56000,
+            ]);
+
+        $this->assertSame(
+            $cantidadPlanesAntes,
+            AlumnoPlan::where('alumno_id', $this->alumno->id)->count()
+        );
+        $this->assertDatabaseCount('pagos', 0);
+        $this->assertDatabaseCount('movimientos_operativos', 0);
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $this->alumno->id,
+            'periodo' => '2026-06',
+            'monto_pagado' => '0.00',
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]);
+    }
+
+    public function test_confirmar_cobro_con_deuda_anterior_exige_motivo(): void
+    {
+        $this->crearEscenarioDeudasAnteriores();
+
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-06'],
+                'montos_cuota' => ['2026-06' => 40000],
+                'fecha_pago' => '2026-08-15',
+                'confirmar_deuda_anterior' => true,
+            ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors('motivo');
+
+        $this->assertDatabaseCount('pagos', 0);
+        $this->assertDatabaseCount('movimientos_operativos', 0);
+    }
+
+    public function test_confirmar_con_motivo_registra_cobro_y_notifica_admin(): void
+    {
+        Notification::fake();
+        $this->crearEscenarioDeudasAnteriores();
+        $admin = User::factory()->create([
+            'rol' => User::ROL_ADMIN,
+            'activo' => true,
+        ]);
+
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-06'],
+                'montos_cuota' => ['2026-06' => 40000],
+                'fecha_pago' => '2026-08-15',
+                'confirmar_deuda_anterior' => true,
+                'motivo' => 'La familia pidió cancelar junio primero.',
+            ])
+            ->assertRedirect(route('web.caja.index'));
+
+        $this->assertDatabaseHas('pagos', [
+            'alumno_id' => $this->alumno->id,
+            'observaciones' => 'Motivo por deuda anterior: La familia pidió cancelar junio primero.',
+        ]);
+        $this->assertDatabaseCount('movimientos_operativos', 1);
+        Notification::assertSentTo($admin, CobroConDeudaAnteriorNotification::class);
+    }
+
+    public function test_cobrar_todos_los_periodos_no_dispara_aviso(): void
+    {
+        Notification::fake();
+        $this->crearEscenarioDeudasAnteriores();
+
+        $this->actingAs($this->operativo)
+            ->postJson(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-03', '2026-05', '2026-06'],
+                'montos_cuota' => [
+                    '2026-03' => 30000,
+                    '2026-05' => 26000,
+                    '2026-06' => 40000,
+                ],
+                'fecha_pago' => '2026-08-15',
+            ])
+            ->assertRedirect(route('web.caja.index'));
+
+        $this->assertDatabaseCount('pagos', 1);
+        $this->assertDatabaseCount('movimientos_operativos', 1);
+        Notification::assertNothingSent();
+    }
+
     private function crearPlan(int $clasesPorSemana, float $precio): GrupoPlan
     {
         return GrupoPlan::create([
@@ -214,6 +320,25 @@ class CambioPlanCobroTest extends TestCase
             'alumno_id' => $this->alumno->id,
             'presente' => true,
         ]);
+    }
+
+    private function crearEscenarioDeudasAnteriores(): void
+    {
+        DeudaCuota::where('alumno_id', $this->alumno->id)->delete();
+
+        foreach ([
+            '2026-03' => 30000,
+            '2026-05' => 26000,
+            '2026-06' => 40000,
+        ] as $periodo => $monto) {
+            DeudaCuota::create([
+                'alumno_id' => $this->alumno->id,
+                'periodo' => $periodo,
+                'monto_original' => $monto,
+                'monto_pagado' => 0,
+                'estado' => DeudaCuota::ESTADO_PENDIENTE,
+            ]);
+        }
     }
 
     private function cobrarConPlan(GrupoPlan $plan, float $monto): void
