@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [WebController::class, 'loginForm'])->name('login');
-Route::post('/login', [WebController::class, 'login'])->middleware('throttle:10,1');
+Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1');
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
