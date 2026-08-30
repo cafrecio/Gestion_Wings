@@ -14,6 +14,20 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — prueba humana pausada en A2
+
+Se inició `PRUEBA-HUMANA-V1.md` exclusivamente desde el navegador sobre
+`wings_test`. A1 pasó: se creó `Hockey` por hora y el listado quedó con 3 deportes.
+A2 pasó en sus tres variantes: `Patín`, `patín` y `PATIN` devolvieron el mensaje de
+validación `Ya existe un deporte con ese nombre.`; ninguna dejó un cuarto registro.
+
+La ejecución se pausó por cambio de cuenta de Codex, no por una falla de Wings. No
+se ejecutó A3 ni ningún paso posterior. El resultado detallado y el punto exacto de
+continuación quedaron en `docs/06-pruebas/RESULTADO-PRUEBA-HUMANA-V1.md`: retomar
+en **A3 · Profesores** sobre la misma base, sin repetir A1/A2.
+
+---
+
 ## 2026-08-30 — Codex CAB — despliegue repetible con rollback
 
 **Cambio real:** se agregó `scripts/deploy.sh` con los valores actuales del
