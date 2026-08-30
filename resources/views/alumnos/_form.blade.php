@@ -52,6 +52,18 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         @error('fecha_nacimiento') <p id="error-fecha-nacimiento" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
+    {{-- Fecha Alta --}}
+    <div>
+        <label for="fecha_alta" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Fecha de alta <span class="form-required">*</span>
+        </label>
+        <input type="date" id="fecha_alta" name="fecha_alta"
+               value="{{ old('fecha_alta', isset($alumno) && $alumno->fecha_alta ? $alumno->fecha_alta->format('Y-m-d') : date('Y-m-d')) }}" required
+               class="w-full px-4 py-2.5 text-sm wings-input">
+        @error('fecha_alta') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+
     {{-- Celular --}}
     <div>
         <label for="celular" class="{{ $labelClass }}">

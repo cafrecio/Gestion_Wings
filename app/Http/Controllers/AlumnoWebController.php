@@ -247,6 +247,9 @@ class AlumnoWebController extends Controller
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'fecha_nacimiento' => 'required|date|before:today',
+            // Obligatoria: la columna es NOT NULL y el boot() del modelo solo
+            // completa la fecha al crear, no al actualizar.
+            'fecha_alta' => 'required|date',
             'celular' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
             'deporte_id' => 'required|exists:deportes,id',
@@ -265,6 +268,8 @@ class AlumnoWebController extends Controller
             'dni.unique' => 'Ya existe un alumno con ese DNI en el mismo deporte.',
             'fecha_nacimiento.required' => 'La fecha de nacimiento es obligatoria.',
             'fecha_nacimiento.before' => 'La fecha de nacimiento debe ser anterior a hoy.',
+            'fecha_alta.required' => 'La fecha de alta es obligatoria.',
+            'fecha_alta.date' => 'La fecha de alta no es una fecha válida.',
             'celular.required' => 'El celular es obligatorio.',
             'deporte_id.required' => 'Debe seleccionar un deporte.',
             'deporte_id.exists' => 'El deporte seleccionado no existe.',

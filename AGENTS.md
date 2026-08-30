@@ -246,7 +246,7 @@ acciones, no ideas.**
 |---|---|
 | Antes de escribir que algo **está implementado, hecho o funciona** | Leer **el cuerpo de la función**. No el nombre, no el docblock, no que se invoque desde el lugar correcto |
 | Antes de commitear la **corrección de un documento** | `grep` de todas las menciones del tema en ese documento. Nunca editar de memoria dónde se escribió |
-| En **cada afirmación** de un informe o reporte | Marcarla como **verificada** o **inferida**. Si no se comprobó, decirlo |
+| En **cada afirmación** sobre el código, los datos o el estado del sistema | **No se responde nada sin un chequeo real.** No alcanza con avisar que es una suposición: se comprueba antes de escribirlo, o no se escribe |
 | Antes de entregar un **prompt o una orden de trabajo** | Releerla contra el estado real de los documentos y del código que referencia |
 
 **El caso que los originó.** Un comando mostró en pantalla el cuerpo de `validarFifo()`,
