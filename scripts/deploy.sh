@@ -224,4 +224,14 @@ DEPLOY_FINISHED=1
 trap - EXIT INT TERM
 rm -rf -- "$DEPLOY_TMP"
 
-log "Despliegue completo: $("$GIT_BIN" rev-parse --verify HEAD)"
+DEPLOYED_COMMIT="$("$GIT_BIN" rev-parse --verify HEAD)"
+
+# Deja constancia durable de que version quedo corriendo. Sin esto, el dato solo
+# existe en la pantalla de quien desplego y se pierde: para saber que corre el
+# servidor hay que entrar a mirar. Ya paso.
+REGISTRO="${APP_DIR}/storage/logs/despliegues.log"
+printf '%s  %s  %s
+' "$(timestamp)" "$DEPLOYED_COMMIT" "$("$GIT_BIN" log -1 --format=%s)" >> "$REGISTRO" 2>/dev/null || true
+
+log "Despliegue completo: ${DEPLOYED_COMMIT}"
+log "Registrado en ${REGISTRO}"

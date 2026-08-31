@@ -139,6 +139,83 @@ recibos de profesores) y `fecha_alta` ausente del formulario de alumno.
 
 ---
 
+## 2026-08-31 (tarde) — Claude CyE
+
+**Objetivo:** dejar de escribir reglas que dependen de que alguien las lea, y construir
+controles que corran solos.
+
+### El problema de fondo, marcado por Carlos
+
+Venia escribiendo mis propias reglas en `AGENTS.md`, que es el archivo de Codex y que
+**no se me carga solo**. `CLAUDE.md` si se carga, y lo tenia abandonado. Escribir la
+regla se sentia como accion y no cambiaba nada.
+
+### Lo que se construyo
+
+**1. Hook `commit-msg` — guardia del diseno.**
+
+Si un commit toca `resources/views` o `resources/css`, la maquina lo rechaza salvo que
+el mensaje lo declare con `Diseno-autorizado: <motivo>`.
+
+**No prohibe tocar el diseno: exige justificarlo.** Si el cambio esta pedido, se declara
+y pasa, y el hook lista que archivos entraron.
+
+**Probado en las dos direcciones:** sin declarar rechaza y no crea el commit;
+declarandolo pasa. Se instala por maquina con `scripts/hooks/instalar.sh`, porque los
+hooks viven en `.git/` y no se versionan.
+
+**2. `DocumentacionNoMienteTest`.**
+
+Pone la suite en rojo si `ESTADO-ACTUAL.md` o `CHECKLIST-CARLOS.md` declaran una
+cantidad de pruebas distinta de la real.
+
+**Ya se probo solo, dos veces:** al agregar la prueba, y despues al revertir un commit
+de prueba. Las dos veces la suite se puso en rojo hasta actualizar el documento.
+
+Los patrones estan anclados a la linea exacta: uno suelto agarraba el "268 pruebas GET"
+de la matriz de permisos en vez del numero de la suite.
+
+**3. Reglas propias movidas a `CLAUDE.md`**, con el caso real que origino cada una.
+
+### Documentacion sincerada
+
+`ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md` reescritos contra el
+estado verificado. `ESTADO-ACTUAL` suma una definicion explicita de **publicado para
+pruebas** contra **en produccion**, que faltaba: el sistema responde por HTTPS pero
+nadie del club lo usa.
+
+### Verificacion del indice de Codex
+
+De sus afirmaciones, verifique estas:
+
+| Afirmacion | Resultado |
+|---|---|
+| `DemoSeeder` no cumple `DATASET-SEEDER-V1` | **Cierta.** Crea 19 alumnos, la spec pide 15, y no verifica ni un estado esperado |
+| `DemoSeeder` reexporta el dump solo | **Cierta.** `:691-692` corre `mysqldump` |
+| No hay integracion continua | **Cierta** |
+| `dump.sql` sigue versionado | **Cierta** |
+
+### Agujero propio del procedimiento
+
+**Desplegue el sistema al servidor y no deje registro de que commit quedo corriendo.**
+
+`deploy.sh` si imprime el SHA en su ultima linea, pero eso queda en la pantalla de quien
+desplego y se pierde. Ningun log dice que version esta en produccion, asi que la unica
+forma de saberlo es entrar al servidor a mirar.
+
+**Corregido:** `deploy.sh` ahora escribe fecha, SHA y asunto del commit en
+`storage/logs/despliegues.log` del servidor. No depende de que alguien se acuerde.
+
+**Sigue pendiente:** verificar que commit esta corriendo hoy. No tengo acceso al
+servidor desde la maquina de CyE. El ultimo dato registrado es del 30/08 y decia que el
+servidor estaba en un commit anterior a los arreglos de la primera cuota.
+
+**Siguiente paso:** bloque A del plan — rearmar `wings_test` e implementar el seeder de
+prueba segun `DATASET-SEEDER-V1.md`. Destraban la prueba humana. El simulador de tres
+meses es independiente: arma su propia base descartable y sus propios 20 alumnos.
+
+---
+
 ## 2026-08-31 — Claude CyE
 
 **Objetivo:** verificar el cierre de la primera cuota y sincerar la documentacion.
