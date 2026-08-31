@@ -14,6 +14,132 @@
 
 ---
 
+## 2026-08-30 — Codex CAB — condonación web ADMIN implementada y verificada
+
+Se agregó una ruta web protegida por `ensure.admin.web` y una acción en
+`AlumnoWebController` que valida el motivo, llama al motor existente y devuelve
+los errores de negocio como mensajes de pantalla. `PagoCuotaService` ahora
+garantiza centralmente un motivo recortado de 10 a 500 caracteres antes de leer
+o modificar la deuda. La API continúa apagada.
+
+La única vista modificada fue `resources/views/alumnos/show.blade.php`, que es
+la que lista las deudas concretas. Solo el ADMIN ve `Condonar`. El modal replica
+el patrón de cancelar cobro: fondo oscuro, superficie y radio por tokens,
+`max-width:440px`, textarea `wings-input`, cierre al hacer clic en el fondo y
+botones `Cerrar`/`Condonar`; el destructivo usa `var(--color-danger)`. No se
+tocaron CSS, componentes DS, Alpine ni Livewire.
+
+La regresión cubre cinco casos: condonación ADMIN sin movimientos y salida del
+listado DEUDOR para un alumno con historial; pedido manual del OPERATIVO sin
+cambios persistentes; deuda PAGADA devuelta como mensaje; servicio rechazando
+motivos vacíos, cortos y mayores a 500 antes de escribir; y conservación de la
+regla contractual de que un alumno sin pagos sigue DEUDOR aunque se condone su
+deuda. Resultado: 5 pruebas, 26 aserciones, todas aprobadas.
+
+Verificación manual sobre `wings_test`: se preparó un pago histórico y una deuda
+pendiente sintéticos, y la condonación se ejecutó desde el modal con autorización
+de Carlos. La deuda quedó CONDONADA con motivo y admin registrados, la pantalla
+pasó de DEUDOR a AL_DIA y los conteos de movimientos operativos y cashflow
+siguieron en cero. El modal renderizó a 440 px, radio 12 px, overlay semitransparente,
+textarea correcto y botón danger.
+
+Sintaxis PHP sin errores; Blade compiló y limpió; el diff de vistas muestra solo
+`alumnos/show.blade.php`. La suite completa quedó en 74 pruebas aprobadas y una
+falla conocida, perteneciente al trabajo anterior pausado: primera cuota
+autocreada con descuento deja saldo pendiente. No se mezcló una corrección de
+ese defecto ni se creó commit con el árbol compartido todavía sucio.
+
+---
+
+## 2026-08-30 — Codex CAB — condonación pausada por estado de alumno nuevo
+
+Carlos corrigió la aceptación de permisos: se mantiene `ensure.admin.web` y el
+test del operativo debe verificar que la deuda no cambió, sin atarse a 302 o
+403. Ese punto ya no contradice la matriz.
+
+Antes de escribir los tests se verificó el cuerpo de
+`CobranzaEstadoService::calcularEstadoDesdeDeudas()` contra el contrato de
+estados §3. La orden afirma sin condición que al condonar el alumno deja de
+figurar como DEUDOR. Eso solo ocurre si tiene al menos un pago previo. El contrato
+y el servicio clasifican como DEUDOR a quien nunca pagó, incluso si su única
+deuda queda CONDONADA: la deuda sale de `deudas_pendientes`, pero el estado sigue
+siendo DEUDOR por falta de historial.
+
+Opciones registradas sin elegir: ejecutar la aceptación con un alumno que tenga
+historial de pago; limitar el criterio a que la deuda condonada desaparezca del
+listado de pendientes y admitir que un alumno nuevo siga DEUDOR; o modificar el
+contrato y el motor de estados. No se implementó todavía ningún archivo propio
+de la condonación.
+
+---
+
+## 2026-08-30 — Codex CAB — condonación sigue pausada por respuesta de permisos
+
+Carlos autorizó convertir el motivo de 10 a 500 caracteres en invariante de
+`PagoCuotaService::condonarDeuda()` y mantener además la validación web. Antes de
+implementarlo se verificó el middleware requerido por el siguiente criterio.
+
+La ruta debe ser ADMIN y el intento manual del operativo debe responder 403,
+pero `ensure.admin.web` —el middleware usado por las rutas web exclusivas de
+ADMIN— responde 302 y redirige al operativo a Caja. El otro middleware existente,
+`ensure.admin`, sí responde 403, pero con cuerpo JSON y está destinado a la API.
+
+Opciones registradas sin elegir: conservar `ensure.admin.web` y cambiar la
+aceptación a redirect; usar excepcionalmente `ensure.admin` en esta ruta web;
+crear un middleware web adicional que devuelva 403; o cambiar globalmente
+`ensure.admin.web`, afectando todas las rutas administrativas. La matriz de
+permisos no se modificó y todavía no se implementaron servicio, ruta, controlador,
+modal ni tests.
+
+---
+
+## 2026-08-30 — Codex CAB — acceso web para condonar pausado antes de implementar
+
+Se actualizó `main` (`Already up to date`) y se leyeron completos `AGENTS.md`,
+el contrato de permisos, las dos reglas del design system, la vista canónica y
+el modal de cancelar cobro. La vista que contiene el listado real de deudas es
+`resources/views/alumnos/show.blade.php`; no se modificó ninguna vista.
+
+La tarea se frenó por una contradicción comprobada en el cuerpo del servicio.
+La orden afirma que `PagoCuotaService::condonarDeuda()` exige motivo obligatorio,
+pero el método acepta y registra una cadena vacía. La exigencia actual de
+`required|string|min:10|max:500` está en `CondonarDeudaRequest`, que pertenece a
+la API apagada, no en el motor.
+
+Opciones registradas sin elegir: validar el motivo solo en la nueva entrada web
+y mantener el servicio permisivo, o autorizar que el servicio también rechace
+motivos vacíos para convertir la regla declarada en un invariante. No se agregó
+ruta, controlador, modal ni test de esta tarea.
+
+---
+
+## 2026-08-30 — Codex CAB — corrección de cobro y precio pausada por contradicción
+
+Se reprodujeron primero los dos defectos con tests web: el alumno nuevo no
+aparecía en Caja ni podía pagar sin deuda previa; el precio cero se guardaba y
+el negativo era rechazado con el mensaje genérico. Como avance sin cerrar, el
+árbol local contiene cambios no commiteados únicamente en los dos controladores
+autorizados: Caja lista alumnos activos, presenta el período vigente sin
+persistirlo y deja que el servicio autocree la deuda al cobrar; Grupos exige
+precio mayor a cero con mensaje en castellano. Los cuatro casos directos pasan.
+
+La tarea se frenó al verificar el criterio completo con las reglas reales de
+primer pago. La orden afirma que `PagoCuotaService` está correcto, prohíbe
+tocarlo y exige que el alumno nuevo quede al día. Sin embargo,
+`ajustarDeudas()` se ejecuta antes que `obtenerOcrearDeuda()`. Para una deuda aún
+inexistente y una regla de 70%, el test web comprobó este resultado real: plan y
+deuda por $28.000, pago e imputación por $19.600, deuda `PENDIENTE` con $8.400 de
+saldo. Por lo tanto, el criterio no puede cerrarse con el alcance indicado.
+
+Opciones registradas sin elegir: autorizar una corrección en
+`PagoCuotaService`; hacer que el controlador cree la deuda antes del servicio,
+lo que contradice el enfoque pedido; o redefinir el resultado esperado cuando
+hay descuento de primer pago. No se ejecutó prueba manual, suite completa,
+commit ni cierre de tarea. El test que demuestra la contradicción queda fallando
+en `CobrarPrimeraCuotaWebTest`.
+
+---
+
 ## 2026-08-30 — Codex CAB — prueba humana finalizada por bloqueo en B2
 
 Se retomó `PRUEBA-HUMANA-V1.md` en A3 y se operó exclusivamente desde el

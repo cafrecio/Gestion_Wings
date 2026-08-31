@@ -525,7 +525,6 @@ class CajaWebController extends Controller
 
         $query = Alumno::with(['deporte', 'grupo'])
             ->where('activo', true)
-            ->whereHas('deudaCuotas', fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE))
             ->with(['deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo')]);
 
         if ($request->filled('search')) {
@@ -563,6 +562,31 @@ class CajaWebController extends Controller
             return redirect()
                 ->route('web.alumnos.edit', $alumno->id)
                 ->with('error', 'El alumno no tiene un plan activo. Asigná un plan antes de cobrar.');
+        }
+
+        $periodoVigente = now()->format('Y-m');
+        $deudaVigenteExiste = DeudaCuota::where('alumno_id', $alumno->id)
+            ->where('periodo', $periodoVigente)
+            ->exists();
+
+        if (!$deudaVigenteExiste) {
+            $planVigente = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $periodoVigente);
+
+            if (!$planVigente?->plan) {
+                return redirect()
+                    ->route('web.alumnos.edit', $alumno->id)
+                    ->with('error', 'El alumno no tiene un plan aplicable al período vigente.');
+            }
+
+            $deudas = $alumno->deudaCuotas->push(new DeudaCuota([
+                'alumno_id' => $alumno->id,
+                'periodo' => $periodoVigente,
+                'monto_original' => $planVigente->plan->precio_mensual,
+                'monto_pagado' => 0,
+                'estado' => DeudaCuota::ESTADO_PENDIENTE,
+            ]))->sortBy('periodo')->values();
+
+            $alumno->setRelation('deudaCuotas', $deudas);
         }
 
         $tiposCaja        = TipoCaja::where('activo', true)->orderBy('nombre')->get();
@@ -700,19 +724,30 @@ class CajaWebController extends Controller
                     ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
                     ->whereIn('periodo', $request->input('periodos'))
                     ->orderBy('periodo')
-                    ->get();
-
-                if ($deudas->isEmpty()) {
-                    throw new \RuntimeException('No se encontraron deudas pendientes para los períodos seleccionados.');
-                }
+                    ->get()
+                    ->keyBy('periodo');
 
                 $montosEnviados = $request->input('montos_cuota', []);
-                $items = $deudas->map(function ($d) use ($montosEnviados) {
-                    $montoSolicitado = isset($montosEnviados[$d->periodo])
-                        ? (float) $montosEnviados[$d->periodo]
-                        : (float) $d->saldo_pendiente;
-                    $monto = min($montoSolicitado, (float) $d->saldo_pendiente);
-                    return ['periodo' => $d->periodo, 'monto' => max($monto, 0.01)];
+                $items = collect($request->input('periodos'))->map(function ($periodo) use ($deudas, $montosEnviados, $alumnoId) {
+                    $deuda = $deudas->get($periodo);
+
+                    if ($deuda) {
+                        $montoSolicitado = isset($montosEnviados[$periodo])
+                            ? (float) $montosEnviados[$periodo]
+                            : (float) $deuda->saldo_pendiente;
+                        $monto = min($montoSolicitado, (float) $deuda->saldo_pendiente);
+                    } else {
+                        $plan = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumnoId, $periodo);
+                        if (!$plan?->plan) {
+                            throw new \RuntimeException("El alumno no tiene un plan aplicable al período {$periodo}.");
+                        }
+
+                        $monto = isset($montosEnviados[$periodo])
+                            ? (float) $montosEnviados[$periodo]
+                            : (float) $plan->plan->precio_mensual;
+                    }
+
+                    return ['periodo' => $periodo, 'monto' => max($monto, 0.01)];
                 })->values()->all();
 
                 return $this->pagoCuotaService->registrarPagoCuotaOperativo([
