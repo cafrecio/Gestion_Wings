@@ -210,6 +210,13 @@ class PagoCuotaService
      */
     public function condonarDeuda(int $deudaId, string $observaciones, int $adminId): DeudaCuota
     {
+        $observaciones = trim($observaciones);
+        $longitudMotivo = mb_strlen($observaciones);
+
+        if ($longitudMotivo < 10 || $longitudMotivo > 500) {
+            throw new \InvalidArgumentException('El motivo de la condonación debe tener entre 10 y 500 caracteres.');
+        }
+
         $deuda = DeudaCuota::findOrFail($deudaId);
 
         if ($deuda->estado !== DeudaCuota::ESTADO_PENDIENTE) {

@@ -159,9 +159,18 @@
                             padding:4px 8px; border-radius:6px;
                             background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
                     <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
-                    <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }};">
-                        ${{ number_format($saldo, 0, ',', '.') }}
-                    </span>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }};">
+                            ${{ number_format($saldo, 0, ',', '.') }}
+                        </span>
+                        @if(Auth::user()->isAdmin() && $deuda->estado === \App\Models\DeudaCuota::ESTADO_PENDIENTE)
+                        <button type="button"
+                                class="ds-btn-row ds-btn-row--dang"
+                                onclick="abrirCondonar('{{ route('web.deudas.condonar', $deuda->id) }}')">
+                            Condonar
+                        </button>
+                        @endif
+                    </div>
                 </div>
                 @endforeach
             </div>
@@ -264,9 +273,52 @@
 
 </div>
 
+@if(Auth::user()->isAdmin())
+{{-- Modal condonar deuda: replica el patrón de cancelar cobro. --}}
+<div id="modal-condonar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
+        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Condonar deuda</p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">Esta acción no genera un ingreso de caja y no se puede deshacer.</p>
+        <form id="form-condonar" method="POST" action="">
+            @csrf
+            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
+                      placeholder="Motivo de la condonación..."
+                      class="w-full px-4 py-2.5 text-sm wings-input"
+                      style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button type="button" onclick="cerrarCondonar()"
+                        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-danger); color:var(--color-surface);">Condonar</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endif
+
 {{-- Volver --}}
 <div class="filtros-actions mt-4" style="justify-content: flex-end;">
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Volver</x-ds.button>
 </div>
+
+@push('scripts')
+@if(Auth::user()->isAdmin())
+<script>
+function abrirCondonar(actionUrl) {
+    var form = document.getElementById('form-condonar');
+    if (form) form.action = actionUrl;
+    var modal = document.getElementById('modal-condonar');
+    if (modal) modal.style.display = 'flex';
+}
+function cerrarCondonar() {
+    var modal = document.getElementById('modal-condonar');
+    if (modal) modal.style.display = 'none';
+}
+document.getElementById('modal-condonar')?.addEventListener('click', function (event) {
+    if (event.target === this) cerrarCondonar();
+});
+</script>
+@endif
+@endpush
 
 @endsection

@@ -7,10 +7,12 @@ use App\Models\AlumnoPlan;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Services\CobranzaEstadoService;
+use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class AlumnoWebController extends Controller
@@ -105,6 +107,36 @@ class AlumnoWebController extends Controller
             ->sortBy(fn($as) => $as->clase?->fecha);
 
         return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes'));
+    }
+
+    public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)
+    {
+        $validator = Validator::make($request->all(), [
+            'motivo' => 'required|string|min:10|max:500',
+        ], [
+            'motivo.required' => 'El motivo de la condonación es obligatorio.',
+            'motivo.string' => 'El motivo de la condonación debe ser un texto.',
+            'motivo.min' => 'El motivo de la condonación debe tener al menos 10 caracteres.',
+            'motivo.max' => 'El motivo de la condonación no puede superar los 500 caracteres.',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', $validator->errors()->first());
+        }
+
+        try {
+            $deuda = $pagoCuotaService->condonarDeuda(
+                $id,
+                $validator->validated()['motivo'],
+                (int) $request->user()->id
+            );
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+
+        return redirect()
+            ->route('web.alumnos.show', $deuda->alumno_id)
+            ->with('success', 'Deuda condonada correctamente.');
     }
 
     public function create()

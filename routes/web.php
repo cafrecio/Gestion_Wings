@@ -86,6 +86,7 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
         Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
+        Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
         Route::get('/revision-cobranza', [RevisionCobranzaWebController::class, 'index'])->name('web.revision-cobranza.index');
         Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');
     });
