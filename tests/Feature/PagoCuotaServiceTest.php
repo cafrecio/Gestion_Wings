@@ -9,6 +9,7 @@ use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Rubro;
+use App\Models\ReglaPrimerPago;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
@@ -182,6 +183,41 @@ class PagoCuotaServiceTest extends TestCase
             'monto_original' => '20000.00',
             'estado' => DeudaCuota::ESTADO_PAGADA,
         ]);
+    }
+
+    public function test_admin_y_fifo_autocrean_deudas_con_monto_descontado(): void
+    {
+        Carbon::setTestNow('2026-08-20');
+
+        $data = $this->crearAlumnoConPlan(
+            precioMensual: 28000,
+            fechaDesde: '2026-08-01',
+        );
+        $data['alumno']->update(['fecha_alta' => '2026-08-20']);
+        ReglaPrimerPago::create([
+            'nombre' => 'Segunda quincena',
+            'dia_desde' => 16,
+            'dia_hasta' => 23,
+            'porcentaje' => 70,
+            'activo' => true,
+        ]);
+
+        $resultado = $this->pagarAdmin($data['alumno']->id, [
+            ['periodo' => '2026-08', 'monto' => 28000],
+            ['periodo' => '2026-09', 'monto' => 28000],
+        ]);
+
+        foreach (['2026-08', '2026-09'] as $periodo) {
+            $this->assertDatabaseHas('deuda_cuotas', [
+                'alumno_id' => $data['alumno']->id,
+                'periodo' => $periodo,
+                'monto_original' => '19600.00',
+                'monto_pagado' => '19600.00',
+                'estado' => DeudaCuota::ESTADO_PAGADA,
+            ]);
+        }
+        $this->assertEquals('39200.00', $resultado['pago']->monto_final);
+        $this->assertEquals('70.00', $resultado['pago']->porcentaje_aplicado);
     }
 
     public function test_idempotencia_no_duplica_deuda_existente(): void

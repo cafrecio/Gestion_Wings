@@ -14,6 +14,26 @@
 
 ---
 
+## 2026-08-31 — Codex CAB — primera cuota con descuento cerrada
+
+Se corrigió la creación automática de deudas durante el primer cobro: cuando
+aplica una regla de descuento, la deuda nace con el monto descontado. El monto
+especial se usa solo al crear deudas por primer pago; los pagos parciales comunes
+siguen tomando el precio completo del plan.
+
+La corrección cubre los flujos OPERATIVO y ADMIN, incluidos los dos llamados a
+`obtenerOcrearDeuda()`: aplicación del pago y validación FIFO. Se agregó una
+regresión específica de ADMIN con dos períodos para verificar que FIFO tampoco
+cree la primera deuda al precio completo.
+
+Verificación: `CobrarPrimeraCuota` quedó en 3 pruebas y 22 aserciones aprobadas;
+la suite completa, en 76 pruebas y 313 aserciones aprobadas. El caso de segunda
+quincena queda con deuda 19.600 pagada por 19.600 y estado AL_DIA; el caso sin
+descuento conserva 28.000. Sintaxis PHP correcta, Blade compiló y limpió, y el
+diff de `resources/views` y `resources/css` quedó vacío.
+
+---
+
 ## 2026-08-30 — Codex CAB — condonación web ADMIN implementada y verificada
 
 Se agregó una ruta web protegida por `ensure.admin.web` y una acción en

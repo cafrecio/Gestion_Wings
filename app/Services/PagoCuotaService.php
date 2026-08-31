@@ -43,23 +43,26 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
+            $montosOriginalesNuevasDeudas = [];
 
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
             if ($porcentaje < 100) {
                 $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+                $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
                 $this->ajustarDeudas($data['alumno_id'], $items);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
 
             // Validar FIFO antes de aplicar pagos
-            $this->validarFifo($data['alumno_id'], $items);
+            $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
 
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
-                $items
+                $items,
+                $montosOriginalesNuevasDeudas
             );
 
             // Crear el pago
@@ -129,23 +132,26 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
+            $montosOriginalesNuevasDeudas = [];
 
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
             if ($porcentaje < 100) {
                 $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+                $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
                 $this->ajustarDeudas($data['alumno_id'], $items);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
 
             // Validar FIFO antes de aplicar pagos
-            $this->validarFifo($data['alumno_id'], $items);
+            $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
 
             // Validar y procesar deudas (auto-crea DeudaCuota si no existe)
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
-                $items
+                $items,
+                $montosOriginalesNuevasDeudas
             );
 
             // Crear el pago
@@ -300,16 +306,25 @@ class PagoCuotaService
      *
      * @param int $alumnoId
      * @param array $items [['periodo' => 'YYYY-MM', 'monto' => float], ...]
+     * @param array<string, float> $montosOriginalesNuevasDeudas
      * @return array{0: array<string, DeudaCuota>, 1: array<string, float>}
      * @throws \Exception
      */
-    private function aplicarPagoADeudas(int $alumnoId, array $items): array
+    private function aplicarPagoADeudas(
+        int $alumnoId,
+        array $items,
+        array $montosOriginalesNuevasDeudas = []
+    ): array
     {
         $deudasActualizadas = [];
         $montosAplicados = [];
 
         foreach ($items as $item) {
-            $deuda = $this->obtenerOcrearDeuda($alumnoId, $item['periodo']);
+            $deuda = $this->obtenerOcrearDeuda(
+                $alumnoId,
+                $item['periodo'],
+                $montosOriginalesNuevasDeudas[$item['periodo']] ?? null
+            );
 
             if ($deuda->estado === DeudaCuota::ESTADO_PAGADA) {
                 throw new \Exception("La deuda del período {$item['periodo']} ya está completamente pagada.");
@@ -362,10 +377,15 @@ class PagoCuotaService
     /**
      * Obtener o crear DeudaCuota para un alumno/período.
      * Si no existe y el período es vigente o futuro, la crea automáticamente
-     * usando el precio del plan activo del alumno.
+     * usando el precio del plan activo del alumno, salvo que el primer pago
+     * tenga un monto original descontado explícito.
      * Si el período es pasado, exige creación manual por admin.
      */
-    private function obtenerOcrearDeuda(int $alumnoId, string $periodo): DeudaCuota
+    private function obtenerOcrearDeuda(
+        int $alumnoId,
+        string $periodo,
+        ?float $montoOriginalAlCrear = null
+    ): DeudaCuota
     {
         $deuda = DeudaCuota::where('alumno_id', $alumnoId)
             ->where('periodo', $periodo)
@@ -393,13 +413,13 @@ class PagoCuotaService
             );
         }
 
-        $precioMensual = $alumnoPlan->plan->precio_mensual;
+        $montoOriginal = $montoOriginalAlCrear ?? (float) $alumnoPlan->plan->precio_mensual;
 
         // firstOrCreate para idempotencia (protege contra race conditions por unique constraint)
         return DeudaCuota::firstOrCreate(
             ['alumno_id' => $alumnoId, 'periodo' => $periodo],
             [
-                'monto_original' => $precioMensual,
+                'monto_original' => $montoOriginal,
                 'monto_pagado' => 0,
                 'estado' => DeudaCuota::ESTADO_PENDIENTE,
             ]
@@ -444,7 +464,11 @@ class PagoCuotaService
      * antes de imputar a períodos posteriores. Solo la última deuda (por orden
      * cronológico) puede quedar parcial.
      */
-    private function validarFifo(int $alumnoId, array $items): void
+    private function validarFifo(
+        int $alumnoId,
+        array $items,
+        array $montosOriginalesNuevasDeudas = []
+    ): void
     {
         if (count($items) <= 1) {
             return;
@@ -453,7 +477,11 @@ class PagoCuotaService
         // Items ya vienen ordenados por periodo ASC
         for ($i = 0; $i < count($items) - 1; $i++) {
             $item = $items[$i];
-            $deuda = $this->obtenerOcrearDeuda($alumnoId, $item['periodo']);
+            $deuda = $this->obtenerOcrearDeuda(
+                $alumnoId,
+                $item['periodo'],
+                $montosOriginalesNuevasDeudas[$item['periodo']] ?? null
+            );
             $saldoPendiente = $deuda->saldo_pendiente;
 
             if ($item['monto'] < $saldoPendiente) {
