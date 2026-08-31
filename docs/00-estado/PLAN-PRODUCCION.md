@@ -1,6 +1,6 @@
 # Plan de Producción — Wings v1.0
 
-> **Corregido:** miércoles 26/08/2026, 21:15.
+> **Actualizado:** lunes 31/08/2026.
 > **Servidor:** AlmaLinux 9 · **Datos:** el cliente carga · **Arranque:** producción real.
 > **Versión visual navegable:** artifact "Wings Go-Live".
 
@@ -9,98 +9,56 @@
 
 ---
 
-## 0. El viernes 28 no entra. Acá está la cuenta.
+## 0. Estado al 31/08
 
-No es pesimismo: es la suma de las horas que faltan contra los días que quedan.
+**El bloque de código y el de servidor están cerrados.** Lo que falta es datos para
+probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
-### Estado real al miércoles 26/08, 21:15
+### Cerrado y verificado
 
-| Tarea | Estado |
+| Área | Evidencia |
 |---|---|
-| 1.1 Hook desactivado | Hecha |
-| 1.11b Funciones de Blade | Hecha |
-| 1.3 `CatalogosSeeder` | Escrita, **sin commitear** |
-| 1.2, 1.4 a 1.13 | **Sin empezar** |
-| Todo D2 (servidor) | **Sin empezar y bloqueado** — no hay acceso SSH |
-| Todo D3 (pruebas y datos) | Sin empezar |
+| Suite | **76 pruebas, 313 aserciones**, verificado 31/08 |
+| Primera cuota con descuento | commit `846347f`, verificado por Claude |
+| Matriz de permisos | 268 pruebas GET × 4 roles, 0 accesos indebidos |
+| Dependencias | 0 avisos (eran 44) |
+| Servidor | `https://wings.gestionar-te.com.ar`, AlmaLinux 9, PHP 8.2, TLS |
+| Backups | Cifrados, a Drive, **con restauración probada** |
+| Despliegue | `deploy.sh` atómico con vuelta atrás probada |
+| Preflight | 12 verificaciones, aprobado en el servidor |
+| Seeder de catálogos | Único e idempotente. Base nueva: 0 usuarios, 0 cashflow |
 
-**D1 está al 15%.** Martes y miércoles se consumieron.
+### Lo que falta, en orden
 
-### Horas que faltan
+| # | Qué | Bloquea go-live |
+|---|---|---|
+| 1 | **CSP definitiva** — 30 violaciones abiertas, sigue en modo reporte | Sí |
+| 2 | **Seeder de prueba** — `DATASET-SEEDER-V1.md` sin implementar | Sí |
+| 3 | **Simulador de tres meses** — `SIMULADOR-TRES-MESES-V1.md` sin implementar | Sí |
+| 4 | **Prueba humana completa** desde `wings_test` limpia | Sí |
+| 5 | **`dump.sql` fuera del repo, por las dos puertas** | Sí |
+| 6 | **Suite sobre MariaDB** — hoy corre en SQLite | Sí |
+| 7 | **Gate del servidor** — exposición, scheduler, monitoreo | Sí |
+| 8 | **Carga productiva** — usuarios, alumnos, deuda del primer mes | Sí |
+| 9 | Integración continua | No |
+| 10 | Concurrencia con dos conexiones reales | No |
+| 11 | Smoke de rutas que escriben | No |
+| 12 | `formas_pago` en la base local de CyE | No |
 
-| Bloque | Horas |
-|---|---|
-| Terminar D1 | 11 |
-| Servidor y dependencias | 9 |
-| **Seeder de prueba** (nunca estuvo en el plan) | 7 |
-| Pruebas, datos, deploy y verificación | 13 |
-| Gate y go-live | 4 |
-| **Total** | **44** |
+### El dump tiene dos puertas, no una
 
-Con Codex y Claude trabajando en paralelo sobre lo que es separable, son unas
-**22 horas de reloj**: tres jornadas completas, y eso asumiendo que nada falle.
+Se desactivó el hook de git, pero **`DemoSeeder.php:691-692` reexporta el dump solo**,
+corriendo `mysqldump` sobre `database/dump.sql`. Cerrar una sin la otra no cierra nada.
 
-Quedan dos días hasta el viernes. **No da.**
+### El primer mes de deuda se carga a mano
 
-### Lo que faltaba en el plan anterior
+Verificado en `GenerarDeudasMensualesCommand.php:84-101`: el proceso mensual genera la
+cuota solo si el alumno tuvo asistencias el mes anterior, o se dio de alta hace menos
+de 15 días y ya pagó. Una base recién cargada no cumple ninguna de las dos.
 
-`docs/06-pruebas/DATASET-SEEDER-V1.md` define el seeder de prueba: 15 alumnos,
-5 cajas en los cuatro estados, 22 clases, 3 liquidaciones y una sección de
-verificación obligatoria. Son unas 7 horas de trabajo cuidadoso.
-
-**No estaba en el plan.** Y el recorrido funcional sobre el servidor lo necesita:
-sin esos datos no hay nada que probar.
+Desde el segundo mes funciona solo.
 
 ---
-
-## 1. Fecha nueva: martes 1/09
-
-Con el sábado 29 y el domingo 30 disponibles, entran dos jornadas más. Eso adelanta
-el go-live del 4/09 al **1/09**.
-
-### Sigue dependiendo del acceso al servidor
-
-| Si el SSH llega… | Go-live |
-|---|---|
-| Jueves 27 | **Martes 1/09** |
-| Viernes 28 | Miércoles 2/09 |
-| Semana que viene | Se recalcula |
-
-### Cronograma
-
-| Día | Bloque | Horas de trabajo |
-|---|---|---|
-| **Jue 27** | Blindaje: seguridad y los dos bugs de plata | 11 |
-| **Vie 28** | Servidor y dependencias | 9 |
-| **Sáb 29** | Código: seeder de prueba | 7 |
-| **Dom 30** | Código: tests P0, CI, y primer deploy | 10 |
-| **Lun 31** | Verificación técnica, recorrido funcional, correcciones | 7 |
-| **Mar 1/09** | Gate y go-live | 4 |
-
-**El gate se firma el lunes 31 a la noche.** Si algo queda en rojo, el go-live se
-corre al miércoles 2. No se sube con el gate abierto.
-
-### La deuda del primer mes se carga a mano — sí o sí
-
-Verificado en `GenerarDeudasMensualesCommand.php:84-101`. El proceso mensual genera
-la cuota solo si el alumno cumple una de dos condiciones:
-
-- tuvo **asistencias el mes anterior**, o
-- se dio de alta hace menos de 15 días **y ya pagó**.
-
-Una base de producción recién cargada no cumple ninguna: no hay asistencias de
-agosto porque el sistema no estaba arriba, y los alumnos existentes tienen fecha de
-alta vieja.
-
-**Resultado si se deja correr solo: los manda a todos a la cola de revisión y no
-genera ni una deuda.**
-
-Por eso la cuota del primer mes se carga junto con los datos iniciales, como parte
-del arranque. No es un problema del proceso mensual: es que el primer mes no tiene
-mes anterior. A partir de octubre funciona solo.
-
-Esto **elimina la ventaja de salir antes del 1 de septiembre**: la generación
-automática de ese día no iba a servir de todos modos.
 
 ## 2. Bloqueantes
 
@@ -175,7 +133,11 @@ nada. La spec existe justamente para no repetirlo.
 
 ---
 
-## D1 · Jueves 27/08 — Blindaje de código
+## D1 · Blindaje de código — **CERRADO**
+
+> Todas las tareas de este bloque están hechas y verificadas, salvo la **1.6b (CSP)**,
+> que sigue en modo reporte con 30 violaciones abiertas, y la **1.12** (`formas_pago`
+> en la base local de CyE). Se conserva el detalle como referencia de qué se hizo.
 
 Todo local, no necesita servidor.
 
@@ -255,7 +217,10 @@ comercial va a tener sus propios estilos y scripts.
 
 ---
 
-## D2 · Viernes 28/08 — Servidor y dependencias
+## D2 · Servidor y dependencias — **CERRADO**
+
+> Servidor en línea, TLS, backups con restauración probada, despliegue atómico y 0
+> avisos de dependencias. Se conserva el detalle como referencia.
 
 **Bloqueado hasta que llegue el acceso SSH.**
 
@@ -305,7 +270,7 @@ Uno en el mismo disco que la base no es un backup. El restore se prueba el miér
 
 ---
 
-## D3 · Sábado 29/08 — Seeder de prueba
+## D3 · Seeder de prueba — **PENDIENTE**
 
 Un solo bloque, porque es grande y no se puede hacer a medias.
 
@@ -335,7 +300,9 @@ coincide, falla. Si falla, no se entrega.
 
 ---
 
-## D4 · Domingo 30/08 — Pruebas automatizadas y primer deploy
+## D4 · Pruebas automatizadas — **PENDIENTE**
+
+> El primer deploy ya se hizo el 30/08. Falta la suite sobre MariaDB y la integración continua.
 
 | # | Tarea | Ejecuta | Cierra | Est. |
 |---|---|---|---|---|
@@ -360,7 +327,7 @@ coincide, falla. Si falla, no se entrega.
 
 ---
 
-## D5 · Lunes 31/08 — Verificación técnica y recorrido funcional
+## D5 · Verificación técnica y recorrido funcional — **PENDIENTE**
 
 | # | Tarea | Ejecuta | Est. |
 |---|---|---|---|
@@ -393,7 +360,7 @@ Registrar todo sin corregir en el momento: primero la lista, después los arregl
 
 ---
 
-## D6 · Martes 1/09 — Gate y go-live
+## D6 · Gate y go-live — **PENDIENTE**
 
 | # | Paso |
 |---|---|

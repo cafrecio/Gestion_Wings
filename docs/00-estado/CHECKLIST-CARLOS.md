@@ -1,7 +1,7 @@
 # Checklist de Carlos
 
 > Lo que solo podés hacer vos, y lo que hay que repetir en cada máquina.
-> Actualizado: martes 25/08/2026.
+> Actualizado: lunes 31/08/2026.
 
 ---
 
@@ -42,33 +42,26 @@ npm run build
 
 ### A3. Levantar la base
 
-**Hoy (hasta que salga la tarea 1.2):**
-
-```bash
-"C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
-php artisan db:seed --class=UserSeeder
-```
-
-**Después de la tarea 1.2 esto cambia.** `dump.sql` sale del repo, así que el `git
-pull` ya no te va a traer la base. El reemplazo:
-
 ```bash
 php artisan migrate:fresh
 php artisan db:seed --class=CatalogosSeeder
 php artisan wings:crear-admin
 ```
 
-El seeder deja los catálogos —rubros, deportes, tipos de caja, niveles— y el comando
-crea tu usuario admin pidiéndote la contraseña por consola.
+El seeder deja los catalogos —rubros, deportes, tipos de caja, niveles— y el comando
+crea tu usuario admin pidiendote la contrasenia por consola.
 
-> **Ojo:** `migrate:fresh` borra todo lo que haya en esa base. Está bien para las
-> máquinas de desarrollo. **Nunca** correrlo contra producción.
+> **Ojo:** `migrate:fresh` borra todo lo que haya en esa base. Esta bien para las
+> maquinas de desarrollo. **Nunca** correrlo contra produccion.
+
+> **Nota:** `dump.sql` todavia figura en el repo, pero ya no es el mecanismo para
+> levantar la base. Sale antes de la carga productiva.
 
 ### A4. Verificar que quedó bien
 
 ```bash
-php artisan test          # 33 tests deben pasar
-php artisan route:list    # 127 rutas
+php artisan test          # 76 pruebas deben pasar
+php artisan route:list    # rutas cargadas
 ```
 
 ---
@@ -77,35 +70,26 @@ php artisan route:list    # 127 rutas
 
 Ordenado por lo que frena antes.
 
-### B1. Acceso SSH al servidor — BLOQUEA TODO EL MIÉRCOLES
+### B1. Acceso al servidor — RESUELTO
 
-Sin esto no se puede armar el servidor, y el miércoles entero depende de eso.
-Explicación de qué es y cómo conseguirlo: sección C.
+Wings está publicado en `https://wings.gestionar-te.com.ar`, sobre AlmaLinux 9 con
+PHP 8.2, TLS de Let's Encrypt y base con usuario de privilegio mínimo.
 
-**Estado: pendiente.**
+**Estado: cerrado el 30/08.**
 
-### B2. El dominio apuntando al servidor
+### B2. El dominio — RESUELTO
 
-El nombre por el que va a entrar la gente (`wings.com.ar`, `gestion.wings.com.ar`,
-el que sea) tiene que estar apuntado a la dirección IP del servidor.
+Apuntado y con certificado emitido. Redirección desde HTTP activa.
 
-Se hace desde donde compraste el dominio: un registro tipo `A` con la IP.
+**Estado: cerrado el 30/08.**
 
-**Por qué importa:** el certificado de seguridad (el candadito del navegador) se
-emite verificando que el dominio realmente apunta a ese servidor. Sin el dominio
-apuntado, no hay HTTPS.
+### B3. Destino de los backups — RESUELTO
 
-**Estado: pendiente.**
+Diarios, cifrados, con rotación y subida a Google Drive por rclone. **La restauración
+se probó**: se recuperó en una base descartable y coincidieron las 15 tablas. La clave
+de cifrado quedó fuera del servidor.
 
-### B3. Un lugar afuera para guardar los backups
-
-Puede ser Backblaze B2, Amazon S3, Google Drive, o incluso otro servidor. Lo único
-que no sirve es guardarlos en el mismo servidor: si se rompe ese disco, se van los
-dos juntos.
-
-Necesito el acceso a donde sea que elijas.
-
-**Estado: pendiente.** Se necesita el miércoles.
+**Estado: cerrado el 30/08.**
 
 ### B4. La lista de usuarios reales
 
@@ -118,7 +102,7 @@ Nombre, email y rol de cada persona que va a usar el sistema:
 Las contraseñas las pone cada uno o las generás vos: no me las pases a mí ni las
 escribas en un archivo del proyecto.
 
-**Estado: pendiente.** Se necesita el jueves.
+**Estado: pendiente.** Se necesita antes del go-live.
 
 ### B5. Qué alumnos y planes son reales
 
@@ -128,93 +112,42 @@ de las pruebas. Solo los reales se van a subir a producción.
 Alcanza con que me digas un criterio ("los que tienen DNI cargado", "todos menos
 estos cinco", "los del grupo tal"), no hace falta una lista uno por uno.
 
-**Estado: pendiente.** Se necesita el jueves.
+**Estado: pendiente.** Se necesita antes del go-live.
 
-### B6. Dos o tres horas tuyas el jueves
+### B6. Dos o tres horas tuyas
 
 Para el recorrido funcional sobre el servidor real. Es la única prueba que hace una
 persona y no un script, y es donde aparecen las cosas que ningún test previó.
 
-**Estado: pendiente.**
+**Estado: pendiente.** Se necesita antes del go-live.
 
 ---
 
-## C. Qué es el acceso SSH, en criollo
+## C. El servidor, para referencia
 
-**SSH es la forma de entrar al servidor para escribir comandos.**
+Wings vive en `https://wings.gestionar-te.com.ar`, sobre AlmaLinux 9.
 
-El servidor es una computadora sin pantalla, sin teclado y sin mouse, prendida en
-algún lado. SSH es el cable invisible que te deja escribirle órdenes desde tu
-computadora. Cuando ves en el plan cosas como `dnf install nginx`, eso se escribe
-entrando por SSH.
+Los datos de acceso y la configuracion **no estan en este repositorio**: son de la
+plataforma Gestionar-te, no del producto. Quedaron en la carpeta de VPS de CAB
+Consultores, fuera del repo.
 
-Sin SSH, el servidor es una caja cerrada: existe, pero nadie puede instalarle nada.
-
-### Qué hace falta concretamente
-
-Tres datos:
-
-1. **La dirección IP del servidor** — algo como `192.168.1.50` o `45.79.123.4`.
-2. **Un usuario** — normalmente `root`, que es el administrador.
-3. **La forma de identificarse** — una contraseña, o mejor, una *clave SSH*.
-
-### Contraseña vs clave
-
-- **Con contraseña:** escribís una clave cada vez que entrás. Simple, pero los bots
-  que escanean internet prueban contraseñas todo el día. Por eso el plan la desactiva
-  una vez que el servidor está armado (tarea 2.2).
-- **Con clave SSH:** son dos archivos que se generan juntos. Uno queda en tu
-  computadora (privado, nunca se comparte) y el otro se copia al servidor (público).
-  Es como una cerradura y su única llave. Mucho más seguro y no hay nada que
-  recordar.
-
-Para arrancar alcanza con la contraseña; la clave la configuramos el miércoles.
-
-### De dónde sale eso
-
-Depende de dónde esté el servidor:
-
-- **Si lo contrataste en un proveedor** (DigitalOcean, Hetzner, Linode, Contabo,
-  Vultr, AWS, Donweb, etc.): te mandaron un mail al crearlo con la IP y la
-  contraseña de root. También está en el panel del proveedor, en la ficha del
-  servidor.
-- **Si te lo armó alguien:** pedile esos tres datos.
-- **Si todavía no lo contrataste:** decímelo y te recomiendo proveedor y plan. Para
-  un club, con AlmaLinux 9, alcanza con algo chico: 2 GB de RAM y 40 GB de disco,
-  del orden de 5 a 10 dólares por mes.
-
-### Cómo me lo pasás
-
-**No escribas la contraseña en el chat ni en un archivo del proyecto.**
-
-Lo que sí podés mandarme sin problema es la IP y el nombre de usuario. Para la
-contraseña, la opción sana es que la cargues vos directamente cuando estemos
-conectando, o que generemos una clave SSH y me des acceso con eso.
-
-### Cómo saber si ya lo tenés
-
-Si en algún mail o panel ves algo así, ya está:
-
-```
-Host: 45.79.123.4
-User: root
-Password: ••••••••
-Port: 22
-```
-
-Ese `22` es el puerto de SSH. Si aparece, es que el servidor lo tiene habilitado.
+**SSH**, por si aparece el termino: es la forma de entrar al servidor para escribirle
+comandos. El servidor es una computadora sin pantalla ni teclado, y SSH es el cable
+invisible que permite darle ordenes desde la tuya.
 
 ---
 
 ## D. Estado del plan
 
-| Día | Estado |
+| Bloque | Estado |
 |---|---|
-| Martes 25 — blindaje de código | En curso |
-| Miércoles 26 — servidor | **Bloqueado por B1** |
-| Jueves 27 — pruebas | Depende del miércoles |
-| Viernes 28 — go-live | Depende del jueves |
+| Blindaje de código | **Cerrado** salvo la CSP definitiva |
+| Servidor, TLS, backups, despliegue | **Cerrado** |
+| Datos para probar: seeder y simulador | **Pendiente** |
+| Prueba humana completa | **Pendiente** |
+| Gate y carga productiva | **Pendiente** |
 
-**Si el acceso al servidor no llega hoy**, el miércoles se corre al jueves, el jueves
-al viernes, y el go-live pasa al lunes 31. No es un problema si pasa: es preferible a
-subir sin haber probado.
+Lo que falta, con detalle y prioridad, está en `PLAN-PRODUCCION.md`.
+
+**Ya no hay nada bloqueado esperándote**, salvo la lista de usuarios reales y qué
+alumnos son de verdad, que se necesitan recién en el momento de la carga productiva.

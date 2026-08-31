@@ -139,6 +139,58 @@ recibos de profesores) y `fecha_alta` ausente del formulario de alumno.
 
 ---
 
+## 2026-08-31 — Claude CyE
+
+**Objetivo:** verificar el cierre de la primera cuota y sincerar la documentacion.
+
+### Verificacion del commit `846347f`
+
+| Chequeo | Resultado real |
+|---|---|
+| `--filter=CobrarPrimeraCuota` | 3 de 3, 22 aserciones |
+| Suite completa | 76 pruebas, 313 aserciones |
+| Vistas y CSS | 0 archivos tocados |
+| Camino operativo | Fix presente en `registrarPagoCuotaOperativo:52` |
+| Camino admin | Fix presente en `registrarPagoCuotaAdmin:141` |
+| Camino FIFO | `validarFifo` recibe y propaga el monto descontado |
+| Prueba que lo cubre | `test_admin_y_fifo_autocrean_deudas_con_monto_descontado` |
+
+**Aprobado.** El enfoque es el correcto: la deuda nace con el monto descontado en vez
+de nacer mal y corregirse despues. El parche a posteriori no podia funcionar, porque
+para entonces `monto_pagado` ya bloqueaba el UPDATE.
+
+### Hallazgo que se me habia escapado, detectado por Codex
+
+**El dump tiene dos puertas.** Desactive el hook de git el 25/08 y di el mecanismo por
+cerrado. **`DemoSeeder.php:691-692` reexporta el dump solo**, corriendo `mysqldump`
+sobre `database/dump.sql`. No busque la segunda puerta.
+
+### Error propio corregido: detectar no es cerrar
+
+Detecte que `ESTADO-ACTUAL.md` declaraba 14 pruebas cuando hay 76, y que describia
+como abierto un defecto ya cerrado. **Lo reporte y no lo arregle.** Carlos lo marco:
+si no se actualiza, no se actualiza solo, y la proxima orden se escribe sobre
+informacion falsa. Ya me paso dos veces.
+
+**Corregido en este turno:**
+
+- `ESTADO-ACTUAL.md` reescrito con el estado verificado, mas una definicion explicita
+  de "publicado para pruebas" contra "en produccion", que no estaba y se prestaba a
+  confusion.
+- `CHECKLIST-CARLOS.md`: servidor, dominio y backups pasan a resueltos; se corrigio el
+  procedimiento de levantar la base, que todavia mandaba a importar el dump; la seccion
+  de SSH paso a referencia.
+- `PLAN-PRODUCCION.md`: D1 y D2 marcados cerrados, fechas vencidas eliminadas, y la
+  lista de lo que falta con cuales bloquean el go-live y cuales no.
+- **Regla nueva en `AGENTS.md` §6d:** una tarea no termina cuando el codigo funciona,
+  sino cuando todo lo que el cambio volvio falso quedo corregido. Antes de cerrar,
+  preguntarse que documento se acaba de dejar mintiendo.
+
+**Siguiente paso:** el seeder de prueba segun `DATASET-SEEDER-V1.md`. Es el que
+destraba la prueba humana y el simulador de tres meses.
+
+---
+
 ## 2026-08-28 — Claude CyE
 
 **Objetivo:** revisar una por una las 12 tareas del bloque 1, preguntando de cada

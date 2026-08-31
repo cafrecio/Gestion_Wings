@@ -274,6 +274,31 @@ plantear el problema.
 
 ---
 
+## 6d. Definicion de terminado — que documento acabo de dejar mintiendo
+
+Una tarea no termina cuando el codigo funciona. Termina cuando **todo lo que el cambio
+volvio falso quedo corregido**.
+
+Antes de cerrar cualquier tarea, preguntarse: **que documento acabo de dejar
+mintiendo**, y arreglarlo en el mismo turno.
+
+Los cuatro que se desactualizan siempre:
+
+| Archivo | Que suele quedar viejo |
+|---|---|
+| `docs/00-estado/ESTADO-ACTUAL.md` | Cantidad de pruebas, estado de cada modulo, bugs ya cerrados |
+| `docs/00-estado/PLAN-PRODUCCION.md` | Tareas marcadas pendientes que ya se hicieron |
+| `docs/00-estado/CHECKLIST-CARLOS.md` | Cosas que le piden a Carlos algo que ya entrego |
+| El contrato del area tocada | Reglas de negocio que el cambio modifico |
+
+**Detectar que un documento miente y solo reportarlo no cierra la tarea.** Si no se
+actualiza, no se actualiza solo, y la proxima orden se escribe sobre informacion falsa.
+
+Eso ya paso: `ESTADO-ACTUAL.md` declaraba 14 pruebas cuando habia 76, y describia como
+abierto y pendiente de decision un defecto que ya estaba cerrado.
+
+---
+
 ## 7. Reglas generales
 
 1. No tocar lógica funcional si el pedido es solo documental u organizativo.
