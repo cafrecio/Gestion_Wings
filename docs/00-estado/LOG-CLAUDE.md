@@ -17,6 +17,80 @@
 
 ---
 
+## 2026-08-30 (tarde y noche) — Claude CAB
+
+**Objetivo:** dejar el sistema publicado y seguro, y verificar el trabajo de Codex.
+
+### Lo que se hizo
+
+**Servidor.** Wings quedó en línea en `https://wings.gestionar-te.com.ar`. El bloqueante
+era PHP 7.4 —el proyecto exige 8.2— y se resolvió con el repositorio Remi, que instala
+en paralelo sin tocar el PHP que usa el panel CWP. Base con usuario de privilegio
+mínimo, certificado de Let's Encrypt, redirección desde HTTP y `wings:preflight`
+aprobado en sus 12 verificaciones.
+
+**Backups.** Diarios, cifrados, con rotación y subida a Google Drive por rclone.
+**La restauración se probó**: se recuperó en una base descartable y coincidieron las 15
+tablas. La clave de cifrado quedó también fuera del servidor, sin eso los respaldos
+serían inservibles justo cuando se los necesita.
+
+**Seguridad.** Las 44 advertencias de dependencias bajaron a **cero**. Se midió la CSP
+en modo reporte y se cerraron **55 de las 85 violaciones** sacando el bloque de código
+incrustado del layout general, que estaba en todas las pantallas. La vista solo perdió
+líneas: 160 eliminadas, 0 agregadas.
+
+**Documentación separada.** El servidor y las credenciales salieron de este repositorio:
+son de la plataforma Gestionar-te, no del producto. Quedan en
+`D:\CAB Consultores\Gestionar-te\VPS`, y en el repo solo un puntero.
+
+**Contratos nuevos:** reportes del administrador, y la regla de que cobrar dejando una
+deuda anterior avisa pero no bloquea.
+
+### Verificaciones del trabajo de Codex — resultado real
+
+| Tarea | Verificación |
+|---|---|
+| Superadmin protegido | **Correcta.** Probado con dos cuentas: el admin común no la ve, no la edita, no le cambia la clave ni el rol, y la base confirma que nada cambió |
+| Dependencias | **Correcta.** 0 advertencias, solo cambió `composer.lock`, recibo real generado y válido |
+| CSP en modo reporte | **Correcta.** Header solo de reporte, ninguna vista tocada |
+| `deploy.sh` | **Correcta.** Corrí su prueba de vuelta atrás: ante una migración fallida restaura el commit y sale de mantenimiento. Después se estrenó en un despliegue real |
+| Condonación | **Correcta.** Verificada contra la base, no contra el informe |
+
+### Errores propios que costaron tres ciclos de Codex
+
+Codex frenó tres veces seguidas, y las tres tenía razón. En el prompt de condonación
+afirmé, sin leer el código:
+
+1. Que el servicio exigía el motivo. **No lo exigía**: la validación vivía solo en el
+   validador de la API apagada.
+2. Que el rechazo al operativo daba 403. **Da 302**, y yo mismo lo había medido esa
+   misma mañana en la matriz de roles.
+3. Que al condonar el alumno dejaba de ser deudor. **Un alumno sin ningún pago sigue
+   siendo DEUDOR**, según `CobranzaEstadoService.php:234` y el contrato §3.
+
+**El mecanismo de la falla:** los gatillos de `AGENTS.md` §6c hablan de "antes de
+afirmar". Un prompt no se vive como una afirmación sino como una instrucción, así que la
+regla no se activa. Pero **cada criterio de aceptación es una afirmación sobre cómo se
+comporta el sistema**, y se estaban redactando por expectativa y no por verificación.
+
+**Corrección adoptada:** cada criterio de aceptación lleva al lado con qué se verificó.
+Si no se puede escribir el comando que lo comprobó, no se escribe el criterio.
+
+### Estado al cerrar
+
+Tres commits subidos: condonación y precio positivo terminados, **primera cuota
+incompleta y marcada `wip` con una prueba en rojo**. El descuento de primera cuota se
+aplica al cobro pero no a la deuda cuando esa deuda nace en el mismo cobro: el alumno
+paga lo que se le pidió y queda debiendo la diferencia.
+
+**El servidor no tiene nada de esto**: sigue en el commit anterior, con la suite verde.
+
+**Siguiente paso:** cerrar la primera cuota, rearmar `wings_test` desde cero —quedó con
+datos cargados a mano por los tres— y retomar la prueba funcional. Después, el simulador
+de tres meses especificado en `SIMULADOR-TRES-MESES-V1.md`.
+
+---
+
 ## 2026-08-30 — Claude CAB
 
 **Objetivo:** arranque de jornada en la máquina de casa: bajar el repo, leer
