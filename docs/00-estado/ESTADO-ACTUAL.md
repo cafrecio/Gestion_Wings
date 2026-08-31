@@ -41,7 +41,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **76 pruebas, 313 aserciones, en verde** | verificado 31/08 |
+| **Tests** | **77 pruebas, en verde** | verificado 31/08 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
 | Backups | Diarios, cifrados, rotados, subidos a Drive. **Restauracion probada** | `LOG-CLAUDE.md` 30/08 |

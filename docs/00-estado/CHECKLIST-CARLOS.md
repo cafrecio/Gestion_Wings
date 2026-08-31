@@ -60,7 +60,7 @@ crea tu usuario admin pidiendote la contrasenia por consola.
 ### A4. Verificar que quedó bien
 
 ```bash
-php artisan test          # 76 pruebas deben pasar
+php artisan test          # 77 pruebas deben pasar
 php artisan route:list    # rutas cargadas
 ```
 

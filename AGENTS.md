@@ -50,6 +50,53 @@ Y respetar:
 - No introducir Alpine.js ni Livewire. No agregar frameworks de CSS.
 - No reordenar ni "limpiar" markup que ya funciona.
 
+### El hook que vigila esto — no prohíbe, exige justificar
+
+Hay un control automático instalado. Si un commit toca `resources/views` o
+`resources/css`, **la máquina lo rechaza salvo que el mensaje diga por qué**.
+
+**Instalarlo en cada máquina** — los hooks viven en `.git/` y no se versionan:
+
+```bash
+bash scripts/hooks/instalar.sh
+```
+
+#### Cuándo el diseño SÍ se toca, y cómo se declara
+
+**El diseño no está prohibido.** Está prohibido tocarlo sin decirlo.
+
+Si Carlos pidió un cambio visual, o la tarea es explícitamente de diseño, el commit
+pasa agregando esta línea al final del mensaje:
+
+```
+Diseno-autorizado: <por qué se toca el diseño>
+```
+
+Con el motivo real, no una fórmula. Por ejemplo:
+
+```
+Diseno-autorizado: Carlos pidio agregar el filtro por deporte en el listado
+```
+
+El hook entonces acepta el commit y **lista qué archivos de diseño entraron**, para
+que quede a la vista en la salida.
+
+#### Cuándo NO se declara
+
+Si la tarea no era de diseño y una vista aparece en el commit, **casi siempre
+significa que la tarea se entendió mal**. En ese caso:
+
+```bash
+git restore --staged <la vista>
+```
+
+Y frenar a consultar, según la sección 6b.
+
+**No uses la línea de autorización para pasar el control.** Existe para dejar
+registrado que el cambio visual fue pedido, no para saltear la revisión. Un
+`Diseno-autorizado:` sin pedido detrás es peor que el cambio: convierte la
+trazabilidad en ruido.
+
 ### Verificación obligatoria antes de cerrar cualquier tarea
 
 ```bash

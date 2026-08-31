@@ -2,6 +2,36 @@
 
 Este archivo orienta el trabajo dentro del repo. No reemplaza la documentacion viva: indica donde leer antes de tocar cada area.
 
+## Antes de afirmar un hecho
+
+**Contar no es mirar.** Nunca concluir que *son* unos datos a partir de un `COUNT`.
+Mirar filas con `LIMIT 5` antes de afirmar. Ya paso: un `COUNT` dijo "36 alumnos con
+DNI" y se concluyo que eran personas reales. Los DNI eran `30000001`, `30000002`.
+
+**Severidad sin alcanzabilidad es ruido.** Antes de decir que algo es grave, comprobar
+que alguien puede llegar: hay ruta, hay boton, esta prendido el router. Ya paso: se
+relato AUD-021 como critico y vive en un controlador de API que esta apagado.
+
+**Heredar un hallazgo de un documento es inferir, no verificar.** Toda auditoria o
+reporte previo se revalida contra el codigo actual antes de repetirse.
+
+**Separar verificado de inferido, explicito.** Si no se comprobo, decirlo.
+
+## Antes de cerrar una tarea
+
+**Preguntarse que documento se acaba de dejar mintiendo, y arreglarlo en el mismo
+turno.** Una tarea no termina cuando el codigo funciona: termina cuando todo lo que el
+cambio volvio falso quedo corregido.
+
+Los que se desactualizan siempre: `docs/00-estado/ESTADO-ACTUAL.md`,
+`docs/00-estado/PLAN-PRODUCCION.md`, `docs/00-estado/CHECKLIST-CARLOS.md` y el
+contrato del area tocada.
+
+**Detectar que un documento miente y solo reportarlo no cierra la tarea.** Ya paso:
+`ESTADO-ACTUAL.md` declaraba 14 pruebas cuando habia 76, y sobre esa informacion falsa
+se escribieron ordenes equivocadas. Hoy lo cubre `DocumentacionNoMienteTest`, que pone
+la suite en rojo si el numero no coincide.
+
 ## Regla principal
 
 **Si sos un agente distinto de Claude Code (Codex u otro), leer primero `AGENTS.md`.**
