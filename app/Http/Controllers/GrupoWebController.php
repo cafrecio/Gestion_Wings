@@ -52,7 +52,7 @@ class GrupoWebController extends Controller
             ],
             'planes'                         => 'nullable|array',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
-            'planes.*.precio_mensual'        => 'required|numeric|min:0',
+            'planes.*.precio_mensual'        => 'required|numeric|gt:0',
         ], [
             'deporte_id.required'                    => 'Debe seleccionar un deporte.',
             'deporte_id.exists'                      => 'El deporte seleccionado no existe.',
@@ -62,6 +62,7 @@ class GrupoWebController extends Controller
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
             'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',
+            'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',
         ]);
 
         $grupo = Grupo::create([
@@ -116,11 +117,12 @@ class GrupoWebController extends Controller
             'planes'                         => 'nullable|array',
             'planes.*.id'                    => 'nullable|integer',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
-            'planes.*.precio_mensual'        => 'required|numeric|min:0',
+            'planes.*.precio_mensual'        => 'required|numeric|gt:0',
         ], [
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
             'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',
+            'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',
         ]);
 
         // nivel_id no cambia en edición
@@ -206,7 +208,11 @@ class GrupoWebController extends Controller
 
         $validated = $request->validate([
             'clases_por_semana' => 'required|integer|min:1|max:7',
-            'precio_mensual'    => 'required|numeric|min:0',
+            'precio_mensual'    => 'required|numeric|gt:0',
+        ], [
+            'precio_mensual.required' => 'Ingresá el precio.',
+            'precio_mensual.numeric' => 'El precio debe ser un número.',
+            'precio_mensual.gt' => 'El precio debe ser mayor a cero.',
         ]);
 
         $yaExiste = GrupoPlan::where('grupo_id', $id)
