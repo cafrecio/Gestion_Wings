@@ -14,6 +14,25 @@
 
 ---
 
+## 2026-09-03 — Codex CAB — saldo inicial por tipo de caja
+
+Se agregó `saldo_inicial` decimal, predeterminado en cero y validado en servidor
+como no negativo. Alta y edición usan el componente existente `x-ds.money-input`;
+no se modificaron el componente ni el CSS.
+
+El saldo inicial se incorporó en los cinco cálculos verificados: balance web de
+cashflow, selector y control de fondos de liquidaciones, saldo acumulado por fecha
+y servicio de saldos de la API apagada. No apareció un sexto cálculo de saldo. El
+cashflow muestra el saldo inicial separado de ingresos y egresos porque no es un
+movimiento contable.
+
+Regresión: saldo inicial 200.000 sin movimientos; saldo 150.000 después de un
+egreso de 50.000; liquidación de 100.000 pagada desde un saldo inicial de 500.000;
+tipos existentes con saldo inicial cero; y rechazo del valor negativo. Resultado:
+81 pruebas y 343 aserciones aprobadas.
+
+---
+
 ## 2026-08-31 — Codex CAB — primera cuota con descuento cerrada
 
 Se corrigió la creación automática de deudas durante el primer cobro: cuando

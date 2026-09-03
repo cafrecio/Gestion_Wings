@@ -14,12 +14,14 @@ class TipoCaja extends Model
         'abreviatura',
         'descripcion',
         'permite_descubierto',
+        'saldo_inicial',
         'activo',
     ];
 
     protected $casts = [
         'activo'              => 'boolean',
         'permite_descubierto' => 'boolean',
+        'saldo_inicial'       => 'decimal:2',
     ];
 
     /**

@@ -28,11 +28,15 @@ class TipoCajaWebController extends Controller
             'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
             'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
+            'saldo_inicial' => 'required|numeric|min:0',
         ], [
             'nombre.required'      => 'El nombre es obligatorio.',
             'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
             'abreviatura.required' => 'La abreviatura es obligatoria.',
             'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
+            'saldo_inicial.required' => 'El saldo inicial es obligatorio.',
+            'saldo_inicial.numeric'  => 'El saldo inicial debe ser un número.',
+            'saldo_inicial.min'      => 'El saldo inicial no puede ser negativo.',
         ]);
 
         TipoCaja::create([
@@ -40,6 +44,7 @@ class TipoCajaWebController extends Controller
             'abreviatura'         => strtoupper($request->abreviatura),
             'descripcion'         => $request->descripcion,
             'permite_descubierto' => $request->boolean('permite_descubierto'),
+            'saldo_inicial'       => $request->input('saldo_inicial'),
         ]);
 
         return redirect()->route('web.tipos-caja.index')
@@ -60,11 +65,15 @@ class TipoCajaWebController extends Controller
             'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
             'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
+            'saldo_inicial' => 'required|numeric|min:0',
         ], [
             'nombre.required'      => 'El nombre es obligatorio.',
             'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
             'abreviatura.required' => 'La abreviatura es obligatoria.',
             'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
+            'saldo_inicial.required' => 'El saldo inicial es obligatorio.',
+            'saldo_inicial.numeric'  => 'El saldo inicial debe ser un número.',
+            'saldo_inicial.min'      => 'El saldo inicial no puede ser negativo.',
         ]);
 
         $tipoCaja->update([
@@ -72,6 +81,7 @@ class TipoCajaWebController extends Controller
             'abreviatura'         => strtoupper($request->abreviatura),
             'descripcion'         => $request->descripcion,
             'permite_descubierto' => $request->boolean('permite_descubierto'),
+            'saldo_inicial'       => $request->input('saldo_inicial'),
         ]);
 
         return redirect()->route('web.tipos-caja.index')

@@ -7,7 +7,7 @@
 
 @php
 $mesesNombres = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-$balance = (float)$totalIngresos - (float)$totalEgresos;
+$balance = (float)$saldoInicial + (float)$totalIngresos - (float)$totalEgresos;
 $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 @endphp
 
@@ -70,6 +70,10 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         <span>
             <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
             <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">egresos</span>
+        </span>
+        <span>
+            <strong>${{ number_format($saldoInicial, 0, ',', '.') }}</strong>
+            <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">saldo inicial</span>
         </span>
         <span>
             <strong style="color:{{ $balanceColor }};">${{ number_format($balance, 0, ',', '.') }}</strong>

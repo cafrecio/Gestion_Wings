@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
+use App\Models\TipoCaja;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -90,21 +91,20 @@ class CashflowIntegracionCajaService
         // Interpretar fecha en TZ Argentina
         $fechaAr = Carbon::parse($fecha, 'America/Argentina/Buenos_Aires')->toDateString();
 
-        // Obtener saldos agrupados por tipo de caja
-        $saldosPorTipo = CashflowMovimiento::select('tipo_caja_id', DB::raw('SUM(monto) as saldo'))
+        $saldosMovimientos = CashflowMovimiento::select('tipo_caja_id', DB::raw('SUM(monto) as saldo'))
             ->where('fecha', '<=', $fechaAr)
             ->groupBy('tipo_caja_id')
-            ->with('tipoCaja')
-            ->get();
+            ->pluck('saldo', 'tipo_caja_id');
 
         $porTipoCaja = [];
         $totalGeneral = 0;
 
-        foreach ($saldosPorTipo as $item) {
-            $saldo = (float) $item->saldo;
+        foreach (TipoCaja::orderBy('nombre')->get() as $tipoCaja) {
+            $saldo = (float) $tipoCaja->saldo_inicial
+                + (float) ($saldosMovimientos[$tipoCaja->id] ?? 0);
             $porTipoCaja[] = [
-                'tipo_caja_id' => $item->tipo_caja_id,
-                'tipo_caja_nombre' => $item->tipoCaja->nombre ?? 'Desconocido',
+                'tipo_caja_id' => $tipoCaja->id,
+                'tipo_caja_nombre' => $tipoCaja->nombre,
                 'saldo' => round($saldo, 2),
             ];
             $totalGeneral += $saldo;

@@ -166,11 +166,14 @@ class LiquidacionWebController extends Controller
             $detalle->setRelation('referencia', $map->get($detalle->referencia_id));
         }
 
-        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        $tiposCaja = TipoCaja::where('activo', true)
+            ->withSum('cashflowMovimientos as saldo_movimientos', 'monto')
+            ->orderBy('nombre')
+            ->get();
 
-        $saldosPorTipoCaja = CashflowMovimiento::selectRaw('tipo_caja_id, SUM(monto) as saldo')
-            ->groupBy('tipo_caja_id')
-            ->pluck('saldo', 'tipo_caja_id');
+        $saldosPorTipoCaja = $tiposCaja->mapWithKeys(fn(TipoCaja $tipoCaja) => [
+            $tipoCaja->id => (float) $tipoCaja->saldo_inicial + (float) $tipoCaja->saldo_movimientos,
+        ]);
 
         return view('liquidaciones.show', compact('liquidacion', 'tiposCaja', 'saldosPorTipoCaja'));
     }
@@ -222,7 +225,8 @@ class LiquidacionWebController extends Controller
         $tipoCaja    = TipoCaja::findOrFail($request->tipo_caja_id);
         $liquidacion = Liquidacion::with('profesor.deporte')->findOrFail($id);
 
-        $saldoActual    = (float) CashflowMovimiento::where('tipo_caja_id', $tipoCaja->id)->sum('monto');
+        $saldoActual = (float) $tipoCaja->saldo_inicial
+            + (float) CashflowMovimiento::where('tipo_caja_id', $tipoCaja->id)->sum('monto');
         $saldoResultante = $saldoActual - (float) $liquidacion->total_calculado;
 
         if ($saldoResultante < 0 && !$tipoCaja->permite_descubierto) {

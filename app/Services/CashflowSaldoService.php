@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\TipoCaja;
 use App\Models\CashflowMovimiento;
 use Illuminate\Support\Facades\DB;
 
@@ -31,26 +32,24 @@ class CashflowSaldoService
             ->groupBy('cm.tipo_caja_id', 'tc.nombre', 'r.tipo')
             ->get();
 
-        // Procesar resultados
-        $porTipoCaja = [];
+        $porTipoCaja = TipoCaja::orderBy('nombre')->get()->mapWithKeys(fn(TipoCaja $tipoCaja) => [
+            $tipoCaja->id => [
+                'tipo_caja_id' => $tipoCaja->id,
+                'tipo_caja_nombre' => $tipoCaja->nombre,
+                'saldo_inicial' => (float) $tipoCaja->saldo_inicial,
+                'ingresos' => 0,
+                'egresos' => 0,
+                'saldo' => 0,
+            ],
+        ])->all();
 
         foreach ($totales as $row) {
             $tipoCajaId = $row->tipo_caja_id;
 
-            if (!isset($porTipoCaja[$tipoCajaId])) {
-                $porTipoCaja[$tipoCajaId] = [
-                    'tipo_caja_id' => $tipoCajaId,
-                    'tipo_caja_nombre' => $row->tipo_caja_nombre,
-                    'ingresos' => 0,
-                    'egresos' => 0,
-                    'saldo' => 0,
-                ];
-            }
-
             if ($row->naturaleza === 'INGRESO') {
                 $porTipoCaja[$tipoCajaId]['ingresos'] = round((float) $row->total, 2);
             } else {
-                $porTipoCaja[$tipoCajaId]['egresos'] = round((float) $row->total, 2);
+                $porTipoCaja[$tipoCajaId]['egresos'] = round(abs((float) $row->total), 2);
             }
         }
 
@@ -59,7 +58,7 @@ class CashflowSaldoService
         $totalEgresos = 0;
 
         foreach ($porTipoCaja as &$item) {
-            $item['saldo'] = round($item['ingresos'] - $item['egresos'], 2);
+            $item['saldo'] = round($item['saldo_inicial'] + $item['ingresos'] - $item['egresos'], 2);
             $totalIngresos += $item['ingresos'];
             $totalEgresos += $item['egresos'];
         }
@@ -69,7 +68,8 @@ class CashflowSaldoService
             'totales' => [
                 'ingresos' => round($totalIngresos, 2),
                 'egresos' => round($totalEgresos, 2),
-                'saldo' => round($totalIngresos - $totalEgresos, 2),
+                'saldo_inicial' => round(array_sum(array_column($porTipoCaja, 'saldo_inicial')), 2),
+                'saldo' => round(array_sum(array_column($porTipoCaja, 'saldo')), 2),
             ],
         ];
     }

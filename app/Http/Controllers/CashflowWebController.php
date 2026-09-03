@@ -42,6 +42,10 @@ class CashflowWebController extends Controller
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))
             ->sum('monto'));
 
+        $saldoInicial = TipoCaja::query()
+            ->when($tipoCajaId, fn($q) => $q->whereKey($tipoCajaId))
+            ->sum('saldo_inicial');
+
         $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $aniosDisponibles = CashflowMovimiento::selectRaw('YEAR(fecha) as anio')
             ->distinct()->orderBy('anio', 'desc')->pluck('anio');
@@ -53,7 +57,7 @@ class CashflowWebController extends Controller
         return view('cashflow.index', compact(
             'movimientos', 'tiposCaja', 'aniosDisponibles',
             'anio', 'mes', 'tipoCajaId', 'tipo',
-            'totalIngresos', 'totalEgresos'
+            'totalIngresos', 'totalEgresos', 'saldoInicial'
         ));
     }
 

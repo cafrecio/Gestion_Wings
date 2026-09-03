@@ -90,6 +90,7 @@
 
 - id (PK)
 - nombre (string)
+- saldo_inicial (decimal, default 0, mínimo 0)
 
 ---
 
@@ -133,3 +134,4 @@
 - Por usuario: no puede haber más de **una caja ABIERTA** simultánea.
 - Rechazo: si estado = RECHAZADA ⇒ `motivo_rechazo` debe existir (nullable a nivel DB, obligatorio a nivel request).
 - Integración Caja→Cashflow es idempotente (no duplica movimientos).
+- Saldo por tipo de caja = `saldo_inicial + SUM(cashflow_movimientos.monto)`.

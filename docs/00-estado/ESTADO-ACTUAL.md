@@ -60,13 +60,13 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cuotas, deudas y pagos | Core implementado. **Primera cuota con descuento corregida el 31/08** | commit `846347f` |
 | Condonacion de deuda | Por web, solo ADMIN, motivo obligatorio de 10 a 500 caracteres | commit `5f77c85` |
 | Caja operativa | Apertura, movimientos, cierre, rechazo, validacion, cancelacion | `CajaService` |
-| Cashflow | Movimientos admin y reflejo desde caja validada | `CashflowIntegracionCajaService` |
+| Cashflow | Movimientos admin, reflejo desde caja validada y saldo inicial por tipo de caja | `CashflowIntegracionCajaService` |
 | Clases y asistencias | Guardado transaccional y validacion de pertenencia al grupo | commit `dab369f` |
 | Liquidaciones | Implementado con pago y recibos | `LiquidacionService` |
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **77 pruebas, en verde** | verificado 31/08 |
+| **Tests** | **81 pruebas, en verde** | verificado 03/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
 | Backups | Diarios, cifrados, rotados, subidos a Drive. **Restauracion probada** | `LOG-CLAUDE.md` 30/08 |

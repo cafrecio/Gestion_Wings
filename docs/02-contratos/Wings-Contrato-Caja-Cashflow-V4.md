@@ -56,6 +56,13 @@ Un CashflowMovimiento derivado de caja debe referenciar:
 ✅ **Aclaración agregada en V4:**  
 El CashflowMovimiento también almacena `tipo_caja_id` (para saldos/agrupaciones por tipo de caja).
 
+### 4.3 Saldo inicial por tipo de caja
+
+- Cada `TipoCaja` tiene un `saldo_inicial` mayor o igual a cero, con valor predeterminado cero.
+- El saldo inicial no es un ingreso ni genera un `CashflowMovimiento`.
+- El saldo disponible se calcula como `saldo_inicial + SUM(cashflow_movimientos.monto)`.
+- La validación de fondos para pagar una liquidación usa ese mismo saldo disponible.
+
 ---
 
 ## 5. Endpoints (contrato funcional)

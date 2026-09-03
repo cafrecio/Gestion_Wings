@@ -51,6 +51,21 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         @error('descripcion') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
+    {{-- Saldo inicial --}}
+    <div class="md:col-span-2">
+        <label for="saldo_inicial" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+            Saldo inicial <span class="form-required">*</span>
+        </label>
+        <x-ds.money-input
+            id="saldo_inicial"
+            name="saldo_inicial"
+            :value="old('saldo_inicial', $tipoCaja->saldo_inicial ?? 0)"
+            required
+        />
+        @error('saldo_inicial') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+
     {{-- Permite descubierto --}}
     <div class="md:col-span-2" style="display:flex; align-items:center; gap:12px; padding-top:4px;">
         <x-ds.toggle
