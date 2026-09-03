@@ -14,6 +14,31 @@ profesores, liquidaciones, usuarios y configuracion.
 produccion.** Esta en linea para pruebas: sin datos reales, sin usuarios del club y sin
 el gate firmado.
 
+## Que version corre en el servidor
+
+**Verificado por SSH el 01/09.** Lo que dice esta pagina sobre funcionalidades hechas
+se refiere al **repositorio**, no a lo que esta publicado.
+
+| Que | Valor |
+|---|---|
+| Commit desplegado | **`b9e6af6`** (30/08 17:41) |
+| Repositorio | 17 commits mas adelante |
+| PHP / Laravel | 8.2.33 / 12.68.0 |
+| Migraciones pendientes | 0 |
+
+**Lo que el servidor NO tiene todavia**, aunque figure como hecho mas abajo:
+
+| Falta | Commit |
+|---|---|
+| Primera cuota con descuento | `846347f` |
+| Cobro de la primera cuota de un alumno nuevo | `f066c42` |
+| Condonacion de deuda | `5f77c85` |
+| Precio de plan mayor a cero | `824fdd8` |
+
+**Consecuencia:** en el servidor **no se le puede cobrar la primera cuota a un alumno
+nuevo**. Se corto el despliegue el 30/08 porque la suite estaba en rojo; ese defecto ya
+se cerro, asi que no queda motivo tecnico para no desplegar.
+
 Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 
 ## Definicion de estado
