@@ -1,8 +1,10 @@
 # Wings - Estado Actual
 
-> Actualizado: 2026-08-31
+> Actualizado: 2026-09-03
 > Fuente de verdad del estado del proyecto. Si otro documento lo contradice, se corrige
 > el otro documento o se registra la contradiccion aca antes de implementar.
+> El indice de pendientes incorpora la verificacion de `PENDIENTES-260901.md`,
+> conservando las verificaciones posteriores del repositorio.
 
 ## Resumen Ejecutivo
 
@@ -22,7 +24,7 @@ se refiere al **repositorio**, no a lo que esta publicado.
 | Que | Valor |
 |---|---|
 | Commit desplegado | **`b9e6af6`** (30/08 17:41) |
-| Repositorio | 17 commits mas adelante |
+| Repositorio | 21 commits mas adelante respecto del ultimo commit verificado en el servidor |
 | PHP / Laravel | 8.2.33 / 12.68.0 |
 | Migraciones pendientes | 0 |
 
@@ -34,6 +36,7 @@ se refiere al **repositorio**, no a lo que esta publicado.
 | Cobro de la primera cuota de un alumno nuevo | `f066c42` |
 | Condonacion de deuda | `5f77c85` |
 | Precio de plan mayor a cero | `824fdd8` |
+| Saldo inicial por tipo de caja | `c09a3e1` |
 
 **Consecuencia:** en el servidor **no se le puede cobrar la primera cuota a un alumno
 nuevo**. Se corto el despliegue el 30/08 porque la suite estaba en rojo; ese defecto ya
@@ -76,27 +79,65 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 
 ## Lo que falta
 
-Detalle y prioridades en `docs/00-estado/PLAN-PRODUCCION.md`.
+Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
+`docs/00-estado/PLAN-PRODUCCION.md`.
 
-### Bloqueantes del go-live
+### A · Tener con que probar
 
-1. **CSP definitiva.** Quedan 30 violaciones y sigue en modo reporte.
-2. **Seeder de prueba.** `DATASET-SEEDER-V1.md` especificado y sin implementar.
-   `DemoSeeder` no lo cumple; `TestSeeder` tiene 21 lineas.
-3. **Simulador de tres meses.** `SIMULADOR-TRES-MESES-V1.md`, especificado y sin implementar.
-4. **Prueba humana completa**, rehecha desde `wings_test` limpia.
-5. **`dump.sql` fuera del repo, por las dos puertas.** Sigue versionado, y ademas
-   `DemoSeeder.php:691-692` lo reexporta solo con `mysqldump`.
-6. **Suite sobre MariaDB.** Hoy corre en SQLite: `phpunit.xml`.
-7. **Gate del servidor**: exposicion de archivos, scheduler real, monitoreo de errores.
-8. **Carga productiva**: usuarios reales, alumnos, deuda del primer mes, primera caja.
+| # | Pendiente | Estado verificado |
+|---|---|---|
+| **A1** | Seeder de prueba | `TestSeeder` tiene 21 lineas. `DemoSeeder` crea 19 alumnos; la especificacion pide 15 y verificaciones de estados que hoy no existen |
+| **A2** | Simulador de tres meses | No existe codigo. Solo `SIMULADOR-TRES-MESES-V1.md` |
+| **A3** | Base de prueba limpia | `wings_test` no existia en CyE al 01/09 |
 
-### No bloquean
+**Orden:** A3 y A1 van juntas. A2 es independiente y usa su propia base descartable.
 
-- Integracion continua en GitHub Actions: no existe.
-- Prueba de concurrencia con dos conexiones reales sobre MariaDB.
-- Smoke de rutas con metodos que escriben.
-- `formas_pago` sobrevive en la base local de CyE.
+### B · Probar de verdad
+
+| # | Pendiente | Estado verificado |
+|---|---|---|
+| **B1** | Recorrido humano completo | Bloqueado por A |
+| **B2** | Suite sobre MariaDB | La suite tiene 81 pruebas y 343 aserciones en verde, pero corre sobre SQLite |
+| **B3** | Concurrencia con dos conexiones reales | Sin hacer |
+| **B4** | Smoke de rutas que escriben | Sin hacer |
+
+### C · Cerrar lo que quedo a medias
+
+| # | Pendiente | Estado verificado |
+|---|---|---|
+| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 24 vistas con `<script>` y 40 manejadores `on...=` inline; no se puede activar el bloqueo asi |
+| **C2** | Sacar `dump.sql` por las dos puertas | Sigue versionado y `DemoSeeder.php:691-692` lo reexporta con `mysqldump` |
+
+### D · Entregar
+
+| # | Pendiente |
+|---|---|
+| **D1** | Gate del servidor |
+| **D2** | Datos reales del club |
+| **D3** | Usuarios reales |
+| **D4** | Deuda del primer mes |
+| **D5** | Primera caja acompanada |
+
+### E · Despues de entregar
+
+| # | Pendiente |
+|---|---|
+| **E1** | Cuatro defectos con vencimiento: `AUD-018`, `AUD-019`, `AUD-020`, `AUD-025` |
+| **E2** | Reportes que el sistema todavia no entrega |
+| **E3** | Deuda tecnica conocida |
+| **E4** | Eliminar `formas_pago`, que seguia en la base de CyE al 01/09 |
+
+### Estado del servidor que falta volver a verificar
+
+El ultimo acceso SSH registrado fue el 01/09. Desde entonces no se comprobo:
+
+1. Si hubo otro despliegue despues de `b9e6af6`.
+2. Si los backups diarios siguen corriendo.
+3. Si existe monitoreo de errores operativo.
+4. Si el proceso mensual se ejecuto el 01/09 a las 06:00.
+
+No asumir ninguno de estos cuatro puntos. El despliegue se comprueba en
+`storage/logs/despliegues.log` del servidor.
 
 ## Deuda Tecnica Conocida
 
@@ -114,7 +155,7 @@ Detalle y prioridades en `docs/00-estado/PLAN-PRODUCCION.md`.
 Cada uno verificado como no alcanzable, o de un modulo que todavia no se usa. Detalle y
 fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
 
-`AUD-018`, `AUD-019`, `AUD-020`, `AUD-021`, `AUD-025`.
+`AUD-018`, `AUD-019`, `AUD-020`, `AUD-025`.
 
 ## Contradicciones abiertas
 

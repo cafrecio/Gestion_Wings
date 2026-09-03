@@ -14,6 +14,18 @@
 
 ---
 
+## 2026-09-03 — Codex CAB — indice de pendientes actualizado
+
+Se reemplazo el indice viejo de `ESTADO-ACTUAL.md` por la estructura A-E verificada
+en `PENDIENTES-260901.md`: preparar pruebas, probar, cerrar pendientes, entregar y
+trabajo posterior. Se conservaron los datos mas nuevos del 03/09: 81 pruebas, 343
+aserciones y saldo inicial terminado.
+
+Tambien se separaron cuatro puntos del servidor que no se volvieron a verificar desde
+el 01/09. No hubo cambios de codigo ni de base.
+
+---
+
 ## 2026-09-03 — Codex CAB — saldo inicial por tipo de caja
 
 Se agregó `saldo_inicial` decimal, predeterminado en cero y validado en servidor
