@@ -17,6 +17,52 @@
 
 ---
 
+## 2026-09-01 — Claude CAB — Versión que corre en el servidor
+
+**Verificado por SSH contra el servidor, no inferido del repositorio local.**
+
+| Qué | Valor |
+|---|---|
+| Commit desplegado | **`b9e6af6`** — *fix: dos campos que reventaban con pantalla de error en vez de avisar* |
+| Fecha de ese commit | 2026-08-30 17:41 |
+| Rama | `main` |
+| PHP | 8.2.33 |
+| Laravel | 12.68.0 |
+| Migraciones pendientes | **0** |
+| URL | `https://wings.gestionar-te.com.ar` |
+
+### El servidor está 17 commits atrás
+
+**No tiene nada de lo que se hizo después de la tarde del 30/08.** Lo que le falta y
+sí importa:
+
+| Falta en el servidor | Commit |
+|---|---|
+| **Primera cuota con descuento** | `846347f` |
+| Cobro de la primera cuota de un alumno nuevo | `f066c42` |
+| Condonación de deuda | `5f77c85` |
+| Precio de plan mayor a cero | `824fdd8` |
+
+**Consecuencia práctica:** en el servidor **no se le puede cobrar la primera cuota a un
+alumno nuevo**. Es el defecto que bloqueaba el go-live y está arreglado en el
+repositorio, pero no desplegado.
+
+### Por qué no está desplegado
+
+Se cortó a propósito el 30/08: la suite estaba en rojo por la primera cuota incompleta
+y no se sube con una prueba fallando. Ese defecto ya se cerró (`846347f`), así que
+**hoy no queda motivo para no desplegar** salvo decidir el momento.
+
+El servidor quedó, eso sí, en un estado **consistente**: está en el commit anterior al
+`wip`, no a mitad de camino.
+
+### Cómo se despliega
+
+Con `scripts/deploy.sh`, que ya se estrenó y tiene vuelta atrás probada. Corre como
+usuario `wings` y pide la contraseña de `wings_migrate` sin mostrarla.
+
+---
+
 ## 2026-08-30 (tarde y noche) — Claude CAB
 
 **Objetivo:** dejar el sistema publicado y seguro, y verificar el trabajo de Codex.
