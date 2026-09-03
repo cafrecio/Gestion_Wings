@@ -91,7 +91,21 @@ de cifrado quedó fuera del servidor.
 
 **Estado: cerrado el 30/08.**
 
-### B4. La lista de usuarios reales
+### B4. Credenciales del servidor a un administrador de contrasenias
+
+Hoy viven en un archivo unico en `D:\CAB Consultores\Gestionar-te\VPS`, o sea que
+**dependen de una sola maquina**. Si ese disco falla o no estas frente a el, nadie
+puede entrar al servidor.
+
+Que esten fuera del repositorio esta bien y no se cambia. Lo que falta es que no
+dependan de un equipo: pasarlas a un administrador de contrasenias.
+
+Incluye la clave de cifrado de los backups. Sin ella los respaldos son inservibles
+justo el dia que se los necesita.
+
+**Estado: pendiente.** Decidido el 02/09.
+
+### B5. La lista de usuarios reales
 
 Nombre, email y rol de cada persona que va a usar el sistema:
 
@@ -104,7 +118,7 @@ escribas en un archivo del proyecto.
 
 **Estado: pendiente.** Se necesita antes del go-live.
 
-### B5. Qué alumnos y planes son reales
+### B6. Qué alumnos y planes son reales
 
 De lo que hay hoy en la base, cuáles son alumnos de verdad del club y cuáles quedaron
 de las pruebas. Solo los reales se van a subir a producción.
@@ -114,7 +128,7 @@ estos cinco", "los del grupo tal"), no hace falta una lista uno por uno.
 
 **Estado: pendiente.** Se necesita antes del go-live.
 
-### B6. Dos o tres horas tuyas
+### B7. Dos o tres horas tuyas
 
 Para el recorrido funcional sobre el servidor real. Es la única prueba que hace una
 persona y no un script, y es donde aparecen las cosas que ningún test previó.
