@@ -26,6 +26,9 @@ class DocumentacionNoMienteTest extends TestCase
         // mismo archivo, como "268 pruebas GET" de la matriz de permisos.
         'docs/00-estado/ESTADO-ACTUAL.md'     => '/\*\*Tests\*\*.*?\*\*(\d+) pruebas/',
         'docs/00-estado/CHECKLIST-CARLOS.md'  => '/artisan test\s+#\s*(\d+) pruebas/',
+        // Agregado el 01/09: declaraba 76 cuando habia 77 y nadie se entero,
+        // porque el guardian no lo cubria.
+        'docs/00-estado/PLAN-PRODUCCION.md'    => '/\| Suite \| \*\*(\d+) pruebas/',
     ];
 
     public function test_los_documentos_declaran_la_cantidad_real_de_pruebas(): void

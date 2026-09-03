@@ -18,7 +18,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
 | Área | Evidencia |
 |---|---|
-| Suite | **76 pruebas, 313 aserciones**, verificado 31/08 |
+| Suite | **77 pruebas, 318 aserciones**, verificado 31/08 |
 | Primera cuota con descuento | commit `846347f`, verificado por Claude |
 | Matriz de permisos | 268 pruebas GET × 4 roles, 0 accesos indebidos |
 | Dependencias | 0 avisos (eran 44) |
