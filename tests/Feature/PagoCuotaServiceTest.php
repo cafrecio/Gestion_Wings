@@ -7,6 +7,7 @@ use App\Models\AlumnoPlan;
 use App\Models\DeudaCuota;
 use App\Models\Deporte;
 use App\Models\Grupo;
+use App\Models\Nivel;
 use App\Models\GrupoPlan;
 use App\Models\Rubro;
 use App\Models\ReglaPrimerPago;
@@ -73,8 +74,10 @@ class PagoCuotaServiceTest extends TestCase
             'activo' => true,
         ]);
 
+        $nivel = Nivel::create(['nombre' => 'Inicial']);
+
         $grupo = Grupo::create([
-            'nombre' => 'Patín Inicial',
+            'nivel_id' => $nivel->id,
             'deporte_id' => $deporte->id,
             'activo' => true,
         ]);
@@ -513,8 +516,10 @@ class PagoCuotaServiceTest extends TestCase
             'activo' => true,
         ]);
 
+        $nivel = Nivel::create(['nombre' => 'Inicial Hockey']);
+
         $grupo = Grupo::create([
-            'nombre' => 'Hockey Inicial',
+            'nivel_id' => $nivel->id,
             'deporte_id' => $deporte->id,
             'activo' => true,
         ]);
@@ -590,8 +595,10 @@ class PagoCuotaServiceTest extends TestCase
             'activo' => true,
         ]);
 
+        $nivel = Nivel::create(['nombre' => 'Mixto']);
+
         $grupo = Grupo::create([
-            'nombre' => 'Voley Mixto',
+            'nivel_id' => $nivel->id,
             'deporte_id' => $deporte->id,
             'activo' => true,
         ]);

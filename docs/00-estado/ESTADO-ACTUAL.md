@@ -1,6 +1,6 @@
 # Wings - Estado Actual
 
-> Actualizado: 2026-09-03
+> Actualizado: 2026-09-05 (freno de saldo inicial; demas verificaciones conservan sus fechas)
 > Fuente de verdad del estado del proyecto. Si otro documento lo contradice, se corrige
 > el otro documento o se registra la contradiccion aca antes de implementar.
 > El indice de pendientes incorpora la verificacion de `PENDIENTES-260901.md`,
@@ -64,12 +64,13 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Condonacion de deuda | Por web, solo ADMIN, motivo obligatorio de 10 a 500 caracteres | commit `5f77c85` |
 | Caja operativa | Apertura, movimientos, cierre, rechazo, validacion, cancelacion | `CajaService` |
 | Cashflow | Movimientos admin, reflejo desde caja validada y saldo inicial por tipo de caja | `CashflowIntegracionCajaService` |
+| Edicion del saldo inicial | Implementada localmente segun §4.3; pendiente cierre de verificacion y commit por cambio paralelo del motor de tests | `TipoCajaWebController::update()`, `LOG-CODEX.md` 05/09 |
 | Clases y asistencias | Guardado transaccional y validacion de pertenencia al grupo | commit `dab369f` |
 | Liquidaciones | Implementado con pago y recibos | `LiquidacionService` |
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **81 pruebas, en verde** | verificado 03/09 |
+| **Tests** | **85 pruebas, 455 aserciones**, verde completo **sobre MariaDB** (05/09). Antes corrian en SQLite | `phpunit.xml`, LOG-CLAUDE 05/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
 | Backups | Diarios, cifrados, rotados, subidos a Drive. **Restauracion probada** | `LOG-CLAUDE.md` 30/08 |
@@ -97,7 +98,7 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | # | Pendiente | Estado verificado |
 |---|---|---|
 | **B1** | Recorrido humano completo | Bloqueado por A |
-| **B2** | Suite sobre MariaDB | La suite tiene 81 pruebas y 343 aserciones en verde, pero corre sobre SQLite |
+| **B2** | Suite sobre MariaDB | phpunit.xml cambio en paralelo a mysql/wings_testing el 05/09; pendiente coordinar corridas y verificar la suite completa. Incluir duplicados con acentos: SQLite no reproduce esa colacion |
 | **B3** | Concurrencia con dos conexiones reales | Sin hacer |
 | **B4** | Smoke de rutas que escriben | Sin hacer |
 
@@ -161,6 +162,7 @@ fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
 
 | Contradiccion | Estado real | Resolucion |
 |---|---|---|
+| Cambio paralelo del motor de pruebas durante la tarea de saldo inicial | NombreUnico ya fue adaptado con autorizacion. phpunit.xml paso a MariaDB mientras corria la regresion y el helper previo sqliteCreateFunction dejo de ser compatible | Pausa para coordinar B2; pendiente adaptar helper y corrida completa. Ver LOG-CODEX 05/09 |
 | Documentos viejos dicen Laravel 11 | `composer.json` usa `^12.0` | Corregir al tocarlos |
 | `wings-design/SKILL.md` dice `ds-content` con tope de 1200px | `app.css` no lo implementa | Decidir: implementar el tope o corregir el SKILL |
 | Boton Cobrar en `alumnos/index` | Figura deshabilitado | Pendiente funcional |

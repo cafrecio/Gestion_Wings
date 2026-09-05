@@ -18,7 +18,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
 | Área | Evidencia |
 |---|---|
-| Suite | **81 pruebas, 343 aserciones**, verificado 03/09 |
+| Suite | **85 pruebas, 455 aserciones**, verde completo **sobre MariaDB**, el motor de produccion (05/09) |
 | Primera cuota con descuento | commit `846347f`, verificado por Claude |
 | Matriz de permisos | 268 pruebas GET × 4 roles, 0 accesos indebidos |
 | Dependencias | 0 avisos (eran 44) |
@@ -37,7 +37,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 | 3 | **Simulador de tres meses** — `SIMULADOR-TRES-MESES-V1.md` sin implementar | Sí |
 | 4 | **Prueba humana completa** desde `wings_test` limpia | Sí |
 | 5 | **`dump.sql` fuera del repo, por las dos puertas** | Sí |
-| 6 | **Suite sobre MariaDB** — hoy corre en SQLite | Sí |
+| ~~6~~ | ~~Suite sobre MariaDB~~ — **HECHO 05/09**: 85 pruebas en verde sobre el motor real | — |
 | 7 | **Gate del servidor** — exposición, scheduler, monitoreo | Sí |
 | 8 | **Carga productiva** — usuarios, alumnos, deuda del primer mes | Sí |
 | 9 | Integración continua | No |
@@ -72,7 +72,7 @@ Desde el segundo mes funciona solo.
 | **B6** | **FIFO evadible** | `PagoCuotaService.php:442-444` |
 | **B7** | Asistencias sin transacción ni validación de pertenencia | `ClaseWebController.php:374-408` |
 | **B8** | 44 advisories en 15 paquetes PHP | `composer audit --locked` |
-| **B9** | La suite corre en SQLite, no en MariaDB | `phpunit.xml` |
+| ~~**B9**~~ | ~~La suite corre en SQLite~~ | **CERRADO 05/09** — corre sobre MariaDB |
 | **B10** | Sin CI, sin backups probados, sin scheduler en servidor | — |
 | **B11** | No existe procedimiento de deploy a servidor | — |
 | **B12** | **Cambio de plan no atómico con el cobro** | `CajaWebController::pagar()` — plan en 631, pago en 674 |

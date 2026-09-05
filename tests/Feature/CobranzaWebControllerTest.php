@@ -40,10 +40,16 @@ class CobranzaWebControllerTest extends TestCase
             ->get(route('web.cobranza.index'))
             ->assertOk();
 
+        // Se comparan los identificadores sin las comillas del motor: SQLite cita
+        // con comillas dobles y MariaDB con acentos graves. Buscar una de las dos
+        // ataba la prueba al motor, y al pasar la suite a MariaDB dejo de encontrar
+        // una consulta que era correcta.
+        $sinComillas = fn(string $sql): string => str_replace(['"', '`'], '', $sql);
+
         $this->assertTrue(collect($queries)->contains(
-            fn(string $sql) => str_contains($sql, 'from "grupos"')
-                && str_contains($sql, 'join "deportes"')
-                && str_contains($sql, 'join "niveles"')
+            fn(string $sql) => str_contains($sinComillas($sql), 'from grupos')
+                && str_contains($sinComillas($sql), 'join deportes')
+                && str_contains($sinComillas($sql), 'join niveles')
         ));
     }
 }

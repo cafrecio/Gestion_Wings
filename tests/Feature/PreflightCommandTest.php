@@ -19,7 +19,10 @@ class PreflightCommandTest extends TestCase
             'app.debug' => false,
             'app.key' => 'base64:clave-de-prueba-no-real',
             'app.url' => 'https://wings.gestionar-te.com.ar',
-            'database.connections.sqlite.username' => 'wings_app',
+            // Sobre la conexion por defecto, no sobre una fija: la suite paso de
+            // SQLite a MariaDB y esta linea apuntaba a un motor que ya no se usa,
+            // asi que el preflight leia el usuario real -root- y rechazaba.
+            'database.connections.'.config('database.default').'.username' => 'wings_app',
             'session.secure' => true,
             'session.encrypt' => true,
             'session.same_site' => 'strict',
