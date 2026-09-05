@@ -14,6 +14,137 @@
 
 ---
 
+## 2026-09-05 — Codex CAB — dump cerrado por las dos puertas
+
+Objetivo: retirar database/dump.sql, impedir la exportacion automatica desde el
+seeder e invalidar sesiones y tokens locales. El mensaje anunciaba dos tareas,
+pero solo incluia la primera: no se infirio una segunda.
+
+`git pull --ff-only`: sin novedades; B2 ya estaba en el checkout. Se verificaron
+AGENTS, ambas bitacoras, estado, plan, permisos y el cuerpo de DemoSeeder.
+Cambios: dump retirado del indice y del directorio local, regla explicita en
+.gitignore y eliminacion de la llamada y del metodo fase10Dump del seeder.
+Se agrego DatabaseExportSafetyTest para impedir exportadores en database/ y
+mantener la regla de ignore. Tambien se actualizaron la guia vigente, estado,
+plan y checklist; en los scripts manuales solo comentarios y mensajes que
+indicaban versionar el dump o recrear cuentas mediante UserSeeder.
+
+Invalidacion: conexion efectiva verificada como mysql, 127.0.0.1, wings_test,
+entorno local. Se eliminaron 4 filas de sessions y 0 de personal_access_tokens,
+dentro de una transaccion; ambas tablas quedaron en 0. No se tocaron passwords,
+roles ni cuentas. No se hizo ninguna operacion contra el servidor.
+
+Aceptacion real: se creo una base MariaDB separada wings_dump_audit_20260905,
+se migraron tablas, se cargaron catalogos y dos usuarios sinteticos (ADMIN y
+OPERATIVO), y DemoSeeder corrio completo con salida 0. database/dump.sql no existia
+antes y siguio ausente despues. La base de auditoria se elimino al terminar.
+No se corrio DemoSeeder sobre wings_test ni wings_testing.
+
+Incidencia de preparacion, no ocultada: el primer intento uso una conexion nueva
+para la auditoria, pero el constructor Schema conservaba la conexion mysql local.
+La primera migracion intento CREATE TABLE users sobre wings_test y fue rechazada
+porque la tabla ya existia; no llego a ejecutar el seeder. Se corrigio la prueba
+cambiando la configuracion mysql solo en ese proceso, purgando su conexion y
+verificando SELECT DATABASE() antes de migrar con --database explicito. El segundo
+intento fue el que completo la aceptacion en la base aislada.
+
+Verificaciones: git ls-files database/dump.sql vacio; git check-ignore lo reconoce;
+busqueda mysqldump en database/ vacia; suite completa en MariaDB wings_testing:
+**86 pruebas, 537 aserciones aprobadas**. php -l de DemoSeeder y del test: OK;
+bash -n de los dos scripts: OK; view:cache y view:clear: OK; diff --check: OK.
+
+No se editaron vistas, CSS ni JavaScript. El diff visual que ya existia al empezar
+pertenece al saldo inicial de la tarea anterior y queda fuera de este commit,
+junto con los cambios previos de TipoCajaWebController, NombreUnico y la
+configuracion local de Claude. La suite completa incluye esos cambios locales;
+este commit no los entrega ni cierra su revision visual.
+
+Alcance pendiente: las versiones anteriores del dump siguen en el historial; no
+se purgo Git, no se roto ninguna contraseña ni se revocaron sesiones de otras
+bases/servidor. Las 4 sesiones invalidadas requieren iniciar sesion nuevamente.
+Para seguir falta recibir el texto de la segunda tarea.
+
+---
+
+## 2026-09-05 — Codex CAB — saldo inicial implementado; pausa por cambio paralelo del motor de tests
+
+Carlos autorizo reemplazar `LOWER(CONVERT(nombre USING utf8mb4))` por
+`LOWER(nombre) = ?` en `NombreUnico`. Se aplico sin modificar la normalizacion de
+entrada y se corrigio el comentario que negaba la equivalencia de acentos de la
+colacion. **Limitacion:** SQLite no reproduce la insensibilidad a acentos de
+`utf8mb4_unicode_ci`; el caso de acentos queda pendiente de verificacion en MariaDB
+(B2), no se escribio un test que lo declare verde en SQLite. La comprobacion previa
+de equivalencia sobre MariaDB fue aportada por Carlos, no ejecutada por Codex.
+
+Se agrego regresion HTTP para duplicados ASCII por mayusculas (incluye la consulta
+de disponibilidad y la exclusion del propio registro). El test de alta ahora envia
+un POST valido, en vez de insertar mediante el modelo; el POST negativo incluye
+nombre para atravesar la validacion real.
+
+`TipoCajaWebController::update()` ahora excluye saldo_inicial antes de validarlo si
+existe un movimiento operativo o de cashflow. La comprobacion se repite al guardar
+dentro de una transaccion con bloqueo de la fila del tipo de caja. Sin movimientos
+sigue permitiendo corregir un saldo no negativo. `edit()` usa el mismo criterio.
+Un movimiento operativo cancelado tambien cuenta. No se modificaron los servicios
+de movimientos ni se afirma haber probado concurrencia real.
+
+Unica vista modificada: `tipos-caja/_form.blade.php`, autorizada por Carlos. Reutiliza
+las clases del control monetario; con historial muestra el saldo persistido en
+lectura, sin nombre de campo enviable ni valor proveniente de old(), y explica que
+se ajusta con un movimiento. No se tocaron CSS, componentes ni otras vistas.
+
+Regresion antes del arreglo del saldo, ya corregido NombreUnico: **2 fallas y 6
+aprobadas sobre SQLite**. Ambas fallas mostraban en la base el saldo cambiado de
+200000 a 999999 pese a existir movimientos. Despues del arreglo, la corrida dio
+**7 aprobadas y 1 falla**, pero se detecto que **phpunit.xml habia cambiado en
+paralelo**, sin intervencion de Codex: ahora configura mysql y la base wings_testing.
+La falla es el helper previo `PDO::sqliteCreateFunction('YEAR', ...)`, exclusivo de
+SQLite. Las pruebas de saldo y mayusculas aprobaron en esa corrida.
+
+Se frenaron las corridas para coordinar con quien este ejecutando B2 y evitar
+interferir sobre su base descartable. No se revirtio ni edito phpunit.xml. Pendientes:
+coordinar el uso de wings_testing, adaptar el helper YEAR al motor, suite completa,
+compilacion de vistas, revision visual y commit con Diseno-autorizado. Hay 85 metodos
+de test; todavia no se declara la suite completa en verde. PHP lint de los cuatro
+archivos PHP/Blade modificados: OK; diff de vistas/CSS: solo la vista autorizada;
+diff --check: OK. No se hizo commit ni push. Se preservo settings.local.json.
+
+---
+
+## 2026-09-05 — Codex CAB — saldo inicial: freno antes de implementar
+
+Objetivo: impedir editar el saldo inicial cuando exista cualquier movimiento
+operativo o de cashflow, con la excepcion sin movimientos del contrato Caja-Cashflow
+V4 §4.3. El pedido es coherente con el contrato. §4.4 queda fuera de implementacion:
+los movimientos no economicos afectan saldo, pero deben excluirse del resultado
+cuando se implementen esos reportes.
+
+`git pull --ff-only`: sin novedades. Se leyeron AGENTS, CLAUDE, ambas bitacoras,
+contrato, estado, checklist, evaluacion y reglas de diseno. Se instalo el hook de
+diseno. No se modificaron controlador, modelo, vistas, CSS, tests ni datos locales.
+Se preservo `.claude/settings.local.json`, que ya estaba modificado.
+
+Obstaculo verificado para la regresion por la ruta web: `store()` y `update()` de
+`TipoCajaWebController` usan `NombreUnico`. Su metodo `existe()` ejecuta
+`LOWER(CONVERT(nombre USING utf8mb4))`, mientras `phpunit.xml` configura SQLite en
+memoria. La reproduccion aislada de esa expresion en SQLite devuelve
+`SQLSTATE[HY000]: General error: 1 near "USING": syntax error`. No se atribuye ese
+error a MariaDB ni al cambio pedido, que todavia no se implemento.
+
+La suite existente pasa: **81 pruebas, 343 aserciones**. Al leer el test de alta
+actual se comprobo que crea el tipo mediante el modelo y que su POST negativo omite
+`nombre`: no cubre un alta web valida que atraviese esa regla de unicidad.
+
+Opciones pendientes de Carlos, sin elegir: adaptar `NombreUnico` para poder ejecutar
+la regresion HTTP en SQLite, verificando que conserve la unicidad en MariaDB; o
+preparar una base MariaDB exclusivamente descartable y una ejecucion de regresion
+separada, sin usar ni limpiar `wings_test`. No se sustituira la validacion por un
+mock para declarar cumplida la aceptacion. Se registro tambien en ESTADO-ACTUAL.
+`git diff --stat -- resources/views resources/css`: vacio. Tarea sin cerrar;
+pendientes implementacion y los dos escenarios de aceptacion.
+
+---
+
 ## 2026-09-03 — Codex CAB — indice de pendientes actualizado
 
 Se reemplazo el indice viejo de `ESTADO-ACTUAL.md` por la estructura A-E verificada

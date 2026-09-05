@@ -63,7 +63,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 - Laravel 12 + PHP 8.2 + MariaDB, corriendo en XAMPP local.
 - Frontend web con Blade, Tailwind CSS/Vite y JavaScript vanilla.
 - API REST con Sanctum para integraciones.
-- Tests con PHPUnit sobre SQLite en memoria. Las migraciones con sintaxis exclusiva de MySQL omiten esos statements durante los tests.
+- Tests con PHPUnit sobre MariaDB en la base descartable wings_testing. No usar la base local de trabajo para la suite.
 - Timezone funcional esperada: `America/Argentina/Buenos_Aires`.
 
 ## Rutas documentales
@@ -102,43 +102,20 @@ Reglas criticas:
 - Mantener `ds-btn`, `x-ds.*`, cards tipo `alumno-card` y estructura visual existente.
 - No introducir Alpine.js ni Livewire.
 
-## Base de datos - mantener sincronizada
+## Base de datos - fuera del repositorio
 
-> **AVISO — esto cambia con la tarea 1.2 del plan de produccion.**
-> `database/dump.sql` sale del repo porque contiene datos personales reales de
-> alumnos, pagos, tokens y sesiones. El hook `pre-commit` que lo exportaba en cada
-> commit ya fue desactivado (renombrado a `pre-commit.disabled`), **pero solo en una
-> maquina**: los hooks no se versionan, hay que desactivarlo en cada computadora.
-> Ver `docs/00-estado/CHECKLIST-CARLOS.md` seccion A1.
-> El reemplazo para levantar una base es `CatalogosSeeder` + `wings:crear-admin`.
-> Lo de abajo sigue siendo valido solo hasta que esa tarea se cierre.
+`database/dump.sql` fue retirado del control de versiones el 05/09/2026 y esta
+ignorado. DemoSeeder ya no exporta la base. No exportar antes de un commit ni
+agregar dumps con `git add -f`. La tabla `users` nunca se versiona.
 
+Una base nueva se prepara con `php artisan migrate --seed` (CatalogosSeeder) y
+`php artisan wings:crear-admin`. No importar un dump para sincronizar computadoras.
+Los scripts db-export/db-import son herramientas manuales locales, no un flujo de
+Git; un respaldo local tampoco se debe publicar. Los hooks se verifican por maquina
+segun AGENTS.md y CHECKLIST-CARLOS.md.
 
-El archivo `database/dump.sql` contiene el dump de la BD (sin la tabla `users`, ver mas abajo) y se versiona con el repo.
-
-**IMPORTANTE - seguridad:** la tabla `users` NUNCA se versiona. Contiene hashes de contraseñas reales; versionarla es exponer credenciales en el historial de git. Siempre exportar con `--ignore-table`, exactamente como en el comando de abajo. No usar `mysqldump` sin ese flag para este proyecto.
-
-Exportar antes de commits que toquen BD, migraciones, seeders o datos relevantes:
-
-```bash
-"C:/xampp/mysql/bin/mysqldump.exe" -u root --ignore-table=gestion_wings.users gestion_wings > database/dump.sql
-```
-
-Importar al clonar o despues de un pull si cambio el dump:
-
-```bash
-"C:/xampp/mysql/bin/mysql.exe" -u root gestion_wings < database/dump.sql
-php artisan db:seed --class=UserSeeder
-```
-
-El import deja `users` vacia (la migracion crea la tabla, el dump no trae sus filas). El segundo comando crea las cuentas de acceso; ver `database/seeders/UserSeeder.php` para el detalle de contraseñas.
-
-Tambien existen:
-
-```bash
-bash scripts/db-export.sh
-bash scripts/db-import.sh
-```
+Retirar el archivo no purga las versiones anteriores del historial. La invalidacion
+de sesiones y tokens realizada en CAB fue local, no sobre el servidor.
 
 Setup tecnico detallado:
 
@@ -152,10 +129,10 @@ Comando:
 php artisan test
 ```
 
-Estado actual (2026-08-09):
+Estado verificado (2026-09-05):
 
-- La suite completa pasa: 14 tests, 28 aserciones.
-- Los `DB::statement` con sintaxis MySQL `MODIFY` están condicionados al driver `mysql`, por lo que SQLite puede ejecutar todas las migraciones de prueba.
+- La suite completa pasa sobre MariaDB: 86 tests, 537 aserciones.
+- El esquema de prueba se prepara desde migraciones; no requiere un dump.
 
 ## Pruebas funcionales y seeders
 
@@ -208,4 +185,4 @@ Middlewares relevantes:
 3. Si se mueve documentacion, actualizar `docs/README.md`, `docs/00-estado/ESTADO-ACTUAL.md` y este archivo.
 4. Si se detecta una contradiccion entre documentos y codigo, registrar primero en `ESTADO-ACTUAL.md`.
 5. Antes de cambios grandes, revisar rutas en `routes/web.php` y `routes/api.php`.
-6. Si se modifica BD o migraciones, revisar `database/dump.sql` y la estrategia de tests.
+6. Si se modifica BD o migraciones, revisar la estrategia de tests; no regenerar ni versionar dumps.

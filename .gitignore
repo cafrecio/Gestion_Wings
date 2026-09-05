@@ -33,3 +33,6 @@ Thumbs.db
 docs/08-VPS/
 
 docs/06-pruebas/Credenciales*
+
+# Las bases de datos no se versionan (AGENTS.md seccion 3).
+/database/dump.sql

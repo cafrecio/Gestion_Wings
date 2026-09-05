@@ -1,6 +1,6 @@
 # Wings - Estado Actual
 
-> Actualizado: 2026-09-05 (freno de saldo inicial; demas verificaciones conservan sus fechas)
+> Actualizado: 2026-09-05 (cierre del dump y suite sobre MariaDB; demas verificaciones conservan sus fechas)
 > Fuente de verdad del estado del proyecto. Si otro documento lo contradice, se corrige
 > el otro documento o se registra la contradiccion aca antes de implementar.
 > El indice de pendientes incorpora la verificacion de `PENDIENTES-260901.md`,
@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **85 pruebas, 455 aserciones**, verde completo **sobre MariaDB** (05/09). Antes corrian en SQLite | `phpunit.xml`, LOG-CLAUDE 05/09 |
+| **Tests** | **86 pruebas, 537 aserciones**, verde completo sobre MariaDB (05/09) | `phpunit.xml`, LOG-CODEX 05/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
 | Backups | Diarios, cifrados, rotados, subidos a Drive. **Restauracion probada** | `LOG-CLAUDE.md` 30/08 |
@@ -98,7 +98,7 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | # | Pendiente | Estado verificado |
 |---|---|---|
 | **B1** | Recorrido humano completo | Bloqueado por A |
-| **B2** | Suite sobre MariaDB | phpunit.xml cambio en paralelo a mysql/wings_testing el 05/09; pendiente coordinar corridas y verificar la suite completa. Incluir duplicados con acentos: SQLite no reproduce esa colacion |
+| **B2** | Suite sobre MariaDB | Motor migrado; corrida completa verificada 05/09: 86 pruebas, 537 aserciones en wings_testing. La regresion especifica de duplicados con acentos sigue pendiente; no se infiere de un test ASCII |
 | **B3** | Concurrencia con dos conexiones reales | Sin hacer |
 | **B4** | Smoke de rutas que escriben | Sin hacer |
 
@@ -107,7 +107,7 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | # | Pendiente | Estado verificado |
 |---|---|---|
 | **C1** | CSP definitiva | Sigue en modo reporte. Quedan 24 vistas con `<script>` y 40 manejadores `on...=` inline; no se puede activar el bloqueo asi |
-| **C2** | Sacar `dump.sql` por las dos puertas | Sigue versionado y `DemoSeeder.php:691-692` lo reexporta con `mysqldump` |
+| **C2** | Sacar `dump.sql` por las dos puertas | Cerrado 05/09: retirado de Git, ignorado y exportacion de DemoSeeder eliminada. Corrida completa del seeder en MariaDB descartable sin recrear el archivo; sesiones y tokens locales invalidados. El historial anterior no se purgo |
 
 ### D · Entregar
 

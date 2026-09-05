@@ -54,7 +54,6 @@ class DemoSeeder extends Seeder
         $this->fase7CashflowCajas();
         $this->fase8CashflowDirecto($base['tipos']);
         $this->fase9Liquidaciones($prof, $series, $base['tipos']);
-        $this->fase10Dump();
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -682,13 +681,4 @@ class DemoSeeder extends Seeder
         ]);
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // FASE 10 — DUMP
-    // ─────────────────────────────────────────────────────────────────────────
-
-    private function fase10Dump(): void
-    {
-        $out = base_path('database/dump.sql');
-        exec("\"C:/xampp/mysql/bin/mysqldump.exe\" -u root gestion_wings > \"{$out}\"");
-    }
 }

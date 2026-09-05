@@ -18,7 +18,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
 | Área | Evidencia |
 |---|---|
-| Suite | **85 pruebas, 455 aserciones**, verde completo **sobre MariaDB**, el motor de produccion (05/09) |
+| Suite | **86 pruebas, 537 aserciones**, verde completo sobre MariaDB (05/09) |
 | Primera cuota con descuento | commit `846347f`, verificado por Claude |
 | Matriz de permisos | 268 pruebas GET × 4 roles, 0 accesos indebidos |
 | Dependencias | 0 avisos (eran 44) |
@@ -36,7 +36,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 | 2 | **Seeder de prueba** — `DATASET-SEEDER-V1.md` sin implementar | Sí |
 | 3 | **Simulador de tres meses** — `SIMULADOR-TRES-MESES-V1.md` sin implementar | Sí |
 | 4 | **Prueba humana completa** desde `wings_test` limpia | Sí |
-| 5 | **`dump.sql` fuera del repo, por las dos puertas** | Sí |
+| ~~5~~ | ~~`dump.sql` fuera del repo, por las dos puertas~~ — **HECHO 05/09** | — |
 | ~~6~~ | ~~Suite sobre MariaDB~~ — **HECHO 05/09**: 85 pruebas en verde sobre el motor real | — |
 | 7 | **Gate del servidor** — exposición, scheduler, monitoreo | Sí |
 | 8 | **Carga productiva** — usuarios, alumnos, deuda del primer mes | Sí |
@@ -47,8 +47,10 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
 ### El dump tiene dos puertas, no una
 
-Se desactivó el hook de git, pero **`DemoSeeder.php:691-692` reexporta el dump solo**,
-corriendo `mysqldump` sobre `database/dump.sql`. Cerrar una sin la otra no cierra nada.
+**Cerradas el 05/09:** dump retirado del indice de Git e ignorado, y exportacion de
+DemoSeeder eliminada. Su corrida en MariaDB descartable termino sin recrear el
+archivo. Se invalidaron sesiones y tokens de la base local de CAB. No se purgo el
+historial ni se modificaron credenciales o sesiones del servidor.
 
 ### El primer mes de deuda se carga a mano
 
@@ -65,7 +67,7 @@ Desde el segundo mes funciona solo.
 | # | Hallazgo | Evidencia |
 |---|---|---|
 | **B1** | `DatabaseSeeder` crea `test@example.com` con password `password` | `DatabaseSeeder.php:20-36` |
-| **B2** | `database/dump.sql` versionado. **Higiene, no fuga**: los 36 alumnos son inventados, DNI correlativos. Se resuelve en el go-live, antes de cargar datos reales | `git ls-files database/dump.sql` |
+| ~~**B2**~~ | ~~`database/dump.sql` versionado y regenerado por el seeder~~ | **CERRADO 05/09**: indice vacio, regla de ignore y seeder sin exportacion |
 | ~~**B3**~~ | ~~Hook `pre-commit` reexporta el dump~~ | **CERRADO** |
 | **B4** | `.env` en local, `APP_DEBUG=true`, HTTP, DB con root sin password | `.env` |
 | **B5** | Sin headers de seguridad | No hay middleware |
@@ -89,7 +91,7 @@ Es la corrección conceptual que faltaba. Tienen objetivos opuestos.
 Lo que producción necesita para funcionar: deportes, niveles, rubros, subrubros,
 tipos de caja y configuraciones.
 
-Desbloquea sacar el `dump.sql` del repo (tarea 1.2).
+Permite preparar una base sin `dump.sql`, retirado del repo el 05/09.
 
 El **contenido** de esos catálogos lo define el cliente. El seeder los deja
 cargados para que el sistema arranque sin explotar; el cliente los ajusta desde
@@ -367,7 +369,7 @@ Registrar todo sin corregir en el momento: primero la lista, después los arregl
 | 7.1 | Firmar el gate de 18 condiciones |
 | 7.2 | Tag `v1.0.0` y congelamiento |
 | 7.3 | `wings:preflight` en verde sobre el servidor |
-| **7.3b** | **Sacar `dump.sql` del repo** — antes de que existan datos reales | 30 min |
+| **7.3b** | **HECHO 05/09:** dump fuera de Git y exportacion del seeder eliminada |
 | 7.4 | Base limpia y carga de datos reales por el cliente |
 | 7.5 | Crear los usuarios reales y borrar los de prueba |
 | 7.6 | **Cargar la deuda del primer mes junto con los datos** — ver seccion 1 |
@@ -375,10 +377,10 @@ Registrar todo sin corregir en el momento: primero la lista, después los arregl
 | 7.8 | Activar el monitoreo de errores |
 | 7.9 | Apertura de la primera caja real, acompañada |
 
-**7.3b — por qué acá y no antes.** Hoy los 36 alumnos del dump son inventados: DNI
-correlativos desde `30000001`. **No hay ninguna fuga.** Lo que sí es real es que el
-mecanismo sigue apuntando a la base, y en el paso 7.4 esa base pasa a tener alumnos
-de verdad. La tarea vale ahí, no antes: no aporta nada a que el sistema funcione.
+**7.3b — cerrado antes de la carga productiva.** Que los alumnos de un dump sean
+inventados no garantiza que sus sesiones, tokens u otras tablas sean publicables.
+Se retiro el archivo y se elimino el exportador completo del seeder, que tampoco
+excluia users. Se invalidaron las sesiones y tokens locales de CAB.
 
 ### Cuál es el riesgo, explicado sin tecnicismos
 
@@ -393,22 +395,24 @@ Entonces:
 
 | Momento | Qué contiene el dump | Riesgo |
 |---|---|---|
-| **Hoy** | Alumnos inventados, sesiones y tokens del XAMPP local | **Ninguno.** Esos tokens están atados a otra base y a otra clave de cifrado; contra el servidor no sirven |
-| **Después del paso 7.4** | Nombres, DNI y teléfonos de chicos reales | **Publicación permanente** si alguien exporta por costumbre |
+| **Antes del retiro** | Versiones historicas del dump | Siguen recuperables en Git; vaciar sesiones y tokens locales no elimina esas copias ni rota contraseñas |
+| **Después del paso 7.4** | Base con datos reales | No debe exportarse al repositorio; ignore y seeder sin exportacion cierran las dos puertas tratadas |
 
 **Por eso la tarea va antes de cargar datos reales, no después.** Después ya no se
 arregla borrando el archivo: habría que reescribir la historia del repositorio, avisar
 a las familias, y aun así quedan copias en cualquiera que lo haya clonado.
 
-No es urgente hoy. **Es irreversible mañana.** Esa es toda la diferencia.
+No se declara saneado el historial ni se infiere que credenciales expuestas sean
+inofensivas. Una eventual purga o rotacion de contraseñas requiere alcance aparte.
 
 ### Corrección verificada el 30/08
 
 El texto anterior decía que el hook `pre-commit` seguía armado en la máquina de casa.
 **Es falso:** en CAB solo existe el `pre-commit.sample` que trae Git, que no hace nada.
-Nada exporta la base automáticamente en esa computadora.
+El hook no exportaba, pero DemoSeeder si lo hacia; esa segunda puerta se cerro el 05/09.
 
-Sigue pendiente actualizar los 16 documentos y 2 scripts que mencionan el dump.
+La guia vigente CLAUDE, estado, checklist y textos de los scripts manuales ya no
+indican versionar el dump. Las referencias historicas no habilitan volver a agregarlo.
 
 **7.6 no es opcional.** El proceso mensual no puede generar la primera cuota: una
 base recién cargada no tiene mes anterior. Ver la sección 1.

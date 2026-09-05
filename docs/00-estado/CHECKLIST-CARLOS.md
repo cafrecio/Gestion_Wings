@@ -54,13 +54,13 @@ crea tu usuario admin pidiendote la contrasenia por consola.
 > **Ojo:** `migrate:fresh` borra todo lo que haya en esa base. Esta bien para las
 > maquinas de desarrollo. **Nunca** correrlo contra produccion.
 
-> **Nota:** `dump.sql` todavia figura en el repo, pero ya no es el mecanismo para
-> levantar la base. Sale antes de la carga productiva.
+> **Nota:** `dump.sql` fue retirado del repo y esta ignorado (05/09).
+> DemoSeeder ya no lo exporta. No recuperarlo del historial para cargar una base.
 
 ### A4. Verificar que quedó bien
 
 ```bash
-php artisan test          # 81 pruebas deben pasar
+php artisan test          # 86 pruebas deben pasar
 php artisan route:list    # rutas cargadas
 ```
 

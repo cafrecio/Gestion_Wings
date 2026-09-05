@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------------------
-# db-export.sh — Exporta la BD de Wings a un dump SQL versionable.
+# db-export.sh — Respaldo manual local, ignorado por Git. NUNCA versionarlo.
 # Ejecutar desde la raíz del proyecto:
 #   bash scripts/db-export.sh
 #
@@ -47,5 +47,5 @@ $MYSQLDUMP_CMD --routines --triggers --skip-comments --complete-insert \
 
 echo "Dump guardado en: database/dump.sql ($(wc -c < "$DUMP_FILE" | tr -d ' ') bytes)"
 echo "La tabla 'users' se excluyó a propósito (contiene contraseñas)."
-echo "Después de importar hay que correr: php artisan db:seed --class=UserSeeder"
-echo "Listo. Commiteá database/dump.sql para versionar la BD."
+echo "El respaldo es local: no lo publiques ni lo agregues a Git, tampoco con -f."
+echo "Para instalaciones nuevas usá migraciones, CatalogosSeeder y wings:crear-admin."

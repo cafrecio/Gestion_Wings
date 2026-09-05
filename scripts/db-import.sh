@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------------------
-# db-import.sh — Restaura la BD de Wings desde el dump versionado.
+# db-import.sh — Restaura un respaldo manual local; el dump no se versiona.
 # Ejecutar desde la raíz del proyecto:
 #   bash scripts/db-import.sh
 #
@@ -50,6 +50,6 @@ $MYSQL_CMD "$DB_DATABASE" < "$DUMP_FILE"
 
 echo "Listo. BD restaurada desde database/dump.sql."
 echo ""
-echo "El dump NO incluye la tabla 'users' (por seguridad, no se versiona)."
+echo "Los respaldos generados por db-export.sh excluyen 'users'. No publiques este archivo."
 echo "Creá las cuentas de acceso con:"
-echo "  php artisan db:seed --class=UserSeeder"
+echo "  php artisan wings:crear-admin"
