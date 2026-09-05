@@ -63,6 +63,42 @@ El CashflowMovimiento también almacena `tipo_caja_id` (para saldos/agrupaciones
 - El saldo disponible se calcula como `saldo_inicial + SUM(cashflow_movimientos.monto)`.
 - La validación de fondos para pagar una liquidación usa ese mismo saldo disponible.
 
+#### El saldo inicial se carga UNA sola vez, al crear el tipo de caja
+
+**No se puede editar después.** Definido por Carlos el 30/08/2026; quedó sin registrar
+hasta el 06/09 y por eso se implementó editable.
+
+**Por qué:** el saldo inicial es el punto de partida de todo el historial. Si se cambia
+más adelante, **todos los saldos pasados cambian con él**, y un reporte de septiembre
+pasa a dar distinto en diciembre sin que ningún movimiento lo explique. Es reescribir
+historia sin dejar rastro.
+
+**Cómo se corrige un saldo después de creado:** con un movimiento no económico —ver
+4.4—, que sí queda registrado, con fecha, importe y motivo.
+
+**Única excepción admitida:** mientras el tipo de caja **no tenga ningún movimiento**,
+el saldo inicial puede corregirse. Cubre el error de tipeo del primer día sin permitir
+reescribir un historial que ya existe.
+
+### 4.4 Movimientos no económicos
+
+Los subrubros marcados como que **no afectan caja** estaban mal nombrados: no es que no
+muevan plata, es que **no generan un resultado**.
+
+**Son movimientos que cambian el saldo pero no son ganancia ni pérdida.** Ejemplos:
+aporte de capital, retiro de utilidades, préstamo del dueño, devolución de ese préstamo.
+
+| Tipo de movimiento | Cambia el saldo | Entra en el resultado |
+|---|---|---|
+| Cobro de cuota, venta de indumentaria | Sí | **Sí** |
+| Alquiler, sueldos, servicios | Sí | **Sí** |
+| **Aporte de capital, retiro de utilidades** | **Sí** | **No** |
+
+**Consecuencia obligatoria para los reportes:** el cálculo del resultado del mes
+**tiene que excluir los movimientos no económicos**. Si no, un aporte del dueño para
+cubrir un mal mes aparece como ganancia, y el reporte dice exactamente lo contrario de
+lo que pasó.
+
 ---
 
 ## 5. Endpoints (contrato funcional)

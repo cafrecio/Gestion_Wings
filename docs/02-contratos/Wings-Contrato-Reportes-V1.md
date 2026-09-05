@@ -85,6 +85,16 @@ intereses. No tienen alumno, así que no tienen deporte.
 | Servicios, gastos operativos | Gastos generales, por rubro y subrubro |
 | Sueldo del operativo | **No existe la categoría todavía.** Ver pendientes |
 
+### Los movimientos no económicos NO entran en el resultado
+
+Un aporte de capital o un retiro de utilidades **cambia el saldo pero no es ganancia ni
+pérdida**. Ver `Wings-Contrato-Caja-Cashflow-V4.md` §4.4.
+
+Si se suman al resultado, un aporte del dueño para cubrir un mal mes aparece como
+ganancia y el reporte dice lo contrario de lo que pasó.
+
+Sí entran, en cambio, en el saldo de cada medio de pago: la plata está.
+
 ### Períodos
 
 **Semanal y mensual**, los dos.
