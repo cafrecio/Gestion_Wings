@@ -19,22 +19,26 @@ movimiento el que apunta al pago, y estos no tienen.
 | Cuántos | Pago de apertura | Deben | Estado hoy (06/09) |
 |---:|---|---|---|
 | 12 | hasta `09/2026` | nada | **AL DÍA** |
-| 12 | hasta `08/2026` | `092026` | **EN PLAZO** |
+| 13 | hasta `08/2026` | `092026` | **EN PLAZO** |
 | 21 | hasta `07/2026` | `082026` `092026` | **DEUDOR** |
 | 8 | hasta `06/2026` | `072026` `082026` `092026` | **DEUDOR** — los que ya dejaron de venir |
 | 4 | anterior a su deuda | dos meses de 2025 + `092026` | **DEUDOR** cruzando de año |
 | 2 | anterior a su deuda | un mes de 2025 + `092026` | **DEUDOR**, para condonar |
-| 1 | **ninguno** | `092026` | **DEUDOR** — el alumno nuevo que todavía no pagó |
 
 **95 cuotas, $3.563.600.** Archivo: `DEUDA-INICIAL-PRUEBA-V2.xlsx`. Lo genera
 `preparar-base-cobranza.php`, un script de un solo uso que además crea los pagos
-de apertura. El importador de Codex no se tocó.
+de apertura.
 
-### Por qué hay un solo alumno nuevo
+### Ninguno de los 60 es un alumno nuevo, y no puede serlo
 
-En un club de verdad el chico entra y paga. Si no paga, no entrena. Un grupo de
-alumnos nuevos arrastrando meses sin pagar no existe fuera de una prueba, así que
-queda uno solo, para ver cómo lo trata el sistema.
+**Los 60 llevan pago de apertura.** El más reciente se dio de alta el 29/06: son
+tres meses en el club. Dejarlo sin pago para que el sistema lo tomara como "nuevo"
+describía a alguien que entrena tres meses sin pagar un peso, y eso no pasa en un
+club — si no paga, no entrena.
+
+El alumno nuevo de verdad aparece **en la simulación**, cuando se lo da de alta por
+pantalla dentro del mes en curso. Ahí sí es nuevo, y de paso se prueba el alta real
+y el descuento de primera cuota.
 
 ### Los cuatro estados no entran en la misma foto
 

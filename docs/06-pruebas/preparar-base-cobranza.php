@@ -53,16 +53,15 @@ if (count($alumnos) !== 60) {
 // entro a Wings. De ahi sale el pago de apertura. `debe` son los meses que
 // quedaron impagos, que van al Excel.
 //
-// El unico sin pago de apertura es el alumno nuevo: entro y todavia no pago.
-// En un club de verdad eso dura poco — si no paga no entrena — por eso es uno
-// solo y no un grupo.
+// Los 60 llevan pago de apertura: todos venian del club antes de Wings. El mas
+// reciente se dio de alta el 29/06, o sea tres meses atras.
 
 $reparto = [
     // 12 AL DIA: pagaron septiembre, no deben nada.
     'al_dia' => ['cantidad' => 12, 'pago_hasta' => [9, 2026], 'debe' => []],
 
-    // 12 EN PLAZO: pagaron agosto, deben septiembre. El dia 11 pasan a morosos.
-    'en_plazo' => ['cantidad' => 12, 'pago_hasta' => [8, 2026], 'debe' => ['092026']],
+    // 13 EN PLAZO: pagaron agosto, deben septiembre. El dia 11 pasan a morosos.
+    'en_plazo' => ['cantidad' => 13, 'pago_hasta' => [8, 2026], 'debe' => ['092026']],
 
     // 21 DEUDOR de dos meses: el atraso comun.
     'dos_meses' => ['cantidad' => 21, 'pago_hasta' => [7, 2026], 'debe' => ['082026', '092026']],
@@ -78,19 +77,21 @@ $reparto = [
 
     // 2 para condonar durante la prueba.
     'condonar' => ['cantidad' => 2, 'pago_hasta' => null, 'debe' => 'VIEJA'],
-
-    // 1 ALUMNO NUEVO: sin pago de apertura, debe su primera cuota.
-    'nuevo' => ['cantidad' => 1, 'pago_hasta' => null, 'debe' => ['092026']],
 ];
+
+// NO hay grupo de "alumno nuevo" en la carga inicial, a proposito. El alumno
+// mas reciente de estos 60 se dio de alta el 29/06: son tres meses en el club.
+// Dejarlo sin pago para que figure "nuevo" describia a alguien que entrena tres
+// meses sin pagar, y eso no pasa en un club — si no paga, no entrena.
+// El alumno nuevo de verdad aparece en la simulacion, cuando se lo da de alta
+// por pantalla dentro del mes en curso.
 
 // ── Asignacion ───────────────────────────────────────────────────────────────
 //
 // Los grupos que necesitan alta vieja se sirven primero, desde los alumnos mas
-// antiguos. El alumno nuevo sale del ultimo en darse de alta.
+// antiguos: son los unicos que pueden deber un mes de 2025.
 
-$porFecha = $alumnos->values();
-$nuevo    = $porFecha->last();
-$resto    = $porFecha->slice(0, count($porFecha) - 1)->values();
+$resto = $alumnos->values();
 
 $asignados = [];
 $i = 0;
@@ -102,12 +103,11 @@ foreach (['deuda_2025' => 4, 'condonar' => 2] as $grupo => $n) {
         $asignados[$grupo][] = $resto[$i++];
     }
 }
-foreach (['tres_meses' => 8, 'dos_meses' => 21, 'en_plazo' => 12, 'al_dia' => 12] as $grupo => $n) {
+foreach (['tres_meses' => 8, 'dos_meses' => 21, 'en_plazo' => 13, 'al_dia' => 12] as $grupo => $n) {
     for ($k = 0; $k < $n; $k++) {
         $asignados[$grupo][] = $resto[$i++];
     }
 }
-$asignados['nuevo'][] = $nuevo;
 
 if ($i !== count($resto)) {
     throw new RuntimeException("Quedaron alumnos sin asignar: {$i} de " . count($resto));
@@ -151,8 +151,6 @@ foreach ($reparto as $grupo => $config) {
         // Pago de apertura: el ultimo mes que tenia cancelado.
         if ($config['pago_hasta']) {
             [$mes, $anio] = $config['pago_hasta'];
-        } elseif ($grupo === 'nuevo') {
-            $mes = null;
         } else {
             // Deuda vieja: cancelado hasta el mes anterior a la primera impaga.
             $primera = \Carbon\Carbon::createFromFormat('mY d', $cuotas[0][1] . ' 01')->subMonth();
