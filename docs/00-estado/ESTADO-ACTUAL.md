@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **107 pruebas, 631 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| **Tests** | **108 pruebas, 642 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
 | Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
@@ -198,7 +198,6 @@ fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
 
 | Contradiccion | Estado real | Resolucion |
 |---|---|---|
-| Primera carga local: configuraciones eliminadas y reglas de primer pago sin validacion de solapamiento | Las dos configuraciones de la migracion se restauraron en wings_test y el listado de alumnos ya abre. La primera regla 1–15/100% se creo por pantalla | Pausa H05: controlador y tabla permiten tramos superpuestos, aunque la prueba exige rechazo sin escritura. Decidir correccion antes de crear datos ambiguos; ver RESULTADO-PRIMERA-CARGA-V1.md |
 | Cambio paralelo del motor de pruebas durante la tarea de saldo inicial | NombreUnico ya fue adaptado con autorizacion. phpunit.xml paso a MariaDB mientras corria la regresion y el helper previo sqliteCreateFunction dejo de ser compatible | Pausa para coordinar B2; pendiente adaptar helper y corrida completa. Ver LOG-CODEX 05/09 |
 | Documentos viejos dicen Laravel 11 | `composer.json` usa `^12.0` | Corregir al tocarlos |
 | `wings-design/SKILL.md` dice `ds-content` con tope de 1200px | `app.css` no lo implementa | Decidir: implementar el tope o corregir el SKILL |

@@ -14,6 +14,324 @@
 
 ---
 
+## 2026-09-06 — Codex CAB — seeder de primera carga ejecutado e idempotente
+
+Carlos autorizo la excepcion: Sofía Morales cuenta como una mujer en Futbol, por
+lo que el seeder completa 49 alumnos nuevos. Se agrego PrimeraCargaAlumnosSeeder
+con datos fijos y realistas, validacion de la base manual previa y protecciones
+contra ejecucion en produccion. Una regresion prepara la base inicial, lo corre
+dos veces y confirma idempotencia, planes, fechas, distribucion y ausencia de
+deudas y pagos.
+
+Tras verificar entorno local/127.0.0.1/wings_test, el seeder se ejecuto dos
+veces. Resultado real: 60 alumnos, Patin 40/Futbol 20, tramos 12/18/30, ningun
+DNI repetido dentro de un deporte, ningun alumno sin plan activo y cero deudas
+y pagos. No se tocaron usuarios, configuraciones, catalogos, vistas, CSS ni JS.
+La suite final aprobo 108 pruebas y 642 aserciones; vistas compiladas, lint de
+los dos archivos PHP nuevos y diff de vistas/CSS sin cambios. Se actualizaron los
+documentos que declaran la cantidad de pruebas. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — dupla conservada; pausa por contradiccion de genero en el seeder
+
+Carlos eligio conservar la fila C35 y convertirla en la misma persona de Patin:
+se actualizo desde la pantalla el nombre y apellido de la inscripcion de Futbol,
+manteniendo su DNI, grupo y plan. La base confirma que las dos filas ahora tienen
+el mismo DNI y nombre. Por eso el seeder debe crear 49, no 50, para llegar a 60.
+
+La dupla es una mujer tambien en Futbol, mientras que PRIMERA-CARGA-V1 exige 20
+varones en Futbol. Si se agregan 49 conforme a ese genero, el resultado seria
+19 varones y 1 mujer en Futbol. Se frena antes de escribir el seeder: Carlos
+debe confirmar que la dupla es una excepcion o cambiar la definicion. Firma:
+Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — seeder pausado: la base tiene once alumnos, no diez
+
+Antes de escribir el seeder se leyo la especificacion y se verifico la base.
+La prueba C35, que acepta el mismo DNI en otro deporte, dejo una fila valida
+adicional. El estado real es once alumnos: seis de Patin y cinco de Futbol; por
+fecha son dos de 2025, uno de enero-marzo y ocho de abril-junio. La orden cuenta
+diez y por eso indica crear cincuenta; hacerlo asi llevaria a 61 alumnos y
+alteraria tambien el reparto de fechas.
+
+Se frena antes de crear codigo o escribir datos. Pendiente de Carlos: decidir
+si se borra la fila C35 y se crean 50, o si se conserva y se crean 49, definiendo
+ademas si representa la persona inscripta en ambos deportes. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — H06 cerrado; etapa manual de primera carga completa
+
+Carlos autorizo una unica solicitud manual de edicion porque la pantalla ya
+oculta los grupos de otro deporte. El servidor rechazo el grupo incompatible
+con el mensaje esperado y la alumna mantuvo su grupo original. Junto con el
+rechazo desde la pantalla al crear, H06 queda revalidado en ambas puertas.
+
+La etapa manual de primera carga queda completa: diez alumnos validos, altas y
+rechazos documentados en RESULTADO-PRIMERA-CARGA-V1.md, sin filas parciales en
+los rechazos. No se inicio el seeder de cincuenta alumnos; se espera el aviso de
+Carlos antes de hacerlo. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — H06 revalidado en alta; prueba de edicion bloqueada por la propia interfaz
+
+Se actualizo a `d628abd` y se repitio el alta Patin con grupo de Futbol. La
+pantalla muestra el mensaje esperado y la consulta concreta confirma que no se
+creo fila. Por indicacion de Carlos se elimino el alumno inconsistente id 17 y
+su unico plan; antes no tenia dependencias operativas y despues no quedan
+alumnos con deporte distinto al de su grupo.
+
+La edicion no permite ejecutar el caso desde pantalla: al editar una alumna de
+Patin, el selector contiene solo grupos de Patin. No se envio una solicitud
+manual ni se modifico la interfaz, porque la prueba de primera carga exige usar
+pantallas. Pendiente de Carlos: autorizar esa solicitud manual o aceptar como
+evidencia el bloqueo de interfaz junto con las regresiones del commit. No se
+inicio el seeder. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga detenida por grupo incompatible aceptado
+
+Se completaron las diez altas validas de alumnos por pantalla, las reglas de
+primer pago y los rechazos solicitados: DNI repetido en el mismo deporte,
+celular vacio, menor sin tutor, nacimiento futuro y email invalido fueron
+validados sin filas parciales. El mismo DNI en otro deporte se acepto y la base
+confirma una fila por deporte, conforme al contrato.
+
+Al ejecutar el rechazo de grupo ajeno al deporte, la pantalla creo el alumno en
+lugar de rechazarlo. La base confirma una fila con deporte Patin y grupo cuyo
+deporte es Futbol. Se registro como H06 en RESULTADO-PRIMERA-CARGA-V1.md y se
+detuvo la prueba sin modificar codigo ni borrar esa evidencia. No se escribio
+el seeder ni se tocaron vistas, CSS, JavaScript o headers. Pendiente: decision
+de Carlos sobre la correccion de H06 y el tratamiento de la fila inconsistente.
+Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — H05 verificado y reglas de primer pago completas
+
+Se verifico `c5faceb`: llamadas a reglaSuperpuesta en alta y edicion, y cinco
+pruebas de ReglaPrimerPagoSinSuperposicion aprobadas. Desde la pantalla se
+crearon los tramos 16–23/70% y 24–31/40%. El intento 10–20/50% fue rechazado
+con mensaje de solapamiento; la base conserva exactamente las tres reglas
+esperadas y ninguna fila de prueba. H05 queda resuelto. Se continua por los
+alumnos manuales, incluyendo al menos dos altas de 2025. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — fechas de alta actualizadas; H05 sigue bloqueando alumnos
+
+Se incorporo la especificacion de fechas: los diez manuales deben incluir al
+menos dos altas de 2025 y ninguna alta puede ser de julio, agosto o septiembre
+de 2026. La alumna ya creada se verifico en wings_test con fecha 2026-03-01,
+dentro del tramo enero–marzo, por lo que no se edito. La carga no continua hasta
+resolver H05: hoy no existe rechazo de reglas de primer pago superpuestas. Firma:
+Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga: H04 resuelto; pausa H05 por reglas superpuestas
+
+Por indicacion de Carlos se restauraron fuera de la aplicacion ambas configuraciones
+de la migracion, con guardas de local, 127.0.0.1 y wings_test: dias_gracia_cobranza
+10 y dia_generacion_deuda 1, con tipos y descripciones originales. El listado de
+alumnos volvio a abrir y la alumna ya persistida conserva grupo, plan y fecha.
+
+Se deja registrado el hallazgo aportado como verificado por Claude: editar
+dia_generacion_deuda en la pantalla no modifica el calendario mensual, cuyo dia
+sigue escrito en routes/console.php. No se corrige en esta carga; debe evitarse
+el mismo patron en las futuras configuraciones de punitorios.
+
+La regla de primer pago 1–15/100% se creo por pantalla y la base confirma la fila
+activa. Se freno antes del intento superpuesto: el controlador web y la tabla no
+validan ni impiden cruces de rangos, por lo que seria aceptado y dejaria datos
+ambiguos, contradiciendo el criterio de aceptacion. Pendiente: decidir e
+implementar esa validacion antes de los dos tramos restantes y los alumnos. Sin
+cambios de codigo, vistas, CSS, JS o headers. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga detenida por configuraciones ausentes
+
+La primera alta valida de alumno por pantalla se persistio con su grupo, plan y
+fecha de alta, pero la redireccion al listado termino en pantalla 500:
+CobranzaEstadoService requiere dias_gracia_cobranza y configuraciones esta vacia.
+La pantalla de configuracion solo edita claves existentes, por lo que no puede
+restaurarla. La migracion que creo la tabla inserta dos claves iniciales:
+dias_gracia_cobranza=10 y dia_generacion_deuda=1. La orden nueva pide restaurar
+solo la primera, aunque ambas estan ausentes y ninguna se crea por interfaz.
+
+Se freno antes de cualquier escritura fuera de la aplicacion. Pendiente de Carlos:
+indicar si restaurar solo dias_gracia_cobranza o los dos valores originales. El
+resultado y ESTADO-ACTUAL se actualizaron con H04. Sin cambios de codigo, vistas,
+CSS, JS ni headers. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga: usuarios ficticios autorizados y verificados
+
+Carlos autorizo datos ficticios realistas para las seis cuentas. Desde la
+pantalla se crearon dos usuarios OPERATIVO y cuatro PROFESOR; las cuatro cuentas
+de profesor quedaron vinculadas, respectivamente, a las fichas 4, 5, 6 y 7.
+La lectura de wings_test confirma seis filas activas con esos roles y vinculos.
+Antes se envio un alta con correo ya usado: la interfaz devolvio validacion y la
+base confirma una sola fila con ese correo y ninguna fila del intento. No se
+registran claves ni datos personales en esta bitacora.
+
+H03 queda resuelto. Pendiente siguiente: diez alumnos, todos por pantalla,
+intercalando sesion ADMIN y OPERATIVO, con resultados y ausencia de escrituras
+parciales documentados en RESULTADO-PRIMERA-CARGA-V1.md. No se escribio seeder
+ni se modifico codigo, vistas, CSS, JS o headers. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga: profesores creados con datos ficticios autorizados
+
+Carlos autorizo datos ficticios realistas y definio tres valores por hora para
+Patin (12000, 15000 y 18000) y una comision de Futbol de 40%. Se crearon los
+cuatro profesores desde la pantalla y se verificaron contra wings_test: las
+tres profesoras de Patin quedaron activas, por hora y sin comision; el profesor
+de Futbol quedo activo, por comision y sin valor hora. No hubo codigo ni cambios
+en vistas, CSS, JS ni headers.
+
+La pausa H03 queda limitada a los usuarios: aun faltan la identidad y los datos
+de dos operativos y de una cuenta de profesor por cada profesor. Pendiente:
+Carlos los define o autoriza datos ficticios para esas cuentas. Resultado
+actualizado en RESULTADO-PRIMERA-CARGA-V1.md. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga: cajas verificadas; pausa por datos no especificados
+
+Se revalido el proceso local sin exponer secretos: entorno local, clave presente,
+sin cache de configuracion, host 127.0.0.1 y base wings_test. Con una sesion web
+nueva, Efectivo/EFE se creo por pantalla con saldo inicial 250000; Mercado Pago/MP
+se creo por pantalla con saldo inicial 1320000. Las dos filas estan activas, sin
+descubierto ni movimientos; sus saldos se comprobaron contra la base. No se cambio
+APP_KEY, .env, caches, codigo, vistas, CSS, JS ni headers. El 500 anterior queda
+registrado como no reproducido, no explicado.
+
+La carga se detuvo antes de profesores/usuarios: PRIMERA-CARGA exige modalidades
+y cantidades, pero no provee nombres, valores hora, porcentaje de comision ni
+datos de las seis cuentas. No se inventaron datos de una carga que el documento
+define como real. Pendiente: Carlos debe proveerlos o autorizar datos de prueba.
+Resultado actualizado en RESULTADO-PRIMERA-CARGA-V1.md y contradiccion en
+ESTADO-ACTUAL.md. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — migracion aplicada; reintento detenido por H02
+
+Estrategia de modelos acordada con Carlos: la carga manual y su verificacion se
+haran con Terra medium, priorizando lectura cuidadosa de pantallas, validaciones,
+errores y comprobacion de base. El seeder de los cincuenta restantes se evaluara
+con Luna cuando los diez casos manuales hayan terminado y pasado sin sorpresas,
+tal como exige PRIMERA-CARGA. El cambio sera explicito por fase; no se asume
+enrutamiento automatico del modelo. Cualquier error debe detener la cadena,
+registrarse en RESULTADO-PRIMERA-CARGA-V1 y reflejarse en el informe, sin
+continuar ni corregir por consola.
+
+Puesta al dia solicitada: se relevaron checkout, estado, ambas bitacoras y el
+resultado de primera carga. El estado sigue siendo H02: `wings_test` conserva
+2 deportes, 4 niveles, 6 grupos y 12 planes; tipos de caja permanece vacia y
+la migracion de saldo inicial esta aplicada. No se cambiaron datos ni codigo
+durante este relevo. Para continuar la prueba se recomienda el modelo de mayor
+capacidad disponible, GPT-6 Astra, con razonamiento alto; la seleccion queda
+registrada como orientacion operativa, no como cambio del proyecto.
+
+Carlos indico cargar saldos iniciales al crear los tipos nuevos: Efectivo 250000
+y Mercado Pago 1320000. Aplicada solo la migracion de saldo_inicial en wings_test,
+con guardas de ambiente local, host127.0.0.1 y base efectiva; columna verificada.
+No se alteraron los datos ya cargados ni se ejecuto ninguna otra migracion.
+
+C14 por navegador: alta nueva Efectivo/EFE con saldo250000. Pantalla500;
+log11:16:37 informa MissingAppKeyException bajo entorno production. La consola
+posterior identifica local/wings_test; tabla tipos_caja vacia, sin escritura
+parcial. Un GET posterior del formulario responde con sesion admin, pero la causa
+del error no se comprobo. No se atribuye al trabajo paralelo sin evidencia.
+
+Se freno segun la premisa. No se genero ni cambio clave de aplicacion, no se
+modifico .env, no se limpiaron caches ni se repitio nuevamente el alta.
+Saldos indicados documentados; resultado y estado actual actualizados.
+Ambas cajas, profesores, usuarios adicionales y alumnos siguen pendientes.
+Sin cambios de codigo, vistas, CSS, JS o headers. No se toco el servidor.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga detenida en C13, esquema local pendiente
+
+Tras resolver niveles y omitir superadmin, se limpio solo wings_test con guardas
+de ambiente/host/base, tablas InnoDB verificadas, transaccion y verificacion antes
+del commit. Se conservaron el admin, Cuotas, Cuota Mensual reservado, Sueldos sin
+hijos y migrations (historial tecnico). Se eliminaron los datos anteriores de
+prueba, sin respaldo nuevo por ser descartables. No se altero el esquema ni se
+reiniciaron ids. No se toco servidor ni wings_testing para esta limpieza.
+
+Por navegador, sesion admin: 12 altas aprobadas con verificacion de filas reales:
+2 deportes, 4 niveles, 6 grupos con 12 planes a los precios de PRIMERA-CARGA.
+C13 (Efectivo/EFE, saldo inicial 0, sin descubierto) devolvio pantalla 500,
+SQLSTATE 42S22: columna saldo_inicial inexistente. No es mensaje de validacion.
+Se verifico tipos_caja vacia tras el rechazo: no hubo fila parcial.
+
+Causa comprobada: migracion 2026_09_03_000001_add_saldo_inicial_to_tipos_caja_table
+pendiente en wings_test. El archivo existe y su up agrega la columna con default 0.
+Error de preparacion propio: se conservo el esquema existente al limpiar y no se
+consulto migrate:status antes de cargar. Se registro sin atribuirlo a una
+validacion funcional rota. No se ejecuto la migracion ni se arreglo codigo.
+
+Resultado y estado actual actualizados. No se iniciaron profesores, usuarios
+adicionales ni alumnos; no se escribio el seeder de cincuenta. No se tocaron
+vistas, CSS, JS ni headers. Pendiente: Carlos autorice aplicar la migracion local
+existente y repetir C13, o prepare el ambiente por su cuenta. No repetir C01-C12.
+
+Verificacion al pausar: suite en wings_testing **93 pruebas, 578 aserciones**
+aprobadas (incluye cambios paralelos incorporados durante la carga); compilacion
+y limpieza de vistas OK, diff --check OK, diff de vistas/CSS/JS/middleware vacio.
+No se editaron archivos PHP, por lo que no hay sintaxis PHP modificada a verificar.
+La suite usa otra base y no invalida el hallazgo del esquema de wings_test.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga: definiciones recibidas, se retoma
+
+Carlos confirmo Futbol/Avanzadas, compartiendo el nivel y sin agregar un quinto.
+Tambien indico omitir el superadmin en esta etapa local y dejarlo para el servidor.
+PRIMERA-CARGA ya fue actualizada en paralelo con ambas decisiones; se releyo
+completa y se preservo esa edicion. Se retira el bloqueo del estado actual.
+Las comprobaciones e intentos se registran en RESULTADO-PRIMERA-CARGA-V1.
+
+---
+
+## 2026-09-06 — Codex CAB — primera carga pausada antes de borrar datos
+
+Leidos AGENTS completo, PRIMERA-CARGA completo, guia, ambas bitacoras, estado,
+checklist y permisos. Pull sin novedades: los tres commits anunciados ya estan
+en main; HEAD 7aa9479. Solo habia un cambio local de configuracion de Claude,
+que se preservo. La frecuencia obligatoria ya esta en f02cb9e.
+
+Verificacion de preparacion exclusivamente de lectura: ambiente local,
+127.0.0.1, wings_test; admin indicado existente y activo; consulta de cuentas
+protegidas vacia. Existen Cuotas, Cuota Mensual reservado y Sueldos.
+
+Contradiccion: la especificacion fija cuatro niveles, incluido Avanzadas, pero
+exige Futbol/Avanzados. Leido el cuerpo del accesor de Grupo y el alta: el nombre
+se compone de deporte y nivel, sin campo de nombre independiente. Opciones sin
+elegir: compartir Avanzadas tambien en Futbol o autorizar un quinto nivel Avanzados.
+Ademas falta identificar que cuenta sera el superadmin (existente a marcar o nueva
+a crear por consola). No se invento una identidad ni se cambiaron permisos.
+
+Se registraron el bloqueo en ESTADO-ACTUAL y las comprobaciones en
+RESULTADO-PRIMERA-CARGA-V1. Los diez casos de alumnos quedan explicitamente NO SE
+PUDO, aun no intentados. No hubo borrados ni escrituras en wings_test, cargas por
+pantalla, seeders ni cambios de aplicacion, vistas, CSS, JS o headers.
+Siguiente paso: recibir esas dos definiciones antes de reiniciar la base.
+
+---
+
 ## 2026-09-06 — Codex CAB — frecuencia obligatoria; aceptacion completada
 
 Objetivo: impedir que alta, edicion o eliminacion individual dejen un grupo sin
