@@ -225,9 +225,30 @@ nuevos: no arreglaba nada justamente para el grupo más grande.
 La regla del mes de alta no depende de que haya deuda, así que cubre a los sesenta
 desde el momento en que se cargan.
 
-**No está implementado.** Toca el cobro y el acceso a clase, que son justamente las
-pantallas que se están usando en la primera carga: cambiarlas en el medio ensucia esa
-prueba. Va después.
+### Implementado el 06/09
+
+`PagoCuotaService::calcularReglaPrimerPago()` recibe ahora los períodos que se están
+cobrando, y el descuento corre **solo si el mes de alta es uno de ellos**. La pantalla
+de cobro (`CajaWebController`) aplica la misma condición, para que no anuncie un
+descuento que el cobro después no hace.
+
+`PagoService` **no se tocó**: su único consumidor es `PagoController`, que está en la
+API deshabilitada desde el fix S2 y no tiene ninguna ruta que llegue. Verificado con
+`route:list`.
+
+**Apareció un segundo defecto de la misma clase**, y también quedó cerrado: el
+descuento se aplicaba a **todos** los meses de un pago, no solo al de entrada. Alguien
+que entraba el 20 de agosto y pagaba agosto y septiembre juntos se llevaba 30% de
+descuento en septiembre, un mes que iba a usar entero. Contradecía el §12 de este
+mismo contrato, que ya lo tenía escrito: *"aplica solo a la primera cuota; si se pagan
+varios meses juntos, los demás van completos"*.
+
+Ese defecto estaba **congelado en una prueba**: `PagoCuotaServiceTest` afirmaba los dos
+meses descontados. Se corrigió citando el §12.
+
+Cubierto por `DescuentoPrimerPagoSoloDelMesDeAltaTest`, cuatro casos. Verificado que
+tienen dientes: desactivando cada arreglo por separado, cae la prueba que le
+corresponde y solo esa.
 
 ---
 

@@ -599,15 +599,28 @@ class CajaWebController extends Controller
         $motivoPrimerPago    = null;
         $tienePagos          = Pago::where('alumno_id', $alumnoId)->exists();
 
+        // El descuento solo alcanza al mes en que el alumno entró (o volvió), nunca a
+        // otros meses. Acá se anuncia, y tiene que anunciar exactamente lo que después
+        // va a hacer PagoCuotaService::calcularReglaPrimerPago(): si esta pantalla
+        // mostrara un descuento que el cobro no aplica, el operativo cobraría un
+        // importe distinto del que le dijo al alumno.
+        //
+        // Un alumno traído de una carga inicial tiene fecha de alta vieja y ningún
+        // pago en Wings. Sin esta condición se le ofrecía el descuento igual, meses
+        // después de haber entrado.
+        $periodoActual = now()->format('Y-m');
+
         if (!$tienePagos && $alumno->fecha_alta) {
-            // Alumno nuevo: usa día de fecha_alta
-            $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
-            if ($reglas->count() === 1) {
-                $reglaPrimerPago  = $reglas->first();
-                $motivoPrimerPago = 'nuevo';
+            // Alumno nuevo: el descuento corre por el mes en que se dio de alta.
+            if ($alumno->fecha_alta->format('Y-m') === $periodoActual) {
+                $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
+                if ($reglas->count() === 1) {
+                    $reglaPrimerPago  = $reglas->first();
+                    $motivoPrimerPago = 'nuevo';
+                }
             }
         } elseif (!$alumno->activo && $tienePagos) {
-            // Alumno inactivo que vuelve: usa día de hoy
+            // Alumno inactivo que vuelve: usa día de hoy, que ya es del mes actual.
             $reglas = ReglaPrimerPago::obtenerReglaPorDia(now()->day);
             if ($reglas->count() === 1) {
                 $reglaPrimerPago  = $reglas->first();

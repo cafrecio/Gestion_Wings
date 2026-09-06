@@ -353,7 +353,9 @@ resultado sería una deuda que no coincide con la que el club realmente reclama.
 
 ## Lo que todavía falta definir
 
-- El separador y la codificación del archivo, y si viene como `.xlsx` o como `.csv`.
+- ~~Si viene como `.xlsx` o como `.csv`.~~ **`.xlsx`**, decidido por Carlos el 06/09:
+  es el formato que la persona que arma la planilla sabe usar. El script lee `.xlsx`
+  directamente; no se le pide a nadie que exporte ni convierta nada.
 - Qué hace si un alumno aparece dos veces en la planilla.
 
 ---

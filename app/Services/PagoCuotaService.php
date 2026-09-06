@@ -46,9 +46,9 @@ class PagoCuotaService
             $montosOriginalesNuevasDeudas = [];
 
             // Regla de primer pago: ajustar montos si aplica
-            [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
-            if ($porcentaje < 100) {
-                $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+            [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
+            if ($porcentaje < 100 && $periodoConDescuento !== null) {
+                $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
                 $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
                 $this->ajustarDeudas($data['alumno_id'], $items);
             }
@@ -135,9 +135,9 @@ class PagoCuotaService
             $montosOriginalesNuevasDeudas = [];
 
             // Regla de primer pago: ajustar montos si aplica
-            [$porcentaje, $reglaId] = $this->calcularReglaPrimerPago($data['alumno_id']);
-            if ($porcentaje < 100) {
-                $items = $this->aplicarPorcentajeAItems($items, $porcentaje);
+            [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
+            if ($porcentaje < 100 && $periodoConDescuento !== null) {
+                $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
                 $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
                 $this->ajustarDeudas($data['alumno_id'], $items);
             }
@@ -556,49 +556,98 @@ class PagoCuotaService
     }
 
     /**
-     * Detecta si aplica una regla de primer pago y devuelve [porcentaje, reglaId].
-     * Solo aplica cuando el alumno no tiene ningún Pago previo.
+     * Detecta si aplica una regla de primer pago.
+     *
+     * Devuelve [porcentaje, reglaId, periodoConDescuento].
+     *
+     * El descuento existe por un motivo concreto: quien se anota el 24 de abril no
+     * usó abril entero, así que no paga abril entero. **Por eso solo alcanza al mes
+     * en que el alumno entró, y a ningún otro.**
+     *
+     * Antes no se miraba a qué mes correspondía la cuota que se estaba cobrando: se
+     * aplicaba el descuento por el solo hecho de que el alumno no tuviera pagos
+     * registrados. Eso rompe en dos situaciones reales:
+     *
+     *  - **La carga inicial de un club que ya venía funcionando.** Sus alumnos entran
+     *    con fecha de alta vieja y sin ningún pago en Wings, porque lo que pagaron lo
+     *    pagaron antes. Medido sobre los diez alumnos de la primera carga: cuatro se
+     *    habían anotado después del día 15 y el sistema les descontaba $81.300 entre
+     *    los cuatro, en su primer cobro.
+     *  - **Un pago que cubre varios meses.** El descuento del mes de entrada se
+     *    aplicaba también a los demás meses del mismo pago.
+     *
+     * Ver `Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` §4.
+     *
+     * @param array<int,array{periodo:string,monto:mixed}> $items
+     * @return array{0:float, 1:int|null, 2:string|null}
      */
-    private function calcularReglaPrimerPago(int $alumnoId): array
+    private function calcularReglaPrimerPago(int $alumnoId, array $items): array
     {
         $alumno     = Alumno::find($alumnoId);
         $tienePagos = Pago::where('alumno_id', $alumnoId)->exists();
 
         if (!$alumno) {
-            return [100.0, null];
+            return [100.0, null, null];
         }
 
-        // Caso 1: alumno sin pagos previos (nuevo) — usa día de fecha_alta
+        $periodosCobrados = array_column($items, 'periodo');
+
+        // Caso 1: alumno sin pagos previos (nuevo) — el descuento es por el mes en
+        // que se dio de alta, y solo corre si ese mes es uno de los que se cobran.
         if (!$tienePagos && $alumno->fecha_alta) {
-            $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
-            if ($reglas->count() === 1) {
-                return [(float) $reglas->first()->porcentaje, $reglas->first()->id];
+            $periodoAlta = $alumno->fecha_alta->format('Y-m');
+
+            if (!in_array($periodoAlta, $periodosCobrados, true)) {
+                return [100.0, null, null];
             }
-            return [100.0, null];
+
+            return $this->reglaDelDia($alumno->fecha_alta->day, $periodoAlta);
         }
 
-        // Caso 2: alumno inactivo que vuelve (ya conoce el lugar) — usa día de hoy
+        // Caso 2: alumno inactivo que vuelve (ya conoce el lugar) — el descuento es
+        // por el mes en que vuelve, con la misma condición.
         if (!$alumno->activo && $tienePagos) {
-            $diaHoy = Carbon::now()->day;
-            $reglas  = ReglaPrimerPago::obtenerReglaPorDia($diaHoy);
-            if ($reglas->count() === 1) {
-                return [(float) $reglas->first()->porcentaje, $reglas->first()->id];
+            $hoy            = Carbon::now();
+            $periodoRetorno = $hoy->format('Y-m');
+
+            if (!in_array($periodoRetorno, $periodosCobrados, true)) {
+                return [100.0, null, null];
             }
-            return [100.0, null];
+
+            return $this->reglaDelDia($hoy->day, $periodoRetorno);
         }
 
-        return [100.0, null];
+        return [100.0, null, null];
     }
 
     /**
-     * Escala los montos de los items por un porcentaje.
+     * Busca la regla del día. Si hay cero o más de una, no se descuenta nada.
+     *
+     * @return array{0:float, 1:int|null, 2:string|null}
      */
-    private function aplicarPorcentajeAItems(array $items, float $porcentaje): array
+    private function reglaDelDia(int $dia, string $periodo): array
+    {
+        $reglas = ReglaPrimerPago::obtenerReglaPorDia($dia);
+
+        if ($reglas->count() === 1) {
+            return [(float) $reglas->first()->porcentaje, $reglas->first()->id, $periodo];
+        }
+
+        return [100.0, null, null];
+    }
+
+    /**
+     * Escala el monto del período que lleva el descuento. El resto queda intacto.
+     */
+    private function aplicarPorcentajeAItems(array $items, float $porcentaje, string $periodoConDescuento): array
     {
         $factor = $porcentaje / 100;
+
         return array_map(fn($item) => [
             'periodo' => $item['periodo'],
-            'monto'   => round((float) $item['monto'] * $factor, 2),
+            'monto'   => $item['periodo'] === $periodoConDescuento
+                ? round((float) $item['monto'] * $factor, 2)
+                : (float) $item['monto'],
         ], $items);
     }
 

@@ -210,16 +210,31 @@ class PagoCuotaServiceTest extends TestCase
             ['periodo' => '2026-09', 'monto' => 28000],
         ]);
 
-        foreach (['2026-08', '2026-09'] as $periodo) {
-            $this->assertDatabaseHas('deuda_cuotas', [
-                'alumno_id' => $data['alumno']->id,
-                'periodo' => $periodo,
-                'monto_original' => '19600.00',
-                'monto_pagado' => '19600.00',
-                'estado' => DeudaCuota::ESTADO_PAGADA,
-            ]);
-        }
-        $this->assertEquals('39200.00', $resultado['pago']->monto_final);
+        // Agosto es el mes en que el alumno entró: lleva el 70%.
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $data['alumno']->id,
+            'periodo' => '2026-08',
+            'monto_original' => '19600.00',
+            'monto_pagado' => '19600.00',
+            'estado' => DeudaCuota::ESTADO_PAGADA,
+        ]);
+
+        // Septiembre va completo. Lo fija el contrato de estados y cobranza, §12:
+        // "Descuento de primera cuota: aplica solo a la primera cuota. Si se pagan
+        // varios meses juntos, los demás van completos."
+        //
+        // Hasta el 06/09/2026 esta prueba afirmaba 19600 tambien para septiembre, o
+        // sea que daba por buena una conducta que el contrato ya prohibia: el alumno
+        // se llevaba 30% de descuento en un mes que iba a usar entero.
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $data['alumno']->id,
+            'periodo' => '2026-09',
+            'monto_original' => '28000.00',
+            'monto_pagado' => '28000.00',
+            'estado' => DeudaCuota::ESTADO_PAGADA,
+        ]);
+
+        $this->assertEquals('47600.00', $resultado['pago']->monto_final);
         $this->assertEquals('70.00', $resultado['pago']->porcentaje_aplicado);
     }
 
