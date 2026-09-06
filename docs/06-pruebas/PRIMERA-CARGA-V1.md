@@ -20,6 +20,34 @@ aplicación**:
 | ~~Usuario SUPERADMIN~~ | **Omitido en esta etapa** (decidido el 06/09). Importa cuando se cargue el servidor, no para probar en local |
 | Rubro y subrubro de cuotas | El que cobra las clases — el código lo busca por nombre exacto |
 | Rubro Sueldos | **Sin subrubros**: se crean solos al dar de alta cada profesor |
+| Tabla `configuraciones` | **Agregado el 06/09.** Ver abajo: se borró y no hay forma de recrearla desde la aplicación |
+
+### Hallazgo del 06/09: hay un valor que el sistema necesita y nadie puede crear
+
+**Verificado, no inferido.** La limpieza dejó `configuraciones` en **0 filas**. Ahí
+vivía `dias_gracia_cobranza`, y:
+
+- Lo crea **la migración** `2026_05_29_003356_create_configuraciones_table.php`, no
+  un seeder. Una base ya migrada que se vacía **no lo recupera**.
+- La pantalla de configuración solo tiene `PATCH configuraciones/{clave}`: **edita
+  claves que existen, no las crea.** No hay ninguna ruta que dé de alta una clave.
+- `Configuracion::set()` usa `update()`: sobre una fila que no existe **no hace nada
+  y no avisa**.
+- `CobranzaEstadoService::diasGracia()` (línea 258) **tira `LogicException`** si el
+  valor falta.
+
+**Consecuencia concreta:** apenas haya alumnos, cualquier pantalla que calcule estado
+de cobranza revienta con error 500. No es un problema de este ambiente: **le pasa
+igual a cualquier instalación nueva que se vacíe**, y es exactamente el tipo de
+agujero que esta prueba tiene que encontrar.
+
+**Qué hacer ahora para no quedar trabados:** restaurar la fila corriendo de nuevo esa
+migración sobre la base descartable, o insertarla a mano. Dejar registrado que se
+hizo por fuera de la aplicación, porque desde la aplicación no se puede.
+
+**Qué hacer después, como tarea aparte:** decidir si esas claves se siembran en un
+seeder de arranque o si la pantalla de configuración pasa a poder crearlas. No se
+resuelve dentro de esta carga.
 
 > Las contraseñas de arriba son de prueba y así se usan a propósito. No aplica acá
 > la discusión de claves fuertes: esta base es descartable.
@@ -41,6 +69,27 @@ no se puede cargar desde la aplicación, eso mismo es el hallazgo.
 | **Grupos de Patín** | 4, uno por nivel |
 | **Grupos de Fútbol** | 2: Principiantes y **Avanzadas** |
 | **Tipos de caja** | 2: Efectivo y Mercado Pago |
+| **Reglas de primer pago** | 3 tramos. **Agregado el 06/09**: también se borraron y sí se cargan por pantalla |
+
+### Reglas de primer pago — se cargan por pantalla
+
+La limpieza dejó `reglas_primer_pago` en **0 filas** (verificado). A diferencia de
+`configuraciones`, esta sí tiene alta, edición y baja propias
+(`configuraciones/primer-pago`), así que **se carga como todo lo demás: a mano, y
+cada alta es un caso de prueba.**
+
+| Días del mes | Porcentaje de la cuota |
+|---|---:|
+| 1 a 15 | 100% |
+| 16 a 23 | 70% |
+| 24 a 31 | 40% |
+
+Sin estas tres filas **no se le puede cobrar la primera cuota a un alumno nuevo**,
+que es justo el flujo que más importa probar.
+
+Saldos iniciales definidos por Carlos el 06/09: **Efectivo 250.000** y
+**Mercado Pago 1.320.000**. Se ingresan al crear estos tipos de caja nuevos,
+no editando tipos existentes.
 
 ## Profesores
 
