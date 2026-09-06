@@ -131,7 +131,21 @@ Dos **operativos** y cuatro **profesores**, uno por cada profesor cargado.
 | Deporte | Cuántos | Género |
 |---|---|---|
 | Patín | 40 | Mujeres |
-| Fútbol | 20 | Varones |
+| Fútbol | 20 | Varones, **con una excepción** |
+
+> **Excepción autorizada por Carlos el 06/09.** La alumna anotada en los dos deportes
+> —Sofía Morales, DNI 32123456— es **mujer y está en Fútbol**. Fútbol queda con 19
+> varones y 1 mujer.
+>
+> Esta tabla decía "20 varones" sin excepción, y esa contradicción **frenó a Codex
+> antes de escribir el seeder**: no podía cumplir las dos reglas a la vez. La decisión
+> se tomó en el chat y el documento quedó sin corregir; se corrige acá.
+>
+> Es la consecuencia lógica de pedir la misma persona en dos deportes: si la dupla
+> tiene que existir y Patín es de mujeres, esa persona es mujer en los dos.
+>
+> **Estado real verificado el 06/09:** 60 alumnos, Patín 40 / Fútbol 20, un único DNI
+> repetido (el de la dupla), 0 deudas y 0 pagos.
 
 **Todas las fechas de alta son anteriores a julio de 2026, y tiene que haber alumnos
 desde 2025.** Precisado por Carlos el 06/09; antes decía solo "anteriores a hoy", que

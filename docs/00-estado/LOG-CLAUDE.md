@@ -17,6 +17,82 @@
 
 ---
 
+## 2026-09-06 — Claude CAB — CIERRE DEL DIA: todo lo pendiente
+
+**Punto de partida del proximo chat.** Suite verificada hoy: **111 pruebas, 663
+aserciones**. Base `wings_test`: 60 alumnos (Patin 40 / Futbol 20), 0 deudas, 0 pagos.
+Servidor en `798bfa3`, detras de Cloudflare y cerrado a todo lo que no venga de ahi.
+
+### Lo que se cerro hoy
+
+Cloudflare completo (los tres pasos, con IPv6 cerrado aparte y la lista blanca del
+equipo acotada a SSH). Despliegue de 34 commits. Validacion de reglas de primer pago
+superpuestas. El descuento de primer pago acotado al mes de alta. El grupo obligado a
+ser del deporte elegido (H06). Dos tramos de la CSP. Contrato de punitorios escrito.
+Formato del Excel de Vanina definido. Codex cerro el seeder de 60 alumnos y el
+importador de deuda.
+
+### Pendiente, por orden de conveniencia
+
+**1. C1 — CSP, lo que queda.** Protegido por `CspSinCodigoIncrustadoTest`, que fija los
+numeros y no los deja crecer. Quedan **26 bloques `<script>` en 24 vistas** y **24
+manejadores** (eran 40).
+
+- **10 `onsubmit="return confirm(...)"`**: protegen ELIMINACIONES. No se tocaron a
+  proposito. Si se mueven a JavaScript y el archivo no carga, el borrado se ejecuta
+  sin preguntar. **Necesitan que alguien abra la pantalla y haga clic** — son diez
+  clics. La herramienta de navegador estaba bloqueada.
+- **14 `onclick`**: llaman funciones definidas en el `<script>` de su propia vista, asi
+  que **no se pueden mover solos**: hay que sacar los dos juntos, pantalla por
+  pantalla, y cada una necesita que alguien la use para confirmar que no se rompio.
+
+**2. El agujero de los rubros que el sistema busca por nombre.** `ProfesorWebController`
+linea 116 hace `Rubro::where('nombre', 'Sueldos')->first()`, y `RubroWebController::
+update()` **no comprueba nada**: cualquiera puede renombrar ese rubro o cambiarle el
+`tipo` de INGRESO a EGRESO. Si lo renombran, el alta de profesores deja de encontrarlo
+**en silencio**. Es chico y no choca con nadie. **Era lo proximo que iba a hacer.**
+
+**3. F — Punitorios por mora.** Contrato cerrado en
+`Wings-Contrato-Punitorios-Mora-V1.md`, con 14 criterios de aceptacion que dicen como
+se comprueba cada uno. **Sin implementar**: faltan las dos claves de configuracion, los
+campos en `deuda_cuotas` y el rubro reservado `Punitorios` con el subrubro
+`Punitorio Cuota`. Con `mora_porcentaje = 0` el sistema se comporta igual que hoy.
+Ojo: toca `deuda_cuotas`, la misma tabla del importador de Codex.
+
+**4. `dia_generacion_deuda` es una configuracion que no lee nadie.** Aparece solo en su
+migracion; el dia esta escrito en `routes/console.php:12` con `->monthlyOn(1, '06:00')`.
+El admin puede cambiarla, verla guardada, y no pasa nada.
+
+**5. No hay monitoreo.** 0 servicios corriendo en el servidor. Si el sitio se cae, nadie
+se entera. **Necesita una decision de Carlos**: por que canal quiere el aviso. Es lo
+unico de esta lista que no puedo arrancar solo.
+
+**6. Del indice de `ESTADO-ACTUAL.md`:** A2 (simulador de tres meses, depende del
+importador), B3 (concurrencia), B4 (smoke de rutas que escriben, ahora posible porque
+hay datos), E1 (`AUD-018`, `AUD-019`, `AUD-020`, `AUD-025`), E2 (reportes: contrato
+escrito, sin implementar), E4 (eliminar `formas_pago`).
+
+**7. Para el final, por orden de Carlos:** organizar el menu del administrador y los
+dashboards. Van ultimos porque los reportes agregan pantallas y el menu se reordena
+igual.
+
+**8. Suelto:** la inconsistencia de activar/desactivar (seis pantallas usan el toggle;
+tipos-caja y subrubros usan botones con palabras distintas) y tomar asistencia desde el
+celular.
+
+### Contradiccion resuelta hoy, que habia frenado a Codex
+
+`PRIMERA-CARGA-V1.md` exigia **20 varones en Futbol**, y la alumna anotada en los dos
+deportes es mujer. Carlos autorizo la excepcion en el chat **pero el documento quedo
+sin corregir**, y Codex se freno porque no podia cumplir las dos reglas. Corregido: la
+tabla ahora dice "20 varones, con una excepcion" y explica cual. Estado real
+verificado: Sofia Morales, DNI 32123456, unica con DNI repetido.
+
+**Es la tercera vez en el dia que una decision tomada solo en el chat frena el trabajo.
+Ninguna decision se cierra hasta que esta en un documento.**
+
+---
+
 ## 2026-09-06 — Claude CAB — Despliegue y los tres pasos de Cloudflare
 
 **Objetivo:** poner el servidor al día y dejar el sitio detrás de Cloudflare, en el
