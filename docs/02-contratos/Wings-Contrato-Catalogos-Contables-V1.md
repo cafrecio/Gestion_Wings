@@ -18,6 +18,7 @@
 - Los desplegables para **cargar un movimiento nuevo** (`CajaWebController::cargarRubros()`, selector de tipo de caja al pagar liquidación) solo muestran subrubros/tipos de caja **activos**.
 - Lo ya cargado en el histórico (movimientos viejos que referencian un subrubro/tipo de caja ahora inactivo) **no se toca ni se oculta** — sigue mostrando su nombre normalmente.
 - `Rubro` mantiene su regla previa (no cambia en esta resolución): `RubroWebController::destroy()` bloquea el borrado si tiene subrubros asociados (`subrubros_count > 0`). Es borrado real, no desactivación — se deja así porque un Rubro vacío (sin subrubros) no tiene historial de plata que proteger.
+- **Agregado el 06/09 (commit `b2868ea`), fuera de esta resolución:** los rubros tienen ahora `es_reservado_sistema`, igual que los subrubros (§6.b). Un rubro reservado no se renombra, no cambia de `tipo` y no se borra ni estando vacío; solo la observación se edita. Marcados `Sueldos` y `Cuotas`. Existe porque el código busca `Sueldos` por nombre exacto y renombrarlo rompía el alta de profesores en silencio.
 
 ---
 

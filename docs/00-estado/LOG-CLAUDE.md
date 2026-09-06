@@ -17,6 +17,73 @@
 
 ---
 
+## 2026-09-06 — Claude CAB — Deuda inicial: los dos Excel, generados y validados
+
+**Orden para Codex:** `ORDEN-CODEX-DEUDA-INICIAL.md`, nueve pasos con el porqué del
+orden al final. **Diseño:** `docs/06-pruebas/DISENO-DEUDA-INICIAL-V1.md`.
+
+### Lo que se descubrió leyendo el codigo, y que cambio el diseño
+
+`CobranzaEstadoService::calcularEstadoDesdeDeudas()` lineas 226-241, leido el cuerpo:
+
+1. **Los 60 alumnos ya estan en DEUDOR, sin deber un peso.** La primera condicion es
+   `!$tienePagos`: quien nunca pago es deudor aunque no tenga deuda. Hay 0 pagos.
+2. **MOROSO era inalcanzable el 06/09.** Es `dia > dias_gracia`, con
+   `dias_gracia_cobranza = 10` y hoy dia 6. Recien el 11/09, o bajando la
+   configuracion desde la pantalla.
+
+**Por eso el Excel solo no produce los cuatro estados.** Los produce el Excel mas una
+tanda de cobros por pantalla. El archivo prepara el tablero; los cobros lo mueven.
+
+### La reparticion, decidida con Carlos
+
+60 alumnos: **48 con deuda, 12 limpios. 81 cuotas, $2.997.000.**
+
+| Grupo | N | Deben | Demuestra |
+|---|---:|---|---|
+| Sin deuda | 12 | nada | Control: cobrar septiembre → AL_DIA |
+| Solo septiembre | 20 | `092026` | El mes en curso. Cobro parcial → EN_PLAZO |
+| Dos meses | 14 | `082026`+`092026` | FIFO: tiene que imputar agosto primero |
+| Tres meses | 8 | `072026`+`082026`+`092026` | Acumulacion con tres periodos |
+| Deuda vieja | 4 | meses de 2025 | Que el FIFO cruce de anio |
+| Para condonar | 2 | un mes de 2025 | La condonada deja de contar como impaga |
+
+Los montos de 2025 son **menores** al plan actual a proposito: la cuota vieja se
+genero con el precio viejo, y asi se comprueba que el importador escribe el monto del
+Excel y no recalcula. Sofia Morales (DNI `32123456`) va en dos filas, Patin y Futbol:
+prueba que la clave es DNI+deporte.
+
+### Verificacion
+
+Generador reproducible en `docs/06-pruebas/generar-deuda-inicial.php`: lee la base,
+reparte por DNI+deporte (no por posicion) y **falla si algun periodo es anterior al
+alta del alumno**. Los dos archivos pasaron `--solo-validar`: el bueno aprueba **81
+deudas**; el de rechazos falla **las ocho filas, informadas juntas, sin escribir
+nada**. Ninguna deuda fue creada: solo se valido.
+
+### Hallazgo bloqueante para el Paso 0
+
+`wings_test` tiene **2 rubros y 2 tipos de caja**; `CatalogosSeeder` define **8 y 5**.
+El unico subrubro que afecta caja es `Cuota Mensual`, asi que **hoy no se puede
+registrar un gasto en la caja operativa** y el flujo caja → validacion → cashflow no
+se puede terminar.
+
+**Contradiccion documental abierta:** `PRUEBA-HUMANA-V1.md:44` dice "Rubros: 8, con 15
+subrubros… el mismo punto de partida que va a tener el cliente el dia uno";
+`PRIMERA-CARGA-V1.md:21` dice que la base queda a proposito solo con Cuotas y Sueldos.
+Los dos no pueden ser ciertos. Se resuelve en el Paso 0, antes de cargar nada.
+
+### Documentos que mi commit anterior dejo mintiendo, corregidos en este turno
+
+`b2868ea` cerro el agujero de `RubroWebController::update()`, y tres documentos
+seguian describiendolo como abierto: `ESTADO-ACTUAL.md` §F, el contrato de punitorios
+y el de catalogos contables. Se corrigieron los tres.
+
+**Siguiente paso:** Codex ejecuta la orden. En paralelo, planificacion del simulador
+de tres meses (A2).
+
+---
+
 ## 2026-09-06 — Claude CAB — Rubros reservados y el subrubro del operativo
 
 **Punto 2 del cierre del dia, cerrado.**

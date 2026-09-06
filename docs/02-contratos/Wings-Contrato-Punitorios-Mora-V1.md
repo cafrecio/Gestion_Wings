@@ -217,10 +217,16 @@ $subrubro = Subrubro::where('nombre', 'Punitorio Cuota')->first();
 // si no existe: excepción, no seguir de largo
 ```
 
-**Nunca buscarlo por el nombre del rubro.** Motivo verificado: `RubroWebController::
-update()` **no tiene ninguna comprobación de reservado**, así que un admin puede
-renombrar cualquier rubro y también cambiarle el `tipo` de INGRESO a EGRESO. Si la
-búsqueda dependiera del nombre del rubro, renombrarlo rompería el cobro en silencio.
+**Nunca buscarlo por el nombre del rubro.** El motivo original era que
+`RubroWebController::update()` no comprobaba nada y cualquiera podía renombrar un
+rubro o cambiarle el tipo.
+
+> **Actualizado el 06/09 (commit `b2868ea`).** Ese agujero está cerrado: los rubros
+> tienen `es_reservado_sistema` y uno reservado ya no se renombra, no cambia de tipo
+> y no se borra. **La regla de este contrato no cambia igual**: se busca por el
+> nombre del **subrubro**, que es el nivel donde vive la plata, y el rubro
+> `Punitorios` tiene que nacer del seeder marcado como reservado — igual que
+> `Sueldos` y `Cuotas`, marcados en esa misma migración.
 
 > **Agujero preexistente que este contrato no arregla, pero deja anotado:** eso ya
 > pasa hoy con `Sueldos`. `ProfesorWebController.php:116` hace

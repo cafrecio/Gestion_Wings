@@ -144,19 +144,25 @@ un unico subrubro `Punitorio Cuota` (`OPERATIVO`, `afecta_caja = true`,
 de ponerlo bajo Intereses, que no podia funcionar: los subrubros de ese rubro son de
 `ADMIN` y no afectan la caja (`CatalogosSeeder.php:54-61`).
 
-**No requiere cambios de codigo.** El comportamiento de "rubro reservado" ya existe
-como propiedad emergente: `SubrubroWebController.php:23` impide agregarle subrubros a
-un rubro cuyos subrubros son todos reservados, `RubroWebController.php:70` impide
-borrar un rubro con subrubros, y los selectores de caja y cashflow filtran los
-reservados. Alcanza con crearlo en el seeder de catalogos.
+**No requiere cambios de codigo.** El comportamiento de "rubro reservado" ya existe:
+`SubrubroWebController.php:23` impide agregarle subrubros a un rubro cuyos subrubros
+son todos reservados, y los selectores de caja y cashflow filtran los reservados.
+Alcanza con crearlo en el seeder de catalogos, **marcandolo `es_reservado_sistema`
+tambien a nivel de rubro** (ver abajo).
 
 Queda **un punto abierto** que decide Carlos: si se guarda `recargo_pagado` o se
 deduce (§5 del contrato).
 
-Y un agujero preexistente que el contrato deja anotado sin arreglar:
-`RubroWebController::update()` no comprueba nada, asi que cualquier rubro se puede
-renombrar y cambiarle el `tipo`. Ya afecta a `Sueldos`, que
-`ProfesorWebController.php:116` busca por nombre exacto.
+**Cerrado el 06/09, commit `b2868ea`.** El agujero que este contrato dejaba anotado
+—`RubroWebController::update()` no comprobaba nada— ya no existe: los rubros tienen
+`es_reservado_sistema`, y uno reservado no se renombra, no cambia de tipo y no se
+borra (solo la observacion se edita). Marcados `Sueldos` y `Cuotas`. Cubierto por
+`RubroReservadoTest`, 8 pruebas con dientes comprobados. La busqueda del rubro por
+nombre quedo centralizada en `app/Services/SubrubroSueldoService.php`, que lanza
+excepcion si falta en vez de seguir de largo en silencio.
+
+**Consecuencia para punitorios:** el rubro `Punitorios` tiene que nacer del seeder ya
+marcado como reservado, igual que `Sueldos` y `Cuotas`.
 
 Ademas hay un hallazgo que condiciona este contrato: **`dia_generacion_deuda` es una
 configuracion que nadie lee**. Aparece solo en su migracion; el dia esta escrito en

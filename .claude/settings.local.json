@@ -6,7 +6,24 @@
       "Write(*)",
       "Edit(*)",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "Bash(php artisan *)",
+      "Bash(git add *)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe:*)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe:*)",
+      "Bash(cd /c/xampp/mysql/bin:*)",
+      "Bash(php:*)",
+      "Bash(php -r:*)",
+      "Bash(php -l:*)",
+      "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(cp:*)",
+      "Bash(git:*)"
     ]
   },
   "hooks": {
