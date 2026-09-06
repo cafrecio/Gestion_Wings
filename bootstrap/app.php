@@ -50,9 +50,14 @@ return Application::configure(basePath: dirname(__DIR__))
         //
         // Se confían SOLO los rangos publicados por Cloudflare, no cualquiera. Si se
         // confiara en todos, quien alcance el servidor por su IP directa podría
-        // mentir sobre quién es. Por eso el paso que falta —cerrar el servidor para
-        // que solo acepte tráfico de Cloudflare— no es opcional: sin él, esta lista
-        // es una defensa a medias.
+        // mentir sobre quién es.
+        //
+        // El complemento de esto ya está hecho en el servidor (06/09/2026): los
+        // puertos 80 y 443 salieron de TCP_IN en CSF y solo se reabren para estos
+        // mismos rangos, más el cierre de IPv6 en csfpost.sh. Verificado: por la IP
+        // directa el sitio no responde. Si alguna vez esa restricción se sacara,
+        // esta lista vuelve a ser una defensa a medias.
+        // Detalle en el proyecto de plataforma: VPS/ESTADO-SERVIDOR.md.
         //
         // Rangos traídos de cloudflare.com/ips-v4 e ips-v6 el 06/09/2026.
         // Cambian muy de vez en cuando; si Cloudflare suma uno y no está acá, la

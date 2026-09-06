@@ -17,6 +17,75 @@
 
 ---
 
+## 2026-09-06 — Claude CAB — Despliegue y los tres pasos de Cloudflare
+
+**Objetivo:** poner el servidor al día y dejar el sitio detrás de Cloudflare, en el
+orden que no rompe nada: **preparar la aplicación → activar el proxy → cerrar la
+puerta de atrás.**
+
+### Paso 1 — `trustProxies` (código)
+
+`bootstrap/app.php` con los 22 rangos de Cloudflare (15 IPv4 + 7 IPv6), traídos en
+vivo de `cloudflare.com/ips-v4` e `ips-v6` el 06/09. Nueva prueba
+`tests/Feature/ConfianzaEnCloudflareTest.php`, que cubre las dos mitades: que se
+confíe en Cloudflare **y que no se confíe en nadie más**.
+
+**Verificación de que la prueba tiene dientes:** se quitó la configuración a
+propósito y la primera prueba falló; se restauró y volvió a pasar. Commit `798bfa3`.
+La suite quedó en **93 pruebas, 578 aserciones**.
+
+### Despliegue
+
+El servidor estaba **34 commits atrás**, en `b9e6af6` (30/08). Se desplegó hasta
+`798bfa3`. Respaldo previo tomado y subido al Drive
+(`wings_2026-09-06_1409.tgz.enc`). Preflight aprobado en los 12 controles.
+
+### Paso 2 — Nube naranja
+
+`wings.gestionar-te.com.ar` pasó a `proxied:true`. Verificado: 200 por Cloudflare,
+sin bucle de redirecciones, los cinco encabezados de seguridad llegan, las seis
+direcciones absolutas que arma la aplicación salen en `https`, cookies `secure`,
+`.env` y `.git/config` en 404.
+
+### Paso 3 — El servidor solo acepta tráfico de Cloudflare
+
+Estaba confirmado que la puerta existía: por `2.25.204.38` con el nombre de Wings el
+sitio **respondía 200**, salteándose Cloudflare entero. Se cerró con CSF (80 y 443
+fuera de `TCP_IN`, reabiertos solo para los 15 rangos), más el cierre de IPv6, que
+CSF no filtraba. Detalle completo en `VPS/ESTADO-SERVIDOR.md`.
+
+**Verificado:** por Cloudflare 200, por la IP directa sin respuesta en 443 y en 80,
+`gestionar-te.com.ar` / `www` / `webmail` siguen en 200, panel accesible, SSH entra.
+
+### Tres cosas que aparecieron y conviene no olvidar
+
+1. **El servidor no aloja solo Wings.** También `gestionar-te.com.ar`, `www`, `mail`
+   y `webmail`. Cerrar 80 y 443 podía dejarlos fuera de línea. Se comprobó antes que
+   todos los registros web ya estaban con proxy; el único directo es `panel`, que se
+   usa por otros puertos.
+2. **Se cargaron 14 de 15 rangos en el primer intento.** El archivo que publica
+   Cloudflare termina sin salto de línea final y `while read` se come esa última
+   línea sin avisar. Faltaba `131.0.72.0/22`. Rehecho con `awk`. **Es el mismo error
+   silencioso que ya rompió `authorized_keys`.**
+3. **La primera verificación dio un falso "sigue abierto".** La dirección desde la
+   que trabajo estaba en `csf.allow` con acceso a **todos** los puertos, así que
+   desde acá el bloqueo no se veía — y esa entrada era, ella misma, una puerta de
+   atrás. Quedó acotada al puerto 22.
+
+**Decisión registrada:** el token de API de Cloudflare puede editar DNS pero **no**
+leer la configuración de cifrado de la zona. No se pudo confirmar por API que el modo
+sea "Full"; se comprobó por comportamiento (no hay bucle, que es lo que produciría
+"Flexible"). Si hace falta tocar esa opción, hay que ampliar el token.
+
+**Pendiente detectado, sin relación con esto:** el registro comodín `*` está con
+proxy, así que `mail.gestionar-te.com.ar` resuelve a Cloudflare, que no hace de
+intermediario para IMAP ni SMTP. Si algún cliente de correo usa ese nombre, ya venía
+fallando desde antes.
+
+**Siguiente paso:** C1 (el CSP) y la primera carga que está corriendo Codex.
+
+---
+
 ## 2026-09-01 — Claude CAB — Versión que corre en el servidor
 
 **Verificado por SSH contra el servidor, no inferido del repositorio local.**

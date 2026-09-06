@@ -18,29 +18,29 @@ el gate firmado.
 
 ## Que version corre en el servidor
 
-**Verificado por SSH el 01/09.** Lo que dice esta pagina sobre funcionalidades hechas
+**Verificado por SSH el 06/09.** Lo que dice esta pagina sobre funcionalidades hechas
 se refiere al **repositorio**, no a lo que esta publicado.
 
 | Que | Valor |
 |---|---|
-| Commit desplegado | **`b9e6af6`** (30/08 17:41) |
-| Repositorio | 21 commits mas adelante respecto del ultimo commit verificado en el servidor |
+| Commit desplegado | **`798bfa3`** (06/09 11:07) |
+| Repositorio | **al dia**: el servidor corre exactamente lo mismo que `main` |
 | PHP / Laravel | 8.2.33 / 12.68.0 |
 | Migraciones pendientes | 0 |
 
-**Lo que el servidor NO tiene todavia**, aunque figure como hecho mas abajo:
+**El atraso de 34 commits se cerro el 06/09.** El servidor ya tiene la primera cuota
+con descuento (`846347f`), el cobro de la primera cuota de un alumno nuevo
+(`f066c42`), la condonacion de deuda (`5f77c85`), el precio de plan mayor a cero
+(`824fdd8`) y el saldo inicial por tipo de caja (`c09a3e1`).
 
-| Falta | Commit |
-|---|---|
-| Primera cuota con descuento | `846347f` |
-| Cobro de la primera cuota de un alumno nuevo | `f066c42` |
-| Condonacion de deuda | `5f77c85` |
-| Precio de plan mayor a cero | `824fdd8` |
-| Saldo inicial por tipo de caja | `c09a3e1` |
+### El sitio esta detras de Cloudflare desde el 06/09
 
-**Consecuencia:** en el servidor **no se le puede cobrar la primera cuota a un alumno
-nuevo**. Se corto el despliegue el 30/08 porque la suite estaba en rojo; ese defecto ya
-se cerro, asi que no queda motivo tecnico para no desplegar.
+Los tres pasos estan hechos y verificados: la aplicacion confia en Cloudflare
+(`trustProxies`), el subdominio esta con proxy, y **el servidor solo acepta trafico
+web que venga de Cloudflare** — entrando por la IP directa no responde.
+
+Detalle y forma de revertir en `VPS/ESTADO-SERVIDOR.md`. Lo que toca al codigo esta
+en `docs/04-tecnico/SERVIDOR.md`.
 
 Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 
@@ -129,17 +129,18 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | **E3** | Deuda tecnica conocida |
 | **E4** | Eliminar `formas_pago`, que seguia en la base de CyE al 01/09 |
 
-### Estado del servidor que falta volver a verificar
+### Estado del servidor — verificado por SSH el 06/09
 
-El ultimo acceso SSH registrado fue el 01/09. Desde entonces no se comprobo:
+| Que | Resultado |
+|---|---|
+| Ultimo despliegue | `798bfa3`, 06/09 14:09, en `storage/logs/despliegues.log` |
+| Respaldos diarios | **Corriendo.** 8 archivos en `/var/backups/wings`, cron 03:15. Los del 05/09 y 06/09 estan en el Drive: la falla silenciosa de subida quedo cerrada |
+| Proceso mensual | **Registrado y activo**: `cobranza:generar-deudas`, `0 6 1 * *`, proxima corrida el 01/10. El `schedule:run` corre cada minuto |
+| Monitoreo | **No existe.** 0 servicios de monitoreo corriendo. Si el sitio se cae, nadie se entera |
 
-1. Si hubo otro despliegue despues de `b9e6af6`.
-2. Si los backups diarios siguen corriendo.
-3. Si existe monitoreo de errores operativo.
-4. Si el proceso mensual se ejecuto el 01/09 a las 06:00.
-
-No asumir ninguno de estos cuatro puntos. El despliegue se comprueba en
-`storage/logs/despliegues.log` del servidor.
+**Lo unico que no se pudo comprobar** es si la corrida del 01/09 a las 06:00 hizo
+algo: no hay `laravel.log` en el servidor, asi que no hay rastro ni a favor ni en
+contra. La tarea esta bien registrada y el ejecutor activo.
 
 ## Deuda Tecnica Conocida
 
@@ -163,6 +164,7 @@ fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
 
 | Contradiccion | Estado real | Resolucion |
 |---|---|---|
+| Primera carga local: respuesta 500 transitoria al crear Efectivo despues de aplicar la migracion | H01 resuelto: saldo_inicial existe. C14 devolvio MissingAppKeyException; sin cambiar APP_KEY, .env ni caches, una sesion web nueva creo Efectivo 250000 y Mercado Pago 1320000, verificados en wings_test | La causa del 500 no se determino y no se atribuye. Primera carga pausada por faltar datos concretos para profesores y usuarios; ver RESULTADO-PRIMERA-CARGA-V1.md |
 | Cambio paralelo del motor de pruebas durante la tarea de saldo inicial | NombreUnico ya fue adaptado con autorizacion. phpunit.xml paso a MariaDB mientras corria la regresion y el helper previo sqliteCreateFunction dejo de ser compatible | Pausa para coordinar B2; pendiente adaptar helper y corrida completa. Ver LOG-CODEX 05/09 |
 | Documentos viejos dicen Laravel 11 | `composer.json` usa `^12.0` | Corregir al tocarlos |
 | `wings-design/SKILL.md` dice `ds-content` con tope de 1200px | `app.css` no lo implementa | Decidir: implementar el tope o corregir el SKILL |

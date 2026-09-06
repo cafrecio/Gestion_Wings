@@ -36,16 +36,21 @@ Wings está publicado en **https://wings.gestionar-te.com.ar**.
 que los archivos compilados no viajan en el repositorio: el despliegue tiene que
 correr `npm ci` y `npm run build`, o el sistema se ve sin estilos.
 
-## Pendiente que afecta al código de Wings
+## Cloudflare — resuelto el 06/09/2026
 
-**Laravel no está configurado para trabajar detrás de un proxy** (no hay
-`trustProxies` en `bootstrap/app.php`). El dominio pasa por Cloudflare, así que si
-se activa el proxy sin arreglar esto:
+El sitio **ya está detrás del proxy de Cloudflare**, y el servidor **solo acepta
+tráfico web que venga de Cloudflare**: entrando por la IP directa no responde.
 
-- La aplicación vería la misma dirección para todos los usuarios, y el límite de
-  `throttle:5,1` del login pasaría a contarlos a todos juntos: **cinco intentos
-  fallidos de cualquiera dejarían afuera al club entero**.
-- Creería que no hay cifrado y armaría las direcciones con `http://`.
+Lo que toca al código de Wings es `trustProxies` en `bootstrap/app.php`, con los 22
+rangos publicados por Cloudflare. Sin eso, la aplicación vería la misma dirección
+para todos los usuarios —cinco intentos fallidos de cualquiera dejarían afuera al
+club entero— y creería que no hay cifrado.
 
-Hoy el subdominio está **sin proxy**, así que no está ocurriendo. No activarlo
-hasta resolverlo.
+Está cubierto por `tests/Feature/ConfianzaEnCloudflareTest.php`, que verifica las
+dos mitades: que se confíe en Cloudflare y que **no** se confíe en nadie más.
+
+**Si Cloudflare suma un rango nuevo hay que agregarlo en dos lugares**: acá en
+`bootstrap/app.php` y en `/etc/csf/csf.allow` del servidor. Si queda solo en uno, o
+la aplicación deja de ver al visitante real, o el tráfico de ese rango no entra.
+
+El detalle del lado del servidor está en `VPS/ESTADO-SERVIDOR.md`.
