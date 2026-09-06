@@ -163,43 +163,72 @@ recargo por mora de marzo. Si el recargo fue condonado, no aparece.
 El motivo es que el alumno tiene que poder ver por qué paga de más, y el club tiene
 que poder mostrárselo sin explicarlo de memoria.
 
-## 9. Dónde entra la plata — DECISIÓN ABIERTA
+## 9. Dónde entra la plata
 
-Carlos definió: **un subrubro nuevo, "Recargo por mora", bajo el rubro Intereses.**
+**Decidido por Carlos el 06/09: un rubro reservado nuevo, `Punitorios`, con un solo
+subrubro, `Punitorio Cuota`.**
 
-**Verificado en `database/seeders/CatalogosSeeder.php:54-61`, y hay un problema:**
+Reemplaza la definición anterior —"Recargo por mora" bajo Intereses—, que no podía
+funcionar: verificado en `CatalogosSeeder.php:54-61`, los dos subrubros de Intereses
+son `permitido_para = ADMIN` y **`afecta_caja = false`**, porque ese rubro es para
+intereses que generan el banco y Mercado Pago solos, plata que nunca pasa por el
+mostrador. El recargo lo recibe el operativo en mano: ahí no habría podido cobrarlo,
+y la plata no habría entrado a la caja.
 
-| Subrubro | permitido_para | afecta_caja |
-|---|---|---|
-| Cuota Mensual (rubro Cuotas) | OPERATIVO | **true** |
-| Intereses Mercado Pago | ADMIN | **false** |
-| Intereses Banco | ADMIN | **false** |
+### Cómo se define
 
-El rubro Intereses está armado para plata que **nunca pasa por el mostrador**:
-intereses que genera el banco o Mercado Pago solos. Sus dos subrubros son de ADMIN y
-**no afectan la caja**.
-
-El recargo por mora es lo contrario: **lo recibe el operativo, en mano, junto con la
-cuota**. Si se carga bajo Intereses tal como está ese rubro hoy, pasan dos cosas:
-
-1. **El operativo no puede cobrarlo**, porque el subrubro sería de ADMIN.
-2. **La plata que recibió no entra a la caja**, porque el subrubro no la afecta. El
-   arqueo del día le va a dar de más, todos los días, y nadie va a saber por qué.
-
-Tres salidas posibles. **No elijo yo:**
-
-| Opción | Qué implica |
+| Qué | Valor |
 |---|---|
-| **A. Bajo Cuotas** | "Recargo por mora" como segundo subrubro de Cuotas, `OPERATIVO` y `afecta_caja = true`, igual que Cuota Mensual. Es lo que el dinero realmente es: cobro al alumno en el mostrador. En los reportes se separa igual, porque es un subrubro distinto |
-| **B. Bajo Intereses, cambiándole las reglas** | Se crea ahí, pero como `OPERATIVO` y `afecta_caja = true`. Queda un rubro con subrubros que se comportan de dos maneras distintas, y el próximo que lo lea se va a confundir |
-| **C. Rubro propio** | Un rubro nuevo "Punitorios". Lo más prolijo conceptualmente, pero suma un rubro para un solo subrubro |
+| Rubro | `Punitorios`, tipo `INGRESO` |
+| Subrubro | `Punitorio Cuota` |
+| `permitido_para` | `OPERATIVO` — que en este sistema significa **admin y operativo**, no solo operativo |
+| `afecta_caja` | `true` — la plata entra por el mostrador y tiene que estar en el arqueo |
+| `es_reservado_sistema` | `true` |
 
-**Mi recomendación es A**, porque el criterio del rubro debería ser de dónde viene la
-plata, y esta viene del alumno, igual que la cuota.
+Es exactamente la configuración de `Cuota Mensual`, que ya funciona así.
 
-Además, `Cuota Mensual` tiene `es_reservado_sistema = true` porque el código lo busca
-por nombre exacto. El nuevo subrubro va a necesitar lo mismo, o alguien lo renombra y
-el cobro deja de encontrarlo.
+### "Rubro reservado" ya existe, y no hace falta ninguna columna nueva
+
+**Verificado.** La tabla `rubros` tiene solo `id, nombre, tipo, observacion` y sus
+fechas: **no hay** `es_reservado_sistema` a nivel de rubro. Pero el comportamiento
+que pediste ya está, como propiedad emergente de tener un único subrubro reservado:
+
+| Qué queda bloqueado | Dónde está |
+|---|---|
+| Agregarle otro subrubro al rubro | `SubrubroWebController.php:23` — si **todos** los subrubros de un rubro son reservados, rechaza el alta con "Este rubro es administrado por el sistema" |
+| Borrar el rubro | `RubroWebController.php:70` — no se puede eliminar un rubro que tenga subrubros |
+| Editar, desactivar o borrar el subrubro | `SubrubroWebController.php:49, 62, 86` — los tres rechazan si es reservado |
+| Elegirlo a mano en un movimiento de caja o cashflow | `CajaWebController.php:848` y `CashflowWebController.php:68` filtran `es_reservado_sistema = false`, así que ni aparece en la lista |
+
+Ese último punto es el que importa entender: **reservado no quiere decir que el
+operativo no pueda cobrarlo.** Quiere decir que **nadie lo elige a mano**. La plata
+entra por el flujo de cobro de cuota, que lo escribe solo, igual que hoy hace con
+`Cuota Mensual`.
+
+**Conclusión: el rubro y el subrubro se crean en el seeder de catálogos y no hace
+falta tocar ningún controlador.**
+
+### Cómo lo tiene que buscar el código
+
+Por el **nombre exacto del subrubro**, como ya hace `PagoCuotaService.php:505` con
+`Cuota Mensual`, y fallando ruidosamente si no está:
+
+```php
+$subrubro = Subrubro::where('nombre', 'Punitorio Cuota')->first();
+// si no existe: excepción, no seguir de largo
+```
+
+**Nunca buscarlo por el nombre del rubro.** Motivo verificado: `RubroWebController::
+update()` **no tiene ninguna comprobación de reservado**, así que un admin puede
+renombrar cualquier rubro y también cambiarle el `tipo` de INGRESO a EGRESO. Si la
+búsqueda dependiera del nombre del rubro, renombrarlo rompería el cobro en silencio.
+
+> **Agujero preexistente que este contrato no arregla, pero deja anotado:** eso ya
+> pasa hoy con `Sueldos`. `ProfesorWebController.php:116` hace
+> `Rubro::where('nombre', 'Sueldos')->first()`, y si alguien renombra ese rubro, el
+> alta de profesores deja de encontrarlo. Y cambiarle el `tipo` a un rubro de INGRESO
+> lo daría vuelta contablemente. Es una tarea aparte: proteger los rubros que el
+> sistema busca por nombre.
 
 ## 10. Con el porcentaje en 0, no existe
 
@@ -231,6 +260,8 @@ un comando concreto no es un criterio.
 | 10 | Condonar el recargo no limpia al alumno | Alumno sin ningún pago con el recargo condonado: sigue DEUDOR |
 | 11 | El recibo lo muestra aparte | Recibo generado con cuota y recargo: dos renglones, con el mes en el del recargo |
 | 12 | La caja cuadra | Cobro con recargo y arqueo del día: el total incluye el recargo y no hay diferencia |
+| 13 | El rubro queda cerrado | Intentar agregarle un segundo subrubro a `Punitorios` por pantalla: rechazado con "administrado por el sistema". Intentar eliminar el rubro: rechazado. Intentar editar o desactivar `Punitorio Cuota`: rechazado. **La base sin cambios en los tres intentos** |
+| 14 | No se puede elegir a mano | `Punitorio Cuota` **no aparece** en el selector de subrubros de un movimiento de caja ni de cashflow, y sí queda escrito por el flujo de cobro |
 
 ## 12. Lo que este contrato NO resuelve
 
@@ -255,7 +286,7 @@ un comando concreto no es un criterio.
 | Se aplica una sola vez, no se acumula | Carlos, 06/09 |
 | La cuota se cubre antes que el recargo | Carlos, 06/09 |
 | Va detallado en el recibo | Carlos, 06/09 |
-| Subrubro nuevo "Recargo por mora" | Carlos, 06/09 — **con la objeción de §9 sin resolver** |
+| Rubro reservado `Punitorios` con subrubro `Punitorio Cuota` | Carlos, 06/09 — reemplaza "Recargo por mora bajo Intereses", que no podía funcionar |
 | Sobre cada mes impago por separado | Carlos, 06/09 |
 | También sobre el mes en curso, pasado el día | Carlos, 06/09 |
 | Los recargos aplicados no se recalculan | Carlos, 06/09 |

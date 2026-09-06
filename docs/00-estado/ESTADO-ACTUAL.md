@@ -138,13 +138,25 @@ decisiones existian **solo en el chat**: no habia una linea escrita en ningun la
 `deuda_cuotas`, ni el subrubro. Con `mora_porcentaje = 0` el sistema se comporta como
 hoy, y ese es el estado en que se entrega.
 
-Quedan **dos puntos abiertos** que decide Carlos, marcados en el contrato:
+**Resuelto el 06/09:** la plata entra por un rubro reservado nuevo, `Punitorios`, con
+un unico subrubro `Punitorio Cuota` (`OPERATIVO`, `afecta_caja = true`,
+`es_reservado_sistema = true`), igual que `Cuota Mensual`. Reemplaza la idea previa
+de ponerlo bajo Intereses, que no podia funcionar: los subrubros de ese rubro son de
+`ADMIN` y no afectan la caja (`CatalogosSeeder.php:54-61`).
 
-1. **Bajo que rubro va el cobro (§9).** El definio "Recargo por mora" bajo Intereses,
-   pero ese rubro tiene sus subrubros en `ADMIN` y `afecta_caja = false` (verificado
-   en `CatalogosSeeder.php:54-61`). Asi, el operativo no podria cobrarlo y la plata
-   no entraria a la caja: el arqueo daria diferencia todos los dias.
-2. **Si se guarda `recargo_pagado` o se deduce (§5).**
+**No requiere cambios de codigo.** El comportamiento de "rubro reservado" ya existe
+como propiedad emergente: `SubrubroWebController.php:23` impide agregarle subrubros a
+un rubro cuyos subrubros son todos reservados, `RubroWebController.php:70` impide
+borrar un rubro con subrubros, y los selectores de caja y cashflow filtran los
+reservados. Alcanza con crearlo en el seeder de catalogos.
+
+Queda **un punto abierto** que decide Carlos: si se guarda `recargo_pagado` o se
+deduce (§5 del contrato).
+
+Y un agujero preexistente que el contrato deja anotado sin arreglar:
+`RubroWebController::update()` no comprueba nada, asi que cualquier rubro se puede
+renombrar y cambiarle el `tipo`. Ya afecta a `Sueldos`, que
+`ProfesorWebController.php:116` busca por nombre exacto.
 
 Ademas hay un hallazgo que condiciona este contrato: **`dia_generacion_deuda` es una
 configuracion que nadie lee**. Aparece solo en su migracion; el dia esta escrito en
