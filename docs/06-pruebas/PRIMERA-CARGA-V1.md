@@ -351,12 +351,57 @@ resultado sería una deuda que no coincide con la que el club realmente reclama.
   no se saltea la fila en silencio.
 - **Correrlo dos veces no puede duplicar deuda.**
 
-## Lo que todavía falta definir
+## Decisiones cerradas para la importación
+
+- La primera fila es obligatoria y debe contener exactamente `DNI`, `deporte` y,
+  desde la tercera columna, pares repetidos de `monto` y `mmYYYY`. La plantilla
+  entregada por el sistema ya trae esos encabezados y deja la columna de período
+  como texto para conservar el cero inicial de meses como `01`.
+- Las filas completamente vacías se ignoran. Una fila parcialmente informada, sin
+  deporte o sin al menos un par completo de monto y período, rechaza el archivo.
+- La misma combinación de **DNI + deporte** no puede aparecer dos veces en el
+  archivo. El mismo DNI en deportes distintos sí es válido y representa alumnos
+  distintos.
+- Un monto debe ser numérico y estrictamente mayor que cero. Los ceros y negativos
+  rechazan el archivo completo.
+- Si ya existe una deuda para el alumno y período informado, se rechaza el archivo
+  completo. Nunca se sobrescribe ni se suma: la segunda ejecución del mismo Excel
+  informa el conflicto de forma clara antes de intentar insertar.
+- La validación recorre el archivo entero antes de escribir. Si hay errores, devuelve
+  todos con su número de fila de Excel y no se crea ninguna deuda.
+
+## Rehacer una carga sin tocar alumnos ni pagos
+
+No se ejecutan `DELETE` manuales contra producción. El comando de importación incluye
+una reversión con el mismo Excel: primero valida el archivo y confirma que cada deuda
+coincide exactamente, sigue pendiente, no tiene monto pagado ni imputaciones. Solo
+entonces elimina esas deudas dentro de una transacción. Si una sola deuda fue pagada,
+condonada, ajustada, cambiada o falta, frena sin borrar ninguna.
+
+El procedimiento es:
+
+1. Conservar el Excel original que se importó.
+2. Ejecutar la reversión del comando con ese archivo y revisar el listado de deudas
+   que propone retirar.
+3. El comando verifica que no quedan deudas de los períodos y alumnos del archivo.
+4. Recién entonces ejecutar la importación de la planilla corregida.
+
+La reversión no borra alumnos, planes, pagos, movimientos de caja ni imputaciones de
+pagos. Si hay una imputación, la operación se rechaza y debe revisarse antes de decidir
+cualquier corrección.
+
+La guía operativa y los comandos están en
+[`CARGA-DEUDA-INICIAL-EXCEL.md`](CARGA-DEUDA-INICIAL-EXCEL.md). Se entrega además
+la plantilla vacía `PLANTILLA-CARGA-DEUDA-INICIAL.xlsx` y el caso documentado
+`EJEMPLO-CARGA-DEUDA-INICIAL.xlsx` en esta misma carpeta.
+
+## Lo que ya no queda abierto
 
 - ~~Si viene como `.xlsx` o como `.csv`.~~ **`.xlsx`**, decidido por Carlos el 06/09:
   es el formato que la persona que arma la planilla sabe usar. El script lee `.xlsx`
   directamente; no se le pide a nadie que exporte ni convierta nada.
-- Qué hace si un alumno aparece dos veces en la planilla.
+- ~~Qué hace si un alumno aparece dos veces en la planilla.~~ Rechaza el archivo si
+  se repite la misma combinación DNI + deporte.
 
 ---
 

@@ -14,6 +14,24 @@
 
 ---
 
+## 2026-09-06 — Codex CAB — importador inicial de deuda Excel
+
+Se agrego el comando `wings:importar-deuda-inicial` con lector
+`phpoffice/phpspreadsheet` 5.9.0 para planillas `.xlsx`. Valida el archivo completo
+antes de escribir: encabezado, pares monto/período, monto positivo, período desde
+2025, alumno por DNI+deporte, filas duplicadas y deudas ya existentes. Si hay un
+error informa todas las filas y no inserta ninguna deuda. Una reversión con el mismo
+Excel solo elimina deudas pendientes e intactas, sin tocar alumnos ni pagos.
+
+Se documentaron las decisiones y el procedimiento de rehacer una carga, más una
+plantilla vacía y un ejemplo. El ejemplo válido se verificó con `--solo-validar`
+contra los 60 alumnos locales sin crear deudas. `composer audit --locked` no reportó
+avisos. Suite final: 111 pruebas y 663 aserciones; vistas compiladas, lint de los
+archivos PHP y diff de vistas/CSS sin cambios. Pendiente: correr la carga real solo
+cuando Vanina entregue el Excel definitivo. Firma: Codex CAB.
+
+---
+
 ## 2026-09-06 — Codex CAB — seeder de primera carga ejecutado e idempotente
 
 Carlos autorizo la excepcion: Sofía Morales cuenta como una mujer en Futbol, por
