@@ -40,7 +40,7 @@ Antes de cerrar cada paso:
 
 ```bash
 git diff --stat -- resources/views resources/css   # debe estar vacío
-php artisan test                                    # 121 pruebas deben pasar
+php artisan test                                    # 126 pruebas deben pasar
 ```
 
 ---

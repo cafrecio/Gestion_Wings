@@ -14,6 +14,41 @@
 
 ---
 
+## 2026-09-06 — Codex CAB — paso 5 detenido por acceso de OPERATIVO
+
+Se leyó el cuerpo de CobranzaEstadoService y se calcularon los 60 estados
+individuales: todos DEUDOR. Pantalla ADMIN: 0/0/0/60; sus 60 filas coinciden,
+incluidos los 12 sin deuda. Períodos y montos de los 60 comparados con Excel,
+sin diferencias. Sesión OPERATIVO autenticada: /cobranza redirige a /caja.
+H-DI-01 registrado: contradice el acceso completo exigido; ruta bajo
+ensure.admin.web y cuerpo del middleware explican el resultado observado.
+Se frenó sin corregir código; PROFESOR no probado y paso 6 no iniciado.
+Base intacta: 81 deudas por $2.997.000, cero pagos/imputaciones; huellas de
+alumnos, planes, users y las tres tablas financieras iguales antes/después.
+Informe y ESTADO-ACTUAL actualizados. Suite 121 pruebas, 694 aserciones;
+vistas compiladas/limpiadas y diff visual vacío. Pendiente: decisión de Carlos
+sobre corrección y revalidación de acceso. Firma: Codex CAB.
+
+---
+
+## 2026-09-06 — Codex CAB — deuda inicial cargada; pasos 1–4 aprobados
+
+Carlos resolvió la pausa: solo importador, sin seeders ni pasos 5 en adelante.
+Git pull confirmó main actualizado en eae0ff6. En wings_test se validaron ambos
+Excel: 81 cuotas válidas y ocho filas rechazadas juntas, sin escrituras.
+La carga dejó 81 PENDIENTE por $2.997.000, 48 alumnos con deuda y 12 sin ella.
+La segunda corrida rechazó duplicados conservando el contenido completo de las
+81 filas. Reversión a cero, revalidación sin escrituras y recarga a 81 aprobadas.
+Alumnos (60), planes (60), usuarios (7) y pagos (0) conservaron sus huellas de
+contenido en cada momento; imputaciones cero. Excel y generador intactos.
+Se completó RESULTADO-DEUDA-INICIAL-V1.md y se cerró la nota de pausa en
+ESTADO-ACTUAL.md. Suite por paso: 121 pruebas, 694 aserciones. Vistas compiladas
+y limpiadas; diff de vistas/CSS vacío. Sin cambios de código ni commit.
+Pendiente: indicación de Carlos para catálogos por pantalla y pasos posteriores.
+Firma: Codex CAB.
+
+---
+
 ## 2026-09-06 — Codex CAB — pausa previa a la prueba de deuda inicial
 
 Se verificó main en 2145886 y conexión local/127.0.0.1/wings_test: 60 alumnos,

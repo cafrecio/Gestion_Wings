@@ -78,6 +78,14 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
 
     // ── Movimientos (admin y operativo) ──────────────────────────────────
     Route::get('/movimientos', [MovimientoWebController::class, 'index'])->name('web.movimientos.index');
+
+    // ── Cobranza (admin y operativo) ─────────────────────────────────────
+    // El operativo atiende el mostrador: tiene que ver quien debe para poder
+    // cobrarle. PERMISOS-ROLES.md lo pone en su dominio con todas las letras
+    // — "ver el historial completo de cobranza" — pero la ruta nacio dentro
+    // de ensure.admin.web el 03/07 y nunca se corrigio. Condonar sigue siendo
+    // solo del admin.
+    Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
     });
 
     Route::middleware('ensure.admin.web')->group(function () {
@@ -85,7 +93,6 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
         Route::get('/cashflow', [CashflowWebController::class, 'index'])->name('web.cashflow.index');
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
-        Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
         Route::get('/revision-cobranza', [RevisionCobranzaWebController::class, 'index'])->name('web.revision-cobranza.index');
         Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');

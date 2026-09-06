@@ -18,7 +18,7 @@ probar, la prueba humana, la CSP definitiva y el cierre productivo.
 
 | Área | Evidencia |
 |---|---|
-| Suite | **121 pruebas, 694 aserciones**, verde completo sobre MariaDB (06/09) |
+| Suite | **126 pruebas, 699 aserciones**, verde completo sobre MariaDB (06/09) |
 | Primera cuota con descuento | commit `846347f`, verificado por Claude |
 | Matriz de permisos | 268 pruebas GET × 4 roles, 0 accesos indebidos |
 | Dependencias | 0 avisos (eran 44) |

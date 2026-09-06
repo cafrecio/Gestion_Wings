@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **121 pruebas, 694 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| **Tests** | **126 pruebas, 699 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
 | Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
@@ -81,15 +81,28 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 
 ## Lo que falta
 
-### Pausa de la prueba de deuda inicial (06/09, Codex CAB)
+### Deuda inicial: pasos 1–4 completos (06/09, Codex CAB)
 
-Antes de importar se detectó que el Paso 0 de ORDEN-CODEX-DEUDA-INICIAL pide
-ejecutar CatalogosSeeder, pero seedRubrosYSubrubros asigna
-`es_reservado_sistema = false` a Cuotas y Sueldos porque sus definiciones omiten
-esa clave. La lectura de ambas filas en wings_test confirma que hoy tienen 1.
-No se ejecutó el seeder ni la carga. Pendiente de Carlos: continuar solo con
-los pasos 1–4 del importador pedidos en el chat, o resolver primero ese Paso 0.
-Evidencia y estado de cada paso: `docs/06-pruebas/RESULTADO-DEUDA-INICIAL-V1.md`.
+Carlos resolvió la pausa: solo el importador, sin seeders. El Paso 0 se retiró
+en dde9357; los catálogos faltantes se cargarán por pantalla en otra tarea que
+Carlos todavía no definió. El defecto de CatalogosSeeder que desprotege Cuotas
+y Sueldos queda separado, sin corregir durante esta prueba.
+
+Verificado directamente en wings_test: 81 deudas PENDIENTE por $2.997.000,
+48 alumnos con deuda y 12 sin ninguna; monto_pagado cero y sin imputaciones.
+La duplicación fue rechazada sin cambios; la reversión dejó cero filas y la
+revalidación/recarga volvió a dejar 81. Alumnos (60), planes (60), usuarios (7)
+y pagos (0) conservaron su contenido.
+
+Paso 5 ejecutado parcialmente después: ADMIN muestra 0 AL_DIA, 0 EN_PLAZO,
+0 MOROSO y 60 DEUDOR, coincidiendo uno a uno con el servicio, incluidos los 12
+sin deuda. **H-DI-01 abierto:** OPERATIVO autenticado no accede a /cobranza;
+el navegador redirige a /caja. La ruta está dentro de ensure.admin.web y su
+middleware confirma esa redirección, contrariando el dominio de cobranza del
+OPERATIVO definido en PERMISOS-ROLES.md. Prueba detenida: PROFESOR no observado,
+paso 6 no iniciado. Las seis tablas verificadas conservaron su contenido.
+Pendiente de Carlos: corrección separada y revalidación del acceso.
+Evidencia: `docs/06-pruebas/RESULTADO-DEUDA-INICIAL-V1.md`.
 
 Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 `docs/00-estado/PLAN-PRODUCCION.md`.
