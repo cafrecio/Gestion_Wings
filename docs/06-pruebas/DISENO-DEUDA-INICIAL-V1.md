@@ -1,8 +1,66 @@
 # Diseño de la deuda inicial — qué se quiere demostrar
 
-> Definido con Carlos el 06/09/2026. **Los dos Excel ya están generados y validados.**
+> **REEMPLAZADO el 06/09 por la V2.** Lo de abajo describe el primer reparto, que
+> se cargó, se revirtió y se rehizo. Se conserva porque el análisis de los estados
+> sigue valiendo. **El reparto vigente es el de esta sección.**
+
+## V2 — el reparto que está cargado hoy
+
+El V1 dejaba a los 12 alumnos al día **sin nada**: ni deuda ni pago. Wings no
+podía distinguirlos de alguien que recién entra, y los mostraba deudores. Carlos
+lo resolvió sin tocar el sistema: **un pago de apertura en cero**.
+
+No es plata inventada. Es el asiento que dice "este alumno ya venía del club y
+estaba al día hasta tal mes". Queda escrito en las observaciones de cada pago.
+**Verificado el 06/09:** los 59 pagos de apertura no generaron ni un movimiento de
+caja ni una línea de cashflow — `pagos` no tiene relación con caja; es el
+movimiento el que apunta al pago, y estos no tienen.
+
+| Cuántos | Pago de apertura | Deben | Estado hoy (06/09) |
+|---:|---|---|---|
+| 12 | hasta `09/2026` | nada | **AL DÍA** |
+| 12 | hasta `08/2026` | `092026` | **EN PLAZO** |
+| 21 | hasta `07/2026` | `082026` `092026` | **DEUDOR** |
+| 8 | hasta `06/2026` | `072026` `082026` `092026` | **DEUDOR** — los que ya dejaron de venir |
+| 4 | anterior a su deuda | dos meses de 2025 + `092026` | **DEUDOR** cruzando de año |
+| 2 | anterior a su deuda | un mes de 2025 + `092026` | **DEUDOR**, para condonar |
+| 1 | **ninguno** | `092026` | **DEUDOR** — el alumno nuevo que todavía no pagó |
+
+**95 cuotas, $3.563.600.** Archivo: `DEUDA-INICIAL-PRUEBA-V2.xlsx`. Lo genera
+`preparar-base-cobranza.php`, un script de un solo uso que además crea los pagos
+de apertura. El importador de Codex no se tocó.
+
+### Por qué hay un solo alumno nuevo
+
+En un club de verdad el chico entra y paga. Si no paga, no entrena. Un grupo de
+alumnos nuevos arrastrando meses sin pagar no existe fuera de una prueba, así que
+queda uno solo, para ver cómo lo trata el sistema.
+
+### Los cuatro estados no entran en la misma foto
+
+**Verificado moviendo el reloj el 06/09:**
+
+| Fecha | AL DÍA | EN PLAZO | MOROSO | DEUDOR |
+|---|---:|---:|---:|---:|
+| 06/09 | 12 | 12 | 0 | 36 |
+| 11/09 | 12 | 0 | **12** | 36 |
+| 02/10 | 12 | 0 | 0 | **48** |
+
+EN PLAZO y MOROSO **son el mismo grupo en dos momentos**: la diferencia es el día
+del mes contra los días de gracia, que son iguales para todos. El día 11 los doce
+se convierten solos. El 1 de octubre esa cuota pasa a ser mes anterior y caen a
+deudores. **Moroso dura del día 11 a fin de mes.**
+
+Para verlos morosos antes del 11 hay que bajar `dias_gracia_cobranza` desde la
+pantalla de configuración — pero entonces no queda nadie en plazo.
+
+---
+
+## V1 — el reparto original (histórico)
+
+> Definido con Carlos el 06/09/2026. Cargado, revertido y reemplazado por la V2.
 > Archivos: `DEUDA-INICIAL-PRUEBA-V1.xlsx` y `DEUDA-INICIAL-RECHAZOS-V1.xlsx`.
-> Generador reproducible: `generar-deuda-inicial.php` (en esta misma carpeta).
+> El de rechazos **sigue vigente**: las ocho filas con error no cambian.
 
 ## Por qué el Excel solo no alcanza
 
