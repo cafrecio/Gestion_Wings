@@ -203,18 +203,27 @@ club real empiece a cobrar con Wings, en el primer cobro de cada alumno.
 > registra. Ese margen define hasta cuándo puede entrar sin haber pagado, no cuánto
 > paga. Lo había contado como una segunda consecuencia y estaba mal.
 
-**Regla propuesta, pendiente del OK de Carlos:**
+**Regla que se adopta, definida el 06/09:**
 
-> Un alumno es NUEVO cuando **no tiene pagos registrados y tampoco arrastra deuda de
-> períodos anteriores al actual**.
+> El descuento de primer pago se aplica **solo si la cuota que se está cobrando
+> corresponde al mismo mes en que el alumno se dio de alta**.
 
-Se deriva de datos que ya existen y no necesita ningún campo nuevo, igual que la
-definición original. Y es cierta por donde se la mire: **nadie puede deber marzo si
-no estaba en marzo.** La deuda vieja es la prueba de que hubo historia.
+Es lo que el descuento siempre quiso decir: quien se anota el 24 de abril no paga
+abril entero, porque no lo usó entero. En septiembre paga lo que corresponde, como
+cualquiera.
 
-Durante la primera carga hay un momento en que los alumnos ya están cargados y la
-deuda del Excel todavía no: ahí siguen figurando como nuevos. Es transitorio y se
-cierra al terminar la etapa 2 de `PRIMERA-CARGA-V1.md`.
+### Una regla anterior que no servía, y por qué
+
+Primero propuse: *"es nuevo quien no tiene pagos **ni** arrastra deuda de períodos
+anteriores"*. **Está mal, y lo aclaró Carlos el 06/09.**
+
+En la carga inicial **solo entra la deuda que Vanina reporta; todos los demás quedan
+al día, con todo cobrado**. O sea que la mayoría de los alumnos importados **no va a
+tener deuda vieja**, y con esa regla el sistema los habría seguido tratando como
+nuevos: no arreglaba nada justamente para el grupo más grande.
+
+La regla del mes de alta no depende de que haya deuda, así que cubre a los sesenta
+desde el momento en que se cargan.
 
 **No está implementado.** Toca el cobro y el acceso a clase, que son justamente las
 pantallas que se están usando en la primera carga: cambiarlas en el medio ensucia esa

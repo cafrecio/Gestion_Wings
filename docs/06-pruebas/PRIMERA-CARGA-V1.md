@@ -312,13 +312,49 @@ El período se guarda en `deuda_cuotas.periodo`, que es **`varchar(7)` con forma
 2025 en adelante, y el script tiene que rechazar cualquier período que no tenga esa
 forma en lugar de interpretarlo.
 
-## Lo que falta definir
+## El formato, definido por Carlos el 06/09
 
-- Las columnas exactas de la planilla, y cómo identifica a cada alumno. **El DNI solo
-  no alcanza**: una misma persona puede estar en dos deportes con el mismo DNI, y son
-  dos alumnos distintos con dos deudas distintas.
-- Qué hace el script con una fila que no matchea con ningún alumno.
-- Si se puede correr dos veces sin duplicar deuda.
+Una fila por alumno, y **de la tercera columna en adelante van pares de monto y mes**,
+tantos como meses deba:
+
+```
+DNI ; deporte ; monto ; mmYYYY ; monto ; mmYYYY ; ...
+```
+
+| Columna | Qué es |
+|---|---|
+| `DNI` | Documento del alumno |
+| `deporte` | **Hace falta**: el mismo DNI puede estar anotado en dos deportes, y son dos alumnos distintos con dos deudas distintas |
+| `monto` + `mmYYYY` | Lo que debe de ese mes. Se repite el par tantas veces como meses adeude |
+
+### La regla que evita las distorsiones
+
+**El que no está en la planilla está al día, con todo cobrado.** Decidido por Carlos
+el 06/09.
+
+No se reconstruye historia hacia atrás. No se calculan cuotas viejas, no se generan
+deudas que después habría que dar por pagadas, no se inventan pagos. **Entra
+solamente lo que Vanina reporta como adeudado, y nada más.**
+
+Es la decisión que evita el problema de fondo: cualquier intento de reconstruir los
+meses anteriores obligaría a derivar montos de precios que fueron cambiando, y el
+resultado sería una deuda que no coincide con la que el club realmente reclama.
+
+### Lo que el script tiene que respetar
+
+- **El monto viene en la planilla, no se calcula.** Si el precio subió, derivarlo del
+  plan actual cobraría de más por meses viejos.
+- **El mes viene como `mmYYYY` y en la base se guarda como `YYYY-MM`** —
+  `deuda_cuotas.periodo` es `varchar(7)`, verificado. La conversión la hace el script,
+  y **rechaza** cualquier valor que no tenga esa forma en lugar de interpretarlo.
+- **Una fila que no coincide con ningún alumno frena y avisa.** No se crea el alumno,
+  no se saltea la fila en silencio.
+- **Correrlo dos veces no puede duplicar deuda.**
+
+## Lo que todavía falta definir
+
+- El separador y la codificación del archivo, y si viene como `.xlsx` o como `.csv`.
+- Qué hace si un alumno aparece dos veces en la planilla.
 
 ---
 
