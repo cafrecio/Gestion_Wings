@@ -133,8 +133,20 @@ Dos **operativos** y cuatro **profesores**, uno por cada profesor cargado.
 | Patín | 40 | Mujeres |
 | Fútbol | 20 | Varones |
 
-**Todas las fechas de alta son anteriores a hoy.** Es una carga inicial: el club ya
-venía funcionando.
+**Todas las fechas de alta son anteriores a julio de 2026.** Precisado por Carlos el
+06/09; antes decía solo "anteriores a hoy", que era demasiado flojo.
+
+Es una carga inicial: el club ya venía funcionando. Con fechas de julio o de agosto
+quedarían alumnos que parecen recién llegados, y la prueba dejaría de representar lo
+que va a pasar de verdad el día que se cargue el club real.
+
+Ojo con lo que esto deja al descubierto, y es a propósito: como ninguno tiene pagos
+registrados en Wings, **el sistema los va a tratar a todos como alumnos nuevos** y les
+va a ofrecer el descuento de primer pago calculado con el día de una fecha de alta
+vieja. Está registrado como enmienda pendiente en
+`Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` §4. **No se arregla dentro de
+esta carga**: si al cobrar aparece el descuento, se anota como comportamiento
+observado y se sigue.
 
 ### Diez se cargan a mano, como lo haría una persona
 

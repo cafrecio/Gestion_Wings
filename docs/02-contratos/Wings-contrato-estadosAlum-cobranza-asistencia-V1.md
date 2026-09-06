@@ -169,14 +169,15 @@ El club que recibe el sistema ya viene funcionando: sus 60 alumnos entran cargad
 mano, con fecha de alta vieja y **sin ningún pago registrado en Wings**, porque lo que
 pagaron lo pagaron antes de que Wings existiera. Para el sistema, los 60 son nuevos.
 
-**Lo que eso provoca, y son dos cosas, no una:**
+**Lo que eso provoca:** a cada uno se le ofrece el **descuento de primer pago** según
+el día de su fecha de alta (`CajaWebController.php:604`). Con fechas de alta viejas,
+el descuento se calcularía con el día del mes de una fecha que ya no tiene nada que
+ver con lo que se está cobrando.
 
-| Consecuencia | De dónde sale |
-|---|---|
-| A cada uno se le ofrece el **descuento de primer pago** según el día de su fecha de alta | `CajaWebController.php:604` |
-| A cada uno se le dan **dos clases gratis** antes de exigirle el pago | §5 de este mismo contrato |
-
-La segunda es la que menos se ve venir: el club arrancaría regalando 120 clases.
+> **Corrección del 06/09, marcada por Carlos:** el margen de dos clases del §5 **no
+> son clases gratis** y no entra en esta lista. La cuota se le debe igual desde que se
+> registra. Ese margen define hasta cuándo puede entrar sin haber pagado, no cuánto
+> paga. Lo había contado como una segunda consecuencia y estaba mal.
 
 **Regla propuesta, pendiente del OK de Carlos:**
 
@@ -208,6 +209,13 @@ Un alumno nuevo que no pagó tiene un margen de dos clases:
 | **3ª en adelante** | **No hay motivo para que entre sin haber pagado.** Si igual se lo deja entrar, hay que justificarlo (ver §8). |
 
 El contador de clases es **interno**: no se muestra en pantalla. Solo se lleva para alumnos nuevos, y deja de importar en cuanto pagan.
+
+**Estas dos clases no son gratis.** Precisado por Carlos el 06/09. El alumno se
+registra, y **en ese momento queda definido lo que debe**: la cuota del mes con el
+porcentaje que le corresponda según el día en que se registró. El margen de dos
+clases no le perdona nada — solo dice **hasta cuándo se lo deja entrar mientras el
+pago se registra**. A partir de la tercera, la deuda sigue estando y además ya no
+tiene por qué entrar.
 
 ---
 
