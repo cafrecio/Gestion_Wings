@@ -174,6 +174,30 @@ el día de su fecha de alta (`CajaWebController.php:604`). Con fechas de alta vi
 el descuento se calcularía con el día del mes de una fecha que ya no tiene nada que
 ver con lo que se está cobrando.
 
+### Medido sobre los diez alumnos de la primera carga (06/09)
+
+**Esto ya no es una inferencia.** Con los diez alumnos cargados a mano y las tres
+reglas de primer pago en su lugar, se consultó la base:
+
+- Los diez tienen **cero pagos**, así que los diez son "nuevos" para el sistema.
+- Cada uno resuelve a **exactamente una** regla: no hay tramos superpuestos.
+- **Seis no pierden nada**: su fecha de alta cae entre los días 1 y 15, y ese tramo
+  es del 100%.
+- **Cuatro sí**, los que se anotaron después del día 15:
+
+| Fecha de alta | Plan | Cobraría | Deja de cobrar |
+|---|---:|---:|---:|
+| 2026-04-18 | 35.000 | 24.500 (70%) | 10.500 |
+| 2026-04-25 | 50.000 | 20.000 (40%) | 30.000 |
+| 2026-05-21 | 40.000 | 28.000 (70%) | 12.000 |
+| 2026-06-28 | 48.000 | 19.200 (40%) | 28.800 |
+| | | **Total** | **81.300** |
+
+**Sobre diez alumnos son $81.300. Sobre los sesenta, del orden de $488.000.**
+
+Y no es plata de una base de prueba: es exactamente lo que va a pasar el día que el
+club real empiece a cobrar con Wings, en el primer cobro de cada alumno.
+
 > **Corrección del 06/09, marcada por Carlos:** el margen de dos clases del §5 **no
 > son clases gratis** y no entra en esta lista. La cuota se le debe igual desde que se
 > registra. Ese margen define hasta cuándo puede entrar sin haber pagado, no cuánto
