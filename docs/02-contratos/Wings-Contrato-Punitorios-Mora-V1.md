@@ -105,9 +105,8 @@ Sobre `deuda_cuotas`, que hoy tiene `id`, `alumno_id`, `periodo`, `monto_origina
 | `recargo_condonado` | Cuánto de ese recargo se perdonó |
 | `recargo_aplicado_el` | La fecha en que se aplicó. **Es lo que garantiza que se aplique una sola vez**: si tiene fecha, no se vuelve a tocar |
 
-**Sobre el campo `pagado` — acá propongo algo distinto de lo que definiste, y lo
-marco.** Carlos enumeró los campos como *porcentaje, condonado y pagado*. Propongo
-**no** guardar `recargo_pagado`, y deducirlo.
+**Sobre el campo `pagado`: no se guarda, se deduce.** Carlos lo había enumerado entre
+los campos y el 06/09 delegó la decisión. Queda así.
 
 El motivo es concreto: hoy rige la invariante **`deuda.monto_pagado` = suma de sus
 imputaciones en `pago_deuda_cuota`**. Si además guardamos cuánto se pagó del recargo,
@@ -290,5 +289,5 @@ un comando concreto no es un criterio.
 | Sobre cada mes impago por separado | Carlos, 06/09 |
 | También sobre el mes en curso, pasado el día | Carlos, 06/09 |
 | Los recargos aplicados no se recalculan | Carlos, 06/09 |
-| No guardar `recargo_pagado`, deducirlo | **Propuesta mía, §5, pendiente de tu OK** |
+| No guardar `recargo_pagado`, deducirlo | Carlos delega la decisión el 06/09; queda deducido (§5) |
 | Dentro de cada mes, cuota antes que recargo | **Lectura mía de la regla, §6** |

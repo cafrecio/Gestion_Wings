@@ -154,6 +154,47 @@ No se hace ninguna distinción adicional por antigüedad. Un alumno de dos años
 
 *Nota técnica: el sistema ya puede derivar esto sin campos nuevos — es "no tiene pagos registrados".*
 
+### Enmienda pendiente del 06/09 — la carga inicial rompe esta definición
+
+**Planteado por Carlos el 06/09: los alumnos que se cargan en la primera carga no
+tienen que reconocerse como nuevos.** Tiene razón, y la definición de arriba tal como
+está no lo permite.
+
+**Verificado en el código, no inferido.** `CajaWebController.php:598-607` hace
+`$tienePagos = Pago::where('alumno_id', $alumnoId)->exists()` y trata como nuevo a
+todo alumno sin pagos, sin mirar la fecha de alta. La fecha de alta se usa **después**,
+solo para elegir el tramo de descuento.
+
+El club que recibe el sistema ya viene funcionando: sus 60 alumnos entran cargados a
+mano, con fecha de alta vieja y **sin ningún pago registrado en Wings**, porque lo que
+pagaron lo pagaron antes de que Wings existiera. Para el sistema, los 60 son nuevos.
+
+**Lo que eso provoca, y son dos cosas, no una:**
+
+| Consecuencia | De dónde sale |
+|---|---|
+| A cada uno se le ofrece el **descuento de primer pago** según el día de su fecha de alta | `CajaWebController.php:604` |
+| A cada uno se le dan **dos clases gratis** antes de exigirle el pago | §5 de este mismo contrato |
+
+La segunda es la que menos se ve venir: el club arrancaría regalando 120 clases.
+
+**Regla propuesta, pendiente del OK de Carlos:**
+
+> Un alumno es NUEVO cuando **no tiene pagos registrados y tampoco arrastra deuda de
+> períodos anteriores al actual**.
+
+Se deriva de datos que ya existen y no necesita ningún campo nuevo, igual que la
+definición original. Y es cierta por donde se la mire: **nadie puede deber marzo si
+no estaba en marzo.** La deuda vieja es la prueba de que hubo historia.
+
+Durante la primera carga hay un momento en que los alumnos ya están cargados y la
+deuda del Excel todavía no: ahí siguen figurando como nuevos. Es transitorio y se
+cierra al terminar la etapa 2 de `PRIMERA-CARGA-V1.md`.
+
+**No está implementado.** Toca el cobro y el acceso a clase, que son justamente las
+pantallas que se están usando en la primera carga: cambiarlas en el medio ensucia esa
+prueba. Va después.
+
 ---
 
 ## 5. Acceso a clase — alumno NUEVO
