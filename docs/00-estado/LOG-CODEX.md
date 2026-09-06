@@ -14,6 +14,69 @@
 
 ---
 
+## 2026-09-06 — Codex CAB — frecuencia obligatoria; aceptacion completada
+
+Objetivo: impedir que alta, edicion o eliminacion individual dejen un grupo sin
+frecuencias. Pull sin novedades. Leidos AGENTS, guia extendida, ambas bitacoras,
+regla de PRIMERA-CARGA y contrato Alumno-Grupo-Deporte-Deuda V3; inspeccionados los
+cuerpos de las tres acciones, modelos, rutas y vistas (solo lectura).
+
+Cambios: planes required/array/min:1 en alta y edicion; rechazo de la ultima
+frecuencia con motivo explicito. Los errores se muestran por el aviso general
+que ya existe en el layout, porque la vista de grupos no muestra la clave planes.
+Alta transaccional; edicion y eliminacion serializadas con bloqueo del grupo.
+Se valida que los ids enviados pertenezcan al grupo y se vuelven a comprobar
+despues del bloqueo: una lista con un id inexistente no cuenta como frecuencia
+y no puede vaciar el grupo. Se conserva la proteccion de planes con alumnos.
+No se afirma haber ejecutado una prueba de concurrencia con dos conexiones.
+
+Regresion: antes del cambio fallaron los tres rechazos y paso el flujo valido.
+Despues se agrego cobertura de id inexistente: cinco pruebas nuevas. Suite completa
+en MariaDB wings_testing: **91 pruebas, 574 aserciones aprobadas**. Sintaxis de
+controlador y test correcta; view:cache/view:clear y diff --check correctos.
+
+Aceptacion local en navegador (gestion-wings, base efectiva wings_test):
+- Alta Hockey/Avanzadas sin frecuencias: rechazada con mensaje en castellano.
+- Edicion Futbol/Intermedias quitando su unica frecuencia: rechazada con mensaje.
+- Eliminar esa ultima frecuencia: PASA. Inicialmente el clic fue interrumpido por
+  "¿Eliminar este plan?" y se solicito autorizacion al usuario; no se ejecuto
+  ninguna aceptacion del dialogo. Al recuperar la pestaña, el navegador fallo
+  dos veces con timeout de Emulation.setFocusEmulationEnabled. No se pudo
+  verificar el estado visual final desde la herramienta. Carlos aporto luego
+  una captura del mismo grupo con el aviso: "No se puede eliminar: el grupo
+  quedaria sin frecuencias y no se podrian cargar alumnos", y la frecuencia
+  todavia visible. La evidencia visual final es esa captura del usuario;
+  la regresion HTTP tambien pasa.
+
+Tras cada uno de los dos rechazos ejecutados se compararon todas las filas de
+grupos, grupo_planes y alumno_planes con la huella anterior: sin ningun cambio.
+Se conservan 3 grupos y 6 planes. Grupos sin frecuencias: **0**; sin frecuencias
+activas: **0**. No se limpiaron datos ni se inventaron planes.
+
+Documentacion actualizada: regla en PRIMERA-CARGA, estado y cantidades de pruebas
+en estado/plan/checklist/guia. No se tocaron vistas, CSS, JS ni headers. El diff
+visual previo de tipos-caja/_form sigue intacto y pertenece a saldo inicial, no
+a esta tarea; se preservaron tambien los otros cambios locales anteriores.
+
+Aceptacion cerrada tras la captura: se volvio a consultar wings_test y la huella
+de las tres tablas coincide exactamente con la anterior a todos los intentos.
+El grupo 3 conserva el plan 4, activo, de dos clases por semana y precio 30000.
+No hubo escrituras parciales en los tres casos. No se repitio la eliminacion.
+Pendiente de integrar en Git; no se hizo despliegue ni push.
+
+---
+
+## 2026-09-06 — Codex CAB — cuenta ADMIN local solicitada
+
+Se creo la cuenta solicitada por Carlos exclusivamente en wings_test, conexion
+127.0.0.1 y entorno local verificados. Rol ADMIN, activa, sin marca de superadmin.
+La contraseña se guardo mediante el cast hashed del modelo; se verificaron el
+hash persistido y las credenciales con el proveedor de autenticacion de Laravel.
+No se registran correo, contraseña ni hash en esta bitacora. No se modificaron
+cuentas existentes, codigo, vistas ni la base del servidor.
+
+---
+
 ## 2026-09-05 — Codex CAB — dump cerrado por las dos puertas
 
 Objetivo: retirar database/dump.sql, impedir la exportacion automatica desde el

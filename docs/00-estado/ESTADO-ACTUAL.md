@@ -1,6 +1,6 @@
 # Wings - Estado Actual
 
-> Actualizado: 2026-09-05 (cierre del dump y suite sobre MariaDB; demas verificaciones conservan sus fechas)
+> Actualizado: 2026-09-06 (frecuencia obligatoria verificada localmente; demas verificaciones conservan sus fechas)
 > Fuente de verdad del estado del proyecto. Si otro documento lo contradice, se corrige
 > el otro documento o se registra la contradiccion aca antes de implementar.
 > El indice de pendientes incorpora la verificacion de `PENDIENTES-260901.md`,
@@ -70,7 +70,8 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **86 pruebas, 537 aserciones**, verde completo sobre MariaDB (05/09) | `phpunit.xml`, LOG-CODEX 05/09 |
+| **Tests** | **91 pruebas, 574 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
 | Backups | Diarios, cifrados, rotados, subidos a Drive. **Restauracion probada** | `LOG-CLAUDE.md` 30/08 |

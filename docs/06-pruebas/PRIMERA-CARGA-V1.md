@@ -142,18 +142,29 @@ por semana.** Los seis grupos, sin excepción.
 
 Son doce planes en total: dos por cada uno de los seis grupos.
 
-### Regla nueva: no se puede crear un grupo sin frecuencia
+### Regla nueva: un grupo debe conservar al menos una frecuencia
 
-**Es un cambio de código, no solo una convención.** Verificado el 05/09 en
-`GrupoWebController`: hoy la regla dice `'planes' => 'nullable|array'`, así que **se
-puede crear un grupo sin ninguna frecuencia**.
+**Es un cambio de código, no solo una convención.** Regla de Carlos del 05/09,
+extendida por su orden del 06/09 al alta, la edición y la eliminación individual.
+Implementada localmente el 06/09 en `GrupoWebController`: `planes` es obligatorio
+y debe contener al menos una frecuencia. Eliminar la última se rechaza con una
+explicación. No se modificaron vistas ni JavaScript.
 
 Y eso es justamente lo que produce la trampa: un grupo sin frecuencias hace que el
 campo de plan **no aparezca** en el formulario de alumno, y la carga se traba pidiendo
 algo que no se ve en pantalla.
 
-**Al menos una frecuencia pasa a ser obligatoria al crear un grupo.** Con eso la
-trampa desaparece de raíz en vez de esquivarse con disciplina.
+**Al menos una frecuencia es obligatoria al crear y al editar un grupo; no se
+puede eliminar la última.** Los grupos existentes sin frecuencias se cuentan y
+reportan, sin borrarlos ni inventar precios. En `wings_test` hay **0** al 06/09.
+
+Verificación: cinco regresiones aprobadas en MariaDB. Alta y edición sin
+frecuencias rechazadas en navegador, con comparación de la base sin cambios.
+El rechazo de eliminar la última quedó visible en la captura aportada por Carlos
+el 06/09, luego del bloqueo de la herramienta de navegador. Una nueva comparación
+de la base confirmó que tampoco hubo cambios en ese intento. El rechazo también
+está cubierto por regresión HTTP.
+Esto no ejecuta ni cierra la prueba de primera carga completa.
 
 ---
 

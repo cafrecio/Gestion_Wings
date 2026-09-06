@@ -129,9 +129,9 @@ Comando:
 php artisan test
 ```
 
-Estado verificado (2026-09-05):
+Estado verificado (2026-09-06):
 
-- La suite completa pasa sobre MariaDB: 86 tests, 537 aserciones.
+- La suite completa pasa sobre MariaDB: 91 tests, 574 aserciones.
 - El esquema de prueba se prepara desde migraciones; no requiere un dump.
 
 ## Pruebas funcionales y seeders
