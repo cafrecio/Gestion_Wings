@@ -129,8 +129,18 @@ deporte, cada uno con su grupo, su plan y su cuota. Lo permite el contrato
 **Todos los grupos tienen las dos mismas frecuencias: 1 clase por semana y 2 clases
 por semana.** Los seis grupos, sin excepción.
 
-Los precios los define Carlos al cargar; lo que queda fijo es que **las dos opciones
-existen en todos**.
+### Precios, definidos el 05/09
+
+| Deporte | Grupo | 1 vez/semana | 2 veces/semana |
+|---|---|---:|---:|
+| Patín | Principiantes | 30.000 | 40.000 |
+| Patín | Intermedias | 33.000 | 43.000 |
+| Patín | Avanzadas | 35.000 | 45.000 |
+| Patín | Federadas | 40.000 | 50.000 |
+| Fútbol | Principiantes | 28.000 | 35.000 |
+| Fútbol | Avanzados | 38.000 | 48.000 |
+
+Son doce planes en total: dos por cada uno de los seis grupos.
 
 ### Regla nueva: no se puede crear un grupo sin frecuencia
 
