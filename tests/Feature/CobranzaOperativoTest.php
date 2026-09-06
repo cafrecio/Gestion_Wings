@@ -63,6 +63,37 @@ class CobranzaOperativoTest extends TestCase
         $this->assertNotSame(200, $respuesta->getStatusCode(), 'La revision es del admin.');
     }
 
+    /**
+     * Un permiso sin link es una puerta sin picaporte: la ruta se abrio y
+     * nadie tenia como llegar. El menu decia "Cobranza" y llevaba a la
+     * pantalla de Revision, que es otra cosa.
+     */
+    public function test_el_menu_del_operativo_tiene_el_link_a_cobranza(): void
+    {
+        $this->actingAs($this->usuario(User::ROL_OPERATIVO))
+            ->get(route('web.alumnos.index'))
+            ->assertOk()
+            ->assertSee(route('web.cobranza.index'), false);
+    }
+
+    public function test_el_menu_del_admin_tiene_los_dos_links_separados(): void
+    {
+        $respuesta = $this->actingAs($this->usuario(User::ROL_ADMIN))
+            ->get(route('web.alumnos.index'))
+            ->assertOk();
+
+        $respuesta->assertSee(route('web.cobranza.index'), false);
+        $respuesta->assertSee(route('web.revision-cobranza.index'), false);
+    }
+
+    /** El profesor no participa de plata: tampoco lo ve en el menu. */
+    public function test_el_menu_del_profesor_no_tiene_cobranza(): void
+    {
+        $this->actingAs($this->usuario(User::ROL_PROFESOR))
+            ->get(route('web.clases.index'))
+            ->assertDontSee(route('web.cobranza.index'), false);
+    }
+
     private function usuario(string $rol): User
     {
         return User::factory()->create([
