@@ -3,6 +3,11 @@
 > Definido por Carlos el 05/09/2026. **Especificación, sin implementar.**
 > Reemplaza el enfoque de `DATASET-SEEDER-V1.md`: no es un seeder que inventa un
 > club, es **reproducir la carga inicial real tal como la haría una persona**.
+>
+> ## ESTO NO ES LLENAR UNA BASE. ES UNA PRUEBA INTEGRAL DEL SISTEMA.
+>
+> Cada alta cargada a mano es **un caso de prueba con resultado esperado**, no un
+> registro más. Si algo se carga y nadie comprobó que quedó bien, no se hizo nada.
 
 ## Punto de partida: la base vacía
 
@@ -67,9 +72,46 @@ De los 60, **diez se cargan uno por uno desde la pantalla**, no por seeder.
   formatos inválidos, menor sin tutor.
 - **Verificando que quedaron bien cargados**, no solo que la pantalla no dio error.
 
-### Los otros cincuenta, por seeder
+### Cada alta a mano se registra como un caso de prueba
 
-**Realistas.** Sin datos incompletos y sin repetidos. Nombres, DNI, celulares y
+**No alcanza con cargarlos: hay que documentar qué se intentó y qué pasó.**
+
+Se entrega un documento con una fila por intento:
+
+| Qué se intentó | Resultado esperado | Resultado obtenido |
+|---|---|---|
+| Alta completa y válida, como admin | Se crea, y queda con el plan, el grupo y la fecha de alta correctos | |
+| Alta completa y válida, como operativo | Igual que la anterior | |
+| DNI repetido en el **mismo** deporte | Rechazado con mensaje | |
+| DNI repetido en **otro** deporte | **Se crea** — es la alumna en dos deportes | |
+| Celular vacío | Rechazado con mensaje | |
+| Menor de edad sin datos del tutor | Rechazado pidiendo el tutor | |
+| Fecha de nacimiento futura | Rechazado | |
+| Email con formato inválido | Rechazado | |
+| Grupo que no corresponde al deporte elegido | Rechazado | |
+| Fecha de alta anterior a hoy | Se acepta y queda esa fecha, no la de hoy | |
+
+**Los intentos que fallan son parte de la prueba, no un error.** Si un rechazo no
+funciona como se espera, ese es el hallazgo más valioso de toda la carga.
+
+Y en cada rechazo hay que mirar una cosa más: **que no haya quedado nada escrito a
+medias**. Un alta rechazada que igual dejó una fila es peor que una que no se rechazó.
+
+**Distinguir siempre** un mensaje de validación de una pantalla de error. El primero
+está bien; el segundo es un defecto.
+
+El resultado va a `docs/06-pruebas/RESULTADO-PRIMERA-CARGA-V1.md`.
+
+### Los otros cincuenta, por seeder — RECIÉN DESPUÉS
+
+**El seeder no se escribe hasta que los diez a mano estén cargados y todo funcione.**
+
+El orden no es un capricho: si el seeder se escribe antes, va a insertar cincuenta
+filas esquivando las validaciones que todavía no sabemos si funcionan. Y si algo está
+mal, lo vamos a descubrir con cincuenta registros mal cargados encima.
+
+Cuando los diez pasen sin sorpresas, el seeder genera los cincuenta restantes:
+**realistas, sin datos incompletos y sin repetidos.** Nombres, DNI, celulares y
 correos que podrían ser de personas distintas de verdad.
 
 ### Una alumna en los dos deportes
@@ -82,16 +124,26 @@ deporte, cada uno con su grupo, su plan y su cuota. Lo permite el contrato
 
 ---
 
-## Falta definir: los planes
+## Planes: definidos el 05/09
 
-**El documento no los menciona y sin ellos no se puede crear ningún alumno.**
+**Todos los grupos tienen las dos mismas frecuencias: 1 clase por semana y 2 clases
+por semana.** Los seis grupos, sin excepción.
 
-Los planes son la frecuencia semanal con su precio, se cargan **dentro de cada grupo**
-y no están en el menú lateral. El campo para elegirlos **no aparece en el formulario
-de alumno** si el grupo no tiene ninguno, así que la carga se traba sin explicación
-visible.
+Los precios los define Carlos al cargar; lo que queda fijo es que **las dos opciones
+existen en todos**.
 
-Hay que definir, antes de empezar: **cuántas frecuencias por grupo y a qué precio.**
+### Regla nueva: no se puede crear un grupo sin frecuencia
+
+**Es un cambio de código, no solo una convención.** Verificado el 05/09 en
+`GrupoWebController`: hoy la regla dice `'planes' => 'nullable|array'`, así que **se
+puede crear un grupo sin ninguna frecuencia**.
+
+Y eso es justamente lo que produce la trampa: un grupo sin frecuencias hace que el
+campo de plan **no aparezca** en el formulario de alumno, y la carga se traba pidiendo
+algo que no se ve en pantalla.
+
+**Al menos una frecuencia pasa a ser obligatoria al crear un grupo.** Con eso la
+trampa desaparece de raíz en vez de esquivarse con disciplina.
 
 ---
 
