@@ -49,6 +49,30 @@ hizo por fuera de la aplicación, porque desde la aplicación no se puede.
 seeder de arranque o si la pantalla de configuración pasa a poder crearlas. No se
 resuelve dentro de esta carga.
 
+#### Las dos claves originales
+
+La migración inserta **dos**, y se restauran las dos con estos valores exactos:
+
+| Clave | Valor | Tipo | Para qué |
+|---|---:|---|---|
+| `dias_gracia_cobranza` | 10 | integer | Días del mes en que una cuota corriente impaga sigue contando como *En plazo* |
+| `dia_generacion_deuda` | 1 | integer | Día en que se genera la deuda mensual |
+
+#### Segundo hallazgo: hay una configuración que no hace nada
+
+**Verificado el 06/09.** `dia_generacion_deuda` **aparece únicamente en la
+migración**. Ningún archivo de `app/`, `routes/` ni `resources/` la lee.
+
+La generación mensual está programada en `routes/console.php:12` con
+`->monthlyOn(1, '06:00')`: **el día 1 está escrito en el código**. La pantalla de
+configuración lista todas las claves y deja editarlas, así que el administrador
+puede cambiar ese valor a 5, guardarlo, verlo guardado — **y la deuda se va a seguir
+generando el día 1**. Una configuración que miente.
+
+No se arregla dentro de esta carga. Queda anotado porque **importa para punitorios
+por mora**: ahí también se pidió un día y un porcentaje configurables, y ya sabemos
+que en este sistema existe el patrón de guardar un valor que después nadie consulta.
+
 > Las contraseñas de arriba son de prueba y así se usan a propósito. No aplica acá
 > la discusión de claves fuertes: esta base es descartable.
 
