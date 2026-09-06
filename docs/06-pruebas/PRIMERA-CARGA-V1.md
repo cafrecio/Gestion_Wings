@@ -17,7 +17,7 @@ aplicación**:
 | Qué queda | Detalle |
 |---|---|
 | Usuario ADMIN | `admin@wings.com` / `wings2026` |
-| Usuario SUPERADMIN | El protegido, se crea por consola |
+| ~~Usuario SUPERADMIN~~ | **Omitido en esta etapa** (decidido el 06/09). Importa cuando se cargue el servidor, no para probar en local |
 | Rubro y subrubro de cuotas | El que cobra las clases — el código lo busca por nombre exacto |
 | Rubro Sueldos | **Sin subrubros**: se crean solos al dar de alta cada profesor |
 
@@ -37,8 +37,9 @@ no se puede cargar desde la aplicación, eso mismo es el hallazgo.
 |---|---|
 | **Deportes** | 2: Patín y Fútbol |
 | **Niveles** | 4: Principiantes, Intermedias, Avanzadas, Federadas |
+| | **Los niveles se comparten entre deportes.** Fútbol usa los mismos, no tiene versiones propias en masculino |
 | **Grupos de Patín** | 4, uno por nivel |
-| **Grupos de Fútbol** | 2: Principiantes y Avanzados |
+| **Grupos de Fútbol** | 2: Principiantes y **Avanzadas** |
 | **Tipos de caja** | 2: Efectivo y Mercado Pago |
 
 ## Profesores
@@ -138,7 +139,7 @@ por semana.** Los seis grupos, sin excepción.
 | Patín | Avanzadas | 35.000 | 45.000 |
 | Patín | Federadas | 40.000 | 50.000 |
 | Fútbol | Principiantes | 28.000 | 35.000 |
-| Fútbol | Avanzados | 38.000 | 48.000 |
+| Fútbol | Avanzadas | 38.000 | 48.000 |
 
 Son doce planes en total: dos por cada uno de los seis grupos.
 
