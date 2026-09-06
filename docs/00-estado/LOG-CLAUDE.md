@@ -17,6 +17,55 @@
 
 ---
 
+## 2026-09-06 — Claude CAB — Rubros reservados y el subrubro del operativo
+
+**Punto 2 del cierre del dia, cerrado.**
+
+### El agujero
+
+`ProfesorWebController` buscaba `Rubro::where('nombre','Sueldos')` y, si no lo
+encontraba, hacia `return`: el profesor quedaba guardado **sin subrubro**, con la
+pantalla diciendo "creado correctamente". `RubroWebController::update()` no comprobaba
+nada, asi que renombrar el rubro desde la pantalla bastaba para romperlo. Cambiarle el
+`tipo` de EGRESO a INGRESO daba vuelta el signo de los sueldos en el cashflow.
+
+### Que se hizo
+
+- Columna `es_reservado_sistema` en `rubros` — el mismo blindaje que los subrubros
+  tenian desde febrero, un nivel arriba. Marcados: **Sueldos** (buscado por nombre) y
+  **Cuotas** (padre del subrubro reservado `Cuota Mensual`). Fuera de `$fillable`: lo
+  fijan la migracion y el seeder, nunca un formulario.
+- `RubroWebController`: un rubro reservado no cambia de nombre ni de tipo, y no se
+  borra. **La observacion si se edita** — no la usa el codigo.
+- `app/Services/SubrubroSueldoService.php`: unico lugar que resuelve "Sueldos" por
+  nombre. Si falta el rubro **lanza excepcion**, no devuelve null.
+- **Decision de Carlos:** el usuario OPERATIVO recibe su subrubro de sueldo en el alta,
+  bajo Sueldos, con el nombre **`Op-Nombre Apellido`** (el del profesor sigue siendo
+  `Deporte-Nombre Apellido`). `permitido_para=ADMIN` y `afecta_caja=false`: el sueldo lo
+  liquida el admin por cashflow, no sale de la caja operativa. **Solo OPERATIVO** — al
+  ADMIN se le carga a mano si corresponde. Vinculo por FK en `users.subrubro_id`, no por
+  nombre (leccion D3). Nunca se le quita: puede tener movimientos imputados.
+
+### Verificacion
+
+`RubroReservadoTest`, 8 pruebas. **Dientes comprobados:** se desactivaron los tres
+arreglos a la vez (las dos guardas de `RubroWebController` y la llamada del alta de
+usuario) y **fallaron 4** — renombrar, tipo, eliminar y el subrubro del operativo.
+Restaurados, verde. Comando: `php artisan test --filter=RubroReservadoTest`.
+
+Suite: **119 pruebas, 689 aserciones**. `DocumentacionNoMienteTest` se puso en rojo por
+el cambio de numero y se actualizaron los cuatro documentos que lo declaran.
+
+### Estado de `wings_test`
+
+Los 4 profesores ya tenian su subrubro. Los 2 operativos no: se les creo
+`Op-Valentina Rios` (23) y `Op-Nicolas Herrera` (24). El admin queda sin subrubro, como
+se decidio.
+
+**Siguiente paso:** la prueba funcional planificada con Codex.
+
+---
+
 ## 2026-09-06 — Claude CAB — CIERRE DEL DIA: todo lo pendiente
 
 **Punto de partida del proximo chat.** Suite verificada hoy: **111 pruebas, 663

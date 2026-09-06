@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profesor;
 use App\Models\User;
+use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -82,6 +83,11 @@ class UsuarioWebController extends Controller
         $user->activo = true;
         $user->save();
 
+        // El operativo cobra sueldo: se le abre su subrubro bajo "Sueldos"
+        // para poder imputárselo. El profesor ya tiene el suyo del alta de
+        // profesor y el admin se carga a mano si corresponde.
+        app(SubrubroSueldoService::class)->paraUsuarioOperativo($user);
+
         return redirect()->route('web.usuarios.index')
             ->with('success', 'Usuario creado correctamente.');
     }
@@ -158,6 +164,11 @@ class UsuarioWebController extends Controller
         }
 
         $usuario->save();
+
+        // Cubre al que pasa a OPERATIVO después del alta. Si ya tiene
+        // subrubro no hace nada, y nunca se le quita: puede tener
+        // movimientos históricos imputados.
+        app(SubrubroSueldoService::class)->paraUsuarioOperativo($usuario);
 
         return redirect()->route('web.usuarios.index')
             ->with('success', 'Usuario actualizado correctamente.');

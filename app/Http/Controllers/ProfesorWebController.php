@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Deporte;
 use App\Models\Profesor;
-use App\Models\Rubro;
-use App\Models\Subrubro;
+use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -106,32 +105,17 @@ class ProfesorWebController extends Controller
         return back()->with('success', "Profesor {$estado} correctamente.");
     }
 
+    /**
+     * Crea el subrubro de sueldo y lo vincula por FK (D3): la liquidación
+     * lo resuelve por ese id, no reconstruyendo el nombre.
+     *
+     * Antes, si faltaba el rubro "Sueldos", esto hacía `return` y el
+     * profesor quedaba guardado sin subrubro, con la pantalla diciendo
+     * "creado correctamente". El servicio ahora lanza excepción.
+     */
     private function crearSubrubroProfesor(Profesor $profesor): void
     {
-        $profesor->loadMissing('deporte');
-
-        $nombreSubrubro = ($profesor->deporte->nombre ?? 'Sin deporte')
-            . '-' . $profesor->nombre . ' ' . $profesor->apellido;
-
-        $rubroSueldos = Rubro::where('nombre', 'Sueldos')->first();
-
-        if (! $rubroSueldos) {
-            return;
-        }
-
-        $subrubro = Subrubro::firstOrCreate(
-            ['nombre' => $nombreSubrubro],
-            [
-                'rubro_id'             => $rubroSueldos->id,
-                'permitido_para'       => 'ADMIN',
-                'afecta_caja'          => false,
-                'es_reservado_sistema' => true,
-            ]
-        );
-
-        // Vincular el subrubro al profesor por FK (D3): la liquidación lo
-        // resuelve por este id, no reconstruyendo el nombre.
-        $profesor->update(['subrubro_id' => $subrubro->id]);
+        app(SubrubroSueldoService::class)->paraProfesor($profesor);
     }
 
     private function validationRules(?int $profesorId = null): array

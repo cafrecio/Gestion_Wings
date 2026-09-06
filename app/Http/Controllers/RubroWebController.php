@@ -58,6 +58,19 @@ class RubroWebController extends Controller
             'tipo.in'         => 'El tipo debe ser INGRESO o EGRESO.',
         ]);
 
+        // Un rubro reservado lo busca el código por nombre exacto: si se
+        // renombra, el alta de profesores y la de usuarios operativos dejan
+        // de encontrarlo en silencio. El tipo tampoco se toca, porque da
+        // vuelta el signo del rubro en el cashflow. La observación sí.
+        if ($rubro->es_reservado_sistema) {
+            if ($validated['nombre'] !== $rubro->nombre || $validated['tipo'] !== $rubro->tipo) {
+                return back()->withInput()
+                    ->with('error', 'Rubro reservado del sistema: no se puede cambiar el nombre ni el tipo.');
+            }
+
+            $validated = ['observacion' => $validated['observacion'] ?? null];
+        }
+
         $rubro->update($validated);
 
         return redirect()->route('web.rubros.index')->with('success', 'Rubro actualizado correctamente.');
@@ -66,6 +79,11 @@ class RubroWebController extends Controller
     public function destroy(int $id)
     {
         $rubro = Rubro::withCount('subrubros')->findOrFail($id);
+
+        if ($rubro->es_reservado_sistema) {
+            return redirect()->route('web.rubros.index')
+                ->with('error', 'No se puede eliminar: rubro reservado del sistema.');
+        }
 
         if ($rubro->subrubros_count > 0) {
             return redirect()->route('web.rubros.index')

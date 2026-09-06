@@ -14,6 +14,14 @@ class Rubro extends Model
     ];
 
     /**
+     * `es_reservado_sistema` queda fuera de $fillable a propósito: sólo lo
+     * fijan las migraciones y el seeder de catálogos, nunca un formulario.
+     */
+    protected $casts = [
+        'es_reservado_sistema' => 'boolean',
+    ];
+
+    /**
      * Relación con Subrubros
      */
     public function subrubros(): HasMany

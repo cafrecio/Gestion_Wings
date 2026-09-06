@@ -113,4 +113,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Profesor::class);
     }
+
+    /**
+     * Subrubro de sueldo del usuario operativo, bajo el rubro "Sueldos".
+     * Lo crea el alta de usuario; el vínculo es por FK, no por nombre.
+     */
+    public function subrubro(): BelongsTo
+    {
+        return $this->belongsTo(Subrubro::class);
+    }
 }

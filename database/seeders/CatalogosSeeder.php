@@ -114,6 +114,12 @@ class CatalogosSeeder extends Seeder
                 ['tipo' => $datos['tipo'], 'observacion' => $datos['observacion']]
             );
 
+            // Fuera de $fillable a propósito: lo fija el seeder, nunca un
+            // formulario. Un rubro reservado no se renombra ni cambia de
+            // tipo desde la pantalla de rubros.
+            $rubro->es_reservado_sistema = $datos['es_reservado_sistema'] ?? false;
+            $rubro->save();
+
             foreach ($datos['subrubros'] as $datosSubrubro) {
                 Subrubro::updateOrCreate(
                     ['nombre' => $datosSubrubro['nombre']],
