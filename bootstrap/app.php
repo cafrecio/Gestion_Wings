@@ -34,6 +34,39 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->appendToGroup('web', ['security.headers']);
+
+        // El sitio va a quedar detrás de Cloudflare, que actúa de intermediario:
+        // la gente le habla a Cloudflare y Cloudflare le habla al servidor.
+        //
+        // Sin esto, la aplicación ve SIEMPRE la dirección de Cloudflare y nunca la
+        // del visitante. Dos consecuencias concretas:
+        //
+        //  1. El límite de intentos del login (throttle:5,1) cuenta por dirección.
+        //     Con todos compartiendo una, cinco intentos fallidos de cualquiera
+        //     dejan afuera al club entero.
+        //  2. La aplicación cree que la conexión no está cifrada, porque el cifrado
+        //     lo termina Cloudflare, y arma las direcciones con http://: enlaces de
+        //     recuperación rotos y posibles bucles de redirección.
+        //
+        // Se confían SOLO los rangos publicados por Cloudflare, no cualquiera. Si se
+        // confiara en todos, quien alcance el servidor por su IP directa podría
+        // mentir sobre quién es. Por eso el paso que falta —cerrar el servidor para
+        // que solo acepte tráfico de Cloudflare— no es opcional: sin él, esta lista
+        // es una defensa a medias.
+        //
+        // Rangos traídos de cloudflare.com/ips-v4 e ips-v6 el 06/09/2026.
+        // Cambian muy de vez en cuando; si Cloudflare suma uno y no está acá, la
+        // aplicación vuelve a ver la dirección del intermediario para ese tramo.
+        $middleware->trustProxies(at: [
+            '173.245.48.0/20',  '103.21.244.0/22',  '103.22.200.0/22',
+            '103.31.4.0/22',    '141.101.64.0/18',  '108.162.192.0/18',
+            '190.93.240.0/20',  '188.114.96.0/20',  '197.234.240.0/22',
+            '198.41.128.0/17',  '162.158.0.0/15',   '104.16.0.0/13',
+            '104.24.0.0/14',    '172.64.0.0/13',    '131.0.72.0/22',
+            '2400:cb00::/32',   '2606:4700::/32',   '2803:f800::/32',
+            '2405:b500::/32',   '2405:8100::/32',   '2a06:98c0::/29',
+            '2c0f:f248::/32',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // 419 CSRF expirado → login. TokenMismatchException es convertida a
