@@ -129,6 +129,28 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | **E3** | Deuda tecnica conocida |
 | **E4** | Eliminar `formas_pago`, que seguia en la base de CyE al 01/09 |
 
+### F · Punitorios por mora — contrato escrito el 06/09, sin implementar
+
+`docs/02-contratos/Wings-Contrato-Punitorios-Mora-V1.md`. Hasta el 06/09 estas
+decisiones existian **solo en el chat**: no habia una linea escrita en ningun lado.
+
+**No hay nada implementado**: ni las dos claves de configuracion, ni los campos en
+`deuda_cuotas`, ni el subrubro. Con `mora_porcentaje = 0` el sistema se comporta como
+hoy, y ese es el estado en que se entrega.
+
+Quedan **dos puntos abiertos** que decide Carlos, marcados en el contrato:
+
+1. **Bajo que rubro va el cobro (§9).** El definio "Recargo por mora" bajo Intereses,
+   pero ese rubro tiene sus subrubros en `ADMIN` y `afecta_caja = false` (verificado
+   en `CatalogosSeeder.php:54-61`). Asi, el operativo no podria cobrarlo y la plata
+   no entraria a la caja: el arqueo daria diferencia todos los dias.
+2. **Si se guarda `recargo_pagado` o se deduce (§5).**
+
+Ademas hay un hallazgo que condiciona este contrato: **`dia_generacion_deuda` es una
+configuracion que nadie lee**. Aparece solo en su migracion; el dia esta escrito en
+`routes/console.php:12`. El criterio 3 de aceptacion del contrato existe para que las
+claves nuevas no terminen igual.
+
 ### Estado del servidor — verificado por SSH el 06/09
 
 | Que | Resultado |
@@ -164,7 +186,7 @@ fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
 
 | Contradiccion | Estado real | Resolucion |
 |---|---|---|
-| Primera carga local: respuesta 500 transitoria al crear Efectivo despues de aplicar la migracion | H01 resuelto: saldo_inicial existe. C14 devolvio MissingAppKeyException; sin cambiar APP_KEY, .env ni caches, una sesion web nueva creo Efectivo 250000 y Mercado Pago 1320000, verificados en wings_test | La causa del 500 no se determino y no se atribuye. Primera carga pausada por faltar datos concretos para profesores y usuarios; ver RESULTADO-PRIMERA-CARGA-V1.md |
+| Primera carga local: configuraciones eliminadas y reglas de primer pago sin validacion de solapamiento | Las dos configuraciones de la migracion se restauraron en wings_test y el listado de alumnos ya abre. La primera regla 1–15/100% se creo por pantalla | Pausa H05: controlador y tabla permiten tramos superpuestos, aunque la prueba exige rechazo sin escritura. Decidir correccion antes de crear datos ambiguos; ver RESULTADO-PRIMERA-CARGA-V1.md |
 | Cambio paralelo del motor de pruebas durante la tarea de saldo inicial | NombreUnico ya fue adaptado con autorizacion. phpunit.xml paso a MariaDB mientras corria la regresion y el helper previo sqliteCreateFunction dejo de ser compatible | Pausa para coordinar B2; pendiente adaptar helper y corrida completa. Ver LOG-CODEX 05/09 |
 | Documentos viejos dicen Laravel 11 | `composer.json` usa `^12.0` | Corregir al tocarlos |
 | `wings-design/SKILL.md` dice `ds-content` con tope de 1200px | `app.css` no lo implementa | Decidir: implementar el tope o corregir el SKILL |
