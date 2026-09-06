@@ -97,6 +97,41 @@ class RubroReservadoTest extends TestCase
         $this->assertSame('INGRESO', $rubro->fresh()->tipo);
     }
 
+    public function test_un_rubro_reservado_vacio_no_acepta_subrubros_a_mano(): void
+    {
+        $sueldos = $this->rubroSueldos();
+
+        $this->assertCount(0, $sueldos->subrubros, 'El caso es justamente el rubro vacío.');
+
+        $this->actingAs($this->admin())
+            ->post(route('web.subrubros.store', $sueldos->id), [
+                'nombre'         => 'Honorarios',
+                'permitido_para' => 'ADMIN',
+            ])
+            ->assertSessionHas('error');
+
+        $this->assertDatabaseMissing('subrubros', ['nombre' => 'Honorarios']);
+    }
+
+    /** Control: en un rubro común el admin sigue pudiendo crear los suyos. */
+    public function test_un_rubro_comun_sigue_aceptando_subrubros(): void
+    {
+        $rubro = Rubro::create([
+            'nombre'      => 'Honorarios',
+            'tipo'        => 'EGRESO',
+            'observacion' => null,
+        ]);
+
+        $this->actingAs($this->admin())
+            ->post(route('web.subrubros.store', $rubro->id), [
+                'nombre'         => 'Contador',
+                'permitido_para' => 'ADMIN',
+            ])
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('subrubros', ['nombre' => 'Contador', 'rubro_id' => $rubro->id]);
+    }
+
     // ── El operativo recibe su subrubro de sueldo ────────────────────────
 
     public function test_el_alta_de_un_operativo_le_crea_su_subrubro_de_sueldo(): void

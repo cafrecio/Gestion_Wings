@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **119 pruebas, 689 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| **Tests** | **121 pruebas, 694 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
 | Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
@@ -80,6 +80,16 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | CSP | **En modo reporte.** 55 de 85 violaciones cerradas | `SecurityHeaders.php:22` |
 
 ## Lo que falta
+
+### Pausa de la prueba de deuda inicial (06/09, Codex CAB)
+
+Antes de importar se detectó que el Paso 0 de ORDEN-CODEX-DEUDA-INICIAL pide
+ejecutar CatalogosSeeder, pero seedRubrosYSubrubros asigna
+`es_reservado_sistema = false` a Cuotas y Sueldos porque sus definiciones omiten
+esa clave. La lectura de ambas filas en wings_test confirma que hoy tienen 1.
+No se ejecutó el seeder ni la carga. Pendiente de Carlos: continuar solo con
+los pasos 1–4 del importador pedidos en el chat, o resolver primero ese Paso 0.
+Evidencia y estado de cada paso: `docs/06-pruebas/RESULTADO-DEUDA-INICIAL-V1.md`.
 
 Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 `docs/00-estado/PLAN-PRODUCCION.md`.

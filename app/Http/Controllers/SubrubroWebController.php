@@ -20,7 +20,14 @@ class SubrubroWebController extends Controller
     {
         $rubro = Rubro::with('subrubros')->findOrFail($rubroId);
 
-        if ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)) {
+        // Un rubro del sistema no acepta subrubros a mano, ni siquiera vacio: sus
+        // subrubros los crea el propio sistema. Antes solo se miraba si todos los
+        // subrubros existentes eran reservados, asi que `Sueldos` recien instalado
+        // —sin ningun profesor cargado todavia— dejaba meterle uno cualquiera.
+        // Lo que el admin necesite aparte va en un rubro propio: Honorarios,
+        // Alquileres, Gastos Varios.
+        if ($rubro->es_reservado_sistema
+            || ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema))) {
             return redirect()->route('web.rubros.index')
                 ->with('error', 'Este rubro es administrado por el sistema y no permite subrubros adicionales.');
         }

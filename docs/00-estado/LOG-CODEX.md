@@ -14,6 +14,20 @@
 
 ---
 
+## 2026-09-06 — Codex CAB — pausa previa a la prueba de deuda inicial
+
+Se verificó main en 2145886 y conexión local/127.0.0.1/wings_test: 60 alumnos,
+60 planes, 7 usuarios y cero deudas, pagos e imputaciones. La orden del chat
+pide pasos 1–4; la orden guardada exige antes CatalogosSeeder. Leer su cuerpo
+reveló que asigna false a es_reservado_sistema en Cuotas y Sueldos, actualmente
+en 1 en ambas filas. No se ejecutó seeder ni importador, ni se corrigió código.
+Resultado y alternativas registrados en RESULTADO-DEUDA-INICIAL-V1.md: Carlos
+debe decidir entre probar solo el importador o resolver primero el Paso 0.
+Suite: 119 pruebas y 689 aserciones; vistas compiladas y limpiadas; diff de
+vistas/CSS vacío. Firma: Codex CAB.
+
+---
+
 ## 2026-09-06 — Codex CAB — importador inicial de deuda Excel
 
 Se agrego el comando `wings:importar-deuda-inicial` con lector
