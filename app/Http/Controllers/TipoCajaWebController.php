@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\TipoCaja;
 use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class TipoCajaWebController extends Controller
 {
@@ -54,38 +56,47 @@ class TipoCajaWebController extends Controller
     public function edit(int $id)
     {
         $tipoCaja = TipoCaja::findOrFail($id);
-        return view('tipos-caja.edit', compact('tipoCaja'));
+        $saldoInicialEditable = $this->saldoInicialEditable($tipoCaja);
+        return view('tipos-caja.edit', compact('tipoCaja', 'saldoInicialEditable'));
     }
 
     public function update(Request $request, int $id)
     {
-        $tipoCaja = TipoCaja::findOrFail($id);
+        DB::transaction(function () use ($request, $id) {
+            $tipoCaja = TipoCaja::lockForUpdate()->findOrFail($id);
+            $saldoInicialEditable = $this->saldoInicialEditable($tipoCaja);
 
-        $request->validate([
-            'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
-            'abreviatura' => 'required|string|max:5',
-            'descripcion' => 'nullable|string|max:255',
-            'saldo_inicial' => 'required|numeric|min:0',
-        ], [
-            'nombre.required'      => 'El nombre es obligatorio.',
-            'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
-            'abreviatura.required' => 'La abreviatura es obligatoria.',
-            'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
-            'saldo_inicial.required' => 'El saldo inicial es obligatorio.',
-            'saldo_inicial.numeric'  => 'El saldo inicial debe ser un número.',
-            'saldo_inicial.min'      => 'El saldo inicial no puede ser negativo.',
-        ]);
+            $datos = $request->validate([
+                'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, ignoreId: $tipoCaja->id, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
+                'abreviatura' => 'required|string|max:5',
+                'descripcion' => 'nullable|string|max:255',
+                // Con historial se excluye antes de validar, incluso en pedidos armados a mano.
+                'saldo_inicial' => [Rule::excludeIf(!$saldoInicialEditable), 'required', 'numeric', 'min:0'],
+            ], [
+                'nombre.required'      => 'El nombre es obligatorio.',
+                'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
+                'abreviatura.required' => 'La abreviatura es obligatoria.',
+                'abreviatura.max'      => 'La abreviatura no puede tener más de 5 caracteres.',
+                'saldo_inicial.required' => 'El saldo inicial es obligatorio.',
+                'saldo_inicial.numeric'  => 'El saldo inicial debe ser un número.',
+                'saldo_inicial.min'      => 'El saldo inicial no puede ser negativo.',
+            ]);
 
-        $tipoCaja->update([
-            'nombre'              => $request->nombre,
-            'abreviatura'         => strtoupper($request->abreviatura),
-            'descripcion'         => $request->descripcion,
-            'permite_descubierto' => $request->boolean('permite_descubierto'),
-            'saldo_inicial'       => $request->input('saldo_inicial'),
-        ]);
+            $datos['abreviatura'] = strtoupper($datos['abreviatura']);
+            $datos['descripcion'] = $datos['descripcion'] ?? null;
+            $datos['permite_descubierto'] = $request->boolean('permite_descubierto');
+            $tipoCaja->update($datos);
+        });
 
         return redirect()->route('web.tipos-caja.index')
             ->with('success', 'Tipo de caja actualizado correctamente.');
+    }
+
+    private function saldoInicialEditable(TipoCaja $tipoCaja): bool
+    {
+        // Cualquier movimiento cuenta, incluso uno operativo cancelado.
+        return !$tipoCaja->movimientosOperativos()->exists()
+            && !$tipoCaja->cashflowMovimientos()->exists();
     }
 
     public function toggleActivo(int $id)

@@ -55,8 +55,9 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
     <div class="md:col-span-2">
         <label for="saldo_inicial" class="{{ $labelClass }}">
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
-            Saldo inicial <span class="form-required">*</span>
+            Saldo inicial @if($saldoInicialEditable ?? true)<span class="form-required">*</span>@endif
         </label>
+        @if($saldoInicialEditable ?? true)
         <x-ds.money-input
             id="saldo_inicial"
             name="saldo_inicial"
@@ -64,6 +65,16 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             required
         />
         @error('saldo_inicial') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        @else
+        <div class="money-input-wrap">
+            <span class="money-prefix" aria-hidden="true">$</span>
+            <input type="text" id="saldo_inicial" readonly
+                   value="{{ number_format((float) $tipoCaja->saldo_inicial, 2, ',', '.') }}"
+                   aria-describedby="saldo-inicial-ayuda"
+                   class="w-full py-2.5 text-sm wings-input money-input">
+        </div>
+        <p id="saldo-inicial-ayuda" class="text-xs mt-1 text-wings-muted">Se ajusta con un movimiento, no editando el saldo inicial.</p>
+        @endif
     </div>
 
     {{-- Permite descubierto --}}

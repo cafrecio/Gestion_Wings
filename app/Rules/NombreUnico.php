@@ -11,10 +11,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
  * variaciones entre sí) en NivelWebController, TipoCajaWebController y
  * Store/UpdateSubrubroRequest.
  *
- * La columna 'nombre' ya usa collation utf8mb4_unicode_ci en MySQL, que es
- * case-insensitive de por sí ('patin' = 'PATIN' es true) pero NO ignora
- * acentos ('patin' = 'patín' es false). Por eso hace falta este paso extra
- * de normalización, no alcanza con un unique de Laravel a secas.
+ * En MariaDB la colación utf8mb4_unicode_ci de 'nombre' aporta también
+ * la equivalencia de acentos. SQLite no reproduce esa colación: los tests
+ * de acentos requieren MariaDB (B2). Se conserva la normalización de entrada.
  */
 class NombreUnico implements ValidationRule
 {
@@ -40,7 +39,7 @@ class NombreUnico implements ValidationRule
     public static function existe(string $modelClass, string $nombre, ?int $ignoreId = null): bool
     {
         $query = $modelClass::whereRaw(
-            'LOWER(CONVERT(nombre USING utf8mb4)) = ?',
+            'LOWER(nombre) = ?',
             [self::normalizar($nombre)]
         );
 
