@@ -133,12 +133,40 @@ Dos **operativos** y cuatro **profesores**, uno por cada profesor cargado.
 | Patín | 40 | Mujeres |
 | Fútbol | 20 | Varones |
 
-**Todas las fechas de alta son anteriores a julio de 2026.** Precisado por Carlos el
-06/09; antes decía solo "anteriores a hoy", que era demasiado flojo.
+**Todas las fechas de alta son anteriores a julio de 2026, y tiene que haber alumnos
+desde 2025.** Precisado por Carlos el 06/09; antes decía solo "anteriores a hoy", que
+era demasiado flojo.
 
 Es una carga inicial: el club ya venía funcionando. Con fechas de julio o de agosto
 quedarían alumnos que parecen recién llegados, y la prueba dejaría de representar lo
 que va a pasar de verdad el día que se cargue el club real.
+
+### Por qué la antigüedad tiene que estar repartida
+
+**No es un detalle de ambientación: es lo que hace probable la etapa 2.** El script
+que va a leer el Excel existe para una cosa concreta — **que Vanina nos pase el
+estado de deuda REAL del club**. Si los 60 alumnos entran todos con la misma
+antigüedad, ese script se prueba contra un caso único y el día que llegue la planilla
+de verdad se va a encontrar con algo que nunca vio.
+
+Un alumno de 2025 puede arrastrar más de un año de meses impagos. Uno de mayo de 2026
+puede deber uno o dos. Y muchos no deben nada. Esas tres situaciones tienen que estar
+en la base **antes** de escribir el script.
+
+**Reparto propuesto** — el total y los tramos son propuesta mía; lo que fijó Carlos es
+que haya alumnos desde 2025 y ninguno de julio en adelante:
+
+| Fecha de alta | Cuántos | Para qué sirve |
+|---|---:|---|
+| Durante 2025, en meses distintos | 12 | Los que pueden arrastrar deuda vieja de muchos períodos |
+| Enero a marzo de 2026 | 18 | Antigüedad media |
+| Abril a junio de 2026 | 30 | Los más recientes, pero igual anteriores a julio |
+
+**Ninguno con alta en julio, agosto ni septiembre de 2026.**
+
+De los **diez que se cargan a mano**, al menos **dos tienen que ser de 2025**. Si los
+diez manuales son todos recientes, el caso más viejo nunca se prueba a mano y queda
+solo en manos del seeder.
 
 Ojo con lo que esto deja al descubierto, y es a propósito: como ninguno tiene pagos
 registrados en Wings, **el sistema los va a tratar a todos como alumnos nuevos** y les
@@ -258,9 +286,39 @@ Esto no ejecuta ni cierra la prueba de primera carga completa.
 
 Un script que toma un Excel del cliente y carga la deuda que cada alumno arrastra.
 
-Pendiente de definir el formato. Ya se conversó que el Excel debe traer **el monto de
-cada mes**, no calcularlo del plan actual: si el precio subió, derivarlo cobraría de
-más por meses viejos.
+## Esto no es un ejercicio: es la herramienta con la que entra la deuda real
+
+**Precisado por Carlos el 06/09.** Este script es el que va a usar **Vanina para
+pasarnos el estado de deuda REAL del club.** No es un paso de la prueba: es una
+herramienta de la entrega, y lo que se cargue con él va a ser la plata que el club
+efectivamente reclama.
+
+Dos consecuencias directas:
+
+1. **Se prueba contra los 60 alumnos con antigüedad repartida** de la etapa 1, no
+   contra un caso cómodo. Alumnos de 2025 con más de un año de meses impagos, alumnos
+   de mayo de 2026 con uno o dos, y alumnos sin deuda.
+2. **Un error acá no es un error de prueba: es cobrarle de más o de menos a una
+   persona.** Todo lo que el script no entienda tiene que frenar y avisar, nunca
+   adivinar.
+
+## Lo que ya está decidido del formato
+
+**El Excel trae el monto de cada mes.** No se deriva del plan actual: si el precio
+subió, derivarlo cobraría de más por meses viejos. Decidido antes del 06/09.
+
+El período se guarda en `deuda_cuotas.periodo`, que es **`varchar(7)` con formato
+`YYYY-MM`** (verificado contra la base). El Excel tiene que poder expresar meses desde
+2025 en adelante, y el script tiene que rechazar cualquier período que no tenga esa
+forma en lugar de interpretarlo.
+
+## Lo que falta definir
+
+- Las columnas exactas de la planilla, y cómo identifica a cada alumno. **El DNI solo
+  no alcanza**: una misma persona puede estar en dos deportes con el mismo DNI, y son
+  dos alumnos distintos con dos deudas distintas.
+- Qué hace el script con una fila que no matchea con ningún alumno.
+- Si se puede correr dos veces sin duplicar deuda.
 
 ---
 
