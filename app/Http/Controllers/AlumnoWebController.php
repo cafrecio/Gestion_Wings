@@ -287,7 +287,22 @@ class AlumnoWebController extends Controller
             'celular' => 'required|string|max:255',
             'email' => 'nullable|email|max:255',
             'deporte_id' => 'required|exists:deportes,id',
-            'grupo_id' => 'required|exists:grupos,id',
+            // El grupo tiene que ser del deporte elegido. Sin la condicion, el
+            // formulario aceptaba un alumno de Patin en un grupo de Futbol: paso de
+            // verdad el 06/09/2026 y quedo el alumno 17 en la base con deporte Patin
+            // y grupo 8, que es de Futbol.
+            //
+            // No es un detalle de prolijidad. El deporte manda en asistencias,
+            // liquidaciones y cobranza, y el grupo manda en las clases: un alumno asi
+            // aparece en las listas de un deporte al que no pertenece, y su cuota se
+            // cuenta donde no va.
+            //
+            // El plan ya estaba atado al grupo (mas arriba, en store y en update). El
+            // grupo era el eslabon que habia quedado suelto.
+            'grupo_id' => [
+                'required',
+                Rule::exists('grupos', 'id')->where('deporte_id', $request->input('deporte_id')),
+            ],
             'nombre_tutor' => $esMenor ? 'required|string|max:255' : 'nullable|string|max:255',
             'telefono_tutor' => $esMenor ? 'required|string|max:255' : 'nullable|string|max:255',
         ];
@@ -308,7 +323,7 @@ class AlumnoWebController extends Controller
             'deporte_id.required' => 'Debe seleccionar un deporte.',
             'deporte_id.exists' => 'El deporte seleccionado no existe.',
             'grupo_id.required' => 'Debe seleccionar un grupo.',
-            'grupo_id.exists' => 'El grupo seleccionado no existe.',
+            'grupo_id.exists' => 'El grupo seleccionado no pertenece al deporte elegido.',
             'nombre_tutor.required' => 'El nombre del tutor es obligatorio para menores de edad.',
             'telefono_tutor.required' => 'El teléfono del tutor es obligatorio para menores de edad.',
             'email.email' => 'El email debe ser una dirección válida.',

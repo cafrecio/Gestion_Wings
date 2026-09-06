@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **104 pruebas, 623 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| **Tests** | **107 pruebas, 631 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
 | Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
