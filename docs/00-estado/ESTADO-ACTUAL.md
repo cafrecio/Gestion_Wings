@@ -107,7 +107,7 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 
 | # | Pendiente | Estado verificado |
 |---|---|---|
-| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 26 bloques `<script>` en 24 vistas y **34** manejadores `on...=` (eran 40; los 6 de filtros se cerraron el 06/09). Protegido por `CspSinCodigoIncrustadoTest`, que no deja que el numero crezca |
+| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 26 bloques `<script>` en 24 vistas y **24** manejadores `on...=` (eran 40; el 06/09 se cerraron los 6 de filtros y los 10 de efectos de mouse). Protegido por `CspSinCodigoIncrustadoTest`, que no deja que el numero crezca |
 | **C2** | Sacar `dump.sql` por las dos puertas | Cerrado 05/09: retirado de Git, ignorado y exportacion de DemoSeeder eliminada. Corrida completa del seeder en MariaDB descartable sin recrear el archivo; sesiones y tokens locales invalidados. El historial anterior no se purgo |
 
 ### D · Entregar

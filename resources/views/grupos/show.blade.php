@@ -89,8 +89,7 @@
                     <li>
                         <a href="{{ route('web.alumnos.show', $alumno->id) }}"
                            style="font-size: 0.82rem; color: var(--color-text); text-decoration: none; display: block; padding: 0.3rem 0.4rem; border-radius: var(--radius-sm);"
-                           onmouseover="this.style.background='var(--color-surface-alt)'"
-                           onmouseout="this.style.background=''">
+                           data-hover-fondo="var(--color-surface-alt)">
                             {{ $alumno->apellido }}, {{ $alumno->nombre }}
                         </a>
                     </li>
@@ -143,8 +142,7 @@
                                             color: var(--color-danger);
                                             background: none; border: none; cursor: pointer;
                                             padding: 0.2rem 0.4rem; border-radius: var(--radius-sm);
-                                        " onmouseover="this.style.background='color-mix(in srgb, var(--color-danger) 10%, transparent)'"
-                                           onmouseout="this.style.background='none'">
+                                        " data-hover-fondo="color-mix(in srgb, var(--color-danger) 10%, transparent)">
                                             Eliminar
                                         </button>
                                     </form>

@@ -195,3 +195,53 @@
         }
     });
 })();
+
+/* ── efectos al pasar el mouse ─────────────────────────────────────────
+   Reemplazan a onmouseenter/onmouseleave/onmouseover/onmouseout escritos
+   dentro del HTML. La política de seguridad declara script-src 'self': el
+   navegador rechaza el código incrustado en la página.
+
+   El efecto es exactamente el mismo de antes. No se tocó ninguna hoja de
+   estilos: se siguen escribiendo los mismos estilos en línea, solo que
+   desde acá.
+
+   Dos comportamientos:
+
+     data-elevar          la tarjeta se levanta y toma sombra
+     data-hover-fondo="…" el elemento toma ese fondo mientras está el mouse
+
+   Al salir se restaura el valor que el elemento tenía, capturado en el
+   momento de entrar. Así da igual si venía vacío o con "none".
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    function init() {
+        document.querySelectorAll('[data-elevar]').forEach(function (elemento) {
+            elemento.addEventListener('mouseenter', function () {
+                elemento.style.transform = 'translateY(-2px)';
+                elemento.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+            });
+            elemento.addEventListener('mouseleave', function () {
+                elemento.style.transform = '';
+                elemento.style.boxShadow = '';
+            });
+        });
+
+        document.querySelectorAll('[data-hover-fondo]').forEach(function (elemento) {
+            var original = null;
+
+            elemento.addEventListener('mouseenter', function () {
+                original = elemento.style.background;
+                elemento.style.background = elemento.getAttribute('data-hover-fondo');
+            });
+            elemento.addEventListener('mouseleave', function () {
+                elemento.style.background = original === null ? '' : original;
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

@@ -33,11 +33,17 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * `onchange="this.form.submit()"` de los filtros por `data-enviar-al-cambiar`,
      * que resuelve `ds-app.js` para todo el sistema.
      *
-     * Los 10 `onsubmit="return confirm(...)"` que quedan protegen eliminaciones, y
-     * no se tocan hasta poder comprobarlos con un clic: si se mueven a JavaScript y
-     * el archivo no carga, el borrado se ejecutaria sin preguntar.
+     * Bajaron a 24 al mover los diez efectos de mouse (dashboard y grupos/show) a
+     * `data-elevar` y `data-hover-fondo`, tambien en `ds-app.js`. Si esos fallaran,
+     * el peor caso es que una tarjeta no se levante al pasar el mouse.
+     *
+     * De los 24 que quedan, 10 son `onsubmit="return confirm(...)"` que protegen
+     * eliminaciones, y no se tocan hasta poder comprobarlos con un clic: si se mueven
+     * a JavaScript y el archivo no carga, el borrado se ejecutaria sin preguntar. Los
+     * otros 14 son `onclick` propios de cada pantalla, atados al bloque <script> de
+     * su vista: se resuelven junto con ese bloque, no por separado.
      */
-    private const MANEJADORES_PERMITIDOS = 34;
+    private const MANEJADORES_PERMITIDOS = 24;
 
     public function test_no_crece_la_cantidad_de_bloques_de_codigo_incrustado(): void
     {

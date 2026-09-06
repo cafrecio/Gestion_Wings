@@ -38,8 +38,7 @@
         <a href="{{ route('web.alumnos.index') }}" class="filtros-card" style="
             text-decoration: none; display: block;
             transition: box-shadow 0.15s, transform 0.15s;
-        " onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'"
-           onmouseleave="this.style.transform=''; this.style.boxShadow=''">
+        " data-elevar>
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-btn-primary) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg class="w-5 h-5" style="color: var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,8 +55,7 @@
         <a href="{{ route('web.grupos.index') }}" class="filtros-card" style="
             text-decoration: none; display: block;
             transition: box-shadow 0.15s, transform 0.15s;
-        " onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'"
-           onmouseleave="this.style.transform=''; this.style.boxShadow=''">
+        " data-elevar>
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-success) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg class="w-5 h-5" style="color: var(--color-success);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,8 +72,7 @@
         <a href="{{ route('web.rubros.index') }}" class="filtros-card" style="
             text-decoration: none; display: block;
             transition: box-shadow 0.15s, transform 0.15s;
-        " onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'"
-           onmouseleave="this.style.transform=''; this.style.boxShadow=''">
+        " data-elevar>
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-warning) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <svg class="w-5 h-5" style="color: var(--color-warning);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
