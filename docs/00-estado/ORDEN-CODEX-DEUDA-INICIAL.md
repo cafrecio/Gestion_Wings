@@ -52,31 +52,15 @@ cascada por una sola causa y el informe queda inservible.
 
 ---
 
-## Paso 0 · Los catálogos que faltan — BLOQUEANTE, va primero
-
-**Hallazgo verificado el 06/09 por Claude CAB.** `wings_test` tiene **2 rubros y 2
-tipos de caja**. `CatalogosSeeder` define **8 rubros y 5 tipos de caja**.
-
-| Qué | Definido | En la base | Faltan |
-|---|---:|---:|---|
-| Rubros | 8 | 2 | Intereses, Servicios, Gastos Operativos, Alquileres, Torneos, Indumentaria |
-| Tipos de caja | 5 | 2 | Banco Nación, Banco Nación ahorro, Banco Galicia |
-
-**Por qué bloquea:** el único subrubro que afecta caja es `Cuota Mensual`. Hoy **no
-se puede registrar un solo gasto en la caja operativa**, así que el flujo
-caja → cierre → validación → cashflow no se puede terminar.
-
-**Hay una contradicción documental que hay que resolver antes**, no después:
-`PRUEBA-HUMANA-V1.md:44` dice "Rubros: 8, con 15 subrubros… es el mismo punto de
-partida que va a tener el cliente el día uno". `PRIMERA-CARGA-V1.md:21` dice que la
-base queda a propósito solo con Cuotas y Sueldos. **Los dos no pueden ser ciertos.**
-
-*Qué hacer:* correr `php artisan db:seed --class=CatalogosSeeder` (es idempotente,
-`updateOrCreate` contra el nombre) y **verificar que no tocó** los subrubros de
-sueldo de los profesores ni los `Op-` de los operativos. Después corregir el
-documento que quedó mintiendo y decir cuál en el informe.
-
-*Aceptación:* 8 rubros, 5 tipos de caja, y los 6 subrubros de sueldo intactos.
+> **Retirado el 06/09.** Esta orden tenía un Paso 0 que mandaba correr
+> `CatalogosSeeder` para completar los catálogos. **No va: ningún seeder.** Los
+> catálogos que falten se cargan por pantalla, como todo el resto de esta prueba.
+> Lo puso Claude CAB sin consultarlo y contradecía la regla de que la prueba es
+> humana. Codex frenó antes de ejecutarlo y tenía razón.
+>
+> Aparte, ese seeder hoy **está roto**: desprotegería `Cuotas` y `Sueldos`, que
+> quedaron marcados como reservados en `b2868ea`. Es un defecto separado, para
+> cuando se instale una base nueva; no es asunto de esta prueba.
 
 ---
 
@@ -217,8 +201,11 @@ Con el **OPERATIVO** cerrar la caja del día. Con el **ADMIN** validarla.
 
 *Aceptación:* la caja validada se refleja en cashflow
 (`CashflowIntegracionCajaService`). El total del cashflow coincide con lo cobrado.
-**Este paso necesita el Paso 0 hecho**: sin subrubros que afecten caja no se pueden
-registrar los gastos que hacen realista el cierre.
+
+**Advertencia:** hoy el único subrubro que afecta la caja es `Cuota Mensual`, así que
+una caja solo puede tener cuotas y cierra siempre redonda. Los catálogos que faltan
+se cargan **por pantalla**, en una tarea aparte que Carlos todavía no definió. Hasta
+entonces este paso prueba el reflejo en cashflow, no un cierre realista.
 
 ---
 
@@ -231,15 +218,11 @@ Un `RESULTADO-DEUDA-INICIAL-V1.md` en `docs/06-pruebas/` con:
 3. Para cada falla: qué se esperaba, qué pasó, si fue validación o pantalla de
    error, y **si quedó algo escrito en la base pese al error** — es la falla más
    grave y la más fácil de pasar por alto.
-4. La contradicción del Paso 0, resuelta, diciendo qué documento se corrigió.
-
 Y la entrada en `LOG-CODEX.md`, firmada.
 
 ---
 
 ## Por qué este orden
-
-0 va primero porque es **bloqueante**: sin catálogos no hay caja, y el Paso 9 se cae.
 
 1→4 son el importador solo, sin nada más en juego. Si algo falla ahí, falla con la
 base en un estado conocido y se puede repetir. Meter cobros antes de probar la
