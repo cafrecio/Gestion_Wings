@@ -8,6 +8,8 @@ use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Nivel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class GrupoWebController extends Controller
@@ -41,7 +43,7 @@ class GrupoWebController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'deporte_id'                     => 'required|exists:deportes,id',
             'nivel_id'                       => [
                 'required',
@@ -50,10 +52,13 @@ class GrupoWebController extends Controller
                     $q->where('deporte_id', $request->input('deporte_id'))
                 ),
             ],
-            'planes'                         => 'nullable|array',
+            'planes'                         => 'required|array|min:1',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
             'planes.*.precio_mensual'        => 'required|numeric|gt:0',
         ], [
+            'planes.required'                       => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
+            'planes.array'                          => 'Las frecuencias deben enviarse como una lista.',
+            'planes.min'                            => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
             'deporte_id.required'                    => 'Debe seleccionar un deporte.',
             'deporte_id.exists'                      => 'El deporte seleccionado no existe.',
             'nivel_id.required'                      => 'Debe seleccionar un nivel.',
@@ -65,20 +70,28 @@ class GrupoWebController extends Controller
             'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',
         ]);
 
-        $grupo = Grupo::create([
-            'deporte_id' => $validated['deporte_id'],
-            'nivel_id'   => $validated['nivel_id'],
-            'activo'     => true,
-        ]);
-
-        foreach ($validated['planes'] ?? [] as $planData) {
-            GrupoPlan::create([
-                'grupo_id'          => $grupo->id,
-                'clases_por_semana' => $planData['clases_por_semana'],
-                'precio_mensual'    => $planData['precio_mensual'],
-                'activo'            => true,
-            ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput()
+                ->with('error', $validator->errors()->first());
         }
+        $validated = $validator->validated();
+
+        DB::transaction(function () use ($validated) {
+            $grupo = Grupo::create([
+                'deporte_id' => $validated['deporte_id'],
+                'nivel_id'   => $validated['nivel_id'],
+                'activo'     => true,
+            ]);
+
+            foreach ($validated['planes'] as $planData) {
+                GrupoPlan::create([
+                    'grupo_id'          => $grupo->id,
+                    'clases_por_semana' => $planData['clases_por_semana'],
+                    'precio_mensual'    => $planData['precio_mensual'],
+                    'activo'            => true,
+                ]);
+            }
+        });
 
         return redirect()->route('web.grupos.index')
             ->with('success', 'Grupo creado correctamente.');
@@ -113,61 +126,80 @@ class GrupoWebController extends Controller
     {
         $grupo = Grupo::findOrFail($id);
 
-        $validated = $request->validate([
-            'planes'                         => 'nullable|array',
-            'planes.*.id'                    => 'nullable|integer',
+        $validator = Validator::make($request->all(), [
+            'planes'                         => 'required|array|min:1',
+            'planes.*.id'                    => ['nullable', 'integer', Rule::exists('grupo_planes', 'id')->where('grupo_id', $id)],
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
             'planes.*.precio_mensual'        => 'required|numeric|gt:0',
         ], [
+            'planes.required'                       => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
+            'planes.array'                          => 'Las frecuencias deben enviarse como una lista.',
+            'planes.min'                            => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
+            'planes.*.id.exists'                     => 'La frecuencia seleccionada ya no pertenece a este grupo. Volvé a cargar el formulario.',
             'planes.*.clases_por_semana.required'    => 'Indicá la frecuencia.',
             'planes.*.precio_mensual.required'       => 'Ingresá el precio.',
             'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',
             'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',
         ]);
 
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput()
+                ->with('error', $validator->errors()->first());
+        }
+        $validated = $validator->validated();
+
         // nivel_id no cambia en edición
 
-        $planes = collect($validated['planes'] ?? []);
-        $idsSubmitted = $planes->pluck('id')->filter()->map(fn($v) => (int) $v)->all();
+        return DB::transaction(function () use ($validated, $id) {
+            // Serializar edición y eliminación sobre el mismo grupo.
+            Grupo::whereKey($id)->lockForUpdate()->firstOrFail();
+            $planes = collect($validated['planes']);
+            $idsSubmitted = $planes->pluck('id')->filter()->map(fn($v) => (int) $v)->all();
 
-        // Eliminar planes removidos (solo si no tienen alumnos activos)
-        GrupoPlan::where('grupo_id', $id)
-            ->when(!empty($idsSubmitted), fn($q) => $q->whereNotIn('id', $idsSubmitted))
-            ->whereNotExists(function ($query) {
-                $query->selectRaw('1')
-                    ->from('alumno_planes')
-                    ->whereColumn('alumno_planes.plan_id', 'grupo_planes.id')
-                    ->where('alumno_planes.activo', true);
-            })
-            ->delete();
+            // Una frecuencia pudo eliminarse mientras se esperaba el bloqueo.
+            if (GrupoPlan::where('grupo_id', $id)->whereIn('id', $idsSubmitted)->count() !== count(array_unique($idsSubmitted))) {
+                return back()->withInput()->with('error', 'Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.');
+            }
 
-        foreach ($planes as $planData) {
-            $planId = !empty($planData['id']) ? (int) $planData['id'] : null;
+            // Eliminar planes removidos (solo si no tienen alumnos activos)
+            GrupoPlan::where('grupo_id', $id)
+                ->when(!empty($idsSubmitted), fn($q) => $q->whereNotIn('id', $idsSubmitted))
+                ->whereNotExists(function ($query) {
+                    $query->selectRaw('1')
+                        ->from('alumno_planes')
+                        ->whereColumn('alumno_planes.plan_id', 'grupo_planes.id')
+                        ->where('alumno_planes.activo', true);
+                })
+                ->delete();
 
-            if ($planId) {
-                GrupoPlan::where('id', $planId)->where('grupo_id', $id)->update([
-                    'clases_por_semana' => $planData['clases_por_semana'],
-                    'precio_mensual'    => $planData['precio_mensual'],
-                ]);
-            } else {
-                // Evitar duplicar frecuencia
-                $existe = GrupoPlan::where('grupo_id', $id)
-                    ->where('clases_por_semana', $planData['clases_por_semana'])
-                    ->exists();
+            foreach ($planes as $planData) {
+                $planId = !empty($planData['id']) ? (int) $planData['id'] : null;
 
-                if (! $existe) {
-                    GrupoPlan::create([
-                        'grupo_id'          => $id,
+                if ($planId) {
+                    GrupoPlan::where('id', $planId)->where('grupo_id', $id)->update([
                         'clases_por_semana' => $planData['clases_por_semana'],
                         'precio_mensual'    => $planData['precio_mensual'],
-                        'activo'            => true,
                     ]);
+                } else {
+                    // Evitar duplicar frecuencia
+                    $existe = GrupoPlan::where('grupo_id', $id)
+                        ->where('clases_por_semana', $planData['clases_por_semana'])
+                        ->exists();
+
+                    if (! $existe) {
+                        GrupoPlan::create([
+                            'grupo_id'          => $id,
+                            'clases_por_semana' => $planData['clases_por_semana'],
+                            'precio_mensual'    => $planData['precio_mensual'],
+                            'activo'            => true,
+                        ]);
+                    }
                 }
             }
-        }
 
-        return redirect()->route('web.grupos.index')
-            ->with('success', 'Grupo actualizado correctamente.');
+            return redirect()->route('web.grupos.index')
+                ->with('success', 'Grupo actualizado correctamente.');
+        });
     }
 
     public function checkDisponible(Request $request)
@@ -240,15 +272,24 @@ class GrupoWebController extends Controller
     {
         $plan = GrupoPlan::findOrFail($planId);
 
-        $enUso = AlumnoPlan::where('plan_id', $planId)->where('activo', true)->exists();
+        return DB::transaction(function () use ($plan, $planId) {
+            $grupo = Grupo::whereKey($plan->grupo_id)->lockForUpdate()->firstOrFail();
+            $plan = GrupoPlan::findOrFail($planId);
 
-        if ($enUso) {
-            return back()->with('error', 'No se puede eliminar: hay alumnos con este plan activo.');
-        }
+            if ($grupo->planes()->count() <= 1) {
+                return back()->with('error', 'No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.');
+            }
 
-        $grupoId = $plan->grupo_id;
-        $plan->delete();
+            $enUso = AlumnoPlan::where('plan_id', $planId)->where('activo', true)->exists();
 
-        return redirect()->route('web.grupos.show', $grupoId)->with('success', 'Plan eliminado.');
+            if ($enUso) {
+                return back()->with('error', 'No se puede eliminar: hay alumnos con este plan activo.');
+            }
+
+            $grupoId = $plan->grupo_id;
+            $plan->delete();
+
+            return redirect()->route('web.grupos.show', $grupoId)->with('success', 'Plan eliminado.');
+        });
     }
 }
