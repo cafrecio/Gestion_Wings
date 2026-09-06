@@ -18,7 +18,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Año</label>
-            <select name="anio" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="anio" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 @foreach($aniosDisponibles as $a)
                     <option value="{{ $a }}" {{ $anio == $a ? 'selected' : '' }}>{{ $a }}</option>
                 @endforeach
@@ -27,7 +27,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Mes</label>
-            <select name="mes" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="mes" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="">Todos</option>
                 @foreach($mesesNombres as $num => $nombre)
                     @if($num > 0)
@@ -39,7 +39,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Tipo de caja</label>
-            <select name="tipo_caja_id" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="tipo_caja_id" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="">Todos</option>
                 @foreach($tiposCaja as $tc)
                     <option value="{{ $tc->id }}" {{ $tipoCajaId == $tc->id ? 'selected' : '' }}>{{ $tc->nombre }}</option>
@@ -49,7 +49,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Tipo</label>
-            <select name="tipo" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="tipo" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="">Todos</option>
                 <option value="INGRESO" {{ $tipo === 'INGRESO' ? 'selected' : '' }}>Ingresos</option>
                 <option value="EGRESO"  {{ $tipo === 'EGRESO'  ? 'selected' : '' }}>Egresos</option>

@@ -35,7 +35,7 @@
     <div style="display:grid; grid-template-columns: 1fr 1fr auto; gap:12px; align-items:end;">
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Estado</label>
-            <select name="estado" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="estado" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="PENDIENTE" {{ $estadoFiltro === 'PENDIENTE' ? 'selected' : '' }}>Pendientes</option>
                 <option value="RESUELTO"  {{ $estadoFiltro === 'RESUELTO'  ? 'selected' : '' }}>Resueltos</option>
                 <option value=""          {{ $estadoFiltro === '' || $estadoFiltro === null ? 'selected' : '' }}>Todos</option>
@@ -43,7 +43,7 @@
         </div>
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Período</label>
-            <select name="periodo" class="w-full px-3 py-2 text-sm wings-input" onchange="this.form.submit()">
+            <select name="periodo" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="">Todos</option>
                 @foreach($periodos as $p)
                     <option value="{{ $p }}" {{ $periodoFiltro === $p ? 'selected' : '' }}>{{ $p }}</option>

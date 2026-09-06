@@ -131,7 +131,7 @@ php artisan test
 
 Estado verificado (2026-09-06):
 
-- La suite completa pasa sobre MariaDB: 98 tests, 617 aserciones.
+- La suite completa pasa sobre MariaDB: 100 tests, 619 aserciones.
 - El esquema de prueba se prepara desde migraciones; no requiere un dump.
 
 ## Pruebas funcionales y seeders

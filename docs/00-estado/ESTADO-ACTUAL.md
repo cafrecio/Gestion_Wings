@@ -70,7 +70,7 @@ Plan vigente: `docs/00-estado/PLAN-PRODUCCION.md`.
 | Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
 | Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
 | Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **98 pruebas, 617 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
+| **Tests** | **100 pruebas, 619 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
 | Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
 | Dependencias | **0 avisos de seguridad** (eran 44) | `composer audit` |
 | Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
@@ -107,7 +107,7 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 
 | # | Pendiente | Estado verificado |
 |---|---|---|
-| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 24 vistas con `<script>` y 40 manejadores `on...=` inline; no se puede activar el bloqueo asi |
+| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 26 bloques `<script>` en 24 vistas y **34** manejadores `on...=` (eran 40; los 6 de filtros se cerraron el 06/09). Protegido por `CspSinCodigoIncrustadoTest`, que no deja que el numero crezca |
 | **C2** | Sacar `dump.sql` por las dos puertas | Cerrado 05/09: retirado de Git, ignorado y exportacion de DemoSeeder eliminada. Corrida completa del seeder en MariaDB descartable sin recrear el archivo; sesiones y tokens locales invalidados. El historial anterior no se purgo |
 
 ### D · Entregar

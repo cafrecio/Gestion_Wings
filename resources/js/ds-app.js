@@ -166,3 +166,32 @@
         init();
     }
 })();
+
+/* ── filtros que se envían solos al elegir una opción ──────────────────
+   Reemplaza a onchange="this.form.submit()", que estaba escrito dentro del
+   HTML de las vistas. La política de seguridad declara script-src 'self':
+   el navegador rechaza el código incrustado en la página, así que mientras
+   estos atributos existieran no se podía pasar de modo aviso a modo bloqueo.
+
+   Se usa poniendo data-enviar-al-cambiar en el <select>. El comportamiento
+   es exactamente el mismo que antes: al cambiar la opción, se envía el
+   formulario que lo contiene.
+
+   Está delegado en el documento a propósito, para que también funcione en
+   filtros que se agreguen a la página después de cargarla.
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    document.addEventListener('change', function (evento) {
+        var campo = evento.target;
+
+        if (!campo || !campo.matches || !campo.matches('[data-enviar-al-cambiar]')) {
+            return;
+        }
+
+        var formulario = campo.form || campo.closest('form');
+
+        if (formulario) {
+            formulario.submit();
+        }
+    });
+})();
