@@ -69,21 +69,22 @@ claves pero no las crea**, asi que la clave nueva tiene que nacer de una migraci
 
 **3. Falta el favicon.**
 
+**4. El ojo para ver la contraseña mientras se tipea.** En login, alta y edicion de
+usuario. Ojo con C1: la CSP no admite JavaScript incrustado en la vista, asi que el
+manejador va en un archivo `.js` aparte, no en un `onclick`.
+
 ---
 
-## Datos personales en el historial de Git — verificado el 07/09
+## Credenciales en el historial de Git — cerrado el 07/09
 
 Se probaron las seis credenciales del archivo contra **todo** el historial
-(`git log --all -S`): ninguna aparece. El archivo de credenciales nunca se commiteo y
-esta cubierto por `.gitignore`.
+(`git log --all -S`): **ninguna aparece**. El archivo nunca se commiteo y esta cubierto
+por `.gitignore`.
 
-**Pero `vaninaatto@hotmail.com` si esta en el historial**, en el viejo
-`database/dump.sql`: como email de contacto de dos alumnas cargadas en marzo, con
-nombre completo, DNI y telefono. Son ella y su hija. El dump se retiro del repositorio
-el 05/09, pero **sacar un archivo no lo borra de los commits anteriores**.
-
-Mientras el repositorio sea privado no hay exposicion. Si alguna vez se publica o se
-comparte, esos datos viajan con el historial. Purgarlos requiere reescribirlo.
+El viejo `database/dump.sql` si dejo en commits anteriores el mail, nombre, DNI y
+telefono de dos alumnas cargadas en marzo. **Carlos lo evaluo el 07/09 y decidio que no
+amerita accion**: una casilla de correo no es un dato reservado. Queda escrito para que
+no se vuelva a levantar como hallazgo nuevo.
 
 ---
 

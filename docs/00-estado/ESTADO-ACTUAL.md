@@ -159,19 +159,18 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | **G1** | **Rediseñar el recibo entero**, con los colores del club y el logo | **Falta definir los dos**: no hay logo en el repositorio ni una paleta del club escrita. Toca `ReciboService` y su plantilla |
 | **G2** | **Costo de inscripcion del alumno nuevo**, hoy $5.000, dentro de la regla de alumno nuevo y **configurable desde la pantalla** | La pantalla de configuracion **edita claves pero no las crea**: la clave nueva tiene que nacer de una migracion. Y `Configuracion::set()` sobre una fila inexistente **no hace nada y no avisa** |
 | **G3** | **Falta el favicon** | — |
+| **G4** | **El ojo para ver la contraseña mientras se tipea** | Va en login, alta y edicion de usuario. Ojo con C1: la CSP no admite JavaScript incrustado en la vista, asi que el manejador va en un archivo `.js` aparte |
 
-### H · Datos personales en el historial de Git — verificado 07/09
+### H · Credenciales en el historial de Git — cerrado el 07/09
 
-Se probaron las seis credenciales del archivo contra **todo** el historial: ninguna
-aparece, y el archivo nunca se commiteo.
+Se probaron las seis credenciales del archivo contra **todo** el historial
+(`git log --all -S`): **ninguna aparece**, y el archivo nunca se commiteo. Esta cubierto
+por `.gitignore`.
 
-**Pero `vaninaatto@hotmail.com` si esta**, en el viejo `database/dump.sql`: como email
-de contacto de dos alumnas cargadas en marzo, con nombre completo, DNI y telefono — son
-ella y su hija. El dump se retiro del repositorio el 05/09, pero **sacar un archivo no
-lo borra de los commits anteriores**.
-
-Sin exposicion mientras el repositorio sea privado. Si alguna vez se publica o se
-comparte, esos datos viajan con el historial. Purgarlos requiere reescribirlo.
+El viejo `database/dump.sql` si dejo en commits anteriores el mail, nombre, DNI y
+telefono de dos alumnas cargadas en marzo. **Carlos lo evaluo el 07/09 y decidio que no
+amerita accion**: una casilla de correo no es un dato reservado. Queda escrito para que
+no se vuelva a levantar como hallazgo nuevo.
 
 ### F · Punitorios por mora — contrato escrito el 06/09, sin implementar
 
