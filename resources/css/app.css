@@ -691,6 +691,21 @@ a:hover {
 
 /* ── Navegación sidebar ──────────────────────────────────────────────────── */
 
+/* Titulo de grupo del menu. Con diecisiete items una linea divisoria muda no
+   alcanza: hay que decir que junta cada bloque. */
+.ds-nav-group {
+    padding: 16px 12px 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.38);
+}
+
+.ds-nav-group:first-child {
+    padding-top: 0;
+}
+
 .ds-nav-link {
     display: flex;
     align-items: center;
