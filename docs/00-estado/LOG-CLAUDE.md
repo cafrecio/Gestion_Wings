@@ -17,6 +17,76 @@
 
 ---
 
+## 2026-09-07 — Claude CAB — Entrega preparada, menu agrupado y tres pendientes nuevos
+
+Servidor en **`9fdd03d`**. La base quedo en el estado de entrega definido con Carlos, y
+Vanina ya tiene su cuenta.
+
+### La base del servidor, lista para que la cargue el cliente
+
+Se borraron 6 rubros, 14 subrubros, 5 tipos de caja, 2 deportes, 3 niveles y las 7
+sesiones abiertas. Respaldo previo al Drive antes de tocar. Queda solo lo que el codigo
+busca por nombre o no se puede crear desde una pantalla:
+
+| Que | Por que queda |
+|---|---|
+| Rubro `Cuotas` con `Cuota Mensual` | `PagoCuotaService` lo busca por nombre y explota si falta |
+| Rubro `Sueldos` **vacio** | Sus subrubros los crea el alta de cada profesor y operativo |
+| Las 2 configuraciones con valor | La pantalla edita claves, **no las crea** |
+| Las 3 reglas de primer pago | 1-15 al 100%, 16-23 al 70%, 24-31 al 40%. Editables |
+
+Deportes, niveles, grupos, tipos de caja y el resto de los rubros **los carga el
+usuario**: esa carga es, ella misma, la prueba de esas pantallas.
+
+### Las dos cuentas
+
+`carlos.a.bonifacio@gmail.com` es **superadmin protegido**: no aparece en el listado de
+usuarios para nadie mas y ninguna otra cuenta puede editarla. `vaninaatto@hotmail.com`
+es **ADMIN duenia**. Verificado por consulta, no por confianza: Vanina se ve solo a si
+misma; Carlos ve a las dos. Las claves se comprobaron contra el hash guardado.
+
+### El menu, agrupado por cuanto se toca cada cosa
+
+Eran 17 items casi planos con un separador mudo que mezclaba catalogos, plata y
+sistema. Quedaron cuatro grupos con titulo: **Dia a dia**, **Plata**, **El club** y
+**Sistema**. Revision bajo a Plata —era una tarea de fin de mes puesta como si fuera
+diaria—, Profesores bajo a El club, y Movimientos y Cashflow subieron junto a
+Liquidaciones. Verificado renderizando el sidebar con los tres roles.
+
+---
+
+## PENDIENTES NUEVOS — pedidos por Carlos el 07/09
+
+**1. El recibo hay que rediseñarlo entero.** Hoy es feo. Tiene que llevar **los colores
+del club y el logo**. Falta definir los dos: no hay logo en el repositorio ni una paleta
+del club escrita en ningun lado. Toca `ReciboService` y su plantilla.
+
+**2. Costo de inscripcion del alumno nuevo — $5.000 hoy.** Va **dentro de la regla de
+alumno nuevo**, y el valor se setea **desde la pantalla de Configuracion**, no escrito
+en el codigo. Ojo con dos cosas ya verificadas: la pantalla de configuracion **edita
+claves pero no las crea**, asi que la clave nueva tiene que nacer de una migracion; y
+`Configuracion::set()` sobre una fila que no existe **no hace nada y no avisa**.
+
+**3. Falta el favicon.**
+
+---
+
+## Datos personales en el historial de Git — verificado el 07/09
+
+Se probaron las seis credenciales del archivo contra **todo** el historial
+(`git log --all -S`): ninguna aparece. El archivo de credenciales nunca se commiteo y
+esta cubierto por `.gitignore`.
+
+**Pero `vaninaatto@hotmail.com` si esta en el historial**, en el viejo
+`database/dump.sql`: como email de contacto de dos alumnas cargadas en marzo, con
+nombre completo, DNI y telefono. Son ella y su hija. El dump se retiro del repositorio
+el 05/09, pero **sacar un archivo no lo borra de los commits anteriores**.
+
+Mientras el repositorio sea privado no hay exposicion. Si alguna vez se publica o se
+comparte, esos datos viajan con el historial. Purgarlos requiere reescribirlo.
+
+---
+
 ## 2026-09-07 — Claude CAB — Despliegue de 25 commits, y la trampa que me puse solo
 
 Servidor al dia: **`7abf327`**, 07/09 02:46. Respaldo previo tomado y subido al Drive

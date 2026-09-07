@@ -152,6 +152,27 @@ Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
 | **E3** | Deuda tecnica conocida |
 | **E4** | Eliminar `formas_pago`, que seguia en la base de CyE al 01/09 |
 
+### G · Pedidos de Carlos del 07/09
+
+| # | Pendiente | Lo que hay que saber antes |
+|---|---|---|
+| **G1** | **Rediseñar el recibo entero**, con los colores del club y el logo | **Falta definir los dos**: no hay logo en el repositorio ni una paleta del club escrita. Toca `ReciboService` y su plantilla |
+| **G2** | **Costo de inscripcion del alumno nuevo**, hoy $5.000, dentro de la regla de alumno nuevo y **configurable desde la pantalla** | La pantalla de configuracion **edita claves pero no las crea**: la clave nueva tiene que nacer de una migracion. Y `Configuracion::set()` sobre una fila inexistente **no hace nada y no avisa** |
+| **G3** | **Falta el favicon** | — |
+
+### H · Datos personales en el historial de Git — verificado 07/09
+
+Se probaron las seis credenciales del archivo contra **todo** el historial: ninguna
+aparece, y el archivo nunca se commiteo.
+
+**Pero `vaninaatto@hotmail.com` si esta**, en el viejo `database/dump.sql`: como email
+de contacto de dos alumnas cargadas en marzo, con nombre completo, DNI y telefono — son
+ella y su hija. El dump se retiro del repositorio el 05/09, pero **sacar un archivo no
+lo borra de los commits anteriores**.
+
+Sin exposicion mientras el repositorio sea privado. Si alguna vez se publica o se
+comparte, esos datos viajan con el historial. Purgarlos requiere reescribirlo.
+
 ### F · Punitorios por mora — contrato escrito el 06/09, sin implementar
 
 `docs/02-contratos/Wings-Contrato-Punitorios-Mora-V1.md`. Hasta el 06/09 estas
