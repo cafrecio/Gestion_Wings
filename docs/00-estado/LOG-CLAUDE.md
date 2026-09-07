@@ -17,6 +17,61 @@
 
 ---
 
+## 2026-09-07 — Claude CAB — Despliegue de 25 commits, y la trampa que me puse solo
+
+Servidor al dia: **`7abf327`**, 07/09 02:46. Respaldo previo tomado y subido al Drive
+(`wings_2026-09-07_0240.tgz.enc`). Preflight aprobado en los 12 controles, antes y
+despues. Verificado: `/login` 200, `/.env` 404, los 8 rubros con `Cuotas` y `Sueldos`
+marcados reservados, y las dos migraciones nuevas aplicadas.
+
+### El despliegue fallo dos veces por un archivo que cree yo
+
+`apply_permissions` hace `chmod` sobre **todos** los archivos de la aplicacion. Alcanza
+con que uno solo no pertenezca al usuario `wings` para que el paso falle, y el script
+tira abajo el despliegue entero.
+
+El archivo era `storage/logs/laravel.log`, **de root**, creado a las 02:41 — cuando
+corri `php82 artisan wings:preflight` **como root** por SSH. Laravel escribio su log con
+ese dueño y el despliegue, que corre como `wings`, no pudo tocarlo.
+
+**No correr artisan como root en el servidor.** Deja archivos de root en `storage/` que
+rompen el proximo despliegue. Si hace falta: `sudo -u wings php82 artisan ...`.
+
+### El rollback no revierte migraciones, y eso deja el servidor desfasado
+
+En el primer intento las migraciones **se aplicaron** —el paso dio OK— y despues el
+rollback devolvio el codigo a `798bfa3`. Quedo la base adelantada y el codigo atrasado:
+`migrations` en 74 con las columnas creadas, corriendo codigo que no las conoce.
+
+No rompio nada porque las dos son aditivas, pero **no siempre va a ser asi**. Una
+migracion que renombre o borre una columna deja el sitio caido tras un rollback.
+Verificar el estado de la base despues de cualquier rollback, no solo el del codigo.
+
+### Segunda trampa: el usuario `wings` no ve `composer`
+
+`/usr/local/bin` no esta en su PATH, asi que el script corta con "no se encontro
+composer". Se resuelve pasando `WINGS_COMPOSER_BIN=/usr/local/bin/composer`, que el
+script ya contempla. La clave de `wings_migrate` va por `WINGS_MIGRATE_PASSWORD`,
+extraida del archivo de credenciales sin pasar por el repositorio ni por pantalla.
+
+**Comando completo que funciona:**
+
+```bash
+sudo -u wings WINGS_COMPOSER_BIN=/usr/local/bin/composer \
+  WINGS_MIGRATE_PASSWORD='...' bash scripts/deploy.sh
+```
+
+### Estado de la base del servidor
+
+**Sin datos**: 0 alumnos, 0 deudas, 0 pagos, 0 clases. Solo catalogos —8 rubros, 15
+subrubros, 5 tipos de caja— y una cuenta de administrador. Por eso el respaldo bajo de
+63K a 12K: no es una perdida, es que no hay nada cargado.
+
+**Dato que corrige una suposicion:** los catalogos completos estan en el **servidor**.
+La que esta a medias es `wings_test`, con 2 rubros y 2 tipos de caja.
+
+---
+
 ## 2026-09-06 — Claude CAB — Deuda inicial: los dos Excel, generados y validados
 
 **Orden para Codex:** `ORDEN-CODEX-DEUDA-INICIAL.md`, nueve pasos con el porqué del

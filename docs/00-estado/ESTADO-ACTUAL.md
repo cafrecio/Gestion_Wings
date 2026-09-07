@@ -23,7 +23,7 @@ se refiere al **repositorio**, no a lo que esta publicado.
 
 | Que | Valor |
 |---|---|
-| Commit desplegado | **`798bfa3`** (06/09 11:07) |
+| Commit desplegado | **`7abf327`** (07/09 02:46) |
 | Repositorio | **al dia**: el servidor corre exactamente lo mismo que `main` |
 | PHP / Laravel | 8.2.33 / 12.68.0 |
 | Migraciones pendientes | 0 |
@@ -196,7 +196,7 @@ claves nuevas no terminen igual.
 
 | Que | Resultado |
 |---|---|
-| Ultimo despliegue | `798bfa3`, 06/09 14:09, en `storage/logs/despliegues.log` |
+| Ultimo despliegue | `7abf327`, 07/09 02:46, en `storage/logs/despliegues.log` |
 | Respaldos diarios | **Corriendo.** 8 archivos en `/var/backups/wings`, cron 03:15. Los del 05/09 y 06/09 estan en el Drive: la falla silenciosa de subida quedo cerrada |
 | Proceso mensual | **Registrado y activo**: `cobranza:generar-deudas`, `0 6 1 * *`, proxima corrida el 01/10. El `schedule:run` corre cada minuto |
 | Monitoreo | **No existe.** 0 servicios de monitoreo corriendo. Si el sitio se cae, nadie se entera |
