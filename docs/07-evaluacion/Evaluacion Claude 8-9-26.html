@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluación Wings — 08/09/2026</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --surface:#fff; --ink:#1c2128; --muted:#5d6773; --line:#e2e5ea;
+    --rojo:#b4232f; --rojo-suave:#fdf2f3; --naranja:#b7791f; --naranja-suave:#fffbf0;
+    --azul:#1f5f8b; --azul-suave:#f2f8fc; --verde:#1f7a4d; --verde-suave:#f1f9f4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.65 -apple-system,"Segoe UI",Roboto,sans-serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
+
+  header{background:linear-gradient(135deg,#8d1b25,#b4232f);color:#fff;
+         padding:44px 0 36px;margin-bottom:32px}
+  header .wrap{padding-bottom:0}
+  header h1{margin:0 0 6px;font-size:2.1rem;letter-spacing:-.02em}
+  header .sub{opacity:.9;font-size:1rem}
+  header .meta{margin-top:18px;font-size:.85rem;opacity:.82;
+               border-top:1px solid rgba(255,255,255,.25);padding-top:14px}
+
+  h2{font-size:1.5rem;margin:52px 0 6px;letter-spacing:-.01em}
+  h2 .n{color:var(--muted);font-weight:400;font-size:1rem;margin-right:8px}
+  .lead{color:var(--muted);margin:0 0 22px;font-size:.97rem}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+        padding:22px 24px;margin-bottom:16px}
+  .card.grave{border-left:5px solid var(--rojo);background:var(--rojo-suave)}
+  .card.medio{border-left:5px solid var(--naranja);background:var(--naranja-suave)}
+  .card.info {border-left:5px solid var(--azul);background:var(--azul-suave)}
+  .card.ok   {border-left:5px solid var(--verde);background:var(--verde-suave)}
+  .card h3{margin:0 0 4px;font-size:1.12rem;line-height:1.35}
+  .card p{margin:10px 0}
+  .card p:last-child{margin-bottom:0}
+
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;
+       text-transform:uppercase;padding:3px 9px;border-radius:99px;vertical-align:2px;
+       margin-right:8px}
+  .t-ver{background:#1f7a4d;color:#fff}
+  .t-inf{background:#8a7550;color:#fff}
+  .t-falta{background:#b4232f;color:#fff}
+
+  .quien{font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);
+         margin-top:14px;padding-top:10px}
+  .quien b{color:var(--ink)}
+
+  code{background:#eceff3;padding:2px 6px;border-radius:4px;
+       font:.86em ui-monospace,Consolas,monospace}
+  pre{background:#20262e;color:#e6edf3;padding:14px 16px;border-radius:8px;
+      overflow-x:auto;font:.85rem ui-monospace,Consolas,monospace;line-height:1.5}
+  pre .c{color:#8b98a5}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);
+        vertical-align:top}
+  th{background:#eceff3;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;
+     color:var(--muted)}
+  td.num{text-align:right;font-weight:700}
+  .cero{color:var(--rojo);font-weight:800}
+
+  .tabla-wrap{overflow-x:auto}
+
+  ul{margin:10px 0;padding-left:22px}
+  li{margin:7px 0}
+
+  .resumen{background:#20262e;color:#e6edf3;border-radius:10px;padding:26px 28px;
+           margin-bottom:34px}
+  .resumen h2{color:#fff;margin:0 0 14px;font-size:1.35rem}
+  .resumen ol{margin:0;padding-left:22px}
+  .resumen li{margin:11px 0}
+  .resumen b{color:#ffd7a8}
+
+  .nota{font-size:.9rem;color:var(--muted);font-style:italic;margin-top:12px}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:.88rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Evaluación integral de Wings</h1>
+    <div class="sub">Qué falta, qué está roto y qué le prometemos al club que no cumplimos</div>
+    <div class="meta">
+      8 de septiembre de 2026 · sobre <code style="background:rgba(255,255,255,.15);color:#fff">97fb840</code> ·
+      cuatro auditorías en paralelo: sistema, seguridad, experiencia y funcionalidad<br>
+      <b>Esta evaluación no cambió una sola línea de código.</b>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="resumen">
+    <h2>Si leés una sola cosa, que sea esta</h2>
+    <p style="margin-top:0;opacity:.85">Hay tres formas de cobrar mal. Las tres terminan
+    con el cartel verde de <i>"Pago registrado"</i>.</p>
+    <ol>
+      <li><b>Un cobro de $30.000 se puede registrar como $30.</b> El monto viaja con el
+      punto de miles puesto y el sistema lo lee como treinta pesos con decimales.</li>
+      <li><b>Cambiar el plan al cobrar no cambia nada.</b> Elegís el plan nuevo, el monto
+      se actualiza en pantalla, cobrás, y el alumno queda con el plan viejo.</li>
+      <li><b>Cancelar un cobro le saca al alumno el descuento de primera cuota.</b> Si el
+      operativo se equivoca y vuelve a cobrar, le cobra el mes entero.</li>
+    </ol>
+    <p style="margin-bottom:0;opacity:.85">Un error que grita se arregla. Uno que te
+    felicita, no.</p>
+  </div>
+
+  <h2><span class="n">1</span>Los tres cobros que salen mal</h2>
+  <p class="lead">Ordenados por lo que cuestan.</p>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Un cobro de $30.000 se registra como $30</h3>
+    <p>El campo del monto se muestra lindo, con punto de miles: <code>30.000</code>. Hay un
+    script que le saca el punto antes de mandarlo, pero la pantalla de cobro intercepta el
+    envío <b>antes</b> de que ese script alcance a limpiar, y arma el paquete con el punto
+    todavía puesto.</p>
+    <p>Al servidor le llega el texto <code>"30.000"</code>. Y acá está lo que lo vuelve
+    grave:</p>
+<pre>is_numeric("30.000")    →  true      <span class="c">← pasa la validación</span>
+(float) "30.000"        →  30        <span class="c">← treinta pesos</span>
+is_numeric("1.234.567") →  false     <span class="c">← con dos puntos sí la rechaza</span></pre>
+    <p>Los montos de cuatro a seis dígitos pasan <b>en silencio</b> y entran mil veces más
+    chicos. Las cuotas del club van de $28.000 a $50.000: <b>todas caen en ese rango.</b></p>
+    <p>Queda un pago de $30, una deuda de $29.970, el socio se va con su recibo y el
+    sistema lo sigue mostrando como deudor. La caja del día no cierra y nadie sabe por qué.</p>
+    <p>Las pruebas automáticas no lo agarran porque mandan números crudos, no el texto
+    formateado que manda el navegador.</p>
+    <p class="quien"><b>Le pega a:</b> la recepcionista cobra mal · la dueña no cuadra la
+    caja · el socio pagó y le dicen que debe.<br>
+    <span class="tag t-falta" style="margin-top:8px">Falta</span> Probarlo en pantalla:
+    cobrar una cuota y mirar qué quedó en la base. Es un clic.</p>
+  </div>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Cambiar el plan al cobrar no cambia nada</h3>
+    <p>El alumno pasa de tres veces por semana a dos. En la pantalla de cobro elegís el
+    plan nuevo, el monto se actualiza solo, cobrás, sale <i>"Pago registrado"</i>.</p>
+    <p>El alumno queda con el plan viejo. Los botones de plan están <b>fuera del
+    formulario</b> y el JavaScript solo los usa para pintar el recuadro y recalcular el
+    número que se ve. Nunca los agrega al envío.</p>
+    <p>El código del servidor que crea el plan nuevo existe y está bien escrito.
+    <b>Nunca se ejecuta</b>, porque el dato no llega. El mes siguiente se le vuelve a
+    generar la cuota cara.</p>
+    <p class="quien"><b>Le pega a:</b> la recepcionista y la dueña. Sin error, con mensaje
+    de éxito.</p>
+  </div>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Cancelar un cobro le saca el descuento de primera cuota</h3>
+    <p>El chequeo de <i>"¿este alumno ya pagó alguna vez?"</i> no distingue los pagos
+    anulados de los buenos.</p>
+    <p>Un chico se anota el 24 y le toca 40% de descuento por entrar a fin de mes. El
+    operativo le cobra, se equivoca de medio de pago, cancela y vuelve a cobrar. La segunda
+    vez el sistema ve el pago anulado, concluye que ya pagó antes y <b>le cobra el mes
+    entero</b>. La pantalla muestra el importe completo como si correspondiera.</p>
+    <p class="quien"><b>Le pega a:</b> el socio, que paga de más. Nadie se da cuenta.</p>
+  </div>
+
+  <h2><span class="n">2</span>La plata, por dentro</h2>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>La base que le entregamos al cliente no se puede reproducir</h3>
+    <p>La base del servidor se vació a mano con un script que quedó en una carpeta temporal
+    de una sola máquina, sin versionar. No hay ningún comando que produzca el estado de
+    entrega. Si hay que rehacerla, hay que repetir el borrado de memoria.</p>
+    <p>Y el camino recomendado para una base nueva produce otra cosa: 8 rubros, 15
+    subrubros, 5 tipos de caja, 2 deportes y 3 niveles.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>El pago de una liquidación se puede duplicar</h3>
+    <p>Es el único lugar donde se mueve plata sin trabar la fila mientras se escribe, y el
+    índice que debería impedir el duplicado no es único. Doble clic, refresco de la página
+    o botón de atrás, y quedan <b>dos egresos por el mismo sueldo</b>.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Las fechas de los movimientos no tienen tope</h3>
+    <p>Un movimiento se puede fechar en 2024 o en 2030. Queda en la caja de hoy pero se
+    imputa al cashflow con esa fecha: cambia el resultado de un mes ya cerrado y desaparece
+    del historial, que solo muestra 90 días. Caja y cashflow dejan de cerrar entre sí.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Dar de baja desde Revisión condona sin motivo</h3>
+    <p>El camino normal de condonación exige un motivo de 10 a 500 caracteres y es solo del
+    admin. Este atajo perdona la deuda del mes anterior <b>con un clic en un
+    desplegable</b>, sin motivo, sin mirar si esa deuda ya tenía un pago parcial, y pisando
+    las observaciones anteriores.</p>
+    <p>Y resolver como "Continúa" genera la deuda con el <b>precio de hoy</b>, no el del mes
+    que se está resolviendo.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Condonar y ajustar deuda corren sin protección</h3>
+    <p>Todo el resto del sistema traba la fila mientras toca plata. Estos dos no. Si la
+    dueña condona mientras el operativo cobra esa misma cuota, queda una deuda condonada
+    <i>con plata cobrada adentro</i>.</p>
+  </div>
+
+  <h2><span class="n">3</span>Las pruebas: qué protegen de verdad</h2>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>La prueba de concurrencia no prueba concurrencia</h3>
+    <p>La prueba que debería garantizar que dos personas no cobren lo mismo al mismo tiempo
+    <b>abre los archivos del sistema como si fueran texto y busca que esté escrita la
+    palabra</b> <code>lockForUpdate()</code>.</p>
+    <p>No abre una conexión. No lanza dos operaciones a la vez. Pasaría en verde igual si
+    la traba estuviera puesta sobre la fila equivocada.</p>
+  </div>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Cinco servicios de plata sin una sola prueba</h3>
+    <div class="tabla-wrap">
+    <table>
+      <tr><th>Qué hace</th><th style="text-align:right">Pruebas</th></tr>
+      <tr><td>Pagarle a los profesores</td><td class="num cero">0</td></tr>
+      <tr><td>Los comprobantes</td><td class="num cero">0</td></tr>
+      <tr><td>Pago del plan mensual</td><td class="num cero">0</td></tr>
+      <tr><td>Movimientos de cashflow</td><td class="num cero">0</td></tr>
+      <tr><td>Dar de baja alumnos y condonar deuda</td><td class="num cero">0</td></tr>
+    </table>
+    </div>
+    <p>La única prueba que toca las liquidaciones verifica <b>el nombre del grupo</b> en el
+    detalle, no el cálculo del monto. Dicho de otro modo: <b>lo que el club le paga a sus
+    profesores no está cubierto por ninguna prueba.</b></p>
+    <p class="nota">Y no hay integración continua: las 129 pruebas corren solo si alguien se
+    acuerda de correrlas.</p>
+  </div>
+
+  <h2><span class="n">4</span>El mes que puede no facturarse</h2>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Si nadie carga asistencias, el 1° no se genera ninguna deuda</h3>
+    <p>La generación mensual solo le crea la cuota a quien tuvo <b>al menos una asistencia
+    el mes anterior</b>. Todo el resto va a una lista de revisión, de a uno, para que
+    alguien decida a mano.</p>
+    <p>Si en septiembre no se cargan asistencias, el 1 de octubre a las 6 de la mañana la
+    corrida produce <b>cero deudas</b> y una revisión por alumno. Un socio que paga hace dos
+    años pero que nadie marcó presente entra igual en esa lista.</p>
+    <p>Y no hay forma de enterarse: la tarea manda su salida a la nada y <b>el servidor no
+    tiene monitoreo</b> — verificado por SSH: cero servicios corriendo. Si falla, el club se
+    entera cuando nadie tenga cuota que pagar.</p>
+  </div>
+
+  <h2><span class="n">5</span>Seguridad</h2>
+  <p class="lead">El titular es bueno: <b>no hay nada crítico ni explotable desde afuera.</b>
+  Se verificó que la API está apagada, que no hay inyección de código ni datos sin escapar,
+  que los recibos no se alcanzan por dirección directa y que las dependencias están limpias.
+  Todo lo que sigue requiere ya tener una sesión abierta.</p>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Cambiar la contraseña no echa a nadie</h3>
+    <p>Si una clave se filtró, o se la compartiste con alguien que ya no debe tenerla,
+    cambiarla <b>no cierra su sesión</b>. Y si esa persona tildó "Recordarme", su cookie lo
+    vuelve a dejar entrar durante <b>cinco años</b>, aunque la contraseña ya no exista.</p>
+    <p class="nota">Desactivar al usuario sí lo echa al instante, y bajarle el rol también.
+    El agujero es solo el cambio de contraseña.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>El control de producción corre después de abrir el sitio</h3>
+    <p>En el despliegue el orden es: <i>salir de mantenimiento</i> y recién después
+    <i>verificar producción</i>. Si un despliegue sube con el modo depuración encendido, hay
+    una ventana con el sitio <b>público mostrando las credenciales de la base en cada
+    error</b>.</p>
+    <p>El control existe y es bueno. Está en el lugar equivocado.</p>
+  </div>
+
+  <div class="card info">
+    <h3><span class="tag t-ver">Verificado</span>Tres cosas más, menores pero reales</h3>
+    <ul>
+      <li><b>Un pago adelantado no tiene tope.</b> Si el mes todavía no tiene deuda, el
+      monto entra sin techo, y el período acepta cualquier cosa: <code>2099-99</code> pasa.</li>
+      <li><b>La contraseña desde la pantalla pide 8 caracteres; desde la consola, 12.</b>
+      Un admin creado desde el sistema puede tener <code>12345678</code>.</li>
+      <li><b>No queda rastro de las acciones sensibles.</b> Condonar una deuda o cambiarle
+      el rol o la clave a alguien no registra quién ni cuándo. La plata sí está trazada; las
+      identidades, no.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">6</span>Lo que le prometemos al club y no cumplimos</h2>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Un alumno que no debe un peso figura "Deudor"</h3>
+    <p>El sistema pregunta <i>"¿pagó alguna vez acá?"</i>, no <i>"¿debe plata?"</i>.
+    Entonces:</p>
+    <ul>
+      <li>Un alumno recién inscripto aparece en rojo el mismo día.</li>
+      <li>Uno al que le condonaron su única deuda queda <b>Deudor para siempre</b>.</li>
+      <li>Todos los que vengan de una carga inicial arrancan en rojo.</li>
+    </ul>
+    <p>Y esto no es cosmético: <b>el número grande de "Deudores" y el indicador del
+    dashboard están inflados con gente que no debe nada.</b> La dueña decide sobre un número
+    que miente, y el operativo llama a reclamarle plata a quien está al día.</p>
+  </div>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>La lista de deudores no sirve para cobrar</h3>
+    <p>Cinco columnas: alumno, deporte, grupo, estado y "Ver". <b>Ni un peso, ni desde
+    cuándo, ni un teléfono.</b> Para armar la ronda de llamadas hay que abrir las 60 fichas
+    de a una.</p>
+    <p>Y el único botón lleva a la ficha del alumno, <b>que no tiene botón Cobrar</b>. El
+    flujo se corta justo en el paso que importa: hay que volver atrás y buscar al mismo
+    alumno de nuevo por otro lado.</p>
+  </div>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>El "balance" del cashflow es un número sin significado</h3>
+    <p>Filtrás por septiembre y el balance mezcla los ingresos y egresos de ese mes con el
+    <b>saldo inicial histórico de todos los tipos de caja</b>, incluidos los desactivados.
+    No es el saldo de hoy ni el resultado del mes.</p>
+    <p>Y hay dos cosas más en la misma pantalla:</p>
+    <ul>
+      <li><b>Solo cuenta las cajas validadas, y no lo dice.</b> Si la dueña no validó las
+      cajas del mes, el total está incompleto y nada se lo advierte.</li>
+      <li>Al pagar una liquidación puede leer <i>"saldo insuficiente en Efectivo"</i>
+      <b>con el cajón lleno</b>, porque esa plata todavía no está validada.</li>
+    </ul>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Una caja sin validar desaparece el día 1°</h3>
+    <p>El listado filtra por mes y arranca en el actual. Una caja de agosto que nunca se
+    validó <b>deja de verse el 1 de septiembre</b>, y no hay ninguna otra pantalla donde
+    aparezca. Plata en el limbo, sin alerta.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>El dashboard de la dueña no contesta ninguna de sus preguntas</h3>
+    <p>Cuatro contadores de alumnos y deuda, y tres accesos rápidos — dos de los cuales son
+    catálogos que se tocan una vez al armar el club. No hay saldo, ni cobrado del mes, ni
+    aviso de cajas esperando validación, ni de liquidaciones abiertas, ni de revisiones
+    pendientes.</p>
+    <p>El contraste incomoda: <b>el dashboard de la recepcionista sí tiene todo eso.</b> Ella
+    tiene un tablero; la dueña tiene cuatro números.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>El recibo no está a mano cuando el socio lo pide</h3>
+    <p>Después de cobrar volvés al listado sin ningún link al comprobante. El botón existe
+    solo dentro del detalle de la caja del día. Si el papá vuelve la semana que viene hay que
+    acordarse en qué día pagó: el historial de la ficha muestra los últimos 8 pagos
+    <b>sin link al recibo</b>.</p>
+    <p class="nota">Además, el recibo averigua el medio de pago por parecido —texto similar,
+    mismo monto, misma fecha— teniendo el dato exacto guardado al lado. Con dos cobros
+    iguales el mismo día puede tomar el equivocado.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Lo que se hace mal no se puede deshacer</h3>
+    <div class="tabla-wrap">
+    <table>
+      <tr><th>Acción</th><th>¿Se deshace?</th><th>¿Avisa antes?</th></tr>
+      <tr><td>Movimiento de cashflow</td><td><b>No.</b> No hay editar ni borrar</td><td>No</td></tr>
+      <tr><td>Validar una caja</td><td><b>No.</b> Una vez validada no se rechaza ni se corrige</td><td>No</td></tr>
+      <tr><td>Cerrar una liquidación</td><td><b>No</b></td><td>Sí</td></tr>
+      <tr><td>Pagar una liquidación</td><td><b>No</b></td><td>No</td></tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="card info">
+    <h3><span class="tag t-ver">Verificado</span>Cuatro trabas más, todas silenciosas</h3>
+    <ul>
+      <li><b>Un grupo sin planes deja el alta trabada sin mensaje.</b> El error del campo
+      "plan" vive dentro de un bloque que se oculta justamente cuando no hay planes. El
+      formulario vuelve con los datos y ningún cartel rojo. Y si vas a editar, el campo
+      también está escondido.</li>
+      <li><b>No hay recuperar contraseña.</b> Ni ruta, ni link. Si la que se olvida es la
+      dueña, no hay salida por pantalla.</li>
+      <li><b>Los errores que no son 403 salen en inglés.</b> Dejar la pestaña abierta toda la
+      mañana y después guardar —lo más común en un mostrador— muestra la pantalla blanca de
+      Laravel.</li>
+      <li><b>Editar una clase saltea el control que sí hace crearla.</b> Al crear, si el
+      profesor ya tiene otra a esa hora, frena. Al editar la hora, no. Queda en dos clases a
+      la vez, y esas horas se liquidan.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">7</span>Lo que un sistema de gestión debería hacer y este no hace</h2>
+
+  <div class="card medio">
+    <h3>Duele la primera semana</h3>
+    <ul>
+      <li><b>No se puede saber cuánto facturó el club en un mes.</b> Hay contrato de reportes
+      escrito y cero implementado.</li>
+      <li><b>No se puede exportar nada.</b> Ni Excel, ni un listado para imprimir. Cuando el
+      contador pida el detalle del mes, no hay camino.</li>
+      <li><b>No queda registro de que se le reclamó a alguien.</b> Ni aviso al deudor, ni una
+      nota de "lo llamé el 12". Si el que cobra se va, el historial se va con él.</li>
+      <li><b>No hay ficha médica ni contacto de emergencia</b>, y el club es de menores. Solo
+      el tutor y su teléfono.</li>
+      <li><b>Un chico que hace dos deportes son dos alumnos</b>, con el mismo DNI cargado dos
+      veces y dos estados de cobranza. Es el caso de Sofía Morales, que en la prueba tratamos
+      como borde: es una limitación del modelo.</li>
+      <li><b>Hermanos y descuento familiar no existen.</b> Si el club hace precio familiar,
+      hay que cobrar distinto de lo que dice la deuda y queda un saldo que nadie va a poder
+      explicar en tres meses.</li>
+      <li><b>No hay historial de precios.</b> Se edita pisando el anterior: no queda quién ni
+      cuándo. Y el aumento se carga grupo por grupo, sin "subir todo un 15%".</li>
+      <li><b>No queda quién editó o borró qué.</b> El día que falte plata, la conversación va
+      a ser "¿vos tocaste esto?" sin nada que mirar.</li>
+      <li><b>El profesor no ve cuánto va a cobrar.</b> Todo pasa por la dueña.</li>
+      <li><b>Al dar de baja a un alumno no se pregunta por qué.</b> No se puede saber por qué
+      se van.</li>
+    </ul>
+  </div>
+
+  <div class="card info">
+    <h3>Puede esperar</h3>
+    <ul>
+      <li>Historial de asistencia más allá del mes en curso, y aviso al que falta seguido.</li>
+      <li><b>Cierre de mes:</b> no existe el concepto. Nada impide cargar hoy un movimiento
+      con fecha de marzo o tocar deuda de un período ya informado al contador.</li>
+      <li>La dueña no puede bajarse sus propios datos sin depender de quien tiene acceso al
+      servidor.</li>
+      <li>Multi-sede: el modelo está atado a un club.</li>
+      <li>Torneos e indumentaria tienen dónde poner la plata, pero no gestión: quién se
+      anotó, quién debe la camiseta.</li>
+      <li>Becados: hoy se resuelve condonando todos los meses.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">8</span>Documentos que hoy dicen algo falso</h2>
+  <p class="lead">Todos verificados contra el código. Es el problema que ya frenó el trabajo
+  tres veces: alguien lee un documento, decide sobre eso, y era mentira.</p>
+
+  <div class="tabla-wrap">
+  <table>
+    <tr><th>Dice</th><th>Realidad</th></tr>
+    <tr><td>El operativo no entra a Cobranza, pendiente de Carlos</td><td>Se arregló el 07/09. <b>El pendiente ya no existe</b></td></tr>
+    <tr><td>Botón Cobrar deshabilitado en el listado de alumnos</td><td>Es un enlace funcional</td></tr>
+    <tr><td>Un alumno puede quedar con dos planes activos</td><td>La base lo impide con un índice único</td></tr>
+    <tr><td>Montos como decimales flotantes, riesgo contable</td><td>Sobredimensionado: todas las columnas son decimales</td></tr>
+    <tr><td>Plan maestro: media aplicación sin implementar</td><td>Casi todo existe. Solo sigue faltando lo de exportar</td></tr>
+    <tr><td>El diseño declara un ancho máximo de 1200px</td><td>El CSS no lo implementa. <b>Esta sí sigue abierta</b></td></tr>
+  </table>
+  </div>
+
+  <h2><span class="n">9</span>Lo que está bien</h2>
+  <p class="lead">Para calibrar: no todo es deuda. Esto se verificó y es sólido.</p>
+
+  <div class="card ok">
+    <ul style="margin:0">
+      <li><b>La deuda duplicada es imposible por construcción</b>: la base tiene un índice
+      único por alumno y período.</li>
+      <li>Los estados están cerrados en la base, no dependen de que el código valide.</li>
+      <li>Validar una caja traba la fila antes de tocarla, y el reflejo en cashflow no se
+      duplica.</li>
+      <li>Si falla la generación del PDF, el cobro no se cae: el comprobante se arma después
+      de confirmar.</li>
+      <li>Un operativo no puede imputar a Sueldos ni escribir en una caja cerrada, aunque
+      manipule el pedido a mano.</li>
+      <li>No hay subida de archivos, ni consultas armadas a mano, ni datos sin escapar en las
+      pantallas.</li>
+      <li>Cloudflare está bien resuelto: el servidor solo acepta tráfico suyo.</li>
+      <li>Los respaldos corren todos los días, están cifrados y la restauración fue probada.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">10</span>El patrón de fondo</h2>
+
+  <div class="card info">
+    <p style="margin-top:0"><b>El sistema es duro con lo que se puede tocar y blando con lo
+    que avisa.</b></p>
+    <p>Una caja validada no se rechaza. Un movimiento de cashflow no se edita. Una
+    liquidación cerrada no se reabre. Pero casi nada explica por qué una pantalla está
+    vacía, por qué un número es el que es, ni qué hacer cuando algo no se puede.</p>
+    <p>La combinación deja al usuario trabado sin saber en qué.</p>
+    <p style="margin-bottom:0">Y lo más caro de esta lista no son los agujeros: son los
+    <b>tres cobros que salen mal con el cartel verde de éxito</b>. Un error que grita se
+    arregla. Uno que te felicita, no.</p>
+  </div>
+
+  <footer>
+    Evaluación hecha el 8 de septiembre de 2026 por Claude CAB, con cuatro auditorías en
+    paralelo sobre <code>97fb840</code>.<br>
+    La versión con las rutas de archivo y los números de línea está en
+    <code>Evaluacion Claude 8-9-26.md</code>, en esta misma carpeta.<br>
+    No se cambió ninguna línea de código para producir este informe.
+  </footer>
+
+</div>
+</body>
+</html>
