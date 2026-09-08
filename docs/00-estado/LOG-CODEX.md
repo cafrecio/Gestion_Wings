@@ -14,6 +14,41 @@
 
 ---
 
+## 2026-09-08 — Codex CAB — ubicación de los informes corregida
+
+A pedido de Carlos, ambos informes Codex se movieron a docs/07-evaluacion, junto
+al informe de Claude. Se corrigieron el enlace relativo y la referencia de esta
+bitácora; se eliminó la carpeta EVALUACION creada por error, una vez vacía.
+Sin cambios de aplicación ni datos.
+
+## 2026-09-08 — Codex CAB — cruce verificado con la evaluación de Claude
+
+Se leyeron ambos formatos del informe Claude, incorporados en `4e1674e` sin cambios
+de aplicación respecto de `97fb840`. Tres agentes revalidaron cuerpos, rutas y contratos.
+Se ampliaron ambos informes Codex con 17 puntos (incluidos complementos y un caso
+condicional) y 21 correcciones o precisiones al informe de Claude. Se reconoce la
+omisión propia del envío de monto/plan en la pantalla y del detalle perdido al anular.
+Se distinguen errores de Claude de decisiones vigentes: nota de revisión obligatoria,
+condonación con autor/fecha, tope del servicio, 419 localizado, datos por deporte y
+exportaciones excluidas. Sin cambios de aplicación ni base; sin suite compartida.
+Validación documental, sintaxis JavaScript del HTML y diff visual vacío. Los archivos
+de Claude permanecen intactos. Pendiente: decidir reproducciones aisladas antes de
+corregir; no se convierte la evaluación en autorización de implementación.
+
+## 2026-09-08 — Codex CAB — evaluación de sistema, seguridad y usuario
+
+Evaluación solicitada por Carlos, con tres agentes de lectura y consolidación en
+`docs/07-evaluacion/Evaluacion Codex 8-9-26.md` y su versión `.HTML` navegable. Referencia:
+commit `97fb840`. Son 22 fichas que separan escenarios nuevos, conocidos y diferidos;
+no son 22 defectos reproducidos. Se leyeron cuerpos y rutas, y se contrastaron contratos
+y decisiones. Composer audit sin avisos; npm audit informa 11 paquetes afectados,
+sin equivaler a explotación demostrada en Wings. Sin cambios funcionales, consultas
+o escrituras de base, pruebas de cobro, despliegues ni ejecución de suite compartida.
+Se preservaron las decisiones sobre FIFO, asistencia, API, carga humana, CSP y reportes.
+La documentación de estado contradictoria se señala en la evaluación, sin modificar
+planes en esta tarea de solo análisis. Pendiente: cruzar con Claude y decidir qué
+escenarios reproducir en entorno aislado antes de autorizar correcciones.
+
 ## 2026-09-06 — Codex CAB — paso 5 detenido por acceso de OPERATIVO
 
 Se leyó el cuerpo de CobranzaEstadoService y se calcularon los 60 estados
