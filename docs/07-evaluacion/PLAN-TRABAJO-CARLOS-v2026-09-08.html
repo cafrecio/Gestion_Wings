@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wings · Plan de trabajo · 08/09/2026 v1</title>
+  <title>Wings · Plan de trabajo · 08/09/2026 v2</title>
   <style>
     :root { --ink:#172033; --muted:#647087; --line:#dfe4ec; --paper:#f5f7fb; --card:#fff; --brand:#3157d5; --ok:#16845b; --warn:#a45f00; --hot:#b42318; }
     * { box-sizing:border-box; }
@@ -44,7 +44,7 @@
     <h1>Wings · Plan de trabajo</h1>
     <p>Indice para Carlos. Los checks quedan guardados en este navegador.</p>
     <p>Basado en las evaluaciones cruzadas de Codex y Claude y en lo realizado del 5 al 7 de septiembre.</p>
-    <span class="version">Corte 08/09/2026 · versión 1</span>
+    <span class="version">Corte 08/09/2026 · versión 2</span>
     <div class="progress-wrap">
       <progress id="progress" max="100" value="0"></progress>
       <strong id="progressText">0 / 0</strong>
@@ -67,7 +67,7 @@
     <h2>0 · Cerrar lo hecho el fin de semana</h2>
     <p class="why">Evita repetir tareas cerradas o trabajar sobre documentos viejos.</p>
     <div class="grid">
-      <div class="item"><input id="FDS-01" type="checkbox"><label for="FDS-01"><span class="id">FDS-01</span>Sincerar Estado, Plan y Checklist<span class="detail">Servidor 9fdd03d, Vanina creada, MariaDB, dump, Cloudflare y Cobranza.</span></label><span class="tag alta">Primero</span></div>
+      <div class="item"><input id="FDS-01" type="checkbox" checked><label for="FDS-01"><span class="id">FDS-01</span>Sincerar Estado, Plan y Checklist<span class="detail">Cerrado el 08/09; falta verificacion de Claude.</span></label><span class="tag done">Hecho</span></div>
       <div class="item"><input id="FDS-02" type="checkbox"><label for="FDS-02"><span class="id">FDS-02</span>Revalidar servidor, backups y scheduler<span class="detail">Con evidencia nueva, sin asumir que lo del domingo sigue igual.</span></label><span class="tag alta">Primero</span></div>
       <div class="item"><input id="FDS-03" type="checkbox"><label for="FDS-03"><span class="id">FDS-03</span>Dejar reproducible la base mínima de entrega<span class="detail">Procedimiento versionado; sin inventar datos reales.</span></label><span class="tag decision">Decidir</span></div>
       <div class="item"><input id="FDS-04" type="checkbox"><label for="FDS-04"><span class="id">FDS-04</span>Revalidar Cobranza, Cobrar y rubros reservados<span class="detail">ADMIN/OPERATIVO/PROFESOR y pantallas corregidas el fin de semana.</span></label><span class="tag alta">Alta</span></div>
@@ -167,11 +167,11 @@
 </main>
 <script>
   (() => {
-    const key = 'wings-plan-2026-09-08-v1';
+    const key = 'wings-plan-2026-09-08-v2';
     const checks = [...document.querySelectorAll('input[type="checkbox"]')];
     const saved = JSON.parse(localStorage.getItem(key) || '{}');
     checks.forEach((check) => {
-      check.checked = Boolean(saved[check.id]);
+      if (Object.prototype.hasOwnProperty.call(saved, check.id)) check.checked = Boolean(saved[check.id]);
       check.addEventListener('change', save);
     });
     document.getElementById('reset').addEventListener('click', () => {

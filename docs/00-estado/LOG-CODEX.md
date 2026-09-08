@@ -14,6 +14,21 @@
 
 ---
 
+## 2026-09-08 — Codex CAB — FDS-01 cerrado
+
+Se sinceraron `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md` contra
+las evaluaciones cruzadas y lo verificado el fin de semana. El plan de produccion de
+agosto quedo como contexto corto, no como orden vigente; el checklist ahora contiene
+solo acciones o decisiones reales de Carlos.
+
+Los tres documentos reflejan servidor en `9fdd03d`, Vanina ADMIN, base minima, suite
+MariaDB 129/705, dump retirado, Cloudflare y Cobranza para OPERATIVO. Quedan visibles
+npm, monitoreo, limites de recuperacion, cobros prioritarios y reproducibilidad de la
+entrega. El plan sube a `2026-09-08.v2` y FDS-01 queda marcado cerrado, pendiente de
+verificacion por Claude. Sin cambios de aplicacion, base, vistas ni CSS.
+
+---
+
 ## 2026-09-08 — Codex CAB — plan cruzado de trabajo v1
 
 Se consolidaron las evaluaciones de Codex y Claude del 08/09 con los commits y

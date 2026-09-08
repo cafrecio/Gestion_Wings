@@ -14,7 +14,7 @@ Antes de tomar una tarea nueva, leer completo:
 
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`
 
-Es el orden de trabajo vigente desde el **08/09/2026, version 1**. Cruza las
+Es el orden de trabajo vigente desde el **08/09/2026, version 2**. Cruza las
 evaluaciones de Codex y Claude y lo realizado del 5 al 7 de septiembre. Los planes
 anteriores se conservan como contexto, pero no mandan el orden actual.
 
@@ -376,7 +376,7 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 
 | Necesidad | Ruta |
 |---|---|
-| **Plan de trabajo vigente (08/09/2026 v1)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
+| **Plan de trabajo vigente (08/09/2026 v2)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
 | Plan navegable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
 | Plan de producción anterior / contexto | `docs/00-estado/PLAN-PRODUCCION.md` |
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |

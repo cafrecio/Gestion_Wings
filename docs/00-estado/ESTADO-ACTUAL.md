@@ -1,303 +1,141 @@
-# Wings - Estado Actual
+# Wings — Estado actual
 
-> Actualizado: 2026-09-08 (evaluaciones cruzadas y estado del servidor)
-> Fuente de verdad del estado del proyecto. Si otro documento lo contradice, se corrige
-> el otro documento o se registra la contradiccion aca antes de implementar.
-> El indice vigente es `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`.
-> Los indices anteriores quedan como contexto historico, no como orden de ejecucion.
+> **Actualizado:** 08/09/2026
+> **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
+> version 2026-09-08.v2.
+> Si otro documento contradice este estado, no improvisar: verificar y corregir.
 
-## Resumen Ejecutivo
+## 1. Estado general
 
-Wings es una aplicacion Laravel para gestionar un club deportivo: alumnos, deportes,
-grupos, planes, cuotas, deudas, pagos, caja operativa, cashflow, clases, asistencias,
-profesores, liquidaciones, usuarios y configuracion.
+Wings esta publicado en `https://wings.gestionar-te.com.ar`, pero el gate final de
+produccion no esta firmado. La base del servidor quedo preparada para que el club
+cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Todavia no estan
+cargados los alumnos ni la operacion real del club.
 
-**El sistema esta publicado en `https://wings.gestionar-te.com.ar`, pero NO tiene el
-gate final firmado.** La base quedo preparada para la carga humana y Vanina ya tiene
-una cuenta ADMIN; todavia no estan cargados los alumnos ni la operacion real del club.
+## 2. Servidor — verificado por SSH el 08/09
 
-## Que version corre en el servidor
-
-**Verificado por SSH el 08/09.** Lo que dice esta pagina sobre funcionalidades hechas
-se refiere al **repositorio**, no a lo que esta publicado.
-
-| Que | Valor |
+| Que | Estado |
 |---|---|
-| Commit desplegado | **`9fdd03d`** (07/09) |
-| Repositorio | El codigo funcional coincide; `main` tiene 5 commits documentales/evaluacion posteriores |
-| PHP / Laravel | 8.2.33 / 12.68.0 |
-| Migraciones pendientes | 0 |
+| Commit desplegado | `9fdd03d` |
+| Diferencia con `main` al corte | 5 commits posteriores, solo documentacion y evaluaciones |
+| Plataforma | AlmaLinux 9, PHP 8.2.33, Laravel 12.68.0 |
+| HTTPS | Activo |
+| Cloudflare | Proxy activo; acceso web directo al servidor cerrado |
+| Migraciones | Sin pendientes en la ultima verificacion |
+| Scheduler | Registrado y ejecutado cada minuto; deuda mensual programada para dia 1 a las 06:00 |
+| Backups | Diarios, cifrados, rotados y copiados a Drive |
+| Monitoreo | No existe; cero servicios encontrados el 08/09 |
 
-**El atraso de 34 commits se cerro el 06/09.** El servidor ya tiene la primera cuota
-con descuento (`846347f`), el cobro de la primera cuota de un alumno nuevo
-(`f066c42`), la condonacion de deuda (`5f77c85`), el precio de plan mayor a cero
-(`824fdd8`) y el saldo inicial por tipo de caja (`c09a3e1`).
+No se pudo demostrar que la corrida mensual del 01/09 haya producido resultado: no
+quedo un log que lo pruebe o descarte.
 
-### El sitio esta detras de Cloudflare desde el 06/09
+## 3. Base de entrega del servidor
 
-Los tres pasos estan hechos y verificados: la aplicacion confia en Cloudflare
-(`trustProxies`), el subdominio esta con proxy, y **el servidor solo acepta trafico
-web que venga de Cloudflare** — entrando por la IP directa no responde.
+Preparada manualmente el 07/09, con respaldo previo:
 
-Detalle y forma de revertir en `VPS/ESTADO-SERVIDOR.md`. Lo que toca al codigo esta
-en `docs/04-tecnico/SERVIDOR.md`.
+- Sin alumnos, deudas, pagos, clases ni operacion real.
+- Se conservan `Cuotas` con `Cuota Mensual` y `Sueldos` vacio porque el codigo los
+  busca por nombre.
+- Se conservan las configuraciones existentes y las tres reglas de primer pago.
+- Deportes, niveles, grupos, planes, tipos de caja y demas catalogos los carga el
+  usuario por pantalla.
+- Existe una cuenta superadmin protegida y una cuenta ADMIN de Vanina.
 
-Plan vigente: `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`.
+Este estado todavia no tiene un procedimiento reproducible versionado. Es FDS-03. No
+crear un seeder de datos reales sin decision de Carlos.
 
-## Definicion de estado
+## 4. Estado confirmado del repositorio
 
-| Termino | Que significa |
+| Area | Estado |
 |---|---|
-| **Publicado para pruebas** | Estado actual. Responde por HTTPS, con datos de prueba. Nadie del club lo usa |
-| **En produccion** | El club opera ahi a diario y es la fuente de verdad de la plata. Requiere gate firmado, datos reales y usuarios creados |
+| Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
+| **Tests** | **129 pruebas**, 705 aserciones, verde sobre MariaDB el 08/09 |
+| Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
+| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
+| Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
+| Cobros | Circuito principal implementado; tres caminos prioritarios requieren reproduccion/correccion en COB |
+| Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
+| Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
+| Clases | Asistencias atomicas; editar clase no repite control de superposicion |
+| Liquidaciones | Generacion, cierre, pago y recibos; concurrencia e historia pendientes antes del 25/09 |
+| Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
+| PHP | `composer audit` sin avisos el 08/09 |
+| JavaScript | `npm audit` informa 11 paquetes; falta clasificar uso y alcanzabilidad |
+| CSP | Report-only; quedan 26 bloques script en 24 vistas y 24 manejadores inline |
+| Diseño | Protegido por `AGENTS.md` y hook de commit |
 
-## Estado Confirmado del Repo
+## 5. Lo cerrado del 5 al 7 de septiembre
 
-| Area | Estado | Evidencia |
-|---|---|---|
-| Stack | Laravel 12, PHP 8.2, MariaDB, Blade, Tailwind/Vite | `composer.json` |
-| Autenticacion web | Implementada, throttle 5 por minuto | `routes/web.php:31` |
-| Roles | ADMIN, OPERATIVO, PROFESOR, con superadmin protegido | middlewares |
-| Matriz de permisos | **Verificada 25/08**: 268 pruebas GET x 4 roles, 0 errores 500, 0 accesos indebidos | ADMIN 59 rutas, OPERATIVO 19, PROFESOR solo clases, anonimo solo login |
-| Alumnos | CRUD con planes, fecha de alta editable, toggle activo | `AlumnoWebController` |
-| Cuotas, deudas y pagos | Core implementado. **Primera cuota con descuento corregida el 31/08** | commit `846347f` |
-| Condonacion de deuda | Por web, solo ADMIN, motivo obligatorio de 10 a 500 caracteres | commit `5f77c85` |
-| Caja operativa | Apertura, movimientos, cierre, rechazo, validacion, cancelacion | `CajaService` |
-| Cashflow | Movimientos admin, reflejo desde caja validada y saldo inicial por tipo de caja | `CashflowIntegracionCajaService` |
-| Edicion del saldo inicial | Solo se carga al crear el tipo de caja; queda inmutable al editar | `TipoCajaWebController`, commit `fbe7a55` |
-| Clases y asistencias | Guardado transaccional y validacion de pertenencia al grupo | commit `dab369f` |
-| Liquidaciones | Implementado con pago y recibos | `LiquidacionService` |
-| Cobranza mensual | Implementada. **El primer mes se carga a mano**: una base nueva no tiene mes anterior | `GenerarDeudasMensualesCommand:84-101` |
-| Seeder de catalogos | `CatalogosSeeder` unico e idempotente. Base nueva: 0 usuarios, 0 cashflow | verificado 26/08 sobre base descartable |
-| Design system | Implementado, protegido por regla dura | `AGENTS.md` §1 |
-| **Tests** | **129 pruebas, 705 aserciones**, verde completo sobre MariaDB (06/09) | `phpunit.xml`, LOG-CODEX 06/09 |
-| Grupos con frecuencia obligatoria | Alta/edicion verificadas en navegador; rechazo de eliminar la ultima visible en captura aportada por Carlos. Base intacta en los tres casos. Sin grupos vacios en wings_test (06/09) | `GrupoFrecuenciaObligatoriaTest`, LOG-CODEX 06/09 |
-| Dependencias | PHP sin avisos; npm informa 11 paquetes afectados, pendientes de clasificar por uso y alcanzabilidad | auditorias 08/09 |
-| Servidor | AlmaLinux 9, PHP 8.2 por Remi, TLS Let's Encrypt, base con usuario minimo | `LOG-CLAUDE.md` 30/08 |
-| Backups | Diarios, cifrados y subidos a Drive; restauracion SQL probada. Falta ensayo integral de archivos/configuracion y señal fuerte ante falla externa | evaluaciones 08/09 |
-| Despliegue | Atomico para codigo; rollback no revierte migraciones y preflight corre despues de reabrir | evaluaciones 08/09 |
-| Preflight | 12 verificaciones, aprobado en el servidor | `PreflightCommand` |
-| CSP | **En modo reporte.** Quedan 26 bloques script en 24 vistas y 24 manejadores inline | verificado 08/09 |
+- Suite migrada de SQLite a MariaDB.
+- Dump retirado y segunda puerta de exportacion eliminada.
+- Falla de copia nocturna a Drive corregida y respaldos revalidados.
+- Cloudflare configurado con confianza acotada.
+- Precio de planes y frecuencias obligatorias protegidos.
+- Descuento de primera cuota limitado al mes de alta.
+- Importador de deuda inicial validado y carga de prueba preparada.
+- Rubros `Cuotas` y `Sueldos` protegidos en la aplicacion.
+- Acceso y menu de Cobranza corregidos para OPERATIVO.
+- Menu reorganizado y desplegado en `9fdd03d`.
+- Base del servidor preparada y cuenta ADMIN de Vanina creada.
 
-## Lo que falta
+## 6. Orden de trabajo
 
-El orden vigente esta en
-`docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` (**corte 08/09/2026,
-version 1**). La version marcable para Carlos es
+FDS-01 queda cerrado con esta version. El orden restante es:
+
+1. **FDS-02 a FDS-04:** revalidar servidor, reproducibilidad y pantallas corregidas.
+2. **COB-01 a COB-05:** monto con miles, cambio de plan, parcial con descuento y
+   cancelacion/reintento.
+3. **FIN:** recibos, historia, balance y concurrencia financiera.
+4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.
+5. **PRU:** recorrido humano completo, proceso mensual y gate.
+6. **ENT:** pedidos concretos de Carlos.
+7. **POS:** reportes y evolucion posterior; no bloquean por aparecer en una evaluacion.
+
+Los criterios y dependencias estan en el plan vigente. La version HTML marcable es
 `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html`.
 
-### Orden inmediato
+## 7. Decisiones pendientes de Carlos
 
-1. **FDS:** revalidar y documentar lo cerrado el fin de semana.
-2. **COB:** reproducir y corregir monto formateado, cambio de plan y parcial con
-   descuento antes de continuar la prueba humana.
-3. **FIN:** cerrar recibos, historia y concurrencia financiera.
-4. **SEG:** dependencias npm, sesiones, despliegue, backups, monitoreo y CSP gradual.
-5. **PRU:** repetir el recorrido integral de los tres roles y firmar el gate.
-6. **ENT:** pedidos concretos de Carlos y mejoras posteriores, sin mezclarlos con los
-   defectos de plata.
+- Si un pago anulado cuenta como primer pago comercial, despues de reproducir COB-04.
+- Que significa “Balance” filtrado en Cashflow.
+- Como resolver revisiones con parcial, observaciones e importe historico.
+- Limites temporales de movimientos manuales.
+- Significado de DEUDOR sin pagos y sin saldo pendiente.
+- Tratamiento contable de la inscripcion configurable.
+- Logo, paleta y favicon del club.
 
-### Cerrado durante el fin de semana del 5 al 7/09
+## 8. Riesgos y limites conocidos
 
-- Suite completa sobre MariaDB: 129 pruebas y 705 aserciones.
-- `database/dump.sql` retirado y reexportacion de `DemoSeeder` eliminada.
-- Cloudflare configurado y acceso directo al servidor cerrado.
-- Cobranza habilitada para OPERATIVO en ruta y menu.
-- Rubros reservados protegidos y carga inicial de deuda validada.
-- Servidor desplegado en `9fdd03d`, base minima preparada y cuenta ADMIN de Vanina
-  creada.
+- El rollback del deploy no revierte migraciones.
+- Preflight corre despues de reabrir el sitio.
+- La restauracion probada importa SQL; no reconstruye sola archivos y configuracion.
+- El control historico del restore compara conteos, no contenido financiero completo.
+- La copia externa puede fallar sin que el proceso completo termine como error.
+- `MoneyLockingTest` verifica texto del codigo, no concurrencia real.
+- Cambiar contraseña no revoca por si solo sesiones y `remember_token`.
+- Los errores de recibos pueden devolver el mensaje tecnico de la excepcion.
+- Aritmetica monetaria usa `float` en parte del dominio; el daño no esta demostrado.
+- `View::composer('*')` ejecuta una consulta global para el badge de clases.
 
-<!--
-## Snapshot historico al 06/09 — no usar como orden vigente
+## 9. Contradicciones abiertas
 
-Se conserva temporalmente para rastrear decisiones de la primera carga. Sus estados
-fueron reemplazados por el plan del 08/09 y deben archivarse al completar FDS-01.
-
-### Deuda inicial: pasos 1–4 completos (06/09, Codex CAB)
-
-Carlos resolvió la pausa: solo el importador, sin seeders. El Paso 0 se retiró
-en dde9357; los catálogos faltantes se cargarán por pantalla en otra tarea que
-Carlos todavía no definió. El defecto de CatalogosSeeder que desprotege Cuotas
-y Sueldos queda separado, sin corregir durante esta prueba.
-
-Verificado directamente en wings_test: 81 deudas PENDIENTE por $2.997.000,
-48 alumnos con deuda y 12 sin ninguna; monto_pagado cero y sin imputaciones.
-La duplicación fue rechazada sin cambios; la reversión dejó cero filas y la
-revalidación/recarga volvió a dejar 81. Alumnos (60), planes (60), usuarios (7)
-y pagos (0) conservaron su contenido.
-
-Paso 5 ejecutado parcialmente después: ADMIN muestra 0 AL_DIA, 0 EN_PLAZO,
-0 MOROSO y 60 DEUDOR, coincidiendo uno a uno con el servicio, incluidos los 12
-sin deuda. **H-DI-01 abierto:** OPERATIVO autenticado no accede a /cobranza;
-el navegador redirige a /caja. La ruta está dentro de ensure.admin.web y su
-middleware confirma esa redirección, contrariando el dominio de cobranza del
-OPERATIVO definido en PERMISOS-ROLES.md. Prueba detenida: PROFESOR no observado,
-paso 6 no iniciado. Las seis tablas verificadas conservaron su contenido.
-Pendiente de Carlos: corrección separada y revalidación del acceso.
-Evidencia: `docs/06-pruebas/RESULTADO-DEUDA-INICIAL-V1.md`.
-
-Fuente del orden: `docs/00-estado/PENDIENTES-260901.md`. Detalle de produccion:
-`docs/00-estado/PLAN-PRODUCCION.md`.
-
-### A · Tener con que probar
-
-| # | Pendiente | Estado verificado |
+| Tema | Estado real | Proxima accion |
 |---|---|---|
-| **A1** | Seeder de prueba | `TestSeeder` tiene 21 lineas. `DemoSeeder` crea 19 alumnos; la especificacion pide 15 y verificaciones de estados que hoy no existen |
-| **A2** | Simulador de tres meses | No existe codigo. Solo `SIMULADOR-TRES-MESES-V1.md` |
-| **A3** | Base de prueba limpia | `wings_test` no existia en CyE al 01/09 |
+| `dia_generacion_deuda` editable | El scheduler usa dia 1 fijo | Definir si gobierna la tarea o se retira de pantalla |
+| Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo |
+| Estado minimo de entrega | Preparado con un script temporal | FDS-03 deja un procedimiento reproducible |
+| Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
 
-**Orden:** A3 y A1 van juntas. A2 es independiente y usa su propia base descartable.
-
-### B · Probar de verdad
-
-| # | Pendiente | Estado verificado |
-|---|---|---|
-| **B1** | Recorrido humano completo | Bloqueado por A |
-| **B2** | Suite sobre MariaDB | Motor migrado; corrida completa verificada 05/09: 86 pruebas, 537 aserciones en wings_testing. La regresion especifica de duplicados con acentos sigue pendiente; no se infiere de un test ASCII |
-| **B3** | Concurrencia con dos conexiones reales | Sin hacer |
-| **B4** | Smoke de rutas que escriben | Sin hacer |
-
-### C · Cerrar lo que quedo a medias
-
-| # | Pendiente | Estado verificado |
-|---|---|---|
-| **C1** | CSP definitiva | Sigue en modo reporte. Quedan 26 bloques `<script>` en 24 vistas y **24** manejadores `on...=` (eran 40; el 06/09 se cerraron los 6 de filtros y los 10 de efectos de mouse). Protegido por `CspSinCodigoIncrustadoTest`, que no deja que el numero crezca |
-| **C2** | Sacar `dump.sql` por las dos puertas | Cerrado 05/09: retirado de Git, ignorado y exportacion de DemoSeeder eliminada. Corrida completa del seeder en MariaDB descartable sin recrear el archivo; sesiones y tokens locales invalidados. El historial anterior no se purgo |
-
-### D · Entregar
-
-| # | Pendiente |
-|---|---|
-| **D1** | Gate del servidor |
-| **D2** | Datos reales del club |
-| **D3** | Usuarios reales |
-| **D4** | Deuda del primer mes |
-| **D5** | Primera caja acompanada |
-
-### E · Despues de entregar
-
-| # | Pendiente |
-|---|---|
-| **E1** | Cuatro defectos con vencimiento: `AUD-018`, `AUD-019`, `AUD-020`, `AUD-025` |
-| **E2** | Reportes que el sistema todavia no entrega |
-| **E3** | Deuda tecnica conocida |
-| **E4** | Eliminar `formas_pago`, que seguia en la base de CyE al 01/09 |
-
-### G · Pedidos de Carlos del 07/09
-
-| # | Pendiente | Lo que hay que saber antes |
-|---|---|---|
-| **G1** | **Rediseñar el recibo entero**, con los colores del club y el logo | **Falta definir los dos**: no hay logo en el repositorio ni una paleta del club escrita. Toca `ReciboService` y su plantilla |
-| **G2** | **Costo de inscripcion del alumno nuevo**, hoy $5.000, dentro de la regla de alumno nuevo y **configurable desde la pantalla** | La pantalla de configuracion **edita claves pero no las crea**: la clave nueva tiene que nacer de una migracion. Y `Configuracion::set()` sobre una fila inexistente **no hace nada y no avisa** |
-| **G3** | **Falta el favicon** | — |
-| **G4** | **El ojo para ver la contraseña mientras se tipea** | Va en login, alta y edicion de usuario. Ojo con C1: la CSP no admite JavaScript incrustado en la vista, asi que el manejador va en un archivo `.js` aparte |
-
-### H · Credenciales en el historial de Git — cerrado el 07/09
-
-Se probaron las seis credenciales del archivo contra **todo** el historial
-(`git log --all -S`): **ninguna aparece**, y el archivo nunca se commiteo. Esta cubierto
-por `.gitignore`.
-
-El viejo `database/dump.sql` si dejo en commits anteriores el mail, nombre, DNI y
-telefono de dos alumnas cargadas en marzo. **Carlos lo evaluo el 07/09 y decidio que no
-amerita accion**: una casilla de correo no es un dato reservado. Queda escrito para que
-no se vuelva a levantar como hallazgo nuevo.
-
-### F · Punitorios por mora — contrato escrito el 06/09, sin implementar
-
-`docs/02-contratos/Wings-Contrato-Punitorios-Mora-V1.md`. Hasta el 06/09 estas
-decisiones existian **solo en el chat**: no habia una linea escrita en ningun lado.
-
-**No hay nada implementado**: ni las dos claves de configuracion, ni los campos en
-`deuda_cuotas`, ni el subrubro. Con `mora_porcentaje = 0` el sistema se comporta como
-hoy, y ese es el estado en que se entrega.
-
-**Resuelto el 06/09:** la plata entra por un rubro reservado nuevo, `Punitorios`, con
-un unico subrubro `Punitorio Cuota` (`OPERATIVO`, `afecta_caja = true`,
-`es_reservado_sistema = true`), igual que `Cuota Mensual`. Reemplaza la idea previa
-de ponerlo bajo Intereses, que no podia funcionar: los subrubros de ese rubro son de
-`ADMIN` y no afectan la caja (`CatalogosSeeder.php:54-61`).
-
-**No requiere cambios de codigo.** El comportamiento de "rubro reservado" ya existe:
-`SubrubroWebController.php:23` impide agregarle subrubros a un rubro cuyos subrubros
-son todos reservados, y los selectores de caja y cashflow filtran los reservados.
-Alcanza con crearlo en el seeder de catalogos, **marcandolo `es_reservado_sistema`
-tambien a nivel de rubro** (ver abajo).
-
-Queda **un punto abierto** que decide Carlos: si se guarda `recargo_pagado` o se
-deduce (§5 del contrato).
-
-**Cerrado el 06/09, commit `b2868ea`.** El agujero que este contrato dejaba anotado
-—`RubroWebController::update()` no comprobaba nada— ya no existe: los rubros tienen
-`es_reservado_sistema`, y uno reservado no se renombra, no cambia de tipo y no se
-borra (solo la observacion se edita). Marcados `Sueldos` y `Cuotas`. Cubierto por
-`RubroReservadoTest`, 8 pruebas con dientes comprobados. La busqueda del rubro por
-nombre quedo centralizada en `app/Services/SubrubroSueldoService.php`, que lanza
-excepcion si falta en vez de seguir de largo en silencio.
-
-**Consecuencia para punitorios:** el rubro `Punitorios` tiene que nacer del seeder ya
-marcado como reservado, igual que `Sueldos` y `Cuotas`.
-
-Ademas hay un hallazgo que condiciona este contrato: **`dia_generacion_deuda` es una
-configuracion que nadie lee**. Aparece solo en su migracion; el dia esta escrito en
-`routes/console.php:12`. El criterio 3 de aceptacion del contrato existe para que las
-claves nuevas no terminen igual.
-
-### Estado del servidor — verificado por SSH el 06/09
-
-| Que | Resultado |
-|---|---|
-| Ultimo despliegue | `7abf327`, 07/09 02:46, en `storage/logs/despliegues.log` |
-| Respaldos diarios | **Corriendo.** 8 archivos en `/var/backups/wings`, cron 03:15. Los del 05/09 y 06/09 estan en el Drive: la falla silenciosa de subida quedo cerrada |
-| Proceso mensual | **Registrado y activo**: `cobranza:generar-deudas`, `0 6 1 * *`, proxima corrida el 01/10. El `schedule:run` corre cada minuto |
-| Monitoreo | **No existe.** 0 servicios de monitoreo corriendo. Si el sitio se cae, nadie se entera |
-
-**Lo unico que no se pudo comprobar** es si la corrida del 01/09 a las 06:00 hizo
-algo: no hay `laravel.log` en el servidor, asi que no hay rastro ni a favor ni en
-contra. La tarea esta bien registrada y el ejecutor activo.
-
--->
-
-## Deuda Tecnica Conocida
-
-| Item | Riesgo |
-|---|---|
-| Aritmetica monetaria pasa por `float` en parte del dominio | Riesgo no demostrado; medir antes de corregir |
-| `View::composer('*')` para el badge de clases | Query global en cada render |
-| Locks de concurrencia sin prueba paralela real | Cubiertos estructuralmente; falta probarlos con dos conexiones |
-| Integracion web completa de PDFs | Parcial |
-| README raiz generico de Laravel | No usar como documentacion del proyecto |
-
-## Riesgos que salen a produccion con el defecto adentro
-
-Cada uno verificado como no alcanzable, o de un modulo que todavia no se usa. Detalle y
-fechas de vencimiento en `PLAN-PRODUCCION.md` seccion 6.
-
-`AUD-018`, `AUD-019`, `AUD-020`, `AUD-025`.
-
-## Contradicciones abiertas
-
-| Contradiccion | Estado real | Resolucion |
-|---|---|---|
-| Documentos viejos dicen Laravel 11 | `composer.json` usa `^12.0` | Corregir al tocarlos |
-| `wings-design/SKILL.md` dice `ds-content` con tope de 1200px | `app.css` no lo implementa | Decidir: implementar el tope o corregir el SKILL |
-| `dia_generacion_deuda` es editable | El scheduler usa dia 1 fijo | Definir si la configuracion gobierna la tarea o se retira de pantalla |
-| “Balance” filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo antes de tocar codigo |
-| Estado minimo de entrega | Se preparo manualmente con un script temporal | FDS-03 define un procedimiento reproducible; no crear seeder sin decision |
-
-## Rutas Documentales Vigentes
+## 10. Fuentes vigentes
 
 | Necesidad | Ruta |
 |---|---|
-| **Plan vigente para IA (08/09/2026 v1)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
+| Plan para IA | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
 | Plan marcable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
-| Plan de produccion anterior / contexto | `docs/00-estado/PLAN-PRODUCCION.md` |
-| Reglas para agentes | `AGENTS.md` |
-| Bitacora de Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
-| Bitacora de Codex | `docs/00-estado/LOG-CODEX.md` |
-| Pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |
-| Contratos de negocio | `docs/02-contratos/` |
-| Design system | `docs/03-diseno-ui/` |
+| Evaluacion Codex | `docs/07-evaluacion/Evaluacion Codex 8-9-26.md` |
+| Evaluacion Claude | `docs/07-evaluacion/Evaluacion Claude 8-9-26.md` |
+| Bitacora Codex | `docs/00-estado/LOG-CODEX.md` |
+| Bitacora Claude | `docs/00-estado/LOG-CLAUDE.md` |
+| Acciones de Carlos | `docs/00-estado/CHECKLIST-CARLOS.md` |
+| Contratos | `docs/02-contratos/` |
 | Pruebas funcionales | `docs/06-pruebas/` |
-| Historico | `docs/99-archivo/` |

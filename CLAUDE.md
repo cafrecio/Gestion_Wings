@@ -42,7 +42,7 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 Antes de modificar funcionalidad, leer:
 
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` — **plan de trabajo vigente,
-  corte 08/09/2026 version 1. Leer completo antes de tomar una tarea nueva.** Cruza
+  corte 08/09/2026 version 2. Leer completo antes de tomar una tarea nueva.** Cruza
   las evaluaciones de Codex y Claude y lo realizado el fin de semana.
 - `docs/00-estado/ESTADO-ACTUAL.md`
 - `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**
@@ -75,7 +75,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 
 | Necesidad | Ruta |
 |---|---|
-| **Plan de trabajo vigente (08/09/2026 v1)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
+| **Plan de trabajo vigente (08/09/2026 v2)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
 | Plan navegable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Bitacora de Claude Code | `docs/00-estado/LOG-CLAUDE.md` |

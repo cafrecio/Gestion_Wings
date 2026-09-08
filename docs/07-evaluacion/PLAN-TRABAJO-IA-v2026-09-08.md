@@ -1,6 +1,6 @@
 # Wings — Plan de trabajo para IA
 
-> **Version:** 2026-09-08.v1
+> **Version:** 2026-09-08.v2
 > **Fecha de corte:** 8 de septiembre de 2026
 > **Commit evaluado:** `97fb840`; cruce documental hasta `ad0491f`
 > **Fuentes principales:** `Evaluacion Codex 8-9-26.md`, `Evaluacion Claude 8-9-26.md`,
@@ -32,9 +32,10 @@
 
 ## 2. Bloque 0 — cerrar lo hecho el fin de semana
 
-### FDS-01 · Sincerar documentos de estado
+### FDS-01 · Sincerar documentos de estado — CERRADA 08/09
 
-**Ejecuta:** Codex o Claude. **Prioridad:** inmediata. **Diseño:** no.
+**Ejecuta:** Codex CAB. **Estado:** cerrada y pendiente de verificacion por Claude.
+**Diseño:** no.
 
 - Corregir `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md` contra lo
   verificado el 8/9.
@@ -48,6 +49,10 @@
 
 **Aceptacion:** ningun documento vigente contradice esos hechos ni presenta una
 verificacion historica como actual.
+
+**Resultado:** `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md`
+quedaron alineados al corte 08/09. Los bloques del plan de agosto dejaron de figurar
+como orden vigente.
 
 ### FDS-02 · Revalidar servidor y operacion del fin de semana
 
