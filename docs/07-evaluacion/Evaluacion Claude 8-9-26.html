@@ -98,9 +98,11 @@
 
   <div class="resumen">
     <h2>Si leés una sola cosa, que sea esta</h2>
-    <p style="margin-top:0;opacity:.85">Hay tres formas de cobrar mal. Las tres terminan
-    con el cartel verde de <i>"Pago registrado"</i>.</p>
+    <p style="margin-top:0;opacity:.85">Hay cuatro formas de mover mal la plata. Todas
+    terminan con el cartel verde de <i>"Pago registrado"</i>.</p>
     <ol>
+      <li><b>Un cobro parcial con descuento borra deuda.</b> Cobrás $10.000 a cuenta de
+      un mes de $40.000 y los otros $30.000 <i>desaparecen</i>. Nadie los cobró.</li>
       <li><b>Un cobro de $30.000 se puede registrar como $30.</b> El monto viaja con el
       punto de miles puesto y el sistema lo lee como treinta pesos con decimales.</li>
       <li><b>Cambiar el plan al cobrar no cambia nada.</b> Elegís el plan nuevo, el monto
@@ -112,8 +114,36 @@
     felicita, no.</p>
   </div>
 
-  <h2><span class="n">1</span>Los tres cobros que salen mal</h2>
+  <div class="card info" style="margin-bottom:34px">
+    <p style="margin:0"><b>Este informe se actualizó después de cruzarlo con la
+    evaluación de Codex.</b> Lo que él encontró y acá faltaba está incorporado y
+    verificado; lo que afirma y no corresponde está al final, en
+    <i>Dónde no coincidimos</i>.</p>
+  </div>
+
+  <h2><span class="n">1</span>Los cuatro cobros que salen mal</h2>
   <p class="lead">Ordenados por lo que cuestan.</p>
+
+  <div class="card grave">
+    <h3><span class="tag t-ver">Verificado</span>Un cobro parcial con descuento borra deuda</h3>
+    <p class="nota" style="margin-top:0">Lo encontró Codex. Lo comprobé leyendo el código
+    antes de repetirlo.</p>
+    <p>Cuando a un alumno nuevo le corresponde el descuento de primera cuota, el sistema
+    baja el monto de la deuda para que quede saldada con el importe rebajado. Hasta ahí,
+    bien. El problema es que ese ajuste <b>toca todos los meses del cobro</b>, no solo el
+    del descuento, y le pisa el valor con lo que se está pagando.</p>
+    <p>Alumno que debe agosto y septiembre, $40.000 cada uno. Le corresponde el 70% en
+    agosto. El operativo cobra agosto y le toma <b>$10.000 a cuenta</b> de septiembre:</p>
+<pre>septiembre valía   $40.000
+se cobran          $10.000
+queda valiendo     $10.000   <span class="c">← el ajuste le pisa el valor</span>
+estado             PAGADA
+<b>desaparecen        $30.000   ← sin que nadie los cobre</b></pre>
+    <p>El control que existe no lo frena, porque en ese momento el pago todavía es cero.
+    Y no hay ningún aviso: la deuda simplemente deja de existir.</p>
+    <p class="quien"><b>Hacen falta tres cosas juntas:</b> primer pago, con descuento, y un
+    parcial de otro mes. Las tres se hacen desde la misma pantalla.</p>
+  </div>
 
   <div class="card grave">
     <h3><span class="tag t-ver">Verificado</span>Un cobro de $30.000 se registra como $30</h3>
@@ -252,9 +282,41 @@ is_numeric("1.234.567") →  false     <span class="c">← con dos puntos sí la
 
   <h2><span class="n">5</span>Seguridad</h2>
   <p class="lead">El titular es bueno: <b>no hay nada crítico ni explotable desde afuera.</b>
-  Se verificó que la API está apagada, que no hay inyección de código ni datos sin escapar,
-  que los recibos no se alcanzan por dirección directa y que las dependencias están limpias.
-  Todo lo que sigue requiere ya tener una sesión abierta.</p>
+  Se verificó que la API está apagada, que no hay inyección de código ni datos sin escapar
+  y que los recibos no se alcanzan por dirección directa. Todo lo que sigue requiere ya
+  tener una sesión abierta.</p>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Las dependencias de JavaScript no están limpias</h3>
+    <p class="nota" style="margin-top:0">Corrige una afirmación equivocada de mi propia
+    auditoría. Lo marcó Codex y lo volví a correr yo.</p>
+    <p>Mi auditor de seguridad reportó cero avisos en JavaScript. <b>Es falso:</b></p>
+<pre>11 vulnerabilities (1 low, 1 moderate, 7 high, <b>2 critical</b>)</pre>
+    <p>Afectan a <code>vite</code>, <code>axios</code>, <code>esbuild</code>,
+    <code>postcss</code>, <code>rollup</code> y otras. Varias son herramientas de
+    desarrollo que no llegan al navegador; <code>axios</code> sí. Ninguna está demostrada
+    como aprovechable en Wings, pero <b>decir que estaba todo limpio era incorrecto</b>.</p>
+    <p class="quien">En PHP sí está limpio: cero avisos.</p>
+  </div>
+
+  <div class="card medio">
+    <h3><span class="tag t-ver">Verificado</span>Los respaldos garantizan menos de lo que anuncian</h3>
+    <p class="nota" style="margin-top:0">Aporte de Codex. Ninguno de mis cuatro auditores
+    miró los respaldos: fue el hueco más grande de mi evaluación.</p>
+    <ul>
+      <li><b>Restaurar no reconstruye Wings.</b> El respaldo guarda la configuración y los
+      archivos, pero el comando de restauración <b>solo importa la base</b>. Después de
+      perder el servidor, lo demás sigue adentro del paquete y hay que sacarlo a mano.</li>
+      <li><b>El ensayo compara cantidades, no contenido.</b> Verifica que 15 tablas tengan
+      la misma cantidad de filas. Dos bases con los mismos pagos pero <b>importes
+      distintos</b> pasan ese control. Y el mensaje final dice que se restauró completo.</li>
+      <li><b>La copia al Drive puede fallar y el script termina bien.</b> Se imprime un
+      aviso y el resultado sigue siendo éxito. Es a propósito, para no perder el respaldo
+      local — pero quien supervisa lee "ok" y cree que también quedó una copia afuera.</li>
+    </ul>
+    <p>Sumado a que el servidor <b>no tiene monitoreo</b> —verificado por SSH hoy, cero
+    servicios—, nadie se entera si la copia externa deja de funcionar.</p>
+  </div>
 
   <div class="card medio">
     <h3><span class="tag t-ver">Verificado</span>Cambiar la contraseña no echa a nadie</h3>
@@ -438,6 +500,10 @@ is_numeric("1.234.567") →  false     <span class="c">← con dos puntos sí la
   <table>
     <tr><th>Dice</th><th>Realidad</th></tr>
     <tr><td>El operativo no entra a Cobranza, pendiente de Carlos</td><td>Se arregló el 07/09. <b>El pendiente ya no existe</b></td></tr>
+    <tr><td>El servidor corre <code>7abf327</code></td><td>Corre <b><code>9fdd03d</code></b>. Lo desplegué y no actualicé el documento</td></tr>
+    <tr><td>"Sin usuarios del club"</td><td>La cuenta de la dueña se creó el 07/09</td></tr>
+    <tr><td>Falta el ojo para ver la contraseña</td><td><b>Ya existe en el login.</b> Falta solo en el alta de usuarios</td></tr>
+    <tr><td>El manual de agentes dice 33 pruebas</td><td>Son 129</td></tr>
     <tr><td>Botón Cobrar deshabilitado en el listado de alumnos</td><td>Es un enlace funcional</td></tr>
     <tr><td>Un alumno puede quedar con dos planes activos</td><td>La base lo impide con un índice único</td></tr>
     <tr><td>Montos como decimales flotantes, riesgo contable</td><td>Sobredimensionado: todas las columnas son decimales</td></tr>
@@ -467,7 +533,69 @@ is_numeric("1.234.567") →  false     <span class="c">← con dos puntos sí la
     </ul>
   </div>
 
-  <h2><span class="n">10</span>El patrón de fondo</h2>
+  <h2><span class="n">10</span>Dónde no coincidimos con Codex</h2>
+  <p class="lead">Cruzamos los dos informes. La mayoría coincide. Estas son las
+  diferencias, con lo que verifiqué en cada una.</p>
+
+  <div class="card grave">
+    <h3>Lo que él da por bueno y no lo está</h3>
+    <p>Codex escribe: <i>"El cambio de plan y el cobro comparten transacción. No repetir
+    esos defectos antiguos como abiertos."</i></p>
+    <p>Tiene razón <b>en lo que miró</b>: el código del servidor está bien escrito y
+    comparte transacción. Pero <b>nunca se ejecuta</b>, porque el dato no llega — los
+    botones de plan están fuera del formulario. Él revisó el motor; el defecto está en el
+    tablero.</p>
+    <p class="quien">Verificado por mí: botones en la línea 54, formulario de la 83 a la
+    207, sin nada que los ate, y el JavaScript no los agrega al envío.</p>
+  </div>
+
+  <div class="card medio">
+    <h3>Lo que él no vio</h3>
+    <ul>
+      <li>El monto con punto de miles que se registra mil veces más chico — <b>el hallazgo
+      más grave de los dos informes</b>, y no está en el suyo.</li>
+      <li>Que la base de entrega no se puede reproducir.</li>
+      <li>Cinco servicios de plata sin una sola prueba, y que la única de liquidaciones
+      verifica el nombre del grupo, no el monto.</li>
+      <li>Que la prueba de concurrencia <b>no prueba nada</b>: él la trata como "pendiente
+      de probar", cuando la que existe da verde buscando una palabra en un archivo.</li>
+      <li>Que no hay integración continua.</li>
+    </ul>
+    <p>Casi todo se explica por su propio límite declarado: <b>no consultó la base, no
+    ejecutó las pruebas y no entró al servidor</b>. Su evaluación es enteramente de
+    lectura.</p>
+  </div>
+
+  <div class="card ok">
+    <h3>Donde él tiene razón y yo estaba mal</h3>
+    <ul>
+      <li><b>Las dependencias de JavaScript:</b> mi auditor dijo cero avisos. Son 11, dos
+      críticos.</li>
+      <li><b>El ojo de contraseña ya existe en el login.</b> Mi pendiente lo daba por
+      faltante en todos lados.</li>
+      <li><b>El estado escrito quedó atrasado dos veces por mi culpa:</b> el commit
+      desplegado y la frase de que no hay usuarios del club.</li>
+      <li><b>Los respaldos:</b> ninguno de mis cuatro auditores los miró.</li>
+    </ul>
+  </div>
+
+  <div class="card info">
+    <h3>Donde pide verificar algo que ya está verificado</h3>
+    <p style="margin-bottom:0">Pide <i>"verificar el servicio real antes de afirmar que
+    existe o no monitoreo"</i>. <b>Ya lo hice hoy por SSH: cero servicios corriendo.</b> Y
+    la tarea mensual está en el crontab de la aplicación, mandando su salida a la nada.</p>
+  </div>
+
+  <div class="card info">
+    <h3>Una diferencia de método, no de hallazgos</h3>
+    <p style="margin-bottom:0">Su informe evita afirmar y prefiere <i>"faltaría
+    demostrar"</i>. Es prudente, y en varios casos tiene razón: ninguno de los dos
+    reprodujo estos casos en una base. Pero conviene no confundir <i>"no lo reproduje"</i>
+    con <i>"puede que no exista"</i>. Los cuatro casos de plata de arriba están verificados
+    en el código, y tres de ellos <b>no dan ninguna señal cuando ocurren</b>.</p>
+  </div>
+
+  <h2><span class="n">11</span>El patrón de fondo</h2>
 
   <div class="card info">
     <p style="margin-top:0"><b>El sistema es duro con lo que se puede tocar y blando con lo

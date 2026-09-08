@@ -9,10 +9,47 @@
 
 ---
 
+> **Actualizado el 08/09 tras cruzar con la evaluación de Codex.** Lo que él encontró
+> y yo no está incorporado abajo, verificado por mi cuenta antes de repetirlo. Lo que
+> él afirma y no corresponde está en la sección final, *Dónde no coincidimos*.
+
+---
+
 ## Lo que hay que mirar antes que nada
 
-Tres cosas cobran mal y **ninguna avisa**. Las tres terminan con el cartel verde de
-"listo".
+Cuatro cosas mueven mal la plata y **ninguna avisa**. Todas terminan con el cartel
+verde de "listo".
+
+### 0. Un cobro parcial con descuento borra deuda
+
+**VERIFICADO. Lo encontró Codex; lo comprobé leyendo el código antes de repetirlo.**
+
+Cuando corresponde el descuento de primera cuota, el sistema ajusta el monto de la
+deuda para que quede saldada con el importe rebajado. El problema es que ese ajuste
+recorre **todos los períodos del cobro**, no solo el que lleva el descuento, y le pisa
+el monto original con lo que se está pagando.
+
+Alumno nuevo que debe agosto y septiembre, $40.000 cada uno. Le corresponde el 70% en
+agosto. El operativo cobra agosto ($28.000) y le toma **$10.000 a cuenta** de
+septiembre:
+
+```
+septiembre valía        $40.000
+se cobran               $10.000
+queda valiendo          $10.000   ← el ajuste le pisa el monto original
+estado                  PAGADA
+desaparecen             $30.000   ← sin que nadie los cobre
+```
+
+La guarda que existe (`monto_pagado < monto nuevo`) no lo frena, porque el pago todavía
+es cero. Y no hay ningún aviso: la deuda simplemente deja de existir.
+
+*Archivos:* `app/Services/PagoCuotaService.php:50-53, 658-668`,
+`app/Http/Controllers/CajaWebController.php:745`.
+
+**Para que ocurra hacen falta tres cosas juntas:** que sea el primer pago, que aplique
+descuento y que se cobre un parcial de otro mes. Las tres se hacen desde la misma
+pantalla.
 
 ### 1. Un cobro de $30.000 se puede registrar como $30
 
@@ -216,8 +253,27 @@ club se entera cuando nadie tenga cuota que pagar.
 
 **Titular: no hay nada crítico ni explotable de forma anónima.** Se verificó que la API
 está apagada (129 rutas activas, ninguna de `api/`), que no hay XSS ni inyección SQL,
-que los recibos no son alcanzables por URL, que el mass assignment está cerrado y que
-las dependencias no tienen avisos. Todo lo que sigue es posterior a tener sesión.
+que los recibos no son alcanzables por URL y que el mass assignment está cerrado. Todo
+lo que sigue es posterior a tener sesión.
+
+### Las dependencias de JavaScript no están limpias
+
+**VERIFICADO — corrige una afirmación equivocada de mi propia auditoría.**
+
+Mi auditor de seguridad reportó `npm audit: 0 vulnerabilidades`. **Es falso.** Codex lo
+marcó y lo volví a correr yo mismo:
+
+```
+11 vulnerabilities (1 low, 1 moderate, 7 high, 2 critical)
+```
+
+Afectan a `vite`, `axios`, `esbuild`, `postcss`, `rollup`, `shell-quote`,
+`follow-redirects`, `form-data`, `nanoid`, `picomatch` y `concurrently`. Varias son
+herramientas de desarrollo y no viajan al navegador; `axios` sí. Ninguna está
+demostrada como explotable en Wings, pero **la afirmación de que estaba todo limpio era
+incorrecta y hay que corregirla.**
+
+`composer audit` sí está limpio: cero avisos en PHP.
 
 ### Cambiar la contraseña no expulsa a nadie
 
@@ -265,6 +321,30 @@ posible, aunque es ruidoso y caro.
 tapa** apagar el modo depuración, porque es una respuesta explícita del controlador.
 
 *Archivo:* `app/Http/Controllers/ReciboController.php:83, 150`.
+
+### Los respaldos garantizan menos de lo que anuncian
+
+**Aporte de Codex. VERIFICADO leyendo los scripts.** Ninguno de mis cuatro auditores
+miró los respaldos; fue el hueco más grande de mi evaluación.
+
+Tres cosas distintas, que juntas cambian lo que significa "la restauración fue
+probada":
+
+- **Restaurar no reconstruye Wings.** El respaldo guarda la configuración y los
+  archivos de `storage`, pero el comando de restauración **solo importa la base**. Tras
+  perder el servidor, los archivos y la configuración siguen dentro del paquete: hay
+  que sacarlos a mano. Nadie los perdió, pero la restauración automática es parcial.
+- **El ensayo compara cantidades, no contenido.** Verifica que 15 tablas tengan la misma
+  cantidad de filas. Dos bases con los mismos pagos pero **importes distintos** pasan
+  ese control. Y omite la tabla de imputaciones. El mensaje final dice que se restauró
+  completo.
+- **La copia externa puede fallar y el script termina bien.** Si la subida al Drive
+  falla, se imprime un aviso y el resultado final sigue siendo éxito. Es deliberado —
+  para no perder el respaldo local — pero quien supervisa puede leer "ok" y creer que
+  también quedó una copia afuera.
+
+Sumado a que el servidor **no tiene monitoreo** (verificado por SSH hoy: cero
+servicios), el resultado es que nadie se entera si la copia externa deja de funcionar.
 
 ### Sin rastro de las acciones sensibles del admin
 
@@ -433,6 +513,10 @@ decirle cuál es la caja ni dónde cerrarla.
 | Documento | Qué dice | Realidad |
 |---|---|---|
 | `ESTADO-ACTUAL.md` | El operativo no entra a `/cobranza`, pendiente de Carlos | Se arregló el 07/09. **El pendiente ya no existe** |
+| `ESTADO-ACTUAL.md` | Commit desplegado `7abf327` | El servidor tiene **`9fdd03d`**. Lo desplegué y no actualicé el documento |
+| `ESTADO-ACTUAL.md` | "sin usuarios del club" | La cuenta de la dueña se creó el 07/09 |
+| `LOG-CLAUDE.md` (G4) | Falta el ojo para ver la contraseña | **Ya existe en el login.** Falta solo en el formulario de usuarios |
+| `AGENTS.md` | 33 pruebas | Son 129 |
 | `ESTADO-ACTUAL.md` | Botón Cobrar deshabilitado en el listado de alumnos | Es un enlace funcional |
 | `ESTADO-ACTUAL.md` | `AlumnoPlan` puede dejar dos planes activos | La base lo impide con un índice único |
 | `ESTADO-ACTUAL.md` | Montos como float, riesgo de precisión | Sobredimensionado: todas las columnas son decimales y los modelos castean |
@@ -458,6 +542,65 @@ No todo es deuda. Verificado y sólido:
 - No hay subida de archivos, ni SQL dinámico, ni datos sin escapar en las vistas.
 - Cloudflare está bien resuelto y el servidor solo acepta tráfico suyo.
 - Los respaldos corren, están cifrados y la restauración fue probada.
+
+---
+
+## Dónde no coincidimos con Codex
+
+Cruzamos los dos informes. La mayoría coincide. Estas son las diferencias, con lo que
+verifiqué en cada una.
+
+### Lo que él da por bueno y no lo está
+
+**"El cambio de plan y el cobro comparten transacción. No repetir esos defectos
+antiguos como abiertos."**
+
+Codex verificó el servidor y tiene razón en lo que miró: el bloque que aplica el plan
+nuevo comparte transacción con el cobro y está bien escrito. **Pero nunca se ejecuta**,
+porque el dato no llega: los botones de plan están fuera del formulario. Él revisó el
+backend; el defecto está en la pantalla.
+
+Verificado por mí: radios en la línea 54, formulario de la 83 a la 207, sin atributo
+que los ate, y el JavaScript no los agrega al envío.
+
+### Lo que él no vio
+
+- **El monto con punto de miles que se registra mil veces más chico.** Es el hallazgo
+  más grave de los dos informes y no está en el suyo.
+- **La base de entrega no se puede reproducir.** El script que la generó quedó fuera del
+  repositorio.
+- **Cinco servicios de plata sin una sola prueba**, y que la única de liquidaciones
+  verifica el nombre del grupo, no el monto.
+- **Que la prueba de concurrencia es un `grep` del código fuente.** Él la trata como
+  "pendiente de probar"; en realidad la prueba que existe **no prueba nada** y da verde.
+- **No hay integración continua.**
+
+Casi todo esto se explica por su propio límite declarado: **no consultó la base, no
+ejecutó la suite y no entró al servidor.** Su evaluación es enteramente estática.
+
+### Donde él tiene razón y yo estaba mal
+
+- **`npm audit`**: mi auditor dijo cero avisos. Son **11, dos críticos**. Corregido
+  arriba.
+- **El ojo de contraseña ya existe en el login.** Mi pendiente G4 lo daba por faltante
+  en todos lados.
+- **`ESTADO-ACTUAL` quedó atrasado dos veces por mi culpa**: el commit desplegado y la
+  frase de que no hay usuarios del club.
+- **Los respaldos**: ninguno de mis cuatro auditores los miró.
+
+### Donde él pide verificar algo que ya está verificado
+
+Pide "verificar el servicio real antes de afirmar que existe o no monitoreo". **Ya lo
+hice hoy por SSH: cero servicios de monitoreo corriendo.** Y el `schedule:run` existe
+en el crontab del usuario de la aplicación, mandando su salida a `/dev/null`.
+
+### Una diferencia de método, no de hallazgos
+
+Su informe evita afirmar y prefiere "faltaría demostrar". Es prudente y en varios casos
+tiene razón — ninguno de los dos reprodujo estos casos en una base. Pero conviene no
+confundir *"no lo reproduje"* con *"puede que no exista"*: los cuatro casos de plata de
+arriba están verificados en el código, y tres de ellos no dan ninguna señal cuando
+ocurren.
 
 ---
 
