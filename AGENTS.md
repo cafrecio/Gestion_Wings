@@ -14,7 +14,7 @@ Antes de tomar una tarea nueva, leer completo:
 
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`
 
-Es el orden de trabajo vigente desde el **08/09/2026, version 2**. Cruza las
+Es el orden de trabajo vigente desde el **08/09/2026, version 3**. Cruza las
 evaluaciones de Codex y Claude y lo realizado del 5 al 7 de septiembre. Los planes
 anteriores se conservan como contexto, pero no mandan el orden actual.
 

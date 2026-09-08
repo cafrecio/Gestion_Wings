@@ -2,7 +2,7 @@
 
 > **Actualizado:** 08/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
-> version 2026-09-08.v2.
+> version 2026-09-08.v3.
 > Si otro documento contradice este estado, no improvisar: verificar y corregir.
 
 ## 1. Estado general
@@ -24,7 +24,7 @@ cargados los alumnos ni la operacion real del club.
 | Migraciones | Sin pendientes en la ultima verificacion |
 | Scheduler | Registrado y ejecutado cada minuto; deuda mensual programada para dia 1 a las 06:00 |
 | Backups | Diarios, cifrados, rotados y copiados a Drive |
-| Monitoreo | No existe; cero servicios encontrados el 08/09 |
+| Monitoreo | HTTPS externo activo con email; heartbeats creados. Scripts de scheduler, backup y Telegram preparados localmente, aun no desplegados |
 
 No se pudo demostrar que la corrida mensual del 01/09 haya producido resultado: no
 quedo un log que lo pruebe o descarte.
@@ -80,7 +80,8 @@ crear un seeder de datos reales sin decision de Carlos.
 
 ## 6. Orden de trabajo
 
-FDS-01 queda cerrado con esta version. El orden restante es:
+FDS-01 queda cerrado. FDS-02 esta en curso y no se cierra hasta probar las alertas
+desde el servidor. El orden restante es:
 
 1. **FDS-02 a FDS-04:** revalidar servidor, reproducibilidad y pantallas corregidas.
 2. **COB-01 a COB-05:** monto con miles, cambio de plan, parcial con descuento y
@@ -110,7 +111,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Preflight corre despues de reabrir el sitio.
 - La restauracion probada importa SQL; no reconstruye sola archivos y configuracion.
 - El control historico del restore compara conteos, no contenido financiero completo.
-- La copia externa puede fallar sin que el proceso completo termine como error.
+- El servidor todavia no tiene desplegada la alerta de copia externa; hasta hacerlo,
+  un fallo de Drive conserva la copia local pero solo queda en la salida del cron.
 - `MoneyLockingTest` verifica texto del codigo, no concurrencia real.
 - Cambiar contraseña no revoca por si solo sesiones y `remember_token`.
 - Los errores de recibos pueden devolver el mensaje tecnico de la excepcion.

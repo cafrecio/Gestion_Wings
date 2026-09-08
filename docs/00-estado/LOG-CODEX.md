@@ -14,6 +14,23 @@
 
 ---
 
+## 2026-09-08 — Codex CAB — FDS-02 monitoreo preparado; despliegue pendiente
+
+Se activo en Better Stack el control HTTPS externo con aviso por email y se crearon
+heartbeats separados para scheduler y backup. En el repositorio se agregaron wrappers
+que informan exito/fallo y envian Telegram ante fallos explicitos; los tokens, chat IDs
+y URLs secretas quedan fuera de Git. Si Drive falla, la copia local se conserva y la
+alerta distingue ambos resultados.
+
+La prueba aislada de scheduler aprobo exito, fallo, codigo de salida, heartbeat `/fail`
+y Telegram sin usar red ni credenciales. Suite completa: 129 pruebas, 705 aserciones;
+vistas y CSS sin cambios. FDS-02 sigue abierta: esta computadora no tiene configurado
+un acceso SSH cuya clave de host pueda verificarse, por lo que no se desplego ni se
+simularon fallos reales. La evidencia historica queda ligada a `3470114`, `d859c6e`,
+`306fa19` y `4e1674e`; el commit de monitoreo se agrega al cierre definitivo.
+
+Firma: **Codex CAB**.
+
 ## 2026-09-08 — Codex CAB — FDS-01 cerrado
 
 Se sinceraron `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md` contra

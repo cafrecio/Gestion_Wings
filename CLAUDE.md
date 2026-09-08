@@ -42,7 +42,7 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 Antes de modificar funcionalidad, leer:
 
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` — **plan de trabajo vigente,
-  corte 08/09/2026 version 2. Leer completo antes de tomar una tarea nueva.** Cruza
+  corte 08/09/2026 version 3. Leer completo antes de tomar una tarea nueva.** Cruza
   las evaluaciones de Codex y Claude y lo realizado el fin de semana.
 - `docs/00-estado/ESTADO-ACTUAL.md`
 - `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**

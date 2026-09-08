@@ -1,6 +1,6 @@
 # Wings — Plan de trabajo para IA
 
-> **Version:** 2026-09-08.v2
+> **Version:** 2026-09-08.v3
 > **Fecha de corte:** 8 de septiembre de 2026
 > **Commit evaluado:** `97fb840`; cruce documental hasta `ad0491f`
 > **Fuentes principales:** `Evaluacion Codex 8-9-26.md`, `Evaluacion Claude 8-9-26.md`,
@@ -54,9 +54,9 @@ verificacion historica como actual.
 quedaron alineados al corte 08/09. Los bloques del plan de agosto dejaron de figurar
 como orden vigente.
 
-### FDS-02 · Revalidar servidor y operacion del fin de semana
+### FDS-02 · Revalidar servidor y operacion del fin de semana — EN CURSO 08/09
 
-**Ejecuta:** Claude CAB con SSH; Codex verifica reporte. **Prioridad:** inmediata.
+**Ejecuta:** Codex CAB; despliegue pendiente de acceso SSH confiable. **Prioridad:** inmediata.
 
 - Confirmar commit desplegado, migraciones, modo produccion y preflight.
 - Confirmar el estado minimo de la base sin exponer datos personales ni credenciales.
@@ -66,6 +66,25 @@ como orden vigente.
 
 **Aceptacion:** evidencia fechada en bitacora y sin secretos. Lo no comprobado queda
 marcado como tal.
+
+**Evidencia ya existente — no volver a resolverla desde cero:**
+
+| Parte | Commit que la registro |
+|---|---|
+| Servidor, Cloudflare, scheduler y backups | `3470114` |
+| Deploy, migraciones y preflight | `d859c6e` |
+| Base minima de entrega y usuarios | `306fa19` |
+| Revalidacion integral del 08/09 | `4e1674e` |
+
+**Avance del 08/09:** monitor HTTPS externo activo en Better Stack con email; heartbeat
+de scheduler y heartbeat de backup creados. En el repositorio quedaron los wrappers
+para informar exito/fallo y Telegram sin versionar secretos. La prueba aislada pasa.
+
+**Pendiente antes de marcar cerrada:** desplegar los scripts, instalar la configuracion
+secreta, reemplazar el cron del scheduler y provocar fallos controlados reales de
+scheduler y copia a Drive. El cierre debe agregar el commit exacto de monitoreo a la
+tabla anterior y registrar que llegaron email y Telegram. Esta computadora no tiene
+todavia un host SSH confiable configurado; no se acepto una clave de host a ciegas.
 
 ### FDS-03 · Hacer reproducible el estado minimo de entrega
 

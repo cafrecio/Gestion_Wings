@@ -3,7 +3,7 @@
 > **Actualizado:** 08/09/2026
 > **Estado:** documento de contexto.
 > **Orden de trabajo vigente:**
-> `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`, version 2026-09-08.v2.
+> `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`, version 2026-09-08.v3.
 
 Este archivo conserva el estado de produccion y el gate. El orden detallado ya no se
 toma de los bloques D1-D6 del plan de agosto.
