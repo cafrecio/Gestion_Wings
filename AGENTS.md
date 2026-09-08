@@ -8,6 +8,21 @@ dice aplica igual. Este archivo agrega las reglas que no se negocian.
 
 ---
 
+## 0. Plan de trabajo vigente
+
+Antes de tomar una tarea nueva, leer completo:
+
+- `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`
+
+Es el orden de trabajo vigente desde el **08/09/2026, version 1**. Cruza las
+evaluaciones de Codex y Claude y lo realizado del 5 al 7 de septiembre. Los planes
+anteriores se conservan como contexto, pero no mandan el orden actual.
+
+La version navegable para Carlos es
+`docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html`.
+
+---
+
 ## 1. EL DISEÑO NO SE TOCA
 
 El sistema visual de Wings es un activo del proyecto. Se construyó a lo largo de
@@ -26,10 +41,8 @@ Si una tarea parece requerir tocarlos: **frenar y preguntar.** No improvisar.
 
 ### Por qué esta regla existe
 
-Ninguna de las tareas del plan de producción vigente
-(`docs/00-estado/PLAN-PRODUCCION.md`) necesita modificar una vista ni el
-CSS. Si un cambio aparece ahí, casi siempre significa que se entendió mal la
-tarea.
+El plan vigente identifica las tareas que pueden requerir vistas. Esa marca **no es
+autorizacion**: si el pedido concreto de Carlos no autoriza el cambio visual, frenar.
 
 ### Si el dueño autoriza tocar una vista
 
@@ -219,14 +232,14 @@ Preferible: mover la lógica a un helper o a un componente.
 ## 6. Antes de cerrar cualquier tarea
 
 ```bash
-php artisan test                                    # 33 tests deben pasar
+php artisan test                                    # 129 tests deben pasar (corte 06/09/2026)
 php -l <cada archivo tocado>                        # sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # las vistas compilan
 git diff --stat -- resources/views resources/css    # debe estar vacío
 ```
 
 Y verificar el criterio de aceptación específico que la tarea declara en
-`docs/00-estado/PLAN-PRODUCCION.md`.
+`docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`.
 
 ---
 
@@ -363,7 +376,9 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 
 | Necesidad | Ruta |
 |---|---|
-| **Plan de producción vigente** | `docs/00-estado/PLAN-PRODUCCION.md` |
+| **Plan de trabajo vigente (08/09/2026 v1)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
+| Plan navegable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
+| Plan de producción anterior / contexto | `docs/00-estado/PLAN-PRODUCCION.md` |
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | **Bitácora de Codex** | `docs/00-estado/LOG-CODEX.md` |
 | **Bitácora de Claude Code** | `docs/00-estado/LOG-CLAUDE.md` |
@@ -373,7 +388,7 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 | Design system | `docs/03-diseno-ui/` |
 | Contratos de negocio | `docs/02-contratos/` |
 | Pruebas funcionales | `docs/06-pruebas/` |
-| Evaluación integral | `docs/07-evaluacion/index.html` |
+| Evaluaciones del corte 08/09/2026 | `docs/07-evaluacion/Evaluacion Codex 8-9-26.md` y `docs/07-evaluacion/Evaluacion Claude 8-9-26.md` |
 | Guía extendida | `CLAUDE.md` |
 
 ---

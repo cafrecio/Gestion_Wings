@@ -41,10 +41,15 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 
 Antes de modificar funcionalidad, leer:
 
+- `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` — **plan de trabajo vigente,
+  corte 08/09/2026 version 1. Leer completo antes de tomar una tarea nueva.** Cruza
+  las evaluaciones de Codex y Claude y lo realizado el fin de semana.
 - `docs/00-estado/ESTADO-ACTUAL.md`
 - `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**
 - `docs/00-estado/CHECKLIST-CARLOS.md` — pasos manuales por maquina y pendientes del duenio. **Si estas arrancando en otra computadora, empeza por ahi.**
-- `docs/07-evaluacion/index.html` — evaluacion integral vigente (seguridad, datos, backend, frontend, 3 perfiles de usuario, integral). Fuente de verdad de lo que falta. Leer SIEMPRE antes de tocar caja, cobros, alumnos o sidebar. Las listas viejas quedaron archivadas en `docs/99-archivo/pendientes-viejos/`.
+- `docs/07-evaluacion/Evaluacion Codex 8-9-26.md` y
+  `docs/07-evaluacion/Evaluacion Claude 8-9-26.md` — evaluaciones cruzadas del corte
+  actual. El orden ejecutable que sale de ellas esta en el plan vigente.
 
 Ese archivo es la fuente de verdad del estado actual del proyecto. Si otro documento contradice `ESTADO-ACTUAL.md`, no asumir: registrar la contradiccion y resolverla antes de implementar.
 
@@ -70,11 +75,13 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 
 | Necesidad | Ruta |
 |---|---|
+| **Plan de trabajo vigente (08/09/2026 v1)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
+| Plan navegable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Bitacora de Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
 | Bitacora de Codex | `docs/00-estado/LOG-CODEX.md` |
 | Pasos manuales por maquina y pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |
-| Plan de produccion vigente | `docs/00-estado/PLAN-PRODUCCION.md` |
+| Plan de produccion anterior / contexto | `docs/00-estado/PLAN-PRODUCCION.md` |
 | Orden de trabajo de Codex | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | Mapa HTML del repo | `docs/00-mapa-proyecto/index.html` |
 | Indice documental | `docs/README.md` |

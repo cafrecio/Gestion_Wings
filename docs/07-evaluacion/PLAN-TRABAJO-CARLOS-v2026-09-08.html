@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wings · Plan de trabajo · 08/09/2026 v1</title>
+  <style>
+    :root { --ink:#172033; --muted:#647087; --line:#dfe4ec; --paper:#f5f7fb; --card:#fff; --brand:#3157d5; --ok:#16845b; --warn:#a45f00; --hot:#b42318; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(1080px,calc(100% - 28px)); margin:28px auto 70px; }
+    header { background:linear-gradient(135deg,#19233d,#3157d5); color:#fff; border-radius:18px; padding:28px; box-shadow:0 14px 36px #1d2a4d22; }
+    h1 { margin:0 0 8px; font-size:clamp(26px,4vw,42px); line-height:1.05; }
+    header p { margin:4px 0; color:#e7ebff; }
+    .version { display:inline-block; margin-top:12px; padding:6px 10px; border:1px solid #ffffff55; border-radius:999px; font-weight:700; }
+    .progress-wrap { margin-top:20px; display:grid; grid-template-columns:1fr auto; gap:8px 14px; align-items:center; }
+    progress { width:100%; height:14px; accent-color:#76e0b1; }
+    nav { margin:18px 0; padding:16px; background:var(--card); border:1px solid var(--line); border-radius:14px; position:sticky; top:8px; z-index:2; }
+    nav a { display:inline-block; margin:4px 12px 4px 0; color:var(--brand); font-weight:700; text-decoration:none; }
+    section { margin:22px 0; scroll-margin-top:95px; }
+    h2 { margin:0 0 6px; font-size:22px; }
+    .why { margin:0 0 12px; color:var(--muted); }
+    .grid { display:grid; gap:10px; }
+    .item { display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; padding:14px 16px; background:var(--card); border:1px solid var(--line); border-radius:12px; }
+    .item:has(input:checked) { border-color:#8fd2b7; background:#f2fbf7; }
+    input[type=checkbox] { width:20px; height:20px; margin-top:2px; accent-color:var(--ok); }
+    label { cursor:pointer; }
+    .id { color:var(--brand); font-weight:800; margin-right:6px; }
+    .detail { display:block; margin-top:3px; color:var(--muted); font-size:13px; }
+    .tag { white-space:nowrap; border-radius:999px; padding:4px 8px; font-size:12px; font-weight:800; background:#edf1fa; }
+    .alta { color:var(--hot); background:#fff0ef; }
+    .media { color:var(--warn); background:#fff6e5; }
+    .decision { color:#6544a0; background:#f3edff; }
+    .done { color:var(--ok); background:#eaf8f2; }
+    .note { padding:15px 17px; border-left:4px solid var(--brand); background:#edf2ff; border-radius:8px; }
+    button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:9px; padding:8px 11px; cursor:pointer; }
+    footer { margin-top:28px; color:var(--muted); font-size:13px; }
+    @media (max-width:650px) { .item { grid-template-columns:auto 1fr; } .tag { grid-column:2; width:max-content; } nav { position:static; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Wings · Plan de trabajo</h1>
+    <p>Indice para Carlos. Los checks quedan guardados en este navegador.</p>
+    <p>Basado en las evaluaciones cruzadas de Codex y Claude y en lo realizado del 5 al 7 de septiembre.</p>
+    <span class="version">Corte 08/09/2026 · versión 1</span>
+    <div class="progress-wrap">
+      <progress id="progress" max="100" value="0"></progress>
+      <strong id="progressText">0 / 0</strong>
+    </div>
+  </header>
+
+  <nav aria-label="Indice">
+    <a href="#finde">0 · Fin de semana</a>
+    <a href="#cobros">1 · Cobros</a>
+    <a href="#plata">2 · Plata</a>
+    <a href="#seguridad">3 · Seguridad</a>
+    <a href="#prueba">4 · Prueba integral</a>
+    <a href="#entrega">5 · Entrega</a>
+    <a href="#despues">6 · Después</a>
+  </nav>
+
+  <p class="note"><strong>Orden:</strong> primero comprobamos lo del fin de semana. Después corregimos los cobros que pueden terminar con cartel verde y datos incorrectos. No se activa CSP bloqueante ni se toca diseño sin autorización.</p>
+
+  <section id="finde">
+    <h2>0 · Cerrar lo hecho el fin de semana</h2>
+    <p class="why">Evita repetir tareas cerradas o trabajar sobre documentos viejos.</p>
+    <div class="grid">
+      <div class="item"><input id="FDS-01" type="checkbox"><label for="FDS-01"><span class="id">FDS-01</span>Sincerar Estado, Plan y Checklist<span class="detail">Servidor 9fdd03d, Vanina creada, MariaDB, dump, Cloudflare y Cobranza.</span></label><span class="tag alta">Primero</span></div>
+      <div class="item"><input id="FDS-02" type="checkbox"><label for="FDS-02"><span class="id">FDS-02</span>Revalidar servidor, backups y scheduler<span class="detail">Con evidencia nueva, sin asumir que lo del domingo sigue igual.</span></label><span class="tag alta">Primero</span></div>
+      <div class="item"><input id="FDS-03" type="checkbox"><label for="FDS-03"><span class="id">FDS-03</span>Dejar reproducible la base mínima de entrega<span class="detail">Procedimiento versionado; sin inventar datos reales.</span></label><span class="tag decision">Decidir</span></div>
+      <div class="item"><input id="FDS-04" type="checkbox"><label for="FDS-04"><span class="id">FDS-04</span>Revalidar Cobranza, Cobrar y rubros reservados<span class="detail">ADMIN/OPERATIVO/PROFESOR y pantallas corregidas el fin de semana.</span></label><span class="tag alta">Alta</span></div>
+    </div>
+  </section>
+
+  <section id="cobros">
+    <h2>1 · Cobros que pueden mentir</h2>
+    <p class="why">Son los primeros porque pueden registrar plata o planes distintos a lo que la pantalla confirma.</p>
+    <div class="grid">
+      <div class="item"><input id="COB-01" type="checkbox"><label for="COB-01"><span class="id">COB-01</span>Monto “30.000” no puede guardarse como 30<span class="detail">Reproducir con navegador, corregir y agregar prueba del payload real.</span></label><span class="tag alta">Crítica</span></div>
+      <div class="item"><input id="COB-02" type="checkbox"><label for="COB-02"><span class="id">COB-02</span>El cambio de plan tiene que viajar con el cobro<span class="detail">Hoy el backend existe, pero la selección queda fuera del formulario.</span></label><span class="tag alta">Crítica</span></div>
+      <div class="item"><input id="COB-03" type="checkbox"><label for="COB-03"><span class="id">COB-03</span>Un parcial no puede borrar saldo de otro mes<span class="detail">Descuento solo al mes de alta; saldo restante exacto.</span></label><span class="tag alta">Crítica</span></div>
+      <div class="item"><input id="COB-04" type="checkbox"><label for="COB-04"><span class="id">COB-04</span>Cancelar y volver a cobrar primera cuota<span class="detail">Los informes discrepan: primero reproducir y definir la regla.</span></label><span class="tag decision">Decidir</span></div>
+      <div class="item"><input id="COB-05" type="checkbox"><label for="COB-05"><span class="id">COB-05</span>Prueba conjunta del circuito de cobro<span class="detail">Deuda, pago, caja, imputaciones, recibo y cobranza deben coincidir.</span></label><span class="tag alta">Gate</span></div>
+    </div>
+  </section>
+
+  <section id="plata">
+    <h2>2 · Integridad de la plata</h2>
+    <p class="why">Cerrar trazabilidad, saldos históricos y operaciones simultáneas.</p>
+    <div class="grid">
+      <div class="item"><input id="FIN-01" type="checkbox"><label for="FIN-01"><span class="id">FIN-01</span>El seeder no desprotege Cuotas ni Sueldos</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="FIN-02" type="checkbox"><label for="FIN-02"><span class="id">FIN-02</span>El recibo usa el pago exacto</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="FIN-03" type="checkbox"><label for="FIN-03"><span class="id">FIN-03</span>El recibo anulado conserva períodos e imputaciones</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="FIN-04" type="checkbox"><label for="FIN-04"><span class="id">FIN-04</span>Definir qué significa “balance” en Cashflow<span class="detail">Saldo acumulado o resultado del período. Primero decide Carlos.</span></label><span class="tag decision">Decidir</span></div>
+      <div class="item"><input id="FIN-05" type="checkbox"><label for="FIN-05"><span class="id">FIN-05</span>Impedir doble pago simultáneo de liquidación</label><span class="tag alta">Antes 25/09</span></div>
+      <div class="item"><input id="FIN-06" type="checkbox"><label for="FIN-06"><span class="id">FIN-06</span>La comisión histórica no depende del alumno actual</label><span class="tag alta">Antes 25/09</span></div>
+      <div class="item"><input id="FIN-07" type="checkbox"><label for="FIN-07"><span class="id">FIN-07</span>Cobrar y condonar no pueden pisarse</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="FIN-08" type="checkbox"><label for="FIN-08"><span class="id">FIN-08</span>Definir revisión de cobranza con parciales e historia</label><span class="tag decision">Decidir</span></div>
+      <div class="item"><input id="FIN-09" type="checkbox"><label for="FIN-09"><span class="id">FIN-09</span>Definir límites para fechas manuales</label><span class="tag media">Media</span></div>
+      <div class="item"><input id="FIN-10" type="checkbox"><label for="FIN-10"><span class="id">FIN-10</span>Editar clase también controla superposición</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="FIN-11" type="checkbox"><label for="FIN-11"><span class="id">FIN-11</span>Pruebas reales con dos conexiones</label><span class="tag alta">Alta</span></div>
+    </div>
+  </section>
+
+  <section id="seguridad">
+    <h2>3 · Seguridad y recuperación</h2>
+    <p class="why">No alcanza con tener scripts: hay que demostrar qué recuperan y quién recibe la alerta.</p>
+    <div class="grid">
+      <div class="item"><input id="SEG-01" type="checkbox"><label for="SEG-01"><span class="id">SEG-01</span>Revisar los 11 avisos npm según uso real</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-02" type="checkbox"><label for="SEG-02"><span class="id">SEG-02</span>Cambiar clave cierra sesiones y Recordarme</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-03" type="checkbox"><label for="SEG-03"><span class="id">SEG-03</span>Unificar reglas de contraseña</label><span class="tag media">Media</span></div>
+      <div class="item"><input id="SEG-04" type="checkbox"><label for="SEG-04"><span class="id">SEG-04</span>Preflight antes de abrir el sitio</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-05" type="checkbox"><label for="SEG-05"><span class="id">SEG-05</span>No mostrar errores técnicos en recibos</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-06" type="checkbox"><label for="SEG-06"><span class="id">SEG-06</span>Ensayo de restauración integral</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-07" type="checkbox"><label for="SEG-07"><span class="id">SEG-07</span>Verificar contenido del backup, no solo cantidades</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-08" type="checkbox"><label for="SEG-08"><span class="id">SEG-08</span>Alertar si falla la copia externa</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-09" type="checkbox"><label for="SEG-09"><span class="id">SEG-09</span>Monitorear sitio, scheduler y backups</label><span class="tag alta">Alta</span></div>
+      <div class="item"><input id="SEG-10" type="checkbox"><label for="SEG-10"><span class="id">SEG-10</span>Integración continua con MariaDB y build</label><span class="tag media">Media</span></div>
+      <div class="item"><input id="SEG-11" type="checkbox"><label for="SEG-11"><span class="id">SEG-11</span>CSP definitiva, gradual y supervisada</label><span class="tag decision">Supervisada</span></div>
+    </div>
+  </section>
+
+  <section id="prueba">
+    <h2>4 · Prueba integral y gate</h2>
+    <p class="why">Después de corregir la plata, se prueba la versión que realmente se va a entregar.</p>
+    <div class="grid">
+      <div class="item"><input id="PRU-01" type="checkbox"><label for="PRU-01"><span class="id">PRU-01</span>Preparar una base descartable conocida</label><span class="tag alta">Gate</span></div>
+      <div class="item"><input id="PRU-02" type="checkbox"><label for="PRU-02"><span class="id">PRU-02</span>Recorrido completo ADMIN, OPERATIVO y PROFESOR</label><span class="tag alta">Gate</span></div>
+      <div class="item"><input id="PRU-03" type="checkbox"><label for="PRU-03"><span class="id">PRU-03</span>Revalidar los estados de cobranza<span class="detail">Definir antes qué significa DEUDOR sin saldo pendiente.</span></label><span class="tag decision">Decidir</span></div>
+      <div class="item"><input id="PRU-04" type="checkbox"><label for="PRU-04"><span class="id">PRU-04</span>Ensayar generación mensual y alertas</label><span class="tag alta">Gate</span></div>
+      <div class="item"><input id="PRU-05" type="checkbox"><label for="PRU-05"><span class="id">PRU-05</span>Firmar el gate de entrega</label><span class="tag alta">Gate</span></div>
+    </div>
+  </section>
+
+  <section id="entrega">
+    <h2>5 · Pedidos concretos de entrega</h2>
+    <p class="why">Se hacen sin mezclar con las correcciones financieras.</p>
+    <div class="grid">
+      <div class="item"><input id="ENT-01" type="checkbox"><label for="ENT-01"><span class="id">ENT-01</span>Inscripción configurable del alumno nuevo</label><span class="tag decision">Regla contable</span></div>
+      <div class="item"><input id="ENT-02" type="checkbox"><label for="ENT-02"><span class="id">ENT-02</span>Rediseño del recibo con identidad del club</label><span class="tag decision">Faltan logo/colores</span></div>
+      <div class="item"><input id="ENT-03" type="checkbox"><label for="ENT-03"><span class="id">ENT-03</span>Favicon</label><span class="tag decision">Falta recurso</span></div>
+      <div class="item"><input id="ENT-04" type="checkbox"><label for="ENT-04"><span class="id">ENT-04</span>Ojo de contraseña en usuarios<span class="detail">En login ya está.</span></label><span class="tag media">Diseño</span></div>
+      <div class="item"><input id="ENT-05" type="checkbox"><label for="ENT-05"><span class="id">ENT-05</span>Recibo accesible después de cobrar y desde la ficha</label><span class="tag alta">Después FIN-02</span></div>
+      <div class="item"><input id="ENT-06" type="checkbox"><label for="ENT-06"><span class="id">ENT-06</span>Avisos operativos para ADMIN</label><span class="tag media">Diseño</span></div>
+      <div class="item"><input id="ENT-07" type="checkbox"><label for="ENT-07"><span class="id">ENT-07</span>Lista de cobranza lista para llamar</label><span class="tag media">Después prueba</span></div>
+      <div class="item"><input id="ENT-08" type="checkbox"><label for="ENT-08"><span class="id">ENT-08</span>Tablero administrativo útil</label><span class="tag media">Después prueba</span></div>
+    </div>
+  </section>
+
+  <section id="despues">
+    <h2>6 · Después de entregar</h2>
+    <p class="why">No se convierte en bloqueo por aparecer en una evaluación.</p>
+    <div class="grid">
+      <div class="item"><input id="POS-01" type="checkbox"><label for="POS-01"><span class="id">POS-01</span>Reportes acordados</label><span class="tag done">Posterior</span></div>
+      <div class="item"><input id="POS-02" type="checkbox"><label for="POS-02"><span class="id">POS-02</span>Auditoría de cambios y contactos de cobranza</label><span class="tag done">Posterior</span></div>
+      <div class="item"><input id="POS-03" type="checkbox"><label for="POS-03"><span class="id">POS-03</span>Recuperación autoservicio y posible MFA</label><span class="tag done">Posterior</span></div>
+      <div class="item"><input id="POS-04" type="checkbox"><label for="POS-04"><span class="id">POS-04</span>Historial de precios y aumentos masivos</label><span class="tag done">Posterior</span></div>
+      <div class="item"><input id="POS-05" type="checkbox"><label for="POS-05"><span class="id">POS-05</span>Evaluar nuevas capacidades del producto</label><span class="tag done">No comprometido</span></div>
+    </div>
+  </section>
+
+  <p class="note"><strong>No se reabre:</strong> API apagada, recibo no fiscal, exportables fuera de versión inicial, liquidaciones cerradas inmutables, carga real humana, sueldos por persona/deporte y CSP gradual.</p>
+  <button id="reset" type="button">Limpiar mis marcas</button>
+  <footer>Fuente técnica: <code>PLAN-TRABAJO-IA-v2026-09-08.md</code>. Las marcas son personales y se guardan solo en este navegador; los commits y bitácoras siguen siendo la evidencia oficial.</footer>
+</main>
+<script>
+  (() => {
+    const key = 'wings-plan-2026-09-08-v1';
+    const checks = [...document.querySelectorAll('input[type="checkbox"]')];
+    const saved = JSON.parse(localStorage.getItem(key) || '{}');
+    checks.forEach((check) => {
+      check.checked = Boolean(saved[check.id]);
+      check.addEventListener('change', save);
+    });
+    document.getElementById('reset').addEventListener('click', () => {
+      if (!confirm('¿Limpiar todas las marcas de este navegador?')) return;
+      checks.forEach((check) => { check.checked = false; });
+      save();
+    });
+    function save() {
+      const state = Object.fromEntries(checks.map((check) => [check.id, check.checked]));
+      localStorage.setItem(key, JSON.stringify(state));
+      const done = checks.filter((check) => check.checked).length;
+      document.getElementById('progress').value = checks.length ? done * 100 / checks.length : 0;
+      document.getElementById('progressText').textContent = `${done} / ${checks.length}`;
+    }
+    save();
+  })();
+</script>
+</body>
+</html>

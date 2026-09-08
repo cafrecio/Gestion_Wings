@@ -14,6 +14,24 @@
 
 ---
 
+## 2026-09-08 — Codex CAB — plan cruzado de trabajo v1
+
+Se consolidaron las evaluaciones de Codex y Claude del 08/09 con los commits y
+bitacoras del fin de semana. Se creo un plan tecnico para agentes y un HTML marcable
+para Carlos, ambos con los mismos IDs y corte `2026-09-08.v1`.
+
+El plan separa hallazgos reproducidos, caminos verificados solo en codigo, decisiones
+de Carlos y mejoras posteriores. Primero ordena revalidar el fin de semana; despues
+los tres defectos principales del cobro, integridad financiera, seguridad/recuperacion,
+prueba integral y pedidos de entrega. Las afirmaciones corregidas en el cruce no se
+convirtieron en tareas.
+
+`AGENTS.md`, `CLAUDE.md` y `ESTADO-ACTUAL.md` apuntan al nuevo plan. Sin cambios de
+aplicacion, base, vistas ni CSS. Los movimientos locales preexistentes de evaluaciones
+anteriores se preservaron y no pertenecen a este trabajo.
+
+---
+
 ## 2026-09-08 — Codex CAB — ubicación de los informes corregida
 
 A pedido de Carlos, ambos informes Codex se movieron a docs/07-evaluacion, junto
