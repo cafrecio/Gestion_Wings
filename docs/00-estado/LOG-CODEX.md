@@ -14,6 +14,36 @@
 
 ---
 
+## 2026-09-09 — Codex CyE — acceso recuperado; FDS-02 incompleta
+
+La extension correcta (ChatGPT para Chrome) permitio conectar Personal y abrir la
+consola Hostinger. Servidor actualizado por fast-forward de `9fdd03d` a `81f27ef`;
+solo cambiaron documentos y scripts de monitoreo. Prueba aislada en servidor:
+`Monitoreo del scheduler: prueba correcta`. Log del respaldo del 09/09 03:15 UTC:
+respaldo local correcto y copia Drive correcta.
+
+Se creo `/etc/wings-monitor/alertas.env` fuera de Git con token Telegram y URLs de
+los dos heartbeats, solicitando directorio root:wings 750 y archivo 640. Telegram
+getUpdates identifico un unico chat privado. Se invoco el scheduler real y luego
+preflight/migrate:status; la captura disponible muestra migraciones Ran, pero la
+salida previa del scheduler/preflight quedo fuera de pantalla: NO se da por validada.
+Tampoco se verificaron aun los permisos por lectura posterior.
+
+No se reemplazo el cron de wings ni `/root/wings-backup/respaldar.sh`; siguen los
+anteriores. No se provocaron fallos reales ni se verifico recepcion de alertas.
+Better Stack mostraba ambos heartbeats Pending antes de la invocacion manual.
+FDS-02 sigue ABIERTA. La siguiente consulta de consola fue rechazada por la revision
+automatica: workspace sin creditos. No se intento evadir ese bloqueo.
+
+Retomar: verificar configuracion sin mostrar secretos, salida de scheduler y
+preflight; comparar e instalar respaldo con su helper; probar fallo/recuperacion y
+recepcion email/Telegram; instalar cron definitivo y verificarlo. No repetir el
+problema de perfiles: Personal ya fue conectado correctamente.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-09 — Codex CyE — estado real y continuidad pendiente
 
 Carlos reporto que no encontro en su casa el avance esperado. Verificacion directa

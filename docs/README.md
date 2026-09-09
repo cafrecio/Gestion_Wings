@@ -2,6 +2,11 @@
 
 Este directorio concentra la documentacion viva del proyecto Wings.
 
+Plan vigente: `07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` y su indice HTML
+`07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` (version 4).
+Las ocho evaluaciones historicas movidas se conservan sin cambios de contenido en
+`07-evaluacion/Evaluaciones previas/`.
+
 La fuente de verdad operativa es:
 
 - `docs/00-estado/ESTADO-ACTUAL.md`

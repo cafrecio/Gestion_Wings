@@ -2,7 +2,7 @@
 
 > **Actualizado:** 08/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
-> version 2026-09-08.v3.
+> version 2026-09-08.v4.
 
 Solo contiene acciones o decisiones que necesitan a Carlos. Las tareas tecnicas de
 Codex y Claude no van aca.

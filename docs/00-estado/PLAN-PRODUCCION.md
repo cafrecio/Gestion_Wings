@@ -3,7 +3,7 @@
 > **Actualizado:** 08/09/2026
 > **Estado:** documento de contexto.
 > **Orden de trabajo vigente:**
-> `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`, version 2026-09-08.v3.
+> `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`, version 2026-09-08.v4.
 
 Este archivo conserva el estado de produccion y el gate. El orden detallado ya no se
 toma de los bloques D1-D6 del plan de agosto.
@@ -13,7 +13,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Area | Estado al 08/09/2026 |
 |---|---|
 | Aplicacion | Publicada para preparacion; gate final no firmado |
-| Servidor | `9fdd03d`, verificado por SSH el 08/09 |
+| Servidor | `81f27ef`, actualizado y verificado por consola el 09/09; monitoreo operativo aun incompleto |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
 | Suite | **129 pruebas**, 705 aserciones sobre MariaDB |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |

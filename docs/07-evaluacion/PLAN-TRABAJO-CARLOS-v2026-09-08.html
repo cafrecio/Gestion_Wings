@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wings · Plan de trabajo · 08/09/2026 v3</title>
+  <title>Wings · Plan de trabajo · 08/09/2026 v4</title>
   <style>
     :root { --ink:#172033; --muted:#647087; --line:#dfe4ec; --paper:#f5f7fb; --card:#fff; --brand:#3157d5; --ok:#16845b; --warn:#a45f00; --hot:#b42318; }
     * { box-sizing:border-box; }
@@ -42,9 +42,9 @@
 <main>
   <header>
     <h1>Wings · Plan de trabajo</h1>
-    <p>Indice para Carlos. Los checks quedan guardados en este navegador.</p>
+    <p>Indice para Carlos. Las marcas se pueden llevar en un enlace o archivo.</p>
     <p>Basado en las evaluaciones cruzadas de Codex y Claude y en lo realizado del 5 al 7 de septiembre.</p>
-    <span class="version">Corte 08/09/2026 · versión 3</span>
+    <span class="version">Corte 08/09/2026 · versión 4</span>
     <div class="progress-wrap">
       <progress id="progress" max="100" value="0"></progress>
       <strong id="progressText">0 / 0</strong>
@@ -161,32 +161,108 @@
     </div>
   </section>
 
-  <p class="note"><strong>No se reabre:</strong> API apagada, recibo no fiscal, exportables fuera de versión inicial, liquidaciones cerradas inmutables, carga real humana, sueldos por persona/deporte y CSP gradual.</p>
-  <button id="reset" type="button">Limpiar mis marcas</button>
-  <footer>Fuente técnica: <code>PLAN-TRABAJO-IA-v2026-09-08.md</code>. Las marcas son personales y se guardan solo en este navegador; los commits y bitácoras siguen siendo la evidencia oficial.</footer>
+  <p class="note"><strong>No se reabre:</strong> API apagada, recibo no fiscal, exportables de datos fuera de versión inicial, liquidaciones cerradas inmutables, carga real humana, sueldos por persona/deporte y CSP gradual.</p>
+  <div class="actions">
+    <button id="share" type="button">Copiar enlace</button>
+    <button id="export" type="button">Exportar</button>
+    <button id="importButton" type="button">Importar</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+    <button id="reset" type="button">Limpiar marcas</button>
+  </div>
+  <footer>Fuente técnica: <code>PLAN-TRABAJO-IA-v2026-09-08.md</code>. Las marcas personales quedan en este navegador y, si copiás el enlace o exportás el archivo, se pueden continuar en otra computadora. Los commits y bitácoras siguen siendo la evidencia oficial.</footer>
 </main>
 <script>
   (() => {
-    const key = 'wings-plan-2026-09-08-v2';
+    const key = 'wings-plan-2026-09-08-v4';
+    const legacyKeys = ['wings-plan-2026-09-08-v3', 'wings-plan-2026-09-08-v2'];
     const checks = [...document.querySelectorAll('input[type="checkbox"]')];
-    const saved = JSON.parse(localStorage.getItem(key) || '{}');
+    const readStored = () => {
+      for (const storedKey of [key, ...legacyKeys]) {
+        const raw = localStorage.getItem(storedKey);
+        if (!raw) continue;
+        try { return JSON.parse(raw); } catch (_) { /* probar la siguiente copia */ }
+      }
+      return {};
+    };
+    const readHash = () => {
+      const match = window.location.hash.match(/^#estado=(.+)$/);
+      if (!match) return null;
+      try { return JSON.parse(decodeURIComponent(match[1])); } catch (_) { return null; }
+    };
+    const stored = readHash() || readStored();
+
+    function stateFromChecks() {
+      return Object.fromEntries(checks.map((check) => [check.id, check.checked]));
+    }
+
+    function renderProgress() {
+      const done = checks.filter((check) => check.checked).length;
+      document.getElementById('progress').value = checks.length ? done * 100 / checks.length : 0;
+      document.getElementById('progressText').textContent = `${done} / ${checks.length}`;
+    }
+
+    function applyState(state) {
+      checks.forEach((check) => {
+        if (Object.prototype.hasOwnProperty.call(state, check.id)) check.checked = Boolean(state[check.id]);
+      });
+      renderProgress();
+    }
+
+    function save(portable = true) {
+      const state = stateFromChecks();
+      localStorage.setItem(key, JSON.stringify(state));
+      if (portable) window.history.replaceState(null, '', `#estado=${encodeURIComponent(JSON.stringify(state))}`);
+      renderProgress();
+    }
+
+    applyState(stored);
     checks.forEach((check) => {
-      if (Object.prototype.hasOwnProperty.call(saved, check.id)) check.checked = Boolean(saved[check.id]);
       check.addEventListener('change', save);
     });
+
+    document.getElementById('share').addEventListener('click', async () => {
+      save();
+      const url = window.location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        document.getElementById('share').textContent = 'Copiado';
+        window.setTimeout(() => { document.getElementById('share').textContent = 'Copiar enlace'; }, 1600);
+      } catch (_) {
+        window.prompt('Copiá este enlace:', url);
+      }
+    });
+
+    document.getElementById('export').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(stateFromChecks(), null, 2)], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'wings-plan-marcas-2026-09-08-v4.json';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+
+    document.getElementById('importButton').addEventListener('click', () => document.getElementById('importFile').click());
+    document.getElementById('importFile').addEventListener('change', async (event) => {
+      const [file] = event.target.files;
+      if (!file) return;
+      try {
+        const imported = JSON.parse(await file.text());
+        if (!imported || typeof imported !== 'object' || Array.isArray(imported)) throw new Error('formato');
+        applyState(imported);
+        save();
+      } catch (_) {
+        window.alert('El archivo de marcas no es válido.');
+      } finally {
+        event.target.value = '';
+      }
+    });
+
     document.getElementById('reset').addEventListener('click', () => {
       if (!confirm('¿Limpiar todas las marcas de este navegador?')) return;
       checks.forEach((check) => { check.checked = false; });
       save();
     });
-    function save() {
-      const state = Object.fromEntries(checks.map((check) => [check.id, check.checked]));
-      localStorage.setItem(key, JSON.stringify(state));
-      const done = checks.filter((check) => check.checked).length;
-      document.getElementById('progress').value = checks.length ? done * 100 / checks.length : 0;
-      document.getElementById('progressText').textContent = `${done} / ${checks.length}`;
-    }
-    save();
+    renderProgress();
   })();
 </script>
 </body>

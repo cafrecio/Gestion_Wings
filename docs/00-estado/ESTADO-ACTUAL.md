@@ -1,30 +1,33 @@
 # Wings — Estado actual
 
-> **Actualizado:** 08/09/2026
+> **Actualizado:** 09/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
-> version 2026-09-08.v3.
+> version 2026-09-08.v4.
 > Si otro documento contradice este estado, no improvisar: verificar y corregir.
 
 ## 1. Estado general
+
+Las ocho evaluaciones historicas se conservaron sin cambios de contenido en
+`docs/07-evaluacion/Evaluaciones previas/`; el plan vigente permanece en la carpeta padre.
 
 Wings esta publicado en `https://wings.gestionar-te.com.ar`, pero el gate final de
 produccion no esta firmado. La base del servidor quedo preparada para que el club
 cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Todavia no estan
 cargados los alumnos ni la operacion real del club.
 
-## 2. Servidor — verificado por SSH el 08/09
+## 2. Servidor — corte SSH 08/09 y avance por consola 09/09
 
 | Que | Estado |
 |---|---|
-| Commit desplegado | `9fdd03d` |
-| Diferencia con `main` al corte | 5 commits posteriores, solo documentacion y evaluaciones |
+| Commit desplegado | `81f27ef`, fast-forward verificado por consola el 09/09 |
+| Diferencia con `main` al corte | El servidor incorporo documentos y scripts hasta `81f27ef`; los commits posteriores requieren sincronizacion |
 | Plataforma | AlmaLinux 9, PHP 8.2.33, Laravel 12.68.0 |
 | HTTPS | Activo |
 | Cloudflare | Proxy activo; acceso web directo al servidor cerrado |
 | Migraciones | Sin pendientes en la ultima verificacion |
 | Scheduler | Registrado y ejecutado cada minuto; deuda mensual programada para dia 1 a las 06:00 |
 | Backups | Diarios, cifrados, rotados y copiados a Drive |
-| Monitoreo | HTTPS externo activo con email; heartbeats creados. Scripts de scheduler, backup y Telegram preparados localmente, aun no desplegados |
+| Monitoreo | Scripts presentes en servidor y prueba aislada correcta. Configuracion secreta creada; cron y respaldo operativo todavia sin reemplazar. Recepcion real de alertas pendiente. Acceso Personal recuperado; continuacion bloqueada por creditos de herramientas el 09/09 |
 
 No se pudo demostrar que la corrida mensual del 01/09 haya producido resultado: no
 quedo un log que lo pruebe o descarte.

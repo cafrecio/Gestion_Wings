@@ -1,6 +1,6 @@
 # Wings — Plan de trabajo para IA
 
-> **Version:** 2026-09-08.v3
+> **Version:** 2026-09-08.v4
 > **Fecha de corte:** 8 de septiembre de 2026
 > **Commit evaluado:** `97fb840`; cruce documental hasta `ad0491f`
 > **Fuentes principales:** `Evaluacion Codex 8-9-26.md`, `Evaluacion Claude 8-9-26.md`,
@@ -17,6 +17,9 @@
 6. No usar `gestion_wings` ni la base del servidor para pruebas destructivas. Usar MariaDB descartable.
 7. Cada cierre actualiza pruebas, contratos, estado, checklist y la bitacora del agente.
 8. Claude verifica los commits de Codex y registra el resultado real en `LOG-CLAUDE.md`.
+
+El índice HTML para Carlos conserva una copia local y permite trasladar las marcas
+entre computadoras mediante un enlace o un archivo JSON exportado.
 
 ## 1. Indice ejecutivo
 
@@ -56,13 +59,13 @@ como orden vigente.
 
 ### FDS-02 · Revalidar servidor y operacion del fin de semana — EN CURSO 08/09
 
-**Ejecuta:** Codex CAB; despliegue pendiente de acceso SSH confiable. **Prioridad:** inmediata.
+**Ejecuta:** Codex CyE; acceso por Personal recuperado el 09/09. **Prioridad:** inmediata.
 
 - Confirmar commit desplegado, migraciones, modo produccion y preflight.
 - Confirmar el estado minimo de la base sin exponer datos personales ni credenciales.
 - Confirmar que scheduler y backups siguen ejecutandose.
 - Confirmar por una falla controlada que la copia externa produce una señal observable.
-- Confirmar que no existe monitoreo; no inferirlo del repositorio.
+- Verificar el monitoreo externo y operativo en funcionamiento; no inferirlo del repositorio.
 
 **Aceptacion:** evidencia fechada en bitacora y sin secretos. Lo no comprobado queda
 marcado como tal.
@@ -80,11 +83,14 @@ marcado como tal.
 de scheduler y heartbeat de backup creados. En el repositorio quedaron los wrappers
 para informar exito/fallo y Telegram sin versionar secretos. La prueba aislada pasa.
 
-**Pendiente antes de marcar cerrada:** desplegar los scripts, instalar la configuracion
-secreta, reemplazar el cron del scheduler y provocar fallos controlados reales de
-scheduler y copia a Drive. El cierre debe agregar el commit exacto de monitoreo a la
-tabla anterior y registrar que llegaron email y Telegram. Esta computadora no tiene
-todavia un host SSH confiable configurado; no se acepto una clave de host a ciegas.
+**Avance 09/09:** servidor en `81f27ef`, incluyendo scripts de `a3ddd7f`; prueba
+aislada correcta. Configuracion secreta creada fuera de Git. Personal conectado y
+consola accesible. Continuacion bloqueada por creditos de herramientas.
+
+**Pendiente antes de marcar cerrada:** verificar configuracion y ejecucion real,
+reemplazar cron y script operativo de respaldo, provocar fallos controlados de
+scheduler y copia a Drive, comprobar recuperacion y recepcion email/Telegram.
+No se consideran probadas las alertas por haber creado los heartbeats.
 
 ### FDS-03 · Hacer reproducible el estado minimo de entrega
 
