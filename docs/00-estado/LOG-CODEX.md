@@ -14,6 +14,53 @@
 
 ---
 
+## 2026-09-09 — Codex CyE — estado real y continuidad pendiente
+
+Carlos reporto que no encontro en su casa el avance esperado. Verificacion directa
+con `git ls-remote origin refs/heads/main`: GitHub apunta a
+`a3ddd7faa27f157be64af978d6c38bd99729ef49`, igual que HEAD local. Ese commit contiene
+los scripts de monitoreo preparados; no demuestra instalacion en el servidor.
+
+El indice HTML portable v4 y sus cambios en AGENTS, CLAUDE, estado, checklist y plan
+siguen SIN COMMIT y SIN PUSH al momento de esta comprobacion. La entrada del 08/09
+sobre el HTML describe trabajo local, no una entrega publicada. Tambien hay movimientos
+preexistentes de evaluaciones hacia `Evaluaciones previas/` pendientes de versionar.
+El intento de Git del 08/09 fue bloqueado por permisos y por limite de uso en la
+revision automatica. No se completo la sincronizacion solicitada.
+
+FDS-02 sigue ABIERTA. Hoy se verifico la identidad SSH del servidor, pero las dos
+claves disponibles fueron rechazadas. La consola web antigua devolvio 403. El
+navegador conectado expone solo el perfil Comercializacion; Carlos indico que la
+cuenta de Hostinger esta en Personal, aun no disponible para esta sesion.
+No se instalaron scripts, no se modificaron cron ni datos del servidor y no se
+probaron alertas reales hoy. Better Stack figura configurado en el registro del
+08/09; su estado actual no fue revalidado.
+
+Siguiente: recuperar acceso desde Personal, instalar configuracion y scripts,
+probar fallo/recuperacion de scheduler y copia externa, verificar recepcion de
+alertas y cerrar con evidencia. Resolver tambien la entrega Git pendiente del HTML
+y documentos. Solo afirmar push completado despues de verificar el hash remoto.
+
+Firma: **Codex CyE** (Carlos identifica esta sesion como la de trabajo, fuera de casa).
+
+---
+
+## 2026-09-08 — Codex CAB — índice HTML portable v4
+
+El índice para Carlos conserva las marcas en `localStorage`, pero ahora también las
+codifica en el enlace (`#estado=...`) y permite exportarlas/importarlas como JSON.
+Así el avance se puede trasladar a otra computadora sin depender de su navegador;
+el enlace requiere abrir el mismo HTML publicado y el JSON funciona como respaldo.
+Se migran marcas de las versiones v2 y v3. Se actualizaron las referencias al plan
+vigente a `2026-09-08.v4`.
+
+Verificación: sintaxis JavaScript del HTML correcta con Node, `git diff --check`
+limpio y `git diff --stat -- resources/views resources/css` vacío.
+
+Firma: **Codex CAB**.
+
+---
+
 ## 2026-09-08 — Codex CAB — FDS-02 monitoreo preparado; despliegue pendiente
 
 Se activo en Better Stack el control HTTPS externo con aviso por email y se crearon
