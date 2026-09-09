@@ -636,6 +636,18 @@ class CajaWebController extends Controller
         $user   = Auth::user();
         $alumno = Alumno::findOrFail($alumnoId);
 
+        // El formulario arma su FormData antes de que el script de moneda limpie los
+        // campos, asi que los montos pueden llegar formateados ("28.000"). Sin esto
+        // `numeric` los acepta como 28 y el cobro queda silenciosamente mal.
+        $montosCuota = $request->input('montos_cuota');
+        if (is_array($montosCuota)) {
+            $request->merge([
+                'montos_cuota' => collect($montosCuota)
+                    ->map(fn ($monto) => is_string($monto) ? str_replace(['.', ','], '', $monto) : $monto)
+                    ->all(),
+            ]);
+        }
+
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
             'periodos'       => 'required|array|min:1',

@@ -17,6 +17,84 @@
 
 ---
 
+## 2026-09-09 — Claude CAB — COB-01 corregido y la base del servidor ya es real
+
+### Lo que cambia todo: el club esta cargando datos reales
+
+Carlos lo informo hoy. `ESTADO-ACTUAL.md` §3 declaraba "sin alumnos, deudas, pagos,
+clases ni operacion real" y eso ya era falso. Corregido. **No correr seeders contra esa
+base** — FIN-01 ahora pega sobre personas reales. FDS-03 cambia de sentido: ya no se
+puede "reconstruir" el estado, porque el estado incluye datos que solo existen ahi.
+
+No revalidado por SSH desde esta computadora. El alcance de lo cargado es desconocido
+para la documentacion.
+
+### COB-01 — cobraba 28 en vez de 28.000, sin decir nada
+
+Reproducido antes de tocar codigo. La prueba fallo con `monto_pagado: "28.00"` y la
+deuda en `PENDIENTE`, mientras la pantalla devolvia exito.
+
+Cadena completa: el script de `caja/cobrar.blade.php` va en `@push('scripts')` y se
+registra **durante el parseo**; `ds-app.js` entra por `@vite` como modulo y se registra
+**despues**. El primero en registrarse corre primero, asi que el handler de la vista arma
+`new FormData(...)` — que es una foto del momento — cuando el campo todavia dice
+`28.000`. `stripMoneyInputs` limpia el input despues, tarde. En el servidor
+`is_numeric("28.000")` da `true` y `(float)` lo vuelve `28`.
+
+Por eso nadie lo vio: no hay excepcion, no hay error, la pantalla confirma. Solo el
+numero queda mal, y queda mal a la vez en deuda, caja, recibo y estado de cobranza.
+
+**Corregido en el servidor**, normalizando antes de validar en `CajaWebController::pagar()`.
+Dos razones para no arreglarlo en el JavaScript: no puede depender del orden de carga de
+dos scripts, y asi no se toca ninguna vista, que `AGENTS.md` protege.
+
+**Alcance auditado:** era el unico formulario roto. Los otros seis con `data-money`
+(cashflow, caja editar/movimiento, grupos, profesores, tipos de caja) usan envio normal,
+asi que la limpieza les corre bien. `caja/cobrar` es el unico que arma `FormData` dentro
+de un handler de `submit`.
+
+Verificado ademas que la normalizacion cubre `1.500.000`, que **antes rechazaba** la
+validacion porque `is_numeric` con dos separadores da `false`. El sintoma cambiaba segun
+el monto: hasta 999.000 cobraba mal en silencio, del millon para arriba rechazaba.
+
+### Dos hallazgos nuevos, verificados contra el codigo
+
+1. **`dia_generacion_deuda` no gobierna nada.** Existe como fila creada por migracion y
+   ningun codigo la lee. El scheduler usa dia 1 fijo en `routes/console.php:12`. La
+   pantalla de configuracion deja editar un numero que no hace nada. Estaba anotado como
+   contradiccion abierta; queda confirmado.
+2. **El alumno sin plan desaparece de la corrida mensual.**
+   `GenerarDeudasMensualesCommand:77-81` lo saltea entero: no genera deuda, no entra a la
+   cola de revision, y el aviso muere en la salida del cron. Esto **no es del arranque**,
+   pasa todos los meses. Con una base cargandose a mano ahora, es facil de producir.
+
+### Sobre el 1 de octubre
+
+Reconfirmado contra el codigo actual (`GenerarDeudasMensualesCommand:84-102`): genera la
+deuda solo con asistencia del mes anterior, o alta de menos de 15 dias **mas** pago en
+esos 15 dias. Un alumno cargado a principios de septiembre sin asistencias registradas
+cae en revision el 1/10.
+
+Carlos definio que es por unica vez y no va al camino critico. Antes de elegir remedio
+hay que **medirlo**: correr `cobranza:generar-deudas --periodo=2026-10` sobre una copia
+descartable del respaldo y leer los contadores que el comando ya imprime.
+
+### Verificacion
+
+Suite completa verde: **130 pruebas, 710 aserciones** sobre MariaDB.
+`DocumentacionNoMienteTest` se puso en rojo por el conteo y obligo a corregir los tres
+documentos en el mismo turno, que es exactamente para lo que existe.
+
+### Siguiente paso
+
+COB-02: el cambio de plan no llega como `nuevo_plan_id`. Toca
+`resources/views/caja/cobrar.blade.php`, asi que **requiere autorizacion de diseño de
+Carlos** antes de empezar.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-07 — Claude CAB — Entrega preparada, menu agrupado y tres pendientes nuevos
 
 Servidor en **`9fdd03d`**. La base quedo en el estado de entrega definido con Carlos, y

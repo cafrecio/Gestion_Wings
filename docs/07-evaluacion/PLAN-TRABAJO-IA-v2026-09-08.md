@@ -117,10 +117,30 @@ scripts temporales.
 Estas tareas se ejecutan en este orden. Cada reproduccion debe mirar pantalla, respuesta,
 filas concretas y saldos; un test unitario aislado no reemplaza el flujo web.
 
-### COB-01 · Monto con separador de miles
+### COB-01 · Monto con separador de miles — CORREGIDA 09/09
 
-**Estado:** verificado en codigo; falta reproduccion de navegador. **Diseño:** autorizado
-solo cuando Carlos autorice la correccion visual concreta.
+**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion por otro
+agente o por Carlos en pantalla. **Diseño:** no se toco ninguna vista.
+
+**Mecanismo confirmado:** el script de la vista va en `@push('scripts')` y se registra
+durante el parseo; `ds-app.js` entra por `@vite` como modulo y se registra despues. Al
+enviar, el handler de la vista corre primero y arma `new FormData(...)` cuando el campo
+todavia dice `28.000`; la limpieza de `stripMoneyInputs` llega tarde. En el servidor
+`is_numeric("28.000")` es `true` y `(float)` lo convierte en `28`. Cobraba 28 en lugar de
+28.000, sin error y con mensaje de exito.
+
+**Correccion:** normalizacion en el servidor antes de validar, en
+`CajaWebController::pagar()`. No depende del orden de carga de scripts y no toca vistas.
+Regresion en `CobrarPrimeraCuotaWebTest::test_el_cobro_web_interpreta_el_monto_con_separador_de_miles`,
+que envia el payload real del navegador. Alcance auditado: era el unico formulario roto,
+porque es el unico que arma `FormData` en un handler de `submit`.
+
+Verificado que la normalizacion cubre uno y dos separadores y el valor ya limpio:
+`28.000`, `1.500.000`, `1.234.567` y `30000` quedan correctos. El caso de dos
+separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` es
+`false`; ahora entra bien.
+
+**Pendiente:** reproduccion en navegador con un cobro real.
 
 1. Reproducir un cobro mostrado como `30.000` y comprobar el importe persistido.
 2. Escribir regresion que reproduzca el payload real del navegador.

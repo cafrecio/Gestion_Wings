@@ -144,6 +144,31 @@ class CobrarPrimeraCuotaWebTest extends TestCase
         );
     }
 
+    public function test_el_cobro_web_interpreta_el_monto_con_separador_de_miles(): void
+    {
+        // El navegador envia el campo tal como se ve en pantalla: "28.000".
+        $this->actingAs($this->operativo)
+            ->post(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id,
+                'periodos' => ['2026-08'],
+                'montos_cuota' => ['2026-08' => '28.000'],
+                'fecha_pago' => '2026-08-15',
+            ])
+            ->assertRedirect(route('web.caja.index'))
+            ->assertSessionHas('success');
+
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $this->alumno->id,
+            'periodo' => '2026-08',
+            'monto_pagado' => '28000.00',
+            'estado' => DeudaCuota::ESTADO_PAGADA,
+        ]);
+        $this->assertDatabaseHas('pagos', [
+            'alumno_id' => $this->alumno->id,
+            'monto_final' => '28000.00',
+        ]);
+    }
+
     public function test_la_primera_cuota_autocreada_con_descuento_deja_al_alumno_al_dia(): void
     {
         Carbon::setTestNow('2026-08-20 10:00:00');
