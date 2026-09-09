@@ -17,6 +17,62 @@
 
 ---
 
+## 2026-09-09 — Claude CAB — COB-03: la seña de otro mes borraba el saldo
+
+Hecho en un **worktree separado** (`../Gestion_Wings_cob03`, rama `cob-03`, base de test
+`wings_testing_cob03`) porque Codex estaba usando el arbol principal para verificar
+COB-01 con checkouts. Misma maquina, mismo repo, sin pisarnos. Si repetimos el esquema,
+conviene copiar `public/build` al worktree: sin el manifest de Vite fallan 25 pruebas
+por una razon que no tiene nada que ver con lo que se esta probando.
+
+### El defecto
+
+Alumno de alta el 20/08, con descuento del 70% por regla de segunda quincena. Paga
+agosto y aprovecha para dejar una seña de 10.000 de septiembre, que ya estaba cargado en
+28.000. Resultado: **septiembre quedaba con monto original 10.000 y estado PAGADA**. Los
+18.000 restantes desaparecian y el alumno figuraba al dia.
+
+Mismo patron que COB-01: no falla, no avisa, deja el numero mal.
+
+### Eran dos caminos, y el informe solo nombraba uno
+
+1. `ajustarDeudas()` recorria **todos** los items del cobro bajando `monto_original` al
+   monto enviado. Su propio comentario decia que existe para el periodo con descuento;
+   el bucle no lo respetaba. `aplicarPorcentajeAItems()`, justo arriba, si discrimina.
+2. `$montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo')` incluia
+   todos los periodos, asi que si la deuda del otro mes **no existia todavia**, nacia con
+   el parcial como monto original desde `obtenerOcrearDeuda()`.
+
+El segundo lo encontre buscando si la correccion del primero alcanzaba. No alcanzaba: se
+habria arreglado el caso con deuda existente y quedado abierto el caso con deuda nueva,
+que es igual de alcanzable.
+
+### Correccion
+
+El override de monto original queda restringido al periodo con descuento en los dos
+caminos. `ajustarDeudas()` pasa a `ajustarDeudaConDescuento()`, que recibe un periodo y
+un monto en vez de la lista entera. El cambio de firma es a proposito: con la lista
+completa el defecto se puede reintroducir sin darse cuenta; con un periodo, no.
+
+### Verificacion
+
+Regresion `DescuentoNoAlteraOtroPeriodoTest`, roja antes y verde despues. Suite completa
+**131 pruebas, 719 aserciones** sobre MariaDB. `git diff` de vistas y CSS vacio.
+
+Dos escenarios descartados durante el armado, que valen para la proxima: el operativo no
+puede crear deuda de un periodo pasado — corta con excepcion y `back()` —, y el FIFO solo
+admite parcial en el ultimo periodo del cobro.
+
+### Siguiente paso
+
+COB-04, que necesita decision de Carlos. Reproducirlo primero para que decida sobre
+hechos: hoy los dos informes dicen cosas distintas sobre que pasa al cancelar y volver a
+cobrar la primera cuota.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-09 — Claude CAB — COB-01 corregido y la base del servidor ya es real
 
 ### Lo que cambia todo: el club esta cargando datos reales

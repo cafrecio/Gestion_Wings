@@ -49,8 +49,11 @@ class PagoCuotaService
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
             if ($porcentaje < 100 && $periodoConDescuento !== null) {
                 $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
-                $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
-                $this->ajustarDeudas($data['alumno_id'], $items);
+                // Solo el mes de alta cambia de monto. Los demas periodos del mismo
+                // cobro conservan el precio del plan, aunque se paguen parcialmente.
+                $montoConDescuento = (float) collect($items)->firstWhere('periodo', $periodoConDescuento)['monto'];
+                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $montoConDescuento];
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $montoConDescuento);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
@@ -138,8 +141,11 @@ class PagoCuotaService
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
             if ($porcentaje < 100 && $periodoConDescuento !== null) {
                 $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
-                $montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo');
-                $this->ajustarDeudas($data['alumno_id'], $items);
+                // Solo el mes de alta cambia de monto. Los demas periodos del mismo
+                // cobro conservan el precio del plan, aunque se paguen parcialmente.
+                $montoConDescuento = (float) collect($items)->firstWhere('periodo', $periodoConDescuento)['monto'];
+                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $montoConDescuento];
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $montoConDescuento);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
@@ -652,21 +658,23 @@ class PagoCuotaService
     }
 
     /**
-     * Ajusta monto_original de deudas existentes al monto descontado (primer pago).
-     * Necesario para que queden PAGADAS correctamente cuando el monto aplicado coincide.
+     * Ajusta monto_original de la deuda del mes de alta al monto con descuento.
+     * Necesario para que quede PAGADA correctamente cuando el monto aplicado coincide.
+     *
+     * Toca un solo periodo a proposito. Antes recorria todos los items del cobro, y un
+     * parcial de otro mes se quedaba con la seña como monto original: la deuda se
+     * marcaba PAGADA y el saldo restante desaparecia.
      */
-    private function ajustarDeudas(int $alumnoId, array $items): void
+    private function ajustarDeudaConDescuento(int $alumnoId, string $periodo, float $monto): void
     {
-        foreach ($items as $item) {
-            $actualizado = DeudaCuota::where('alumno_id', $alumnoId)
-                ->where('periodo', $item['periodo'])
-                ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                ->whereRaw('monto_pagado < ?', [$item['monto']])
-                ->update(['monto_original' => $item['monto']]);
+        $actualizado = DeudaCuota::where('alumno_id', $alumnoId)
+            ->where('periodo', $periodo)
+            ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+            ->whereRaw('monto_pagado < ?', [$monto])
+            ->update(['monto_original' => $monto]);
 
-            if (!$actualizado) {
-                Log::warning('ajustarDeudas: omitida para alumno '.$alumnoId.' período '.$item['periodo'].' (monto_pagado >= monto descontado '.$item['monto'].')');
-            }
+        if (!$actualizado) {
+            Log::warning('ajustarDeudaConDescuento: omitida para alumno '.$alumnoId.' período '.$periodo.' (monto_pagado >= monto descontado '.$monto.')');
         }
     }
 

@@ -162,16 +162,33 @@ separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` e
 **Aceptacion:** el alumno termina en el plan elegido, el monto del periodo es correcto y
 un rechazo del cobro no deja el plan cambiado.
 
-### COB-03 · Parcial de otro periodo durante primer pago con descuento
+### COB-03 · Parcial de otro periodo durante primer pago con descuento — CORREGIDA 09/09
 
-**Estado:** ambos informes verificaron el camino en codigo; falta reproducirlo en base.
+**Estado:** reproducida en base y corregida por Claude CAB. Pendiente de verificacion por
+otro agente o por Carlos en pantalla. **Diseño:** no se toco ninguna vista.
 
-1. Caso: mes de alta con descuento y segundo periodo pagado parcialmente.
-2. Confirmar que `ajustarDeudas()` no reduzca el monto original del periodo sin descuento.
-3. Agregar regresion con saldo pendiente exacto.
+**Reproduccion:** alumno de alta el 20/08 (regla de segunda quincena, 70%) que paga
+agosto con descuento y deja seña de 10.000 de septiembre, con septiembre ya cargado en
+28.000. Resultado antes de la correccion: septiembre quedaba con `monto_original` 10.000
+y estado `PAGADA`. Los 18.000 restantes desaparecian y el alumno figuraba al dia.
+
+**Eran dos caminos, no uno.** El informe solo nombraba el primero:
+
+1. `ajustarDeudas()` recorria **todos** los items del cobro y bajaba `monto_original` de
+   cada uno al monto enviado, aunque el descuento correspondiera a un solo periodo.
+   `aplicarPorcentajeAItems()`, justo arriba, si discrimina bien.
+2. `$montosOriginalesNuevasDeudas` salia de `array_column($items, ...)`, con todos los
+   periodos. Si la deuda del otro mes **todavia no existia**, nacia con el parcial como
+   monto original desde `obtenerOcrearDeuda()`. Mismo daño por otra puerta.
+
+**Correccion:** el override de monto original queda restringido al periodo con descuento
+en los dos caminos. `ajustarDeudas()` pasa a `ajustarDeudaConDescuento()`, que recibe un
+periodo y un monto en lugar de la lista entera: el nombre y la firma ahora impiden
+reintroducir el defecto. Regresion en `DescuentoNoAlteraOtroPeriodoTest`.
 
 **Aceptacion:** solo el mes de alta recibe descuento; el segundo periodo conserva su
-monto original y saldo restante.
+monto original y saldo restante. Verificado: agosto 19.600 `PAGADA`, septiembre 28.000
+con 10.000 pagados, saldo 18.000 y estado `PENDIENTE`.
 
 ### COB-04 · Cancelar y volver a cobrar la primera cuota
 

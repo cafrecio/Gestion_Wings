@@ -63,7 +63,7 @@ crear un seeder de datos reales sin decision de Carlos.
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **130 pruebas**, 710 aserciones, verde sobre MariaDB el 09/09 |
+| **Tests** | **131 pruebas**, 719 aserciones, verde sobre MariaDB el 09/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
