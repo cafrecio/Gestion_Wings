@@ -13,9 +13,9 @@ toma de los bloques D1-D6 del plan de agosto.
 | Area | Estado al 08/09/2026 |
 |---|---|
 | Aplicacion | Publicada para preparacion; gate final no firmado |
-| Servidor | `81f27ef`, actualizado y verificado por consola el 09/09; monitoreo operativo aun incompleto |
+| Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **129 pruebas**, 705 aserciones sobre MariaDB |
+| Suite | **130 pruebas**, 710 aserciones sobre MariaDB |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
@@ -23,7 +23,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | JavaScript | 11 avisos npm pendientes de clasificar por uso y alcanzabilidad |
 | CSP | En modo reporte; no bloquea. Quedan 26 bloques script y 24 manejadores inline |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
-| Monitoreo | No existe, verificado por SSH el 08/09 |
+| Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 
 ## 2. Orden vigente
 
@@ -49,7 +49,7 @@ este archivo una orden vieja ni ejecutar una tarea sin releer aquel documento.
 - [ ] `wings:preflight` en verde antes de abrir el release.
 - [ ] Commit, migraciones, headers y archivos expuestos revalidados en servidor.
 - [ ] Restauracion integral ensayada, no solo importacion SQL.
-- [ ] Responsable recibe alertas de sitio, scheduler y backup.
+- [x] Monitoreo HTTPS activo; Carlos recibe alertas reales de scheduler y backup por email y Telegram (09/09). No se simulo caida HTTPS.
 - [ ] Datos y usuarios reales cargados por el circuito acordado.
 - [ ] Primera caja real acompañada.
 

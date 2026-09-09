@@ -14,6 +14,37 @@
 
 ---
 
+## 2026-09-09 — Codex CyE — FDS-02 cerrada: alertas recibidas
+
+Instalados cron del scheduler y respaldo operativo con su helper. Configuracion
+fuera de Git: directorio root:wings 750, archivo 640. Se conservaron copias del
+cron y respaldo anteriores. Scripts implementados en `a3ddd7f`, desplegados dentro
+de `81f27ef`; antecedentes: `3470114`, `d859c6e`, `306fa19`, `4e1674e`.
+
+Verificacion real del 09/09: preflight 12 controles correctos, migraciones Ran;
+scheduler real correcto. Fallo aislado usando PHP_BIN=/bin/false: salida 1,
+incidente 11:27 GMT-3 y recuperacion automatica en 53 segundos. Fallo de copia a
+un remoto inexistente: backup cifrado conservado en directorio temporal aislado,
+alerta 11:28. Respaldo normal posterior: copia a Drive correcta 14:29:33 UTC.
+Ambos heartbeats recuperados (Up); monitor HTTPS de /login tambien Up.
+Carlos confirmo recepcion por email (captura) y Telegram: «Telegram tambien».
+
+No se alteraron datos del club. El fallo de Drive conserva salida 0 cuando el
+respaldo local funciona; ahora lo distingue la alerta, no el codigo de salida.
+No se simulo caida del sitio ni se revalido el contenido minimo de la base:
+esa evidencia sigue siendo historica. La corrida mensual del 01/09 no se pudo
+demostrar. No confundir este cierre con el gate completo de produccion.
+
+Ultima suite previa al cierre documental: 129 pruebas, 705 aserciones, verde;
+vistas compiladas y diff de vistas/CSS vacio. Aparecio un cambio ajeno en
+CobrarPrimeraCuotaWebTest.php (regresion de miles): se preserva y NO se incluye
+en este cierre ni se afirma verde esa nueva prueba.
+Actualizados estado, planes y checklist. Siguiente: FDS-03.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-09 — Codex CyE — acceso recuperado; FDS-02 incompleta
 
 La extension correcta (ChatGPT para Chrome) permitio conectar Personal y abrir la

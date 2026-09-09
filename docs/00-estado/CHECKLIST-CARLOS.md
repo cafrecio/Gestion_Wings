@@ -17,10 +17,10 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 129 pruebas deben pasar
+php artisan test          # 130 pruebas deben pasar
 ```
 
-El corte verificado del 08/09 es 129 pruebas y 705 aserciones.
+El corte verificado del 09/09 es 130 pruebas y 710 aserciones.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 
@@ -50,6 +50,7 @@ puede quitar la proteccion de los rubros `Cuotas` y `Sueldos`.
 
 ## 4. Para la entrega
 
+- [x] FDS-02: Carlos confirmo email y Telegram de las pruebas de monitoreo el 09/09. No falta configurar otra cuenta ni entregar nuevamente el token.
 - [x] Vanina tiene cuenta ADMIN en el servidor, verificado el 08/09.
 - [ ] Confirmar si habra otros usuarios reales y sus roles.
 - [ ] Cargar deportes, niveles, grupos, planes, tipos de caja y demas datos reales por

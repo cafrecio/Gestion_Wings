@@ -57,7 +57,7 @@ verificacion historica como actual.
 quedaron alineados al corte 08/09. Los bloques del plan de agosto dejaron de figurar
 como orden vigente.
 
-### FDS-02 · Revalidar servidor y operacion del fin de semana — EN CURSO 08/09
+### FDS-02 · Revalidar servidor y operacion del fin de semana — CERRADA 09/09/2026
 
 **Ejecuta:** Codex CyE; acceso por Personal recuperado el 09/09. **Prioridad:** inmediata.
 
@@ -83,14 +83,14 @@ marcado como tal.
 de scheduler y heartbeat de backup creados. En el repositorio quedaron los wrappers
 para informar exito/fallo y Telegram sin versionar secretos. La prueba aislada pasa.
 
-**Avance 09/09:** servidor en `81f27ef`, incluyendo scripts de `a3ddd7f`; prueba
-aislada correcta. Configuracion secreta creada fuera de Git. Personal conectado y
-consola accesible. Continuacion bloqueada por creditos de herramientas.
-
-**Pendiente antes de marcar cerrada:** verificar configuracion y ejecucion real,
-reemplazar cron y script operativo de respaldo, provocar fallos controlados de
-scheduler y copia a Drive, comprobar recuperacion y recepcion email/Telegram.
-No se consideran probadas las alertas por haber creado los heartbeats.
+**Cierre 09/09:** scripts de `a3ddd7f` desplegados dentro de `81f27ef`; cron y
+respaldo operativo instalados con helper. Configuracion secreta fuera de Git.
+Preflight: 12 controles correctos; migraciones Ran. Fallos controlados del
+scheduler (11:27 GMT-3) y copia Drive (11:28), seguidos de recuperacion real.
+Copia Drive correcta 14:29:33 UTC. Monitor HTTPS y ambos heartbeats Up.
+Carlos confirmo email y Telegram. Evidencia detallada en LOG-CODEX.md.
+No se simulo caida HTTPS. La base minima conserva evidencia historica del 07/09,
+no se volvio a inspeccionar su contenido; corrida mensual del 01/09 no demostrada.
 
 ### FDS-03 · Hacer reproducible el estado minimo de entrega
 
@@ -200,8 +200,8 @@ adoptar la afirmacion de que siempre cobra el mes entero sin demostrarla.
 | **SEG-05** | Ocultar excepciones crudas de recibos | Alta | Usuario ve mensaje util; detalle queda solo en log |
 | **SEG-06** | Restauracion integral | Alta | Ensayo aislado repone base, archivos y configuracion y deja Wings utilizable |
 | **SEG-07** | Verificacion fuerte del backup | Alta | Compara contenido financiero e incluye imputaciones, no solo conteos |
-| **SEG-08** | Fallo de copia externa observable | Alta | rclone fallido produce estado/alerta distinguible del backup local correcto |
-| **SEG-09** | Monitoreo de sitio, scheduler y backup | Alta | Alerta real recibida por responsable definido |
+| **SEG-08** | Fallo de copia externa observable | Cerrada 09/09, FDS-02 | Copia fallida alertada y recuperacion Drive comprobada |
+| **SEG-09** | Monitoreo de sitio, scheduler y backup | Cerrada 09/09, FDS-02 | HTTPS Up; fallos scheduler/backup recibidos por Carlos en email y Telegram |
 | **SEG-10** | Integracion continua | Media | Push/PR ejecuta suite MariaDB y build sin depender de memoria humana |
 | **SEG-11** | CSP definitiva | Supervisada | Report-only, inventario cero de JS bloqueable, recorrido visual y recien luego bloqueo |
 

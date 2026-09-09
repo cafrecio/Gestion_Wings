@@ -27,14 +27,25 @@ cargados los alumnos ni la operacion real del club.
 | Migraciones | Sin pendientes en la ultima verificacion |
 | Scheduler | Registrado y ejecutado cada minuto; deuda mensual programada para dia 1 a las 06:00 |
 | Backups | Diarios, cifrados, rotados y copiados a Drive |
-| Monitoreo | Scripts presentes en servidor y prueba aislada correcta. Configuracion secreta creada; cron y respaldo operativo todavia sin reemplazar. Recepcion real de alertas pendiente. Acceso Personal recuperado; continuacion bloqueada por creditos de herramientas el 09/09 |
+| Monitoreo | FDS-02 cerrada 09/09: cron y respaldo instalados; fallos y recuperaciones probados. Email y Telegram recibidos por Carlos. Monitor HTTPS y ambos heartbeats Up |
 
 No se pudo demostrar que la corrida mensual del 01/09 haya producido resultado: no
 quedo un log que lo pruebe o descarte.
 
 ## 3. Base de entrega del servidor
 
-Preparada manualmente el 07/09, con respaldo previo:
+**El club ya esta cargando datos reales.** Carlos lo informo el 09/09. Desde ese momento
+la base del servidor deja de ser un estado de entrega vacio y pasa a contener personas,
+cobros y operacion real. No fue revalidada por SSH desde esta computadora: el alcance de
+lo cargado es desconocido para la documentacion.
+
+Consecuencias inmediatas: no correr `CatalogosSeeder` ni ningun seeder contra esa base
+(FIN-01 hoy pega sobre datos reales), no usarla para pruebas destructivas, y tratar el
+respaldo como la unica red — FDS-03 ya no puede "reconstruir" el estado, porque el
+estado ahora incluye datos que solo existen ahi.
+
+Estado con el que fue preparada el 07/09, con respaldo previo — **historico, ya superado
+por la carga humana**:
 
 - Sin alumnos, deudas, pagos, clases ni operacion real.
 - Se conservan `Cuotas` con `Cuota Mensual` y `Sueldos` vacio porque el codigo los
@@ -52,11 +63,11 @@ crear un seeder de datos reales sin decision de Carlos.
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **129 pruebas**, 705 aserciones, verde sobre MariaDB el 08/09 |
+| **Tests** | **130 pruebas**, 710 aserciones, verde sobre MariaDB el 09/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | Circuito principal implementado; tres caminos prioritarios requieren reproduccion/correccion en COB |
+| Cobros | Circuito principal implementado. COB-01 reproducido y corregido el 09/09; quedan COB-02 a COB-04 |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
@@ -83,10 +94,9 @@ crear un seeder de datos reales sin decision de Carlos.
 
 ## 6. Orden de trabajo
 
-FDS-01 queda cerrado. FDS-02 esta en curso y no se cierra hasta probar las alertas
-desde el servidor. El orden restante es:
+FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
-1. **FDS-02 a FDS-04:** revalidar servidor, reproducibilidad y pantallas corregidas.
+1. **FDS-03 a FDS-04:** reproducibilidad y pantallas corregidas.
 2. **COB-01 a COB-05:** monto con miles, cambio de plan, parcial con descuento y
    cancelacion/reintento.
 3. **FIN:** recibos, historia, balance y concurrencia financiera.
@@ -114,8 +124,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Preflight corre despues de reabrir el sitio.
 - La restauracion probada importa SQL; no reconstruye sola archivos y configuracion.
 - El control historico del restore compara conteos, no contenido financiero completo.
-- El servidor todavia no tiene desplegada la alerta de copia externa; hasta hacerlo,
-  un fallo de Drive conserva la copia local pero solo queda en la salida del cron.
+- Un fallo de Drive conserva la copia local y salida 0; desde el 09/09 produce
+  alerta diferenciada por Better Stack y Telegram, probada y recibida.
 - `MoneyLockingTest` verifica texto del codigo, no concurrencia real.
 - Cambiar contraseña no revoca por si solo sesiones y `remember_token`.
 - Los errores de recibos pueden devolver el mensaje tecnico de la excepcion.
@@ -126,7 +136,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 | Tema | Estado real | Proxima accion |
 |---|---|---|
-| `dia_generacion_deuda` editable | El scheduler usa dia 1 fijo | Definir si gobierna la tarea o se retira de pantalla |
+| `dia_generacion_deuda` editable | Confirmado 09/09: existe como fila de configuracion y **ningun codigo la lee**. El scheduler usa dia 1 fijo en `routes/console.php:12` | Definir si gobierna la tarea o se retira de pantalla |
+| Alumno sin plan en la corrida mensual | `GenerarDeudasMensualesCommand:77-81` lo saltea: no genera deuda, no entra a revision, solo un `warn` que muere en el cron | Que caiga en la cola de revision con motivo propio |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo |
 | Estado minimo de entrega | Preparado con un script temporal | FDS-03 deja un procedimiento reproducible |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
