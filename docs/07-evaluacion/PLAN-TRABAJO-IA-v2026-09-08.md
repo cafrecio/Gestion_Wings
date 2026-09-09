@@ -92,7 +92,10 @@ Carlos confirmo email y Telegram. Evidencia detallada en LOG-CODEX.md.
 No se simulo caida HTTPS. La base minima conserva evidencia historica del 07/09,
 no se volvio a inspeccionar su contenido; corrida mensual del 01/09 no demostrada.
 
-### FDS-03 · Hacer reproducible el estado minimo de entrega
+### FDS-03 · Hacer reproducible el estado minimo de entrega — PAUSADA 09/09
+
+Carlos ordeno frenarla: la base ya contiene carga real. Lo siguiente conserva el
+alcance anterior como contexto, NO es una orden ejecutable. Requiere redefinicion.
 
 **Ejecuta:** IA; decision de Carlos si requiere automatizacion. **Prioridad:** alta.
 
@@ -140,7 +143,12 @@ Verificado que la normalizacion cubre uno y dos separadores y el valor ya limpio
 separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` es
 `false`; ahora entra bien.
 
-**Pendiente:** reproduccion en navegador con un cobro real.
+**Verificacion 09/09, Codex CyE:** comparacion real por Chrome en bases descartables
+de `caa4976^` y `caa4976`. Request conserva `28.000` y `1.500.000`; antes guarda 28
+o rechaza 422, despues importes correctos en cadena y PDF. Resumen $1.528.000.
+Reporte: `docs/06-pruebas/COB-01-VERIFICACION-2026-09-09.md`.
+**Pendiente:** aclarar «arqueo» del pedido (solo se encontro resumen por medio,
+sin importe contado/diferencia). Freno §6b; no declarar cierre ni despliegue.
 
 1. Reproducir un cobro mostrado como `30.000` y comprobar el importe persistido.
 2. Escribir regresion que reproduzca el payload real del navegador.

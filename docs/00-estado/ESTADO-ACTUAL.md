@@ -12,8 +12,8 @@ Las ocho evaluaciones historicas se conservaron sin cambios de contenido en
 
 Wings esta publicado en `https://wings.gestionar-te.com.ar`, pero el gate final de
 produccion no esta firmado. La base del servidor quedo preparada para que el club
-cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Todavia no estan
-cargados los alumnos ni la operacion real del club.
+cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Carlos informo
+el 09/09 que el club ya carga datos reales; el alcance no fue inspeccionado.
 
 ## 2. Servidor — corte SSH 08/09 y avance por consola 09/09
 
@@ -55,8 +55,8 @@ por la carga humana**:
   usuario por pantalla.
 - Existe una cuenta superadmin protegida y una cuenta ADMIN de Vanina.
 
-Este estado todavia no tiene un procedimiento reproducible versionado. Es FDS-03. No
-crear un seeder de datos reales sin decision de Carlos.
+FDS-03 esta pausada por Carlos desde el 09/09: ese estado minimo es historico.
+No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutarla.
 
 ## 4. Estado confirmado del repositorio
 
@@ -96,7 +96,7 @@ crear un seeder de datos reales sin decision de Carlos.
 
 FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
-1. **FDS-03 a FDS-04:** reproducibilidad y pantallas corregidas.
+1. **FDS-04:** pantallas corregidas. FDS-03 pausada hasta redefinir su objetivo.
 2. **COB-01 a COB-05:** monto con miles, cambio de plan, parcial con descuento y
    cancelacion/reintento.
 3. **FIN:** recibos, historia, balance y concurrencia financiera.
@@ -139,7 +139,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 | `dia_generacion_deuda` editable | Confirmado 09/09: existe como fila de configuracion y **ningun codigo la lee**. El scheduler usa dia 1 fijo en `routes/console.php:12` | Definir si gobierna la tarea o se retira de pantalla |
 | Alumno sin plan en la corrida mensual | `GenerarDeudasMensualesCommand:77-81` lo saltea: no genera deuda, no entra a revision, solo un `warn` que muere en el cron | Que caiga en la cola de revision con motivo propio |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo |
-| Estado minimo de entrega | Preparado con un script temporal | FDS-03 deja un procedimiento reproducible |
+| Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
+| Arqueo en criterio COB-01 | Resumen suma movimientos; cierre no recibe importe contado ni diferencia | Carlos confirma si refiere a ese resumen o identifica otro circuito. Importes y PDF verificados en bases descartables; reporte COB-01 del 09/09 |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
 
 ## 10. Fuentes vigentes

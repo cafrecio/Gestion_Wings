@@ -14,6 +14,25 @@
 
 ---
 
+## 2026-09-09 — Codex CyE — COB-01 verificada por navegador; aclarar arqueo
+
+Comparados `caa4976^` y `caa4976` en copias y bases MariaDB descartables separadas.
+Chrome envio literalmente `28.000`: antes guardo 28 en deuda, pago, imputacion y
+movimiento. `1.500.000` antes dio 422. Despues ambos importes quedan correctos;
+resumen y detalle suman $1.528.000. PDF revisados visualmente, importes correctos.
+Captura real por CDP Network, sin fabricar el payload. Reporte completo:
+`docs/06-pruebas/COB-01-VERIFICACION-2026-09-09.md`.
+
+Freno segun §6b: pedido dice arqueo; codigo ofrece resumen por medio y cierre sin
+importe contado ni diferencia. Falta confirmar a que circuito refiere. No se
+modifico funcionalidad, no se probo ni desplego contra datos reales, no se repitio
+la suite completa. COB-01 no se marca cerrada. FDS-03 pausada por orden de Carlos.
+Entornos y evidencia sintetica conservados localmente fuera de Git.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-09 — Codex CyE — FDS-02 cerrada: alertas recibidas
 
 Instalados cron del scheduler y respaldo operativo con su helper. Configuracion
