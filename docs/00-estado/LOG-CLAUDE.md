@@ -17,6 +17,72 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-06: la pantalla prometia un total y se cobraba otro
+
+Rama `cob-total`, sobre `cob-02`. Lo encontro **Codex CyE** verificando COB-03 por
+navegador: la pantalla decia $38.000 antes de confirmar y el pago quedaba en $29.600.
+Freno sin tocar nada y pregunto. Buen freno: era una diferencia real, aunque el defecto
+no fuera el que parecia.
+
+### La plata estaba bien; el que mentia era el cartel
+
+$29.600 es correcto: $19.600 de agosto con el 70% mas $10.000 de septiembre. El importe
+registrado nunca estuvo mal. Lo que estaba mal era el numero que lee el operativo para
+pedirle la plata al alumno.
+
+### Eran dos defectos encadenados
+
+1. `calcularTotal()` suma los importes de los campos y los muestra sin descuento, porque
+   el descuento lo calcula el servidor recien al confirmar.
+2. Peor: **la pantalla ni siquiera anunciaba el descuento**. Su guardia exigia que el mes
+   de alta fuera el mes en curso; `calcularReglaPrimerPago()` solo exige que el mes de
+   alta este entre los periodos cobrados. Alta en agosto cobrando en septiembre: el
+   servidor descuenta y la pantalla se calla.
+
+Lo mas incomodo: el comentario de `CajaWebController::cobrar()` advertia el riesgo con
+estas palabras —"si esta pantalla mostrara un descuento que el cobro no aplica, el
+operativo cobraria un importe distinto del que le dijo al alumno"—. Quien lo escribio vio
+el problema exacto. La guardia quedo solo en el anuncio, y ademas con otro criterio.
+
+### Como se decidio cual lado estaba mal, sin preguntar
+
+Parecia decision de negocio: ¿el descuento vale meses despues del alta? No hizo falta.
+`DescuentoPrimerPagoSoloDelMesDeAltaTest::test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada`
+usa exactamente ese caso —alta 20/08, cobrando en septiembre— y espera que agosto lleve
+el 70%. La regla ya estaba decidida y cubierta. El que no la respetaba era el anuncio.
+
+Vale como metodo: antes de subir una pregunta de negocio, buscar si ya esta contestada
+en una prueba o un contrato.
+
+### Correccion
+
+La pantalla pasa a usar el mismo criterio que el servicio y expone el periodo con
+descuento y el porcentaje para que el total los aplique. Los importes por periodo siguen
+mostrandose enteros a proposito: es lo que se envia, y el descuento lo aplica el
+servidor. Cambio de vista autorizado por Carlos.
+
+### Un hallazgo lateral, registrado y sin tocar
+
+`calcularReglaPrimerPago()` no exige que el mes de alta sea reciente, solo que este entre
+los periodos cobrados. Un alumno traido de la carga inicial, con deuda de su propio mes
+de alta, **recibe el descuento al pagar esa deuda**. La prueba existente solo cubre
+cobrarle otro mes, asi que el caso esta descubierto. Queda en contradicciones abiertas:
+es decision de Carlos, no la toque.
+
+### Verificacion
+
+Suite completa **133 pruebas, 726 aserciones**. Las cuatro pruebas viejas de la regla de
+primer pago siguen verdes.
+
+### Siguiente paso
+
+Codex repite la verificacion de COB-03 por navegador sobre `cob-total`, que ya tiene
+COB-03, COB-02 y esto.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — COB-02: el cambio de plan no salia de la pantalla
 
 Rama `cob-02`, apoyada sobre `cob-03` para que el conteo de pruebas quede lineal y las

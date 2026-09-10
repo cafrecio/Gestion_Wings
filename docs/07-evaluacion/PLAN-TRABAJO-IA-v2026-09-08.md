@@ -235,6 +235,45 @@ adoptar la afirmacion de que siempre cobra el mes entero sin demostrarla.
 
 **Aceptacion:** suite completa verde sobre MariaDB y recorrido humano corto sin diferencias.
 
+### COB-06 · La pantalla anunciaba un total distinto del que se cobraba — CORREGIDA 10/09
+
+**Origen:** lo encontro Codex CyE verificando COB-03 por navegador. La pantalla decia
+$38.000 antes de confirmar y el pago quedaba en $29.600. **Corregida por Claude CAB;
+Carlos autorizo el cambio de vista el 10/09.**
+
+**La plata estaba bien.** $29.600 es el importe correcto: $19.600 de agosto con el 70%
+mas $10.000 de septiembre. El que mentia era el numero de la pantalla.
+
+**Eran dos defectos encadenados, los dos en la vista:**
+
+1. `calcularTotal()` sumaba los importes de los campos sin aplicar el descuento, que el
+   servidor recien calcula al confirmar.
+2. Peor: la pantalla ni siquiera anunciaba el descuento. Su guardia exigia que el mes de
+   alta fuera **el mes en curso**, mientras que `PagoCuotaService::calcularReglaPrimerPago()`
+   solo exige que el mes de alta este entre los periodos que se cobran. Alta en agosto
+   cobrando en septiembre: el servidor descontaba y la pantalla no decia nada.
+
+El comentario de `CajaWebController::cobrar()` ya advertia el riesgo textualmente —"si
+esta pantalla mostrara un descuento que el cobro no aplica, el operativo cobraria un
+importe distinto del que le dijo al alumno"— pero la guardia quedo solo en el anuncio y
+con un criterio distinto del real.
+
+**Cual de los dos lados estaba mal:** el de la pantalla. La regla ya estaba decidida y
+cubierta por `test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada`,
+que usa exactamente ese caso y espera que agosto lleve el descuento. No hizo falta
+decision de negocio.
+
+**Correccion:** la pantalla pasa a usar el mismo criterio que el servicio —el mes de alta
+tiene que estar entre los periodos ofrecidos— y expone el periodo con descuento y el
+porcentaje para que `calcularTotal()` los aplique. Los importes por periodo siguen
+mostrandose enteros a proposito: es lo que se envia, y el servidor aplica el descuento.
+
+**Regresion:** `DescuentoPrimerPagoSoloDelMesDeAltaTest::test_la_pantalla_anuncia_el_descuento_del_mes_de_alta_aunque_se_cobre_despues`.
+Las cuatro pruebas de la regla que ya existian siguen verdes.
+
+**Pendiente:** que Codex repita la verificacion de COB-03 por navegador sobre la rama
+`cob-total`, y confirme que el numero anunciado coincide con el registrado.
+
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |

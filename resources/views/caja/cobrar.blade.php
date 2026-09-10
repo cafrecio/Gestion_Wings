@@ -252,6 +252,11 @@
         return parseFloat(String(str).replace(/\./g, '').replace(',', '.')) || 0;
     }
 
+    // El servidor aplica el descuento de primer pago recién al confirmar. Si el total
+    // no lo replica, el operativo le pide al alumno un importe y se registra otro.
+    var periodoConDescuento = @json($periodoConDescuento);
+    var factorPrimerPago    = @json($reglaPrimerPago ? (float) $reglaPrimerPago->porcentaje / 100 : 1);
+
     function calcularTotal() {
         var total = 0;
         checks.forEach(function (chk) {
@@ -260,7 +265,13 @@
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
                 var val = inp ? parseMonto(inp.value) : 0;
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
-                total += Math.min(Math.max(val, 0), saldo);
+                var monto = Math.min(Math.max(val, 0), saldo);
+
+                if (periodoConDescuento && periodo === periodoConDescuento) {
+                    monto = Math.round(monto * factorPrimerPago * 100) / 100;
+                }
+
+                total += monto;
             }
         });
         return total;
