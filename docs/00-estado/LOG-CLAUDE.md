@@ -57,6 +57,22 @@ Mismo resultado que buscaba Carlos, sin dejar una afirmacion falsa en la base.
   `CargaDeudaInicialExcelService`**: tiene otro orden de columnas, pruebas y
   documentacion propias, y romperlo no aportaba nada.
 
+### ATENCION: ahora hay DOS importadores de carga inicial
+
+No se reemplazo uno por otro. Conviven, y hay que saber cual usar:
+
+| | `wings:importar-deuda-inicial` (viejo) | `wings:importar-padron` (nuevo) |
+|---|---|---|
+| Que filas lleva | Solo los deudores | **Todos** los alumnos, con DEBE por fila |
+| Columnas | DNI, deporte, pares monto + mmYYYY | DNI, Alumno, Deporte, DEBE, pares mmYYYY + monto |
+| Mes de corte | No lo toca | Lo cierra con una deuda en cero pagada |
+| Cuando se usa | Deuda suelta sobre una base en marcha | **El arranque del club** |
+
+El viejo **no sirve para el arranque**: el alumno que no figura se asume sin deuda, asi
+que un olvido y una persona al dia se ven igual. Queda avisado en la cabecera de
+`CARGA-DEUDA-INICIAL-EXCEL.md` y en `ESTADO-ACTUAL.md`, para que nadie siga el
+instructivo equivocado.
+
 ### Por que cambia el resultado
 
 Antes, el alumno que no figuraba en el Excel se asumia sin deuda. Un olvido de Vanina y
