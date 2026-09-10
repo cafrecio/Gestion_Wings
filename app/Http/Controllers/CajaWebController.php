@@ -641,6 +641,18 @@ class CajaWebController extends Controller
             }
         }
 
+        // El mes de alta se muestra ya descontado, que es lo que realmente vale y lo que
+        // el cobro va a registrar. Es en memoria: la deuda recien baja al confirmar.
+        // Asi la pantalla y el servidor toman el mismo tope y no hay dos numeros.
+        if ($periodoConDescuento !== null && $reglaPrimerPago) {
+            $factor = (float) $reglaPrimerPago->porcentaje / 100;
+            foreach ($alumno->deudaCuotas as $deuda) {
+                if ($deuda->periodo === $periodoConDescuento) {
+                    $deuda->monto_original = round((float) $deuda->monto_original * $factor, 2);
+                }
+            }
+        }
+
         return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento'));
     }
 

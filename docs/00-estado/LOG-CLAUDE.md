@@ -17,6 +17,82 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-08: el descuento se comia la seña y cerraba el mes
+
+Rama `cob-descuento`, sobre `cob-saldo`. Lo encontro **Codex CyE** verificando COB-02.
+
+### El defecto
+
+Plan de $60.000, descuento del 70%, seña de $10.000: cobraba **$7.000 y dejaba la deuda
+entera PAGADA**. $35.000 sin cobrar, y el mes cerrado, asi que nadie lo vuelve a mirar.
+
+El porcentaje se aplicaba al importe tipeado en vez de al precio del mes.
+`aplicarPorcentajeAItems()` convertia los 10.000 en 7.000, y `ajustarDeudaConDescuento()`
+escribia ese 7.000 como monto original: pagado 7.000 sobre debido 7.000 da PAGADA.
+
+### Es un punto ciego de mi propia correccion de COB-03
+
+En COB-03 restringi `ajustarDeudaConDescuento()` al periodo correcto, pero le segui pasando
+el importe del item — que es lo tipeado por el factor. Con pago completo da bien, y por eso
+paso. **Achique el daño sin ver la causa.**
+
+### Carlos me marco el metodo, y tenia razon
+
+Su reclamo, textual: *"en todas te olvidas de algo"*. Cierto: COB-03 dejo vivo a COB-08, y
+COB-06 dejo vivo a COB-07. El patron de mi trabajo era corregir el caso reportado y dar por
+cerrada la vecindad sin mirarla.
+
+Asi que esta vez, **antes de tocar una linea**, escribi la matriz completa de casos que
+pasan por el descuento: `DescuentoPrimerPagoMatrizTest`, siete casos por la ruta web real.
+
+**Resultado: 4 de 7 rotos**, no uno.
+
+| Caso | Estaba |
+|---|---|
+| Pago completo, deuda existente | Bien |
+| Pago completo, sin deuda previa | Bien |
+| **Parcial, deuda existente** | **Roto** — el que reporto Codex |
+| **Parcial, sin deuda previa** | **Roto** |
+| **Segundo cobro del saldo restante** | **Roto** |
+| **Tramo del 40%** | **Roto** |
+| Sin descuento | Bien |
+
+Los tres extra no los habia reportado nadie. Escribir la matriz costo menos que las tres
+idas y vueltas que habrian hecho falta para encontrarlos de a uno.
+
+### La regla que queda fijada
+
+> El descuento baja **el precio del mes**, nunca el importe que se entrega.
+
+Alumno que entra el 20 con plan de 60.000: debe 42.000. Si entrega 10.000, quedan 32.000.
+
+### Correccion
+
+- `precioConDescuento()` calcula el precio del mes ya descontado. La base es la deuda si
+  existe, o el precio del plan si hay que crearla. Nunca el importe pagado.
+- `limitarAlSaldoConDescuento()` recorta el importe al saldo resultante, para que quien
+  paga la cuota entera no sea rechazado por enviar el precio de lista.
+- `aplicarPorcentajeAItems()` eliminado: era la fuente.
+- La pantalla muestra el mes de alta **ya descontado** y `calcularTotal()` deja de aplicar
+  el porcentaje.
+
+Ese ultimo punto importa mas de lo que parece: **pantalla y servidor dejan de calcular cada
+uno su version del mismo numero.** Ahora el servidor manda el tope y la pantalla lo muestra.
+COB-06 y COB-07 existieron porque los dos hacian la cuenta por separado.
+
+### Verificacion
+
+Suite completa **147 pruebas, 805 aserciones**. Las cinco pruebas viejas de la regla de
+primer pago siguen verdes, o sea que la semantica establecida no se movio.
+
+### Siguiente paso
+
+Verificacion en navegador de los cuatro casos que estaban rotos.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — COB-07: al subir de plan la pantalla anunciaba de menos
 
 Rama `cob-saldo`, sobre `main`. Lo encontro **Codex CyE** verificando COB-02: subiendo de
