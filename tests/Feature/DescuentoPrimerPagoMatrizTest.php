@@ -8,12 +8,14 @@ use App\Models\Deporte;
 use App\Models\DeudaCuota;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
+use App\Models\MovimientoOperativo;
 use App\Models\Nivel;
 use App\Models\ReglaPrimerPago;
 use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
+use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -150,6 +152,57 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
         $this->assertDeuda($alumno, self::PRECIO, 10000.0, DeudaCuota::ESTADO_PENDIENTE);
     }
 
+    public function test_un_cobro_cancelado_no_le_saca_el_descuento_al_mes_de_alta(): void
+    {
+        // Adelanta septiembre, que no es su mes de alta: sin descuento, y esta bien.
+        $alumno = $this->alumnoConAlta('2026-08-20');
+        DeudaCuota::create([
+            'alumno_id' => $alumno->id,
+            'periodo' => '2026-09',
+            'monto_original' => self::PRECIO,
+            'monto_pagado' => 0,
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]);
+        $this->cobrar($alumno, self::PRECIO, '2026-09');
+        $this->cancelarUltimoCobro($alumno);
+
+        // Ahora le cobran agosto, su mes de alta. El cobro cancelado no ocurrio.
+        $this->crearDeuda($alumno);
+        $this->cobrar($alumno, self::PRECIO);
+
+        $this->assertDeuda($alumno, 42000.0, 42000.0, DeudaCuota::ESTADO_PAGADA);
+    }
+
+    public function test_cancelar_y_volver_a_cobrar_el_mes_de_alta_no_descuenta_dos_veces(): void
+    {
+        $alumno = $this->alumnoConAlta('2026-08-20');
+        $this->crearDeuda($alumno);
+
+        $this->cobrar($alumno, self::PRECIO);
+        $this->cancelarUltimoCobro($alumno);
+
+        $this->assertDeuda($alumno, 42000.0, 0.0, DeudaCuota::ESTADO_PENDIENTE);
+
+        $this->cobrar($alumno, 42000);
+
+        $this->assertDeuda($alumno, 42000.0, 42000.0, DeudaCuota::ESTADO_PAGADA);
+    }
+
+    private function cancelarUltimoCobro(Alumno $alumno): void
+    {
+        $movimiento = MovimientoOperativo::where('alumno_id', $alumno->id)
+            ->whereNotNull('pago_id')
+            ->where('estado', '!=', 'CANCELADO')
+            ->latest('id')
+            ->firstOrFail();
+
+        app(PagoCuotaService::class)->cancelarCobroOperativo(
+            $movimiento->id,
+            'Error de carga',
+            $this->operativo->id
+        );
+    }
+
     private function assertDeuda(Alumno $alumno, float $original, float $pagado, string $estado): void
     {
         $deuda = DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', '2026-08')->firstOrFail();
@@ -160,13 +213,13 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
         $this->assertSame($original - $pagado, $deuda->saldo_pendiente, 'Saldo restante.');
     }
 
-    private function cobrar(Alumno $alumno, float $monto): void
+    private function cobrar(Alumno $alumno, float $monto, string $periodo = '2026-08'): void
     {
         $this->actingAs($this->operativo)
             ->post(route('web.caja.pagar', $alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
-                'periodos' => ['2026-08'],
-                'montos_cuota' => ['2026-08' => $monto],
+                'periodos' => [$periodo],
+                'montos_cuota' => [$periodo => $monto],
                 'fecha_pago' => '2026-08-25',
             ])
             ->assertRedirect(route('web.caja.index'))

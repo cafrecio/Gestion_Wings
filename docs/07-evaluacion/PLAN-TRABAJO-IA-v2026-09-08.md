@@ -239,17 +239,46 @@ reintroducir el defecto. Regresion en `DescuentoNoAlteraOtroPeriodoTest`.
 monto original y saldo restante. Verificado: agosto 19.600 `PAGADA`, septiembre 28.000
 con 10.000 pagados, saldo 18.000 y estado `PENDIENTE`.
 
-### COB-04 · Cancelar y volver a cobrar la primera cuota
+### COB-04 · Cancelar y volver a cobrar la primera cuota — CORREGIDA 10/09
 
-**Estado:** informes en desacuerdo sobre la consecuencia final. **No corregir sin
-reproduccion.**
+**Decision de Carlos, 10/09: un pago anulado NO cuenta como primer pago.** Un cobro
+cancelado es un cobro que no ocurrio; que alguien se equivoque al cargar no cambia
+cuando entro el alumno.
 
-1. Reproducir cobro con descuento, cancelacion y segundo cobro.
-2. Separar el efecto de `existePagoPrevio()` del monto ya guardado en la deuda.
-3. Carlos decide si un pago anulado cuenta como antecedente a efectos comerciales.
+**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion en
+navegador. **Diseño:** no se toco ninguna vista.
 
-**Aceptacion:** regla escrita, prueba automatizada y resultado visible coherente. No
-adoptar la afirmacion de que siempre cobra el mes entero sin demostrarla.
+**Lo que pasaba, reproducido:** al cancelar, el pago queda con estado `ANULADO` y la
+fila se conserva (`cancelarCobroOperativo()`). La decision del descuento preguntaba
+`Pago::where('alumno_id')->exists()` **sin mirar el estado**, en el servicio y en la
+pantalla. Un cobro cancelado le sacaba el descuento de bienvenida para siempre.
+
+Reproducido: alumno de alta el 20/08 que adelanta septiembre, se cancela ese cobro por
+error, y despues se le cobra agosto — su mes de alta. Cobraba **60.000 en vez de
+42.000**.
+
+**Los informes no estaban en desacuerdo: describian casos distintos.** Si el cobro
+cancelado era del propio mes de alta, la deuda ya habia quedado en 42.000 y cancelar no
+restaura el monto original, asi que el segundo cobro daba 42.000 igual — bien, pero por
+accidente, no por decision. Si el cobro cancelado era de otro mes, se perdia el
+descuento. De ahi las dos versiones.
+
+**Correccion:** las dos consultas filtran por `ESTADO_COMPLETADO`.
+
+**Y un segundo defecto que aparecio al corregir el primero:** con el descuento ahora
+habilitado despues de una cancelacion, `precioConDescuento()` tomaba como base el monto
+de la deuda — que podia venir ya descontado del intento anulado — y descontaba dos
+veces: 60.000 a 42.000 a 29.400. La base pasa a ser el precio de lista del plan.
+Lo detecto la prueba de la cancelacion sobre el propio mes de alta, escrita antes de
+tocar codigo justo para eso.
+
+**Barrido:** se reviso donde mas se pregunta por pagos previos.
+`CobranzaEstadoService` y `LiquidacionService` ya filtraban bien. Queda anotado como
+hallazgo lateral `PagoService::103`, que verifica si existe un pago del mes sin filtrar
+estado — vive en el pago de plan mensual, no en el circuito de cuotas.
+
+**Aceptacion:** regla escrita, prueba automatizada y resultado visible coherente.
+Cubierto por `DescuentoPrimerPagoMatrizTest`, que llego a nueve casos.
 
 ### COB-05 · Cierre conjunto del circuito de cobro
 

@@ -597,7 +597,11 @@ class CajaWebController extends Controller
         // Regla de primer pago — informativa para mostrar en el formulario
         $reglaPrimerPago     = null;
         $motivoPrimerPago    = null;
-        $tienePagos          = Pago::where('alumno_id', $alumnoId)->exists();
+        // Mismo criterio que PagoCuotaService::calcularReglaPrimerPago(): un cobro
+        // cancelado no cuenta como pago previo.
+        $tienePagos          = Pago::where('alumno_id', $alumnoId)
+            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->exists();
 
         // El descuento solo alcanza al mes en que el alumno entró (o volvió), nunca a
         // otros meses. Acá se anuncia, y tiene que anunciar exactamente lo que después

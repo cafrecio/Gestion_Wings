@@ -69,11 +69,11 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **147 pruebas**, 805 aserciones, verde sobre MariaDB el 10/09 |
+| **Tests** | **149 pruebas**, 829 aserciones, verde sobre MariaDB el 10/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | COB-01 y COB-02 verificadas por navegador. COB-03 verificada en su alcance; parcial del propio mes con descuento separado a cargo de Claude. COB-04 pendiente |
+| Cobros | COB-01 y COB-02 verificadas por navegador. COB-03 verificada en su alcance; parcial del propio mes con descuento separado a cargo de Claude. COB-04 corregida el 10/09: un pago anulado ya no cuenta como primer pago |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
@@ -117,7 +117,6 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 7. Decisiones pendientes de Carlos
 
-- Si un pago anulado cuenta como primer pago comercial, despues de reproducir COB-04.
 - Que significa “Balance” filtrado en Cashflow.
 - Como resolver revisiones con parcial, observaciones e importe historico.
 - Limites temporales de movimientos manuales.
