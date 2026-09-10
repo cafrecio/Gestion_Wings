@@ -35,6 +35,12 @@
     </div>
 </div>
 
+{{-- El formulario abre acá, antes del selector de plan, a propósito: un form solo
+     envía los campos que tiene adentro y `nuevo_plan_id` quedaba afuera. La etiqueta
+     no dibuja nada, así que la pantalla se ve igual. --}}
+<form method="POST" action="{{ route('web.caja.pagar', $alumno->id) }}" id="cobrar-form">
+@csrf
+
 {{-- Selector de plan (solo si el grupo tiene más de uno) --}}
 @if($planesDisponibles->count() > 1)
 <div class="filtros-card mb-4">
@@ -79,9 +85,6 @@
     </p>
 </div>
 @endif
-
-<form method="POST" action="{{ route('web.caja.pagar', $alumno->id) }}" id="cobrar-form">
-    @csrf
 
     {{-- Cuotas pendientes --}}
     <div class="filtros-card mb-4">

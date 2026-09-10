@@ -17,6 +17,61 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-02: el cambio de plan no salia de la pantalla
+
+Rama `cob-02`, apoyada sobre `cob-03` para que el conteo de pruebas quede lineal y las
+dos se mergeen en orden. `cob-03` quedo liberada para que Codex la pueda checkoutear.
+
+### Que pasaba
+
+El selector de plan estaba dibujado **fuera** del formulario: el control en la linea 54,
+el `<form>` recien en la 83. Un form solo envia lo que tiene adentro, asi que
+`new FormData(cobrarForm)` nunca juntaba `nuevo_plan_id`.
+
+Lo que lo volvia invisible: el JavaScript de la vista **si** reacciona al clic. Pinta la
+opcion elegida y actualiza el monto sugerido al precio del plan nuevo. La operativa ve
+el importe correcto, cobra el importe correcto, y el recibo dice el importe correcto.
+
+El backend, ademas, estaba completo y bien hecho: distingue subida de bajada y difiere
+la bajada al mes siguiente si hubo asistencia. Nunca se ejecutaba por falta del dato.
+
+**El daño no era del dia del cobro, era del mes siguiente.** El alumno quedaba en el
+plan viejo, la corrida mensual generaba la deuda con el precio anterior, y seguia asi
+todos los meses. Nadie se entera porque el mes del cambio el numero fue el correcto.
+
+### La correccion
+
+Se movio la apertura del formulario arriba del selector. `<form>` no dibuja nada, asi
+que la pantalla queda identica: el diff no toca ni un div, ni una clase, ni un estilo,
+ni un texto. Se descartaron las otras dos opciones —campo oculto sincronizado por JS, o
+`formData.append()`— porque las dos vuelven a poner la plata a depender de que un script
+corra a tiempo, que es exactamente la causa de COB-01.
+
+Carlos autorizo el cambio de vista despues de que se le explicara el alcance concreto.
+Es la primera vez en esta serie que se toca `resources/views/**`.
+
+### Como se prueba algo que solo falla en el navegador
+
+Un test HTTP que postee `nuevo_plan_id` pasa igual, porque el backend siempre funciono:
+el defecto es que el navegador no manda el campo. Asi que la regresion se hace sobre el
+**HTML renderizado**: busca la posicion de `nuevo_plan_id`, la de la apertura del
+formulario y la del cierre, y exige que el campo caiga entre las dos. Roja antes, verde
+despues. Sirve para cualquier control que tenga que viajar.
+
+### Verificacion
+
+Suite completa **132 pruebas, 723 aserciones**. Las 8 pruebas viejas de cambio de plan
+siguen verdes, o sea que la logica de subida/bajada no se toco.
+
+### Siguiente paso
+
+Pendiente de verificar en navegador. Despues quedan COB-04 —que necesita decision de
+Carlos y conviene reproducir antes— y unificar `cob-03` y `cob-02` en `main`.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-09 — Claude CAB — COB-03: la seña de otro mes borraba el saldo
 
 Hecho en un **worktree separado** (`../Gestion_Wings_cob03`, rama `cob-03`, base de test

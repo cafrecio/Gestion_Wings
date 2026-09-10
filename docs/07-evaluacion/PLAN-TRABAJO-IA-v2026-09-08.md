@@ -150,17 +150,42 @@ separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` e
 
 **Aceptacion:** pantalla, pago, deuda, caja y recibo coinciden en 30.000.
 
-### COB-02 · Cambio de plan elegido fuera del formulario
+### COB-02 · Cambio de plan elegido fuera del formulario — CORREGIDA 10/09
 
-**Estado:** verificado en codigo; falta reproduccion de pantalla. **Diseño:** toca
-`resources/views/caja/cobrar.blade.php`, requiere autorizacion.
+**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion en
+navegador. **Diseño:** Carlos autorizo el cambio el 10/09, despues de que se le
+explicara el alcance exacto.
 
-1. Reproducir que la seleccion no llega como `nuevo_plan_id`.
-2. Vincular el control al formulario sin alterar el diseño.
-3. Probar cambio de plan mas cobro como una sola transaccion.
+**Que pasaba:** el selector de plan estaba dibujado **fuera** del formulario. Un form
+solo envia los campos que tiene adentro, asi que `new FormData(cobrarForm)` no juntaba
+`nuevo_plan_id` y la eleccion nunca llegaba al servidor. El JavaScript de la vista si
+reaccionaba al clic: pintaba la opcion y actualizaba el monto sugerido. Por eso en
+pantalla parecia aplicado.
+
+El backend del cambio de plan ya estaba completo y correcto —distingue subida de bajada
+y difiere la bajada al mes siguiente si hubo asistencia— pero nunca se ejecutaba porque
+no recibia el dato.
+
+**Daño real:** se cobraba el importe del plan nuevo y el alumno quedaba en el plan
+viejo. El mes siguiente la corrida mensual generaba la deuda con el precio anterior, y
+todos los meses posteriores tambien, sin ninguna señal.
+
+**Correccion:** se movio la apertura del formulario para que arranque antes del selector
+de plan. La etiqueta `<form>` no renderiza nada, asi que **la pantalla no cambia**: el
+diff no toca un solo div, clase, estilo ni texto. No se agrego JavaScript ni campos
+ocultos, para no volver a depender de que un script llegue a tiempo — que fue la causa
+de COB-01.
+
+**Regresion:** `CambioPlanCobroTest::test_el_selector_de_plan_viaja_dentro_del_formulario_de_cobro`
+verifica sobre el HTML renderizado que `nuevo_plan_id` quede entre la apertura y el
+cierre del formulario. Las 8 pruebas de cambio de plan que ya existian siguen verdes.
 
 **Aceptacion:** el alumno termina en el plan elegido, el monto del periodo es correcto y
-un rechazo del cobro no deja el plan cambiado.
+un rechazo del cobro no deja el plan cambiado. Los dos ultimos ya estaban cubiertos por
+`CambioPlanCobroTest`; el primero es lo que faltaba y ahora esta.
+
+**Pendiente:** confirmar en navegador que la eleccion viaja y que la pantalla se ve
+igual que antes.
 
 ### COB-03 · Parcial de otro periodo durante primer pago con descuento — CORREGIDA 09/09
 

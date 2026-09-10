@@ -102,6 +102,36 @@ class CambioPlanCobroTest extends TestCase
         parent::tearDown();
     }
 
+    /**
+     * COB-02: el backend sabe cambiar el plan, pero solo si el dato le llega.
+     *
+     * Un formulario manda unicamente los campos que tiene adentro. Si el selector
+     * queda dibujado afuera, `new FormData(cobrarForm)` no lo junta: se cobra el
+     * importe nuevo y el alumno queda en el plan viejo. El mes siguiente la deuda
+     * se genera con el precio anterior y nadie se entera.
+     */
+    public function test_el_selector_de_plan_viaja_dentro_del_formulario_de_cobro(): void
+    {
+        $html = $this->actingAs($this->operativo)
+            ->get(route('web.caja.cobrar', $this->alumno->id))
+            ->assertOk()
+            ->getContent();
+
+        $selector = strpos($html, 'name="nuevo_plan_id"');
+        $aperturaForm = strpos($html, 'id="cobrar-form"');
+
+        $this->assertNotFalse($selector, 'La pantalla no ofrece el selector de plan.');
+        $this->assertNotFalse($aperturaForm, 'No se encontro el formulario de cobro.');
+
+        $cierreForm = strpos($html, '</form>', $aperturaForm);
+
+        $this->assertTrue(
+            $selector > $aperturaForm && $selector < $cierreForm,
+            'El selector de plan quedo fuera del formulario de cobro, asi que la '
+            .'eleccion no viaja y el cambio de plan nunca se aplica.'
+        );
+    }
+
     public function test_baja_con_asistencia_aplica_desde_el_mes_siguiente(): void
     {
         $this->registrarAsistenciaEsteMes();
