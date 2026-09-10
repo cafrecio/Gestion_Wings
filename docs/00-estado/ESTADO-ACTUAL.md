@@ -7,6 +7,15 @@
 
 ## 1. Estado general
 
+COB-04, revision 10/09 de 1debbf2: freno previo a navegador. El servicio evita
+doble descuento, pero CajaWebController::cobrar aun multiplica la deuda ya
+descontada: 42.000 por 70% produce campo 29.400. Pendiente resolver esta
+contradiccion con el criterio de pantalla 42.000 en ese commit.
+Continuacion: 74af2a0 de cob-pantalla verificado por Chrome en copia aislada:
+ambos recorridos de cancelacion y recobro dan 42.000, campo y cartel correctos.
+Suite de esa rama: 150 pruebas, 835 aserciones. Pendiente integrar la rama;
+compilacion explicita de vistas bloqueada por el control automatico.
+
 Verificacion COB-02 del 10/09 sobre 5be4970: subida, bajada diferida, rollback y
 disposicion visual comprobados. COB-02 VERIFICADA. Carlos separo el primer pago
 parcial con descuento: corregido por Claude y COB-08 verificada por Codex en

@@ -14,6 +14,37 @@
 
 ---
 
+## 2026-09-10 — Codex CyE — COB-04 verificada en cob-pantalla
+
+Sobre 74af2a0, Chrome y base sintetica wings_cob04_20260910_browser.
+Adelanto septiembre 60.000, cancelacion por pantalla, agosto 42.000 correcto.
+Segundo alumno: agosto 42.000, cancelacion deja original 42.000, pagado 0,
+PENDIENTE; al volver campo 42.000 y cartel 70%, recobro 42.000 PAGADA.
+Sin doble descuento. Reloj 25/08 solo en copia aislada.
+Suite en otra base nueva: 150 pruebas, 835 aserciones, verde (46,24 s).
+view:cache/view:clear rechazado por control automatico; no ejecutado.
+Scripts y capturas locales ignorados en storage/app/cob04-20260910.
+Sin datos reales ni deploy. Pendiente integrar cob-pantalla por Claude.
+
+Firma: **Codex CyE**.
+
+---
+
+## 2026-09-10 — Codex CyE — COB-04: freno previo por calculo de pantalla
+
+Leido 1debbf2: precioConDescuento del servicio usa precio del plan, pero
+CajaWebController::cobrar sigue multiplicando monto_original de la deuda por
+el factor (linea 655). Cancelar conserva monto_original y revierte monto_pagado.
+Para deuda cancelada 42.000, el controlador prepara 29.400, no los 42.000
+exigidos por el prompt. Freno 6b antes de ejecutar navegador; no se presenta
+como reproduccion visual ni se declara COB-04 verificada.
+Opciones: Claude corrige tambien la preparacion del campo, o Carlos autoriza
+continuar la reproduccion del defecto conocido. No se modifica codigo ni datos.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-10 — Codex CyE — COB-08 verificada por Chrome
 
 Sobre d61cf42, cuatro cobros en base nueva: parcial con deuda y virtual quedan
