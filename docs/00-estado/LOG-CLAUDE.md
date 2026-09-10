@@ -17,6 +17,49 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — Un solo calculo del importe con descuento
+
+Rama `cob-pantalla`, sobre `main`. Lo encontro **Codex CyE** revisando COB-04 antes de
+abrir el navegador: freno y consulto sin tocar nada.
+
+### El defecto, y es mio
+
+Al corregir COB-04 cambie la base del calculo en el servicio —pasa a ser el precio de
+lista, no el monto de la deuda— pero **deje intacta la de la pantalla**, que seguia
+multiplicando el monto de la deuda por el porcentaje. Ese codigo lo habia escrito yo
+mismo en COB-06.
+
+Con la deuda ya descontada de un intento anulado: la pantalla mostraba **29.400** y el
+cobro registraba **42.000**.
+
+### La correccion es de fondo, no del sintoma
+
+Podia haber copiado la nueva base a la pantalla y listo. En vez de eso,
+`precioConDescuento()` pasa a ser publico y la pantalla lo llama.
+
+**Queda una sola implementacion del importe.**
+
+Vale la pena mirarlo de conjunto: COB-06, COB-07 y esto son el mismo defecto tres veces,
+y la causa nunca fue la formula sino que **habia dos formulas**. Cada lado calculaba su
+version del mismo numero y se desincronizaban de a una. Mientras existan dos, cada cambio
+en el servicio abre la posibilidad de un COB nuevo.
+
+### Como se decidio no reproducirlo en navegador primero
+
+Codex pregunto si corregia yo o reproducia el. El defecto ya estaba confirmado leyendo
+codigo y la causa era univoca: reproducirlo gastaba una sesion de navegador para
+confirmar algo que no estaba en duda. Se corrigio primero para que verifique una sola vez,
+con el arreglo puesto.
+
+### Verificacion
+
+Suite completa **150 pruebas, 835 aserciones**. La matriz llego a diez casos; el nuevo
+comprueba que despues de cancelar la pantalla muestre el mismo importe que se va a cobrar.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — COB-04: un cobro cancelado le sacaba el descuento
 
 Rama `cob-anulado`, sobre `main`. **Decision de Carlos: un pago anulado NO cuenta como

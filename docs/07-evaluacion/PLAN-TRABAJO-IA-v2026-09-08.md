@@ -278,7 +278,18 @@ hallazgo lateral `PagoService::103`, que verifica si existe un pago del mes sin 
 estado — vive en el pago de plan mensual, no en el circuito de cuotas.
 
 **Aceptacion:** regla escrita, prueba automatizada y resultado visible coherente.
-Cubierto por `DescuentoPrimerPagoMatrizTest`, que llego a nueve casos.
+Cubierto por `DescuentoPrimerPagoMatrizTest`, que llego a diez casos.
+
+**Tercer defecto, encontrado por Codex CyE antes de la verificacion visual:** la primera
+correccion cambio la base del calculo en el servicio pero dejo intacta la de la pantalla,
+que seguia multiplicando el monto de la deuda por el porcentaje. Con la deuda ya
+descontada de un intento anulado mostraba **29.400 mientras el cobro registraba 42.000**.
+Codex freno sin tocar nada y consulto.
+
+**Correccion de fondo, no del sintoma:** `precioConDescuento()` pasa a ser publico y la
+pantalla lo llama en vez de rehacer la cuenta. **Queda una sola implementacion del
+importe.** Ese reparto —cada lado calculando su version del mismo numero— produjo COB-06,
+COB-07 y este. Cortarlo vale mas que el arreglo puntual.
 
 ### COB-05 · Cierre conjunto del circuito de cobro
 

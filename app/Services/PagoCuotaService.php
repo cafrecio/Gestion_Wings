@@ -658,7 +658,12 @@ class PagoCuotaService
      * La base es lo que vale ese mes: el monto de la deuda si ya existe, o el precio del
      * plan si todavia hay que crearla. Nunca el importe que el operativo esta pagando.
      */
-    private function precioConDescuento(int $alumnoId, string $periodo, float $porcentaje): float
+    /**
+     * Publica a proposito: la pantalla de cobro tiene que mostrar exactamente este
+     * numero. Cuando cada lado hacia su propia cuenta salieron COB-06, COB-07 y la
+     * revision de COB-04, siempre igual — dos versiones del mismo importe.
+     */
+    public function precioConDescuento(int $alumnoId, string $periodo, float $porcentaje): float
     {
         // La base es el precio de lista del mes, no el monto de la deuda: esa puede venir
         // ya descontada de un cobro que se cancelo, y el descuento se aplicaria dos veces.

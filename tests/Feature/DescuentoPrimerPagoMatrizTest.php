@@ -188,6 +188,23 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
         $this->assertDeuda($alumno, 42000.0, 42000.0, DeudaCuota::ESTADO_PAGADA);
     }
 
+    public function test_despues_de_cancelar_la_pantalla_muestra_el_mismo_precio_que_va_a_cobrar(): void
+    {
+        $alumno = $this->alumnoConAlta('2026-08-20');
+        $this->crearDeuda($alumno);
+
+        $this->cobrar($alumno, self::PRECIO);
+        $this->cancelarUltimoCobro($alumno);
+
+        // La deuda quedo en 42.000. Si la pantalla vuelve a multiplicar por el
+        // porcentaje muestra 29.400 mientras el servidor cobra 42.000.
+        $this->actingAs($this->operativo)
+            ->get(route('web.caja.cobrar', $alumno->id))
+            ->assertOk()
+            ->assertSee('42.000')
+            ->assertDontSee('29.400');
+    }
+
     private function cancelarUltimoCobro(Alumno $alumno): void
     {
         $movimiento = MovimientoOperativo::where('alumno_id', $alumno->id)
