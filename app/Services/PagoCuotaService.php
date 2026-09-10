@@ -48,12 +48,13 @@ class PagoCuotaService
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
             if ($porcentaje < 100 && $periodoConDescuento !== null) {
-                $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
-                // Solo el mes de alta cambia de monto. Los demas periodos del mismo
-                // cobro conservan el precio del plan, aunque se paguen parcialmente.
-                $montoConDescuento = (float) collect($items)->firstWhere('periodo', $periodoConDescuento)['monto'];
-                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $montoConDescuento];
-                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $montoConDescuento);
+                // El descuento baja el PRECIO DEL MES, no el importe que se entrega.
+                // Aplicarlo sobre lo tipeado convertia una seña de 10.000 en un cobro de
+                // 7.000 que ademas cerraba el mes entero.
+                $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
+                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento);
+                $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
@@ -140,12 +141,13 @@ class PagoCuotaService
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
             if ($porcentaje < 100 && $periodoConDescuento !== null) {
-                $items = $this->aplicarPorcentajeAItems($items, $porcentaje, $periodoConDescuento);
-                // Solo el mes de alta cambia de monto. Los demas periodos del mismo
-                // cobro conservan el precio del plan, aunque se paguen parcialmente.
-                $montoConDescuento = (float) collect($items)->firstWhere('periodo', $periodoConDescuento)['monto'];
-                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $montoConDescuento];
-                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $montoConDescuento);
+                // El descuento baja el PRECIO DEL MES, no el importe que se entrega.
+                // Aplicarlo sobre lo tipeado convertia una seña de 10.000 en un cobro de
+                // 7.000 que ademas cerraba el mes entero.
+                $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
+                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento);
+                $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
             $montoTotal = $this->calcularMontoTotal($items);
@@ -645,14 +647,46 @@ class PagoCuotaService
     /**
      * Escala el monto del período que lleva el descuento. El resto queda intacto.
      */
-    private function aplicarPorcentajeAItems(array $items, float $porcentaje, string $periodoConDescuento): array
+    /**
+     * Precio del mes de alta ya descontado.
+     *
+     * La base es lo que vale ese mes: el monto de la deuda si ya existe, o el precio del
+     * plan si todavia hay que crearla. Nunca el importe que el operativo esta pagando.
+     */
+    private function precioConDescuento(int $alumnoId, string $periodo, float $porcentaje): float
     {
-        $factor = $porcentaje / 100;
+        $deuda = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->first();
+
+        if ($deuda) {
+            $base = (float) $deuda->monto_original;
+        } else {
+            $alumnoPlan = $this->obtenerPlanParaPeriodo($alumnoId, $periodo);
+            if (!$alumnoPlan?->plan) {
+                throw new \Exception("Alumno sin plan aplicable para el período {$periodo}.");
+            }
+            $base = (float) $alumnoPlan->plan->precio_mensual;
+        }
+
+        return round($base * ($porcentaje / 100), 2);
+    }
+
+    /**
+     * Recorta el importe del mes de alta al saldo que quedo despues del descuento.
+     *
+     * Sin esto, quien paga la cuota entera envia el precio de lista y `aplicarPagoADeudas`
+     * lo rechaza por superar el saldo ya descontado.
+     */
+    private function limitarAlSaldoConDescuento(array $items, int $alumnoId, string $periodo, float $precioConDescuento): array
+    {
+        $deuda = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->first();
+        $tope = $deuda
+            ? max((float) $deuda->monto_original - (float) $deuda->monto_pagado, 0)
+            : $precioConDescuento;
 
         return array_map(fn($item) => [
             'periodo' => $item['periodo'],
-            'monto'   => $item['periodo'] === $periodoConDescuento
-                ? round((float) $item['monto'] * $factor, 2)
+            'monto'   => $item['periodo'] === $periodo
+                ? min((float) $item['monto'], $tope)
                 : (float) $item['monto'],
         ], $items);
     }

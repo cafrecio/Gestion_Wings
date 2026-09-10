@@ -252,10 +252,10 @@
         return parseFloat(String(str).replace(/\./g, '').replace(',', '.')) || 0;
     }
 
-    // El servidor aplica el descuento de primer pago recién al confirmar. Si el total
-    // no lo replica, el operativo le pide al alumno un importe y se registra otro.
+    // El mes de alta llega ya descontado desde el servidor, así que el tope de cada
+    // período es el que se ve en pantalla. No hay que volver a aplicar el porcentaje
+    // acá: hacerlo descontaba también las señas y anunciaba menos de lo que se cobra.
     var periodoConDescuento = @json($periodoConDescuento);
-    var factorPrimerPago    = @json($reglaPrimerPago ? (float) $reglaPrimerPago->porcentaje / 100 : 1);
 
     function calcularTotal() {
         var total = 0;
@@ -265,13 +265,7 @@
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
                 var val = inp ? parseMonto(inp.value) : 0;
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
-                var monto = Math.min(Math.max(val, 0), saldo);
-
-                if (periodoConDescuento && periodo === periodoConDescuento) {
-                    monto = Math.round(monto * factorPrimerPago * 100) / 100;
-                }
-
-                total += monto;
+                total += Math.min(Math.max(val, 0), saldo);
             }
         });
         return total;
@@ -427,6 +421,11 @@
                 if (!inp) return;
                 var pagado = parseFloat(chk.dataset.pagado) || 0;
                 var sugerido = Math.max(nuevoPrecio - pagado, 0);
+                // El tope tiene que moverse junto con el precio. El servidor sube la
+                // deuda del mes al plan nuevo y cobra eso; si data-saldo se queda con
+                // el precio viejo, calcularTotal() topea ahi y la pantalla anuncia
+                // menos de lo que se registra.
+                chk.dataset.saldo = sugerido;
                 inp.value = sugerido.toLocaleString('es-AR', { maximumFractionDigits: 0 });
             });
 

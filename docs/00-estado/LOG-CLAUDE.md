@@ -17,6 +17,139 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-08: el descuento se comia la seña y cerraba el mes
+
+Rama `cob-descuento`, sobre `cob-saldo`. Lo encontro **Codex CyE** verificando COB-02.
+
+### El defecto
+
+Plan de $60.000, descuento del 70%, seña de $10.000: cobraba **$7.000 y dejaba la deuda
+entera PAGADA**. $35.000 sin cobrar, y el mes cerrado, asi que nadie lo vuelve a mirar.
+
+El porcentaje se aplicaba al importe tipeado en vez de al precio del mes.
+`aplicarPorcentajeAItems()` convertia los 10.000 en 7.000, y `ajustarDeudaConDescuento()`
+escribia ese 7.000 como monto original: pagado 7.000 sobre debido 7.000 da PAGADA.
+
+### Es un punto ciego de mi propia correccion de COB-03
+
+En COB-03 restringi `ajustarDeudaConDescuento()` al periodo correcto, pero le segui pasando
+el importe del item — que es lo tipeado por el factor. Con pago completo da bien, y por eso
+paso. **Achique el daño sin ver la causa.**
+
+### Carlos me marco el metodo, y tenia razon
+
+Su reclamo, textual: *"en todas te olvidas de algo"*. Cierto: COB-03 dejo vivo a COB-08, y
+COB-06 dejo vivo a COB-07. El patron de mi trabajo era corregir el caso reportado y dar por
+cerrada la vecindad sin mirarla.
+
+Asi que esta vez, **antes de tocar una linea**, escribi la matriz completa de casos que
+pasan por el descuento: `DescuentoPrimerPagoMatrizTest`, siete casos por la ruta web real.
+
+**Resultado: 4 de 7 rotos**, no uno.
+
+| Caso | Estaba |
+|---|---|
+| Pago completo, deuda existente | Bien |
+| Pago completo, sin deuda previa | Bien |
+| **Parcial, deuda existente** | **Roto** — el que reporto Codex |
+| **Parcial, sin deuda previa** | **Roto** |
+| **Segundo cobro del saldo restante** | **Roto** |
+| **Tramo del 40%** | **Roto** |
+| Sin descuento | Bien |
+
+Los tres extra no los habia reportado nadie. Escribir la matriz costo menos que las tres
+idas y vueltas que habrian hecho falta para encontrarlos de a uno.
+
+### La regla que queda fijada
+
+> El descuento baja **el precio del mes**, nunca el importe que se entrega.
+
+Alumno que entra el 20 con plan de 60.000: debe 42.000. Si entrega 10.000, quedan 32.000.
+
+### Correccion
+
+- `precioConDescuento()` calcula el precio del mes ya descontado. La base es la deuda si
+  existe, o el precio del plan si hay que crearla. Nunca el importe pagado.
+- `limitarAlSaldoConDescuento()` recorta el importe al saldo resultante, para que quien
+  paga la cuota entera no sea rechazado por enviar el precio de lista.
+- `aplicarPorcentajeAItems()` eliminado: era la fuente.
+- La pantalla muestra el mes de alta **ya descontado** y `calcularTotal()` deja de aplicar
+  el porcentaje.
+
+Ese ultimo punto importa mas de lo que parece: **pantalla y servidor dejan de calcular cada
+uno su version del mismo numero.** Ahora el servidor manda el tope y la pantalla lo muestra.
+COB-06 y COB-07 existieron porque los dos hacian la cuenta por separado.
+
+### Verificacion
+
+Suite completa **147 pruebas, 805 aserciones**. Las cinco pruebas viejas de la regla de
+primer pago siguen verdes, o sea que la semantica establecida no se movio.
+
+### Siguiente paso
+
+Verificacion en navegador de los cuatro casos que estaban rotos.
+
+Firma: **Claude CAB**.
+
+---
+
+## 2026-09-10 — Claude CAB — COB-07: al subir de plan la pantalla anunciaba de menos
+
+Rama `cob-saldo`, sobre `main`. Lo encontro **Codex CyE** verificando COB-02: subiendo de
+$40.000 a $60.000 el plan cambia bien, pero la pantalla decia $40.000 y se registraban
+$60.000. Freno y consulto en vez de corregir.
+
+### Causa
+
+`calcularTotal()` topea cada importe contra `chk.dataset.saldo`, que se renderiza con el
+saldo del momento en que se abrio la pantalla. El manejador del cambio de plan
+actualizaba el importe sugerido del campo pero **no ese tope**, asi que el total quedaba
+planchado en el precio viejo. El servidor esta bien: eleva la deuda del mes al precio
+nuevo y cobra eso.
+
+Correccion: `chk.dataset.saldo` se mueve junto con el importe. Una linea.
+
+### Lo que importa de este hallazgo no es la linea
+
+**Es el tercero de la misma familia en dos dias.** COB-01 fue el campo de monto que no
+llegaba limpio al servidor; COB-06, el descuento que la pantalla no anunciaba; este, el
+tope que no se movia. El patron es siempre el mismo:
+
+> La pantalla guarda una copia de un dato del servidor y no la actualiza cuando algo la
+> cambia. La plata siempre estuvo bien; lo que miente es lo que lee el operativo antes de
+> pedirla.
+
+Los tres se encontraron de a uno, probando otra cosa. Antes de dar el circuito de cobro
+por cerrado conviene ir a buscar las copias que quedan —`data-saldo`, `data-pagado`,
+`data-precio`— en vez de esperar que aparezcan solas. Anotado en COB-07 del plan.
+
+### Sobre la prueba, con honestidad
+
+La regresion verifica que la linea este, no que el total sea correcto: el total lo calcula
+el navegador y la suite corre sin JavaScript. **No hay forma de probar esta familia de
+defectos con PHPUnit.** Por eso los tres los encontro Codex mirando la pantalla, no la
+suite. Si el circuito de cobro va a seguir creciendo, en algun momento hay que decidir si
+se agrega una prueba de navegador o si se asume que esta parte se valida a mano siempre.
+
+### Verificacion
+
+Suite completa **140 pruebas, 753 aserciones**.
+
+### Limite conocido, no corregido
+
+En una bajada de plan con asistencia del mes, el servidor deja la deuda en el precio viejo
+y la pantalla sugiere el nuevo, mas bajo. Los dos numeros coinciden entre si, asi que no
+es el defecto de arriba: se cobra el mas bajo y el mes queda parcialmente impago. Queda
+anotado por si el recorrido humano lo levanta como confuso.
+
+### Siguiente paso
+
+Que Codex termine COB-02 y verifique este de paso, que es la misma pantalla.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — Carga del padron: el saldo inicial de todos, no solo de los deudores
 
 Rama `carga-inicial`, sobre `cob-total`. Diseño de Carlos.

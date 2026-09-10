@@ -298,6 +298,82 @@ Las cuatro pruebas de la regla que ya existian siguen verdes.
 **Pendiente:** que Codex repita la verificacion de COB-03 por navegador sobre la rama
 `cob-total`, y confirme que el numero anunciado coincide con el registrado.
 
+### COB-07 · Al subir de plan la pantalla anunciaba menos de lo que se cobraba — CORREGIDA 10/09
+
+**Origen:** lo encontro Codex CyE verificando COB-02 por navegador. Subiendo de $40.000 a
+$60.000 el plan cambia bien, pero la pantalla anunciaba $40.000 y se registraban $60.000.
+**Corregida por Claude CAB; Carlos autorizo el cambio de vista el 10/09.**
+
+**La plata estaba bien.** El servidor eleva la deuda del mes al precio nuevo y cobra eso
+(`CajaWebController::pagar()`, rama del cambio de plan). El que mentia era el anuncio.
+
+**Causa:** `calcularTotal()` topea cada importe contra `chk.dataset.saldo`, que se
+renderiza con el saldo al abrir la pantalla. El manejador del cambio de plan actualizaba
+el importe sugerido del campo pero **no ese tope**, asi que el total quedaba planchado en
+el precio viejo.
+
+**Tercero de la misma familia.** COB-01 fue el campo de monto contra el servidor; COB-06,
+el descuento; este, el saldo. El patron es siempre el mismo: **la pantalla guarda una
+copia del estado del servidor y no la actualiza cuando algo la cambia.** Antes de dar el
+circuito por cerrado conviene revisar si queda alguna otra copia con la misma forma —
+`data-saldo`, `data-pagado` y `data-precio` son las candidatas.
+
+**Correccion:** `chk.dataset.saldo` se mueve junto con el importe sugerido. Una linea.
+
+**Regresion:** `CambioPlanCobroTest::test_al_cambiar_de_plan_el_tope_del_total_se_mueve_con_el_precio`.
+Verifica la linea, no el comportamiento: el total lo calcula el navegador y la suite corre
+sin JavaScript. **La comparacion real entre lo anunciado y lo registrado solo se puede
+hacer en navegador**, y es lo que queda pendiente.
+
+**Limite conocido, no corregido:** en una bajada de plan con asistencia del mes, el
+servidor deja la deuda en el precio viejo y la pantalla sugiere el nuevo, mas bajo. Los
+dos numeros coinciden entre si —se cobra el mas bajo y el mes queda parcialmente
+impago—, asi que no es el defecto de arriba. Queda anotado por si el recorrido humano lo
+levanta como confuso.
+
+### COB-08 · El descuento se aplicaba a la seña y cerraba el mes — CORREGIDA 10/09
+
+**Origen:** lo encontro Codex CyE verificando COB-02. Plan de $60.000, descuento del 70%,
+seña de $10.000: cobraba **$7.000 y dejaba la deuda entera PAGADA**, sin saldo.
+**Corregida por Claude CAB; Carlos autorizo el cambio de vista el 10/09.**
+
+**Es el peor de la serie.** Los anteriores mentian en pantalla; este pierde plata de
+verdad y cierra el mes, asi que nadie lo vuelve a mirar. En el ejemplo quedaban $35.000
+sin cobrar.
+
+**Causa:** el porcentaje se aplicaba al importe tipeado en vez de al precio del mes.
+`aplicarPorcentajeAItems()` convertia la seña de 10.000 en 7.000, y
+`ajustarDeudaConDescuento()` escribia ese 7.000 como monto original del mes: pagado 7.000
+sobre debido 7.000 da PAGADA.
+
+**Punto ciego de la correccion de COB-03.** Ahi se restringio `ajustarDeudaConDescuento()`
+al periodo correcto pero se le siguio pasando el importe del item, que es lo tipeado por
+el factor. Con pago completo da bien y por eso paso. Se achico el daño sin ver la causa.
+
+**Metodo, a pedido de Carlos:** en vez de corregir el caso reportado se escribio primero
+la matriz completa de casos que pasan por el descuento —
+`DescuentoPrimerPagoMatrizTest`, siete casos por la ruta web real. **Cuatro estaban
+rotos, no uno:** parcial con deuda existente, parcial sin deuda previa, el segundo cobro
+del saldo restante, y el tramo del 40%. Solo funcionaban el pago completo y el caso sin
+descuento.
+
+**Regla que queda fijada:** el descuento baja **el precio del mes**, nunca el importe que
+se entrega. Un alumno que entra el 20 con plan de 60.000 debe 42.000; si entrega 10.000
+quedan 32.000 pendientes.
+
+**Correccion:**
+
+- `precioConDescuento()` calcula el precio del mes ya descontado, tomando como base la
+  deuda si existe o el precio del plan si hay que crearla. Nunca el importe pagado.
+- `limitarAlSaldoConDescuento()` recorta el importe al saldo resultante, para que quien
+  paga la cuota entera no sea rechazado por enviar el precio de lista.
+- `aplicarPorcentajeAItems()` se elimina: era la fuente del defecto.
+- La pantalla muestra el mes de alta **ya descontado** y `calcularTotal()` deja de aplicar
+  el porcentaje. Pantalla y servidor usan ahora el mismo tope, en vez de calcular cada uno
+  su version del mismo numero — que es lo que generaba COB-06 y COB-07.
+
+**Pendiente:** verificacion en navegador de los cuatro casos que estaban rotos.
+
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |
