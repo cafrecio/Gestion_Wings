@@ -17,10 +17,10 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 130 pruebas deben pasar
+php artisan test          # 139 pruebas deben pasar
 ```
 
-El corte verificado del 09/09 es 130 pruebas y 710 aserciones.
+El corte verificado del 10/09 es 139 pruebas y 751 aserciones.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 
@@ -55,6 +55,10 @@ puede quitar la proteccion de los rubros `Cuotas` y `Sueldos`.
 - [ ] Confirmar si habra otros usuarios reales y sus roles.
 - [ ] Cargar deportes, niveles, grupos, planes, tipos de caja y demas datos reales por
   las pantallas acordadas.
+- [ ] **Cuando Vanina termine de cargar los alumnos:** exportar el padron, hacerselo
+  completar con DEBE por alumno, e importarlo. Cierra el mes de corte y Wings arranca
+  a facturar el mes siguiente. Procedimiento en
+  `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
 - [ ] Reservar dos o tres horas para el recorrido humano completo, despues de cerrar
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.

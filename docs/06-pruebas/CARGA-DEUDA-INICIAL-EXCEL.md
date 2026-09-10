@@ -1,5 +1,20 @@
 # Carga inicial de deuda desde Excel
 
+> **Desde el 10/09/2026 hay un segundo procedimiento, y para el arranque del club se
+> usa ese: `CARGA-PADRON-SALDO-INICIAL.md`.**
+>
+> Son dos comandos distintos que conviven a propósito:
+>
+> | | Este (`wings:importar-deuda-inicial`) | El nuevo (`wings:importar-padron`) |
+> |---|---|---|
+> | Qué filas lleva | Solo los deudores | **Todos** los alumnos, con DEBE por fila |
+> | Columnas | DNI, deporte, pares monto + mmYYYY | DNI, Alumno, Deporte, DEBE, pares mmYYYY + monto |
+> | Mes de corte | No lo toca | Lo cierra con una deuda en cero pagada |
+>
+> El de acá sigue sirviendo para cargar deuda suelta sobre una base ya en marcha.
+> **Para el arranque no se usa**, porque acá el alumno que no figura se asume sin
+> deuda: un olvido y una persona al día se ven igual.
+
 Este procedimiento carga solamente las cuotas que el club informa como impagas.
 No crea alumnos, pagos, imputaciones ni movimientos de caja.
 

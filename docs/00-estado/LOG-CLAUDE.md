@@ -17,6 +17,266 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — Carga del padron: el saldo inicial de todos, no solo de los deudores
+
+Rama `carga-inicial`, sobre `cob-total`. Diseño de Carlos.
+
+### De donde salio
+
+De discutir el descuento de primer pago a un alumno de carga inicial. Carlos corto la
+discusion con un objetivo mas simple y mejor: **bloquear el mes**. Que Wings arranque a
+facturar el mes siguiente y que lo anterior quede cerrado.
+
+Y con una correccion de metodo que me hizo, con razon: un script de migracion que corre
+una sola vez **no esta atado a las validaciones del formulario**. Yo habia presentado las
+guardas de `min:0.01` como si fueran un impedimento. No lo son: el script escribe filas
+directo. Para eso existe.
+
+Lo que si se sostiene, y es otra cosa, es que **el script corre una vez pero la fila
+queda para siempre**. Un `Pago` de $0 diria "esta persona pago" y lo van a leer la
+cobranza, los recibos y los reportes de aca en adelante.
+
+### La forma que resulto
+
+Verificando `CajaWebController::cobrar()` aparecio que la pantalla pregunta si existe
+**cualquier** deuda del mes en curso, sin mirar el estado: si existe, no lo ofrece.
+
+Entonces una `DeudaCuota` del mes de corte con **monto 0 y estado PAGADA** bloquea el mes,
+sin inventar un pago. Dice "no debia nada", que es verdad, en vez de "pago", que no lo es.
+Mismo resultado que buscaba Carlos, sin dejar una afirmacion falsa en la base.
+
+### Lo que se hizo
+
+- `wings:exportar-padron` — saca el padron completo de alumnos activos: DNI, Alumno,
+  Deporte, DEBE vacio, y pares Periodo/Monto. El DNI va como texto porque hay documentos
+  con cero adelante y Excel se los come.
+- `wings:importar-padron` — lee el archivo completado. `SI` crea deudas `PENDIENTE` por
+  cada par; `NO` crea la deuda del corte en cero `PAGADA`. Todo o nada, con
+  `--solo-validar` para revisar sin escribir.
+- `CargaSaldoInicialPadronService` — nuevo, al lado del viejo. **No se toco
+  `CargaDeudaInicialExcelService`**: tiene otro orden de columnas, pruebas y
+  documentacion propias, y romperlo no aportaba nada.
+
+### ATENCION: ahora hay DOS importadores de carga inicial
+
+No se reemplazo uno por otro. Conviven, y hay que saber cual usar:
+
+| | `wings:importar-deuda-inicial` (viejo) | `wings:importar-padron` (nuevo) |
+|---|---|---|
+| Que filas lleva | Solo los deudores | **Todos** los alumnos, con DEBE por fila |
+| Columnas | DNI, deporte, pares monto + mmYYYY | DNI, Alumno, Deporte, DEBE, pares mmYYYY + monto |
+| Mes de corte | No lo toca | Lo cierra con una deuda en cero pagada |
+| Cuando se usa | Deuda suelta sobre una base en marcha | **El arranque del club** |
+
+El viejo **no sirve para el arranque**: el alumno que no figura se asume sin deuda, asi
+que un olvido y una persona al dia se ven igual. Queda avisado en la cabecera de
+`CARGA-DEUDA-INICIAL-EXCEL.md` y en `ESTADO-ACTUAL.md`, para que nadie siga el
+instructivo equivocado.
+
+### Por que cambia el resultado
+
+Antes, el alumno que no figuraba en el Excel se asumia sin deuda. Un olvido de Vanina y
+una persona al dia se veian igual. Ahora cada alumno tiene que decir SI o NO: **el
+silencio deja de ser una respuesta valida**.
+
+### Verificacion
+
+Suite completa **139 pruebas, 751 aserciones**. Entre ellas, una que confirma lo que
+importa: despues de importar, al deudor la pantalla le ofrece septiembre y al que dice NO
+no se lo ofrece.
+
+### Consecuencia asumida
+
+En los reportes, la facturacion del mes de corte de los que dicen NO figura en cero. Esa
+plata entro antes y fuera de Wings. Carlos lo decidio asi.
+
+### Siguiente paso
+
+Falta que Vanina termine de cargar alumnos para correrlo. Quedo anotado en
+`CHECKLIST-CARLOS.md` y el procedimiento en
+`docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
+
+Firma: **Claude CAB**.
+
+---
+
+## 2026-09-10 — Claude CAB — COB-06: la pantalla prometia un total y se cobraba otro
+
+Rama `cob-total`, sobre `cob-02`. Lo encontro **Codex CyE** verificando COB-03 por
+navegador: la pantalla decia $38.000 antes de confirmar y el pago quedaba en $29.600.
+Freno sin tocar nada y pregunto. Buen freno: era una diferencia real, aunque el defecto
+no fuera el que parecia.
+
+### La plata estaba bien; el que mentia era el cartel
+
+$29.600 es correcto: $19.600 de agosto con el 70% mas $10.000 de septiembre. El importe
+registrado nunca estuvo mal. Lo que estaba mal era el numero que lee el operativo para
+pedirle la plata al alumno.
+
+### Eran dos defectos encadenados
+
+1. `calcularTotal()` suma los importes de los campos y los muestra sin descuento, porque
+   el descuento lo calcula el servidor recien al confirmar.
+2. Peor: **la pantalla ni siquiera anunciaba el descuento**. Su guardia exigia que el mes
+   de alta fuera el mes en curso; `calcularReglaPrimerPago()` solo exige que el mes de
+   alta este entre los periodos cobrados. Alta en agosto cobrando en septiembre: el
+   servidor descuenta y la pantalla se calla.
+
+Lo mas incomodo: el comentario de `CajaWebController::cobrar()` advertia el riesgo con
+estas palabras —"si esta pantalla mostrara un descuento que el cobro no aplica, el
+operativo cobraria un importe distinto del que le dijo al alumno"—. Quien lo escribio vio
+el problema exacto. La guardia quedo solo en el anuncio, y ademas con otro criterio.
+
+### Como se decidio cual lado estaba mal, sin preguntar
+
+Parecia decision de negocio: ¿el descuento vale meses despues del alta? No hizo falta.
+`DescuentoPrimerPagoSoloDelMesDeAltaTest::test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada`
+usa exactamente ese caso —alta 20/08, cobrando en septiembre— y espera que agosto lleve
+el 70%. La regla ya estaba decidida y cubierta. El que no la respetaba era el anuncio.
+
+Vale como metodo: antes de subir una pregunta de negocio, buscar si ya esta contestada
+en una prueba o un contrato.
+
+### Correccion
+
+La pantalla pasa a usar el mismo criterio que el servicio y expone el periodo con
+descuento y el porcentaje para que el total los aplique. Los importes por periodo siguen
+mostrandose enteros a proposito: es lo que se envia, y el descuento lo aplica el
+servidor. Cambio de vista autorizado por Carlos.
+
+### Un hallazgo lateral, registrado y sin tocar
+
+`calcularReglaPrimerPago()` no exige que el mes de alta sea reciente, solo que este entre
+los periodos cobrados. Un alumno traido de la carga inicial, con deuda de su propio mes
+de alta, **recibe el descuento al pagar esa deuda**. La prueba existente solo cubre
+cobrarle otro mes, asi que el caso esta descubierto. Queda en contradicciones abiertas:
+es decision de Carlos, no la toque.
+
+### Verificacion
+
+Suite completa **133 pruebas, 726 aserciones**. Las cuatro pruebas viejas de la regla de
+primer pago siguen verdes.
+
+### Siguiente paso
+
+Codex repite la verificacion de COB-03 por navegador sobre `cob-total`, que ya tiene
+COB-03, COB-02 y esto.
+
+Firma: **Claude CAB**.
+
+---
+
+## 2026-09-10 — Claude CAB — COB-02: el cambio de plan no salia de la pantalla
+
+Rama `cob-02`, apoyada sobre `cob-03` para que el conteo de pruebas quede lineal y las
+dos se mergeen en orden. `cob-03` quedo liberada para que Codex la pueda checkoutear.
+
+### Que pasaba
+
+El selector de plan estaba dibujado **fuera** del formulario: el control en la linea 54,
+el `<form>` recien en la 83. Un form solo envia lo que tiene adentro, asi que
+`new FormData(cobrarForm)` nunca juntaba `nuevo_plan_id`.
+
+Lo que lo volvia invisible: el JavaScript de la vista **si** reacciona al clic. Pinta la
+opcion elegida y actualiza el monto sugerido al precio del plan nuevo. La operativa ve
+el importe correcto, cobra el importe correcto, y el recibo dice el importe correcto.
+
+El backend, ademas, estaba completo y bien hecho: distingue subida de bajada y difiere
+la bajada al mes siguiente si hubo asistencia. Nunca se ejecutaba por falta del dato.
+
+**El daño no era del dia del cobro, era del mes siguiente.** El alumno quedaba en el
+plan viejo, la corrida mensual generaba la deuda con el precio anterior, y seguia asi
+todos los meses. Nadie se entera porque el mes del cambio el numero fue el correcto.
+
+### La correccion
+
+Se movio la apertura del formulario arriba del selector. `<form>` no dibuja nada, asi
+que la pantalla queda identica: el diff no toca ni un div, ni una clase, ni un estilo,
+ni un texto. Se descartaron las otras dos opciones —campo oculto sincronizado por JS, o
+`formData.append()`— porque las dos vuelven a poner la plata a depender de que un script
+corra a tiempo, que es exactamente la causa de COB-01.
+
+Carlos autorizo el cambio de vista despues de que se le explicara el alcance concreto.
+Es la primera vez en esta serie que se toca `resources/views/**`.
+
+### Como se prueba algo que solo falla en el navegador
+
+Un test HTTP que postee `nuevo_plan_id` pasa igual, porque el backend siempre funciono:
+el defecto es que el navegador no manda el campo. Asi que la regresion se hace sobre el
+**HTML renderizado**: busca la posicion de `nuevo_plan_id`, la de la apertura del
+formulario y la del cierre, y exige que el campo caiga entre las dos. Roja antes, verde
+despues. Sirve para cualquier control que tenga que viajar.
+
+### Verificacion
+
+Suite completa **132 pruebas, 723 aserciones**. Las 8 pruebas viejas de cambio de plan
+siguen verdes, o sea que la logica de subida/bajada no se toco.
+
+### Siguiente paso
+
+Pendiente de verificar en navegador. Despues quedan COB-04 —que necesita decision de
+Carlos y conviene reproducir antes— y unificar `cob-03` y `cob-02` en `main`.
+
+Firma: **Claude CAB**.
+
+---
+
+## 2026-09-09 — Claude CAB — COB-03: la seña de otro mes borraba el saldo
+
+Hecho en un **worktree separado** (`../Gestion_Wings_cob03`, rama `cob-03`, base de test
+`wings_testing_cob03`) porque Codex estaba usando el arbol principal para verificar
+COB-01 con checkouts. Misma maquina, mismo repo, sin pisarnos. Si repetimos el esquema,
+conviene copiar `public/build` al worktree: sin el manifest de Vite fallan 25 pruebas
+por una razon que no tiene nada que ver con lo que se esta probando.
+
+### El defecto
+
+Alumno de alta el 20/08, con descuento del 70% por regla de segunda quincena. Paga
+agosto y aprovecha para dejar una seña de 10.000 de septiembre, que ya estaba cargado en
+28.000. Resultado: **septiembre quedaba con monto original 10.000 y estado PAGADA**. Los
+18.000 restantes desaparecian y el alumno figuraba al dia.
+
+Mismo patron que COB-01: no falla, no avisa, deja el numero mal.
+
+### Eran dos caminos, y el informe solo nombraba uno
+
+1. `ajustarDeudas()` recorria **todos** los items del cobro bajando `monto_original` al
+   monto enviado. Su propio comentario decia que existe para el periodo con descuento;
+   el bucle no lo respetaba. `aplicarPorcentajeAItems()`, justo arriba, si discrimina.
+2. `$montosOriginalesNuevasDeudas = array_column($items, 'monto', 'periodo')` incluia
+   todos los periodos, asi que si la deuda del otro mes **no existia todavia**, nacia con
+   el parcial como monto original desde `obtenerOcrearDeuda()`.
+
+El segundo lo encontre buscando si la correccion del primero alcanzaba. No alcanzaba: se
+habria arreglado el caso con deuda existente y quedado abierto el caso con deuda nueva,
+que es igual de alcanzable.
+
+### Correccion
+
+El override de monto original queda restringido al periodo con descuento en los dos
+caminos. `ajustarDeudas()` pasa a `ajustarDeudaConDescuento()`, que recibe un periodo y
+un monto en vez de la lista entera. El cambio de firma es a proposito: con la lista
+completa el defecto se puede reintroducir sin darse cuenta; con un periodo, no.
+
+### Verificacion
+
+Regresion `DescuentoNoAlteraOtroPeriodoTest`, roja antes y verde despues. Suite completa
+**131 pruebas, 719 aserciones** sobre MariaDB. `git diff` de vistas y CSS vacio.
+
+Dos escenarios descartados durante el armado, que valen para la proxima: el operativo no
+puede crear deuda de un periodo pasado — corta con excepcion y `back()` —, y el FIFO solo
+admite parcial en el ultimo periodo del cobro.
+
+### Siguiente paso
+
+COB-04, que necesita decision de Carlos. Reproducirlo primero para que decida sobre
+hechos: hoy los dos informes dicen cosas distintas sobre que pasa al cancelar y volver a
+cobrar la primera cuota.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-09 — Claude CAB — COB-01 corregido y la base del servidor ya es real
 
 ### Lo que cambia todo: el club esta cargando datos reales

@@ -158,6 +158,36 @@ class DescuentoPrimerPagoSoloDelMesDeAltaTest extends TestCase
         );
     }
 
+    /**
+     * La pantalla tiene que anunciar el mismo descuento que el servidor va a aplicar.
+     *
+     * Si no lo anuncia, el total que se ve es el de la cuota entera: el operativo le
+     * pide al alumno una cifra y el sistema registra otra. Con alta del 20/08 cobrando
+     * en septiembre el servidor descuenta agosto —lo fija
+     * test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada—,
+     * pero la pantalla exigia que el mes de alta fuera el mes en curso y se callaba.
+     */
+    public function test_la_pantalla_anuncia_el_descuento_del_mes_de_alta_aunque_se_cobre_despues(): void
+    {
+        $alumno = $this->alumnoConAlta('2026-08-20');
+
+        foreach (['2026-08', '2026-09'] as $periodo) {
+            DeudaCuota::create([
+                'alumno_id'      => $alumno->id,
+                'periodo'        => $periodo,
+                'monto_original' => self::PRECIO,
+                'monto_pagado'   => 0,
+                'estado'         => DeudaCuota::ESTADO_PENDIENTE,
+            ]);
+        }
+
+        $this->actingAs($this->admin)
+            ->get(route('web.caja.cobrar', $alumno->id))
+            ->assertOk()
+            ->assertSee('70%')
+            ->assertSee('var periodoConDescuento = "2026-08"', false);
+    }
+
     private function alumnoConAlta(string $fechaAlta): Alumno
     {
         $grupo = Grupo::findOrFail($this->plan->grupo_id);

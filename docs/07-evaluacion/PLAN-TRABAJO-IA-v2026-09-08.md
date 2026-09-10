@@ -162,36 +162,80 @@ Pasos originales, conservados como referencia de la prueba realizada:
 
 **Aceptacion:** pantalla, pago, deuda, caja y recibo coinciden en 30.000.
 
-### COB-02 · Cambio de plan elegido fuera del formulario
+### COB-02 · Cambio de plan elegido fuera del formulario — CORREGIDA 10/09
 
-**Estado:** verificado en codigo; falta reproduccion de pantalla. **Diseño:** toca
-`resources/views/caja/cobrar.blade.php`, requiere autorizacion.
+**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion en
+navegador. **Diseño:** Carlos autorizo el cambio el 10/09, despues de que se le
+explicara el alcance exacto.
 
-1. Reproducir que la seleccion no llega como `nuevo_plan_id`.
-2. Vincular el control al formulario sin alterar el diseño.
-3. Probar cambio de plan mas cobro como una sola transaccion.
+**Que pasaba:** el selector de plan estaba dibujado **fuera** del formulario. Un form
+solo envia los campos que tiene adentro, asi que `new FormData(cobrarForm)` no juntaba
+`nuevo_plan_id` y la eleccion nunca llegaba al servidor. El JavaScript de la vista si
+reaccionaba al clic: pintaba la opcion y actualizaba el monto sugerido. Por eso en
+pantalla parecia aplicado.
+
+El backend del cambio de plan ya estaba completo y correcto —distingue subida de bajada
+y difiere la bajada al mes siguiente si hubo asistencia— pero nunca se ejecutaba porque
+no recibia el dato.
+
+**Daño real:** se cobraba el importe del plan nuevo y el alumno quedaba en el plan
+viejo. El mes siguiente la corrida mensual generaba la deuda con el precio anterior, y
+todos los meses posteriores tambien, sin ninguna señal.
+
+**Correccion:** se movio la apertura del formulario para que arranque antes del selector
+de plan. La etiqueta `<form>` no renderiza nada, asi que **la pantalla no cambia**: el
+diff no toca un solo div, clase, estilo ni texto. No se agrego JavaScript ni campos
+ocultos, para no volver a depender de que un script llegue a tiempo — que fue la causa
+de COB-01.
+
+**Regresion:** `CambioPlanCobroTest::test_el_selector_de_plan_viaja_dentro_del_formulario_de_cobro`
+verifica sobre el HTML renderizado que `nuevo_plan_id` quede entre la apertura y el
+cierre del formulario. Las 8 pruebas de cambio de plan que ya existian siguen verdes.
 
 **Aceptacion:** el alumno termina en el plan elegido, el monto del periodo es correcto y
-un rechazo del cobro no deja el plan cambiado.
+un rechazo del cobro no deja el plan cambiado. Los dos ultimos ya estaban cubiertos por
+`CambioPlanCobroTest`; el primero es lo que faltaba y ahora esta.
 
-### COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA EN RAMA 10/09
+**Pendiente:** confirmar en navegador que la eleccion viaja y que la pantalla se ve
+igual que antes.
 
-**Verificacion Codex CyE:** `cob-total` en `5238825`, no mergeada. Casos septiembre
+### COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA 10/09
+
+**Verificacion Codex CyE:** sobre `cob-total` en `5238825`. Casos septiembre
 existente y virtual: original 28.000, pagado 10.000, saldo 18.000. Pantalla, pago,
 imputaciones, caja, resumen por medio y PDF coinciden en 29.600. Caso sin descuento
 38.000 correcto. Total visible/cartel corregidos (COB-06 de la rama de Claude).
 Suite de esa rama: 133 pruebas, 726 aserciones. Reporte del 10/09 en
-`docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`. Defecto reproducido en main;
-pendiente integracion autorizada, no repetir la correccion ni declararla desplegada.
+`docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`. Defecto reproducido en main.
+Integrada a `main` el 10/09. **No desplegada:** el servidor sigue en `81f27ef`.
 
 **Alcance original, ya reproducido para esta verificacion:**
 
-1. Caso: mes de alta con descuento y segundo periodo pagado parcialmente.
-2. Confirmar que `ajustarDeudas()` no reduzca el monto original del periodo sin descuento.
-3. Agregar regresion con saldo pendiente exacto.
+**Estado:** reproducida en base y corregida por Claude CAB. Pendiente de verificacion por
+otro agente o por Carlos en pantalla. **Diseño:** no se toco ninguna vista.
+
+**Reproduccion:** alumno de alta el 20/08 (regla de segunda quincena, 70%) que paga
+agosto con descuento y deja seña de 10.000 de septiembre, con septiembre ya cargado en
+28.000. Resultado antes de la correccion: septiembre quedaba con `monto_original` 10.000
+y estado `PAGADA`. Los 18.000 restantes desaparecian y el alumno figuraba al dia.
+
+**Eran dos caminos, no uno.** El informe solo nombraba el primero:
+
+1. `ajustarDeudas()` recorria **todos** los items del cobro y bajaba `monto_original` de
+   cada uno al monto enviado, aunque el descuento correspondiera a un solo periodo.
+   `aplicarPorcentajeAItems()`, justo arriba, si discrimina bien.
+2. `$montosOriginalesNuevasDeudas` salia de `array_column($items, ...)`, con todos los
+   periodos. Si la deuda del otro mes **todavia no existia**, nacia con el parcial como
+   monto original desde `obtenerOcrearDeuda()`. Mismo daño por otra puerta.
+
+**Correccion:** el override de monto original queda restringido al periodo con descuento
+en los dos caminos. `ajustarDeudas()` pasa a `ajustarDeudaConDescuento()`, que recibe un
+periodo y un monto en lugar de la lista entera: el nombre y la firma ahora impiden
+reintroducir el defecto. Regresion en `DescuentoNoAlteraOtroPeriodoTest`.
 
 **Aceptacion:** solo el mes de alta recibe descuento; el segundo periodo conserva su
-monto original y saldo restante.
+monto original y saldo restante. Verificado: agosto 19.600 `PAGADA`, septiembre 28.000
+con 10.000 pagados, saldo 18.000 y estado `PENDIENTE`.
 
 ### COB-04 · Cancelar y volver a cobrar la primera cuota
 
@@ -212,6 +256,45 @@ adoptar la afirmacion de que siempre cobra el mes entero sin demostrarla.
 - Verificar importes en deuda, pago, imputaciones, movimiento, recibo y estado de cobranza.
 
 **Aceptacion:** suite completa verde sobre MariaDB y recorrido humano corto sin diferencias.
+
+### COB-06 · La pantalla anunciaba un total distinto del que se cobraba — CORREGIDA 10/09
+
+**Origen:** lo encontro Codex CyE verificando COB-03 por navegador. La pantalla decia
+$38.000 antes de confirmar y el pago quedaba en $29.600. **Corregida por Claude CAB;
+Carlos autorizo el cambio de vista el 10/09.**
+
+**La plata estaba bien.** $29.600 es el importe correcto: $19.600 de agosto con el 70%
+mas $10.000 de septiembre. El que mentia era el numero de la pantalla.
+
+**Eran dos defectos encadenados, los dos en la vista:**
+
+1. `calcularTotal()` sumaba los importes de los campos sin aplicar el descuento, que el
+   servidor recien calcula al confirmar.
+2. Peor: la pantalla ni siquiera anunciaba el descuento. Su guardia exigia que el mes de
+   alta fuera **el mes en curso**, mientras que `PagoCuotaService::calcularReglaPrimerPago()`
+   solo exige que el mes de alta este entre los periodos que se cobran. Alta en agosto
+   cobrando en septiembre: el servidor descontaba y la pantalla no decia nada.
+
+El comentario de `CajaWebController::cobrar()` ya advertia el riesgo textualmente —"si
+esta pantalla mostrara un descuento que el cobro no aplica, el operativo cobraria un
+importe distinto del que le dijo al alumno"— pero la guardia quedo solo en el anuncio y
+con un criterio distinto del real.
+
+**Cual de los dos lados estaba mal:** el de la pantalla. La regla ya estaba decidida y
+cubierta por `test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada`,
+que usa exactamente ese caso y espera que agosto lleve el descuento. No hizo falta
+decision de negocio.
+
+**Correccion:** la pantalla pasa a usar el mismo criterio que el servicio —el mes de alta
+tiene que estar entre los periodos ofrecidos— y expone el periodo con descuento y el
+porcentaje para que `calcularTotal()` los aplique. Los importes por periodo siguen
+mostrandose enteros a proposito: es lo que se envia, y el servidor aplica el descuento.
+
+**Regresion:** `DescuentoPrimerPagoSoloDelMesDeAltaTest::test_la_pantalla_anuncia_el_descuento_del_mes_de_alta_aunque_se_cobre_despues`.
+Las cuatro pruebas de la regla que ya existian siguen verdes.
+
+**Pendiente:** que Codex repita la verificacion de COB-03 por navegador sobre la rama
+`cob-total`, y confirme que el numero anunciado coincide con el registrado.
 
 ## 4. Bloque 2 — integridad financiera e historia
 

@@ -610,25 +610,38 @@ class CajaWebController extends Controller
         // después de haber entrado.
         $periodoActual = now()->format('Y-m');
 
+        // El servicio no exige que el mes con descuento sea el mes en curso: exige que
+        // esté entre los períodos que se cobran. Esta pantalla usa el mismo criterio,
+        // o anuncia un total que no coincide con el importe que se registra.
+        $periodosOfrecidos   = $alumno->deudaCuotas->pluck('periodo')->all();
+        $periodoConDescuento = null;
+
         if (!$tienePagos && $alumno->fecha_alta) {
-            // Alumno nuevo: el descuento corre por el mes en que se dio de alta.
-            if ($alumno->fecha_alta->format('Y-m') === $periodoActual) {
+            // Alumno nuevo: el descuento corre por el mes en que se dio de alta, se
+            // cobre ese mes ahora o más adelante. Al alumno de carga inicial no le
+            // llega, porque su mes de alta no está entre los períodos que se ofrecen.
+            $periodoAlta = $alumno->fecha_alta->format('Y-m');
+            if (in_array($periodoAlta, $periodosOfrecidos, true)) {
                 $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
                 if ($reglas->count() === 1) {
-                    $reglaPrimerPago  = $reglas->first();
-                    $motivoPrimerPago = 'nuevo';
+                    $reglaPrimerPago     = $reglas->first();
+                    $motivoPrimerPago    = 'nuevo';
+                    $periodoConDescuento = $periodoAlta;
                 }
             }
         } elseif (!$alumno->activo && $tienePagos) {
             // Alumno inactivo que vuelve: usa día de hoy, que ya es del mes actual.
-            $reglas = ReglaPrimerPago::obtenerReglaPorDia(now()->day);
-            if ($reglas->count() === 1) {
-                $reglaPrimerPago  = $reglas->first();
-                $motivoPrimerPago = 'reingreso';
+            if (in_array($periodoActual, $periodosOfrecidos, true)) {
+                $reglas = ReglaPrimerPago::obtenerReglaPorDia(now()->day);
+                if ($reglas->count() === 1) {
+                    $reglaPrimerPago     = $reglas->first();
+                    $motivoPrimerPago    = 'reingreso';
+                    $periodoConDescuento = $periodoActual;
+                }
             }
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento'));
     }
 
     public function pagar(Request $request, int $alumnoId)

@@ -35,6 +35,12 @@
     </div>
 </div>
 
+{{-- El formulario abre acá, antes del selector de plan, a propósito: un form solo
+     envía los campos que tiene adentro y `nuevo_plan_id` quedaba afuera. La etiqueta
+     no dibuja nada, así que la pantalla se ve igual. --}}
+<form method="POST" action="{{ route('web.caja.pagar', $alumno->id) }}" id="cobrar-form">
+@csrf
+
 {{-- Selector de plan (solo si el grupo tiene más de uno) --}}
 @if($planesDisponibles->count() > 1)
 <div class="filtros-card mb-4">
@@ -79,9 +85,6 @@
     </p>
 </div>
 @endif
-
-<form method="POST" action="{{ route('web.caja.pagar', $alumno->id) }}" id="cobrar-form">
-    @csrf
 
     {{-- Cuotas pendientes --}}
     <div class="filtros-card mb-4">
@@ -249,6 +252,11 @@
         return parseFloat(String(str).replace(/\./g, '').replace(',', '.')) || 0;
     }
 
+    // El servidor aplica el descuento de primer pago recién al confirmar. Si el total
+    // no lo replica, el operativo le pide al alumno un importe y se registra otro.
+    var periodoConDescuento = @json($periodoConDescuento);
+    var factorPrimerPago    = @json($reglaPrimerPago ? (float) $reglaPrimerPago->porcentaje / 100 : 1);
+
     function calcularTotal() {
         var total = 0;
         checks.forEach(function (chk) {
@@ -257,7 +265,13 @@
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
                 var val = inp ? parseMonto(inp.value) : 0;
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
-                total += Math.min(Math.max(val, 0), saldo);
+                var monto = Math.min(Math.max(val, 0), saldo);
+
+                if (periodoConDescuento && periodo === periodoConDescuento) {
+                    monto = Math.round(monto * factorPrimerPago * 100) / 100;
+                }
+
+                total += monto;
             }
         });
         return total;
