@@ -14,6 +14,35 @@
 
 ---
 
+## 2026-09-10 — Codex CyE — COB-02 verificada; descuento separado por Carlos
+
+Completado rollback por Chrome en 5be4970: fallo de catalogo sintetico dentro
+del servicio revierte plan y deuda. Conserva plan 40.000, deuda pendiente
+40.000 sin pagos ni movimientos. Catalogo de prueba restaurado.
+Con subida, bajada diferida y capturas iguales ya comprobadas, COB-02 verificada.
+Carlos asigna a Claude la correccion del parcial con descuento; no se toca.
+Suite aislada 5be4970: 140 pruebas, 753 aserciones, verde; vistas compilan.
+Reporte COB-02-07 del 10/09 actualizado. Sin cambios de codigo ni datos reales.
+
+Firma: **Codex CyE**.
+
+---
+
+## 2026-09-10 — Codex CyE — COB-02/07: parcial con descuento obliga a frenar
+
+Chrome sobre 5be4970: subida anuncia y registra 60.000; bajada con asistencia
+20.000 parcial sobre deuda 40.000 y plan desde octubre, limite conocido correcto.
+Comparacion visual del form COB-02: capturas identicas y posiciones iguales.
+Nuevo hallazgo en caso sintetico: plan 60.000, regla 70%, parcial enviado 10.000;
+cobra 7.000 y reemplaza toda la deuda por 7.000 PAGADA, sin saldo.
+Freno 6b, sin correccion. Pendientes rollback, deuda previamente pagada y suite.
+Reporte: docs/06-pruebas/COB-02-07-VERIFICACION-2026-09-10.md.
+Solo bases descartables. Sin deploy ni publicacion acreditada.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-10 — Codex CyE — COB-03 y total verificados en cob-total
 
 Repeticion sobre `5238825` sin merge ni checkout del arbol compartido. Ambos casos

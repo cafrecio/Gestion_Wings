@@ -162,10 +162,10 @@ Pasos originales, conservados como referencia de la prueba realizada:
 
 **Aceptacion:** pantalla, pago, deuda, caja y recibo coinciden en 30.000.
 
-### COB-02 · Cambio de plan elegido fuera del formulario — CORREGIDA 10/09
+### COB-02 · Cambio de plan elegido fuera del formulario — VERIFICADA 10/09
 
-**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion en
-navegador. **Diseño:** Carlos autorizo el cambio el 10/09, despues de que se le
+**Estado:** reproducida y corregida por Claude CAB; verificada por Codex CyE en
+navegador sobre 5be4970. **Diseño:** Carlos autorizo el cambio el 10/09, despues de que se le
 explicara el alcance exacto.
 
 **Que pasaba:** el selector de plan estaba dibujado **fuera** del formulario. Un form
@@ -196,8 +196,10 @@ cierre del formulario. Las 8 pruebas de cambio de plan que ya existian siguen ve
 un rechazo del cobro no deja el plan cambiado. Los dos ultimos ya estaban cubiertos por
 `CambioPlanCobroTest`; el primero es lo que faltaba y ahora esta.
 
-**Pendiente:** confirmar en navegador que la eleccion viaja y que la pantalla se ve
-igual que antes.
+**Resultado:** eleccion enviada, subida y bajada diferida comprobadas; rechazo
+revierte plan/deuda sin pago ni movimiento. Capturas identicas antes/despues del
+movimiento del form. Reporte COB-02-07-VERIFICACION-2026-09-10.md en docs/06-pruebas.
+El defecto de parcial con descuento queda separado a cargo de Claude por Carlos.
 
 ### COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA 10/09
 
