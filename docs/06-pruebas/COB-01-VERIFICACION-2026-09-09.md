@@ -1,7 +1,8 @@
 # COB-01 — verificacion de navegador — 09/09/2026
 
-Responsable: **Codex CyE**. Estado: importes verificados; cierre pendiente de
-aclarar que significa «arqueo» en el pedido. No se cambio codigo funcional.
+Responsable: **Codex CyE**. Estado: **VERIFICADA**, aclaracion recibida el
+10/09/2026: «arqueo» referia al resumen por medio de pago ya probado.
+No se cambio codigo funcional ni se agrego un arqueo.
 
 ## Aislamiento y metodo
 
@@ -56,17 +57,18 @@ $1.528.000, egresos $0, dos movimientos. Los dos PDF fueron obtenidos desde los
 enlaces de recibo (HTTP 200), renderizados y revisados visualmente: alumno,
 Septiembre 2026, importe y medio de cobro correctos.
 
-## Freno requerido
+## Freno del 09/09 y aclaracion del 10/09
 
 El pedido agrega «arqueo». No aparecen campos de importe contado o diferencias
 ni rutas de arqueo en app, rutas, migraciones o vistas. `resumen()` suma
 movimientos por medio; `cerrarCajaOperativa()` cambia estado y fecha, sin recibir
 importe contado. No llamar arqueo a ese resumen sin decision del usuario.
 
-Opciones: confirmar que el pedido refiere al resumen ya verificado, o identificar
-otro circuito concreto para probar. No implementar un arqueo como parte de COB-01.
-La suite completa no se repitio en esta verificacion interrumpida; no se declara
-COB-01 cerrada ni desplegada en produccion.
+Carlos transmitio la aclaracion de Claude el 10/09: el resumen por medio de pago
+era lo solicitado. Se levanta el freno y COB-01 queda VERIFICADA con la evidencia
+anterior. No se requiere implementar otra funcionalidad ni repetir esos cobros.
+La suite completa no se repitio en esta verificacion. No se afirma despliegue en
+produccion ni sincronizacion GitHub: son estados separados de la verificacion.
 
 Evidencia local descartable conservada en `storage/app/cob01-20260909/`, ignorada
 por Git (scripts, capturas, PDF y copias aisladas). Este reporte conserva los

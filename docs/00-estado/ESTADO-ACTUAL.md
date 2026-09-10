@@ -67,7 +67,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | Circuito principal implementado. COB-01 reproducido y corregido el 09/09; quedan COB-02 a COB-04 |
+| Cobros | COB-01 verificada por navegador; alcance confirmado el 10/09 (resumen por medio, no arqueo nuevo). Quedan COB-02 a COB-04 |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
@@ -97,7 +97,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
 1. **FDS-04:** pantallas corregidas. FDS-03 pausada hasta redefinir su objetivo.
-2. **COB-01 a COB-05:** monto con miles, cambio de plan, parcial con descuento y
+2. **COB-02 a COB-05:** cambio de plan, parcial con descuento y
    cancelacion/reintento.
 3. **FIN:** recibos, historia, balance y concurrencia financiera.
 4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.
@@ -140,7 +140,6 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 | Alumno sin plan en la corrida mensual | `GenerarDeudasMensualesCommand:77-81` lo saltea: no genera deuda, no entra a revision, solo un `warn` que muere en el cron | Que caiga en la cola de revision con motivo propio |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
-| Arqueo en criterio COB-01 | Resumen suma movimientos; cierre no recibe importe contado ni diferencia | Carlos confirma si refiere a ese resumen o identifica otro circuito. Importes y PDF verificados en bases descartables; reporte COB-01 del 09/09 |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
 
 ## 10. Fuentes vigentes

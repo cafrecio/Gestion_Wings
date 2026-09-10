@@ -120,10 +120,11 @@ scripts temporales.
 Estas tareas se ejecutan en este orden. Cada reproduccion debe mirar pantalla, respuesta,
 filas concretas y saldos; un test unitario aislado no reemplaza el flujo web.
 
-### COB-01 · Monto con separador de miles — CORREGIDA 09/09
+### COB-01 · Monto con separador de miles — VERIFICADA 10/09
 
-**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion por otro
-agente o por Carlos en pantalla. **Diseño:** no se toco ninguna vista.
+**Estado:** corregida por Claude CAB en `caa4976` y verificada por Codex CyE en
+navegador; aclaracion de alcance confirmada por Carlos el 10/09.
+**Diseño:** no se toco ninguna vista.
 
 **Mecanismo confirmado:** el script de la vista va en `@push('scripts')` y se registra
 durante el parseo; `ds-app.js` entra por `@vite` como modulo y se registra despues. Al
@@ -147,8 +148,11 @@ separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` e
 de `caa4976^` y `caa4976`. Request conserva `28.000` y `1.500.000`; antes guarda 28
 o rechaza 422, despues importes correctos en cadena y PDF. Resumen $1.528.000.
 Reporte: `docs/06-pruebas/COB-01-VERIFICACION-2026-09-09.md`.
-**Pendiente:** aclarar «arqueo» del pedido (solo se encontro resumen por medio,
-sin importe contado/diferencia). Freno §6b; no declarar cierre ni despliegue.
+**Aclaracion 10/09:** «arqueo» significaba el resumen por medio de pago ya
+verificado. Freno levantado; no agregar funcionalidad. La verificacion no acredita
+despliegue en produccion ni sincronizacion GitHub.
+
+Pasos originales, conservados como referencia de la prueba realizada:
 
 1. Reproducir un cobro mostrado como `30.000` y comprobar el importe persistido.
 2. Escribir regresion que reproduzca el payload real del navegador.

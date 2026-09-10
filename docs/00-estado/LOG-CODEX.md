@@ -14,6 +14,20 @@
 
 ---
 
+## 2026-09-10 — Codex CyE — COB-01 verificada: alcance aclarado
+
+Carlos transmitio la aclaracion de Claude: «arqueo» queria decir resumen por medio
+de pago. Ese resumen ya fue probado el 09/09; se levanta el freno sin implementar
+funcionalidad adicional. COB-01 queda VERIFICADA, no se afirma despliegue.
+Actualizados reporte, estado y ambos planes. Se conserva la evidencia de `022ddcd`
+y la correccion `caa4976`. No se repitieron cobros ni suite por esta aclaracion
+documental. La publicacion habia sido bloqueada por el control automatico y sigue
+pendiente de autorizacion especifica; no afirmar que este avance esta en GitHub.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-09 — Codex CyE — COB-01 verificada por navegador; aclarar arqueo
 
 Comparados `caa4976^` y `caa4976` en copias y bases MariaDB descartables separadas.
