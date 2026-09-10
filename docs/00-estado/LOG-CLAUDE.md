@@ -17,6 +17,73 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — Carga del padron: el saldo inicial de todos, no solo de los deudores
+
+Rama `carga-inicial`, sobre `cob-total`. Diseño de Carlos.
+
+### De donde salio
+
+De discutir el descuento de primer pago a un alumno de carga inicial. Carlos corto la
+discusion con un objetivo mas simple y mejor: **bloquear el mes**. Que Wings arranque a
+facturar el mes siguiente y que lo anterior quede cerrado.
+
+Y con una correccion de metodo que me hizo, con razon: un script de migracion que corre
+una sola vez **no esta atado a las validaciones del formulario**. Yo habia presentado las
+guardas de `min:0.01` como si fueran un impedimento. No lo son: el script escribe filas
+directo. Para eso existe.
+
+Lo que si se sostiene, y es otra cosa, es que **el script corre una vez pero la fila
+queda para siempre**. Un `Pago` de $0 diria "esta persona pago" y lo van a leer la
+cobranza, los recibos y los reportes de aca en adelante.
+
+### La forma que resulto
+
+Verificando `CajaWebController::cobrar()` aparecio que la pantalla pregunta si existe
+**cualquier** deuda del mes en curso, sin mirar el estado: si existe, no lo ofrece.
+
+Entonces una `DeudaCuota` del mes de corte con **monto 0 y estado PAGADA** bloquea el mes,
+sin inventar un pago. Dice "no debia nada", que es verdad, en vez de "pago", que no lo es.
+Mismo resultado que buscaba Carlos, sin dejar una afirmacion falsa en la base.
+
+### Lo que se hizo
+
+- `wings:exportar-padron` — saca el padron completo de alumnos activos: DNI, Alumno,
+  Deporte, DEBE vacio, y pares Periodo/Monto. El DNI va como texto porque hay documentos
+  con cero adelante y Excel se los come.
+- `wings:importar-padron` — lee el archivo completado. `SI` crea deudas `PENDIENTE` por
+  cada par; `NO` crea la deuda del corte en cero `PAGADA`. Todo o nada, con
+  `--solo-validar` para revisar sin escribir.
+- `CargaSaldoInicialPadronService` — nuevo, al lado del viejo. **No se toco
+  `CargaDeudaInicialExcelService`**: tiene otro orden de columnas, pruebas y
+  documentacion propias, y romperlo no aportaba nada.
+
+### Por que cambia el resultado
+
+Antes, el alumno que no figuraba en el Excel se asumia sin deuda. Un olvido de Vanina y
+una persona al dia se veian igual. Ahora cada alumno tiene que decir SI o NO: **el
+silencio deja de ser una respuesta valida**.
+
+### Verificacion
+
+Suite completa **139 pruebas, 751 aserciones**. Entre ellas, una que confirma lo que
+importa: despues de importar, al deudor la pantalla le ofrece septiembre y al que dice NO
+no se lo ofrece.
+
+### Consecuencia asumida
+
+En los reportes, la facturacion del mes de corte de los que dicen NO figura en cero. Esa
+plata entro antes y fuera de Wings. Carlos lo decidio asi.
+
+### Siguiente paso
+
+Falta que Vanina termine de cargar alumnos para correrlo. Quedo anotado en
+`CHECKLIST-CARLOS.md` y el procedimiento en
+`docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — COB-06: la pantalla prometia un total y se cobraba otro
 
 Rama `cob-total`, sobre `cob-02`. Lo encontro **Codex CyE** verificando COB-03 por
