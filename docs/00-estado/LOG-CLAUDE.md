@@ -17,6 +17,66 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-04: un cobro cancelado le sacaba el descuento
+
+Rama `cob-anulado`, sobre `main`. **Decision de Carlos: un pago anulado NO cuenta como
+primer pago.** Un cobro cancelado es un cobro que no ocurrio.
+
+### Lo que pasaba
+
+Al cancelar, el pago queda en `ANULADO` y la fila se conserva. Las dos decisiones del
+descuento —la del servicio y la de la pantalla— preguntaban
+`Pago::where('alumno_id')->exists()` **sin mirar el estado**. Un cobro cancelado le sacaba
+el descuento de bienvenida para siempre.
+
+Reproducido: alumno de alta el 20/08 adelanta septiembre, se cancela ese cobro por error,
+despues le cobran agosto. Cobraba **60.000 en vez de 42.000**.
+
+### Los informes no se contradecian: miraban casos distintos
+
+Esto vale mas que la correccion. El plan decia "informes en desacuerdo" y quedo trabado
+meses por eso. La realidad:
+
+- Si el cobro cancelado era **del propio mes de alta**, la deuda ya estaba en 42.000 y
+  cancelar no restaura el monto original. El segundo cobro daba 42.000 — bien, pero por
+  accidente.
+- Si el cobro cancelado era **de otro mes**, se perdia el descuento.
+
+Cada informe habia mirado uno. Ninguno estaba equivocado.
+
+### El segundo defecto, que aparecio al corregir el primero
+
+Con el descuento habilitado despues de una cancelacion, `precioConDescuento()` tomaba como
+base el monto de la deuda — que podia venir ya descontado del intento anulado — y
+descontaba dos veces: 60.000 a 42.000 a **29.400**.
+
+Lo agarro la prueba de cancelacion sobre el propio mes de alta, que escribi **antes** de
+tocar codigo. Hoy pasaba, y la escribi igual porque el arreglo la iba a romper. Es la
+primera vez en esta serie que un defecto mio no llega a existir.
+
+La base pasa a ser el precio de lista del plan.
+
+### Barrido
+
+Se reviso donde mas se pregunta por pagos previos. `CobranzaEstadoService` (dos lugares) y
+`LiquidacionService` (dos) ya filtraban por estado. Queda anotado como hallazgo lateral
+`PagoService:103`, que verifica si existe un pago del mes sin filtrar estado: vive en el
+pago de plan mensual, no en el circuito de cuotas, y no se toco.
+
+### Verificacion
+
+Suite completa **149 pruebas, 829 aserciones**. `DescuentoPrimerPagoMatrizTest` llego a
+nueve casos.
+
+### Siguiente paso
+
+Verificacion en navegador junto con COB-08. Con esto el bloque 1 queda sin tareas
+abiertas salvo COB-05, el cierre conjunto.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — COB-08: el descuento se comia la seña y cerraba el mes
 
 Rama `cob-descuento`, sobre `cob-saldo`. Lo encontro **Codex CyE** verificando COB-02.

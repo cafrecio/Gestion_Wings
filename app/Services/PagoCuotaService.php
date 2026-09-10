@@ -592,7 +592,12 @@ class PagoCuotaService
     private function calcularReglaPrimerPago(int $alumnoId, array $items): array
     {
         $alumno     = Alumno::find($alumnoId);
-        $tienePagos = Pago::where('alumno_id', $alumnoId)->exists();
+        // Solo cuentan los pagos que de verdad ocurrieron. Un cobro cancelado deja el
+        // Pago con estado ANULADO, y sin este filtro le sacaba el descuento de
+        // bienvenida a un alumno al que nunca le entro plata.
+        $tienePagos = Pago::where('alumno_id', $alumnoId)
+            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->exists();
 
         if (!$alumno) {
             return [100.0, null, null];
@@ -655,16 +660,18 @@ class PagoCuotaService
      */
     private function precioConDescuento(int $alumnoId, string $periodo, float $porcentaje): float
     {
-        $deuda = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->first();
+        // La base es el precio de lista del mes, no el monto de la deuda: esa puede venir
+        // ya descontada de un cobro que se cancelo, y el descuento se aplicaria dos veces.
+        $alumnoPlan = $this->obtenerPlanParaPeriodo($alumnoId, $periodo);
 
-        if ($deuda) {
-            $base = (float) $deuda->monto_original;
+        if ($alumnoPlan?->plan) {
+            $base = (float) $alumnoPlan->plan->precio_mensual;
         } else {
-            $alumnoPlan = $this->obtenerPlanParaPeriodo($alumnoId, $periodo);
-            if (!$alumnoPlan?->plan) {
+            $deuda = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->first();
+            if (!$deuda) {
                 throw new \Exception("Alumno sin plan aplicable para el período {$periodo}.");
             }
-            $base = (float) $alumnoPlan->plan->precio_mensual;
+            $base = (float) $deuda->monto_original;
         }
 
         return round($base * ($porcentaje / 100), 2);
