@@ -427,6 +427,11 @@
                 if (!inp) return;
                 var pagado = parseFloat(chk.dataset.pagado) || 0;
                 var sugerido = Math.max(nuevoPrecio - pagado, 0);
+                // El tope tiene que moverse junto con el precio. El servidor sube la
+                // deuda del mes al plan nuevo y cobra eso; si data-saldo se queda con
+                // el precio viejo, calcularTotal() topea ahi y la pantalla anuncia
+                // menos de lo que se registra.
+                chk.dataset.saldo = sugerido;
                 inp.value = sugerido.toLocaleString('es-AR', { maximumFractionDigits: 0 });
             });
 

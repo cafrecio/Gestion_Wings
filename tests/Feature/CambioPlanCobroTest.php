@@ -132,6 +132,30 @@ class CambioPlanCobroTest extends TestCase
         );
     }
 
+    /**
+     * Al subir de plan, el servidor eleva la deuda del mes al precio nuevo y cobra eso.
+     * `calcularTotal()` topea cada importe contra `data-saldo`, que se renderiza con el
+     * precio viejo: si no se mueve junto con el importe, la pantalla anuncia $40.000 y
+     * se registran $60.000.
+     *
+     * Esto verifica la linea, no el comportamiento: el total lo calcula el navegador y
+     * la suite corre sin JavaScript. La comparacion real entre lo anunciado y lo
+     * registrado se hace en navegador.
+     */
+    public function test_al_cambiar_de_plan_el_tope_del_total_se_mueve_con_el_precio(): void
+    {
+        $html = $this->actingAs($this->operativo)
+            ->get(route('web.caja.cobrar', $this->alumno->id))
+            ->assertOk()
+            ->getContent();
+
+        $this->assertStringContainsString(
+            'chk.dataset.saldo = sugerido;',
+            $html,
+            'El cambio de plan tiene que mover data-saldo junto con el importe sugerido.'
+        );
+    }
+
     public function test_baja_con_asistencia_aplica_desde_el_mes_siguiente(): void
     {
         $this->registrarAsistenciaEsteMes();

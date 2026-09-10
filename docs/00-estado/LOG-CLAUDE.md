@@ -17,6 +17,63 @@
 
 ---
 
+## 2026-09-10 — Claude CAB — COB-07: al subir de plan la pantalla anunciaba de menos
+
+Rama `cob-saldo`, sobre `main`. Lo encontro **Codex CyE** verificando COB-02: subiendo de
+$40.000 a $60.000 el plan cambia bien, pero la pantalla decia $40.000 y se registraban
+$60.000. Freno y consulto en vez de corregir.
+
+### Causa
+
+`calcularTotal()` topea cada importe contra `chk.dataset.saldo`, que se renderiza con el
+saldo del momento en que se abrio la pantalla. El manejador del cambio de plan
+actualizaba el importe sugerido del campo pero **no ese tope**, asi que el total quedaba
+planchado en el precio viejo. El servidor esta bien: eleva la deuda del mes al precio
+nuevo y cobra eso.
+
+Correccion: `chk.dataset.saldo` se mueve junto con el importe. Una linea.
+
+### Lo que importa de este hallazgo no es la linea
+
+**Es el tercero de la misma familia en dos dias.** COB-01 fue el campo de monto que no
+llegaba limpio al servidor; COB-06, el descuento que la pantalla no anunciaba; este, el
+tope que no se movia. El patron es siempre el mismo:
+
+> La pantalla guarda una copia de un dato del servidor y no la actualiza cuando algo la
+> cambia. La plata siempre estuvo bien; lo que miente es lo que lee el operativo antes de
+> pedirla.
+
+Los tres se encontraron de a uno, probando otra cosa. Antes de dar el circuito de cobro
+por cerrado conviene ir a buscar las copias que quedan —`data-saldo`, `data-pagado`,
+`data-precio`— en vez de esperar que aparezcan solas. Anotado en COB-07 del plan.
+
+### Sobre la prueba, con honestidad
+
+La regresion verifica que la linea este, no que el total sea correcto: el total lo calcula
+el navegador y la suite corre sin JavaScript. **No hay forma de probar esta familia de
+defectos con PHPUnit.** Por eso los tres los encontro Codex mirando la pantalla, no la
+suite. Si el circuito de cobro va a seguir creciendo, en algun momento hay que decidir si
+se agrega una prueba de navegador o si se asume que esta parte se valida a mano siempre.
+
+### Verificacion
+
+Suite completa **140 pruebas, 753 aserciones**.
+
+### Limite conocido, no corregido
+
+En una bajada de plan con asistencia del mes, el servidor deja la deuda en el precio viejo
+y la pantalla sugiere el nuevo, mas bajo. Los dos numeros coinciden entre si, asi que no
+es el defecto de arriba: se cobra el mas bajo y el mes queda parcialmente impago. Queda
+anotado por si el recorrido humano lo levanta como confuso.
+
+### Siguiente paso
+
+Que Codex termine COB-02 y verifique este de paso, que es la misma pantalla.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — Carga del padron: el saldo inicial de todos, no solo de los deudores
 
 Rama `carga-inicial`, sobre `cob-total`. Diseño de Carlos.

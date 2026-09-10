@@ -296,6 +296,39 @@ Las cuatro pruebas de la regla que ya existian siguen verdes.
 **Pendiente:** que Codex repita la verificacion de COB-03 por navegador sobre la rama
 `cob-total`, y confirme que el numero anunciado coincide con el registrado.
 
+### COB-07 · Al subir de plan la pantalla anunciaba menos de lo que se cobraba — CORREGIDA 10/09
+
+**Origen:** lo encontro Codex CyE verificando COB-02 por navegador. Subiendo de $40.000 a
+$60.000 el plan cambia bien, pero la pantalla anunciaba $40.000 y se registraban $60.000.
+**Corregida por Claude CAB; Carlos autorizo el cambio de vista el 10/09.**
+
+**La plata estaba bien.** El servidor eleva la deuda del mes al precio nuevo y cobra eso
+(`CajaWebController::pagar()`, rama del cambio de plan). El que mentia era el anuncio.
+
+**Causa:** `calcularTotal()` topea cada importe contra `chk.dataset.saldo`, que se
+renderiza con el saldo al abrir la pantalla. El manejador del cambio de plan actualizaba
+el importe sugerido del campo pero **no ese tope**, asi que el total quedaba planchado en
+el precio viejo.
+
+**Tercero de la misma familia.** COB-01 fue el campo de monto contra el servidor; COB-06,
+el descuento; este, el saldo. El patron es siempre el mismo: **la pantalla guarda una
+copia del estado del servidor y no la actualiza cuando algo la cambia.** Antes de dar el
+circuito por cerrado conviene revisar si queda alguna otra copia con la misma forma —
+`data-saldo`, `data-pagado` y `data-precio` son las candidatas.
+
+**Correccion:** `chk.dataset.saldo` se mueve junto con el importe sugerido. Una linea.
+
+**Regresion:** `CambioPlanCobroTest::test_al_cambiar_de_plan_el_tope_del_total_se_mueve_con_el_precio`.
+Verifica la linea, no el comportamiento: el total lo calcula el navegador y la suite corre
+sin JavaScript. **La comparacion real entre lo anunciado y lo registrado solo se puede
+hacer en navegador**, y es lo que queda pendiente.
+
+**Limite conocido, no corregido:** en una bajada de plan con asistencia del mes, el
+servidor deja la deuda en el precio viejo y la pantalla sugiere el nuevo, mas bajo. Los
+dos numeros coinciden entre si —se cobra el mas bajo y el mes queda parcialmente
+impago—, asi que no es el defecto de arriba. Queda anotado por si el recorrido humano lo
+levanta como confuso.
+
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |
