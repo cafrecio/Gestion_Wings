@@ -14,6 +14,41 @@
 
 ---
 
+## 2026-09-10 — Codex CyE — COB-03 y total verificados en cob-total
+
+Repeticion sobre `5238825` sin merge ni checkout del arbol compartido. Ambos casos
+con descuento (septiembre existente/virtual) muestran cartel 70% y total 29.600;
+septiembre conserva original 28.000, pagado 10.000, pendiente 18.000. Caso sin
+descuento: total 38.000, correcto. Campos enteros deliberados, sin doble descuento.
+Pago, imputaciones, movimiento, resumen por medio y tres PDF coinciden. Resumen
+acumulado 97.200. En main `3a8b856`, los dos casos reproducen la perdida de 18.000.
+Suite cob-total aislada: 133 pruebas, 726 aserciones, verde; sintaxis y vistas OK.
+Solo bases sinteticas nuevas; no se tocaron datos reales ni se desplego. COB-02
+no se declara verificado: no se cambio de plan durante este recorrido.
+Reporte: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
+Se actualizan estado y planes de main indicando expresamente que la correccion
+esta en otra rama. Siguiente: integrar solo con autorizacion. Publicacion pendiente.
+
+Firma: **Codex CyE**.
+
+---
+
+## 2026-09-10 — Codex CyE — COB-03: freno por total visible distinto
+
+Leidos plan y bitacora de cob-03, fijada en `02a5b5b`; main en `3a8b856`.
+Copias aisladas y dos bases descartables nuevas. Caso 1 por Chrome en septiembre:
+la pantalla anuncia $38.000 y luego registra $29.600. Agosto queda 19.600 PAGADA;
+septiembre 28.000, pagado 10.000, PENDIENTE. Pago, imputaciones y movimiento correctos.
+Freno §6b por la diferencia visible, sin modificar vistas ni logica ni mergear.
+Caso 2, comparacion del cobro en main, resumen/PDF y suite pendientes.
+Detalle: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
+Esperar decision: separar defecto visual o autorizar su correccion. Datos reales
+intactos; servidor local detenido. Esta entrada no acredita subida a GitHub.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-10 — Codex CyE — COB-01 verificada: alcance aclarado
 
 Carlos transmitio la aclaracion de Claude: «arqueo» queria decir resumen por medio

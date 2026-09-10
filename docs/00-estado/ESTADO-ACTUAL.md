@@ -134,6 +134,13 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 9. Contradicciones abiertas
 
+COB-03 y total (COB-06), verificados el 10/09 en `cob-total` (`5238825`), no mergeada:
+ambos casos, septiembre existente/virtual, muestran y registran $29.600 con cartel
+70%; septiembre conserva $18.000 pendientes. Sin descuento, $38.000 correctos.
+Cadena financiera y PDF verificados; suite de esa rama: 133 pruebas, 726 aserciones.
+El defecto sigue en main hasta integrar; no confundir verificacion con despliegue.
+Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
+
 | Tema | Estado real | Proxima accion |
 |---|---|---|
 | `dia_generacion_deuda` editable | Confirmado 09/09: existe como fila de configuracion y **ningun codigo la lee**. El scheduler usa dia 1 fijo en `routes/console.php:12` | Definir si gobierna la tarea o se retira de pantalla |

@@ -174,9 +174,17 @@ Pasos originales, conservados como referencia de la prueba realizada:
 **Aceptacion:** el alumno termina en el plan elegido, el monto del periodo es correcto y
 un rechazo del cobro no deja el plan cambiado.
 
-### COB-03 · Parcial de otro periodo durante primer pago con descuento
+### COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA EN RAMA 10/09
 
-**Estado:** ambos informes verificaron el camino en codigo; falta reproducirlo en base.
+**Verificacion Codex CyE:** `cob-total` en `5238825`, no mergeada. Casos septiembre
+existente y virtual: original 28.000, pagado 10.000, saldo 18.000. Pantalla, pago,
+imputaciones, caja, resumen por medio y PDF coinciden en 29.600. Caso sin descuento
+38.000 correcto. Total visible/cartel corregidos (COB-06 de la rama de Claude).
+Suite de esa rama: 133 pruebas, 726 aserciones. Reporte del 10/09 en
+`docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`. Defecto reproducido en main;
+pendiente integracion autorizada, no repetir la correccion ni declararla desplegada.
+
+**Alcance original, ya reproducido para esta verificacion:**
 
 1. Caso: mes de alta con descuento y segundo periodo pagado parcialmente.
 2. Confirmar que `ajustarDeudas()` no reduzca el monto original del periodo sin descuento.
