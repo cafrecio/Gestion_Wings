@@ -649,10 +649,18 @@ class CajaWebController extends Controller
         // el cobro va a registrar. Es en memoria: la deuda recien baja al confirmar.
         // Asi la pantalla y el servidor toman el mismo tope y no hay dos numeros.
         if ($periodoConDescuento !== null && $reglaPrimerPago) {
-            $factor = (float) $reglaPrimerPago->porcentaje / 100;
+            // El importe lo calcula el servicio, no esta pantalla. Multiplicar acá el
+            // monto de la deuda daba otro numero cuando la deuda ya venia descontada de
+            // un cobro anulado: mostraba 29.400 y el cobro registraba 42.000.
+            $precioConDescuento = $this->pagoCuotaService->precioConDescuento(
+                $alumno->id,
+                $periodoConDescuento,
+                (float) $reglaPrimerPago->porcentaje
+            );
+
             foreach ($alumno->deudaCuotas as $deuda) {
                 if ($deuda->periodo === $periodoConDescuento) {
-                    $deuda->monto_original = round((float) $deuda->monto_original * $factor, 2);
+                    $deuda->monto_original = $precioConDescuento;
                 }
             }
         }
