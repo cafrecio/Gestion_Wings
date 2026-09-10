@@ -9,7 +9,8 @@
 
 Verificacion COB-02 del 10/09 sobre 5be4970: subida, bajada diferida, rollback y
 disposicion visual comprobados. COB-02 VERIFICADA. Carlos separo el primer pago
-parcial con descuento que deja toda la deuda PAGADA: lo corrige Claude.
+parcial con descuento: corregido por Claude y COB-08 verificada por Codex en
+d61cf42 con los cuatro casos pedidos (147 pruebas, 805 aserciones).
 COB-07 solo tiene comprobado su caso basico. Evidencia en
 docs/06-pruebas/COB-02-07-VERIFICACION-2026-09-10.md.
 
@@ -73,7 +74,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | COB-01 y COB-02 verificadas por navegador. COB-03 verificada en su alcance; parcial del propio mes con descuento separado a cargo de Claude. COB-04 pendiente |
+| Cobros | COB-01, COB-02, COB-03 y COB-08 verificadas en sus alcances por navegador. COB-04 pendiente |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
@@ -104,7 +105,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
 1. **FDS-04:** pantallas corregidas. FDS-03 pausada hasta redefinir su objetivo.
-2. **COB-04 a COB-05 y parcial con descuento:** COB-02 verificada; quedan cancelacion y
+2. **COB-04 a COB-05:** COB-02 y COB-08 verificadas; quedan cancelacion y
    cancelacion/reintento.
 3. **FIN:** recibos, historia, balance y concurrencia financiera.
 4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.

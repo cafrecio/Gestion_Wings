@@ -331,7 +331,7 @@ dos numeros coinciden entre si —se cobra el mas bajo y el mes queda parcialmen
 impago—, asi que no es el defecto de arriba. Queda anotado por si el recorrido humano lo
 levanta como confuso.
 
-### COB-08 · El descuento se aplicaba a la seña y cerraba el mes — CORREGIDA 10/09
+### COB-08 · El descuento se aplicaba a la seña y cerraba el mes — VERIFICADA 10/09
 
 **Origen:** lo encontro Codex CyE verificando COB-02. Plan de $60.000, descuento del 70%,
 seña de $10.000: cobraba **$7.000 y dejaba la deuda entera PAGADA**, sin saldo.
@@ -372,7 +372,11 @@ quedan 32.000 pendientes.
   el porcentaje. Pantalla y servidor usan ahora el mismo tope, en vez de calcular cada uno
   su version del mismo numero — que es lo que generaba COB-06 y COB-07.
 
-**Pendiente:** verificacion en navegador de los cuatro casos que estaban rotos.
+**Verificacion Codex CyE:** cuatro casos por Chrome sobre d61cf42 correctos:
+deuda existente y virtual conservan saldo 32.000 tras seña 10.000; segundo cobro
+32.000 cancela; tramo 40% conserva 14.000. Campo descontado y carteles comprobados.
+Suite 147 pruebas, 805 aserciones, verde. Reporte en
+docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
 
 ## 4. Bloque 2 — integridad financiera e historia
 

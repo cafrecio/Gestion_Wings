@@ -14,6 +14,21 @@
 
 ---
 
+## 2026-09-10 — Codex CyE — COB-08 verificada por Chrome
+
+Sobre d61cf42, cuatro cobros en base nueva: parcial con deuda y virtual quedan
+42.000/10.000/PENDIENTE; segundo cobro 32.000 cancela; tramo 40% queda
+24.000/10.000/PENDIENTE. Totales anunciados coinciden con pagos registrados.
+Campo inicial descontado 42.000 o 24.000; carteles visibles al primer pago.
+Segundo cobro sin nuevo descuento. Reloj sintetico 25/08 solo en copia aislada.
+Suite aparte: 147 pruebas, 805 aserciones, verde; vistas compilan.
+Reporte COB-08-VERIFICACION-2026-09-10.md. Sin datos reales ni deploy.
+No se declara barrido adicional de cambio de plan; solo los cuatro casos pedidos.
+
+Firma: **Codex CyE**.
+
+---
+
 ## 2026-09-10 — Codex CyE — COB-02 verificada; descuento separado por Carlos
 
 Completado rollback por Chrome en 5be4970: fallo de catalogo sintetico dentro
