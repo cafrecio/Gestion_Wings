@@ -425,8 +425,8 @@ docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
 
 | ID | Tarea | Prioridad | Condicion de cierre |
 |---|---|---:|---|
-| **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` | Alta | Dos corridas conservan `es_reservado_sistema=true` |
-| **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
+| **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` — **NO APLICA 11/09** | — | Ver resultado abajo |
+| **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **CORREGIDA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
 | **FIN-03** | Preservar o reconstruir imputaciones visibles al anular | Alta | PDF anulado conserva periodos, importe, motivo y marca ANULADO |
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
@@ -436,6 +436,52 @@ docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar | Alta | Pruebas con dos conexiones; `MoneyLockingTest` queda descrito como estructural |
+
+### FIN-01 · Resultado — NO APLICA 11/09
+
+**Decision de Carlos, 11/09:** ese proceso no se va a correr contra el servidor.
+
+**Verificado que no hay camino automatico que lo corra ahi:**
+
+- `scripts/deploy.sh`, el despliegue real del servidor, **no ejecuta seeders**: hace
+  mantenimiento, `git pull --ff-only`, Composer, build, migraciones, caches, permisos y
+  preflight, con rollback.
+- El unico proceso que corria la carga de catalogos solo era `deploy-wings.bat`, un script
+  de Windows para XAMPP de febrero, anterior a toda la proteccion de rubros. **No puede
+  ejecutarse en el servidor, que es Linux.** Ademas ocultaba el fallo con "puede ser normal
+  si ya habia datos". Se elimino a pedido de Carlos: era la trampa exacta que describe
+  FIN-01, esperando que alguien lo corriera sobre una base local.
+
+**Lo que queda:** `CatalogosSeeder` sigue existiendo porque es la forma documentada de
+armar una base nueva (`migrate --seed`). Correrlo a mano sobre una base con datos sigue
+siendo un error; `CHECKLIST-CARLOS.md` lo advierte.
+
+### FIN-02 · Resultado — CORREGIDA 11/09
+
+**Ejecuta:** Claude CAB. Pendiente de verificacion en navegador. **Diseño:** no se toco
+ninguna vista.
+
+**Lo que se afirmaba, revalidado contra el codigo antes de tocarlo:**
+`ReciboService::obtenerTipoCajaPago()` buscaba el movimiento de caja por texto de
+observaciones, importe y fecha, y tomaba el primero. El importe y los periodos del recibo
+nunca estuvieron en riesgo —salen del pago directamente—; **lo que podia mentir era el
+medio de pago**.
+
+**Caso real, ligado al flujo de COB-04:** se cobra en efectivo, se nota que era
+transferencia, se cancela y se vuelve a cobrar el mismo dia por el mismo importe. El
+recibo del cobro vigente tomaba el primer movimiento que coincidia —el cancelado— y decia
+**Efectivo**. Como Wings no tiene arqueo, esa diferencia en la caja no la ve nadie.
+
+**Correccion:** el movimiento se busca por `pago_id`, que se escribe siempre al crearlo.
+
+**Barrido:** es el unico lugar del sistema que buscaba movimientos por texto. No hay otro
+con el mismo patron.
+
+**Regresion:** `ReciboMedioDePagoTest`, tres casos: un cobro simple, dos cobros iguales el
+mismo dia con medios distintos, y cancelar y volver a cobrar por otro medio. Los dos
+ultimos fallaban antes de la correccion.
+
+**Destraba:** ENT-05, el acceso directo al recibo despues de cobrar, dependia de esto.
 
 ## 5. Bloque 3 — seguridad, despliegue y recuperacion
 

@@ -268,15 +268,13 @@ class ReciboService
      */
     private function obtenerTipoCajaPago(Pago $pago): array
     {
-        // Buscar en MovimientoOperativo
-        $movOperativo = \App\Models\MovimientoOperativo::whereHas('cajaOperativa', function ($q) use ($pago) {
-            // Buscar por observaciones que contengan el ID del pago
-            // o por fecha y monto similar
-        })->where('observaciones', 'LIKE', "%Pago cuota alumno #{$pago->alumno_id}%")
-          ->where('monto', $pago->monto_final)
-          ->whereDate('fecha', $pago->fecha_pago)
-          ->with('tipoCaja')
-          ->first();
+        // El movimiento guarda el pago que lo origino. Antes se buscaba por texto,
+        // importe y fecha y se tomaba el primero que coincidiera: con dos cobros iguales
+        // del mismo alumno el mismo dia, o un cobro cancelado y vuelto a cobrar por otro
+        // medio, el recibo mostraba el medio del movimiento equivocado.
+        $movOperativo = \App\Models\MovimientoOperativo::where('pago_id', $pago->id)
+            ->with('tipoCaja')
+            ->first();
 
         if ($movOperativo && $movOperativo->tipoCaja) {
             return [

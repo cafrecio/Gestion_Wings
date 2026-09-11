@@ -1,6 +1,6 @@
 # Wings — Estado actual
 
-> **Actualizado:** 09/09/2026
+> **Actualizado:** 11/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
 > version 2026-09-08.v4.
 > Si otro documento contradice este estado, no improvisar: verificar y corregir.
@@ -11,29 +11,26 @@ FDS-04 verificada el 11/09/2026: Cobranza por rol, dos cobros simples en navegad
 y bloqueo manual completo de rubros reservados y sus hijos. Carlos revoco la
 excepcion de editar observaciones. Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`.
 
-COB-04, revision 10/09 de 1debbf2: freno previo a navegador. El servicio evita
-doble descuento, pero CajaWebController::cobrar aun multiplica la deuda ya
-descontada: 42.000 por 70% produce campo 29.400. Pendiente resolver esta
-contradiccion con el criterio de pantalla 42.000 en ese commit.
-Continuacion: 74af2a0 de cob-pantalla verificado por Chrome en copia aislada:
-ambos recorridos de cancelacion y recobro dan 42.000, campo y cartel correctos.
-Suite de esa rama: 150 pruebas, 835 aserciones. Pendiente integrar la rama;
-compilacion explicita de vistas bloqueada por el control automatico.
+**Bloque 1 de cobros cerrado al 11/09 salvo COB-05.** COB-01 a COB-04 y COB-06 a COB-08
+verificadas por navegador e integradas en `main`. COB-04 incluyo una correccion
+posterior verificada en copia aislada: pantalla y cobro usan ahora un solo calculo del
+importe con descuento. COB-07 solo tiene comprobado su caso basico; COB-05 lo cruza con
+descuento. Evidencia en `docs/06-pruebas/`.
 
-Verificacion COB-02 del 10/09 sobre 5be4970: subida, bajada diferida, rollback y
-disposicion visual comprobados. COB-02 VERIFICADA. Carlos separo el primer pago
-parcial con descuento: corregido por Claude y COB-08 verificada por Codex en
-d61cf42 con los cuatro casos pedidos (147 pruebas, 805 aserciones).
-COB-07 solo tiene comprobado su caso basico. Evidencia en
-docs/06-pruebas/COB-02-07-VERIFICACION-2026-09-10.md.
+**Bloque FIN al 11/09:** FIN-02 corregida (el recibo toma el medio de pago del
+movimiento exacto), pendiente de navegador. FIN-01 no aplica por decision de Carlos.
+
+**Nada de esto esta desplegado:** el servidor sigue en `81f27ef`, anterior a las ocho
+correcciones. No hay riesgo inmediato porque el club todavia no cargo alumnos.
 
 Las ocho evaluaciones historicas se conservaron sin cambios de contenido en
 `docs/07-evaluacion/Evaluaciones previas/`; el plan vigente permanece en la carpeta padre.
 
 Wings esta publicado en `https://wings.gestionar-te.com.ar`, pero el gate final de
 produccion no esta firmado. La base del servidor quedo preparada para que el club
-cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Carlos informo
-el 09/09 que el club ya carga datos reales; el alcance no fue inspeccionado.
+cargue sus datos por pantalla y Vanina ya tiene una cuenta ADMIN. Al 11/09, segun
+Carlos, **todavia no hay ningun alumno cargado**; el alcance del resto de la carga no
+fue inspeccionado.
 
 ## 2. Servidor — corte SSH 08/09 y avance por consola 09/09
 
@@ -54,13 +51,13 @@ quedo un log que lo pruebe o descarte.
 
 ## 3. Base de entrega del servidor
 
-**El club ya esta cargando datos reales.** Carlos lo informo el 09/09. Desde ese momento
-la base del servidor deja de ser un estado de entrega vacio y pasa a contener personas,
-cobros y operacion real. No fue revalidada por SSH desde esta computadora: el alcance de
-lo cargado es desconocido para la documentacion.
+**La base del servidor tiene carga real en curso, pero todavia sin alumnos.** El 09/09
+Carlos informo que el club empezo a cargar datos; el 11/09 aclaro que **Vanina aun no
+subio ningun alumno**. Lo que haya son catalogos (deportes, grupos, planes y similares),
+sin personas, deudas ni cobros. No fue revalidado por SSH desde esta computadora.
 
 Consecuencias inmediatas: no correr `CatalogosSeeder` ni ningun seeder contra esa base
-(FIN-01 hoy pega sobre datos reales), no usarla para pruebas destructivas, y tratar el
+(puede quitar la proteccion de Cuotas y Sueldos; FIN-01 se dio por no aplica porque ningun despliegue lo corre), no usarla para pruebas destructivas, y tratar el
 respaldo como la unica red — FDS-03 ya no puede "reconstruir" el estado, porque el
 estado ahora incluye datos que solo existen ahi.
 
@@ -83,15 +80,15 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **151 pruebas / 895 aserciones**, todas verdes el 11/09 en base descartable |
+| **Tests** | **154 pruebas**, 920 aserciones, verde sobre MariaDB el 11/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | COB-01, COB-02, COB-03, COB-06, COB-07 y COB-08 verificadas por navegador. COB-04 corregida el 10/09 —un pago anulado ya no cuenta como primer pago, y la pantalla toma el importe del servicio en vez de recalcularlo— pendiente de navegador. Queda abierta COB-05, el cierre conjunto |
+| Cobros | COB-01 a COB-04 y COB-06 a COB-08 verificadas por navegador. FIN-02 corregida el 11/09: el recibo toma el medio de pago del movimiento exacto. Queda abierta COB-05, el cierre conjunto |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
-| Liquidaciones | Generacion, cierre, pago y recibos; concurrencia e historia pendientes antes del 25/09 |
+| Liquidaciones | Generacion, cierre, pago y recibos; concurrencia (FIN-05) e historia (FIN-06) pendientes. El plan las ataba al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
@@ -117,10 +114,11 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 
 FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
-1. **FDS-04:** pantallas corregidas. FDS-03 pausada hasta redefinir su objetivo.
-2. **COB-04 a COB-05:** COB-02 y COB-08 verificadas; quedan cancelacion y
-   cancelacion/reintento.
-3. **FIN:** recibos, historia, balance y concurrencia financiera.
+1. **FDS:** FDS-04 verificada el 11/09. FDS-03 pausada hasta redefinir su objetivo.
+2. **COB-05:** cierre conjunto del circuito de cobro, en manos de Codex. El resto del
+   bloque 1 esta verificado.
+3. **FIN:** FIN-02 corregida el 11/09. Siguen recibos anulados, historia, balance y
+   concurrencia financiera.
 4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.
 5. **PRU:** recorrido humano completo, proceso mensual y gate.
 6. **ENT:** pedidos concretos de Carlos.

@@ -17,15 +17,17 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 151 pruebas deben pasar
+php artisan test          # 154 pruebas deben pasar
 ```
 
-El corte verificado del 11/09 es 151 pruebas y 895 aserciones.
+El corte verificado del 11/09 es 154 pruebas y 920 aserciones.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 
-**No reejecutar `CatalogosSeeder` sobre una base existente** hasta cerrar FIN-01: hoy
-puede quitar la proteccion de los rubros `Cuotas` y `Sueldos`.
+**No correr `CatalogosSeeder` a mano sobre una base con datos**: puede quitar la
+proteccion de los rubros `Cuotas` y `Sueldos`. Sirve solo para armar una base nueva.
+El despliegue del servidor no lo ejecuta, y el script viejo de Windows que lo corria
+solo (`deploy-wings.bat`) se elimino el 11/09.
 
 ## 2. Decisiones necesarias antes de programar
 
