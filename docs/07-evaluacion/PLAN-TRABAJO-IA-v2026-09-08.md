@@ -296,6 +296,10 @@ COB-07 y este. Cortarlo vale mas que el arreglo puntual.
 
 ### COB-05 · Cierre conjunto del circuito de cobro
 
+**VERIFICADA 11/09 sobre e921e5d:** 15 cobros consecutivos en Chrome, con COB-09
+y FIN-02. Suite 161/977. Evidencia: `docs/06-pruebas/COB-05-CIERRE-2026-09-11.md`.
+El freno siguiente es historico y quedo superado por esta verificacion.
+
 **FRENADA 11/09/2026 sobre a9795c6:** subida con 70% anuncia 60.000 y registra
 42.000. Sin correccion por orden de Carlos. Reporte:
 `docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md`. FIN-02 sigue sin verificar.
@@ -425,7 +429,7 @@ deuda existente y virtual conservan saldo 32.000 tras seña 10.000; segundo cobr
 Suite 147 pruebas, 805 aserciones, verde. Reporte en
 docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
 
-### COB-09 · Al cambiar de plan con descuento la pantalla anunciaba otro importe — CORREGIDA 11/09
+### COB-09 · Al cambiar de plan con descuento la pantalla anunciaba otro importe — VERIFICADA 11/09
 
 **Origen:** lo encontro Codex CyE en COB-05. Plan de 40.000 a 60.000 en el mes de alta
 con 70%: la pantalla anunciaba **60.000** y deuda, pago, imputacion, caja y PDF
@@ -462,14 +466,15 @@ lateral —`pagos.monto_base` se guarda mal con seña o con varios meses— regi
 pantalla, lee el importe anunciado para el plan, lo cobra tal cual y exige que el mes
 quede pago a ese importe. Mas un control de que el script lea el dato del servidor.
 
-**Pendiente:** que Codex repita en COB-05 la subida y la bajada con descuento.
+**VERIFICADA 11/09 por Codex:** subida y bajada con descuento, con y sin asistencia,
+sobre main e921e5d. Evidencia en COB-05-CIERRE-2026-09-11.md.
 
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |
 |---|---|---:|---|
 | **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` — **NO APLICA 11/09** | — | Ver resultado abajo |
-| **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **CORREGIDA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
+| **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **VERIFICADA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
 | **FIN-03** | Preservar o reconstruir imputaciones visibles al anular | Alta | PDF anulado conserva periodos, importe, motivo y marca ANULADO |
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CORREGIDA 11/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
@@ -531,9 +536,11 @@ una liquidacion ya cerrada. Registrado en `ESTADO-ACTUAL.md` para FIN-11; no se 
 armar una base nueva (`migrate --seed`). Correrlo a mano sobre una base con datos sigue
 siendo un error; `CHECKLIST-CARLOS.md` lo advierte.
 
-### FIN-02 · Resultado — CORREGIDA 11/09
+### FIN-02 · Resultado — VERIFICADA 11/09
 
-**Ejecuta:** Claude CAB. Pendiente de verificacion en navegador. **Diseño:** no se toco
+**Ejecuta:** Claude CAB. Verificada en navegador por Codex CyE sobre e921e5d;
+recibos de mismo importe/dia con medios distintos y cancelacion/recobro correctos.
+Evidencia: COB-05-CIERRE-2026-09-11.md. **Diseño:** no se toco
 ninguna vista.
 
 **Lo que se afirmaba, revalidado contra el codigo antes de tocarlo:**

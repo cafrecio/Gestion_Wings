@@ -7,24 +7,23 @@
 
 ## 1. Estado general
 
-**COB-05 FRENADA 11/09 sobre a9795c6:** subida de plan 40.000 a 60.000 con
-tramo 70% anuncia 60.000 y registra 42.000. Reproducido en Chrome, sin corregir.
-El cierre historico de COB-07 cubre solo el caso basico, no esta combinacion.
-Bajada, cancelacion y casos FIN-02 pendientes. Evidencia:
-`docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md`.
+**COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
+Chrome en una misma base sintetica, incluida subida/bajada con descuento y
+asistencia, cancelacion/recobro y medios de pago distintos. Suite 161/977.
+Supera el freno de a9795c6. Evidencia: `docs/06-pruebas/COB-05-CIERRE-2026-09-11.md`.
 
 FDS-04 verificada el 11/09/2026: Cobranza por rol, dos cobros simples en navegador
 y bloqueo manual completo de rubros reservados y sus hijos. Carlos revoco la
 excepcion de editar observaciones. Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`.
 
-**Bloque 1 de cobros cerrado al 11/09 salvo COB-05.** COB-01 a COB-04 y COB-06 a COB-08
+**Bloque 1 de cobros verificado al 11/09, incluido COB-05.** COB-01 a COB-04 y COB-06 a COB-08
 verificadas por navegador e integradas en `main`. COB-04 incluyo una correccion
 posterior verificada en copia aislada: pantalla y cobro usan ahora un solo calculo del
-importe con descuento. COB-07 solo tiene comprobado su caso basico; COB-05 lo cruza con
-descuento. Evidencia en `docs/06-pruebas/`.
+importe con descuento. COB-05 cruzo cambio de plan, descuento y asistencia sobre
+main con COB-09 integrado. Evidencia en `docs/06-pruebas/`.
 
 **Bloque FIN al 11/09:** FIN-02 corregida (el recibo toma el medio de pago del
-movimiento exacto), pendiente de navegador. FIN-01 no aplica por decision de Carlos.
+movimiento exacto), verificada por navegador. FIN-01 no aplica por decision de Carlos.
 
 **Nada de esto esta desplegado:** el servidor sigue en `81f27ef`, anterior a las ocho
 correcciones. No hay riesgo inmediato porque el club todavia no cargo alumnos.
@@ -90,7 +89,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
-| Cobros | COB-01 a COB-04 y COB-06 a COB-08 verificadas por navegador. COB-09 corregida el 11/09: al cambiar de plan la pantalla anuncia el importe que calcula el servidor, con bajada diferida y descuento. FIN-02 corregida: el recibo toma el medio de pago del movimiento exacto. COB-05 en curso, en manos de Codex |
+| Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
@@ -121,9 +120,8 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante es:
 
 1. **FDS:** FDS-04 verificada el 11/09. FDS-03 pausada hasta redefinir su objetivo.
-2. **COB-05:** cierre conjunto del circuito de cobro, en manos de Codex. El resto del
-   bloque 1 esta verificado.
-3. **FIN:** FIN-02 corregida el 11/09. Siguen recibos anulados, historia, balance y
+2. **COB-05:** verificada junto a COB-09 sobre main e921e5d. Bloque 1 verificado.
+3. **FIN:** FIN-02 verificada el 11/09. Siguen recibos anulados, historia, balance y
    concurrencia financiera.
 4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.
 5. **PRU:** recorrido humano completo, proceso mensual y gate.

@@ -1,5 +1,16 @@
 # Wings — Bitácora compartida de Codex
 
+## 2026-09-11 — Codex CyE — COB-05, COB-09 y FIN-02 verificadas en main
+
+Sobre e921e5d: 15 cobros consecutivos por Chrome en una base sintetica. Tramos,
+sena/saldo, varios meses, subida y bajada con/sin asistencia, cancelacion y
+recobro coherentes. Subida 70% anuncia/registra 42.000; bajada 28.000 inmediata
+o 42.000 con asistencia, plan desde octubre. FIN-02: PDFs 14/15 de igual alumno,
+importe y dia conservan Efectivo/Transferencia; recobro 13 dice Transferencia.
+Suite 161/977, vistas compilan. Sin codigo ni datos reales ni deploy.
+Evidencia: docs/06-pruebas/COB-05-CIERRE-2026-09-11.md. Supera el freno previo.
+FIN-03 y monto_base no se dan por resueltos.
+
 ## 2026-09-11 — Codex CyE — SEG-01 sin Axios, parches probados
 
 Carlos autorizo retirar Axios: sin consumidores fuera de bootstrap; cobro usa
