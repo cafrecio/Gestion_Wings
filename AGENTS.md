@@ -382,7 +382,6 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 | **Orden de trabajo de Codex (D1)** | `docs/00-estado/ORDEN-CODEX-D1.md` |
 | **Bitácora de Codex** | `docs/00-estado/LOG-CODEX.md` |
 | **Bitácora de Claude Code** | `docs/00-estado/LOG-CLAUDE.md` |
-| **Bitácora de Gemini** | `docs/00-estado/LOG-GEMINI.md` |
 | Pasos manuales por máquina y pendientes del dueño | `docs/00-estado/CHECKLIST-CARLOS.md` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
 | Permisos y roles | `docs/02-contratos/PERMISOS-ROLES.md` |
@@ -399,32 +398,26 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 Los chats son locales y no sirven como memoria compartida. La continuidad del
 proyecto se registra en el repositorio.
 
-**Hay tres bitácoras, una por agente:**
+**Hay dos bitácoras, una por agente:**
 
 | Agente | Archivo |
 |---|---|
 | Codex | `docs/00-estado/LOG-CODEX.md` |
 | Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
-| Gemini (Antigravity) | `docs/00-estado/LOG-GEMINI.md` |
 
 Están separadas a propósito: cada agente escribe en la suya y así no se pisan al
 trabajar en paralelo.
 
-**Cada agente lee las tres y escribe solo en la suya.**
+**Cada agente lee las dos y escribe solo en la suya.**
 
 Identidad obligatoria al firmar cada entrada, según la computadora:
 
-| Computadora | Codex firma | Claude firma | Gemini firma |
-|---|---|---|---|
-| CyE | **Codex CyE** | **Claude CyE** | **LOG GEM CYE** |
-| Casa de Carlos | **Codex CAB** | **Claude CAB** | **LOG GEM CAB** |
+| Computadora | Codex firma | Claude firma |
+|---|---|---|
+| CyE | **Codex CyE** | **Claude CyE** |
+| Casa de Carlos | **Codex CAB** | **Claude CAB** |
 
-**Regla obligatoria para Gemini (Antigravity):** Al iniciar cualquier sesión en
-cualquier computadora, **leer inmediatamente `docs/00-estado/LOG-GEMINI.md`**
-(además de `LOG-CODEX.md` y `LOG-CLAUDE.md`) para retomar el contexto y las tareas
-en curso sin depender del historial de chat local.
-
-Antes de empezar una tarea, leer todas las bitácoras. Antes de cerrar una tarea que
+Antes de empezar una tarea, leer ambas bitácoras. Antes de cerrar una tarea que
 haya producido cambios, agregar una entrada breve con: objetivo, cambios reales,
 decisiones, verificaciones y pendiente siguiente.
 

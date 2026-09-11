@@ -45,7 +45,7 @@ Antes de modificar funcionalidad, leer:
   corte 08/09/2026 version 4. Leer completo antes de tomar una tarea nueva.** Cruza
   las evaluaciones de Codex y Claude y lo realizado el fin de semana.
 - `docs/00-estado/ESTADO-ACTUAL.md`
-- `docs/00-estado/LOG-CLAUDE.md`, `docs/00-estado/LOG-CODEX.md` y `docs/00-estado/LOG-GEMINI.md` — bitacoras entre computadoras. **Leerlas antes de empezar. Escribir solo en la propia.**
+- `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**
 - `docs/00-estado/CHECKLIST-CARLOS.md` — pasos manuales por maquina y pendientes del duenio. **Si estas arrancando en otra computadora, empeza por ahi.**
 - `docs/07-evaluacion/Evaluacion Codex 8-9-26.md` y
   `docs/07-evaluacion/Evaluacion Claude 8-9-26.md` — evaluaciones cruzadas del corte
