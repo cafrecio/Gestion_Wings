@@ -17,10 +17,10 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 150 pruebas deben pasar
+php artisan test          # 153 pruebas deben pasar
 ```
 
-El corte verificado del 10/09 es 150 pruebas y 835 aserciones.
+El corte verificado del 11/09 es 153 pruebas y 860 aserciones.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 

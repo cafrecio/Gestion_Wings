@@ -17,6 +17,64 @@
 
 ---
 
+## 2026-09-11 — Claude CAB — FIN-02: el recibo mostraba el medio de otro cobro
+
+Rama `fin-02`, sobre `main`. Primera tarea del bloque FIN, elegida por Carlos.
+
+### Revalidado antes de tocar
+
+El plan decia "vincular recibo al pago exacto, no por texto/fecha/importe". Confirmado en
+codigo: `ReciboService::obtenerTipoCajaPago()` buscaba el movimiento de caja por texto de
+observaciones, importe y fecha, y se quedaba con el primero.
+
+Precision que el plan no tenia: **el importe y los periodos del recibo nunca estuvieron en
+riesgo**, salen del pago directamente. Lo unico que podia mentir era **el medio de pago**.
+
+### Por que va primero
+
+Esta enganchado con COB-04. El flujo que acabamos de habilitar —cobrar, notar el error,
+cancelar y volver a cobrar— es exactamente el que lo dispara: mismo alumno, mismo importe,
+mismo dia. El recibo del cobro vigente agarraba el primer movimiento que coincidia, el
+cancelado, y decia **Efectivo** cuando la plata entro por transferencia.
+
+### Correccion
+
+El movimiento ya guarda `pago_id` al crearse. Se busca por eso.
+
+### Barrido
+
+Es el unico lugar del sistema que buscaba movimientos por texto. No hay otro con el mismo
+patron. `pago_id` se escribe en los tres caminos que crean movimientos de cobro.
+
+### Sobre la prueba
+
+La primera version fallaba en los tres casos con un error de tipo, **incluido el simple,
+que tenia que pasar**. Eso indicaba que el problema era la prueba y no el sistema: la
+libreria del PDF exige que el falso sea de su tipo exacto. Corregida la prueba, el caso
+simple paso y los dos de coincidencia fallaron — que es lo que tenia que pasar antes del
+arreglo. Si hubiera leido "3 rojos" como "defecto confirmado" habria arreglado sobre una
+evidencia falsa.
+
+### Documentos que estaban mintiendo
+
+`ESTADO-ACTUAL.md` decia que la base del servidor tenia "personas, cobros y operacion
+real" — Carlos aclaro hoy que Vanina **no subio ningun alumno**. Tambien listaba COB-04
+como pendiente de navegador y cancelacion como tarea abierta. Corregido. Y el apuro del
+25/09 para FIN-05 y FIN-06 queda relativizado: sin alumnos no habra liquidacion real ese
+dia.
+
+### Verificacion
+
+Suite completa **153 pruebas, 860 aserciones**. `ReciboMedioDePagoTest`, tres casos.
+
+### Siguiente paso
+
+Verificacion en navegador. Destraba ENT-05, el acceso directo al recibo despues de cobrar.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-10 — Claude CAB — Un solo calculo del importe con descuento
 
 Rama `cob-pantalla`, sobre `main`. Lo encontro **Codex CyE** revisando COB-04 antes de
