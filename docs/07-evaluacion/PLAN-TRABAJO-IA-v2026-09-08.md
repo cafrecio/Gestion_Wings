@@ -421,6 +421,45 @@ deuda existente y virtual conservan saldo 32.000 tras seña 10.000; segundo cobr
 Suite 147 pruebas, 805 aserciones, verde. Reporte en
 docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
 
+### COB-09 · Al cambiar de plan con descuento la pantalla anunciaba otro importe — CORREGIDA 11/09
+
+**Origen:** lo encontro Codex CyE en COB-05. Plan de 40.000 a 60.000 en el mes de alta
+con 70%: la pantalla anunciaba **60.000** y deuda, pago, imputacion, caja y PDF
+registraban **42.000**. **Corregida por Claude CAB; Carlos autorizo el cambio de vista.**
+
+**Es un punto ciego de COB-08.** Ahi se afirmo que pantalla y servidor ya no calculaban
+por separado. Se unifico el calculo del servidor, pero el script que reacciona al cambio de
+plan seguia haciendo su propia cuenta —precio de lista menos lo pagado— sin saber del
+descuento ni de la regla que difiere una bajada al mes siguiente. No se habia barrido el
+lado del navegador.
+
+**Leyendo el script viejo, anunciaba mal 5 de 6 combinaciones**, no una: la subida con
+descuento que encontro Codex, la bajada con descuento, las dos bajadas diferidas por
+asistencia, y hasta volver a elegir el plan actual con descuento. Solo acertaba la subida
+sin descuento. Esto sale de leer su codigo; no se ejecuto el script viejo.
+
+**El servidor ya estaba bien en los seis casos.** Solo mentia la pantalla.
+
+**Correccion:**
+
+- `PagoCuotaService::aplicarPorcentaje()` es la unica formula del descuento;
+  `precioConDescuento()` la usa.
+- La regla de la bajada diferida sale de `pagar()` a
+  `CajaWebController::cambioDePlanRigeElMesSiguiente()`, que usan el cobro y la pantalla.
+- La pantalla calcula en el servidor cuanto cuesta el mes con **cada** plan posible y lo
+  deja en `data-precio-mes`. El script lo lee y no hace cuentas.
+
+**Barrido antes de cerrar**, a pedido de Carlos: la regla de bajada y la formula quedaron
+en un solo lugar cada una, y ningun script usa ya el precio de lista. Aparecio un hallazgo
+lateral —`pagos.monto_base` se guarda mal con seña o con varios meses— registrado en
+`ESTADO-ACTUAL.md` y no tocado: nadie lo lee hoy y su significado es una decision.
+
+**Regresion:** `CambioPlanConDescuentoMatrizTest`, seis combinaciones. Cada una abre la
+pantalla, lee el importe anunciado para el plan, lo cobra tal cual y exige que el mes
+quede pago a ese importe. Mas un control de que el script lea el dato del servidor.
+
+**Pendiente:** que Codex repita en COB-05 la subida y la bajada con descuento.
+
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |
