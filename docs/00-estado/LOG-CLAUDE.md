@@ -17,6 +17,31 @@
 
 ---
 
+## 2026-09-11 — Claude CAB — FIN-01 no aplica; se borra deploy-wings.bat
+
+**Decision de Carlos:** el proceso de carga de catalogos no se va a correr contra el
+servidor. FIN-01 queda como NO APLICA.
+
+Antes de aceptarlo se verifico que no hubiera un camino automatico — severidad sin
+alcanzabilidad es ruido, pero tambien lo es dar por inalcanzable algo sin mirar:
+
+- `scripts/deploy.sh`, el despliegue real del servidor, **no corre seeders**.
+- Aparecio `deploy-wings.bat`, que si corria `db:seed --force` en cada ejecucion. Es un
+  script de Windows para XAMPP de febrero: **no puede correr en el servidor, que es
+  Linux**. Solo tocaba bases locales, y ocultaba el fallo con "puede ser normal si ya
+  habia datos". Se elimino a pedido de Carlos.
+
+Ningun documento vivo lo referenciaba; solo evaluaciones historicas archivadas, que no se
+tocan.
+
+**Carlos pregunto si los comandos del padron del 10/09 eran lo mismo.** No: son comandos
+de Laravel, corren igual en Windows y en el servidor. Lo que les falta es que el servidor
+tenga la version que los incluye — hoy esta en `81f27ef`, anterior a ellos.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-11 — Claude CAB — FIN-02: el recibo mostraba el medio de otro cobro
 
 Rama `fin-02`, sobre `main`. Primera tarea del bloque FIN, elegida por Carlos.
