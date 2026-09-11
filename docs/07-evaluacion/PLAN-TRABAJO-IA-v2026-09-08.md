@@ -491,7 +491,7 @@ ultimos fallaban antes de la correccion.
 
 | ID | Tarea | Prioridad | Condicion de cierre |
 |---|---|---:|---|
-| **SEG-01** | Clasificar los 11 avisos npm por uso y alcanzabilidad | Alta | Matriz paquete/uso/riesgo/version; actualizar sin romper build ni suite |
+| **SEG-01** | Retirar Axios y actualizar dependencias — VERIFICADA 11/09 | Alta | Audit cero, build y 154 pruebas/920 aserciones; cobros Chrome correctos. Ver SEG-01-REVISION-2026-09-11.md. Sin deploy |
 | **SEG-02** | Revocar sesiones y `remember_token` al cambiar clave | Alta | Sesion y cookie anteriores dejan de autenticar |
 | **SEG-03** | Unificar minimo de contraseña web/consola | Media | Una regla documentada y pruebas en ambos caminos |
 | **SEG-04** | Ejecutar preflight antes de `artisan up` | Alta | Un preflight fallido nunca publica el release |

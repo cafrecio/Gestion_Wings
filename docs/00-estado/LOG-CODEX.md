@@ -1,5 +1,36 @@
 # Wings — Bitácora compartida de Codex
 
+## 2026-09-11 — Codex CyE — SEG-01 sin Axios, parches probados
+
+Carlos autorizo retirar Axios: sin consumidores fuera de bootstrap; cobro usa
+fetch y header propio. Eliminado de fuente y lock, junto a sus transitivas.
+Parches compatibles probados en copia aislada: audit cero, build correcto,
+154 pruebas / 920 aserciones. Chrome: ADMIN/OPERATIVO cobran 60.000, deuda y
+caja correctas, window.axios ausente y header XMLHttpRequest presente.
+CSS equivalente con la misma cache limpia; primera comparacion desigual descartada.
+Trasladados solo package.json, package-lock.json y bootstrap.js; no node_modules
+compartido ni cobros de Claude. Reporte SEG-01-REVISION-2026-09-11.md actualizado.
+Sin deploy; requiere npm ci/build al aplicar en otra maquina.
+
+## 2026-09-11 — Codex CyE — SEG-01 revision inicial sin actualizaciones
+
+Audit npm actual: 11 paquetes (2 critical, 7 high, 1 moderate, 1 low).
+Clasificados por uso en SEG-01-REVISION-2026-09-11.md de docs/07-evaluacion.
+concurrently hereda shell-quote; no son dos mecanismos independientes. Axios
+importado en navegador sin llamadas encontradas; resto principalmente herramientas
+de build/dev o dependencias Node. Sin camino web explotable demostrado, sin
+certificar seguridad del VPS. No se tocaron dependencias ni el COB-05 de Claude.
+SEG-01 sigue abierta: falta ensayo aislado de actualizaciones y validacion.
+
+## 2026-09-11 — Codex CyE — COB-05 frenada en subida con descuento
+
+main a9795c6, Chrome y base descartable unica. Sin descuento, tramos 100/70/40,
+sena/saldo y varios periodos coinciden en cadena. Subida 40.000 a 60.000 con 70%:
+pantalla anuncia 60.000; deuda, pago, imputacion, caja y PDF registran 42.000.
+Freno solicitado, sin correccion. Bajada, cancelacion y casos FIN-02 pendientes.
+Suite separada: 154 pruebas / 920 aserciones verdes. gestion_wings intacta.
+Evidencia: docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md.
+
 ## 2026-09-11 — Codex CyE — FDS-04 y catalogos del sistema
 
 Carlos autorizo bloqueo total: rubros reservados y todos sus hijos no se editan

@@ -98,7 +98,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
-| JavaScript | `npm audit` informa 11 paquetes; falta clasificar uso y alcanzabilidad |
+| JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
 | CSP | Report-only; quedan 26 bloques script en 24 vistas y 24 manejadores inline |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
