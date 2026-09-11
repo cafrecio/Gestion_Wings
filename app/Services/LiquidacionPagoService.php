@@ -28,7 +28,11 @@ class LiquidacionPagoService
     public function marcarComoPagada(int $liquidacionId, array $data): array
     {
         return DB::transaction(function () use ($liquidacionId, $data) {
-            $liquidacion = Liquidacion::with('profesor')->findOrFail($liquidacionId);
+            // Se toma la fila antes de mirar nada. Sin el bloqueo, dos pedidos a la vez
+            // —dos pestañas, dos personas— pasaban los dos chequeos de "ya esta paga" antes
+            // de que el otro guardara, y cada uno registraba su egreso: el sueldo salia dos
+            // veces del cashflow. Con el bloqueo el segundo espera, relee y ve que ya esta paga.
+            $liquidacion = Liquidacion::with('profesor')->lockForUpdate()->findOrFail($liquidacionId);
 
             // Verificar si ya está pagada (idempotencia)
             if ($liquidacion->estaPagada()) {

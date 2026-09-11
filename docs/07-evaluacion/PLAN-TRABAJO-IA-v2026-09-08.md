@@ -472,13 +472,45 @@ quede pago a ese importe. Mas un control de que el script lea el dato del servid
 | **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **CORREGIDA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
 | **FIN-03** | Preservar o reconstruir imputaciones visibles al anular | Alta | PDF anulado conserva periodos, importe, motivo y marca ANULADO |
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
-| **FIN-05** | Pago concurrente de liquidacion (AUD-018) | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
+| **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CORREGIDA 11/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
 | **FIN-07** | Cobrar contra condonar simultaneamente | Alta | Locks compartidos; no queda deuda condonada y cobrada a la vez |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar | Alta | Pruebas con dos conexiones; `MoneyLockingTest` queda descrito como estructural |
+
+### FIN-05 · Resultado — CORREGIDA 11/09
+
+**Ejecuta:** Claude CAB. **Diseño:** no se toco ninguna vista.
+
+**Verificado en codigo antes de tocar:** `LiquidacionPagoService::marcarComoPagada()` corre
+en una transaccion pero **no toma la fila de la liquidacion**. Lee "¿ya esta paga?" y
+"¿ya hay egreso?" sin bloqueo y despues escribe. No hay indice unico que lo frene en la
+base. Dos pedidos a la vez pasan los dos chequeos y cada uno registra su egreso: el sueldo
+sale dos veces del cashflow.
+
+**Correccion de alcance respecto de lo que se le dijo a Carlos:** el caso no es el doble
+clic. `ds-app.js` tiene un anti doble envio global que ya lo frena. Lo que queda abierto es
+lo que la pantalla no puede frenar: **dos pestañas o dos personas**. Menos probable, pero
+el servidor no puede depender del navegador para no descontar dos veces un sueldo.
+
+**Correccion:** `lockForUpdate()` en la primera lectura. El segundo pedido espera, relee y
+ve que ya esta paga.
+
+**Como se probo, con dos conexiones reales:** `PagoLiquidacionConcurrenteTest`. Una
+segunda conexion toma la fila; el pago no puede registrar el egreso mientras tanto. Se
+eligio medir **si escribe el egreso antes de tener la fila** porque medir "si choca" no
+distingue: sin arreglo tambien choca, pero mas tarde, y deshace todo — la prueba pasaria
+igual. Se confirmo que falla sin el arreglo y pasa con el.
+
+**Un problema de la propia prueba, resuelto:** con `DatabaseTruncation` rompia a otras
+ocho pruebas, porque trunca al empezar y no al terminar y vacia configuraciones. Ahora
+guarda sus datos y borra exactamente lo que creo, directo en la base: el modelo impide
+borrar una liquidacion cerrada, que es la regla que se quiere.
+
+**Barrido:** `recalcularLiquidacion()` tiene el mismo patron y puede cambiar el total de
+una liquidacion ya cerrada. Registrado en `ESTADO-ACTUAL.md` para FIN-11; no se toco.
 
 ### FIN-01 · Resultado — NO APLICA 11/09
 

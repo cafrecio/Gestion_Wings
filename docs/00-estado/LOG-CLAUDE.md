@@ -17,6 +17,57 @@
 
 ---
 
+## 2026-09-11 — Claude CAB — FIN-05: el sueldo podia salir dos veces del cashflow
+
+Rama `fin-05`, sobre `main`. Tarea aislada, propuesta por Carlos.
+
+### Verificado antes de tocar
+
+`LiquidacionPagoService::marcarComoPagada()` corre en transaccion pero no toma la fila:
+lee "¿ya esta paga?" y "¿ya hay egreso?" sin bloqueo y despues escribe. No hay indice unico
+que lo frene. Dos pedidos a la vez registran dos egresos.
+
+### Le corregi a Carlos lo que le habia dicho
+
+Le dije que el caso real era un doble clic. Revisando: `ds-app.js` tiene un anti doble
+envio global que ya lo frena. Lo que queda es lo que la pantalla no puede frenar —dos
+pestañas o dos personas—. Menos probable, pero el servidor no puede depender del navegador
+para no descontar un sueldo dos veces.
+
+### Correccion
+
+`lockForUpdate()` en la primera lectura. El segundo pedido espera, relee y ve que ya esta
+paga.
+
+### La prueba, y la trampa que tenia
+
+Se hizo con **dos conexiones reales**, como pide el plan. La trampa: si una conexion toma la
+fila y el pago "choca", choca tanto con el arreglo como sin el —sin arreglo choca mas tarde,
+al marcarla paga, y deshace todo—. Una prueba de "choca o no" pasaria sin demostrar nada.
+Lo que distingue es **si el pago escribe el egreso antes de tener la fila**. Se midio eso con
+el registro de consultas, y se confirmo que **falla sin el arreglo y pasa con el**.
+
+Un problema de la propia prueba, que me costo una vuelta: con `DatabaseTruncation` rompia a
+otras ocho pruebas. Trunca al empezar y no al terminar, asi que mis datos quedaban, y vacia
+la tabla de configuraciones que cargan las migraciones. La reescribi para guardar sus datos y
+borrar exactamente lo suyo, directo en la base — el modelo impide borrar una liquidacion
+cerrada, y esa regla es buena.
+
+### Barrido
+
+`recalcularLiquidacion()` tiene el mismo patron: chequea "¿esta cerrada?" afuera de la
+transaccion. Si otra pestaña la cierra en ese instante, el recalculo cambia el total de una
+liquidacion ya cerrada. Registrado para FIN-11, no tocado: es otra operacion y baja
+probabilidad.
+
+### Verificacion
+
+Suite completa **163 pruebas, 984 aserciones**.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-11 — Claude CAB — Verificacion de SEG-01 (Codex, 8600314)
 
 Regla 8 del plan: verificar el trabajo de Codex con el resultado real, no con el reporte.

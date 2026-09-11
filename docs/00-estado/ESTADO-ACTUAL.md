@@ -86,7 +86,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **161 pruebas**, 977 aserciones, verde sobre MariaDB el 11/09 |
+| **Tests** | **163 pruebas**, 984 aserciones, verde sobre MariaDB el 11/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -94,7 +94,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | Asistencias atomicas; editar clase no repite control de superposicion |
-| Liquidaciones | Generacion, cierre, pago y recibos; concurrencia (FIN-05) e historia (FIN-06) pendientes. El plan las ataba al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
+| Liquidaciones | Generacion, cierre, pago y recibos. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. Historia (FIN-06) pendiente. El plan ataba ambas al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
@@ -169,6 +169,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 |---|---|---|
 | `dia_generacion_deuda` editable | Confirmado 09/09: existe como fila de configuracion y **ningun codigo la lee**. El scheduler usa dia 1 fijo en `routes/console.php:12` | Definir si gobierna la tarea o se retira de pantalla |
 | Alumno sin plan en la corrida mensual | `GenerarDeudasMensualesCommand:77-81` lo saltea: no genera deuda, no entra a revision, solo un `warn` que muere en el cron | Que caiga en la cola de revision con motivo propio |
+| Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
 | Wings no tiene arqueo | `cajas_operativas` no guarda importe contado ni diferencia; el cierre nunca pregunta cuanta plata hay. `PERMISOS-ROLES.md:84` y `Wings-Contrato-Punitorios-Mora-V1.md:267` usan la palabra como si existiera, y el segundo tiene un criterio de aceptacion —"no hay diferencia"— que hoy no se puede evaluar | Carlos define si la caja debe pedir conteo al cerrar, o se corrigen los contratos |
