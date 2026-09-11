@@ -7,6 +7,12 @@
 
 ## 1. Estado general
 
+**COB-05 FRENADA 11/09 sobre a9795c6:** subida de plan 40.000 a 60.000 con
+tramo 70% anuncia 60.000 y registra 42.000. Reproducido en Chrome, sin corregir.
+El cierre historico de COB-07 cubre solo el caso basico, no esta combinacion.
+Bajada, cancelacion y casos FIN-02 pendientes. Evidencia:
+`docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md`.
+
 FDS-04 verificada el 11/09/2026: Cobranza por rol, dos cobros simples en navegador
 y bloqueo manual completo de rubros reservados y sus hijos. Carlos revoco la
 excepcion de editar observaciones. Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`.

@@ -296,6 +296,10 @@ COB-07 y este. Cortarlo vale mas que el arreglo puntual.
 
 ### COB-05 · Cierre conjunto del circuito de cobro
 
+**FRENADA 11/09/2026 sobre a9795c6:** subida con 70% anuncia 60.000 y registra
+42.000. Sin correccion por orden de Carlos. Reporte:
+`docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md`. FIN-02 sigue sin verificar.
+
 - Probar sin descuento, cada tramo de descuento, parcial, varios periodos, cambio de plan,
   cancelacion y segundo cobro.
 - Verificar importes en deuda, pago, imputaciones, movimiento, recibo y estado de cobranza.
