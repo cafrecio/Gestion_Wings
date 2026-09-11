@@ -1,5 +1,31 @@
 # Wings — Bitácora compartida de Codex
 
+## 2026-09-11 — Codex CyE — Pase a CAB para el fin de semana
+
+Carlos continuara en su casa. Ultimo cierre comunicado, conservado aqui:
+
+> FIN-03 implementada y subida.
+> V2 vigente; V1 queda como antecedente.
+> Recibo anulado conserva detalle, importe y motivo.
+> 166 pruebas / 1.026 aserciones, todas verdes. PDF revisado.
+> Log actualizado. Commit c1bef8a; pull y push confirmados.
+> Sin tocar datos reales ni diseno. Falta revision de Claude y despliegue.
+
+GitHub confirmado por ls-remote: main en
+`c1bef8ab68f07941208450b40c2d93e767222e02`, igual al HEAD local al cierre FIN-03.
+
+Para Codex CAB: sincronizar main sin pisar cambios locales; leer ambas bitacoras,
+ESTADO-ACTUAL y plan vigente. No rehacer FIN-03: pedir/revisar la verificacion
+cruzada de Claude. La migracion nueva solo se probo en wings_fin03_20260911;
+no se aplico a gestion_wings ni al servidor. No correr pruebas sobre datos reales.
+
+ATENCION: quedan archivos locales ajenos sin versionar, NO incluidos en ese push:
+`docs/03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md`, `PREVIEW-RECIBOS.html`,
+cinco `MUESTRA-RECIBO-*.pdf` en esa carpeta y `docs/08-Logo/`.
+Son el trabajo de diseno de Claude; coordinar su subida con el antes de asumir
+que estaran disponibles en CAB. Esta entrada no afirma que todo el directorio
+local este en GitHub. FIN-03 y su documentacion si lo estan.
+
 ## 2026-09-11 — Codex CyE — FIN-03 implementada, contrato V2 autorizado
 
 Freno levantado por Carlos: V2 recoge FIN-02 exacto (operativo por pago_id,
