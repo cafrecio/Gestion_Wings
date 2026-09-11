@@ -800,6 +800,16 @@ class PagoCuotaService
                 ->where('pago_id', $pago->id)
                 ->get();
 
+            // Conservar el detalle antes de retirar las imputaciones activas.
+            // Se guarda en la misma transaccion que la reversion del cobro.
+            $pago->detalle_anulacion = [
+                'motivo' => $motivo,
+                'periodos' => $pagoDeudas->map(fn ($pd) => [
+                    'periodo' => $pd->deudaCuota->periodo,
+                    'monto_aplicado' => $pd->monto_aplicado,
+                ])->all(),
+            ];
+
             foreach ($pagoDeudas as $pd) {
                 $deuda = $pd->deudaCuota;
 

@@ -64,7 +64,9 @@ class ReciboService
                 'tipo_caja' => $tipoCaja['nombre'] ?? 'N/D',
                 'origen' => $tipoCaja['origen'] ?? 'N/D', // 'Operativo' o 'Admin'
             ],
-            'observaciones' => $pago->observaciones,
+            'observaciones' => $esAnulado && isset($pago->detalle_anulacion['motivo'])
+                ? trim(($pago->observaciones ?? '') . "\nMotivo de anulacion: " . $pago->detalle_anulacion['motivo'])
+                : $pago->observaciones,
         ];
 
         // Generar PDF
@@ -249,6 +251,14 @@ class ReciboService
      */
     private function obtenerPeriodosImputados(Pago $pago): array
     {
+        if ($pago->estado === Pago::ESTADO_ANULADO && $pago->detalle_anulacion !== null) {
+            return array_map(fn (array $periodo) => [
+                'periodo' => $periodo['periodo'],
+                'periodo_texto' => $this->formatearPeriodo($periodo['periodo']),
+                'monto_aplicado' => $periodo['monto_aplicado'],
+            ], $pago->detalle_anulacion['periodos']);
+        }
+
         $periodos = [];
 
         foreach ($pago->pagosDeuda as $pagoDeuda) {

@@ -1,5 +1,41 @@
 # Wings — Bitácora compartida de Codex
 
+## 2026-09-11 — Codex CyE — FIN-03 implementada, contrato V2 autorizado
+
+Freno levantado por Carlos: V2 recoge FIN-02 exacto (operativo por pago_id,
+admin por referencia; sin adivinar) y FIN-03. V1 conserva contenido historico
+y apunta a V2; indice actualizado.
+Al cancelar se guarda detalle_anulacion nullable (periodos/importes/motivo)
+en la misma transaccion antes de eliminar imputaciones. PDF anulado toma esa
+copia, monto_final original y motivo en Observaciones. Sin vistas ni CSS.
+No recupera imputaciones ya borradas en anulaciones anteriores.
+
+Verificacion real en MariaDB wings_fin03_20260911, nunca gestion_wings:
+- ReciboMedioDePagoTest: 6 pruebas/66 aserciones, incluidas 3 regresiones nuevas.
+- Dos periodos 60.000 y 10.000: al cancelar conserva detalle/total 70.000;
+  deudas pendientes con cero pagado, movimiento cancelado, sin imputaciones.
+  Recobro posterior por Transferencia no cambia la historia del cancelado.
+- Anulacion antigua sin snapshot no inventa periodos.
+- PDF real regenerado sin force tras cancelacion; revisadas sus dos paginas:
+  ANULADO, Septiembre 2026, 60.000, Efectivo y motivo legibles. La plantilla
+  existente distribuye Medio de Cobro entre paginas; no se modifico el diseno.
+- Suite completa: 166 pruebas / 1026 aserciones; PHP lint y cache/clear de
+  vistas correctos. Diff de resources/views y resources/css vacio.
+
+Migracion ejecutada solo en base descartable. Sin deploy. Pendiente revision
+cruzada por Claude y migracion al desplegar. Archivos de diseno ajenos excluidos.
+
+## 2026-09-11 — Codex CyE — FIN-03: borrador, freno por contrato
+
+Carlos pidio preservar detalle del recibo anulado. Borrador local: columna JSON
+nullable detalle_anulacion, copia de periodos/importes/motivo al cancelar en la
+misma transaccion; ReciboService la consume sin cambiar vistas ni saldos.
+Sin ejecutar migraciones ni pruebas, sin commit/push ni deploy.
+Al leer contrato V1: §7.f exige V2 explicita y §7.d contradice FIN-02 actual.
+Freno AGENTS §6b registrado en ESTADO-ACTUAL; se pide confirmar actualizacion
+a V2 antes de continuar. Pendiente: resolver contrato, pruebas de regresion,
+PDF real y suite aislada, documentos y sincronizacion Git. No dar por cerrada.
+
 ## 2026-09-11 — Codex CyE — COB-05, COB-09 y FIN-02 verificadas en main
 
 Sobre e921e5d: 15 cobros consecutivos por Chrome en una base sintetica. Tramos,

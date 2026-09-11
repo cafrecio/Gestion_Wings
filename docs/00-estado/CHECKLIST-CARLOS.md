@@ -17,10 +17,12 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 163 pruebas deben pasar
+php artisan test          # 166 pruebas deben pasar
 ```
 
-El corte verificado del 11/09 es 163 pruebas y 984 aserciones.
+El corte verificado del 11/09 es 166 pruebas y 1026 aserciones.
+FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
+base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 

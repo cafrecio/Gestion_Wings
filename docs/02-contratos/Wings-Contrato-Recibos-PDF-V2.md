@@ -1,11 +1,7 @@
-# Wings-Contrato-Recibos-PDF-V1.md
-
-> Antecedente historico. Sustituido el 11/09/2026 por
-> [V2 — FIN-02 y FIN-03](Wings-Contrato-Recibos-PDF-V2.md), autorizada por Carlos.
-> El contenido siguiente conserva V1; no describe el codigo vigente.
+# Wings-Contrato-Recibos-PDF-V2.md
 
 **Caso de uso (Index):** 7) Recibos PDF (cuotas + liquidaciones)
-**Versión:** V1
+**Versión:** V2 — 11/09/2026, autorizada por Carlos
 **Estado:** CERRADO
 **Origen:** `docs/05-pendientes/CUESTIONARIO-I3-CONTRATOS.md` (I3.0) — módulo sin ningún contrato previo. Reglas definidas junto al usuario el 2026-07-26 a partir de auditoría completa del código real (`ReciboService`, `ReciboController`, vistas `pdfs/*`).
 **Alcance:** Recibo de pago de cuota y recibo de liquidación — generación, contenido, permisos, comportamiento ante anulación.
@@ -33,7 +29,21 @@ Sin cambios respecto de lo ya definido en `PERMISOS-ROLES.md` — este contrato 
 
 ---
 
-## 7.c Pago anulado — el recibo se marca, no se bloquea
+## 7.c Pago anulado — conserva el detalle (FIN-03)
+
+Decision de Carlos, 11/09: conservar periodos, importes y motivo al anular.
+
+- Antes de retirar las imputaciones activas, se guarda en pagos.detalle_anulacion
+  una copia de cada periodo e importe aplicado y el motivo de cancelacion.
+  Ocurre en la misma transaccion que la reversion del cobro.
+- La copia es documental: no suma pagos ni participa en deudas o FIFO.
+  El total del recibo sigue saliendo de monto_final, que no se modifica.
+- El PDF anulado toma esa copia y agrega el motivo a las observaciones existentes.
+  Cobros posteriores no sustituyen el detalle del recibo anterior.
+- La migracion no inventa ni reconstruye detalles de anulaciones anteriores:
+  si sus imputaciones ya fueron borradas, este cambio no las recupera.
+- No cambia plantilla, formato ni permisos.
+
 
 **Decisión:** si el `Pago` asociado está `estado = 'ANULADO'`, el recibo **sigue siendo descargable** pero se genera/regenera con un sello visible: *"✗ RECIBO ANULADO — el pago fue cancelado"*.
 
@@ -43,9 +53,17 @@ Sin cambios respecto de lo ya definido en `PERMISOS-ROLES.md` — este contrato 
 
 ---
 
-## 7.d Medio de cobro mostrado — heurística conocida, sin cambios
+## 7.d Medio de cobro mostrado — vinculo exacto (FIN-02)
 
-`ReciboService::obtenerTipoCajaPago()` busca el `MovimientoOperativo`/`CashflowMovimiento` asociado al pago por coincidencia de observaciones+monto+fecha (operativo) o por `referencia_tipo`/`referencia_id` (admin). Si no encuentra match, muestra `"N/D"`. Se documenta como comportamiento conocido, no se cambia en esta resolución — no se pidió endurecerlo.
+- Operativo: MovimientoOperativo con pago_id igual al pago del recibo.
+- Se elimino la busqueda por observaciones, importe y fecha.
+- Admin: sin cambios, CashflowMovimiento por referencia_tipo/referencia_id.
+- Si no hay vinculo que identifique el medio, muestra "N/D", sin adivinar.
+- Antes, dos cobros iguales del mismo alumno el mismo dia, o cancelar y volver
+  a cobrar por otro medio, podian mostrar el medio del primer movimiento.
+  FIN-02 corrige el medio: el importe y los periodos del cobro vigente no
+  estaban afectados. La perdida de periodos al cancelar es FIN-03.
+
 
 ---
 
@@ -65,10 +83,14 @@ No se requirió ningún cambio de código para este punto.
 - Un recibo de liquidación solo existe si la liquidación está `PAGADA` (y por 7.e, eso implica `CERRADA` e inmutable).
 - PROFESOR nunca accede a ningún recibo.
 
-Cualquier cambio futuro requiere versión V2 explícita.
+Cualquier cambio futuro requiere una nueva version explicita.
 
 ---
 
-## 7.g Estado
+## 7.g Antecedente y verificacion
 
-🔒 CONTRATO CERRADO. Implementado y probado contra datos reales el 2026-07-26: verificado que la plantilla muestra el sello cuando corresponde, y que el servicio regenera el PDF (bytes y mtime distintos) para un pago anulado sin pedir `forceRegenerate`. El chequeo de liquidación (7.e) se verificó por lectura de código, sin necesidad de cambios.
+Antecedente V1 (historico): Implementado y probado contra datos reales el 2026-07-26: verificado que la plantilla muestra el sello cuando corresponde, y que el servicio regenera el PDF (bytes y mtime distintos) para un pago anulado sin pedir `forceRegenerate`. El chequeo de liquidación (7.e) se verificó por lectura de código, sin necesidad de cambios.
+
+
+V2: regresiones en ReciboMedioDePagoTest; ejecucion y limites en LOG-CODEX.md.
+No implica despliegue. V1 queda conservada como antecedente.

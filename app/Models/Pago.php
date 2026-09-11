@@ -35,6 +35,7 @@ class Pago extends Model
         'monto_final' => 'decimal:2',
         'fecha_pago' => 'date',
         'estado' => 'string',
+        'detalle_anulacion' => 'array',
     ];
 
     /**

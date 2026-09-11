@@ -475,7 +475,7 @@ sobre main e921e5d. Evidencia en COB-05-CIERRE-2026-09-11.md.
 |---|---|---:|---|
 | **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` — **NO APLICA 11/09** | — | Ver resultado abajo |
 | **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **VERIFICADA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
-| **FIN-03** | Preservar o reconstruir imputaciones visibles al anular | Alta | PDF anulado conserva periodos, importe, motivo y marca ANULADO |
+| **FIN-03** | Preservar imputaciones visibles al anular — **IMPLEMENTADA 11/09** | Alta | Nuevas anulaciones conservan periodos/importes/motivo y sello; 166/1026 verde, PDF revisado. Pendiente revision cruzada |
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CORREGIDA 11/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
@@ -484,6 +484,14 @@ sobre main e921e5d. Evidencia en COB-05-CIERRE-2026-09-11.md.
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar | Alta | Pruebas con dos conexiones; `MoneyLockingTest` queda descrito como estructural |
+
+### FIN-03 · Resultado — IMPLEMENTADA 11/09
+
+FIN-03 (Codex CyE): detalle documental JSON guardado en la transaccion de
+cancelacion, separado de imputaciones activas. Recibo usa esa copia sin cambiar
+vistas ni saldos. Contrato V2 autorizado por Carlos; V1 historica. No recupera
+periodos borrados antes del cambio. Evidencia en LOG-CODEX del 11/09.
+Migracion probada en wings_fin03_20260911; sin deploy.
 
 ### FIN-05 · Resultado — CORREGIDA 11/09
 

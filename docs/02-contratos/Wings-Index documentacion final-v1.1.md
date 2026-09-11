@@ -133,7 +133,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 7) Recibos PDF (cuotas + liquidaciones)
 
 ### 7.1 Contrato
-- ✅ `docs/02-contratos/Wings-Contrato-Recibos-PDF-V1.md` (2026-07-26, vía cuestionario I3.0)
+- ✅ `docs/02-contratos/Wings-Contrato-Recibos-PDF-V2.md` (11/09/2026, FIN-02 y FIN-03; V1 conservada como antecedente)
 
 ### 7.2 ER
 - ⏳ (no aplica como ER completo; si querés, mini-ER) `Wings-ER-Recibos-PDF-V1.md`

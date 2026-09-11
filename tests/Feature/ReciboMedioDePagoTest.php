@@ -152,6 +152,11 @@ class ReciboMedioDePagoTest extends TestCase
      */
     private function medioDelRecibo(Pago $pago): string
     {
+        return $this->datosDelRecibo($pago)['medio_cobro']['tipo_caja'];
+    }
+
+    private function datosDelRecibo(Pago $pago): array
+    {
         $capturado = null;
 
         Pdf::shouldReceive('loadView')
@@ -166,7 +171,79 @@ class ReciboMedioDePagoTest extends TestCase
 
         app(ReciboService::class)->generarReciboCuota($pago->id, true);
 
-        return $capturado['medio_cobro']['tipo_caja'];
+        return $capturado;
+    }
+
+    public function test_anular_conserva_periodos_importes_y_motivo_sin_imputaciones_activas(): void
+    {
+        $this->crearDeuda('2026-08');
+        $this->crearDeuda('2026-09');
+        $this->actingAs($this->operativo)->post(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->efectivo->id,
+            'periodos' => ['2026-08', '2026-09'],
+            'montos_cuota' => ['2026-08' => 60000, '2026-09' => 10000],
+            'fecha_pago' => '2026-09-10',
+            'observaciones' => 'Entrega parcial',
+        ])->assertSessionHas('success');
+        $pago = $this->ultimoPago();
+        $this->cancelarUltimoCobro();
+
+        $datos = $this->datosDelRecibo($pago);
+        $this->assertTrue($datos['anulado']);
+        $this->assertSame(['2026-08', '2026-09'], array_column($datos['periodos'], 'periodo'));
+        $this->assertSame(['60000.00', '10000.00'], array_column($datos['periodos'], 'monto_aplicado'));
+        $this->assertEquals(70000, $datos['monto_total']);
+        $this->assertStringContainsString('Entrega parcial', $datos['observaciones']);
+        $this->assertStringContainsString('Medio equivocado', $datos['observaciones']);
+        $this->assertSame(0, $pago->pagosDeuda()->count());
+        foreach (DeudaCuota::where('alumno_id', $this->alumno->id)->get() as $deuda) {
+            $this->assertEquals(60000, $deuda->monto_original);
+            $this->assertEquals(0, $deuda->monto_pagado);
+            $this->assertSame(DeudaCuota::ESTADO_PENDIENTE, $deuda->estado);
+        }
+        $this->assertDatabaseHas('movimientos_operativos', ['pago_id' => $pago->id, 'estado' => 'CANCELADO']);
+
+        // Un nuevo cobro y cambios posteriores de la deuda no reescriben la historia.
+        $this->cobrar('2026-08', $this->transferencia);
+        $this->assertSame($datos['periodos'], $this->datosDelRecibo($pago)['periodos']);
+        $this->assertSame('Transferencia', $this->medioDelRecibo($this->ultimoPago()));
+    }
+
+    public function test_anulacion_antigua_sin_detalle_no_inventa_periodos(): void
+    {
+        $this->crearDeuda('2026-09');
+        $this->cobrar('2026-09', $this->efectivo);
+        $pago = $this->ultimoPago();
+        $this->cancelarUltimoCobro();
+        // Simula una anulacion anterior a la migracion, cuyo detalle se perdio.
+        $pago->refresh()->forceFill(['detalle_anulacion' => null])->save();
+        $datos = $this->datosDelRecibo($pago);
+        $this->assertTrue($datos['anulado']);
+        $this->assertSame([], $datos['periodos']);
+        $this->assertEquals(60000, $datos['monto_total']);
+    }
+
+    public function test_pdf_anulado_se_regenera_con_detalle_y_motivo(): void
+    {
+        $this->crearDeuda('2026-09');
+        $this->cobrar('2026-09', $this->efectivo);
+        $pago = $this->ultimoPago();
+        $service = app(ReciboService::class);
+        $ruta = $service->generarReciboCuota($pago->id);
+        $original = Storage::get($ruta);
+        $this->cancelarUltimoCobro();
+        $this->assertSame($ruta, $service->generarReciboCuota($pago->id));
+        $anulado = Storage::get($ruta);
+        $this->assertStringStartsWith('%PDF-', $anulado);
+        $this->assertNotSame($original, $anulado);
+        $datos = $this->datosDelRecibo($pago);
+        $html = view('pdfs.recibo-cuota', $datos)->render();
+        $this->assertStringContainsString('RECIBO ANULADO', $html);
+        $this->assertStringContainsString('Septiembre 2026', $html);
+        $this->assertStringContainsString('60.000,00', $html);
+        $this->assertStringContainsString('Medio equivocado', $html);
+        // Conservar el PDF real en el disco fake para inspeccion visual local.
+        Storage::put($ruta, $anulado);
     }
 
     private function cobrar(string $periodo, TipoCaja $tipoCaja): void

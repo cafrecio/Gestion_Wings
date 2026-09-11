@@ -24,6 +24,9 @@ main con COB-09 integrado. Evidencia en `docs/06-pruebas/`.
 
 **Bloque FIN al 11/09:** FIN-02 corregida (el recibo toma el medio de pago del
 movimiento exacto), verificada por navegador. FIN-01 no aplica por decision de Carlos.
+FIN-03 implementada el 11/09: anulaciones nuevas conservan periodos/importes y
+motivo para el PDF, sin imputaciones activas. Contrato Recibos V2; V1 historica.
+Suite 166/1026 y PDF real revisado. Pendiente verificacion cruzada de Claude y deploy.
 
 **Nada de esto esta desplegado:** el servidor sigue en `81f27ef`, anterior a las ocho
 correcciones. No hay riesgo inmediato porque el club todavia no cargo alumnos.
@@ -85,7 +88,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **163 pruebas**, 984 aserciones, verde sobre MariaDB el 11/09 |
+| **Tests** | **166 pruebas**, 1026 aserciones, verde sobre MariaDB el 11/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -121,7 +124,7 @@ FDS-01 y FDS-02 cerrados. Alertas reales recibidas el 09/09. El orden restante e
 
 1. **FDS:** FDS-04 verificada el 11/09. FDS-03 pausada hasta redefinir su objetivo.
 2. **COB-05:** verificada junto a COB-09 sobre main e921e5d. Bloque 1 verificado.
-3. **FIN:** FIN-02 verificada el 11/09. Siguen recibos anulados, historia, balance y
+3. **FIN:** FIN-02 verificada; FIN-03 implementada, pendiente revision cruzada. Siguen historia, balance y
    concurrencia financiera.
 4. **SEG:** npm, sesiones, despliegue, recuperacion, alertas, CI y CSP.
 5. **PRU:** recorrido humano completo, proceso mensual y gate.
@@ -155,6 +158,10 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - `View::composer('*')` ejecuta una consulta global para el badge de clases.
 
 ## 9. Contradicciones abiertas
+
+FIN-03: freno documental resuelto el 11/09. Carlos autorizo Recibos V2 con
+FIN-02 y FIN-03; V1 queda como antecedente. No se reconstruyen periodos ya
+borrados en anulaciones antiguas. Migracion probada solo en base descartable.
 
 COB-03 y total (COB-06), verificados el 10/09 en `cob-total` (`5238825`), no mergeada:
 ambos casos, septiembre existente/virtual, muestran y registran $29.600 con cartel
