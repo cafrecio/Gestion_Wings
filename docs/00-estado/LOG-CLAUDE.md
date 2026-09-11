@@ -17,6 +17,108 @@
 
 ---
 
+## 2026-09-11 — Claude CAB — Donde estamos, y el diseño del recibo aprobado
+
+### Mini resumen al cierre del 11/09
+
+**Repositorio:** `main` en `c1bef8a`. Suite **166 pruebas, 1026 aserciones**, verde.
+
+**Servidor:** sigue en `81f27ef`. **Nada de lo de esta semana esta desplegado**: ni las
+correcciones de cobros, ni FIN, ni los comandos del padron. No hay riesgo inmediato porque
+Vanina todavia no cargo alumnos, pero hay que desplegar antes de que lo haga.
+
+**Cobros (bloque 1):**
+- Verificadas en navegador: COB-01, COB-02, COB-03, COB-04, COB-06, COB-07, COB-08.
+- COB-09 corregida (el cambio de plan anunciaba otro importe): falta que Codex la repita.
+- COB-05, el cierre conjunto del circuito, en curso por Codex.
+
+**Plata (bloque FIN):**
+- FIN-01: no aplica, decision de Carlos. Se borro `deploy-wings.bat`.
+- FIN-02: corregida (el recibo toma el medio de pago del movimiento exacto). Falta
+  navegador; va dentro de COB-05.
+- FIN-03: cerrada por Codex en `c1bef8a`, con la V2 del contrato de recibos. La V2 corrige
+  ademas la seccion 7.d, que quedo mintiendo desde FIN-02 por omision mia.
+- FIN-05: corregida (dos pagos a la vez de la misma liquidacion ya no descuentan el sueldo
+  dos veces). Probado con dos conexiones reales.
+
+**Otros cerrados hoy:** FDS-04 verificada por Codex; SEG-01 cerrada por Codex y verificada:
+axios fuera, `npm audit` en cero.
+
+**Hallazgos registrados, sin tocar:**
+- `pagos.monto_base` se guarda mal con seña o varios meses. Nadie lo lee hoy; es trampa para
+  el recibo nuevo.
+- `recalcularLiquidacion()` puede cambiar el total de una liquidacion ya cerrada. Para FIN-11.
+
+**Pendiente de respuesta de Carlos:**
+- Regla en la base para que no pueda haber dos egresos de una misma liquidacion, como red de
+  seguridad del bloqueo de FIN-05. Recomendado, no hecho.
+- **Profesores por hora: ¿cobran por clase o por hora de duracion?** Bloquea el recibo nuevo.
+  Detalle abajo.
+- Que tiene que valer `monto_base` en un cobro con seña o varios meses.
+- Desplegar.
+
+### El diseño del recibo — mensaje completo enviado a Carlos
+
+Gemini termino el diseño en `docs/03-diseno-ui/` con un instructivo
+(`INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md`). **Vanina lo aprobo.** Antes de responder se
+revisaron las cuatro muestras y el instructivo contra el codigo real.
+
+> **El diseño está bien y resolvió todo lo que le marcaste.** Antes de implementarlo
+> necesito que definas una sola cosa.
+>
+> **La decisión: ¿los profesores por hora cobran por clase o por hora?**
+>
+> - **El diseño que aprobó Vanina paga por hora de duración:** una clase de 1,5 hs vale
+>   $7.500.
+> - **El sistema hoy paga por clase:** cualquier clase vale $5.000, dure lo que dure.
+>
+> Si en el club se paga por hora, **el sistema les está pagando de menos** a los profesores
+> con clases largas, y eso hay que arreglarlo en la liquidación antes de la primera real —
+> es plata, no el recibo. Si se paga por clase, el que está mal es el diseño.
+>
+> Que Vanina lo haya aprobado así me hace pensar que es por hora. Pero es tu definición, no
+> la mía.
+>
+> **Lo demás son avisos para quien lo implemente, no decisiones**
+>
+> - **El instructivo usa datos que no existen** en el sistema: horas por clase, subtotal,
+>   cuota y porcentaje de cada alumno. Hay que construirlos. No es copiar y pegar.
+> - **La tarifa y el porcentaje** del recibo tienen que salir de lo que se guardó al
+>   liquidar, no de la ficha actual del profesor. Si no, el día que le suben la tarifa, los
+>   recibos viejos cambian solos.
+> - **El "(70% promo ingreso)"** no puede salir del campo `monto_base`, que es la trampa que
+>   registré hoy.
+>
+> **El orden**
+>
+> Codex está tocando el recibo ahora mismo por FIN-03. Conviene implementar el diseño
+> **después** de que lo cierre, para no pisarse.
+>
+> Decime por clase o por hora, y lo armo.
+
+**Lo verificado detras de ese mensaje:**
+
+- `LiquidacionService::calcularLiquidacionHora()`, linea 94: `$monto = $valorHora;` por
+  cada clase, sin mirar `hora_inicio` / `hora_fin`. La variable se llama "valor hora" pero se
+  aplica por clase.
+- `liquidacion_detalles` tiene solo `tipo_referencia`, `referencia_id`, `monto` y
+  `descripcion`. El instructivo usa `$detalle->horas`, `$detalle->subtotal`,
+  `$detalle->fecha`, `$detalle->clase`, `$detalle->alumno`, `$detalle->monto_cuota` y
+  `$detalle->porcentaje_comision`: ninguno existe.
+- Para comision, alumno, cuota cobrada y porcentaje estan guardados **solo como texto** en
+  `descripcion`, congelados al liquidar. Son historicamente correctos, pero para mostrarlos
+  en columnas hay que parsear ese texto o guardarlos estructurados.
+- Las muestras se generaron con dompdf 3.1.6, el mismo motor de Wings: el diseño va a
+  salir igual en el sistema real.
+
+**Actualizacion posterior al mensaje:** Codex ya cerro FIN-03 (`c1bef8a`), asi que el
+motivo de esperar ya no aplica. Lo unico que bloquea el recibo es la respuesta de Carlos
+sobre hora o clase.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-11 — Claude CAB — FIN-05: el sueldo podia salir dos veces del cashflow
 
 Rama `fin-05`, sobre `main`. Tarea aislada, propuesta por Carlos.

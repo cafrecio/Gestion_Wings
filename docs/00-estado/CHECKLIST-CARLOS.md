@@ -33,8 +33,17 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 
 ## 2. Decisiones necesarias antes de programar
 
-- [ ] **COB-04:** decidir si un pago anulado cuenta como primer pago comercial,
-  despues de reproducir el caso completo.
+- [ ] **Profesores por hora: ¿cobran por clase o por hora de duracion?** El diseño del
+  recibo aprobado por Vanina paga por hora (una clase de 1,5 hs = $7.500); el sistema hoy
+  paga por clase (cualquier clase = $5.000). Si es por hora, la liquidacion paga de menos
+  y hay que corregirla antes de la primera real. **Bloquea el recibo nuevo.**
+- [ ] **`monto_base` de los pagos:** definir que tiene que valer en un cobro con seña o
+  con varios meses. Hoy se guarda mal y nadie lo lee, pero el recibo nuevo lo va a querer.
+- [ ] **Regla en la base para liquidaciones:** que la base de datos rechace un segundo
+  egreso de la misma liquidacion, como red de seguridad del arreglo de FIN-05.
+  Recomendado por Claude, esperando tu si.
+- [x] **COB-04:** un pago anulado **no** cuenta como primer pago. Decidido el 10/09;
+  corregido y verificado en navegador.
 - [ ] **FIN-04:** decidir si “Balance” de Cashflow significa saldo acumulado o
   resultado del periodo.
 - [ ] **FIN-08:** definir como tratar una revision con pago parcial, observaciones
