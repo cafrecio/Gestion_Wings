@@ -17,6 +17,89 @@
 
 ---
 
+## 2026-09-11 — Claude CAB — Verificacion de SEG-01 (Codex, 8600314)
+
+Regla 8 del plan: verificar el trabajo de Codex con el resultado real, no con el reporte.
+
+**Antes del arreglo** se verifico por separado el unico punto que llegaba al usuario:
+axios viajaba dentro del bundle que descarga cada navegador (`app-BaNlW76Z.js`) y **nadie
+lo usaba** —cero referencias en views y js fuera de `bootstrap.js`; las pantallas usan
+`fetch`—. Se propuso sacarlo en vez de actualizarlo, y Codex lo hizo.
+
+**Resultado real sobre `main`:**
+
+- axios fuera de `bootstrap.js` y de `package.json`: confirmado.
+- `npm audit`: **0 vulnerabilidades**, confirmado.
+- Suite completa con COB-09 integrado: **161 pruebas, 977 aserciones**, verde.
+
+**Limite, anotado para no afirmar de mas:** el bundle de `public/build` de esta
+computadora sigue siendo el viejo y todavia contiene axios, porque no se reconstruyo aca
+(es un archivo ignorado por Git). No afecta al servidor: `scripts/deploy.sh` corre
+`npm ci` y `npm run build` de cero. La confirmacion de que el sistema compila sin axios la
+da ese build del despliegue, no esta verificacion.
+
+Firma: **Claude CAB**.
+
+---
+
+## 2026-09-11 — Claude CAB — COB-09: el cambio de plan hacia su propia cuenta
+
+Rama `cob-09`, sobre `main`. Lo encontro **Codex CyE** en COB-05: plan de 40.000 a 60.000
+en el mes de alta con 70%, la pantalla anunciaba 60.000 y todo lo demas registraba 42.000.
+
+### Es mio, y es un punto ciego de COB-08
+
+En COB-08 escribi que pantalla y servidor ya no calculaban por separado. Unifique el
+servidor, pero el script del cambio de plan seguia calculando —precio de lista menos lo
+pagado—, sin saber del descuento ni de la bajada diferida. No barri el navegador.
+
+Carlos pregunto si hay forma de que haga algo bien de una. Respuesta honesta en el chat:
+no puedo prometer cero errores en esta pantalla, pero el patron es claro — **probaba casos
+sueltos y Codex encontraba las combinaciones.** Todos los defectos de la semana fueron
+combinaciones.
+
+### Lo que cambie en el metodo, y se nota en el resultado
+
+1. **Matriz de combinaciones antes de corregir**, no del caso reportado: subida y bajada,
+   con y sin descuento, con y sin asistencia.
+2. **La prueba compara lo anunciado contra lo registrado.** Cada caso lee de la pantalla el
+   importe del plan, lo cobra tal cual y exige que el mes quede pago a ese importe. Es el
+   invariante real, no un numero suelto.
+3. **Barrido de todo el sistema antes de cerrar**, buscando otra copia de la regla, de la
+   formula o del precio de lista.
+
+Resultado: leyendo el script viejo, anunciaba mal **5 de 6** combinaciones. Codex habia
+visto una. La bajada con asistencia —que Codex iba a probar despues— habria sido el proximo
+hallazgo. El servidor ya estaba bien en las seis.
+
+### Correccion
+
+- `aplicarPorcentaje()`: la unica formula del descuento.
+- `cambioDePlanRigeElMesSiguiente()`: la unica copia de la regla de bajada, usada por el
+  cobro y por la pantalla.
+- La pantalla calcula en el servidor el precio del mes con **cada** plan y lo deja en
+  `data-precio-mes`. El script lo lee y no calcula.
+
+De paso se corrigio un comentario que yo habia dejado mintiendo en COB-04: decia que la base
+del descuento era la deuda, y el codigo usa el precio del plan.
+
+### Lo que encontro el barrido
+
+`pagos.monto_base` se reconstruye dividiendo lo cobrado por el porcentaje. Con una seña da
+14.285 por 10.000; con dos meses divide tambien el que no tenia descuento. **Nadie lo lee
+hoy**, asi que no le miente a nadie. Pero es una trampa para el rediseño del recibo, que
+querria mostrar el precio sin descuento. Registrado en contradicciones, no tocado: que debe
+valer en un cobro con seña es una decision.
+
+### Verificacion
+
+Suite completa **161 pruebas, 977 aserciones**. Matriz de seis combinaciones mas el control
+de que el script lea el dato del servidor.
+
+Firma: **Claude CAB**.
+
+---
+
 ## 2026-09-11 — Claude CAB — FIN-01 no aplica; se borra deploy-wings.bat
 
 **Decision de Carlos:** el proceso de carga de catalogos no se va a correr contra el

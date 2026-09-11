@@ -655,12 +655,11 @@ class PagoCuotaService
     /**
      * Precio del mes de alta ya descontado.
      *
-     * La base es lo que vale ese mes: el monto de la deuda si ya existe, o el precio del
-     * plan si todavia hay que crearla. Nunca el importe que el operativo esta pagando.
-     */
-    /**
+     * La base es el precio de lista del plan que rige ese mes; solo si no hay plan se usa
+     * el monto de la deuda. Nunca el importe que el operativo esta pagando.
+     *
      * Publica a proposito: la pantalla de cobro tiene que mostrar exactamente este
-     * numero. Cuando cada lado hacia su propia cuenta salieron COB-06, COB-07 y la
+     * numero. Cuando cada lado hacia su propia cuenta salieron COB-06, COB-07, COB-09 y la
      * revision de COB-04, siempre igual — dos versiones del mismo importe.
      */
     public function precioConDescuento(int $alumnoId, string $periodo, float $porcentaje): float
@@ -679,7 +678,16 @@ class PagoCuotaService
             $base = (float) $deuda->monto_original;
         }
 
-        return round($base * ($porcentaje / 100), 2);
+        return $this->aplicarPorcentaje($base, $porcentaje);
+    }
+
+    /**
+     * La unica formula del descuento de primer pago. La pantalla la usa para anunciar el
+     * precio de cada plan posible, asi que no puede haber una segunda cuenta en otro lado.
+     */
+    public function aplicarPorcentaje(float $precio, float $porcentaje): float
+    {
+        return round($precio * ($porcentaje / 100), 2);
     }
 
     /**

@@ -60,6 +60,7 @@
                    name="nuevo_plan_id"
                    value="{{ $plan->id }}"
                    data-precio="{{ (int) $plan->precio_mensual }}"
+                   data-precio-mes="{{ $plan->precio_mes }}"
                    {{ $alumno->planActivo?->plan_id == $plan->id ? 'checked' : '' }}
                    style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
             <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
@@ -409,11 +410,14 @@
     planRadios.forEach(function (r) {
         r.addEventListener('change', function () {
             aplicarEstiloPlan();
-            var nuevoPrecio = parseInt(this.dataset.precio, 10);
+            // Lo que cuesta el mes con este plan lo calcula el servidor, con la bajada
+            // diferida y el descuento de primer pago ya aplicados. Aca no se hace cuenta:
+            // hacerla con el precio de lista anunciaba 60.000 donde se cobraban 42.000.
+            var nuevoPrecio = parseFloat(this.dataset.precioMes);
             if (isNaN(nuevoPrecio) || nuevoPrecio <= 0) return;
 
-            // El cambio de plan rige hacia adelante: solo la cuota del mes en
-            // curso toma el precio nuevo. Las deudas anteriores no se tocan.
+            // Solo la cuota del mes en curso toma el precio nuevo. Las deudas
+            // anteriores no se tocan.
             var periodoActual = '{{ now('America/Argentina/Buenos_Aires')->format('Y-m') }}';
             checks.forEach(function (chk) {
                 if (chk.dataset.periodo !== periodoActual) return;
