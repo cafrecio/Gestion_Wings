@@ -41,12 +41,22 @@ class RubroWebController extends Controller
     {
         $rubro = Rubro::findOrFail($id);
 
+        if ($rubro->es_reservado_sistema) {
+            return redirect()->route('web.rubros.index')
+                ->with('error', 'No se puede editar: rubro reservado del sistema.');
+        }
+
         return view('rubros.edit', compact('rubro'));
     }
 
     public function update(Request $request, int $id)
     {
         $rubro = Rubro::findOrFail($id);
+
+        if ($rubro->es_reservado_sistema) {
+            return redirect()->route('web.rubros.index')
+                ->with('error', 'No se puede editar: rubro reservado del sistema.');
+        }
 
         $validated = $request->validate([
             'nombre'      => ['required', 'string', 'max:255', new NombreUnico(Rubro::class, ignoreId: $rubro->id, mensaje: 'Ya existe un rubro con ese nombre.')],
@@ -57,19 +67,6 @@ class RubroWebController extends Controller
             'tipo.required'   => 'El tipo es obligatorio.',
             'tipo.in'         => 'El tipo debe ser INGRESO o EGRESO.',
         ]);
-
-        // Un rubro reservado lo busca el código por nombre exacto: si se
-        // renombra, el alta de profesores y la de usuarios operativos dejan
-        // de encontrarlo en silencio. El tipo tampoco se toca, porque da
-        // vuelta el signo del rubro en el cashflow. La observación sí.
-        if ($rubro->es_reservado_sistema) {
-            if ($validated['nombre'] !== $rubro->nombre || $validated['tipo'] !== $rubro->tipo) {
-                return back()->withInput()
-                    ->with('error', 'Rubro reservado del sistema: no se puede cambiar el nombre ni el tipo.');
-            }
-
-            $validated = ['observacion' => $validated['observacion'] ?? null];
-        }
 
         $rubro->update($validated);
 

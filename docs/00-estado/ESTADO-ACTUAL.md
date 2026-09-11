@@ -7,6 +7,10 @@
 
 ## 1. Estado general
 
+FDS-04 verificada el 11/09/2026: Cobranza por rol, dos cobros simples en navegador
+y bloqueo manual completo de rubros reservados y sus hijos. Carlos revoco la
+excepcion de editar observaciones. Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`.
+
 COB-04, revision 10/09 de 1debbf2: freno previo a navegador. El servicio evita
 doble descuento, pero CajaWebController::cobrar aun multiplica la deuda ya
 descontada: 42.000 por 70% produce campo 29.400. Pendiente resolver esta
@@ -79,7 +83,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **150 pruebas**, 835 aserciones, verde sobre MariaDB el 10/09 |
+| **Tests** | **151 pruebas / 895 aserciones**, todas verdes el 11/09 en base descartable |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

@@ -1,5 +1,18 @@
 # Wings — Bitácora compartida de Codex
 
+## 2026-09-11 — Codex CyE — FDS-04 y catalogos del sistema
+
+Carlos autorizo bloqueo total: rubros reservados y todos sus hijos no se editan
+manualmente, tampoco observacion o nombres con espacios finales. Guardas en
+servidor y acciones ocultas en Rubros; sin CSS ni cambios a generacion automatica.
+Prueba de los tres roles y controles de catalogos comunes. Chrome: Cobranza
+ADMIN/OPERATIVO 200, PROFESOR sin menu y 403; dos cobros simples de 60.000
+pagados y reflejados en Caja. Bases descartables, nunca gestion_wings.
+Suite: 151 pruebas / 895 aserciones; vistas compilan. Evidencia separa antecedentes
+del fin de semana de lo probado hoy: `docs/06-pruebas/FDS-04-2026-09-11.md`.
+Plan, contrato y conteos actualizados. FIN-01 pendiente separado.
+Archivos ajenos PREVIEW-RECIBOS.html y docs/08-Logo no incluidos.
+
 > Memoria operativa entre las computadoras de CyE y CAB.
 > No reemplaza `ESTADO-ACTUAL.md` ni el plan vigente: registra qué se hizo y qué sigue.
 

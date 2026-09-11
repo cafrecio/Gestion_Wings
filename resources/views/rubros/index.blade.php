@@ -76,7 +76,7 @@
                                 @if($subrubro->afecta_caja)<span style="color:var(--color-success); font-weight:600;">✓</span>@else –@endif
                             </td>
                             <td style="padding:0.45rem 0; text-align:right;">
-                                @unless($subrubro->es_reservado_sistema)
+                                @unless($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
                                         <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
                                         <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
@@ -92,7 +92,7 @@
             </table>
         @endif
 
-        @php $rubroReservado = $rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema); @endphp
+        @php $rubroReservado = $rubro->es_reservado_sistema || ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
         @unless($rubroReservado)
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
@@ -166,7 +166,7 @@
                                 @if($subrubro->afecta_caja)<span style="color:var(--color-success); font-weight:600;">✓</span>@else –@endif
                             </td>
                             <td style="padding:0.45rem 0; text-align:right;">
-                                @unless($subrubro->es_reservado_sistema)
+                                @unless($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema)
                                     <div style="display:inline-flex; gap:0.4rem;">
                                         <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
                                         <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
@@ -182,7 +182,7 @@
             </table>
         @endif
 
-        @php $rubroReservado = $rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema); @endphp
+        @php $rubroReservado = $rubro->es_reservado_sistema || ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
         @unless($rubroReservado)
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">

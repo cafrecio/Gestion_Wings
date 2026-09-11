@@ -15,7 +15,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **150 pruebas**, 835 aserciones sobre MariaDB |
+| Suite | **151 pruebas / 895 aserciones**, verdes el 11/09 en base descartable |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |

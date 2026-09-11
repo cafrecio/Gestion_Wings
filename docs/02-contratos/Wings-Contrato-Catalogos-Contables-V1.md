@@ -1,7 +1,7 @@
 # Wings-Contrato-Catalogos-Contables-V1.md
 
 **Caso de uso (Index):** 6) Catálogos contables (Rubros / Subrubros / Tipos de Caja)
-**Versión:** V1
+**Versión:** V1, enmienda del 11/09/2026
 **Estado:** CERRADO
 **Origen:** `docs/05-pendientes/CUESTIONARIO-I3-CONTRATOS.md` (I3.0) — módulo sin ningún contrato previo. Reglas definidas junto al usuario el 2026-07-26 a partir de auditoría completa del código real.
 **Alcance:** Rubro, Subrubro, TipoCaja — ABM, unicidad de nombre, ciclo de vida (alta/baja).
@@ -25,7 +25,17 @@
 ## 6.b Subrubros reservados del sistema
 
 - `es_reservado_sistema = true` (ej. "Cuota Mensual") bloquea **editar** y **activar/desactivar** — es un dato estructural del sistema, no un catálogo administrable.
-- Esta regla ya existía y no cambia.
+- Decision de Carlos del 11/09/2026: tambien se protegen todos los hijos de un
+  rubro reservado aunque no tengan marca propia. No se agregan manualmente.
+  Se bloquean las rutas y no se muestran acciones de edicion/desactivacion.
+
+### Enmienda 11/09/2026 — bloqueo total por pantalla (prevalece sobre §6.a del 06/09)
+
+Carlos reemplaza la excepcion de observacion del 06/09: Cuotas, Sueldos y los
+rubros reservados no admiten ninguna edicion manual, incluida observacion, ni
+eliminacion, aun vacios. Un espacio final tampoco habilita una modificacion.
+Los procesos internos del sistema siguen administrando sus catalogos; no se
+agregan bloqueos globales de modelo ni se modifica el seeder (FIN-01 separado).
 
 ---
 

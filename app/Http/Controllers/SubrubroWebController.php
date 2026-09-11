@@ -13,6 +13,11 @@ class SubrubroWebController extends Controller
     {
         $rubro = Rubro::findOrFail($rubroId);
 
+        if ($rubro->es_reservado_sistema) {
+            return redirect()->route('web.rubros.index')
+                ->with('error', 'Este rubro es administrado por el sistema y no permite subrubros adicionales.');
+        }
+
         return view('subrubros.create', compact('rubro'));
     }
 
@@ -53,7 +58,7 @@ class SubrubroWebController extends Controller
         $rubro    = Rubro::findOrFail($rubroId);
         $subrubro = Subrubro::where('rubro_id', $rubroId)->findOrFail($id);
 
-        if ($subrubro->es_reservado_sistema) {
+        if ($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema) {
             return redirect()->route('web.rubros.index')
                 ->with('error', 'No se puede editar: subrubro reservado del sistema.');
         }
@@ -66,7 +71,7 @@ class SubrubroWebController extends Controller
         $rubro    = Rubro::findOrFail($rubroId);
         $subrubro = Subrubro::where('rubro_id', $rubroId)->findOrFail($id);
 
-        if ($subrubro->es_reservado_sistema) {
+        if ($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema) {
             return redirect()->route('web.rubros.index')
                 ->with('error', 'No se puede editar: subrubro reservado del sistema.');
         }
@@ -90,7 +95,7 @@ class SubrubroWebController extends Controller
     {
         $subrubro = Subrubro::where('rubro_id', $rubroId)->findOrFail($id);
 
-        if ($subrubro->es_reservado_sistema) {
+        if ($subrubro->rubro->es_reservado_sistema || $subrubro->es_reservado_sistema) {
             return redirect()->route('web.rubros.index')
                 ->with('error', 'No se puede desactivar: subrubro reservado del sistema.');
         }

@@ -107,7 +107,10 @@ alcance anterior como contexto, NO es una orden ejecutable. Requiere redefinicio
 **Aceptacion:** otra maquina puede reconstruir el mismo estado sin memoria del chat ni
 scripts temporales.
 
-### FDS-04 · Revalidar lo corregido durante la prueba humana
+### FDS-04 · Revalidar lo corregido durante la prueba humana — VERIFICADA 11/09/2026
+
+Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`. Bloqueo total de catalogos
+reservados autorizado por Carlos, incluida observacion. FIN-01 no incluido.
 
 **Ejecuta:** IA y Carlos. **Prioridad:** antes del bloque 4.
 

@@ -61,7 +61,7 @@ class RubroReservadoTest extends TestCase
         $this->assertDatabaseHas('rubros', ['id' => $sueldos->id]);
     }
 
-    public function test_la_observacion_de_un_rubro_reservado_si_se_edita(): void
+    public function test_la_observacion_de_un_rubro_reservado_no_se_edita(): void
     {
         $sueldos = $this->rubroSueldos();
 
@@ -71,9 +71,9 @@ class RubroReservadoTest extends TestCase
                 'tipo'        => 'EGRESO',
                 'observacion' => 'Docentes y administración',
             ])
-            ->assertSessionHas('success');
+            ->assertSessionHas('error');
 
-        $this->assertSame('Docentes y administración', $sueldos->fresh()->observacion);
+        $this->assertSame('Pagos al personal', $sueldos->fresh()->observacion);
     }
 
     /** Control: sin este caso, un `abort` general también pasaría los de arriba. */
@@ -201,6 +201,42 @@ class RubroReservadoTest extends TestCase
     }
 
     // ── Helpers ──────────────────────────────────────────────────────────
+
+    public function test_catalogos_del_sistema_rechazan_toda_edicion_incluso_espacios(): void
+    {
+        foreach (['Cuotas' => 'INGRESO', 'Sueldos' => 'EGRESO'] as $nombre => $tipo) {
+            $rubro = Rubro::create(['nombre' => $nombre, 'tipo' => $tipo, 'observacion' => 'Original']);
+            $rubro->es_reservado_sistema = true;
+            $rubro->save();
+            // La proteccion del padre alcanza incluso a un hijo sin marca propia.
+            $sub = Subrubro::create(['rubro_id' => $rubro->id, 'nombre' => $nombre.' prueba',
+                'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'activo' => true]);
+            $original = $rubro->fresh()->getAttributes();
+            $originalSub = $sub->fresh()->getAttributes();
+            foreach ([User::ROL_ADMIN, User::ROL_OPERATIVO, User::ROL_PROFESOR] as $rol) {
+                $this->actingAs(User::factory()->create(['rol' => $rol, 'activo' => true]));
+                // EnsureAdminWeb redirige a caja/clases a los otros roles.
+                $status = 302;
+                $this->get(route('web.rubros.edit', $rubro->id))->assertStatus($status);
+                $this->put(route('web.rubros.update', $rubro->id), [
+                    'nombre' => $nombre.' ', 'tipo' => $tipo, 'observacion' => 'Modificada',
+                ])->assertStatus($status);
+                $this->delete(route('web.rubros.destroy', $rubro->id))->assertStatus($status);
+                $this->get(route('web.subrubros.create', $rubro->id))->assertStatus($status);
+                $this->get(route('web.subrubros.edit', [$rubro->id, $sub->id]))->assertStatus($status);
+                $this->put(route('web.subrubros.update', [$rubro->id, $sub->id]), [
+                    'nombre' => $sub->nombre.' ', 'permitido_para' => 'ADMIN', 'afecta_caja' => false,
+                ])->assertStatus($status);
+                $this->patch(route('web.subrubros.toggle-activo', [$rubro->id, $sub->id]))->assertStatus($status);
+                $this->assertSame($original, $rubro->fresh()->getAttributes());
+                $this->assertSame($originalSub, $sub->fresh()->getAttributes());
+            }
+            $this->actingAs($this->admin())->get(route('web.rubros.index'))
+                ->assertOk()
+                ->assertDontSee(route('web.rubros.edit', $rubro->id), false)
+                ->assertDontSee(route('web.subrubros.edit', [$rubro->id, $sub->id]), false);
+        }
+    }
 
     private function admin(): User
     {
