@@ -161,7 +161,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | ID | Pedido | Dependencia |
 |---|---|---|
 | **ENT-01** | Inscripcion configurable del alumno nuevo | Carlos confirma regla contable; migracion crea la clave |
-| **ENT-02** | Rediseño completo del recibo | Bloqueado hasta recibir logo y paleta del club; requiere autorizacion de diseño |
+| **ENT-02** | Rediseño completo del recibo | CERRADO 12/09/2026: Recibo de cuota y versión anulada implementados en A5 DomPDF según diseño aprobado por Carlos y Vanina (INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md); importes en #0F172A, logo en .logo-frame y auditoría de anulación |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | Resolver FIN-02 primero; diseño autorizado |

@@ -2,302 +2,443 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recibo {{ $numero_recibo }}</title>
     <style>
+        @page {
+            size: 148mm 210mm portrait;
+            margin: 10mm 12mm 10mm 12mm;
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'DejaVu Sans', Arial, sans-serif;
-            font-size: 11px;
-            line-height: 1.4;
-            color: #333;
-            padding: 20px;
+            font-size: 9px;
+            line-height: 1.35;
+            color: #1e293b;
         }
-
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+        .recibo-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 8px;
         }
-
-        .header h1 {
-            font-size: 24px;
-            color: #1e40af;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+        .recibo-header-table td {
+            vertical-align: middle;
         }
-
-        .header .subtitle {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        .sello-anulado {
-            text-align: center;
-            background: #dc2626;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            padding: 8px;
-            margin-bottom: 15px;
-        }
-
-        .recibo-numero {
-            background-color: #1e40af;
-            color: white;
-            padding: 8px 15px;
+        .logo-frame {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 5px;
+            padding: 3px 6px;
             display: inline-block;
-            font-size: 14px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .recibo-brand-logo {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+        .recibo-brand-title {
+            font-size: 18px;
             font-weight: bold;
-            border-radius: 4px;
-            margin-top: 10px;
+            color: #0f172a;
+            letter-spacing: 1.2px;
+            line-height: 1.1;
         }
-
-        .fechas {
-            display: table;
-            width: 100%;
-            margin-bottom: 20px;
-            background-color: #f3f4f6;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .fechas .col {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .fechas .label {
+        .recibo-brand-subtitle {
+            font-size: 8px;
             font-weight: bold;
-            color: #4b5563;
-            font-size: 10px;
+            color: #64748b;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1px;
         }
-
-        .fechas .value {
-            font-size: 12px;
+        .recibo-badge-doc {
+            font-size: 7.5px;
+            color: #64748b;
             margin-top: 2px;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 12px;
             font-weight: bold;
-            color: #1e40af;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+        }
+        .recibo-badge-num {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3px 9px;
+            font-size: 11px;
+            font-weight: bold;
+            font-family: 'DejaVu Sans Mono', monospace;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .recibo-meta-label {
+            color: #64748b;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .recibo-meta-value {
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .recibo-header-divider-td {
+            border-bottom: 2px solid #0f172a;
+            height: 5px;
+            font-size: 1px;
+            line-height: 1px;
+            padding: 0;
+        }
+        .recibo-sello-anulado {
+            background-color: #fef2f2;
+            border: 2px dashed #dc2626;
+            color: #b91c1c;
+            text-align: center;
+            font-size: 10.5px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
-
-        .info-grid {
-            display: table;
-            width: 100%;
+        .recibo-section {
+            margin-bottom: 8px;
         }
-
-        .info-row {
-            display: table-row;
-        }
-
-        .info-label {
-            display: table-cell;
-            padding: 4px 0;
+        .recibo-section-title {
+            font-size: 8px;
             font-weight: bold;
-            color: #4b5563;
-            width: 30%;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 3px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #e2e8f0;
         }
-
-        .info-value {
-            display: table-cell;
-            padding: 4px 0;
+        .recibo-card-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
         }
-
-        .periodos-table {
+        .recibo-card-table td {
+            padding: 4px 7px;
+            font-size: 8.5px;
+            vertical-align: top;
+        }
+        .recibo-card-label {
+            color: #64748b;
+            font-size: 7px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 1px;
+        }
+        .recibo-card-value {
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .recibo-items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2px;
+            border: 1px solid #e2e8f0;
+        }
+        .recibo-items-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-size: 7.5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 7px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .recibo-items-table td {
+            padding: 4px 7px;
+            border: 1px solid #e2e8f0;
+            font-size: 8.5px;
+        }
+        .recibo-items-table td.monto {
+            text-align: right;
+            font-weight: bold;
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: #0f172a;
+        }
+        .recibo-total-row td {
+            background-color: #f1f5f9;
+            border-top: 2px solid #cbd5e1;
+            padding: 5px 7px;
+        }
+        .recibo-total-label {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 8px;
+            letter-spacing: 0.5px;
+            color: #1e293b;
+        }
+        .recibo-total-monto {
+            text-align: right;
+            font-weight: bold;
+            font-size: 11.5px;
+            font-family: 'DejaVu Sans Mono', monospace;
+            color: #0f172a;
+        }
+        .recibo-obs-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #64748b;
+            border-radius: 3px;
+            padding: 4px 7px;
+            font-size: 8px;
+            color: #334155;
+        }
+        .recibo-obs-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 7px;
+            margin-bottom: 1px;
+            color: #475569;
+        }
+        .recibo-footer-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
+            padding-top: 6px;
+            border-top: 1px dashed #cbd5e1;
         }
-
-        .periodos-table th,
-        .periodos-table td {
-            border: 1px solid #d1d5db;
-            padding: 8px 10px;
-            text-align: left;
+        .recibo-footer-table td {
+            vertical-align: bottom;
         }
-
-        .periodos-table th {
-            background-color: #f3f4f6;
-            font-weight: bold;
-            color: #374151;
-            font-size: 10px;
-            text-transform: uppercase;
+        .recibo-footer-legal {
+            font-size: 7px;
+            color: #94a3b8;
+            line-height: 1.3;
         }
-
-        .periodos-table td.monto {
-            text-align: right;
-            font-family: 'DejaVu Sans Mono', monospace;
+        .recibo-footer-legal strong {
+            color: #475569;
         }
-
-        .total-row {
-            background-color: #1e40af;
-            color: white;
-        }
-
-        .total-row td {
-            font-weight: bold;
-            border-color: #1e40af;
-        }
-
-        .monto-total {
-            font-size: 16px;
-            text-align: right;
-        }
-
-        .medio-pago {
-            background-color: #f0fdf4;
-            border: 1px solid #86efac;
-            border-radius: 4px;
-            padding: 10px;
-        }
-
-        .observaciones {
-            background-color: #fef3c7;
-            border: 1px solid #fcd34d;
-            border-radius: 4px;
-            padding: 10px;
-            font-style: italic;
-        }
-
-        .footer {
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px dashed #9ca3af;
+        .recibo-firma-container {
+            width: 150px;
+            margin-left: auto;
             text-align: center;
         }
-
-        .footer .leyenda {
-            font-size: 10px;
-            color: #6b7280;
-            font-style: italic;
+        .recibo-firma-line {
+            border-top: 1px solid #475569;
+            margin-bottom: 2px;
         }
-
-        .footer .firma {
-            margin-top: 40px;
-            padding-top: 5px;
-            border-top: 1px solid #333;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 10px;
-            color: #6b7280;
+        .recibo-firma-label {
+            font-size: 7px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
+
     @if($anulado ?? false)
-        <div class="sello-anulado">✗ RECIBO ANULADO — el pago fue cancelado</div>
+        <div class="recibo-sello-anulado">✗ RECIBO ANULADO — EL PAGO FUE CANCELADO</div>
     @endif
-    <div class="header">
-        <h1>WINGS</h1>
-        <div class="subtitle">Academia Deportiva</div>
-        <div class="recibo-numero">{{ $numero_recibo }}</div>
+
+    <table class="recibo-header-table">
+        <tr>
+            <td style="width: 58%;">
+                <table style="border-collapse: collapse;">
+                    <tr>
+                        <td style="padding-right: 8px; vertical-align: middle;">
+                            <div class="logo-frame">
+                                <img src="{{ public_path('img/logo-wings.png') }}" class="recibo-brand-logo" alt="Wings">
+                            </div>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <div class="recibo-brand-title">WINGS CLUB</div>
+                            <div class="recibo-brand-subtitle">Academia Deportiva</div>
+                            <div class="recibo-badge-doc">Comprobante de Cobro de Cuota</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 42%; vertical-align: middle;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; padding-bottom: 3px;">
+                            <span class="recibo-badge-num">{{ $numero_recibo }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; font-size: 8px; line-height: 12px;">
+                            <span class="recibo-meta-label">Emisión:</span>
+                            <span class="recibo-meta-value">{{ $fecha_emision ? ($fecha_emision instanceof \DateTimeInterface ? $fecha_emision->format('d/m/Y H:i') : \Carbon\Carbon::parse($fecha_emision)->format('d/m/Y H:i')) : now()->format('d/m/Y H:i') }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; font-size: 8px; line-height: 12px;">
+                            <span class="recibo-meta-label">Fecha Pago:</span>
+                            <span class="recibo-meta-value">{{ $fecha_pago ? ($fecha_pago instanceof \DateTimeInterface ? $fecha_pago->format('d/m/Y') : \Carbon\Carbon::parse($fecha_pago)->format('d/m/Y')) : 'N/D' }}</span>
+                        </td>
+                    </tr>
+                    @if($anulado ?? false)
+                    <tr>
+                        <td style="text-align: right; font-size: 8px; line-height: 12px;">
+                            <span class="recibo-meta-label">Cancelado:</span>
+                            <span class="recibo-meta-value" style="color: #b91c1c;">
+                                {{ isset($fecha_cancelacion) && $fecha_cancelacion ? \Carbon\Carbon::parse($fecha_cancelacion)->format('d/m/Y H:i') : 'Registrado' }}
+                            </span>
+                        </td>
+                    </tr>
+                    @endif
+                </table>
+            </td>
+        </tr>
+        <tr><td colspan="2" class="recibo-header-divider-td">&nbsp;</td></tr>
+    </table>
+
+    <div class="recibo-section">
+        <div class="recibo-section-title">Datos del Alumno</div>
+        <table class="recibo-card-table">
+            <tr>
+                <td style="width: 45%;">
+                    <span class="recibo-card-label">Alumno / Alumna</span>
+                    <span class="recibo-card-value">{{ $alumno['nombre'] }}</span>
+                </td>
+                <td style="width: 25%;">
+                    <span class="recibo-card-label">Documento (DNI)</span>
+                    <span class="recibo-card-value">{{ $alumno['dni'] }}</span>
+                </td>
+                <td style="width: 30%;">
+                    <span class="recibo-card-label">Deporte / Disciplina</span>
+                    <span class="recibo-card-value">{{ $alumno['deporte'] }}</span>
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <div class="fechas">
-        <div class="col">
-            <div class="label">Fecha de Emision</div>
-            <div class="value">{{ $fecha_emision->format('d/m/Y H:i') }}</div>
-        </div>
-        <div class="col">
-            <div class="label">Fecha de Pago</div>
-            <div class="value">{{ $fecha_pago ? $fecha_pago->format('d/m/Y') : 'N/D' }}</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Datos del Alumno</div>
-        <div class="info-grid">
-            <div class="info-row">
-                <div class="info-label">Nombre:</div>
-                <div class="info-value">{{ $alumno['nombre'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">DNI:</div>
-                <div class="info-value">{{ $alumno['dni'] }}</div>
-            </div>
-            <div class="info-row">
-                <div class="info-label">Deporte:</div>
-                <div class="info-value">{{ $alumno['deporte'] }}</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">Detalle del Pago</div>
-        <table class="periodos-table">
+    <div class="recibo-section">
+        <div class="recibo-section-title">Detalle de Períodos Cobrados</div>
+        <table class="recibo-items-table">
             <thead>
                 <tr>
-                    <th>Periodo</th>
-                    <th style="text-align: right;">Monto</th>
+                    <th>Concepto / Período</th>
+                    <th style="width: 30%; text-align: right;">Importe</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($periodos as $periodo)
-                <tr>
-                    <td>{{ $periodo['periodo_texto'] }}</td>
-                    <td class="monto">$ {{ number_format($periodo['monto_aplicado'], 2, ',', '.') }}</td>
-                </tr>
-                @endforeach
-                <tr class="total-row">
-                    <td><strong>TOTAL PAGADO</strong></td>
-                    <td class="monto monto-total">$ {{ number_format($monto_total, 2, ',', '.') }}</td>
+                @forelse($periodos as $periodo)
+                    <tr>
+                        <td>{{ $periodo['periodo_texto'] ?? $periodo['periodo'] }}</td>
+                        <td class="monto">$ {{ number_format($periodo['monto_aplicado'], 2, ',', '.') }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="2" style="text-align: center; color: #94a3b8; font-style: italic;">
+                            Cobro registrado sin detalle de períodos disponible
+                        </td>
+                    </tr>
+                @endforelse
+                <tr class="recibo-total-row">
+                    <td class="recibo-total-label">
+                        {{ ($anulado ?? false) ? 'Total Cobrado (Revertido)' : 'Total Cobrado' }}
+                    </td>
+                    <td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="section">
-        <div class="section-title">Medio de Cobro</div>
-        <div class="medio-pago">
-            <div class="info-grid">
-                <div class="info-row">
-                    <div class="info-label">Tipo:</div>
-                    <div class="info-value">{{ $medio_cobro['tipo_caja'] }}</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">Registrado por:</div>
-                    <div class="info-value">{{ $medio_cobro['origen'] }}</div>
-                </div>
-            </div>
-        </div>
+    <div class="recibo-section">
+        <div class="recibo-section-title">Información de Cobro</div>
+        <table class="recibo-card-table">
+            <tr>
+                <td style="width: {{ ($anulado ?? false) ? '33%' : '50%' }};">
+                    <span class="recibo-card-label">Medio de Cobro</span>
+                    <span class="recibo-card-value">{{ $medio_cobro['tipo_caja'] }}</span>
+                </td>
+                <td style="width: {{ ($anulado ?? false) ? '33%' : '50%' }};">
+                    <span class="recibo-card-label">Registrado por</span>
+                    <span class="recibo-card-value">{{ $medio_cobro['origen'] }}</span>
+                </td>
+                @if($anulado ?? false)
+                <td style="width: 34%;">
+                    <span class="recibo-card-label">Cancelado por</span>
+                    <span class="recibo-card-value">{{ $cancelado_por ?? 'Administración' }}</span>
+                </td>
+                @endif
+            </tr>
+        </table>
     </div>
 
-    @if($observaciones)
-    <div class="section">
-        <div class="section-title">Observaciones</div>
-        <div class="observaciones">
-            {{ $observaciones }}
+    @if($anulado ?? false)
+    <!-- AUDITORÍA DE CANCELACIÓN -->
+    <div class="recibo-section">
+        <div class="recibo-obs-box" style="border-left: 3px solid #dc2626;">
+            <div class="recibo-obs-title" style="color: #0f172a; margin-bottom: 3px;">Auditoría de Fechas & Trazabilidad de Cancelación</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 8px; line-height: 1.35; color: #1e293b;">
+                <tr>
+                    <td style="width: 50%; padding-bottom: 2px;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">1. Fecha Emisión:</span>
+                        <strong>{{ $fecha_emision ? ($fecha_emision instanceof \DateTimeInterface ? $fecha_emision->format('d/m/Y H:i') : \Carbon\Carbon::parse($fecha_emision)->format('d/m/Y H:i')) : now()->format('d/m/Y H:i') }} hs</strong>
+                    </td>
+                    <td style="width: 50%; padding-bottom: 2px;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">2. Fecha de Pago:</span>
+                        <strong>{{ $fecha_pago ? ($fecha_pago instanceof \DateTimeInterface ? $fecha_pago->format('d/m/Y') : \Carbon\Carbon::parse($fecha_pago)->format('d/m/Y')) : 'N/D' }}</strong> ({{ $medio_cobro['origen'] }})
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; padding-bottom: 2px;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">3. Fecha Cancelación:</span>
+                        <strong style="color: #b91c1c;">
+                            {{ isset($fecha_cancelacion) && $fecha_cancelacion ? \Carbon\Carbon::parse($fecha_cancelacion)->format('d/m/Y H:i') : 'Registrado' }} hs
+                        </strong>
+                    </td>
+                    <td style="width: 50%; padding-bottom: 2px;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">4. Cancelado por:</span>
+                        <strong style="color: #0f172a;">{{ $cancelado_por ?? 'Administración' }}</strong>
+                    </td>
+                </tr>
+                @if(!empty($motivo_cancelacion))
+                <tr>
+                    <td colspan="2" style="padding-top: 3px; border-top: 1px dashed #cbd5e1;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">Motivo de cancelación:</span>
+                        <em>{{ $motivo_cancelacion }}</em>
+                    </td>
+                </tr>
+                @endif
+                @if(!empty($observaciones))
+                <tr>
+                    <td colspan="2" style="padding-top: 2px;">
+                        <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">Observaciones del cobro:</span>
+                        <em>{{ $observaciones }}</em>
+                    </td>
+                </tr>
+                @endif
+            </table>
+        </div>
+    </div>
+    @elseif(!empty($observaciones))
+    <div class="recibo-section">
+        <div class="recibo-obs-box">
+            <div class="recibo-obs-title">Observaciones</div>
+            <div>{{ $observaciones }}</div>
         </div>
     </div>
     @endif
 
-    <div class="footer">
-        <div class="leyenda">
-            Wings - Recibo no valido como factura
-        </div>
-        <div class="firma">
-            Firma / Sello
-        </div>
-    </div>
+    <table class="recibo-footer-table" style="margin-top: {{ ($anulado ?? false) ? '12px' : '18px' }};">
+        <tr>
+            <td style="width: 60%;" class="recibo-footer-legal">
+                <strong>Club Wings</strong> — {{ ($anulado ?? false) ? 'Comprobante anulado emitido por el sistema de gestión.' : 'Comprobante emitido por el sistema de gestión.' }}<br>
+                <em>{{ ($anulado ?? false) ? 'Documento no válido como factura comercial ni constancia de pago.' : 'Documento no válido como factura comercial.' }}</em>
+            </td>
+            <td style="width: 40%;">
+                <div class="recibo-firma-container">
+                    <div class="recibo-firma-line"></div>
+                    <div class="recibo-firma-label">{{ ($anulado ?? false) ? 'Firma / Control Anulación' : 'Firma / Sello Receptor' }}</div>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

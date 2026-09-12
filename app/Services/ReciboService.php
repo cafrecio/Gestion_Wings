@@ -47,12 +47,17 @@ class ReciboService
         // Buscar el tipo de caja desde movimientos relacionados
         $tipoCaja = $this->obtenerTipoCajaPago($pago);
 
+        $detalleAnulacion = $pago->detalle_anulacion ?? null;
+
         // Preparar datos para la vista
         $data = [
             'numero_recibo' => "CUOTA-{$pagoId}",
             'fecha_emision' => Carbon::now(),
             'fecha_pago' => $pago->fecha_pago,
             'anulado' => $esAnulado,
+            'fecha_cancelacion' => $detalleAnulacion['fecha'] ?? ($pago->updated_at ?? null),
+            'cancelado_por' => $detalleAnulacion['usuario'] ?? 'Administración',
+            'motivo_cancelacion' => $detalleAnulacion['motivo'] ?? null,
             'alumno' => [
                 'nombre' => trim(($pago->alumno->nombre ?? '') . ' ' . ($pago->alumno->apellido ?? '')),
                 'dni' => $pago->alumno->dni ?? 'N/D',
