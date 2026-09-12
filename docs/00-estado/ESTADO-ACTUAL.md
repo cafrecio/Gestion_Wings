@@ -14,6 +14,8 @@
 
 **ENT-03 CERRADA el 12/09/2026:** Favicon definitivo de patín artístico alado aprobado por Carlos (Opción 1 - Zoom Máximo 95% superficie). Se abandonó la paleta previa negra/roja/blanca en favor de la identidad de patín artístico (bota blanca con taco, alas fucsia y cian sobre degradé claro hielo/lavanda, ruedas oscuras con contraste óptimo en pestaña). Generados `public/favicon.ico` (multi-res 16, 32, 48), `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/apple-touch-icon.png`, `public/android-chrome-192x192.png`, `public/android-chrome-512x512.png` y `public/site.webmanifest`. Vinculados en el layout raíz `resources/views/layouts/ds-app.blade.php`. Suite de 166 tests (1026 assertions) verde al 100%.
 
+**ENT-04 CERRADA el 12/09/2026:** Ojo para ver/ocultar contraseña implementado en alta y edición de usuarios (`resources/views/usuarios/_form.blade.php`), con botones independientes para "Contraseña" y "Confirmar contraseña" (respetando simetría de columnas y localidad de control). Manejador desacoplado en `resources/js/ds-app.js` compilado con Vite sin alterar CSP (26 scripts incrustados y 24 manejadores HTML en `CspSinCodigoIncrustadoTest`). Diseño autorizado por Carlos el 07/09.
+
 **COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
 Chrome en una misma base sintetica, incluida subida/bajada con descuento y
 asistencia, cancelacion/recobro y medios de pago distintos. Suite 161/977.
@@ -95,7 +97,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **166 pruebas**, 1026 aserciones, verde sobre MariaDB el 11/09 |
+| **Tests** | **169 pruebas**, 1026 aserciones, verde sobre MariaDB el 11/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -165,6 +167,11 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - `View::composer('*')` ejecuta una consulta global para el badge de clases.
 
 ## 9. Contradicciones abiertas
+
+FIN-07: pausa resuelta por Carlos el 12/09. Solo ADMIN perdona el saldo pendiente,
+conservando original, pagos e imputaciones. Condonación transaccional con bloqueo
+de la deuda, compartido con el cobro. Tres casos con conexiones reales y prueba
+negativa sin bloqueo. Contrato Wings-Contrato-Condonacion-V1.md. Sin deploy.
 
 FIN-03: freno documental resuelto el 11/09. Carlos autorizo Recibos V2 con
 FIN-02 y FIN-03; V1 queda como antecedente. No se reconstruyen periodos ya

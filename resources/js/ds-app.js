@@ -245,3 +245,35 @@
         init();
     }
 })();
+
+/* ── toggle-password: ver/ocultar contraseña en inputs ──────────────────
+   Permite ver u ocultar la contraseña mientras se tipea.
+   Aplica a cualquier botón con clase .btn-toggle-password y atributo
+   data-target="<id-del-input>".
+   Conmuta el type del input entre 'password' y 'text',
+   alterna la visibilidad de los íconos .icon-eye e .icon-eye-off,
+   y actualiza el aria-label.
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    document.addEventListener('click', function (evento) {
+        var btn = evento.target && evento.target.closest ? evento.target.closest('.btn-toggle-password') : null;
+        if (!btn) return;
+
+        var targetId = btn.getAttribute('data-target');
+        if (!targetId) return;
+
+        var input = document.getElementById(targetId);
+        if (!input) return;
+
+        var eye = btn.querySelector('.icon-eye');
+        var eyeOff = btn.querySelector('.icon-eye-off');
+
+        var mostrar = input.type === 'password';
+        input.type = mostrar ? 'text' : 'password';
+
+        if (eye) eye.style.display = mostrar ? 'none' : 'block';
+        if (eyeOff) eyeOff.style.display = mostrar ? 'block' : 'none';
+
+        btn.setAttribute('aria-label', mostrar ? 'Ocultar contraseña' : 'Mostrar contraseña');
+    });
+})();

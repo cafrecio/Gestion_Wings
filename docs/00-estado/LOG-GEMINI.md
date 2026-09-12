@@ -10,6 +10,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-12 — LOG GEM CAB — ENT-04 Ojo para ver contraseña en usuarios
+
+- **Objetivo:** Implementar botón para ver/ocultar contraseña en alta y edición de usuarios (`resources/views/usuarios/_form.blade.php`), pedido por Carlos el 07/09.
+- **Cambios reales:**
+  1. Dos botones de ojo independientes (`.btn-toggle-password` con `data-target="password"` y `data-target="password_confirmation"`), manteniendo simetría de columnas en el grid y localidad de control.
+  2. Íconos `.icon-eye` y `.icon-eye-off` (SVG) idénticos al modelo de `login.blade.php`.
+  3. `padding-right: 2.75rem` en ambos inputs para evitar que el texto pase por debajo del botón.
+  4. Compatible con alta y edición: en edición no afecta el placeholder ("Dejar en blanco para no cambiar") ni la validación.
+  5. JavaScript desacoplado en `resources/js/ds-app.js` (sin incrustar código en Blade), manteniendo `CspSinCodigoIncrustadoTest` exactamente en 26 bloques `<script>` y 24 manejadores inline. Compilado con Vite (`npm run build`).
+- **Verificaciones:**
+  - `php -l resources/views/usuarios/_form.blade.php`: sintaxis limpia.
+  - `php artisan view:cache; php artisan view:clear`: compilación Blade OK.
+  - `php artisan test --filter CspSinCodigoIncrustadoTest`: 2 passed (2 assertions).
+  - `php artisan test`: 166 passed (1026 assertions) 100% verde.
+- **Siguiente paso:** Continuar con tareas financieras o de entregas según prioridades.
+
 ## 2026-09-12 — LOG GEM CAB — ENT-03 Favicon definitivo de Wings
 
 - **Objetivo:** Resolver ENT-03 (Favicon) con identidad propia de escuela de patín artístico, abandonando la paleta negro/rojo/blanco por pedido de Carlos.

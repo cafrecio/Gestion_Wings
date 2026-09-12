@@ -71,7 +71,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CERRADA 12/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso. La red de seguridad en la base **se descarta**: ver abajo |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
-| **FIN-07** | Cobrar contra condonar simultaneamente — **PAUSADA 12/09** | Alta | Antes de implementar, Carlos define condonación tras pago parcial: perdonar saldo o rechazar. Luego locks compartidos y prueba real; sin cierre todavía |
+| **FIN-07** | Cobrar contra condonar simultaneamente — **IMPLEMENTADA Y PROBADA 12/09** | Alta | Carlos define perdonar solo saldo, conservando pago e imputaciones. Dos conexiones reales: parcial, completo y condonación primero; sin escrituras del segundo mientras espera. Regresión falla sin bloqueo. Sin deploy |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
@@ -163,7 +163,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-01** | Inscripcion configurable del alumno nuevo | Carlos confirma regla contable; migracion crea la clave |
 | **ENT-02** | Rediseño completo del recibo | Bloqueado hasta recibir logo y paleta del club; requiere autorizacion de diseño |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
-| **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | Login ya lo tiene; JS externo compatible con CSP; diseño autorizado |
+| **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | Resolver FIN-02 primero; diseño autorizado |
 | **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN | Definir contenido con Carlos; diseño autorizado |
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
