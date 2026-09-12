@@ -71,7 +71,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CERRADA 12/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso. La red de seguridad en la base **se descarta**: ver abajo |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
-| **FIN-07** | Cobrar contra condonar simultaneamente — **IMPLEMENTADA Y PROBADA 12/09** | Alta | Carlos define perdonar solo saldo, conservando pago e imputaciones. Dos conexiones reales: parcial, completo y condonación primero; sin escrituras del segundo mientras espera. Regresión falla sin bloqueo. Sin deploy |
+| **FIN-07** | Cobrar contra condonar simultaneamente — **IMPLEMENTADA Y PROBADA 12/09** | Alta | Carlos define perdonar solo saldo, conservando pago e imputaciones. Dos conexiones reales: parcial, completo y condonación primero; sin escrituras del segundo mientras espera. Regresión falla sin bloqueo. Suite 169/1065; [evidencia](../06-pruebas/FIN-07-CONCURRENCIA-2026-09-12.md). Sin deploy |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |

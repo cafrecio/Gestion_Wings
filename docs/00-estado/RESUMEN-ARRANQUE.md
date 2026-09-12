@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Último cierre registrado: 166 pruebas / 1026 aserciones, 11/09. No corrida en esta reorganización |
+| Suite | 169 pruebas / 1065 aserciones, 12/09; corrida FIN-07 sobre MariaDB aislada |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -29,6 +29,9 @@
 | Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
 
 ## Trabajo que continúa
+
+- FIN-07 implementada y probada 12/09: solo ADMIN condona saldo pendiente, sin borrar
+  pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.
 
 - FIN-03: verificar trabajo y criterio cruzado; no rehacer la implementación.
 - FIN-04: significado de Balance pendiente de Carlos.

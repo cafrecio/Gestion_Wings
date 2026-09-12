@@ -10,6 +10,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CODEX.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-12 — Codex CAB — FIN-07 implementada y probada
+
+Carlos resolvió la pausa: solo ADMIN perdona el saldo pendiente y conserva lo cobrado.
+Condonación transaccional con lectura bloqueada; contrato complementario V1 y ambos tableros actualizados.
+Tres casos con dos conexiones MariaDB reales: parcial, completo y condonación primero.
+Prueba negativa: quitar el bloqueo hace fallar el caso parcial; código restaurado.
+Suite completa: 169 pruebas / 1065 aserciones en wings_testing_fin07_20260912.
+Evidencia y alcance: ../06-pruebas/FIN-07-CONCURRENCIA-2026-09-12.md.
+Sin cambios propios de diseño, sin deploy; ajustarDeuda/API apagada queda fuera del alcance.
+Pendiente: verificación cruzada y despliegue.
+
+## 2026-09-12 — Codex CAB — FIN-07 pausada por regla de parcial (resuelta arriba)
+
+Leídos contratos y cuerpos: condonarDeuda acepta PENDIENTE sin mirar monto_pagado.
+Un parcial conserva PENDIENTE; no se encontró regla contractual que decida si
+se perdona solo el saldo o se rechaza condonar cuando hay pagos previos.
+Carlos pidió frenar expresamente en ese caso. Pendiente su definición.
+Sin cambios funcionales, pruebas con escrituras ni commit de cierre.
+ajustarDeuda tiene consumidor en API apagada; no es otra pantalla web actual.
+FIN-07 permanece sin completar en ambos tableros; no se marcó checked.
+
 ## 2026-09-12 — Codex CAB — continuidad compacta para los tres agentes
 
 Carlos autorizó un protocolo común, resumen, logs cortos y archivo íntegro.

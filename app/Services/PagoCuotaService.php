@@ -231,20 +231,26 @@ class PagoCuotaService
             throw new \InvalidArgumentException('El motivo de la condonación debe tener entre 10 y 500 caracteres.');
         }
 
-        $deuda = DeudaCuota::findOrFail($deudaId);
+        return DB::transaction(function () use ($deudaId, $observaciones, $adminId) {
+            // Comparte la fila bloqueada por obtenerOcrearDeuda al cobrar.
+            // El estado y el saldo se leen después de esperar al otro movimiento.
+            $deuda = DeudaCuota::whereKey($deudaId)->lockForUpdate()->firstOrFail();
 
-        if ($deuda->estado !== DeudaCuota::ESTADO_PENDIENTE) {
-            throw new \Exception("Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: {$deuda->estado}");
-        }
+            if ($deuda->estado !== DeudaCuota::ESTADO_PENDIENTE) {
+                throw new \Exception("Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: {$deuda->estado}");
+            }
 
-        $deuda->estado = DeudaCuota::ESTADO_CONDONADA;
-        $deuda->observaciones = $this->agregarObservacion(
-            $deuda->observaciones,
-            "CONDONADA por admin ID:{$adminId} - {$observaciones}"
-        );
-        $deuda->save();
+            $saldoCondonado = number_format($deuda->saldo_pendiente, 2, '.', '');
+            $deuda->estado = DeudaCuota::ESTADO_CONDONADA;
+            // Se perdona solo el saldo; original, pagos e imputaciones son historia.
+            $deuda->observaciones = $this->agregarObservacion(
+                $deuda->observaciones,
+                "CONDONADA por admin ID:{$adminId} - Saldo condonado: {$saldoCondonado} - {$observaciones}"
+            );
+            $deuda->save();
 
-        return $deuda;
+            return $deuda;
+        });
     }
 
     /**
