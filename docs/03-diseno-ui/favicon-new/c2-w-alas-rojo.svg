@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="115" fill="#E6252F"/>
+  <!-- Bold modern athletic W with wing flare -->
+  <path d="M100 130 L160 380 L235 230 L275 230 L350 380 L410 130 L350 130 L315 305 L265 190 L245 190 L195 305 L160 130 Z" fill="#FFFFFF"/>
+  <!-- Wing accents on the right peak -->
+  <path d="M375 140 Q 430 150 450 110 Q 435 170 395 185 Z" fill="#FFFFFF"/>
+  <path d="M395 195 Q 440 215 455 185 Q 435 230 405 240 Z" fill="#FFFFFF"/>
+</svg>

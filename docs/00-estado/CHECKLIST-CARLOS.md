@@ -39,9 +39,14 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   y hay que corregirla antes de la primera real. **Bloquea el recibo nuevo.**
 - [ ] **`monto_base` de los pagos:** definir que tiene que valer en un cobro con seña o
   con varios meses. Hoy se guarda mal y nadie lo lee, pero el recibo nuevo lo va a querer.
-- [ ] **Regla en la base para liquidaciones:** que la base de datos rechace un segundo
-  egreso de la misma liquidacion, como red de seguridad del arreglo de FIN-05.
-  Recomendado por Claude, esperando tu si.
+- [x] ~~**Regla en la base para liquidaciones**~~ — **RETIRADA el 12/09. No la apruebes.**
+  La regla que te propuse (una unica sobre `referencia_tipo` + `referencia_id`)
+  **rompe la validacion de cajas**: una caja validada crea un asiento por cada cobro y
+  todos llevan la misma referencia, asi que cualquier caja con mas de un movimiento
+  fallaria. La version que funcionaria exige una columna generada y un indice sobre
+  ella, en la tabla de plata de la base definitiva. **Recomendacion corregida: no
+  hacerlo**; el bloqueo de FIN-05 ya resuelve el caso real y esta probado con dos
+  conexiones. Detalle en el plan, seccion FIN-05.
 - [x] **COB-04:** un pago anulado **no** cuenta como primer pago. Decidido el 10/09;
   corregido y verificado en navegador.
 - [ ] **FIN-04:** decidir si “Balance” de Cashflow significa saldo acumulado o

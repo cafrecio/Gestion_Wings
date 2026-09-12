@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="115" fill="#E6252F"/>
+  <!-- Bold Stylized Wing in pure white -->
+  <path d="M130 380 C 120 240, 200 130, 410 90 C 385 140, 340 180, 290 205 C 355 195, 395 220, 375 260 C 320 260, 275 285, 240 305 C 295 300, 330 325, 310 355 C 250 355, 190 375, 130 380 Z" fill="#FFFFFF"/>
+</svg>

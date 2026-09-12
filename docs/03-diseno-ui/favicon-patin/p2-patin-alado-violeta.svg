@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="250" fill="url(#grad2)"/>
+  <!-- Bota -->
+  <path d="M210 160 C 220 215, 230 240, 260 260 L 325 285 C 345 295, 350 310, 345 330 L 175 330 C 168 265, 175 200, 210 160 Z" fill="#FFFFFF"/>
+  <!-- Plancha -->
+  <rect x="170" y="340" width="185" height="18" rx="7" fill="#FFFFFF"/>
+  <!-- Ruedas -->
+  <circle cx="205" cy="395" r="36" fill="#FFFFFF"/>
+  <circle cx="205" cy="395" r="16" fill="#8B5CF6"/>
+  <circle cx="320" cy="395" r="36" fill="#FFFFFF"/>
+  <circle cx="320" cy="395" r="16" fill="#EC4899"/>
+  <!-- Freno -->
+  <path d="M355 340 L 380 340 L 372 370 L 355 365 Z" fill="#FFFFFF"/>
+  <!-- Ala dinámica que sale del tobillo (Wings) -->
+  <path d="M190 200 C 150 160, 110 130, 90 95 C 135 115, 160 145, 175 175 C 145 130, 120 115, 105 105 Z" fill="#FFFFFF" opacity="0.95"/>
+  <path d="M185 220 C 140 185, 95 160, 75 130 C 120 150, 150 175, 170 200 Z" fill="#FFFFFF"/>
+</svg>

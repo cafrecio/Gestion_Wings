@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#grad3)"/>
+  <!-- Silueta fluida en pose artística extendida -->
+  <!-- Cabeza y brazos en corona -->
+  <circle cx="256" cy="120" r="32" fill="#FFFFFF"/>
+  <path d="M220 110 C 200 65, 270 45, 290 85 C 275 90, 245 95, 220 110 Z" fill="#FFFFFF"/>
+  <!-- Torso y falda de patinaje con vuelo -->
+  <path d="M242 145 L 270 145 L 285 240 L 330 260 L 320 280 L 230 280 L 210 260 L 235 240 Z" fill="#FFFFFF"/>
+  <!-- Pierna de apoyo vertical -->
+  <path d="M250 280 L 262 280 L 258 410 L 246 410 Z" fill="#FFFFFF"/>
+  <!-- Patín en apoyo con 4 ruedas visibles -->
+  <rect x="235" y="410" width="30" height="8" rx="3" fill="#FFFFFF"/>
+  <circle cx="240" cy="425" r="10" fill="#FFFFFF"/>
+  <circle cx="260" cy="425" r="10" fill="#FFFFFF"/>
+  <!-- Pierna libre extendida en arabesque (horizontal aérea) -->
+  <path d="M265 270 C 310 265, 370 230, 420 180 L 430 190 C 375 250, 310 290, 260 290 Z" fill="#FFFFFF"/>
+  <!-- Patín en el aire -->
+  <path d="M420 175 L 440 160 L 448 168 L 428 185 Z" fill="#FFFFFF"/>
+</svg>

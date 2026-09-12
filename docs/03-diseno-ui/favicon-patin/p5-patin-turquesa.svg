@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="250" fill="url(#grad5)"/>
+  <!-- Bota -->
+  <path d="M190 120 C 200 190, 210 225, 250 250 L 330 280 C 355 290, 365 305, 360 330 L 150 330 C 140 250, 150 170, 190 120 Z" fill="#FFFFFF"/>
+  <!-- Taco -->
+  <path d="M150 330 L 195 330 L 190 355 L 155 355 Z" fill="#FFFFFF"/>
+  <!-- Plancha -->
+  <rect x="150" y="350" width="220" height="20" rx="8" fill="#FFFFFF"/>
+  <!-- 4 Ruedas de patín -->
+  <circle cx="185" cy="415" r="42" fill="#FFFFFF"/>
+  <circle cx="185" cy="415" r="20" fill="#0D9488"/>
+  <circle cx="335" cy="415" r="42" fill="#FFFFFF"/>
+  <circle cx="335" cy="415" r="20" fill="#06B6D4"/>
+  <!-- Freno -->
+  <path d="M370 350 L 405 350 L 395 385 L 370 380 Z" fill="#FFFFFF"/>
+</svg>

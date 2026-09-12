@@ -2,6 +2,11 @@
 
 Este directorio concentra la documentacion viva del proyecto Wings.
 
+Inicio común: [Resumen de arranque](00-estado/RESUMEN-ARRANQUE.md) y
+[Protocolo de continuidad](00-estado/PROTOCOLO-CONTINUIDAD.md).
+[Archivo íntegro del corte 12/09](99-archivo/bitacoras/2026-09-12/INDICE.md).
+No leer el histórico de rutina; buscar por tarea.
+
 Plan vigente: `07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` y su indice HTML
 `07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` (version 4).
 Las ocho evaluaciones historicas movidas se conservan sin cambios de contenido en
@@ -15,6 +20,7 @@ La continuidad del trabajo entre las computadoras de CyE y CAB se registra en:
 
 - `docs/00-estado/LOG-CODEX.md`
 - `docs/00-estado/LOG-CLAUDE.md`
+- `docs/00-estado/LOG-GEMINI.md`
 
 El informe del ultimo ciclo de trabajo esta disponible en dos formatos:
 

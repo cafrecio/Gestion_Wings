@@ -1,5 +1,8 @@
 # Wings — Plan de trabajo para IA
 
+> Edición compacta 12/09/2026 de la v4. Mismo orden y criterios; historia íntegra enlazada.
+> No se han reejecutado verificaciones para esta reorganización.
+
 > **Version:** 2026-09-08.v4
 > **Fecha de corte:** 8 de septiembre de 2026
 > **Commit evaluado:** `97fb840`; cruce documental hasta `ad0491f`
@@ -9,7 +12,7 @@
 
 ## 0. Reglas de uso
 
-1. Leer `AGENTS.md`, `CLAUDE.md`, ambas bitacoras y este documento antes de ejecutar.
+1. Aplicar el [protocolo común](../00-estado/PROTOCOLO-CONTINUIDAD.md): resumen, tres logs activos y este índice; después solo el detalle de la tarea.
 2. Una tarea por vez y un commit por tarea. No mezclar correccion, rediseño y mejoras.
 3. Reproducir primero todo hallazgo que las evaluaciones no reprodujeron.
 4. Si el codigo contradice este plan, frenar segun `AGENTS.md` §6b.
@@ -33,451 +36,40 @@ entre computadoras mediante un enlace o un archivo JSON exportado.
 | 5 | Entrega solicitada | Completar pedidos concretos de Carlos | Producto presentable y operable |
 | 6 | Posterior | Reportes y evolución no bloqueante | Backlog separado |
 
-## 2. Bloque 0 — cerrar lo hecho el fin de semana
-
-### FDS-01 · Sincerar documentos de estado — CERRADA 08/09
-
-**Ejecuta:** Codex CAB. **Estado:** cerrada y pendiente de verificacion por Claude.
-**Diseño:** no.
-
-- Corregir `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md` contra lo
-  verificado el 8/9.
-- Deben reflejar: servidor en `9fdd03d`, Vanina ADMIN creada, base de entrega minima,
-  129 pruebas sobre MariaDB, dump retirado, Cloudflare activo y Cobranza accesible al
-  OPERATIVO.
-- Quitar como abiertos: motor SQLite, dump, H-DI-01, boton Cobrar, doble plan activo y
-  las cifras viejas de pruebas.
-- Registrar como abiertos: npm, monitoreo, limites del backup, cobros del bloque 1 y
-  procedimiento reproducible de entrega.
-
-**Aceptacion:** ningun documento vigente contradice esos hechos ni presenta una
-verificacion historica como actual.
-
-**Resultado:** `ESTADO-ACTUAL.md`, `PLAN-PRODUCCION.md` y `CHECKLIST-CARLOS.md`
-quedaron alineados al corte 08/09. Los bloques del plan de agosto dejaron de figurar
-como orden vigente.
-
-### FDS-02 · Revalidar servidor y operacion del fin de semana — CERRADA 09/09/2026
-
-**Ejecuta:** Codex CyE; acceso por Personal recuperado el 09/09. **Prioridad:** inmediata.
-
-- Confirmar commit desplegado, migraciones, modo produccion y preflight.
-- Confirmar el estado minimo de la base sin exponer datos personales ni credenciales.
-- Confirmar que scheduler y backups siguen ejecutandose.
-- Confirmar por una falla controlada que la copia externa produce una señal observable.
-- Verificar el monitoreo externo y operativo en funcionamiento; no inferirlo del repositorio.
-
-**Aceptacion:** evidencia fechada en bitacora y sin secretos. Lo no comprobado queda
-marcado como tal.
-
-**Evidencia ya existente — no volver a resolverla desde cero:**
-
-| Parte | Commit que la registro |
-|---|---|
-| Servidor, Cloudflare, scheduler y backups | `3470114` |
-| Deploy, migraciones y preflight | `d859c6e` |
-| Base minima de entrega y usuarios | `306fa19` |
-| Revalidacion integral del 08/09 | `4e1674e` |
-
-**Avance del 08/09:** monitor HTTPS externo activo en Better Stack con email; heartbeat
-de scheduler y heartbeat de backup creados. En el repositorio quedaron los wrappers
-para informar exito/fallo y Telegram sin versionar secretos. La prueba aislada pasa.
-
-**Cierre 09/09:** scripts de `a3ddd7f` desplegados dentro de `81f27ef`; cron y
-respaldo operativo instalados con helper. Configuracion secreta fuera de Git.
-Preflight: 12 controles correctos; migraciones Ran. Fallos controlados del
-scheduler (11:27 GMT-3) y copia Drive (11:28), seguidos de recuperacion real.
-Copia Drive correcta 14:29:33 UTC. Monitor HTTPS y ambos heartbeats Up.
-Carlos confirmo email y Telegram. Evidencia detallada en LOG-CODEX.md.
-No se simulo caida HTTPS. La base minima conserva evidencia historica del 07/09,
-no se volvio a inspeccionar su contenido; corrida mensual del 01/09 no demostrada.
-
-### FDS-03 · Hacer reproducible el estado minimo de entrega — PAUSADA 09/09
-
-Carlos ordeno frenarla: la base ya contiene carga real. Lo siguiente conserva el
-alcance anterior como contexto, NO es una orden ejecutable. Requiere redefinicion.
-
-**Ejecuta:** IA; decision de Carlos si requiere automatizacion. **Prioridad:** alta.
-
-- Documentar exactamente que se conserva y que se limpia para preparar una entrega.
-- No crear un seeder de datos reales ni borrar datos por inferencia.
-- Decidir con Carlos si alcanza un procedimiento manual versionado o si hace falta un
-  comando idempotente y protegido contra produccion.
-
-**Aceptacion:** otra maquina puede reconstruir el mismo estado sin memoria del chat ni
-scripts temporales.
-
-### FDS-04 · Revalidar lo corregido durante la prueba humana — VERIFICADA 11/09/2026
-
-Evidencia: `docs/06-pruebas/FDS-04-2026-09-11.md`. Bloqueo total de catalogos
-reservados autorizado por Carlos, incluida observacion. FIN-01 no incluido.
-
-**Ejecuta:** IA y Carlos. **Prioridad:** antes del bloque 4.
-
-- Confirmar por pantalla Cobranza para ADMIN y OPERATIVO; PROFESOR rechazado.
-- Confirmar boton Cobrar funcional y rubros reservados protegidos.
-- Conservar como evidencia separada lo que ya paso y lo que se vuelve a probar.
-
-## 3. Bloque 1 — cobros que pueden informar exito con datos incorrectos
-
-Estas tareas se ejecutan en este orden. Cada reproduccion debe mirar pantalla, respuesta,
-filas concretas y saldos; un test unitario aislado no reemplaza el flujo web.
-
-### COB-01 · Monto con separador de miles — VERIFICADA 10/09
-
-**Estado:** corregida por Claude CAB en `caa4976` y verificada por Codex CyE en
-navegador; aclaracion de alcance confirmada por Carlos el 10/09.
-**Diseño:** no se toco ninguna vista.
-
-**Mecanismo confirmado:** el script de la vista va en `@push('scripts')` y se registra
-durante el parseo; `ds-app.js` entra por `@vite` como modulo y se registra despues. Al
-enviar, el handler de la vista corre primero y arma `new FormData(...)` cuando el campo
-todavia dice `28.000`; la limpieza de `stripMoneyInputs` llega tarde. En el servidor
-`is_numeric("28.000")` es `true` y `(float)` lo convierte en `28`. Cobraba 28 en lugar de
-28.000, sin error y con mensaje de exito.
-
-**Correccion:** normalizacion en el servidor antes de validar, en
-`CajaWebController::pagar()`. No depende del orden de carga de scripts y no toca vistas.
-Regresion en `CobrarPrimeraCuotaWebTest::test_el_cobro_web_interpreta_el_monto_con_separador_de_miles`,
-que envia el payload real del navegador. Alcance auditado: era el unico formulario roto,
-porque es el unico que arma `FormData` en un handler de `submit`.
-
-Verificado que la normalizacion cubre uno y dos separadores y el valor ya limpio:
-`28.000`, `1.500.000`, `1.234.567` y `30000` quedan correctos. El caso de dos
-separadores antes lo rechazaba la validacion, porque `is_numeric("1.500.000")` es
-`false`; ahora entra bien.
-
-**Verificacion 09/09, Codex CyE:** comparacion real por Chrome en bases descartables
-de `caa4976^` y `caa4976`. Request conserva `28.000` y `1.500.000`; antes guarda 28
-o rechaza 422, despues importes correctos en cadena y PDF. Resumen $1.528.000.
-Reporte: `docs/06-pruebas/COB-01-VERIFICACION-2026-09-09.md`.
-**Aclaracion 10/09:** «arqueo» significaba el resumen por medio de pago ya
-verificado. Freno levantado; no agregar funcionalidad. La verificacion no acredita
-despliegue en produccion ni sincronizacion GitHub.
-
-Pasos originales, conservados como referencia de la prueba realizada:
-
-1. Reproducir un cobro mostrado como `30.000` y comprobar el importe persistido.
-2. Escribir regresion que reproduzca el payload real del navegador.
-3. Corregir el orden o la normalizacion para que el servidor nunca interprete `30.000`
-   como 30.
-4. Probar importes con uno y dos separadores, decimales y entrada sin formato.
-
-**Aceptacion:** pantalla, pago, deuda, caja y recibo coinciden en 30.000.
-
-### COB-02 · Cambio de plan elegido fuera del formulario — VERIFICADA 10/09
-
-**Estado:** reproducida y corregida por Claude CAB; verificada por Codex CyE en
-navegador sobre 5be4970. **Diseño:** Carlos autorizo el cambio el 10/09, despues de que se le
-explicara el alcance exacto.
-
-**Que pasaba:** el selector de plan estaba dibujado **fuera** del formulario. Un form
-solo envia los campos que tiene adentro, asi que `new FormData(cobrarForm)` no juntaba
-`nuevo_plan_id` y la eleccion nunca llegaba al servidor. El JavaScript de la vista si
-reaccionaba al clic: pintaba la opcion y actualizaba el monto sugerido. Por eso en
-pantalla parecia aplicado.
-
-El backend del cambio de plan ya estaba completo y correcto —distingue subida de bajada
-y difiere la bajada al mes siguiente si hubo asistencia— pero nunca se ejecutaba porque
-no recibia el dato.
-
-**Daño real:** se cobraba el importe del plan nuevo y el alumno quedaba en el plan
-viejo. El mes siguiente la corrida mensual generaba la deuda con el precio anterior, y
-todos los meses posteriores tambien, sin ninguna señal.
-
-**Correccion:** se movio la apertura del formulario para que arranque antes del selector
-de plan. La etiqueta `<form>` no renderiza nada, asi que **la pantalla no cambia**: el
-diff no toca un solo div, clase, estilo ni texto. No se agrego JavaScript ni campos
-ocultos, para no volver a depender de que un script llegue a tiempo — que fue la causa
-de COB-01.
-
-**Regresion:** `CambioPlanCobroTest::test_el_selector_de_plan_viaja_dentro_del_formulario_de_cobro`
-verifica sobre el HTML renderizado que `nuevo_plan_id` quede entre la apertura y el
-cierre del formulario. Las 8 pruebas de cambio de plan que ya existian siguen verdes.
-
-**Aceptacion:** el alumno termina en el plan elegido, el monto del periodo es correcto y
-un rechazo del cobro no deja el plan cambiado. Los dos ultimos ya estaban cubiertos por
-`CambioPlanCobroTest`; el primero es lo que faltaba y ahora esta.
-
-**Resultado:** eleccion enviada, subida y bajada diferida comprobadas; rechazo
-revierte plan/deuda sin pago ni movimiento. Capturas identicas antes/despues del
-movimiento del form. Reporte COB-02-07-VERIFICACION-2026-09-10.md en docs/06-pruebas.
-El defecto de parcial con descuento queda separado a cargo de Claude por Carlos.
-
-### COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA 10/09
-
-**Verificacion Codex CyE:** sobre `cob-total` en `5238825`. Casos septiembre
-existente y virtual: original 28.000, pagado 10.000, saldo 18.000. Pantalla, pago,
-imputaciones, caja, resumen por medio y PDF coinciden en 29.600. Caso sin descuento
-38.000 correcto. Total visible/cartel corregidos (COB-06 de la rama de Claude).
-Suite de esa rama: 133 pruebas, 726 aserciones. Reporte del 10/09 en
-`docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`. Defecto reproducido en main.
-Integrada a `main` el 10/09. **No desplegada:** el servidor sigue en `81f27ef`.
-
-**Alcance original, ya reproducido para esta verificacion:**
-
-**Estado:** reproducida en base y corregida por Claude CAB. Pendiente de verificacion por
-otro agente o por Carlos en pantalla. **Diseño:** no se toco ninguna vista.
-
-**Reproduccion:** alumno de alta el 20/08 (regla de segunda quincena, 70%) que paga
-agosto con descuento y deja seña de 10.000 de septiembre, con septiembre ya cargado en
-28.000. Resultado antes de la correccion: septiembre quedaba con `monto_original` 10.000
-y estado `PAGADA`. Los 18.000 restantes desaparecian y el alumno figuraba al dia.
-
-**Eran dos caminos, no uno.** El informe solo nombraba el primero:
-
-1. `ajustarDeudas()` recorria **todos** los items del cobro y bajaba `monto_original` de
-   cada uno al monto enviado, aunque el descuento correspondiera a un solo periodo.
-   `aplicarPorcentajeAItems()`, justo arriba, si discrimina bien.
-2. `$montosOriginalesNuevasDeudas` salia de `array_column($items, ...)`, con todos los
-   periodos. Si la deuda del otro mes **todavia no existia**, nacia con el parcial como
-   monto original desde `obtenerOcrearDeuda()`. Mismo daño por otra puerta.
-
-**Correccion:** el override de monto original queda restringido al periodo con descuento
-en los dos caminos. `ajustarDeudas()` pasa a `ajustarDeudaConDescuento()`, que recibe un
-periodo y un monto en lugar de la lista entera: el nombre y la firma ahora impiden
-reintroducir el defecto. Regresion en `DescuentoNoAlteraOtroPeriodoTest`.
-
-**Aceptacion:** solo el mes de alta recibe descuento; el segundo periodo conserva su
-monto original y saldo restante. Verificado: agosto 19.600 `PAGADA`, septiembre 28.000
-con 10.000 pagados, saldo 18.000 y estado `PENDIENTE`.
-
-### COB-04 · Cancelar y volver a cobrar la primera cuota — CORREGIDA 10/09
-
-**Decision de Carlos, 10/09: un pago anulado NO cuenta como primer pago.** Un cobro
-cancelado es un cobro que no ocurrio; que alguien se equivoque al cargar no cambia
-cuando entro el alumno.
-
-**Estado:** reproducida y corregida por Claude CAB. Pendiente de verificacion en
-navegador. **Diseño:** no se toco ninguna vista.
-
-**Lo que pasaba, reproducido:** al cancelar, el pago queda con estado `ANULADO` y la
-fila se conserva (`cancelarCobroOperativo()`). La decision del descuento preguntaba
-`Pago::where('alumno_id')->exists()` **sin mirar el estado**, en el servicio y en la
-pantalla. Un cobro cancelado le sacaba el descuento de bienvenida para siempre.
-
-Reproducido: alumno de alta el 20/08 que adelanta septiembre, se cancela ese cobro por
-error, y despues se le cobra agosto — su mes de alta. Cobraba **60.000 en vez de
-42.000**.
-
-**Los informes no estaban en desacuerdo: describian casos distintos.** Si el cobro
-cancelado era del propio mes de alta, la deuda ya habia quedado en 42.000 y cancelar no
-restaura el monto original, asi que el segundo cobro daba 42.000 igual — bien, pero por
-accidente, no por decision. Si el cobro cancelado era de otro mes, se perdia el
-descuento. De ahi las dos versiones.
-
-**Correccion:** las dos consultas filtran por `ESTADO_COMPLETADO`.
-
-**Y un segundo defecto que aparecio al corregir el primero:** con el descuento ahora
-habilitado despues de una cancelacion, `precioConDescuento()` tomaba como base el monto
-de la deuda — que podia venir ya descontado del intento anulado — y descontaba dos
-veces: 60.000 a 42.000 a 29.400. La base pasa a ser el precio de lista del plan.
-Lo detecto la prueba de la cancelacion sobre el propio mes de alta, escrita antes de
-tocar codigo justo para eso.
-
-**Barrido:** se reviso donde mas se pregunta por pagos previos.
-`CobranzaEstadoService` y `LiquidacionService` ya filtraban bien. Queda anotado como
-hallazgo lateral `PagoService::103`, que verifica si existe un pago del mes sin filtrar
-estado — vive en el pago de plan mensual, no en el circuito de cuotas.
-
-**Aceptacion:** regla escrita, prueba automatizada y resultado visible coherente.
-Cubierto por `DescuentoPrimerPagoMatrizTest`, que llego a diez casos.
-
-**Tercer defecto, encontrado por Codex CyE antes de la verificacion visual:** la primera
-correccion cambio la base del calculo en el servicio pero dejo intacta la de la pantalla,
-que seguia multiplicando el monto de la deuda por el porcentaje. Con la deuda ya
-descontada de un intento anulado mostraba **29.400 mientras el cobro registraba 42.000**.
-Codex freno sin tocar nada y consulto.
-
-**Correccion de fondo, no del sintoma:** `precioConDescuento()` pasa a ser publico y la
-pantalla lo llama en vez de rehacer la cuenta. **Queda una sola implementacion del
-importe.** Ese reparto —cada lado calculando su version del mismo numero— produjo COB-06,
-COB-07 y este. Cortarlo vale mas que el arreglo puntual.
-
-### COB-05 · Cierre conjunto del circuito de cobro
-
-**VERIFICADA 11/09 sobre e921e5d:** 15 cobros consecutivos en Chrome, con COB-09
-y FIN-02. Suite 161/977. Evidencia: `docs/06-pruebas/COB-05-CIERRE-2026-09-11.md`.
-El freno siguiente es historico y quedo superado por esta verificacion.
-
-**FRENADA 11/09/2026 sobre a9795c6:** subida con 70% anuncia 60.000 y registra
-42.000. Sin correccion por orden de Carlos. Reporte:
-`docs/06-pruebas/COB-05-VERIFICACION-2026-09-11.md`. FIN-02 sigue sin verificar.
-
-- Probar sin descuento, cada tramo de descuento, parcial, varios periodos, cambio de plan,
-  cancelacion y segundo cobro.
-- Verificar importes en deuda, pago, imputaciones, movimiento, recibo y estado de cobranza.
-
-**Aceptacion:** suite completa verde sobre MariaDB y recorrido humano corto sin diferencias.
-
-### COB-06 · La pantalla anunciaba un total distinto del que se cobraba — CORREGIDA 10/09
-
-**Origen:** lo encontro Codex CyE verificando COB-03 por navegador. La pantalla decia
-$38.000 antes de confirmar y el pago quedaba en $29.600. **Corregida por Claude CAB;
-Carlos autorizo el cambio de vista el 10/09.**
-
-**La plata estaba bien.** $29.600 es el importe correcto: $19.600 de agosto con el 70%
-mas $10.000 de septiembre. El que mentia era el numero de la pantalla.
-
-**Eran dos defectos encadenados, los dos en la vista:**
-
-1. `calcularTotal()` sumaba los importes de los campos sin aplicar el descuento, que el
-   servidor recien calcula al confirmar.
-2. Peor: la pantalla ni siquiera anunciaba el descuento. Su guardia exigia que el mes de
-   alta fuera **el mes en curso**, mientras que `PagoCuotaService::calcularReglaPrimerPago()`
-   solo exige que el mes de alta este entre los periodos que se cobran. Alta en agosto
-   cobrando en septiembre: el servidor descontaba y la pantalla no decia nada.
-
-El comentario de `CajaWebController::cobrar()` ya advertia el riesgo textualmente —"si
-esta pantalla mostrara un descuento que el cobro no aplica, el operativo cobraria un
-importe distinto del que le dijo al alumno"— pero la guardia quedo solo en el anuncio y
-con un criterio distinto del real.
-
-**Cual de los dos lados estaba mal:** el de la pantalla. La regla ya estaba decidida y
-cubierta por `test_en_un_pago_de_varios_meses_el_descuento_alcanza_solo_al_mes_de_entrada`,
-que usa exactamente ese caso y espera que agosto lleve el descuento. No hizo falta
-decision de negocio.
-
-**Correccion:** la pantalla pasa a usar el mismo criterio que el servicio —el mes de alta
-tiene que estar entre los periodos ofrecidos— y expone el periodo con descuento y el
-porcentaje para que `calcularTotal()` los aplique. Los importes por periodo siguen
-mostrandose enteros a proposito: es lo que se envia, y el servidor aplica el descuento.
-
-**Regresion:** `DescuentoPrimerPagoSoloDelMesDeAltaTest::test_la_pantalla_anuncia_el_descuento_del_mes_de_alta_aunque_se_cobre_despues`.
-Las cuatro pruebas de la regla que ya existian siguen verdes.
-
-**Pendiente:** que Codex repita la verificacion de COB-03 por navegador sobre la rama
-`cob-total`, y confirme que el numero anunciado coincide con el registrado.
-
-### COB-07 · Al subir de plan la pantalla anunciaba menos de lo que se cobraba — CORREGIDA 10/09
-
-**Origen:** lo encontro Codex CyE verificando COB-02 por navegador. Subiendo de $40.000 a
-$60.000 el plan cambia bien, pero la pantalla anunciaba $40.000 y se registraban $60.000.
-**Corregida por Claude CAB; Carlos autorizo el cambio de vista el 10/09.**
-
-**La plata estaba bien.** El servidor eleva la deuda del mes al precio nuevo y cobra eso
-(`CajaWebController::pagar()`, rama del cambio de plan). El que mentia era el anuncio.
-
-**Causa:** `calcularTotal()` topea cada importe contra `chk.dataset.saldo`, que se
-renderiza con el saldo al abrir la pantalla. El manejador del cambio de plan actualizaba
-el importe sugerido del campo pero **no ese tope**, asi que el total quedaba planchado en
-el precio viejo.
-
-**Tercero de la misma familia.** COB-01 fue el campo de monto contra el servidor; COB-06,
-el descuento; este, el saldo. El patron es siempre el mismo: **la pantalla guarda una
-copia del estado del servidor y no la actualiza cuando algo la cambia.** Antes de dar el
-circuito por cerrado conviene revisar si queda alguna otra copia con la misma forma —
-`data-saldo`, `data-pagado` y `data-precio` son las candidatas.
-
-**Correccion:** `chk.dataset.saldo` se mueve junto con el importe sugerido. Una linea.
-
-**Regresion:** `CambioPlanCobroTest::test_al_cambiar_de_plan_el_tope_del_total_se_mueve_con_el_precio`.
-Verifica la linea, no el comportamiento: el total lo calcula el navegador y la suite corre
-sin JavaScript. **La comparacion real entre lo anunciado y lo registrado solo se puede
-hacer en navegador**, y es lo que queda pendiente.
-
-**Limite conocido, no corregido:** en una bajada de plan con asistencia del mes, el
-servidor deja la deuda en el precio viejo y la pantalla sugiere el nuevo, mas bajo. Los
-dos numeros coinciden entre si —se cobra el mas bajo y el mes queda parcialmente
-impago—, asi que no es el defecto de arriba. Queda anotado por si el recorrido humano lo
-levanta como confuso.
-
-### COB-08 · El descuento se aplicaba a la seña y cerraba el mes — VERIFICADA 10/09
-
-**Origen:** lo encontro Codex CyE verificando COB-02. Plan de $60.000, descuento del 70%,
-seña de $10.000: cobraba **$7.000 y dejaba la deuda entera PAGADA**, sin saldo.
-**Corregida por Claude CAB; Carlos autorizo el cambio de vista el 10/09.**
-
-**Es el peor de la serie.** Los anteriores mentian en pantalla; este pierde plata de
-verdad y cierra el mes, asi que nadie lo vuelve a mirar. En el ejemplo quedaban $35.000
-sin cobrar.
-
-**Causa:** el porcentaje se aplicaba al importe tipeado en vez de al precio del mes.
-`aplicarPorcentajeAItems()` convertia la seña de 10.000 en 7.000, y
-`ajustarDeudaConDescuento()` escribia ese 7.000 como monto original del mes: pagado 7.000
-sobre debido 7.000 da PAGADA.
-
-**Punto ciego de la correccion de COB-03.** Ahi se restringio `ajustarDeudaConDescuento()`
-al periodo correcto pero se le siguio pasando el importe del item, que es lo tipeado por
-el factor. Con pago completo da bien y por eso paso. Se achico el daño sin ver la causa.
-
-**Metodo, a pedido de Carlos:** en vez de corregir el caso reportado se escribio primero
-la matriz completa de casos que pasan por el descuento —
-`DescuentoPrimerPagoMatrizTest`, siete casos por la ruta web real. **Cuatro estaban
-rotos, no uno:** parcial con deuda existente, parcial sin deuda previa, el segundo cobro
-del saldo restante, y el tramo del 40%. Solo funcionaban el pago completo y el caso sin
-descuento.
-
-**Regla que queda fijada:** el descuento baja **el precio del mes**, nunca el importe que
-se entrega. Un alumno que entra el 20 con plan de 60.000 debe 42.000; si entrega 10.000
-quedan 32.000 pendientes.
-
-**Correccion:**
-
-- `precioConDescuento()` calcula el precio del mes ya descontado, tomando como base la
-  deuda si existe o el precio del plan si hay que crearla. Nunca el importe pagado.
-- `limitarAlSaldoConDescuento()` recorta el importe al saldo resultante, para que quien
-  paga la cuota entera no sea rechazado por enviar el precio de lista.
-- `aplicarPorcentajeAItems()` se elimina: era la fuente del defecto.
-- La pantalla muestra el mes de alta **ya descontado** y `calcularTotal()` deja de aplicar
-  el porcentaje. Pantalla y servidor usan ahora el mismo tope, en vez de calcular cada uno
-  su version del mismo numero — que es lo que generaba COB-06 y COB-07.
-
-**Verificacion Codex CyE:** cuatro casos por Chrome sobre d61cf42 correctos:
-deuda existente y virtual conservan saldo 32.000 tras seña 10.000; segundo cobro
-32.000 cancela; tramo 40% conserva 14.000. Campo descontado y carteles comprobados.
-Suite 147 pruebas, 805 aserciones, verde. Reporte en
-docs/06-pruebas/COB-08-VERIFICACION-2026-09-10.md. Sin despliegue.
-
-### COB-09 · Al cambiar de plan con descuento la pantalla anunciaba otro importe — VERIFICADA 11/09
-
-**Origen:** lo encontro Codex CyE en COB-05. Plan de 40.000 a 60.000 en el mes de alta
-con 70%: la pantalla anunciaba **60.000** y deuda, pago, imputacion, caja y PDF
-registraban **42.000**. **Corregida por Claude CAB; Carlos autorizo el cambio de vista.**
-
-**Es un punto ciego de COB-08.** Ahi se afirmo que pantalla y servidor ya no calculaban
-por separado. Se unifico el calculo del servidor, pero el script que reacciona al cambio de
-plan seguia haciendo su propia cuenta —precio de lista menos lo pagado— sin saber del
-descuento ni de la regla que difiere una bajada al mes siguiente. No se habia barrido el
-lado del navegador.
-
-**Leyendo el script viejo, anunciaba mal 5 de 6 combinaciones**, no una: la subida con
-descuento que encontro Codex, la bajada con descuento, las dos bajadas diferidas por
-asistencia, y hasta volver a elegir el plan actual con descuento. Solo acertaba la subida
-sin descuento. Esto sale de leer su codigo; no se ejecuto el script viejo.
-
-**El servidor ya estaba bien en los seis casos.** Solo mentia la pantalla.
-
-**Correccion:**
-
-- `PagoCuotaService::aplicarPorcentaje()` es la unica formula del descuento;
-  `precioConDescuento()` la usa.
-- La regla de la bajada diferida sale de `pagar()` a
-  `CajaWebController::cambioDePlanRigeElMesSiguiente()`, que usan el cobro y la pantalla.
-- La pantalla calcula en el servidor cuanto cuesta el mes con **cada** plan posible y lo
-  deja en `data-precio-mes`. El script lo lee y no hace cuentas.
-
-**Barrido antes de cerrar**, a pedido de Carlos: la regla de bajada y la formula quedaron
-en un solo lugar cada una, y ningun script usa ya el precio de lista. Aparecio un hallazgo
-lateral —`pagos.monto_base` se guarda mal con seña o con varios meses— registrado en
-`ESTADO-ACTUAL.md` y no tocado: nadie lo lee hoy y su significado es una decision.
-
-**Regresion:** `CambioPlanConDescuentoMatrizTest`, seis combinaciones. Cada una abre la
-pantalla, lee el importe anunciado para el plan, lo cobra tal cual y exige que el mes
-quede pago a ese importe. Mas un control de que el script lea el dato del servidor.
-
-**VERIFICADA 11/09 por Codex:** subida y bajada con descuento, con y sin asistencia,
-sobre main e921e5d. Evidencia en COB-05-CIERRE-2026-09-11.md.
+## 2–3. FDS y COB — índice de tareas
+
+Se conservan los estados declarados por los encabezados del corte, sin nueva verificación.
+Para ejecutar una tarea, leer su ID en el [detalle íntegro](../99-archivo/bitacoras/2026-09-12/PLAN-TRABAJO-IA-v2026-09-08.md).
+Allí se conservan completos criterios, límites, autorizaciones y evidencias; no leerlo entero al arrancar.
+El [resumen común](../00-estado/RESUMEN-ARRANQUE.md) identifica diferencias históricas conocidas.
+
+- FDS-01 · Sincerar documentos de estado — CERRADA 08/09
+- FDS-02 · Revalidar servidor y operacion del fin de semana — CERRADA 09/09/2026
+- FDS-03 · Hacer reproducible el estado minimo de entrega — PAUSADA 09/09
+- FDS-04 · Revalidar lo corregido durante la prueba humana — VERIFICADA 11/09/2026
+- COB-01 · Monto con separador de miles — VERIFICADA 10/09
+- COB-02 · Cambio de plan elegido fuera del formulario — VERIFICADA 10/09
+- COB-03 · Parcial de otro periodo durante primer pago con descuento — VERIFICADA 10/09
+- COB-04 · Cancelar y volver a cobrar la primera cuota — CORREGIDA 10/09
+- COB-05 · Cierre conjunto del circuito de cobro
+- COB-06 · La pantalla anunciaba un total distinto del que se cobraba — CORREGIDA 10/09
+- COB-07 · Al subir de plan la pantalla anunciaba menos de lo que se cobraba — CORREGIDA 10/09
+- COB-08 · El descuento se aplicaba a la seña y cerraba el mes — VERIFICADA 10/09
+- COB-09 · Al cambiar de plan con descuento la pantalla anunciaba otro importe — VERIFICADA 11/09
+
+COB-05: VERIFICADA 11/09 sobre e921e5d, según reporte COB-05-CIERRE-2026-09-11.md.
+Criterios de cobro: pantalla, pago, deuda, imputaciones, caja y PDF coherentes;
+rechazos sin escrituras parciales. No sustituye los casos detallados del ID seleccionado.
 
 ## 4. Bloque 2 — integridad financiera e historia
 
 | ID | Tarea | Prioridad | Condicion de cierre |
 |---|---|---:|---|
-| **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` — **NO APLICA 11/09** | — | Ver resultado abajo |
+| **FIN-01** | Evitar que `CatalogosSeeder` desproteja `Cuotas` y `Sueldos` — **NO APLICA 11/09** | — | Ver FIN-01 en el registro íntegro enlazado debajo |
 | **FIN-02** | Vincular recibo al pago exacto, no por texto/fecha/importe — **VERIFICADA 11/09** | Alta | Dos cobros iguales con medios distintos generan recibos correctos |
-| **FIN-03** | Preservar imputaciones visibles al anular — **IMPLEMENTADA 11/09** | Alta | Nuevas anulaciones conservan periodos/importes/motivo y sello; 166/1026 verde, PDF revisado. Pendiente revision cruzada |
+| **FIN-03** | Preservar imputaciones visibles al anular — **VERIFICADA 12/09** | Alta | Revision cruzada hecha por Claude CyE: el detalle se guarda antes de borrar las imputaciones y en la misma transaccion; tres pruebas propias, incluida la que impide inventar periodos en anulaciones viejas. **Falta desplegar la migracion** |
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
-| **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CORREGIDA 11/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso |
+| **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CERRADA 12/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso. La red de seguridad en la base **se descarta**: ver abajo |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
 | **FIN-07** | Cobrar contra condonar simultaneamente | Alta | Locks compartidos; no queda deuda condonada y cobrada a la vez |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
@@ -485,93 +77,37 @@ sobre main e921e5d. Evidencia en COB-05-CIERRE-2026-09-11.md.
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar | Alta | Pruebas con dos conexiones; `MoneyLockingTest` queda descrito como estructural |
 
-### FIN-03 · Resultado — IMPLEMENTADA 11/09
+Detalles y evidencia FIN-01/02/03/05: buscar el ID en el
+[registro íntegro](../99-archivo/bitacoras/2026-09-12/PLAN-TRABAJO-IA-v2026-09-08.md).
+No cambia el orden ni los criterios de la tabla.
 
-FIN-03 (Codex CyE): detalle documental JSON guardado en la transaccion de
-cancelacion, separado de imputaciones activas. Recibo usa esa copia sin cambiar
-vistas ni saldos. Contrato V2 autorizado por Carlos; V1 historica. No recupera
-periodos borrados antes del cambio. Evidencia en LOG-CODEX del 11/09.
-Migracion probada en wings_fin03_20260911; sin deploy.
+### FIN-05 · la red de seguridad en la base se descarta — 12/09
 
-### FIN-05 · Resultado — CORREGIDA 11/09
+Se propuso, y quedo ofrecida a Carlos en `CHECKLIST-CARLOS.md`, una regla unica en
+`cashflow_movimientos` sobre `(referencia_tipo, referencia_id)` para que la base
+rechazara un segundo egreso de la misma liquidacion.
 
-**Ejecuta:** Claude CAB. **Diseño:** no se toco ninguna vista.
+**Esa regla rompe la validacion de cajas. Verificado el 12/09 por Claude CyE.**
 
-**Verificado en codigo antes de tocar:** `LiquidacionPagoService::marcarComoPagada()` corre
-en una transaccion pero **no toma la fila de la liquidacion**. Lee "¿ya esta paga?" y
-"¿ya hay egreso?" sin bloqueo y despues escribe. No hay indice unico que lo frene en la
-base. Dos pedidos a la vez pasan los dos chequeos y cada uno registra su egreso: el sueldo
-sale dos veces del cashflow.
+`CashflowIntegracionCajaService::reflejarCajaEnCashflow()` (linea 53) crea **un asiento
+por cada movimiento operativo** de la caja, y **todos llevan el mismo**
+`referencia_tipo = CAJA_OPERATIVA` **y el mismo** `referencia_id` (el id de la caja).
+Una caja con diez cobros produce diez filas con la misma referencia. Con esa regla,
+**validar cualquier caja con mas de un movimiento fallaria**.
 
-**Correccion de alcance respecto de lo que se le dijo a Carlos:** el caso no es el doble
-clic. `ds-app.js` tiene un anti doble envio global que ya lo frena. Lo que queda abierto es
-lo que la pantalla no puede frenar: **dos pestañas o dos personas**. Menos probable, pero
-el servidor no puede depender del navegador para no descontar dos veces un sueldo.
+La version que si funcionaria tendria que aplicar solo a `LIQUIDACION`. MariaDB no
+admite indices unicos parciales: habria que agregar una columna generada y poner el
+indice sobre ella. Es una migracion estructural sobre la tabla de plata, en la **base
+definitiva**, justo antes de que entren los datos reales.
 
-**Correccion:** `lockForUpdate()` en la primera lectura. El segundo pedido espera, relee y
-ve que ya esta paga.
+**Decision propuesta: no hacerlo.** El bloqueo de `lockForUpdate()` ya resuelve el
+problema real y esta probado con dos conexiones. La red de seguridad cubre un escenario
+hipotetico —que alguien retire el bloqueo— y su costo es tocar la estructura de
+`cashflow_movimientos` en produccion.
 
-**Como se probo, con dos conexiones reales:** `PagoLiquidacionConcurrenteTest`. Una
-segunda conexion toma la fila; el pago no puede registrar el egreso mientras tanto. Se
-eligio medir **si escribe el egreso antes de tener la fila** porque medir "si choca" no
-distingue: sin arreglo tambien choca, pero mas tarde, y deshace todo — la prueba pasaria
-igual. Se confirmo que falla sin el arreglo y pasa con el.
-
-**Un problema de la propia prueba, resuelto:** con `DatabaseTruncation` rompia a otras
-ocho pruebas, porque trunca al empezar y no al terminar y vacia configuraciones. Ahora
-guarda sus datos y borra exactamente lo que creo, directo en la base: el modelo impide
-borrar una liquidacion cerrada, que es la regla que se quiere.
-
-**Barrido:** `recalcularLiquidacion()` tiene el mismo patron y puede cambiar el total de
-una liquidacion ya cerrada. Registrado en `ESTADO-ACTUAL.md` para FIN-11; no se toco.
-
-### FIN-01 · Resultado — NO APLICA 11/09
-
-**Decision de Carlos, 11/09:** ese proceso no se va a correr contra el servidor.
-
-**Verificado que no hay camino automatico que lo corra ahi:**
-
-- `scripts/deploy.sh`, el despliegue real del servidor, **no ejecuta seeders**: hace
-  mantenimiento, `git pull --ff-only`, Composer, build, migraciones, caches, permisos y
-  preflight, con rollback.
-- El unico proceso que corria la carga de catalogos solo era `deploy-wings.bat`, un script
-  de Windows para XAMPP de febrero, anterior a toda la proteccion de rubros. **No puede
-  ejecutarse en el servidor, que es Linux.** Ademas ocultaba el fallo con "puede ser normal
-  si ya habia datos". Se elimino a pedido de Carlos: era la trampa exacta que describe
-  FIN-01, esperando que alguien lo corriera sobre una base local.
-
-**Lo que queda:** `CatalogosSeeder` sigue existiendo porque es la forma documentada de
-armar una base nueva (`migrate --seed`). Correrlo a mano sobre una base con datos sigue
-siendo un error; `CHECKLIST-CARLOS.md` lo advierte.
-
-### FIN-02 · Resultado — VERIFICADA 11/09
-
-**Ejecuta:** Claude CAB. Verificada en navegador por Codex CyE sobre e921e5d;
-recibos de mismo importe/dia con medios distintos y cancelacion/recobro correctos.
-Evidencia: COB-05-CIERRE-2026-09-11.md. **Diseño:** no se toco
-ninguna vista.
-
-**Lo que se afirmaba, revalidado contra el codigo antes de tocarlo:**
-`ReciboService::obtenerTipoCajaPago()` buscaba el movimiento de caja por texto de
-observaciones, importe y fecha, y tomaba el primero. El importe y los periodos del recibo
-nunca estuvieron en riesgo —salen del pago directamente—; **lo que podia mentir era el
-medio de pago**.
-
-**Caso real, ligado al flujo de COB-04:** se cobra en efectivo, se nota que era
-transferencia, se cancela y se vuelve a cobrar el mismo dia por el mismo importe. El
-recibo del cobro vigente tomaba el primer movimiento que coincidia —el cancelado— y decia
-**Efectivo**. Como Wings no tiene arqueo, esa diferencia en la caja no la ve nadie.
-
-**Correccion:** el movimiento se busca por `pago_id`, que se escribe siempre al crearlo.
-
-**Barrido:** es el unico lugar del sistema que buscaba movimientos por texto. No hay otro
-con el mismo patron.
-
-**Regresion:** `ReciboMedioDePagoTest`, tres casos: un cobro simple, dos cobros iguales el
-mismo dia con medios distintos, y cancelar y volver a cobrar por otro medio. Los dos
-ultimos fallaban antes de la correccion.
-
-**Destraba:** ENT-05, el acceso directo al recibo despues de cobrar, dependia de esto.
+Estado al 12/09: cero liquidaciones con mas de un egreso en la base local. Si alguna vez
+se decide hacerlo, el momento es antes de la carga de Vanina: despues, agregar una regla
+a una tabla con plata adentro es mas delicado.
 
 ## 5. Bloque 3 — seguridad, despliegue y recuperacion
 

@@ -1,5 +1,10 @@
 # Wings — Estado actual
 
+> Continuidad reorganizada el 12/09, sin revalidación funcional:
+> [Resumen común](RESUMEN-ARRANQUE.md) · [Protocolo](PROTOCOLO-CONTINUIDAD.md).
+> Logs activos abreviados; originales íntegros en `docs/99-archivo/bitacoras/2026-09-12/`.
+> Leer esta página por sección de tarea, no para reconstruir toda la historia.
+
 > **Actualizado:** 11/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
 > version 2026-09-08.v4.
