@@ -18,6 +18,50 @@ El instructivo requiere datos que no se obtienen copiando la plantilla sin adapt
 También pendiente significado de monto_base y despliegue.
 Las pausas antiguas COB-09/FIN-02 tienen evidencia posterior en el resumen común.
 
+## 2026-09-12 — Claude CyE — verificacion de ENT-04 (Gemini) y SEG-01
+
+### ENT-04 — el reporte de Gemini es exacto
+
+Verificado contra el codigo, no contra el reporte. `0d68f2c`:
+
+| Reportado | Verificado |
+|---|---|
+| Suite 169/1065 | 169 pruebas, 1065 aserciones |
+| CSP sin crecer | `BLOQUES_SCRIPT_PERMITIDOS = 26` y `MANEJADORES_PERMITIDOS = 24`, intactas |
+| JS externo | Delegacion a nivel `document` en `ds-app.js`; cero `onclick`, cero `<script>` nuevo |
+| Un ojo por campo | Dos botones con su propio `data-target` |
+| Los dos tableros | `.md` y `.html`, este ultimo con `checked` |
+| Hook de diseno | `Diseno-autorizado:` presente en el mensaje |
+
+**Lo que el reporte no menciona y era lo unico que podia fallar en silencio:** que ese
+JavaScript llegue a la pantalla. Cadena completa verificada — `app.js` importa
+`./ds-app`, el layout carga `app.js`, y `public/build/assets/*.js` contiene
+`btn-toggle-password`. El boton funciona, no solo existe en el fuente.
+
+**No verificado:** el clic real en navegador. Es de pantalla y le toca a Codex.
+
+Su decision de poner un ojo por campo en lugar de uno compartido es correcta, y el
+motivo que da es bueno: cuando salta "las contraseñas no coinciden" hay que poder ver
+las dos para compararlas.
+
+### SEG-01 — el tablero de Carlos habia quedado atras
+
+Estaba VERIFICADA en el plan desde el 11/09 y **sin tildar** en el HTML, con el texto
+viejo que todavia pedia revisar los once avisos. Verificado antes de tildarlo:
+`npm audit` en cero, `axios` fuera de `package.json` y sin una sola referencia en
+`resources/js/`.
+
+**Es la segunda vez en dos dias que el tablero de Carlos queda atras del plan** — el
+11/09 me paso a mi con FIN-03 y FIN-05, hoy con SEG-01. Comparados los dos tableros
+enteros, SEG-01 era el unico pendiente. FIN-07 la cerro bien en los dos.
+
+Son dos archivos y mantenerlos iguales depende de que cada agente se acuerde. Carlos lo
+detecto las dos veces mirando la pantalla, que es el peor lugar para que aparezca.
+**Propuesta sin aplicar:** una prueba que compare ambos tableros y ponga la suite en
+rojo si divergen, como `DocumentacionNoMienteTest` hace con el numero de pruebas.
+
+---
+
 ## 2026-09-12 — Claude CyE — SEG-04: el preflight corre antes de publicar
 
 **Que pasaba.** `scripts/deploy.sh` corria `artisan up` y **despues**
