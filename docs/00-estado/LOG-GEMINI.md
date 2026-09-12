@@ -10,6 +10,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-12 — LOG GEM CAB — SEG-05 Sanitización de errores en ReciboController
+
+- **Objetivo:** Ocultar excepciones crudas de recibos al usuario final en `ReciboController`, evitando filtrar rutas internas del servidor, trazas o errores de base de datos y registrando el detalle en el log de Laravel.
+- **Cambios reales:**
+  1. En `app/Http/Controllers/ReciboController.php`: Atrapadas `\Throwable $e` y validada la existencia del archivo generado tanto en `cuota()` como en `liquidacion()`.
+  2. Registrado el error técnico con `Log::error()` conteniendo ID del registro, excepción y contexto.
+  3. Respuesta JSON amigable en castellano: `"No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administración."` con HTTP 500.
+  4. Agregada prueba de regresión `tests/Feature/ReciboErrorSanitizadoTest.php` comprobando que no se filtre información interna y que se registre en el log.
+  5. Sincronizados ambos tableros (`PLAN-TRABAJO-IA-v2026-09-08.md` y `PLAN-TRABAJO-CARLOS-v2026-09-08.html` con casilla tildada).
+- **Verificaciones:**
+  - `php -l app/Http/Controllers/ReciboController.php`: sintaxis limpia.
+  - `php artisan test --filter ReciboErrorSanitizadoTest`: 2 passed (14 assertions).
+  - `php artisan test --filter TablerosNoDivergenTest`: 2 passed (9 assertions).
+- **Siguiente paso:** Proceder con ENT-02 (nuevo diseño de recibo de cuota y versión anulada).
+
 ## 2026-09-12 — LOG GEM CAB — ENT-04 Ojo para ver contraseña en usuarios
 
 - **Objetivo:** Implementar botón para ver/ocultar contraseña en alta y edición de usuarios (`resources/views/usuarios/_form.blade.php`), pedido por Carlos el 07/09.

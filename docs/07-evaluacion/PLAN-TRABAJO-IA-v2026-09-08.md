@@ -75,7 +75,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
-| **FIN-11** | Concurrencia real de cobrar/cancelar/validar | Alta | Pruebas con dos conexiones; `MoneyLockingTest` queda descrito como estructural |
+| **FIN-11** | Concurrencia real de cobrar/cancelar/validar — **CIERRE PAUSADO 12/09** | Alta | Seis cruces pasan tras corregir cuatro fallas; MoneyLockingTest descrito como estructural. Suite compartida: cinco fallas en nuevas pruebas SEG; falta verde general y commit. [Evidencia](../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md) |
 
 Detalles y evidencia FIN-01/02/03/05: buscar el ID en el
 [registro íntegro](../99-archivo/bitacoras/2026-09-12/PLAN-TRABAJO-IA-v2026-09-08.md).
@@ -117,7 +117,7 @@ a una tabla con plata adentro es mas delicado.
 | **SEG-02** | Revocar sesiones y `remember_token` al cambiar clave | Alta | Sesion y cookie anteriores dejan de autenticar |
 | **SEG-03** | Unificar minimo de contraseña web/consola | Media | Una regla documentada y pruebas en ambos caminos |
 | **SEG-04** | Ejecutar preflight antes de `artisan up` — **CERRADA 12/09** | Alta | Un preflight fallido nunca publica el release. Prueba propia: `tests/Deployment/deploy_preflight_antes_de_publicar_test.sh`. Dientes comprobados: con el orden viejo la prueba se pone en roja. **Falta desplegar** |
-| **SEG-05** | Ocultar excepciones crudas de recibos | Alta | Usuario ve mensaje util; detalle queda solo en log |
+| **SEG-05** | Ocultar excepciones crudas de recibos — **CERRADA 12/09** | Alta | Usuario ve mensaje util; detalle queda solo en log. Probado en ReciboErrorSanitizadoTest |
 | **SEG-06** | Restauracion integral | Alta | Ensayo aislado repone base, archivos y configuracion y deja Wings utilizable |
 | **SEG-07** | Verificacion fuerte del backup | Alta | Compara contenido financiero e incluye imputaciones, no solo conteos |
 | **SEG-08** | Fallo de copia externa observable | Cerrada 09/09, FDS-02 | Copia fallida alertada y recuperacion Drive comprobada |

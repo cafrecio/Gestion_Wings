@@ -6,6 +6,7 @@ use App\Models\Liquidacion;
 use App\Models\Pago;
 use App\Services\ReciboService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -58,9 +59,14 @@ class ReciboController extends Controller
             $rutaRelativa = $this->reciboService->generarReciboCuota($pagoId, $forceRegenerate);
 
             if (!Storage::exists($rutaRelativa)) {
+                Log::error("Error al generar recibo de cuota: el archivo no fue creado", [
+                    'pago_id' => $pagoId,
+                    'ruta_relativa' => $rutaRelativa,
+                ]);
+
                 return response()->json([
                     'error' => 'Error al generar recibo',
-                    'message' => 'El archivo PDF no pudo ser creado',
+                    'message' => 'No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administración.',
                 ], 500);
             }
 
@@ -78,9 +84,14 @@ class ReciboController extends Controller
                 'Cache-Control' => 'private, max-age=3600',
             ]);
         } catch (\Throwable $e) {
+            Log::error("Error al generar recibo de cuota {$pagoId}: " . $e->getMessage(), [
+                'pago_id' => $pagoId,
+                'exception' => $e,
+            ]);
+
             return response()->json([
                 'error' => 'Error al generar recibo',
-                'message' => $e->getMessage(),
+                'message' => 'No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administración.',
             ], 500);
         }
     }
@@ -125,9 +136,14 @@ class ReciboController extends Controller
             $rutaRelativa = $this->reciboService->generarReciboLiquidacion($liquidacionId, $forceRegenerate);
 
             if (!Storage::exists($rutaRelativa)) {
+                Log::error("Error al generar recibo de liquidación: el archivo no fue creado", [
+                    'liquidacion_id' => $liquidacionId,
+                    'ruta_relativa' => $rutaRelativa,
+                ]);
+
                 return response()->json([
                     'error' => 'Error al generar recibo',
-                    'message' => 'El archivo PDF no pudo ser creado',
+                    'message' => 'No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administración.',
                 ], 500);
             }
 
@@ -145,9 +161,14 @@ class ReciboController extends Controller
                 'Cache-Control' => 'private, max-age=3600',
             ]);
         } catch (\Throwable $e) {
+            Log::error("Error al generar recibo de liquidación {$liquidacionId}: " . $e->getMessage(), [
+                'liquidacion_id' => $liquidacionId,
+                'exception' => $e,
+            ]);
+
             return response()->json([
                 'error' => 'Error al generar recibo',
-                'message' => $e->getMessage(),
+                'message' => 'No se pudo generar el comprobante. Por favor, intentá nuevamente o comunicate con administración.',
             ], 500);
         }
     }
