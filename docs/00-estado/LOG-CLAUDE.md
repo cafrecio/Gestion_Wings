@@ -18,6 +18,31 @@ El instructivo requiere datos que no se obtienen copiando la plantilla sin adapt
 También pendiente significado de monto_base y despliegue.
 Las pausas antiguas COB-09/FIN-02 tienen evidencia posterior en el resumen común.
 
+## 2026-09-12 — Claude CyE — SEG-04: el preflight corre antes de publicar
+
+**Que pasaba.** `scripts/deploy.sh` corria `artisan up` y **despues**
+`wings:preflight`. El sitio se abria al publico y recien entonces se controlaba el
+entorno: un release con `APP_DEBUG=true` quedaba en internet mostrando credenciales de
+base en cada error hasta que el control terminaba y abortaba.
+
+**Cambio:** dos lineas invertidas. El preflight queda despues de `config:cache` —lee la
+misma configuracion que va a usar la aplicacion— y antes de `artisan up`. Un preflight en
+rojo dispara el rollback con el sitio todavia cerrado.
+
+**Prueba propia:** `tests/Deployment/deploy_preflight_antes_de_publicar_test.sh`. Arma
+repositorio y binarios falsos como la de rollback, hace fallar el preflight con codigo 77
+y exige que **no exista ningun `artisan up` con la version nueva**. El `php82` falso
+registra que version habia en el repositorio en cada `up`, que es lo que permite
+distinguir el que publica del que hace el rollback.
+
+**Dientes comprobados:** devuelto el orden viejo, la prueba falla con
+"el sitio se publico con la version nueva pese al preflight en rojo". Restaurado, pasa.
+La prueba de rollback existente sigue pasando. Suite 166/1026.
+
+**Falta desplegar**, como todo lo de esta semana: el servidor sigue en `81f27ef`.
+
+---
+
 ## 2026-09-12 — Claude CyE — FIN-03 verificada y la red de FIN-05 retirada
 
 **Puesta al dia en CyE:** `git pull` a `5e8070e`, `npm install` (audit en cero), migracion

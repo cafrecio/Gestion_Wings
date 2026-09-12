@@ -71,7 +71,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-04** | Definir con Carlos que significa “balance” filtrado | Alta | Contrato define saldo acumulado o resultado del periodo antes de tocar codigo |
 | **FIN-05** | Pago concurrente de liquidacion (AUD-018) — **CERRADA 12/09** | Antes del 25/09 | Dos conexiones reales producen un solo pago y un solo egreso. La red de seguridad en la base **se descarta**: ver abajo |
 | **FIN-06** | Comision historica (AUD-020) | Antes del 25/09 | Cambios posteriores del alumno no alteran liquidacion historica |
-| **FIN-07** | Cobrar contra condonar simultaneamente | Alta | Locks compartidos; no queda deuda condonada y cobrada a la vez |
+| **FIN-07** | Cobrar contra condonar simultaneamente — **PAUSADA 12/09** | Alta | Antes de implementar, Carlos define condonación tras pago parcial: perdonar saldo o rechazar. Luego locks compartidos y prueba real; sin cierre todavía |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
@@ -116,7 +116,7 @@ a una tabla con plata adentro es mas delicado.
 | **SEG-01** | Retirar Axios y actualizar dependencias — VERIFICADA 11/09 | Alta | Audit cero, build y 154 pruebas/920 aserciones; cobros Chrome correctos. Ver SEG-01-REVISION-2026-09-11.md. Sin deploy |
 | **SEG-02** | Revocar sesiones y `remember_token` al cambiar clave | Alta | Sesion y cookie anteriores dejan de autenticar |
 | **SEG-03** | Unificar minimo de contraseña web/consola | Media | Una regla documentada y pruebas en ambos caminos |
-| **SEG-04** | Ejecutar preflight antes de `artisan up` | Alta | Un preflight fallido nunca publica el release |
+| **SEG-04** | Ejecutar preflight antes de `artisan up` — **CERRADA 12/09** | Alta | Un preflight fallido nunca publica el release. Prueba propia: `tests/Deployment/deploy_preflight_antes_de_publicar_test.sh`. Dientes comprobados: con el orden viejo la prueba se pone en roja. **Falta desplegar** |
 | **SEG-05** | Ocultar excepciones crudas de recibos | Alta | Usuario ve mensaje util; detalle queda solo en log |
 | **SEG-06** | Restauracion integral | Alta | Ensayo aislado repone base, archivos y configuracion y deja Wings utilizable |
 | **SEG-07** | Verificacion fuerte del backup | Alta | Compara contenido financiero e incluye imputaciones, no solo conteos |

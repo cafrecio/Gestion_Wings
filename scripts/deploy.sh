@@ -217,8 +217,16 @@ run_step "cachear configuración" "$PHP_BIN" artisan config:cache
 run_step "cachear rutas" "$PHP_BIN" artisan route:cache
 run_step "cachear vistas" "$PHP_BIN" artisan view:cache
 run_step "fijar permisos" apply_permissions
-run_step "salir de mantenimiento" "$PHP_BIN" artisan up
+
+# El preflight va ANTES de abrir el sitio. Estaba despues: se sacaba el mantenimiento
+# y recien entonces se controlaba el entorno, asi que un release con APP_DEBUG=true
+# quedaba publico mostrando credenciales de base en cada error hasta que el control
+# terminaba. Ahora un preflight en rojo dispara el rollback con el sitio todavia cerrado
+# y nunca se publica lo que no paso el control.
+# Corre despues de config:cache a proposito: lee la misma configuracion que va a usar
+# la aplicacion, no la del archivo suelto.
 run_step "verificar producción" "$PHP_BIN" artisan wings:preflight
+run_step "salir de mantenimiento" "$PHP_BIN" artisan up
 
 DEPLOY_FINISHED=1
 trap - EXIT INT TERM
