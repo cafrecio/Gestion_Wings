@@ -7,11 +7,26 @@ use App\Models\User;
 use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 
 class UsuarioWebController extends Controller
 {
+    /**
+     * Minimo de caracteres para cualquier contraseña de Wings.
+     *
+     * Era 8 por pantalla y 12 por consola: la regla mas fuerte estaba en el camino que
+     * casi no se usa, asi que un ADMIN creado desde `/usuarios/create` podia quedar con
+     * `12345678`. Se unifica en 12, el valor que ya exigia `wings:crear-admin`.
+     *
+     * Si este numero cambia, tiene que cambiar tambien en `CrearAdminCommand` y en
+     * `_form.blade.php` (atributos `minlength` y el texto del placeholder).
+     * `ContrasenaMinimoUnificadoTest` pone la suite en rojo si se separan.
+     */
+    public const MINIMO_CONTRASENA = 12;
+
     public function index()
     {
         $usuarios = User::with('profesor')
@@ -34,7 +49,9 @@ class UsuarioWebController extends Controller
             ->orderBy('apellido')
             ->get();
 
-        return view('usuarios.create', compact('roles', 'profesoresSinUsuario'));
+        $minimoContrasena = self::MINIMO_CONTRASENA;
+
+        return view('usuarios.create', compact('roles', 'profesoresSinUsuario', 'minimoContrasena'));
     }
 
     public function store(Request $request)
@@ -42,7 +59,7 @@ class UsuarioWebController extends Controller
         $rules = [
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
-            'password' => ['required', 'confirmed', Password::min(8)],
+            'password' => ['required', 'confirmed', Password::min(self::MINIMO_CONTRASENA)],
             'rol'      => 'required|in:ADMIN,OPERATIVO,PROFESOR',
         ];
 
@@ -106,7 +123,9 @@ class UsuarioWebController extends Controller
             ->orderBy('apellido')
             ->get();
 
-        return view('usuarios.edit', compact('usuario', 'roles', 'profesoresSinUsuario'));
+        $minimoContrasena = self::MINIMO_CONTRASENA;
+
+        return view('usuarios.edit', compact('usuario', 'roles', 'profesoresSinUsuario', 'minimoContrasena'));
     }
 
     public function update(Request $request, int $id)
@@ -154,13 +173,21 @@ class UsuarioWebController extends Controller
         $usuario->rol         = $request->rol;
         $usuario->profesor_id = $profesorId;
 
-        if ($request->filled('password')) {
+        $cambioLaClave = $request->filled('password');
+
+        if ($cambioLaClave) {
             $request->validate([
-                'password' => ['confirmed', Password::min(8)],
+                'password' => ['confirmed', Password::min(self::MINIMO_CONTRASENA)],
             ], [
                 'password.confirmed' => 'Las contraseñas no coinciden.',
             ]);
             $usuario->password = Hash::make($request->password);
+
+            // Una clave se cambia justamente cuando se filtró o la tiene quien ya no
+            // debería. Sin esto, cambiarla no echaba a nadie: la sesión abierta seguía
+            // viva y, si había tildado "Recordarme", su cookie lo volvía a autenticar
+            // durante cinco años con una contraseña que ya no existe.
+            $this->revocarAccesosAnteriores($request, $usuario);
         }
 
         $usuario->save();
@@ -210,6 +237,28 @@ class UsuarioWebController extends Controller
             ->exists();
 
         return response()->json(['disponible' => !$existe]);
+    }
+
+    /**
+     * Deja sin efecto todo acceso obtenido con la contraseña anterior.
+     *
+     * Dos puertas, no una: la sesion abierta (guardada en la tabla `sessions`, porque
+     * `SESSION_DRIVER=database`) y la cookie de "Recordarme", que Laravel valida contra
+     * `remember_token` y cuyo vencimiento por defecto son cinco años.
+     *
+     * Si el usuario se cambia la clave a si mismo, se lo vuelve a autenticar con una
+     * sesion nueva: seria absurdo echarlo por cambiar su propia contraseña.
+     */
+    private function revocarAccesosAnteriores(Request $request, User $usuario): void
+    {
+        DB::table('sessions')->where('user_id', $usuario->id)->delete();
+
+        $usuario->setRememberToken(Str::random(60));
+
+        if (Auth::id() === $usuario->id) {
+            $request->session()->regenerate();
+            Auth::login($usuario);
+        }
     }
 
     private function autorizarCuentaProtegida(User $usuario): void

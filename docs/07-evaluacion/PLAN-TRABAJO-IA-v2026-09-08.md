@@ -114,8 +114,8 @@ a una tabla con plata adentro es mas delicado.
 | ID | Tarea | Prioridad | Condicion de cierre |
 |---|---|---:|---|
 | **SEG-01** | Retirar Axios y actualizar dependencias — VERIFICADA 11/09 | Alta | Audit cero, build y 154 pruebas/920 aserciones; cobros Chrome correctos. Ver SEG-01-REVISION-2026-09-11.md. Sin deploy |
-| **SEG-02** | Revocar sesiones y `remember_token` al cambiar clave | Alta | Sesion y cookie anteriores dejan de autenticar |
-| **SEG-03** | Unificar minimo de contraseña web/consola | Media | Una regla documentada y pruebas en ambos caminos |
+| **SEG-02** | Revocar sesiones y `remember_token` al cambiar clave — **CERRADA 12/09** | Alta | Se borran las filas de `sessions` del usuario y se rota su `remember_token`; quien se cambia la clave a si mismo sigue autenticado con sesion nueva. Dientes: sin la revocacion, las dos pruebas que la cubren se ponen en rojo y las otras seis siguen verdes. **Falta desplegar** |
+| **SEG-03** | Unificar minimo de contraseña web/consola — **CERRADA 12/09** | Media | Unificado en 12 en `UsuarioWebController::MINIMO_CONTRASENA`; consola y vista lo toman de ahi. Ademas de la coherencia se fija el piso: `test_el_minimo_no_baja_de_doce`, porque las pruebas escritas contra la constante pasaban con cualquier valor. **Falta desplegar** |
 | **SEG-04** | Ejecutar preflight antes de `artisan up` — **CERRADA 12/09** | Alta | Un preflight fallido nunca publica el release. Prueba propia: `tests/Deployment/deploy_preflight_antes_de_publicar_test.sh`. Dientes comprobados: con el orden viejo la prueba se pone en roja. **Falta desplegar** |
 | **SEG-05** | Ocultar excepciones crudas de recibos — **CERRADA 12/09** | Alta | Usuario ve mensaje util; detalle queda solo en log. Probado en ReciboErrorSanitizadoTest |
 | **SEG-06** | Restauracion integral | Alta | Ensayo aislado repone base, archivos y configuracion y deja Wings utilizable |

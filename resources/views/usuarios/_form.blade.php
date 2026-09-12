@@ -47,10 +47,10 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
         <div style="position:relative;">
             <input type="password" id="password" name="password"
                    {{ !isset($usuario) ? 'required' : '' }}
-                   minlength="8" tabindex="3"
+                   minlength="{{ $minimoContrasena }}" tabindex="3"
                    class="w-full px-4 py-2.5 text-sm wings-input"
                    style="padding-right: 2.75rem;"
-                   placeholder="{{ isset($usuario) ? 'Dejar en blanco para no cambiar' : 'Mínimo 8 caracteres' }}">
+                   placeholder="{{ isset($usuario) ? 'Dejar en blanco para no cambiar' : 'Mínimo ' . $minimoContrasena . ' caracteres' }}">
             <button type="button" class="btn-toggle-password" data-target="password" aria-label="Mostrar contraseña"
                     style="position:absolute; right:0.6rem; top:50%; transform:translateY(-50%);
                            background:none; border:none; cursor:pointer; padding:6px;
@@ -76,7 +76,7 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
         <div style="position:relative;">
             <input type="password" id="password_confirmation" name="password_confirmation"
                    {{ !isset($usuario) ? 'required' : '' }}
-                   minlength="8" tabindex="4"
+                   minlength="{{ $minimoContrasena }}" tabindex="4"
                    class="w-full px-4 py-2.5 text-sm wings-input"
                    style="padding-right: 2.75rem;"
                    placeholder="Repetir contraseña">

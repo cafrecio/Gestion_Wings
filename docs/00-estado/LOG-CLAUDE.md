@@ -18,6 +18,57 @@ El instructivo requiere datos que no se obtienen copiando la plantilla sin adapt
 También pendiente significado de monto_base y despliegue.
 Las pausas antiguas COB-09/FIN-02 tienen evidencia posterior en el resumen común.
 
+## 2026-09-12 — Claude CyE — SEG-02 y SEG-03
+
+### SEG-02 · cambiar la contraseña revoca lo anterior
+
+Una clave se cambia justamente cuando se filtro o la tiene quien ya no deberia. Antes,
+cambiarla **no echaba a nadie**: la sesion abierta seguia viva —`SESSION_DRIVER=database`,
+las filas estan en `sessions`— y si la persona habia tildado "Recordarme", su cookie lo
+volvia a autenticar **cinco años** con una contraseña que ya no existe.
+
+Se revocan las dos puertas: se borran las filas de `sessions` de ese usuario y se rota su
+`remember_token`. Si alguien se cambia la clave a si mismo, se lo vuelve a autenticar con
+sesion nueva — seria absurdo echarlo por cambiar su propia contraseña.
+
+Desactivar la cuenta y bajarle el rol ya funcionaban; el agujero era especifico del cambio
+de contraseña.
+
+### SEG-03 · un solo minimo de contraseña
+
+Era **8 por pantalla y 12 por consola**: la regla mas fuerte estaba en el camino que casi
+no se usa, asi que un ADMIN creado desde `/usuarios/create` podia quedar con `12345678`.
+Unificado en **12** en `UsuarioWebController::MINIMO_CONTRASENA`; `CrearAdminCommand` y
+`_form.blade.php` lo toman de ahi, no repiten el numero.
+
+### Pruebas — 8, con dientes comprobados
+
+Quitada la revocacion, las **dos** que cubren SEG-02 se ponen en rojo y las otras seis
+siguen verdes: no es un `abort` general.
+
+**Correccion propia durante el trabajo:** las dos pruebas del minimo estaban escritas
+contra la constante, asi que verificaban coherencia y **no el valor** — con el minimo en
+4 tambien pasaban. Se agrego `test_el_minimo_no_baja_de_doce`, que fija el piso.
+
+**Error de la primera version:** usaban un OPERATIVO sin crear el rubro `Sueldos`, y el
+update moria antes de llegar a lo que se probaba. El helper lo crea.
+
+### Lo que rompi, y por que no importa
+
+Corri `migrate:fresh --env=testing` creyendo que apuntaba a la base de pruebas.
+**En este proyecto ese parametro no apunta ahi:** no existe `.env.testing`, asi que
+Laravel uso el `.env` normal, que apunta a `wings_test`. Se perdieron los 60 alumnos, las
+95 deudas y los 60 pagos de apertura de la base **local**.
+
+El servidor no se toco. Carlos confirmo que eran datos de prueba y que la prueba humana
+se rehace maniana, asi que no se reconstruye.
+
+**Para que no vuelva a pasar:** el nombre de la base de pruebas vive **solo** en
+`phpunit.xml`, que aplica cuando corre PHPUnit y no cuando se ejecuta artisan a mano. La
+forma segura es `DB_DATABASE=wings_testing php artisan ...`, explicita.
+
+---
+
 ## 2026-09-12 — Claude CyE — los dos tableros ya no pueden divergir
 
 Decision de Carlos: el indice y el avance tienen que ser identicos en los dos tableros;

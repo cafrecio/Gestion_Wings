@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\UsuarioWebController;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
@@ -33,9 +34,12 @@ class CrearAdminCommand extends Command
             return self::FAILURE;
         }
 
-        $password = (string) $this->secret('Contraseña (mínimo 12 caracteres)');
-        if (mb_strlen($password) < 12) {
-            $this->error('La contraseña debe tener al menos 12 caracteres.');
+        // El minimo sale de un solo lugar para que consola y pantalla no se separen.
+        $minimo = UsuarioWebController::MINIMO_CONTRASENA;
+
+        $password = (string) $this->secret("Contraseña (mínimo {$minimo} caracteres)");
+        if (mb_strlen($password) < $minimo) {
+            $this->error("La contraseña debe tener al menos {$minimo} caracteres.");
             return self::FAILURE;
         }
 
