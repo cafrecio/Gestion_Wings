@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Favicon Patín Artístico — Wings (ENT-03)</title>
-    <link id="dynamic-favicon" rel="icon" type="image/png" href="favicon-patin/p1-patin-fucsia-cuadrado-32.png">
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="favicon-zoom/zoom-95-maximo-32.png">
     <style>
         :root {
-            --bg-page: #0B0F19;
-            --card-bg: #131B2E;
+            --bg-page: #080C14;
+            --card-bg: #0F172A;
             --card-border: #1E293B;
             --fucsia: #FF1493;
             --violeta: #8B5CF6;
+            --cian: #06B6D4;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
         }
@@ -43,15 +44,15 @@
 
         .badge {
             display: inline-block;
-            background: rgba(255, 20, 147, 0.15);
-            color: #FF69B4;
+            background: rgba(6, 182, 212, 0.15);
+            color: #38BDF8;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             padding: 4px 12px;
             border-radius: 999px;
-            border: 1px solid rgba(255, 20, 147, 0.35);
+            border: 1px solid rgba(6, 182, 212, 0.35);
             margin-bottom: 10px;
         }
 
@@ -68,8 +69,8 @@
         }
 
         .alert-box {
-            background: rgba(19, 27, 46, 0.85);
-            border-left: 4px solid var(--fucsia);
+            background: rgba(15, 23, 42, 0.9);
+            border-left: 4px solid var(--cian);
             padding: 14px 18px;
             border-radius: 6px;
             margin-top: 15px;
@@ -79,41 +80,41 @@
 
         .grid-variants {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 26px;
             margin-top: 25px;
         }
 
         .card-variant {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 22px;
+            border-radius: 14px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             transition: transform 0.15s ease, border-color 0.15s ease;
         }
 
         .card-variant:hover {
-            border-color: #334155;
+            border-color: #38BDF8;
             transform: translateY(-2px);
         }
 
         .card-variant.highlight {
-            border-color: rgba(255, 20, 147, 0.6);
-            background: linear-gradient(180deg, rgba(255, 20, 147, 0.06) 0%, var(--card-bg) 100%);
+            border-color: rgba(6, 182, 212, 0.6);
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.06) 0%, var(--card-bg) 100%);
         }
 
         .variant-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .variant-title {
-            font-size: 16.5px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
         }
 
         .tag {
@@ -124,47 +125,48 @@
             color: #94A3B8;
         }
 
-        .tag-pink {
-            background: rgba(255, 20, 147, 0.2);
-            color: #FF69B4;
+        .tag-cyan {
+            background: rgba(6, 182, 212, 0.2);
+            color: #38BDF8;
             font-weight: 600;
         }
 
         .preview-hero {
-            background: #070B14;
+            background: #050811;
             border: 1px solid #1E293B;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 16px;
-            min-height: 160px;
+            margin-bottom: 18px;
+            min-height: 220px;
         }
 
         .preview-hero img {
-            width: 110px;
-            height: 110px;
+            width: 170px;
+            height: 170px;
+            border-radius: 16px;
             object-fit: contain;
-            filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
         }
 
         .sizes-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(8, 12, 20, 0.7);
             border: 1px solid #1E293B;
             border-radius: 8px;
-            padding: 10px 14px;
-            margin-bottom: 16px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
         }
 
         .size-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .size-label {
@@ -174,20 +176,20 @@
         }
 
         .desc {
-            font-size: 13.5px;
+            font-size: 14px;
             color: #CBD5E1;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             flex-grow: 1;
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
         .btn-test {
             background: #1E293B;
             color: #fff;
             border: 1px solid #334155;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-size: 13.5px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
@@ -198,22 +200,25 @@
         }
 
         .btn-test:hover {
-            background: var(--fucsia);
-            border-color: var(--fucsia);
+            background: var(--cian);
+            border-color: var(--cian);
+            color: #000;
         }
 
         .btn-test-primary {
-            background: linear-gradient(135deg, #FF1493 0%, #7928CA 100%);
+            background: linear-gradient(135deg, #06B6D4 0%, #FF1493 100%);
             border: none;
+            color: #FFFFFF;
         }
 
         .btn-test-primary:hover {
-            opacity: 0.9;
+            opacity: 0.92;
+            color: #fff;
         }
 
         /* Simulator */
         .section-sim {
-            margin-top: 40px;
+            margin-top: 45px;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
@@ -357,190 +362,163 @@
 <div class="container">
 
     <header>
-        <div class="badge">ENT-03 · Identidad Patín Artístico</div>
-        <h1>Favicon Wings: Identidad Real de Patín Artístico</h1>
+        <div class="badge">ENT-03 · Patín Alado con Superficie Maximizada</div>
+        <h1>Favicon Wings: Opción 1 (Agrandada / Más Superficie)</h1>
         <p class="subtitle">
-            Dejamos atrás las letras rígidas y los colores rojo/negro/blanco. Diseñado con la identidad genuina del patinaje sobre ruedas: la <strong>bota tradicional de 4 ruedas con freno</strong> y colores vivos deportivos (fucsia, violeta, turquesa).
+            Agrandamos el patín y las alas de la <strong>Opción 1</strong> para que ocupen entre el <strong>90% y el 98% de la superficie</strong> del ícono (antes ocupaban solo el 63%). Ahora en 16px y 32px se distingue cada detalle: bota blanca con taco, cordones, alas fucsia/cian, ruedas oscuras y freno.
         </p>
         <div class="alert-box">
-            ⛸️ <strong>Probá en tu pestaña:</strong> Hacé clic en <em>"⚡ Probar en mi pestaña"</em> en cualquiera de las opciones para ver cómo se ve el patín real en tu navegador ahora mismo.
+            ⚡ <strong>Probá en vivo en tu pestaña:</strong> Hacé clic en los botones <em>"⚡ Probar en mi pestaña"</em> para ver cómo se ve arriba en tu navegador real.
         </div>
     </header>
 
     <div class="grid-variants">
 
-        <!-- Opción P1 -->
+        <!-- Opción Recomendada: Zoom 95% Máximo -->
         <div class="card-variant highlight">
             <div class="variant-header">
-                <div class="variant-title">Opción 1: Patín Artístico Fucsia-Violeta</div>
-                <span class="tag tag-pink">Recomendada</span>
+                <div class="variant-title">Opción 1 — Zoom Máximo (95% Superficie)</div>
+                <span class="tag tag-cyan">★ Recomendada</span>
             </div>
             <div class="preview-hero">
-                <img src="favicon-patin/p1-patin-fucsia-cuadrado-512.png" alt="Patín Fucsia Cuadrado">
+                <img src="favicon-zoom/zoom-95-maximo-512.png" alt="Zoom 95% Máximo">
             </div>
             <div class="sizes-row">
                 <div class="size-item">
-                    <img src="favicon-patin/p1-patin-fucsia-cuadrado-16.png" width="16" height="16" alt="16px">
+                    <img src="favicon-zoom/zoom-95-maximo-16.png" width="16" height="16" alt="16px">
                     <span class="size-label">16px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p1-patin-fucsia-cuadrado-24.png" width="24" height="24" alt="24px">
+                    <img src="favicon-zoom/zoom-95-maximo-24.png" width="24" height="24" alt="24px">
                     <span class="size-label">24px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p1-patin-fucsia-cuadrado-32.png" width="32" height="32" alt="32px">
+                    <img src="favicon-zoom/zoom-95-maximo-32.png" width="32" height="32" alt="32px">
                     <span class="size-label">32px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p1-patin-fucsia-cuadrado-48.png" width="48" height="48" alt="48px">
+                    <img src="favicon-zoom/zoom-95-maximo-48.png" width="48" height="48" alt="48px">
                     <span class="size-label">48px</span>
+                </div>
+                <div class="size-item">
+                    <img src="favicon-zoom/zoom-95-maximo-64.png" width="64" height="64" alt="64px">
+                    <span class="size-label">64px</span>
                 </div>
             </div>
             <p class="desc">
-                Bota clásica de patinaje artístico con taco, plancha, 4 ruedas y freno delantero. Fondo degradé de <strong>Fucsia a Violeta</strong> (los colores de maillot y tokens de patín). Inconfundible: cualquiera que lo mire sabe que es patín.
+                <strong>+35% más grande que la anterior.</strong> Aprovecha toda la superficie del cuadrado dejando un margen de seguridad milimétrico para que las puntas de las alas y las ruedas nunca se corten en navegadores con esquinas redondeadas.
             </p>
-            <button class="btn-test btn-test-primary" onclick="setLiveFavicon('favicon-patin/p1-patin-fucsia-cuadrado-32.png', 'Opción 1: Patín Fucsia')">
-                ⚡ Probar en mi pestaña (Opción 1)
+            <button class="btn-test btn-test-primary" onclick="setLiveFavicon('favicon-zoom/zoom-95-maximo-32.png', 'Zoom Máximo 95%')">
+                ⚡ Probar en mi pestaña (Recomendado 95%)
             </button>
         </div>
 
-        <!-- Opción P2 -->
+        <!-- Opción Zoom Ultra 98% -->
         <div class="card-variant">
             <div class="variant-header">
-                <div class="variant-title">Opción 2: Patín Circular Fucsia-Violeta</div>
-                <span class="tag">Emblema Circular</span>
+                <div class="variant-title">Opción 1 — Zoom Ultra (98% Superficie)</div>
+                <span class="tag">Tamaño Extremo</span>
             </div>
             <div class="preview-hero">
-                <img src="favicon-patin/p2-patin-fucsia-circular-512.png" alt="Patín Fucsia Circular">
+                <img src="favicon-zoom/zoom-98-ultra-512.png" alt="Zoom 98% Ultra">
             </div>
             <div class="sizes-row">
                 <div class="size-item">
-                    <img src="favicon-patin/p2-patin-fucsia-circular-16.png" width="16" height="16" alt="16px">
+                    <img src="favicon-zoom/zoom-98-ultra-16.png" width="16" height="16" alt="16px">
                     <span class="size-label">16px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p2-patin-fucsia-circular-24.png" width="24" height="24" alt="24px">
+                    <img src="favicon-zoom/zoom-98-ultra-24.png" width="24" height="24" alt="24px">
                     <span class="size-label">24px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p2-patin-fucsia-circular-32.png" width="32" height="32" alt="32px">
+                    <img src="favicon-zoom/zoom-98-ultra-32.png" width="32" height="32" alt="32px">
                     <span class="size-label">32px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p2-patin-fucsia-circular-48.png" width="48" height="48" alt="48px">
+                    <img src="favicon-zoom/zoom-98-ultra-48.png" width="48" height="48" alt="48px">
                     <span class="size-label">48px</span>
+                </div>
+                <div class="size-item">
+                    <img src="favicon-zoom/zoom-98-ultra-64.png" width="64" height="64" alt="64px">
+                    <span class="size-label">64px</span>
                 </div>
             </div>
             <p class="desc">
-                El mismo patín artístico sobre un <strong>disco circular</strong> en degradé fucsia a violeta. Formato redondeado ideal para perfiles y aplicaciones web deportivas.
+                <strong>+42% más grande.</strong> Llega literalmente a los bordes de la imagen. En 16px es la silueta más grande posible, con un impacto visual muy contundente.
             </p>
-            <button class="btn-test" onclick="setLiveFavicon('favicon-patin/p2-patin-fucsia-circular-32.png', 'Opción 2: Patín Circular')">
-                ⚡ Probar en mi pestaña (Opción 2)
+            <button class="btn-test" onclick="setLiveFavicon('favicon-zoom/zoom-98-ultra-32.png', 'Zoom Ultra 98%')">
+                ⚡ Probar en mi pestaña (Ultra 98%)
             </button>
         </div>
 
-        <!-- Opción P3 -->
+        <!-- Opción Zoom Balanceado 90% -->
         <div class="card-variant">
             <div class="variant-header">
-                <div class="variant-title">Opción 3: Patín Turquesa / Océano</div>
-                <span class="tag">Fresco / Deportivo</span>
+                <div class="variant-title">Opción 1 — Zoom Balanceado (90% Superficie)</div>
+                <span class="tag">Con Más Aire</span>
             </div>
             <div class="preview-hero">
-                <img src="favicon-patin/p3-patin-turquesa-circular-512.png" alt="Patín Turquesa">
+                <img src="favicon-zoom/zoom-90-balanceado-512.png" alt="Zoom 90% Balanceado">
             </div>
             <div class="sizes-row">
                 <div class="size-item">
-                    <img src="favicon-patin/p3-patin-turquesa-circular-16.png" width="16" height="16" alt="16px">
+                    <img src="favicon-zoom/zoom-90-balanceado-16.png" width="16" height="16" alt="16px">
                     <span class="size-label">16px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p3-patin-turquesa-circular-24.png" width="24" height="24" alt="24px">
+                    <img src="favicon-zoom/zoom-90-balanceado-24.png" width="24" height="24" alt="24px">
                     <span class="size-label">24px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p3-patin-turquesa-circular-32.png" width="32" height="32" alt="32px">
+                    <img src="favicon-zoom/zoom-90-balanceado-32.png" width="32" height="32" alt="32px">
                     <span class="size-label">32px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p3-patin-turquesa-circular-48.png" width="48" height="48" alt="48px">
+                    <img src="favicon-zoom/zoom-90-balanceado-48.png" width="48" height="48" alt="48px">
                     <span class="size-label">48px</span>
+                </div>
+                <div class="size-item">
+                    <img src="favicon-zoom/zoom-90-balanceado-64.png" width="64" height="64" alt="64px">
+                    <span class="size-label">64px</span>
                 </div>
             </div>
             <p class="desc">
-                Bota de patín en blanco sobre fondo <strong>turquesa / azul cian</strong>. Colores frescos y modernos que contrastan con fuerza y elegancia tanto en fondos claros como oscuros.
+                <strong>+25% más grande que la original.</strong> Para quien prefiere un poco más de margen y respiración alrededor de las alas y de las ruedas.
             </p>
-            <button class="btn-test" onclick="setLiveFavicon('favicon-patin/p3-patin-turquesa-circular-32.png', 'Opción 3: Patín Turquesa')">
-                ⚡ Probar en mi pestaña (Opción 3)
+            <button class="btn-test" onclick="setLiveFavicon('favicon-zoom/zoom-90-balanceado-32.png', 'Zoom Balanceado 90%')">
+                ⚡ Probar en mi pestaña (Balanceado 90%)
             </button>
         </div>
 
-        <!-- Opción P4 -->
-        <div class="card-variant">
+        <!-- Anterior para comparar -->
+        <div class="card-variant" style="opacity: 0.75;">
             <div class="variant-header">
-                <div class="variant-title">Opción 4: Patín Alado ("Wings")</div>
-                <span class="tag">Patín + Alas</span>
+                <div class="variant-title">Versión Anterior (Sin agrandar - 63%)</div>
+                <span class="tag">Anterior</span>
             </div>
             <div class="preview-hero">
-                <img src="favicon-patin/p4-patin-alado-fucsia-512.png" alt="Patín Alado">
+                <img src="favicon-ai/claro1-patin-ice-512.png" alt="Opción 1 Anterior sin zoom">
             </div>
             <div class="sizes-row">
                 <div class="size-item">
-                    <img src="favicon-patin/p4-patin-alado-fucsia-16.png" width="16" height="16" alt="16px">
+                    <img src="favicon-ai/claro1-patin-ice-16.png" width="16" height="16" alt="16px">
                     <span class="size-label">16px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p4-patin-alado-fucsia-24.png" width="24" height="24" alt="24px">
-                    <span class="size-label">24px</span>
-                </div>
-                <div class="size-item">
-                    <img src="favicon-patin/p4-patin-alado-fucsia-32.png" width="32" height="32" alt="32px">
+                    <img src="favicon-ai/claro1-patin-ice-32.png" width="32" height="32" alt="32px">
                     <span class="size-label">32px</span>
                 </div>
                 <div class="size-item">
-                    <img src="favicon-patin/p4-patin-alado-fucsia-48.png" width="48" height="48" alt="48px">
+                    <img src="favicon-ai/claro1-patin-ice-48.png" width="48" height="48" alt="48px">
                     <span class="size-label">48px</span>
                 </div>
             </div>
             <p class="desc">
-                La bota tradicional de patín artístico combinada con una <strong>pequeña ala deportiva en el tobillo</strong>. Une directamente el patinaje con el nombre del club (Wings).
+                La versión antes de agrandar. La dejamos acá para que puedas alternar y ver claramente la ganancia de presencia y definición al agrandarlo.
             </p>
-            <button class="btn-test" onclick="setLiveFavicon('favicon-patin/p4-patin-alado-fucsia-32.png', 'Opción 4: Patín Alado')">
-                ⚡ Probar en mi pestaña (Opción 4)
-            </button>
-        </div>
-
-        <!-- Opción P5 -->
-        <div class="card-variant">
-            <div class="variant-header">
-                <div class="variant-title">Opción 5: Patín Violeta Intenso</div>
-                <span class="tag">Elegante</span>
-            </div>
-            <div class="preview-hero">
-                <img src="favicon-patin/p5-patin-violeta-circular-512.png" alt="Patín Violeta">
-            </div>
-            <div class="sizes-row">
-                <div class="size-item">
-                    <img src="favicon-patin/p5-patin-violeta-circular-16.png" width="16" height="16" alt="16px">
-                    <span class="size-label">16px</span>
-                </div>
-                <div class="size-item">
-                    <img src="favicon-patin/p5-patin-violeta-circular-24.png" width="24" height="24" alt="24px">
-                    <span class="size-label">24px</span>
-                </div>
-                <div class="size-item">
-                    <img src="favicon-patin/p5-patin-violeta-circular-32.png" width="32" height="32" alt="32px">
-                    <span class="size-label">32px</span>
-                </div>
-                <div class="size-item">
-                    <img src="favicon-patin/p5-patin-violeta-circular-48.png" width="48" height="48" alt="48px">
-                    <span class="size-label">48px</span>
-                </div>
-            </div>
-            <p class="desc">
-                Bota de patín artístico sobre un disco en <strong>violeta / púrpura profundo</strong>. Muy estético, con excelente contraste en pantallas claras y oscuras.
-            </p>
-            <button class="btn-test" onclick="setLiveFavicon('favicon-patin/p5-patin-violeta-circular-32.png', 'Opción 5: Patín Violeta')">
-                ⚡ Probar en mi pestaña (Opción 5)
+            <button class="btn-test" onclick="setLiveFavicon('favicon-ai/claro1-patin-ice-32.png', 'Anterior sin zoom')">
+                Probar Anterior (Sin zoom)
             </button>
         </div>
 
@@ -550,14 +528,14 @@
     <div class="section-sim">
         <h2 style="font-size: 18px; margin-bottom: 6px;">Simulación en Pestañas Reales de Chrome / Edge</h2>
         <p style="color: var(--text-muted); font-size: 13.5px;">
-            Al hacer clic en cualquier botón de prueba arriba, estas dos ventanas se actualizan al instante:
+            Hacé clic en cualquier botón de prueba arriba para ver cómo se comporta en ambas ventanas:
         </p>
 
         <div class="sim-grid">
             <div class="browser-mockup">
                 <div class="browser-header-dark">
                     <div class="browser-tab-dark">
-                        <img id="sim-icon-dark" src="favicon-patin/p1-patin-fucsia-cuadrado-16.png" width="16" height="16" alt="icon">
+                        <img id="sim-icon-dark" src="favicon-zoom/zoom-95-maximo-16.png" width="16" height="16" alt="icon">
                         <span>Wings — Gestión</span>
                     </div>
                     <div class="browser-tab-inactive-dark">
@@ -575,7 +553,7 @@
             <div class="browser-mockup">
                 <div class="browser-header-light">
                     <div class="browser-tab-light">
-                        <img id="sim-icon-light" src="favicon-patin/p1-patin-fucsia-cuadrado-16.png" width="16" height="16" alt="icon">
+                        <img id="sim-icon-light" src="favicon-zoom/zoom-95-maximo-16.png" width="16" height="16" alt="icon">
                         <span>Wings — Gestión</span>
                     </div>
                     <div class="browser-tab-inactive-light">
@@ -609,7 +587,7 @@
         document.getElementById('sim-icon-dark').src = url;
         document.getElementById('sim-icon-light').src = url;
         
-        document.getElementById('page-title').innerText = '[' + name + '] Favicon Preview';
+        document.getElementById('page-title').innerText = '[' + name + '] Favicon Wings';
     }
 </script>
 

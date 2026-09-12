@@ -10,11 +10,13 @@ dice aplica igual. Este archivo agrega las reglas que no se negocian.
 
 ## 0. Plan de trabajo vigente
 
-Antes de tomar una tarea nueva, leer completo:
+Al iniciar, aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md`: leer el resumen
+compartido y los tres logs activos. Antes de tomar una tarea nueva, leer el índice compacto:
 
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`
 
-Es el orden de trabajo vigente desde el **08/09/2026, version 4**. Cruza las
+Leer después solo el detalle y criterio de la tarea seleccionada; no cargar el archivo
+histórico completo. Es el orden de trabajo vigente desde el **08/09/2026, version 4**. Cruza las
 evaluaciones de Codex y Claude y lo realizado del 5 al 7 de septiembre. Los planes
 anteriores se conservan como contexto, pero no mandan el orden actual.
 
@@ -231,6 +233,9 @@ Preferible: mover la lógica a un helper o a un componente.
 
 ## 6. Antes de cerrar cualquier tarea
 
+En tareas exclusivamente documentales, verificar enlaces, integridad y diff; no ejecutar
+suite, migraciones ni cachés por reorganizar documentación. Para cambios de código:
+
 ```bash
 php artisan test                                    # 129 tests deben pasar (corte 06/09/2026)
 php -l <cada archivo tocado>                        # sin errores de sintaxis
@@ -398,17 +403,21 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 Los chats son locales y no sirven como memoria compartida. La continuidad del
 proyecto se registra en el repositorio.
 
-**Hay dos bitácoras, una por agente:**
+**Hay tres bitácoras activas, una por agente, con el mismo protocolo:**
 
 | Agente | Archivo |
 |---|---|
 | Codex | `docs/00-estado/LOG-CODEX.md` |
 | Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
+| Gemini | `docs/00-estado/LOG-GEMINI.md` |
 
 Están separadas a propósito: cada agente escribe en la suya y así no se pisan al
 trabajar en paralelo.
 
-**Cada agente lee las dos y escribe solo en la suya.**
+**Cada agente lee las tres bitácoras activas y escribe solo en la suya.**
+El resumen compartido está en `docs/00-estado/RESUMEN-ARRANQUE.md`.
+Límites, archivo y firmas de los tres: `docs/00-estado/PROTOCOLO-CONTINUIDAD.md`.
+No leer de rutina bitácoras históricas ni evaluaciones completas.
 
 Identidad obligatoria al firmar cada entrada, según la computadora:
 
@@ -417,7 +426,7 @@ Identidad obligatoria al firmar cada entrada, según la computadora:
 | CyE | **Codex CyE** | **Claude CyE** |
 | Casa de Carlos | **Codex CAB** | **Claude CAB** |
 
-Antes de empezar una tarea, leer ambas bitácoras. Antes de cerrar una tarea que
+Antes de empezar una tarea, leer novedades de los tres logs activos según el protocolo. Antes de cerrar una tarea que
 haya producido cambios, agregar una entrada breve con: objetivo, cambios reales,
 decisiones, verificaciones y pendiente siguiente.
 

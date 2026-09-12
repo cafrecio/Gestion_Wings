@@ -39,7 +39,7 @@
 - ENT-02: Gemini dejó diseño de recibos; Claude registra aprobación visual de Vanina.
   [Instructivo](../03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md).
   La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
-- ENT-03: hay trabajo local de favicon; comprobar con su responsable antes de modificarlo.
+- ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
 - Antes de cambiar de máquina, comprobar qué está realmente versionado/subido.
 
 ## Decisiones pendientes que deben viajar entre sesiones
@@ -50,7 +50,6 @@
 - Balance filtrado; revisiones con parciales/historia; límites de fechas manuales.
 - DEUDOR sin pagos y sin saldo; descuento de primer pago para importados.
 - Tratamiento contable de inscripción; alcance de arqueo.
-- Favicon: aprobación del recurso. No confundir muestras con recurso aprobado.
 
 ## Decisiones que se conservan
 

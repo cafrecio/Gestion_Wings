@@ -62,7 +62,7 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 ## 3. Recursos que faltan
 
 - [ ] **ENT-02:** entregar o aprobar logo y paleta del club para rediseñar el recibo.
-- [ ] **ENT-03:** entregar o aprobar el recurso del favicon.
+- [x] **ENT-03:** entregar o aprobar el recurso del favicon. (Aprobado por Carlos el 12/09/2026: patín artístico con alas zoom 95% e implementado)
 - [ ] Pasar credenciales del servidor y clave de backups a un administrador de
   contraseñas. No ponerlas en el repositorio ni en las bitacoras.
 

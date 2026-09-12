@@ -162,7 +162,7 @@ recorrido humano firmado y verificacion actual del servidor.
 |---|---|---|
 | **ENT-01** | Inscripcion configurable del alumno nuevo | Carlos confirma regla contable; migracion crea la clave |
 | **ENT-02** | Rediseño completo del recibo | Bloqueado hasta recibir logo y paleta del club; requiere autorizacion de diseño |
-| **ENT-03** | Favicon | Carlos entrega o aprueba el recurso grafico |
+| **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | Login ya lo tiene; JS externo compatible con CSP; diseño autorizado |
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | Resolver FIN-02 primero; diseño autorizado |
 | **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN | Definir contenido con Carlos; diseño autorizado |

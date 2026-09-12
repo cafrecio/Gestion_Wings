@@ -1,20 +1,16 @@
 # Wings — Guía e Instrucciones para Gemini (Antigravity)
 
 Este archivo es la puerta de entrada y contexto propio para **Gemini (Antigravity)**.
-No modifica ni interfiere con `AGENTS.md` (Codex) ni con `CLAUDE.md` (Claude Code).
+AGENTS.md y el protocolo común aplican a los tres agentes; esta guía agrega pautas de Gemini.
 
 ---
 
-## 1. REGLA OBLIGATORIA AL INICIAR
+## 1. Inicio común
 
-Apenas comiences cualquier sesión de chat o tarea en cualquier computadora (CyE o casa de Carlos):
-
-1. **Leer inmediatamente `docs/00-estado/LOG-GEMINI.md`**:
-   Es la memoria compartida entre sesiones. Allí está el estado vivo, los acuerdos tomados con Carlos y Vanina, y los pendientes inmediatos.
-2. **Revisar también `docs/00-estado/LOG-CODEX.md` y `docs/00-estado/LOG-CLAUDE.md`**:
-   Para estar al tanto de los cambios realizados por los otros agentes en paralelo y no duplicar esfuerzos.
-3. **Consultar `docs/00-estado/ESTADO-ACTUAL.md`**:
-   Es la fuente de verdad del estado funcional de la aplicación.
+Leer AGENTS.md y aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md`, igual que
+Claude y Codex: resumen de arranque, los tres logs activos e índice compacto.
+Después leer solo documentos y criterios de la tarea. Históricos bajo consulta
+dirigida, nunca completos de rutina. La guía extendida CLAUDE.md aplica también.
 
 ---
 
@@ -52,6 +48,8 @@ Identidad obligatoria según la computadora donde estés trabajando:
 - **Los montos e importes nunca van en rojo** (el rojo es exclusivo para la alerta superior de anulación). El color estándar de importes es `#0F172A`.
 
 ### C. Antes de cerrar una tarea
+Para documentación solamente, seguir las comprobaciones documentales del protocolo.
+Para cambios de código:
 ```bash
 php artisan test                                    # Todos los tests deben pasar
 php -l <cada archivo PHP o Blade tocado>            # Sin errores de sintaxis

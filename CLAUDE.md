@@ -39,19 +39,16 @@ Ese archivo contiene las reglas que no se negocian — en especial que el diseno
 (`resources/views/**`, `resources/css/app.css`) no se toca sin pedido explicito.
 
 
-Antes de modificar funcionalidad, leer:
+## Inicio común para los tres agentes
 
-- `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` — **plan de trabajo vigente,
-  corte 08/09/2026 version 4. Leer completo antes de tomar una tarea nueva.** Cruza
-  las evaluaciones de Codex y Claude y lo realizado el fin de semana.
-- `docs/00-estado/ESTADO-ACTUAL.md`
-- `docs/00-estado/LOG-CLAUDE.md` y `docs/00-estado/LOG-CODEX.md` — bitacoras entre computadoras. **Leer ambas antes de empezar. Escribir solo en LOG-CLAUDE.md.**
-- `docs/00-estado/CHECKLIST-CARLOS.md` — pasos manuales por maquina y pendientes del duenio. **Si estas arrancando en otra computadora, empeza por ahi.**
-- `docs/07-evaluacion/Evaluacion Codex 8-9-26.md` y
-  `docs/07-evaluacion/Evaluacion Claude 8-9-26.md` — evaluaciones cruzadas del corte
-  actual. El orden ejecutable que sale de ellas esta en el plan vigente.
+Aplicar `docs/00-estado/PROTOCOLO-CONTINUIDAD.md`. Leer resumen de arranque,
+las tres bitácoras activas y el índice compacto del plan. No leer históricos
+ni evaluaciones completas al iniciar. Para la tarea elegida, leer únicamente
+la sección de estado, criterio, contrato y evidencia correspondientes.
+Cada agente escribe su propio log; Claude mantiene la verificación cruzada de Codex.
+Guías, firmas y archivo tienen el mismo protocolo para Claude, Codex y Gemini.
 
-Ese archivo es la fuente de verdad del estado actual del proyecto. Si otro documento contradice `ESTADO-ACTUAL.md`, no asumir: registrar la contradiccion y resolverla antes de implementar.
+`docs/00-estado/ESTADO-ACTUAL.md` conserva el detalle del estado del proyecto. Si otro documento contradice `ESTADO-ACTUAL.md`, no asumir: registrar la contradiccion y resolverla antes de implementar.
 
 Mapa visual del proyecto:
 

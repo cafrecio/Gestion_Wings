@@ -5,12 +5,14 @@
 > Logs activos abreviados; originales íntegros en `docs/99-archivo/bitacoras/2026-09-12/`.
 > Leer esta página por sección de tarea, no para reconstruir toda la historia.
 
-> **Actualizado:** 11/09/2026
+> **Actualizado:** 12/09/2026
 > **Plan vigente:** `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md`,
 > version 2026-09-08.v4.
 > Si otro documento contradice este estado, no improvisar: verificar y corregir.
 
 ## 1. Estado general
+
+**ENT-03 CERRADA el 12/09/2026:** Favicon definitivo de patín artístico alado aprobado por Carlos (Opción 1 - Zoom Máximo 95% superficie). Se abandonó la paleta previa negra/roja/blanca en favor de la identidad de patín artístico (bota blanca con taco, alas fucsia y cian sobre degradé claro hielo/lavanda, ruedas oscuras con contraste óptimo en pestaña). Generados `public/favicon.ico` (multi-res 16, 32, 48), `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/apple-touch-icon.png`, `public/android-chrome-192x192.png`, `public/android-chrome-512x512.png` y `public/site.webmanifest`. Vinculados en el layout raíz `resources/views/layouts/ds-app.blade.php`. Suite de 166 tests (1026 assertions) verde al 100%.
 
 **COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
 Chrome en una misma base sintetica, incluida subida/bajada con descuento y
