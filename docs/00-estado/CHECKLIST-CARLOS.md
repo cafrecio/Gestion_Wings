@@ -17,10 +17,10 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 169 pruebas deben pasar
+php artisan test          # 171 pruebas deben pasar
 ```
 
-El corte verificado del 12/09 es 169 pruebas y 1065 aserciones.
+El corte verificado del 12/09 es 171 pruebas y 1074 aserciones.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 

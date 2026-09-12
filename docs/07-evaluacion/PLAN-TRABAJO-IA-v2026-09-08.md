@@ -168,6 +168,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN | Definir contenido con Carlos; diseño autorizado |
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
 | **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
+| **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |
 
 ## 8. Bloque 6 — posterior, no bloquea la entrega inicial
 

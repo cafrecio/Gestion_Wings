@@ -97,7 +97,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **169 pruebas**, 1065 aserciones, verde sobre MariaDB aislada el 12/09 |
+| **Tests** | **171 pruebas**, 1074 aserciones, verde sobre MariaDB aislada el 12/09 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

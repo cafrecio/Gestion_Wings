@@ -18,6 +18,33 @@ El instructivo requiere datos que no se obtienen copiando la plantilla sin adapt
 También pendiente significado de monto_base y despliegue.
 Las pausas antiguas COB-09/FIN-02 tienen evidencia posterior en el resumen común.
 
+## 2026-09-12 — Claude CyE — los dos tableros ya no pueden divergir
+
+Decision de Carlos: el indice y el avance tienen que ser identicos en los dos tableros;
+el detalle puede diferir, porque el de los agentes lleva criterios y evidencia.
+
+`TablerosNoDivergenTest` compara `PLAN-TRABAJO-CARLOS-v2026-09-08.html` contra
+`PLAN-TRABAJO-IA-v2026-09-08.md` y pone la suite en rojo si:
+
+1. una tarea existe en un tablero y no en el otro;
+2. el plan declara una tarea cerrada y la casilla de Carlos sigue vacia.
+
+`PAUSADA` **no** cuenta como cierre: una tarea pausada sigue abierta y su casilla tiene
+que quedar vacia. Es el caso de FDS-03, que la primera version de la prueba marcaba mal.
+
+**Hallazgo al escribirla:** `ENT-09` —la carga del saldo inicial del padron— existia
+**solo en el tablero de Carlos**. Un agente que buscara ese ID no lo encontraba. Agregada
+al plan de los agentes.
+
+**Dientes comprobados, con los dos errores reales que ya habian pasado:** destildada
+SEG-01, la prueba falla nombrandola; borrada ENT-09 del plan, falla nombrandola. Las dos
+restauradas, verde.
+
+Suite **171 pruebas, 1074 aserciones**. `DocumentacionNoMienteTest` salto por el cambio
+de numero y se actualizaron los tres documentos que lo declaran.
+
+---
+
 ## 2026-09-12 — Claude CyE — verificacion de ENT-04 (Gemini) y SEG-01
 
 ### ENT-04 — el reporte de Gemini es exacto
