@@ -18,7 +18,10 @@ DOMINIO=test.gestionar-te.com.ar
 USUARIO=wingstest
 APP=/home/${USUARIO}/app
 SOCKET=/var/opt/remi/php82/run/php-fpm/${USUARIO}.sock
-REPO=https://github.com/Chalie/gestion-wings.git
+# El origen se toma del repositorio de wings que ya vive en el servidor, en vez
+# de escribirlo a mano: escrito a mano ya estuvo mal una vez.
+REPO=$(git -C /home/wings/app remote get-url origin 2>/dev/null || echo '')
+[ -n "${REPO}" ] || { echo "FALLA: no se pudo leer el origen desde /home/wings/app"; exit 1; }
 
 paso() { printf '\n=== %s ===\n' "$1"; }
 
