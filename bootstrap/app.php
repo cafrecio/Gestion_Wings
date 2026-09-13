@@ -35,6 +35,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->appendToGroup('web', ['security.headers']);
 
+        // El navegador manda los avisos de CSP por su cuenta, sin sesión y sin
+        // token: exigirle CSRF los rechazaría a todos. No recibe datos del
+        // usuario ni cambia nada del sistema, solo escribe una línea de log.
+        $middleware->validateCsrfTokens(except: ['csp-reporte']);
+
         // El sitio va a quedar detrás de Cloudflare, que actúa de intermediario:
         // la gente le habla a Cloudflare y Cloudflare le habla al servidor.
         //

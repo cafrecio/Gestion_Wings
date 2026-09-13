@@ -73,6 +73,20 @@ return [
             'replace_placeholders' => true,
         ],
 
+        // Avisos de la politica de seguridad de contenido (CSP).
+        //
+        // En archivo aparte a proposito: son muchos y repetidos —uno por cada
+        // carga de pagina que viole la politica, por cada usuario— y mezclados
+        // con laravel.log taparian los errores de verdad. Aca ademas el script
+        // de resumen los puede leer sin filtrar nada.
+        'csp' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/csp.log'),
+            'level' => 'info',
+            'days' => 30,
+            'replace_placeholders' => true,
+        ],
+
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),

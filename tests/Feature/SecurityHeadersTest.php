@@ -19,7 +19,7 @@ class SecurityHeadersTest extends TestCase
             ->assertHeaderMissing('Content-Security-Policy')
             ->assertHeader(
                 'Content-Security-Policy-Report-Only',
-                "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+                "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte"
             );
     }
 }

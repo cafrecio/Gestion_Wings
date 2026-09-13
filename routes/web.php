@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoWebController;
 use App\Http\Controllers\CajaWebController;
 use App\Http\Controllers\CashflowWebController;
 use App\Http\Controllers\CobranzaWebController;
+use App\Http\Controllers\CspReporteController;
 use App\Http\Controllers\OperativoDashboardController;
 use App\Http\Controllers\RevisionCobranzaWebController;
 use App\Http\Controllers\ConfiguracionWebController;
@@ -26,6 +27,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
+
+// Avisos de la política de seguridad de contenido. La llama el navegador solo,
+// sin sesión y sin token CSRF: por eso está fuera del grupo autenticado y
+// exceptuada de CSRF en bootstrap/app.php. El límite de 60 por minuto y por
+// dirección existe porque, al ser pública, cualquiera podría usarla para llenar
+// el disco; una pantalla rota genera muchos menos que eso.
+Route::post('/csp-reporte', CspReporteController::class)
+    ->middleware('throttle:60,1')
+    ->name('csp.reporte');
 
 Route::get('/login', [WebController::class, 'loginForm'])->name('login');
 Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1');

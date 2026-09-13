@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 13/09 en wings_testing: 214 pasan / 1315 aserciones; incluye FIN-10, FIN-11, SEG-11 (onclicks a ds-app.js), ENT-05 y el seeder de primera carga |
+| Suite | Reejecutada el 13/09 en wings_testing: 222 pasan / 1343 aserciones; incluye FIN-10, FIN-11, SEG-11, ENT-05, el seeder de primera carga y el endpoint de avisos de CSP |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
