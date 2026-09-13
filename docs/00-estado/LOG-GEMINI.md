@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-13 — LOG GEM CAB — SEG-11 Validador de nombre repetido unificado en ds-app.js
+
+- **Objetivo:** Unificar en `resources/js/ds-app.js` el validador en vivo de disponibilidad / nombre repetido compartido por `niveles/_form.blade.php` y `tipos-caja/_form.blade.php`, eliminando sus scripts en línea sin tocar el diseño y preparando el soporte para campos combinados (futuro `grupos`).
+- **Cambios reales:**
+  1. `resources/js/ds-app.js`: Agregado validador delegado sobre `[data-verificar-disponible]` que consulta el endpoint vía fetch AJAX con `X-Requested-With: XMLHttpRequest`. Maneja eventos `blur` e `input` dinámicos, muestra/oculta el error en vivo, limpia opcionalmente el error previo del servidor (`data-verificar-error-sv`) y deshabilita/habilita el botón de envío del formulario. Preparado para múltiples campos combinados (`data-verificar-combinado`).
+  2. `resources/views/niveles/_form.blade.php`: Configurado input `#nombre` con atributos `data-verificar-*` y removido su bloque `<script>` de 40 líneas.
+  3. `resources/views/tipos-caja/_form.blade.php`: Configurado input `#nombre` con atributos `data-verificar-*` y removido su bloque `<script>` de 43 líneas.
+  4. `grupos` y `usuarios` quedaron afuera por evaluación de alcance acordada: `grupos` valida combinación deporte+nivel y aloja la tabla dinámica de planes; `usuarios` valida contraseñas cruzadas, gestiona selección de roles y el panel de profesor.
+  5. Compilados assets con Vite (`npm run build`).
+  6. `tests/Feature/CspSinCodigoIncrustadoTest.php`: Reducida la constante `BLOQUES_SCRIPT_PERMITIDOS` de 26 a 24.
+- **Verificaciones:**
+  - `php -l`: sintaxis limpia en vistas, JS y tests.
+  - `php artisan view:cache; php artisan view:clear`: compilación Blade OK.
+  - `php artisan test --filter CspSinCodigoIncrustadoTest`: 2 passed (2 assertions).
+  - `php artisan test --filter TablerosNoDivergenTest`: 2 passed (9 assertions).
+  - Renderizado HTML probado (`scratch/test_verificar_html.php`) con atributos correctos en create y edit.
+  - `git diff --stat -- resources/css`: vacío (diseño intacto).
+  - `php artisan test`: 214 tests pasaron (1315 assertions).
+- **Siguiente paso:** Próximos pasos de SEG-11 o tareas del bloque de entregables según indique Carlos.
+
 ## 2026-09-13 — LOG GEM CAB — SEG-11 Bajar los 14 onclick de las vistas
 
 - **Objetivo:** Migrar los 14 manejadores `onclick` en línea de las vistas Blade hacia JavaScript externo (`resources/js/ds-app.js`) mediante atributos `data-*` y delegación global de eventos, allanando el camino para el endurecimiento de la CSP (`script-src 'self'`).

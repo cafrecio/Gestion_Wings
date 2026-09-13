@@ -15,7 +15,12 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                value="{{ old('nombre', $tipoCaja->nombre ?? '') }}"
                required autofocus maxlength="100"
                class="w-full px-4 py-2.5 text-sm wings-input"
-               placeholder="Ej: Caja Chica">
+               placeholder="Ej: Caja Chica"
+               data-verificar-disponible="/tipos-caja/check-disponible"
+               data-verificar-param="tipo_caja_id"
+               data-verificar-valor="{{ $tipoCaja->id ?? '' }}"
+               data-verificar-error="error-nombre-tipo-caja"
+               data-verificar-error-sv="error-nombre-tipo-caja-sv">
         @error('nombre') <p id="error-nombre-tipo-caja-sv" class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
         <div id="error-nombre-tipo-caja"
              style="display:none; color:var(--color-danger); font-size:0.75rem; margin-top:4px;">
@@ -93,48 +98,4 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 
 </div>
 
-<input type="hidden" id="tipo-caja-id-actual" value="{{ $tipoCaja->id ?? '' }}">
 
-<script>
-(function () {
-    const input     = document.getElementById('nombre');
-    const errorDiv  = document.getElementById('error-nombre-tipo-caja');
-    const btnSubmit = document.querySelector('[type="submit"]');
-    const tipoCajaId = document.getElementById('tipo-caja-id-actual').value;
-
-    if (!input) return;
-
-    const errorSv = document.getElementById('error-nombre-tipo-caja-sv');
-
-    async function verificar() {
-        const nombre = input.value.trim();
-        if (!nombre) {
-            errorDiv.style.display = 'none';
-            if (btnSubmit) btnSubmit.disabled = false;
-            return;
-        }
-        let url = '/tipos-caja/check-disponible?nombre=' + encodeURIComponent(nombre);
-        if (tipoCajaId) url += '&tipo_caja_id=' + tipoCajaId;
-        try {
-            const res  = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
-            const data = await res.json();
-            if (!data.disponible) {
-                errorDiv.style.display = 'block';
-                if (btnSubmit) btnSubmit.disabled = true;
-            } else {
-                errorDiv.style.display = 'none';
-                if (errorSv) errorSv.style.display = 'none';
-                if (btnSubmit) btnSubmit.disabled = false;
-            }
-        } catch(e) {
-            errorDiv.style.display = 'none';
-            if (btnSubmit) btnSubmit.disabled = false;
-        }
-    }
-
-    input.addEventListener('blur', verificar);
-    input.addEventListener('input', function () {
-        if (errorDiv.style.display !== 'none') verificar();
-    });
-})();
-</script>

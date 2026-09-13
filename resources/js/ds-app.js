@@ -452,3 +452,119 @@
     });
 })();
 
+/* ── validador de disponibilidad / nombre repetido (SEG-11) ────────────
+   Consulta endpoints check-disponible para avisar en vivo si un nombre
+   o valor ya está registrado (usado en niveles y tipos-caja, y preparado
+   para soportar grupos con múltiples campos combinados).
+
+   Atributos en el elemento:
+     data-verificar-disponible="<url>"      Endpoint a consultar (ej. /niveles/check-disponible)
+     data-verificar-param="<nombre_param>"   Nombre del parámetro de exclusión (ej. nivel_id, tipo_caja_id)
+     data-verificar-valor="<id>"            Valor del ID actual a excluir (vacío en create)
+     data-verificar-error="<id_error_div>"  ID del contenedor de mensaje de error en vivo
+     data-verificar-error-sv="<id_sv>"      ID opcional del error devuelto por Laravel (POST)
+     data-verificar-campo="<param>"         Nombre del campo en query (defecto: input.name)
+     data-verificar-combinado="<selectores>" Selectores CSS de campos combinados separados por coma
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    async function ejecutarVerificacion(input) {
+        var urlBase = input.getAttribute('data-verificar-disponible');
+        if (!urlBase) return;
+
+        var form = input.form || input.closest('form');
+        var btnSubmit = form ? form.querySelector('[type="submit"]') : document.querySelector('[type="submit"]');
+
+        var errorDivId = input.getAttribute('data-verificar-error');
+        var errorDiv = errorDivId ? document.getElementById(errorDivId) : null;
+
+        var errorSvId = input.getAttribute('data-verificar-error-sv');
+        var errorSv = errorSvId ? document.getElementById(errorSvId) : null;
+
+        var combinado = input.getAttribute('data-verificar-combinado');
+        var queryParams = [];
+
+        if (combinado) {
+            var selectores = combinado.split(',');
+            var todosTienenValor = true;
+            for (var i = 0; i < selectores.length; i++) {
+                var el = document.querySelector(selectores[i].trim());
+                if (!el || !el.value.trim()) {
+                    todosTienenValor = false;
+                    break;
+                }
+                queryParams.push(encodeURIComponent(el.name || el.id) + '=' + encodeURIComponent(el.value.trim()));
+            }
+            if (!todosTienenValor) {
+                if (errorDiv) errorDiv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+                return;
+            }
+        } else {
+            var valor = input.value.trim();
+            if (!valor) {
+                if (errorDiv) errorDiv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+                return;
+            }
+            var nombreParam = input.getAttribute('data-verificar-campo') || input.name || 'nombre';
+            queryParams.push(encodeURIComponent(nombreParam) + '=' + encodeURIComponent(valor));
+        }
+
+        var paramExcluir = input.getAttribute('data-verificar-param');
+        var valorExcluir = input.getAttribute('data-verificar-valor');
+        if (paramExcluir && valorExcluir) {
+            queryParams.push(encodeURIComponent(paramExcluir) + '=' + encodeURIComponent(valorExcluir));
+        }
+
+        var separador = urlBase.indexOf('?') === -1 ? '?' : '&';
+        var urlFinal = urlBase + separador + queryParams.join('&');
+
+        try {
+            var res = await fetch(urlFinal, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+            var data = await res.json();
+
+            if (!data.disponible) {
+                if (errorDiv) errorDiv.style.display = 'block';
+                if (btnSubmit) btnSubmit.disabled = true;
+            } else {
+                if (errorDiv) errorDiv.style.display = 'none';
+                if (errorSv) errorSv.style.display = 'none';
+                if (btnSubmit) btnSubmit.disabled = false;
+            }
+        } catch (e) {
+            if (errorDiv) errorDiv.style.display = 'none';
+            if (btnSubmit) btnSubmit.disabled = false;
+        }
+    }
+
+    document.addEventListener('blur', function (evento) {
+        var input = evento.target && evento.target.matches && evento.target.matches('[data-verificar-disponible]')
+            ? evento.target : null;
+        if (input) {
+            ejecutarVerificacion(input);
+        }
+    }, true);
+
+    document.addEventListener('input', function (evento) {
+        var input = evento.target && evento.target.matches && evento.target.matches('[data-verificar-disponible]')
+            ? evento.target : null;
+        if (input) {
+            var errorDivId = input.getAttribute('data-verificar-error');
+            var errorDiv = errorDivId ? document.getElementById(errorDivId) : null;
+            if (errorDiv && errorDiv.style.display !== 'none') {
+                ejecutarVerificacion(input);
+            }
+        }
+    });
+
+    document.addEventListener('change', function (evento) {
+        var input = evento.target && evento.target.matches && evento.target.matches('[data-verificar-disponible]')
+            ? evento.target : null;
+        if (input && input.tagName === 'SELECT') {
+            ejecutarVerificacion(input);
+        }
+    });
+})();
+

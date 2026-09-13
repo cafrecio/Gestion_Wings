@@ -22,9 +22,18 @@ class CspSinCodigoIncrustadoTest extends TestCase
     /**
      * Bloques <script> escritos dentro de una vista, sin `src`.
      *
-     * Medido el 06/09/2026 en 24 archivos.
+     * Eran 26 medidos el 06/09/2026 en 24 archivos.
+     *
+     * Bajaron a 24 (SEG-11, 13/09/2026) al unificar el validador de nombre repetido
+     * en vivo de niveles/_form.blade.php y tipos-caja/_form.blade.php en ds-app.js
+     * mediante atributos data-verificar-*.
+     *
+     * grupos y usuarios quedaron afuera: grupos no valida un nombre sino la
+     * combinacion deporte+nivel y su bloque contiene ademas la carga dinamica de
+     * frecuencias y precios; usuarios valida email y password cruzados y controla
+     * el resalte de roles y el panel de profesor vinculado.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 26;
+    private const BLOQUES_SCRIPT_PERMITIDOS = 24;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.
