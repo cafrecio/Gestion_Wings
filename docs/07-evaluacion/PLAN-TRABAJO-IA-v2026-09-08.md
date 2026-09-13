@@ -76,6 +76,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases — **IMPLEMENTADA 13/09** | Alta | Edición atómica, todos los profesores y presentes; fechas pasadas protegidas, horario pasado con motivo salvo liquidación CERRADA. Sin deploy; [evidencia](../06-pruebas/FIN-10-EDICION-2026-09-13.md) |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar — **IMPLEMENTADA Y PROBADA 13/09** | Alta | Seis cruces con dos conexiones pasan; MoneyLockingTest descrito como estructural. Suite completa reejecutada: 187 pruebas / 1206 aserciones. Pausa levantada; sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado. [Evidencia](../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md) |
+| **FIN-12** | Cancelar liquidación cerrada no pagada — **PENDIENTE** | Hoy: 13/09/2026 | Solo ADMIN; conservar historia, pagadas intocables, bloqueo de asistencia y concurrencia con pago. [Instrucciones de implementación y aceptación](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). Alcance adelantado de POS-06 |
 
 Detalles y evidencia FIN-01/02/03/05: buscar el ID en el
 [registro íntegro](../99-archivo/bitacoras/2026-09-12/PLAN-TRABAJO-IA-v2026-09-08.md).
@@ -161,7 +162,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | ID | Pedido | Dependencia |
 |---|---|---|
 | **ENT-01** | Inscripcion configurable del alumno nuevo | Carlos confirma regla contable; migracion crea la clave |
-| **ENT-02** | Rediseño completo del recibo | CERRADO 12/09/2026: Recibo de cuota y versión anulada implementados en A5 DomPDF según diseño aprobado por Carlos y Vanina (INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md); importes en #0F172A, logo en .logo-frame y auditoría de anulación |
+| **ENT-02** | Rediseño completo del recibo — **REABIERTO 13/09, estaba mal cerrado** | **Recibo de cuota: LISTO.** Normal, multi-mes y anulado verificados en pantalla el 13/09 (A5, una página, importes en #0F172A, nombres largos y cifras altas sin desbordar). **Recibo de liquidación: NO MIGRADO.** `recibo-liquidacion.blade.php` conserva la versión vieja en verde (5 usos de `#047857`, cero de `#0F172A`), genera una segunda página en blanco por márgenes y le falta el anexo de clases/alumnos que pide el instructivo §4.2; `ReciboService` no carga `detalles`. Se cerró el 12/09 sin que nadie lo abriera. Pendiente menor en cuotas: `ReciboService:72-74` concatena el motivo de anulación a `observaciones` y sale duplicado |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | CERRADO 13/09/2026: Acceso a 1 clic mediante botón Recibo (target=_blank, inline=1) en la confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno; diseño autorizado el 07/09 |
@@ -179,6 +180,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **POS-03** | Recuperacion de acceso | Evaluar autoservicio y MFA segun necesidad real |
 | **POS-04** | Tarifas | Historial de precios y aumentos masivos |
 | **POS-05** | Evolucion de producto | Evaluar ficha medica, familias, portal, pagos online, WhatsApp, bancos, multi-sede, torneos e indumentaria; no son compromisos actuales |
+| **POS-06** | Clases particulares — PENDIENTE de implementación | [Contrato V1](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md), decisiones 13/09; criterios y bordes en el contrato. [Ficha](../05-pendientes/CLASES-PARTICULARES.md). Sin implementación ni despliegue en este turno |
 
 Medir antes de corregir cualquier riesgo de precision por `float`. AUD-025 solo entra
 antes de agregar rutas destructivas hoy inexistentes.
@@ -191,7 +193,7 @@ antes de agregar rutas destructivas hoy inexistentes.
 - El OPERATIVO trabaja sobre todo el dominio operativo, no solo “lo suyo”.
 - Sueldos por persona/deporte es una decision del modelo.
 - Carga inicial real es humana; no se inventan datos del club.
-- Liquidaciones cerradas no se reabren; las correcciones son compensatorias.
+- Enmienda expresa 13/09, POS-06 pendiente: ADMIN cancela cerrada no pagada para revisar asistencias; pagada intacta, corrección compensatoria posterior.
 - CSP gradual y diseño protegido.
 
 ## 10. Como marcar avances

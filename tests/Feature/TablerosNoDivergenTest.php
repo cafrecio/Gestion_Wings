@@ -136,8 +136,17 @@ class TablerosNoDivergenTest extends TestCase
                 continue;
             }
 
+            // Las rutas de los enlaces se descartan antes de buscar las marcas.
+            //
+            // FIN-12 esta PENDIENTE y enlaza a un documento que se llama
+            // `FIN-12-CANCELAR-LIQUIDACION-CERRADA.md`: esa palabra en el nombre
+            // del archivo la daba por cerrada. El falso positivo es peor que no
+            // tener la prueba, porque el arreglo obvio es tildar en el tablero de
+            // Carlos una tarea que nadie hizo.
+            $texto = preg_replace('/\]\([^)]*\)/', ']', $linea);
+
             foreach (self::MARCAS_DE_CIERRE as $marca) {
-                if (str_contains($linea, $marca)) {
+                if (str_contains($texto, $marca)) {
                     $cerradas[$id[1]] = trim(preg_replace('/\s+/', ' ', $linea));
                     break;
                 }
