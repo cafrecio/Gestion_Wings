@@ -42,6 +42,31 @@ Regla general: crear/editar/validar clases queda exclusivo de ADMIN — es una e
 - **Editar** una clase ya pasada (cambiar profesor, corregir asistencia): **permitido**. En la operación real las correcciones llegan después, no todo se carga en el momento.
 - Toda edición retroactiva deja un motivo obligatorio (ver 4.d y 4.e) — es la forma en que "queda asentado el cambio".
 
+### Enmienda 13/09/2026 — mover la fecha y el horario
+
+Lo de arriba nombraba *cambiar profesor* y *corregir asistencia*, y **no decía nada de
+mover la fecha ni el horario**. La laguna la encontró Codex CyE al abrir FIN-10. Carlos
+la resolvió el 13/09:
+
+| Estado de la clase | Fecha y horario |
+|---|---|
+| **Futura o de hoy** | Se cambian libremente |
+| **Pasada, con asistencia tomada** | Se cambian **con motivo**, validando que ningún alumno presente quede superpuesto con otra clase suya |
+| **Ya liquidada** | **Bloqueado** |
+
+**Por qué la segunda fila.** §4.b prohíbe que un alumno quede en dos clases solapadas y
+lo valida al tomar lista — pero si el horario se mueve *después*, esa validación ya pasó
+y nadie la vuelve a correr. Mover la clase puede dejar a los presentes en la situación
+que el contrato prohíbe.
+
+**Por qué la tercera.** Mover la fecha de una clase ya liquidada cambia lo que se le pagó
+al profesor en un mes cerrado. El plan vigente dice que *"las liquidaciones cerradas no
+se reabren; las correcciones son compensatorias"*: permitir esto sería la puerta de atrás
+a esa regla.
+
+Sigue rigiendo §4.a: **editar fecha, hora o grupo es exclusivo de ADMIN.** Esta enmienda
+no le da al OPERATIVO ninguna facultad nueva.
+
 ---
 
 ## 4.d Cambio de profesores
