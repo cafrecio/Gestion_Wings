@@ -20,16 +20,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
      - En `generarLiquidacionMensual()`: se congela `porcentaje_comision_aplicado` al crear la liquidación si es de tipo `COMISION` (`$profesor->porcentaje_comision`).
      - En `calcularLiquidacionComision()`: se usa `$liquidacion->porcentaje_comision_aplicado ?? $profesor->porcentaje_comision ?? 0`, garantizando inmutabilidad histórica ante cambios posteriores en el porcentaje del profesor.
      - Removidos los filtros de estado actual `->where('activo', true)` y `->where('deporte_id', $deporteId)` de la consulta de alumnos con pago. Solo hechos históricos deciden la comisión: pago del período completado y asistencia confirmada (`presente = true`) a clase no cancelada del profesor en ese mes.
-  4. `app/Http/Controllers/LiquidacionWebController.php`: En `show()`, si la liquidación es `COMISION` y tiene `porcentaje_comision_aplicado`, se asigna en memoria a `$liquidacion->profesor->porcentaje_comision` para que la vista `resources/views/liquidaciones/show.blade.php` muestre el porcentaje congelado sin tocar las vistas (Diseño intacto, Regla 1).
-  5. `tests/Feature/LiquidacionComisionHistoricaTest.php`: Creada suite de pruebas con 7 tests cubriendo: alumno dado de baja con pago/asistencia pasada, alumno que cambia de deporte, cambio posterior de porcentaje del profesor sin alterar liquidación recalculada, liquidación legacy con porcentaje null usando porcentaje actual, anulación de pago que retira la comisión en recálculo, alumno con pago sin asistencia que no genera comisión, y vista show mostrando el porcentaje congelado.
+  4. `app/Http/Controllers/LiquidacionWebController.php`: En `show()`, si la liquidación es `COMISION` y tiene `porcentaje_comision_aplicado`, se asigna en memoria a `$liquidacion->profesor->porcentaje_comision` y se llama inmediatamente a `$liquidacion->profesor->syncOriginal()`. Esto mantiene el porcentaje visible para la vista Blade (diseño intacto, Regla 1) pero limpia el estado "dirty" del modelo en memoria, previniendo que una llamada posterior o accidental a `save()` persista el porcentaje congelado en la tabla de profesores.
+  5. `tests/Feature/LiquidacionComisionHistoricaTest.php`: Creada suite de pruebas con 7 tests cubriendo: alumno dado de baja con pago/asistencia pasada, alumno que cambia de deporte, cambio posterior de porcentaje del profesor sin alterar liquidación recalculada, liquidación legacy con porcentaje null usando porcentaje actual, anulación de pago que retira la comisión en recálculo, alumno con pago sin asistencia que no genera comisión, y vista show mostrando el porcentaje congelado con verificación de que `profesor->isDirty()` es falso y `save()` no altera la base de datos.
   6. Documentación actualizada: `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md` y `RESUMEN-ARRANQUE.md` sincronizados en 229 pruebas / 1372 aserciones. Registrada decisión pendiente sobre `valor_hora` en liquidaciones por hora.
 - **Verificaciones:**
   - `php -l`: sintaxis limpia en modelos, servicios, controladores, migraciones y tests.
   - `php artisan migrate`: migración ejecutada sin errores.
-  - `php artisan test --filter LiquidacionComisionHistoricaTest`: 7 pasaron (24 assertions).
+  - `php artisan test --filter LiquidacionComisionHistoricaTest`: 7 pasaron (26 assertions).
   - `php artisan test --filter DocumentacionNoMienteTest`: 1 passed (7 assertions).
   - `git diff --stat -- resources/views resources/css`: vacío (diseño intacto).
-  - `php artisan test`: suite completa con **229 pruebas pasadas** (1372 assertions), 100% verde.
+  - `php artisan test`: suite completa con **229 pruebas pasadas**, 100% verde.
 - **Siguiente paso:** Próxima tarea del bloque FIN / SEG según prioridades de Carlos.
 
 ## 2026-09-13 — LOG GEM CAB — SEG-11 Scripts de grupos y usuarios a sus propios archivos JS

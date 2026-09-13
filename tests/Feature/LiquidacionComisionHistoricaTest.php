@@ -271,5 +271,11 @@ class LiquidacionComisionHistoricaTest extends TestCase
         $response->assertOk();
         $response->assertSee('40.0%');
         $response->assertDontSee('55.0%');
+
+        // El objeto profesor en memoria no debe quedar marcado como dirty (syncOriginal)
+        $viewProfesor = $response->viewData('liquidacion')->profesor;
+        $this->assertFalse($viewProfesor->isDirty());
+        $viewProfesor->save();
+        $this->assertSame(55.00, (float) $this->profesor->fresh()->porcentaje_comision);
     }
 }

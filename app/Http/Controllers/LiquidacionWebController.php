@@ -157,6 +157,7 @@ class LiquidacionWebController extends Controller
 
         if ($liquidacion->tipo === Liquidacion::TIPO_COMISION && $liquidacion->porcentaje_comision_aplicado !== null) {
             $liquidacion->profesor->porcentaje_comision = $liquidacion->porcentaje_comision_aplicado;
+            $liquidacion->profesor->syncOriginal();
         }
 
         // Batch-load references to avoid N+1
