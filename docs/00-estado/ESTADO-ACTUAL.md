@@ -97,7 +97,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **171 pruebas**, 1074 aserciones, verde sobre MariaDB aislada el 12/09 |
+| **Tests** | **187 pruebas**, verde completo el 13/09. Las 5 fallas del 12/09 eran las pruebas de contraseñas de SEG-02/03 sin subir; corregidas en `5f65dbd` |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -167,6 +167,13 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - `View::composer('*')` ejecuta una consulta global para el badge de clases.
 
 ## 9. Contradicciones abiertas
+
+FIN-11, 12/09: reproducido y corregido cancelar/validar en ambos órdenes
+(dejaba pago ANULADO y deuda pagada 0 con 10.000 en cashflow). Corregidas también
+las esperas tardías de cobrar/cancelar y validar/cobrar. Seis casos pasan, 103
+aserciones aisladas. Cierre PAUSADO: suite compartida 181 pasan / 5 fallan en
+pruebas nuevas SEG-02/03 y SEG-05 (fixtures sin Sueldos y sin dirección de profesor).
+Sin commit de FIN-11 todavía. Evidencia: ../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md.
 
 FIN-07: pausa resuelta por Carlos el 12/09. Solo ADMIN perdona el saldo pendiente,
 conservando original, pagos e imputaciones. Condonación transaccional con bloqueo

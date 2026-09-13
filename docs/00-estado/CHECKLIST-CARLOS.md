@@ -17,10 +17,11 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 171 pruebas deben pasar
+php artisan test          # 187 pruebas deben pasar
 ```
 
-El corte verificado del 12/09 es 171 pruebas y 1074 aserciones.
+Corte verificado del 13/09: **187 pruebas**, todas verdes.
+Las fallas están en nuevas pruebas de contraseñas y recibos de tareas SEG en curso.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 
