@@ -36,6 +36,11 @@ cual: mismo robot, mismo chat, mismos secretos fuera del repo. **No se manda un
 mensaje por violacion**: la CSP genera uno por cada carga de pagina y por cada
 usuario, y Telegram cortaria por limite de envios.
 
+El resumen queda registrado en el scheduler (`routes/console.php`, lunes 07:00),
+que ya corre cada minuto en el servidor: **no se agrega ningun cron nuevo ni
+queda un paso manual**. Un cron que hay que instalar a mano es un cron que en
+algun servidor no esta.
+
 8 pruebas nuevas, incluida la que comprueba que no se filtre el recorte de la
 pantalla. `SecurityHeadersTest` actualizado: fijaba la politica literal.
 Suite: 222 pruebas / 1343 aserciones. Sin deploy.

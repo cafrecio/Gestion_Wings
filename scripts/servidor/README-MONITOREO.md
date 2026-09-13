@@ -26,6 +26,12 @@ Cron del usuario `wings`:
 El cron nocturno de root conserva `respaldar.sh`; el script informa resultado local y
 copia a Drive por separado.
 
+**No hace falta ningun cron mas.** El resumen semanal de avisos de CSP
+(`resumen-csp.sh`) esta registrado en el scheduler de Laravel —lunes 07:00,
+`routes/console.php`— y el scheduler ya corre cada minuto con la linea de arriba.
+Se despliega y anda. Un cron que hay que instalar a mano es un cron que en algun
+servidor no esta.
+
 ## Prueba controlada obligatoria
 
 Antes de cerrar FDS-02:
