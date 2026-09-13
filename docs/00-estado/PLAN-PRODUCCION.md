@@ -21,7 +21,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
-| CSP | En modo reporte; no bloquea. Quedan 26 bloques script y 24 manejadores inline |
+| CSP | En modo reporte, ya recolectando avisos en `report-uri /csp-reporte`. Quedan 22 bloques script y 10 manejadores inline |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 
