@@ -70,7 +70,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                 @csrf
                 <button type="submit" id="btn-validar" style="{{ $btnBPrim }}">Validar</button>
             </form>
-            <button type="button" onclick="abrirRechazar()" style="{{ $btnBDang }}">Rechazar</button>
+            <button type="button" data-abrir-rechazar style="{{ $btnBDang }}">Rechazar</button>
         @endif
         <a href="{{ route('web.caja.resumen', $caja->id) }}" style="{{ $btnBSec }}">Resumen</a>
         <a href="{{ route('web.caja.index') }}" style="{{ $btnBSec }}">Volver</a>
@@ -173,7 +173,8 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                             @endif
                             <button type="button"
                                     class="ds-btn-row ds-btn-row--dang"
-                                    onclick="abrirCancelar({{ $mov->id }}, '{{ route('web.caja.movimientos.cancelar.store', [$caja->id, $mov->id]) }}')">
+                                    data-abrir-cancelar="{{ route('web.caja.movimientos.cancelar.store', [$caja->id, $mov->id]) }}"
+                                    data-mov-id="{{ $mov->id }}">
                                 Cancelar
                             </button>
                         </div>
@@ -254,7 +255,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                       class="w-full px-4 py-2.5 text-sm wings-input"
                       style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
             <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <button type="button" onclick="cerrarCancelar()"
+                <button type="button" data-cerrar-cancelar
                         class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
                 <button type="submit"
                         class="ds-btn" style="background:var(--color-danger); color:#fff;">Confirmar</button>
@@ -276,7 +277,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                    class="w-full px-4 py-2.5 text-sm wings-input"
                    style="display:block; width:100%; margin-bottom:1rem;">
             <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <button type="button" onclick="document.getElementById('modal-rechazar').style.display='none'"
+                <button type="button" data-cerrar-rechazar
                         style="{{ $btnBSec }}">Cancelar</button>
                 <button type="submit" style="{{ $btnBDang }}">Rechazar</button>
             </div>

@@ -37,13 +37,15 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * `data-elevar` y `data-hover-fondo`, tambien en `ds-app.js`. Si esos fallaran,
      * el peor caso es que una tarjeta no se levante al pasar el mouse.
      *
-     * De los 24 que quedan, 10 son `onsubmit="return confirm(...)"` que protegen
-     * eliminaciones, y no se tocan hasta poder comprobarlos con un clic: si se mueven
-     * a JavaScript y el archivo no carga, el borrado se ejecutaria sin preguntar. Los
-     * otros 14 son `onclick` propios de cada pantalla, atados al bloque <script> de
-     * su vista: se resuelven junto con ese bloque, no por separado.
+     * Bajaron a 10 (SEG-11, 13/09/2026) al mover los 14 `onclick` de las vistas
+     * (alumnos/show, caja/detalle, caja/resumen, liquidaciones/create, revision-cobranza/index)
+     * a atributos data-* delegados en `ds-app.js`.
+     *
+     * Los 10 que quedan son exclusivamente `onsubmit="return confirm(...)"` que protegen
+     * eliminaciones: no se tocan hasta poder comprobarlos con un clic real, porque si
+     * se mueven a JavaScript y el archivo no carga, el borrado se ejecutaria sin preguntar.
      */
-    private const MANEJADORES_PERMITIDOS = 24;
+    private const MANEJADORES_PERMITIDOS = 10;
 
     public function test_no_crece_la_cantidad_de_bloques_de_codigo_incrustado(): void
     {

@@ -18,6 +18,8 @@
 
 **ENT-05 CERRADA el 13/09/2026:** Acceso directo a 1 clic al recibo de cuota: 1) en la confirmación de cobro (banner flash tras volver al listado de cajas) con botón `Recibo` (`target="_blank"`, `inline=1`), y 2) en la ficha del alumno (`alumnos/show.blade.php`), con botón `Recibo` en cada fila del historial de pagos (soportando tanto pagos activos como anulados). Auto-dismiss de 3s en `ds-app.js` configurado para no descartar banners con enlaces interactivos. Protegido contra rol Profesor. Diseño autorizado por Carlos el 07/09. Suite verde con nueva prueba `CobroReciboAccesoTest`.
 
+**SEG-11 en avance el 13/09/2026:** Migrados los 14 manejadores de evento `onclick` en línea de las vistas Blade (`alumnos/show`, `caja/detalle`, `caja/resumen`, `liquidaciones/create`, `revision-cobranza/index`) hacia JavaScript externo en `resources/js/ds-app.js` mediante atributos `data-*` y delegación global de eventos. La prueba `CspSinCodigoIncrustadoTest` redujo su constante `MANEJADORES_PERMITIDOS` de 24 a 10. Se preservan intactos los 10 `onsubmit` de confirmación de eliminación y los 26 bloques `<script>` incrustados. Assets recompilados con Vite. Suite completa en 214 tests (1315 assertions).
+
 **COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
 Chrome en una misma base sintetica, incluida subida/bajada con descuento y
 asistencia, cancelacion/recobro y medios de pago distintos. Suite 161/977.

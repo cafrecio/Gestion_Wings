@@ -65,7 +65,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             </form>
         @endif
         @if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA')
-            <button type="button" onclick="abrirRechazar()"
+            <button type="button" data-abrir-rechazar
                     class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>
             <form method="POST" action="{{ route('web.cajas.validar', $caja->id) }}">
                 @csrf
@@ -202,7 +202,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                    class="w-full px-4 py-2.5 text-sm wings-input"
                    style="display:block; width:100%; margin-bottom:1rem;">
             <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <button type="button" onclick="document.getElementById('modal-rechazar').style.display='none'"
+                <button type="button" data-cerrar-rechazar
                         class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cancelar</button>
                 <button type="submit"
                         class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>

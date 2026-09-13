@@ -28,14 +28,14 @@
         </span>
         <div style="display:flex; gap:6px; flex-shrink:0;">
             <button type="button" id="btn-incluir"
-                    onclick="toggleIncluirHoy(true)"
+                    data-incluir-hoy="true"
                     style="height:30px; padding:0 14px; font-size:0.78rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; border:none; font-family:inherit;
                            background:var(--color-warning); color:#fff;">
                 Incluir clases de hoy
             </button>
             <button type="button" id="btn-no-incluir"
-                    onclick="toggleIncluirHoy(false)"
+                    data-incluir-hoy="false"
                     style="height:30px; padding:0 14px; font-size:0.78rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; font-family:inherit;
                            background:transparent; border:1px solid var(--color-warning);

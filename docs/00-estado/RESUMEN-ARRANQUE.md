@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 13/09 en wings_testing: 214 pasan / 1311 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05 y el seeder de primera carga |
+| Suite | Reejecutada el 13/09 en wings_testing: 214 pasan / 1315 aserciones; incluye FIN-10, FIN-11, SEG-11 (onclicks a ds-app.js), ENT-05 y el seeder de primera carga |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -29,6 +29,9 @@
 | Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
 
 ## Trabajo que continúa
+
+- FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable;
+  error de motivo y guardado comprobados. Sin deploy.
 
 - FIN-10 implementada y probada 13/09: edición atómica y motivo de horario pasado;
   sin deploy. Falta aplicar migración motivo_cambio_horario y revisión cruzada.
@@ -50,6 +53,7 @@
   La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
 - ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
 - ENT-05: CERRADO 13/09. Recibo accesible a un clic en confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno.
+- SEG-11: 14 `onclick` de las vistas migrados a `ds-app.js` mediante atributos `data-*` y delegación global; `MANEJADORES_PERMITIDOS` bajó de 24 a 10 en `CspSinCodigoIncrustadoTest`. Preservados los 10 `onsubmit` de confirmación de eliminación y los 26 bloques `<script>`. Sin cambios de diseño; assets compilados.
 - Antes de cambiar de máquina, comprobar qué está realmente versionado/subido.
 
 ## Decisiones pendientes que deben viajar entre sesiones

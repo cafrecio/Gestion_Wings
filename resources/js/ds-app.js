@@ -278,3 +278,177 @@
         btn.setAttribute('aria-label', mostrar ? 'Ocultar contraseña' : 'Mostrar contraseña');
     });
 })();
+
+/* ── delegación de eventos onclick de vistas (SEG-11) ──────────────────
+   Reemplaza los manejadores onclick escritos dentro del HTML de las vistas.
+   La política de seguridad declara script-src 'self': el navegador
+   rechaza el código incrustado en la página, por lo que los eventos en línea
+   deben migrar a archivos JS externos.
+
+   Maneja:
+     [data-confirmar]        pide confirmación antes de enviar/ejecutar
+     [data-abrir-condonar]   abre el modal de condonación de deuda (alumnos/show)
+     [data-cerrar-condonar]  cierra el modal de condonación de deuda
+     [data-abrir-rechazar]   abre el modal de rechazo de caja (caja/detalle y resumen)
+     [data-cerrar-rechazar]  cierra el modal de rechazo de caja
+     [data-abrir-cancelar]   abre el modal de cancelación de cobro de cuota (caja/detalle)
+     [data-cerrar-cancelar]  cierra el modal de cancelación de cobro
+     [data-incluir-hoy]      conmuta inclusión de clases de hoy (liquidaciones/create)
+     [data-abrir-revision]   abre formulario de revisión de cobranza (revision-cobranza)
+     [data-cerrar-revision]  cierra formulario de revisión de cobranza
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    document.addEventListener('click', function (evento) {
+        if (!evento.target || !evento.target.closest) return;
+
+        // 1. Confirmación de acción (ej. reactivar alumno)
+        var elConfirmar = evento.target.closest('[data-confirmar]');
+        if (elConfirmar) {
+            var mensaje = elConfirmar.getAttribute('data-confirmar');
+            if (mensaje && !window.confirm(mensaje)) {
+                evento.preventDefault();
+                evento.stopPropagation();
+                return;
+            }
+        }
+
+        // 2. Condonar deuda (alumnos/show)
+        var btnAbrirCondonar = evento.target.closest('[data-abrir-condonar]');
+        if (btnAbrirCondonar) {
+            var urlCondonar = btnAbrirCondonar.getAttribute('data-abrir-condonar');
+            if (typeof window.abrirCondonar === 'function') {
+                window.abrirCondonar(urlCondonar);
+            } else {
+                var formCond = document.getElementById('form-condonar');
+                if (formCond && urlCondonar) formCond.action = urlCondonar;
+                var modalCond = document.getElementById('modal-condonar');
+                if (modalCond) modalCond.style.display = 'flex';
+            }
+            return;
+        }
+
+        var btnCerrarCondonar = evento.target.closest('[data-cerrar-condonar]');
+        if (btnCerrarCondonar) {
+            if (typeof window.cerrarCondonar === 'function') {
+                window.cerrarCondonar();
+            } else {
+                var modalCond = document.getElementById('modal-condonar');
+                if (modalCond) modalCond.style.display = 'none';
+            }
+            return;
+        }
+
+        // 3. Rechazar caja (caja/detalle y caja/resumen)
+        var btnAbrirRechazar = evento.target.closest('[data-abrir-rechazar]');
+        if (btnAbrirRechazar) {
+            if (typeof window.abrirRechazar === 'function') {
+                window.abrirRechazar();
+            } else {
+                var modalRech = document.getElementById('modal-rechazar');
+                if (modalRech) modalRech.style.display = 'flex';
+            }
+            return;
+        }
+
+        var btnCerrarRechazar = evento.target.closest('[data-cerrar-rechazar]');
+        if (btnCerrarRechazar) {
+            var modalRech = document.getElementById('modal-rechazar');
+            if (modalRech) modalRech.style.display = 'none';
+            return;
+        }
+
+        // 4. Cancelar cobro de cuota (caja/detalle)
+        var btnAbrirCancelar = evento.target.closest('[data-abrir-cancelar]');
+        if (btnAbrirCancelar) {
+            var urlCancelar = btnAbrirCancelar.getAttribute('data-abrir-cancelar');
+            var movId = btnAbrirCancelar.getAttribute('data-mov-id');
+            if (typeof window.abrirCancelar === 'function') {
+                window.abrirCancelar(movId, urlCancelar);
+            } else {
+                var formCanc = document.getElementById('form-cancelar');
+                if (formCanc && urlCancelar) formCanc.action = urlCancelar;
+                var modalCanc = document.getElementById('modal-cancelar');
+                if (modalCanc) modalCanc.style.display = 'flex';
+            }
+            return;
+        }
+
+        var btnCerrarCancelar = evento.target.closest('[data-cerrar-cancelar]');
+        if (btnCerrarCancelar) {
+            if (typeof window.cerrarCancelar === 'function') {
+                window.cerrarCancelar();
+            } else {
+                var modalCanc = document.getElementById('modal-cancelar');
+                if (modalCanc) modalCanc.style.display = 'none';
+            }
+            return;
+        }
+
+        // 5. Incluir clases de hoy en liquidación (liquidaciones/create)
+        var btnIncluirHoy = evento.target.closest('[data-incluir-hoy]');
+        if (btnIncluirHoy) {
+            var incluir = btnIncluirHoy.getAttribute('data-incluir-hoy') === 'true';
+            if (typeof window.toggleIncluirHoy === 'function') {
+                window.toggleIncluirHoy(incluir);
+            } else {
+                var inputInc = document.getElementById('incluir-hoy');
+                if (inputInc) inputInc.value = incluir ? '1' : '0';
+                var btnInc = document.getElementById('btn-incluir');
+                var btnNoInc = document.getElementById('btn-no-incluir');
+                if (btnInc && btnNoInc) {
+                    if (incluir) {
+                        btnInc.style.background    = 'var(--color-warning)';
+                        btnInc.style.color         = '#fff';
+                        btnInc.style.border        = 'none';
+                        btnNoInc.style.background  = 'transparent';
+                        btnNoInc.style.border      = '1px solid var(--color-warning)';
+                        btnNoInc.style.color       = 'var(--color-warning)';
+                    } else {
+                        btnNoInc.style.background  = 'var(--color-warning)';
+                        btnNoInc.style.color       = '#fff';
+                        btnNoInc.style.border      = 'none';
+                        btnInc.style.background    = 'transparent';
+                        btnInc.style.border        = '1px solid var(--color-warning)';
+                        btnInc.style.color         = 'var(--color-warning)';
+                    }
+                }
+            }
+            return;
+        }
+
+        // 6. Revisión de cobranza (revision-cobranza/index)
+        var btnAbrirRev = evento.target.closest('[data-abrir-revision]');
+        if (btnAbrirRev) {
+            var idRev = btnAbrirRev.getAttribute('data-abrir-revision');
+            var tipoRev = btnAbrirRev.getAttribute('data-tipo');
+            if (typeof window.abrirForm === 'function') {
+                window.abrirForm(idRev, tipoRev);
+            } else {
+                var tipoEl = document.getElementById('res-tipo-' + idRev);
+                if (tipoEl) tipoEl.value = tipoRev;
+                var formEl = document.getElementById('form-' + idRev);
+                if (formEl) formEl.style.display = 'block';
+                var botEl = document.getElementById('botones-' + idRev);
+                if (botEl) botEl.style.display = 'none';
+                var txt = document.querySelector('#form-' + idRev + ' textarea');
+                if (txt) txt.focus();
+            }
+            return;
+        }
+
+        var btnCerrarRev = evento.target.closest('[data-cerrar-revision]');
+        if (btnCerrarRev) {
+            var idRev = btnCerrarRev.getAttribute('data-cerrar-revision');
+            if (typeof window.cerrarForm === 'function') {
+                window.cerrarForm(idRev);
+            } else {
+                var formEl = document.getElementById('form-' + idRev);
+                if (formEl) formEl.style.display = 'none';
+                var botEl = document.getElementById('botones-' + idRev);
+                if (botEl) botEl.style.display = 'flex';
+            }
+            return;
+        }
+    });
+})();
+

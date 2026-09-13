@@ -168,7 +168,7 @@
                                    border:none; font-family:inherit; background:var(--color-btn-primary); color:#fff;">
                         Confirmar
                     </button>
-                    <button type="button" onclick="cerrarForm({{ $revision->id }})"
+                    <button type="button" data-cerrar-revision="{{ $revision->id }}"
                             style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
                                    font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
                                    border:1px solid var(--color-border); font-family:inherit;
@@ -179,13 +179,13 @@
             </form>
         </div>
         <div id="botones-{{ $revision->id }}" style="display:flex; gap:8px;">
-            <button onclick="abrirForm({{ $revision->id }}, 'CONTINUA')"
+            <button type="button" data-abrir-revision="{{ $revision->id }}" data-tipo="CONTINUA"
                     style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
                            font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
                            border:none; font-family:inherit; background:var(--color-success); color:#fff;">
                 Continúa
             </button>
-            <button onclick="abrirForm({{ $revision->id }}, 'INACTIVO')"
+            <button type="button" data-abrir-revision="{{ $revision->id }}" data-tipo="INACTIVO"
                     style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
                            font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
                            border:none; font-family:inherit; background:var(--color-danger); color:#fff;">

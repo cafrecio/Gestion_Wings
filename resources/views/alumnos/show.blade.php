@@ -24,7 +24,7 @@
     <form method="POST" action="{{ route('web.alumnos.toggle-activo', $alumno->id) }}" style="display:inline;">
         @csrf @method('PATCH')
         <button type="submit" class="ds-btn ds-btn--primary"
-                onclick="return confirm('¿Reactivar a {{ $alumno->nombre }} {{ $alumno->apellido }}?')">
+                data-confirmar="¿Reactivar a {{ $alumno->nombre }} {{ $alumno->apellido }}?">
             Reactivar
         </button>
     </form>
@@ -166,7 +166,7 @@
                         @if(Auth::user()->isAdmin() && $deuda->estado === \App\Models\DeudaCuota::ESTADO_PENDIENTE)
                         <button type="button"
                                 class="ds-btn-row ds-btn-row--dang"
-                                onclick="abrirCondonar('{{ route('web.deudas.condonar', $deuda->id) }}')">
+                                data-abrir-condonar="{{ route('web.deudas.condonar', $deuda->id) }}">
                             Condonar
                         </button>
                         @endif
@@ -298,7 +298,7 @@
                       class="w-full px-4 py-2.5 text-sm wings-input"
                       style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
             <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <button type="button" onclick="cerrarCondonar()"
+                <button type="button" data-cerrar-condonar
                         class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
                 <button type="submit"
                         class="ds-btn" style="background:var(--color-danger); color:var(--color-surface);">Condonar</button>
