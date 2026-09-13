@@ -1,5 +1,7 @@
 # Contrato Funcional - Sistema de Liquidaciones v2
 
+> Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
+
 ## 1. Modelo de Dominio
 
 ### 1.1 Entidad Central: Deporte
@@ -88,8 +90,44 @@ El **Deporte** es el eje del modelo. Define:
 
 - **Generación:** Automática por el sistema, nunca manual
 - **Modificación:** Solo liquidaciones ABIERTAS
-- **Inmutabilidad:** Liquidaciones CERRADAS no pueden modificarse ni eliminarse
+- **Inmutabilidad:** Liquidaciones CERRADAS no pueden modificarse ni eliminarse —
+  **con la única excepción de la enmienda 13/09/2026 de abajo**
 - **Permisos:** Solo Administrador puede crear/gestionar liquidaciones
+
+#### Enmienda 13/09/2026 — cancelar una cerrada que todavía no se pagó (FIN-12)
+
+Hasta hoy «cerrada» y «pagada» se trataban igual, y una liquidación mal armada
+quedaba clavada para siempre aunque el profesor todavía no hubiera cobrado un peso.
+
+Carlos lo resolvió el 13/09 con el caso real a la vista: **Vanina va a liquidar mal
+alguna vez, sobre todo en los primeros meses**, y mientras no haya pagado tiene que
+poder volver atrás. Obligarla a arrastrar el error hasta la liquidación siguiente no
+protege nada: la plata todavía no salió.
+
+**Son dos situaciones distintas y el contrato ya no las llama igual:**
+
+| Estado | Qué se puede hacer |
+|---|---|
+| `CERRADA` + `estado_pago = PENDIENTE` | **Solo ADMIN la cancela**, para revisar las asistencias y rehacerla. La liquidación cancelada y su detalle **se conservan**, con responsable, fecha y motivo |
+| `CERRADA` + `estado_pago = PAGADA` | **Intocable, para todos.** La diferencia se corrige en la liquidación siguiente |
+
+**«No pagada» se refiere al sueldo del profesor**, no a cuotas pendientes de los
+alumnos. Son dos plata distintas y es fácil confundirlas leyendo rápido.
+
+**Lo que esta enmienda NO cambia:**
+
+- Cancelar no borra: la liquidación cancelada queda como documento, con su detalle
+  y el vínculo a la que la reemplace. Sin eso no hay forma de explicar después por
+  qué un mes se liquidó dos veces.
+- **Mientras la liquidación siga cerrada, ningún perfil toca las asistencias
+  vinculadas — tampoco el ADMIN.** Cancelarla no le da permisos nuevos al profesor
+  ni le reinicia el plazo de corrección.
+- No cambia el cálculo de sueldos ni habilita tocar pagos, recibos o egresos.
+- La regla general **«las liquidaciones cerradas no se reabren; las correcciones son
+  compensatorias» sigue vigente para las pagadas**, que es donde siempre aplicó.
+
+Alcance y criterios de aceptación:
+[FIN-12](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md).
 
 ---
 
