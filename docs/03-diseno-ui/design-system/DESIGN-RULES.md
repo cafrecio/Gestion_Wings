@@ -119,7 +119,41 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 
 ---
 
-## 8. CHECKLIST DEL AGENTE REVISOR
+## 8. DÓNDE VIVE EL JAVASCRIPT
+
+Decidido por Carlos el 13/09/2026, mientras se sacaba el código incrustado de las
+vistas para poder pasar la CSP a modo bloqueo (SEG-11).
+
+**Un archivo por pantalla.** El JavaScript que sirve a una sola vista va a su
+propio archivo bajo `resources/js/`, compilado por Vite y cargado por esa vista
+con `<script src>`:
+
+```
+resources/js/grupos.js      lo usa solo grupos/_form
+resources/js/usuarios.js    lo usa solo usuarios/_form
+```
+
+**`ds-app.js` es solo para lo que comparten varias pantallas.** Ahí van el
+comportamiento delegado y los componentes reutilizables: `data-enviar-al-cambiar`,
+`data-elevar`, el ojo de contraseña, el cierre de avisos, el validador de nombre
+repetido. Nada que sirva a una sola vista.
+
+**Por qué.** `ds-app.js` se carga en todas las pantallas. Amontonar ahí la lógica
+de las 24 vistas obliga a cada persona a descargar el código de todas para usar el
+de una, y convierte un error en ese archivo en un error de todo el sistema a la
+vez. Con un archivo por pantalla, la falla queda encerrada donde nació.
+
+**No cambia el conteo de la CSP.** `CspSinCodigoIncrustadoTest` cuenta los
+`<script>` **sin** `src`: un archivo propio cargado con `src` sale del conteo
+igual que si se hubiera movido a `ds-app.js`, y la política `script-src 'self'`
+lo acepta porque viene del propio dominio.
+
+**La pregunta que decide dónde va cada cosa:** ¿lo usa más de una pantalla? Sí,
+`ds-app.js`. No, su propio archivo.
+
+---
+
+## 9. CHECKLIST DEL AGENTE REVISOR
 
 Antes de aprobar cualquier vista, verificar:
 
