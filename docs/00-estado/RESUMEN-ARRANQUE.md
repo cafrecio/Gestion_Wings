@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Corte documental: 12/09/2026. Preparado por Codex CAB.
+> Corte documental: 13/09/2026. Actualizado por Codex CAB para FIN-11.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -13,13 +13,13 @@
 - No leer todo el histórico para ponerse al día; buscar ID y fragmento relevante.
 - No ejecutar tareas por aparecer aquí: respetar el pedido actual de Carlos.
 
-## Últimos resultados documentados, no reejecutados el 12/09
+## Últimos resultados documentados (fecha y alcance por fila)
 
 | Tema | Corte y alcance |
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | 169 pruebas / 1065 aserciones, 12/09; corrida FIN-07 sobre MariaDB aislada |
+| Suite | Reejecutada por Codex el 13/09 en wings_testing: 187 pasan / 1206 aserciones; incluye FIN-11 y SEG |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -29,6 +29,9 @@
 | Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
 
 ## Trabajo que continúa
+
+- FIN-11: pausa levantada el 13/09; seis cruces corregidos y probados, suite completa
+  verde (187/1206). Sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado.
 
 - FIN-07 implementada y probada 12/09: solo ADMIN condona saldo pendiente, sin borrar
   pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.

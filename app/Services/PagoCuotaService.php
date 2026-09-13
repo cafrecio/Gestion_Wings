@@ -40,6 +40,13 @@ class PagoCuotaService
         return DB::transaction(function () use ($data) {
             $this->bloquearAlumnoParaPago($data['alumno_id']);
 
+            // Tomar deuda y caja antes de escribir. Comparte las filas con
+            // condonar/cancelar y validar; esperar no debe dejar lecturas viejas.
+            DeudaCuota::where('alumno_id', $data['alumno_id'])
+                ->whereIn('periodo', array_column($data['items'], 'periodo'))
+                ->orderBy('periodo')->lockForUpdate()->get();
+            $this->cajaService->abrirCajaSiNoExiste($data['usuario_operativo_id']);
+
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
@@ -786,13 +793,22 @@ class PagoCuotaService
     public function cancelarCobroOperativo(int $movimientoId, string $motivo, int $usuarioId): void
     {
         DB::transaction(function () use ($movimientoId, $motivo, $usuarioId) {
-            $movimiento = MovimientoOperativo::with(['cajaOperativa'])->findOrFail($movimientoId);
+            // Esta primera lectura solo localiza filas; ningún estado se decide aquí.
+            $referencia = MovimientoOperativo::findOrFail($movimientoId);
+            $alumnoId = $referencia->alumno_id
+                ?? Pago::whereKey($referencia->pago_id)->value('alumno_id');
+            if ($alumnoId) {
+                Alumno::whereKey($alumnoId)->lockForUpdate()->firstOrFail();
+            }
+            $caja = \App\Models\CajaOperativa::whereKey($referencia->caja_operativa_id)
+                ->lockForUpdate()->firstOrFail();
+            $movimiento = MovimientoOperativo::whereKey($movimientoId)->lockForUpdate()->firstOrFail();
 
             if (!$movimiento->pago_id) {
                 throw new \Exception('Este cobro no tiene registro de pago vinculado. No se puede cancelar automáticamente.');
             }
 
-            if (!in_array($movimiento->cajaOperativa->estado, ['ABIERTA', 'RECHAZADA'])) {
+            if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
                 throw new \Exception('Solo se puede cancelar un cobro mientras la caja esté abierta o rechazada.');
             }
 
@@ -800,11 +816,17 @@ class PagoCuotaService
                 throw new \Exception('Este movimiento ya fue cancelado.');
             }
 
-            $pago = Pago::findOrFail($movimiento->pago_id);
+            $pago = Pago::whereKey($movimiento->pago_id)->lockForUpdate()->firstOrFail();
 
-            $pagoDeudas = PagoDeudaCuota::with('deudaCuota')
+            $pagoDeudas = PagoDeudaCuota::query()
                 ->where('pago_id', $pago->id)
+                ->orderBy('deuda_cuota_id')->lockForUpdate()
                 ->get();
+
+            foreach ($pagoDeudas as $pd) {
+                $pd->setRelation('deudaCuota', DeudaCuota::whereKey($pd->deuda_cuota_id)
+                    ->lockForUpdate()->firstOrFail());
+            }
 
             // Conservar el detalle antes de retirar las imputaciones activas.
             // Se guarda en la misma transaccion que la reversion del cobro.

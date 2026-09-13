@@ -4,6 +4,12 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Verificación ESTRUCTURAL del texto fuente, no prueba de comportamiento.
+ * Lee archivos y busca lockForUpdate con expresiones regulares. No abre conexiones,
+ * no ejecuta transacciones y no demuestra qué fila se bloquea ni por cuánto tiempo.
+ * La concurrencia real se comprueba en los tests Feature de FIN-05, FIN-07 y FIN-11.
+ */
 class MoneyLockingTest extends TestCase
 {
     public function test_validacion_de_caja_bloquea_la_fila_antes_de_cambiar_estado(): void

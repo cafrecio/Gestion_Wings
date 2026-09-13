@@ -75,7 +75,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
 | **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
-| **FIN-11** | Concurrencia real de cobrar/cancelar/validar — **CIERRE PAUSADO 12/09** | Alta | Seis cruces pasan tras corregir cuatro fallas; MoneyLockingTest descrito como estructural. Suite compartida: cinco fallas en nuevas pruebas SEG; falta verde general y commit. [Evidencia](../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md) |
+| **FIN-11** | Concurrencia real de cobrar/cancelar/validar — **IMPLEMENTADA Y PROBADA 13/09** | Alta | Seis cruces con dos conexiones pasan; MoneyLockingTest descrito como estructural. Suite completa reejecutada: 187 pruebas / 1206 aserciones. Pausa levantada; sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado. [Evidencia](../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md) |
 
 Detalles y evidencia FIN-01/02/03/05: buscar el ID en el
 [registro íntegro](../99-archivo/bitacoras/2026-09-12/PLAN-TRABAJO-IA-v2026-09-08.md).

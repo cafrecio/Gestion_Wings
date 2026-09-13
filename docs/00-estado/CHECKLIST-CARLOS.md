@@ -21,7 +21,7 @@ php artisan test          # 187 pruebas deben pasar
 ```
 
 Corte verificado del 13/09: **187 pruebas**, todas verdes.
-Las fallas están en nuevas pruebas de contraseñas y recibos de tareas SEG en curso.
+Codex reejecutó la suite el 13/09: 187 pruebas / 1206 aserciones; sin fallas de SEG ni FIN-11.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 

@@ -69,16 +69,19 @@ class CajaService
      */
     public function abrirCajaSiNoExiste(int $usuarioOperativoId): CajaOperativa
     {
-        // Validar caja vieja antes de cualquier operación
-        $this->validarCajaViejaAbierta($usuarioOperativoId);
-
         // Serializar aperturas concurrentes (doble submit): el lock sobre la
         // fila del usuario obliga a la segunda request a esperar y encontrar
         // la caja que creó la primera, en lugar de abrir una duplicada.
         return DB::transaction(function () use ($usuarioOperativoId) {
             User::whereKey($usuarioOperativoId)->lockForUpdate()->first();
 
-            $cajaAbierta = $this->obtenerCajaAbierta($usuarioOperativoId);
+            // Lectura actual: una validación simultánea puede haber cerrado la caja.
+            $cajaAbierta = CajaOperativa::where('usuario_operativo_id', $usuarioOperativoId)
+                ->where('estado', 'ABIERTA')->lockForUpdate()->first();
+
+            if ($cajaAbierta && !$cajaAbierta->apertura_at->isToday()) {
+                throw new \Exception('Tenés una caja abierta de un día anterior. No podés operar hasta cerrarla.');
+            }
 
             if ($cajaAbierta) {
                 return $cajaAbierta;
