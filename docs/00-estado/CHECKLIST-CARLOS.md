@@ -82,6 +82,12 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   completar con DEBE por alumno, e importarlo. Cierra el mes de corte y Wings arranca
   a facturar el mes siguiente. Procedimiento en
   `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
+- [ ] **Correr el ensayo de restauracion en el servidor**, con un respaldo real:
+  `./restaurar.sh /var/backups/wings/<el-mas-nuevo>.tgz.enc ensayo`. No toca nada:
+  restaura en una base descartable y compara. Es el unico paso de SEG-06 que no se
+  puede hacer desde aca, y hasta hacerlo **no esta demostrado que el respaldo del
+  servidor sirva**. Los respaldos anteriores al 13/09 se restauran igual; lo que
+  cambio es que ahora la restauracion tambien repone los recibos.
 - [ ] Reservar dos o tres horas para el recorrido humano completo, despues de cerrar
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.
