@@ -39,6 +39,10 @@ class CajaWebController extends Controller
 
     public function index(Request $request)
     {
+        if ($request->ajax()) {
+            session()->reflash();
+        }
+
         $user = Auth::user();
 
         $cajaVieja  = false;
@@ -881,7 +885,8 @@ class CajaWebController extends Controller
             }
 
             return redirect()->route('web.caja.index')
-                ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.");
+                ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.")
+                ->with('recibo_pago_id', $resultadoPago['pago']->id);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

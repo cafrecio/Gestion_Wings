@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada por Codex el 13/09 en wings_testing: 187 pasan / 1206 aserciones; incluye FIN-11 y SEG |
+| Suite | Reejecutada el 13/09 en wings_testing: 190 pasan / 1220 aserciones; incluye FIN-11, SEG y ENT-05 |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -46,6 +46,7 @@
   [Instructivo](../03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md).
   La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
 - ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
+- ENT-05: CERRADO 13/09. Recibo accesible a un clic en confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno.
 - Antes de cambiar de máquina, comprobar qué está realmente versionado/subido.
 
 ## Decisiones pendientes que deben viajar entre sesiones

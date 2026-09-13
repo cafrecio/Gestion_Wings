@@ -301,7 +301,19 @@
         <main class="ds-content">
 
             @if(session('success'))
-                <div class="ds-flash ds-flash--success">{{ session('success') }}</div>
+                <div class="ds-flash ds-flash--success" style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+                    <div>{{ session('success') }}</div>
+                    @php
+                        $reciboId = session('recibo_pago_id');
+                        $reciboUrl = session('recibo_url') ?: ($reciboId ? route('web.recibos.cuota', $reciboId) . '?inline=1' : null);
+                    @endphp
+                    @if($reciboUrl && !auth()->user()?->isProfesor())
+                        <a href="{{ $reciboUrl }}"
+                           target="_blank"
+                           class="ds-btn-row ds-btn-row--sec"
+                           style="background:var(--color-surface); flex-shrink:0;">Recibo</a>
+                    @endif
+                </div>
             @endif
 
             @if(session('error'))

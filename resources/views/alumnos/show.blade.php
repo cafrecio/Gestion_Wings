@@ -222,6 +222,7 @@
                     if (!$periodos && $pago->mes && $pago->anio) {
                         $periodos = ($meses[$pago->mes] ?? $pago->mes) . ' ' . $pago->anio;
                     }
+                    $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
                 @endphp
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;
                             padding:5px 8px; border-radius:6px;
@@ -231,10 +232,21 @@
                         @if($periodos)
                         <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · {{ $periodos }}</span>
                         @endif
+                        @if($esAnulado)
+                        <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Anulado</span>
+                        @endif
                     </div>
-                    <span style="font-size:0.75rem; font-weight:700; color:var(--color-success); white-space:nowrap;">
-                        ${{ number_format($pago->monto_final, 0, ',', '.') }}
-                    </span>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
+                            ${{ number_format($pago->monto_final, 0, ',', '.') }}
+                        </span>
+                        @if(!auth()->user()?->isProfesor())
+                        <a href="{{ route('web.recibos.cuota', $pago->id) }}?inline=1"
+                           class="ds-btn-row ds-btn-row--sec"
+                           style="background:var(--color-surface); flex-shrink:0;"
+                           target="_blank">Recibo</a>
+                        @endif
+                    </div>
                 </div>
                 @endforeach
                 </div>

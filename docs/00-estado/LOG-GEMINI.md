@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-13 — LOG GEM CAB — ENT-05 Acceso directo al recibo tras cobrar y en la ficha
+
+- **Objetivo:** Dar acceso directo al recibo de cuota a un clic en dos momentos clave: inmediatamente después de cobrar (para entregar al padre en mostrador) y en la ficha del alumno (para reimpresión o consulta posterior).
+- **Cambios reales:**
+  1. `app/Http/Controllers/CajaWebController.php`: en `pagar()`, agregada clave `recibo_pago_id` en el flash de sesión del redirect; en `index()`, agregado `session()->reflash()` si la petición es AJAX para conservar el flash ante follows de fetch.
+  2. `resources/views/layouts/ds-app.blade.php`: en el banner `.ds-flash--success`, incorporado botón `Recibo` (`class="ds-btn-row ds-btn-row--sec"`, `target="_blank"`, `inline=1`) cuando existe `recibo_pago_id` o `recibo_url`.
+  3. `resources/views/alumnos/show.blade.php`: en cada fila del widget "Historial de pagos", agregado botón `Recibo` (`class="ds-btn-row ds-btn-row--sec"`, `target="_blank"`, `inline=1`), distinguiendo además pagos anulados (`· Anulado`).
+  4. Ambos botones protegidos con `!auth()->user()?->isProfesor()`.
+  5. `resources/js/ds-app.js`: condicionado el auto-dismiss de 3s en `.ds-flash` para que banners con acciones (`<a>` o `<button>`) no desaparezcan automáticamente. Compilado con Vite (`npm run build`).
+  6. Agregada prueba de regresión `tests/Feature/CobroReciboAccesoTest.php` (3 pruebas, 18 aserciones).
+  7. Sincronizados ambos tableros (`PLAN-TRABAJO-IA-v2026-09-08.md` y `PLAN-TRABAJO-CARLOS-v2026-09-08.html`), `RESUMEN-ARRANQUE.md` y `ESTADO-ACTUAL.md`.
+- **Verificaciones:**
+  - `php -l`: sintaxis limpia en controladores, vistas y tests.
+  - `php artisan view:cache && php artisan view:clear`: compilación Blade OK.
+  - `php artisan test --filter CobroReciboAccesoTest`: 3 passed (18 assertions).
+  - `php artisan test --filter TablerosNoDivergenTest`: 2 passed (9 assertions).
+  - `php artisan test --filter CspSinCodigoIncrustadoTest`: 2 passed (2 assertions).
+  - `git diff --stat -- resources/views resources/css`: solo las dos vistas autorizadas tocadas.
+- **Siguiente paso:** Tareas de administración y alertas (ENT-06) o reportes.
+
 ## 2026-09-12 — LOG GEM CAB — ENT-02 Nuevo recibo de cuota y versión anulada
 
 - **Objetivo:** Implementar el diseño visual aprobado por Carlos y Vanina (`docs/03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md`) para el comprobante de cuota y su versión anulada, bajo el estándar estricto DomPDF CSS 2.1 (A5 vertical).

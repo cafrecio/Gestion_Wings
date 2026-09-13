@@ -103,6 +103,7 @@
 (function () {
     setTimeout(function () {
         document.querySelectorAll('.ds-flash').forEach(function (el) {
+            if (el.querySelector('a, button')) return;
             el.style.transition = 'opacity 0.5s ease';
             el.style.opacity = '0';
             setTimeout(function () { el.remove(); }, 500);

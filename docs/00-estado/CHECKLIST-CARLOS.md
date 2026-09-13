@@ -17,11 +17,11 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 187 pruebas deben pasar
+php artisan test          # 190 pruebas deben pasar
 ```
 
-Corte verificado del 13/09: **187 pruebas**, todas verdes.
-Codex reejecutó la suite el 13/09: 187 pruebas / 1206 aserciones; sin fallas de SEG ni FIN-11.
+Corte verificado del 13/09: **190 pruebas**, todas verdes.
+Suite completa el 13/09: 190 pruebas / 1220 aserciones; incluye FIN-11, SEG y ENT-05.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 
