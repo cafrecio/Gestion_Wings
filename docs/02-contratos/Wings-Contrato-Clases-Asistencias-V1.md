@@ -46,23 +46,40 @@ Regla general: crear/editar/validar clases queda exclusivo de ADMIN — es una e
 
 Lo de arriba nombraba *cambiar profesor* y *corregir asistencia*, y **no decía nada de
 mover la fecha ni el horario**. La laguna la encontró Codex CyE al abrir FIN-10. Carlos
-la resolvió el 13/09:
+la resolvió el 13/09, y **fecha y horario quedan separados**:
 
-| Estado de la clase | Fecha y horario |
-|---|---|
-| **Futura o de hoy** | Se cambian libremente |
-| **Pasada, con asistencia tomada** | Se cambian **con motivo**, validando que ningún alumno presente quede superpuesto con otra clase suya |
-| **Ya liquidada** | **Bloqueado** |
+| Estado de la clase | Fecha | Horario |
+|---|---|---|
+| **Futura o de hoy** | Se cambia libremente, nunca hacia el pasado | Se cambia libremente |
+| **Pasada** | **Bloqueada** | **Con motivo**, validando que ningún alumno presente quede superpuesto con otra clase suya |
+| **Pasada y ya liquidada** | **Bloqueada** | **Bloqueado** |
 
-**Por qué la segunda fila.** §4.b prohíbe que un alumno quede en dos clases solapadas y
-lo valida al tomar lista — pero si el horario se mueve *después*, esa validación ya pasó
-y nadie la vuelve a correr. Mover la clase puede dejar a los presentes en la situación
-que el contrato prohíbe.
+**Por qué la fecha no se mueve nunca hacia atrás.** Una clase pasó el día que pasó:
+cambiarle la fecha después no corrige la realidad, corrige un error de carga. Y si la
+clase no se dictó, eso no es moverla de día — es cancelar la del martes y crear la del
+jueves, que el sistema ya sabe hacer. Criterio de Carlos: *"no tiene sentido movernos en
+el pasado, es hacer muy complejo el sistema sin uso práctico"*. Por la misma razón sigue
+en pie §4.c: tampoco se crea una clase con fecha pasada.
 
-**Por qué la tercera.** Mover la fecha de una clase ya liquidada cambia lo que se le pagó
-al profesor en un mes cerrado. El plan vigente dice que *"las liquidaciones cerradas no
-se reabren; las correcciones son compensatorias"*: permitir esto sería la puerta de atrás
-a esa regla.
+**Por qué el horario sí.** Ahí el caso real existe y es frecuente: la clase fue de 19 a
+20:30 y se cargó de 18 a 19:30. El día es correcto, la hora no, y a los profesores por
+hora se les paga por eso. Pide motivo porque es una corrección de un dato ya registrado,
+igual que §4.e.
+
+**Por qué revalidar el solapamiento al mover el horario.** §4.b prohíbe que un alumno
+quede en dos clases solapadas y lo valida al tomar lista — pero si el horario se mueve
+*después*, esa validación ya pasó y nadie la vuelve a correr. Mover la clase puede dejar
+a los presentes en la situación que el contrato prohíbe.
+
+**Por qué la clase liquidada se bloquea.** Cambiar el horario de una clase ya liquidada
+cambia lo que se le pagó al profesor por hora en un mes cerrado. El plan vigente dice que
+*"las liquidaciones cerradas no se reabren; las correcciones son compensatorias"*:
+permitir esto sería la puerta de atrás a esa regla.
+
+**Consecuencia conocida y aceptada.** Si una clase se carga con la fecha equivocada y se
+descubre al día siguiente, no se puede corregir ni recrear en el día correcto. Queda una
+clase cancelada en el día que no fue. Se acepta: es raro, y el costo de habilitar la
+edición retroactiva de fechas para cubrirlo es mayor que el problema.
 
 Sigue rigiendo §4.a: **editar fecha, hora o grupo es exclusivo de ADMIN.** Esta enmienda
 no le da al OPERATIVO ninguna facultad nueva.
@@ -144,6 +161,8 @@ Estos tres puntos quedan fuera de alcance de esta resolución (no se pidió reso
 ## 4.i Reglas Freeze
 
 - No existe clase creada con fecha pasada.
+- No existe clase pasada cuya fecha se haya movido, ni clase de hoy o futura movida al pasado.
+- No existe cambio de horario en una clase pasada sin motivo, ni en una clase ya liquidada.
 - No existe reasignación de profesores sin motivo en una clase pasada.
 - No existe corrección de asistencia sin motivo en una clase pasada.
 - Un profesor nunca queda con dos clases solapadas asignadas; un alumno nunca queda `presente=true` en dos clases solapadas.
