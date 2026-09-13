@@ -122,7 +122,9 @@ paso "6. dependencias"
 cd "${APP}"
 COMPOSER=$(command -v composer || echo /usr/local/bin/composer)
 [ -x "${COMPOSER}" ] || { echo "FALLA: no se encuentra composer"; exit 1; }
-sudo -u "${USUARIO}" "${COMPOSER}" install --no-dev --optimize-autoloader --no-interaction --quiet
+# Invocado con php82 a proposito: el `php` del PATH es el de CWP y con esa version
+# el lock no resuelve ("lock file does not contain a compatible set of packages").
+sudo -u "${USUARIO}" /usr/bin/php82 "${COMPOSER}" install --no-dev --optimize-autoloader --no-interaction --quiet
 echo "composer ok"
 sudo -u "${USUARIO}" npm ci --silent --no-audit --no-fund
 sudo -u "${USUARIO}" npm run build --silent
