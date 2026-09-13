@@ -133,6 +133,82 @@ while read -r TABLA; do
     fi
 done < "${WORKDIR}/tablas.txt"
 
+echo "== Contenido financiero =="
+
+# SEG-07. Contar filas no alcanza: un volcado puede traer la misma cantidad de
+# filas con los importes truncados, o imputaciones que apuntan a otro pago. Lo
+# que se compara aca es plata, no cantidad.
+#
+# Cada linea es: etiqueta|consulta. La consulta lleva @ donde va la base, para
+# correr la misma contra la viva y contra la copia.
+CONSULTAS_PLATA=$(cat <<'SQL'
+pagos completados|SELECT COALESCE(SUM(monto_final),0) FROM `@`.pagos WHERE estado='COMPLETADO'
+pagos anulados|SELECT COALESCE(SUM(monto_final),0) FROM `@`.pagos WHERE estado='ANULADO'
+imputaciones|SELECT COALESCE(SUM(monto_aplicado),0) FROM `@`.pago_deuda_cuota
+deuda pendiente|SELECT COALESCE(SUM(saldo_pendiente),0) FROM `@`.deuda_cuotas
+deuda cobrada|SELECT COALESCE(SUM(monto_pagado),0) FROM `@`.deuda_cuotas
+movimientos activos|SELECT COALESCE(SUM(monto),0) FROM `@`.movimientos_operativos WHERE estado='ACTIVO'
+cashflow|SELECT COALESCE(SUM(monto),0) FROM `@`.cashflow_movimientos
+liquidado|SELECT COALESCE(SUM(total_calculado),0) FROM `@`.liquidaciones
+detalle liquidado|SELECT COALESCE(SUM(monto),0) FROM `@`.liquidacion_detalles
+SQL
+)
+
+# Invariantes: no comparan plata contra plata, sino que buscan filas que no
+# deberian existir. Se corren en las DOS bases y se comparan los resultados,
+# a proposito: si la base viva ya tiene tres deudas descuadradas y la copia
+# tiene las mismas tres, el respaldo hizo bien su trabajo — copio fielmente — y
+# el problema es de los datos, no del respaldo. Mezclar las dos cosas haria que
+# un defecto viejo se reporte como respaldo roto.
+CONSULTAS_INVARIANTES=$(cat <<'SQL'
+deudas descuadradas|SELECT COUNT(*) FROM `@`.deuda_cuotas d WHERE d.monto_pagado <> (SELECT COALESCE(SUM(i.monto_aplicado),0) FROM `@`.pago_deuda_cuota i WHERE i.deuda_cuota_id = d.id)
+imputaciones huerfanas|SELECT COUNT(*) FROM `@`.pago_deuda_cuota i LEFT JOIN `@`.pagos p ON p.id=i.pago_id LEFT JOIN `@`.deuda_cuotas d ON d.id=i.deuda_cuota_id WHERE p.id IS NULL OR d.id IS NULL
+cashflow sin caja|SELECT COUNT(*) FROM `@`.cashflow_movimientos c WHERE c.referencia_tipo='CAJA_OPERATIVA' AND NOT EXISTS (SELECT 1 FROM `@`.cajas_operativas k WHERE k.id=c.referencia_id)
+liquidaciones descuadradas|SELECT COUNT(*) FROM `@`.liquidaciones l WHERE l.total_calculado <> (SELECT COALESCE(SUM(x.monto),0) FROM `@`.liquidacion_detalles x WHERE x.liquidacion_id = l.id)
+SQL
+)
+
+comparar() {
+    local etiqueta="$1" consulta="$2"
+    local viva copia
+    viva=$(mysql -N -B -e "${consulta//@/${BASE_VIVA}}" 2>/dev/null || echo "error")
+    copia=$(mysql -N -B -e "${consulta//@/${BASE_ENSAYO}}" 2>/dev/null || echo "error")
+
+    if [ "${viva}" = "error" ] || [ "${copia}" = "error" ]; then
+        printf "   %-28s %s\n" "${etiqueta}" "NO SE PUDO CONSULTAR"
+        return 1
+    fi
+    if [ "${viva}" = "${copia}" ]; then
+        printf "   %-28s %-14s = %-14s ok\n" "${etiqueta}" "${viva}" "${copia}"
+        return 0
+    fi
+    printf "   %-28s %-14s = %-14s NO COINCIDE\n" "${etiqueta}" "${viva}" "${copia}"
+    return 1
+}
+
+while IFS='|' read -r ETIQUETA CONSULTA; do
+    [ -n "${ETIQUETA}" ] || continue
+    comparar "${ETIQUETA}" "${CONSULTA}" || DIFERENCIAS=$((DIFERENCIAS + 1))
+done <<< "${CONSULTAS_PLATA}"
+
+echo "== Coherencia interna =="
+INCOHERENCIAS=0
+while IFS='|' read -r ETIQUETA CONSULTA; do
+    [ -n "${ETIQUETA}" ] || continue
+    if comparar "${ETIQUETA}" "${CONSULTA}"; then
+        # Coinciden, pero si el valor no es cero hay un problema de datos que
+        # el respaldo esta copiando fielmente. No invalida el respaldo; se avisa.
+        VALOR=$(mysql -N -B -e "${CONSULTA//@/${BASE_ENSAYO}}" 2>/dev/null || echo 0)
+        if [ "${VALOR}" != "0" ]; then
+            printf "      ^ %s filas incoherentes en AMBAS bases: es un problema de datos, no del respaldo\n" "${VALOR}"
+            INCOHERENCIAS=$((INCOHERENCIAS + 1))
+        fi
+    else
+        # Difieren: la restauracion introdujo o perdio incoherencias.
+        DIFERENCIAS=$((DIFERENCIAS + 1))
+    fi
+done <<< "${CONSULTAS_INVARIANTES}"
+
 echo "== Archivos subidos =="
 mkdir -p "${WORKDIR}/storage-copia"
 tar -xzf "${WORKDIR}/storage.tgz" -C "${WORKDIR}/storage-copia" 2>/dev/null || true
@@ -157,7 +233,11 @@ echo "   APP_KEY presente en env.txt"
 mysql -e "DROP DATABASE IF EXISTS ${BASE_ENSAYO};"
 
 if [ "${DIFERENCIAS}" -eq 0 ]; then
-    echo "== ENSAYO CORRECTO: ${COMPARADAS} tablas, archivos y configuracion =="
+    echo "== ENSAYO CORRECTO: ${COMPARADAS} tablas, importes, archivos y configuracion =="
+    if [ "${INCOHERENCIAS:-0}" -gt 0 ]; then
+        echo "== AVISO: ${INCOHERENCIAS} incoherencia(s) de datos presentes en las dos bases =="
+        echo "   El respaldo esta bien: copia lo que hay. Revisar esos datos por separado."
+    fi
     exit 0
 fi
 echo "== ENSAYO FALLIDO: ${DIFERENCIAS} comprobacion(es) no coinciden =="

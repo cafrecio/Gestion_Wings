@@ -76,16 +76,30 @@ case "$consulta" in
         [ -f "$archivo" ] && cat "$archivo"
         exit 0
         ;;
-    *"SELECT COUNT"*)
-        tabla="$(printf '%s' "$consulta" | sed -E 's/.*`[^`]+`\.`([^`]+)`.*/\1/')"
-        if [[ "$base" == *ensayo* ]] || [[ "$consulta" == *ensayo* ]]; then :; fi
-        if [[ "$consulta" == *"${CBM_BASE_ENSAYO}"* ]]; then
-            archivo="$CBM_TEST_ROOT/conteos_copia.txt"
-        else
-            archivo="$CBM_TEST_ROOT/conteos_vivos.txt"
+    *"SELECT"*)
+        # A que base apunta la consulta: las de contenido llevan la base
+        # embebida, no como argumento.
+        if [[ "$consulta" == *"${CBM_BASE_ENSAYO}"* ]]; then lado="copia"; else lado="vivos"; fi
+
+        # SEG-07: importes e invariantes se responden por patron, porque no son
+        # "una tabla" sino consultas con SUM, JOIN y subconsultas.
+        patrones="$CBM_TEST_ROOT/patrones_${lado}.txt"
+        if [ -f "$patrones" ]; then
+            while IFS='=' read -r patron valor; do
+                [ -n "$patron" ] || continue
+                if [[ "$consulta" == *"$patron"* ]]; then printf '%s\n' "$valor"; exit 0; fi
+            done < "$patrones"
         fi
-        valor="$(grep -E "^${tabla}=" "$archivo" 2>/dev/null | cut -d= -f2)"
-        printf '%s\n' "${valor:-0}"
+
+        # SEG-06: conteo simple de una tabla.
+        if [[ "$consulta" == *"SELECT COUNT(*) FROM \`"* ]]; then
+            tabla="$(printf '%s' "$consulta" | sed -E 's/.*`[^`]+`\.`([^`]+)`.*/\1/')"
+            valor="$(grep -E "^${tabla}=" "$CBM_TEST_ROOT/conteos_${lado}.txt" 2>/dev/null | cut -d= -f2)"
+            printf '%s\n' "${valor:-0}"
+            exit 0
+        fi
+
+        printf '0\n'
         exit 0
         ;;
 esac
@@ -242,10 +256,59 @@ else
     printf '  ok    EN-SERIO no pisa el .env por su cuenta\n'
 fi
 
+# ---------------------------------------------------------------- SEG-07
+#
+# Contar filas no alcanza. Un volcado puede restaurar la misma cantidad de filas
+# con los importes truncados: el ensayo de SEG-06 lo daba por correcto.
+
+echo
+echo "SEG-07 — verificacion fuerte del contenido"
+
+# Vuelve el escenario coincidente de tablas y conteos.
+printf 'alumnos\npagos\npago_deuda_cuota\n' > "$TEST_ROOT/tablas_wings.txt"
+printf 'alumnos\npagos\npago_deuda_cuota\n' > "$TEST_ROOT/tablas_wings_ensayo.txt"
+printf 'alumnos=60\npagos=12\npago_deuda_cuota=20\n' > "$TEST_ROOT/conteos_vivos.txt"
+printf 'alumnos=60\npagos=12\npago_deuda_cuota=20\n' > "$TEST_ROOT/conteos_copia.txt"
+rm -rf "$APP_DIR/storage/app"
+mkdir -p "$APP_DIR/storage/app/private/recibos"
+printf 'recibo 1\n' > "$APP_DIR/storage/app/private/recibos/recibo-1.pdf"
+printf 'recibo 2\n' > "$APP_DIR/storage/app/private/recibos/recibo-2.pdf"
+
+# a. Mismo conteo, mismos importes: pasa.
+printf "SUM(monto_final)=480000.00\nSUM(monto_aplicado)=480000.00\nSUM(saldo_pendiente)=120000.00\n" > "$TEST_ROOT/patrones_vivos.txt"
+cp "$TEST_ROOT/patrones_vivos.txt" "$TEST_ROOT/patrones_copia.txt"
+verificar "importes que coinciden pasan" "0" "$(correr_ensayo "$TEST_ROOT/completo.enc")"
+
+# b. EL CASO DE SEG-07: misma cantidad de pagos, distinta plata.
+#    Con la comprobacion de SEG-06 sola, esto pasaba en verde.
+printf "SUM(monto_final)=48000.00\nSUM(monto_aplicado)=480000.00\nSUM(saldo_pendiente)=120000.00\n" > "$TEST_ROOT/patrones_copia.txt"
+verificar "mismo conteo con importes truncados falla" "1" "$(correr_ensayo "$TEST_ROOT/completo.enc")"
+grep -q "pagos completados" "$TEST_ROOT/salida.log" \
+    && printf '  ok    el informe nombra el importe que no coincide\n' \
+    || { printf '  FALLA el informe no nombra el importe\n'; fallos=$((fallos + 1)); }
+
+# c. Las imputaciones no suman lo mismo: que meses cubre cada pago quedo mal.
+printf "SUM(monto_final)=480000.00\nSUM(monto_aplicado)=310000.00\nSUM(saldo_pendiente)=120000.00\n" > "$TEST_ROOT/patrones_copia.txt"
+verificar "imputaciones con otra suma fallan" "1" "$(correr_ensayo "$TEST_ROOT/completo.enc")"
+
+# d. La restauracion INTRODUJO incoherencias: la viva esta sana, la copia no.
+printf "SUM(monto_final)=480000.00\nSUM(monto_aplicado)=480000.00\nSUM(saldo_pendiente)=120000.00\nWHERE d.monto_pagado=0\n" > "$TEST_ROOT/patrones_vivos.txt"
+printf "SUM(monto_final)=480000.00\nSUM(monto_aplicado)=480000.00\nSUM(saldo_pendiente)=120000.00\nWHERE d.monto_pagado=3\n" > "$TEST_ROOT/patrones_copia.txt"
+verificar "incoherencias que aparecen solo en la copia fallan" "1" "$(correr_ensayo "$TEST_ROOT/completo.enc")"
+
+# e. La incoherencia ya estaba viva y el respaldo la copio igual: el respaldo
+#    hizo bien su trabajo. Tiene que pasar, avisando que los DATOS estan mal.
+printf "SUM(monto_final)=480000.00\nSUM(monto_aplicado)=480000.00\nSUM(saldo_pendiente)=120000.00\nWHERE d.monto_pagado=3\n" > "$TEST_ROOT/patrones_vivos.txt"
+cp "$TEST_ROOT/patrones_vivos.txt" "$TEST_ROOT/patrones_copia.txt"
+verificar "una incoherencia presente en las dos bases no invalida el respaldo" "0" "$(correr_ensayo "$TEST_ROOT/completo.enc")"
+grep -q "problema de datos, no del respaldo" "$TEST_ROOT/salida.log" \
+    && printf '  ok    lo distingue de un respaldo roto y lo avisa\n' \
+    || { printf '  FALLA no avisa que hay datos incoherentes\n'; fallos=$((fallos + 1)); }
+
 echo
 if [ "$fallos" -eq 0 ]; then
-    echo "SEG-06: todas las comprobaciones pasan."
+    echo "SEG-06 y SEG-07: todas las comprobaciones pasan."
     exit 0
 fi
-echo "SEG-06: $fallos comprobacion(es) fallaron."
+echo "SEG-06 y SEG-07: $fallos comprobacion(es) fallaron."
 exit 1

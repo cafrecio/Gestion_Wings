@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-13 — Claude CAB — SEG-07: el ensayo compara plata, no cantidad de filas
+
+Un volcado puede restaurar la misma cantidad de filas con los importes mal, y el
+ensayo de SEG-06 lo daba por correcto. Ahora compara importes entre la base viva
+y la copia: pagos por estado, imputaciones, deuda pendiente y cobrada,
+movimientos activos, cashflow y liquidaciones con su detalle.
+
+Suma cuatro invariantes —deudas cuyo `monto_pagado` no coincide con la suma de
+sus imputaciones, imputaciones huerfanas, asientos de cashflow que apuntan a una
+caja inexistente y liquidaciones descuadradas contra su detalle— y aca esta la
+decision que importa: **se corren en las dos bases y se comparan entre si**. Si
+la base viva ya tiene tres deudas descuadradas y la copia tiene las mismas tres,
+el respaldo copio fielmente y el ensayo pasa, avisando que hay un problema de
+**datos**. Mezclarlo con el resultado del respaldo haria que un defecto viejo se
+reporte como respaldo roto y que nadie confie en la herramienta.
+
+Prueba extendida a 18 comprobaciones. Dientes: con la version de SEG-06, el caso
+`mismo conteo con importes truncados` **pasa en verde**.
+**Falta el ensayo real contra un respaldo del servidor.** Sin deploy.
+
 ## 2026-09-13 — Claude CAB — SEG-06: la restauracion reponia solo la base
 
 El respaldo nocturno guarda tres piezas —`wings.sql`, `storage.tgz` y `env.txt`—
