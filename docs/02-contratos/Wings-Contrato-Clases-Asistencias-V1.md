@@ -62,8 +62,7 @@ el pasado, es hacer muy complejo el sistema sin uso práctico"*. Por la misma ra
 en pie §4.c: tampoco se crea una clase con fecha pasada.
 
 **Por qué el horario sí.** Ahí el caso real existe y es frecuente: la clase fue de 19 a
-20:30 y se cargó de 18 a 19:30. El día es correcto, la hora no, y a los profesores por
-hora se les paga por eso. Pide motivo porque es una corrección de un dato ya registrado,
+20:30 y se cargó de 18 a 19:30. El día es correcto, la hora no. Corregirla preserva el registro de lo ocurrido. Pide motivo porque es una corrección de un dato ya registrado,
 igual que §4.e.
 
 **Por qué revalidar el solapamiento al mover el horario.** §4.b prohíbe que un alumno
@@ -71,8 +70,8 @@ quede en dos clases solapadas y lo valida al tomar lista — pero si el horario 
 *después*, esa validación ya pasó y nadie la vuelve a correr. Mover la clase puede dejar
 a los presentes en la situación que el contrato prohíbe.
 
-**Por qué la clase liquidada se bloquea.** Cambiar el horario de una clase ya liquidada
-cambia lo que se le pagó al profesor por hora en un mes cerrado. El plan vigente dice que
+**Por qué la clase liquidada se bloquea.** La clase figura en el detalle de una liquidación de un mes cerrado;
+su horario queda protegido como parte de ese registro. El plan vigente dice que
 *"las liquidaciones cerradas no se reabren; las correcciones son compensatorias"*:
 permitir esto sería la puerta de atrás a esa regla.
 
@@ -83,6 +82,20 @@ edición retroactiva de fechas para cubrirlo es mayor que el problema.
 
 Sigue rigiendo §4.a: **editar fecha, hora o grupo es exclusivo de ADMIN.** Esta enmienda
 no le da al OPERATIVO ninguna facultad nueva.
+
+**Precisión FIN-10 confirmada por Carlos el 13/09.** Ya liquidada significa que existe
+un detalle de tipo `clase` vinculado a una liquidación `CERRADA`, aunque siga pendiente
+de pago. Una liquidación `ABIERTA` no bloquea esta corrección. El cálculo de importes
+no cambia: hoy el servicio asigna `valor_hora` por clase, sin multiplicar duración;
+la decisión sobre duración queda separada de FIN-10.
+
+Al cambiar fecha u horario se revalidan todos los profesores que quedan asignados y
+los alumnos con `presente=true`, también hoy o en el futuro, excluyendo la propia
+clase/asistencia. Si hay conflicto, no se guarda nada (incluidos motivo y profesores).
+Los bordes contiguos siguen permitidos. Guardar sin cambios no exige motivo.
+El motivo de una corrección horaria pasada se guarda en `clases.motivo_cambio_horario`.
+La edición general ignora profesores enviados para clases pasadas; la reasignación
+sigue en la ficha con los controles de §4.d. Hoy/futuro permite quitar todos los profesores.
 
 ---
 

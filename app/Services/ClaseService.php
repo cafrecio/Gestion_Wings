@@ -308,7 +308,7 @@ class ClaseService
             $clase = Clase::findOrFail($claseId);
             $profesor = Profesor::findOrFail($profesorId);
 
-            $this->validarSolapamientoProfesor($profesor, $clase);
+            $this->validarSolapamientoProfesor($profesor, $clase, $clase->id);
 
             return [
                 'puede_asignar' => true,

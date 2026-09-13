@@ -22,6 +22,7 @@ class Clase extends Model
         'cancelada',
         'motivo_cancelacion',
         'motivo_cambio_profesor',
+        'motivo_cambio_horario',
     ];
 
     protected $casts = [

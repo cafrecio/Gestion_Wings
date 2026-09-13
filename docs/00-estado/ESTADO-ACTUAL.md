@@ -99,14 +99,14 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **190 pruebas**, 1224 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-11 y ENT-05 |
+| **Tests** | **202 pruebas**, 1275 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-11 y ENT-05 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
-| Clases | Asistencias atomicas; editar clase no repite control de superposicion |
+| Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago y recibos. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. Historia (FIN-06) pendiente. El plan ataba ambas al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |

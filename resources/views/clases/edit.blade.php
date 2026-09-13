@@ -8,6 +8,7 @@
 @php
 $iconAttr     = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"';
 $labelClass   = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
+$esPasada = $clase->fecha->lt(today());
 $profAsignados = $clase->profesores->pluck('id')->toArray();
 @endphp
 
@@ -38,7 +39,8 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
                     Fecha <span class="form-required">*</span>
                 </label>
                 <input type="date" id="fecha" name="fecha"
-                       value="{{ old('fecha', $clase->fecha->format('Y-m-d')) }}"
+                       value="{{ $esPasada ? $clase->fecha->format('Y-m-d') : old('fecha', $clase->fecha->format('Y-m-d')) }}"
+                       @readonly($esPasada)
                        class="w-full px-4 py-2.5 text-sm wings-input"
                        style="max-width:220px;">
                 @error('fecha') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
@@ -73,6 +75,15 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
 
         </div>
 
+        @if($esPasada)
+            <div class="mb-4">
+                <label for="motivo" class="{{ $labelClass }}">Motivo del cambio de horario</label>
+                <textarea id="motivo" name="motivo" maxlength="255" rows="2" class="w-full px-4 py-2.5 text-sm wings-input">{{ old('motivo') }}</textarea>
+                <p class="text-xs mt-1 text-wings-muted">Obligatorio solo si cambiás el horario. La fecha pasada no se puede cambiar.</p>
+                @error('motivo') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
+            </div>
+        @endif
+
         {{-- Separador --}}
         <div style="height:1px; background:var(--color-border); margin:16px 0;"></div>
 
@@ -92,7 +103,7 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
                     @endphp
                     <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
                         <input type="checkbox" name="profesores[]" value="{{ $profesor->id }}"
-                            {{ in_array($profesor->id, old('profesores', $profAsignados)) ? 'checked' : '' }}>
+                            {{ in_array($profesor->id, $esPasada ? $profAsignados : old('profesores', $profAsignados)) ? 'checked' : '' }} @disabled($esPasada)>
                         {{ $profesor->apellido }}, {{ $profesor->nombre }}
                         @if($profesor->deporte)
                             <span style="font-size:0.62rem; font-weight:700; padding:1px 6px; border-radius:999px; background:color-mix(in srgb, var(--color-sport-{{ $railP }}) 18%, transparent); color:var(--color-sport-{{ $railP }});">
@@ -104,6 +115,10 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
                     <p class="text-xs text-wings-muted">No hay profesores activos registrados.</p>
                 @endforelse
             </div>
+            @if($esPasada)
+                <p class="text-xs mt-2 text-wings-muted">Los profesores se cambian desde la ficha de la clase.</p>
+                <x-ds.button variant="secondary" href="{{ route('web.clases.show', $clase->id) }}">Ver</x-ds.button>
+            @endif
             @error('profesores') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
         </div>
 

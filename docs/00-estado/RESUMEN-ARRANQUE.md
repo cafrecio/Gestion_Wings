@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 13/09 en wings_testing: 190 pasan / 1224 aserciones; incluye FIN-11, SEG y ENT-05 |
+| Suite | Reejecutada el 13/09 en wings_testing: 202 pasan / 1275 aserciones; incluye FIN-10, FIN-11, SEG y ENT-05 |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -29,6 +29,9 @@
 | Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
 
 ## Trabajo que continúa
+
+- FIN-10 implementada y probada 13/09: edición atómica y motivo de horario pasado;
+  sin deploy. Falta aplicar migración motivo_cambio_horario y revisión cruzada.
 
 - FIN-11: pausa levantada el 13/09; seis cruces corregidos y probados, suite completa
   verde (187/1206). Sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado.

@@ -74,7 +74,7 @@ rechazos sin escrituras parciales. No sustituye los casos detallados del ID sele
 | **FIN-07** | Cobrar contra condonar simultaneamente — **IMPLEMENTADA Y PROBADA 12/09** | Alta | Carlos define perdonar solo saldo, conservando pago e imputaciones. Dos conexiones reales: parcial, completo y condonación primero; sin escrituras del segundo mientras espera. Regresión falla sin bloqueo. Suite 169/1065; [evidencia](../06-pruebas/FIN-07-CONCURRENCIA-2026-09-12.md). Sin deploy |
 | **FIN-08** | Reglas de revision de cobranza | Media | Carlos define parciales, observaciones e importe historico; luego pruebas |
 | **FIN-09** | Limites de fechas manuales | Media | Contrato y validaciones impiden imputaciones fuera del rango decidido |
-| **FIN-10** | Solapamiento al editar clases (AUD-019) | Alta | Editar aplica el mismo control que crear |
+| **FIN-10** | Solapamiento al editar clases — **IMPLEMENTADA 13/09** | Alta | Edición atómica, todos los profesores y presentes; fechas pasadas protegidas, horario pasado con motivo salvo liquidación CERRADA. Sin deploy; [evidencia](../06-pruebas/FIN-10-EDICION-2026-09-13.md) |
 | **FIN-11** | Concurrencia real de cobrar/cancelar/validar — **IMPLEMENTADA Y PROBADA 13/09** | Alta | Seis cruces con dos conexiones pasan; MoneyLockingTest descrito como estructural. Suite completa reejecutada: 187 pruebas / 1206 aserciones. Pausa levantada; sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado. [Evidencia](../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md) |
 
 Detalles y evidencia FIN-01/02/03/05: buscar el ID en el

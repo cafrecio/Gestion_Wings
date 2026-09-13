@@ -438,28 +438,66 @@ class ClaseWebController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $clase = Clase::findOrFail($id);
+        $clase = DB::transaction(function () use ($request, $id) {
+            $clase = Clase::whereKey($id)->lockForUpdate()->firstOrFail();
+            $pasada = $clase->fecha->lt(today());
+            $validated = $request->validate([
+                'fecha' => 'required|date_format:Y-m-d',
+                'hora_inicio' => 'required|date_format:H:i',
+                'hora_fin' => 'required|date_format:H:i|after:hora_inicio',
+                'motivo' => 'nullable|string|max:255',
+                'profesores' => $pasada ? 'exclude' : 'nullable|array',
+                'profesores.*' => $pasada ? 'exclude' : 'integer|exists:profesores,id',
+            ]);
+            $fechaCambio = $validated['fecha'] !== $clase->fecha->format('Y-m-d');
+            $horarioCambio = $validated['hora_inicio'] !== $clase->hora_inicio->format('H:i')
+                || $validated['hora_fin'] !== $clase->hora_fin->format('H:i');
+            if (($pasada && $fechaCambio) || (!$pasada && $validated['fecha'] < today()->format('Y-m-d'))) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'fecha' => 'No se puede cambiar la fecha de una clase pasada ni mover una clase hacia el pasado.',
+                ]);
+            }
+            if ($pasada && $horarioCambio) {
+                if (LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+                    ->where('referencia_id', $clase->id)
+                    ->whereHas('liquidacion', fn ($q) => $q->where('estado', Liquidacion::ESTADO_CERRADA))->exists()) {
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        'hora_inicio' => 'No se puede cambiar el horario: la clase integra una liquidación cerrada.',
+                    ]);
+                }
+                $motivo = trim($validated['motivo'] ?? '');
+                if ($motivo === '') {
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        'motivo' => 'Indicá el motivo del cambio de horario.',
+                    ]);
+                }
+                $clase->motivo_cambio_horario = $motivo;
+            }
+            $actuales = $clase->profesores()->pluck('profesores.id')->all();
+            $finales = $pasada ? $actuales : array_map('intval', $validated['profesores'] ?? []);
+            $clase->fill(collect($validated)->only(['fecha', 'hora_inicio', 'hora_fin'])->all())->save();
 
-        $validated = $request->validate([
-            'fecha'       => 'required|date',
-            'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin'    => 'required|date_format:H:i|after:hora_inicio',
-            'profesores'   => 'nullable|array',
-            'profesores.*' => 'exists:profesores,id',
-        ], [
-            'fecha.required'       => 'La fecha es obligatoria.',
-            'hora_inicio.required' => 'La hora de inicio es obligatoria.',
-            'hora_fin.required'    => 'La hora de fin es obligatoria.',
-            'hora_fin.after'       => 'La hora de fin debe ser posterior a la hora de inicio.',
-        ]);
-
-        $clase->update([
-            'fecha'       => $validated['fecha'],
-            'hora_inicio' => $validated['hora_inicio'],
-            'hora_fin'    => $validated['hora_fin'],
-        ]);
-
-        $clase->profesores()->sync($request->input('profesores', []));
+            // Los verificadores leen el horario nuevo; cualquier rechazo revierte todo.
+            $aValidar = ($fechaCambio || $horarioCambio) ? $finales : array_diff($finales, $actuales);
+            foreach ($aValidar as $profesorId) {
+                $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, (int) $profesorId);
+                if (!$chequeo['puede_asignar']) {
+                    throw \Illuminate\Validation\ValidationException::withMessages(['profesores' => $chequeo['razon']]);
+                }
+            }
+            if ($fechaCambio || $horarioCambio) {
+                foreach ($clase->asistencias()->where('presente', true)->get() as $asistencia) {
+                    $chequeo = $this->claseService->verificarDisponibilidadAlumno($clase->id, $asistencia->alumno_id, $asistencia->id);
+                    if (!$chequeo['puede_asistir']) {
+                        throw \Illuminate\Validation\ValidationException::withMessages(['hora_inicio' => $chequeo['razon']]);
+                    }
+                }
+            }
+            if (!$pasada) {
+                $clase->profesores()->sync($finales);
+            }
+            return $clase;
+        });
 
         return redirect()->route('web.clases.show', $clase->id)
             ->with('success', 'Clase actualizada correctamente.');
