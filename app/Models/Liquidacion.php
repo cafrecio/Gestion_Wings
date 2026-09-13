@@ -24,6 +24,7 @@ class Liquidacion extends Model
         'mes',
         'anio',
         'tipo',
+        'porcentaje_comision_aplicado',
         'total_calculado',
         'estado',
         'estado_pago',
@@ -37,6 +38,7 @@ class Liquidacion extends Model
     protected $casts = [
         'mes' => 'integer',
         'anio' => 'integer',
+        'porcentaje_comision_aplicado' => 'decimal:2',
         'total_calculado' => 'decimal:2',
         'pagada_at' => 'datetime',
         'pagada_fecha' => 'date',

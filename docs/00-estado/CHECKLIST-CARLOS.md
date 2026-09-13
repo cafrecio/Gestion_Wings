@@ -17,12 +17,13 @@ Codex y Claude no van aca.
 5. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 222 pruebas deben pasar
+php artisan test          # 229 pruebas deben pasar
 ```
 
-Corte verificado del 13/09: **222 pruebas**, todas verdes.
-Suite completa el 13/09: 222 pruebas / 1343 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05
+Corte verificado del 13/09: **229 pruebas**, todas verdes.
+Suite completa el 13/09: 229 pruebas / 1372 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06
 y el seeder de primera carga.
+FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
 FIN-10 requiere aplicar la migración de motivo_cambio_horario al desplegar; probada solo en wings_testing.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.

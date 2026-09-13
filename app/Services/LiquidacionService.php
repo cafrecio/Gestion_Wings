@@ -39,6 +39,9 @@ class LiquidacionService
                 'mes' => $mes,
                 'anio' => $anio,
                 'tipo' => $tipoLiquidacion,
+                'porcentaje_comision_aplicado' => ($tipoLiquidacion === Liquidacion::TIPO_COMISION)
+                    ? $profesor->porcentaje_comision
+                    : null,
                 'total_calculado' => 0,
                 'estado' => Liquidacion::ESTADO_ABIERTA,
             ]);
@@ -136,16 +139,12 @@ class LiquidacionService
         $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
         $fechaFin = Carbon::createFromDate($anio, $mes, 1)->endOfMonth();
 
-        $deporteId = $profesor->deporte_id;
-        $porcentajeComision = $profesor->porcentaje_comision ?? 0;
+        $porcentajeComision = $liquidacion->porcentaje_comision_aplicado ?? $profesor->porcentaje_comision ?? 0;
 
         $alumnosConPago = Pago::where('mes', $mes)
             ->where('anio', $anio)
             ->whereIn('estado', ['pagado', 'COMPLETADO'])
-            ->whereHas('alumno', function ($query) use ($deporteId) {
-                $query->where('deporte_id', $deporteId)
-                    ->where('activo', true);
-            })
+            ->whereHas('alumno')
             ->with('alumno')
             ->get();
 

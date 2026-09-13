@@ -155,6 +155,10 @@ class LiquidacionWebController extends Controller
             'pagadaPorAdmin',
         ])->findOrFail($id);
 
+        if ($liquidacion->tipo === Liquidacion::TIPO_COMISION && $liquidacion->porcentaje_comision_aplicado !== null) {
+            $liquidacion->profesor->porcentaje_comision = $liquidacion->porcentaje_comision_aplicado;
+        }
+
         // Batch-load references to avoid N+1
         $ids = $liquidacion->detalles->pluck('referencia_id');
         if ($liquidacion->tipo === 'HORA') {

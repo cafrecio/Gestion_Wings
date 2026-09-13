@@ -20,6 +20,8 @@
 
 **SEG-11 en avance el 13/09/2026:** Migrados los 14 onclick de vistas a `ds-app.js` (`MANEJADORES_PERMITIDOS` bajó a 10). Unificado el validador de disponibilidad en vivo en `ds-app.js` para `niveles` y `tipos-caja`. Migrados los scripts de `grupos` y `usuarios` a archivos dedicados (`resources/js/grupos.js` y `resources/js/usuarios.js`) compilados con Vite y cargados vía `@vite` conforme a DESIGN-RULES.md §8 (`BLOQUES_SCRIPT_PERMITIDOS` bajó de 24 a 22 en `CspSinCodigoIncrustadoTest`). Formateo de precios por frecuencia vía `window.initMoneyInput` verificado. Assets compilados; diseño intacto. Suite completa en 222 tests (1347 assertions).
 
+**FIN-06 CERRADA el 13/09/2026:** Comisión histórica en liquidaciones implementada y probada (`LiquidacionComisionHistoricaTest`, 7 tests nuevos, suite total en 229 tests / 1372 aserciones). Removidos los filtros de estado actual (`activo = true`, `deporte_id`) en `calcularLiquidacionComision()`: sólo hechos históricos deciden la inclusión (pago completado para el mes/año y asistencia confirmada a clase no cancelada del profesor). Congelado el `porcentaje_comision_aplicado` en tabla `liquidaciones` al generar el registro, utilizado en cálculo y recálculo con fallback a comisión actual si es nulo. Migración con backfill para liquidaciones COMISION preexistentes. Expuesto en `show.blade.php` vía controlador en memoria sin modificar vistas. Anulación de pago en recálculo probada. Suite verde.
+
 **COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
 Chrome en una misma base sintetica, incluida subida/bajada con descuento y
 asistencia, cancelacion/recobro y medios de pago distintos. Suite 161/977.
@@ -101,7 +103,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **222 pruebas**, 1347 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, el seeder de primera carga y el endpoint de avisos de CSP |
+| **Tests** | **229 pruebas**, 1372 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, el seeder de primera carga y el endpoint de avisos de CSP |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -109,7 +111,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
 | Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
-| Liquidaciones | Generacion, cierre, pago y recibos. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. Historia (FIN-06) pendiente. El plan ataba ambas al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
+| Liquidaciones | Generacion, cierre, pago y recibos. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. El plan ataba ambas al 25/09, pero sin alumnos cargados no habra liquidacion real esa fecha |
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
@@ -155,6 +157,7 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Significado de DEUDOR sin pagos y sin saldo pendiente.
 - Tratamiento contable de la inscripcion configurable.
 - Logo, paleta y favicon del club.
+- Liquidación por hora: si el valor hora histórico debe congelarse al liquidar y cómo se cruza con si paga la clase entera o prorratea por duración.
 
 ## 8. Riesgos y limites conocidos
 

@@ -19,7 +19,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 13/09 en wings_testing: 222 pasan / 1343 aserciones; incluye FIN-10, FIN-11, SEG-11, ENT-05, el seeder de primera carga y el endpoint de avisos de CSP |
+| Suite | Reejecutada el 13/09 en wings_testing: 229 pasan / 1372 aserciones; incluye FIN-10, FIN-11, SEG-11, ENT-05, FIN-06, el seeder de primera carga y el endpoint de avisos de CSP |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -54,6 +54,7 @@
 - ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
 - ENT-05: CERRADO 13/09. Recibo accesible a un clic en confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno.
 - SEG-11: 14 onclick migrados a ds-app.js (MANEJADORES_PERMITIDOS bajó a 10). Validador en vivo unificado para niveles y tipos-caja. Scripts de grupos y usuarios migrados a archivos dedicados (resources/js/grupos.js y usuarios.js) compilados por Vite y cargados vía @vite conforme a DESIGN-RULES.md §8 (BLOQUES_SCRIPT_PERMITIDOS bajó a 22). Formateo de precios vía window.initMoneyInput probado; suite verde en 222/1347; diseño intacto.
+- FIN-06: CERRADO 13/09. Comisión histórica en liquidaciones; filtros de estado actual (activo, deporte) eliminados en cálculo de comisión; porcentaje congelado en tabla liquidaciones al generar; fallback a comisión actual si null; vista show lo muestra sin tocar Blade. 7 pruebas nuevas pasan. Suite en 229/1372.
 - Antes de cambiar de máquina, comprobar qué está realmente versionado/subido.
 
 ## Decisiones pendientes que deben viajar entre sesiones
