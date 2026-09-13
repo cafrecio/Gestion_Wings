@@ -170,7 +170,17 @@
       "Bash(grep -n 'elseif \\(!$vigentePagada' app/Services/CobranzaEstadoService.php)",
       "Bash(grep -n 'if \\(count\\($items\\) <= 1\\)\\\\|aplicarPorcentajeAItems\\($items\\\\|whereIn\\('\\\\''estado'\\\\'', \\\\['\\\\''pagado'\\\\''' app/Services/PagoCuotaService.php app/Services/LiquidacionService.php)",
       "Bash(xargs wc -l)",
-      "Bash(grep -rln \"MODIFY\\\\|DB::statement\\\\|ENGINE=\\\\|AFTER \\\\`\" database/migrations/)"
+      "Bash(grep -rln \"MODIFY\\\\|DB::statement\\\\|ENGINE=\\\\|AFTER \\\\`\" database/migrations/)",
+      "PowerShell($env:DB_DATABASE=*)",
+      "PowerShell(php artisan *)",
+      "PowerShell(php -l *)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe *)",
+      "Bash(\"C:/xampp/mysql/bin/mysql.exe\" *)",
+      "PowerShell(& \"C:\\xampp\\mysql\\bin\\mysql.exe\" *)",
+      "PowerShell(& \"C:\\xampp\\mysql\\bin\\mysqldump.exe\" *)",
+      "Bash(git commit *)",
+      "Bash(git show *)",
+      "Bash(git log *)"
     ],
     "additionalDirectories": [
       "\\tmp"

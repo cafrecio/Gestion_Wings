@@ -99,7 +99,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **202 pruebas**, 1275 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-11 y ENT-05 |
+| **Tests** | **214 pruebas**, 1311 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05 y el seeder de primera carga |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

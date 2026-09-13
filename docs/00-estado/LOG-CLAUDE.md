@@ -10,6 +10,29 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-13 — Claude CAB — seeder que reconstruye la primera carga
+
+`PrimeraCargaCompletaSeeder` deja la base donde terminó la carga manual del 06/09
+sin repetirla por pantalla: catálogos, seis grupos con doce planes, dos tipos de
+caja con saldo, cuatro profesores con subrubro, siete cuentas y sesenta alumnos,
+sin deudas ni pagos. `PrimeraCargaAlumnosSeeder` seguía exigiendo once alumnos
+cargados a mano; ahora los crea este seeder antes de llamarlo.
+Los once no son las personas originales: `wings_test` quedó vacía y se perdieron.
+Son once equivalentes con la distribución que aquella etapa dejó verificada.
+12 pruebas nuevas en `PrimeraCargaCompletaSeederTest` miran el resultado en la base.
+Suite completa única: 214 pruebas / 1311 aserciones, 47,67 s en wings_testing.
+Sin desplegar, por indicación de Carlos. Instructivo: ../06-pruebas/SEEDER-PRIMERA-CARGA.md.
+
+## 2026-09-13 — Claude CAB — enmienda de fecha y horario de clase (FIN-10)
+
+Carlos decidió que la fecha de una clase pasada no se mueve: cambiarla no corrige
+la realidad, corrige un error de carga, y si la clase no se dictó se cancela y se
+crea otra. El horario sí, con motivo. Contrato Clases §4.c actualizado en 61eb08e;
+reemplaza la enmienda de 729ed73, que permitía mover también la fecha.
+El fundamento que pasé en el primer prompt decía que a los profesores por hora se
+les paga por duración: es falso hoy — `LiquidacionService:94` asigna `valor_hora`
+por clase. Lo frenó Codex y quedó corregido antes de implementar.
+
 ## 2026-09-11 — extracto documental de Claude CAB — recibos y decisiones
 
 El pase registra aprobación visual del diseño de Gemini por Vanina.
