@@ -21,7 +21,7 @@ php artisan test          # 190 pruebas deben pasar
 ```
 
 Corte verificado del 13/09: **190 pruebas**, todas verdes.
-Suite completa el 13/09: 190 pruebas / 1220 aserciones; incluye FIN-11, SEG y ENT-05.
+Suite completa el 13/09: 190 pruebas / 1224 aserciones; incluye FIN-11, SEG y ENT-05.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
 
