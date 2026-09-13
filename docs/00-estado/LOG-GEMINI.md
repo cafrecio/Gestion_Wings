@@ -10,6 +10,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-13 — LOG GEM CAB — SEG-11 Scripts de grupos y usuarios a sus propios archivos JS
+
+- **Objetivo:** Migrar los bloques `<script>` de `grupos/_form.blade.php` y `usuarios/_form.blade.php` a sus propios archivos dedicados (`resources/js/grupos.js` y `resources/js/usuarios.js`), compilados por Vite y cargados por sus vistas mediante `@vite` vía `@push('scripts')`, conforme a la regla de modularidad de `DESIGN-RULES.md §8`.
+- **Cambios reales:**
+  1. `resources/js/grupos.js`: Creado para la lógica de grupos (verificación de deporte+nivel vía AJAX `/grupos/check-disponible`, carga y borrado de precios por frecuencia dinámicos vía `#btn-add-plan` y `.btn-remove-plan`, formateo de montos vía `window.initMoneyInput` e índice inicial leído de `data-initial-idx`).
+  2. `resources/js/usuarios.js`: Creado para la lógica de usuarios (verificación de email único vía AJAX `/usuarios/check-email`, validación cruzada de contraseña/confirmación, resalte visual de radio `.rol-label` y visibilidad condicional de `#panel-profesor`).
+  3. `vite.config.js`: Declarados `resources/js/grupos.js` y `resources/js/usuarios.js` en los inputs del plugin Laravel.
+  4. `resources/views/grupos/_form.blade.php`: Reemplazado bloque `<script>` por `@push('scripts') @vite('resources/js/grupos.js') @endpush` y agregado `data-initial-idx` al contenedor de planes.
+  5. `resources/views/usuarios/_form.blade.php`: Reemplazado bloque `<script>` por `@push('scripts') @vite('resources/js/usuarios.js') @endpush`.
+  6. Compilados assets de producción con Vite (`npm run build`).
+  7. `tests/Feature/CspSinCodigoIncrustadoTest.php`: Reducida la constante `BLOQUES_SCRIPT_PERMITIDOS` de 24 a 22.
+- **Verificaciones:**
+  - `node -c`: sintaxis JS limpia en `grupos.js` y `usuarios.js`.
+  - `php -l`: sintaxis limpia en vistas Blade modificadas y en el test de CSP.
+  - `php artisan view:cache; php artisan view:clear`: compilación de plantillas Blade OK.
+  - `php artisan test --filter CspSinCodigoIncrustadoTest`: 2 passed (2 assertions).
+  - Pruebas funcionales de roles (`ADMIN`, `OPERATIVO`, `PROFESOR` con vínculo obligatorio) y precios por frecuencia con separador de miles y borrado dinámico (`test_funcional_seg11.php`) aprobadas con éxito.
+  - `git diff --stat -- resources/css`: vacío (diseño 100% intacto).
+  - `php artisan test`: suite completa verde en el nuevo corte con **222 pruebas pasadas** (1347 assertions).
+- **Siguiente paso:** Tareas restantes de SEG-11 o siguientes pasos según defina Carlos.
+
 ## 2026-09-13 — LOG GEM CAB — SEG-11 Validador de nombre repetido unificado en ds-app.js
 
 - **Objetivo:** Unificar en `resources/js/ds-app.js` el validador en vivo de disponibilidad / nombre repetido compartido por `niveles/_form.blade.php` y `tipos-caja/_form.blade.php`, eliminando sus scripts en línea sin tocar el diseño y preparando el soporte para campos combinados (futuro `grupos`).

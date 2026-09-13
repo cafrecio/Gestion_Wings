@@ -28,12 +28,12 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * en vivo de niveles/_form.blade.php y tipos-caja/_form.blade.php en ds-app.js
      * mediante atributos data-verificar-*.
      *
-     * grupos y usuarios quedaron afuera: grupos no valida un nombre sino la
-     * combinacion deporte+nivel y su bloque contiene ademas la carga dinamica de
-     * frecuencias y precios; usuarios valida email y password cruzados y controla
-     * el resalte de roles y el panel de profesor vinculado.
+     * Bajaron a 22 (SEG-11, 13/09/2026) al mover los bloques script de
+     * grupos/_form.blade.php y usuarios/_form.blade.php a sus propios archivos
+     * dedicados (resources/js/grupos.js y resources/js/usuarios.js), cargados con
+     * @vite vía @push('scripts') conforme a la regla de DESIGN-RULES.md §8.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 24;
+    private const BLOQUES_SCRIPT_PERMITIDOS = 22;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

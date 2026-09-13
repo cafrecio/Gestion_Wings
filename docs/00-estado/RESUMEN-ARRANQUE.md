@@ -53,7 +53,7 @@
   La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
 - ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
 - ENT-05: CERRADO 13/09. Recibo accesible a un clic en confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno.
-- SEG-11: 14 `onclick` migrados a `ds-app.js` (`MANEJADORES_PERMITIDOS` bajó a 10). Validador de nombre repetido unificado en `ds-app.js` para `niveles` y `tipos-caja` (`BLOQUES_SCRIPT_PERMITIDOS` bajó de 26 a 24). Preparado para campos combinados. Grupos y usuarios conservan sus scripts por dependencias específicas. Assets compilados; diseño intacto.
+- SEG-11: 14 onclick migrados a ds-app.js (MANEJADORES_PERMITIDOS bajó a 10). Validador en vivo unificado para niveles y tipos-caja. Scripts de grupos y usuarios migrados a archivos dedicados (resources/js/grupos.js y usuarios.js) compilados por Vite y cargados vía @vite conforme a DESIGN-RULES.md §8 (BLOQUES_SCRIPT_PERMITIDOS bajó a 22). Formateo de precios vía window.initMoneyInput probado; suite verde en 222/1347; diseño intacto.
 - Antes de cambiar de máquina, comprobar qué está realmente versionado/subido.
 
 ## Decisiones pendientes que deben viajar entre sesiones

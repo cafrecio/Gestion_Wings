@@ -79,7 +79,7 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
         </button>
     </div>
 
-    <div id="planes-container">
+    <div id="planes-container" data-initial-idx="{{ $planesExistentes->count() }}">
         @foreach($planesExistentes as $i => $plan)
             <div class="plan-row" style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0; border-bottom:1px solid var(--color-border);">
                 <input type="hidden" name="planes[{{ $i }}][id]" value="{{ $plan->id }}">
@@ -142,81 +142,6 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 
 </div>
 
-<script>
-(function () {
-    const selectDeporte = document.getElementById('deporte_id');
-    const selectNivel   = document.getElementById('nivel_id');
-    const errorDiv      = document.getElementById('error-deporte-nivel');
-    const btnSubmit     = document.querySelector('[type="submit"]');
-    const grupoId       = document.getElementById('grupo-id-actual').value;
-
-    if (selectDeporte && selectNivel) {
-        async function verificarDisponible() {
-            const deporteId = selectDeporte.value;
-            const nivelId   = selectNivel.value;
-            if (!deporteId || !nivelId) {
-                errorDiv.style.display = 'none';
-                if (btnSubmit) btnSubmit.disabled = false;
-                return;
-            }
-            let url = '/grupos/check-disponible?deporte_id=' + deporteId + '&nivel_id=' + nivelId;
-            if (grupoId) url += '&grupo_id=' + grupoId;
-            try {
-                const res  = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
-                const data = await res.json();
-                if (!data.disponible) {
-                    errorDiv.style.display = 'block';
-                    if (btnSubmit) btnSubmit.disabled = true;
-                } else {
-                    errorDiv.style.display = 'none';
-                    if (btnSubmit) btnSubmit.disabled = false;
-                }
-            } catch(e) {
-                errorDiv.style.display = 'none';
-                if (btnSubmit) btnSubmit.disabled = false;
-            }
-        }
-
-        selectDeporte.addEventListener('change', verificarDisponible);
-        selectNivel.addEventListener('change', verificarDisponible);
-    }
-})();
-
-(function () {
-    let idx = {{ $planesExistentes->count() }};
-    const container = document.getElementById('planes-container');
-    const template  = document.getElementById('plan-row-template');
-    const emptyMsg  = document.getElementById('planes-empty-msg');
-
-    function updateEmptyMsg() {
-        emptyMsg.style.display = container.children.length === 0 ? '' : 'none';
-    }
-
-    function setupRemoveButtons() {
-        container.querySelectorAll('.btn-remove-plan').forEach(function (btn) {
-            btn.onclick = null;
-            btn.onclick = function () {
-                btn.closest('.plan-row').remove();
-                updateEmptyMsg();
-            };
-        });
-    }
-
-    document.getElementById('btn-add-plan').addEventListener('click', function () {
-        const html = template.innerHTML.replaceAll('__IDX__', idx++);
-        const div  = document.createElement('div');
-        div.innerHTML = html;
-        const row = div.firstElementChild;
-        row.querySelectorAll('[data-money="true"]').forEach(function (inp) {
-            if (window.initMoneyInput) window.initMoneyInput(inp);
-        });
-        container.appendChild(row);
-        setupRemoveButtons();
-        updateEmptyMsg();
-        const sel = row.querySelector('select');
-        if (sel) sel.focus();
-    });
-
-    setupRemoveButtons();
-})();
-</script>
+@push('scripts')
+    @vite('resources/js/grupos.js')
+@endpush

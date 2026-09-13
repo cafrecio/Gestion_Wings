@@ -18,7 +18,7 @@
 
 **ENT-05 CERRADA el 13/09/2026:** Acceso directo a 1 clic al recibo de cuota: 1) en la confirmación de cobro (banner flash tras volver al listado de cajas) con botón `Recibo` (`target="_blank"`, `inline=1`), y 2) en la ficha del alumno (`alumnos/show.blade.php`), con botón `Recibo` en cada fila del historial de pagos (soportando tanto pagos activos como anulados). Auto-dismiss de 3s en `ds-app.js` configurado para no descartar banners con enlaces interactivos. Protegido contra rol Profesor. Diseño autorizado por Carlos el 07/09. Suite verde con nueva prueba `CobroReciboAccesoTest`.
 
-**SEG-11 en avance el 13/09/2026:** Migrados los 14 manejadores de evento `onclick` en línea de las vistas Blade hacia `resources/js/ds-app.js` mediante atributos `data-*` (`MANEJADORES_PERMITIDOS` bajó a 10). Unificado el validador en vivo de disponibilidad / nombre repetido en `ds-app.js` para `niveles` y `tipos-caja`, eliminando sus scripts en línea y reduciendo `BLOQUES_SCRIPT_PERMITIDOS` de 26 a 24 en `CspSinCodigoIncrustadoTest`. Preparado para campos combinados. Grupos y usuarios conservan sus scripts por dependencias específicas. Assets recompilados con Vite. Suite completa en 214 tests (1315 assertions).
+**SEG-11 en avance el 13/09/2026:** Migrados los 14 onclick de vistas a `ds-app.js` (`MANEJADORES_PERMITIDOS` bajó a 10). Unificado el validador de disponibilidad en vivo en `ds-app.js` para `niveles` y `tipos-caja`. Migrados los scripts de `grupos` y `usuarios` a archivos dedicados (`resources/js/grupos.js` y `resources/js/usuarios.js`) compilados con Vite y cargados vía `@vite` conforme a DESIGN-RULES.md §8 (`BLOQUES_SCRIPT_PERMITIDOS` bajó de 24 a 22 en `CspSinCodigoIncrustadoTest`). Formateo de precios por frecuencia vía `window.initMoneyInput` verificado. Assets compilados; diseño intacto. Suite completa en 222 tests (1347 assertions).
 
 **COB-05, COB-09 y FIN-02 VERIFICADAS 11/09 sobre e921e5d:** 15 cobros por
 Chrome en una misma base sintetica, incluida subida/bajada con descuento y
@@ -101,7 +101,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **222 pruebas**, 1343 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, el seeder de primera carga y el endpoint de avisos de CSP |
+| **Tests** | **222 pruebas**, 1347 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, el seeder de primera carga y el endpoint de avisos de CSP |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -114,7 +114,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only; quedan 26 bloques script en 24 vistas y 24 manejadores inline |
+| CSP | Report-only con endpoint /csp-reporte; quedan 22 bloques script en 22 vistas y 10 manejadores inline |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre
