@@ -38,11 +38,13 @@ else
 fi
 
 paso "2. sitio por HTTPS"
-# Se agrega al mismo archivo, debajo del vhost de HTTP que ya esta.
-if grep -q "${IP}:443" "/usr/local/apache/conf.d/${DOMINIO}.conf"; then
+# Archivo propio, NO el del vhost HTTP: ese lo reescribe montar-test.sh en cada
+# actualizacion de test, y el bloque seguro se perderia en la primera corrida.
+SSL_CONF="/usr/local/apache/conf.d/${DOMINIO}-ssl.conf"
+if [ -s "${SSL_CONF}" ]; then
     echo "ya estaba"
 else
-    cat >> "/usr/local/apache/conf.d/${DOMINIO}.conf" <<VHOST
+    cat > "${SSL_CONF}" <<VHOST
 
 <VirtualHost ${IP}:443>
     ServerName ${DOMINIO}

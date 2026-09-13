@@ -143,6 +143,9 @@ sudo -u "${USUARIO}" php82 artisan migrate --force
 echo "migraciones aplicadas"
 
 paso "9. sitio en Apache (solo HTTP por ahora)"
+# En archivo propio, separado del de HTTPS: este script se corre cada vez que se
+# actualiza test, y si escribiera los dos bloques en el mismo archivo, cada
+# corrida borraria el vhost seguro que dejo montar-test-https.sh.
 cat > /usr/local/apache/conf.d/${DOMINIO}.conf <<VHOST
 # ${DOMINIO} — entorno de prueba. Creado el 13/09/2026.
 # Vive fuera de conf.d/vhosts/ a proposito: esa carpeta la reconstruye CWP.
