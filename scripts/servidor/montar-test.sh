@@ -68,7 +68,11 @@ php_admin_value[post_max_size] = 20M
 php_admin_value[memory_limit] = 256M
 php_admin_value[expose_php] = Off
 POOL
-php-fpm82 -t 2>&1 | tail -2 || { echo "FALLA: configuracion de PHP-FPM invalida"; exit 1; }
+# El binario de Remi no se llama php-fpm82 ni esta en el PATH: vive con nombre
+# generico dentro de su propio arbol.
+FPM=/opt/remi/php82/root/usr/sbin/php-fpm
+[ -x "${FPM}" ] || { echo "FALLA: no se encuentra el php-fpm de PHP 8.2 en ${FPM}"; exit 1; }
+"${FPM}" -t || { echo "FALLA: configuracion de PHP-FPM invalida"; exit 1; }
 systemctl reload php82-php-fpm
 echo "pool listo"
 
@@ -113,7 +117,9 @@ echo ".env escrito"
 
 paso "6. dependencias"
 cd "${APP}"
-sudo -u "${USUARIO}" /usr/bin/composer install --no-dev --optimize-autoloader --no-interaction --quiet
+COMPOSER=$(command -v composer || echo /usr/local/bin/composer)
+[ -x "${COMPOSER}" ] || { echo "FALLA: no se encuentra composer"; exit 1; }
+sudo -u "${USUARIO}" "${COMPOSER}" install --no-dev --optimize-autoloader --no-interaction --quiet
 echo "composer ok"
 sudo -u "${USUARIO}" npm ci --silent --no-audit --no-fund
 sudo -u "${USUARIO}" npm run build --silent
@@ -161,10 +167,10 @@ cat > /usr/local/apache/conf.d/${DOMINIO}.conf <<VHOST
 VHOST
 
 # Nunca recargar sin validar: una configuracion rota se lleva puesto wings.
-if /usr/local/apache/bin/httpd -t 2>&1 | grep -qv "Syntax OK"; then
-    /usr/local/apache/bin/httpd -t || true
-fi
-if ! /usr/local/apache/bin/httpd -t 2>&1 | grep -q "Syntax OK"; then
+HTTPD=/usr/local/apache/bin/httpd
+[ -x "${HTTPD}" ] || HTTPD=$(command -v httpd)
+if ! "${HTTPD}" -t 2>&1 | grep -q "Syntax OK"; then
+    "${HTTPD}" -t 2>&1 | tail -5
     echo "FALLA: la configuracion de Apache no valida. Se retira el sitio nuevo."
     rm -f /usr/local/apache/conf.d/${DOMINIO}.conf
     exit 1
