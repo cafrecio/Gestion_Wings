@@ -26,6 +26,8 @@ y el seeder de primera carga.
 FIN-10 requiere aplicar la migración de motivo_cambio_horario al desplegar; probada solo en wings_testing.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
 base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
+FIN-10 tambien agrega migracion (`motivo_cambio_horario` en `clases`): si se
+despliega sin correrla, editar el horario de una clase pasada rompe en pantalla.
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 
