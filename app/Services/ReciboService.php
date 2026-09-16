@@ -110,12 +110,77 @@ class ReciboService
             'profesor.deporte',
             'pagadaTipoCaja',
             'pagadaSubrubro',
+            'detalles',
         ])->findOrFail($liquidacionId);
 
         // Validar que esté pagada
         if (!$liquidacion->estaPagada()) {
             throw new \Exception("La liquidación #{$liquidacionId} no está pagada. No se puede generar recibo.");
         }
+
+        // Construir detalles formateados para el anexo (Página 2)
+        $ids = $liquidacion->detalles->pluck('referencia_id');
+        $detallesFormateados = [];
+
+        if ($liquidacion->tipo === Liquidacion::TIPO_HORA) {
+            $clasesMap = \App\Models\Clase::with('grupo')->whereIn('id', $ids)->get()->keyBy('id');
+            $totalHoras = 0;
+
+            foreach ($liquidacion->detalles as $det) {
+                $clase = $clasesMap->get($det->referencia_id);
+                $fechaStr = $clase?->fecha ? $clase->fecha->format('d/m/Y') : '—';
+                $grupoStr = $clase?->grupo?->nombre ?? 'Sin grupo';
+
+                $horas = 1.0;
+                if ($clase?->hora_inicio && $clase?->hora_fin) {
+                    $duracionMin = abs((int) $clase->hora_fin->diffInMinutes($clase->hora_inicio));
+                    $horas = $duracionMin > 0 ? round($duracionMin / 60, 1) : 1.0;
+                }
+                $totalHoras += $horas;
+
+                $estadoStr = ($clase?->validada_para_liquidacion) ? 'Validada' : 'Con asistencia';
+
+                $detallesFormateados[] = [
+                    'fecha' => $fechaStr,
+                    'grupo' => $grupoStr,
+                    'horas' => $horas,
+                    'estado' => $estadoStr,
+                    'subtotal' => (float) $det->monto,
+                ];
+            }
+
+            $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . $totalHoras . ' horas';
+            $modalidadTexto = 'Por Hora ($' . number_format($liquidacion->profesor->valor_hora ?? 0, 0, ',', '.') . ' / hora)';
+        } else {
+            $alumnosMap = \App\Models\Alumno::whereIn('id', $ids)->get()->keyBy('id');
+            $porcentajeGeneral = (float) ($liquidacion->porcentaje_comision_aplicado ?? $liquidacion->profesor->porcentaje_comision ?? 0);
+
+            foreach ($liquidacion->detalles as $det) {
+                $alumno = $alumnosMap->get($det->referencia_id);
+                $nombreAlumno = $alumno ? ($alumno->apellido . ', ' . $alumno->nombre) : '—';
+
+                $cuotaBase = 0.0;
+                $porcentajeDetalle = $porcentajeGeneral;
+                if (preg_match('/Pago \$([\d.,]+)\s*\(([\d.,]+)%\)/', $det->descripcion ?? '', $m)) {
+                    $cuotaBase = (float) str_replace(['.', ','], ['', '.'], $m[1]);
+                    $porcentajeDetalle = (float) str_replace(',', '.', $m[2]);
+                } elseif ($porcentajeGeneral > 0) {
+                    $cuotaBase = round(((float) $det->monto * 100) / $porcentajeGeneral, 2);
+                }
+
+                $detallesFormateados[] = [
+                    'alumno' => $nombreAlumno,
+                    'cuota_base' => $cuotaBase,
+                    'porcentaje' => $porcentajeDetalle,
+                    'subtotal' => (float) $det->monto,
+                ];
+            }
+
+            $conteoTexto = count($liquidacion->detalles) . ' alumnos con cuota paga';
+            $modalidadTexto = 'Comisión (' . number_format($porcentajeGeneral, 1, ',', '.') . '% de cuotas)';
+        }
+
+        $periodoTexto = $this->formatearMesAnio($liquidacion->mes, $liquidacion->anio);
 
         // Preparar datos para la vista
         $data = [
@@ -126,18 +191,24 @@ class ReciboService
                 'nombre' => $liquidacion->profesor->nombre_completo ?? $liquidacion->profesor->nombre ?? 'N/D',
                 'deporte' => $liquidacion->profesor->deporte->nombre ?? 'N/D',
                 'tipo_liquidacion' => $liquidacion->tipo,
+                'modalidad_texto' => $modalidadTexto,
             ],
             'periodo' => [
                 'mes' => $liquidacion->mes,
                 'anio' => $liquidacion->anio,
-                'texto' => $this->formatearMesAnio($liquidacion->mes, $liquidacion->anio),
+                'nombre' => $periodoTexto,
+                'texto' => $periodoTexto,
+                'conteo_texto' => $conteoTexto,
             ],
-            'total_liquidado' => $liquidacion->total_calculado,
+            'monto_total' => (float) $liquidacion->total_calculado,
+            'total_liquidado' => (float) $liquidacion->total_calculado,
             'medio_pago' => [
                 'tipo_caja' => $liquidacion->pagadaTipoCaja->nombre ?? 'N/D',
                 'subrubro' => $liquidacion->pagadaSubrubro->nombre ?? 'N/D',
             ],
             'observaciones' => null, // Liquidación no tiene campo observaciones en pago
+            'modalidad' => $liquidacion->tipo,
+            'detalles' => $detallesFormateados,
         ];
 
         // Generar PDF

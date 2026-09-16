@@ -406,11 +406,17 @@
                     </td>
                 </tr>
                 @endif
-                @if(!empty($observaciones))
+                @php
+                    $obsCobro = $observaciones;
+                    if (($anulado ?? false) && !empty($motivo_cancelacion)) {
+                        $obsCobro = trim(preg_replace('/(\r?\n)?Motivo de anulaci[oó]n:\s*.*$/is', '', (string)$obsCobro));
+                    }
+                @endphp
+                @if(!empty($obsCobro))
                 <tr>
                     <td colspan="2" style="padding-top: 2px;">
                         <span style="color: #64748b; font-weight: bold; text-transform: uppercase;">Observaciones del cobro:</span>
-                        <em>{{ $observaciones }}</em>
+                        <em>{{ $obsCobro }}</em>
                     </td>
                 </tr>
                 @endif
