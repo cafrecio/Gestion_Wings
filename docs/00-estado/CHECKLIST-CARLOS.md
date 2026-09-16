@@ -7,6 +7,26 @@
 Solo contiene acciones o decisiones que necesitan a Carlos. Las tareas tecnicas de
 Codex y Claude no van aca.
 
+## 0. Para retomar — 16/09/2026
+
+Todo esta subido a `main`; suite 229 pruebas / 1374 aserciones en verde. La lista
+tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
+`LOG-GEMINI`), entrada "PENDIENTES comunes".
+
+**Lo que necesita tu decision o tu presencia:**
+
+- [ ] **Clases particulares: ¿entra antes o despues de la prueba grande?** Antes cubre el
+  modulo nuevo pero vuelve a correr el reloj; despues prueba lo que ya esta y lo
+  suma sobre una base probada. Recomendacion de Claude: despues.
+- [ ] **Asignar FIN-12** (cancelar liquidacion cerrada no pagada). Propuesta: Gemini.
+- [ ] **Estar presente en el despliegue a wings**, cuando pase la prueba grande.
+
+**El orden acordado:** actualizar test con los recibos nuevos → FIN-12 → prueba grande
+en `test.gestionar-te` → ensayo de restauracion → desplegar en wings.
+
+`test.gestionar-te.com.ar` esta montado (usuario, base, PHP y certificado propios;
+no comparte nada con wings). Entrar con `admin@wings.test` / `PruebaWings2026`.
+
 ## 1. Al cambiar de computadora
 
 1. Ejecutar `git pull --ff-only`.
@@ -83,12 +103,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   completar con DEBE por alumno, e importarlo. Cierra el mes de corte y Wings arranca
   a facturar el mes siguiente. Procedimiento en
   `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
-- [ ] **Correr el ensayo de restauracion en el servidor**, con un respaldo real:
-  `./restaurar.sh /var/backups/wings/<el-mas-nuevo>.tgz.enc ensayo`. No toca nada:
-  restaura en una base descartable y compara. Es el unico paso de SEG-06 que no se
-  puede hacer desde aca, y hasta hacerlo **no esta demostrado que el respaldo del
-  servidor sirva**. Los respaldos anteriores al 13/09 se restauran igual; lo que
-  cambio es que ahora la restauracion tambien repone los recibos.
+- [ ] ~~Correr el ensayo de restauracion~~ — **lo hace Claude por SSH** (16/09), no
+  es tarea tuya. Sigue pendiente: hasta hacerlo, que el respaldo del servidor sirva
+  no esta demostrado.
 - [ ] Reservar dos o tres horas para el recorrido humano completo, despues de cerrar
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.

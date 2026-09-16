@@ -60,7 +60,7 @@ este archivo una orden vieja ni ejecutar una tarea sin releer aquel documento.
 - API REST apagada a proposito.
 - Recibo no fiscal aceptado.
 - Exportables fuera de la version inicial.
-- Liquidaciones cerradas no se reabren; se corrigen con movimientos compensatorios.
+- Enmienda funcional 13/09, pendiente POS-06: ADMIN puede cancelar una cerrada no pagada para revisar asistencia. Pagadas intactas; ajustes posteriores. Ver contrato de particulares.
 - CSP se endurece de forma gradual y supervisada.
 - AUD-025 se atiende antes de crear rutas destructivas hoy inexistentes.
 

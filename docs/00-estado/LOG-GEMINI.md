@@ -10,6 +10,84 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-16 — PENDIENTES comunes (registrado por Claude CAB a pedido de Carlos)
+
+Misma entrada en los tres logs, para que cada agente arranque con la lista.
+Corte: `main` con todo subido; suite 229 pruebas / 1374 aserciones, verde el 16/09.
+
+**Cerrado desde el 13/09:** FIN-06 (Gemini), verificacion cruzada de FIN-10 y FIN-03
+(Gemini), ENT-02 recibos de cuota y liquidacion (Gemini, commiteado el 16/09),
+SEG-06, SEG-07 y `report-uri` de CSP (Claude), `test.gestionar-te` montado (Claude).
+
+**Pendiente, por orden:**
+
+1. **Actualizar `test.gestionar-te`** — Claude. Esta en `2fccacb`, **sin los recibos
+   nuevos**: ENT-02 no estaba commiteado cuando se actualizo. Correr
+   `montar-test.sh` y `montar-test-https.sh`.
+2. **FIN-12** cancelar liquidacion cerrada no pagada — sin asignar (propuesta:
+   Gemini). Contrato enmendado en Liquidaciones §2.4; instrucciones en
+   `docs/05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md`.
+3. **Prueba grande PRU-02** en `test.gestionar-te` — Gemini, despues de 1 y 2.
+   Entrar con `admin@wings.test` / `PruebaWings2026`. No resetear la base por su
+   cuenta: pedirlo a Claude.
+4. **Ensayo de restauracion contra un respaldo real del servidor** — Claude, no
+   toca nada. Hasta hacerlo, que el respaldo sirva no esta demostrado.
+5. **Desplegar en wings** — despues de que pase 3. Respaldo manual antes y con
+   Carlos presente. Migraciones pendientes: `detalle_anulacion`,
+   `motivo_cambio_horario`, `porcentaje_comision_aplicado` (ya probadas en test).
+
+**Clases particulares** — Codex. Contrato en `Wings-Contrato-Clases-Particulares-V1.md`.
+Va en rama aparte; **falta que Carlos decida si entra antes o despues de la prueba grande**.
+
+**Decisiones de Carlos que no bloquean la prueba:** FIN-04 (balance), FIN-08
+(revision con parciales), FIN-09 (limites de fechas), PRU-03 (DEUDOR sin pagos),
+ENT-01 (inscripcion), liquidacion por hora: por clase o por duracion, `monto_base`.
+
+**Sin asignar, no bloquean:** SEG-10 integracion continua; SEG-11 resto (22 bloques
+`<script>`, uno por archivo segun DESIGN-RULES §8); ENT-06/07/08 despues de la prueba.
+
+## 2026-09-13 — LOG GEM CAB — ENT-02 Implementación y verificación visual final de recibos PDF
+
+- **Objetivo:** Aplicación del diseño de comprobantes PDF aprobado por Carlos y Vanina el 11/09 (`INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md §4.2`) a `recibo-liquidacion.blade.php`, soporte de anexo detallado en `ReciboService.php`, y saneamiento del texto de observaciones en `recibo-cuota.blade.php`.
+- **Diseño autorizado por Carlos:** `Diseno-autorizado: aplicar el diseño de recibos que Carlos y Vanina aprobaron el 11/09 (INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md §4.2), nunca aplicado a recibo-liquidacion.blade.php`
+- **Cambios reales implementados:**
+  1. `resources/views/pdfs/recibo-liquidacion.blade.php`: Reemplazada la plantilla histórica verde por el diseño institucional en pizarra `#0F172A` de 2 páginas exactas A5 vertical (`148mm × 210mm`, márgenes `10mm 12mm 10mm 12mm`). Hoja 1: Resumen ejecutivo con logo institucional en marco oscuro `.logo-frame`, período, total liquidado, medio e imputación contable, y firma de conformidad. Hoja 2: Anexo cronológico de clases dictadas (modalidad HORA) o nómina de alumnos comisionados con cuota base, porcentaje y comisión (modalidad COMISIÓN).
+  2. `app/Services/ReciboService.php`: En `generarReciboLiquidacion()`, agregada carga de la relación `detalles`, mapeo batch de referencias (`Clase` con grupo o `Alumno`) sin N+1, cálculo de horas/conteo y estructuración de la colección `$detalles` requerida por la Página 2. En `generarReciboCuota()`, se mantiene compatibilidad de `$observaciones` y se evita la duplicación visual en `recibo-cuota.blade.php` limpiando el motivo repetido al renderizar.
+  3. `resources/views/pdfs/recibo-cuota.blade.php`: Limpiado el motivo de anulación del bloque de observaciones al renderizar pagos cancelados, mostrando observaciones originales y motivo de cancelación en campos independientes.
+- **Verificaciones:**
+  - `php -l`: sintaxis limpia en `ReciboService.php`, `recibo-cuota.blade.php` y `recibo-liquidacion.blade.php`.
+  - `php artisan view:cache; php artisan view:clear`: plantillas Blade compiladas sin errores.
+  - `php artisan test`: suite completa con **229 pruebas pasadas / 1374 aserciones** (100% verde).
+  - Inspección visual en pantalla vía screenshots Edge headless: los 4 comprobantes (cuota 1 mes, cuota 3 meses, cuota estrés con nombre largo, cuota anulado, liquidación hora 2 páginas y liquidación comisión 2 páginas) confirmados prolijos y listos para su entrega en el mostrador.
+- **Siguiente paso:** ENT-02 completado y validado en pantalla; continuar según prioridades de Carlos.
+
+## 2026-09-13 — LOG GEM CAB — FIN-03 Verificación cruzada de detalle de anulación en recibos
+
+- **Objetivo:** Verificación cruzada de la implementación de FIN-03 (commit `c1bef8a` de Codex) contra el contrato `Wings-Contrato-Recibos-PDF-V2.md §7.c`.
+- **Entorno:** Base aislada `wings_testing_fin10_gemini_20260913` con cobro de 2 meses (`2026-08` y `2026-09`, $60.000) por caja operativa y anulación posterior desde la UI web como `admin@wings.test`.
+- **Resultados (100% verificado):**
+  1. Cobro de dos meses y posterior anulación: el recibo anulado (`GET /recibos/cuota/{id}`) conserva y muestra ambos períodos con sus importes ($30.000 cada uno, total $60.000 revertido), sello visible y bloque de auditoría con fecha, usuario y motivo.
+  2. Base de datos: `pagos.detalle_anulacion` almacena la copia documental JSON con motivo y períodos/montos; `pago_deuda_cuota` queda en 0 filas (imputaciones activas eliminadas atómicamente).
+  3. Deuda revertida: las cuotas vuelven a estado `PENDIENTE` con `monto_pagado = 0.00`; saldo total del alumno vuelve de $0 a $60.000 exactos.
+  4. Caso legacy: pago anulado previo a FIN-03 sin `detalle_anulacion` no inventa períodos (muestra leyenda explicativa "sin detalle de períodos disponible").
+- **Evidencia:** PDFs reales generados en `scratch/recibo_anulado_cuota_3.pdf` y `scratch/recibo_anulado_legacy_4.pdf`. Suite `ReciboMedioDePagoTest` (6 tests, 66 assertions) en verde.
+- **Siguiente paso:** Tarea FIN-03 cerrada formalmente; continuar según prioridades de Carlos.
+
+## 2026-09-13 — LOG GEM CAB — FIN-10 Verificación cruzada de edición de clases en pantalla y base
+
+- **Objetivo:** Verificación cruzada contra el contrato `Wings-Contrato-Clases-Asistencias-V1.md §4.c` de la implementación de FIN-10 (commit `c17b3d0` de Codex).
+- **Entorno:** Base aislada `wings_testing_fin10_gemini_20260913` con `PrimeraCargaCompletaSeeder` y servidor web autenticado como `admin@wings.test`. Clases pasadas con asistencia creadas vía formulario y ajustada su fecha en base para cumplir restricción de creación.
+- **Resultados (10 de 10 casos cumplidos):**
+  1. Fechas pasadas inmutables y no movibles al pasado (validación rechaza; fecha en BD intacta).
+  2. Horario en clase pasada exige motivo obligatorio; al enviarlo se persiste en `clases.motivo_cambio_horario`.
+  3. Edición de horario bloqueada si integra liquidación CERRADA; permitida si está ABIERTA.
+  4. Lista de profesores inmutable en clases pasadas (parámetro ignorado en backend; relación en `clase_profesor` intacta).
+  5. Clase de hoy permite cambio de fecha, horario y profesores sin pedir motivo.
+  6. Superposición de alumno presente en otra clase rechaza con error amigable y ejecuta rollback atómico de la transacción (horario y motivo en BD intactos).
+  7. Guardar clase pasada sin cambios no exige motivo (redirección a show con éxito; datos en BD intactos).
+- **Evidencia:** Informe detallado comparativo en chat y persistido en `scratch/resultado_verificacion_fin10.json` y `scratch/resultado_sin_cambios.json`.
+- **Siguiente paso:** Tarea FIN-10 cerrada formalmente; continuar según prioridades de Carlos.
+
 ## 2026-09-13 — LOG GEM CAB — FIN-06 Comisión histórica en liquidaciones
 
 - **Objetivo:** Garantizar que las liquidaciones por comisión se calculen y recalculen con hechos del pasado y no con datos del presente, desacoplando el cálculo del estado actual del alumno y congelando el porcentaje de comisión del profesor al momento de crear la liquidación.

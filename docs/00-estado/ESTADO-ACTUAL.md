@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## Decisión nueva 13/09/2026 — particulares (POS-06)
+
+[Contrato funcional](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado; implementación pendiente. Solo documentación en este turno, sin verificación funcional nueva. La regla previa de cierre inmutable se enmienda por decisión expresa de Carlos: ADMIN puede cancelar una cerrada no pagada para revisar asistencias; pagadas intactas y ajustes en la siguiente. Rige para todas las clases y perfiles. También se documentan excepciones de particulares sobre agenda, permisos, cancelación y remuneración; no trasladarlas a clases ordinarias fuera del alcance general declarado. [Pendiente y continuidad de Reportes](../05-pendientes/CLASES-PARTICULARES.md).
+
 > Continuidad reorganizada el 12/09, sin revalidación funcional:
 > [Resumen común](RESUMEN-ARRANQUE.md) · [Protocolo](PROTOCOLO-CONTINUIDAD.md).
 > Logs activos abreviados; originales íntegros en `docs/99-archivo/bitacoras/2026-09-12/`.

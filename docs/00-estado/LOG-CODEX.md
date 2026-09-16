@@ -1,5 +1,52 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-16 — PENDIENTES comunes (registrado por Claude CAB a pedido de Carlos)
+
+Misma entrada en los tres logs, para que cada agente arranque con la lista.
+Corte: `main` con todo subido; suite 229 pruebas / 1374 aserciones, verde el 16/09.
+
+**Cerrado desde el 13/09:** FIN-06 (Gemini), verificacion cruzada de FIN-10 y FIN-03
+(Gemini), ENT-02 recibos de cuota y liquidacion (Gemini, commiteado el 16/09),
+SEG-06, SEG-07 y `report-uri` de CSP (Claude), `test.gestionar-te` montado (Claude).
+
+**Pendiente, por orden:**
+
+1. **Actualizar `test.gestionar-te`** — Claude. Esta en `2fccacb`, **sin los recibos
+   nuevos**: ENT-02 no estaba commiteado cuando se actualizo. Correr
+   `montar-test.sh` y `montar-test-https.sh`.
+2. **FIN-12** cancelar liquidacion cerrada no pagada — sin asignar (propuesta:
+   Gemini). Contrato enmendado en Liquidaciones §2.4; instrucciones en
+   `docs/05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md`.
+3. **Prueba grande PRU-02** en `test.gestionar-te` — Gemini, despues de 1 y 2.
+   Entrar con `admin@wings.test` / `PruebaWings2026`. No resetear la base por su
+   cuenta: pedirlo a Claude.
+4. **Ensayo de restauracion contra un respaldo real del servidor** — Claude, no
+   toca nada. Hasta hacerlo, que el respaldo sirva no esta demostrado.
+5. **Desplegar en wings** — despues de que pase 3. Respaldo manual antes y con
+   Carlos presente. Migraciones pendientes: `detalle_anulacion`,
+   `motivo_cambio_horario`, `porcentaje_comision_aplicado` (ya probadas en test).
+
+**Clases particulares** — Codex. Contrato en `Wings-Contrato-Clases-Particulares-V1.md`.
+Va en rama aparte; **falta que Carlos decida si entra antes o despues de la prueba grande**.
+
+**Decisiones de Carlos que no bloquean la prueba:** FIN-04 (balance), FIN-08
+(revision con parciales), FIN-09 (limites de fechas), PRU-03 (DEUDOR sin pagos),
+ENT-01 (inscripcion), liquidacion por hora: por clase o por duracion, `monto_base`.
+
+**Sin asignar, no bloquean:** SEG-10 integracion continua; SEG-11 resto (22 bloques
+`<script>`, uno por archivo segun DESIGN-RULES §8); ENT-06/07/08 despues de la prueba.
+
+## 2026-09-13 — Codex CAB — contrato de particulares y pendiente POS-06
+
+Objetivo: conservar la entrevista de Carlos en documentación compartida.
+Contrato V1 redactado; POS-06 pendiente en ambos tableros y ficha de pendientes.
+Incluye crédito consumible con recibos, permisos, asistencia, cancelaciones y avisos privados.
+Enmienda expresa: ADMIN cancela cerrada no pagada; pagada solo ajuste posterior.
+Contratos relacionados, índice, estado y resumen enlazan la decisión, sin afirmar implementación.
+Verificación documental de enlaces, diff y correspondencia de POS-06; sin suite ni base.
+Se conservan cambios previos en LOG-CODEX, evidencia FIN-10 y configuración ajena.
+Seguimiento: FIN-12 priorizada para hoy por Carlos, pendiente en ambos tableros con instrucciones de implementación. Se cotejó eliminarLiquidacion con fuente local; quitar el rechazo y borrar no preserva historia. Siguiente: FIN-12 cuando se ejecute; entrevista de Reportes pendiente. Sin código en estos turnos.
+
 [Resumen común](RESUMEN-ARRANQUE.md) · [Protocolo común](PROTOCOLO-CONTINUIDAD.md)
 
 Máximo 150 líneas o 12.000 caracteres; hasta 10 entradas recientes de 5–10 líneas.
@@ -9,6 +56,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CODEX.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+
+## 2026-09-13 — Codex CAB — FIN-10 revisión visual completada
+
+Chrome sobre base descartable wings_testing_fin10_visual_20260913 y puerto 8097.
+Seeder autorizado y dos clases: pasada y de hoy. Pantallas revisadas con capturas.
+Motivo visible solo en pasada; profesores deshabilitados allí y editables hoy.
+Error sin motivo visible; con motivo guarda y muestra el nuevo horario en la ficha.
+Evidencia actualizada en FIN-10-EDICION-2026-09-13.md. Sin deploy ni suite nueva.
+Conteos 214/1311 intactos. Siguiente: revisión cruzada y despliegue cuando Carlos indique.
 
 ## 2026-09-13 — Codex CAB — FIN-10 implementada y probada
 

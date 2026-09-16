@@ -30,6 +30,11 @@
 
 ## Trabajo que continúa
 
+- FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
+
+- POS-06: [contrato de particulares](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado el 13/09; implementación PENDIENTE. [Ficha y siguiente paso: Reportes](../05-pendientes/CLASES-PARTICULARES.md).
+
+
 - FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable;
   error de motivo y guardado comprobados. Sin deploy.
 
@@ -70,7 +75,7 @@
 
 - API apagada; recibos no fiscales; exportables fuera de la versión inicial.
 - OPERATIVO trabaja sobre todo su dominio, no solo registros propios.
-- Liquidaciones cerradas no se reabren; su corrección es compensatoria.
+- Enmienda 13/09 (POS-06), pendiente: ADMIN cancela cerrada no pagada para revisar asistencia; pagada intacta y ajuste posterior. Bloqueo de asistencia para todos.
 - Sueldos por persona/deporte; no unificar subrubros por “limpieza”.
 - Carga del club humana; no seeders ni pruebas destructivas en base real.
 - Diseño protegido; autorización concreta y lecturas de diseño antes de tocar vistas.
