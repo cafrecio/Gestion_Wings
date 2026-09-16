@@ -1,5 +1,7 @@
 # Documentacion Wings
 
+Clases particulares: [contrato V1](02-contratos/Wings-Contrato-Clases-Particulares-V1.md) · [implementación pendiente POS-06](05-pendientes/CLASES-PARTICULARES.md).
+
 Este directorio concentra la documentacion viva del proyecto Wings.
 
 Condonación de saldo pendiente: [contrato V1, decisión FIN-07 del 12/09](02-contratos/Wings-Contrato-Condonacion-V1.md).

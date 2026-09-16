@@ -1,5 +1,7 @@
 # Contrato de permisos por rol — Wings
 
+> Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
+
 Fuente de verdad de qué puede hacer y ver cada rol. **Leer antes de tocar cualquier control de acceso** (middlewares, `abort(403)`, `if ($user->isX())`, filtros de listados por usuario). Este documento existe porque el mismo error de modelo mental se repitió varias veces.
 
 ---
