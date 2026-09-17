@@ -94,7 +94,8 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 - [ ] **FIN-08:** definir como tratar una revision con pago parcial y precio historico.
   Ya decidido (17/09): la hace el operativo, no solo el admin; las notas viejas se conservan.
 - [x] **FIN-09:** decidido 17/09. Nada futuro; mes en curso y anterior normal; mas viejo
-  se carga en la caja del dia con fecha de hoy, avisa en pantalla y manda mail y Telegram al admin.
+  se carga con su fecha real en la caja de hoy (no se tocan cajas controladas), avisa en
+  pantalla y manda mail y Telegram al admin. El reporte del mes viejo cambia: aceptado.
 - [ ] **PRU-03:** confirmar que significa DEUDOR cuando el alumno no tiene pagos ni
   saldo pendiente.
 - [ ] **ENT-01:** confirmar como se contabiliza la inscripcion configurable del alumno
