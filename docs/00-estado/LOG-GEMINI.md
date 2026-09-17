@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-17 — LOG GEM CYE — FIN-13: Pantalla y recibo de liquidación por hora según duración
+
+- **Objetivo:** Aplicar la autorización de diseño de Carlos para mostrar la duración en formato "1 h 20 min" y subtotales/totales con 2 decimales en la pantalla y en el recibo PDF de liquidaciones por hora.
+- **Cambios reales:**
+  1. `app/Services/ReciboService.php`: Agregado método público estático `formatearDuracion(?int $minutos)`. En anexo HORA se mapea `'minutos' => $minutos` en detalles y se formatea `conteo_texto` como "X clases dictadas · 3 h 20 min".
+  2. `resources/views/pdfs/recibo-liquidacion.blade.php`: Encabezado de columna cambiado a "Duración"; celda muestra `formatearDuracion($det['minutos'])` ("1 h", "1 h 20 min", "30 min"). Verificado PDF real: 2 páginas exactas, sin desbordes ni hojas en blanco.
+  3. `resources/views/liquidaciones/show.blade.php`: "Valor por clase" actualizado a "Valor por hora". Duración toma `$detalle->minutos` vía `formatearDuracion` (fallback a "—" si es null). Subtotales de fila y total HORA formateados con 2 decimales.
+- **Pruebas:** Creado `tests/Feature/LiquidacionHoraVistaYReciboTest.php` (3 pruebas comprobadas fallando contra el código previo; ahora pasan verde con 27 aserciones). Suite completa en 238 pruebas / 1429 aserciones. Sin deploy.
+
 ## 2026-09-16 — PENDIENTES comunes (registrado por Claude CAB a pedido de Carlos)
 
 Misma entrada en los tres logs, para que cada agente arranque con la lista.

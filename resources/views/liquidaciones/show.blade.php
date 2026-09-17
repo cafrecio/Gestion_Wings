@@ -178,7 +178,7 @@
         <div style="padding:1rem 1.5rem; text-align:center;">
             <span style="font-size:0.68rem; font-weight:600; color:var(--color-text-muted);
                          display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">
-                Valor por clase
+                Valor por hora
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-text);">
                 ${{ number_format((float)($liquidacion->profesor->valor_hora ?? 0), 0, ',', '.') }}
@@ -191,7 +191,7 @@
                 Total
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-btn-primary);">
-                ${{ number_format((float)$totalSum, 0, ',', '.') }}
+                ${{ number_format((float)$totalSum, 2, ',', '.') }}
             </span>
         </div>
     </div>
@@ -211,12 +211,7 @@
         : ($detalle->descripcion);
 
     $grupoNombre = $clase?->grupo?->nombre ?? '—';
-
-    $horaI = $clase?->hora_inicio;
-    $horaF = $clase?->hora_fin;
-    $duracion = ($horaI && $horaF)
-        ? (abs((int)$horaF->diffInMinutes($horaI)) . ' min')
-        : '—';
+    $duracion    = \App\Services\ReciboService::formatearDuracion($detalle->minutos);
 @endphp
 <div class="alumno-card">
     <div class="alumno-card-header">
@@ -241,7 +236,7 @@
         <div class="info-item" style="margin-left:auto;">
             <span class="info-label">Subtotal:</span>
             <span class="info-value" style="font-weight:700;">
-                ${{ number_format((float)$detalle->monto, 0, ',', '.') }}
+                ${{ number_format((float)$detalle->monto, 2, ',', '.') }}
             </span>
         </div>
     </div>
@@ -346,9 +341,7 @@
         Total liquidado
     </span>
     <span style="font-size:1.5rem; font-weight:800; color:var(--color-btn-primary);">
-        ${{ $liquidacion->tipo === 'HORA'
-            ? number_format((float)$totalSum, 0, ',', '.')
-            : number_format((float)$totalSum, 2, ',', '.') }}
+        ${{ number_format((float)$totalSum, 2, ',', '.') }}
     </span>
 </div>
 @endif

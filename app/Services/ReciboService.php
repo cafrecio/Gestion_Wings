@@ -124,7 +124,7 @@ class ReciboService
 
         if ($liquidacion->tipo === Liquidacion::TIPO_HORA) {
             $clasesMap = \App\Models\Clase::with('grupo')->whereIn('id', $ids)->get()->keyBy('id');
-            $totalHoras = 0;
+            $totalMinutos = 0;
 
             foreach ($liquidacion->detalles as $det) {
                 $clase = $clasesMap->get($det->referencia_id);
@@ -135,20 +135,21 @@ class ReciboService
                 // clase, el recibo sigue mostrando lo que se pago.
                 $minutos = (int) ($det->minutos ?? 60);
                 $horas = round($minutos / 60, 2);
-                $totalHoras += $horas;
+                $totalMinutos += $minutos;
 
                 $estadoStr = ($clase?->validada_para_liquidacion) ? 'Validada' : 'Con asistencia';
 
                 $detallesFormateados[] = [
                     'fecha' => $fechaStr,
                     'grupo' => $grupoStr,
+                    'minutos' => $minutos,
                     'horas' => $horas,
                     'estado' => $estadoStr,
                     'subtotal' => (float) $det->monto,
                 ];
             }
 
-            $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . str_replace('.', ',', (string) round($totalHoras, 2)) . ' horas';
+            $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . self::formatearDuracion($totalMinutos);
             $valorHora = $liquidacion->valor_hora_aplicado ?? $liquidacion->profesor->valor_hora ?? 0;
             $modalidadTexto = 'Por Hora ($' . number_format((float) $valorHora, 0, ',', '.') . ' / hora)';
         } else {
@@ -416,6 +417,34 @@ class ReciboService
     }
 
     /**
+     * Formatea una duración en minutos a formato legible ("1 h 20 min", "1 h", "30 min").
+     * Si minutos es null, devuelve "—".
+     */
+    public static function formatearDuracion(?int $minutos): string
+    {
+        if ($minutos === null) {
+            return '—';
+        }
+
+        if ($minutos <= 0) {
+            return '0 min';
+        }
+
+        $horas = intdiv($minutos, 60);
+        $restoMinutos = $minutos % 60;
+
+        if ($horas > 0 && $restoMinutos > 0) {
+            return "{$horas} h {$restoMinutos} min";
+        }
+
+        if ($horas > 0) {
+            return "{$horas} h";
+        }
+
+        return "{$restoMinutos} min";
+    }
+
+    /**
      * Asegurar que el directorio de recibos existe.
      */
     private function asegurarDirectorio(): void
@@ -426,3 +455,4 @@ class ReciboService
         }
     }
 }
+

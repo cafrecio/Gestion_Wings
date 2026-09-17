@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 17/09: 235 pasan / 1402 aserciones; incluye FIN-13, FIN-10, FIN-11, SEG-11, ENT-05, FIN-06, el seeder de primera carga y el endpoint de avisos de CSP |
+| Suite | Reejecutada el 17/09: 238 pasan / 1429 aserciones; incluye FIN-13, FIN-10, FIN-11, SEG-11, ENT-05, FIN-06, el seeder de primera carga y el endpoint de avisos de CSP |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -66,7 +66,7 @@
 
 ## Decisiones pendientes que deben viajar entre sesiones
 
-- Profesores “por hora”: DECIDIDO 17/09, se paga por duración (FIN-13). Falta OK de diseño para mostrar minutos en recibo y pantalla.
+- Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
 - Balance filtrado; revisiones con parciales/historia; límites de fechas manuales.

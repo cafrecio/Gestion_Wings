@@ -53,11 +53,11 @@ Unblock-File .\install.ps1
 6. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 235 pruebas deben pasar
+php artisan test          # 238 pruebas deben pasar
 ```
 
-Corte verificado del 17/09: **235 pruebas**, todas verdes.
-Suite completa el 17/09: 235 pruebas / 1402 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13
+Corte verificado del 17/09: **238 pruebas**, todas verdes.
+Suite completa el 17/09: 238 pruebas / 1429 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13
 y el seeder de primera carga.
 FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
 FIN-10 requiere aplicar la migración de motivo_cambio_horario al desplegar; probada solo en wings_testing.
@@ -77,9 +77,6 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 
 - [x] **Profesores por hora: ¿cobran por clase o por hora de duracion?** Decidido el
   17/09: por duracion (clase de 1,5 hs a $5.000 = $7.500). Implementado como FIN-13.
-- [ ] **FIN-13: autorizar que el recibo y la pantalla de liquidacion muestren la
-  duracion como "1 h 20 min" y los centavos.** Hoy el recibo redondea a "1.3 hs" y la
-  pantalla muestra el total sin centavos. Es cambio de diseño: necesita tu OK.
 - [ ] **`monto_base` de los pagos:** definir que tiene que valer en un cobro con seña o
   con varios meses. Hoy se guarda mal y nadie lo lee, pero el recibo nuevo lo va a querer.
 - [x] ~~**Regla en la base para liquidaciones**~~ — **RETIRADA el 12/09. No la apruebes.**

@@ -443,7 +443,7 @@
                 <tr>
                     <th style="width: 15%;">Fecha</th>
                     <th style="width: 35%;">Grupo / Horario</th>
-                    <th style="width: 14%; text-align: center;">Horas</th>
+                    <th style="width: 14%; text-align: center;">Duración</th>
                     <th style="width: 16%; text-align: center;">Estado</th>
                     <th style="width: 20%; text-align: right;">Subtotal</th>
                 </tr>
@@ -453,7 +453,7 @@
                     <tr>
                         <td>{{ $det['fecha'] }}</td>
                         <td>{{ $det['grupo'] }}</td>
-                        <td style="text-align: center;">{{ number_format($det['horas'], 1) }} hs</td>
+                        <td style="text-align: center;">{{ \App\Services\ReciboService::formatearDuracion($det['minutos'] ?? null) }}</td>
                         <td style="text-align: center;">{{ $det['estado'] }}</td>
                         <td class="monto">$ {{ number_format($det['subtotal'], 2, ',', '.') }}</td>
                     </tr>
