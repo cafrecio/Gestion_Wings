@@ -1,8 +1,10 @@
 # FIN-13 — Parte de diseño: recibo y pantalla de liquidación por hora
 
-> Instrucciones pasadas a Gemini el 17/09/2026. El cálculo ya está hecho y subido
-> (commit `7547586`); esto es solo lo que se ve en pantalla y en el PDF.
-> Carlos autoriza tocar las dos vistas nombradas acá.
+> **HECHA por Gemini el 17/09/2026, commit `29f2858`.** Este archivo queda como
+> registro de lo que se pidió, no como pendiente.
+> Instrucciones pasadas a Gemini el 17/09/2026. El cálculo estaba hecho en `7547586`;
+> esto era solo lo que se ve en pantalla y en el PDF, con la autorización de diseño de Carlos.
+> Resultado: `LiquidacionHoraVistaYReciboTest`, suite 238 pruebas / 1429 aserciones.
 
 ## Antes de empezar
 
