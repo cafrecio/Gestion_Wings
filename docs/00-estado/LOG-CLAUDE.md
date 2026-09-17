@@ -11,6 +11,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md)
 
+## 2026-09-17 — Claude CyE — orden: test.gestionar-te se actualiza al final
+
+Carlos: actualizar test deja de ser la tarea 1. Se hace una sola vez, cuando este la
+version que se va a probar. Antes: FIN-12 y la parte de diseno de FIN-13 (prompt pasado a
+Gemini: recibo y pantalla con "1 h 20 min", centavos y "Valor por hora"). Esto reemplaza
+el orden de la entrada "PENDIENTES comunes" del 16/09. Checklist §0 actualizado.
+
 ## 2026-09-17 — Claude CyE — FIN-13: profesores por hora cobran por duracion
 
 Decision de Carlos: clase de 1,5 h a $5.000 = $7.500; base generica para cualquier club.

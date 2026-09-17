@@ -21,8 +21,10 @@ tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-C
 - [ ] **Asignar FIN-12** (cancelar liquidacion cerrada no pagada). Propuesta: Gemini.
 - [ ] **Estar presente en el despliegue a wings**, cuando pase la prueba grande.
 
-**El orden acordado:** actualizar test con los recibos nuevos → FIN-12 → prueba grande
-en `test.gestionar-te` → ensayo de restauracion → desplegar en wings.
+**El orden acordado (Carlos, 17/09):** FIN-12 y la pantalla/recibo de FIN-13 →
+actualizar test **una sola vez, con la version que se va a probar** → prueba grande en
+`test.gestionar-te` → ensayo de restauracion → desplegar en wings. Actualizar test
+antes de terminar los cambios no sirve: habria que volver a hacerlo.
 
 `test.gestionar-te.com.ar` esta montado (usuario, base, PHP y certificado propios;
 no comparte nada con wings). Entrar con `admin@wings.test` / `PruebaWings2026`.
