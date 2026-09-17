@@ -163,6 +163,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Logo, paleta y favicon del club.
 - ~~Liquidación por hora~~: CERRADA 17/09 — tarifa × minutos / 60, tarifa y minutos congelados al liquidar; pantalla y recibo autorizados muestran formato "1 h 20 min" y centavos (FIN-13).
 
+- **Contradiccion registrada 17/09 (FIN-08):** Carlos define la revision de cobranza como tarea del OPERATIVO; el codigo la deja solo para ADMIN (`routes/web.php`, `ensure.admin.web`; menu en `ds-app.blade.php`). La resolucion "Inactivo" hoy condona la deuda del mes anterior, y condonar es solo ADMIN: abrir la ruta sin decidir eso le daria al operativo un camino para condonar.
+
 ## 8. Riesgos y limites conocidos
 
 - El rollback del deploy no revierte migraciones.
