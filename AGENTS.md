@@ -364,6 +364,36 @@ abierto y pendiente de decision un defecto que ya estaba cerrado.
 
 ---
 
+## 6e. Buscar en el repositorio: codebase-memory-mcp primero
+
+Decision de Carlos, 17/09/2026. Aplica a los tres agentes.
+
+**Cada vez que haya que analizar el codigo o buscar informacion del repositorio** —donde
+se define algo, quien lo llama, que toca un cambio, el barrido antes de cerrar una tarea—
+usar primero el MCP `codebase-memory-mcp` (`search_graph`, `trace_path`, `query_graph`,
+`get_code_snippet`, `get_file_outline`). Es un indice del codigo: responde estructura y
+relaciones sin abrir archivo por archivo.
+
+**No reemplaza verificar.** Siguen rigiendo §6c y "contar no es mirar":
+
+- **Lo que devuelve es una pista, no un hecho.** Antes de afirmar algo o de tocar codigo,
+  confirmarlo en el archivo real.
+- **El indice puede estar viejo.** Despues de `git pull` o de cambios propios, reindexar
+  con `index_repository` antes de confiar en el.
+- **No lee bien todas las vistas Blade.** Al 17/09 no parsea completas, entre otras,
+  `caja/detalle.blade.php`, `caja/resumen.blade.php` y `configuraciones/index.blade.php`.
+  Para esas, leer el archivo.
+
+**Se instala en cada computadora.** El programa, su registro en cada agente y el indice
+viven en la maquina, no en el repositorio. Procedimiento en `CHECKLIST-CARLOS.md` §1. Si
+en una sesion no esta disponible, decirlo y seguir con busqueda de texto; no frenar.
+
+**El indice no se versiona.** `.codebase-memory/` esta en `.gitignore`: tres agentes
+commiteando un archivo binario que cambia todo el tiempo producirian conflictos, y
+reindexar en cada maquina tarda segundos.
+
+---
+
 ## 7. Reglas generales
 
 1. No tocar lógica funcional si el pedido es solo documental u organizativo.

@@ -17,6 +17,27 @@ reporte previo se revalida contra el codigo actual antes de repetirse.
 
 **Separar verificado de inferido, explicito.** Si no se comprobo, decirlo.
 
+## Buscar en el repositorio: codebase-memory-mcp primero
+
+Decision de Carlos, 17/09/2026. Detalle completo en `AGENTS.md` §6e.
+
+**Cada vez que haya que analizar el codigo o buscar informacion del repositorio, usar
+primero el MCP `codebase-memory-mcp`**: donde se define algo, quien lo llama, que toca un
+cambio, y sobre todo el barrido antes de cerrar una tarea. Los defectos de la semana del
+10/09 salieron de cambiar un calculo compartido sin ir a ver quien mas lo usaba; eso es
+exactamente lo que este indice responde.
+
+Tres limites que no se negocian:
+
+- **Lo que devuelve es una pista, no un hecho.** Confirmar en el archivo antes de afirmar
+  o de tocar codigo. "Antes de afirmar un hecho" sigue rigiendo.
+- **Reindexar despues de `git pull` o de cambios propios** (`index_repository`).
+- **Algunas vistas Blade no las parsea completas** (`caja/detalle`, `caja/resumen`,
+  `configuraciones/index`): para esas, leer el archivo.
+
+Se instala en cada computadora (`CHECKLIST-CARLOS.md` §1). Si en la sesion no esta
+disponible, decirlo y usar Grep/Glob.
+
 ## Antes de cerrar una tarea
 
 **Preguntarse que documento se acaba de dejar mintiendo, y arreglarlo en el mismo

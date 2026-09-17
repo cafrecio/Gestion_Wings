@@ -34,7 +34,21 @@ no comparte nada con wings). Entrar con `admin@wings.test` / `PruebaWings2026`.
    dependencias o assets.
 3. Instalar/verificar la guardia de diseño con `bash scripts/hooks/instalar.sh`.
 4. Ejecutar `php artisan migrate` sobre la base local correspondiente.
-5. Ejecutar la suite completa:
+5. **Solo la primera vez en cada computadora:** instalar `codebase-memory-mcp`, el
+   indice del codigo que usan los agentes para buscar (ver `AGENTS.md` §6e). En
+   PowerShell:
+
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.ps1 -OutFile install.ps1
+Unblock-File .\install.ps1
+.\install.ps1
+```
+
+   El instalador verifica la huella del programa y lo registra solo en los agentes que
+   encuentre en esa maquina. **Despues hay que reiniciar las sesiones de Claude, Codex y
+   Gemini** para que lo tomen. En CyE quedo instalado el 17/09 (version 0.11.0) para
+   Claude Code, Codex y VS Code; **Gemini no fue detectado ahi**.
+6. Ejecutar la suite completa:
 
 ```bash
 php artisan test          # 229 pruebas deben pasar

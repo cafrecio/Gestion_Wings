@@ -12,6 +12,8 @@
 - Las evaluaciones del 8/9 son históricas: no tratarlas como defectos actuales.
 - No leer todo el histórico para ponerse al día; buscar ID y fragmento relevante.
 - No ejecutar tareas por aparecer aquí: respetar el pedido actual de Carlos.
+- **Desde el 17/09, para analizar o buscar en el repo usar primero `codebase-memory-mcp`**
+  (AGENTS.md §6e): pista, no hecho; reindexar tras pull; se instala por máquina. CyE: sí.
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 

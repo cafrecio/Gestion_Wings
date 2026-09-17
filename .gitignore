@@ -36,3 +36,6 @@ docs/06-pruebas/Credenciales*
 
 # Las bases de datos no se versionan (AGENTS.md seccion 3).
 /database/dump.sql
+
+# Indice local de codebase-memory-mcp: se arma en cada maquina, no se versiona (AGENTS.md 6e)
+.codebase-memory/
