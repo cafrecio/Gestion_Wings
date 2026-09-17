@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md)
 
+## 2026-09-17 — Claude CyE — cierres y decisiones de Carlos del dia
+
+PRU-01 cerrada: la base de la prueba es `PrimeraCargaCompletaSeeder` (60 alumnos, sin deudas);
+el primer paso de PRU-02 es cargar la deuda con el padron, que son comandos de consola.
+FIN-12 asignada a Gemini. Reportes: buscada la entrevista que Codex dejo pendiente el 13/09
+en ramas, commits, bitacoras y sesiones locales de Codex; **no existe registro**, y las
+sesiones de Codex de esta maquina sobre Wings terminan el 11/09. Si ocurrio, fue en CAB.
+FIN-09 decidida por Carlos: sin fechas futuras; mas viejo se carga con su fecha real y se
+liquida con la caja de hoy, avisando al cargar y por mail y Telegram; el reporte del mes
+viejo cambia y eso se acepta. Laravel hoy no envia mail ni Telegram: solo el servidor.
+FIN-08: Carlos define la revision de cobranza como tarea del OPERATIVO y el codigo la tiene
+solo para ADMIN; registrado en ESTADO-ACTUAL §8. Traba: "Inactivo" condona, y condonar es
+solo ADMIN. Propuesta a Carlos, sin respuesta todavia: que "Inactivo" de de baja sin condonar.
+Prompt de la parte de diseno de FIN-13 pasado a Gemini. Sin codigo nuevo en estos turnos.
+
 ## 2026-09-17 — Claude CyE — orden: test.gestionar-te se actualiza al final
 
 Carlos: actualizar test deja de ser la tarea 1. Se hace una sola vez, cuando este la
