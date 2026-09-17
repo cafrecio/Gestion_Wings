@@ -135,12 +135,24 @@ Alcance y criterios de aceptación:
 
 ### 3.1 Liquidación HORA
 
-**Premisa:** El profesor cobra por cada clase válida que dictó.
+**Premisa:** El profesor cobra cada clase válida que dictó según su duración
+(decisión de Carlos, 17/09/2026; antes se pagaba la tarifa entera por clase).
 
 **Cálculo:**
 ```
-total = Σ (clases_validas_del_profesor × valor_hora)
+importe_clase = round(valor_hora × minutos_de_la_clase / 60, 2)
+total         = Σ importe_clase
 ```
+
+- Los minutos salen de `hora_fin - hora_inicio`. Una clase sin duración válida
+  frena la liquidación con un mensaje que la identifica; no se inventa una hora.
+- La tarifa queda congelada en `liquidaciones.valor_hora_aplicado` y los minutos en
+  `liquidacion_detalles.minutos`. Recalcular una abierta usa la tarifa congelada;
+  cambiar después la tarifa del profesor o el horario de la clase no reescribe lo
+  liquidado. La vista previa usa el mismo cálculo con la tarifa vigente.
+- Las liquidaciones anteriores al 17/09 no se recalculan: la migración toma como
+  tarifa el importe que se pagó por clase y registra los minutos que ese importe
+  representa.
 
 **Clase válida:**
 - Pertenece al período (mes/año)
@@ -148,17 +160,17 @@ total = Σ (clases_validas_del_profesor × valor_hora)
 - Tiene al menos 1 asistencia con presente=true O está validada_para_liquidacion
 
 **Regla multi-profesor:**
-Si una clase tiene 2+ profesores, CADA profesor cobra su valor_hora completo.
+Si una clase tiene 2+ profesores, CADA profesor cobra su importe completo de la clase.
 NO se divide el monto.
 
 **Ejemplo:**
 ```
-Clase: Natación 15/01 10:00
+Clase: Natación 15/01 10:00 a 11:30 (90 minutos)
 Profesores: Juan (valor_hora=1000), María (valor_hora=1200)
 Asistencias: 5 alumnos presentes
 
-→ Liquidación Juan: +$1000 por esta clase
-→ Liquidación María: +$1200 por esta clase
+→ Liquidación Juan: +$1500 por esta clase
+→ Liquidación María: +$1800 por esta clase
 ```
 
 ### 3.2 Liquidación COMISION
@@ -284,7 +296,7 @@ El monto viene del PAGO del alumno.
    SI tipo = HORA:
      - Obtener clases del profesor en el período
      - Filtrar clases liquidables (con asistencia o validadas)
-     - Calcular: cantidad × valor_hora
+     - Calcular: Σ(valor_hora × minutos / 60) por clase
 
    SI tipo = COMISION:
      - Obtener alumnos del deporte con pago en el período
@@ -327,10 +339,11 @@ El monto viene del PAGO del alumno.
 ```
 Deporte: Natación (tipo=HORA)
 Profesor: Laura (valor_hora=1500)
-Enero 2026: 12 clases, 10 con asistencia, 2 sin asistencia
+Enero 2026: 12 clases de una hora, 10 con asistencia, 2 sin asistencia
 
 Liquidación:
-- 10 clases × $1500 = $15.000
+- 10 clases × 60 min × $1500 / 60 = $15.000
+- Si una de esas 10 durara 90 minutos: $13.500 + $2.250 = $15.750
 ```
 
 ### Caso 2: Fútbol (COMISION)

@@ -9,7 +9,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
-· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md)
+· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md)
+
+## 2026-09-17 — Claude CyE — FIN-13: profesores por hora cobran por duracion
+
+Decision de Carlos: clase de 1,5 h a $5.000 = $7.500; base generica para cualquier club.
+Un solo calculo (`montoPorClase`: tarifa x minutos / 60) y una sola consulta de clases para
+liquidacion y vista previa, que antes eran dos copias. Tarifa congelada en
+`liquidaciones.valor_hora_aplicado`, minutos en `liquidacion_detalles.minutos`. Clase sin
+duracion valida frena con fecha y grupo, no inventa una hora. Migracion no recalcula lo
+liquidado: tarifa = importe pagado por clase. Recibo y pantalla toman la tarifa congelada.
+`LiquidacionHoraPorDuracionTest` 6 pruebas; 5 fallan con el servicio anterior. Suite 235/1402.
+Pendiente: OK de diseno para mostrar "1 h 20 min" y centavos (recibo dice "1.3 hs"). Sin deploy.
 
 ## 2026-09-17 — Claude CyE — codebase-memory-mcp instalado y obligatorio para buscar
 
@@ -113,30 +124,3 @@ reporte como respaldo roto y que nadie confie en la herramienta.
 Prueba extendida a 18 comprobaciones. Dientes: con la version de SEG-06, el caso
 `mismo conteo con importes truncados` **pasa en verde**.
 **Falta el ensayo real contra un respaldo del servidor.** Sin deploy.
-
-## 2026-09-13 — Claude CAB — SEG-06: la restauracion reponia solo la base
-
-El respaldo nocturno guarda tres piezas —`wings.sql`, `storage.tgz` y `env.txt`—
-y `restaurar.sh EN-SERIO` reponia unicamente la primera. `storage.tgz` se
-descomprimia en el directorio temporal y el `trap limpiar EXIT` lo borraba: un
-servidor perdido se reponia **sin los recibos emitidos**, que se venian
-respaldando todas las noches para nada.
-
-El ensayo tampoco cumplia su criterio. Comparaba una lista escrita a mano de 15
-tablas sobre 35, sin `pago_deuda_cuota` —donde vive que periodos cubre cada
-pago—, ni liquidaciones, ni asistencias, ni `alumno_planes`; y una tabla ausente
-en las dos bases devolvia `?` de los dos lados y contaba como coincidencia.
-Nunca miraba archivos ni configuracion.
-
-Ahora enumera las tablas desde las dos bases, trata una tabla faltante como
-fallo, compara los archivos y exige `APP_KEY` (sin esa linea Laravel no arranca:
-restaurar eso no repone un sistema usable). `EN-SERIO` repone los archivos,
-aparta los anteriores con fecha y deja el `.env` del respaldo al lado sin pisar
-el vivo, que puede tener claves rotadas despues.
-
-Prueba: `tests/Deployment/restaurar_repone_todo_test.sh`, 11 comprobaciones.
-Dientes verificados: con el script anterior fallan 5, incluida
-`EN-SERIO repone los recibos del respaldo (esperado 2, obtenido 0)`.
-**Falta el ensayo real contra un respaldo del servidor**; esto se probo con
-paquetes cifrados armados en la maquina. Sin deploy.
-

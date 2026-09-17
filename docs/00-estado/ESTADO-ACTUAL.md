@@ -107,7 +107,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **229 pruebas**, 1372 aserciones; suite completa el 13/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, el seeder de primera carga y el endpoint de avisos de CSP |
+| **Tests** | **235 pruebas**, 1402 aserciones; suite completa el 17/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, el seeder de primera carga y el endpoint de avisos de CSP |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -161,7 +161,7 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Significado de DEUDOR sin pagos y sin saldo pendiente.
 - Tratamiento contable de la inscripcion configurable.
 - Logo, paleta y favicon del club.
-- Liquidación por hora: si el valor hora histórico debe congelarse al liquidar y cómo se cruza con si paga la clase entera o prorratea por duración.
+- ~~Liquidación por hora~~: decidida por Carlos el 17/09 — tarifa × minutos / 60, tarifa y minutos congelados al liquidar (FIN-13, en curso: falta mostrarlo en recibo y pantalla).
 
 ## 8. Riesgos y limites conocidos
 

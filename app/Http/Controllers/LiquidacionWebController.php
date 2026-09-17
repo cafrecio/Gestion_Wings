@@ -160,6 +160,11 @@ class LiquidacionWebController extends Controller
             $liquidacion->profesor->syncOriginal();
         }
 
+        if ($liquidacion->tipo === Liquidacion::TIPO_HORA && $liquidacion->valor_hora_aplicado !== null) {
+            $liquidacion->profesor->valor_hora = $liquidacion->valor_hora_aplicado;
+            $liquidacion->profesor->syncOriginal();
+        }
+
         // Batch-load references to avoid N+1
         $ids = $liquidacion->detalles->pluck('referencia_id');
         if ($liquidacion->tipo === 'HORA') {

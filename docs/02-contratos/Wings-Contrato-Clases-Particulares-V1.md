@@ -23,8 +23,8 @@ Las excepciones siguientes son decisiones nuevas, pendientes de implementación:
   cualquier perfil; solo ADMIN cancela una cerrada no pagada para revisarla (§8).
 - La regla anterior de cierre irreversible se sustituye en ese alcance concreto.
   No habilita modificar ni cancelar una liquidación pagada.
-- El cálculo por duración aquí acordado corresponde a particulares; no resuelve
-  el cálculo pendiente de las clases ordinarias.
+- El cálculo por duración vale también para las clases ordinarias desde el
+  17/09/2026 (tarifa × minutos / 60, ver Liquidaciones V2 §3.1).
 
 ## 2. Agenda y participantes
 

@@ -17,12 +17,14 @@ class LiquidacionDetalle extends Model
         'tipo_referencia',
         'referencia_id',
         'monto',
+        'minutos',
         'descripcion',
     ];
 
     protected $casts = [
         'monto' => 'decimal:2',
         'referencia_id' => 'integer',
+        'minutos' => 'integer',
     ];
 
     /**

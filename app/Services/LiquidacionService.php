@@ -42,6 +42,9 @@ class LiquidacionService
                 'porcentaje_comision_aplicado' => ($tipoLiquidacion === Liquidacion::TIPO_COMISION)
                     ? $profesor->porcentaje_comision
                     : null,
+                'valor_hora_aplicado' => ($tipoLiquidacion === Liquidacion::TIPO_HORA)
+                    ? $profesor->valor_hora
+                    : null,
                 'total_calculado' => 0,
                 'estado' => Liquidacion::ESTADO_ABIERTA,
             ]);
@@ -60,8 +63,9 @@ class LiquidacionService
 
     /**
      * Calcular liquidación por HORA
-     * Se liquidan clases con asistencia o validadas manualmente
-     * Cada profesor cobra su valor_hora completo por cada clase
+     * Se liquidan clases con asistencia o validadas manualmente.
+     * Cada clase se paga tarifa x minutos / 60, con la tarifa congelada en la
+     * liquidación y los minutos congelados en cada detalle.
      *
      * @param Liquidacion $liquidacion
      * @param Profesor $profesor
@@ -75,32 +79,19 @@ class LiquidacionService
         int $mes,
         int $anio
     ): float {
-        $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
-        $fechaFin = Carbon::createFromDate($anio, $mes, 1)->endOfMonth();
-
-        $clasesDelProfesor = Clase::whereHas('profesores', function ($query) use ($profesor) {
-            $query->where('profesores.id', $profesor->id);
-        })
-            ->whereBetween('fecha', [$fechaInicio, $fechaFin])
-            ->where('cancelada', false)
-            ->where(function ($q) {
-                $q->where('validada_para_liquidacion', true)
-                  ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
-            })
-            ->with(['grupo.deporte', 'grupo.nivel'])
-            ->get();
-
+        $valorHora = (float) ($liquidacion->valor_hora_aplicado ?? $profesor->valor_hora ?? 0);
         $total = 0;
-        $valorHora = $profesor->valor_hora ?? 0;
 
-        foreach ($clasesDelProfesor as $clase) {
-            $monto = $valorHora;
+        foreach ($this->clasesLiquidablesHora($profesor, $mes, $anio) as $clase) {
+            $minutos = $this->minutosDeClase($clase);
+            $monto = $this->montoPorClase($valorHora, $minutos);
 
             LiquidacionDetalle::create([
                 'liquidacion_id' => $liquidacion->id,
                 'tipo_referencia' => LiquidacionDetalle::TIPO_CLASE,
                 'referencia_id' => $clase->id,
                 'monto' => $monto,
+                'minutos' => $minutos,
                 'descripcion' => sprintf(
                     'Clase %s - %s (%s)',
                     $clase->fecha->format('d/m/Y'),
@@ -112,7 +103,59 @@ class LiquidacionService
             $total += $monto;
         }
 
-        return $total;
+        return round($total, 2);
+    }
+
+    /**
+     * Importe de una clase por hora. Único cálculo: lo usan la liquidación y la vista previa.
+     */
+    public function montoPorClase(float $valorHora, int $minutos): float
+    {
+        return round($valorHora * $minutos / 60, 2);
+    }
+
+    /**
+     * Duración real de la clase en minutos. Una clase sin duración válida no se
+     * liquida en silencio con un valor inventado: frena y dice cuál es.
+     */
+    private function minutosDeClase(Clase $clase): int
+    {
+        $minutos = ($clase->hora_inicio && $clase->hora_fin)
+            ? (int) $clase->hora_inicio->diffInMinutes($clase->hora_fin, false)
+            : 0;
+
+        if ($minutos <= 0) {
+            throw new \Exception(sprintf(
+                'La clase del %s (%s) no tiene un horario válido: la hora de fin debe ser posterior a la de inicio.',
+                $clase->fecha->format('d/m/Y'),
+                $clase->grupo->nombre ?? 'Sin grupo'
+            ));
+        }
+
+        return $minutos;
+    }
+
+    /**
+     * Clases que entran en la liquidación por hora del mes.
+     */
+    private function clasesLiquidablesHora(Profesor $profesor, int $mes, int $anio)
+    {
+        $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
+        $fechaFin = Carbon::createFromDate($anio, $mes, 1)->endOfMonth();
+
+        return Clase::whereHas('profesores', function ($query) use ($profesor) {
+            $query->where('profesores.id', $profesor->id);
+        })
+            ->whereBetween('fecha', [$fechaInicio, $fechaFin])
+            ->where('cancelada', false)
+            ->where(function ($q) {
+                $q->where('validada_para_liquidacion', true)
+                  ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
+            })
+            ->with(['grupo.deporte', 'grupo.nivel'])
+            ->orderBy('fecha')
+            ->orderBy('hora_inicio')
+            ->get();
     }
 
     /**
@@ -415,26 +458,14 @@ class LiquidacionService
      */
     private function previsualizarLiquidacionHora(Profesor $profesor, int $mes, int $anio): array
     {
-        $fechaInicio = Carbon::createFromDate($anio, $mes, 1)->startOfMonth();
-        $fechaFin = Carbon::createFromDate($anio, $mes, 1)->endOfMonth();
-
-        $clasesDelProfesor = Clase::whereHas('profesores', function ($query) use ($profesor) {
-            $query->where('profesores.id', $profesor->id);
-        })
-            ->whereBetween('fecha', [$fechaInicio, $fechaFin])
-            ->where('cancelada', false)
-            ->where(function ($q) {
-                $q->where('validada_para_liquidacion', true)
-                  ->orWhereHas('asistencias', fn ($a) => $a->where('presente', true));
-            })
-            ->with(['grupo.deporte', 'grupo.nivel'])
-            ->get();
-
         $detalles = [];
         $total = 0;
-        $valorHora = $profesor->valor_hora ?? 0;
+        $valorHora = (float) ($profesor->valor_hora ?? 0);
 
-        foreach ($clasesDelProfesor as $clase) {
+        foreach ($this->clasesLiquidablesHora($profesor, $mes, $anio) as $clase) {
+            $minutos = $this->minutosDeClase($clase);
+            $monto = $this->montoPorClase($valorHora, $minutos);
+
             $detalles[] = [
                 'tipo' => 'clase',
                 'referencia_id' => $clase->id,
@@ -443,13 +474,14 @@ class LiquidacionService
                     $clase->fecha->format('d/m/Y'),
                     $clase->grupo->nombre ?? 'Sin grupo'
                 ),
-                'monto' => $valorHora,
+                'minutos' => $minutos,
+                'monto' => $monto,
             ];
 
-            $total += $valorHora;
+            $total += $monto;
         }
 
-        return ['detalles' => $detalles, 'total' => $total];
+        return ['detalles' => $detalles, 'total' => round($total, 2)];
     }
 
     /**

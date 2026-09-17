@@ -131,11 +131,10 @@ class ReciboService
                 $fechaStr = $clase?->fecha ? $clase->fecha->format('d/m/Y') : '—';
                 $grupoStr = $clase?->grupo?->nombre ?? 'Sin grupo';
 
-                $horas = 1.0;
-                if ($clase?->hora_inicio && $clase?->hora_fin) {
-                    $duracionMin = abs((int) $clase->hora_fin->diffInMinutes($clase->hora_inicio));
-                    $horas = $duracionMin > 0 ? round($duracionMin / 60, 1) : 1.0;
-                }
+                // Minutos congelados al liquidar: si despues cambia el horario de la
+                // clase, el recibo sigue mostrando lo que se pago.
+                $minutos = (int) ($det->minutos ?? 60);
+                $horas = round($minutos / 60, 2);
                 $totalHoras += $horas;
 
                 $estadoStr = ($clase?->validada_para_liquidacion) ? 'Validada' : 'Con asistencia';
@@ -149,8 +148,9 @@ class ReciboService
                 ];
             }
 
-            $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . $totalHoras . ' horas';
-            $modalidadTexto = 'Por Hora ($' . number_format($liquidacion->profesor->valor_hora ?? 0, 0, ',', '.') . ' / hora)';
+            $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . str_replace('.', ',', (string) round($totalHoras, 2)) . ' horas';
+            $valorHora = $liquidacion->valor_hora_aplicado ?? $liquidacion->profesor->valor_hora ?? 0;
+            $modalidadTexto = 'Por Hora ($' . number_format((float) $valorHora, 0, ',', '.') . ' / hora)';
         } else {
             $alumnosMap = \App\Models\Alumno::whereIn('id', $ids)->get()->keyBy('id');
             $porcentajeGeneral = (float) ($liquidacion->porcentaje_comision_aplicado ?? $liquidacion->profesor->porcentaje_comision ?? 0);
