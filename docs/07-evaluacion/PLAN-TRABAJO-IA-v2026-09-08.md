@@ -132,10 +132,17 @@ decision vigente de `AGENTS.md`.
 
 ## 6. Bloque 4 — prueba integral y gate
 
-### PRU-01 · Base conocida para la prueba
+### PRU-01 · Base conocida para la prueba — CERRADA 17/09
 
 Definir una base descartable reproducible, sin copiar datos reales ni depender de un
 dump. No confundir la carga humana de entrega con un seeder decorativo.
+
+Cierre (Carlos, 17/09): la base es `PrimeraCargaCompletaSeeder` sobre una base recien
+migrada — 60 alumnos con plan, 4 profesores, 7 cuentas, 2 cajas con saldo, sin deudas ni
+movimientos; 12 pruebas en `PrimeraCargaCompletaSeederTest`. Instructivo:
+[SEEDER-PRIMERA-CARGA.md](../06-pruebas/SEEDER-PRIMERA-CARGA.md). El primer paso de PRU-02
+es cargar la deuda con el padron (`wings:exportar-padron` / `wings:importar-padron`,
+[instructivo](../06-pruebas/CARGA-PADRON-SALDO-INICIAL.md)): son comandos de consola.
 
 ### PRU-02 · Recorrido humano completo
 

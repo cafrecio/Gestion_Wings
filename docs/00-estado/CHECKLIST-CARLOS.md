@@ -18,7 +18,7 @@ tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-C
 - [ ] **Clases particulares: ¿entra antes o despues de la prueba grande?** Antes cubre el
   modulo nuevo pero vuelve a correr el reloj; despues prueba lo que ya esta y lo
   suma sobre una base probada. Recomendacion de Claude: despues.
-- [ ] **Asignar FIN-12** (cancelar liquidacion cerrada no pagada). Propuesta: Gemini.
+- [x] **Asignar FIN-12** (cancelar liquidacion cerrada no pagada): **Gemini** (Carlos, 17/09).
 - [ ] **Estar presente en el despliegue a wings**, cuando pase la prueba grande.
 
 **El orden acordado (Carlos, 17/09):** FIN-12 y la pantalla/recibo de FIN-13 →
