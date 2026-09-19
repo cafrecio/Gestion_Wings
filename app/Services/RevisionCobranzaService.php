@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use App\Models\AlumnoRevisionCobranza;
-use App\Models\DeudaCuota;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class RevisionCobranzaService
@@ -14,7 +12,17 @@ class RevisionCobranzaService
     /**
      * Resolver manualmente una revisión pendiente.
      * CONTINUA: genera la deuda del período.
-     * INACTIVO: inactiva el alumno + cancela deuda del período inmediato anterior.
+     * INACTIVO: inactiva el alumno. Nada más.
+     *
+     * La cola existe para una sola pregunta: ¿a este alumno le generamos la deuda
+     * del mes o no? Es un proceso hacia adelante y no revisa lo ya generado.
+     *
+     * Hasta el 19/09/2026 INACTIVO además condonaba la deuda pendiente del mes
+     * anterior. Esa deuda se generó el mes pasado porque en su momento cumplía
+     * las condiciones, y esa decisión ya está tomada: darlo de baja hoy no la
+     * vuelve inexistente. Condonar es una decisión aparte del ADMIN, con motivo,
+     * para el alumno que no pudo asistir. Acá se hacía sola y sin que nadie la
+     * pidiera. Criterio de Carlos, 19/09.
      */
     public function resolver(int $revisionId, string $resolucion, ?string $nota, int $userId): AlumnoRevisionCobranza
     {
@@ -44,20 +52,10 @@ class RevisionCobranzaService
                     $alumnoPlan->plan->precio_mensual
                 );
             } elseif ($resolucion === AlumnoRevisionCobranza::RESOLUCION_INACTIVO) {
+                // Solo se lo da de baja: no se le genera la deuda del período y
+                // el historial queda como está. Lo que deba de meses anteriores
+                // lo condona el ADMIN por su cuenta si corresponde.
                 $revision->alumno->update(['activo' => false]);
-
-                // Cancelar deuda del período inmediato anterior si aún está pendiente
-                $periodoAnterior = Carbon::parse($revision->periodo_objetivo . '-01')
-                    ->subMonth()
-                    ->format('Y-m');
-
-                DeudaCuota::where('alumno_id', $revision->alumno_id)
-                    ->where('periodo', $periodoAnterior)
-                    ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                    ->update([
-                        'estado'       => DeudaCuota::ESTADO_CONDONADA,
-                        'observaciones' => 'Cancelada al inactivar alumno (revisión #' . $revision->id . ')',
-                    ]);
             }
         });
 
