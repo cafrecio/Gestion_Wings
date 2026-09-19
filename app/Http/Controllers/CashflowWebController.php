@@ -6,6 +6,7 @@ use App\Models\CashflowMovimiento;
 use App\Models\Rubro;
 use App\Models\TipoCaja;
 use App\Services\CashflowService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,9 +86,19 @@ class CashflowWebController extends Controller
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => 'required|numeric|min:0.01',
-            'fecha'         => 'required|date',
+            'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);
+
+        $fechaMov = Carbon::parse($request->input('fecha'))->startOfDay();
+        $esFechaVieja = $fechaMov->lessThan(now()->startOfMonth()->startOfDay());
+
+        if ($esFechaVieja && !$request->boolean('confirmar_fecha_vieja')) {
+            return back()->withInput()->with(
+                'aviso_fecha_vieja',
+                'Esta fecha es de un mes ya cerrado. El movimiento va a quedar registrado con esa fecha, pero entra en la caja de hoy y modificará el reporte de ese mes.'
+            );
+        }
 
         try {
             $this->cashflowService->registrarMovimientoAdmin([
@@ -98,6 +109,10 @@ class CashflowWebController extends Controller
                 'fecha'            => $request->input('fecha'),
                 'observaciones'    => $request->input('observaciones'),
             ]);
+
+            if ($esFechaVieja) {
+                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+            }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
         }

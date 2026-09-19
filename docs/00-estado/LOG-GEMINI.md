@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-19 — LOG GEM CYE — FIN-09: Límites de fechas y confirmación al cargar movimientos y cobros
+
+- **Objetivo:** Implementar la decisión de Carlos sobre límites de fechas al registrar o editar movimientos de caja, cashflow y cobro de cuotas: rechazar fechas futuras, permitir fechas del mes actual sin aviso, y exigir confirmación en pantalla antes de guardar si la fecha es de un mes anterior o más vieja.
+- **Cambios reales:**
+  1. `app/Http/Controllers/CajaWebController.php`: Validación estricta `fecha => required|date|before_or_equal:today` en `editarStore` y `updateMovimiento`. Si la fecha es anterior al inicio del mes en curso y no viene `confirmar_fecha_vieja=1`, retorna `withInput()` y aviso explicativo en sesión. En `pagar`, si `fecha_pago` es de mes anterior sin `confirmar_fecha_vieja=1`, responde HTTP 409 con `requiere_confirmacion_fecha_vieja: true`. Marcados puntos con TODO para futuros avisos por Mail/Telegram al ADMIN.
+  2. `app/Http/Controllers/CashflowWebController.php`: Validación idéntica `before_or_equal:today` y confirmación de fecha vieja en `store`.
+  3. `resources/views/caja/editar.blade.php` y `resources/views/cashflow/movimiento.blade.php`: Banner informativo con tokens DS (`var(--color-warning)`) cuando hay aviso de fecha vieja, campo oculto `confirmar_fecha_vieja=1` y botón de submit actualizado a `Confirmar` (un solo verbo corto). Sin scripts nuevos (conteo CSP intacto en 22 bloques y 10 manejadores).
+  4. `resources/views/caja/cobrar.blade.php`: Interceptor en `enviarCobro()` ante respuesta 409 para confirmar la fecha anterior e invocar segundo envío con `confirmar_fecha_vieja=1`.
+- **Pruebas:** Creada suite `tests/Feature/LimiteFechasMovimientosTest.php` (8 pruebas, 53 aserciones) cubriendo rechazo de fecha futura, mes actual sin aviso, bordes de fin/inicio de mes, tres meses atrás preservando cajas cerradas/validadas, edición de movimiento, cashflow y cobro de cuotas. Suite completa en 251 pruebas / 1491 aserciones. Sin deploy.
+
 ## 2026-09-17 — LOG GEM CYE — FIN-13: Pantalla y recibo de liquidación por hora según duración
 
 - **Objetivo:** Aplicar la autorización de diseño de Carlos para mostrar la duración en formato "1 h 20 min" y subtotales/totales con 2 decimales en la pantalla y en el recibo PDF de liquidaciones por hora.

@@ -352,6 +352,14 @@
                 return;
             }
 
+            if (resultado.status === 409 && resultado.datos.requiere_confirmacion_fecha_vieja) {
+                if (window.confirm(resultado.datos.message + '\n\n¿Desea continuar con el cobro?')) {
+                    formData.set('confirmar_fecha_vieja', '1');
+                    enviarCobro(formData);
+                }
+                return;
+            }
+
             if (!resultado.ok) {
                 window.alert(resultado.datos.message || 'No se pudo registrar el cobro.');
             }

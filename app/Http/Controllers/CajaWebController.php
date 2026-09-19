@@ -315,9 +315,19 @@ class CajaWebController extends Controller
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => 'required|numeric|min:0.01',
-            'fecha'         => 'required|date',
+            'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);
+
+        $fechaMov = Carbon::parse($request->input('fecha'))->startOfDay();
+        $esFechaVieja = $fechaMov->lessThan(now()->startOfMonth()->startOfDay());
+
+        if ($esFechaVieja && !$request->boolean('confirmar_fecha_vieja')) {
+            return back()->withInput()->with(
+                'aviso_fecha_vieja',
+                'Esta fecha es de un mes ya cerrado. El movimiento va a quedar registrado con esa fecha, pero entra en la caja de hoy y modificará el reporte de ese mes.'
+            );
+        }
 
         try {
             $this->cajaService->registrarMovimientoEnCaja($caja->id, [
@@ -327,6 +337,10 @@ class CajaWebController extends Controller
                 'fecha'         => $request->input('fecha'),
                 'observaciones' => $request->input('observaciones'),
             ]);
+
+            if ($esFechaVieja) {
+                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+            }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
         }
@@ -372,9 +386,19 @@ class CajaWebController extends Controller
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => 'required|numeric|min:0.01',
-            'fecha'         => 'required|date',
+            'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);
+
+        $fechaMov = Carbon::parse($request->input('fecha'))->startOfDay();
+        $esFechaVieja = $fechaMov->lessThan(now()->startOfMonth()->startOfDay());
+
+        if ($esFechaVieja && !$request->boolean('confirmar_fecha_vieja')) {
+            return back()->withInput()->with(
+                'aviso_fecha_vieja',
+                'Esta fecha es de un mes ya cerrado. El movimiento va a quedar registrado con esa fecha, pero entra en la caja de hoy y modificará el reporte de ese mes.'
+            );
+        }
 
         try {
             $this->cajaService->actualizarMovimientoEnCaja($cajaId, $movId, [
@@ -384,6 +408,10 @@ class CajaWebController extends Controller
                 'fecha' => $request->input('fecha'),
                 'observaciones' => $request->input('observaciones'),
             ]);
+
+            if ($esFechaVieja) {
+                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+            }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
         }
@@ -746,8 +774,21 @@ class CajaWebController extends Controller
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
             'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
             'confirmar_deuda_anterior' => 'nullable|boolean',
+            'confirmar_fecha_vieja'    => 'nullable|boolean',
             'motivo' => 'nullable|string|max:500',
         ]);
+
+        $fechaPagoStr = $request->input('fecha_pago') ?: today()->toDateString();
+        $fechaPago = Carbon::parse($fechaPagoStr)->startOfDay();
+        $esFechaVieja = $fechaPago->lessThan(now()->startOfMonth()->startOfDay());
+
+        if ($esFechaVieja && !$request->boolean('confirmar_fecha_vieja')) {
+            return response()->json([
+                'success' => false,
+                'requiere_confirmacion_fecha_vieja' => true,
+                'message' => 'Esta fecha de pago corresponde a un mes anterior ya cerrado. El cobro quedará registrado con esa fecha real, pero entrará en la caja de hoy y modificará el reporte de ese mes.',
+            ], 409);
+        }
 
         $periodosSolicitados = collect($request->input('periodos'))->sort()->values();
         $periodoMasAntiguo = $periodosSolicitados->first();
@@ -882,6 +923,10 @@ class CajaWebController extends Controller
                         'error' => $errorNotificacion->getMessage(),
                     ]);
                 }
+            }
+
+            if ($esFechaVieja) {
+                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
             }
 
             return redirect()->route('web.caja.index')

@@ -149,9 +149,28 @@ $formMethod = $editando ? 'PUT' : 'POST';
         </div>
     </div>
 
+    @if(session('aviso_fecha_vieja'))
+        <input type="hidden" name="confirmar_fecha_vieja" value="1">
+        <div class="mb-4 p-4" style="border: 1px solid var(--color-warning); background: color-mix(in srgb, var(--color-warning) 10%, transparent); border-radius: var(--radius-card);">
+            <div style="display:flex; gap:10px; align-items:flex-start;">
+                <svg style="width:20px; height:20px; color:var(--color-warning); flex-shrink:0; margin-top:2px;" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                <div>
+                    <p style="font-size:0.875rem; font-weight:600; color:var(--color-text); margin-bottom:4px;">
+                        Atención: fecha de un mes anterior
+                    </p>
+                    <p style="font-size:0.8125rem; color:var(--color-text-muted); line-height:1.4;">
+                        {{ session('aviso_fecha_vieja') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="filtros-actions" style="justify-content:flex-end;">
         <x-ds.button variant="secondary" href="{{ route('web.caja.resumen', $caja->id) }}">Cancelar</x-ds.button>
-        <x-ds.button variant="primary" type="submit">{{ $editando ? 'Guardar' : 'Registrar' }}</x-ds.button>
+        <x-ds.button variant="primary" type="submit">{{ session('aviso_fecha_vieja') ? 'Confirmar' : ($editando ? 'Guardar' : 'Registrar') }}</x-ds.button>
     </div>
 
 </form>

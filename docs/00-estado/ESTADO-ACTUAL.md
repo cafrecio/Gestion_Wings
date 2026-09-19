@@ -16,6 +16,8 @@
 
 ## 1. Estado general
 
+**FIN-09 CERRADA el 19/09/2026:** Límites de fecha y confirmación en movimientos y cobros implementada y probada (`LimiteFechasMovimientosTest`, 8 tests nuevos, suite en 251 tests / 1491 aserciones). Fechas futuras rechazadas con `before_or_equal:today` en alta de caja (`editarStore`), edición de caja (`updateMovimiento`), alta directa de cashflow (`store`) y cobro de cuotas (`pagar`). Fechas del mes en curso se guardan sin aviso. Fechas del mes anterior o más viejas exigen confirmación en pantalla antes de registrar: en caja y cashflow mediante banner informativo server-side y botón `Confirmar` con campo oculto `confirmar_fecha_vieja` (sin scripts nuevos, CSP en 22 bloques intacta); en cobro de cuotas mediante respuesta 409 y confirmación del usuario. El movimiento conserva su fecha real para fines contables/históricos y entra en la caja abierta actual, sin alterar cajas cerradas o validadas. Punto marcado con comentario TODO para futuras alertas por Mail/Telegram al ADMIN.
+
 **ENT-03 CERRADA el 12/09/2026:** Favicon definitivo de patín artístico alado aprobado por Carlos (Opción 1 - Zoom Máximo 95% superficie). Se abandonó la paleta previa negra/roja/blanca en favor de la identidad de patín artístico (bota blanca con taco, alas fucsia y cian sobre degradé claro hielo/lavanda, ruedas oscuras con contraste óptimo en pestaña). Generados `public/favicon.ico` (multi-res 16, 32, 48), `public/favicon-32x32.png`, `public/favicon-16x16.png`, `public/apple-touch-icon.png`, `public/android-chrome-192x192.png`, `public/android-chrome-512x512.png` y `public/site.webmanifest`. Vinculados en el layout raíz `resources/views/layouts/ds-app.blade.php`. Suite de 166 tests (1026 assertions) verde al 100%.
 
 **ENT-04 CERRADA el 12/09/2026:** Ojo para ver/ocultar contraseña implementado en alta y edición de usuarios (`resources/views/usuarios/_form.blade.php`), con botones independientes para "Contraseña" y "Confirmar contraseña" (respetando simetría de columnas y localidad de control). Manejador desacoplado en `resources/js/ds-app.js` compilado con Vite sin alterar CSP (26 scripts incrustados y 24 manejadores HTML en `CspSinCodigoIncrustadoTest`). Diseño autorizado por Carlos el 07/09.
@@ -107,7 +109,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **243 pruebas**, 1434 aserciones; suite completa el 17/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, el seeder de primera carga y el endpoint de avisos de CSP |
+| **Tests** | **251 pruebas**, 1491 aserciones; suite completa el 19/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, el seeder de primera carga y el endpoint de avisos de CSP |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
