@@ -3,6 +3,14 @@
 > Definido con Carlos el 30/08/2026.
 > Cierra el hueco más grande del sistema: **hoy registra, pero no informa.**
 
+> **Nota de continuidad 21/09/2026:** la entrevista posterior está en
+> [Encuesta de Reportes](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md).
+> La propuesta futura de §«El alquiler de canchas no se puede repartir por deporte»
+> queda como antecedente: Carlos pidió costo por clase y liquidaciones de clubes,
+> definidos en el [plan POS-07](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md).
+> No implementar aquel reparto por cantidad de clases en paralelo al nuevo módulo.
+> Planificar no equivale a que esté implementado; el contrato final de Reportes sigue pendiente.
+
 ## El problema que resuelve
 
 El panel del administrador muestra hoy seis contadores —altas del mes, alumnos

@@ -1,6 +1,6 @@
 # Reportes — decisiones de la encuesta (provisional y removible)
 
-**Corte: 21/09/2026. Encuesta retomada con gastos generales definidos.**
+**Corte: 21/09/2026. Gastos generales definidos; plan de canchas y liquidaciones documentado.**
 Fuente: entrevista de Carlos con Codex iniciada el 13/09 y continuada el 21/09.
 Este archivo preserva decisiones y preguntas; no certifica implementación ni
 sustituye todavía el contrato final. Puede retirarse cuando todo su contenido
@@ -95,14 +95,16 @@ la entrevista no decide tablas ni fórmulas para duplicar el saldo inicial entre
   con separación confirmado/sin confirmar. Para meses pasados habrá que conservar
   la distinción entre el corte consultado y el saldo actual.
 - Sueldos pagados son egresos reales; sueldos pendientes se muestran aparte.
-- **Por pagar:** solamente liquidaciones de profesores **cerradas y pendientes de pago**.
+- **Por pagar, alcance inicial:** liquidaciones de profesores **cerradas y pendientes de pago**.
+  La ampliación posterior POS-07 incorpora las de clubes con el mismo criterio;
+  está planificada, no implementada. No sumar costos de clase y liquidaciones como dos deudas.
 - Avisar que hay liquidaciones sin cerrar; el aviso lleva al módulo **Liquidaciones**.
   No sumar liquidaciones abiertas al importe por pagar.
 - Ingresos proyectados: únicamente deudas ya generadas pendientes de cobro,
   separadas entre mes en curso y anteriores; no inventar cuotas futuras.
-- Alquileres, servicios y otros gastos futuros quedan fuera del alcance: no hay
-  un sistema contable de cuentas a pagar. Se usan varios clubes/espacios y no se
-  hará calculable ese gasto ahora.
+- Servicios y otros gastos futuros siguen fuera del alcance: no se construye una
+  contabilidad general de cuentas a pagar. **La decisión posterior POS-07 sí incluye
+  calcular alquileres por clase y liquidarlos por club**, con el plan enlazado en §8.
 - Agregar un valor sueldo al OPERATIVO se mencionó como posibilidad, pero quedó
   fuera del alcance actual. No implementarlo como decisión aprobada.
 - Las proyecciones van aparte y no modifican resultados de movimientos reales.
@@ -140,11 +142,21 @@ la entrevista no decide tablas ni fórmulas para duplicar el saldo inicial entre
 
 ## 8. Relación con documentación anterior
 
-**Decisión posterior de Carlos, 21/09:** el costo de cancha por clase queda como
-mejora futura (POS-07 en el plan). El contrato V1 proponía repartir alquileres
-según cantidad de clases por cancha y decía que no hacía falta costo por clase.
-Esa propuesta histórica no se toma como decisión vigente. No definir todavía
-datos, fórmula ni mecanismo de carga para la mejora futura.
+**Decisión posterior de Carlos, 21/09:** la mejora POS-07 pasó a tener un
+[plan de implementación versionado](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md).
+Incluye ubicaciones, canchas físicas, tarifas por hora, costo por bloques completos,
+total manual protegido y liquidaciones por club. El reporte desglosa club/deporte/nivel.
+Costos y decisión de pagar una cancelada: solo ADMIN, nunca OPERATIVO.
+Puede liquidar el mes entero o fechas elegidas: solo clases dictadas hasta el corte
+y pendientes de liquidar. Liquidar primero 1–13 y luego el mes no repite clases,
+aunque la primera liquidación siga sin pagar. Las futuras esperan.
+
+La frase inicial «no hacerlo ahora» fue reemplazada por el pedido de elaborar el
+plan; **no por una orden de implementar o desplegar**. La fórmula y matriz de pruebas
+viven en ese documento para no mantener dos especificaciones distintas.
+El contrato V1 proponía repartir alquileres por cantidad de clases y no guardar su
+costo: esa propuesta histórica queda superada para POS-07. No aplicarla en paralelo.
+Los gastos generales sin atribución siguen separados como «Gastos del club».
 
 Consultar al cerrar la encuesta:
 
@@ -169,3 +181,6 @@ separados como **Gastos del club**. Sin reparto por ahora.
 
 No resolver el cálculo por criterio del agente. El diseño de Reportes y su
 contrato final siguen pendientes; no iniciar código.
+
+La entrevista derivó en POS-07 y su plan quedó escrito. Al volver a Reportes,
+retomar esta pregunta: la liquidación de clubes no la responde por sí sola.

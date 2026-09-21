@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## Decisión nueva 21/09/2026 — canchas y liquidaciones de clubes (POS-07)
+
+[Plan v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md)
+documentado; implementación pendiente. Ubicaciones, canchas físicas y tarifas por
+hora; bloques completos del reloj y total de clase editable por ADMIN, protegido de
+aumentos automáticos. Costos y decisión económica de cancelación inaccesibles al
+OPERATIVO: conserva cancelar clases, dejando revisión financiera al ADMIN.
+Liquidar por mes o fechas elegidas, solo clases dictadas hasta el corte y pendientes
+de liquidación; las incluidas en otra vigente no se repiten, aunque no estén pagadas.
+Reporte Club → Deporte → Nivel. Sin código, base ni despliegue en esta tarea.
+Reemplaza el planteo POS-07 «mejora futura sin fórmula» y la propuesta histórica de
+Reportes V1 de repartir alquiler por cantidad de clases. No cambia liquidación de
+profesores por minutos ni resuelve el cálculo pendiente de gastos generales en Reportes.
+
 ## Decisión nueva 13/09/2026 — particulares (POS-06)
 
 [Contrato funcional](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado; implementación pendiente. Solo documentación en este turno, sin verificación funcional nueva. La regla previa de cierre inmutable se enmienda por decisión expresa de Carlos: ADMIN puede cancelar una cerrada no pagada para revisar asistencias; pagadas intactas y ajustes en la siguiente. Rige para todas las clases y perfiles. También se documentan excepciones de particulares sobre agenda, permisos, cancelación y remuneración; no trasladarlas a clases ordinarias fuera del alcance general declarado. [Pendiente y continuidad de Reportes](../05-pendientes/CLASES-PARTICULARES.md).

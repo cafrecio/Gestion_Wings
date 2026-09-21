@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-21 — Codex CyE — POS-07: plan de canchas y liquidaciones
+
+Entrevista preservada en [plan v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md): ocho etapas y matriz de aceptación.
+Ubicaciones/canchas/tarifas, bloques completos, manual protegido y costos solo ADMIN.
+Liquidar mes o fechas elegidas: solo clases dictadas al corte, sin repetir liquidadas aunque estén sin pagar.
+Cancelación operativa conserva su permiso; decisión de pagar pendiente del ADMIN, sin exponer costos.
+Índices IA/HTML, encuesta, estado y resumen sincronizados; Reportes V1 conserva antecedente señalado.
+Fuente revisada hasta 49f66e9; codebase-memory como mapa, cuerpos reales cotejados. Sin código ni base.
+Verificación documental: enlaces, IDs, diff y archivo íntegro de la entrada antigua; no suite ni migraciones.
+Siguiente: Carlos ordena implementación por etapas; Reportes general conserva su pregunta pendiente.
+
 ## 2026-09-21 — Codex CyE — Reportes: gastos del club y mejora futura
 
 Carlos decidió mostrar gastos generales aparte como «Gastos del club» al filtrar
@@ -78,6 +89,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CODEX.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entrada de continuidad archivada el 21/09](../99-archivo/bitacoras/2026-09-21-LOG-CODEX-CONTINUIDAD.md).
+· [Entrada antigua preservada al guardar POS-07](../99-archivo/bitacoras/2026-09-21-LOG-CODEX-PLAN-CANCHAS.md).
 
 ## 2026-09-13 — Codex CAB — FIN-10 revisión visual completada
 
@@ -129,13 +141,3 @@ Suite completa: 169 pruebas / 1065 aserciones en wings_testing_fin07_20260912.
 Evidencia y alcance: ../06-pruebas/FIN-07-CONCURRENCIA-2026-09-12.md.
 Sin cambios propios de diseño, sin deploy; ajustarDeuda/API apagada queda fuera del alcance.
 Pendiente: verificación cruzada y despliegue.
-
-## 2026-09-12 — Codex CAB — FIN-07 pausada por regla de parcial (resuelta arriba)
-
-Leídos contratos y cuerpos: condonarDeuda acepta PENDIENTE sin mirar monto_pagado.
-Un parcial conserva PENDIENTE; no se encontró regla contractual que decida si
-se perdona solo el saldo o se rechaza condonar cuando hay pagos previos.
-Carlos pidió frenar expresamente en ese caso. Pendiente su definición.
-Sin cambios funcionales, pruebas con escrituras ni commit de cierre.
-ajustarDeuda tiene consumidor en API apagada; no es otra pantalla web actual.
-FIN-07 permanece sin completar en ambos tableros; no se marcó checked.

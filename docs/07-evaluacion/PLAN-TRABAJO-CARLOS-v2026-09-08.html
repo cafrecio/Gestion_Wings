@@ -167,8 +167,24 @@
       <div class="item"><input id="POS-04" type="checkbox"><label for="POS-04"><span class="id">POS-04</span>Historial de precios y aumentos masivos</label><span class="tag done">Posterior</span></div>
       <div class="item"><input id="POS-05" type="checkbox"><label for="POS-05"><span class="id">POS-05</span>Evaluar nuevas capacidades del producto</label><span class="tag done">No comprometido</span></div>
       <div class="item"><input id="POS-06" type="checkbox"><label for="POS-06"><span class="id">POS-06</span>Clases particulares: contrato documentado; implementación pendiente</label><span class="tag">Pendiente</span></div>
-      <div class="item"><input id="POS-07" type="checkbox"><label for="POS-07"><span class="id">POS-07</span>Mejora futura: costo de cancha por clase<span class="detail">Por ahora, al filtrar reportes por deporte los gastos generales aparecen aparte como «Gastos del club», sin repartirlos. El costo de cancha en cada clase se evaluará más adelante; todavía no hay cálculo ni implementación definidos.</span></label><span class="tag done">Posterior</span></div>
+      <div class="item"><input id="POS-07" type="checkbox"><label for="POS-07"><span class="id">POS-07</span>Canchas y liquidaciones de clubes<span class="detail">Plan definido el 21/09/2026, versión 1. Falta programarlo y probarlo. Costos solo para ADMIN. Liquidar por mes o entre fechas, solo clases dictadas y todavía pendientes; nunca repetir una clase ya liquidada.</span></label><span class="tag">Plan listo</span></div>
     </div>
+    <details id="plan-canchas" class="note">
+      <summary><strong>POS-07 · Plan de acción · 21/09/2026 v1</strong></summary>
+      <p>Ubicaciones → canchas físicas → tarifas por hora. Se cobran bloques completos del reloj. ADMIN puede corregir el total de una clase; un aumento no pisa ese precio manual.</p>
+      <ol>
+        <li><strong>Reglas y permisos:</strong> dejar los contratos alineados y aprobar las pantallas concretas.</li>
+        <li><strong>Ubicaciones y canchas:</strong> altas, edición, bajas y tarifas.</li>
+        <li><strong>Costo de clases:</strong> cálculo, corrección manual, aumentos futuros y control de horarios superpuestos.</li>
+        <li><strong>Cancelaciones:</strong> ADMIN decide si se paga; si cancela OPERATIVO, la decisión queda pendiente y no ve importes.</li>
+        <li><strong>Liquidaciones:</strong> elegir club y mes o fechas. Mostrar canceladas a pagar para revisar antes de cerrar.</li>
+        <li><strong>Pago:</strong> registrar una sola salida de dinero y generar su comprobante.</li>
+        <li><strong>Reporte:</strong> resumen por club, deporte y nivel, sin contar dos veces el gasto.</li>
+        <li><strong>Prueba completa:</strong> navegador, permisos, pagos simultáneos y suite; recién después marcar POS-07 terminada.</li>
+      </ol>
+      <p><strong>Ejemplo:</strong> liquidó del 1 al 13. Al elegir luego el mes completo entran únicamente las clases pendientes hasta ese día. Las futuras esperan y las ya liquidadas no se repiten, aunque todavía no se hayan pagado.</p>
+      <p><a href="PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md">Abrir el plan completo para implementación y pruebas</a>. El producto web autocontratable queda como evolución futura, fuera de esta entrega.</p>
+    </details>
   </section>
 
   <p class="note"><strong>No se reabre:</strong> API apagada, recibo no fiscal, exportables de datos fuera de versión inicial, liquidaciones pagadas inmutables (enmienda POS-06: ADMIN podrá cancelar cerradas no pagadas), carga real humana, sueldos por persona/deporte y CSP gradual.</p>

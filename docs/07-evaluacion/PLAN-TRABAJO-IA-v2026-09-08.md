@@ -194,7 +194,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **POS-04** | Tarifas | Historial de precios y aumentos masivos |
 | **POS-05** | Evolucion de producto | Evaluar ficha medica, familias, portal, pagos online, WhatsApp, bancos, multi-sede, torneos e indumentaria; no son compromisos actuales |
 | **POS-06** | Clases particulares — PENDIENTE de implementación | [Contrato V1](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md), decisiones 13/09; criterios y bordes en el contrato. [Ficha](../05-pendientes/CLASES-PARTICULARES.md). Sin implementación ni despliegue en este turno |
-| **POS-07** | Costo de cancha por clase — mejora futura | Carlos 21/09: por ahora, al filtrar reportes por deporte los gastos generales aparecen aparte como **Gastos del club**, sin reparto. Más adelante evaluar costo de cancha en la clase. Sin diseño técnico ni implementación acordados; [encuesta provisional](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md) |
+| **POS-07** | Ubicaciones, canchas y liquidaciones de clubes — PLAN DOCUMENTADO; implementación pendiente | [Plan de acción v2026-09-21](PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y matriz de aceptación. Bloques horarios completos, total manual protegido, costos solo ADMIN. Mes o fechas elegidas: solo clases dictadas al corte y pendientes de liquidar; sin repetir las de otro período, aunque estén sin pagar. Reporte Club → Deporte → Nivel. No confundir costo, liquidación y egreso; no implementar SaaS ni Reportes general por arrastre |
 
 Medir antes de corregir cualquier riesgo de precision por `float`. AUD-025 solo entra
 antes de agregar rutas destructivas hoy inexistentes.

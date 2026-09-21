@@ -32,7 +32,7 @@
 
 ## Trabajo que continúa
 
-- Reportes: entrevista retomada el 21/09. Gastos generales separados como «Gastos del club» al filtrar por deporte, sin reparto. [Decisiones y siguiente pregunta](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). Costo de cancha por clase es mejora futura POS-07. No implementar todavía; particulares en rama separada.
+- Reportes: gastos generales separados como «Gastos del club», sin reparto. [Decisiones y pregunta pendiente](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). La entrevista derivó en POS-07: [plan de canchas y liquidaciones v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y pruebas. Costos solo ADMIN; mes o fechas elegidas, únicamente clases dictadas y pendientes de liquidar, sin duplicarlas. Plan documentado; sin implementación ni despliegue. SaaS futuro fuera del alcance; particulares en rama separada.
 
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
 
