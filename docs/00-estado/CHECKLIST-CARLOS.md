@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Todo esta subido a `main`; suite 284 pruebas / 1637 aserciones (21/09) en verde. La lista
+Todo esta subido a `main`; suite 288 pruebas / 1656 aserciones (21/09) en verde. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -53,11 +53,11 @@ Unblock-File .\install.ps1
 6. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 284 pruebas deben pasar
+php artisan test          # 288 pruebas deben pasar
 ```
 
-Corte verificado del 21/09: **284 pruebas**, todas verdes.
-Suite completa el 21/09: 284 pruebas / 1637 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
+Corte verificado del 21/09: **288 pruebas**, todas verdes.
+Suite completa el 21/09: 288 pruebas / 1656 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 FIN-12 requiere aplicar la migración de permitir_cancelar_liquidacion_cerrada_no_pagada al desplegar.
 FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).

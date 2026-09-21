@@ -249,13 +249,26 @@ class LiquidacionWebController extends Controller
     public function pagar(Request $request, int $id): RedirectResponse
     {
         $request->validate([
-            'fecha_pago'    => 'required|date',
+            'fecha_pago'    => 'required|date|before_or_equal:today',
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'observaciones' => 'nullable|string|max:500',
         ], [
-            'fecha_pago.required'   => 'La fecha de pago es obligatoria.',
-            'tipo_caja_id.required' => 'Seleccioná el tipo de caja.',
+            'fecha_pago.required'        => 'La fecha de pago es obligatoria.',
+            'fecha_pago.before_or_equal' => 'La fecha de pago no puede ser futura.',
+            'tipo_caja_id.required'      => 'Seleccioná el tipo de caja.',
         ]);
+
+        // FIN-09, igual que caja, cobro y Cashflow: una fecha de un mes anterior
+        // cambia el resultado de ese mes, así que se confirma antes de guardar.
+        $esFechaVieja = \Carbon\Carbon::parse($request->fecha_pago)->startOfDay()
+            ->lessThan(now()->startOfMonth()->startOfDay());
+
+        if ($esFechaVieja && !$request->boolean('confirmar_fecha_vieja')) {
+            return back()->withInput()->with(
+                'aviso_fecha_vieja',
+                'Esta fecha es de un mes anterior. El pago va a quedar registrado con esa fecha y modificará el reporte de ese mes.'
+            );
+        }
 
         $tipoCaja    = TipoCaja::findOrFail($request->tipo_caja_id);
         $liquidacion = Liquidacion::with('profesor.deporte')->findOrFail($id);
@@ -289,6 +302,15 @@ class LiquidacionWebController extends Controller
                 'observaciones' => $request->observaciones,
                 'admin_id'      => auth()->id(),
             ]);
+
+            if ($esFechaVieja) {
+                app(\App\Services\AvisoAdminService::class)->fechaVieja(
+                    que: 'Pago de liquidación',
+                    fechaDelMovimiento: $request->fecha_pago,
+                    monto: '$' . number_format((float) $liquidacion->total_calculado, 2, ',', '.'),
+                    quienLoCargo: auth()->user()?->name,
+                );
+            }
 
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación pagada. Movimiento registrado en cashflow.');

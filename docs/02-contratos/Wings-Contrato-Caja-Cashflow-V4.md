@@ -42,6 +42,20 @@ Al rechazar, el request debe incluir `motivo` y se persiste en `cajas_operativas
 
 ---
 
+### 3.6 Fecha de un movimiento (FIN-09, Carlos 17/09 y 19/09/2026)
+
+Vale para todo lo que registra plata con una fecha elegida a mano: movimiento de caja
+(alta y edición), cobro de cuota, movimiento de Cashflow y pago de liquidación (este
+último agregado el 21/09).
+
+- **Fecha futura:** se rechaza.
+- **Mes en curso:** se guarda directo.
+- **Mes anterior o más viejo:** no se rechaza. La pantalla avisa que cambia el resultado
+  de ese mes y pide confirmar. El movimiento queda **con su fecha real** y entra en la
+  caja abierta de hoy; las cajas cerradas o validadas no se tocan. Al confirmar se avisa
+  al ADMIN por mail y Telegram.
+- El reporte del mes de la fecha real cambia: es la consecuencia aceptada.
+
 ## 4. Integración Caja → Cashflow (idempotente)
 
 ### 4.1 Qué se integra
