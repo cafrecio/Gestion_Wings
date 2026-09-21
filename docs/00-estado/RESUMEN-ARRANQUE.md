@@ -32,6 +32,8 @@
 
 ## Trabajo que continúa
 
+- Reportes: entrevista pausada por Carlos el 21/09. [Todas las decisiones y pregunta pendiente](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md), archivo provisional removible al consolidar contrato. No implementar todavía; particulares en rama separada.
+
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
 
 - POS-06: [contrato de particulares](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado el 13/09; implementación PENDIENTE. [Ficha y siguiente paso: Reportes](../05-pendientes/CLASES-PARTICULARES.md).

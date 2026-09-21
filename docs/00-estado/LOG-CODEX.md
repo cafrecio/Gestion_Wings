@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-21 — Codex CAB — encuesta de Reportes preservada
+
+Carlos pausó la entrevista y pidió guardar, commitear, subir y actualizar desde GitHub.
+Decisiones en [archivo provisional removible](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md).
+Incluye períodos, indicadores, roles, caja real/proyecciones y fechas de movimiento/rendición.
+Pendiente: cómo mostrar gastos generales al filtrar por deporte; no decidir reparto.
+Documentación únicamente; cambios FIN-12 ajenos quedan fuera del commit.
+Verificación: enlaces, diff y conservación íntegra de dos entradas antiguas archivadas.
+[Archivo de entradas del 11/09](../99-archivo/bitacoras/2026-09-21-LOG-CODEX.md).
+Siguiente: retomar desde la pregunta guardada cuando Carlos indique; sin implementación.
+
+
 ## 2026-09-16 — PENDIENTES comunes (registrado por Claude CAB a pedido de Carlos)
 
 Misma entrada en los tres logs, para que cada agente arranque con la lista.
@@ -125,18 +137,3 @@ Se archivaron sin pérdida las tres bitácoras y el plan anterior; se conservan 
 Guías y enlaces actualizados; sin cambios de aplicación, base ni despliegue.
 Verificación documental: integridad byte por byte, enlaces y límites de tamaño.
 Pendiente: cada agente mantiene este formato y lee historia solo por tarea.
-
-## 2026-09-11 — extracto documental de Codex CyE — FIN-03
-
-Implementación c1bef8a y contrato Recibos V2, según el cierre original.
-Anulaciones nuevas conservan detalle; no reconstruye imputaciones borradas antes.
-166 pruebas / 1026 aserciones y PDF revisado el 11/09; no reejecutados hoy.
-Migración probada solo en base descartable; pendiente revisión cruzada y deploy.
-Evidencia completa: archivo histórico, encabezados FIN-03 y Pase a CAB.
-
-## 2026-09-11 — extracto documental de Codex CyE — COB y SEG
-
-COB-05, COB-09 y FIN-02 verificadas sobre e921e5d; 15 cobros en navegador.
-Evidencia: ../06-pruebas/COB-05-CIERRE-2026-09-11.md.
-SEG-01 verificada con retiro de Axios, audit y build al 11/09; sin deploy.
-No asumir que datos locales o servidor siguen iguales al corte.
