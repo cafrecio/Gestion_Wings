@@ -1,6 +1,6 @@
 # Reportes — decisiones de la encuesta (provisional y removible)
 
-**Corte: 21/09/2026. Encuesta pausada por Carlos.**
+**Corte: 21/09/2026. Encuesta retomada con gastos generales definidos.**
 Fuente: entrevista de Carlos con Codex iniciada el 13/09 y continuada el 21/09.
 Este archivo preserva decisiones y preguntas; no certifica implementación ni
 sustituye todavía el contrato final. Puede retirarse cuando todo su contenido
@@ -28,6 +28,8 @@ No crear ramas ni implementar por leer esta nota.
 - Comparar alumnos activos actuales por deporte y nivel con los activos que
   había al cierre del mes anterior, no con su estado actual trasladado al pasado.
 - Permitir filtrar el reporte por deporte.
+- Al filtrar por deporte, los gastos generales se muestran aparte como
+  **Gastos del club**. Por ahora no se reparten entre deportes.
 
 La historia debe distinguir el momento real del hecho del momento de carga o
 confirmación. Carlos precisó que un mes pasado **puede actualizarse** por carga
@@ -138,6 +140,12 @@ la entrevista no decide tablas ni fórmulas para duplicar el saldo inicial entre
 
 ## 8. Relación con documentación anterior
 
+**Decisión posterior de Carlos, 21/09:** el costo de cancha por clase queda como
+mejora futura (POS-07 en el plan). El contrato V1 proponía repartir alquileres
+según cantidad de clases por cancha y decía que no hacía falta costo por clase.
+Esa propuesta histórica no se toma como decisión vigente. No definir todavía
+datos, fórmula ni mecanismo de carga para la mejora futura.
+
 Consultar al cerrar la encuesta:
 
 - [Contrato previo de Reportes](../02-contratos/Wings-Contrato-Reportes-V1.md).
@@ -151,11 +159,13 @@ al redactar la nueva versión, antes de implementar.
 
 ## 9. Punto exacto para retomar
 
-**Pregunta pendiente, todavía sin respuesta:**
+**Resuelto el 21/09:** al filtrar por deporte, mostrar los gastos generales
+separados como **Gastos del club**. Sin reparto por ahora.
 
-> Al filtrar por deporte, ¿cómo querés mostrar los gastos generales que no
-> pertenecen a uno en particular?
+**Siguiente pregunta, todavía sin respuesta:**
 
-No asignar ni repartir gastos comunes por criterio del agente. Carlos pidió
-parar la entrevista, guardar estas decisiones y subirlas a GitHub antes de seguir.
-El diseño de Reportes y su contrato final siguen pendientes; no iniciar código.
+> Al filtrar por deporte, ¿el resultado de ese deporte debe restar también
+> los gastos generales del club, o mostrarlos aparte sin restarlos?
+
+No resolver el cálculo por criterio del agente. El diseño de Reportes y su
+contrato final siguen pendientes; no iniciar código.

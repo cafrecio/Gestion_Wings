@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-21 — Codex CyE — Reportes: gastos del club y mejora futura
+
+Carlos decidió mostrar gastos generales aparte como «Gastos del club» al filtrar
+por deporte, sin repartirlos ahora. Costo de cancha por clase: mejora futura POS-07,
+sin fórmula ni implementación definida. La propuesta distinta del contrato V1 queda
+como antecedente; encuesta provisional, plan IA, HTML y resumen actualizados.
+Pendiente: decidir si esos gastos se restan del resultado de un deporte filtrado.
+Solo documentación; sin pruebas de aplicación ni operación sobre bases.
+
 ## 2026-09-21 — Codex CAB — encuesta de Reportes preservada
 
 Carlos pausó la entrevista y pidió guardar, commitear, subir y actualizar desde GitHub.
@@ -68,6 +77,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CODEX.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+· [Entrada de continuidad archivada el 21/09](../99-archivo/bitacoras/2026-09-21-LOG-CODEX-CONTINUIDAD.md).
 
 ## 2026-09-13 — Codex CAB — FIN-10 revisión visual completada
 
@@ -129,11 +139,3 @@ Carlos pidió frenar expresamente en ese caso. Pendiente su definición.
 Sin cambios funcionales, pruebas con escrituras ni commit de cierre.
 ajustarDeuda tiene consumidor en API apagada; no es otra pantalla web actual.
 FIN-07 permanece sin completar en ambos tableros; no se marcó checked.
-
-## 2026-09-12 — Codex CAB — continuidad compacta para los tres agentes
-
-Carlos autorizó un protocolo común, resumen, logs cortos y archivo íntegro.
-Se archivaron sin pérdida las tres bitácoras y el plan anterior; se conservan sus huellas.
-Guías y enlaces actualizados; sin cambios de aplicación, base ni despliegue.
-Verificación documental: integridad byte por byte, enlaces y límites de tamaño.
-Pendiente: cada agente mantiene este formato y lee historia solo por tarea.
