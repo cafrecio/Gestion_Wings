@@ -57,6 +57,14 @@ class LiquidacionService
 
             $liquidacion->update(['total_calculado' => $total]);
 
+            // Vincular liquidaciones canceladas previas del mismo período y profesor
+            Liquidacion::where('profesor_id', $profesor->id)
+                ->where('mes', $mes)
+                ->where('anio', $anio)
+                ->where('estado', Liquidacion::ESTADO_CANCELADA)
+                ->whereNull('reemplazada_por_id')
+                ->update(['reemplazada_por_id' => $liquidacion->id]);
+
             return $liquidacion->fresh(['detalles', 'profesor']);
         });
     }
@@ -334,12 +342,13 @@ class LiquidacionService
         return [
             'periodo' => sprintf('%02d/%d', $mes, $anio),
             'total_liquidaciones' => $liquidaciones->count(),
-            'total_monto' => $liquidaciones->sum('total_calculado'),
+            'total_monto' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->sum('total_calculado'),
             'abiertas' => $liquidaciones->where('estado', Liquidacion::ESTADO_ABIERTA)->count(),
             'cerradas' => $liquidaciones->where('estado', Liquidacion::ESTADO_CERRADA)->count(),
+            'canceladas' => $liquidaciones->where('estado', Liquidacion::ESTADO_CANCELADA)->count(),
             'por_tipo' => [
-                'HORA' => $liquidaciones->where('tipo', Liquidacion::TIPO_HORA)->sum('total_calculado'),
-                'COMISION' => $liquidaciones->where('tipo', Liquidacion::TIPO_COMISION)->sum('total_calculado'),
+                'HORA' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_HORA)->sum('total_calculado'),
+                'COMISION' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_COMISION)->sum('total_calculado'),
             ],
             'liquidaciones' => $liquidaciones,
         ];
@@ -389,6 +398,7 @@ class LiquidacionService
         $existe = Liquidacion::where('profesor_id', $profesorId)
             ->where('mes', $mes)
             ->where('anio', $anio)
+            ->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)
             ->exists();
 
         if ($existe) {
@@ -396,6 +406,50 @@ class LiquidacionService
                 sprintf('Ya existe una liquidación para el profesor en %02d/%d.', $mes, $anio)
             );
         }
+    }
+
+    /**
+     * Cancelar una liquidación cerrada que aún no fue pagada (FIN-12).
+     * Permite volver a revisar asistencias y regenerar la liquidación.
+     * La liquidación cancelada y su detalle se conservan para auditoría.
+     *
+     * @param int $liquidacionId
+     * @param string $motivo
+     * @param int $adminId
+     * @return Liquidacion
+     * @throws \Exception
+     */
+    public function cancelarLiquidacion(int $liquidacionId, string $motivo, int $adminId): Liquidacion
+    {
+        $motivoLimpio = trim($motivo);
+        if ($motivoLimpio === '') {
+            throw new \Exception('El motivo de cancelación es obligatorio.');
+        }
+
+        return DB::transaction(function () use ($liquidacionId, $motivoLimpio, $adminId) {
+            $liquidacion = Liquidacion::lockForUpdate()->findOrFail($liquidacionId);
+
+            // Idempotencia: si ya está cancelada, retornar sin error
+            if ($liquidacion->estaCancelada()) {
+                return $liquidacion;
+            }
+
+            if ($liquidacion->estaPagada()) {
+                throw new \Exception('No se puede cancelar una liquidación pagada.');
+            }
+
+            if (!$liquidacion->estaCerrada()) {
+                throw new \Exception('Solo se pueden cancelar liquidaciones cerradas.');
+            }
+
+            $liquidacion->estado = Liquidacion::ESTADO_CANCELADA;
+            $liquidacion->usuario_cancelacion_id = $adminId;
+            $liquidacion->cancelada_at = Carbon::now();
+            $liquidacion->motivo_cancelacion = $motivoLimpio;
+            $liquidacion->save();
+
+            return $liquidacion->fresh(['detalles', 'profesor', 'usuarioCancelacion', 'reemplazadaPor']);
+        });
     }
 
     /**
@@ -408,8 +462,8 @@ class LiquidacionService
     {
         $liquidacion = Liquidacion::findOrFail($liquidacionId);
 
-        if ($liquidacion->estaCerrada()) {
-            throw new \Exception('No se puede eliminar una liquidación cerrada.');
+        if ($liquidacion->estaCerrada() || $liquidacion->estaCancelada()) {
+            throw new \Exception('No se puede eliminar una liquidación cerrada o cancelada.');
         }
 
         $liquidacion->delete();

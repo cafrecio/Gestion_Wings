@@ -328,6 +328,18 @@ class ClaseWebController extends Controller
             return back()->with('error', 'La clase está cancelada.');
         }
 
+        // Si la clase integra una liquidación cerrada, no se pueden tocar asistencias (FIN-12).
+        if ($clase->integraLiquidacionCerrada()) {
+            $mensaje = 'No se pueden modificar asistencias: la clase integra una liquidación cerrada.';
+            if ($esJson) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $mensaje,
+                ], 422);
+            }
+            return back()->with('error', $mensaje);
+        }
+
         // El motivo justifica una CORRECCIÓN, no una carga. Si la clase ya
         // pasó pero nunca se le tomó lista, esto es la primera carga (se
         // traspapeló, se cargó tarde) y no hay nada que justificar. Solo se
@@ -458,9 +470,7 @@ class ClaseWebController extends Controller
                 ]);
             }
             if ($pasada && $horarioCambio) {
-                if (LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
-                    ->where('referencia_id', $clase->id)
-                    ->whereHas('liquidacion', fn ($q) => $q->where('estado', Liquidacion::ESTADO_CERRADA))->exists()) {
+                if ($clase->integraLiquidacionCerrada()) {
                     throw \Illuminate\Validation\ValidationException::withMessages([
                         'hora_inicio' => 'No se puede cambiar el horario: la clase integra una liquidación cerrada.',
                     ]);

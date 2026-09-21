@@ -20,9 +20,10 @@
             return 'background:var(--color-success)';
         }
         return match($estado) {
-            'ABIERTA' => 'background:var(--color-warning)',
-            'CERRADA' => 'background:var(--color-text-muted)',
-            default   => 'background:var(--color-text-muted)',
+            'ABIERTA'   => 'background:var(--color-warning)',
+            'CERRADA'   => 'background:var(--color-text-muted)',
+            'CANCELADA' => 'background:var(--color-danger)',
+            default     => 'background:var(--color-text-muted)',
         };
     }
     }
@@ -81,9 +82,10 @@
             <label style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Estado</label>
             <select name="estado" class="w-full px-3 py-2 text-sm wings-input">
                 <option value="">Todos</option>
-                <option value="abierta" {{ request('estado') === 'abierta' ? 'selected' : '' }}>Abierta</option>
-                <option value="cerrada" {{ request('estado') === 'cerrada' ? 'selected' : '' }}>Cerrada</option>
-                <option value="pagada"  {{ request('estado') === 'pagada'  ? 'selected' : '' }}>Pagada</option>
+                <option value="abierta"   {{ request('estado') === 'abierta'   ? 'selected' : '' }}>Abierta</option>
+                <option value="cerrada"   {{ request('estado') === 'cerrada'   ? 'selected' : '' }}>Cerrada</option>
+                <option value="cancelada" {{ request('estado') === 'cancelada' ? 'selected' : '' }}>Cancelada</option>
+                <option value="pagada"    {{ request('estado') === 'pagada'    ? 'selected' : '' }}>Pagada</option>
             </select>
         </div>
 
@@ -105,9 +107,10 @@
     $dep  = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
     $rail = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
 
-    $esPagada  = $liq->estaPagada();
-    $esCerrada = $liq->estaCerrada();
-    $dotStyle  = dotLiquidacion($liq->estado, $liq->estado_pago);
+    $esPagada    = $liq->estaPagada();
+    $esCerrada   = $liq->estaCerrada();
+    $esCancelada = $liq->estaCancelada();
+    $dotStyle    = dotLiquidacion($liq->estado, $liq->estado_pago);
 
     $periodoParts = $meses[$liq->mes] . ' ' . $liq->anio;
     $tipoLabel    = $liq->tipo === 'HORA' ? 'Por hora' : 'Por comisión';
@@ -147,6 +150,10 @@
                 <span style="font-size:0.65rem; font-weight:700; padding:1px 7px; border-radius:999px;
                              background:color-mix(in srgb, var(--color-success) 15%, transparent);
                              color:var(--color-success);">Pagada</span>
+            @elseif($esCancelada)
+                <span style="font-size:0.65rem; font-weight:700; padding:1px 7px; border-radius:999px;
+                             background:color-mix(in srgb, var(--color-danger) 15%, transparent);
+                             color:var(--color-danger);">Cancelada</span>
             @elseif($esCerrada)
                 <span style="font-size:0.65rem; font-weight:700; padding:1px 7px; border-radius:999px;
                              background:color-mix(in srgb, var(--color-text-muted) 15%, transparent);

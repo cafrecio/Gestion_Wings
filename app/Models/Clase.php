@@ -119,4 +119,36 @@ class Clase extends Model
 
         return $this->tieneAsistencias() || $this->validada_para_liquidacion;
     }
+
+    /**
+     * Verificar si la clase integra una liquidación CERRADA (FIN-12).
+     * Si la liquidación está CERRADA, se bloquea la edición de asistencias
+     * y horarios. Si está CANCELADA o no existe, no bloquea.
+     */
+    public function integraLiquidacionCerrada(): bool
+    {
+        // 1. Caso HORA: existe detalle directo de clase en liquidación CERRADA
+        $enHora = LiquidacionDetalle::where('tipo_referencia', LiquidacionDetalle::TIPO_CLASE)
+            ->where('referencia_id', $this->id)
+            ->whereHas('liquidacion', fn ($q) => $q->where('estado', Liquidacion::ESTADO_CERRADA))
+            ->exists();
+
+        if ($enHora) {
+            return true;
+        }
+
+        // 2. Caso COMISIÓN: existe liquidación por comisión CERRADA para algún profesor
+        // de la clase en el mismo mes y año.
+        $profesoresIds = $this->profesores()->pluck('profesores.id');
+        if ($profesoresIds->isNotEmpty()) {
+            return Liquidacion::whereIn('profesor_id', $profesoresIds)
+                ->where('mes', $this->fecha->month)
+                ->where('anio', $this->fecha->year)
+                ->where('tipo', Liquidacion::TIPO_COMISION)
+                ->where('estado', Liquidacion::ESTADO_CERRADA)
+                ->exists();
+        }
+
+        return false;
+    }
 }

@@ -188,6 +188,7 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
         Route::get('/liquidaciones/{id}', [LiquidacionWebController::class, 'show'])->name('web.liquidaciones.show');
         Route::post('/liquidaciones/{id}/cerrar', [LiquidacionWebController::class, 'cerrar'])->name('web.liquidaciones.cerrar');
         Route::post('/liquidaciones/{id}/recalcular', [LiquidacionWebController::class, 'recalcular'])->name('web.liquidaciones.recalcular');
+        Route::post('/liquidaciones/{id}/cancelar', [LiquidacionWebController::class, 'cancelar'])->name('web.liquidaciones.cancelar');
         Route::delete('/liquidaciones/{id}', [LiquidacionWebController::class, 'eliminar'])->name('web.liquidaciones.eliminar');
         Route::post('/liquidaciones/{id}/pagar', [LiquidacionWebController::class, 'pagar'])->name('web.liquidaciones.pagar');
     });

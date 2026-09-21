@@ -13,6 +13,7 @@ class Liquidacion extends Model
 
     const ESTADO_ABIERTA = 'ABIERTA';
     const ESTADO_CERRADA = 'CERRADA';
+    const ESTADO_CANCELADA = 'CANCELADA';
 
     const ESTADO_PAGO_PENDIENTE = 'PENDIENTE';
     const ESTADO_PAGO_PAGADA = 'PAGADA';
@@ -28,6 +29,10 @@ class Liquidacion extends Model
         'valor_hora_aplicado',
         'total_calculado',
         'estado',
+        'usuario_cancelacion_id',
+        'cancelada_at',
+        'motivo_cancelacion',
+        'reemplazada_por_id',
         'estado_pago',
         'pagada_at',
         'pagada_por_admin_id',
@@ -42,6 +47,7 @@ class Liquidacion extends Model
         'porcentaje_comision_aplicado' => 'decimal:2',
         'valor_hora_aplicado' => 'decimal:2',
         'total_calculado' => 'decimal:2',
+        'cancelada_at' => 'datetime',
         'pagada_at' => 'datetime',
         'pagada_fecha' => 'date',
     ];
@@ -60,8 +66,19 @@ class Liquidacion extends Model
     ];
 
     /**
+     * Campos que se pueden modificar al cancelar una liquidación cerrada no pagada (FIN-12).
+     */
+    protected static array $camposCancelacionPermitidos = [
+        'estado',
+        'usuario_cancelacion_id',
+        'cancelada_at',
+        'motivo_cancelacion',
+    ];
+
+    /**
      * Boot del modelo para prevenir modificación de liquidaciones cerradas
-     * (excepto campos de pago)
+     * (excepto campos de pago o cancelación administrativa si no está pagada)
+     * y liquidaciones canceladas (excepto asignación de liquidación de reemplazo).
      */
     protected static function boot()
     {
@@ -71,20 +88,34 @@ class Liquidacion extends Model
             $original = $liquidacion->getOriginal();
 
             if ($original['estado'] === self::ESTADO_CERRADA) {
-                // Verificar si solo se están modificando campos de pago (permitido)
                 $dirty = $liquidacion->getDirty();
                 $camposModificados = array_keys($dirty);
+
                 $soloModificaPago = empty(array_diff($camposModificados, self::$camposPagoPermitidos));
 
-                if (!$soloModificaPago) {
-                    throw new \Exception('No se puede modificar una liquidación cerrada (solo se permite registrar el pago).');
+                $esCancelacion = ($liquidacion->estado === self::ESTADO_CANCELADA)
+                    && $original['estado_pago'] === self::ESTADO_PAGO_PENDIENTE
+                    && empty(array_diff($camposModificados, self::$camposCancelacionPermitidos));
+
+                if (!$soloModificaPago && !$esCancelacion) {
+                    throw new \Exception('No se puede modificar una liquidación cerrada (solo se permite registrar el pago o cancelar si no está pagada).');
+                }
+            }
+
+            if ($original['estado'] === self::ESTADO_CANCELADA) {
+                $dirty = $liquidacion->getDirty();
+                $camposModificados = array_keys($dirty);
+                $soloAsignaReemplazo = empty(array_diff($camposModificados, ['reemplazada_por_id']));
+
+                if (!$soloAsignaReemplazo) {
+                    throw new \Exception('No se puede modificar una liquidación cancelada.');
                 }
             }
         });
 
         static::deleting(function ($liquidacion) {
-            if ($liquidacion->estado === self::ESTADO_CERRADA) {
-                throw new \Exception('No se puede eliminar una liquidación cerrada.');
+            if ($liquidacion->estado === self::ESTADO_CERRADA || $liquidacion->estado === self::ESTADO_CANCELADA) {
+                throw new \Exception('No se puede eliminar una liquidación cerrada o cancelada.');
             }
         });
     }
@@ -122,6 +153,14 @@ class Liquidacion extends Model
     }
 
     /**
+     * Verificar si la liquidación está cancelada (FIN-12)
+     */
+    public function estaCancelada(): bool
+    {
+        return $this->estado === self::ESTADO_CANCELADA;
+    }
+
+    /**
      * Scope para liquidaciones abiertas
      */
     public function scopeAbiertas($query)
@@ -135,6 +174,14 @@ class Liquidacion extends Model
     public function scopeCerradas($query)
     {
         return $query->where('estado', self::ESTADO_CERRADA);
+    }
+
+    /**
+     * Scope para liquidaciones canceladas (FIN-12)
+     */
+    public function scopeCanceladas($query)
+    {
+        return $query->where('estado', self::ESTADO_CANCELADA);
     }
 
     /**
@@ -191,5 +238,29 @@ class Liquidacion extends Model
     public function pagadaSubrubro(): BelongsTo
     {
         return $this->belongsTo(Subrubro::class, 'pagada_subrubro_id');
+    }
+
+    /**
+     * Relación con el usuario admin que canceló la liquidación (FIN-12)
+     */
+    public function usuarioCancelacion(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'usuario_cancelacion_id');
+    }
+
+    /**
+     * Relación con la liquidación que reemplazó a esta si fue cancelada (FIN-12)
+     */
+    public function reemplazadaPor(): BelongsTo
+    {
+        return $this->belongsTo(Liquidacion::class, 'reemplazada_por_id');
+    }
+
+    /**
+     * Relación con las liquidaciones canceladas a las que esta liquidación reemplazó (FIN-12)
+     */
+    public function liquidacionesCanceladas(): HasMany
+    {
+        return $this->hasMany(Liquidacion::class, 'reemplazada_por_id');
     }
 }

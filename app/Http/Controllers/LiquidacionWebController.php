@@ -40,10 +40,11 @@ class LiquidacionWebController extends Controller
         }
         if ($request->filled('estado')) {
             match ($request->estado) {
-                'abierta' => $query->where('estado', 'ABIERTA'),
-                'cerrada' => $query->where('estado', 'CERRADA'),
-                'pagada'  => $query->where('estado_pago', 'PAGADA'),
-                default   => null,
+                'abierta'   => $query->where('estado', 'ABIERTA'),
+                'cerrada'   => $query->where('estado', 'CERRADA'),
+                'cancelada' => $query->where('estado', 'CANCELADA'),
+                'pagada'    => $query->where('estado_pago', 'PAGADA'),
+                default     => null,
             };
         }
 
@@ -153,6 +154,8 @@ class LiquidacionWebController extends Controller
             'detalles',
             'pagadaTipoCaja',
             'pagadaPorAdmin',
+            'usuarioCancelacion',
+            'reemplazadaPor',
         ])->findOrFail($id);
 
         if ($liquidacion->tipo === Liquidacion::TIPO_COMISION && $liquidacion->porcentaje_comision_aplicado !== null) {
@@ -205,6 +208,28 @@ class LiquidacionWebController extends Controller
             $this->liquidacionService->recalcularLiquidacion($id);
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación recalculada correctamente.');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function cancelar(Request $request, int $id): RedirectResponse
+    {
+        if (!auth()->user()->isAdmin()) {
+            abort(403);
+        }
+
+        $request->validate([
+            'motivo' => 'required|string|min:5|max:255',
+        ], [
+            'motivo.required' => 'Indicá el motivo de la cancelación.',
+            'motivo.min'      => 'El motivo debe tener al menos 5 caracteres.',
+        ]);
+
+        try {
+            $this->liquidacionService->cancelarLiquidacion($id, $request->motivo, auth()->id());
+            return redirect()->route('web.liquidaciones.show', $id)
+                ->with('success', 'Liquidación cancelada. Ya podés revisar asistencias y regenerarla.');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

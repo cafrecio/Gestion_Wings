@@ -15,6 +15,7 @@
     $tipoLabel   = $liquidacion->tipo === 'HORA' ? 'Por hora' : 'Por comisión';
     $esPagada    = $liquidacion->estaPagada();
     $esCerrada   = $liquidacion->estaCerrada();
+    $esCancelada = $liquidacion->estaCancelada();
     $estaAbierta = $liquidacion->estaAbierta();
     $totalSum    = $liquidacion->detalles->sum('monto');
     $totalDetalles = $liquidacion->detalles->count();
@@ -64,6 +65,10 @@
                         <span style="font-size:0.72rem; font-weight:700; padding:3px 9px; border-radius:999px;
                                      background:color-mix(in srgb, var(--color-success) 15%, transparent);
                                      color:var(--color-success);">Pagada</span>
+                    @elseif($esCancelada)
+                        <span style="font-size:0.72rem; font-weight:700; padding:3px 9px; border-radius:999px;
+                                     background:color-mix(in srgb, var(--color-danger) 15%, transparent);
+                                     color:var(--color-danger);">Cancelada</span>
                     @elseif($esCerrada)
                         <span style="font-size:0.72rem; font-weight:700; padding:3px 9px; border-radius:999px;
                                      background:color-mix(in srgb, var(--color-text-muted) 15%, transparent);
@@ -87,7 +92,34 @@
                         </span>
                     </div>
                 @endif
+                @if($esCancelada)
+                    <div>
+                        <span style="font-size:0.7rem; color:var(--color-danger); display:block;">Cancelada</span>
+                        <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
+                            {{ $liquidacion->cancelada_at ? $liquidacion->cancelada_at->format('d/m/Y') : '—' }}
+                            @if($liquidacion->usuarioCancelacion)
+                                <span style="font-size:0.72rem; color:var(--color-text-muted);">
+                                    — por {{ $liquidacion->usuarioCancelacion->name }}
+                                </span>
+                            @endif
+                        </span>
+                    </div>
+                @endif
             </div>
+
+            @if($esCancelada && $liquidacion->motivo_cancelacion)
+                <div class="mb-2" style="font-size:0.78rem; color:var(--color-text-muted); background:var(--color-bg); padding:6px 10px; border-radius:var(--radius-sm); border-left:3px solid var(--color-danger);">
+                    <strong>Motivo de cancelación:</strong> {{ $liquidacion->motivo_cancelacion }}
+                    @if($liquidacion->reemplazadaPor)
+                        <span style="margin-left:10px;">
+                            <strong>Reemplazada por:</strong>
+                            <a href="{{ route('web.liquidaciones.show', $liquidacion->reemplazada_por_id) }}" style="color:var(--color-btn-primary); font-weight:600;">
+                                Liquidación #{{ $liquidacion->reemplazada_por_id }}
+                            </a>
+                        </span>
+                    @endif
+                </div>
+            @endif
 
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
 
@@ -417,6 +449,35 @@
             <x-ds.button variant="primary" type="submit">Pagar</x-ds.button>
         </div>
 
+    </form>
+</div>
+@endif
+
+{{-- ── SECCIÓN D — Cancelar liquidación (solo cerrada no pagada) ────────── --}}
+@if($esCerrada && !$esPagada && !$esCancelada)
+<div class="filtros-card mt-3">
+    <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 8px;">
+        Cancelar liquidación
+    </p>
+    <p style="font-size:0.75rem; color:var(--color-text-muted); margin:0 0 12px;">
+        Permite volver a revisar las asistencias de las clases y generar una nueva liquidación para este período. Esta liquidación quedará registrada como cancelada.
+    </p>
+    <form method="POST" action="{{ route('web.liquidaciones.cancelar', $liquidacion->id) }}">
+        @csrf
+        <div style="margin-bottom:12px;">
+            <label for="motivo_cancelacion" style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">
+                Motivo de cancelación <span class="form-required">*</span>
+            </label>
+            <input type="text" id="motivo_cancelacion" name="motivo" required minlength="5" maxlength="255"
+                   placeholder="Ej: Corrección de asistencias clase 15/08"
+                   class="w-full px-3 py-2 text-sm wings-input">
+        </div>
+        <div style="display:flex; justify-content:flex-end;">
+            <x-ds.button variant="danger" type="submit"
+                         data-confirmar="¿Cancelar esta liquidación cerrada para corregir asistencias?">
+                Cancelar
+            </x-ds.button>
+        </div>
     </form>
 </div>
 @endif
