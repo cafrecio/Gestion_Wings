@@ -7,9 +7,9 @@
 Solo contiene acciones o decisiones que necesitan a Carlos. Las tareas tecnicas de
 Codex y Claude no van aca.
 
-## 0. Para retomar — 16/09/2026
+## 0. Para retomar — 21/09/2026
 
-Todo esta subido a `main`; suite 235 pruebas / 1402 aserciones (17/09) en verde. La lista
+Todo esta subido a `main`; suite 274 pruebas / 1567 aserciones (21/09) en verde. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -21,8 +21,8 @@ tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-C
 - [x] **Asignar FIN-12** (cancelar liquidacion cerrada no pagada): **Gemini** (Carlos, 17/09).
 - [ ] **Estar presente en el despliegue a wings**, cuando pase la prueba grande.
 
-**El orden acordado (Carlos, 17/09):** FIN-12 y la pantalla/recibo de FIN-13 →
-actualizar test **una sola vez, con la version que se va a probar** → prueba grande en
+**El orden acordado (Carlos, 17/09):** ~~FIN-12 y la pantalla/recibo de FIN-13~~ (hechas
+21/09 y 17/09) → **siguiente:** actualizar test **una sola vez, con la version que se va a probar** → prueba grande en
 `test.gestionar-te` → ensayo de restauracion → desplegar en wings. Actualizar test
 antes de terminar los cambios no sirve: habria que volver a hacerlo.
 
