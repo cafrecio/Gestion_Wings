@@ -11,6 +11,38 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md)
 
+## 2026-09-21 — Claude CAB — FIN-12 verificada, y el sistema de avisos
+
+**FIN-12 (Gemini).** Suite completa 274/1567 verde. Dientes comprobados sacando la
+logica y dejando la migracion puesta: **las 11 pruebas fallan**, incluidas las dos
+de concurrencia con conexiones reales en los dos ordenes (pago contra cancelacion).
+Se eligio un estado `CANCELADA` con auditoria (quien, cuando, motivo) y vinculo a
+la liquidacion que la reemplaza; no borra nada. `validarNoExisteLiquidacion` excluye
+canceladas, asi se puede rehacer el mes, y `obtenerResumenPeriodo` no suma sus
+importes. Cancelar desbloquea las asistencias para corregirlas; mientras siga
+cerrada siguen bloqueadas para todos.
+**Toco dos vistas de liquidaciones sin pedir la autorizacion de diseno**, que el
+prompt le pedia: etiqueta Cancelada, filtro, bloque de auditoria y boton. Carlos lo
+autorizo el 21/09 despues de ver el detalle, al pedir que se subiera todo.
+
+**Avisos operativos (mio).** Wings no mandaba ningun aviso: lo unico que avisaba
+eran los scripts del servidor, y esos son fallos de infraestructura que le llegan a
+Carlos. El destino de estos otros vive en `configuraciones` y no en el `.env`,
+porque es del club: el ADMIN lo cambia desde la pantalla sin entrar al servidor. El
+token del robot si queda en el `.env`, que es credencial y no destinatario.
+Un aviso nunca voltea la operacion: se avisa despues de registrar la plata y todo
+va dentro de un try con 4 segundos de limite. Sincronico y no por cola porque hoy
+no hay worker: una notificacion encolada no saldria nunca. Enganchado en los cuatro
+puntos de FIN-09. Una prueba encontro un defecto antes de subirlo: con tres
+administradores salian cuatro mensajes al mismo chat.
+
+**FIN-08 parcial.** "Inactivo" ya no condona el mes anterior. Quedan: abrirle la
+pantalla al OPERATIVO (decidido el 17/09, la ruta sigue en `ensure.admin.web`) y
+dos definiciones de Carlos, precio de que mes y pago parcial.
+
+**FIN-14 registrada.** Punitorios: el contrato estaba escrito desde el 06/09 y la
+tarea nunca habia entrado al plan.
+
 ## 2026-09-17 — Claude CyE — cierres y decisiones de Carlos del dia
 
 PRU-01 cerrada: la base de la prueba es `PrimeraCargaCompletaSeeder` (60 alumnos, sin deudas);

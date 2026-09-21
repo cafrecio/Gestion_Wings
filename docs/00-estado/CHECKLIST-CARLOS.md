@@ -53,12 +53,13 @@ Unblock-File .\install.ps1
 6. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 263 pruebas deben pasar
+php artisan test          # 274 pruebas deben pasar
 ```
 
-Corte verificado del 19/09: **263 pruebas**, todas verdes.
-Suite completa el 19/09: 263 pruebas / 1505 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09
+Corte verificado del 21/09: **274 pruebas**, todas verdes.
+Suite completa el 21/09: 274 pruebas / 1563 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
+FIN-12 requiere aplicar la migración de permitir_cancelar_liquidacion_cerrada_no_pagada al desplegar.
 FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
 FIN-10 requiere aplicar la migración de motivo_cambio_horario al desplegar; probada solo en wings_testing.
 FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la

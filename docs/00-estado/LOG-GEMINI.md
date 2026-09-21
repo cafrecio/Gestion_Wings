@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-21 — LOG GEM CYE — FIN-12: Cancelar liquidación cerrada no pagada
+
+- **Objetivo:** Implementar la enmienda del contrato §2.4 (`docs/05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md` y `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md`): permitir que ADMIN cancele una liquidación en estado `CERRADA` con `estado_pago = PENDIENTE` con motivo obligatorio para revisar asistencias y regenerar, preservando detalle y auditoría. Liquidaciones `PAGADA` son estrictamente intocables para todos los perfiles.
+- **Cambios reales:**
+  1. `database/migrations/2026_09_21_120000_permitir_cancelar_liquidacion_cerrada_no_pagada.php`: Agregó `'CANCELADA'` al enum de `estado`, columnas de auditoría (`usuario_cancelacion_id`, `cancelada_at`, `motivo_cancelacion`, `reemplazada_por_id`). Se creó índice no único `['profesor_id', 'mes', 'anio']` antes de soltar la restricción única (evitando error 1553 MariaDB con FK). Probado en migrate y rollback.
+  2. `app/Models/Liquidacion.php`: Constante `ESTADO_CANCELADA = 'CANCELADA'`, casts, fillables, relaciones (`usuarioCancelacion`, `reemplazadaPor`, `liquidacionesCanceladas`). En `boot()`: permite transición a `CANCELADA` solo con motivo y usuario si está `PENDIENTE`, bloquea mutaciones posteriores excepto `reemplazada_por_id`, y prohíbe eliminar canceladas.
+  3. `app/Services/LiquidacionService.php`: `cancelarLiquidacion()` implementado con `lockForUpdate()` y validaciones de CERRADA y PENDIENTE. `validarNoExisteLiquidacion()` excluye canceladas permitiendo regeneración. `generarLiquidacionMensual()` asocia canceladas previas mediante `reemplazada_por_id`. `obtenerResumenPeriodo()` excluye canceladas del total monetario.
+  4. `app/Models/Clase.php` y `app/Http/Controllers/ClaseWebController.php`: `Clase::integraLiquidacionCerrada()` bloquea alteración de asistencias (422) tanto en HORA (por detalle) como en COMISIÓN (por profesor/mes/año de liquidación cerrada). La cancelación desbloquea las asistencias.
+  5. `routes/web.php` y `app/Http/Controllers/LiquidacionWebController.php`: Ruta `POST /liquidaciones/{id}/cancelar` protegida con `ensure.admin.web`. Filtro `cancelada` en index y show con relaciones de reemplazo y usuario cancelación.
+  6. `resources/views/liquidaciones/show.blade.php` e `index.blade.php`: Tarjeta de cancelación con confirmación nativa `data-confirmar` (sin inline handlers, conteo CSP intacto en 10 manejadores) y motivo obligatorio. Badge `Cancelada` en listado y ficha.
+- **Pruebas:** Creados `tests/Feature/CancelarLiquidacionCerradaTest.php` (9 pruebas funcionales) y `tests/Feature/CancelarLiquidacionConcurrenteTest.php` (2 pruebas concurrentes con dos conexiones MariaDB reales probando pago vs cancelación y cancelación vs pago con locks transaccionales). Suite completa verde: 274 pruebas / 1567 aserciones. Sin deploy.
+
 ## 2026-09-19 — LOG GEM CYE — FIN-09: Límites de fechas y confirmación al cargar movimientos y cobros
 
 - **Objetivo:** Implementar la decisión de Carlos sobre límites de fechas al registrar o editar movimientos de caja, cashflow y cobro de cuotas: rechazar fechas futuras, permitir fechas del mes actual sin aviso, y exigir confirmación en pantalla antes de guardar si la fecha es de un mes anterior o más vieja.
