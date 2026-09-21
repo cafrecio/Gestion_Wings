@@ -54,15 +54,6 @@ class CobranzaOperativoTest extends TestCase
         $this->assertNotSame(200, $respuesta->getStatusCode(), 'Condonar es del admin.');
     }
 
-    /** La revision de posibles inactivos decide bajas: tambien es del admin. */
-    public function test_el_operativo_no_entra_a_revision_de_cobranza(): void
-    {
-        $respuesta = $this->actingAs($this->usuario(User::ROL_OPERATIVO))
-            ->get(route('web.revision-cobranza.index'));
-
-        $this->assertNotSame(200, $respuesta->getStatusCode(), 'La revision es del admin.');
-    }
-
     /**
      * Un permiso sin link es una puerta sin picaporte: la ruta se abrio y
      * nadie tenia como llegar. El menu decia "Cobranza" y llevaba a la

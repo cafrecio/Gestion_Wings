@@ -96,6 +96,13 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
     // de ensure.admin.web el 03/07 y nunca se corrigio. Condonar sigue siendo
     // solo del admin.
     Route::get('/cobranza', [CobranzaWebController::class, 'index'])->name('web.cobranza.index');
+
+    // ── Revisión de cobranza (admin y operativo) ─────────────────────────
+    // Decidir si a un alumno que no vino se le genera la cuota es trabajo del
+    // mostrador (Carlos, 17/09). Resolver no condona nada desde el 19/09, así
+    // que abrirla no le da al operativo un camino para perdonar deuda.
+    Route::get('/revision-cobranza', [RevisionCobranzaWebController::class, 'index'])->name('web.revision-cobranza.index');
+    Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');
     });
 
     Route::middleware('ensure.admin.web')->group(function () {
@@ -104,8 +111,6 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
-        Route::get('/revision-cobranza', [RevisionCobranzaWebController::class, 'index'])->name('web.revision-cobranza.index');
-        Route::post('/revision-cobranza/{id}/resolver', [RevisionCobranzaWebController::class, 'resolver'])->name('web.revision-cobranza.resolver');
     });
 
     // Alumnos CRUD — accesible para ADMIN y OPERATIVO

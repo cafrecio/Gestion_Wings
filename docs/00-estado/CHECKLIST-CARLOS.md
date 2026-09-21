@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Todo esta subido a `main`; suite 274 pruebas / 1567 aserciones (21/09) en verde. La lista
+Todo esta subido a `main`; suite 279 pruebas / 1585 aserciones (21/09) en verde. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -53,11 +53,11 @@ Unblock-File .\install.ps1
 6. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 274 pruebas deben pasar
+php artisan test          # 279 pruebas deben pasar
 ```
 
-Corte verificado del 21/09: **274 pruebas**, todas verdes.
-Suite completa el 21/09: 274 pruebas / 1563 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
+Corte verificado del 21/09: **279 pruebas**, todas verdes.
+Suite completa el 21/09: 279 pruebas / 1585 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 FIN-12 requiere aplicar la migración de permitir_cancelar_liquidacion_cerrada_no_pagada al desplegar.
 FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
@@ -92,7 +92,8 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   corregido y verificado en navegador.
 - [ ] **FIN-04:** decidir si “Balance” de Cashflow significa saldo acumulado o
   resultado del periodo.
-- [ ] **FIN-08:** definir como tratar una revision con pago parcial y precio historico.
+- [x] **FIN-08:** decidido y hecho el 21/09. El operativo resuelve la revision; parcial ya no aplica;
+  "Continua" usa el precio vigente del plan.
   Ya decidido (17/09): la hace el operativo, no solo el admin; las notas viejas se conservan.
 - [x] **FIN-09:** decidido 17/09. Nada futuro; mes en curso y anterior normal; mas viejo
   se carga con su fecha real en la caja de hoy (no se tocan cajas controladas), avisa en

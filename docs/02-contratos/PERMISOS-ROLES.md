@@ -82,6 +82,13 @@ La liquidación es un pago a un profesor, dominio exclusivo del admin.
 ### Historial de movimientos (`web.caja.historial`)
 El operativo ve todos los movimientos de subrubros `OPERATIVO` de los últimos 90 días, de cualquier operativo y del admin. No se filtra por "usuario que lo registró".
 
+### Cobranza y revisión de cobranza (`web.cobranza.index`, `web.revision-cobranza.*`)
+Decidir si a un alumno que no vino se le genera la cuota del mes es trabajo del mostrador (Carlos, 17/09/2026).
+- ADMIN y OPERATIVO: ven la cobranza, entran a la revisión y la resuelven ("Continúa" o "Inactivo"). ✅
+- PROFESOR: no. ❌
+- **Condonar deuda sigue siendo solo del ADMIN** (`web.deudas.condonar`). Resolver una revisión no condona nada desde el 19/09: "Inactivo" solo da de baja y no genera la cuota del mes. Por eso abrirla al operativo no le da un camino para perdonar deuda.
+- Hasta el 21/09 la revisión estaba en `ensure.admin.web` y una prueba lo exigía; era el mismo error de "Cobranza" del 03/07.
+
 ### Caja
 El operativo abre/opera/cierra cajas. La única restricción "de propiedad" legítima que existe es que un operativo no puede **cerrar** la caja abierta de otro operativo (integridad del arqueo, no privacidad). Ver `CajaWebController::cerrar()`. Pero **ver** el historial y los movimientos no está restringido por propiedad.
 
