@@ -75,6 +75,24 @@ que el club cobró antes de Wings queda fuera de esta contabilidad.
 El efecto de la deuda en cero pagada es que la pantalla de cobro deja de ofrecer ese
 mes, porque mira si existe una deuda del período sin importar su estado.
 
+## Cómo lee lo que escribe el club
+
+Ensayo del 21/09/2026 con el padrón de 60 alumnos completado como lo haría una
+persona. Hasta ese día el monto escrito como texto **"52.000" se grababa como $52**,
+y el período `092026` que Excel convierte en el número `92026` se rechazaba sin
+explicar por qué. Corregido; lo cubre `CargaPadronFormatosExcelTest`.
+
+| En la celda | Se lee |
+|---|---|
+| DEBE: `SI`, `si`, `Sí`, `SI ` (con espacio) | SI |
+| Período `092026`, o el número `92026` que deja Excel | 2026-09 |
+| Monto como número de Excel (`52000`, `52000,5`) | tal cual |
+| Monto como texto: `52000`, `52.000`, `1.052.000`, `52.000,50` | formato argentino: punto de miles, coma decimal |
+| Monto `52,000`, `52.5`, `$52000`, letras, cero o negativo | **rechazado**: es ambiguo o inválido, no se adivina |
+
+El Excel exportado trae las columnas de período en formato texto, para que Excel no
+se coma el cero. Los montos quedan como número.
+
 ## Qué rechaza
 
 Es todo o nada: si una sola fila falla, no se escribe ninguna.
@@ -82,8 +100,8 @@ Es todo o nada: si una sola fila falla, no se escribe ninguna.
 - DEBE vacío o distinto de SI/NO.
 - DEBE = SI sin ningún período con monto.
 - DEBE = NO con períodos o montos cargados.
-- Período que no sea `mmYYYY` válido desde 2025.
-- Monto no numérico o menor o igual a cero.
+- Período que no sea mes y año válido desde 2025 (el mensaje muestra el ejemplo `092026`).
+- Monto ambiguo, con signos, no numérico o menor o igual a cero (el mensaje muestra `52000` o `52.000`).
 - Período repetido en la misma fila.
 - DNI + deporte repetido en dos filas.
 - DNI + deporte que no corresponde a ningún alumno.

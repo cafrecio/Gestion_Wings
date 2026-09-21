@@ -4,7 +4,9 @@ namespace App\Console\Commands;
 
 use App\Models\Alumno;
 use Illuminate\Console\Command;
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 /**
@@ -59,6 +61,16 @@ class ExportarPadronCargaInicialCommand extends Command
             $hoja->setCellValue("B{$fila}", trim("{$alumno->apellido}, {$alumno->nombre}"));
             $hoja->setCellValue("C{$fila}", $alumno->deporte->nombre ?? '');
             $fila++;
+        }
+
+        // Los períodos en texto: si no, Excel convierte 092026 en el número 92026.
+        // Los montos quedan como número: en Excel argentino 52.000 se lee 52000.
+        $ultimaFila = max(2, $fila - 1);
+        for ($i = 1; $i <= $pares; $i++) {
+            $columna = Coordinate::stringFromColumnIndex(3 + 2 * $i);
+            $hoja->getStyle("{$columna}2:{$columna}{$ultimaFila}")
+                ->getNumberFormat()
+                ->setFormatCode(NumberFormat::FORMAT_TEXT);
         }
 
         $directorio = dirname($archivo);

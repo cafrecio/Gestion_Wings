@@ -64,8 +64,10 @@ class CargaSaldoInicialPadronService
 
         for ($fila = 2; $fila <= $ultimaFila; $fila++) {
             $valores = [];
+            $crudos = [];
             for ($columna = 1; $columna <= $ultimaColumna; $columna++) {
                 $valores[$columna] = $this->valorCelda($hoja, $columna, $fila);
+                $crudos[$columna] = $hoja->getCell([$columna, $fila])->getValue();
             }
 
             if (collect($valores)->every(fn (string $valor) => $valor === '')) {
@@ -106,9 +108,10 @@ class CargaSaldoInicialPadronService
                 continue;
             }
 
-            $pares = $this->validarPares($valores, $fila, $errores);
+            $pares = $this->validarPares($valores, $crudos, $fila, $errores);
 
-            if ($debe && $pares === []) {
+            // Si cargó pares y alguno está mal, ese error ya lo dice: no se repite.
+            if ($debe && $pares === [] && !$this->tieneAlgunValorEnLosPares($valores)) {
                 $errores[] = ['fila' => $fila, 'mensaje' => 'Dice SI pero no informa ningún período con monto.'];
             }
             if (!$debe && $this->tieneAlgunValorEnLosPares($valores)) {
@@ -204,8 +207,8 @@ class CargaSaldoInicialPadronService
         };
     }
 
-    /** @param array<int, string> $valores @param array<int, array{fila: int, mensaje: string}> $errores @return array<int, array{periodo: string, monto: string}> */
-    private function validarPares(array $valores, int $fila, array &$errores): array
+    /** @param array<int, string> $valores @param array<int, mixed> $crudos @param array<int, array{fila: int, mensaje: string}> $errores @return array<int, array{periodo: string, monto: string}> */
+    private function validarPares(array $valores, array $crudos, int $fila, array &$errores): array
     {
         $pares = [];
         $periodos = [];
@@ -222,22 +225,23 @@ class CargaSaldoInicialPadronService
                 $errores[] = ['fila' => $fila, 'mensaje' => 'Cada período debe tener su monto y viceversa.'];
                 continue;
             }
-            if (!preg_match('/^(0[1-9]|1[0-2])(202[5-9]|20[3-9]\d)$/', $mes, $coincidencia)) {
-                $errores[] = ['fila' => $fila, 'mensaje' => 'El período debe tener formato mmYYYY válido desde 2025.'];
+            $periodo = $this->leerPeriodo($crudos[$columna] ?? null);
+            if ($periodo === null) {
+                $errores[] = ['fila' => $fila, 'mensaje' => "El período '{$mes}' no es válido: va mes y año, como 092026 para septiembre 2026, desde 2025."];
                 continue;
             }
-            if (!is_numeric($monto) || (float) $monto <= 0) {
-                $errores[] = ['fila' => $fila, 'mensaje' => 'El monto debe ser numérico y mayor que cero.'];
+            $importe = $this->leerMonto($crudos[$columna + 1] ?? null);
+            if ($importe === null) {
+                $errores[] = ['fila' => $fila, 'mensaje' => "El monto '{$monto}' no es válido: va sin signos, como 52000 o 52.000, y mayor que cero."];
                 continue;
             }
 
-            $periodo = "{$coincidencia[2]}-{$coincidencia[1]}";
             if (isset($periodos[$periodo])) {
                 $errores[] = ['fila' => $fila, 'mensaje' => "El período {$periodo} está repetido en la misma fila."];
                 continue;
             }
             $periodos[$periodo] = true;
-            $pares[] = ['periodo' => $periodo, 'monto' => number_format((float) $monto, 2, '.', '')];
+            $pares[] = ['periodo' => $periodo, 'monto' => $importe];
         }
 
         return $pares;
@@ -299,6 +303,50 @@ class CargaSaldoInicialPadronService
         return Alumno::query()->get(['id', 'dni', 'deporte_id'])
             ->mapWithKeys(fn (Alumno $alumno) => ["{$alumno->dni}|{$alumno->deporte_id}" => $alumno])
             ->all();
+    }
+
+    /**
+     * Período mmYYYY. Excel guarda 092026 tipeado en una celda común como el número
+     * 92026: con cinco cifras el cero que falta es el del mes, no hay otra lectura.
+     */
+    private function leerPeriodo(mixed $crudo): ?string
+    {
+        if (is_int($crudo) || (is_float($crudo) && floor($crudo) === $crudo)) {
+            $texto = (string) (int) $crudo;
+        } elseif (is_string($crudo)) {
+            $texto = trim($crudo);
+        } else {
+            return null;
+        }
+
+        if (preg_match('/^\d{5}$/', $texto)) {
+            $texto = '0'.$texto;
+        }
+        if (!preg_match('/^(0[1-9]|1[0-2])(202[5-9]|20[3-9]\d)$/', $texto, $coincidencia)) {
+            return null;
+        }
+
+        return "{$coincidencia[2]}-{$coincidencia[1]}";
+    }
+
+    /**
+     * Importe con dos decimales, o null si no es válido.
+     *
+     * Un número de Excel ya viene interpretado: se toma tal cual. Un texto se lee en
+     * formato argentino —punto de miles, coma decimal—: "52.000" son cincuenta y dos
+     * mil, no 52. Lo ambiguo ("52,000", "52.5") se rechaza en vez de adivinar.
+     */
+    private function leerMonto(mixed $crudo): ?string
+    {
+        if (is_int($crudo) || is_float($crudo)) {
+            $importe = (float) $crudo;
+        } elseif (is_string($crudo) && preg_match('/^(\d{1,3}(?:\.\d{3})+|\d+)(?:,(\d{1,2}))?$/', trim($crudo), $partes)) {
+            $importe = (float) (str_replace('.', '', $partes[1]).'.'.($partes[2] ?? '0'));
+        } else {
+            return null;
+        }
+
+        return $importe > 0 ? number_format($importe, 2, '.', '') : null;
     }
 
     private function valorCelda($hoja, int $columna, int $fila): string
