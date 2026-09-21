@@ -10,6 +10,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-21 — LOG GEM CYE — FIN-08: Verificación exhaustiva y auditoría de permisos
+
+- **Objetivo:** Auditar y verificar minuciosamente la tarea FIN-08 (commit `5dff231`), que habilita la resolución de revisiones de cobranza al rol OPERATIVO ("Continúa" / "Inactivo"), evaluando los 9 puntos del pedido de Carlos y buscando fallas potenciales sin alterar código.
+- **Verificaciones y Resultados:**
+  1. OPERATIVO entra a Revisión por menú "Día a día" (HTTP 200) y filtros por estado y período funcionan correctamente.
+  2. "Continúa" genera la cuota en `deuda_cuotas` con precio del plan activo, conserva al alumno activo y aparece en Cobranza y ficha de alumno.
+  3. "Inactivo" da de baja al alumno (`activo = 0`) y deja la deuda anterior y pagos parciales 100% INTACTOS (no se condona nada).
+  4. Doble resolución simultánea (dos pestañas) es interceptada por `RevisionCobranzaService` y rechazada con error claro ("Esta revisión ya fue resuelta.").
+  5. PROFESOR queda completamente excluido: sin enlace en menú, GET `/revision-cobranza` da 403 y POST resolver da 403.
+  6. ADMIN conserva condonación desde la ficha del alumno; OPERATIVO no tiene el botón y todo intento POST a condonar es bloqueado por `EnsureAdminWeb` (302 a `/caja`).
+  7. Menú responsive verificado: único `<aside class="ds-sidebar">` off-canvas en mobile, sin duplicación de enlaces en el DOM para ningún rol.
+  8. Regresión: Alumnos, Cobranza, Caja y Clases intactos. Suite completa en verde con **288 pruebas pasando**.
+- **Hallazgos documentados:** Creado informe completo en `docs/06-pruebas/FIN-08-VERIFICACION-2026-09-21.md`. Se reportaron 3 observaciones visuales/UX para corregir cuando Carlos autorice diseño (Hallazgo 1: falta renderizar `$errors` en `revision-cobranza/index.blade.php`; Hallazgo 2: grilla inline fija de filtros en mobile; Hallazgo 3: script inline redundante reemplazable por la delegación nativa de `ds-app.js`).
+
 ## 2026-09-21 — LOG GEM CYE — FIN-12: Cancelar liquidación cerrada no pagada
 
 - **Objetivo:** Implementar la enmienda del contrato §2.4 (`docs/05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md` y `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md`): permitir que ADMIN cancele una liquidación en estado `CERRADA` con `estado_pago = PENDIENTE` con motivo obligatorio para revisar asistencias y regenerar, preservando detalle y auditoría. Liquidaciones `PAGADA` son estrictamente intocables para todos los perfiles.
