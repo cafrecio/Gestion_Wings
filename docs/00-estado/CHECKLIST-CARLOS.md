@@ -92,6 +92,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   corregido y verificado en navegador.
 - [ ] **FIN-04:** decidir si “Balance” de Cashflow significa saldo acumulado o
   resultado del periodo.
+- [ ] **FIN-08, retoques de la pantalla Revision** (encontrados por Gemini 21/09): mostrar el
+  error si la nota falta, filtros que no se aprieten en celular y sacar un script duplicado.
+  Es diseno: necesita tu OK.
 - [x] **FIN-08:** decidido y hecho el 21/09. El operativo resuelve la revision; parcial ya no aplica;
   "Continua" usa el precio vigente del plan.
   Ya decidido (17/09): la hace el operativo, no solo el admin; las notas viejas se conservan.
