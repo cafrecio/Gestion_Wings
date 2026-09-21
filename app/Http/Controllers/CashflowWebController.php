@@ -111,7 +111,12 @@ class CashflowWebController extends Controller
             ]);
 
             if ($esFechaVieja) {
-                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+                app(\App\Services\AvisoAdminService::class)->fechaVieja(
+                    que: "Movimiento de cashflow",
+                    fechaDelMovimiento: $request->input("fecha"),
+                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    quienLoCargo: Auth::user()?->name,
+                );
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();

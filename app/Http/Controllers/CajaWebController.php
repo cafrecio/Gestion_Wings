@@ -339,7 +339,13 @@ class CajaWebController extends Controller
             ]);
 
             if ($esFechaVieja) {
-                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+                app(\App\Services\AvisoAdminService::class)->fechaVieja(
+                    que: "Movimiento de caja",
+                    fechaDelMovimiento: $request->input("fecha"),
+                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    quienLoCargo: Auth::user()?->name,
+                    dondeEntra: "Caja #" . $caja->id,
+                );
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
@@ -410,7 +416,13 @@ class CajaWebController extends Controller
             ]);
 
             if ($esFechaVieja) {
-                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+                app(\App\Services\AvisoAdminService::class)->fechaVieja(
+                    que: "Movimiento de caja editado",
+                    fechaDelMovimiento: $request->input("fecha"),
+                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    quienLoCargo: Auth::user()?->name,
+                    dondeEntra: "Caja #" . $cajaId,
+                );
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
@@ -926,7 +938,13 @@ class CajaWebController extends Controller
             }
 
             if ($esFechaVieja) {
-                // TODO (FIN-09): Disparar notificación por Mail y Telegram al ADMIN cuando esté implementado el sistema de notificaciones.
+                app(\App\Services\AvisoAdminService::class)->fechaVieja(
+                    que: "Cobro de cuota de {$alumno->apellido}, {$alumno->nombre}",
+                    fechaDelMovimiento: $request->input("fecha_pago"),
+                    monto: "$" . number_format((float) ($resultadoPago["pago"]->monto_final ?? 0), 2, ",", "."),
+                    quienLoCargo: Auth::user()?->name,
+                    dondeEntra: "la caja abierta de hoy",
+                );
             }
 
             return redirect()->route('web.caja.index')

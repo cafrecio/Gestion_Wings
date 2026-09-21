@@ -35,4 +35,16 @@ return [
         ],
     ],
 
+    // Avisos operativos por Telegram. El robot y el chat son los mismos que usan
+    // los scripts del servidor (scripts/servidor/monitoreo-common.sh): ahi viven
+    // en /etc/wings-monitor/alertas.env y aca en el .env de la aplicacion, porque
+    // son dos procesos distintos. Mismo token, dos lugares.
+    //
+    // Sin estas dos variables el canal no manda nada y lo deja dicho en el log:
+    // en una maquina de desarrollo eso es lo correcto, no un error.
+    "telegram" => [
+        "bot_token" => env("TELEGRAM_BOT_TOKEN"),
+        "chat_id"   => env("TELEGRAM_CHAT_ID"),
+    ],
+
 ];
