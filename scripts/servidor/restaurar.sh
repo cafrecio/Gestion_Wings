@@ -122,6 +122,17 @@ while read -r TABLA; do
         continue
     fi
 
+    # Tablas del framework que cambian solas a cada minuto: sesiones que vencen,
+    # cache, colas. Compararlas contra un respaldo de las 03:15 no dice nada del
+    # respaldo. Se exige que existan de los dos lados, pero no se cuentan.
+    # Lo encontro el primer ensayo real, el 22/09: sessions daba 59 contra 175.
+    case "${TABLA}" in
+        sessions|cache|cache_locks|jobs|job_batches|failed_jobs|password_reset_tokens)
+            printf "   %-28s %s\n" "${TABLA}" "presente (cambia sola, no se cuenta)"
+            continue
+            ;;
+    esac
+
     VIVA=$(mysql -N -B -e "SELECT COUNT(*) FROM \`${BASE_VIVA}\`.\`${TABLA}\`;")
     COPIA=$(mysql -N -B -e "SELECT COUNT(*) FROM \`${BASE_ENSAYO}\`.\`${TABLA}\`;")
     COMPARADAS=$((COMPARADAS + 1))
@@ -145,7 +156,7 @@ CONSULTAS_PLATA=$(cat <<'SQL'
 pagos completados|SELECT COALESCE(SUM(monto_final),0) FROM `@`.pagos WHERE estado='COMPLETADO'
 pagos anulados|SELECT COALESCE(SUM(monto_final),0) FROM `@`.pagos WHERE estado='ANULADO'
 imputaciones|SELECT COALESCE(SUM(monto_aplicado),0) FROM `@`.pago_deuda_cuota
-deuda pendiente|SELECT COALESCE(SUM(saldo_pendiente),0) FROM `@`.deuda_cuotas
+deuda pendiente|SELECT COALESCE(SUM(GREATEST(monto_original - monto_pagado, 0)),0) FROM `@`.deuda_cuotas
 deuda cobrada|SELECT COALESCE(SUM(monto_pagado),0) FROM `@`.deuda_cuotas
 movimientos activos|SELECT COALESCE(SUM(monto),0) FROM `@`.movimientos_operativos WHERE estado='ACTIVO'
 cashflow|SELECT COALESCE(SUM(monto),0) FROM `@`.cashflow_movimientos
