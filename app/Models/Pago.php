@@ -25,6 +25,7 @@ class Pago extends Model
         'fecha_pago',
         'observaciones',
         'estado',
+        'monto_cuota',
     ];
 
     protected $casts = [
@@ -48,7 +49,7 @@ class Pago extends Model
 
         // Prevenir modificaciones de montos
         static::updating(function ($pago) {
-            if ($pago->isDirty(['monto_base', 'porcentaje_aplicado', 'monto_final'])) {
+            if ($pago->isDirty(['monto_base', 'porcentaje_aplicado', 'monto_final', 'monto_cuota'])) {
                 throw new \Exception('Los montos de un pago no pueden modificarse una vez creados.');
             }
         });
@@ -60,6 +61,21 @@ class Pago extends Model
     public function alumno(): BelongsTo
     {
         return $this->belongsTo(Alumno::class);
+    }
+
+    public function getMontoCuotaAttribute($valor): float
+    {
+        return (float) ($valor ?? $this->monto_final);
+    }
+
+    public function scopeConCuota($query)
+    {
+        return $query->where(fn ($q) => $q->whereNull('monto_cuota')->orWhere('monto_cuota', '>', 0));
+    }
+
+    public function cargos()
+    {
+        return $this->belongsToMany(CargoAlumno::class, 'pago_cargo_alumno')->withPivot('monto_aplicado')->withTimestamps();
     }
 
     /**

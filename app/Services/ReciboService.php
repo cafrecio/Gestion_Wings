@@ -33,6 +33,7 @@ class ReciboService
             'alumno.deporte',
             'deudasCuota',
             'pagosDeuda.deudaCuota',
+            'cargos',
         ])->findOrFail($pagoId);
 
         $esAnulado = $pago->estado === Pago::ESTADO_ANULADO;
@@ -329,11 +330,11 @@ class ReciboService
     private function obtenerPeriodosImputados(Pago $pago): array
     {
         if ($pago->estado === Pago::ESTADO_ANULADO && $pago->detalle_anulacion !== null) {
-            return array_map(fn (array $periodo) => [
+            return array_merge(array_map(fn (array $periodo) => [
                 'periodo' => $periodo['periodo'],
                 'periodo_texto' => $this->formatearPeriodo($periodo['periodo']),
                 'monto_aplicado' => $periodo['monto_aplicado'],
-            ], $pago->detalle_anulacion['periodos']);
+            ], $pago->detalle_anulacion['periodos']), $pago->detalle_anulacion['cargos'] ?? []);
         }
 
         $periodos = [];
@@ -347,6 +348,9 @@ class ReciboService
             ];
         }
 
+        foreach ($pago->cargos as $cargo) {
+            $periodos[] = ['periodo' => '', 'periodo_texto' => 'Inscripción al club — por única vez', 'monto_aplicado' => $cargo->pivot->monto_aplicado];
+        }
         return $periodos;
     }
 

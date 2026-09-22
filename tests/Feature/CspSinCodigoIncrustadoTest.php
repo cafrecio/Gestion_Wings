@@ -38,7 +38,7 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * resolverse exclusivamente por delegación nativa de data-abrir-revision y
      * data-cerrar-revision en ds-app.js.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 21;
+    private const BLOQUES_SCRIPT_PERMITIDOS = 20;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

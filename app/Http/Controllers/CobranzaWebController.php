@@ -25,6 +25,9 @@ class CobranzaWebController extends Controller
         $grupoId   = $request->filled('grupo_id')   ? (int) $request->input('grupo_id')   : null;
 
         $alumnos = $this->cobranzaService->filtrarAlumnosPorEstado($estadoFiltro, $deporteId, $grupoId);
+        $inscripciones = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')->where('estado', 'VIGENTE')
+            ->whereIn('dni', $alumnos->map(fn ($a) => \App\Services\InscripcionService::dni($a->dni)))
+            ->with('pagos')->get()->mapWithKeys(fn ($c) => [$c->dni => round((float) $c->monto_original - (float) $c->monto_condonado - (float) $c->pagos->sum('pivot.monto_aplicado'), 2)]);
 
         $resumen = $this->cobranzaService->resumenDashboard();
 
@@ -40,7 +43,7 @@ class CobranzaWebController extends Controller
 
         return view('cobranza.index', compact(
             'alumnos', 'resumen', 'deportes', 'grupos',
-            'estadoFiltro', 'deporteId', 'grupoId'
+            'estadoFiltro', 'deporteId', 'grupoId', 'inscripciones'
         ));
     }
 }

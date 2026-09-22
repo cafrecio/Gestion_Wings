@@ -10,20 +10,32 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
-## 2026-09-22 — LOG GEM CYE — ENT-06: Resumen diario de avisos al admin a las 08:00
+## 2026-09-22 — LOG GEM CYE — ENT-06: Verificación y Cierre
 
-- **Objetivo:** Implementar la decisión del 22/09 (ENT-06) para que el ADMIN reciba un resumen diario a las 08:00 (hora Argentina) con las tareas pendientes operativas (cajas cerradas sin validar, revisiones de cobranza pendientes y liquidaciones sin pagar o abiertas), sin mandar nada si no hay pendientes.
-- **Cambios reales:**
-  1. `app/Services/AvisoAdminService.php`: Implementado `resumenDiario(): bool`. Consulta cajas cerradas sin validar (calcula monto neto de movimientos activos y detecta la más vieja con usuario y fecha), revisiones pendientes (más vieja con alumno y fecha) y liquidaciones (cerradas sin pagar con total monetario y abiertas contabilizadas por separado sin sumarse). Si no hay pendientes retorna `false`. Si hay pendientes, envía un único aviso vía `AvisoOperativo` por correo y Telegram con enlaces directos (`web.caja.index`, `web.revision-cobranza.index`, `web.liquidaciones.index`) y retorna `true`.
-  2. `app/Console/Commands/ResumenDiarioAvisosCommand.php`: Creado comando `avisos:resumen-diario` que ejecuta `resumenDiario()` e informa el resultado en consola.
-  3. `routes/console.php`: Programado `Schedule::command('avisos:resumen-diario')->dailyAt('08:00');`.
-  4. `tests/Feature/AvisoAdminResumenDiarioTest.php`: Creadas 5 pruebas automatizadas completas verificando: sin pendientes no envía nada; con cajas, revisiones y liquidaciones envía un solo aviso con montos y enlaces correctos; liquidaciones abiertas no se suman al total a pagar; cajas validadas, revisiones resueltas y liquidaciones pagadas son excluidas; y comando programado a las 08:00 en scheduler.
-  5. Tableros y control de pruebas actualizados: `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md`, `PLAN-TRABAJO-IA-v2026-09-08.md` y `PLAN-TRABAJO-CARLOS-v2026-09-08.html` sincronizados con 313 pruebas.
-- **Verificaciones:**
-  - `php artisan test tests/Feature/AvisoAdminResumenDiarioTest.php` -> 5 pruebas verdes.
-  - Ejecución real en base local (`php artisan avisos:resumen-diario`) -> "Resumen diario de avisos enviado correctamente." y verificación de mensaje formateado en log.
-  - `php artisan test` -> Suite completa verde: 313 pruebas y 1786 aserciones.
-  - Vistas y CSS intactos (`git diff --stat` solo cambios de Codex en paralelo). Sin deploy.
+Todos los entregables y requisitos fueron verificados con evidencia concreta:
+
+- **Pull inicial:** Rama actualizada con `origin/main` al comenzar.
+- **Aislamiento de concurrencia con Codex (ENT-01):** Staging quirúrgico sin usar `git add .` ni `git add -A`. Se preservaron intactos los archivos en progreso de Codex.
+- **Servicio y formato de avisos (`app/Services/AvisoAdminService.php`):**
+  - `resumenDiario(): bool` implementado reutilizando `enviar()` y `AvisoOperativo` por correo y Telegram.
+  - Cajas cerradas sin validar: total neto y más vieja con usuario y fecha (`route('web.caja.index')`).
+  - Revisiones de cobranza pendientes: más vieja con alumno y fecha (`route('web.revision-cobranza.index')`).
+  - Liquidaciones: cerradas sin pagar con total monetario, y abiertas registradas aparte sin sumarse al total (`route('web.liquidaciones.index')`).
+  - Si no hay pendientes, retorna `false` sin emitir avisos.
+- **Comando y Scheduler:**
+  - `app/Console/Commands/ResumenDiarioAvisosCommand.php` (`avisos:resumen-diario`).
+  - Programado en `routes/console.php` a las 08:00 (`0 8 * * *`).
+- **Pruebas funcionales y suite:**
+  - `tests/Feature/AvisoAdminResumenDiarioTest.php`: 5 pruebas aprobadas cubriendo todos los escenarios exigidos.
+  - Suite completa de PHPUnit: 313 pruebas / 1793 aserciones en verde.
+  - `DocumentacionNoMienteTest` y `TablerosNoDivergenTest`: 100% aprobadas.
+- **Prueba real con datos locales:**
+  - Ejecutado `php artisan avisos:resumen-diario` -> salida "Resumen diario de avisos enviado correctamente." y contenido verificado en `storage/logs/laravel.log`.
+- **Documentación y tableros actualizados:**
+  - Sincronizados `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md`, `PLAN-TRABAJO-IA-v2026-09-08.md`, `PLAN-TRABAJO-CARLOS-v2026-09-08.html` y la bitácora `LOG-GEMINI.md` (firma `LOG GEM CYE`).
+- **Sin cambios de diseño ni deploy:**
+  - Sin modificar vistas Blade ni CSS.
+  - Commit `e8b2824` subido a `origin/main` listo para cuando Claude actualice el servidor.
 
 ## 2026-09-22 — LOG GEM CYE — FIN-08: Retoques de pantalla de Revisión autorizados por Carlos
 

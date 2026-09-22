@@ -18,6 +18,9 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/ent01-visual/app/
+/storage/ent01-visual/framework/
+/storage/ent01-visual/logs/
 /vendor
 Homestead.json
 Homestead.yaml

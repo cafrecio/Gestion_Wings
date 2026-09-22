@@ -151,7 +151,7 @@ class CambioPlanCobroTest extends TestCase
 
         $this->assertStringContainsString(
             'chk.dataset.saldo = sugerido;',
-            $html,
+            file_get_contents(resource_path('js/cobrar.js')),
             'El cambio de plan tiene que mover data-saldo junto con el importe sugerido.'
         );
     }

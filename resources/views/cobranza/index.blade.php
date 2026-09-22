@@ -141,6 +141,9 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
             <tr style="border-bottom:1px solid var(--color-border);">
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:600; color:var(--color-text);">
                     {{ $alumno->apellido }}, {{ $alumno->nombre }}
+                    @if(($inscripciones[\App\Services\InscripcionService::dni($alumno->dni)] ?? 0) > 0)
+                        <p class="text-xs">Inscripción pendiente: ${{ number_format($inscripciones[\App\Services\InscripcionService::dni($alumno->dni)], 2, ',', '.') }} (por persona)</p>
+                    @endif
                 </td>
                 <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
                     {{ $alumno->deporte->nombre ?? '–' }}

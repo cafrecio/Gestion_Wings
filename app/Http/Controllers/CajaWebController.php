@@ -644,7 +644,7 @@ class CajaWebController extends Controller
         // Mismo criterio que PagoCuotaService::calcularReglaPrimerPago(): un cobro
         // cancelado no cuenta como pago previo.
         $tienePagos          = Pago::where('alumno_id', $alumnoId)
-            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
             ->exists();
 
         // El descuento solo alcanza al mes en que el alumno entró (o volvió), nunca a
@@ -778,7 +778,7 @@ class CajaWebController extends Controller
 
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
-            'periodos'       => 'required|array|min:1',
+            'periodos'       => 'nullable|array',
             'periodos.*'     => 'required|string|regex:/^\d{4}-\d{2}$/',
             'observaciones'  => 'nullable|string|max:500',
             'montos_cuota'   => 'array',
@@ -788,6 +788,7 @@ class CajaWebController extends Controller
             'confirmar_deuda_anterior' => 'nullable|boolean',
             'confirmar_fecha_vieja'    => 'nullable|boolean',
             'motivo' => 'nullable|string|max:500',
+            'monto_entregado' => 'nullable|numeric|min:0.01|max:99999999.99',
         ]);
 
         $fechaPagoStr = $request->input('fecha_pago') ?: today()->toDateString();
@@ -802,11 +803,13 @@ class CajaWebController extends Controller
             ], 409);
         }
 
+        $request->merge(['periodos' => $request->input('periodos') ?? []]);
         $periodosSolicitados = collect($request->input('periodos'))->sort()->values();
         $periodoMasAntiguo = $periodosSolicitados->first();
         $deudasAnteriores = DeudaCuota::where('alumno_id', $alumnoId)
+            ->when($periodoMasAntiguo === null, fn ($query) => $query->whereRaw('1 = 0'))
             ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-            ->where('periodo', '<', $periodoMasAntiguo)
+            ->when($periodoMasAntiguo !== null, fn ($query) => $query->where('periodo', '<', $periodoMasAntiguo))
             ->orderBy('periodo')
             ->get();
         $requiereAvisoDeudaAnterior = $deudasAnteriores->isNotEmpty();
@@ -843,6 +846,8 @@ class CajaWebController extends Controller
 
         try {
             $resultadoPago = DB::transaction(function () use ($request, $alumno, $alumnoId, $user, $observacionesPago) {
+                app(\App\Services\InscripcionService::class)->bloquear($alumno->dni, false);
+                $alumno = Alumno::whereKey($alumnoId)->lockForUpdate()->firstOrFail();
                 if ($request->filled('nuevo_plan_id')) {
                     $nuevoPlanId = (int) $request->input('nuevo_plan_id');
                     $alumno->loadMissing('planActivo.plan');
@@ -911,6 +916,7 @@ class CajaWebController extends Controller
                     'tipo_caja_id'         => $request->input('tipo_caja_id'),
                     'usuario_operativo_id' => $user->id,
                     'items'                => $items,
+                    'monto_entregado'      => $request->input('monto_entregado'),
                     'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
                     'observaciones'        => $observacionesPago ?: null,
                 ]);

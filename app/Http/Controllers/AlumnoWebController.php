@@ -17,6 +17,29 @@ use Illuminate\Validation\Rule;
 
 class AlumnoWebController extends Controller
 {
+    public function inscripcionPreview(Request $request)
+    {
+        $data = $request->validate(['dni' => 'required|string|max:20', 'fecha_alta' => 'required|date']);
+        $service = app(\App\Services\InscripcionService::class);
+        [$corte, $importe] = $service->parametros();
+        $cargo = $service->cargo($data['dni']);
+        $corresponde = Carbon::parse($data['fecha_alta'])->format('Y-m-d') >= $corte;
+        $mensaje = $cargo
+            ? 'Esta persona ya tiene una inscripción registrada. Saldo: $'.number_format($cargo->saldo_pendiente, 2, ',', '.')
+            : ($corresponde ? 'Corresponde inscripción por única vez: $'.number_format($importe, 2, ',', '.') : 'No corresponde inscripción: ingreso anterior al 23/09/2026.');
+        if ($request->filled('alumno_id')) {
+            $editado = Alumno::findOrFail($request->integer('alumno_id'));
+            if ($editado->fecha_alta->format('Y-m-d') !== Carbon::parse($data['fecha_alta'])->format('Y-m-d') && $cargo) {
+                $mensaje = $cargo->monto_cobrado > 0 ? 'No se puede modificar el ingreso: la inscripción tiene pagos registrados.'
+                    : ($corresponde ? 'Se conservará una única inscripción de $'.number_format($cargo->monto_original, 2, ',', '.')
+                        : 'Se anulará la inscripción sin borrar su historial. Debe indicar el motivo.');
+            }
+        }
+        return response()->json([
+            'importe' => $importe,
+            'mensaje' => $mensaje,
+        ]);
+    }
     public function index(Request $request, CobranzaEstadoService $cobranzaService)
     {
         $query = Alumno::with(['deporte', 'grupo.deporte', 'grupo.nivel']);
@@ -166,6 +189,18 @@ class AlumnoWebController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge(['dni' => \App\Services\InscripcionService::dni((string) $request->input('dni'))]);
+        $request->validate(['alta_token' => 'nullable|uuid']);
+        $fingerprint = hash('sha256', json_encode($request->only(['dni', 'nombre', 'apellido', 'fecha_nacimiento', 'fecha_alta', 'celular', 'email', 'nombre_tutor', 'telefono_tutor', 'grupo_id', 'deporte_id', 'plan_id'])));
+        if ($request->filled('alta_token')) {
+            $anterior = Alumno::where('alta_token', $request->alta_token)->first();
+            if ($anterior && $anterior->alta_fingerprint !== $fingerprint) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['dni' => 'Este formulario ya fue guardado con otros datos. Abra un alta nueva.']);
+            }
+        }
+        if ($request->filled('alta_token') && Alumno::where('alta_token', $request->alta_token)->exists()) {
+            return redirect()->route('web.alumnos.index')->with('success', 'El alumno ya fue creado.');
+        }
         $rules = $this->validationRules($request);
         $rules['dni']     = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->where('deporte_id', $request->input('deporte_id'))];
         $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
@@ -175,8 +210,17 @@ class AlumnoWebController extends Controller
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
         ]));
 
-        DB::transaction(function () use ($validated) {
+        DB::transaction(function () use ($validated, $request, $fingerprint) {
+            app(\App\Services\InscripcionService::class)->bloquear($validated['dni']);
+            if ($request->filled('alta_token')) {
+                $anterior = Alumno::where('alta_token', $request->alta_token)->lockForUpdate()->first();
+                if ($anterior && $anterior->alta_fingerprint !== $fingerprint) {
+                    throw \Illuminate\Validation\ValidationException::withMessages(['dni' => 'Este formulario ya fue guardado con otros datos. Abra un alta nueva.']);
+                }
+                if ($anterior) return;
+            }
             $alumno = Alumno::create(Arr::except($validated, ['plan_id']));
+            $alumno->forceFill(['alta_token' => $request->input('alta_token'), 'alta_fingerprint' => $fingerprint])->save();
 
             AlumnoPlan::create([
                 'alumno_id'   => $alumno->id,
@@ -184,6 +228,11 @@ class AlumnoWebController extends Controller
                 'fecha_desde' => today(),
                 'activo'      => true,
             ]);
+            app(\App\Services\InscripcionService::class)->sincronizar($alumno, $request->user()->id);
+            $cargo = app(\App\Services\InscripcionService::class)->cargo($alumno->dni);
+            if ($request->filled('inscripcion_importe_visto') && $cargo && $cargo->alumno_id === $alumno->id && (float) $request->input('inscripcion_importe_visto') !== (float) $cargo->monto_original) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['fecha_alta' => 'El importe de inscripción cambió. Revise el nuevo importe antes de guardar.']);
+            }
         });
 
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno creado correctamente.');
@@ -247,6 +296,19 @@ class AlumnoWebController extends Controller
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
         ]));
 
+        DB::transaction(function () use ($request, $validated, $alumno) {
+        $inscripcion = app(\App\Services\InscripcionService::class);
+        $inscripcion->bloquear($alumno->dni);
+        $alumno = Alumno::whereKey($alumno->id)->lockForUpdate()->firstOrFail();
+        $fechaAnterior = $alumno->fecha_alta->format('Y-m-d');
+        if ($inscripcion->cargo($alumno->dni) && $inscripcion::dni($validated['dni']) !== $inscripcion::dni($alumno->dni)) {
+            throw \Illuminate\Validation\ValidationException::withMessages(['dni' => 'El DNI está vinculado a una inscripción. Su corrección requiere revisar ese cargo.']);
+        }
+        if ($fechaAnterior !== Carbon::parse($validated['fecha_alta'])->format('Y-m-d')) {
+            $request->validate(['motivo_fecha_alta' => 'required|string|min:5|max:500']);
+            $alumno->fill(Arr::except($validated, ['plan_id']));
+            $inscripcion->sincronizar($alumno, $request->user()->id, $fechaAnterior, $request->input('motivo_fecha_alta'));
+        }
         $alumno->update(Arr::except($validated, ['plan_id']));
 
         // Si se envía un plan distinto al activo, crear nuevo AlumnoPlan
@@ -262,6 +324,7 @@ class AlumnoWebController extends Controller
             }
         }
 
+        });
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno actualizado correctamente.');
     }
 

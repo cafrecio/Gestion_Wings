@@ -4,6 +4,16 @@
 @section('module-title', $alumno->apellido . ', ' . $alumno->nombre)
 
 @section('content')
+@php
+    $inscripcion = app(\App\Services\InscripcionService::class)->cargo($alumno->dni);
+@endphp
+@if($inscripcion)
+<div class="alumno-card mb-3">
+    <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
+    <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: $'.number_format($inscripcion->saldo_pendiente, 2, ',', '.') }}</p>
+</div>
+@endif
+
 
 @php
     $dep = mb_strtolower($alumno->deporte->nombre ?? '');

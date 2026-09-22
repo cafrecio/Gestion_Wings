@@ -28,7 +28,7 @@ class CobranzaEstadoService
         $fecha = $fecha ?? Carbon::now();
         $deudas = DeudaCuota::where('alumno_id', $alumnoId)->get();
         $tienePagos = Pago::where('alumno_id', $alumnoId)
-            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
             ->exists();
 
         return array_merge([
@@ -59,7 +59,7 @@ class CobranzaEstadoService
             ->get()
             ->groupBy('alumno_id');
         $alumnosConPagos = Pago::whereIn('alumno_id', $alumnoIds)
-            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
             ->distinct()
             ->pluck('alumno_id')
             ->flip();
@@ -95,7 +95,7 @@ class CobranzaEstadoService
             ])
             ->withExists([
                 'pagos as tiene_pagos_registrados' => fn($q) => $q
-                    ->where('estado', Pago::ESTADO_COMPLETADO),
+                    ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota(),
             ]);
 
         if ($deporteId) {
@@ -140,7 +140,7 @@ class CobranzaEstadoService
             ->with(['deudaCuotas', 'deporte', 'grupo.deporte', 'grupo.nivel'])
             ->withExists([
                 'pagos as tiene_pagos_registrados' => fn($q) => $q
-                    ->where('estado', Pago::ESTADO_COMPLETADO),
+                    ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota(),
             ])
             ->get();
 

@@ -144,8 +144,8 @@ class CambioPlanConDescuentoMatrizTest extends TestCase
             ->assertOk()
             ->getContent();
 
-        $this->assertStringContainsString('parseFloat(this.dataset.precioMes)', $html);
-        $this->assertStringNotContainsString('parseInt(this.dataset.precio, 10)', $html);
+        $this->assertStringContainsString('parseFloat(this.dataset.precioMes)', file_get_contents(resource_path('js/cobrar.js')));
+        $this->assertStringNotContainsString('parseInt(this.dataset.precio, 10)', file_get_contents(resource_path('js/cobrar.js')));
     }
 
     /**

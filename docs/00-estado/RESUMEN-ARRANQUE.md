@@ -32,7 +32,7 @@
 
 ## Trabajo que continúa
 
-- **MUY IMPORTANTE — ENT-01/ENT-10 (22/09):** inscripción según ingreso real frente a corte fijo, nunca por fecha de carga ni modo temporal. Inicial .000 obligatorio, una vez con primera cuota. [Decisión y manuales pendientes](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Falta fijar fecha concreta; sin implementación en este turno.
+- **ENT-01 implementada (22/09):** inscripción inicial $5.000 por DNI; ingreso real frente al corte fijo **23/09/2026**, nunca fecha de carga. Cobro primero de inscripción, sin comisión, desglose en caja/recibo. [Regla y ENT-10 pendiente](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Sin deploy; revisión y servidor por Claude.
 
 - Reportes: gastos generales separados como «Gastos del club», sin reparto ni descuento del resultado por deporte; sí del total del negocio (22/09). [Decisiones de la encuesta](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). La entrevista derivó en POS-07: [plan de canchas y liquidaciones v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y pruebas. Costos solo ADMIN; mes o fechas elegidas, únicamente clases dictadas y pendientes de liquidar, sin duplicarlas. Plan documentado; sin implementación ni despliegue. SaaS futuro fuera del alcance; particulares en rama separada.
 
@@ -75,7 +75,7 @@
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
 - Balance filtrado definido 22/09 (FIN-04); implementación de Reportes pendiente. Revisiones y límites de fechas: consultar estados individuales del plan.
 - DEUDOR sin pagos y sin saldo; descuento de primer pago para importados.
-- Tratamiento contable de inscripción; alcance de arqueo.
+- Alcance de arqueo. Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan
 

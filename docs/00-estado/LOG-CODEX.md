@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-22 — Codex CAB — ENT-01 propuesta previa a implementación
+
+Pull inicial sin novedades; corte confirmado 23/09/2026, por fecha real de ingreso.
+[Propuesta revisable](../05-pendientes/ENT-01-PROPUESTA-CARGOS-ADICIONALES.md): cargos comunes,
+imputaciones separadas, un pago/recibo y movimientos por concepto, sin duplicar caja.
+Contraste de fuentes: punitorios §5 requiere enmienda; pagos afectan estado y comisión.
+Decisiones abiertas: parciales, identidad por persona/deporte, fecha y permiso visual.
+Índice actualizado y cuerpos reales leídos; enlaces/diff revisados, sin suite ni base.
+Sin código ni deploy. Siguiente: revisión de Carlos antes de pruebas en rojo e implementación.
+[Entrada antigua archivada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-ENT01-PROPUESTA.md).
+
 ## 2026-09-22 — Codex CAB — FIN-04 definición funcional cerrada
 
 Carlos confirma gastos del club separados, sin descontarlos del resultado por deporte.
@@ -132,13 +143,3 @@ Suite completa única: 202 pruebas / 1275 aserciones, 48,87 s en wings_testing; 
 Sintaxis y compilación Blade correctas; tableros, contrato y tres conteos actualizados.
 Sin deploy ni migración en base del club. Revisión visual en navegador pendiente.
 Cambio ajeno .claude/settings.json excluido. Siguiente: revisión cruzada y despliegue.
-
-## 2026-09-13 — Codex CAB — FIN-11 revalidada, pausa levantada
-
-Carlos pidió actualizar y cerrar FIN-11; git pull confirmó repo actualizado en 18aa14a.
-5f65dbd ya integrado. Revisados cuerpos de servicios, contrato Caja/Cashflow V4 y seis casos.
-Suite reejecutada en wings_testing: 187 pruebas / 1206 aserciones, 42,40 segundos.
-Sintaxis de cuatro PHP y compilación/limpieza de vistas correctas; sin cambios de diseño.
-Ambos tableros, estado, checklist, resumen y evidencia actualizados para retirar la pausa.
-Alcance: cobrar/cancelar/validar; recálculo/cierre de liquidaciones sigue pendiente separado.
-Sin deploy ni operaciones sobre datos del club. Siguiente: revisión cruzada y despliegue.

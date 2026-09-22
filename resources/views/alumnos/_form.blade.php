@@ -4,6 +4,23 @@ $iconAttr = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor"
 $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
 @endphp
 
+@unless(isset($alumno))
+    <input type="hidden" name="alta_token" value="{{ old('alta_token', (string) \Illuminate\Support\Str::uuid()) }}">
+@endunless
+<input type="hidden" name="inscripcion_importe_visto" id="inscripcion-importe-visto">
+<p id="inscripcion-aviso" class="filtros-card text-sm mb-3" aria-live="polite"
+   data-alumno="{{ $alumno->id ?? '' }}" data-url="{{ route('web.alumnos.inscripcion-preview') }}">Ingrese el DNI y la fecha real de ingreso para consultar la inscripción.</p>
+@isset($alumno)
+<div class="mb-3">
+    <label for="motivo_fecha_alta">Motivo si corrige la fecha de ingreso</label>
+    <input id="motivo_fecha_alta" name="motivo_fecha_alta" value="{{ old('motivo_fecha_alta') }}" maxlength="500" class="wings-input">
+    @error('motivo_fecha_alta') <p>{{ $message }}</p> @enderror
+</div>
+@endisset
+@push('scripts')
+    @vite('resources/js/alumnos-inscripcion.js')
+@endpush
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {{-- Nombre --}}
     <div>

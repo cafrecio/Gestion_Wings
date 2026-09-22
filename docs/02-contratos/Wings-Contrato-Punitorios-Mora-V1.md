@@ -95,29 +95,29 @@ historia: los recargos ya aplicados siguen existiendo, y no se aplican nuevos.
 
 ## 5. Dónde se guarda
 
-Sobre `deuda_cuotas`, que hoy tiene `id`, `alumno_id`, `periodo`, `monto_original`,
-`monto_pagado`, `estado`, `observaciones` (verificado contra la base).
+**Enmienda aprobada por Carlos el 22/09/2026 (ENT-01).** El recargo se guarda en
+`cargos_alumno`, tipo `PUNITORIO`, con `deuda_cuota_id` y clave de origen única
+`punitorio:deuda:{id}`. Sustituye las columnas `recargo_*` propuestas anteriormente
+para `deuda_cuotas`. No hay dos mecanismos ni se suma el recargo al capital mensual.
 
-| Campo nuevo | Para qué |
-|---|---|
-| `recargo_porcentaje` | El porcentaje que se aplicó, congelado |
-| `recargo_monto` | El importe que se aplicó, congelado |
-| `recargo_condonado` | Cuánto de ese recargo se perdonó |
-| `recargo_aplicado_el` | La fecha en que se aplicó. **Es lo que garantiza que se aplique una sola vez**: si tiene fecha, no se vuelve a tocar |
+- `monto_original`: importe del recargo, congelado.
+- `calculo`: porcentaje aplicado, base original y fecha de aplicación, congelados.
+- `monto_condonado`: importe perdonado, con usuario, fecha y motivo en el historial
+  `cargo_alumno_eventos`. Solo ADMIN; se conserva la regla de §7.
+- `pago_cargo_alumno`: cada imputación del pago al cargo. Lo pagado se obtiene de
+  esas imputaciones, sin otro acumulador que pueda contradecirlas.
+- La unicidad de `clave_origen` impide aplicar dos veces el punitorio a la misma
+  cuota, incluso con procesos concurrentes. El cargo no se borra al cancelarlo.
 
-**Sobre el campo `pagado`: no se guarda, se deduce.** Carlos lo había enumerado entre
-los campos y el 06/09 delegó la decisión. Queda así.
+`pago_deuda_cuota` registra únicamente capital de cuota. Se conserva la invariante
+`deuda.monto_pagado = suma de imputaciones a esa cuota`. El total de un pago incluye
+sus imputaciones a cuotas y cargos; el recibo las muestra separadas. Ni inscripción
+ni punitorios integran comisiones docentes. Los pagos anteriores conservan su significado.
 
-El motivo es concreto: hoy rige la invariante **`deuda.monto_pagado` = suma de sus
-imputaciones en `pago_deuda_cuota`**. Si además guardamos cuánto se pagó del recargo,
-pasa a haber dos lugares que dicen cuánta plata entró, y tarde o temprano dicen cosas
-distintas. Como la cuota se cubre antes que el recargo (§6), la cuenta sale sola:
-
-- Lo pagado de la cuota es lo que haya entrado, hasta el tope de `monto_original`.
-- Lo pagado del recargo es lo que sobre de eso.
-
-Un solo lugar con la verdad, y el recibo puede mostrar los dos renglones igual.
-**Si preferís que se guarde igual, se guarda: es tu decisión, no mía.**
+ENT-01 prepara la estructura compartida. **El motor que aplica mora sigue pendiente
+como FIN-14**; tampoco se publican sus claves de configuración sin ese motor. No se
+cambian porcentaje/importe congelados, una vez por cuota, condonación ADMIN con
+motivo, mes en recibo ni el rubro Punitorios → Punitorio Cuota.
 
 ## 6. Cómo se cobra
 
@@ -256,7 +256,7 @@ un comando concreto no es un criterio.
 | 1 | Con porcentaje 0 no cambia nada | La suite completa en verde **sin tocar ninguna prueba existente**. Si hay que ajustar pruebas viejas, el requisito no se cumplió |
 | 2 | Las dos claves existen en una base recién migrada | `migrate:fresh` sobre base descartable y consulta de las dos filas |
 | 3 | **Las dos claves se leen de verdad** | Cambiar el valor por pantalla, y comprobar que el comportamiento cambia. Sin esta prueba repetimos `dia_generacion_deuda` |
-| 4 | El recargo se aplica una sola vez | Correr el proceso dos veces sobre la misma cuota y comparar `recargo_monto` y `recargo_aplicado_el` antes y después |
+| 4 | El recargo se aplica una sola vez | Correr el proceso dos veces sobre la misma cuota y comprobar un solo cargo `punitorio:deuda:{id}`, su importe y fecha de aplicación congelados antes y después |
 | 5 | El recargo queda congelado | Aplicarlo, cambiar `mora_porcentaje`, y comprobar que la cuota vieja conserva su importe |
 | 6 | Cada mes impago lleva el suyo | Alumno con tres meses impagos: tres recargos, calculados sobre el `monto_original` de cada mes |
 | 7 | Se cobra la cuota antes que el recargo | Pago parcial menor a la cuota: la imputación no toca el recargo |
@@ -295,5 +295,5 @@ un comando concreto no es un criterio.
 | Sobre cada mes impago por separado | Carlos, 06/09 |
 | También sobre el mes en curso, pasado el día | Carlos, 06/09 |
 | Los recargos aplicados no se recalculan | Carlos, 06/09 |
-| No guardar `recargo_pagado`, deducirlo | Carlos delega la decisión el 06/09; queda deducido (§5) |
+| Pagado del recargo por imputaciones al cargo | Enmienda Carlos 22/09; `pago_cargo_alumno` (§5) |
 | Dentro de cada mes, cuota antes que recargo | **Lectura mía de la regla, §6** |

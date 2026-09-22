@@ -125,6 +125,17 @@ class LiquidacionComisionHistoricaTest extends TestCase
         ]);
     }
 
+    public function test_comision_excluye_inscripcion_del_pago_mixto(): void
+    {
+        $alumno = $this->crearAlumno();
+        $this->crearClaseConAsistencia($alumno);
+        Pago::create(['alumno_id' => $alumno->id, 'mes' => 9, 'anio' => 2026,
+            'fecha_pago' => '2026-09-10', 'monto_base' => 30000, 'porcentaje_aplicado' => 100,
+            'monto_final' => 35000, 'monto_cuota' => 30000, 'estado' => Pago::ESTADO_COMPLETADO]);
+        $liquidacion = $this->service->generarLiquidacionMensual($this->profesor->id, 9, 2026);
+        $this->assertEquals(12000, $liquidacion->total_calculado);
+    }
+
     public function test_alumno_dado_de_baja_posteriormente_aparece_en_liquidacion_del_mes_que_pago_y_asistio(): void
     {
         $alumno = $this->crearAlumno();

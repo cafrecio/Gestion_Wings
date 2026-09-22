@@ -51,6 +51,11 @@ class CatalogosSeeder extends Seeder
                     ['nombre' => 'Cuota Mensual', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'es_reservado_sistema' => true],
                 ],
             ],
+            'Inscripciones' => [
+                'tipo' => 'INGRESO', 'observacion' => 'Inscripción por única vez por persona',
+                'es_reservado_sistema' => true,
+                'subrubros' => [['nombre' => 'Inscripción al club', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'es_reservado_sistema' => true]],
+            ],
             'Intereses' => [
                 'tipo' => 'INGRESO',
                 'observacion' => 'Intereses generados por cuentas bancarias o plataformas de pago',

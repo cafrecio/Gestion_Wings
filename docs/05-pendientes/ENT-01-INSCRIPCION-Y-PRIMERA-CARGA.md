@@ -1,49 +1,56 @@
 # ENT-01 — Inscripción y primera carga manual
 
-Decisión de Carlos, 22/09/2026. Definición documentada; implementación pendiente.
+**Aprobado por Carlos el 22/09/2026.** Implementada y verificada localmente para
+la versión de prueba PRU-02; sin deploy. [Diseño técnico aprobado](ENT-01-PROPUESTA-CARGOS-ADICIONALES.md).
 
 ## MUY IMPORTANTE: fecha real de ingreso
 
-Los usuarios cargarán los alumnos manualmente para familiarizarse con Wings.
-La fecha real de ingreso al club determina si se genera inscripción, comparada
-con una fecha fija de inicio del sistema:
+Los usuarios cargarán alumnos manualmente para familiarizarse con Wings. Comparar
+`alumnos.fecha_alta`, ingreso real, con **23/09/2026** inclusive. Antes no corresponde;
+desde el corte sí. Nunca usar `created_at`, un modo temporal ni preguntar nuevo/antiguo.
+No generar inscripción retroactiva por migrar alumnos existentes.
 
-- Ingreso anterior al inicio: no generar deuda de inscripción.
-- Ingreso desde esa fecha, inclusive: generar la inscripción una sola vez.
-- No usar fecha de creación del registro como sustituto del ingreso real.
-- No usar un modo de carga inicial que pueda quedar activado.
-- No preguntar permanentemente si es alumno nuevo o antiguo.
+Si no se conoce la fecha real, no inventarla: el procedimiento sigue pendiente.
+El formulario propone hoy; el manual debe explicar cambiarlo por la fecha real
+para alumnos antiguos, aunque se carguen hoy o dentro de varios años.
 
-El formulario propone hoy como fecha de ingreso; para alumnos antiguos el usuario
-debe cargar su fecha real. Esto debe explicarse claramente en los manuales.
-**Fecha de corte: 23/09/2026** (Carlos, 22/09/2026). No inventar fechas de
-ingreso antiguas. Si se desconoce el ingreso de un alumno, falta definir cómo registrarlo.
+## Decisiones de inscripción
 
-## Importe y cobro acordados
+- Una inscripción **por persona/DNI**, aunque esté en dos deportes. Clave única
+  `inscripcion:dni:{dni_normalizado}`. El cargo se consulta/cobra desde cualquiera.
+- Importe requerido en Configuración, inicial $5.000; fecha de corte fija, sin edición
+  normal. El cargo guarda el importe vigente y no cambia por aumentos posteriores.
+- Alta, plan inicial y cargo en una transacción; reintento no duplica.
+- Se cobra junto con la primera cuota. Si no alcanza: **primero inscripción y luego
+  cuota**. El saldo restante queda visible. No ocultar la inscripción dentro de la cuota.
+- Un pago, un recibo; desglose por concepto. Caja recibe solo lo efectivamente cobrado,
+  sin duplicar al separar movimientos o al validar la caja.
+- Inscripción y punitorios no integran comisiones docentes. El estado de cobranza de
+  cuotas no se altera por deuda o pago de inscripción solos. Pagos históricos preservados.
+- Anular el cobro revierte todas sus imputaciones y movimientos en una transacción;
+  conserva detalle para el recibo anulado. No elimina la deuda de inscripción.
 
-- Valor obligatorio, no nulo, en Configuración: inicialmente $5.000.
-- Inscripción por única vez; la deuda se crea con el alta elegible.
-- Se paga junto con la primera cuota, identificable como inscripción.
-- No generar automáticamente inscripción a todos los alumnos ya existentes.
+## Corrección de fecha de ingreso
 
-## Propuesta de implementación (no código implementado)
+Se permite con motivo. Sin pagos de inscripción, la corrección se compara con el corte:
+si queda antes, se anula el cargo sin borrarlo, con usuario, fecha y motivo; si queda
+desde el corte y no existía cargo, se crea. Un cargo anulado se reactiva, conservando
+su identidad y monto original, al volver a corregir desde el corte. No generar dos.
+Si tiene algún pago vigente, incluso parcial y desde otro deporte, rechazar la edición
+con mensaje claro. Todo es transaccional; no modificar cobros emitidos.
 
-1. Revisar el campo de ingreso existente y el flujo de alta antes de elegir tablas
-   o cambios. Registrar una fecha fija de inicio una sola vez, sin fecha móvil ni
-   interruptor operativo. No permitir cambios casuales del corte que alteren reglas.
-2. Al guardar alumno, comparar ingreso con corte en servidor. Crear alumno y deuda
-   en una misma transacción cuando corresponda; impedir duplicados por reintento.
-3. Guardar en la deuda el importe de inscripción vigente al alta; futuros cambios
-   de configuración no deben cambiar deudas ya creadas.
-4. Mostrar antes de guardar si se generará inscripción y su importe. Reutilizar el
-   diseño Wings; no modificar vistas sin autorización concreta y lecturas obligatorias.
-5. Integrar con primera cuota y recibo sin duplicar ingresos ni imponer reglas de
-   pago parcial aún no definidas. Precisar rubro/subrubro y tratamiento de parciales
-   antes de implementar esos caminos.
-6. Corregir después la fecha de ingreso no debe crear/borrar deudas o pagos a
-   escondidas: definir el procedimiento de corrección antes de implementar ese caso.
-7. Verificar ingreso antes/en/después del corte, carga tardía de alumno antiguo,
-   primer cobro, configuración sin valor, reintento y fallo sin alta parcial.
+La corrección de DNI cuando existe inscripción requiere un procedimiento específico;
+el sistema la rechaza para no separar una persona de su deuda por una edición casual.
+No hay condonación manual de inscripción en este alcance.
+
+## Punitorios y pantallas
+
+Aprobado también el reemplazo de §5 de Punitorios: `cargos_alumno`, tipo `PUNITORIO`,
+clave `punitorio:deuda:{id}`. **FIN-14 queda pendiente:** no motor ni configuración de mora.
+
+Autorización escrita de Carlos:
+
+`Diseno-autorizado: Carlos aprueba ENT-01: aviso previo de inscripcion, configuracion y desglose en cobranza, estado de cuenta y recibo, conservando el diseno Wings.`
 
 ## ENT-10 — Manuales de primera carga (PENDIENTE)
 
@@ -61,3 +68,5 @@ Explicar en lugar destacado:
 Validar los manuales contra las pantallas realmente implementadas y probar su
 comprensión con un usuario no técnico. No publicar capturas o pasos inventados.
 Los manuales no se consideran terminados por existir esta orden de trabajo.
+
+[Evidencia de implementación y verificación](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md).

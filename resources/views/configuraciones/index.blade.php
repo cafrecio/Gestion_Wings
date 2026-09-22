@@ -23,7 +23,13 @@
 
     <div style="padding:0 0 4px 1.5rem; display:flex; align-items:center; gap:12px;">
 
-        @if($config->tipo === 'boolean')
+        @if($config->clave === 'inscripcion_fecha_corte')
+            <span>{{ \Carbon\Carbon::parse($config->valor)->format('d/m/Y') }} — fecha fija</span>
+        @elseif($config->clave === 'inscripcion_importe')
+            <input type="number" min="0.01" step="0.01" max="99999999.99" required
+                   id="cfg-{{ $config->clave }}" value="{{ $config->valor }}"
+                   data-clave="{{ $config->clave }}" class="wings-input cfg-field">
+        @elseif($config->tipo === 'boolean')
             <x-ds.toggle
                 labelOn="Sí"
                 labelOff="No"

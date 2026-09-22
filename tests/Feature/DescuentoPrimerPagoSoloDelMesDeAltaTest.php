@@ -185,7 +185,7 @@ class DescuentoPrimerPagoSoloDelMesDeAltaTest extends TestCase
             ->get(route('web.caja.cobrar', $alumno->id))
             ->assertOk()
             ->assertSee('70%')
-            ->assertSee('var periodoConDescuento = "2026-08"', false);
+            ->assertSee('data-periodo-descuento="2026-08"', false);
     }
 
     private function alumnoConAlta(string $fechaAlta): Alumno

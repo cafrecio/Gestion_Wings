@@ -20,12 +20,19 @@ class ConfiguracionWebController extends Controller
     {
         $config = Configuracion::where('clave', $clave)->firstOrFail();
 
+        if ($clave === 'inscripcion_fecha_corte') {
+            throw \Illuminate\Validation\ValidationException::withMessages(['valor' => 'La fecha de corte de inscripción es fija y no se puede modificar.']);
+        }
+
         $rules = match ($config->tipo) {
             'integer' => ['valor' => 'required|integer|min:1|max:31'],
             'boolean' => ['valor' => 'required|boolean'],
             default   => ['valor' => 'required|string|max:255'],
         };
 
+        if ($clave === 'inscripcion_importe') {
+            $rules = ['valor' => 'required|numeric|min:0.01|max:99999999.99|decimal:0,2'];
+        }
         $validated = $request->validate($rules);
 
         $config->update(['valor' => (string) $validated['valor']]);

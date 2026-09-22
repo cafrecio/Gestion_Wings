@@ -10,6 +10,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/grupos.js',
                 'resources/js/usuarios.js',
+                'resources/js/alumnos-inscripcion.js',
+                'resources/js/cobrar.js',
             ],
             refresh: true,
         }),

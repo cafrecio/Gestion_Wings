@@ -38,6 +38,8 @@ class PagoCuotaService
     public function registrarPagoCuotaOperativo(array $data): array
     {
         return DB::transaction(function () use ($data) {
+            $dni = Alumno::findOrFail($data['alumno_id'])->dni;
+            app(InscripcionService::class)->bloquear($dni, false);
             $this->bloquearAlumnoParaPago($data['alumno_id']);
 
             // Tomar deuda y caja antes de escribir. Comparte las filas con
@@ -64,7 +66,9 @@ class PagoCuotaService
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
-            $montoTotal = $this->calcularMontoTotal($items);
+            [$items, $cargoInscripcion, $montoInscripcion] = $this->distribuirInscripcion($data, $items);
+            $montoCuota = $this->calcularMontoTotal($items);
+            $montoTotal = round($montoCuota + $montoInscripcion, 2);
 
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
@@ -83,30 +87,44 @@ class PagoCuotaService
                 $fechaPago,
                 $data['observaciones'] ?? null,
                 $porcentaje,
-                $reglaId
+                $reglaId,
+                $montoCuota
             );
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
 
+            if ($montoInscripcion > 0) {
+                $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);
+            }
+
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
-            Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+            if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
 
             // Crear movimiento operativo (abre caja si no existe)
             // Usa método interno para permitir subrubro reservado "Cuota Mensual"
-            $movimiento = $this->cajaService->registrarMovimientoOperativoInterno([
+            $movimiento = $montoCuota > 0 ? $this->cajaService->registrarMovimientoOperativoInterno([
                 'usuario_operativo_id' => $data['usuario_operativo_id'],
                 'tipo_caja_id'         => $data['tipo_caja_id'],
                 'subrubro_id'          => $subruboCuota->id,
-                'monto'                => $montoTotal,
+                'monto'                => $montoCuota,
                 'fecha'                => $fechaPago,
                 'observaciones'        => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
                 'alumno_id'            => $data['alumno_id'],
                 'pago_id'              => $pago->id,
-            ]);
+            ]) : null;
+            if ($montoInscripcion > 0) {
+                $movCargo = $this->cajaService->registrarMovimientoOperativoInterno([
+                    'usuario_operativo_id' => $data['usuario_operativo_id'], 'tipo_caja_id' => $data['tipo_caja_id'],
+                    'subrubro_id' => $cargoInscripcion->subrubro_id, 'monto' => $montoInscripcion,
+                    'fecha' => $fechaPago, 'observaciones' => 'Inscripción al club - pago #'.$pago->id,
+                    'alumno_id' => $data['alumno_id'], 'pago_id' => $pago->id,
+                ]);
+                $movimiento ??= $movCargo;
+            }
 
             $resultado = [
                 'pago' => $pago->load('deudasCuota'),
@@ -138,6 +156,8 @@ class PagoCuotaService
     public function registrarPagoCuotaAdmin(array $data): array
     {
         return DB::transaction(function () use ($data) {
+            $dni = Alumno::findOrFail($data['alumno_id'])->dni;
+            app(InscripcionService::class)->bloquear($dni, false);
             $this->bloquearAlumnoParaPago($data['alumno_id']);
 
             $subruboCuota = $this->obtenerSubrubroCuota();
@@ -157,7 +177,9 @@ class PagoCuotaService
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
-            $montoTotal = $this->calcularMontoTotal($items);
+            [$items, $cargoInscripcion, $montoInscripcion] = $this->distribuirInscripcion($data, $items);
+            $montoCuota = $this->calcularMontoTotal($items);
+            $montoTotal = round($montoCuota + $montoInscripcion, 2);
 
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
@@ -176,29 +198,44 @@ class PagoCuotaService
                 $fechaPago,
                 $data['observaciones'] ?? null,
                 $porcentaje,
-                $reglaId
+                $reglaId,
+                $montoCuota
             );
 
             // Relacionar pago con deudas
             $this->relacionarPagoConDeudas($pago, $items, $deudasActualizadas, $montosAplicados);
 
+            if ($montoInscripcion > 0) {
+                $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);
+            }
+
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
-            Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+            if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
 
             // Crear movimiento en cashflow directo
-            $movimiento = CashflowMovimiento::create([
+            $movimiento = $montoCuota > 0 ? CashflowMovimiento::create([
                 'fecha' => $fechaPago,
                 'subrubro_id' => $subruboCuota->id,
                 'tipo_caja_id' => $data['tipo_caja_id'],
-                'monto' => $montoTotal,
+                'monto' => $montoCuota,
                 'observaciones' => $this->generarObservacionesPago($data['alumno_id'], $items, $data['observaciones'] ?? null),
                 'usuario_admin_id' => $data['usuario_admin_id'],
                 'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA,
                 'referencia_id' => $pago->id,
-            ]);
+            ]) : null;
+            if ($montoInscripcion > 0) {
+                $movCargo = CashflowMovimiento::create([
+                    'fecha' => $fechaPago, 'subrubro_id' => $cargoInscripcion->subrubro_id,
+                    'tipo_caja_id' => $data['tipo_caja_id'], 'monto' => $montoInscripcion,
+                    'observaciones' => 'Inscripción al club - pago #'.$pago->id,
+                    'usuario_admin_id' => $data['usuario_admin_id'],
+                    'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA, 'referencia_id' => $pago->id,
+                ]);
+                $movimiento ??= $movCargo;
+            }
 
             $resultado = [
                 'pago' => $pago->load('deudasCuota'),
@@ -554,12 +591,13 @@ class PagoCuotaService
     /**
      * Crear el registro de pago.
      */
-    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, float $porcentaje = 100.0, ?int $reglaId = null): Pago
+    private function crearPago(int $alumnoId, float $montoTotal, string $fechaPago, ?string $observaciones, float $porcentaje = 100.0, ?int $reglaId = null, ?float $montoCuota = null): Pago
     {
         $fechaCarbon = Carbon::parse($fechaPago);
+        $montoCuota ??= $montoTotal;
         $montoBase   = $porcentaje < 100
-            ? round($montoTotal / ($porcentaje / 100), 2)
-            : $montoTotal;
+            ? round($montoCuota / ($porcentaje / 100), 2)
+            : $montoCuota;
 
         return Pago::create([
             'alumno_id'            => $alumnoId,
@@ -570,6 +608,7 @@ class PagoCuotaService
             'monto_base'           => $montoBase,
             'porcentaje_aplicado'  => $porcentaje,
             'monto_final'          => $montoTotal,
+            'monto_cuota'          => $montoCuota,
             'fecha_pago'           => $fechaPago,
             'observaciones'        => $observaciones,
             'estado'               => Pago::ESTADO_COMPLETADO,
@@ -609,7 +648,7 @@ class PagoCuotaService
         // Pago con estado ANULADO, y sin este filtro le sacaba el descuento de
         // bienvenida a un alumno al que nunca le entro plata.
         $tienePagos = Pago::where('alumno_id', $alumnoId)
-            ->where('estado', Pago::ESTADO_COMPLETADO)
+            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
             ->exists();
 
         if (!$alumno) {
@@ -798,6 +837,7 @@ class PagoCuotaService
             $alumnoId = $referencia->alumno_id
                 ?? Pago::whereKey($referencia->pago_id)->value('alumno_id');
             if ($alumnoId) {
+                app(InscripcionService::class)->bloquear(Alumno::findOrFail($alumnoId)->dni, false);
                 Alumno::whereKey($alumnoId)->lockForUpdate()->firstOrFail();
             }
             $caja = \App\Models\CajaOperativa::whereKey($referencia->caja_operativa_id)
@@ -832,6 +872,7 @@ class PagoCuotaService
             // Se guarda en la misma transaccion que la reversion del cobro.
             $pago->detalle_anulacion = [
                 'motivo' => $motivo,
+                'cargos' => $pago->cargos->map(fn ($c) => ['periodo' => '', 'periodo_texto' => 'Inscripción al club', 'monto_aplicado' => $c->pivot->monto_aplicado])->all(),
                 'periodos' => $pagoDeudas->map(fn ($pd) => [
                     'periodo' => $pd->deudaCuota->periodo,
                     'monto_aplicado' => $pd->monto_aplicado,
@@ -860,19 +901,38 @@ class PagoCuotaService
             }
 
             PagoDeudaCuota::where('pago_id', $pago->id)->delete();
+            $pago->cargos()->detach();
 
             $pago->estado = 'ANULADO';
             $pago->save();
 
-            $movimiento->estado = 'CANCELADO';
-            $movimiento->motivo_cancelacion = $motivo;
-            $movimiento->save();
+            MovimientoOperativo::where('pago_id', $pago->id)->update(['estado' => 'CANCELADO', 'motivo_cancelacion' => $motivo]);
         });
     }
 
     /**
      * Agregar observación a texto existente con timestamp.
      */
+    private function distribuirInscripcion(array $data, array $items): array
+    {
+        $cargo = app(InscripcionService::class)->cargo(Alumno::findOrFail($data['alumno_id'])->dni);
+        $saldo = $cargo?->saldo_pendiente ?? 0;
+        $totalCuotas = $this->calcularMontoTotal($items);
+        $entregado = round((float) ($data['monto_entregado'] ?? ($totalCuotas + $saldo)), 2);
+        if ($entregado <= 0 || $entregado > round($totalCuotas + $saldo, 2)) {
+            throw new \RuntimeException('El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.');
+        }
+        $inscripcion = min($entregado, $saldo);
+        $resto = round($entregado - $inscripcion, 2);
+        $cuotas = [];
+        foreach ($items as $item) {
+            $monto = min($resto, (float) $item['monto']);
+            if ($monto > 0) $cuotas[] = ['periodo' => $item['periodo'], 'monto' => $monto];
+            $resto = round($resto - $monto, 2);
+        }
+        return [$cuotas, $cargo, $inscripcion];
+    }
+
     private function agregarObservacion(?string $existente, string $nueva): string
     {
         $timestamp = Carbon::now()->format('Y-m-d H:i:s');
