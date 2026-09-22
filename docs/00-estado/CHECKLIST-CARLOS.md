@@ -62,7 +62,7 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 290 pruebas deben pasar
+php artisan test          # 313 pruebas deben pasar
 ```
 
 Corte verificado del 21/09: **290 pruebas**, todas verdes.
@@ -121,8 +121,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   lista siempre los ajustes cargados despues, con fecha de carga y quien los cargo.
 - [ ] **PRU-03:** confirmar que significa DEUDOR cuando el alumno no tiene pagos ni
   saldo pendiente.
-- [ ] **ENT-01:** confirmar como se contabiliza la inscripcion configurable del alumno
-  nuevo.
+- [x] **ENT-01:** aprobado el 22/09: una inscripción por DNI, cargos separados, cobro
+  primero de inscripción, sin comisión. Implementada; revisión cruzada y actualización
+  del servidor por Claude. ENT-10 conserva los manuales pendientes.
 
 ## 3. Recursos que faltan
 

@@ -2,7 +2,11 @@
 
 namespace App\Services;
 
+use App\Models\AlumnoRevisionCobranza;
+use App\Models\CajaOperativa;
 use App\Models\Configuracion;
+use App\Models\Liquidacion;
+use App\Models\MovimientoOperativo;
 use App\Models\User;
 use App\Notifications\AvisoOperativo;
 use Illuminate\Support\Facades\Log;
@@ -54,6 +58,129 @@ class AvisoAdminService
             $datos,
             'El movimiento queda con su fecha real, así que el resultado de ese mes cambia.',
         );
+    }
+
+    /**
+     * Resumen diario de pendientes operativos para el ADMIN (ENT-06).
+     *
+     * Informa:
+     * 1. Cajas cerradas sin validar (cantidad, monto total neto y la más vieja).
+     * 2. Revisiones de cobranza pendientes (cantidad y la más vieja).
+     * 3. Liquidaciones cerradas sin pagar (cantidad y total a pagar) y abiertas (aparte, no se suman).
+     *
+     * Si no hay nada pendiente en ninguna de las tres áreas, no envía nada y retorna false.
+     * Si hay al menos un pendiente, envía el aviso por correo y Telegram y retorna true.
+     */
+    public function resumenDiario(): bool
+    {
+        $cajasCerradas = CajaOperativa::query()
+            ->where('estado', CajaOperativa::ESTADO_CERRADA)
+            ->with(['usuarioOperativo', 'movimientos.subrubro.rubro'])
+            ->orderBy('apertura_at', 'asc')
+            ->get();
+
+        $revisiones = AlumnoRevisionCobranza::query()
+            ->where('estado_revision', AlumnoRevisionCobranza::ESTADO_PENDIENTE)
+            ->with('alumno')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        $liqCerradasSinPagar = Liquidacion::query()
+            ->where('estado', Liquidacion::ESTADO_CERRADA)
+            ->where('estado_pago', Liquidacion::ESTADO_PAGO_PENDIENTE)
+            ->get();
+
+        $cantLiqAbiertas = Liquidacion::query()
+            ->where('estado', Liquidacion::ESTADO_ABIERTA)
+            ->count();
+
+        $cantCajas = $cajasCerradas->count();
+        $cantRevisiones = $revisiones->count();
+        $cantLiqCerradas = $liqCerradasSinPagar->count();
+
+        if ($cantCajas === 0 && $cantRevisiones === 0 && $cantLiqCerradas === 0 && $cantLiqAbiertas === 0) {
+            return false;
+        }
+
+        $formatoMonto = fn (float|int $monto): string => '$' . number_format($monto, fmod($monto, 1.0) == 0.0 ? 0 : 2, ',', '.');
+
+        $datos = [];
+
+        if ($cantCajas > 0) {
+            $montoTotalCajas = 0.0;
+            foreach ($cajasCerradas as $caja) {
+                foreach ($caja->movimientos as $mov) {
+                    if ($mov->estado !== MovimientoOperativo::ESTADO_ACTIVO) {
+                        continue;
+                    }
+                    $tipo = $mov->subrubro?->rubro?->tipo;
+                    if ($tipo === 'INGRESO') {
+                        $montoTotalCajas += (float) $mov->monto;
+                    } elseif ($tipo === 'EGRESO') {
+                        $montoTotalCajas -= (float) $mov->monto;
+                    }
+                }
+            }
+
+            $cajaVieja = $cajasCerradas->first();
+            $quien = $cajaVieja->usuarioOperativo?->name ?? 'Sin asignar';
+            $fecha = $cajaVieja->apertura_at?->format('d/m/Y') ?? 'Sin fecha';
+
+            $datos['Cajas cerradas sin validar'] = sprintf(
+                '%d (%s) — más vieja: %s (%s) — %s',
+                $cantCajas,
+                $formatoMonto($montoTotalCajas),
+                $quien,
+                $fecha,
+                route('web.caja.index')
+            );
+        }
+
+        if ($cantRevisiones > 0) {
+            $revVieja = $revisiones->first();
+            $quien = trim(($revVieja->alumno?->apellido ?? '') . ', ' . ($revVieja->alumno?->nombre ?? ''));
+            if ($quien === '' || $quien === ',') {
+                $quien = 'Sin alumno';
+            }
+            $fecha = $revVieja->created_at?->format('d/m/Y') ?? 'Sin fecha';
+
+            $datos['Revisiones de cobranza pendientes'] = sprintf(
+                '%d — más vieja: %s (%s) — %s',
+                $cantRevisiones,
+                $quien,
+                $fecha,
+                route('web.revision-cobranza.index')
+            );
+        }
+
+        if ($cantLiqCerradas > 0 || $cantLiqAbiertas > 0) {
+            $totalLiqCerradas = (float) $liqCerradasSinPagar->sum('total_calculado');
+
+            if ($cantLiqCerradas > 0) {
+                $datos['Liquidaciones cerradas sin pagar'] = sprintf(
+                    '%d (%s) — %s',
+                    $cantLiqCerradas,
+                    $formatoMonto($totalLiqCerradas),
+                    route('web.liquidaciones.index')
+                );
+            }
+
+            if ($cantLiqAbiertas > 0) {
+                $datos['Liquidaciones abiertas'] = sprintf(
+                    '%d — %s',
+                    $cantLiqAbiertas,
+                    route('web.liquidaciones.index')
+                );
+            }
+        }
+
+        $this->enviar(
+            'resumen diario de pendientes',
+            $datos,
+            'Revisá cada sección ingresando al enlace correspondiente.'
+        );
+
+        return true;
     }
 
     /**

@@ -11,6 +11,9 @@ Artisan::command('inspire', function () {
 // Generar deudas mensuales el 1ro de cada mes a las 6:00 AM (hora Argentina)
 Schedule::command('cobranza:generar-deudas')->monthlyOn(1, '06:00');
 
+// Resumen diario de pendientes para el ADMIN a las 08:00 (hora Argentina, ENT-06)
+Schedule::command('avisos:resumen-diario')->dailyAt('08:00');
+
 // Resumen semanal de los avisos de la politica de seguridad de contenido (CSP).
 //
 // Entra por el scheduler, que ya corre cada minuto en el servidor, en vez de

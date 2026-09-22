@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## ENT-01 — implementada, 22/09/2026
+
+[Diseño aprobado](../05-pendientes/ENT-01-PROPUESTA-CARGOS-ADICIONALES.md): inscripción
+por DNI, corte fijo 23/09/2026 y cargo separado de cuotas. Pago parcial cubre primero
+inscripción; caja y recibo desglosan conceptos. Comisión y estado mensual excluyen
+inscripción. Corregir ingreso sin pagos recalcula con auditoría; con pagos se rechaza.
+Autorización visual y reemplazo de §5 de Punitorios confirmados por Carlos el 22/09.
+FIN-14 conserva motor y configuración pendientes. Sin deploy; actualización por Claude.
+[Evidencia y límites](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md).
+
 ## Decisión nueva 21/09/2026 — canchas y liquidaciones de clubes (POS-07)
 
 [Plan v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md)
@@ -125,7 +135,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **290 pruebas**, 1675 aserciones; suite completa el 21/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga y el endpoint de avisos de CSP |
+| **Tests** | **313 pruebas**, 1786 aserciones; suite completa el 22/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP y el resumen diario de pendientes al ADMIN (ENT-06) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -177,7 +187,7 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - Como resolver revisiones con parcial, observaciones e importe historico.
 - Limites temporales de movimientos manuales.
 - Significado de DEUDOR sin pagos y sin saldo pendiente.
-- Tratamiento contable de la inscripcion configurable.
+- ENT-01 resuelta: cargos separados, prioridad de inscripción, sin comisión.
 - Logo, paleta y favicon del club.
 - ~~Liquidación por hora~~: CERRADA 17/09 — tarifa × minutos / 60, tarifa y minutos congelados al liquidar; pantalla y recibo autorizados muestran formato "1 h 20 min" y centavos (FIN-13).
 

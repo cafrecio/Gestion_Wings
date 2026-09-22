@@ -10,6 +10,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-22 — LOG GEM CYE — ENT-06: Resumen diario de avisos al admin a las 08:00
+
+- **Objetivo:** Implementar la decisión del 22/09 (ENT-06) para que el ADMIN reciba un resumen diario a las 08:00 (hora Argentina) con las tareas pendientes operativas (cajas cerradas sin validar, revisiones de cobranza pendientes y liquidaciones sin pagar o abiertas), sin mandar nada si no hay pendientes.
+- **Cambios reales:**
+  1. `app/Services/AvisoAdminService.php`: Implementado `resumenDiario(): bool`. Consulta cajas cerradas sin validar (calcula monto neto de movimientos activos y detecta la más vieja con usuario y fecha), revisiones pendientes (más vieja con alumno y fecha) y liquidaciones (cerradas sin pagar con total monetario y abiertas contabilizadas por separado sin sumarse). Si no hay pendientes retorna `false`. Si hay pendientes, envía un único aviso vía `AvisoOperativo` por correo y Telegram con enlaces directos (`web.caja.index`, `web.revision-cobranza.index`, `web.liquidaciones.index`) y retorna `true`.
+  2. `app/Console/Commands/ResumenDiarioAvisosCommand.php`: Creado comando `avisos:resumen-diario` que ejecuta `resumenDiario()` e informa el resultado en consola.
+  3. `routes/console.php`: Programado `Schedule::command('avisos:resumen-diario')->dailyAt('08:00');`.
+  4. `tests/Feature/AvisoAdminResumenDiarioTest.php`: Creadas 5 pruebas automatizadas completas verificando: sin pendientes no envía nada; con cajas, revisiones y liquidaciones envía un solo aviso con montos y enlaces correctos; liquidaciones abiertas no se suman al total a pagar; cajas validadas, revisiones resueltas y liquidaciones pagadas son excluidas; y comando programado a las 08:00 en scheduler.
+  5. Tableros y control de pruebas actualizados: `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md`, `PLAN-TRABAJO-IA-v2026-09-08.md` y `PLAN-TRABAJO-CARLOS-v2026-09-08.html` sincronizados con 313 pruebas.
+- **Verificaciones:**
+  - `php artisan test tests/Feature/AvisoAdminResumenDiarioTest.php` -> 5 pruebas verdes.
+  - Ejecución real en base local (`php artisan avisos:resumen-diario`) -> "Resumen diario de avisos enviado correctamente." y verificación de mensaje formateado en log.
+  - `php artisan test` -> Suite completa verde: 313 pruebas y 1786 aserciones.
+  - Vistas y CSS intactos (`git diff --stat` solo cambios de Codex en paralelo). Sin deploy.
+
 ## 2026-09-22 — LOG GEM CYE — FIN-08: Retoques de pantalla de Revisión autorizados por Carlos
 
 - **Objetivo:** Aplicar los tres retoques de diseño y UX detectados durante la verificación de FIN-08 en `resources/views/revision-cobranza/index.blade.php`, autorizados expresamente por Carlos el 22/09.
