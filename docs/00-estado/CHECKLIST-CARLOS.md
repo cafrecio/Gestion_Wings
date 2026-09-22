@@ -57,9 +57,8 @@ Unblock-File .\install.ps1
 powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servidor.ps1
 ```
 
-   CAB tiene acceso. **CyE: la clave se genero y autorizo el 22/09** y esta en el
-   escritorio de CAB, carpeta `CLAVE-SERVIDOR-PARA-CYE`: llevarla a CyE con un pendrive,
-   correr el script y borrar las copias. Nunca subirla a GitHub ni a Drive.
+   **No tenes que hacer nada:** CAB y CyE estan autorizadas desde el 22/09 (CyE con la
+   clave que cargaste en GitHub). Si en una maquina no entra, el agente corre el script.
 7. Ejecutar la suite completa:
 
 ```bash

@@ -44,11 +44,13 @@ disponible, decirlo y usar Grep/Glob.
 tengo acceso" ni "eso lo hacemos en la otra maquina" sin haber corrido antes
 `ssh vps hostname` en esta.
 
-Si falla, la causa casi siempre es que la maquina no tiene su clave instalada: el
-servidor acepta solo claves autorizadas una por una y la contrasena esta apagada a
-proposito. Se instala con `scripts/maquina/instalar-acceso-servidor.ps1`. La clave
-privada **nunca** va al repositorio: se genera en una maquina con acceso, se autoriza
-ahi y se lleva a mano.
+Si falla, **lo arregla el agente, no Carlos**: correr
+`scripts/maquina/instalar-acceso-servidor.ps1`, que arma el alias con la clave propia de
+la maquina y prueba. Autorizadas al 22/09: CAB (`cafre@CAB-vps`) y CyE
+(`cafre@CyE-github`). Una maquina nueva carga su clave publica en el GitHub de Carlos y
+una que ya entra la autoriza bajandola de `https://github.com/cafrecio.keys`. Ninguna
+clave privada viaja ni pasa por el repositorio. `ssh vps` no pide permiso: esta en
+`.claude/settings.json`.
 
 Hasta el 22/09/2026 solo CAB estaba autorizada, y todo trabajo de servidor quedaba
 para "cuando estes en la otra maquina". Carlos pidio expresamente no volver a eso.

@@ -1,65 +1,60 @@
-# Deja una computadora con acceso al servidor por `ssh vps`.
+# Deja una computadora entrando al servidor con `ssh vps`. Lo corre el agente, no Carlos.
 #
-# Por que existe: el servidor solo acepta claves autorizadas una por una y el
-# acceso por contrasena esta apagado a proposito. Hasta el 22/09/2026 solo estaba
-# autorizada la clave de CAB, asi que desde CyE ningun agente podia entrar y todo
-# trabajo de servidor quedaba para "cuando estes en la otra maquina".
+# Como funciona el acceso: el servidor acepta solo claves autorizadas y el acceso por
+# contrasena esta apagado a proposito. La clave de cada maquina es su propio
+# ~/.ssh/id_ed25519, cargada en la cuenta de GitHub de Carlos; una maquina que ya
+# tiene acceso la autoriza en el servidor bajandola de https://github.com/cafrecio.keys.
+# Ninguna clave privada viaja entre maquinas ni pasa por el repositorio.
 #
-# La clave privada NO esta en el repositorio y no tiene que estar nunca: abre el
-# servidor como root. Se genera en una maquina que ya tiene acceso, se autoriza
-# ahi y se trae a mano (pendrive). Este script solo la instala.
+# Estado al 22/09/2026: autorizadas CAB (cafre@CAB-vps) y CyE (cafre@CyE-github).
 #
+# Este script solo arma el alias `vps` con la clave que la maquina ya tiene, y prueba.
 # Uso, desde la raiz del proyecto:
 #   powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servidor.ps1
-#   powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servidor.ps1 -Origen E:\CLAVE-SERVIDOR-PARA-CYE
-
-param(
-    [string]$Origen = (Join-Path $env:USERPROFILE 'Desktop\CLAVE-SERVIDOR-PARA-CYE')
-)
 
 $ErrorActionPreference = 'Stop'
 
 $Servidor = '2.25.204.38'
 $SshDir   = Join-Path $env:USERPROFILE '.ssh'
-$Clave    = Join-Path $SshDir 'id_ed25519_vps'
 $Config   = Join-Path $SshDir 'config'
 
 function Paso($texto) { Write-Host "`n== $texto ==" }
 
-Paso '1. clave'
-$claveOrigen = Join-Path $Origen 'id_ed25519_vps'
-if (Test-Path $Clave) {
-    Write-Host "Ya hay una clave en $Clave; no se pisa."
-} elseif (Test-Path $claveOrigen) {
+Paso '1. clave de esta maquina'
+$clave = @('id_ed25519', 'id_ed25519_vps', 'id_rsa') |
+    ForEach-Object { Join-Path $SshDir $_ } |
+    Where-Object { Test-Path $_ } |
+    Select-Object -First 1
+
+if (-not $clave) {
+    Write-Host 'Esta maquina no tiene clave SSH. Se crea una.'
     New-Item -ItemType Directory -Force -Path $SshDir | Out-Null
-    Copy-Item $claveOrigen $Clave
-    Copy-Item "$claveOrigen.pub" "$Clave.pub" -ErrorAction SilentlyContinue
-    Write-Host "Copiada desde $Origen"
-} else {
-    Write-Host "No encuentro la clave en $claveOrigen." -ForegroundColor Red
-    Write-Host 'Pasa la carpeta CLAVE-SERVIDOR-PARA-CYE a esta maquina o indica donde esta con -Origen.'
+    $clave = Join-Path $SshDir 'id_ed25519'
+    & ssh-keygen -q -t ed25519 -N '""' -C "cafre@$env:COMPUTERNAME" -f $clave
+    Write-Host ''
+    Write-Host 'Clave nueva creada. Falta autorizarla una sola vez:' -ForegroundColor Yellow
+    Write-Host '  1. Cargar esta clave publica en GitHub (Settings > SSH keys):'
+    Get-Content "$clave.pub"
+    Write-Host '  2. Desde una maquina que ya entra, un agente la autoriza bajandola de'
+    Write-Host '     https://github.com/cafrecio.keys'
     exit 1
 }
-
-# OpenSSH de Windows rechaza una clave privada que otros usuarios puedan leer:
-# falla con "UNPROTECTED PRIVATE KEY FILE" y no dice nada mas util.
-& icacls $Clave /inheritance:r | Out-Null
-& icacls $Clave /grant:r "$($env:USERNAME):(R)" | Out-Null
-Write-Host 'Permisos restringidos al usuario actual.'
+Write-Host "Se usa $clave"
 
 Paso '2. alias vps'
-$bloque = @"
+$yaEsta = (Test-Path $Config) -and (Select-String -Path $Config -Pattern '^\s*Host\s+vps\s*$' -Quiet)
+if ($yaEsta) {
+    Write-Host "Ya existe 'Host vps' en $Config."
+} else {
+    $relativa = '~/.ssh/' + (Split-Path $clave -Leaf)
+    $bloque = @"
 
 Host vps
     HostName $Servidor
     User root
-    IdentityFile ~/.ssh/id_ed25519_vps
+    IdentityFile $relativa
     IdentitiesOnly yes
 "@
-$yaEsta = (Test-Path $Config) -and (Select-String -Path $Config -Pattern '^\s*Host\s+vps\s*$' -Quiet)
-if ($yaEsta) {
-    Write-Host "Ya existe un 'Host vps' en $Config; no se toca. Si apunta a otra clave, corregirlo a mano."
-} else {
     Add-Content -Path $Config -Value $bloque -Encoding ascii
     Write-Host "Agregado a $Config"
 }
@@ -69,11 +64,9 @@ $salida = & ssh -o ConnectTimeout=15 -o BatchMode=yes -o StrictHostKeyChecking=a
     Where-Object { $_ -notmatch 'post-quantum|store now|openssh.com|vulnerable' }
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Acceso OK: $salida" -ForegroundColor Green
-    Write-Host ''
-    Write-Host "Borra ahora la copia de $Origen (pendrive o escritorio): la clave ya quedo en $Clave."
 } else {
     Write-Host "No entra: $salida" -ForegroundColor Red
-    Write-Host 'Si dice "Permission denied (publickey)", la clave no esta autorizada en el servidor:'
-    Write-Host 'autorizarla desde una maquina que ya tenga acceso.'
+    Write-Host 'Si dice "Permission denied (publickey)", la clave de esta maquina no esta'
+    Write-Host 'autorizada: cargarla en GitHub y autorizarla desde una maquina que ya entra.'
     exit 1
 }
