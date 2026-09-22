@@ -4,6 +4,17 @@
 > Aquel carga **solo deudores**; este declara el saldo inicial de **todos** y cierra
 > el mes de corte. Corre una sola vez, cuando el club termina de cargar sus alumnos.
 
+## Para la prueba grande: el padrón ya exportado
+
+`docs/06-pruebas/PADRON-PRUEBA.xlsx` es el padrón de los 60 alumnos de
+`PrimeraCargaCompletaSeeder`, exportado el 22/09 y **sin completar**. Viaja en el
+repositorio para no volver a exportarlo en cada máquina: son datos inventados.
+
+Es el punto de partida del primer paso de PRU-02. Se completa como lo haría el club
+(columna DEBE con SI o NO, y los pares período + monto) sobre una **copia**, y se importa
+en la base de prueba. Si alguien lo completa y lo commitea, dejar el original sin tocar y
+subir el completado con otro nombre.
+
 ## Por qué existe
 
 Con la carga vieja, el alumno que no figuraba en el Excel se asumía sin deuda. Un
