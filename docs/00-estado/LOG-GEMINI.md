@@ -18,7 +18,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   2. Filtros responsivos: reemplazada grilla inline rígida por `.filtros-row` con `flex-wrap:wrap; align-items:end;` y campos con `flex:1; min-width:140px;` para que se apilen adecuadamente en celular sin apretarse.
   3. Eliminado el bloque `<script>` duplicado (`abrirForm` y `cerrarForm`), activando la delegación nativa `[data-abrir-revision]` y `[data-cerrar-revision]` ya implementada en `resources/js/ds-app.js`.
   4. Reducida la constante `BLOQUES_SCRIPT_PERMITIDOS` de 22 a 21 en `tests/Feature/CspSinCodigoIncrustadoTest.php`.
-- **Verificación:** Vistas compilan (`view:cache` y `view:clear`), CSP test pasa en verde, suite completa pasa con 290 pruebas / 1675 aserciones. Sin deploy.
+- **Verificación:** Vistas compilan (`view:cache` y `view:clear`), CSP test pasa en verde, suite completa pasa con 290 pruebas / 1675 aserciones.
+- **Prueba real en pantalla (Chrome headless/CDP):**
+  1. *Abrir:* Clic en `Continúa` oculta botones (`display: none`), despliega formulario (`display: block`), enfoca textarea y setea `res-tipo = CONTINUA`.
+  2. *Cancelar:* Clic en `Cancelar` oculta formulario y restaura botones (`display: flex`).
+  3. *Confirmar con 2 letras:* Envío de "ok" dispara validación del servidor (min:5) y renderiza el banner `.ds-flash.ds-flash--error` superior con "The nota resolucion field must be at least 5 characters".
+  4. *Mobile (375x700):* `.filtros-row` con `flex-wrap: wrap` apila los filtros y el botón Limpiar sin desbordes ni compresión. Cuatro capturas guardadas como evidencia. Sin deploy.
 
 ## 2026-09-21 — LOG GEM CYE — FIN-08: Verificación exhaustiva y auditoría de permisos
 
