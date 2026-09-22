@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Todo esta subido a `main`; suite 288 pruebas / 1656 aserciones (21/09) en verde. La lista
+Todo esta subido a `main`; suite 290 pruebas / 1675 aserciones (21/09) en verde. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -62,11 +62,11 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 288 pruebas deben pasar
+php artisan test          # 290 pruebas deben pasar
 ```
 
-Corte verificado del 21/09: **288 pruebas**, todas verdes.
-Suite completa el 21/09: 288 pruebas / 1656 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
+Corte verificado del 21/09: **290 pruebas**, todas verdes.
+Suite completa el 21/09: 290 pruebas / 1675 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 FIN-12 requiere aplicar la migración de permitir_cancelar_liquidacion_cerrada_no_pagada al desplegar.
 FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
@@ -121,6 +121,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 
 - [ ] **ENT-02:** entregar o aprobar logo y paleta del club para rediseñar el recibo.
 - [x] **ENT-03:** entregar o aprobar el recurso del favicon. (Aprobado por Carlos el 12/09/2026: patín artístico con alas zoom 95% e implementado)
+- [ ] **SEG-12:** decir que usuario del servidor queres cambiar (el de entrar al panel CWP o
+  el del sistema). El resto —renovar claves, guardarlas juntas y darte acceso al panel— lo
+  hace Claude.
 - [ ] Pasar credenciales del servidor y clave de backups a un administrador de
   contraseñas. No ponerlas en el repositorio ni en las bitacoras.
 
@@ -135,9 +138,8 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   completar con DEBE por alumno, e importarlo. Cierra el mes de corte y Wings arranca
   a facturar el mes siguiente. Procedimiento en
   `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
-- [ ] ~~Correr el ensayo de restauracion~~ — **lo hace Claude por SSH** (16/09), no
-  es tarea tuya. Sigue pendiente: hasta hacerlo, que el respaldo del servidor sirva
-  no esta demostrado.
+- [x] **Ensayo de restauracion hecho el 22/09** por Claude, contra el respaldo real del
+  dia: se restaura completo. El respaldo del servidor sirve.
 - [ ] Reservar dos o tres horas para el recorrido humano completo, despues de cerrar
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.

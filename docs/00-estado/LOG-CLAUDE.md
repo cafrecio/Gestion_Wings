@@ -11,6 +11,29 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md)
 
+## 2026-09-22 — Claude CAB — acceso de CyE al servidor y primer ensayo real de restauracion
+
+**Acceso.** El servidor solo tenia autorizadas las claves de CAB y la contrasena esta
+apagada, por eso desde CyE nadie podia entrar. Se autorizo la clave que Carlos cargo en
+GitHub (`cafre@CyE-github`, bajada de `github.com/cafrecio.keys`) con su autorizacion
+expresa. Me equivoque antes armando un camino de pendrive cuando la clave ya estaba en
+GitHub: le hice perder una hora. Esa clave generada en CAB se retiro del servidor y se
+borro. `ssh vps` no pide permiso (`.claude/settings.json`) y si en una maquina no entra
+lo arregla el agente con `scripts/maquina/instalar-acceso-servidor.ps1`.
+
+**Ensayo de restauracion real (SEG-06/07)**, respaldo del 22/09 03:15: el respaldo se
+restaura completo. El ensayo marco dos fallas **del script, no del respaldo**: sumaba
+`saldo_pendiente`, que no es columna (lo calcula el modelo), y contaba `sessions`, que
+cambia sola. Corregidas; prueba nueva que corre cada consulta del script contra el
+esquema real (con la vieja falla con el mismo error que el servidor). Repetido:
+**correcto** en 28 tablas, importes, archivos y configuracion. Limite anotado en SEG-07:
+cuando el club opere, la comparacion contra la base viva de dia va a diferir por cobros
+posteriores; falta guardar un manifiesto en el respaldo. Suite 290/1675.
+
+**SEG-12 registrada** a pedido de Carlos: renovar credenciales del servidor y guardarlas
+juntas, cambiar un nombre de usuario (falta que diga cual) y acceso directo al panel,
+que es CWP, no cPanel.
+
 ## 2026-09-21 — Claude CyE — FIN-09 tambien en el pago de liquidaciones
 
 Carlos aprobo aplicar la regla de fechas al pago de liquidaciones, la unica via de pantalla
