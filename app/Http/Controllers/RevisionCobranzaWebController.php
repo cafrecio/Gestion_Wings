@@ -41,6 +41,12 @@ class RevisionCobranzaWebController extends Controller
         $request->validate([
             'resolucion'      => 'required|in:CONTINUA,INACTIVO',
             'nota_resolucion' => 'required|string|min:5|max:500',
+        ], [
+            'resolucion.required'      => 'Elegí Continúa o Inactivo.',
+            'resolucion.in'            => 'La resolución no es válida.',
+            'nota_resolucion.required' => 'La nota es obligatoria.',
+            'nota_resolucion.min'      => 'La nota debe tener al menos 5 caracteres.',
+            'nota_resolucion.max'      => 'La nota no puede superar los 500 caracteres.',
         ]);
 
         try {

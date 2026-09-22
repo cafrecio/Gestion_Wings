@@ -110,6 +110,16 @@ class RevisionCobranzaOperativoTest extends TestCase
         ]);
         $revision = $this->revision();
 
+        // Nota corta: la pantalla muestra el error arriba, y tiene que estar en
+        // castellano (la app corre con APP_LOCALE=en y sin traducciones).
+        $this->actingAs($this->usuario(User::ROL_OPERATIVO))
+            ->post(route('web.revision-cobranza.resolver', $revision->id), [
+                'resolucion' => AlumnoRevisionCobranza::RESOLUCION_INACTIVO,
+                'nota_resolucion' => 'ok',
+            ])
+            ->assertSessionHasErrors(['nota_resolucion' => 'La nota debe tener al menos 5 caracteres.']);
+        $this->assertTrue((bool) $this->alumno->fresh()->activo);
+
         $this->actingAs($this->usuario(User::ROL_OPERATIVO))
             ->post(route('web.revision-cobranza.resolver', $revision->id), [
                 'resolucion' => AlumnoRevisionCobranza::RESOLUCION_INACTIVO,
