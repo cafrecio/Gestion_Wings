@@ -38,6 +38,21 @@ Tres limites que no se negocian:
 Se instala en cada computadora (`CHECKLIST-CARLOS.md` §1). Si en la sesion no esta
 disponible, decirlo y usar Grep/Glob.
 
+## Acceso al servidor: `ssh vps`
+
+**Desde CAB y desde CyE se entra al servidor con `ssh vps`**, como root. No decir "no
+tengo acceso" ni "eso lo hacemos en la otra maquina" sin haber corrido antes
+`ssh vps hostname` en esta.
+
+Si falla, la causa casi siempre es que la maquina no tiene su clave instalada: el
+servidor acepta solo claves autorizadas una por una y la contrasena esta apagada a
+proposito. Se instala con `scripts/maquina/instalar-acceso-servidor.ps1`. La clave
+privada **nunca** va al repositorio: se genera en una maquina con acceso, se autoriza
+ahi y se lleva a mano.
+
+Hasta el 22/09/2026 solo CAB estaba autorizada, y todo trabajo de servidor quedaba
+para "cuando estes en la otra maquina". Carlos pidio expresamente no volver a eso.
+
 ## Antes de cerrar una tarea
 
 **Preguntarse que documento se acaba de dejar mintiendo, y arreglarlo en el mismo

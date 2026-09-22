@@ -231,6 +231,24 @@ Preferible: mover la lógica a un helper o a un componente.
 
 ---
 
+## 5b. Acceso al servidor: `ssh vps`
+
+Desde CAB y desde CyE se entra al servidor con `ssh vps`, como root. **Ningún agente
+dice "no tengo acceso al servidor" ni "eso se hace desde la otra máquina" sin haber
+corrido antes `ssh vps hostname` en la máquina donde está.**
+
+Si falla, la máquina no tiene su clave instalada: el servidor acepta solo claves
+autorizadas una por una y el acceso por contraseña está apagado a propósito. Se
+instala con `scripts/maquina/instalar-acceso-servidor.ps1`. La clave privada **nunca**
+entra al repositorio ni a una carpeta sincronizada en la nube: abre el servidor como
+root. Se genera en una máquina que ya tiene acceso, se autoriza ahí y se lleva a mano.
+
+Existe desde el 22/09/2026: hasta ese día solo CAB estaba autorizada y todo trabajo de
+servidor quedaba postergado para "cuando estés en la otra máquina". Carlos pidió
+expresamente no volver a eso.
+
+---
+
 ## 6. Antes de cerrar cualquier tarea
 
 En tareas exclusivamente documentales, verificar enlaces, integridad y diff; no ejecutar
