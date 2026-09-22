@@ -121,9 +121,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 
 - [ ] **ENT-02:** entregar o aprobar logo y paleta del club para rediseñar el recibo.
 - [x] **ENT-03:** entregar o aprobar el recurso del favicon. (Aprobado por Carlos el 12/09/2026: patín artístico con alas zoom 95% e implementado)
-- [ ] **SEG-12:** decir que usuario del servidor queres cambiar (el de entrar al panel CWP o
-  el del sistema). El resto —renovar claves, guardarlas juntas y darte acceso al panel— lo
-  hace Claude.
+- [ ] **SEG-12, postergada por vos el 22/09:** un dia tranquilo, con Wings terminado, vemos
+  seguridad y contrasenas de todo, explicado sin tecnicismos. Ya decidido: guardarlas en el
+  administrador de contrasenas de Google. Sin urgencia: la clave de respaldos ya esta a salvo.
 - [ ] Pasar credenciales del servidor y clave de backups a un administrador de
   contraseñas. No ponerlas en el repositorio ni en las bitacoras.
 

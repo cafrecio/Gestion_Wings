@@ -127,7 +127,7 @@ a una tabla con plata adentro es mas delicado.
 | **SEG-09** | Monitoreo de sitio, scheduler y backup | Cerrada 09/09, FDS-02 | HTTPS Up; fallos scheduler/backup recibidos por Carlos en email y Telegram |
 | **SEG-10** | Integracion continua | Media | Push/PR ejecuta suite MariaDB y build sin depender de memoria humana |
 | **SEG-11** | CSP definitiva | Supervisada | Report-only, inventario cero de JS bloqueable, recorrido visual y recien luego bloqueo |
-| **SEG-12** | Credenciales del servidor: renovar, guardar y acceso de Carlos al panel — **PENDIENTE** | Alta | Pedido de Carlos, 22/09: (1) renovar todas las credenciales del servidor y guardarlas juntas en una carpeta fuera del repositorio (hoy estan en `VPS/CREDENCIALES.txt`, fuera del repo; el checklist ya pedia pasarlas a un administrador de contrasenas); (2) cambiar el nombre de usuario — **falta precisar cual**: el de entrada al panel o el del sistema; (3) que Carlos entre directo al panel. El panel del servidor es **CWP (Control Web Panel)**, no cPanel. Ninguna credencial entra al repositorio. Al cambiar claves, revisar que no se corten el respaldo, el monitoreo ni el acceso `ssh vps` de CAB y CyE |
+| **SEG-12** | Credenciales del servidor: renovar, guardar y acceso de Carlos al panel — **POSTERGADA por Carlos 22/09** para una sesion dedicada despues de terminar Wings; explicar sin tecnicismos | Media | **Relevado 22/09:** SSH solo con clave, contrasenas apagadas, firewall activo con politica de rechazo (el servicio `csf` figura `failed` desde junio pero las 189 reglas estan cargadas). Punto mas expuesto: **el panel CWP abierto a todo internet** (2030/2031 y 2082-2087). Se entra como `root`. Claves privadas en CAB y CyE sin contrasena propia: cifrar disco. **Destino decidido por Carlos: administrador de contrasenas de Google** (portable, no se pierde), importando un CSV que se borra enseguida; Google no permite escribir ahi por programa. Requiere verificacion en dos pasos en la cuenta de Google. La clave de descifrado de respaldos ya esta fuera del servidor (`VPS/CREDENCIALES.txt`); **no rotarla**, deja ilegibles los respaldos viejos. Propuesta: usuario propio para Carlos y panel solo para sus computadoras. | Pedido de Carlos, 22/09: (1) renovar todas las credenciales del servidor y guardarlas juntas en una carpeta fuera del repositorio (hoy estan en `VPS/CREDENCIALES.txt`, fuera del repo; el checklist ya pedia pasarlas a un administrador de contrasenas); (2) cambiar el nombre de usuario — **falta precisar cual**: el de entrada al panel o el del sistema; (3) que Carlos entre directo al panel. El panel del servidor es **CWP (Control Web Panel)**, no cPanel. Ninguna credencial entra al repositorio. Al cambiar claves, revisar que no se corten el respaldo, el monitoreo ni el acceso `ssh vps` de CAB y CyE |
 
 `SEG-11` nunca habilita CSP bloqueante en un solo paso. Los estilos inline siguen la
 decision vigente de `AGENTS.md`.
@@ -175,7 +175,7 @@ recorrido humano firmado y verificacion actual del servidor.
 
 | ID | Pedido | Dependencia |
 |---|---|---|
-| **ENT-01** | Inscripcion configurable del alumno nuevo | Carlos confirma regla contable; migracion crea la clave |
+| **ENT-01** | Inscripción configurable — PENDIENTE | Decisión 22/09: valor obligatorio inicial $5.000, una vez con primera cuota; deuda al alta según fecha real de ingreso frente a corte fijo. Sin modo temporal. [Regla e implementación propuesta](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Falta fecha concreta de corte y detalles contables |
 | **ENT-02** | Rediseño completo del recibo — **REABIERTO 13/09, estaba mal cerrado** | **Recibo de cuota: LISTO.** Normal, multi-mes y anulado verificados en pantalla el 13/09 (A5, una página, importes en #0F172A, nombres largos y cifras altas sin desbordar). **Recibo de liquidación: NO MIGRADO.** `recibo-liquidacion.blade.php` conserva la versión vieja en verde (5 usos de `#047857`, cero de `#0F172A`), genera una segunda página en blanco por márgenes y le falta el anexo de clases/alumnos que pide el instructivo §4.2; `ReciboService` no carga `detalles`. Se cerró el 12/09 sin que nadie lo abriera. Pendiente menor en cuotas: `ReciboService:72-74` concatena el motivo de anulación a `observaciones` y sale duplicado |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
@@ -184,6 +184,11 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
 | **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
 | **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |
+| **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga y corte de inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
+
+### ENT-10 — Manuales de primera carga — PENDIENTE
+
+Guías prácticas para usuarios y preparación. **MUY IMPORTANTE:** explicar fecha real de ingreso, corte fijo e inscripción; nunca confundir ingreso con día de carga. [Alcance y aceptación](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Depende de ENT-01 y pantallas verificadas.
 
 ## 8. Bloque 6 — posterior, no bloquea la entrega inicial
 

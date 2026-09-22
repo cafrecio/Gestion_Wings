@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-22 — Codex CAB — MUY IMPORTANTE: inscripción por fecha real de ingreso
+
+Carlos decide carga manual por usuarios; no modo temporal ni pregunta nuevo/antiguo.
+Ingreso anterior al corte fijo no genera inscripción; desde el corte sí, una sola vez.
+Valor obligatorio configurable inicial $5.000; deuda al alta, cobro con primera cuota.
+[ENT-01 y ENT-10](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md): decisión y manuales pendientes.
+Manuales deben destacar ingreso real versus fecha de carga, con ejemplos claros.
+Falta confirmar fecha concreta de inicio; no inventarla. Propuesta técnica, sin código.
+Tableros y resumen enlazados; verificación documental, sin suite ni base.
+[Entrada antigua conservada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX.md).
+
 ## 2026-09-21 — Codex CyE — POS-07: plan de canchas y liquidaciones
 
 Entrevista preservada en [plan v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md): ocho etapas y matriz de aceptación.
@@ -130,14 +141,3 @@ Ahora los seis pasan: 103 aserciones aisladas en wings_testing_fin11_20260912.
 Suite compartida: 181 pasan / 5 fallan, 1187 aserciones; fallas en fixtures nuevos SEG de otros trabajos.
 Evidencia: ../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md. Sin commit ni deploy aún.
 Ambos tableros con pausa y sin checked: falta resolver las fallas externas y repetir suite completa.
-
-## 2026-09-12 — Codex CAB — FIN-07 implementada y probada
-
-Carlos resolvió la pausa: solo ADMIN perdona el saldo pendiente y conserva lo cobrado.
-Condonación transaccional con lectura bloqueada; contrato complementario V1 y ambos tableros actualizados.
-Tres casos con dos conexiones MariaDB reales: parcial, completo y condonación primero.
-Prueba negativa: quitar el bloqueo hace fallar el caso parcial; código restaurado.
-Suite completa: 169 pruebas / 1065 aserciones en wings_testing_fin07_20260912.
-Evidencia y alcance: ../06-pruebas/FIN-07-CONCURRENCIA-2026-09-12.md.
-Sin cambios propios de diseño, sin deploy; ajustarDeuda/API apagada queda fuera del alcance.
-Pendiente: verificación cruzada y despliegue.
