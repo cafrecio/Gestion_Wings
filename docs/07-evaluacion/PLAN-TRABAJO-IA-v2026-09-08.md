@@ -185,6 +185,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
 | **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |
 | **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga y corte de inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
+| **ENT-11** | Excepciones justificadas (contrato de cobranza §8, §9 y §9b) | Separada de ENT-06 el 22/09. El contrato pide motivo obligatorio y aviso al ADMIN en cobro parcial, cobro que deja impago un mes anterior, deudor o alumno nuevo desde la 3ª clase y exceso de plan. No existe en el código: ninguno pide motivo. Unificar los motivos dispersos en un registro único (§11). Después de PRU-02 |
 
 ### ENT-10 — Manuales de primera carga — PENDIENTE
 
