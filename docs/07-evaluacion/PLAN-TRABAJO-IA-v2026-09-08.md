@@ -175,12 +175,12 @@ recorrido humano firmado y verificacion actual del servidor.
 
 | ID | Pedido | Dependencia |
 |---|---|---|
-| **ENT-01** | Inscripción configurable — PENDIENTE | Decisión 22/09: valor obligatorio inicial $5.000, una vez con primera cuota; deuda al alta según fecha real de ingreso frente a corte fijo. Sin modo temporal. [Regla e implementación propuesta](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Falta fecha concreta de corte y detalles contables |
+| **ENT-01** | Inscripción configurable — PENDIENTE | Decisión 22/09: valor obligatorio inicial $5.000, una vez con primera cuota; deuda al alta según fecha real de ingreso frente a corte fijo. Sin modo temporal. [Regla e implementación propuesta](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Fecha de corte fijada por Carlos: **23/09/2026**. Asignada a Codex el 22/09 |
 | **ENT-02** | Rediseño completo del recibo — HECHO 16/09 | Cuota: normal, multi-mes y anulado verificados en pantalla el 13/09. Liquidación: plantilla aprobada el 11/09 aplicada en `f86c730` (16/09), dos hojas A5 con anexo de clases o alumnos; motivo de anulación ya no sale duplicado. Verificado por Gemini; ajuste de duración y decimales en FIN-13 (`29f2858`) |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | CERRADO 13/09/2026: Acceso a 1 clic mediante botón Recibo (target=_blank, inline=1) en la confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno; diseño autorizado el 07/09 |
-| **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN | Definir contenido con Carlos; diseño autorizado |
+| **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN | Decisión 22/09: **resumen diario**, activo durante PRU-02. Contenido: cajas cerradas sin validar, revisiones de cobranza pendientes, liquidaciones cerradas sin pagar y abiertas |
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
 | **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
 | **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |

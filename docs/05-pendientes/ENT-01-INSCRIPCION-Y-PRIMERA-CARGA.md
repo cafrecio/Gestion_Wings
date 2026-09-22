@@ -16,8 +16,8 @@ con una fecha fija de inicio del sistema:
 
 El formulario propone hoy como fecha de ingreso; para alumnos antiguos el usuario
 debe cargar su fecha real. Esto debe explicarse claramente en los manuales.
-No inventar la fecha de corte ni fechas antiguas: Carlos debe confirmar el corte
-concreto. Si se desconoce el ingreso de un alumno, falta definir cómo registrarlo.
+**Fecha de corte: 23/09/2026** (Carlos, 22/09/2026). No inventar fechas de
+ingreso antiguas. Si se desconoce el ingreso de un alumno, falta definir cómo registrarlo.
 
 ## Importe y cobro acordados
 
