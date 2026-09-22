@@ -68,13 +68,18 @@ php artisan test          # 290 pruebas deben pasar
 Corte verificado del 21/09: **290 pruebas**, todas verdes.
 Suite completa el 21/09: 290 pruebas / 1675 aserciones; incluye FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
-FIN-12 requiere aplicar la migración de permitir_cancelar_liquidacion_cerrada_no_pagada al desplegar.
-FIN-06 requiere aplicar la migración de porcentaje_comision_aplicado al desplegar (con backfill para liquidaciones COMISION).
-FIN-10 requiere aplicar la migración de motivo_cambio_horario al desplegar; probada solo en wings_testing.
-FIN-03 requiere aplicar la nueva migracion al desplegar; no fue aplicada a la
-base de trabajo ni al servidor. No recupera detalles de anulaciones antiguas.
-FIN-10 tambien agrega migracion (`motivo_cambio_horario` en `clases`): si se
-despliega sin correrla, editar el horario de una clase pasada rompe en pantalla.
+**Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista
+sacada de git el 22/09 con `git log 81f27ef..origin/main --diff-filter=A -- database/migrations`,
+no escrita a mano: la version anterior de esta lista tenia cuatro y se le habian pasado dos.
+
+| Migracion | Tarea | Ojo |
+|---|---|---|
+| `add_detalle_anulacion_to_pagos_table` | FIN-03 | No recupera detalles de anulaciones antiguas |
+| `add_motivo_cambio_horario_to_clases_table` | FIN-10 | Sin ella, editar el horario de una clase pasada rompe |
+| `add_porcentaje_comision_aplicado_to_liquidaciones_table` | FIN-06 | Backfill de liquidaciones COMISION |
+| `congelar_tarifa_y_minutos_en_liquidacion_hora` | FIN-13 | **Toca liquidaciones existentes**: congela tarifa y minutos |
+| `add_destino_de_avisos_a_configuraciones` | Avisos | Crea las dos claves de destino de avisos |
+| `permitir_cancelar_liquidacion_cerrada_no_pagada` | FIN-12 | Estado CANCELADA y auditoria |
 
 **No importar ni volver a versionar `database/dump.sql`.** Fue retirado el 05/09.
 
