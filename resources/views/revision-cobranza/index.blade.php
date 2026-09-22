@@ -5,7 +5,14 @@
 
 @section('content')
 
-{{-- Flash messages --}}
+{{-- Flash messages / Errores de validación --}}
+@if($errors->any())
+<div class="ds-flash ds-flash--error mb-3">
+    @foreach($errors->all() as $error)
+        <div>{{ $error }}</div>
+    @endforeach
+</div>
+@endif
 @if(session('success'))
 <div class="filtros-card mb-3" style="border-left:4px solid var(--color-success);">
     <p style="font-size:0.85rem; color:var(--color-success);">{{ session('success') }}</p>
@@ -32,8 +39,8 @@
 {{-- Filtros --}}
 <form method="GET" action="{{ route('web.revision-cobranza.index') }}">
 <div class="filtros-card mb-3">
-    <div style="display:grid; grid-template-columns: 1fr 1fr auto; gap:12px; align-items:end;">
-        <div>
+    <div class="filtros-row" style="flex-wrap:wrap; align-items:end;">
+        <div style="flex:1; min-width:140px;">
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Estado</label>
             <select name="estado" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="PENDIENTE" {{ $estadoFiltro === 'PENDIENTE' ? 'selected' : '' }}>Pendientes</option>
@@ -41,7 +48,7 @@
                 <option value=""          {{ $estadoFiltro === '' || $estadoFiltro === null ? 'selected' : '' }}>Todos</option>
             </select>
         </div>
-        <div>
+        <div style="flex:1; min-width:140px;">
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Período</label>
             <select name="periodo" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
                 <option value="">Todos</option>
@@ -199,18 +206,5 @@
 
 {{ $revisiones->links() }}
 @endif
-
-<script>
-function abrirForm(id, tipo) {
-    document.getElementById('res-tipo-' + id).value = tipo;
-    document.getElementById('form-' + id).style.display = 'block';
-    document.getElementById('botones-' + id).style.display = 'none';
-    document.querySelector('#form-' + id + ' textarea').focus();
-}
-function cerrarForm(id) {
-    document.getElementById('form-' + id).style.display = 'none';
-    document.getElementById('botones-' + id).style.display = 'flex';
-}
-</script>
 
 @endsection

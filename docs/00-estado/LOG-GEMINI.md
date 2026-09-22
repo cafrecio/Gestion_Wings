@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-22 — LOG GEM CYE — FIN-08: Retoques de pantalla de Revisión autorizados por Carlos
+
+- **Objetivo:** Aplicar los tres retoques de diseño y UX detectados durante la verificación de FIN-08 en `resources/views/revision-cobranza/index.blade.php`, autorizados expresamente por Carlos el 22/09.
+- **Cambios reales:**
+  1. Renderizado visible de `$errors` en banner superior `.ds-flash.ds-flash--error` sin JavaScript ni reabrir formularios, mostrando mensajes de validación cuando la nota es menor a 5 caracteres o está vacía.
+  2. Filtros responsivos: reemplazada grilla inline rígida por `.filtros-row` con `flex-wrap:wrap; align-items:end;` y campos con `flex:1; min-width:140px;` para que se apilen adecuadamente en celular sin apretarse.
+  3. Eliminado el bloque `<script>` duplicado (`abrirForm` y `cerrarForm`), activando la delegación nativa `[data-abrir-revision]` y `[data-cerrar-revision]` ya implementada en `resources/js/ds-app.js`.
+  4. Reducida la constante `BLOQUES_SCRIPT_PERMITIDOS` de 22 a 21 en `tests/Feature/CspSinCodigoIncrustadoTest.php`.
+- **Verificación:** Vistas compilan (`view:cache` y `view:clear`), CSP test pasa en verde, suite completa pasa con 290 pruebas / 1675 aserciones. Sin deploy.
+
 ## 2026-09-21 — LOG GEM CYE — FIN-08: Verificación exhaustiva y auditoría de permisos
 
 - **Objetivo:** Auditar y verificar minuciosamente la tarea FIN-08 (commit `5dff231`), que habilita la resolución de revisiones de cobranza al rol OPERATIVO ("Continúa" / "Inactivo"), evaluando los 9 puntos del pedido de Carlos y buscando fallas potenciales sin alterar código.

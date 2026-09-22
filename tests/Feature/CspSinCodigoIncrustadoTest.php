@@ -32,8 +32,13 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * grupos/_form.blade.php y usuarios/_form.blade.php a sus propios archivos
      * dedicados (resources/js/grupos.js y resources/js/usuarios.js), cargados con
      * @vite vía @push('scripts') conforme a la regla de DESIGN-RULES.md §8.
+     *
+     * Bajaron a 21 (22/09/2026) al remover el bloque <script> duplicado de
+     * revision-cobranza/index.blade.php (abrirForm y cerrarForm), que pasa a
+     * resolverse exclusivamente por delegación nativa de data-abrir-revision y
+     * data-cerrar-revision en ds-app.js.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 22;
+    private const BLOQUES_SCRIPT_PERMITIDOS = 21;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

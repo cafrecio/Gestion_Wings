@@ -131,14 +131,14 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
-| Cashflow | Integra cajas validadas y saldo inicial; significado de “Balance” pendiente de decision |
+| Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
 | Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only con endpoint /csp-reporte; quedan 22 bloques script en 22 vistas y 10 manejadores inline |
+| CSP | Report-only con endpoint /csp-reporte; quedan 21 bloques script en 21 vistas y 10 manejadores inline |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre
@@ -173,7 +173,7 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 7. Decisiones pendientes de Carlos
 
-- Que significa “Balance” filtrado en Cashflow.
+- FIN-04 decidido 22/09: saldo acumulado separado de resultados/proyecciones; gastos del club no se descuentan por deporte. Contrato de Reportes enmendado; implementación pendiente.
 - Como resolver revisiones con parcial, observaciones e importe historico.
 - Limites temporales de movimientos manuales.
 - Significado de DEUDOR sin pagos y sin saldo pendiente.
@@ -230,7 +230,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
 | Wings no tiene arqueo | `cajas_operativas` no guarda importe contado ni diferencia; el cierre nunca pregunta cuanta plata hay. `PERMISOS-ROLES.md:84` y `Wings-Contrato-Punitorios-Mora-V1.md:267` usan la palabra como si existiera, y el segundo tiene un criterio de aceptacion —"no hay diferencia"— que hoy no se puede evaluar | Carlos define si la caja debe pedir conteo al cerrar, o se corrigen los contratos |
-| Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Carlos define saldo acumulado o resultado del periodo |
+| Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
 

@@ -34,7 +34,7 @@
 
 - **MUY IMPORTANTE — ENT-01/ENT-10 (22/09):** inscripción según ingreso real frente a corte fijo, nunca por fecha de carga ni modo temporal. Inicial .000 obligatorio, una vez con primera cuota. [Decisión y manuales pendientes](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Falta fijar fecha concreta; sin implementación en este turno.
 
-- Reportes: gastos generales separados como «Gastos del club», sin reparto. [Decisiones y pregunta pendiente](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). La entrevista derivó en POS-07: [plan de canchas y liquidaciones v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y pruebas. Costos solo ADMIN; mes o fechas elegidas, únicamente clases dictadas y pendientes de liquidar, sin duplicarlas. Plan documentado; sin implementación ni despliegue. SaaS futuro fuera del alcance; particulares en rama separada.
+- Reportes: gastos generales separados como «Gastos del club», sin reparto ni descuento del resultado por deporte; sí del total del negocio (22/09). [Decisiones de la encuesta](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). La entrevista derivó en POS-07: [plan de canchas y liquidaciones v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y pruebas. Costos solo ADMIN; mes o fechas elegidas, únicamente clases dictadas y pendientes de liquidar, sin duplicarlas. Plan documentado; sin implementación ni despliegue. SaaS futuro fuera del alcance; particulares en rama separada.
 
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
 
@@ -54,7 +54,7 @@
   pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.
 
 - FIN-03: verificar trabajo y criterio cruzado; no rehacer la implementación.
-- FIN-04: significado de Balance pendiente de Carlos.
+- FIN-04: definición cerrada 22/09 en el contrato de Reportes. Saldo, resultado y proyecciones separados; gastos del club fuera de cada deporte, dentro del total. Implementación POS-01 pendiente.
 - FIN-06 a FIN-11: consultar estado/criterios individuales del plan; no asumir resueltos.
 - SEG: sesiones, política de clave, preflight, errores, restore integral, CI y CSP según plan.
 - PRU: recorrido integral, cambio de mes y gate aún requieren aceptación.
@@ -73,7 +73,7 @@
 - Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
-- Balance filtrado; revisiones con parciales/historia; límites de fechas manuales.
+- Balance filtrado definido 22/09 (FIN-04); implementación de Reportes pendiente. Revisiones y límites de fechas: consultar estados individuales del plan.
 - DEUDOR sin pagos y sin saldo; descuento de primer pago para importados.
 - Tratamiento contable de inscripción; alcance de arqueo.
 

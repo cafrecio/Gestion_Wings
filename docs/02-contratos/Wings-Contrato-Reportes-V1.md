@@ -11,6 +11,47 @@
 > No implementar aquel reparto por cantidad de clases en paralelo al nuevo módulo.
 > Planificar no equivale a que esté implementado; el contrato final de Reportes sigue pendiente.
 
+## Enmienda FIN-04 — definición cerrada el 22/09/2026
+
+Decisiones expresas de Carlos, consolidadas desde la entrevista. Esta enmienda
+prevalece sobre formulaciones anteriores incompatibles de este documento.
+Cierra la definición funcional de FIN-04, no la implementación de Reportes (POS-01).
+
+- **Saldo disponible:** dinero real acumulado hasta el corte consultado, incluyendo
+  lo anterior al período. En el apartado actual, el corte es hoy. No sumar deudas
+  por cobrar ni liquidaciones pendientes como si fueran dinero disponible.
+- **Resultado del período:** movimientos del período, sin sumar el saldo inicial
+  ni arrastres de meses anteriores. Mostrar nombres explícitos, no un único
+  «Balance» que mezcle saldo y resultado.
+- **Resultado del negocio:** ingresos de cuotas y clases menos egresos del período.
+- **Resultado global:** todos los ingresos menos todos los egresos del período;
+  no presentarlo como rentabilidad del negocio. La distinción permite que otros
+  ingresos, como aportes, afecten el global y el saldo sin ser ingresos de cuotas/clases.
+- **Por cobrar y por pagar:** apartados separados de los movimientos reales.
+  Por cobrar: deudas ya generadas; por pagar: liquidaciones cerradas no pagadas.
+  Liquidaciones abiertas se avisan con acceso a Liquidaciones, sin sumarlas a por pagar.
+- Ingresos, egresos, cuotas cobradas, resultados y saldos distinguen **confirmados**
+  y **sin confirmar**, sin duplicar movimientos ni saldo inicial entre categorías.
+- La fecha real del movimiento determina el período; la caja donde se rinde y la
+  fecha de carga no lo trasladan. Confirmación posterior actualiza su mes de origen.
+  Una carga tardía puede corregir un mes pasado. No contar nuevamente al validar.
+- **Filtro por deporte:** los gastos generales aparecen aparte como **Gastos del club**,
+  sin reparto y **sin descontarlos del resultado del deporte**. Sí se descuentan
+  una vez del resultado total del negocio. No sumar ese mismo gasto en cada deporte.
+  Esto no convierte en gasto general un costo que tenga atribución propia definida.
+- La implementación del costo de canchas POS-07 y las particulares POS-06 conservan
+  sus alcances separados; no son requisitos para cerrar esta decisión documental.
+
+Ejemplo de aceptación de la definición: saldo previo 100, ingresos del período 80,
+egresos 50: resultado global del período 30 y saldo al corte 130. Si dentro de esos
+50 hay 10 de gastos generales, esos 10 se descuentan del total del negocio, pero
+no del resultado de cada deporte filtrado. Proyecciones no alteran los 130 reales.
+Verificar estos criterios con datos y recorridos reales al implementar, sin dar
+por comprobado hoy el cálculo existente.
+
+La encuesta completa y las demás decisiones de Reportes siguen en
+[la nota provisional](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md).
+
 ## El problema que resuelve
 
 El panel del administrador muestra hoy seis contadores —altas del mes, alumnos

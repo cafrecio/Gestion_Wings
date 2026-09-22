@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-22 — Codex CAB — FIN-04 definición funcional cerrada
+
+Carlos confirma gastos del club separados, sin descontarlos del resultado por deporte.
+Sí se descuentan del total del negocio; enmienda en el contrato de Reportes V1.
+Saldo acumulado, resultado del período y proyecciones separados; confirmados/sin confirmar.
+Ambos tableros, checklist, estado, plan de producción, resumen y encuesta actualizados.
+Cierre documental de definición; POS-01 sigue pendiente, sin código ni despliegue.
+Verificación de enlaces, coherencia de estado, diff y ausencia de cambios de diseño.
+[Entrada anterior archivada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-FIN04.md).
+Siguiente: continuar diseño e implementación de Reportes según pedido de Carlos.
+
 ## 2026-09-22 — Codex CAB — MUY IMPORTANTE: inscripción por fecha real de ingreso
 
 Carlos decide carga manual por usuarios; no modo temporal ni pregunta nuevo/antiguo.
@@ -131,13 +142,3 @@ Sintaxis de cuatro PHP y compilación/limpieza de vistas correctas; sin cambios 
 Ambos tableros, estado, checklist, resumen y evidencia actualizados para retirar la pausa.
 Alcance: cobrar/cancelar/validar; recálculo/cierre de liquidaciones sigue pendiente separado.
 Sin deploy ni operaciones sobre datos del club. Siguiente: revisión cruzada y despliegue.
-
-## 2026-09-12 — Codex CAB — FIN-11 probada, cierre pausado por suite compartida
-
-Seis cruces reales: inicialmente cuatro fallaron y dos pasaron sin revelar defecto.
-Corregidos bloqueos de cobro/cancelación frente a deuda y caja; MoneyLockingTest descrito como estructural.
-Cancelar/validar antes dejaba cashflow 10.000 con pago ANULADO y deuda pagada 0, en ambos órdenes.
-Ahora los seis pasan: 103 aserciones aisladas en wings_testing_fin11_20260912.
-Suite compartida: 181 pasan / 5 fallan, 1187 aserciones; fallas en fixtures nuevos SEG de otros trabajos.
-Evidencia: ../06-pruebas/FIN-11-CONCURRENCIA-2026-09-12.md. Sin commit ni deploy aún.
-Ambos tableros con pausa y sin checked: falta resolver las fallas externas y repetir suite completa.

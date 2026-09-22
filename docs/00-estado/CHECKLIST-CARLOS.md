@@ -108,7 +108,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   resultado del periodo.
 - [x] **FIN-08, retoques de la pantalla Revision** (encontrados por Gemini 21/09): mostrar el
   error si la nota falta, filtros que no se aprieten en celular y sacar un script duplicado.
-  **Autorizados los tres por Carlos el 22/09.** Falta hacerlos (Gemini).
+  **Implementados por Gemini el 22/09:** banner de `$errors` visible sin JS (`ds-flash--error`),
+  filtros con `filtros-row` y `flex-wrap` para apilarse en celular, y retiro del `<script>`
+  duplicado (scripts de CSP bajan a 21).
 - [x] **FIN-08:** decidido y hecho el 21/09. El operativo resuelve la revision; parcial ya no aplica;
   "Continua" usa el precio vigente del plan.
   Ya decidido (17/09): la hace el operativo, no solo el admin; las notas viejas se conservan.

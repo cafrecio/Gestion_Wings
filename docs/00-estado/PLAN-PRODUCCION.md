@@ -21,7 +21,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
-| CSP | En modo reporte, ya recolectando avisos en `report-uri /csp-reporte`. Quedan 22 bloques script y 10 manejadores inline |
+| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Quedan 21 bloques script y 10 manejadores inline |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 
@@ -41,7 +41,7 @@ este archivo una orden vieja ni ejecutar una tarea sin releer aquel documento.
 ## 3. Gate antes de declarar produccion
 
 - [ ] COB-01 a COB-05 cerrados y verificados.
-- [ ] FIN de prioridad alta cerrados; FIN-04 decidido por Carlos.
+- [ ] FIN de prioridad alta cerrados. FIN-04 ya definido por Carlos el 22/09 en el contrato de Reportes; implementación de Reportes pendiente.
 - [ ] SEG de prioridad alta cerrados.
 - [ ] Suite completa verde sobre MariaDB.
 - [ ] Recorrido humano de ADMIN, OPERATIVO y PROFESOR completado.

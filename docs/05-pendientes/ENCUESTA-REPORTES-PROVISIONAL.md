@@ -169,18 +169,12 @@ propuestas del asistente en autorizaciones ni hallazgos de logs ajenos en hechos
 verificados. Si difiere del contrato anterior, conservar la diferencia y resolverla
 al redactar la nueva versión, antes de implementar.
 
-## 9. Punto exacto para retomar
+## 9. FIN-04 definido — 22/09/2026
 
-**Resuelto el 21/09:** al filtrar por deporte, mostrar los gastos generales
-separados como **Gastos del club**. Sin reparto por ahora.
-
-**Siguiente pregunta, todavía sin respuesta:**
-
-> Al filtrar por deporte, ¿el resultado de ese deporte debe restar también
-> los gastos generales del club, o mostrarlos aparte sin restarlos?
-
-No resolver el cálculo por criterio del agente. El diseño de Reportes y su
-contrato final siguen pendientes; no iniciar código.
-
-La entrevista derivó en POS-07 y su plan quedó escrito. Al volver a Reportes,
-retomar esta pregunta: la liquidación de clubes no la responde por sí sola.
+Carlos confirmó: los gastos generales del club se muestran aparte y no se
+restan del resultado de cada deporte; sí del resultado total del negocio.
+Se consolidaron saldo acumulado, resultado del período, proyecciones y separación
+confirmados/sin confirmar en la enmienda FIN-04 del contrato de Reportes.
+La pregunta anterior queda respondida. FIN-04 cierra su definición funcional;
+POS-01 y el resto del diseño/implementación de Reportes siguen pendientes.
+Esta nota se conserva hasta incorporar todas sus decisiones al contrato final.
