@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wings · Lo que está mal · 23/09/2026</title>
+  <style>
+    :root { --ink:#172033; --muted:#647087; --line:#dfe4ec; --paper:#f5f7fb; --card:#fff; --brand:#3157d5; --ok:#16845b; --warn:#a45f00; --hot:#b42318; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(1080px,calc(100% - 28px)); margin:28px auto 70px; }
+    header { background:linear-gradient(135deg,#19233d,#b42318); color:#fff; border-radius:18px; padding:28px; box-shadow:0 14px 36px #1d2a4d22; }
+    h1 { margin:0 0 8px; font-size:clamp(26px,4vw,42px); line-height:1.05; }
+    header p { margin:4px 0; color:#ffe7e5; }
+    nav { margin:18px 0; padding:16px; background:var(--card); border:1px solid var(--line); border-radius:14px; position:sticky; top:8px; z-index:2; }
+    nav a { display:inline-block; margin:4px 12px 4px 0; color:var(--brand); font-weight:700; text-decoration:none; }
+    section { margin:22px 0; scroll-margin-top:95px; }
+    h2 { margin:0 0 6px; font-size:22px; }
+    .why { margin:0 0 12px; color:var(--muted); }
+    .grid { display:grid; gap:10px; }
+    .item { display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; padding:14px 16px; background:var(--card); border:1px solid var(--line); border-radius:12px; }
+    .item:has(input:checked) { border-color:#8fd2b7; background:#f2fbf7; }
+    input[type=checkbox] { width:20px; height:20px; margin-top:2px; accent-color:var(--ok); }
+    label { cursor:pointer; font-weight:600; }
+    .id { color:var(--brand); font-weight:800; margin-right:6px; }
+    .detail { display:block; margin-top:5px; color:var(--muted); font-size:13px; font-weight:400; }
+    .sello { margin-left:8px; font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+    .tag { white-space:nowrap; border-radius:999px; padding:4px 8px; font-size:12px; font-weight:800; background:#edf1fa; }
+    .alta { color:var(--hot); background:#fff0ef; }
+    .media { color:var(--warn); background:#fff6e5; }
+    .decision { color:#6544a0; background:#f3edff; }
+    .done { color:var(--ok); background:#eaf8f2; }
+    .note { padding:15px 17px; border-left:4px solid var(--brand); background:#edf2ff; border-radius:8px; }
+    ol { padding-left:20px; } ol li { margin:6px 0; }
+    footer { margin-top:28px; color:var(--muted); font-size:13px; }
+    @media (max-width:650px) { .item { grid-template-columns:auto 1fr; } .tag { grid-column:2; width:max-content; } nav { position:static; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Wings · Lo que está mal</h1>
+    <p>Relevado el 23/09/2026 sobre el sitio de prueba, con el club cargado.</p>
+    <p><b>Frena</b>: el club no puede trabajar o pierde plata · <b>Molesta</b>: se trabaja con fricción · <b>Falta</b>: el club lo necesita y no existe.</p>
+  </header>
+
+  <nav>
+    <a href="#afuera">Lo que se ve</a>
+    <a href="#adentro">Lo que no se ve</a>
+    <a href="#criterio">Qué mirar en una prueba</a>
+  </nav>
+
+  <section id="afuera">
+    <h2>Lo que se ve</h2>
+    <p class="why">Entrando a la pantalla, sin abrir una línea de código.</p>
+    <div class="grid">
+      <div class="item"><input id="A1" type="checkbox"><label for="A1"><span class="id">A1</span>Cobranza no sirve para cobrar <span class="sello">verificado</span><span class="detail">La pantalla de Cobranza lista a los alumnos con su estado y un botón <b>Ver</b>. No muestra <b>cuánto debe</b> cada uno ni tiene botón de <b>Cobrar</b>. Para cobrarle a alguien hay que salir, ir a Alumnos y buscarlo de nuevo. Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trabajo. <code>resources/views/cobranza/index.blade.php</code>.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A2" type="checkbox"><label for="A2"><span class="id">A2</span>Cobranza dice 60 deudores y el dashboard dice 20 <span class="sello">por diagnosticar</span><span class="detail">Con el padrón recién importado, Cobranza clasifica <b>a los 60 alumnos como deudores</b>, mientras el tablero del operativo muestra 20 con deuda. Uno de los dos miente y nadie sabe cuál. Sospecha a confirmar: los 43 alumnos que quedaron con el mes de corte en **cero y pagado** se leen como "nunca pagó nada" y caen en DEUDOR.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A3" type="checkbox"><label for="A3"><span class="id">A3</span>No se puede cobrar por adelantado <span class="sello">verificado</span><span class="detail">Si el alumno no tiene una deuda generada, la pantalla de cobro muestra "Sin deudas pendientes" y el botón queda apagado. <b>El motor sí lo soporta</b> —cobrar un período sin deuda usa el precio del plan— pero la pantalla no lo ofrece. Un club cobra por adelantado todo el tiempo.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A4" type="checkbox"><label for="A4"><span class="id">A4</span>Editar alumno no avisa por qué no guardó <span class="sello">verificado</span><span class="detail">Al cambiar la fecha de nacimiento, el tutor pasa a ser obligatorio. El error aparece **abajo de todo**, en una pantalla más alta que el monitor. La persona aprieta Guardar, no pasa nada visible y no entiende por qué. Es el mismo defecto que se corrigió en Revisión el 22/09. <b>Y peor:</b> si se va por el menú lateral, <b>nadie le avisa que va a perder lo que cargó</b>.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A5" type="checkbox"><label for="A5"><span class="id">A5</span>Los profesores se eligen sin saber de qué deporte es la clase <span class="sello">verificado</span><span class="detail">Una fila de casillas con todos los profesores del club, sin filtrar. En una clase de patín se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la clase.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A6" type="checkbox"><label for="A6"><span class="id">A6</span>"Modificar" donde en todo el resto dice "Editar"<span class="detail">En la ficha de la clase el botón se llama <b>Modificar</b> y tiene otro formato. Rompe la regla de un verbo por acción, igual en todas las pantallas.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A7" type="checkbox"><label for="A7"><span class="id">A7</span>El listado de alumnos desperdicia la pantalla<span class="detail">Una tarjeta por alumno del ancho completo, con el nombre a la izquierda y el deporte a treinta centímetros. El botón <b>Ver</b> desborda su lugar. El gris de la tarjeta no significa nada. Para saber el plan o el celular de alguien hay que abrir su ficha, uno por uno.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A8" type="checkbox"><label for="A8"><span class="id">A8</span>Puntos grises que no dicen nada<span class="detail">En grupos, niveles y profesores cada tarjeta tiene un punto de color. En alumnos el color es el deporte; en el resto es gris siempre. O significa algo o no va.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A9" type="checkbox"><label for="A9"><span class="id">A9</span>El interruptor "Activo" en las tarjetas<span class="detail">En grupos, niveles y profesores aparece un interruptor al lado de los botones, con otro tamaño y otra lógica visual que el resto del sistema.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A10" type="checkbox"><label for="A10"><span class="id">A10</span>El botón "Nuevo" del cashflow<span class="detail">Está suelto en la barra de totales y lleva a <b>Movimiento directo</b>. Nadie puede adivinar qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al lado.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A11" type="checkbox"><label for="A11"><span class="id">A11</span>Configuración es impresentable <span class="sello">verificado</span><span class="detail">Muestra los nombres internos: <code>avisos_email</code>, <code>dia_generacion_deuda</code>, <code>dias_gracia_cobranza</code>, <code>inscripcion_importe</code>. Sin agrupar, sin explicar qué gobierna cada uno. Quien entra no sabe qué está tocando. Además <b>acepta valores inválidos sin decir nada</b>: se guarda un importe en −100 y la pantalla no protesta.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A12" type="checkbox"><label for="A12"><span class="id">A12</span>El inicio del operativo no ayuda a trabajar<span class="detail">Tres cuadros en cero, una tarjeta que dice "Sin caja hoy" y nada que diga por dónde empezar el día.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A13" type="checkbox"><label for="A13"><span class="id">A13</span>El admin termina con caja propia <span class="sello">verificado</span><span class="detail">Cuando el dueño cobra una cuota, el sistema <b>le abre una caja a su nombre</b> (<code>abrirCajaSiNoExiste</code>). Después tiene que cerrarla y validarse a sí mismo. <b>Decisión de Carlos, 23/09:</b> el admin <b>no tiene caja</b>. No cierra ni valida lo suyo. Le corresponde una pantalla de caja distinta: la del dueño que mira, no la del mostrador que rinde.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="A14" type="checkbox"><label for="A14"><span class="id">A14</span>Pantallas más altas que el monitor<span class="detail">Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo arriba ni abajo.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A15" type="checkbox"><label for="A15"><span class="id">A15</span>Una clase de 17:30 a 18:30 se acepta sin decir nada <span class="sello">verificado</span><span class="detail">Para el club son <b>dos horas de cancha</b>, porque se paga por bloque de reloj ocupado. Wings no lo sabe ni lo advierte. Ver también I6.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="A16" type="checkbox"><label for="A16"><span class="id">A16</span>Cargar el horario obliga a repetir la carga<span class="detail">Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar de una vez: hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos los días elegidos.</span></label><span class="tag media">Molesta</span></div>
+    </div>
+  </section>
+
+  <section id="adentro">
+    <h2>Lo que no se ve</h2>
+    <p class="why">Lo que rompe igual, aunque la pantalla parezca andar.</p>
+    <div class="grid">
+      <div class="item"><input id="B1" type="checkbox"><label for="B1"><span class="id">B1</span>El admin está modelado como un operativo más <span class="sello">verificado</span><span class="detail">La pantalla de cobro manda siempre por el camino del mostrador (<code>registrarPagoCuotaOperativo</code>), sin importar el rol, y por eso le abre caja al dueño. Existe un camino directo a cashflow sin caja (<code>registrarPagoCuotaAdmin</code>) que <b>solo usa la API</b>. El modelo de fondo es el problema: el dueño no es una mula del sistema.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="B2" type="checkbox"><label for="B2"><span class="id">B2</span>El estado de cobranza no distingue "sin deuda" de "nunca pagó" <span class="sello">por diagnosticar</span><span class="detail">Es la causa probable de A2. Hay que leer el cálculo completo antes de tocar nada: <code>app/Services/CobranzaEstadoService.php</code>.</span></label><span class="tag alta">Frena</span></div>
+      <div class="item"><input id="B3" type="checkbox"><label for="B3"><span class="id">B3</span>Las excepciones del contrato no existen<span class="detail">El contrato de cobranza exige <b>motivo obligatorio y aviso al admin</b> en cuatro situaciones: cobro parcial, cobro que deja impago un mes anterior, deudor que entra a clase, y alumno nuevo desde la tercera clase. <b>Ninguna pide motivo hoy.</b> Tarea ENT-11.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B4" type="checkbox"><label for="B4"><span class="id">B4</span>El resumen diario no incluye las clases sin asistencia <span class="sello">verificado</span><span class="detail">El aviso que llega por mail y Telegram cubre cajas, revisiones y liquidaciones. Una clase sin lista tomada <b>traba el pago del profesor</b> y solo se ve como un contador en el menú de quien entra.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="B5" type="checkbox"><label for="B5"><span class="id">B5</span>Las canchas no existen<span class="detail">No hay dónde decir en qué cancha se juega, cuál es la tarifa de esa hora ni cuánto se paga este mes. <b>Es el gasto más grande del club y vive afuera del sistema.</b> Está planificado al detalle en <code>docs/07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md</code> (POS-07).</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B6" type="checkbox"><label for="B6"><span class="id">B6</span>Las clases particulares no existen<span class="detail">Son habituales en el club. No hay precio por clase, ni deuda de esa clase, ni recibo, ni rentabilidad. Contrato escrito en <code>Wings-Contrato-Clases-Particulares-V1.md</code> (POS-06). Hoy se resuelven a mano: una clase del grupo de la alumna con ella sola presente, y el cobro cargado como movimiento suelto.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B7" type="checkbox"><label for="B7"><span class="id">B7</span>Se vende ropa pero no hay stock ni compra<span class="detail">Existe el rubro de ingreso por indumentaria. No existe el egreso por <b>comprar</b> la mercadería, ni nada que diga cuántas remeras quedan. El club nunca va a saber si gana plata con la ropa.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B8" type="checkbox"><label for="B8"><span class="id">B8</span>No existe la familia<span class="detail">Dos hermanos son dos alumnos sueltos que comparten apellido. No hay descuento por hermano ni una cuenta por casa.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B9" type="checkbox"><label for="B9"><span class="id">B9</span>El adelanto al profesor no se descuenta solo<span class="detail">Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes. <b>Si nadie se acuerda, el club le paga dos veces.</b></span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B10" type="checkbox"><label for="B10"><span class="id">B10</span>No hay dónde guardar el CBU del profesor<span class="detail">Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de Vanina.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B11" type="checkbox"><label for="B11"><span class="id">B11</span>Los punitorios están definidos y sin motor<span class="detail">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B12" type="checkbox"><label for="B12"><span class="id">B12</span>No hay reportes<span class="detail">Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a mano. La definición está cerrada (FIN-04); la implementación es POS-01.</span></label><span class="tag decision">Falta</span></div>
+      <div class="item"><input id="B13" type="checkbox"><label for="B13"><span class="id">B13</span>Los datos de prueba no representan al club <span class="sello">verificado</span><span class="detail">Los hizo Claude y están mal: <b>los 60 alumnos son adultos</b> —nacidos entre 1986 y 2005— en una escuela de patín y fútbol infantil; sin tutores ni celulares cargados. El catálogo trae <b>Servicios (Luz, Internet)</b> que este club no paga porque alquila las canchas. Y los saldos iniciales de caja son inventados: los $1.570.000 del cashflow salen de ahí, no de plata real.</span></label><span class="tag media">Molesta</span></div>
+      <div class="item"><input id="B14" type="checkbox"><label for="B14"><span class="id">B14</span>El despliegue no limpiaba la caché de rutas <span class="sello">Verificado y corregido</span><span class="detail">El servidor de prueba servía la lista de rutas del 13/09: las pantallas nuevas reventaban. Se limpió el 23/09. <b>El script de despliegue todavía no lo hace solo.</b></span></label><span class="tag done">Corregido</span></div>
+      <div class="item"><input id="B15" type="checkbox"><label for="B15"><span class="id">B15</span>El SPF del subdominio anuló su comodín de DNS <span class="sello">Verificado y corregido</span><span class="detail">Documentado en <code>docs/04-tecnico/SERVIDOR.md</code>. Queda como lección de proceso: comprobar desde afuera, no desde el servidor.</span></label><span class="tag done">Corregido</span></div>
+      <div class="item"><input id="B16" type="checkbox"><label for="B16"><span class="id">B16</span>`/movimientos` filtraba por caja propia <span class="sello">Verificado y corregido el 23/09</span><span class="detail">El mostrador no veía los cobros del otro turno. Ahora filtra por rubro, como manda <code>PERMISOS-ROLES.md</code>. Cubierto por <code>MovimientosVisibilidadPorRubroTest</code>.</span></label><span class="tag done">Corregido</span></div>
+    </div>
+  </section>
+
+  <section id="criterio">
+    <h2>Qué mirar en una prueba</h2>
+    <div class="note">
+      <ol>
+        <li>¿La pantalla resuelve el trabajo de quien la usa, o solo muestra datos?</li>
+        <li>¿El usuario entiende qué pasó? Si no guardó, por qué; si va a perder lo cargado, que se le avise.</li>
+        <li>¿Los números coinciden entre pantallas?</li>
+        <li>¿El sistema deja hacer algo que el club no puede permitir?</li>
+        <li>¿Cada rol hace lo suyo? El dueño no cierra cajas ni se valida a sí mismo.</li>
+        <li>¿Qué necesita el club y no tiene dónde anotarse?</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>Detalle completo, con archivos y causas, en <code>docs/06-pruebas/PRU-02/DEFECTOS.md</code>.</footer>
+</main>
+</body>
+</html>
