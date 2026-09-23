@@ -224,6 +224,25 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
+### A43. El alumno antiguo cargado a mano recibe el descuento de bienvenida · Frena · verificado
+
+Salió de la verificación cruzada de la implementación de A2/B2 (Claude, 23/09).
+
+`PagoCuotaService::crearCuotaAlta` crea la cuota del **mes en curso**, pero calcula el
+porcentaje con **el día de la fecha de ingreso**, que puede ser de hace años. Un alumno que
+entró al club el 20 de enero de 2020 y se carga hoy queda debiendo **el 65% de septiembre**,
+por un mes que usó entero. El descuento de bienvenida existe para quien arranca a mitad de
+mes, no para quien se carga tarde al sistema.
+
+Está fijado en una prueba —`CuotaAltaEstadoTest::test_porcentaje_configurable_dia_de_ingreso_y_solo_mes_actual`—
+así que hay que decidir la regla antes de tocarlo: **el porcentaje debería salir del día de
+ingreso solo cuando el ingreso es de este mes; si es anterior, la cuota va completa.**
+
+**Y arrastra un segundo problema:** desde ahora, cargar a mano un alumno antiguo le crea
+deuda del mes en curso. Si después se importa el padrón con el saldo inicial de ese mismo
+mes, la importación **rechaza el archivo entero** —"ya existe una deuda para ese alumno y
+período"—. Los dos caminos de carga inicial chocan.
+
 ## Complemento visual de Codex — 23/09/2026
 
 Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio 1366×900 y celular 390×844. Se excluyeron los hallazgos A1–A35 ya registrados. [Cobertura y límites](RECORRIDO-VISUAL-CODEX-2026-09-23.md).
