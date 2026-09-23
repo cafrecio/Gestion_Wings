@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Clase;
+use App\Support\RelojSimulado;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +14,12 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Solo hace algo en el servidor de prueba, y nunca en producción:
+        // ver App\Support\RelojSimulado.
+        if (!$this->app->runningUnitTests()) {
+            RelojSimulado::aplicar(config('app.fecha_simulada'), $this->app->environment());
+        }
+
         View::composer('*', function ($view) {
             $badge = 0;
             if (Auth::check()) {

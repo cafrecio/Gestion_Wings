@@ -78,6 +78,19 @@ return [
     |
     */
 
+    /*
+    |--------------------------------------------------------------------------
+    | Fecha simulada — solo para el servidor de prueba
+    |--------------------------------------------------------------------------
+    |
+    | Le dice a Wings qué día es, para recorrer meses de club en unas horas
+    | durante PRU-02. En producción se ignora aunque esté escrita: el blindaje
+    | está en App\Support\RelojSimulado y lo cubre RelojSimuladoTest.
+    |
+    */
+
+    'fecha_simulada' => env('FECHA_SIMULADA'),
+
     'locale' => env('APP_LOCALE', 'en'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
