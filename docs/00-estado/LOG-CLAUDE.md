@@ -11,6 +11,32 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md)
 
+## 2026-09-23 — Claude CAB — verificacion cruzada de A2/B2 y hallazgo A43
+
+**Que se verifico.** La implementacion de Codex (`b3619bf`) de las dos enmiendas al contrato
+de cobranza: la cuota nace en el alta con el importe congelado, y DEUDOR deja de depender de
+"nunca pago". Verificado leyendo el codigo, no el informe: la regla de estado quedo solo
+sobre deuda anterior impaga y se sacaron tambien las tres consultas de "tiene pagos" que
+alimentaban los listados masivos, asi que pantalla y listado deciden igual. El descuento no
+se aplica dos veces: si la deuda trae `porcentaje_alta`, el cobro lo respeta y no recalcula.
+Suite corrida por mi: **331 pruebas / 1900 aserciones**, verde. Todo subido a GitHub.
+
+**Defecto encontrado en la verificacion — A43.** `crearCuotaAlta` crea la cuota del **mes en
+curso** pero calcula el porcentaje con **el dia de la fecha de ingreso**, que puede ser de
+hace anios: un alumno que entro el 20/01/2020 y se carga hoy debe el **65% de septiembre**,
+por un mes que uso entero. Esta fijado en
+`CuotaAltaEstadoTest::test_porcentaje_configurable_dia_de_ingreso_y_solo_mes_actual`, que lo
+declara correcto, asi que hay que decidir la regla antes de tocarlo. Propuesta: el
+porcentaje sale del dia de ingreso **solo si el ingreso es de este mes**; si es anterior, la
+cuota va completa.
+
+**Segundo efecto del mismo cambio.** Cargar a mano un alumno antiguo ahora le crea deuda del
+mes en curso, y despues la importacion del padron **rechaza el archivo entero** porque ya
+existe deuda de ese periodo. Los dos caminos de carga inicial chocan.
+
+**Estado.** A2 y B2 implementados y verificados; **A43 abierto, esperando decision de
+Carlos**. Registrado en `docs/06-pruebas/PRU-02/DEFECTOS.md`.
+
 ## 2026-09-23 — Claude CAB — decisiones del club para PRU-02 y visibilidad de movimientos
 
 **Decisiones de Carlos, para no volver a preguntarlas.** El club **abre a las 16**; la
