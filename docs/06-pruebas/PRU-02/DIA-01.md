@@ -15,16 +15,49 @@ día: es la mitad del resultado de esta prueba.
 
 ## Parte 1 — La mañana de Vanina, desde su casa (09:00 a 12:00)
 
-### 1.1 Entrar y mirar lo que le cargaron
+### 1.1 Lo primero: que existan las clases
 
-Vanina entra con su usuario de dueña y cambia su contraseña. Después revisa el padrón antes
-de cobrarle a nadie: si están los **celulares y los tutores** para poder llamar, si las
-**fechas de ingreso** son reales o son el día en que alguien los cargó, si los **planes**
-son los que cada familia paga, y si los 20 que deben, deben lo que dice el cuaderno.
+El club vive de las clases. Y no es una frase: **sin clases cargadas no hay asistencia, sin
+asistencia no hay qué liquidarle al profesor, y el mes que viene el sistema no le genera la
+cuota a nadie** —manda a todos a revisión de cobranza, porque no puede saber quién sigue
+viniendo—. Por eso el horario no es un paso de configuración: es lo primero.
+
+Vanina entra con su usuario de dueña, cambia su contraseña y arranca por acá.
+
+**Los profesores primero, porque una clase necesita uno.** Los cuatro, con su forma de cobro
+y su tarifa. **Vanina también da clases**: se carga como profesora con **costo hora $0**,
+así sus clases se liquidan sin generarle un pago a sí misma.
+
+**Hueco:** para pagarle a un profesor hace falta su CBU o su alias, y no hay dónde
+guardarlo. Ese dato sigue en el teléfono de Vanina.
+
+**Después el horario completo**, como está en
+[CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md): clases repetidas, **un grupo por vez**, del
+24/09 al 31/10, mirando el listado entre uno y otro. Son seis cargas, una por grupo.
+
+Dos intentos a propósito:
+
+- Una clase para una profesora en un horario que ya tiene ocupado: tiene que frenarla.
+- **Una clase de 17:30 a 18:30.** Wings la acepta sin decir nada. Para el club son **dos
+  horas de cancha**, porque se paga por bloque de reloj ocupado, no por duración. Anotarlo
+  y borrarla.
+
+**El hueco más caro del día:** Wings no sabe qué es una cancha. No hay dónde decir en cuál
+se juega, cuál es la tarifa de esa hora, ni cuánto va a pagar el club este mes. Está
+definido en el plan del 21/09 y sin implementar. Hoy ese gasto —el más grande del club—
+vive afuera del sistema.
+
+### 1.2 Que cada alumno esté donde entrena
+
+Con el horario cargado, revisa el padrón que le dejaron: si cada uno está en **su grupo y
+con su plan** —una clase por semana o dos—, porque de eso depende a qué clase entra y
+cuánto paga. Después, si están los **celulares y los tutores** para poder llamar, si las
+**fechas de ingreso** son reales o son el día en que alguien los cargó, y si los 20 que
+deben, deben lo que dice el cuaderno.
 
 **Qué mirar:** cuántas pantallas distintas necesitó para contestarse eso.
 
-### 1.2 Los números que gobiernan la plata
+### 1.3 Los números que gobiernan la plata
 
 En Configuración: inscripción de $5.000 desde el 23/09, diez días de gracia, generación de
 cuotas el día 1, los descuentos de la primera cuota según el día de ingreso, y el correo y
@@ -32,7 +65,7 @@ el Telegram adonde le llegan los avisos.
 
 Que confirme que esos son los números del club, no los que trajo el sistema.
 
-### 1.3 Por dónde entra y por dónde sale la plata
+### 1.4 Por dónde entra y por dónde sale la plata
 
 Vanina entra a Rubros. Encuentra cargado:
 
@@ -54,7 +87,7 @@ Vanina entra a Rubros. Encuentra cargado:
 egreso. Si va a "Gastos Operativos", el día que quiera saber si gana plata con la ropa no
 va a poder.
 
-### 1.4 Los medios de cobro
+### 1.5 Los medios de cobro
 
 Efectivo, Mercado Pago y tres cuentas de banco. Que confirme que son los suyos y **cree el
 que falte**.
@@ -62,32 +95,6 @@ que falte**.
 **Lo que va a aparecer hoy mismo:** la plata que entró por Mercado Pago después se
 transfiere al banco. No es plata nueva, es la misma cambiando de lugar. Ver cómo se
 registra eso sin que el club aparezca cobrando dos veces.
-
-### 1.5 Los profesores, incluida ella
-
-Cuatro profesores, con su forma de cobro y su tarifa. **Vanina también da clases**: se carga
-como profesora, con **costo hora $0**, así sus clases se liquidan sin generarle un pago a sí
-misma.
-
-**Hueco:** para pagarle a un profesor hace falta su CBU o su alias, y no hay dónde
-guardarlo. Ese dato sigue en el teléfono de Vanina.
-
-### 1.6 El horario de la semana
-
-Carga el cronograma completo, **un grupo por vez**, del 24/09 al 31/10, mirando el listado
-entre uno y otro. Está en [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md).
-
-Dos intentos a propósito:
-
-- Una clase para una profesora en un horario que ya tiene ocupado: tiene que frenarla.
-- **Una clase de 17:30 a 18:30.** Wings la acepta sin decir nada. Para el club son **dos
-  horas de cancha**, porque se paga por bloque de reloj ocupado, no por duración. Anotarlo
-  y borrarla.
-
-**El hueco más caro del día:** Wings no sabe qué es una cancha. No hay dónde decir en cuál
-se juega, cuál es la tarifa de esa hora, ni cuánto va a pagar el club este mes. Está
-definido en el plan del 21/09 y sin implementar. Hoy ese gasto —el más grande del club—
-vive afuera del sistema.
 
 ---
 
@@ -250,7 +257,8 @@ razón por la que el club deja el cuaderno.
 
 | Lo que se prueba | Dónde |
 |---|---|
-| Que la dueña termine de configurar su club sola, y a distancia | 1.1 a 1.6 |
+| Que el club pueda cargar su horario, que es de lo que vive | 1.1 |
+| Que la dueña termine de configurar su club sola, y a distancia | 1.2 a 1.5 |
 | Que la plata que no es cuota tenga lugar | 2.3 y 2.5 |
 | Que las clases particulares se puedan resolver de algún modo | 2.4 |
 | Que el mostrador sepa lo que cobró el turno anterior | 2.6 |
