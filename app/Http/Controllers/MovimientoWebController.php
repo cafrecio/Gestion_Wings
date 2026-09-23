@@ -23,10 +23,13 @@ class MovimientoWebController extends Controller
             'alumno',
         ]);
 
+        // El criterio de visibilidad es el RUBRO, nunca quién lo registró
+        // (PERMISOS-ROLES.md §"Historial de movimientos"). Hasta el 23/09/2026 esta
+        // pantalla filtraba por caja propia, y eso dejaba al mostrador sin saber que
+        // una madre ya había pagado en el turno del otro operativo. Lo que el
+        // operativo no puede cargar —subrubros de ADMIN— sigue sin verlo.
         if (!$user->isAdmin()) {
-            $query->whereHas('cajaOperativa', fn($q) =>
-                $q->where('usuario_operativo_id', $user->id)
-            );
+            $query->whereHas('subrubro', fn($q) => $q->where('permitido_para', 'OPERATIVO'));
         }
 
         if ($request->filled('desde')) {

@@ -409,7 +409,7 @@ Son dos cosas distintas y no deben confundirse:
 | Justificación por exceso de plan | ⚠️ Existe parcialmente (motivo EXTRA/RECUPERA), no unificada |
 | Justificación en cobro parcial | ❌ No existe |
 | Notificación al administrador | ❌ **No existe en ninguna forma.** El sistema no notifica nada, por ningún medio |
-| Movimientos visibles para todos | ⚠️ El historial sí; `/movimientos` filtra por caja propia y **no debería** |
+| Movimientos visibles para todos | ✅ **Corregido el 23/09/2026.** El historial ya lo hacía; `/movimientos` filtraba por caja propia y ahora filtra por rubro, como manda PERMISOS-ROLES. Lo cubre `MovimientosVisibilidadPorRubroTest` |
 | Caja restringida a su dueño | ✅ Implementado correctamente |
 
 **Deuda técnica asociada:** hoy existen tres campos de "motivo" dispersos (exceso de plan, corrección de asistencia, cambio de profesor). Al implementar §8 conviene unificarlos en un registro único de excepciones, no agregar un cuarto.

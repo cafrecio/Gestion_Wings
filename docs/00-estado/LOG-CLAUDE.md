@@ -11,6 +11,32 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md)
 
+## 2026-09-23 — Claude CAB — decisiones del club para PRU-02 y visibilidad de movimientos
+
+**Decisiones de Carlos, para no volver a preguntarlas.** El club **abre a las 16**; la
+manana es de Vanina sola, desde su casa: no mira la caja en vivo, controla y valida al dia
+siguiente. **Vanina tambien es profesora** y puede cargarse costo hora $0; profesores y
+usuarios son tablas sin relacion, asi que no hace falta nada nuevo. El efectivo que cobra
+ella es **orden fisico del club, no del sistema**: ve su propio registro y ahi no nos
+metemos. Las canchas ya estan relevadas en `PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md`
+(tarifa por hora, bloques completos del reloj): no volver a preguntar horarios ni precios.
+
+**Error repetido, ahora corregido en codigo.** Volvi a plantear como duda algo que el
+contrato ya resolvia: **las cuotas cobradas las ven todos los operativos**. `/movimientos`
+filtraba por caja propia, asi que si la madre pagaba en el turno de Pablo, Sandra al dia
+siguiente no encontraba el cobro y quedaba sin saber que decirle. Ahora filtra por rubro,
+como manda `PERMISOS-ROLES.md`: el criterio es el subrubro, nunca quien lo registro. Y la
+otra mitad de la regla, dicha por Carlos: **lo que el operativo no puede cargar, tampoco lo
+ve**; `permitido_para` gobierna las dos cosas. Cubierto por
+`MovimientosVisibilidadPorRubroTest`, rojo contra el codigo anterior. Contrato de cobranza
+actualizado: esa fila decia "no deberia" desde hace semanas.
+
+**Pendiente de definicion.** Las clases particulares son habituales en el club y hoy no
+tienen forma de gestionarse (POS-06 sin implementar): hay que encontrarles una salida con
+lo que existe antes de la semana 1.
+
+**Suite:** 321 pruebas / 1827 aserciones.
+
 ## 2026-09-22 — Claude CAB — acceso de CyE al servidor y primer ensayo real de restauracion
 
 **Acceso.** El servidor solo tenia autorizadas las claves de CAB y la contrasena esta
