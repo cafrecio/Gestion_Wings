@@ -95,3 +95,18 @@ enviarlos. Hay que dejar las mismas tres líneas al desplegar wings.
 
 Se borraron además **16.211 mensajes** que estaban atascados en la cola desde junio,
 casi todos avisos automáticos del sistema dirigidos a Carlos que nunca habían salido.
+
+### El SPF del subdominio de prueba anuló su comodín — 23/09/2026
+
+Al publicar el TXT de SPF para `test.gestionar-te.com.ar` se rompió el acceso al sitio de
+prueba, con `DNS_PROBE_FINISHED_NXDOMAIN` para todo el mundo. El motivo: ese subdominio no
+tenía dirección propia, resolvía por el comodín `*.gestionar-te.com.ar`, y **un comodín deja
+de aplicar a un nombre que existe con cualquier otro tipo de registro**. Al crear el TXT, el
+nombre pasó a existir y el comodín dejó de darle la dirección.
+
+Se corrigió agregando el registro A explícito de `test.gestionar-te.com.ar` (2.25.204.38,
+detrás del proxy de Cloudflare, igual que wings).
+
+**Regla para la próxima:** antes de agregar un TXT a un subdominio que depende del comodín,
+crear primero su registro A. Y comprobar desde afuera, no desde el servidor: desde el
+servidor seguía respondiendo mientras nadie más podía entrar.
