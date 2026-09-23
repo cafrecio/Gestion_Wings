@@ -1,86 +1,78 @@
-# PRU-02 — Día 1: el primer día de Vanina con Wings
+# PRU-02 — Día 1: el primer día del club con Wings
 
-Hoy el club deja el cuaderno y empieza a usar el sistema. Vanina llega a las ocho de la
-mañana con 60 alumnos ya cargados, una deuda vieja declarada y **nada más**: ni una clase,
-ni una caja, ni un movimiento. Todo lo que el club hace en un día, hoy hay que hacerlo por
-primera vez.
+Jueves. El club deja el cuaderno. Hay 60 alumnos cargados, la deuda vieja declarada y nada
+más: ni una clase, ni una caja, ni un movimiento.
 
-El día está escrito desde el club, no desde el sistema. Cada escena dice **qué hace
-Vanina**, **qué tiene que encontrar** y, cuando corresponde, **dónde Wings no tiene lugar
-para lo que el club necesita**. Eso último no es un error del día: es la lista de lo que
-falta, y es la mitad del valor de esta prueba.
+El día está escrito desde el club. **El club abre a las 16.** La mañana es de Vanina sola,
+desde su casa: ella no mira la caja en vivo, no tiene tiempo. Lo que pasa en el mostrador
+lo controla al otro día, con un café.
+
+Cada escena dice qué se hace, qué tiene que encontrar quien lo hace, y —cuando corresponde—
+**dónde Wings no tiene lugar para lo que el club necesita**. Eso último no es una falla del
+día: es la mitad del resultado de esta prueba.
 
 ---
 
-## Parte 1 — Antes de abrir la puerta (08:00 a 10:00)
+## Parte 1 — La mañana de Vanina, desde su casa (09:00 a 12:00)
 
-### 1.1 Entrar por primera vez
+### 1.1 Entrar y mirar lo que le cargaron
 
-Vanina entra con su usuario de dueña y **cambia su contraseña**. Después mira el menú: lo
-que ve un ADMIN tiene que ser todo el club, no un rincón.
+Vanina entra con su usuario de dueña y cambia su contraseña. Después revisa el padrón antes
+de cobrarle a nadie: si están los **celulares y los tutores** para poder llamar, si las
+**fechas de ingreso** son reales o son el día en que alguien los cargó, si los **planes**
+son los que cada familia paga, y si los 20 que deben, deben lo que dice el cuaderno.
 
-### 1.2 Mirar el padrón que alguien cargó por ella
+**Qué mirar:** cuántas pantallas distintas necesitó para contestarse eso.
 
-60 alumnos. Antes de cobrarle a nadie, la dueña revisa lo que hay:
-
-- ¿Están los **celulares y los tutores**? Sin eso no puede llamar a un deudor ni avisar que
-  se suspende la clase.
-- ¿Las **fechas de ingreso** son reales o son la fecha en que alguien los cargó? De eso
-  depende quién paga inscripción.
-- ¿Los **planes** están bien? Quién viene una vez por semana y quién dos.
-- Los 20 que deben, ¿deben lo que el cuaderno dice?
-
-**Lo que hay que mirar:** si la dueña puede contestar todo eso sin pedirle ayuda a nadie, y
-en cuántas pantallas distintas tuvo que entrar para hacerlo.
-
-### 1.3 Los números que gobiernan la plata
+### 1.2 Los números que gobiernan la plata
 
 En Configuración: inscripción de $5.000 desde el 23/09, diez días de gracia, generación de
 cuotas el día 1, los descuentos de la primera cuota según el día de ingreso, y el correo y
 el Telegram adonde le llegan los avisos.
 
-**Falta decidir hoy, no la semana que viene:** ¿los diez días de gracia son los del club?
-¿El descuento del primer mes es el que ella da de verdad?
+Que confirme que esos son los números del club, no los que trajo el sistema.
 
-### 1.4 Los rubros: por dónde entra y por dónde sale la plata
+### 1.3 Por dónde entra y por dónde sale la plata
 
-Esto es lo que nadie mira hasta que es tarde. Vanina entra a Rubros y encuentra cargado:
+Vanina entra a Rubros. Encuentra cargado:
 
 | Entra por | Sale por |
 |---|---|
 | Cuotas, Inscripciones, Torneos, Indumentaria, Intereses | Sueldos (uno por profesor y por operativa), Servicios, Gastos Operativos, Alquileres (San Carlos, Centenera, Eventos) |
 
-**Lo que tiene que hacer hoy:**
+**Lo que hace hoy:**
 
-1. Confirmar que los **Alquileres** son sus canchas de verdad, con esos nombres.
-2. **Crear lo que falta.** Van a aparecer gastos e ingresos que nadie previó: el arreglo de
-   una baranda, la rifa, el kiosco, la compra de la mercadería que después vende. Que cree
-   al menos **un rubro nuevo y un subrubro nuevo**, con el club abierto y gente esperando.
-3. **Intentar tocar los reservados**: Cuotas e Inscripciones no se dejan borrar ni
-   renombrar. Comprobarlo.
+1. Confirma que los **Alquileres** son sus canchas, con esos nombres.
+2. **Crea lo que falta**, porque hoy van a aparecer dos cosas que no están: el arreglo de
+   una baranda —un egreso de mantenimiento— y **las clases particulares**, que son
+   habituales y no tienen ningún lugar propio. Crea el rubro y el subrubro, decidiendo en
+   cada uno **quién lo puede usar**: si lo marca para el mostrador, el mostrador lo va a
+   poder cargar y ver; si lo deja para ella, no lo ve nadie más.
+3. **Intenta tocar los reservados:** Cuotas e Inscripciones no se dejan borrar ni renombrar.
 
-**Hueco a confirmar:** el club **vende** indumentaria —hay rubro de ingreso— pero también
-**compra** esa mercadería, y no hay ningún rubro de egreso para eso. Si Vanina tiene que
-meterlo en "Gastos Operativos", el día que quiera saber si gana plata con la ropa no va a
-poder.
+**Hueco:** el club **vende** indumentaria, pero **comprar** esa mercadería no tiene rubro de
+egreso. Si va a "Gastos Operativos", el día que quiera saber si gana plata con la ropa no
+va a poder.
 
-### 1.5 Los medios de cobro
+### 1.4 Los medios de cobro
 
-Efectivo, Mercado Pago y tres cuentas de banco. Vanina tiene que decir si son los suyos, y
-**crear el que falte**. Si el club cobra con posnet o con otra billetera, hoy no está.
+Efectivo, Mercado Pago y tres cuentas de banco. Que confirme que son los suyos y **cree el
+que falte**.
 
-**Y la pregunta que va a aparecer el primer día:** la plata que entra por Mercado Pago
-después se transfiere al banco. ¿Dónde se registra ese movimiento, que no es un ingreso
-nuevo sino la misma plata cambiando de lugar?
+**Lo que va a aparecer hoy mismo:** la plata que entró por Mercado Pago después se
+transfiere al banco. No es plata nueva, es la misma cambiando de lugar. Ver cómo se
+registra eso sin que el club aparezca cobrando dos veces.
 
-### 1.6 Los profesores
+### 1.5 Los profesores, incluida ella
 
-Cuatro. Vanina revisa cómo cobra cada uno —por hora o por comisión— y con qué tarifa.
+Cuatro profesores, con su forma de cobro y su tarifa. **Vanina también da clases**: se carga
+como profesora, con **costo hora $0**, así sus clases se liquidan sin generarle un pago a sí
+misma.
 
-**Hueco a confirmar:** para pagarle a un profesor hace falta su CBU o su alias. Si Wings no
-tiene dónde guardarlo, ese dato sigue viviendo en el teléfono de Vanina.
+**Hueco:** para pagarle a un profesor hace falta su CBU o su alias, y no hay dónde
+guardarlo. Ese dato sigue en el teléfono de Vanina.
 
-### 1.7 El horario de la semana
+### 1.6 El horario de la semana
 
 Carga el cronograma completo, **un grupo por vez**, del 24/09 al 31/10, mirando el listado
 entre uno y otro. Está en [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md).
@@ -88,79 +80,95 @@ entre uno y otro. Está en [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md).
 Dos intentos a propósito:
 
 - Una clase para una profesora en un horario que ya tiene ocupado: tiene que frenarla.
-- **Una clase de 18:30 a 19:30**: Wings la va a aceptar sin decir nada, aunque al club le
-  cueste **dos horas de cancha**. Anotarlo y borrarla.
+- **Una clase de 17:30 a 18:30.** Wings la acepta sin decir nada. Para el club son **dos
+  horas de cancha**, porque se paga por bloque de reloj ocupado, no por duración. Anotarlo
+  y borrarla.
 
-**El hueco grande del día:** Wings no sabe qué es una cancha. No hay dónde decir en cuál se
-juega, cuánto cuesta la hora, ni cuántas horas hay que pagar este mes. Para un club que
-alquila todo lo que usa, eso es el gasto principal fuera del sistema.
+**El hueco más caro del día:** Wings no sabe qué es una cancha. No hay dónde decir en cuál
+se juega, cuál es la tarifa de esa hora, ni cuánto va a pagar el club este mes. Está
+definido en el plan del 21/09 y sin implementar. Hoy ese gasto —el más grande del club—
+vive afuera del sistema.
 
 ---
 
-## Parte 2 — El mostrador (10:00 a 16:00)
+## Parte 2 — El club abre (16:00 a 20:00)
 
-Sandra abre su caja con el cambio del cajón. A partir de acá, todo lo que pasa entra por
-ahí.
+Sandra abre su caja con el cambio del cajón. A partir de acá, en el mostrador y en la
+cancha pasan cosas al mismo tiempo.
 
-### 2.1 Cobrar cuotas, que es lo que más se hace
+### 2.1 Cobrar cuotas
 
-Tres cobros distintos, porque el club cobra de tres formas:
-
-- Una madre paga **en efectivo** la cuota del mes.
-- Otra paga **por Mercado Pago** dos meses juntos.
-- Un padre paga **una parte** de lo que debe: trae menos de lo que suma su deuda.
-
-En los tres tiene que salir el recibo y la caja tiene que reflejar el medio correcto.
+Tres cobros, porque el club cobra de tres formas: una madre paga **en efectivo** el mes; otra
+paga **por Mercado Pago** dos meses juntos; un padre paga **una parte** de lo que debe. En
+los tres tiene que salir el recibo y la caja tiene que reflejar el medio correcto.
 
 ### 2.2 El alumno nuevo, con la familia esperando
 
-Una mamá con una nena de siete años. Vanina la carga con la fecha de ingreso de hoy: Wings
-tiene que avisar que corresponde inscripción por $5.000 **antes de guardar**. La cuota del
-mes sale proporcional según el día. Paga todo junto y el recibo tiene que mostrar los dos
-conceptos separados.
+Una mamá con una nena de siete años. Sandra la carga con la fecha de ingreso de hoy: Wings
+avisa que corresponde inscripción por $5.000 **antes de guardar**. La cuota del mes sale
+proporcional al día. Paga todo junto y el recibo muestra los dos conceptos separados.
 
-**Y atrás viene el hermano**, de diez años, para fútbol.
+Atrás viene **el hermano**, de diez, para fútbol.
 
-**Pregunta que el club se va a hacer hoy:** ¿el segundo hermano paga inscripción completa?
-¿hay descuento por hermano? Hoy Wings no tiene ninguna de las dos cosas: cobra los $5.000
-igual y no conoce el concepto de familia.
+**Lo que el club se pregunta hoy:** ¿el segundo hermano paga la inscripción completa? ¿hay
+descuento por hermano? Hoy Wings cobra los $5.000 igual y **no conoce el concepto de
+familia**: son dos alumnos sueltos que comparten apellido.
 
-### 2.3 Plata que entra y no es una cuota
+### 2.3 La plata que entra y no es una cuota
 
-Esto es la mitad de la vida del mostrador y no tiene nada que ver con las cuotas:
-
-- Vanina **vende dos pares de patines y tres remeras**.
+- Sandra **vende dos pares de patines y tres remeras**.
 - Cobra la **inscripción a un torneo** de tres alumnas.
-- Llega una **transferencia de $40.000 sin aviso**: no se sabe de quién es ni de qué.
+- Entra una **transferencia de $40.000 sin aviso**: no se sabe de quién es.
 
-**Qué hay que mirar:**
+**Qué mirar:** si puede registrar una venta que no está atada a ningún alumno; si sale algún
+comprobante para quien compró; y qué hace con la transferencia sin dueño, sabiendo que
+mañana va a aparecer la madre diciendo que era de ella.
 
-- ¿Puede registrar una venta que no está atada a ningún alumno?
-- ¿Sale comprobante para el que compró la ropa?
-- **¿El sistema sabe cuántas remeras quedan?** No hay stock. El club va a seguir contando
-  la mercadería a mano.
-- La transferencia sin dueño: cómo se registra hoy y cómo se corrige mañana, cuando
-  aparezca la madre y diga que era de ella.
+**Hueco:** no hay stock. El sistema registra la venta, no lo que queda en el armario.
 
-### 2.4 Plata que sale
+### 2.4 La clase particular, que es habitual
 
-- Se paga el **alquiler de la cancha** de esta semana.
-- Se rompe una baranda y hay que **pagarle al que la arregla**, en el momento y en efectivo.
-- Vanina le da un **adelanto a un profesor**, a cuenta de lo que va a cobrar a fin de mes.
+Una mamá pide una clase particular para su hija el sábado a las 12, con Lucía.
 
-**Qué hay que mirar:** que cada salida tenga su rubro y quede en la caja del día. Y sobre
-todo el adelanto: cuando a fin de mes se liquide a ese profesor, **ese adelanto tiene que
-descontarse**. Si el sistema no lo relaciona, el club le paga dos veces.
+Wings no tiene clases particulares: no existe el precio por clase ni la deuda de esa clase.
+**Así se hace hoy, y esto es lo que se pierde:**
 
-### 2.5 Alguien carga algo mal
+1. Vanina crea una **clase normal del grupo de la alumna**, sábado 12:00 a 13:00, con Lucía.
+2. En la asistencia se marca presente **solo a ella**. Con eso la clase se liquida: a Lucía
+   se le paga la hora completa, igual que cualquier otra.
+3. El cobro se carga **a mano**, como un movimiento de la caja con el subrubro *Clases
+   particulares* que Vanina creó a la mañana.
 
-Porque va a pasar el primer día:
+Lo que no se puede hacer: que quede una **deuda** si no paga en el momento, que salga un
+**recibo** de esa clase, y saber si al club le dejó plata, porque **la hora de cancha del
+sábado no está en ningún lado**. Además esa clase le cuenta a la alumna como una asistencia
+más de la semana, así que va a aparecer como que vino de más.
 
-- Un gasto queda cargado en el rubro equivocado y hay que corregirlo.
-- Se cobra de más y hay que arreglarlo.
-- Se pone la fecha del mes pasado en un movimiento.
+Se juega igual, para medir cuánto duele.
 
-Lo que importa no es que Wings lo impida, sino **qué queda registrado de la corrección**.
+### 2.5 La plata que sale
+
+- Se **paga el arreglo de la baranda**, en efectivo y en el momento, con el rubro nuevo.
+- Vanina le da un **adelanto a un profesor**, a cuenta de fin de mes.
+
+**La trampa del adelanto:** cuando se liquide a ese profesor, el adelanto tiene que
+descontarse. Si el sistema no los relaciona, el club le paga dos veces. Anotar cómo queda
+registrado hoy.
+
+### 2.6 El cambio de turno
+
+A las 18:00 Sandra se va y entra **Pablo**. Abre su propia caja.
+
+**Lo que hay que comprobar, porque es el problema diario del mostrador:** Pablo tiene que
+**ver los cobros de cuota que hizo Sandra**. Si mañana viene la madre a preguntar por el
+pago que hizo a la tarde, el que atiende tiene que encontrarlo. Lo que no tiene que ver es
+la caja de Sandra, que es de ella hasta que la cierre.
+
+### 2.7 Alguien carga algo mal
+
+Porque va a pasar el primer día: un gasto en el rubro equivocado, un cobro de más, un
+movimiento con la fecha del mes pasado. Lo que importa no es que Wings lo impida, sino **qué
+queda registrado de la corrección**.
 
 ---
 
@@ -168,77 +176,73 @@ Lo que importa no es que Wings lo impida, sino **qué queda registrado de la cor
 
 ### 3.1 El nene que debe
 
-Llega a entrenar un alumno cuya familia debe dos meses. **Nadie lo echa.** Entra, entrena y
+Llega a entrenar un chico cuya familia debe dos meses. **Nadie lo echa.** Entra, entrena y
 juega como todos.
 
-Lo que el club necesita es otra cosa: que **alguien sepa** que esa familia debe, para
-llamarla esta semana, y que quede registrado que entró debiendo. Hoy Wings no pide ningún
-motivo ni avisa a nadie: la asistencia se carga igual que la de cualquiera. Eso ya está
-identificado y pendiente.
+Lo que el club necesita es otra cosa: que alguien **se entere** para llamar a la familia
+esta semana. Hoy Wings no pide ningún motivo ni avisa a nadie: la asistencia se carga igual
+que la de cualquiera. Está identificado y pendiente.
 
 ### 3.2 La que viene de más y la que tiene que recuperar
 
-- Una nena que paga una clase por semana **viene dos veces**, porque falta la profesora de
-  su grupo o porque quiere entrenar más.
-- Otra faltó la semana pasada y **viene a recuperar**.
+Una nena que paga una clase por semana viene dos veces. Otra faltó la semana pasada y viene
+a recuperar. Wings cuenta las asistencias de la semana contra el plan.
 
-Wings cuenta cuántas veces vino cada una en la semana y cuántas le corresponden por su
-plan. Lo que hay que ver es qué muestra en pantalla la profesora al cargar la asistencia, y
-si el club puede decidir con eso: ¿se le cobra la clase de más, se le perdona, se la toma
-como recuperación?
+**Qué mirar:** qué ve la profesora en pantalla al cargar la asistencia, y si con eso el club
+puede decidir: cobrarle la clase de más, perdonarla o tomarla como recuperación.
 
 ### 3.3 Llueve
 
-A las cinco de la tarde la cancha está mojada. **Se suspende la clase de las 17:00.**
+A las 17:00 la cancha está mojada. **Se suspende la clase de las 18:00.** Vanina la cancela
+con el motivo, desde el teléfono.
 
-Vanina la cancela con el motivo. Y ahí empiezan las tres preguntas del club:
+Las tres preguntas del club:
 
-1. ¿La cuota de las chicas se toca? **No**: la cuota es mensual, no por clase.
-2. ¿Se le paga al profesor una clase que no dio? **No**: una clase cancelada no se liquida.
-   Pero el profesor había reservado la tarde.
-3. ¿Se recupera? ¿Cuándo? Si se agrega una clase extra el sábado, **es una hora más de
-   cancha que el club paga**.
+1. **La cuota no se toca:** es mensual, no por clase.
+2. **Al profesor no se le paga** una clase que no dio, aunque había reservado la tarde.
+3. **La recuperación cuesta**: si se agrega una clase el sábado, es otra hora de cancha.
 
-Lo que hay que mirar hoy: si la clase cancelada desaparece de la liquidación, si las
-asistencias que ya estaban cargadas quedan, y si Vanina puede crear la clase de
-recuperación sin romper el horario.
+Qué mirar: que la clase cancelada desaparezca de la liquidación, que las asistencias ya
+cargadas queden como estaban, y que se pueda crear la clase de recuperación sin romper el
+horario.
 
 ### 3.4 La que se enferma
 
-Una mamá avisa que la nena tiene anginas y **no va a venir en todo el mes**. Pide que no le
-cobren.
+Una mamá avisa que la nena tiene anginas y no viene en todo el mes. Pide que no le cobren.
+**Vanina le condona la cuota**, con un motivo escrito.
 
-Eso es una condonación: Vanina perdona la deuda de ese mes, con un motivo escrito.
-
-**Lo que hay que mirar:** que quede registrado quién la perdonó y por qué, que la deuda
-perdonada **no aparezca como plata que entró**, y que el mes siguiente vuelva a facturarse
-normal.
+Qué mirar: que quede registrado quién la perdonó y por qué, que lo condonado **no figure
+como plata que entró**, y que el mes que viene se facture normal.
 
 ---
 
-## Parte 4 — Cerrar el día (20:00 a 21:00)
+## Parte 4 — Cerrar (20:00) y controlar (mañana, 09:00)
 
-### 4.1 El arqueo
+### 4.1 A la noche, en el club
 
-Sandra cuenta el efectivo del cajón y cierra su caja. La diferencia, si la hay, tiene que
-verse **antes** de cerrar.
+Pablo cuenta el efectivo y cierra su caja. La diferencia, si la hay, tiene que verse
+**antes** de cerrar. Sandra ya cerró la suya al irse a las 18.
 
-### 4.2 El control de la dueña
+**Y lo que hay que probar aunque salga mal:** que alguien se vaya **sin cerrar**. Al día
+siguiente Wings lo bloquea y no lo deja cobrar hasta que cierre la de ayer. Es el primer
+viernes que alguien se va apurado.
 
-Vanina valida la caja del día y entra al cashflow. **Cada peso que se movió hoy tiene que
-estar ahí una sola vez**, con su rubro y con su fecha real.
+### 4.2 A la mañana siguiente, Vanina con el café
+
+Valida las cajas del día anterior y entra al cashflow. Cada peso que se movió ayer tiene que
+estar ahí **una sola vez**, con su rubro y su fecha real.
 
 ### 4.3 Las cuatro preguntas
 
-Terminado el día, Vanina tiene que poder contestar mirando la pantalla:
+Terminado el control, Vanina tiene que poder contestar mirando la pantalla:
 
-1. **¿Cuánto entró hoy, y por qué concepto?** Cuotas, inscripciones, ropa, torneo.
-2. **¿Cuánto salió, y por qué concepto?** Alquiler, arreglo, adelanto.
+1. **¿Cuánto entró ayer, y por qué concepto?** Cuotas, inscripciones, ropa, torneo, particular.
+2. **¿Cuánto salió, y por qué concepto?** Arreglo, adelanto.
 3. **¿Cuánto le deben?**
-4. **¿Cuánto debe?** Lo que va acumulando de sueldos y alquileres.
+4. **¿Cuánto debe?** Sueldos, alquiler de las canchas, la mercadería.
 
-**Si no puede contestar las cuatro, el día falló aunque no se haya roto nada.** No es un
-detalle de pantalla: es la razón por la que el club deja el cuaderno.
+**Si no puede contestar las cuatro, el día falló aunque no se haya roto nada.** Esa es la
+razón por la que el club deja el cuaderno.
 
 ---
 
@@ -246,25 +250,29 @@ detalle de pantalla: es la razón por la que el club deja el cuaderno.
 
 | Lo que se prueba | Dónde |
 |---|---|
-| Que la dueña pueda terminar de configurar su club sola | 1.2 a 1.6 |
-| Que la plata que no es cuota tenga lugar | 2.3 y 2.4 |
-| Que un pago se divida en conceptos y llegue entero al cashflow | 2.2 y 4.2 |
-| Que el error humano se pueda corregir dejando rastro | 2.5 |
-| Que el club siga siendo un club: nadie echa a un nene de seis años | 3.1 |
-| Que el sistema aguante lo que la vida trae: lluvia, enfermedad, recuperación | 3.2 a 3.4 |
-| Que al cerrar el día los números sean los del día | 4.3 |
+| Que la dueña termine de configurar su club sola, y a distancia | 1.1 a 1.6 |
+| Que la plata que no es cuota tenga lugar | 2.3 y 2.5 |
+| Que las clases particulares se puedan resolver de algún modo | 2.4 |
+| Que el mostrador sepa lo que cobró el turno anterior | 2.6 |
+| Que el error humano se corrija dejando rastro | 2.7 |
+| Que el club siga siendo un club: nadie echa a un nene | 3.1 |
+| Que el sistema aguante lo que trae la vida: lluvia, enfermedad, recuperación | 3.2 a 3.4 |
+| Que el control funcione al otro día, no en vivo | 4.1 y 4.2 |
+| Que al cerrar, los números sean los del día | 4.3 |
 
 ## Lo que ya sabemos que falta
 
-Se anota igual cuando aparece en el día, con la escena donde apareció:
+Se anota igual cuando aparece, con la escena donde apareció:
 
-- **Las canchas y su alquiler por hora.** El gasto más grande del club vive afuera del
-  sistema.
-- **El stock de la indumentaria.** Se registra la venta, no lo que queda.
-- **El concepto de familia:** hermanos, descuentos, una sola cuenta por casa.
-- **El motivo y el aviso** cuando entra a entrenar alguien que debe.
+- **Las canchas y su alquiler por hora.** El gasto más grande del club, afuera del sistema.
+  Definido en el plan del 21/09, sin implementar.
+- **Las clases particulares.** Contrato escrito, sin implementar: hoy se resuelven a mano y
+  sin deuda ni recibo.
+- **El stock de indumentaria**, y el rubro para comprar la mercadería que se vende.
+- **El concepto de familia:** hermanos, descuentos, una cuenta por casa.
+- **El aviso** cuando entra a entrenar alguien que debe.
 - **El adelanto al profesor** atado a su liquidación.
 - **Los datos para pagarle** a un profesor.
-- **Los reportes**: hoy las cuatro preguntas del cierre se contestan mirando varias
-  pantallas, no una.
-- **Los intereses por mora**, que están definidos y sin implementar.
+- **Los reportes:** las cuatro preguntas del cierre hoy se contestan mirando varias
+  pantallas.
+- **Los intereses por mora**, definidos y sin implementar.
