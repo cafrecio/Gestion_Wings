@@ -101,7 +101,10 @@ fijar() {
         printf '%s=%s\n' "${clave}" "${valor}" >> "${APP}/.env"
     fi
 }
-fijar APP_ENV production
+# staging, no production: es un entorno de prueba y los seeders de datos falsos
+# abortan cuando el entorno dice production, que es exactamente lo que protege a
+# wings. APP_DEBUG sigue en false: el entorno no cambia lo que ve el usuario.
+fijar APP_ENV staging
 fijar APP_DEBUG false
 fijar APP_URL "https://${DOMINIO}"
 fijar DB_CONNECTION mysql
