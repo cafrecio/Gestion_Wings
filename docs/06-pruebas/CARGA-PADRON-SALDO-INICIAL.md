@@ -39,6 +39,10 @@ Sale un `.xlsx` con un alumno activo por fila, ordenado por apellido:
 El DNI va como texto para que Excel no se coma los ceros de adelante. `DEBE` sale
 vacío a propósito: lo completa el club.
 
+El archivo trae dos hojas: **Instrucciones**, que se abre primero y explica cómo se
+completa con ejemplos, y **Padron**, con los datos. El importador busca la hoja por
+nombre, así que da igual en cuál quede parado el archivo al guardarlo.
+
 Con `--pares=N` se cambia cuántos pares período/monto quedan disponibles. Por
 defecto son 6.
 

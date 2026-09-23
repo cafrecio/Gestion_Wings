@@ -57,8 +57,10 @@ class ExportarPadronCargaInicialTest extends TestCase
         $this->artisan('wings:exportar-padron', ['archivo' => $this->archivo])
             ->assertSuccessful();
 
-        $hoja = IOFactory::load($this->archivo)->getActiveSheet();
+        $libro = IOFactory::load($this->archivo);
+        $hoja = $libro->getSheetByName('Padron');
 
+        $this->assertNotNull($hoja, 'El padron tiene que estar en una hoja llamada Padron.');
         $this->assertSame('DNI', $hoja->getCell('A1')->getValue());
         $this->assertSame('DEBE', $hoja->getCell('D1')->getValue());
         $this->assertSame('Periodo 1', $hoja->getCell('E1')->getValue());
@@ -74,6 +76,55 @@ class ExportarPadronCargaInicialTest extends TestCase
             $hoja->getCell('D2')->getValue(),
             'DEBE tiene que salir vacio: lo completa el club, no el sistema.'
         );
+    }
+
+    /**
+     * La hoja de instrucciones viaja adentro del archivo, y el importador lee el padron
+     * por nombre de hoja. Si leyera la hoja activa, alcanzaria con que el club guardara
+     * el archivo parado en las instrucciones para que la carga se cayera sin motivo claro.
+     */
+    public function test_el_archivo_trae_instrucciones_y_el_padron_se_lee_aunque_quede_activa_esa_hoja(): void
+    {
+        $deporte = Deporte::create([
+            'nombre' => 'Hockey',
+            'tipo_liquidacion' => Deporte::TIPO_LIQUIDACION_HORA,
+            'activo' => true,
+        ]);
+        $nivel = Nivel::create(['nombre' => 'Inicial']);
+        $grupo = Grupo::create([
+            'deporte_id' => $deporte->id,
+            'nivel_id' => $nivel->id,
+            'activo' => true,
+        ]);
+        $alumno = $this->crearAlumno('Acosta', 'Beto', '30222222', $deporte, $grupo, true);
+
+        $this->artisan('wings:exportar-padron', ['archivo' => $this->archivo])->assertSuccessful();
+
+        $libro = IOFactory::load($this->archivo);
+        $instrucciones = $libro->getSheetByName('Instrucciones');
+
+        $this->assertNotNull($instrucciones, 'Falta la hoja de instrucciones.');
+        $this->assertSame('Instrucciones', $libro->getActiveSheet()->getTitle(), 'Al abrir el archivo tienen que verse las instrucciones.');
+
+        $texto = '';
+        foreach ($instrucciones->toArray() as $fila) {
+            $texto .= implode(' ', array_map(fn ($celda) => (string) $celda, $fila))."\n";
+        }
+
+        $this->assertStringContainsString('092026 = septiembre de 2026', $texto, 'El formato de periodo tiene que estar con un ejemplo.');
+        $this->assertStringContainsString('52.000', $texto, 'Los formatos de monto aceptados tienen que estar.');
+
+        // Con las instrucciones como hoja activa, la carga tiene que encontrar el padron igual.
+        $padron = $libro->getSheetByName('Padron');
+        $padron->setCellValue('D2', 'SI');
+        $padron->setCellValue('E2', '092026');
+        $padron->setCellValue('F2', '52000');
+        (new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($libro))->save($this->archivo);
+
+        $this->artisan('wings:importar-padron', ['archivo' => $this->archivo, '--corte' => '2026-09'])
+            ->assertSuccessful();
+
+        $this->assertSame(1, \App\Models\DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', '2026-09')->count());
     }
 
     private function crearAlumno(

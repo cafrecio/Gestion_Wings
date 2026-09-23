@@ -43,7 +43,11 @@ class CargaSaldoInicialPadronService
         }
 
         try {
-            $hoja = IOFactory::load($archivo)->getActiveSheet();
+            // El archivo trae dos hojas: Instrucciones y Padron. Se busca la de datos
+            // por nombre, porque Excel guarda como activa la que quedo seleccionada al
+            // cerrar, y si el club guarda parado en las instrucciones no hay padron que leer.
+            $libro = IOFactory::load($archivo);
+            $hoja = $libro->getSheetByName('Padron') ?? $libro->getActiveSheet();
         } catch (\Throwable) {
             return [...$vacio, 'errores' => [['fila' => 0, 'mensaje' => 'El archivo no es un Excel .xlsx válido o está dañado.']]];
         }

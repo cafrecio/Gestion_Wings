@@ -162,7 +162,7 @@ class CargaPadronFormatosExcelTest extends TestCase
         $this->artisan('wings:exportar-padron', ['archivo' => $this->archivo, '--pares' => 2])
             ->assertSuccessful();
 
-        $hoja = IOFactory::load($this->archivo)->getActiveSheet();
+        $hoja = IOFactory::load($this->archivo)->getSheetByName('Padron');
         // Con la columna en texto Excel no se come el cero de 092026.
         foreach (['E2', 'G2'] as $celda) {
             $this->assertSame('@', $hoja->getStyle($celda)->getNumberFormat()->getFormatCode(), "{$celda} no es texto.");
