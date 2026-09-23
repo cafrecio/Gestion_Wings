@@ -15,10 +15,11 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **321 pruebas**, 1827 aserciones; verde completo el 22/09 en base descartable exclusiva |
+| Suite | **331 pruebas**, 1900 aserciones; verde completo el 23/09 en base descartable exclusiva |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
+| A2/B2 | Cuota en alta y estados por deuda implementados localmente el 23/09; suite 331/1900. Pendiente verificación independiente y despliegue con migración porcentaje_alta |
 | Inscripción ENT-01 | Implementada y verificada localmente el 22/09; por DNI, corte 23/09/2026, cargos separados. Sin deploy |
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |

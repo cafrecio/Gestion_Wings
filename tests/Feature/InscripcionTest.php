@@ -141,7 +141,8 @@ class InscripcionTest extends TestCase
         $this->assertEquals(0, $pago->monto_cuota);
         $this->assertEquals(0, DeudaCuota::first()->monto_pagado);
         $this->assertEquals(2000, CargoAlumno::first()->saldo_pendiente);
-        $this->assertSame('DEUDOR', app(CobranzaEstadoService::class)->estadoAlumno($alumno->id)['estado']);
+        // Enmienda 23/09: solo debe el mes vigente, pasada la gracia.
+        $this->assertSame('MOROSO', app(CobranzaEstadoService::class)->estadoAlumno($alumno->id)['estado']);
         $this->cobrar($alumno, 7000);
         $this->assertEquals(5000, DeudaCuota::first()->monto_pagado);
         $this->assertEquals(0, CargoAlumno::first()->saldo_pendiente);

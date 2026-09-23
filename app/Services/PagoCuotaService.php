@@ -359,6 +359,23 @@ class PagoCuotaService
         );
     }
 
+    /** Se invoca dentro de la transacción de alta; nunca para alumnos existentes. */
+    public function crearCuotaAlta(Alumno $alumno, int $planId): DeudaCuota
+    {
+        $plan = \App\Models\GrupoPlan::findOrFail($planId);
+        $periodo = now()->format('Y-m');
+        [$porcentaje] = $this->reglaDelDia($alumno->fecha_alta->day, $periodo);
+
+        return DeudaCuota::create([
+            'alumno_id' => $alumno->id,
+            'periodo' => $periodo,
+            'monto_original' => $this->aplicarPorcentaje((float) $plan->precio_mensual, $porcentaje),
+            'monto_pagado' => 0,
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+            'porcentaje_alta' => $porcentaje,
+        ]);
+    }
+
     /**
      * Aplicar pagos a las deudas del alumno.
      *
@@ -641,7 +658,7 @@ class PagoCuotaService
      * @param array<int,array{periodo:string,monto:mixed}> $items
      * @return array{0:float, 1:int|null, 2:string|null}
      */
-    private function calcularReglaPrimerPago(int $alumnoId, array $items): array
+    public function calcularReglaPrimerPago(int $alumnoId, array $items): array
     {
         $alumno     = Alumno::find($alumnoId);
         // Solo cuentan los pagos que de verdad ocurrieron. Un cobro cancelado deja el
@@ -660,6 +677,11 @@ class PagoCuotaService
         // Caso 1: alumno sin pagos previos (nuevo) — el descuento es por el mes en
         // que se dio de alta, y solo corre si ese mes es uno de los que se cobran.
         if (!$tienePagos && $alumno->fecha_alta) {
+            $porcentajeAlta = DeudaCuota::where('alumno_id', $alumnoId)->whereNotNull('porcentaje_alta')->value('porcentaje_alta');
+            if ($porcentajeAlta !== null) {
+                // Metadato del pago; período NULL impide recalcular o ajustar la deuda.
+                return [(float) $porcentajeAlta, null, null];
+            }
             $periodoAlta = $alumno->fecha_alta->format('Y-m');
 
             if (!in_array($periodoAlta, $periodosCobrados, true)) {
@@ -674,6 +696,10 @@ class PagoCuotaService
         if (!$alumno->activo && $tienePagos) {
             $hoy            = Carbon::now();
             $periodoRetorno = $hoy->format('Y-m');
+
+            if (DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodoRetorno)->whereNotNull('porcentaje_alta')->exists()) {
+                return [100.0, null, null];
+            }
 
             if (!in_array($periodoRetorno, $periodosCobrados, true)) {
                 return [100.0, null, null];

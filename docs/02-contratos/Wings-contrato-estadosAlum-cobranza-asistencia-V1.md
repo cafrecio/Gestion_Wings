@@ -57,6 +57,14 @@ curso**, en la misma operación que lo crea, además de la inscripción cuando c
 Con esto, el alumno nuevo entra al circuito normal de cobranza desde el primer día, y por
 eso la enmienda de §3 puede sacar la regla de "nunca pagó".
 
+**Implementación local del 23/09, pendiente de verificación independiente:** el alta web
+crea alumno, plan, inscripción y cuota del mes corriente en una transacción. La deuda
+conserva el importe y `porcentaje_alta`; el cobro y su vista previa no vuelven a calcular
+esa primera cuota. No se generan deudas retroactivas para registros existentes.
+Las deudas anteriores, sin esa marca, conservan el tratamiento previo de §4, y el
+reingreso posterior conserva su regla. Una modificación explícita de plan sigue regida
+por las reglas de cambio de plan de esta sección.
+
 ### Si no cumple ninguna: no se genera deuda, se pregunta
 
 **No se asume nada.** El alumno pasa a una **cola de revisión**, con la pregunta: *¿sigue siendo alumno?*
@@ -123,8 +131,8 @@ De ahí se desprende todo lo demás. La gente paga cuando cobra, y eso no suele 
 
 | Estado | Definición | ¿Hay que reclamar? |
 |---|---|---|
-| **AL DÍA** | Pagó el mes anterior y el corriente. | No |
-| **EN PLAZO** | Pagó el mes anterior, debe el corriente, y **todavía está dentro de los días de gracia**. | No, todavía no |
+| **AL DÍA** | No tiene cuotas pendientes del mes corriente ni de meses anteriores, aunque no tenga pagos registrados en Wings. | No |
+| **EN PLAZO** | No debe meses anteriores, debe el corriente, y **todavía está dentro de los días de gracia**. | No, todavía no |
 | **MOROSO** | Pasó el día de gracia configurado y debe el **mes corriente**. | Sí |
 | **DEUDOR** | Arrastra un mes **ya cerrado** sin pagar. | Sí, con más urgencia |
 
@@ -264,6 +272,9 @@ La regla del mes de alta no depende de que haya deuda, así que cubre a los sese
 desde el momento en que se cargan.
 
 ### Implementado el 06/09
+
+Nota del 23/09: lo siguiente describe el camino conservado para deudas previas. En
+altas nuevas, §2 fija la primera cuota al crearla y no se recalcula al cobrar.
 
 `PagoCuotaService::calcularReglaPrimerPago()` recibe ahora los períodos que se están
 cobrando, y el descuento corre **solo si el mes de alta es uno de ellos**. La pantalla
@@ -427,6 +438,7 @@ Son dos cosas distintas y no deben confundirse:
 | La cola se cierra sola con una asistencia o un pago | ✅ **Implementado correctamente** en los tres puntos que corresponden |
 | Se pide confirmación a operativo o admin que se conecte, hasta completar | ❌ Hoy es una pantalla (`/revision-cobranza`) **restringida a admin**, a la que hay que ir a buscar. No se le pone adelante a nadie |
 | El monto sale del plan activo | ✅ Implementado |
+| La primera cuota nace en el alta con importe congelado | Implementada localmente el 23/09, con pruebas de atomicidad y no duplicación; pendiente de verificación independiente y despliegue |
 | Al cambiar de plan se actualiza la deuda del mes en curso | ✅ **Implementado correctamente** en el flujo de cobro, y solo toca el período corriente: las deudas anteriores no se reescriben |
 | Al **bajar** de plan, diferir al mes siguiente si ya asistió | ✅ **Implementado y verificado.** Una prueba de flujo completo confirma que basta una asistencia y que la deuda corriente conserva el plan anterior |
 | Al **subir** de plan, aplicar siempre al mes en curso | ✅ **Implementado y verificado**, incluso cuando ya hubo asistencia en el mes |
@@ -438,7 +450,7 @@ Son dos cosas distintas y no deben confundirse:
 | Los cuatro estados de cobranza | ✅ **Implementado y verificado.** AL_DIA / EN_PLAZO / MOROSO / DEUDOR se calculan en una única implementación consumida por las pantallas de cobranza y alumnos |
 | Orden de evaluación con DEUDOR primero | ✅ **Implementado y verificado** con los casos contractuales, incluido mes cerrado impago aunque el corriente esté pagado |
 | Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
-| DEUDOR cuando nunca pagó ninguna cuota | ✅ **Implementado y verificado** como primer criterio de evaluación |
+| DEUDOR solo por mes cerrado impago | Enmienda del 23/09 implementada localmente; retirado el criterio de falta de pagos en cálculo individual y masivo. Pendiente de verificación independiente |
 | El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |

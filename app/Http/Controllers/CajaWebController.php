@@ -647,46 +647,16 @@ class CajaWebController extends Controller
             ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
             ->exists();
 
-        // El descuento solo alcanza al mes en que el alumno entró (o volvió), nunca a
-        // otros meses. Acá se anuncia, y tiene que anunciar exactamente lo que después
-        // va a hacer PagoCuotaService::calcularReglaPrimerPago(): si esta pantalla
-        // mostrara un descuento que el cobro no aplica, el operativo cobraría un
-        // importe distinto del que le dijo al alumno.
-        //
-        // Un alumno traído de una carga inicial tiene fecha de alta vieja y ningún
-        // pago en Wings. Sin esta condición se le ofrecía el descuento igual, meses
-        // después de haber entrado.
+        // La vista previa usa la misma decisión que el cobro, incluida la cuota
+        // cuyo importe ya quedó fijado en el alta.
         $periodoActual = now()->format('Y-m');
-
-        // El servicio no exige que el mes con descuento sea el mes en curso: exige que
-        // esté entre los períodos que se cobran. Esta pantalla usa el mismo criterio,
-        // o anuncia un total que no coincide con el importe que se registra.
-        $periodosOfrecidos   = $alumno->deudaCuotas->pluck('periodo')->all();
-        $periodoConDescuento = null;
-
-        if (!$tienePagos && $alumno->fecha_alta) {
-            // Alumno nuevo: el descuento corre por el mes en que se dio de alta, se
-            // cobre ese mes ahora o más adelante. Al alumno de carga inicial no le
-            // llega, porque su mes de alta no está entre los períodos que se ofrecen.
-            $periodoAlta = $alumno->fecha_alta->format('Y-m');
-            if (in_array($periodoAlta, $periodosOfrecidos, true)) {
-                $reglas = ReglaPrimerPago::obtenerReglaPorDia($alumno->fecha_alta->day);
-                if ($reglas->count() === 1) {
-                    $reglaPrimerPago     = $reglas->first();
-                    $motivoPrimerPago    = 'nuevo';
-                    $periodoConDescuento = $periodoAlta;
-                }
-            }
-        } elseif (!$alumno->activo && $tienePagos) {
-            // Alumno inactivo que vuelve: usa día de hoy, que ya es del mes actual.
-            if (in_array($periodoActual, $periodosOfrecidos, true)) {
-                $reglas = ReglaPrimerPago::obtenerReglaPorDia(now()->day);
-                if ($reglas->count() === 1) {
-                    $reglaPrimerPago     = $reglas->first();
-                    $motivoPrimerPago    = 'reingreso';
-                    $periodoConDescuento = $periodoActual;
-                }
-            }
+        $itemsOfrecidos = $alumno->deudaCuotas->map(fn ($deuda) => [
+            'periodo' => $deuda->periodo, 'monto' => $deuda->saldo_pendiente,
+        ])->all();
+        [, $reglaId, $periodoConDescuento] = $this->pagoCuotaService->calcularReglaPrimerPago($alumnoId, $itemsOfrecidos);
+        if ($reglaId !== null) {
+            $reglaPrimerPago = ReglaPrimerPago::find($reglaId);
+            $motivoPrimerPago = $tienePagos ? 'reingreso' : 'nuevo';
         }
 
         // El mes de alta se muestra ya descontado, que es lo que realmente vale y lo que

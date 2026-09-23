@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite local actual: 321 pruebas / 1827 aserciones (22/09), en verde. La lista
+Suite local actual: 331 pruebas / 1900 aserciones (23/09), en verde. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -66,10 +66,10 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 321 pruebas deben pasar
+php artisan test          # 331 pruebas deben pasar
 ```
 
-Corte verificado del 22/09: **321 pruebas / 1827 aserciones**, todas verdes; base descartable exclusiva.
+Corte verificado del 23/09: **331 pruebas / 1900 aserciones**, todas verdes; base descartable exclusiva.
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista
@@ -123,8 +123,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   pantalla y manda mail y Telegram al admin. El reporte del mes viejo cambia: aceptado. Falta tu OK:
   el aviso salta desde el mes anterior (no solo lo muy viejo) y el reporte del mes viejo
   lista siempre los ajustes cargados despues, con fecha de carga y quien los cargo.
-- [ ] **PRU-03:** confirmar que significa DEUDOR cuando el alumno no tiene pagos ni
-  saldo pendiente.
+- [x] **PRU-03 / A2-B2:** definido por Carlos el 23/09: sin saldo pendiente es AL DÍA;
+  la cuota nace en el alta. Implementación local con pruebas; falta verificación por
+  otro agente en código y pantalla, sin despliegue en esta tarea.
 - [x] **ENT-01:** aprobado el 22/09: una inscripción por DNI, cargos separados, cobro
   primero de inscripción, sin comisión. Implementada; revisión cruzada y actualización
   del servidor por Claude. ENT-10 conserva los manuales pendientes.

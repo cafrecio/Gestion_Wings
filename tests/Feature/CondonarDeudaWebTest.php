@@ -175,7 +175,7 @@ class CondonarDeudaWebTest extends TestCase
         ]);
     }
 
-    public function test_alumno_sin_pagos_sigue_deudor_aunque_su_deuda_se_condone(): void
+    public function test_alumno_sin_pagos_queda_al_dia_al_condonar_toda_su_deuda(): void
     {
         Pago::where('alumno_id', $this->alumno->id)->delete();
 
@@ -186,7 +186,7 @@ class CondonarDeudaWebTest extends TestCase
         );
 
         $this->assertSame(
-            CobranzaEstadoService::ESTADO_DEUDOR,
+            CobranzaEstadoService::ESTADO_AL_DIA,
             app(CobranzaEstadoService::class)->estadoAlumno($this->alumno->id)['estado']
         );
     }

@@ -82,7 +82,8 @@ class CobranzaEstadoServiceTest extends TestCase
         $this->assertEstado($deudorConPagoActual, '2026-08-05', CobranzaEstadoService::ESTADO_DEUDOR);
         $this->assertEstado($enPlazoSeptiembre, '2026-09-01', CobranzaEstadoService::ESTADO_EN_PLAZO);
         $this->assertEstado($deudorSeptiembre, '2026-09-01', CobranzaEstadoService::ESTADO_DEUDOR);
-        $this->assertEstado($nuncaPago, '2026-08-05', CobranzaEstadoService::ESTADO_DEUDOR);
+        // Enmienda 23/09: no tener pagos no implica tener deuda.
+        $this->assertEstado($nuncaPago, '2026-08-05', CobranzaEstadoService::ESTADO_AL_DIA);
     }
 
     public function test_usa_los_dias_de_gracia_configurados(): void

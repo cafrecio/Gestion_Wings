@@ -74,7 +74,9 @@
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
 - Balance filtrado definido 22/09 (FIN-04); implementación de Reportes pendiente. Revisiones y límites de fechas: consultar estados individuales del plan.
-- DEUDOR sin pagos y sin saldo; descuento de primer pago para importados.
+- A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
+  Implementado localmente con importe congelado, pendiente de verificación independiente
+  y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
 - Alcance de arqueo. Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan

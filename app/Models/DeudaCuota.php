@@ -23,11 +23,13 @@ class DeudaCuota extends Model
         'monto_pagado',
         'estado',
         'observaciones',
+        'porcentaje_alta',
     ];
 
     protected $casts = [
         'monto_original' => 'decimal:2',
         'monto_pagado' => 'decimal:2',
+        'porcentaje_alta' => 'decimal:2',
     ];
 
     /**

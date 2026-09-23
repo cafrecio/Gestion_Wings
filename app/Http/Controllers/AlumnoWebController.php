@@ -233,6 +233,7 @@ class AlumnoWebController extends Controller
             if ($request->filled('inscripcion_importe_visto') && $cargo && $cargo->alumno_id === $alumno->id && (float) $request->input('inscripcion_importe_visto') !== (float) $cargo->monto_original) {
                 throw \Illuminate\Validation\ValidationException::withMessages(['fecha_alta' => 'El importe de inscripción cambió. Revise el nuevo importe antes de guardar.']);
             }
+            app(PagoCuotaService::class)->crearCuotaAlta($alumno, (int) $validated['plan_id']);
         });
 
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno creado correctamente.');

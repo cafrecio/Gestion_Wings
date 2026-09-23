@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## A2/B2 — implementados localmente, 23/09/2026
+
+Cuota del mes creada en el alta, atómica con alumno/plan/inscripción, con importe y
+porcentaje congelados. Cobranza clasifica por saldo pendiente, sin exigir pagos previos.
+Suite completa 331/1900; sin vistas ni despliegue. Requiere migración
+`2026_09_23_120000_add_porcentaje_alta_to_deuda_cuotas.php` al desplegar.
+**Pendiente de verificación independiente en código y pantalla; no cerrados.**
+[Evidencia y límites](../06-pruebas/PRU-02/IMPLEMENTACION-A2.md).
+
 ## Sitio de prueba — automatización, 23/09/2026
 
 Cron exclusivo de `wingstest` instalado y ejecutado realmente, incluso con nologin
@@ -146,7 +155,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **321 pruebas**, 1827 aserciones; suite completa el 22/09 en wings_testing_ent01_suite. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **331 pruebas**, 1900 aserciones; suite completa el 23/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -197,7 +206,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 - FIN-04 decidido 22/09: saldo acumulado separado de resultados/proyecciones; gastos del club no se descuentan por deporte. Contrato de Reportes enmendado; implementación pendiente.
 - Como resolver revisiones con parcial, observaciones e importe historico.
 - Limites temporales de movimientos manuales.
-- Significado de DEUDOR sin pagos y sin saldo pendiente.
+- A2/B2: enmienda del 23/09 implementada localmente: cuota en alta y estado basado en
+  deuda, sin exigir pagos previos. Pendiente de verificación independiente y despliegue.
 - ENT-01 resuelta: cargos separados, prioridad de inscripción, sin comisión.
 - Logo, paleta y favicon del club.
 - ~~Liquidación por hora~~: CERRADA 17/09 — tarifa × minutos / 60, tarifa y minutos congelados al liquidar; pantalla y recibo autorizados muestran formato "1 h 20 min" y centavos (FIN-13).

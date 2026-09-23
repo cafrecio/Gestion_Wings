@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\Alumno;
 use App\Models\Configuracion;
 use App\Models\DeudaCuota;
-use App\Models\Pago;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -27,15 +26,11 @@ class CobranzaEstadoService
     {
         $fecha = $fecha ?? Carbon::now();
         $deudas = DeudaCuota::where('alumno_id', $alumnoId)->get();
-        $tienePagos = Pago::where('alumno_id', $alumnoId)
-            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
-            ->exists();
 
         return array_merge([
             'alumno_id' => $alumnoId,
         ], $this->calcularEstadoDesdeDeudas(
             $deudas,
-            $tienePagos,
             $fecha,
             $this->diasGracia()
         ));
@@ -58,17 +53,11 @@ class CobranzaEstadoService
         $deudasPorAlumno = DeudaCuota::whereIn('alumno_id', $alumnoIds)
             ->get()
             ->groupBy('alumno_id');
-        $alumnosConPagos = Pago::whereIn('alumno_id', $alumnoIds)
-            ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota()
-            ->distinct()
-            ->pluck('alumno_id')
-            ->flip();
         $diasGracia = $this->diasGracia();
 
-        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $alumnosConPagos, $fecha, $diasGracia) {
+        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $fecha, $diasGracia) {
             $info = $this->calcularEstadoDesdeDeudas(
                 $deudasPorAlumno->get($alumno->id, collect()),
-                $alumnosConPagos->has($alumno->id),
                 $fecha,
                 $diasGracia
             );
@@ -92,10 +81,6 @@ class CobranzaEstadoService
                 'grupo.deporte',
                 'grupo.nivel',
                 'planActivo.plan',
-            ])
-            ->withExists([
-                'pagos as tiene_pagos_registrados' => fn($q) => $q
-                    ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota(),
             ]);
 
         if ($deporteId) {
@@ -112,7 +97,6 @@ class CobranzaEstadoService
         $resultado = $alumnos->map(function (Alumno $alumno) use ($fecha, $diasGracia) {
             $info = $this->calcularEstadoDesdeDeudas(
                 $alumno->deudaCuotas,
-                (bool) $alumno->tiene_pagos_registrados,
                 $fecha,
                 $diasGracia
             );
@@ -138,10 +122,6 @@ class CobranzaEstadoService
 
         $alumnos = Alumno::where('activo', true)
             ->with(['deudaCuotas', 'deporte', 'grupo.deporte', 'grupo.nivel'])
-            ->withExists([
-                'pagos as tiene_pagos_registrados' => fn($q) => $q
-                    ->where('estado', Pago::ESTADO_COMPLETADO)->conCuota(),
-            ])
             ->get();
 
         $conteos = [
@@ -158,7 +138,6 @@ class CobranzaEstadoService
         foreach ($alumnos as $alumno) {
             $info = $this->calcularEstadoDesdeDeudas(
                 $alumno->deudaCuotas,
-                (bool) $alumno->tiene_pagos_registrados,
                 $fecha,
                 $diasGracia
             );
@@ -216,7 +195,6 @@ class CobranzaEstadoService
      */
     private function calcularEstadoDesdeDeudas(
         Collection $deudas,
-        bool $tienePagos,
         Carbon $fecha,
         int $diasGracia
     ): array
@@ -231,7 +209,7 @@ class CobranzaEstadoService
         $deudaVigente = $deudas->firstWhere('periodo', $periodoVigente);
         $vigenteImpaga = $deudaVigente && $this->estaImpaga($deudaVigente);
 
-        if (!$tienePagos || $impagasAnteriores->isNotEmpty()) {
+        if ($impagasAnteriores->isNotEmpty()) {
             $estado = self::ESTADO_DEUDOR;
         } elseif ($vigenteImpaga && $diaActual > $diasGracia) {
             $estado = self::ESTADO_MOROSO;
