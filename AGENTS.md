@@ -267,6 +267,19 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 
 ---
 
+## 6a. Lo que hace uno, lo controla otro — decisión de Carlos, 23/09/2026
+
+**Ninguna tarea la cierra el mismo agente que la hizo.** Quien la hace la entrega; otro la
+verifica en pantalla y en el código antes de darla por terminada. Vale para Claude, Codex y
+Gemini, y para todo: implementación, corrección, relevamiento y prueba.
+
+Existe porque el mismo día pasaron las tres cosas: un informe dijo que una clase se había
+cancelado y seguía viva; otro dio por cargadas clases hasta diciembre y llegaban hasta
+octubre; y una respuesta sobre cómo cobra el admin se dio de memoria y estaba mal.
+
+Verificar no es leer el informe del otro: es abrir la pantalla o el archivo. Si el que
+controla no puede comprobar algo, lo dice; no lo hereda como cierto. Ver §6c.
+
 ## 6b. Frenar ante contradicciones — NO improvisar
 
 Si una tarea contradice lo que ves en el código, en los datos o en otro documento:
