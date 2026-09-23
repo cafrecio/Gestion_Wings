@@ -39,21 +39,41 @@ El crontab fija `SHELL=/bin/bash`; no se habilitó login ni contraseña.
 
 No se adelantó el reloj ni se generaron cuotas fuera de fecha.
 
-## Destinos y entrega — pendiente de completar
+## Destinos y ensayo real — Telegram confirmado, correo fallido
 
-El email solicitado se guardó en `configuraciones.avisos_email` de `wingstest`.
-Telegram: `getMe` identificó al bot GestionarteAlertasBot; `getUpdates` no devolvió
-conversaciones. No se cargó el número propuesto como chat id sin verificación.
-Se pidió a Carlos iniciar el bot para obtener el id real.
+Carlos autorizó explícitamente bot y correo el 23/09. El token quedó solo en el
+`.env` privado de wingstest; destinatarios en Configuración, no en variables del entorno.
+El monitoreo de test se regeneró sin heartbeats. Producción no se modificó.
 
-El correo efectivo está en modo `log`; no se considera entregado. Hay Postfix activo,
-pero aún no se probó entrega a Gmail. La aplicación no tiene token de Telegram.
-La revisión automática bloqueó la copia persistente del token y cambio de transporte;
-se pidió autorización explícita. No se reintentó esa operación ni se dio por enviada.
+`getUpdates` seguía vacío. La captura de Carlos acreditó conversaciones anteriores
+con el bot; se consultó `getChat` sobre el destino del monitoreo existente:
+Telegram devolvió el chat privado **8543830872**, Carlos Bonifacio, **@Cafrecio**.
+Se informó el id correcto antes de cargarlo. El número 1157060104 no fue utilizado.
 
-No se disparó aún el resumen. Al revisar no había cajas cerradas, revisiones pendientes
-ni liquidaciones abiertas; el ensayo requerirá un pendiente temporal y controlado,
-sin dejar cambios en la deuda o los cobros del padrón.
+Se ejecutó `avisos:resumen-diario` con una revisión temporal dentro de transacción.
+Al finalizar se revirtió; consulta posterior sin pendientes. No se modificaron cuotas,
+importes ni alumnos del padrón. Se observaron los eventos de transporte reales, sin fakes.
+
+Telegram devolvió HTTP 200, `ok=true`, mensaje 6, chat 8543830872.
+**Carlos confirmó que lo recibió.** Texto recibido:
+
+> Wings: resumen diario de pendientes
+>
+> Revisiones de cobranza pendientes: 1 — más vieja: Morales, Sofía (23/09/2026) — https://test.gestionar-te.com.ar/revision-cobranza
+>
+> Revisá cada sección ingresando al enlace correspondiente.
+
+**Correo NO entregado.** Destino configurado: `carlos.a.bonifacio@gmail.com`.
+Transporte habilitado: sendmail local, remitente `avisos@test.gestionar-te.com.ar`.
+No se produjo evento MessageSent. Postfix registró `virtual_alias_maps map lookup
+problem` y `message not accepted, try again later` para el destinatario; sus consultas
+MySQL de alias/vacaciones fallan. No existe un texto de correo recibido que mostrar.
+El comando imprimió éxito porque el servicio captura errores: esa salida no prueba entrega.
+
+Pendiente técnico: reparar el transporte compartido del servidor en una tarea con ese
+alcance, o configurar un SMTP externo operativo para test. No se modificó Postfix,
+ni se reemplazaron credenciales globales. No hace falta que Carlos vuelva a autorizar
+el bot ni que repita su chat id; queda pendiente solo la entrega efectiva de correo.
 
 ## Verificación local
 
