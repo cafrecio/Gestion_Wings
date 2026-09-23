@@ -23,12 +23,18 @@ ir a Alumnos y buscarlo de nuevo.
 Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trabajo.
 `resources/views/cobranza/index.blade.php`.
 
-### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · por diagnosticar
+### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · implementado, pendiente de verificación
 
 Con el padrón recién importado, Cobranza clasifica **a los 60 alumnos como deudores**,
 mientras el tablero del operativo muestra 20 con deuda. Uno de los dos miente y nadie sabe
 cuál. Sospecha a confirmar: los 43 alumnos que quedaron con el mes de corte en **cero y
 pagado** se leen como "nunca pagó nada" y caen en DEUDOR.
+
+Diagnóstico confirmado en código y enmienda aprobada por Carlos el 23/09.
+**Commit de corrección: `b3619bf`**. Cuota creada en el alta con importe congelado y
+estados basados en deuda real; suite 331 pruebas / 1900 aserciones.
+[Evidencia](IMPLEMENTACION-A2.md). Pendiente de otro agente en código y pantalla;
+sin despliegue y sin cierre de la tarea por el implementador.
 
 ### A3. No se puede cobrar por adelantado · Molesta · verificado
 
@@ -242,10 +248,13 @@ un camino directo a cashflow sin caja (`registrarPagoCuotaAdmin`) que **solo usa
 
 El modelo de fondo es el problema: el dueño no es una mula del sistema.
 
-### B2. El estado de cobranza no distingue "sin deuda" de "nunca pagó" · Frena · por diagnosticar
+### B2. El estado de cobranza no distingue "sin deuda" de "nunca pagó" · Frena · implementado, pendiente de verificación
 
-Es la causa probable de A2. Hay que leer el cálculo completo antes de tocar nada:
-`app/Services/CobranzaEstadoService.php`.
+Causa confirmada de A2 en `app/Services/CobranzaEstadoService.php`.
+**Commit de corrección: `b3619bf`**. Eliminado "nunca pagó" del cálculo individual y
+masivo; DEUDOR exige mes cerrado impago. La cuota del alta evita dejar sin deuda a los
+nuevos. [Pruebas y límites](IMPLEMENTACION-A2.md). Pendiente de verificación independiente;
+no cerrado ni desplegado.
 
 ### B3. Las excepciones del contrato no existen · Falta
 
@@ -341,7 +350,7 @@ Es lo único que frena plata todos los días. Nada del resto se toca hasta que e
 
 | Orden | Qué | Defectos |
 |---|---|---|
-| 1.1 | Diagnosticar por qué Cobranza dice 60 deudores y el tablero 20. **Primero el diagnóstico, después cualquier cambio** | A2, B2 |
+| 1.1 | Diagnóstico y enmienda implementados en `b3619bf`; **pendiente verificación independiente en código y pantalla**, sin deploy | A2, B2 |
 | 1.2 | Cobranza: mostrar cuánto debe cada uno, el total adeudado, y poder cobrar desde ahí | A1, A21, A22 |
 | 1.3 | Cobrar desde la ficha del alumno, y ver ahí sus recibos | A17, A34 |
 | 1.4 | Poder cobrar por adelantado, que el motor ya soporta | A3 |

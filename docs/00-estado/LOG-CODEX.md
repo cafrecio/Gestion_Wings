@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-23 — Codex CAB — A2/B2 implementados; pendiente verificación independiente
+
+Commit `b3619bf`: cuota del mes al alta, transacción con alumno/plan/inscripción.
+Importe y porcentaje guardados; preview y cobro no vuelven a descontar esa cuota.
+DEUDOR solo por mes cerrado impago, coherente en cálculo individual y masivo.
+Pruebas iniciales rojas (7 fallos/1 correcta); final MariaDB wings_testing: 331/1900.
+Rollback tras insertar cuota, reintento, borde 30/1, padrón y recobro cubiertos.
+PHP y compilación Blade correctos; vistas/CSS intactos. Sin deploy ni base real.
+[Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A2.md). A2/B2 pendientes de otro agente.
+Al desplegar requiere migración porcentaje_alta; tarea no cerrada por el implementador.
+
 ## 2026-09-23 — Codex CAB — Telegram de test recibido; correo rechazado
 
 Carlos autorizó bot/correo. Chat identificado con getChat y comunicado antes de guardar.
