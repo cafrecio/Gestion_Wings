@@ -12,7 +12,8 @@ busca es dónde Wings estorba, confunde o miente.
 | Archivo | Qué es |
 |---|---|
 | [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md) | El horario fijo del club: grupos, días, horas y profesores. Se carga el día 1 y no se toca más |
-| [SEMANA-01.md](SEMANA-01.md) | Los ocho días de la primera semana, del 24/09 al 1/10, y qué se mira en la parada |
+| [DIA-01.md](DIA-01.md) | El primer día de Vanina con Wings, escrito desde el club: todo lo que tiene que hacer y todo lo que falta |
+| [SEMANA-01.md](SEMANA-01.md) | Borrador de los ocho días de la primera semana. **Se reescribe** a partir del DIA-01 |
 
 Los hallazgos de cada día van en su propio archivo, `HALLAZGOS-DIA-XX.md`, al lado del
 guion, y las capturas en `evidencia/`.
