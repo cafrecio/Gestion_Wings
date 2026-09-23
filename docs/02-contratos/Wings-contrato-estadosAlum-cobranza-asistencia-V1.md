@@ -42,6 +42,21 @@ El universo son los **alumnos activos**. Dentro de ese universo, se genera deuda
 1. **Tuvo al menos una asistencia el mes anterior.** Vino, sigue siendo alumno, se le cobra.
 2. **Se dio de alta y pagó dentro de los últimos 15 días.** Es el alumno recién incorporado que todavía no tuvo clases: nadie se anota y paga para no venir.
 
+### La primera cuota nace en el alta — enmienda del 23/09/2026
+
+Decisión de Carlos. **Al dar de alta un alumno se le crea la deuda de la cuota del mes en
+curso**, en la misma operación que lo crea, además de la inscripción cuando corresponde.
+
+- El importe es el del plan elegido, con el **porcentaje del primer cobro según el día de
+  ingreso**, y queda **congelado en el alta**: el cobro posterior no lo vuelve a calcular.
+- La generación mensual del día 1 **no vuelve a crear ese período**: ya existe.
+- Un alumno que se anota y no aparece nunca **queda debiendo y se ve en la cobranza**. Antes
+  era invisible para el club.
+- Los alumnos ya existentes no se tocan: esto rige para las altas nuevas.
+
+Con esto, el alumno nuevo entra al circuito normal de cobranza desde el primer día, y por
+eso la enmienda de §3 puede sacar la regla de "nunca pagó".
+
 ### Si no cumple ninguna: no se genera deuda, se pregunta
 
 **No se asume nada.** El alumno pasa a una **cola de revisión**, con la pregunta: *¿sigue siendo alumno?*
@@ -111,7 +126,7 @@ De ahí se desprende todo lo demás. La gente paga cuando cobra, y eso no suele 
 | **AL DÍA** | Pagó el mes anterior y el corriente. | No |
 | **EN PLAZO** | Pagó el mes anterior, debe el corriente, y **todavía está dentro de los días de gracia**. | No, todavía no |
 | **MOROSO** | Pasó el día de gracia configurado y debe el **mes corriente**. | Sí |
-| **DEUDOR** | Arrastra un mes **ya cerrado** sin pagar, **o nunca pagó ninguna cuota**. | Sí, con más urgencia |
+| **DEUDOR** | Arrastra un mes **ya cerrado** sin pagar. | Sí, con más urgencia |
 
 La escala parte al medio: los dos primeros son *"no hay nada que hacer"*, los dos últimos son *"hay que salir a cobrar"*. Ese corte es el que usa quien trabaja la cobranza.
 
@@ -119,7 +134,7 @@ La escala parte al medio: los dos primeros son *"no hay nada que hacer"*, los do
 
 Los estados se evalúan **en este orden**, y el primero que da verdadero gana:
 
-1. **¿Arrastra algún mes cerrado sin pagar, o nunca pagó?** → DEUDOR
+1. **¿Arrastra algún mes cerrado sin pagar?** → DEUDOR
 2. **¿Debe el mes corriente y ya pasó el día de gracia?** → MOROSO
 3. **¿Debe el mes corriente pero sigue dentro de la gracia?** → EN PLAZO
 4. Si no → AL DÍA
@@ -138,7 +153,30 @@ Los estados se evalúan **en este orden**, y el primero que da verdadero gana:
 | 1 de septiembre | No pagó agosto | **DEUDOR** |
 | 15 de septiembre | Pagó agosto, no pagó septiembre | **MOROSO** |
 | 15 de septiembre | Debe agosto y septiembre | **DEUDOR** |
-| Cualquier fecha | Alumno nuevo que nunca pagó | **DEUDOR** |
+| Cualquier fecha | Alumno nuevo que nunca pagó, con su primera cuota vencida y el mes cerrado | **DEUDOR** |
+| Cualquier fecha | Alumno que no debe nada, haya pagado por Wings o no | **AL DÍA** |
+
+### Enmienda del 23/09/2026 — deudor es el que debe, no el que nunca pagó
+
+Decisión de Carlos. **Se elimina "o nunca pagó ninguna cuota" como criterio de DEUDOR.** El
+estado se calcula sobre lo que el alumno **debe**, no sobre si alguna vez hubo un pago suyo
+registrado en Wings.
+
+**Por qué cambia.** La regla original apuntaba al alumno nuevo que se anota y no paga. Pero
+marcaba deudor a cualquiera sin pagos, aunque no debiera un peso, y eso se vio el 23/09 en
+el sitio de prueba: con el padrón recién declarado, Cobranza mostró **60 deudores** sobre 60
+alumnos mientras el tablero mostraba 20 con deuda. Los 40 que arrancaron al día nunca
+pagaron **por Wings** —su mes de corte se declaró cerrado en cero, sin inventar un cobro— y
+el sistema los trataba como los peores morosos del club. Diagnóstico completo en
+`docs/06-pruebas/PRU-02/DIAGNOSTICO-A2.md`.
+
+**Lo que reemplaza a esa regla:** al inscribirse un alumno **se le crea la cuota del mes**,
+ver §2. Desde entonces, el alumno nuevo que no paga **debe algo**, y el cálculo normal lo
+clasifica solo: EN PLAZO dentro de la gracia, MOROSO pasada la gracia y DEUDOR cuando ese
+mes se cierra. No hace falta ninguna regla especial para él.
+
+**Lo que no cambia:** un mes cerrado sin pagar sigue siendo DEUDOR, y DEUDOR sigue ganando
+sobre todos los demás estados.
 
 **El paso de MOROSO a DEUDOR es automático:** un moroso de agosto se convierte en deudor el 1 de septiembre, sin que nadie haga nada, porque agosto pasa a ser un mes cerrado.
 
