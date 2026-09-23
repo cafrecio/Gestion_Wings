@@ -54,3 +54,44 @@ dos mitades: que se confíe en Cloudflare y que **no** se confíe en nadie más.
 la aplicación deja de ver al visitante real, o el tráfico de ese rango no entra.
 
 El detalle del lado del servidor está en `VPS/ESTADO-SERVIDOR.md`.
+
+## Correo saliente — reparado el 23/09/2026
+
+Estaba roto para todo el servidor, no solo para Wings. Postfix tiene sus tablas en
+MySQL —así lo arma CWP— pero le faltaba el paquete `postfix-mysql`, así que
+**rechazaba todos los mensajes antes de intentar mandarlos**
+(`unsupported dictionary type: mysql`). Se instaló ese paquete.
+
+Con eso los mensajes salieron, pero **Gmail los rechazaba** con `550 5.7.26`: el
+dominio no tenía ningún registro que autorizara al servidor a mandar correo en su
+nombre. Se publicaron dos registros SPF en Cloudflare, uno para el dominio y otro
+para el subdominio de prueba:
+
+```
+gestionar-te.com.ar        TXT  v=spf1 ip4:2.25.204.38 ~all
+test.gestionar-te.com.ar   TXT  v=spf1 ip4:2.25.204.38 ~all
+```
+
+**No hay DKIM.** Con SPF alcanzó para que Gmail acepte, pero si en algún momento
+los avisos empiezan a caer en spam, eso es lo que falta.
+
+Del lado de Laravel, **no usar `sendmail -bs`**, que es el valor por defecto: en ese
+modo el binario levanta un `smtpd` con el usuario del sitio y no puede abrir los
+sockets privados de la cola; el error que se ve es
+`Connection to "process /usr/sbin/sendmail -bs -i" has been closed unexpectedly`.
+Se entrega por SMTP al propio servidor, que es lo que deja escrito `montar-test.sh`:
+
+```
+MAIL_MAILER=smtp
+MAIL_URL="smtp://127.0.0.1:25?verify_peer=0"
+```
+
+`verify_peer=0` porque el certificado de ese postfix es propio y el destino es la
+misma máquina.
+
+**Producción todavía no manda correo.** `/home/wings/app/.env` no tiene ninguna
+clave `MAIL_`, y sin `MAIL_MAILER` Laravel escribe los mensajes en el log en vez de
+enviarlos. Hay que dejar las mismas tres líneas al desplegar wings.
+
+Se borraron además **16.211 mensajes** que estaban atascados en la cola desde junio,
+casi todos avisos automáticos del sistema dirigidos a Carlos que nunca habían salido.

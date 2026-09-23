@@ -117,6 +117,14 @@ fijar SESSION_DRIVER database
 fijar CACHE_STORE database
 fijar QUEUE_CONNECTION database
 fijar LOG_LEVEL warning
+# Correo por el postfix del propio servidor, no por `sendmail -bs`: en ese modo el
+# binario levanta un smtpd con el usuario del sitio y no puede abrir los sockets
+# privados de la cola ("connection closed unexpectedly"). Por SMTP a 127.0.0.1 anda.
+# verify_peer=0 porque el certificado de ese postfix es propio y el destino es la
+# misma maquina; el mensaje no sale del servidor sin cifrar hacia afuera.
+fijar MAIL_MAILER smtp
+fijar MAIL_URL '"smtp://127.0.0.1:25?verify_peer=0"'
+fijar MAIL_FROM_ADDRESS "avisos@${DOMINIO}"
 chown "${USUARIO}:${USUARIO}" "${APP}/.env"
 chmod 640 "${APP}/.env"
 echo ".env escrito"
