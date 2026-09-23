@@ -156,6 +156,13 @@ recibos. Retomar los pasos antes bloqueados, pero sobre la version corregida.
 siempre el design system (`docs/03-diseno-ui/wings-design/SKILL.md`, `DESIGN-RULES.md`,
 componentes `ds-*` y `x-ds.*`) y necesita su autorizacion de diseno.
 
+**Defectos relevados, 23/09:** el recorrido visual de Claude, Gemini y Codex con los tres
+roles dejo **58 defectos** —42 que se ven y 16 internos— con capturas y verificacion
+cruzada. Estan en [DEFECTOS.md](../06-pruebas/PRU-02/DEFECTOS.md), con su
+[tablero](../06-pruebas/PRU-02/DEFECTOS.html) y el **plan de accion en seis bloques**: el
+mostrador primero, despues el dueno, despues lo que no se entiende, el celular, los datos de
+prueba y lo que falta. La prueba no se cierra hasta que el bloque 1 este hecho.
+
 ### PRU-03 · Estados de cobranza
 
 Revalidar los 60 casos preparados. Antes de usar “DEUDOR” para reclamar, Carlos debe

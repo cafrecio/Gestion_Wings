@@ -328,6 +328,91 @@ El mostrador no veía los cobros del otro turno. Ahora filtra por rubro, como ma
 
 ---
 
+---
+
+## Plan de acción
+
+El orden no es por gravedad suelta: es por lo que traba al club primero. Cada bloque se
+cierra con la verificación de otro agente, como manda `AGENTS.md` §6a.
+
+### Bloque 1 — Que el mostrador pueda trabajar
+
+Es lo único que frena plata todos los días. Nada del resto se toca hasta que esto esté.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 1.1 | Diagnosticar por qué Cobranza dice 60 deudores y el tablero 20. **Primero el diagnóstico, después cualquier cambio** | A2, B2 |
+| 1.2 | Cobranza: mostrar cuánto debe cada uno, el total adeudado, y poder cobrar desde ahí | A1, A21, A22 |
+| 1.3 | Cobrar desde la ficha del alumno, y ver ahí sus recibos | A17, A34 |
+| 1.4 | Poder cobrar por adelantado, que el motor ya soporta | A3 |
+| 1.5 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado | A4, A14 |
+| 1.6 | Filtrar los profesores por el deporte de la clase | A5 |
+| 1.7 | Apertura de caja con saldo inicial y arqueo | A25 |
+
+### Bloque 2 — El dueño deja de ser un operativo
+
+Cambio de modelo, no de pantalla: se diseña con Carlos antes de repartirlo.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 2.1 | Que cobrar no le abra caja al admin, y que no se valide a sí mismo | A13, B1 |
+| 2.2 | Pantalla de caja propia del dueño: la del que mira, no la del que rinde | A13 |
+| 2.3 | Un tablero de dueño que sirva para decidir | A23 |
+
+### Bloque 3 — Que se entienda
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 3.1 | Configuración con nombres humanos, agrupada, explicada y con validación real | A11 |
+| 3.2 | Consistencia: un verbo por botón, los puntos, los interruptores, el botón Nuevo | A6, A8, A9, A10, A32, A35 |
+| 3.3 | Listado de alumnos y ficha: que el dato esté donde se busca | A7, A37 |
+| 3.4 | Permisos: mismo trato para todos los roles y una pantalla de "sin permiso" que sirva | A29, A30, A31 |
+| 3.5 | Inicio del operativo y del profesor: que digan por dónde empezar el día | A12, A24 |
+| 3.6 | Textos en castellano y formularios que no pidan lo que un club de chicos no tiene | A26, A27, A38 a A42 |
+
+### Bloque 4 — El celular
+
+**Decisión pendiente de Carlos:** si el celular entra en esta versión o después. Hoy el
+mostrador trabaja en computadora, pero el profesor toma asistencia con el teléfono.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 4.1 | Asistencia en el celular, que es lo único que hoy se usa así | A33 |
+| 4.2 | Tablas y filtros que no se rompan en pantalla chica | A18, A19, A20, A28, A36 |
+
+### Bloque 5 — Los datos de prueba
+
+Sin esto, ninguna prueba nueva significa nada. Los datos los armó Claude y están mal.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 5.1 | Alumnos que sean chicos, con sus tutores y sus teléfonos | B13 |
+| 5.2 | Catálogo sin los servicios que el club no paga, con los rubros que sí usa | B13 |
+| 5.3 | Saldos iniciales que decida Carlos, no inventados | B13 |
+
+### Bloque 6 — Lo que el club necesita y no existe
+
+Después de la prueba, salvo que Carlos decida adelantarlo.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 6.1 | Canchas y su alquiler por hora: el gasto más grande del club | B5, A15 |
+| 6.2 | Clases particulares | B6 |
+| 6.3 | Motivos y avisos de las excepciones del contrato | B3 |
+| 6.4 | Reportes: las cuatro preguntas del cierre del día | B12 |
+| 6.5 | Adelanto del profesor atado a su liquidación, y dónde pagarle | B9, B10 |
+| 6.6 | Familia y hermanos | B8 |
+| 6.7 | Stock y compra de mercadería | B7 |
+| 6.8 | Punitorios por mora | B11 |
+| 6.9 | Clases sin asistencia en el resumen diario | B4 |
+| 6.10 | Carga del horario con días y horarios distintos en una sola vez | A16 |
+
+### Cómo se trabaja cada bloque
+
+1. Lo hace un agente y **lo verifica otro**, en pantalla y en el código.
+2. Cada defecto cerrado se marca acá, con el commit que lo cierra.
+3. Si al arreglar uno aparece otro, se agrega a la lista antes de seguir.
+
 ## Qué mirar en la próxima prueba
 
 Esto es lo que significa "hacer una prueba" en Wings, y vale para Claude, Codex y Gemini:
