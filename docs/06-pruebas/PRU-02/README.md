@@ -12,10 +12,10 @@ busca es dónde Wings estorba, confunde o miente.
 | Archivo | Qué es |
 |---|---|
 | [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md) | El horario fijo del club: grupos, días, horas y profesores. Se carga el día 1 y no se toca más |
-| [DIA-01-2026-09-24.md](DIA-01-2026-09-24.md) | Jueves 24/09: el primer día, de la configuración al cierre de caja |
+| [SEMANA-01.md](SEMANA-01.md) | Los ocho días de la primera semana, del 24/09 al 1/10, y qué se mira en la parada |
 
-Los días siguientes se van agregando acá, uno por archivo. Los hallazgos de cada día van
-en su propio archivo, `HALLAZGOS-DIA-XX.md`, al lado del guion.
+Los hallazgos de cada día van en su propio archivo, `HALLAZGOS-DIA-XX.md`, al lado del
+guion, y las capturas en `evidencia/`.
 
 ## Cómo está armado el club
 
@@ -23,12 +23,21 @@ en su propio archivo, `HALLAZGOS-DIA-XX.md`, al lado del guion.
 mostrador y un dueño. Veinte personas arrastran deuda vieja, declarada con el padrón; las
 otras cuarenta arrancan al día, con septiembre cerrado.
 
-## Cómo avanza el tiempo
+## Quién la juega y cómo avanza el tiempo
 
-Wings trabaja con la fecha real. La primera semana se juega día por día, como en el club.
+**La prueba la corre Gemini**, actuando como cada persona del club, con la pantalla a la
+vista. No es trabajo de Vanina ni de Carlos: ellos miran el resultado y dicen si el sistema
+les sirve.
+
+El tiempo no corre en tiempo real: **se le dice a Wings qué día es**
+(`php artisan wings:fecha-simulada`), así una semana de club entra en una tarde y tres
+meses en unas sesiones. En producción esa fecha se ignora por código, y una prueba
+automática lo garantiza.
+
 El primer salto grande es **el 1 de octubre**, cuando el sistema genera solo las cuotas del
-mes nuevo: ahí se ve si las 60 cuotas salen bien y qué pasa con quien quedó debiendo
-septiembre.
+mes nuevo. Ahí importa un detalle que ya se comprobó en el servidor: **la cuota se le crea
+a quien asistió el mes anterior**; al que no figura lo manda a revisión de cobranza. Con la
+base sin asistencias, mandó a revisión a los 60.
 
 ## Qué es un hallazgo
 
