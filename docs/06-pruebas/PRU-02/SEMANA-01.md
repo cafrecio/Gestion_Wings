@@ -30,11 +30,11 @@ se puede hacer desde la pantalla, eso es un hallazgo.
 **Nunca se toca producción.** `wings.gestionar-te.com.ar` y `/home/wings` no existen para
 esta prueba.
 
-**Cada día se anota.** Un archivo por día, `HALLAZGOS-DIA-XX.md`, con una entrada por
-escena: qué se esperaba, qué pasó, si **frena**, **molesta** o es una **observación**, y la
-captura. Las capturas van en `evidencia/`. Una escena que salió perfecta se escribe igual,
-diciendo que salió perfecta: un renglón en blanco no distingue lo que salió bien de lo que
-no se hizo.
+**Se anota solo lo que falla.** Un archivo por día, `HALLAZGOS-DIA-XX.md`, con una entrada
+por error: qué se esperaba, qué pasó, si **frena** al club, lo **molesta** o es una
+**observación**, y la captura. Lo que sale bien no se documenta. Sí se cierra cada día con
+un renglón que diga qué escenas se jugaron, para saber qué quedó cubierto; si un día no
+tuvo ningún error, se escribe el archivo con ese único renglón.
 
 ## Cómo se mueve el tiempo
 
