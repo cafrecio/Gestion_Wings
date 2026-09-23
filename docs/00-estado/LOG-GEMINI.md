@@ -10,6 +10,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-23 — LOG GEM CYE — ENT-01: Verificación de inscripción y cargos adicionales
+
+- **Objetivo:** Verificar la implementación de ENT-01 (commits `11623b6` y `85b4ead` de Codex) sobre la lógica de inscripción, prioridad de cobro, comisiones, anulaciones y pruebas visuales en local.
+- **Respuestas técnicas y verificación en código:**
+  - Estado de cobranza por inscripción impaga: **NO** cambia (`CobranzaEstadoService:29, 217-254`).
+  - Pago solo inscripción como cuota: **NO** cuenta, scope `conCuota()` filtra `monto_cuota > 0` (`CobranzaEstadoService:30, 62`, `Pago:71`).
+  - Descuento primer mes: **SOLO A CUOTA**, inscripción son $5.000 fijos (`PagoCuotaService:58-69, 916-934`).
+  - Comisión de profesor: **SOLO SOBRE CUOTA** (`LiquidacionService:223`), pagos históricos conservan base previa intacta (`monto_cuota` backfilled en migración).
+  - Anulación de cobro: **REVIERTE TODO** (cuota, inscripción y 2 movimientos cancelados) (`PagoCuotaService:871-910`).
+  - Unicidad por DNI: **GARANTIZADA EN BD** con índice UNIQUE en `clave_origen` y PK en `inscripcion_personas`.
+- **Pruebas visuales en pantalla local (Apache + MariaDB):**
+  - Ejecutados los 7 flujos con Chrome Headless CDP (`scratch/test_ent01_suite.mjs`), generando 11 capturas de evidencia: alta pre-corte, alta post-corte con aviso, segundo deporte sin duplicar, cobro completo ($26.000) con desglose en caja, cobro parcial ($3.000 a inscripción), edición sin pagos (aviso/anulación), edición con pago (rechazo), reversión tras anulación y responsivo mobile 375x700.
+- **Dictamen `storage/ent01-visual/recibo.png`:** Muestra de Poppler generada por Codex. Dictamen: sacar de `storage/` y mover a `docs/06-pruebas/evidencia/` para mantener `storage/` fuera de git.
+- **CSP y Responsivo:** CSP intacta (sin inline handlers en `cobrar.blade.php`); desglose responsivo legible en 375x700 sin desbordes.
+- **Suite completa:** 314 pruebas / 1797 aserciones en verde (94.5s), sincronizados documentos de control.
+- **Siguiente paso:** Aprobación de Carlos y coordinación para actualización del servidor `test.gestionar-te`.
+
 ## 2026-09-22 — LOG GEM CYE — ENT-06: Verificación y Cierre
 
 Todos los entregables y requisitos fueron verificados con evidencia concreta:

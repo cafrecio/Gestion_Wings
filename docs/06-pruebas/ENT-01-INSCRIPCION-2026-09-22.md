@@ -46,7 +46,7 @@ Al cobrar $26.000 se registraron dos movimientos y el total correcto en la caja.
 
 PDF generado por ReciboService en almacenamiento aislado y renderizado con Poppler:
 septiembre $21.000, inscripción por única vez $5.000, total $26.000. Se inspeccionó
-la imagen real del documento; [captura con datos ficticios](../../storage/ent01-visual/recibo.png).
+la imagen real del documento; [captura con datos ficticios](evidencia/ent01-recibo.png).
 La prueba automatizada también genera PDF y verifica los conceptos, incluso anulado.
 
 ## Entrega y límites
