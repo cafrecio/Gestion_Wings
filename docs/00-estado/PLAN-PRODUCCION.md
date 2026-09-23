@@ -15,13 +15,14 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **313 pruebas**, verde completo el 22/09 |
+| Suite | **313 pruebas**, 1793 aserciones; verde completo el 22/09 en base descartable exclusiva |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
+| Inscripción ENT-01 | Implementada y verificada localmente el 22/09; por DNI, corte 23/09/2026, cargos separados. Sin deploy |
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
-| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Quedan 21 bloques script y 10 manejadores inline |
+| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Quedan 20 bloques script y 10 manejadores inline |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 

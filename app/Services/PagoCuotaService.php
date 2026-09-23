@@ -911,7 +911,7 @@ class PagoCuotaService
     }
 
     /**
-     * Agregar observación a texto existente con timestamp.
+     * Distribuir el total entregado: primero inscripción, después cuotas.
      */
     private function distribuirInscripcion(array $data, array $items): array
     {

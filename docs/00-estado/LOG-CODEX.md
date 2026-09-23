@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-22 — Codex CAB — ENT-01 implementada y verificada
+
+Carlos aprobó DNI por persona, inscripción primero, sin comisión y edición auditada.
+Alta/cargo atómicos, reintentos y concurrencia; caja, estado de cuenta y PDF desglosados.
+§5 de Punitorios usa cargos; FIN-14 y manuales ENT-10 siguen pendientes. Sin deploy.
+Pruebas iniciales rojas; suite final aislada: **313 / 1793**, 122,92 s, MariaDB.
+Aviso previo, cobro parcial/completo y PDF vistos con datos ficticios; build y Blade correctos.
+[Evidencia y límites](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md); código guardado en 11623b6 por sesión paralela.
+Siguiente: revisión cruzada de Claude y actualización del servidor para PRU-02.
+[Entrada antigua preservada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-ENT01-CIERRE.md).
+
 ## 2026-09-22 — Codex CAB — ENT-01 propuesta previa a implementación
 
 Pull inicial sin novedades; corte confirmado 23/09/2026, por fecha real de ingreso.
@@ -132,14 +143,3 @@ Motivo visible solo en pasada; profesores deshabilitados allí y editables hoy.
 Error sin motivo visible; con motivo guarda y muestra el nuevo horario en la ficha.
 Evidencia actualizada en FIN-10-EDICION-2026-09-13.md. Sin deploy ni suite nueva.
 Conteos 214/1311 intactos. Siguiente: revisión cruzada y despliegue cuando Carlos indique.
-
-## 2026-09-13 — Codex CAB — FIN-10 implementada y probada
-
-Carlos confirmó fecha pasada fija, horario con motivo y bloqueo por liquidación CERRADA.
-Update transaccional: revalida todos los profesores y presentes al mover fecha/horario.
-Clases pasadas ignoran profesores enviados; actualizarProfesores y cálculo de liquidación intactos.
-Migración motivo_cambio_horario y ajuste autorizado de vista, sin JS ni CSS nuevos.
-Suite completa única: 202 pruebas / 1275 aserciones, 48,87 s en wings_testing; 12 casos nuevos.
-Sintaxis y compilación Blade correctas; tableros, contrato y tres conteos actualizados.
-Sin deploy ni migración en base del club. Revisión visual en navegador pendiente.
-Cambio ajeno .claude/settings.json excluido. Siguiente: revisión cruzada y despliegue.

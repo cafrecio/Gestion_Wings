@@ -37,6 +37,8 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * revision-cobranza/index.blade.php (abrirForm y cerrarForm), que pasa a
      * resolverse exclusivamente por delegación nativa de data-abrir-revision y
      * data-cerrar-revision en ds-app.js.
+     *
+     * ENT-01 (22/09): quedan 20 al extraer cobrar a resources/js/cobrar.js.
      */
     private const BLOQUES_SCRIPT_PERMITIDOS = 20;
 
