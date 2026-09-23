@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## Sitio de prueba — automatización, 23/09/2026
+
+Cron exclusivo de `wingstest` instalado y ejecutado realmente, incluso con nologin
+y contraseña bloqueada. Sin heartbeats de producción; instalación repetible al
+montar test. Figuran deudas mensuales y resumen diario a las 08:00.
+Email destino guardado en Configuración. Envíos **todavía no verificados**: falta
+autorizar token/transporte y obtener el chat id con un mensaje de Carlos al bot.
+[Verificación y pendientes](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md).
+
 ## ENT-01 — implementada, 22/09/2026
 
 [Diseño aprobado](../05-pendientes/ENT-01-PROPUESTA-CARGOS-ADICIONALES.md): inscripción

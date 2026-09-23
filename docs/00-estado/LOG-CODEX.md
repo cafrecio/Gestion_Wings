@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-09-23 — Codex CAB — PRU-02 cron de test probado; avisos pendientes
+
+Solo wingstest; cron preexistente reemplazado por ejecutor aislado de producción.
+Ejecuciones reales 03:28, 03:29 y 03:30 UTC correctas; nologin y password bloqueada.
+Instalación repetible integrada a montar-test; sin heartbeats, destinos CSP propios.
+Email destino guardado en Configuración; Telegram sin chat verificado, sin envío.
+Auto-review bloqueó token/transporte: autorización pendiente; Carlos debe iniciar bot.
+Suite aislada 315/1804, 93,45 s; bash -n correcto, sin cambios visuales ni producción.
+[Evidencia](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md). Siguiente: probar recepción real de ambos avisos.
+[Entrada antigua preservada](../99-archivo/bitacoras/2026-09-23-LOG-CODEX-TEST-CRON.md).
+
 ## 2026-09-22 — Codex CAB — ENT-01 implementada y verificada
 
 Carlos aprobó DNI por persona, inscripción primero, sin comisión y edición auditada.
@@ -134,12 +145,3 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entrada de continuidad archivada el 21/09](../99-archivo/bitacoras/2026-09-21-LOG-CODEX-CONTINUIDAD.md).
 · [Entrada antigua preservada al guardar POS-07](../99-archivo/bitacoras/2026-09-21-LOG-CODEX-PLAN-CANCHAS.md).
-
-## 2026-09-13 — Codex CAB — FIN-10 revisión visual completada
-
-Chrome sobre base descartable wings_testing_fin10_visual_20260913 y puerto 8097.
-Seeder autorizado y dos clases: pasada y de hoy. Pantallas revisadas con capturas.
-Motivo visible solo en pasada; profesores deshabilitados allí y editables hoy.
-Error sin motivo visible; con motivo guarda y muestra el nuevo horario en la ficha.
-Evidencia actualizada en FIN-10-EDICION-2026-09-13.md. Sin deploy ni suite nueva.
-Conteos 214/1311 intactos. Siguiente: revisión cruzada y despliegue cuando Carlos indique.

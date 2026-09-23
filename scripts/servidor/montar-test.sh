@@ -195,4 +195,5 @@ CODIGO=$(curl -s -o /dev/null -w '%{http_code}' -H "Host: ${DOMINIO}" "http://${
 echo "http://${DOMINIO}/login responde: ${CODIGO}"
 echo
 echo "Commit desplegado: $(sudo -u ${USUARIO} git -C ${APP} rev-parse --short HEAD)"
-echo "Falta: certificado HTTPS y cron del scheduler."
+bash "${APP}/scripts/servidor/preparar-test-automatizacion.sh"
+echo "Scheduler de prueba instalado. HTTPS se prepara con montar-test-https.sh."

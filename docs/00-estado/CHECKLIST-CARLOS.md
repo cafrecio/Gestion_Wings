@@ -15,6 +15,10 @@ tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-C
 
 **Lo que necesita tu decision o tu presencia:**
 
+- [ ] **Avisos de test (23/09):** iniciar @GestionarteAlertasBot y confirmar recepción
+  del ensayo por correo/Telegram. Autorizar uso del bot compartido y transporte
+  de correo en wingstest; cron ya probado. [Evidencia](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md).
+
 - [ ] **Clases particulares: ¿entra antes o despues de la prueba grande?** Antes cubre el
   modulo nuevo pero vuelve a correr el reloj; despues prueba lo que ya esta y lo
   suma sobre una base probada. Recomendacion de Claude: despues.
