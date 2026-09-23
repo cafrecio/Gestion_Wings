@@ -116,6 +116,120 @@ Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar 
 hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos
 los días elegidos.
 
+### A17. La ficha del alumno no tiene botón para cobrar · Frena · verificado
+
+En la ficha del alumno (`/alumnos/{id}`) se ven sus cuotas impagas con el botón **Condonar**, pero no existe ningún botón para **Cobrar**. Para cobrarle a quien está parado en el mostrador hay que salir, ir a Caja, tocar Cobrar y buscarlo de nuevo en un desplegable.
+Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
+
+### A18. Cobranza en celular rompe la tabla y superpone el texto · Frena · verificado
+
+En pantallas de 375px (`/cobranza`), las columnas de la tabla colisionan: los títulos "ALUMNO" y "DEPORTE" se imprimen encimados ("AEBDORINE"), los nombres de los chicos se montan sobre la disciplina ("Morales, Patín Sofía"), los filtros se truncan a dos letras y el botón Ver queda cortado por el borde de la pantalla.
+Captura: `evidencia/audit_admin_cobranza_mobile.png`.
+
+### A19. Las barras de filtros en celular colapsan en cuadrados mudos y desbordan · Molesta · verificado
+
+En Alumnos, Clases, Movimientos, Profesores e Historial de Cajas, los filtros se aprietan en una sola fila horizontal en el celular: los selectores quedan reducidos a pequeños cuadrados mudos con flechas sin texto, y los botones **Filtrar** y **Limpiar** quedan flotando afuera de la tarjeta blanca.
+Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admin_movimientos_index_mobile.png`, `evidencia/audit_admin_profesores_index_mobile.png`, `evidencia/audit_admin_alumnos_index_mobile.png`, `evidencia/audit_admin_cajas_historial_mobile.png`.
+
+### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · verificado
+
+En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
+Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
+
+### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · verificado
+
+Un alumno anotado en dos actividades (como Sofía Morales en Patín y Fútbol) aparece dos veces consecutivas en el listado de Cobranza con el mismo nombre y apellido, sin totalizar su deuda global ni clarificar a simple vista a qué corresponde cada fila.
+Captura: `evidencia/audit_admin_cobranza_desktop.png`.
+
+### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · verificado
+
+Las tarjetas superiores de Cobranza muestran conteos de alumnos (`Total Activos 60`, `Al día 0`, `En plazo 0`, `Morosos 0`, `Deudores 60`), pero no dicen cuánta plata representa la deuda ni cuánto dinero falta recaudar. Quien gestiona no sabe cuántos pesos están en juego.
+Captura: `evidencia/audit_admin_cobranza_desktop.png`.
+
+### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · Molesta · verificado
+
+Más de la mitad de la pantalla principal del administrador es espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
+Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
+
+### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · verificado
+
+Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
+Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
+
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · verificado
+
+Al operar en el mostrador, la caja se abre automáticamente en $0 al primer movimiento. No existe campo ni pantalla de arqueo inicial para registrar el fondo fijo de efectivo con el que abre el cajón para dar cambio.
+Captura: `evidencia/audit_operativo_caja_desktop.png`.
+
+### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · verificado
+
+En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
+Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
+
+### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · verificado
+
+El formulario de `/caja/movimiento` en 375px es tan vertical que los botones Guardar y Cancelar quedan fuera de la pantalla sin una barra fija inferior. Además, el campo Observaciones es obligatorio (`*`) para cualquier gasto ínfimo.
+Captura: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
+
+### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · verificado
+
+En `/grupos` desde el teléfono, el texto de los planes ("Planes: 1x/sem — $38.000 · 2x/sem — $48.000") sobresale por el lateral derecho. Además, el interruptor "Activo" está pegado al botón Editar, facilitando que un toque táctil desactive el grupo por error.
+Captura: `evidencia/audit_admin_grupos_index_mobile.png`.
+
+### A29. Redirección silenciosa a Caja para el operativo en secciones de administración · Molesta · verificado
+
+Cuando Sandra Vidal intenta abrir `/cashflow`, `/liquidaciones`, `/usuarios` o `/configuraciones`, el sistema la redirige en silencio a `/caja` sin ningún mensaje explicativo. La persona cree que el enlace no funcionó o que el sistema falló.
+Captura: `evidencia/audit_operativo_acceso_cashflow_desktop.png`.
+
+### A30. Comportamiento dispar entre Profesor y Operativo ante accesos restringidos · Molesta · verificado
+
+A un profesor que intenta ingresar a Alumnos, Caja o Grupos se le muestra una pantalla de error 403 ("Acceso denegado"), pero si intenta ingresar a Cashflow o Liquidaciones se lo redirige silenciosamente a `/clases`. Dos respuestas completamente distintas ante el mismo tipo de restricción de permisos.
+Capturas: `evidencia/audit_profesor_acceso_alumnos_desktop.png` y `evidencia/audit_profesor_acceso_cashflow_desktop.png`.
+
+### A31. La pantalla de error 403 manda al usuario logueado a la pantalla de login · Molesta · verificado
+
+En la pantalla de error 403 (`resources/views/errors/403.blade.php`), el botón "Volver al inicio" tiene como enlace fijo `href="/login"`, mandando a quien ya tiene sesión iniciada a la página de ingreso.
+Captura: `evidencia/audit_profesor_acceso_alumnos_desktop.png`.
+
+### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · verificado
+
+En `/usuarios`, el administrador activo ("Admin Prueba (vos)") figura con el interruptor en gris (apagado) a pesar de tener el punto verde de activo.
+
+**Corregido en la verificación cruzada (Claude, 23/09):** el informe original decía que el
+administrador podía desactivarse a sí mismo con un clic. **Es falso.** `UsuarioWebController::toggleActivo`
+lo bloquea y responde "No podés inactivarte a vos mismo". Lo que queda es el defecto visual:
+el interruptor ofrece una acción que el sistema va a rechazar.
+Captura: `evidencia/audit_admin_usuarios_index_desktop.png`.
+
+### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · verificado
+
+En la ficha de la clase (`/clases/{id}`), cada alumno ocupa una tarjeta individual completa. Para una clase habitual de 15 o 20 alumnos, el profesor debe desplazarse metros de pantalla en la cancha para marcar los presentes y llegar al botón inferior de guardar.
+Captura: `evidencia/audit_profesor_clases_show_mobile.png`.
+
+### A34. La ficha del alumno no tiene historial ni descarga de recibos · Falta · verificado
+
+Si un familiar se acerca al mostrador solicitando una copia del recibo abonado anteriormente, la ficha del alumno (`/alumnos/{id}`) no ofrece el historial de comprobantes con opción de descarga o reimpresión en PDF.
+Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
+
+### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · verificado
+
+En `/caja/historial`, la cabecera incluye un botón **Historial** que enlaza a la misma pantalla en la que el usuario ya está navegando.
+Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
+
+---
+
+## Complemento visual de Codex — 23/09/2026
+
+Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio 1366×900 y celular 390×844. Se excluyeron los hallazgos A1–A35 ya registrados. [Cobertura y límites](RECORRIDO-VISUAL-CODEX-2026-09-23.md).
+
+- **A36 · Rubros en celular · Molesta:** esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. [Captura](evidencia-codex-visual-2026-09-23/admin-rubros-celular.png).
+- **A37 · Ficha del alumno en celular · Molesta:** esperaba leer el correo completo dentro de la ficha; el email de Acosta, Alan atraviesa el borde derecho y obliga a desplazar horizontalmente la página. [Captura](evidencia-codex-visual-2026-09-23/operativo-alumno-ficha-celular.png).
+- **A38 · Paginación de Clases · Molesta:** esperaba indicaciones en español como el resto de la pantalla; al pie aparece “Showing 1 to 20 of 76 results”. [Captura](evidencia-codex-visual-2026-09-23/profesor-clases-paginacion-escritorio.png).
+- **A39 · Acceso a Movimientos del OPERATIVO · Falta:** esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. [Captura](evidencia-codex-visual-2026-09-23/operativo-movimientos-escritorio.png).
+- **A40 · Inicio de ADMIN en celular · Molesta:** esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. [Captura](evidencia-codex-visual-2026-09-23/admin-inicio-celular.png).
+- **A41 · Fechas del filtro de Movimientos · Molesta:** esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. [Captura](evidencia-codex-visual-2026-09-23/operativo-movimientos-escritorio.png).
+- **A42 · Aviso de inscripción al editar alumno · Molesta:** esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. [Al abrir](evidencia-codex-visual-2026-09-23/admin-alumno-edicion-escritorio.png) · [Tras reingresar el DNI](evidencia-codex-visual-2026-09-23/admin-inscripcion-tras-reingresar-dni.png).
+
 ---
 
 ## Parte B — Lo que no se ve
@@ -228,3 +342,7 @@ Esto es lo que significa "hacer una prueba" en Wings, y vale para Claude, Codex 
    una clase de patín; una clase que cuesta el doble de cancha.
 5. **¿Cada rol hace lo suyo?** El dueño no cierra cajas ni se valida a sí mismo.
 6. **¿Qué necesita el club y no tiene dónde anotarse?** Eso también se reporta.
+
+---
+
+*Auditoría visual completada íntegramente por pantalla en navegador visible (Chrome) en Desktop (1366x768) y Mobile (375x720) para los tres roles (ADMIN, OPERATIVO y PROFESOR), relevando 19 nuevos defectos (A17 a A35) con sus respectivas capturas de evidencia en docs/06-pruebas/PRU-02/evidencia/.*

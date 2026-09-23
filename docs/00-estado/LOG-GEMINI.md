@@ -10,6 +10,37 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-09-23 — LOG GEM CAB — Auditoría visual a simple vista (PRU-02)
+
+- **Objetivo:** Relevar defectos a simple vista en `https://test.gestionar-te.com.ar` como usuario real del club, sin abrir código ni consultar base de datos, en navegador Chrome visible en Desktop (1366x768) y Mobile (375x720) para los tres roles.
+- **Acciones y pantallas recorridas:**
+  - Sesiones completas: ADMIN (`admin@wings.test`), OPERATIVO (`sandra.vidal@wings.test`) y PROFESOR (`lucia.gaitan@wings.test`).
+  - Módulos auditados: Dashboard Admin/Operativo, Cobranza, Caja (mostrador, movimientos, historial), Alumnos (listado, ficha, alta, edición), Clases (listado, ficha, alta, edición, asistencia), Revisión de cobranza, Movimientos, Cashflow, Liquidaciones, Grupos, Niveles, Profesores, Rubros, Tipos de caja, Usuarios y Configuración, junto a intentos de acceso a rutas restringidas por rol.
+  - Evidencia: 146 capturas de pantalla registradas en `docs/06-pruebas/PRU-02/evidencia/` con prefijo `audit_*`.
+- **Hallazgos incorporados a `docs/06-pruebas/PRU-02/DEFECTOS.md` (A17 a A35):**
+  - **Frena:** Ficha de alumno sin botón para cobrar (A17); Cobranza en móvil con tabla rota y textos superpuestos "AEBDORINE" / nombres montados (A18); Interruptor de usuario con estado invertido y auto-desactivación del propio admin (A32).
+  - **Molesta:** Barras de filtros colapsadas en cuadrados mudos de 20px con botones desbordados en celular (A19); Botón "Nuevo" de Cashflow tapando el balance en móvil (A20); Cobranza duplicando filas de alumnos con dos deportes (A21); Dashboard admin vacío al 60% sin atajos (A23); Inicio operativo ofreciendo "Cobrar" sin caja abierta (A24); Celular obligatorio para menores en alta de alumno (A26); Formulario de movimiento en móvil con botones fuera de vista (A27); Grupos en móvil con tarifas desbordadas y switch pegado a Editar (A28); Redirección silenciosa a Caja para operativo en administración (A29); Respuestas dispares (403 vs redirect silencioso) ante accesos no autorizados (A30); Botón de pantalla 403 derivando a `/login` (A31); Asistencia en celular con scroll vertical excesivo (A33); Botón redundante "Historial" en historial de cajas (A35).
+  - **Falta:** Resumen de Cobranza sin totales monetarios de deuda (A22); Apertura de caja sin campo ni arqueo de cambio inicial (A25); Ficha de alumno sin historial ni descarga de recibos emitidos (A34).
+- **Cierre:** Anotados 19 nuevos defectos en `docs/06-pruebas/PRU-02/DEFECTOS.md` con captura y gravedad. Código de diseño (`resources/views` y `resources/css`) intacto.
+- **Siguiente paso:** Presentar el informe visual consolidado a Carlos para coordinar la priorización de soluciones.
+
+## 2026-09-23 — LOG GEM CAB — PRU-02 Día 1: Configuración y Carga inicial
+
+- **Objetivo:** Ejecutar la Parte 1 de PRU-02 (la mañana de Vanina desde su casa previa a la apertura del club) en `https://test.gestionar-te.com.ar` en navegador visible (Chrome) y sin tocar SQL/tinker/seeders.
+- **Acciones y verificaciones realizadas:**
+  - Reloj simulado: fijado a `2026-09-24 09:00` y al concluir restablecido a hora real con `wings:fecha-simulada --real`.
+  - Profesores: revisados los 4 existentes y creada Vanina Directora (Patín, tarifa por hora $0), verificando la creación automática de su subrubro de sueldo.
+  - Clases del cronograma: cargadas 76 clases recurrentes grupo por grupo (24/09 al 31/10) cubriendo los 6 grupos; verificadas clases en octubre y canchas paralelas el lunes a las 16:00.
+  - Intentos a propósito:
+    * Solapamiento de profesor: bloqueado con mensaje explicativo en pantalla (captura `dia01_02_intento_solapamiento_profesor.png`).
+    * Clase 17:30 a 18:30 (fraccionada / 2 horas de cancha): aceptada sin aviso y cancelada desde su detalle (capturas `dia01_04_clase_1730_dos_horas_cancha.png` y `cancelada.png`).
+  - Padrón: inspeccionado `/alumnos` (falta información de plan, celular propio, fecha de ingreso y deuda en listado general).
+  - Cobranza: detectada inconsistencia crítica (Dashboard informa 20 con deuda, pero `/cobranza` califica a los 60 alumnos como DEUDORES por falta de pagos registrados en BD).
+  - Configuración: verificada tarifa $5.000, 10 días de gracia, reglas primer cobro y destinos de avisos; fecha de corte de solo lectura (23/09/2026); probado cambio de importe y detectada falla silenciosa ante valores inválidos.
+  - Rubros y subrubros: confirmados Alquileres; creados EGRESO "Mantenimiento y arreglos" con "Reparaciones menores" (OPERATIVO) e INGRESO "Clases Particulares" con "Clase particular" (OPERATIVO); verificado que Cuotas e Inscripciones son intocables.
+  - Tipos de caja: activadas las 3 cuentas bancarias que venían inactivas por defecto.
+- **Entregables:** Documentado en `docs/06-pruebas/PRU-02/HALLAZGOS-DIA-01.md` y 16 capturas en `docs/06-pruebas/PRU-02/evidencia/`. Sin tocar tableros ni planes.
+
 ## 2026-09-23 — LOG GEM CYE — ENT-01: Verificación de inscripción y cargos adicionales
 
 - **Objetivo:** Verificar la implementación de ENT-01 (commits `11623b6` y `85b4ead` de Codex) sobre la lógica de inscripción, prioridad de cobro, comisiones, anulaciones y pruebas visuales en local.
