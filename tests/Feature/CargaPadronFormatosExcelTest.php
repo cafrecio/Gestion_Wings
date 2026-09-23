@@ -171,6 +171,22 @@ class CargaPadronFormatosExcelTest extends TestCase
         $this->assertNotSame('@', $hoja->getStyle('F2')->getNumberFormat()->getFormatCode());
     }
 
+    /**
+     * Las columnas de período que agrega el club a mano no tienen formato de texto, así
+     * que Excel se come el cero del mes; y si alguien escribe 9/2026 lo guarda como
+     * fecha. Lo primero se entiende igual; lo segundo se rechaza diciendo qué pasó.
+     */
+    public function test_el_periodo_sin_cero_entra_y_la_fecha_mal_escrita_se_explica(): void
+    {
+        $this->assertSame([], $this->validar(92026, 52000)['errores'], 'El 092026 sin cero tiene que entrar.');
+
+        $serialDeExcel = (float) \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel(new \DateTime('2026-09-01'));
+        $resultado = $this->validar($serialDeExcel, 52000);
+
+        $this->assertCount(1, $resultado['errores']);
+        $this->assertStringContainsString('Excel lo guardó como fecha', $resultado['errores'][0]['mensaje']);
+    }
+
     /** @return array{errores: array, deudas: array, cierres: array} */
     private function validar(string|int|float $periodo, string|int|float $monto): array
     {

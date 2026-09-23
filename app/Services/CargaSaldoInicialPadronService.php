@@ -231,6 +231,11 @@ class CargaSaldoInicialPadronService
             }
             $periodo = $this->leerPeriodo($crudos[$columna] ?? null);
             if ($periodo === null) {
+                // "9/2026" en una celda sin formato de texto lo convierte Excel en una
+                // fecha, y en el archivo queda un numero de cinco cifras que no dice nada.
+                $mes = $this->pareceFechaDeExcel($crudos[$columna] ?? null)
+                    ? "{$mes} (Excel lo guardó como fecha)"
+                    : $mes;
                 $errores[] = ['fila' => $fila, 'mensaje' => "El período '{$mes}' no es válido: va mes y año, como 092026 para septiembre 2026, desde 2025."];
                 continue;
             }
@@ -307,6 +312,15 @@ class CargaSaldoInicialPadronService
         return Alumno::query()->get(['id', 'dni', 'deporte_id'])
             ->mapWithKeys(fn (Alumno $alumno) => ["{$alumno->dni}|{$alumno->deporte_id}" => $alumno])
             ->all();
+    }
+
+    /**
+     * Un número en el rango de fechas de Excel para 2020-2040: casi seguro es una fecha
+     * mal escrita ("9/2026"), no un período. Solo cambia el mensaje de error.
+     */
+    private function pareceFechaDeExcel(mixed $crudo): bool
+    {
+        return (is_int($crudo) || is_float($crudo)) && $crudo >= 43800 && $crudo <= 51100;
     }
 
     /**
