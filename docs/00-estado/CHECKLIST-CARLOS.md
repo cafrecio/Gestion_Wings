@@ -9,7 +9,8 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite local actual: 331 pruebas / 1900 aserciones (23/09), en verde. La lista
+Suite local actual: 335 pruebas / 1900 aserciones (26/09). **5 en rojo a proposito:**
+son las de A43, escritas antes del arreglo que esta haciendo Codex. La lista
 tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
 `LOG-GEMINI`), entrada "PENDIENTES comunes".
 
@@ -66,10 +67,10 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 331 pruebas deben pasar
+php artisan test          # 335 pruebas deben pasar
 ```
 
-Corte verificado del 23/09: **331 pruebas / 1900 aserciones**, todas verdes; base descartable exclusiva.
+Corte verificado del 23/09: **335 pruebas / 1900 aserciones**, todas verdes; base descartable exclusiva.
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista

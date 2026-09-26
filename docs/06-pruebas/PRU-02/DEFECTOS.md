@@ -226,6 +226,25 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ### A43. El alumno antiguo cargado a mano recibe el descuento de bienvenida · Frena · verificado
 
+**Regla decidida por Carlos el 26/09/2026.** El corte del sistema
+(`inscripcion_fecha_corte`, el mismo parametro que ya usa la inscripcion) separa al
+alumno viejo del nuevo, y la cuota que nace en el alta es la del **mes de la fecha de
+ingreso**, no la del mes de la carga.
+
+- **Ingreso anterior al corte:** el alta no genera cuota sola. La pantalla frena antes de
+  guardar y pregunta si se le genera la cuota de este mes; decide la persona. Si dice que
+  si, va el **mes completo**: ya uso el mes entero, no corresponde el descuento de
+  bienvenida. Es el caso del que venia desde antes y no estaba en el padron, que se corre
+  una sola vez.
+- **Ingreso desde el corte:** se genera la cuota del mes de ingreso con el porcentaje
+  segun el dia.
+- **Ingreso futuro:** se acepta dentro del mes en curso y el siguiente; mas alla, no.
+- Al no crear deuda para el alumno viejo, la importacion del padron deja de rechazar el
+  archivo entero.
+
+Criterios fijados en `CuotaAltaEstadoTest` (5 pruebas escritas el 26/09, **en rojo hasta
+que Codex implemente**). Implementa Codex; verifica otro agente.
+
 Salió de la verificación cruzada de la implementación de A2/B2 (Claude, 23/09).
 
 `PagoCuotaService::crearCuotaAlta` crea la cuota del **mes en curso**, pero calcula el

@@ -155,7 +155,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **331 pruebas**, 1900 aserciones; suite completa el 23/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **335 pruebas**, 1900 aserciones; **5 en rojo a proposito**: las de A43, escritas por Claude antes del arreglo de Codex (26/09); suite completa el 23/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

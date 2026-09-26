@@ -24,6 +24,9 @@ class CuotaAltaEstadoTest extends TestCase
         parent::setUp();
         Carbon::setTestNow('2026-09-05 12:00:00');
         $this->seed(CatalogosSeeder::class);
+        // El corte del sistema separa al alumno viejo (entra por el padrón) del nuevo.
+        // Se fija al 1/9 para que las altas de septiembre de estas pruebas sean nuevas.
+        \App\Models\Configuracion::set('inscripcion_fecha_corte', '2026-09-01');
         $this->usuario = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
         $this->actingAs($this->usuario);
         $this->grupo = Grupo::create(['deporte_id' => Deporte::first()->id, 'nivel_id' => Nivel::first()->id, 'activo' => true]);
@@ -74,7 +77,10 @@ class CuotaAltaEstadoTest extends TestCase
             'tipo_caja_id' => TipoCaja::first()->id, 'fecha_pago' => '2026-09-20',
             'items' => [['periodo' => '2026-09', 'monto' => 21000]],
         ])['pago'];
-        $this->assertEquals(21000, $pago->monto_final);
+        // El alta es posterior al corte, así que además de la cuota cobra la
+        // inscripción de $5.000: lo que esta prueba cuida es que la cuota siga
+        // valiendo lo del alta, no el total del cobro.
+        $this->assertEquals(26000, $pago->monto_final);
         $this->assertEquals(21000, $deuda->fresh()->monto_original);
         $this->assertSame('PAGADA', $deuda->fresh()->estado);
     }
@@ -161,15 +167,87 @@ class CuotaAltaEstadoTest extends TestCase
         $this->assertDatabaseMissing('deuda_cuotas', ['alumno_id' => $viejo->id]);
     }
 
-    public function test_porcentaje_configurable_dia_de_ingreso_y_solo_mes_actual(): void
+    /**
+     * A43 — reemplaza a `test_porcentaje_configurable_dia_de_ingreso_y_solo_mes_actual`,
+     * que fijaba el comportamiento equivocado: el alta tomaba el DÍA de la fecha de
+     * ingreso y lo aplicaba al mes en curso, sin mirar de qué mes era ese ingreso. Un
+     * alumno que entró el 20/01/2020 y se cargaba hoy quedaba debiendo el 65% de
+     * septiembre, por un mes que usó entero.
+     *
+     * Regla de Carlos (26/09/2026): la cuota que nace en el alta es la del **mes de la
+     * fecha de ingreso**, y el corte del sistema (`inscripcion_fecha_corte`, el mismo
+     * parámetro que ya usa la inscripción) separa al alumno viejo del nuevo. El viejo
+     * entra por el padrón, que se corre una sola vez.
+     */
+    public function test_ingreso_anterior_al_corte_no_genera_cuota_sin_que_alguien_lo_decida(): void
     {
         ReglaPrimerPago::where('dia_desde', 16)->update(['porcentaje' => 65]);
         $datos = $this->datos('2020-01-20');
+
+        $this->post(route('web.alumnos.store'), $datos)->assertSessionHas('aviso_alta_anterior_al_corte');
+
+        // No se guarda a medias: ni alumno ni deuda hasta que la persona decide.
+        $this->assertDatabaseCount('alumnos', 0);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
+    }
+
+    public function test_ingreso_anterior_al_corte_se_guarda_sin_cuota_si_asi_se_decide(): void
+    {
+        $datos = $this->datos('2020-01-20') + ['generar_cuota_alta' => '0'];
+
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
+
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
-        $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id, 'periodo' => '2026-09', 'monto_original' => 19500]);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
+        $this->assertDatabaseMissing('deuda_cuotas', ['alumno_id' => $alumno->id]);
+    }
+
+    /**
+     * El que viene desde hace meses y no estaba en el padrón: ya usó el mes entero,
+     * así que la cuota va completa, no con el descuento de bienvenida.
+     */
+    public function test_ingreso_anterior_al_corte_con_cuota_va_el_mes_completo(): void
+    {
+        ReglaPrimerPago::where('dia_desde', 16)->update(['porcentaje' => 65]);
+        $datos = $this->datos('2020-01-20') + ['generar_cuota_alta' => '1'];
+
+        $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
+
+        $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $alumno->id,
+            'periodo' => '2026-09',
+            'monto_original' => 30000,
+        ]);
         $this->assertDatabaseCount('deuda_cuotas', 1);
         $this->assertDatabaseMissing('deuda_cuotas', ['periodo' => '2020-01']);
+    }
+
+    /** El que arranca el mes que viene debe el mes que viene, no el de la carga. */
+    public function test_ingreso_del_mes_proximo_genera_la_cuota_de_ese_mes(): void
+    {
+        $datos = $this->datos('2026-10-05');
+
+        $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
+
+        $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
+        $this->assertDatabaseHas('deuda_cuotas', [
+            'alumno_id' => $alumno->id,
+            'periodo' => '2026-10',
+            'monto_original' => 30000,
+        ]);
+        $this->assertDatabaseCount('deuda_cuotas', 1);
+        $this->assertDatabaseMissing('deuda_cuotas', ['periodo' => '2026-09']);
+    }
+
+    /** Más allá del mes próximo no se carga: se hace cuando se acerque. */
+    public function test_no_se_acepta_un_ingreso_mas_alla_del_mes_proximo(): void
+    {
+        $this->post(route('web.alumnos.store'), $this->datos('2026-11-02'))
+            ->assertSessionHasErrors('fecha_alta');
+
+        $this->assertDatabaseCount('alumnos', 0);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
     }
 
     public function test_parcial_anulacion_y_recobro_conservan_la_cuota_del_alta(): void
