@@ -16,6 +16,14 @@ tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-C
 
 **Lo que necesita tu decision o tu presencia:**
 
+- [ ] **Aprobar la maqueta de la pantalla de Primera carga.** Decision del 26/09: la carga
+  inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que
+  se carga a mano sigue las reglas del sistema. Detalle y lo que queda abierto en
+  [PRIMERA-CARGA-EXCEL.md](../05-pendientes/PRIMERA-CARGA-EXCEL.md). Claude te hace la
+  maqueta antes de programar.
+- [ ] **Decidir si se puede dar de alta a mano con fecha de ingreso de un mes anterior.** Si
+  es no, A43 se resuelve solo. Mientras tanto hay 5 pruebas en rojo a proposito.
+
 - [x] **Avisos de test (23/09):** bot y correo autorizados; chat verificado y recepción
   de Telegram confirmada por Carlos. Cron probado. Correo no entregado por fallo
   del transporte del servidor; pendiente técnico, no volver a pedir token o chat. [Evidencia](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md).

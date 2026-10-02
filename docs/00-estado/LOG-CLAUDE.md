@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md)
 
+## 2026-09-26 — Claude CyE — se cambia el enfoque de la primera carga
+
+Carlos corto la discusion de A43: se estaban gastando horas en una excepcion. **La primera
+carga pasa a ser un Excel unico con los alumnos completos y su deuda**; lo que se carga a
+mano despues sigue las reglas del sistema, sin excepciones, y **se saca la fecha de corte**.
+Los dos importadores actuales se retiran: cargan deuda de alumnos que ya tienen que estar
+cargados a mano. El importador no crea catalogos: un grupo o plan inexistente se rechaza,
+porque sin precio las cuotas salen mal. El Excel va a venir con errores, asi que: plantilla
+generada por el sistema con desplegables, revision que no escribe nada y devuelve todos los
+errores juntos, informe que vuelve como Excel marcado, ensayo en test y manual de primera
+carga. Decidido y escrito en `docs/05-pendientes/PRIMERA-CARGA-EXCEL.md`; **nada se programa
+antes de que Carlos apruebe la maqueta** de la pantalla de cuatro pasos.
+Pendiente que Claude senialo como lo mas importante: **no existe forma de cargar una deuda a
+mano**, solo condonar; con eso las excepciones se resuelven sin reglas nuevas.
+Las 5 pruebas de A43 quedan en rojo y se reescriben con la regla que salga de esto: no son
+criterio vigente. El prompt para Codex de A43 **no se paso**.
+
 ## 2026-09-23 — Claude CAB — verificacion cruzada de A2/B2 y hallazgo A43
 
 **Que se verifico.** La implementacion de Codex (`b3619bf`) de las dos enmiendas al contrato
