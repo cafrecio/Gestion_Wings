@@ -25,7 +25,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - Suite completa: **355 pruebas / 1998 aserciones en verde** (0 fallas).
   - Verificados `CspSinCodigoIncrustadoTest` (20 bloques script, 10 manejadores inline) y `DocumentacionNoMienteTest`.
   - Compilación de vistas Blade limpia (`view:cache` y `view:clear` exitosos).
-- **Entrega y control (§6a):** Commit `38443ad`. Tarea entregada para verificación cruzada por parte de Codex en pantalla y código.
+- **Entrega y control (§6a):** Commit `e32ce0c`. Tarea entregada para verificación cruzada por parte de Codex en pantalla y código.
 
 ## 2026-09-23 — LOG GEM CAB — Auditoría visual a simple vista (PRU-02)
 

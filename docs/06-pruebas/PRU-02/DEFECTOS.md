@@ -438,7 +438,7 @@ Carlos.
 | 2.5 | Filtrar los profesores por el deporte de la clase | A5 |
 | 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
 
-*Estado al 04/10/2026:* Implementado por Gemini (LOG GEM CAB) en commit `38443ad`. Suite ampliada a 355 pruebas / 1998 aserciones en verde. Pendiente de verificación por Codex en pantalla y código (§6a).
+*Estado al 04/10/2026:* Implementado por Gemini (LOG GEM CAB) en commit `e32ce0c`. Suite ampliada a 355 pruebas / 1998 aserciones en verde. Pendiente de verificación por Codex en pantalla y código (§6a).
 
 ### P3 · El dueño deja de ser un operativo
 
