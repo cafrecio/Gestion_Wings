@@ -10,8 +10,10 @@ ilegibles (también A19). Suite propia 343/1955 verde. No existe Entrega2Test en
 este checkout; no se corrigió la Entrega 2 ni se desplegó.
 [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A11: [maqueta con estilos Wings existentes](../05-pendientes/maqueta-configuracion/index.html),
-incluidos errores y generación mensual como dato fijo; pendiente de autorización
-escrita por Carlos antes de implementar. Gemini verificará la implementación.
+incluidos errores y generación mensual como dato fijo; Carlos la aprobó («Ok,
+aprobada»). Falta su línea Diseno-autorizado, pedida explícitamente antes de implementar.
+[Preparación local en rojo](../06-pruebas/PRU-02/A11-PREPARACION-2026-10-04.md).
+Gemini verificará la implementación.
 
 ## P0/P1 — primera carga, 04/10/2026
 

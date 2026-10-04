@@ -9,7 +9,8 @@ Suite propia verde: 343/1955 en wings_testing, sin corridas simultáneas; Entreg
 [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md); base local sin monto_condonado.
 A11: [maqueta estática](../05-pendientes/maqueta-configuracion/README.md), CSS Wings existente,
 grupos, etiquetas, errores y generación mensual fija. Abierta en navegador para Carlos.
-Pendiente su línea Diseno-autorizado; no implementada. Gemini verificará la entrega futura.
+Carlos aprueba maqueta («Ok, aprobada»); falta su línea Diseno-autorizado. No implementada.
+Pruebas A11 preparadas localmente: 7 rojas / 1 verde, 58 aserciones. Sin commit de los tests.
 
 
 ## 2026-10-04 — Codex CAB — Maqueta P1 en navegador, espera aprobación
