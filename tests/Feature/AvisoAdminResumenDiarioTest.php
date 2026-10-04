@@ -363,6 +363,24 @@ class AvisoAdminResumenDiarioTest extends TestCase
         Http::assertNothingSent();
     }
 
+    /**
+     * El correo que recibe el duenio del club no puede estar firmado por Laravel.
+     *
+     * Hasta el 04/10/2026 llegaba con el logo de Laravel, "Regards, Laravel" y el pie
+     * de copyright de Laravel: el sitio de prueba se desplegaba con el APP_NAME de
+     * ejemplo y la notificacion no fijaba su despedida.
+     */
+    public function test_el_correo_no_sale_firmado_por_laravel(): void
+    {
+        $mensaje = (new \App\Notifications\AvisoOperativo('resumen diario de pendientes', ['Cajas sin validar' => '2']))
+            ->toMail(new \App\Models\User());
+
+        $this->assertSame('Wings', $mensaje->greeting);
+        $this->assertSame('Wings', $mensaje->salutation, 'Sin despedida propia, Laravel firma "Regards" con el nombre de la aplicacion.');
+        $this->assertStringContainsString('Wings', $mensaje->subject);
+        $this->assertStringNotContainsStringIgnoringCase('laravel', $mensaje->subject . ' ' . $mensaje->greeting . ' ' . $mensaje->salutation);
+    }
+
     public function test_el_comando_queda_programado_a_las_08_00(): void
     {
         $schedule = app(Schedule::class);

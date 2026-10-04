@@ -104,6 +104,10 @@ fijar() {
 # staging, no production: es un entorno de prueba y los seeders de datos falsos
 # abortan cuando el entorno dice production, que es exactamente lo que protege a
 # wings. APP_DEBUG sigue en false: el entorno no cambia lo que ve el usuario.
+# El nombre de la aplicacion es lo que firma los correos del club. Sin esto el
+# .env.example deja "Laravel" y el aviso diario le llega al duenio con el logo y la
+# firma de una herramienta de programadores.
+fijar APP_NAME Wings
 fijar APP_ENV staging
 fijar APP_DEBUG false
 fijar APP_URL "https://${DOMINIO}"

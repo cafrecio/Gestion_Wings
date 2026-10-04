@@ -77,9 +77,13 @@ class AvisoOperativo extends Notification
 
     public function toMail(object $notifiable): MailMessage
     {
+        // El saludo y la despedida van escritos: sin esto Laravel firma el correo
+        // con "Regards" y el nombre de la aplicacion, y al duenio del club le llega
+        // un aviso a medias en ingles.
         $mensaje = (new MailMessage())
             ->subject('Wings: ' . $this->titulo)
-            ->greeting('Wings');
+            ->greeting('Wings')
+            ->salutation('Wings');
 
         foreach ($this->datos as $etiqueta => $valor) {
             $mensaje->line('**' . $etiqueta . ':** ' . $valor);
