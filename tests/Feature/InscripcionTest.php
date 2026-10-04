@@ -59,11 +59,11 @@ class InscripcionTest extends TestCase
         ]);
     }
 
-    public function test_fechas_limite_y_antiguo_cargado_hoy(): void
+    public function test_alta_manual_genera_inscripcion_sin_corte_incluso_con_ingreso_antiguo(): void
     {
         foreach (['2026-09-22', '2026-09-23', '2026-09-24', '2020-01-01'] as $i => $fecha) {
             $alumno = $this->alta($fecha, '4100011'.$i);
-            $this->assertSame($i === 1 || $i === 2 ? 1 : 0, DB::table('cargos_alumno')->where('alumno_id', $alumno->id)->count());
+            $this->assertSame(1, DB::table('cargos_alumno')->where('alumno_id', $alumno->id)->count());
         }
         $this->assertDatabaseHas('cargos_alumno', ['monto_original' => 5000]);
     }
@@ -148,14 +148,14 @@ class InscripcionTest extends TestCase
         $this->assertEquals(0, CargoAlumno::first()->saldo_pendiente);
     }
 
-    public function test_editar_fecha_cruza_corte_en_ambos_sentidos_con_auditoria(): void
+    public function test_editar_fecha_conserva_inscripcion_e_importe_con_auditoria(): void
     {
         $alumno = $this->alta('2026-09-22');
-        $this->put(route('web.alumnos.update', $alumno), $this->datos() + ['motivo_fecha_alta' => 'Corrección de ingreso real'])->assertSessionHasNoErrors();
         $cargo = CargoAlumno::firstOrFail();
-        $this->put(route('web.alumnos.update', $alumno), $this->datos('2026-09-22') + ['motivo_fecha_alta' => 'Fecha anterior al corte'])->assertSessionHasNoErrors();
-        $this->assertSame('ANULADO', $cargo->fresh()->estado);
-        $this->assertDatabaseHas('cargo_alumno_eventos', ['cargo_alumno_id' => $cargo->id, 'usuario_id' => $this->usuario->id, 'motivo' => 'Fecha anterior al corte']);
+        $this->put(route('web.alumnos.update', $alumno), $this->datos('2020-01-20') + ['motivo_fecha_alta' => 'Corrección de ingreso real'])->assertSessionHasNoErrors();
+        $this->assertSame('VIGENTE', $cargo->fresh()->estado);
+        $this->assertEquals(5000, $cargo->fresh()->monto_original);
+        $this->assertDatabaseHas('cargo_alumno_eventos', ['cargo_alumno_id' => $cargo->id, 'usuario_id' => $this->usuario->id, 'motivo' => 'Corrección de ingreso real']);
         $this->assertDatabaseCount('cargos_alumno', 1);
     }
 
@@ -178,11 +178,35 @@ class InscripcionTest extends TestCase
         $this->assertDatabaseCount('pago_cargo_alumno', 0);
     }
 
-    public function test_corte_no_editable_y_valor_obligatorio(): void
+    public function test_importe_inscripcion_obligatorio_sin_parametro_corte(): void
     {
-        $this->patch('/configuraciones/inscripcion_fecha_corte', ['valor' => '2020-01-01'])->assertSessionHasErrors();
+        $this->assertDatabaseMissing('configuraciones', ['clave' => 'inscripcion_fecha_corte']);
         $this->patch('/configuraciones/inscripcion_importe', ['valor' => ''])->assertSessionHasErrors();
-        $this->assertSame('2026-09-23', Configuracion::get('inscripcion_fecha_corte'));
+        $this->get(route('web.configuraciones.index'))->assertOk()->assertDontSee('inscripcion_fecha_corte');
+        $this->getJson(route('web.alumnos.inscripcion-preview', ['dni' => '41000111', 'fecha_alta' => '2020-01-20']))
+            ->assertOk()->assertJsonPath('importe', 5000)->assertJsonPath('mensaje', 'Corresponde inscripción por única vez: $5.000,00');
+    }
+
+    public function test_retirar_parametro_legacy_no_altera_cargos_ni_importe(): void
+    {
+        $this->alta();
+        $cargo = CargoAlumno::firstOrFail();
+        Configuracion::set('inscripcion_fecha_corte', '2026-09-23');
+        $migration = require database_path('migrations/2026_10_04_000000_remove_inscripcion_fecha_corte.php');
+        $migration->up();
+        $this->assertDatabaseMissing('configuraciones', ['clave' => 'inscripcion_fecha_corte']);
+        $this->assertEquals('5000.00', Configuracion::get('inscripcion_importe'));
+        $this->assertEquals(5000, $cargo->fresh()->monto_original);
+        $this->assertDatabaseCount('cargos_alumno', 1);
+        $this->assertDatabaseCount('deuda_cuotas', 1);
+    }
+
+    public function test_editar_alumno_existente_sin_cargo_no_crea_inscripcion(): void
+    {
+        $alumno = Alumno::create(collect($this->datos('2020-01-20'))->except('plan_id')->all());
+        $this->put(route('web.alumnos.update', $alumno), $this->datos('2021-02-05') + ['motivo_fecha_alta' => 'Corrección de ingreso'])->assertSessionHasNoErrors();
+        $this->assertDatabaseCount('cargos_alumno', 0);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
     }
 
     public function test_recibo_pdf_contiene_cuota_e_inscripcion_y_conserva_detalle_anulado(): void
@@ -217,7 +241,7 @@ class InscripcionTest extends TestCase
 
     public function test_pagos_historicos_conservan_su_importe_de_cuota(): void
     {
-        $alumno = $this->alta('2020-01-01');
+        $alumno = Alumno::create(collect($this->datos('2020-01-01'))->except('plan_id')->all());
         $pago = Pago::create(['alumno_id' => $alumno->id, 'mes' => 9, 'anio' => 2026, 'fecha_pago' => '2026-09-24',
             'monto_base' => 30000, 'monto_final' => 30000, 'porcentaje_aplicado' => 100, 'estado' => 'COMPLETADO']);
         $this->assertEquals(30000, $pago->fresh()->monto_cuota);

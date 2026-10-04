@@ -21,19 +21,18 @@ class AlumnoWebController extends Controller
     {
         $data = $request->validate(['dni' => 'required|string|max:20', 'fecha_alta' => 'required|date']);
         $service = app(\App\Services\InscripcionService::class);
-        [$corte, $importe] = $service->parametros();
+        $importe = $service->importe();
         $cargo = $service->cargo($data['dni']);
-        $corresponde = Carbon::parse($data['fecha_alta'])->format('Y-m-d') >= $corte;
         $mensaje = $cargo
             ? 'Esta persona ya tiene una inscripción registrada. Saldo: $'.number_format($cargo->saldo_pendiente, 2, ',', '.')
-            : ($corresponde ? 'Corresponde inscripción por única vez: $'.number_format($importe, 2, ',', '.') : 'No corresponde inscripción: ingreso anterior al 23/09/2026.');
+            : 'Corresponde inscripción por única vez: $'.number_format($importe, 2, ',', '.');
         if ($request->filled('alumno_id')) {
             $editado = Alumno::findOrFail($request->integer('alumno_id'));
             if ($editado->fecha_alta->format('Y-m-d') !== Carbon::parse($data['fecha_alta'])->format('Y-m-d') && $cargo) {
                 $mensaje = $cargo->monto_cobrado > 0 ? 'No se puede modificar el ingreso: la inscripción tiene pagos registrados.'
-                    : ($corresponde ? 'Se conservará una única inscripción de $'.number_format($cargo->monto_original, 2, ',', '.')
-                        : 'Se anulará la inscripción sin borrar su historial. Debe indicar el motivo.');
+                    : 'Se conservará una única inscripción de $'.number_format($cargo->monto_original, 2, ',', '.');
             }
+            if (!$cargo) $mensaje = 'Editar el ingreso no genera inscripción retroactiva.';
         }
         return response()->json([
             'importe' => $importe,
@@ -225,7 +224,7 @@ class AlumnoWebController extends Controller
             AlumnoPlan::create([
                 'alumno_id'   => $alumno->id,
                 'plan_id'     => $validated['plan_id'],
-                'fecha_desde' => today(),
+                'fecha_desde' => $alumno->fecha_alta,
                 'activo'      => true,
             ]);
             app(\App\Services\InscripcionService::class)->sincronizar($alumno, $request->user()->id);

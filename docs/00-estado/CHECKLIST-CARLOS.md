@@ -9,20 +9,19 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite local actual: 335 pruebas / 1900 aserciones (26/09). **5 en rojo a proposito:**
-son las de A43, escritas antes del arreglo que esta haciendo Codex. La lista
-tecnica completa, con dueño, esta arriba de los tres logs (`LOG-CLAUDE`, `LOG-CODEX`,
-`LOG-GEMINI`), entrada "PENDIENTES comunes".
+Suite local de P0: **338 pruebas / 1932 aserciones**, todas verdes el 04/10 en wings_testing.
+Las cinco pruebas antiguas de A43 fueron reemplazadas por la regla sin corte.
+Implementación pendiente de verificación independiente por Gemini.
 
 **Lo que necesita tu decision o tu presencia:**
 
 - [ ] **Aprobar la maqueta de la pantalla de Primera carga.** Decision del 26/09: la carga
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que
   se carga a mano sigue las reglas del sistema. Detalle y lo que queda abierto en
-  [PRIMERA-CARGA-EXCEL.md](../05-pendientes/PRIMERA-CARGA-EXCEL.md). Claude te hace la
-  maqueta antes de programar.
-- [ ] **Decidir si se puede dar de alta a mano con fecha de ingreso de un mes anterior.** Si
-  es no, A43 se resuelve solo. Mientras tanto hay 5 pruebas en rojo a proposito.
+  [PRIMERA-CARGA-EXCEL.md](../05-pendientes/PRIMERA-CARGA-EXCEL.md). Codex prepara la
+  maqueta fuera del sistema antes de programar.
+- [x] **Regla del alta manual decidida:** cuota del mes de ingreso con el porcentaje del
+  día, sin corte ni pregunta (26/09, ratificada 04/10). P0 implementado; Gemini verifica.
 
 - [x] **Avisos de test (23/09):** bot y correo autorizados; chat verificado y recepción
   de Telegram confirmada por Carlos. Cron probado. Correo no entregado por fallo
@@ -75,10 +74,10 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 335 pruebas deben pasar
+php artisan test          # 338 pruebas deben pasar
 ```
 
-Corte verificado del 23/09: **335 pruebas / 1900 aserciones**, todas verdes; base descartable exclusiva.
+Corte verificado del 04/10: **338 pruebas / 1932 aserciones**, todas verdes; base descartable exclusiva.
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista

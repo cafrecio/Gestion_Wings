@@ -224,48 +224,24 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
-### A43. El alumno antiguo cargado a mano recibe el descuento de bienvenida · Frena · verificado
+### A43. La cuota del alta usaba el mes de carga · Frena · implementación P0 entregada, pendiente de Gemini
 
-**Atención: la regla escrita abajo quedó sin efecto.** Más tarde ese mismo 26/09 Carlos
-decidió [la primera carga por Excel](../../05-pendientes/PRIMERA-CARGA-EXCEL.md), que
-**saca la fecha de corte** y deja una sola regla: la cuota del alta es la del mes de la
-fecha de ingreso, con el porcentaje del día. Resolverlo es el paso **P0** del plan.
+**Regla única vigente (Carlos, 26/09; ratificada 04/10):** la cuota del alta es la
+del **mes de la fecha real de ingreso**, con el porcentaje configurado para ese día.
+Sin fecha de corte, sin excepciones por antigüedad y sin pantalla que pregunte.
+Ejemplo: ingreso 20/01/2020 cargado en octubre de 2026 crea enero de 2020 al porcentaje
+del día 20; no crea octubre ni todos los meses intermedios.
 
-**Regla anterior, del 26/09/2026, ya sin efecto.** El corte del sistema
-(`inscripcion_fecha_corte`, el mismo parametro que ya usa la inscripcion) separa al
-alumno viejo del nuevo, y la cuota que nace en el alta es la del **mes de la fecha de
-ingreso**, no la del mes de la carga.
+P0 cambia `PagoCuotaService::crearCuotaAlta` y la vigencia del plan inicial, conserva
+importe y porcentaje congelados y la transacción del alta. Retira el corte de
+inscripción; el alta manual sigue generando una inscripción por DNI al importe vigente.
+Los registros existentes, cargos, pagos y deudas no se recalculan.
 
-- **Ingreso anterior al corte:** el alta no genera cuota sola. La pantalla frena antes de
-  guardar y pregunta si se le genera la cuota de este mes; decide la persona. Si dice que
-  si, va el **mes completo**: ya uso el mes entero, no corresponde el descuento de
-  bienvenida. Es el caso del que venia desde antes y no estaba en el padron, que se corre
-  una sola vez.
-- **Ingreso desde el corte:** se genera la cuota del mes de ingreso con el porcentaje
-  segun el dia.
-- **Ingreso futuro:** se acepta dentro del mes en curso y el siguiente; mas alla, no.
-- Al no crear deuda para el alumno viejo, la importacion del padron deja de rechazar el
-  archivo entero.
-
-Criterios fijados en `CuotaAltaEstadoTest` (5 pruebas escritas el 26/09, **en rojo hasta
-que Codex implemente**). Implementa Codex; verifica otro agente.
-
-Salió de la verificación cruzada de la implementación de A2/B2 (Claude, 23/09).
-
-`PagoCuotaService::crearCuotaAlta` crea la cuota del **mes en curso**, pero calcula el
-porcentaje con **el día de la fecha de ingreso**, que puede ser de hace años. Un alumno que
-entró al club el 20 de enero de 2020 y se carga hoy queda debiendo **el 65% de septiembre**,
-por un mes que usó entero. El descuento de bienvenida existe para quien arranca a mitad de
-mes, no para quien se carga tarde al sistema.
-
-Está fijado en una prueba —`CuotaAltaEstadoTest::test_porcentaje_configurable_dia_de_ingreso_y_solo_mes_actual`—
-así que hay que decidir la regla antes de tocarlo: **el porcentaje debería salir del día de
-ingreso solo cuando el ingreso es de este mes; si es anterior, la cuota va completa.**
-
-**Y arrastra un segundo problema:** desde ahora, cargar a mano un alumno antiguo le crea
-deuda del mes en curso. Si después se importa el padrón con el saldo inicial de ese mismo
-mes, la importación **rechaza el archivo entero** —"ya existe una deuda para ese alumno y
-período"—. Los dos caminos de carga inicial chocan.
+Las cinco pruebas del 26/09 basadas en el corte fueron reemplazadas por casos de esta
+regla. Se comprueban mes antiguo/futuro, porcentaje configurable y cobro sin segundo
+descuento. [Evidencia P0](P0-CARGA-INICIAL-2026-10-04.md).
+**No cerrado:** Gemini debe verificar pantalla y código. Los dos importadores antiguos
+siguen disponibles hasta que el nuevo importador de Excel funcione.
 
 ### A44. El aviso diario llega firmado por Laravel · Molesta · verificado
 
@@ -428,8 +404,10 @@ Manda la decisión más nueva. Entonces:
 - Se retiran los dos importadores viejos (`wings:importar-padron`, `wings:importar-deuda-inicial`)
   **cuando el nuevo esté andando**, no antes.
 
-Es media hora de documentación y una decisión ya tomada. Sin esto, cualquier cosa que se
-toque de altas y cuotas se hace sobre una regla muerta.
+**04/10: P0 implementado localmente; pendiente de verificación por Gemini.**
+Evidencia y pruebas en [P0-CARGA-INICIAL-2026-10-04.md](P0-CARGA-INICIAL-2026-10-04.md).
+La migración nueva elimina solo el parámetro de instalaciones existentes; no modifica
+cargos ni pagos. Los importadores antiguos se conservan.
 
 ### P1 · La primera carga por Excel — **bloquea la prueba grande**
 

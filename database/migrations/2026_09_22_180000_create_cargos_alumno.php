@@ -47,7 +47,7 @@ return new class extends Migration {
         });
         // NULL identifica pagos históricos: su monto_final sigue siendo íntegramente cuota.
         Schema::table('pagos', fn (Blueprint $t) => $t->decimal('monto_cuota', 10, 2)->nullable());
-        foreach ([['inscripcion_importe', '5000.00', 'Importe de inscripción por única vez', 'string'], ['inscripcion_fecha_corte', '2026-09-23', 'Fecha fija de inicio de inscripción', 'string']] as [$clave, $valor, $descripcion, $tipo]) {
+        foreach ([['inscripcion_importe', '5000.00', 'Importe de inscripción por única vez', 'string']] as [$clave, $valor, $descripcion, $tipo]) {
             DB::table('configuraciones')->insertOrIgnore(compact('clave', 'valor', 'descripcion', 'tipo'));
         }
         $rubro = DB::table('rubros')->where('nombre', 'Inscripciones')->first();

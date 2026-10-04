@@ -1,7 +1,19 @@
 # Primera carga por Excel — decisiones de Carlos del 26/09/2026
 
-> **Decidido, no implementado.** Reemplaza el enfoque anterior de carga inicial.
+> **P0 implementado localmente el 04/10, pendiente de Gemini. P1 pendiente de aprobación de maqueta.**
+> Reemplaza el enfoque anterior de carga inicial; el importador nuevo no está implementado.
 > Nada de esto se programa antes de que Carlos apruebe la maqueta de la pantalla.
+
+## Decisiones de Carlos del 04/10/2026
+
+- **Inscripción:** los alumnos que entran por el Excel **no pagan inscripción**, salvo que el
+  propio archivo lo aclare. El Excel lleva una columna para marcar quién la debe, fila por
+  fila. Los $5.000 siguen corriendo normalmente para todo el que se carga a mano después.
+- **La maqueta se mira en el navegador**, no en un documento: una página de prueba que no
+  toca el sistema, con los pasos, los mensajes de error y cómo vuelve el Excel corregido.
+  Hasta que Carlos la apruebe, no se programa.
+- **La base del sitio de prueba se rehace con este Excel** cuando esté listo. No hace falta
+  conservar lo que hay cargado hoy.
 
 ## Por qué se cambió el enfoque
 
@@ -15,7 +27,8 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
 1. **La primera carga es un Excel único** con los alumnos completos **y su deuda**. Un solo
    script lo importa. Hoy los dos importadores que existen —`wings:importar-padron` y
    `wings:importar-deuda-inicial`— cargan deuda de alumnos que ya tienen que estar cargados
-   a mano: **los dos se retiran**, para no dejar tres caminos de carga inicial.
+   a mano: **los dos se retiran cuando el nuevo funcione**, para no dejar tres caminos
+   de carga inicial. Mientras tanto se conservan.
 2. **Lo que se carga a mano después sigue las reglas del sistema**, sin excepciones: cuota
    del mes de la fecha de ingreso con el descuento según el día, más inscripción.
 3. **Se saca la fecha de corte** (`inscripcion_fecha_corte`): el parámetro, su pantalla y la
@@ -40,17 +53,6 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
   con puntos, el período `092026` que Excel convierte en `92026`, el monto `52.000` que se
   leía como $52, los espacios de más al final).
 
-## Decisiones de Carlos del 04/10/2026
-
-- **Inscripción:** los alumnos que entran por el Excel **no pagan inscripción**, salvo que el
-  propio archivo lo aclare. El Excel lleva una columna para marcar quién la debe, fila por
-  fila. Los $5.000 siguen corriendo normalmente para todo el que se carga a mano después.
-- **La maqueta se mira en el navegador**, no en un documento: una página de prueba que no
-  toca el sistema, con los pasos, los mensajes de error y cómo vuelve el Excel corregido.
-  Hasta que Carlos la apruebe, no se programa.
-- **La base del sitio de prueba se rehace con este Excel** cuando esté listo. No hace falta
-  conservar lo que hay cargado hoy.
-
 ## La pantalla (propuesta, pendiente de maqueta)
 
 - **Dónde:** entrada "Primera carga" en la sección Sistema del menú del ADMIN. Aparece solo
@@ -73,11 +75,10 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
   agregar. Con eso, cualquier excepción —el que quedó afuera del Excel, el que arrancó el
   mes pasado, el que pagó por fuera— se resuelve sin inventar reglas nuevas. Para Claude es
   lo más importante de esta lista.
-- **¿Se permite dar de alta a mano con fecha de ingreso de un mes anterior?** Si la
-  respuesta es no, A43 desaparece solo y no hace falta ninguna pregunta en pantalla.
-- **¿Sigue el alta generando la cuota?** Es lo que implementó Codex en `b3619bf` (A2).
-- **Las 5 pruebas de A43 en `CuotaAltaEstadoTest` quedan en rojo** y hay que reescribirlas
-  con la regla que salga de esto. No tomarlas como criterio vigente.
+- **Regla resuelta en P0:** el alta manual acepta fecha real de ingreso válida, crea la
+  cuota de ese mes con el porcentaje del día y una inscripción única por DNI. Sin corte
+  ni pregunta. No genera los meses intermedios ni modifica alumnos existentes. Las cinco
+  pruebas antiguas de A43 fueron reemplazadas por esta regla.
 - **El Excel real:** si Vanina ya tiene una planilla, el formato se copia de la de ella.
 - **La base de test** tiene 60 alumnos cargados a mano: hay que vaciarla para ensayar la
   carga desde cero, que es lo que va a pasar en el club.

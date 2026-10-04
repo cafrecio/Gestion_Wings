@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## P0/P1 — primera carga, 04/10/2026
+
+P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;
+inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
+parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
+importadores anteriores se conservan. A43 pendiente de verificación por Gemini.
+P1: maqueta estática previa a programación; Carlos debe aprobarla en navegador.
+[Regla vigente](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
+
 ## A2/B2 — implementados localmente, 23/09/2026
 
 Cuota del mes creada en el alta, atómica con alumno/plan/inscripción, con importe y
@@ -23,9 +32,9 @@ compartido o disponer de SMTP externo. No se tocó producción.
 ## ENT-01 — implementada, 22/09/2026
 
 [Diseño aprobado](../05-pendientes/ENT-01-PROPUESTA-CARGOS-ADICIONALES.md): inscripción
-por DNI, corte fijo 23/09/2026 y cargo separado de cuotas. Pago parcial cubre primero
+por DNI y cargo separado de cuotas; corte retirado en P0 del 04/10. Pago parcial cubre primero
 inscripción; caja y recibo desglosan conceptos. Comisión y estado mensual excluyen
-inscripción. Corregir ingreso sin pagos recalcula con auditoría; con pagos se rechaza.
+inscripción. Corregir ingreso sin pagos conserva el cargo con auditoría; con pagos se rechaza.
 Autorización visual y reemplazo de §5 de Punitorios confirmados por Carlos el 22/09.
 FIN-14 conserva motor y configuración pendientes. Sin deploy; actualización por Claude.
 [Evidencia y límites](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md).
@@ -155,7 +164,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **335 pruebas**, 1900 aserciones; **5 en rojo a proposito**: las de A43, escritas por Claude antes del arreglo de Codex (26/09); suite completa el 23/09 en wings_testing. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **338 pruebas**, 1932 aserciones; suite completa verde el 04/10 en wings_testing. P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -164,7 +173,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | **Dos importadores, a proposito.** `wings:importar-padron` (10/09) es el del arranque: lleva todo el padron con DEBE por alumno y cierra el mes de corte. `wings:importar-deuda-inicial` sigue para cargar deuda suelta sobre una base en marcha; no sirve para el arranque porque el alumno ausente se asume sin deuda |
+| Carga inicial | P1 pendiente: un Excel con alumnos y deuda, sin inscripción salvo indicación por fila. Catálogos previos, revisión sin escritura, informe Excel y carga atómica. Maqueta requiere aprobación de Carlos. `wings:importar-padron` y `wings:importar-deuda-inicial` se conservan hasta que el nuevo funcione |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |

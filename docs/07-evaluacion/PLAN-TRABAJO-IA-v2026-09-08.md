@@ -159,9 +159,9 @@ componentes `ds-*` y `x-ds.*`) y necesita su autorizacion de diseno.
 **Defectos relevados, 23/09:** el recorrido visual de Claude, Gemini y Codex con los tres
 roles dejo **58 defectos** —42 que se ven y 16 internos— con capturas y verificacion
 cruzada. Estan en [DEFECTOS.md](../06-pruebas/PRU-02/DEFECTOS.md), con su
-[tablero](../06-pruebas/PRU-02/DEFECTOS.html) y el **plan de accion en seis bloques**: el
-mostrador primero, despues el dueno, despues lo que no se entiende, el celular, los datos de
-prueba y lo que falta. La prueba no se cierra hasta que el bloque 1 este hecho.
+[tablero](../06-pruebas/PRU-02/DEFECTOS.html) y el **plan vigente del 04/10**: P0 regla del alta sin corte, P1 primera carga por Excel,
+P2 mostrador. P0 implementado localmente con suite 338/1932; pendiente Gemini. P1 requiere
+aprobación de maqueta en navegador antes de programar. No se cierra PRU-02 con esta entrega.
 
 ### PRU-03 · Estados de cobranza
 
@@ -182,7 +182,7 @@ recorrido humano firmado y verificacion actual del servidor.
 
 | ID | Pedido | Dependencia |
 |---|---|---|
-| **ENT-01** | Inscripción configurable — IMPLEMENTADA, sin deploy | Aprobada 22/09: una por DNI, corte fijo 23/09/2026 por ingreso real; $5.000 obligatorio, inscripción primero, sin comisión. Corrección sin pagos auditada; con pagos rechazada. [Regla](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md) y [evidencia](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md). Última incorporación a PRU-02; Claude revisa y actualiza servidor |
+| **ENT-01** | Inscripción configurable — IMPLEMENTADA, sin deploy | Aprobada 22/09: una por DNI; P0 del 04/10 retira corte, cuota del mes real de ingreso; $5.000 obligatorio, inscripción primero, sin comisión. Corrección sin pagos auditada; con pagos rechazada. [Regla](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md) y [evidencia](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md). Última incorporación a PRU-02; Claude revisa y actualiza servidor |
 | **ENT-02** | Rediseño completo del recibo — HECHO 16/09 | Cuota: normal, multi-mes y anulado verificados en pantalla el 13/09. Liquidación: plantilla aprobada el 11/09 aplicada en `f86c730` (16/09), dos hojas A5 con anexo de clases o alumnos; motivo de anulación ya no sale duplicado. Verificado por Gemini; ajuste de duración y decimales en FIN-13 (`29f2858`) |
 | **ENT-03** | Favicon | CERRADO 12/09/2026: Patín alado aprobado por Carlos; implementado en public/ y ds-app.blade.php |
 | **ENT-04** | Ojo de contraseña en alta/edicion de usuarios | CERRADO 12/09/2026: Botones de ojo independientes en contraseña y confirmar contraseña (_form.blade.php); manejador en ds-app.js sin alterar CSP (26 scripts); diseño autorizado el 07/09 |
@@ -191,12 +191,12 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
 | **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
 | **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |
-| **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga y corte de inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
+| **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga, Excel sin inscripción por defecto y alta manual con inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
 | **ENT-11** | Excepciones justificadas (contrato de cobranza §8, §9 y §9b) | Separada de ENT-06 el 22/09. El contrato pide motivo obligatorio y aviso al ADMIN en cobro parcial, cobro que deja impago un mes anterior, deudor o alumno nuevo desde la 3ª clase y exceso de plan. No existe en el código: ninguno pide motivo. Unificar los motivos dispersos en un registro único (§11). Después de PRU-02 |
 
 ### ENT-10 — Manuales de primera carga — PENDIENTE
 
-Guías prácticas para usuarios y preparación. **MUY IMPORTANTE:** explicar fecha real de ingreso, corte fijo e inscripción; nunca confundir ingreso con día de carga. [Alcance y aceptación](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Depende de ENT-01 y pantallas verificadas.
+Guías prácticas para usuarios y preparación. **MUY IMPORTANTE:** explicar fecha real de ingreso, cuota de ese mes y la diferencia entre inscripción manual y Excel; nunca confundir ingreso con día de carga. [Alcance y aceptación](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Depende de ENT-01 y pantallas verificadas.
 
 ## 8. Bloque 6 — posterior, no bloquea la entrega inicial
 

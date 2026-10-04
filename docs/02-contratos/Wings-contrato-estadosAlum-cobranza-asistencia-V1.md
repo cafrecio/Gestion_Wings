@@ -44,8 +44,8 @@ El universo son los **alumnos activos**. Dentro de ese universo, se genera deuda
 
 ### La primera cuota nace en el alta — enmienda del 23/09/2026
 
-Decisión de Carlos. **Al dar de alta un alumno se le crea la deuda de la cuota del mes en
-curso**, en la misma operación que lo crea, además de la inscripción cuando corresponde.
+Decisión de Carlos. **Al dar de alta un alumno se le crea la deuda de la cuota del mes de su
+fecha real de ingreso** (enmienda 26/09, ratificada 04/10; sin corte ni pregunta), en la misma operación que lo crea, además de la inscripción cuando corresponde.
 
 - El importe es el del plan elegido, con el **porcentaje del primer cobro según el día de
   ingreso**, y queda **congelado en el alta**: el cobro posterior no lo vuelve a calcular.
@@ -58,7 +58,8 @@ Con esto, el alumno nuevo entra al circuito normal de cobranza desde el primer d
 eso la enmienda de §3 puede sacar la regla de "nunca pagó".
 
 **Implementación local del 23/09, pendiente de verificación independiente:** el alta web
-crea alumno, plan, inscripción y cuota del mes corriente en una transacción. La deuda
+crea alumno, plan, inscripción y cuota en una transacción. P0 del 04/10 corrige el período
+a mes real de ingreso y la vigencia del plan a esa fecha; pendiente de Gemini. La deuda
 conserva el importe y `porcentaje_alta`; el cobro y su vista previa no vuelven a calcular
 esa primera cuota. No se generan deudas retroactivas para registros existentes.
 Las deudas anteriores, sin esa marca, conservan el tratamiento previo de §4, y el

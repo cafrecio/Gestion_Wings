@@ -25,17 +25,20 @@ congelado, cálculo congelado, condonación y estado VIGENTE/ANULADO.
 
 ## Fecha y configuración
 
-Configurar `inscripcion_importe` (requerido, inicial 5000.00) y
-`inscripcion_fecha_corte` (2026-09-23, ineditable en uso normal). Crear esas claves
-por migración, no depender del seeder sobre instalaciones existentes. No backfill.
+Configurar únicamente `inscripcion_importe` (requerido, inicial 5000.00).
+**Enmienda 26/09, implementada en P0 el 04/10, pendiente de Gemini:** se retira
+`inscripcion_fecha_corte`. El alta manual crea inscripción única por DNI sin comparar
+fechas; el cargo congela importe y fecha de ingreso. Sin backfill de registros existentes.
 Validar importe por su clave; no usar la validación de días 1..31 para dinero.
 
-Servidor compara el ingreso real al guardar. Guarda importe/corte/fecha de ingreso
-en el cargo. Si el importe anunciado cambió antes de guardar, rechaza para revisar.
-Corregir ingreso requiere motivo: sin pagos permite crear, anular o reactivar según
-corte, auditando; con pagos vigentes rechaza. Mantener monto original al reactivar.
-Corrección de DNI con cargo y fecha desconocida: procedimiento fuera del alcance,
-no mover cargos ni inventar fechas. Condonación manual de inscripción no implementada.
+Si el importe anunciado cambió antes de guardar, rechaza para revisar.
+Corregir ingreso requiere motivo: sin pagos conserva cargo, importe y estado con auditoría;
+sin cargo no crea uno retroactivo. Con pagos vigentes rechaza. No anular ni reactivar por
+fecha. Corrección de DNI con cargo: procedimiento fuera del alcance, no mover cargos.
+Condonación manual de inscripción no implementada.
+
+P1 Excel, pendiente de aprobación e implementación: no genera inscripción salvo que la
+columna del archivo lo indique. [Regla de primera carga](PRIMERA-CARGA-EXCEL.md).
 
 ## Pago y estados
 

@@ -363,7 +363,7 @@ class PagoCuotaService
     public function crearCuotaAlta(Alumno $alumno, int $planId): DeudaCuota
     {
         $plan = \App\Models\GrupoPlan::findOrFail($planId);
-        $periodo = now()->format('Y-m');
+        $periodo = $alumno->fecha_alta->format('Y-m');
         [$porcentaje] = $this->reglaDelDia($alumno->fecha_alta->day, $periodo);
 
         return DeudaCuota::create([
