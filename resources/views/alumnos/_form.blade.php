@@ -1,16 +1,3 @@
-@if($errors->any())
-<div class="filtros-card mb-4" style="border-left: 4px solid var(--color-danger); background: color-mix(in srgb, var(--color-danger) 8%, var(--color-surface));">
-    <p style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-danger); margin-bottom:4px;">
-        No se pudo guardar el alumno
-    </p>
-    <ul style="margin:0; padding-left:1.2rem; font-size:0.82rem; color:var(--color-danger);">
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
 {{-- Macro para no repetir el SVG wrapper --}}
 @php
 $iconAttr = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"';
@@ -342,23 +329,5 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             }
         });
     }
-
-    // Detección de cambios sin guardar (A4, A14)
-    var isDirty = false;
-    var isSubmitting = false;
-
-    var form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function () { isSubmitting = true; });
-        form.addEventListener('input', function () { isDirty = true; });
-        form.addEventListener('change', function () { isDirty = true; });
-    }
-
-    window.addEventListener('beforeunload', function (e) {
-        if (isDirty && !isSubmitting) {
-            e.preventDefault();
-            e.returnValue = '';
-        }
-    });
 })();
 </script>

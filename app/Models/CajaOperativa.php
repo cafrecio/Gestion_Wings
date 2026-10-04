@@ -26,9 +26,6 @@ class CajaOperativa extends Model
         'usuario_admin_validacion_id',
         'validada_at',
         'motivo_rechazo',
-        'saldo_inicial',
-        'saldo_cierre_efectivo',
-        'diferencia_cierre',
     ];
 
     protected $casts = [
@@ -36,9 +33,6 @@ class CajaOperativa extends Model
         'cierre_at' => 'datetime',
         'validada_at' => 'datetime',
         'cerrada_por_admin' => 'boolean',
-        'saldo_inicial' => 'float',
-        'saldo_cierre_efectivo' => 'float',
-        'diferencia_cierre' => 'float',
     ];
 
     /**

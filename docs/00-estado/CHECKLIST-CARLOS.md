@@ -75,7 +75,7 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 355 pruebas deben pasar
+php artisan test          # 338 pruebas deben pasar
 ```
 
 Corte verificado del 04/10: **338 pruebas / 1932 aserciones**, todas verdes; base descartable exclusiva.

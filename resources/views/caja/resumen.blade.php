@@ -19,7 +19,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 
 {{-- ── Info de la caja ─────────────────────────────────────────────────── --}}
 <div class="filtros-card mb-4">
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:1rem;">
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;">
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Operativo</p>
             <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $caja->usuarioOperativo->name ?? '–' }}</p>
@@ -36,22 +36,6 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Estado</p>
             <p style="font-size:0.85rem; font-weight:700; color:{{ $estadoColor }};">{{ $caja->estado }}</p>
         </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Saldo inicial</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">${{ number_format($caja->saldo_inicial, 0, ',', '.') }}</p>
-        </div>
-        @if($caja->saldo_cierre_efectivo !== null)
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Efectivo contado</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">${{ number_format($caja->saldo_cierre_efectivo, 0, ',', '.') }}</p>
-        </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Diferencia</p>
-            <p style="font-size:0.85rem; font-weight:700; color:{{ $caja->diferencia_cierre == 0 ? 'var(--color-success)' : ($caja->diferencia_cierre < 0 ? 'var(--color-danger)' : 'var(--color-warning)') }};">
-                {{ $caja->diferencia_cierre > 0 ? '+' : '' }}${{ number_format($caja->diferencia_cierre, 0, ',', '.') }}
-            </p>
-        </div>
-        @endif
     </div>
     @if($caja->motivo_rechazo)
     <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--color-border);">
@@ -74,12 +58,8 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             <a href="{{ route('web.caja.editar', $caja->id) }}"
                class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Nuevo</a>
             <form method="POST" action="{{ route('web.caja.cerrar', $caja->id) }}"
-                  onsubmit="return confirm('¿Cerrar la caja?')" style="display:inline-flex; align-items:center; gap:6px;">
+                  onsubmit="return confirm('¿Cerrar la caja?')">
                 @csrf
-                <input type="number" step="0.01" min="0" name="saldo_cierre_efectivo"
-                       placeholder="Efectivo contado" value="{{ $efectivoEsperado }}"
-                       title="Efectivo contado en cajón"
-                       class="filtros-control" style="width:110px; height:32px; font-size:0.8rem; padding:2px 8px; text-align:right;">
                 <button type="submit"
                         class="ds-btn" style="background:var(--color-danger); color:#fff;">Cerrar</button>
             </form>
@@ -190,11 +170,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 
 {{-- ── Totales generales ────────────────────────────────────────────────── --}}
 <div class="filtros-card">
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap:1rem;">
-        <div style="text-align:center;">
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Saldo inicial</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-text);">${{ number_format($caja->saldo_inicial, 0, ',', '.') }}</p>
-        </div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem;">
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Ingresos</p>
             <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);">${{ number_format($ingresos, 0, ',', '.') }}</p>
@@ -208,10 +184,6 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             <p style="font-size:1.1rem; font-weight:700; color:{{ $neto >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
                 {{ $neto < 0 ? '–' : '' }}${{ number_format(abs($neto), 0, ',', '.') }}
             </p>
-        </div>
-        <div style="text-align:center;">
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Efectivo en cajón</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);">${{ number_format($efectivoEsperado, 0, ',', '.') }}</p>
         </div>
     </div>
 </div>
@@ -239,8 +211,6 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
     </div>
 </div>
 @endif
-
-
 
 @endsection
 

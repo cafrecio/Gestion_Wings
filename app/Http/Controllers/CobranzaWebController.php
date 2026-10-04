@@ -41,24 +41,9 @@ class CobranzaWebController extends Controller
             ->select('grupos.*')
             ->get();
 
-        $totalAdeudado = $resumen['total_adeudado'] ?? 0;
-
-        foreach ($alumnos as $alumno) {
-            $deudaCuotas = $alumno->deudaCuotas
-                ->filter(fn($d) => (float)$d->monto_pagado < (float)$d->monto_original && !in_array($d->estado, ['PAGADA', 'CONDONADA']))
-                ->sum(fn($d) => max(0, (float)$d->monto_original - (float)$d->monto_pagado));
-            $alumno->setAttribute('deuda_cuotas_pendiente', $deudaCuotas);
-        }
-
-        $dnisCount = \App\Models\Alumno::where('activo', true)
-            ->get()
-            ->groupBy(fn($a) => \App\Services\InscripcionService::dni($a->dni))
-            ->map->count();
-
         return view('cobranza.index', compact(
             'alumnos', 'resumen', 'deportes', 'grupos',
-            'estadoFiltro', 'deporteId', 'grupoId', 'inscripciones',
-            'totalAdeudado', 'dnisCount'
+            'estadoFiltro', 'deporteId', 'grupoId', 'inscripciones'
         ));
     }
 }

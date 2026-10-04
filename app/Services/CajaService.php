@@ -67,12 +67,12 @@ class CajaService
      * @return CajaOperativa
      * @throws \Exception
      */
-    public function abrirCajaSiNoExiste(int $usuarioOperativoId, float $saldoInicial = 0): CajaOperativa
+    public function abrirCajaSiNoExiste(int $usuarioOperativoId): CajaOperativa
     {
         // Serializar aperturas concurrentes (doble submit): el lock sobre la
         // fila del usuario obliga a la segunda request a esperar y encontrar
         // la caja que creó la primera, en lugar de abrir una duplicada.
-        return DB::transaction(function () use ($usuarioOperativoId, $saldoInicial) {
+        return DB::transaction(function () use ($usuarioOperativoId) {
             User::whereKey($usuarioOperativoId)->lockForUpdate()->first();
 
             // Lectura actual: una validación simultánea puede haber cerrado la caja.
@@ -91,7 +91,6 @@ class CajaService
                 'usuario_operativo_id' => $usuarioOperativoId,
                 'apertura_at' => Carbon::now(),
                 'estado' => 'ABIERTA',
-                'saldo_inicial' => $saldoInicial,
             ]);
         });
     }
@@ -163,7 +162,7 @@ class CajaService
      * @return CajaOperativa
      * @throws \Exception
      */
-    public function cerrarCajaOperativa(int $cajaId, int $usuarioId, bool $esAdmin = false, ?float $saldoCierreEfectivo = null): CajaOperativa
+    public function cerrarCajaOperativa(int $cajaId, int $usuarioId, bool $esAdmin = false): CajaOperativa
     {
         $caja = CajaOperativa::findOrFail($cajaId);
 
@@ -177,18 +176,6 @@ class CajaService
 
         $caja->estado = 'CERRADA';
         $caja->cierre_at = Carbon::now();
-
-        if ($saldoCierreEfectivo !== null) {
-            $caja->saldo_cierre_efectivo = $saldoCierreEfectivo;
-            $efectivoTipo = \App\Models\TipoCaja::where('nombre', 'like', '%efectivo%')->first();
-            $netoEfectivo = $caja->movimientos()
-                ->where('estado', 'ACTIVO')
-                ->when($efectivoTipo, fn($q) => $q->where('tipo_caja_id', $efectivoTipo->id))
-                ->get()
-                ->sum(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO' ? -abs((float)$m->monto) : abs((float)$m->monto));
-            $esperado = (float)$caja->saldo_inicial + (float)$netoEfectivo;
-            $caja->diferencia_cierre = round($saldoCierreEfectivo - $esperado, 2);
-        }
 
         if ($esAdmin) {
             $caja->cerrada_por_admin = true;

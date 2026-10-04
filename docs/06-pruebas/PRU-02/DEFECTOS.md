@@ -23,8 +23,6 @@ ir a Alumnos y buscarlo de nuevo.
 Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trabajo.
 `resources/views/cobranza/index.blade.php`.
 
-**Commit de corrección: `e32ce0c`**. Botón Cobrar directo en cada fila deudor y columna con deuda pendiente en pesos. Pendiente de verificación por Codex (§6a).
-
 ### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · CERRADO 23/09
 
 Con el padrón recién importado, Cobranza clasifica **a los 60 alumnos como deudores**,
@@ -45,8 +43,6 @@ pendientes" y el botón queda apagado. **El motor sí lo soporta** —cobrar un 
 deuda usa el precio del plan— pero la pantalla no lo ofrece. Un club cobra por adelantado
 todo el tiempo.
 
-**Commit de corrección: `e32ce0c`**. Ofrece el período adelantado con precio del plan activo para cobro directo. Pendiente de verificación por Codex (§6a).
-
 ### A4. Editar alumno no avisa por qué no guardó · Frena · verificado
 
 Al cambiar la fecha de nacimiento, el tutor pasa a ser obligatorio. El error aparece **abajo
@@ -55,14 +51,10 @@ visible y no entiende por qué. Es el mismo defecto que se corrigió en Revisió
 
 **Y peor:** si se va por el menú lateral, **nadie le avisa que va a perder lo que cargó**.
 
-**Commit de corrección: `e32ce0c`**. Alerta visible superior de errores de validación y alerta beforeunload al salir con cambios sin guardar. Pendiente de verificación por Codex (§6a).
-
 ### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · verificado
 
 Una fila de casillas con todos los profesores del club, sin filtrar. En una clase de patín
 se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la clase.
-
-**Commit de corrección: `e32ce0c`**. Filtrado dinámico por deporte en formulario de clases y validación en backend. Pendiente de verificación por Codex (§6a).
 
 ### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta
 
@@ -119,8 +111,6 @@ rinde.
 Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo
 arriba ni abajo.
 
-**Commit de corrección: `e32ce0c`**. Banner superior visible de errores de validación en formulario de alumnos. Pendiente de verificación por Codex (§6a).
-
 ### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · verificado
 
 Para el club son **dos horas de cancha**, porque se paga por bloque de reloj ocupado. Wings
@@ -137,14 +127,10 @@ los días elegidos.
 En la ficha del alumno (`/alumnos/{id}`) se ven sus cuotas impagas con el botón **Condonar**, pero no existe ningún botón para **Cobrar**. Para cobrarle a quien está parado en el mostrador hay que salir, ir a Caja, tocar Cobrar y buscarlo de nuevo en un desplegable.
 Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
 
-**Commit de corrección: `e32ce0c`**. Botón Cobrar directo en acciones superiores y en fila de estado de cobranza. Pendiente de verificación por Codex (§6a).
-
 ### A18. Cobranza en celular rompe la tabla y superpone el texto · Frena · verificado
 
 En pantallas de 375px (`/cobranza`), las columnas de la tabla colisionan: los títulos "ALUMNO" y "DEPORTE" se imprimen encimados ("AEBDORINE"), los nombres de los chicos se montan sobre la disciplina ("Morales, Patín Sofía"), los filtros se truncan a dos letras y el botón Ver queda cortado por el borde de la pantalla.
 Captura: `evidencia/audit_admin_cobranza_mobile.png`.
-
-**Commit de corrección: `e32ce0c`**. Tabla con scroll horizontal controlado responsive a 375px sin superposiciones ni cortes. Pendiente de verificación por Codex (§6a).
 
 ### A19. Las barras de filtros en celular colapsan en cuadrados mudos y desbordan · Molesta · verificado
 
@@ -161,14 +147,10 @@ Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
 Un alumno anotado en dos actividades (como Sofía Morales en Patín y Fútbol) aparece dos veces consecutivas en el listado de Cobranza con el mismo nombre y apellido, sin totalizar su deuda global ni clarificar a simple vista a qué corresponde cada fila.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
-**Commit de corrección: `e32ce0c`**. Badge visual de disciplina para alumnos multidisciplina con mismo DNI. Pendiente de verificación por Codex (§6a).
-
 ### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · verificado
 
 Las tarjetas superiores de Cobranza muestran conteos de alumnos (`Total Activos 60`, `Al día 0`, `En plazo 0`, `Morosos 0`, `Deudores 60`), pero no dicen cuánta plata representa la deuda ni cuánto dinero falta recaudar. Quien gestiona no sabe cuántos pesos están en juego.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
-
-**Commit de corrección: `e32ce0c`**. Tarjeta superior con Total adeudado en pesos calculado y visible. Pendiente de verificación por Codex (§6a).
 
 ### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · Molesta · verificado
 
@@ -180,14 +162,10 @@ Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
 
-**Commit de corrección: `e32ce0c`**. Formulario explícito de apertura de caja con saldo inicial para cambio. Pendiente de verificación por Codex (§6a).
-
 ### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · verificado
 
 Al operar en el mostrador, la caja se abre automáticamente en $0 al primer movimiento. No existe campo ni pantalla de arqueo inicial para registrar el fondo fijo de efectivo con el que abre el cajón para dar cambio.
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
-
-**Commit de corrección: `e32ce0c`**. Soporte de saldo inicial, arqueo de efectivo en cajón y control de cierre con cálculo de diferencia. Pendiente de verificación por Codex (§6a).
 
 ### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · verificado
 
@@ -238,8 +216,6 @@ Captura: `evidencia/audit_profesor_clases_show_mobile.png`.
 
 Si un familiar se acerca al mostrador solicitando una copia del recibo abonado anteriormente, la ficha del alumno (`/alumnos/{id}`) no ofrece el historial de comprobantes con opción de descarga o reimpresión en PDF.
 Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
-
-**Commit de corrección: `e32ce0c`**. Enlaces de Recibo disponibles en el historial de pagos de la ficha. Pendiente de verificación por Codex (§6a).
 
 ### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · verificado
 
@@ -461,8 +437,6 @@ Carlos.
 | 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado | A4, A14 |
 | 2.5 | Filtrar los profesores por el deporte de la clase | A5 |
 | 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
-
-*Estado al 04/10/2026:* Implementado por Gemini (LOG GEM CAB) en commit `e32ce0c`. Suite ampliada a 355 pruebas / 1998 aserciones en verde. Pendiente de verificación por Codex en pantalla y código (§6a).
 
 ### P3 · El dueño deja de ser un operativo
 

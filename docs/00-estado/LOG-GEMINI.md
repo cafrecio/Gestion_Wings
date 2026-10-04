@@ -10,21 +10,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
-## 2026-10-04 — LOG GEM CAB — Implementación P2: Que el mostrador pueda trabajar (PRU-02)
+## 2026-10-04 — LOG GEM CAB — Reversión de P2 en rama principal
 
-- **Objetivo:** Resolver los 6 puntos críticos del mostrador en P2 (A1, A3, A4, A5, A14, A17, A18, A21, A22, A24, A25, A34) garantizando adaptabilidad completa a 375px en móvil sin romper el sistema visual ni incrementar manejadores inline CSP.
-- **Cambios funcionales y de pantallas:**
-  - **Cobranza (A1, A21, A22, A18):** Se agregó cálculo y visualización del "Total adeudado" en pesos en la cabecera del módulo, columna/monto adeudado por cada alumno en la tabla, botón `Cobrar` directo en cada fila deudor, badge/píldora identificadora de deporte para alumnos multidisciplina con mismo DNI (ej. Sofía Morales en Patín y Fútbol) y tabla encapsulada responsive con overflow horizontal que evita el desborde y la superposición de texto en 375px.
-  - **Ficha del Alumno (A17, A34):** Botón `Cobrar` directo en la barra superior de acciones y en la fila de "Estado de Cobranza"; acceso verificado al enlace `Recibo` para visualizar y reimprimir comprobantes de cuota en el historial de pagos.
-  - **Cobro por adelantado (A3):** En `caja/cobrar`, cuando el alumno no tiene deuda pendiente (o bajo sus deudas vigentes), se ofrece el período mensual siguiente con el precio del plan vigente aplicable, permitiendo cobrar cuotas adelantadas sin generar deudas artificiales previas.
-  - **Feedback y aviso al salir (A4, A14):** En `alumnos/_form.blade.php`, banner superior `.filtros-card` de alta visibilidad para errores de validación (ej. menor que requiere tutor obligatorio) y listener `beforeunload` para advertir al usuario si intenta abandonar la pantalla con cambios sin guardar.
-  - **Profesores por deporte (A5):** Filtrado dinámico en JavaScript vanilla en `clases/create.blade.php` y `clases/edit.blade.php` para listar exclusivamente los profesores correspondientes al deporte del grupo seleccionado; reforzado con validación estricta a nivel backend en `ClaseWebController` (store y update) que rechaza asignaciones cruzadas.
-  - **Apertura de caja y arqueo (A24, A25):** Migración agregando `saldo_inicial`, `saldo_cierre_efectivo` y `diferencia_cierre` a `cajas_operativas`; formulario de apertura con saldo inicial en efectivo para fondo de cambio en `caja/index.blade.php` (`POST /caja/abrir`); conciliación de efectivo en cajón en `resumen` y `detalle`, y formulario de cierre con arqueo y cálculo automático de sobrante/faltante.
-- **Verificación y suite:**
-  - 17 nuevas pruebas en 6 archivos Feature dedicados (`CobranzaP2Test`, `AlumnoFichaCobrarP2Test`, `CobroAdelantadoP2Test`, `AlumnoFeedbackGuardadoP2Test`, `ClaseProfesoresDeporteP2Test`, `CajaAperturaSaldoInicialP2Test`).
-  - Suite completa: **355 pruebas / 1998 aserciones en verde** (0 fallas).
-  - Verificados `CspSinCodigoIncrustadoTest` (20 bloques script, 10 manejadores inline) y `DocumentacionNoMienteTest`.
-- **Autorización de diseño y entrega (§6a):** Revisión visual de todas las pantallas capturadas en vivo (`revisión_visual_p2.md`) presentada a Carlos y autorizada formalmente por el dueño. Commit de código `e32ce0c`, referencias en `DEFECTOS.md` en `9b37e70`. Tarea entregada para verificación cruzada por parte de Codex en pantalla y código.
+- **Objetivo:** Restaurar `main` al estado previo a P2, revirtiendo todas las vistas y componentes modificados sin autorización previa de diseño de Carlos.
+- **Acciones:**
+  - Código, controladores, migración y pruebas de P2 resguardados en rama remota `backup/p2-gemini-20261004` para consulta o uso futuro.
+  - Vistas Blade (`cobranza`, `alumnos`, `caja`, `clases`), controladores y migración revertidos en `main`.
+  - Documentación (`ESTADO-ACTUAL.md`, `DEFECTOS.md`, `PLAN-PRODUCCION.md`) sincronizada con el estado restaurado (338 pruebas en verde).
 
 ## 2026-09-23 — LOG GEM CAB — Auditoría visual a simple vista (PRU-02)
 

@@ -35,7 +35,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 
 {{-- ── Info de la caja ─────────────────────────────────────────────────── --}}
 <div class="filtros-card mb-4">
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:1rem;">
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;">
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Operativo</p>
             <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $caja->usuarioOperativo->name ?? '–' }}</p>
@@ -52,22 +52,6 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Estado</p>
             <p style="font-size:0.85rem; font-weight:700; color:{{ $estadoColor }};">{{ $caja->estado }}</p>
         </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Saldo inicial</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">${{ number_format($caja->saldo_inicial, 0, ',', '.') }}</p>
-        </div>
-        @if($caja->saldo_cierre_efectivo !== null)
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Efectivo contado</p>
-            <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">${{ number_format($caja->saldo_cierre_efectivo, 0, ',', '.') }}</p>
-        </div>
-        <div>
-            <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Diferencia</p>
-            <p style="font-size:0.85rem; font-weight:700; color:{{ $caja->diferencia_cierre == 0 ? 'var(--color-success)' : ($caja->diferencia_cierre < 0 ? 'var(--color-danger)' : 'var(--color-warning)') }};">
-                {{ $caja->diferencia_cierre > 0 ? '+' : '' }}${{ number_format($caja->diferencia_cierre, 0, ',', '.') }}
-            </p>
-        </div>
-        @endif
     </div>
 </div>
 

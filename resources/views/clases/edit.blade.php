@@ -95,10 +95,7 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
                 <span class="font-normal text-wings-muted">(opcional)</span>
             </label>
             <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
-                @php
-    $profesoresFiltrados = $profesores->filter(fn($p) => $p->deporte_id === $clase->grupo?->deporte_id);
-@endphp
-@forelse($profesoresFiltrados as $profesor)
+                @forelse($profesores as $profesor)
                     @php
                         $depP  = mb_strtolower($profesor->deporte->nombre ?? '');
                         $depP  = strtr($depP, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);

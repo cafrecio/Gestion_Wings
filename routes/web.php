@@ -46,7 +46,6 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
     Route::middleware('reject.profesor.web')->group(function () {
     // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
-    Route::post('/caja/abrir', [CajaWebController::class, 'abrir'])->name('web.caja.abrir');
     Route::get('/caja/movimiento', [CajaWebController::class, 'movimientoForm'])->name('web.caja.movimiento');
     Route::post('/caja/movimiento', [CajaWebController::class, 'movimientoStore'])->name('web.caja.movimiento.store');
     Route::get('/caja/historial', [CajaWebController::class, 'historial'])->name('web.caja.historial');

@@ -173,23 +173,11 @@ class CobranzaEstadoService
             $porGrupo[$grpId][$estado]++;
         }
 
-        $totalAdeudadoCuotas = DeudaCuota::whereHas('alumno', fn($q) => $q->where('activo', true))
-            ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-            ->get()
-            ->sum(fn($d) => max(0, (float)$d->monto_original - (float)$d->monto_pagado));
-
-        $totalAdeudadoInscripciones = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
-            ->where('estado', 'VIGENTE')
-            ->with('pagos')
-            ->get()
-            ->sum(fn($c) => max(0, (float)$c->monto_original - (float)$c->monto_condonado - (float)$c->pagos->sum('pivot.monto_aplicado')));
-
         return [
             'total_alumnos_activos' => $alumnos->count(),
             'por_estado' => $conteos,
             'por_deporte' => array_values($porDeporte),
             'por_grupo' => array_values($porGrupo),
-            'total_adeudado' => round($totalAdeudadoCuotas + $totalAdeudadoInscripciones, 2),
         ];
     }
 
