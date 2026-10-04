@@ -36,9 +36,10 @@
   el total por persona al filtrar; A52 altera estado mensual por inscripción.
   A18 parcial, filtros móviles ilegibles (A19). Sin correcciones ni despliegue.
   [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
-  **A11: [maqueta de Configuración](../05-pendientes/maqueta-configuracion/index.html)**
-  abierta para Carlos. Requiere que él escriba `Diseno-autorizado:` antes de implementar;
-  Codex no emite esa autorización. Gemini verificará el resultado.
+  **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
+  por Carlos. Nombres humanos, grupos, validación y errores persistentes;
+  generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
+  Pendiente Gemini; sin despliegue ni cierre.
 
 - **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 

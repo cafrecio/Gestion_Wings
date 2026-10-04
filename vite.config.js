@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/usuarios.js',
                 'resources/js/alumnos-inscripcion.js',
                 'resources/js/cobrar.js',
+                'resources/js/configuraciones.js',
             ],
             refresh: true,
         }),

@@ -9,12 +9,7 @@ class ReglaPrimerPagoWebController extends Controller
 {
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nombre'     => 'required|string|max:100',
-            'dia_desde'  => 'required|integer|min:1|max:31',
-            'dia_hasta'  => 'required|integer|min:1|max:31|gte:dia_desde',
-            'porcentaje' => 'required|numeric|min:1|max:100',
-        ]);
+        $validated = $this->validar($request);
 
         if ($choque = $this->reglaSuperpuesta($validated['dia_desde'], $validated['dia_hasta'])) {
             return $this->errorDeSuperposicion($validated, $choque);
@@ -29,12 +24,7 @@ class ReglaPrimerPagoWebController extends Controller
     {
         $regla = ReglaPrimerPago::findOrFail($id);
 
-        $validated = $request->validate([
-            'nombre'     => 'required|string|max:100',
-            'dia_desde'  => 'required|integer|min:1|max:31',
-            'dia_hasta'  => 'required|integer|min:1|max:31|gte:dia_desde',
-            'porcentaje' => 'required|numeric|min:1|max:100',
-        ]);
+        $validated = $this->validar($request);
 
         if ($choque = $this->reglaSuperpuesta($validated['dia_desde'], $validated['dia_hasta'], $regla->id)) {
             return $this->errorDeSuperposicion($validated, $choque);
@@ -56,6 +46,33 @@ class ReglaPrimerPagoWebController extends Controller
         $regla->delete();
 
         return response()->json(['ok' => true]);
+    }
+
+    private function validar(Request $request): array
+    {
+        return $request->validate([
+            'nombre' => 'required|string|max:100',
+            'dia_desde' => 'required|integer|min:1|max:31',
+            'dia_hasta' => 'required|integer|min:1|max:31|gte:dia_desde',
+            'porcentaje' => 'required|numeric|min:1|max:100',
+        ], [
+            'nombre.required' => 'Ingresá un nombre para la regla.',
+            'nombre.string' => 'Ingresá el nombre como texto.',
+            'nombre.max' => 'El nombre puede tener hasta 100 caracteres.',
+            'dia_desde.required' => 'Elegí el día desde el que se aplica.',
+            'dia_hasta.required' => 'Elegí hasta qué día se aplica.',
+            'dia_desde.integer' => 'El día inicial debe ser un número entero del 1 al 31.',
+            'dia_hasta.integer' => 'El día final debe ser un número entero del 1 al 31.',
+            'dia_desde.min' => 'El día inicial va del 1 al 31.',
+            'dia_desde.max' => 'El día inicial va del 1 al 31.',
+            'dia_hasta.min' => 'El día final va del 1 al 31.',
+            'dia_hasta.max' => 'El día final va del 1 al 31.',
+            'dia_hasta.gte' => 'El día final no puede ser anterior al día inicial.',
+            'porcentaje.required' => 'Ingresá el porcentaje de la primera cuota.',
+            'porcentaje.numeric' => 'Ingresá un porcentaje numérico del 1 al 100.',
+            'porcentaje.min' => 'El porcentaje va del 1 al 100.',
+            'porcentaje.max' => 'El porcentaje va del 1 al 100.',
+        ]);
     }
 
     /**

@@ -32,3 +32,9 @@ Siguiente paso: recibir la línea del dueño, implementar A11 conforme a la
 [maqueta aprobada](../../05-pendientes/maqueta-configuracion/README.md), correr suite
 completa y actualizar los documentos del corte. Entregar con commit para que Gemini
 verifique; Codex no cierra A11.
+
+## Actualización posterior del 04/10
+
+Carlos escribió personalmente la línea Diseno-autorizado y comenzó la implementación.
+Lo anterior conserva el estado de la preparación y sus pruebas en rojo.
+[Entrega y evidencia actuales](IMPLEMENTACION-A11.md); pendiente verificación de Gemini.

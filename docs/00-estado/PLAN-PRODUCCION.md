@@ -15,7 +15,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **343 pruebas**, 1955 aserciones; verde completo el 04/10 en wings_testing descartable exclusiva |
+| Suite | **352 pruebas**, 2057 aserciones; verde completo el 04/10 en copia exclusiva A11, base wings_testing_codex |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |

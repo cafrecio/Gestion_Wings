@@ -1,0 +1,8 @@
+A11 — corte exclusivo de entrega, Codex CAB, 04/10/2026
+Base: wings_testing_codex (descartable propia según AGENTS.md §6-bis).
+Snapshot: HEAD af9d8b9 + nueve archivos propios de A11; sin cambios ajenos de Cobranza.
+Tests: 352 passed (2057 assertions)
+Duration: 177.13s
+Los nueve archivos fuente coinciden por SHA-256 con los de la entrega.
+Previamente: checkout compartido 355 passed (2070 assertions), 122.62s.
+El corte compartido incluye tres pruebas ajenas sin commit; no es el número versionado.

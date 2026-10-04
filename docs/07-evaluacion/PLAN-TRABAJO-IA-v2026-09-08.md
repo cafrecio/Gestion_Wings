@@ -163,6 +163,11 @@ cruzada. Estan en [DEFECTOS.md](../06-pruebas/PRU-02/DEFECTOS.md), con su
 P2 mostrador. P0 implementado localmente con suite 338/1932; pendiente Gemini. P1 requiere
 aprobación de maqueta en navegador antes de programar. No se cierra PRU-02 con esta entrega.
 
+**A11, entrega del 04/10:** Configuración con grupos, nombres en castellano, errores
+visibles y validación; maqueta y línea Diseno-autorizado aprobadas por Carlos.
+[Implementación y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
+Pendiente verificación de Gemini; sin despliegue ni cierre de PRU-02.
+
 ### PRU-03 · Estados de cobranza
 
 Revalidar los 60 casos preparados. Antes de usar “DEUDOR” para reclamar, Carlos debe

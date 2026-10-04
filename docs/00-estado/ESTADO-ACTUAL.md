@@ -10,10 +10,12 @@ ilegibles (también A19). Suite propia 343/1955 verde. No existe Entrega2Test en
 este checkout; no se corrigió la Entrega 2 ni se desplegó.
 [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A11: [maqueta con estilos Wings existentes](../05-pendientes/maqueta-configuracion/index.html),
-incluidos errores y generación mensual como dato fijo; Carlos la aprobó («Ok,
-aprobada»). Falta su línea Diseno-autorizado, pedida explícitamente antes de implementar.
-[Preparación local en rojo](../06-pruebas/PRU-02/A11-PREPARACION-2026-10-04.md).
-Gemini verificará la implementación.
+incluidos errores y generación mensual como dato fijo; Carlos la aprobó y escribió
+personalmente la línea Diseno-autorizado. Implementada: grupos, nombres humanos,
+validación en servidor, Guardar explícito y errores persistentes arriba/junto al campo.
+Telegram vacío conserva el destino de respaldo si existe; se corrigió ese texto de
+la maqueta al leer TelegramChannel, sin modificar el envío. No desplegada ni cerrada.
+[Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md); Gemini verificará.
 
 ## P0/P1 — primera carga, 04/10/2026
 
@@ -182,7 +184,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **343 pruebas**, 1955 aserciones; suite completa verde el 04/10 en wings_testing. Entrega 1 de P2 (Cobranza): unificación por persona (DNI), total adeudado en pesos, orden por antigüedad de deuda impaga, botones Cobrar y Ver de 64px fijos (A1, A21, A22, A45, A46, A47). P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **352 pruebas**, 2057 aserciones; suite completa verde el 04/10 en copia exclusiva A11, base wings_testing_codex. Entrega 1 de P2 (Cobranza): unificación por persona (DNI), total adeudado en pesos, orden por antigüedad de deuda impaga, botones Cobrar y Ver de 64px fijos (A1, A21, A22, A45, A46, A47). P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 de P2 implementada: apertura filtrando a deudores/morosos ordenados por antigüedad, fila unificada por persona con actividades agrupadas, total adeudado en pesos y botones Cobrar/Ver fijos de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

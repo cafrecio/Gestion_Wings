@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-04 — Codex CAB — A11 Configuración entregada
+
+Carlos aprobó maqueta y escribió la línea Diseno-autorizado; respetada literalmente.
+Grupos, nombres humanos, validación de servidor y errores persistentes arriba/junto al campo.
+Guardar explícito; generación mensual fija; editor de porcentajes conserva días 1–31.
+JavaScript propio/Vite; CSP 20→19, sin CSS nuevo ni controles de acceso modificados.
+Pruebas previas 7 rojas/1 verde; suite en base Codex 355/2070 verde, incluye pruebas ajenas.
+Copia exclusiva de entrega verde: 352/2057, base wings_testing_codex; archivos coinciden.
+Escritorio/375 px, errores y corrección comprobados con valores originales; sin deploy.
+[Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md). Pendiente Gemini; no cerrada.
+
 ## 2026-10-04 — Codex CAB — Control de Cobranza y propuesta A11
 
 Revisión independiente de Entrega 1 sobre `1c4e6dc` y `867c295`, código y navegador local.
@@ -9,7 +20,7 @@ Suite propia verde: 343/1955 en wings_testing, sin corridas simultáneas; Entreg
 [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md); base local sin monto_condonado.
 A11: [maqueta estática](../05-pendientes/maqueta-configuracion/README.md), CSS Wings existente,
 grupos, etiquetas, errores y generación mensual fija. Abierta en navegador para Carlos.
-Carlos aprueba maqueta («Ok, aprobada»); falta su línea Diseno-autorizado. No implementada.
+Carlos aprueba maqueta («Ok, aprobada»); autorización e implementación posteriores en la entrada superior.
 Pruebas A11 preparadas localmente: 7 rojas / 1 verde, 58 aserciones. Sin commit de los tests.
 
 
@@ -104,17 +115,8 @@ Verificación de enlaces, coherencia de estado, diff y ausencia de cambios de di
 [Entrada anterior archivada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-FIN04.md).
 Siguiente: continuar diseño e implementación de Reportes según pedido de Carlos.
 
-## 2026-09-22 — Codex CAB — MUY IMPORTANTE: inscripción por fecha real de ingreso
-
-Carlos decide carga manual por usuarios; no modo temporal ni pregunta nuevo/antiguo.
-Ingreso anterior al corte fijo no genera inscripción; desde el corte sí, una sola vez.
-Valor obligatorio configurable inicial $5.000; deuda al alta, cobro con primera cuota.
-[ENT-01 y ENT-10](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md): decisión y manuales pendientes.
-Manuales deben destacar ingreso real versus fecha de carga, con ejemplos claros.
-Falta confirmar fecha concreta de inicio; no inventarla. Propuesta técnica, sin código.
-Tableros y resumen enlazados; verificación documental, sin suite ni base.
-[Entrada antigua conservada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX.md).
-
 [Entradas anteriores preservadas](../99-archivo/bitacoras/2026-10-04-LOG-CODEX.md).
 
 [Entrada POS-07 archivada](../99-archivo/bitacoras/2026-10-04-LOG-CODEX-POS07.md).
+
+[Entrada ENT-01 archivada](../99-archivo/bitacoras/2026-10-04-LOG-CODEX-ENT01-A11.md).

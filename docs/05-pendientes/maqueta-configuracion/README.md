@@ -1,8 +1,7 @@
 # A11 — propuesta visual, 04/10/2026
 
-**Maqueta aprobada por Carlos el 04/10: «Ok, aprobada». No implementada.**
-Falta la línea `Diseno-autorizado:` escrita por el dueño, exigida explícitamente
-en el pedido de A11. Se solicitó sin redactarla en su nombre.
+**Maqueta y línea Diseno-autorizado aprobadas por Carlos el 04/10. A11 entregada; pendiente de Gemini.**
+La línea fue escrita personalmente por Carlos, después de aprobar la maqueta.
 [Pantalla normal](index.html) y [ejemplo de errores](errores.html).
 Las páginas son estáticas; no envían formularios, no guardan y no cargan JavaScript.
 Usan únicamente las clases y el CSS compilado existente de Wings, sin CSS nuevo.
@@ -24,9 +23,10 @@ nombre, actualizar únicamente el enlace al CSS existente, sin crear estilos.
 - Mensaje de error arriba, con enlaces a los campos, y al lado del valor incorrecto.
 - Conservar lo ingresado al fallar y anunciar Guardado cuando el servidor confirme.
 - Inscripción obligatoria y positiva, con hasta dos decimales: conserva la regla de
-  ENT-01 (`ConfiguracionWebController.php:29-30` e `InscripcionService.php:35-40`).
+  ENT-01 (validación por clave en `ConfiguracionWebController.php` e `InscripcionService::importe`).
 - Días de gracia enteros del 1 al 28. Correo vacío conserva el destino ADMIN;
-  Telegram vacío desactiva solo ese canal. Correo no vacío debe ser válido.
+  Telegram vacío conserva el destino de respaldo si existe (`TelegramChannel.php:55–56`);
+  se corrigió la explicación inicial de la maqueta sin cambiar el envío. Correo no vacío debe ser válido.
 - Reglas de primera cuota permanecen en sus tramos actuales, incluidos los días
   29–31. La maqueta muestra el resumen; la implementación debe conservar su edición.
 
@@ -39,13 +39,17 @@ La propuesta es mostrar **1 · Fijo**, sin input ni Guardar, y rechazar su edici
 en el servidor. No se propone cambiar el scheduler ni eliminar datos existentes.
 Esto queda incluido en la revisión de Carlos antes de implementar.
 
-## Siguiente paso
+## Entrega y siguiente paso
 
-Carlos ya aprobó las pantallas; falta que escriba su línea `Diseno-autorizado:`.
-El agente no redacta ni atribuye esa línea. Preparación local: ocho pruebas nuevas
-en `ConfiguracionA11Test.php`; contra el código sin cambios, siete fallan y una pasa
-(58 aserciones, 9,65 s). El archivo está sin commit hasta completar la implementación.
-Luego de recibir la línea:
-validación en servidor, vista con diseño aprobado, archivo `resources/js/configuraciones.js`
-registrado en Vite, extracción del script incrustado actual, errores visibles y suite
-completa. A11 queda entregado con commit para que Gemini lo verifique; no lo cierra Codex.
+Carlos escribió:
+
+```text
+Diseno-autorizado: Carlos aprueba A11 Configuración según la maqueta presentada, conservando el diseño Wings.
+```
+
+[Implementación y pruebas](../../06-pruebas/PRU-02/IMPLEMENTACION-A11.md):
+grupos, explicaciones, validación de servidor, Guardar explícito y errores persistentes.
+El editor de primera cuota conserva sus tramos hasta el 31 y su edición.
+A11 queda entregada; Gemini verifica en pantalla y código antes de cerrarla.
+Sin despliegue. Las capturas de esta carpeta siguen siendo la propuesta estática;
+las de la implementación están enlazadas en el informe.

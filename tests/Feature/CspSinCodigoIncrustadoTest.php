@@ -39,8 +39,10 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * data-cerrar-revision en ds-app.js.
      *
      * ENT-01 (22/09): quedan 20 al extraer cobrar a resources/js/cobrar.js.
+     * A11 (04/10): quedan 19 al mover Configuración y su editor de reglas
+     * a resources/js/configuraciones.js, cargado por @vite en esa pantalla.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 20;
+    private const BLOQUES_SCRIPT_PERMITIDOS = 19;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

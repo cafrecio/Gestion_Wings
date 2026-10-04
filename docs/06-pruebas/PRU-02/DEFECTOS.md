@@ -89,14 +89,21 @@ Está suelto en la barra de totales y lleva a **Movimiento directo**. Nadie pued
 qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al
 lado.
 
-### A11. Configuración es impresentable · Frena · verificado
+### A11. Configuración es impresentable · Frena · entregada 04/10, pendiente Gemini
 
 Muestra los nombres internos: `avisos_email`, `dia_generacion_deuda`, `dias_gracia_cobranza`,
 `inscripcion_importe`. Sin agrupar, sin explicar qué gobierna cada uno. Quien entra no sabe
 qué está tocando.
 
-Además **acepta valores inválidos sin decir nada**: se guarda un importe en −100 y la
-pantalla no protesta.
+El relevamiento registró un importe −100 sin protesta en pantalla. Revalidación de
+Codex: el servidor ya lo rechazaba; la pantalla no mostraba ese rechazo. Días fuera
+de rango y correo inválido sí se guardaban antes de esta entrega.
+
+Entrega A11: nombres humanos, grupos, explicaciones, Guardar explícito, validación
+por clave, errores persistentes arriba/junto al campo y generación mensual fija.
+Carlos aprobó la maqueta y escribió la línea Diseno-autorizado. JavaScript separado,
+sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
+**No cerrado: falta verificación independiente de Gemini.**
 
 ### A12. El inicio del operativo no ayuda a trabajar · Molesta
 
@@ -560,7 +567,7 @@ caja sigue siendo cosa del mostrador. El camino ya existe en el código
 
 | Orden | Qué | Defectos |
 |---|---|---|
-| 4.1 | Configuración con nombres humanos, agrupada, explicada y validada | A11 |
+| 4.1 | Configuración entregada el 04/10; pendiente verificación de Gemini | A11 |
 | 4.2 | Consistencia: un verbo por botón, los puntos, los interruptores, el botón Nuevo | A6, A8, A9, A10, A32, A35 |
 | 4.3 | Listado de alumnos y ficha: el dato donde se busca | A7, A37 |
 | 4.4 | Permisos: mismo trato para todos los roles y una pantalla de "sin permiso" que sirva | A29, A30, A31 |
