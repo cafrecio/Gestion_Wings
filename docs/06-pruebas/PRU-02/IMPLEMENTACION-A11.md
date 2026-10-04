@@ -2,6 +2,8 @@
 
 04/10/2026 · Codex CAB. Sin despliegue; no se cierra el defecto.
 
+Commit de implementación: `7a8fe09`. Verificación independiente pendiente de Gemini.
+
 ## Autorización de Carlos
 
 La maqueta fue aprobada y después Carlos escribió personalmente:

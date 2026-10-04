@@ -2,7 +2,7 @@
 
 ## 2026-10-04 — Codex CAB — A11 Configuración entregada
 
-Carlos aprobó maqueta y escribió la línea Diseno-autorizado; respetada literalmente.
+Commit `7a8fe09`; Carlos aprobó maqueta y escribió Diseno-autorizado, respetada literalmente.
 Grupos, nombres humanos, validación de servidor y errores persistentes arriba/junto al campo.
 Guardar explícito; generación mensual fija; editor de porcentajes conserva días 1–31.
 JavaScript propio/Vite; CSP 20→19, sin CSS nuevo ni controles de acceso modificados.

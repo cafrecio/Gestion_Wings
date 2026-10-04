@@ -99,7 +99,7 @@ El relevamiento registró un importe −100 sin protesta en pantalla. Revalidaci
 Codex: el servidor ya lo rechazaba; la pantalla no mostraba ese rechazo. Días fuera
 de rango y correo inválido sí se guardaban antes de esta entrega.
 
-Entrega A11: nombres humanos, grupos, explicaciones, Guardar explícito, validación
+Entrega A11 (`7a8fe09`): nombres humanos, grupos, explicaciones, Guardar explícito, validación
 por clave, errores persistentes arriba/junto al campo y generación mensual fija.
 Carlos aprobó la maqueta y escribió la línea Diseno-autorizado. JavaScript separado,
 sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
