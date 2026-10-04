@@ -219,7 +219,7 @@ Capturas: `evidencia/audit_profesor_acceso_alumnos_desktop.png` y `evidencia/aud
 En la pantalla de error 403 (`resources/views/errors/403.blade.php`), el botón "Volver al inicio" tiene como enlace fijo `href="/login"`, mandando a quien ya tiene sesión iniciada a la página de ingreso.
 Captura: `evidencia/audit_profesor_acceso_alumnos_desktop.png`.
 
-**Entrega conjunta A29/A30/A31, Codex CAB 04/10:** rechazo 403 explícito y aviso en
+**Entrega conjunta A29/A30/A31, Codex CAB 04/10, commit `97cf933`:** rechazo 403 explícito y aviso en
 castellano para cuenta activa; Volver al tablero ADMIN, inicio OPERATIVO o Clases PROFESOR.
 No se habilitan permisos. Anónimo/inactivo siguen al login. Carlos escribió autorización.
 Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados.

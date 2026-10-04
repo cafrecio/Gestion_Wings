@@ -1,6 +1,6 @@
 # A29 / A30 / A31 — rechazo de acceso con regreso al inicio
 
-Entrega de Codex CAB, 04/10/2026. **Pendiente de verificación independiente por Gemini; no cerrada ni desplegada.**
+Entrega de Codex CAB, 04/10/2026, commit `97cf933`. **Pendiente de verificación independiente por Gemini; no cerrada ni desplegada.**
 
 Carlos aprobó la maqueta en el navegador, pidió retirar la comparación de perfiles y escribió:
 

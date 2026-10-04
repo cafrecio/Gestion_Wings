@@ -2,7 +2,7 @@
 
 ## 2026-10-04 — Codex CAB — A29/A30/A31 entregados, pendiente Gemini
 
-Autorización literal de Carlos aplicada a 403; mismo aviso y Volver al inicio propio.
+Commit `97cf933`. Autorización literal de Carlos aplicada a 403; mismo aviso y Volver al inicio propio.
 EnsureAdminWeb rechaza sin redirect; cuenta inactiva/anónimo mantienen login.
 Pruebas previas 12 rojas/2 verdes; final 380/2242 verde en wings_testing_codex.
 Dos pruebas existentes actualizadas para rechazo explícito; Rubros no cambia lógica.

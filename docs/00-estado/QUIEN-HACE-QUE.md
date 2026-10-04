@@ -26,7 +26,7 @@ corregirlo acá en el momento.
 |---|---|
 | **A11 — Configuración** | **Cerrada**, verificada y aprobada por Gemini |
 | **A43** — el alta avisa cuando el ingreso cae en un mes cerrado | Commiteada en `218ffc5`; falta que Gemini la verifique |
-| **Permisos** (A29, A30, A31) | Entregados; suite propia 380/2242, tres roles normal/375 px. [Informe](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Falta que Gemini verifique |
+| **Permisos** (A29, A30, A31) | Entregados en `97cf933`; suite propia 380/2242, tres roles normal/375 px. [Informe](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Falta que Gemini verifique |
 | **Verificar la Entrega 1 de Cobranza** | **Pendiente**, y bloquea a Gemini |
 | **P1 — primera carga por Excel** | Maqueta aprobada; la implementación no arrancó |
 
