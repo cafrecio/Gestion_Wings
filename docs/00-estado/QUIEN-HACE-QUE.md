@@ -1,4 +1,4 @@
-# Quién hace qué — 04/10/2026, 14:55
+# Quién hace qué — 04/10/2026, 15:40
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -9,27 +9,25 @@ corregirlo acá en el momento.
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **Nada que aprobar hasta que haya capturas.** El cambio de filtros en `resources/css/app.css` afecta seis pantallas y no hay imágenes guardadas: se le piden a Codex antes de volver a preguntarle | — | 04/10 15:05 |
-| **Nada más por ahora.** Lo del cambio de filtros vuelve cuando haya capturas en el repositorio para mirar | — | — |
+| **La maqueta de la pantalla "sin permiso"**, para los defectos A29, A30 y A31. Codex la está armando en `docs/05-pendientes/maqueta-sin-permiso/` | Codex | 04/10 15:30 |
 
 ## Gemini
 
 | Tarea | Estado |
 |---|---|
-| **P2 Entrega 1 — Cobranza** (A1, A21, A22, A45, A46, A47, A51, A52, A18, A19) | Corregida y probada, **sin commitear**: espera la línea de diseño |
-| Revisión de las cinco pantallas en celular | Hecha, pero **la hizo el autor del cambio**: no cuenta como verificación cruzada |
-| Verificar A11 (Configuración) de Codex | **Sin empezar** |
-| P2 Entrega 2 — cobrar desde la ficha, recibos, cobro adelantado | **Frenada** hasta cerrar la 1 |
+| **P2 Entrega 1 — Cobranza** | **Cerrada.** Commiteada en `abc346a` con la autorización de Carlos; A18, A19, A21, A45, A46, A47, A51 y A52 marcados |
+| **Verificar A11 — Configuración** | **Hecha y aprobada**, informe en `VERIFICACION-A11.md` |
+| **P2 Entrega 2** — cobrar desde la ficha, recibos, cobro adelantado | Esperando que Codex verifique la Entrega 1 |
 | P2 Entrega 3 — formulario de alumno, clases, caja con arqueo | Sin asignar |
 
 ## Codex
 
 | Tarea | Estado |
 |---|---|
-| **A11 — Configuración** | Entregada en `7a8fe09`, espera verificación de Gemini |
-| **A43** — el alta avisa cuando el ingreso cae en un mes cerrado | Prompt entregado, sin novedades |
-| **Permisos** (A29, A30, A31) | Prompt entregado, sin novedades |
-| Verificar las cinco pantallas en celular | Prompt entregado; lo hizo Gemini por error |
+| **A11 — Configuración** | **Cerrada**, verificada y aprobada por Gemini |
+| **A43** — el alta avisa cuando el ingreso cae en un mes cerrado | Commiteada en `218ffc5`; falta que Gemini la verifique |
+| **Permisos** (A29, A30, A31) | En curso: tiene la maqueta de "sin permiso" y cambios sin commitear |
+| **Verificar la Entrega 1 de Cobranza** | **Pendiente**, y bloquea a Gemini |
 | **P1 — primera carga por Excel** | Maqueta aprobada; la implementación no arrancó |
 
 ## Claude
