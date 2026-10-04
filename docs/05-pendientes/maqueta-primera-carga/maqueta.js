@@ -36,6 +36,7 @@ function reiniciar() {
   estadoCatalogos(escenario !== 'catalogos');
   byId('archivo-nombre').textContent = escenario === 'errores' ? 'club-con-errores.xlsx' : 'club-corregido.xlsx';
   ['revision-resultado','confirmacion','carga-realizada'].forEach(id => mostrar(id, false));
+  mostrar('resumen-listo', false);
   ['revision-vacia','carga-pendiente'].forEach(id => mostrar(id, true));
   byId('cargar').disabled = true;
   byId('carga-ayuda').textContent = 'Primero revisá el Excel.';
@@ -57,7 +58,8 @@ function revisar() {
   byId('revision-estado').className = `notice ${conErrores ? 'danger' : 'success'}`;
   byId('revision-estado').textContent = conErrores ? 'No se cargó nada. Encontramos 6 errores en 3 filas. Descargá el Excel marcado, corregilo y volvé a Revisar.' : 'Revisión terminada: sin errores. Todavía no se cargó nada. Podés confirmar la carga.';
   byId('cargar').disabled = conErrores;
-  byId('carga-ayuda').textContent = conErrores ? 'Corregí los 6 errores antes de cargar.' : 'Archivo revisado. 4 alumnos y $157.000 de deuda.';
+  byId('carga-ayuda').textContent = conErrores ? 'Corregí los 6 errores antes de cargar.' : 'Archivo revisado. 4 alumnos y $301.000 de deuda.';
+  mostrar('resumen-listo', !conErrores);
   if (!conErrores) mostrarPaso(4);
 }
 function terminar() {
@@ -84,6 +86,7 @@ byId('menu-alumnos').addEventListener('click', () => {
 });
 byId('preparar').addEventListener('click', () => estadoCatalogos(true));
 byId('continuar').addEventListener('click', () => { if (catalogosListos) mostrarPaso(2); });
+byId('volver-catalogos').addEventListener('click', () => mostrarPaso(1));
 byId('revisar').addEventListener('click', revisar);
 byId('descargar-plantilla').addEventListener('click', event => {
   if (!catalogosListos) event.preventDefault();

@@ -1,70 +1,82 @@
 # P1 — maqueta de primera carga · 04/10/2026
 
-**Pendiente de aprobación de Carlos. No es un importador y no escribe en Wings.**
-Abrir [index.html](index.html) en cualquier navegador. No requiere instalar nada ni
-arrancar Laravel. En esta máquina también está disponible en http://127.0.0.1:8766/.
+**Formato aprobado por Carlos; maqueta completa pendiente de aprobación.**
+No es un importador y no escribe en Wings. Abrir [index.html](index.html) en un navegador.
+No requiere Laravel. En esta máquina está disponible en http://127.0.0.1:8766/.
 
-## Qué se propone acordar
+## Formato acordado e instructivo
 
-Una pantalla con cuatro pasos: preparar catálogos, descargar plantilla, revisar y cargar.
-El selector superior permite mirar un archivo con errores, uno corregido, catálogos
-incompletos y una carga que ya tiene cobros. Las acciones de carga/deshacer son simuladas.
-Los mensajes son los textos propuestos para esos casos; no provienen de un motor existente.
+Carlos reemplazó las hojas separadas de alumnos/deudas por **una fila por alumno y
+deporte**, con datos, Debe inscripción, Tiene deuda y **12 pares Período / Monto**.
+No se repite el DNI en otra hoja para declarar deuda. Hay una sola hoja para completar:
 
-**Revisión solicitada por Carlos durante la revisión del 04/10:** entrada automática,
-obligatoria y por pasos. Solo el paso actual muestra acciones; los siguientes se habilitan
-al avanzar. Alumnos en la barra permite probar el intento de saltear por el menú: vuelve
-al recorrido mientras la carga esté pendiente. No se deduce carga terminada del número
-de alumnos. La regla pendiente/terminada y el control en servidor son la corrección
-propuesta; no están implementados en Wings. Preparación de catálogos sigue accesible.
+- **Alumnos:** 38 columnas, fila 1 con los títulos, datos desde fila 2. Los pares 1–12
+  ocupan O–AL. La plantilla tiene 200 filas preparadas, sin alumnos de ejemplo.
+- **Catálogos:** listas para los desplegables de deporte, grupo, plan y Sí/No.
+  Tiene el aviso No completar. En esta maqueta son opciones ficticias; la plantilla
+  del sistema llevará las reales. El importador no creará catálogos.
+- **Guía:** pasos y ejemplos visuales para consultar. No se importa ni se completa.
 
-La maqueta ahora usa los colores principales vigentes de Wings: marca #BE123C,
-botones #4A6880/#6888A0, encabezado #4A4A4A y colores semánticos del sistema.
-Las capturas iniciales `escritorio-errores.png` y `celular-errores.png` muestran la primera
-versión de la maqueta; la revisión guiada se conserva en `entrada-guiada.png`.
+Debe inscripción queda en No por defecto. Sí declara inscripción única por DNI al
+valor vigente de Configuración. Tiene deuda se refiere a cuotas mensuales; las dos
+respuestas son independientes. **Tiene deuda = No** exige todos los pares vacíos; Sí, al menos uno
+completo. Cada par lleva mes/año y monto todavía pendiente de ese mes, sin duplicados
+para el alumno/deporte. Los pares sin usar quedan vacíos; los meses pueden venir desordenados.
 
-Un único Excel con tres hojas:
+La pantalla muestra las indicaciones antes de descargar, sin esconderlas en un
+desplegable: dónde escribir, cómo elegir, las dos respuestas, un par explicado y cuatro
+casos completos. Incluye pagos parciales, fecha real de ingreso, menores/tutor,
+guardado .xlsx, errores y nueva revisión. El Excel reproduce las indicaciones en Guía.
+Todo esto sigue siendo preparación de P1, sin motor de importación implementado.
 
-- **Alumnos:** DNI, Apellido, Nombre, Fecha nacimiento, Fecha ingreso, Celular, Email,
-  Tutor, Teléfono tutor, Deporte, Grupo, Plan, Debe inscripción.
-- **Deudas:** DNI, Deporte, Período, Importe. Una fila por cuota pendiente evita agregar
-  columnas por cada mes y no impone un máximo de períodos. Se vincula por DNI y deporte.
-- **Catálogos:** deportes, grupos y planes que alimentan los desplegables. Aquí son
-  ficticios; en producción serán las listas reales del sistema, nunca creadas al importar.
+## Recorrido y colores
 
-Debe inscripción queda en No; Sí genera el cargo único por DNI al valor vigente de
-Configuración. La carga inicial no usa el alta manual para generar cuotas nuevas:
-declara solamente los saldos del archivo. Ausencia de filas de deuda significa sin deuda.
-Las filas vacías de plantilla no son alumnos, aunque su celda de inscripción diga No.
-Estos detalles del formato son parte de la propuesta para aprobar, no reglas implementadas.
+Cuatro pasos: preparar catálogos, descargar/completar, revisar y cargar. Solo el paso
+actual muestra acciones. El selector permite mirar errores, archivo correcto, catálogos
+incompletos y carga con cobros. Los mensajes, carga y Deshacer son simulaciones.
 
-## Excel de ejemplo descargables
+Carlos pidió ingreso automático obligatorio. El botón Alumnos permite mirar la propuesta
+para impedir saltear por menú. Se propone guardar carga pendiente/terminada y aplicar
+el control también en servidor, sin deducirlo del número de alumnos. Ese control no
+está implementado y su detalle espera aprobación. Catálogos necesarios siguen accesibles.
 
-Todos contienen únicamente datos ficticios, correos `example.invalid` y teléfonos de
-ejemplo. No son un padrón para importar en el sitio de prueba.
+Colores principales de Wings: marca #BE123C, botones #4A6880/#6888A0, encabezado
+#4A4A4A y colores semánticos. No se tocaron vistas ni CSS de Wings.
 
-- [Plantilla](ejemplos/plantilla-ejemplo.xlsx): tres hojas, encabezados y desplegables.
-- [Archivo con errores](ejemplos/club-con-errores.xlsx): seis problemas en tres filas.
-- [El mismo Excel revisado](ejemplos/club-con-errores-revisado.xlsx): originales preservados;
-  columna Errores al final de Alumnos y Deudas, con todos los problemas de cada fila.
-- [Archivo corregido](ejemplos/club-corregido.xlsx): cuatro alumnos, tres cuotas por
-  $152.000 y una inscripción de $5.000. Total pendiente: $157.000; caja: sin movimiento.
+## Archivos para mirar
 
-Se conservaron como casos válidos DNI textual con puntos/espacios, período numérico
-92026, período textual 082026, importe textual 52.000 y deporte con espacio sobrante.
+Solo contienen datos ficticios, correos example.invalid y teléfonos de ejemplo.
 
-## Comprobaciones realizadas, sin cerrar P1
+- [Plantilla vacía](ejemplos/plantilla-ejemplo.xlsx): Alumnos con desplegables y 12 pares;
+  Catálogos y Guía. No contiene alumnos para importar.
+- [Ejemplo con errores](ejemplos/club-con-errores.xlsx): seis problemas en tres filas.
+- [El mismo archivo marcado](ejemplos/club-con-errores-revisado.xlsx): datos originales
+  conservados, Errores en AM (columna 39) al final de Alumnos. Problemas separados por columna.
+- [Ejemplo correcto](ejemplos/club-corregido.xlsx): cuatro alumnos, seis cuotas por
+  $296.000 y una inscripción de $5.000. Total: $301.000 de deuda, sin movimiento de caja.
 
-- Navegador: errores visibles y Cargar bloqueado; revisión corregida, confirmación y
-  resultado; Preparar habilita revisión; Deshacer bloqueado tras cobro simulado.
-- Ancho de celular de 390 px: tarjetas apiladas y sin desborde de página. Solo la tabla
-  del Excel tiene desplazamiento horizontal propio. Capturas en `capturas/`.
-- Descarga de plantilla y Excel marcado desde el navegador verificada.
-- Excel: previsualización de hojas y verificación del archivo exportado. Tipos/originales
-  de DNI, fechas, períodos e importe textual preservados, cuatro desplegables de Alumnos
-  enlazados a Catálogos. No se abrió en Excel de escritorio; no se afirma prueba nativa.
-- Archivos HTML/CSS/JS estáticos fuera de `resources/`. Sin rutas ni cambios a Wings.
+Los ejemplos mantienen DNI textual con puntos/espacios, deporte con espacio sobrante,
+período numérico 92026, período textual 082026 e importe textual 52.000. La guía aconseja
+escribir DNI sin puntos y montos sin signo $, y explica los formatos que se aceptarán.
 
-P0 se entregó por separado en `ad24769`, suite 338/1932 verde. Gemini debe verificarlo.
-**Próximo paso:** Carlos mira y aprueba esta maqueta; recién después, pruebas en rojo e
-implementación del importador P1. No se cierra la tarea ni se retiran los importadores viejos.
+## Verificación de la entrega
+
+Revisión en navegador y de los Excel realizada por Codex; Gemini debe verificarla
+independientemente. No equivale a probar el futuro importador.
+
+- Exportación y previsualización de Alumnos, Catálogos, Guía e informe de errores.
+- Contenido/tipos del archivo original con errores comparados con el marcado: se
+  conservan. Solo se agrega Errores. 12 pares, listas y encabezados comprobados en XLSX.
+- La plantilla tiene los Sí/No en No y sus celdas de alumnos/deuda vacías; los ejemplos
+  están exclusivamente en Guía. Datos del ejemplo correcto suman $301.000.
+- Navegador: recorrido guiado, errores bloquean la carga; resumen antes de confirmar.
+  Instructivo revisado en escritorio y celular de 390 px, sin desborde de página.
+- No se abrió Excel de escritorio; no se afirma verificación nativa de sus controles.
+
+Capturas iniciales escritorio-errores.png, celular-errores.png y revision.png corresponden
+al formato anterior, reemplazado. entrada-guiada.png documenta la propuesta de acceso.
+Las capturas instructivo-escritorio.png e instructivo-celular.png muestran la revisión actual.
+
+P0 se entregó en ad24769, suite 338/1932 verde en ese corte; pendiente de Gemini.
+**Siguiente:** Carlos mira y aprueba la maqueta completa; después, pruebas en rojo e
+implementación de P1. No se cierra la tarea ni se retiran los importadores viejos.

@@ -6,6 +6,15 @@
 
 ## Decisiones de Carlos del 04/10/2026
 
+- **Formato aprobado por Carlos:** una fila por alumno y deporte en Alumnos, con sus
+  datos, Debe inscripción, Tiene deuda y **12 pares Período / Monto**. No hay hoja Deudas
+  ni repetición de DNI/deporte para cada mes. Tiene deuda se refiere a cuotas mensuales;
+  inscripción es independiente. Los meses pueden venir desordenados.
+- **Instructivo visual obligatorio:** indicaciones visibles junto a cada paso, celdas de
+  ejemplo y casos completos. Una única hoja para completar. Catálogos no se completa;
+  Guía reproduce los ejemplos dentro del archivo. Guardar/revisar/corregir/confirmar se
+  explican con el mismo vocabulario de los botones. Este acuerdo de formato e instructivo
+  no autoriza todavía implementar P1: falta aprobar la maqueta completa.
 - **Ingreso automático y obligatorio:** la primera carga no es una opción que ADMIN
   deba encontrar o entender leyendo instrucciones. Al ingresar a un club pendiente de
   primera carga, se abre directamente el recorrido y cada paso habilita el siguiente.
@@ -66,8 +75,9 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
 
 **Maqueta entregada por Codex CAB el 04/10, pendiente de aprobación de Carlos:**
 [Abrir en navegador](maqueta-primera-carga/index.html). Cuatro pasos, ejemplos con todos
-los errores por fila y Excel descargable con columna Errores. Propone hojas Alumnos,
-Deudas y Catálogos en un único archivo. [Formato y comprobaciones](maqueta-primera-carga/README.md).
+los errores por fila y Excel descargable con columna Errores. **Alumnos es la única hoja
+que se completa**, con 12 pares de deuda en la misma fila. Catálogos alimenta desplegables;
+Guía contiene el instructivo y ejemplos. [Formato y comprobaciones](maqueta-primera-carga/README.md).
 P0 entregado en `ad24769`, suite 338/1932 verde; Gemini debe verificarlo antes de cerrar.
 
 - **Dónde:** se abre automáticamente al ingresar como ADMIN a un club con primera carga
@@ -102,3 +112,18 @@ P0 entregado en `ad24769`, suite 338/1932 verde; Gemini debe verificarlo antes d
 - **Los 58 defectos de PRU-02 no se mezclan con esto.** Muchos son de la misma familia
   (filtros que se rompen en el celular, pantallas más altas que el monitor) y se arreglan de
   una pasada con un criterio escrito, no defecto por defecto.
+
+## Revisión del Excel con el formato aprobado
+
+- Debe inscripción y Tiene deuda admiten Sí/No y son independientes. Inscripción queda
+  en No por defecto para esta carga; se genera una vez por DNI si se marca Sí.
+- Tiene deuda = No exige los 12 pares vacíos. Sí exige al menos un par completo.
+- Cada par necesita período válido y monto pendiente mayor que cero. No se repite el
+  mismo período para un alumno/deporte, aunque esté en otro par. No es el precio de hoy
+  ni el importe original si hubo pago parcial: es lo que queda pendiente de ese mes.
+- La plantilla tiene 38 columnas: 14 de datos/respuestas y 24 de los 12 pares. El informe
+  agrega Errores como columna 39 (AM), al final de Alumnos; no altera los datos originales.
+- DNI como texto; período mes/año (102026), compatible con cero inicial quitado por Excel.
+  Montos 52000 o 52.000 significan $52.000. Los pares sin usar quedan realmente vacíos.
+- Plantilla y ejemplos son distintos: la plantilla no contiene alumnos de muestra.
+  Catálogos tiene listas del club; Guía no es una hoja a importar ni completar.

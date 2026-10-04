@@ -7,7 +7,9 @@ inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
 importadores anteriores se conservan. A43 pendiente de verificación por Gemini.
 P1: [maqueta estática entregada](../05-pendientes/maqueta-primera-carga/index.html);
-Carlos debe aprobarla en navegador antes de programar. P0 commit `ad24769`.
+Carlos aprobó el formato de una fila por alumno/deporte con 12 pares Período/Monto;
+instructivo visual en pantalla y Excel. Falta aprobar la maqueta completa antes de
+programar el importador. P0 commit `ad24769`.
 [Regla vigente](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 
 ## A2/B2 — implementados localmente, 23/09/2026

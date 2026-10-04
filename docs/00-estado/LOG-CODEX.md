@@ -2,17 +2,16 @@
 
 ## 2026-10-04 — Codex CAB — Maqueta P1 en navegador, espera aprobación
 
-P0 guardado en `ad24769`, suite completa 338/1932 verde; pendiente de Gemini.
-P1 solo maqueta estática fuera de Wings: cuatro pasos, errores por fila/columna,
-Excel marcado y corregido descargables. Propone Alumnos/Deudas/Catálogos en un archivo.
-Browser revisado en escritorio y 390 px; sin desborde de página, carga bloqueada con
-errores y deshacer bloqueado tras cobro simulado. Originales del Excel preservados.
-Revisión de Carlos: entrada automática obligatoria, pasos guiados y colores de Wings.
-Se propone estado pendiente/terminada, nunca contar alumnos: alta desde menú o URL no
-puede saltear preparación. La maqueta simula el menú; control servidor no implementado.
-[Maqueta y evidencia](../05-pendientes/maqueta-primera-carga/README.md).
-No se implementó importador, no se tocó servidor ni se retiraron comandos anteriores.
-Carlos debe aprobar antes de programar P1. No cerrado; Gemini verifica la entrega.
+P0 en `ad24769`, suite 338/1932 verde en ese corte; pendiente de Gemini.
+P1 solo maqueta estática: cuatro pasos, errores por fila/columna y Excel marcado.
+Carlos aprobó una fila con datos, dos Sí/No y 12 pares Período/Monto; reemplaza hojas separadas.
+Solo Alumnos se completa; Catálogos alimenta listas y Guía reproduce ejemplos visuales.
+Entrada automática obligatoria pedida; estado pendiente/terminada y bloqueo de alta son propuesta.
+Instructivo y colores Wings revisados en escritorio/390 px, sin desborde; descarga comprobada.
+XLSX: 38 columnas, tipos/valores originales conservados en marcado; ejemplo total $301.000.
+Carga bloqueada con errores y Deshacer tras cobro simulado; Excel nativo no comprobado.
+[Maqueta y evidencia](../05-pendientes/maqueta-primera-carga/README.md). Sin importador ni servidor tocados.
+Carlos debe aprobar maqueta completa antes de programar. No cerrado; Gemini verifica.
 
 ## 2026-10-04 — Codex CAB — P0 entregado; P1 requiere maqueta aprobada
 
