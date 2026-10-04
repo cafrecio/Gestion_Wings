@@ -267,6 +267,18 @@ deuda del mes en curso. Si después se importa el padrón con el saldo inicial d
 mes, la importación **rechaza el archivo entero** —"ya existe una deuda para ese alumno y
 período"—. Los dos caminos de carga inicial chocan.
 
+### A44. El aviso diario llega firmado por Laravel · Molesta · verificado
+
+El resumen diario que recibe el dueño usa la **plantilla por defecto de Laravel**: logo de
+Laravel arriba, "Regards, Laravel" al pie y "© 2026 Laravel" abajo. Al dueño del club le
+llega un correo firmado por una herramienta de programadores, con un logo que no es el suyo.
+
+Tiene que salir con el nombre del club, su saludo y su pie. Visto en el correo del 03/10 a
+las 08:00.
+
+**Y el contenido también es pobre:** una sola línea con el total y el más viejo. Para que
+sirva tendría que decir, por sección, qué hay pendiente y desde cuándo.
+
 ## Complemento visual de Codex — 23/09/2026
 
 Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio 1366×900 y celular 390×844. Se excluyeron los hallazgos A1–A35 ya registrados. [Cobertura y límites](RECORRIDO-VISUAL-CODEX-2026-09-23.md).
