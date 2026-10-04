@@ -17,6 +17,12 @@ use Illuminate\Validation\Rule;
 
 class AlumnoWebController extends Controller
 {
+    public function cuotaAltaPreview(Request $request, PagoCuotaService $service)
+    {
+        $data = $request->validate(['fecha_alta' => 'required|date', 'plan_id' => 'nullable|integer|exists:grupo_planes,id']);
+        return response()->json($service->previsualizarCuotaAlta($data['fecha_alta'], isset($data['plan_id']) ? (int) $data['plan_id'] : null));
+    }
+
     public function inscripcionPreview(Request $request)
     {
         $data = $request->validate(['dni' => 'required|string|max:20', 'fecha_alta' => 'required|date']);
@@ -190,7 +196,9 @@ class AlumnoWebController extends Controller
     {
         $request->merge(['dni' => \App\Services\InscripcionService::dni((string) $request->input('dni'))]);
         $request->validate(['alta_token' => 'nullable|uuid']);
-        $fingerprint = hash('sha256', json_encode($request->only(['dni', 'nombre', 'apellido', 'fecha_nacimiento', 'fecha_alta', 'celular', 'email', 'nombre_tutor', 'telefono_tutor', 'grupo_id', 'deporte_id', 'plan_id'])));
+        $fechaIngreso = Carbon::parse($request->validate(['fecha_alta' => 'required|date'], $this->validationMessages())['fecha_alta']);
+        $mesCerrado = $fechaIngreso->copy()->startOfMonth()->lt(now()->startOfMonth());
+        $fingerprint = hash('sha256', json_encode($request->only(['dni', 'nombre', 'apellido', 'fecha_nacimiento', 'fecha_alta', 'celular', 'email', 'nombre_tutor', 'telefono_tutor', 'grupo_id', 'deporte_id', 'plan_id', 'generar_cuota_actual'])));
         if ($request->filled('alta_token')) {
             $anterior = Alumno::where('alta_token', $request->alta_token)->first();
             if ($anterior && $anterior->alta_fingerprint !== $fingerprint) {
@@ -203,10 +211,13 @@ class AlumnoWebController extends Controller
         $rules = $this->validationRules($request);
         $rules['dni']     = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->where('deporte_id', $request->input('deporte_id'))];
         $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
+        $rules['generar_cuota_actual'] = [Rule::requiredIf($mesCerrado), 'nullable', 'boolean'];
 
         $validated = $request->validate($rules, array_merge($this->validationMessages(), [
             'plan_id.required' => 'Debe seleccionar la frecuencia semanal.',
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
+            'generar_cuota_actual.required' => 'Elegí si se genera la cuota de este mes antes de guardar.',
+            'generar_cuota_actual.boolean' => 'Elegí Sí o No para la cuota de este mes.',
         ]));
 
         DB::transaction(function () use ($validated, $request, $fingerprint) {
@@ -218,7 +229,15 @@ class AlumnoWebController extends Controller
                 }
                 if ($anterior) return;
             }
-            $alumno = Alumno::create(Arr::except($validated, ['plan_id']));
+            $cuotaService = app(PagoCuotaService::class);
+            $vista = $cuotaService->previsualizarCuotaAlta($validated['fecha_alta'], (int) $validated['plan_id']);
+            if (($request->filled('cuota_periodo_visto') && $request->input('cuota_periodo_visto') !== $vista['periodo'])
+                || ($request->filled('cuota_importe_visto') && (!is_numeric($request->input('cuota_importe_visto')) || (float) $request->input('cuota_importe_visto') !== (float) $vista['importe']))) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'generar_cuota_actual' => 'Cambió el mes o el importe de la cuota. Revisá el aviso antes de guardar.',
+                ]);
+            }
+            $alumno = Alumno::create(Arr::except($validated, ['plan_id', 'generar_cuota_actual']));
             $alumno->forceFill(['alta_token' => $request->input('alta_token'), 'alta_fingerprint' => $fingerprint])->save();
 
             AlumnoPlan::create([
@@ -232,7 +251,15 @@ class AlumnoWebController extends Controller
             if ($request->filled('inscripcion_importe_visto') && $cargo && $cargo->alumno_id === $alumno->id && (float) $request->input('inscripcion_importe_visto') !== (float) $cargo->monto_original) {
                 throw \Illuminate\Validation\ValidationException::withMessages(['fecha_alta' => 'El importe de inscripción cambió. Revise el nuevo importe antes de guardar.']);
             }
-            app(PagoCuotaService::class)->crearCuotaAlta($alumno, (int) $validated['plan_id']);
+            $generar = $vista['mes_cerrado'] ? (bool) $validated['generar_cuota_actual'] : null;
+            $cuota = $cuotaService->crearCuotaAlta($alumno, (int) $validated['plan_id'], $generar);
+            $alumno->forceFill(['alta_cuota' => [
+                'modo' => $vista['mes_cerrado'] ? ($generar ? 'MES_ACTUAL' : 'SIN_CUOTA') : 'AUTOMATICA',
+                'usuario_id' => $request->user()->id, 'fecha' => now()->toIso8601String(),
+                'fecha_ingreso' => $alumno->fecha_alta->format('Y-m-d'),
+                'periodo' => $cuota?->periodo, 'monto' => (float) ($cuota?->monto_original ?? 0),
+                'porcentaje' => $cuota ? (float) $cuota->porcentaje_alta : null,
+            ]])->save();
         });
 
         return redirect()->route('web.alumnos.index')->with('success', 'Alumno creado correctamente.');

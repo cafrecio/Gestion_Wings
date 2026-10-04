@@ -188,6 +188,26 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
     </div>
 </div>
 
+@unless(isset($alumno))
+<fieldset id="cuota-alta-aviso" class="mt-4 mb-4" hidden
+          data-preview-url="{{ route('web.alumnos.cuota-alta-preview') }}" aria-describedby="cuota-alta-mensaje">
+    <legend class="alumno-nombre mb-3">Cuota al dar de alta</legend>
+    <p id="cuota-alta-mensaje" class="mb-3" aria-live="polite"></p>
+    <label class="flex items-center gap-3 mb-3">
+        <input type="radio" name="generar_cuota_actual" value="1" disabled {{ (string) old('generar_cuota_actual') === '1' ? 'checked' : '' }}>
+        <span><strong>Sí.</strong> <span id="cuota-alta-si">Generar la cuota completa de este mes.</span></span>
+    </label>
+    <label class="flex items-center gap-3 mb-3">
+        <input type="radio" name="generar_cuota_actual" value="0" disabled {{ (string) old('generar_cuota_actual') === '0' ? 'checked' : '' }}>
+        <span><strong>No.</strong> Guardar sin generar la cuota de este mes.</span>
+    </label>
+    <p class="text-sm text-wings-muted">La inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.</p>
+    @error('generar_cuota_actual') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+</fieldset>
+<input type="hidden" id="cuota-periodo-visto" name="cuota_periodo_visto">
+<input type="hidden" id="cuota-importe-visto" name="cuota_importe_visto">
+@endunless
+
 {{-- JS: filtrar grupos por deporte + cargar planes por grupo --}}
 <script>
 (function () {

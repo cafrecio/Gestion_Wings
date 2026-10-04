@@ -1,21 +1,16 @@
 # Wings — Estado actual
 
-## A43 y permisos A29/A30/A31 — preparación, 04/10/2026
+## A43 entregada; permisos A29/A30/A31 en curso — 04/10/2026
 
-Después de pull (`853873a`), A43 sigue sin implementar: el alta manual crea cuota
-del mes real de ingreso incluso si ya pasó. [Maqueta del aviso](../05-pendientes/maqueta-alta-mes-cerrado/README.md)
-aprobada por Carlos con «OK ambos» junto a la de permisos; falta su línea formal
-Diseno-autorizado, requerida en el pedido, para modificar las vistas del sistema.
-**Diferencia pendiente de decisión:** A43 dice No = «sin ninguna deuda»;
-`AlumnoWebController::store` también crea inscripción mediante `InscripcionService`.
-Se consultó si No evita solo cuota o también inscripción; no se eligió una interpretación.
-
-[Maqueta de sin permiso](../05-pendientes/maqueta-sin-permiso/README.md) abierta
-en navegador y comprobada a 375 px. Pruebas previas en `wings_testing_codex`:
-12 fallidas / 2 aprobadas; borrador fuera de la suite activa mientras Carlos
-escribe la línea formal de autorización. Ningún middleware ni vista del sistema
-modificado. A29/A30/A31 siguen
-abiertos; tras implementar verifica Gemini. No desplegado.
+Carlos escribió la autorización de ambas maquetas y aclaró «A43 solo la cuota».
+A43 implementada: ingreso en mes cerrado exige Sí/No; Sí genera mes corriente
+completo y No evita solo cuota, conservando inscripción por DNI. Decisión y autor
+persistidos en la transacción, con reintento y rollback probados; no cuotas históricas.
+Suite propia verde: 366 pruebas / 2131 aserciones. Navegador normal y 375 px, ambas
+opciones y guardado bloqueado sin decisión comprobados en wings_testing_codex.
+[Entrega A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Requiere nueva migración
+alta_cuota al desplegar. No desplegada; pendiente Gemini, no cerrada.
+Permisos autorizados; implementación siguiente. No requiere nuevas decisiones de Carlos.
 
 ## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
 
@@ -27,8 +22,7 @@ A11 (Configuración): verificada de forma independiente por Gemini en código y 
 P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;
 inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
-importadores anteriores se conservan. A43 tiene nueva decisión del 04/10 sin
-implementar; ver preparación y consulta pendientes arriba.
+importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; entregada, pendiente Gemini.
 P1: [maqueta estática entregada](../05-pendientes/maqueta-primera-carga/index.html);
 Carlos aprobó el formato de una fila por alumno/deporte con 12 pares Período/Monto;
 instructivo visual en pantalla y Excel. Falta aprobar la maqueta completa antes de
@@ -190,7 +184,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **356 pruebas**, 2069 aserciones; suite completa verde el 04/10 en copia exclusiva A11, base wings_testing_codex. Entrega 1 de P2 (Cobranza): unificación por persona (DNI), total adeudado en pesos, orden por antigüedad de deuda impaga, botones Cobrar y Ver de 64px fijos (A1, A21, A22, A45, A46, A47). P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **366 pruebas**, 2131 aserciones; suite completa verde el 04/10 en copia exclusiva A43, base wings_testing_codex. Entrega 1 de P2 (Cobranza): unificación por persona (DNI), total adeudado en pesos, orden por antigüedad de deuda impaga, botones Cobrar y Ver de 64px fijos (A1, A21, A22, A45, A46, A47). P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 de P2 implementada: apertura filtrando a deudores/morosos ordenados por antigüedad, fila unificada por persona con actividades agrupadas, total adeudado en pesos y botones Cobrar/Ver fijos de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -203,7 +197,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only con endpoint /csp-reporte; quedan 20 bloques script en 18 vistas y 10 manejadores inline |
+| CSP | Report-only con endpoint /csp-reporte; quedan 19 bloques script en 17 vistas y 10 manejadores inline |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre

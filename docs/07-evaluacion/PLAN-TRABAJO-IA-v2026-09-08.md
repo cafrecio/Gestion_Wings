@@ -168,6 +168,11 @@ visibles y validación; maqueta y línea Diseno-autorizado aprobadas por Carlos.
 [Implementación y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
 Pendiente verificación de Gemini; sin despliegue ni cierre de PRU-02.
 
+**A43 entregada 04/10:** autorización de Carlos; No solo evita cuota, inscripción independiente.
+Ingreso en mes cerrado elige cuota corriente completa o sin cuota; decisión y autor auditados.
+Suite propia 366/2131, navegador normal/375 px. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md).
+Pendiente Gemini; sin despliegue ni cierre.
+
 ### PRU-03 · Estados de cobranza
 
 Revalidar los 60 casos preparados. Antes de usar “DEUDOR” para reclamar, Carlos debe

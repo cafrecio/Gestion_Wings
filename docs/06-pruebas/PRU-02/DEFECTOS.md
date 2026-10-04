@@ -246,7 +246,7 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
-### A43. El alumno cargado a mano con ingreso de un mes cerrado queda deudor · Frena · decidido 04/10, sin implementar
+### A43. El alumno cargado a mano con ingreso de un mes cerrado queda deudor · Frena · entregado 04/10, pendiente Gemini
 
 **Verificado por Claude el 04/10** sobre la implementación de P0 (`ad24769`): cargando a mano
 un alumno con fecha de ingreso **20/01/2020**, el sistema le crea la cuota de **enero de
@@ -266,6 +266,10 @@ alta **avisa antes de guardar** y ofrece una sola decisión:
 - Si el ingreso es del **mes en curso o posterior**, no se pregunta nada: la cuota se genera
   sola con el porcentaje del día, como está hoy.
 - La decisión y quién la tomó quedan registradas con el alta.
+
+**Entrega Codex CAB, 04/10:** implementada y autorizada por Carlos; No evita solo cuota.
+366 pruebas / 2131 aserciones verdes; formulario real normal/375 px.
+[Implementación, pruebas y capturas](IMPLEMENTACION-A43.md). Sin despliegue ni cierre; Gemini verifica.
 
 Cuando exista la primera carga por Excel, los alumnos viejos entran por ahí y este caso
 debería volverse raro. El aviso queda igual, para el que no entró en el padrón.

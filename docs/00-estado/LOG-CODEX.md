@@ -1,5 +1,30 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-04 — Codex CAB — A43 entregada, pendiente Gemini
+
+Carlos escribió la autorización literal y aclaró «A43 solo la cuota».
+Mes cerrado exige elección: Sí cuota corriente completa, No solo evita cuota.
+Inscripción por DNI conservada; decisión/autor auditados, rollback y reintento probados.
+Pruebas previas 10 rojas; final 366/2131 verde en copia exclusiva sobre e5bc981 + A43.
+Base wings_testing_codex; PHP/Blade/build verificados, archivos idénticos a entrega.
+Formulario real normal/375 px: decisión obligatoria, Sí/No y ficha comprobados.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Migración nueva alta_cuota; no deploy.
+No cerrada: Gemini verifica. Siguiente: permisos A29/A30/A31 ya autorizados.
+
+## 2026-10-04 — Codex CAB — A43 y permisos, maquetas para autorizar
+
+Pull al día en `853873a`; cambios ajenos de Cobranza/CSS conservados.
+A43 no estaba a medias: aún genera cuota histórica; maqueta del aviso preparada.
+Ajustado pie de maqueta A43 al alta existente: Cancelar y Guardar a la derecha.
+Consulta entonces pendiente sobre inscripción; Carlos aclaró después «A43 solo la cuota».
+A29/A30/A31: maqueta con mensaje común y Volver al inicio de cada rol.
+Carlos pidió quitar la comparación de perfiles; retirada de las tres maquetas.
+Carlos aprobó ambas maquetas: «OK ambos». Luego escribió la línea formal; ver entrega posterior.
+Navegador normal/375 px; prueba previa propia: 12 rojas/2 verdes, 21 aserciones.
+Borrador de pruebas retirado de suite activa durante la espera de autorización.
+Sin aplicación modificada, suite completa ni deploy; defectos siguen abiertos.
+Preparación histórica; autorización y aclaración recibidas, implementación en entrada superior.
+
 ## 2026-10-04 — Codex CAB — A11 Configuración entregada
 
 Commit `7a8fe09`; Carlos aprobó maqueta y escribió Diseno-autorizado, respetada literalmente.
@@ -49,74 +74,4 @@ autorización de P0, sin CSS nuevo ni deploy. Documentos vigentes y tableros act
 [Evidencia](../06-pruebas/PRU-02/P0-CARGA-INICIAL-2026-10-04.md). Pendiente Gemini, no cerrado.
 Siguiente: maqueta P1 fuera de Wings; Carlos aprueba en navegador antes de programar.
 
-## 2026-09-23 — Codex CAB — A2/B2 implementados; pendiente verificación independiente
-
-Commit `b3619bf`: cuota del mes al alta, transacción con alumno/plan/inscripción.
-Importe y porcentaje guardados; preview y cobro no vuelven a descontar esa cuota.
-DEUDOR solo por mes cerrado impago, coherente en cálculo individual y masivo.
-Pruebas iniciales rojas (7 fallos/1 correcta); final MariaDB wings_testing: 331/1900.
-Rollback tras insertar cuota, reintento, borde 30/1, padrón y recobro cubiertos.
-PHP y compilación Blade correctos; vistas/CSS intactos. Sin deploy ni base real.
-[Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A2.md). A2/B2 pendientes de otro agente.
-Al desplegar requiere migración porcentaje_alta; tarea no cerrada por el implementador.
-
-## 2026-09-23 — Codex CAB — Telegram de test recibido; correo rechazado
-
-Carlos autorizó bot/correo. Chat identificado con getChat y comunicado antes de guardar.
-Destinatarios en Configuración de wingstest; token privado, sin tocar producción.
-Resumen real con revisión temporal revertida; Telegram HTTP 200 y Carlos confirma recepción.
-Correo sin MessageSent: Postfix rechaza por consultas MySQL de alias/vacaciones fallidas.
-No tomar el éxito de Artisan como entrega. Pendiente transporte compartido o SMTP externo.
-[Evidencia y texto recibido](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md).
-Solo configuración del test y documentación; suite previa 315/1804, sin repetir por docs.
-[Entrada antigua preservada](../99-archivo/bitacoras/2026-09-23-LOG-CODEX-TEST-AVISOS.md).
-
-## 2026-09-23 — Codex CAB — PRU-02 cron de test probado; avisos pendientes
-
-Solo wingstest; cron preexistente reemplazado por ejecutor aislado de producción.
-Ejecuciones reales 03:28, 03:29 y 03:30 UTC correctas; nologin y password bloqueada.
-Instalación repetible integrada a montar-test; sin heartbeats, destinos CSP propios.
-Email destino guardado en Configuración; Telegram sin chat verificado, sin envío.
-Auto-review bloqueó token/transporte: autorización pendiente; Carlos debe iniciar bot.
-Suite aislada 315/1804, 93,45 s; bash -n correcto, sin cambios visuales ni producción.
-[Evidencia](../06-pruebas/PRU-02-AUTOMATIZACION-TEST-2026-09-23.md). Siguiente: probar recepción real de ambos avisos.
-[Entrada antigua preservada](../99-archivo/bitacoras/2026-09-23-LOG-CODEX-TEST-CRON.md).
-
-## 2026-09-22 — Codex CAB — ENT-01 implementada y verificada
-
-Carlos aprobó DNI por persona, inscripción primero, sin comisión y edición auditada.
-Alta/cargo atómicos, reintentos y concurrencia; caja, estado de cuenta y PDF desglosados.
-§5 de Punitorios usa cargos; FIN-14 y manuales ENT-10 siguen pendientes. Sin deploy.
-Pruebas iniciales rojas; suite final aislada: **313 / 1793**, 122,92 s, MariaDB.
-Aviso previo, cobro parcial/completo y PDF vistos con datos ficticios; build y Blade correctos.
-[Evidencia y límites](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md); código guardado en 11623b6 por sesión paralela.
-Siguiente: revisión cruzada de Claude y actualización del servidor para PRU-02.
-[Entrada antigua preservada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-ENT01-CIERRE.md).
-
-## 2026-09-22 — Codex CAB — ENT-01 propuesta previa a implementación
-
-Pull inicial sin novedades; corte confirmado 23/09/2026, por fecha real de ingreso.
-[Propuesta revisable](../05-pendientes/ENT-01-PROPUESTA-CARGOS-ADICIONALES.md): cargos comunes,
-imputaciones separadas, un pago/recibo y movimientos por concepto, sin duplicar caja.
-Contraste de fuentes: punitorios §5 requiere enmienda; pagos afectan estado y comisión.
-Decisiones abiertas: parciales, identidad por persona/deporte, fecha y permiso visual.
-Índice actualizado y cuerpos reales leídos; enlaces/diff revisados, sin suite ni base.
-Sin código ni deploy. Siguiente: revisión de Carlos antes de pruebas en rojo e implementación.
-[Entrada antigua archivada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-ENT01-PROPUESTA.md).
-
-## 2026-09-22 — Codex CAB — FIN-04 definición funcional cerrada
-
-Carlos confirma gastos del club separados, sin descontarlos del resultado por deporte.
-Sí se descuentan del total del negocio; enmienda en el contrato de Reportes V1.
-Saldo acumulado, resultado del período y proyecciones separados; confirmados/sin confirmar.
-Ambos tableros, checklist, estado, plan de producción, resumen y encuesta actualizados.
-Cierre documental de definición; POS-01 sigue pendiente, sin código ni despliegue.
-Verificación de enlaces, coherencia de estado, diff y ausencia de cambios de diseño.
-[Entrada anterior archivada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX-FIN04.md).
-Siguiente: continuar diseño e implementación de Reportes según pedido de Carlos.
-
-[Entradas anteriores preservadas](../99-archivo/bitacoras/2026-10-04-LOG-CODEX.md).
-
-[Entrada POS-07 archivada](../99-archivo/bitacoras/2026-10-04-LOG-CODEX-POS07.md).
-
-[Entrada ENT-01 archivada](../99-archivo/bitacoras/2026-10-04-LOG-CODEX-ENT01-A11.md).
+Entradas anteriores archivadas intactas en [LOG-CODEX-ANTES-A43.md](../99-archivo/bitacoras/2026-10-04/LOG-CODEX-ANTES-A43.md).

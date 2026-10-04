@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alta con ingreso antiguo — propuesta A43</title>
+  <link rel="stylesheet" href="http://gestion-wings/build/assets/app-C2KYuSPg.css">
+</head>
+<body>
+<div class="ds-layout">
+  <aside class="ds-sidebar"><div class="ds-nav-group">WINGS</div><nav><a class="ds-nav-link ds-nav-link--active" href="index.html">Alumnos</a></nav></aside>
+  <div class="ds-main">
+    <div class="ds-topbar"><span>Operativo · Vista previa</span></div>
+    <header class="ds-module-header"><div class="ds-module-header__inner"><h1 class="ds-module-header__title">Nuevo Alumno</h1></div></header>
+    <main class="ds-content">
+      <p class="text-sm text-wings-muted mb-3">Ejemplo del aviso dentro del alta. El resto del formulario se conserva; esta maqueta no guarda datos.</p>
+      <div class="filtros-card">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div><label class="form-label" for="nombre">Nombre</label><input id="nombre" class="w-full px-4 py-2.5 text-sm wings-input" value="Ejemplo"></div>
+          <div><label class="form-label" for="apellido">Apellido</label><input id="apellido" class="w-full px-4 py-2.5 text-sm wings-input" value="Alumno"></div>
+          <div><label class="form-label" for="fecha_alta">Fecha de alta</label><input id="fecha_alta" class="w-full px-4 py-2.5 text-sm wings-input" type="date" value="2020-01-20" readonly></div>
+          <div><label class="form-label" for="deporte">Deporte</label><input id="deporte" class="w-full px-4 py-2.5 text-sm wings-input" value="Patín" readonly></div>
+          <div><label class="form-label" for="grupo">Grupo</label><input id="grupo" class="w-full px-4 py-2.5 text-sm wings-input" value="Inicial" readonly></div>
+          <div><label class="form-label" for="plan">Frecuencia semanal</label><input id="plan" class="w-full px-4 py-2.5 text-sm wings-input" value="2 veces/semana — $48.000" readonly></div>
+        </div>
+        <fieldset class="mt-4 mb-4" aria-describedby="aviso-fecha">
+          <legend class="alumno-nombre mb-3">Cuota al dar de alta</legend>
+          <p id="aviso-fecha" class="mb-3">Este alumno ingresó en enero de 2020, un mes ya cerrado. ¿Le generamos la cuota de este mes?</p>
+          <label class="flex items-center gap-3 mb-3"><input type="radio" name="cuota" value="si"><span><strong>Sí.</strong> Generar octubre de 2026 por <strong>$48.000</strong>, la cuota completa.</span></label>
+          <label class="flex items-center gap-3 mb-3"><input type="radio" name="cuota" value="no"><span><strong>No.</strong> Guardar sin generar la cuota de este mes.</span></label>
+          <p class="text-sm text-wings-muted">La inscripción es independiente y conserva su regla. Elegí una opción antes de guardar. No se generarán cuotas de meses anteriores.</p>
+        </fieldset>
+        <div class="filtros-actions mt-6 pt-4" style="border-top: 1px solid var(--color-border); justify-content: flex-end;"><button type="button" class="ds-btn ds-btn--secondary">Cancelar</button><button type="button" class="ds-btn ds-btn--primary">Guardar</button></div>
+      </div>
+    </main>
+    <footer class="ds-footer"><div class="ds-footer__inner">Wings · Propuesta A43</div></footer>
+  </div>
+</div>
+</body>
+</html>

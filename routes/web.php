@@ -119,6 +119,7 @@ Route::middleware(['auth', 'ensure.active.web'])->group(function () {
     Route::get('/alumnos/autocomplete', [AlumnoWebController::class, 'autocomplete'])->name('web.alumnos.autocomplete');
     Route::get('/alumnos/create', [AlumnoWebController::class, 'create'])->name('web.alumnos.create');
     Route::get('/alumnos/inscripcion-preview', [AlumnoWebController::class, 'inscripcionPreview'])->name('web.alumnos.inscripcion-preview');
+    Route::get('/alumnos/cuota-alta-preview', [AlumnoWebController::class, 'cuotaAltaPreview'])->name('web.alumnos.cuota-alta-preview');
     Route::post('/alumnos', [AlumnoWebController::class, 'store'])->name('web.alumnos.store');
     Route::get('/alumnos/{id}', [AlumnoWebController::class, 'show'])->name('web.alumnos.show');
     Route::get('/alumnos/{id}/edit', [AlumnoWebController::class, 'edit'])->name('web.alumnos.edit');

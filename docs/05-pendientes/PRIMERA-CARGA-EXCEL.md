@@ -6,6 +6,11 @@
 
 ## Decisiones de Carlos del 04/10/2026
 
+**A43, decisión posterior a P0:** el alta manual de ingreso en un mes cerrado
+pregunta si genera la cuota corriente completa. Elegir «No» evita únicamente la
+cuota; inscripción sigue su regla por DNI. No se crea cuota histórica. Mes corriente/futuro mantiene
+porcentaje del día y no pregunta. Esta excepción no implementa ni altera P1.
+
 - **Formato aprobado por Carlos:** una fila por alumno y deporte en Alumnos, con sus
   datos, Debe inscripción, Tiene deuda y **12 pares Período / Monto**. No hay hoja Deudas
   ni repetición de DNI/deporte para cada mes. Tiene deuda se refiere a cuotas mensuales;
@@ -47,8 +52,9 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
    `wings:importar-deuda-inicial`— cargan deuda de alumnos que ya tienen que estar cargados
    a mano: **los dos se retiran cuando el nuevo funcione**, para no dejar tres caminos
    de carga inicial. Mientras tanto se conservan.
-2. **Lo que se carga a mano después sigue las reglas del sistema**, sin excepciones: cuota
-   del mes de la fecha de ingreso con el descuento según el día, más inscripción.
+2. **Lo que se carga a mano después sigue las reglas del sistema:** para ingreso del
+   mes corriente o futuro, cuota de ese mes con porcentaje del día, más inscripción.
+   Para mes cerrado aplica la decisión posterior A43 del 04/10 explicada arriba.
 3. **Se saca la fecha de corte** (`inscripcion_fecha_corte`): el parámetro, su pantalla y la
    prueba que lo cuida. Era la fuente del enredo.
 4. **El importador no crea catálogos.** Un grupo o un plan que no existe se **rechaza**: si

@@ -164,34 +164,33 @@ class CuotaAltaEstadoTest extends TestCase
         $this->assertDatabaseMissing('deuda_cuotas', ['alumno_id' => $viejo->id]);
     }
 
-    // A43 / P0: decisión más nueva del 26/09, confirmada el 04/10.
-    public function test_ingreso_antiguo_crea_su_mes_con_porcentaje_sin_preguntar(): void
+    // A43: la decisión posterior del 04/10 reemplaza el alta histórica de P0.
+    public function test_ingreso_antiguo_con_si_crea_mes_corriente_completo(): void
     {
         ReglaPrimerPago::where('dia_desde', 16)->update(['porcentaje' => 65]);
-        $datos = $this->datos('2020-01-20');
+        $datos = $this->datos('2020-01-20') + ['generar_cuota_actual' => '1'];
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors()
             ->assertSessionMissing('aviso_alta_anterior_al_corte');
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
         $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id,
-            'periodo' => '2020-01', 'monto_original' => 19500, 'porcentaje_alta' => 65]);
+            'periodo' => '2026-09', 'monto_original' => 30000, 'porcentaje_alta' => 100]);
         $this->assertDatabaseCount('deuda_cuotas', 1);
-        $this->assertDatabaseMissing('deuda_cuotas', ['periodo' => '2026-09']);
+        $this->assertDatabaseMissing('deuda_cuotas', ['periodo' => '2020-01']);
         $this->assertEquals($this->plan->id, app(PagoCuotaService::class)->obtenerPlanParaPeriodo($alumno->id, '2020-01')?->plan_id);
     }
 
-    public function test_opcion_antigua_de_no_generar_cuota_no_cambia_regla_unica(): void
+    public function test_no_para_ingreso_antiguo_no_genera_cuota(): void
     {
-        $datos = $this->datos('2020-01-05') + ['generar_cuota_alta' => '0'];
+        $datos = $this->datos('2020-01-05') + ['generar_cuota_actual' => '0'];
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
-        $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id,
-            'periodo' => '2020-01', 'monto_original' => 30000]);
-        $this->assertDatabaseCount('deuda_cuotas', 1);
+        $this->assertDatabaseMissing('deuda_cuotas', ['alumno_id' => $alumno->id]);
+        $this->assertDatabaseCount('deuda_cuotas', 0);
     }
 
-    public function test_cobrar_mes_de_ingreso_antiguo_no_reaplica_porcentaje(): void
+    public function test_cobrar_cuota_corriente_de_ingreso_antiguo_no_reaplica_porcentaje(): void
     {
-        $datos = $this->datos('2020-01-20');
+        $datos = $this->datos('2020-01-20') + ['generar_cuota_actual' => '1'];
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
         $this->plan->update(['precio_mensual' => 90000]);
@@ -199,20 +198,20 @@ class CuotaAltaEstadoTest extends TestCase
         $pago = app(PagoCuotaService::class)->registrarPagoCuotaOperativo([
             'alumno_id' => $alumno->id, 'usuario_operativo_id' => $this->usuario->id,
             'tipo_caja_id' => TipoCaja::first()->id, 'fecha_pago' => '2026-09-05',
-            'monto_entregado' => 26000, 'items' => [['periodo' => '2020-01', 'monto' => 21000]],
+            'monto_entregado' => 35000, 'items' => [['periodo' => '2026-09', 'monto' => 30000]],
         ])['pago'];
-        $this->assertEquals(21000, $pago->monto_cuota);
-        $this->assertEquals(26000, $pago->monto_final);
-        $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id, 'periodo' => '2020-01', 'monto_original' => 21000, 'estado' => 'PAGADA']);
+        $this->assertEquals(30000, $pago->monto_cuota);
+        $this->assertEquals(35000, $pago->monto_final);
+        $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id, 'periodo' => '2026-09', 'monto_original' => 30000, 'estado' => 'PAGADA']);
     }
 
-    public function test_ingreso_antiguo_fin_de_mes_conserva_cuarenta_por_ciento(): void
+    public function test_ingreso_antiguo_fin_de_mes_no_descuenta_cuota_corriente(): void
     {
-        $datos = $this->datos('2020-01-26');
+        $datos = $this->datos('2020-01-26') + ['generar_cuota_actual' => '1'];
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
         $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id,
-            'periodo' => '2020-01', 'monto_original' => 12000, 'porcentaje_alta' => 40]);
+            'periodo' => '2026-09', 'monto_original' => 30000, 'porcentaje_alta' => 100]);
         $this->assertDatabaseCount('deuda_cuotas', 1);
     }
 

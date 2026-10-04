@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada por Codex el 04/10 sobre `867c295`: 343 pasan / 1955 aserciones en wings_testing. Incluye Entrega 1 de Cobranza y CSP. No hay Entrega2Test en este checkout. [Control y límites](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md) |
+| Suite | A43: 366 pruebas / 2131 aserciones verdes el 04/10 en copia exclusiva sobre e5bc981 + A43, base wings_testing_codex. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Sin despliegue; Gemini verifica. |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -41,7 +41,7 @@
   generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
   Pendiente Gemini; sin despliegue ni cierre.
 
-- **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
+- **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; A43 entregada añade elección de cuota corriente completa o ninguna cuota para ingreso en mes cerrado; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 
 - **ENT-01:** inscripción primero, sin comisión, desglose caja/recibo; importe obligatorio. Editar ingreso sin pagos conserva cargo con auditoría; con pagos rechaza. [Regla y ENT-10 pendiente](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Sin despliegue en esta tarea.
 

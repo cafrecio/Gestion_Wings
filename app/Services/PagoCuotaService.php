@@ -359,20 +359,48 @@ class PagoCuotaService
         );
     }
 
-    /** Se invoca dentro de la transacción de alta; nunca para alumnos existentes. */
-    public function crearCuotaAlta(Alumno $alumno, int $planId): DeudaCuota
+    /** Misma regla para el aviso previo y la deuda congelada al guardar. */
+    public function previsualizarCuotaAlta(string $fechaIngreso, ?int $planId = null): array
     {
-        $plan = \App\Models\GrupoPlan::findOrFail($planId);
-        $periodo = $alumno->fecha_alta->format('Y-m');
-        [$porcentaje] = $this->reglaDelDia($alumno->fecha_alta->day, $periodo);
+        $fecha = Carbon::parse($fechaIngreso);
+        $mesCerrado = $fecha->copy()->startOfMonth()->lt(now()->startOfMonth());
+        $mesCuota = $mesCerrado ? now() : $fecha->copy();
+        $periodo = $mesCuota->format('Y-m');
+        [$porcentaje] = $mesCerrado ? [100.0] : $this->reglaDelDia($fecha->day, $periodo);
+        $importe = null;
+        if ($planId !== null) {
+            $query = \App\Models\GrupoPlan::query();
+            if (DB::transactionLevel() > 0) $query->lockForUpdate();
+            $plan = $query->findOrFail($planId);
+            $importe = $this->aplicarPorcentaje((float) $plan->precio_mensual, $porcentaje);
+        }
+
+        return ['mes_cerrado' => $mesCerrado, 'periodo' => $periodo,
+            'mes_ingreso' => $fecha->locale('es')->translatedFormat('F \d\e Y'),
+            'mes_cuota' => $mesCuota->locale('es')->translatedFormat('F \d\e Y'),
+            'porcentaje' => $porcentaje, 'importe' => $importe];
+    }
+
+    /** Se invoca dentro de la transacción de alta; nunca para alumnos existentes. */
+    public function crearCuotaAlta(Alumno $alumno, int $planId, ?bool $generarCuotaActual = null): ?DeudaCuota
+    {
+        $vista = $this->previsualizarCuotaAlta($alumno->fecha_alta->format('Y-m-d'), $planId);
+        if ($vista['mes_cerrado']) {
+            if ($generarCuotaActual === null) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'generar_cuota_actual' => 'Elegí si se genera la cuota de este mes antes de guardar.',
+                ]);
+            }
+            if (!$generarCuotaActual) return null;
+        }
 
         return DeudaCuota::create([
             'alumno_id' => $alumno->id,
-            'periodo' => $periodo,
-            'monto_original' => $this->aplicarPorcentaje((float) $plan->precio_mensual, $porcentaje),
+            'periodo' => $vista['periodo'],
+            'monto_original' => $vista['importe'],
             'monto_pagado' => 0,
             'estado' => DeudaCuota::ESTADO_PENDIENTE,
-            'porcentaje_alta' => $porcentaje,
+            'porcentaje_alta' => $vista['porcentaje'],
         ]);
     }
 

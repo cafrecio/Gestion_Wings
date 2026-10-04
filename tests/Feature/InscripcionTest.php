@@ -62,7 +62,11 @@ class InscripcionTest extends TestCase
     public function test_alta_manual_genera_inscripcion_sin_corte_incluso_con_ingreso_antiguo(): void
     {
         foreach (['2026-09-22', '2026-09-23', '2026-09-24', '2020-01-01'] as $i => $fecha) {
-            $alumno = $this->alta($fecha, '4100011'.$i);
+            $datos = $this->datos($fecha, '4100011'.$i);
+            // A43 exige decidir cuota para mes cerrado; No conserva inscripción.
+            if (Carbon::parse($fecha)->startOfMonth()->lt(now()->startOfMonth())) $datos['generar_cuota_actual'] = '0';
+            $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
+            $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
             $this->assertSame(1, DB::table('cargos_alumno')->where('alumno_id', $alumno->id)->count());
         }
         $this->assertDatabaseHas('cargos_alumno', ['monto_original' => 5000]);

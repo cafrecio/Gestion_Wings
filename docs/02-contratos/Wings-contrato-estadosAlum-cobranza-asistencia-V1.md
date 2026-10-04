@@ -44,8 +44,21 @@ El universo son los **alumnos activos**. Dentro de ese universo, se genera deuda
 
 ### La primera cuota nace en el alta — enmienda del 23/09/2026
 
-Decisión de Carlos. **Al dar de alta un alumno se le crea la deuda de la cuota del mes de su
-fecha real de ingreso** (enmienda 26/09, ratificada 04/10; sin corte ni pregunta), en la misma operación que lo crea, además de la inscripción cuando corresponde.
+Decisión de Carlos. **Al dar de alta un alumno con ingreso del mes corriente o futuro
+se crea la deuda de la cuota del mes de su fecha real de ingreso**, en la misma operación
+que lo crea, además de la inscripción cuando corresponde.
+
+**Enmienda A43 del 04/10/2026, posterior a P0:** si ingresó en un mes ya cerrado,
+el alta muestra antes de guardar una decisión obligatoria, sin opción preseleccionada:
+
+- **Sí:** genera solo la cuota del mes corriente, completa, al 100% del plan elegido.
+- **No:** no genera cuota. **La inscripción mantiene su regla**, aclarado por Carlos;
+  No no evita el cargo de inscripción cuando corresponde por DNI.
+- Nunca se crea la cuota de un mes cerrado. No se cambia la fecha real de ingreso.
+- La decisión, usuario, fecha, período e importe quedan registrados con el alta,
+  en la misma transacción. Un reintento conserva esa decisión y no duplica datos.
+- Ingresos del mes corriente o futuro no muestran pregunta y conservan el porcentaje
+  del día. No se recalculan alumnos ni deudas ya existentes.
 
 - El importe es el del plan elegido, con el **porcentaje del primer cobro según el día de
   ingreso**, y queda **congelado en el alta**: el cobro posterior no lo vuelve a calcular.
@@ -58,8 +71,9 @@ Con esto, el alumno nuevo entra al circuito normal de cobranza desde el primer d
 eso la enmienda de §3 puede sacar la regla de "nunca pagó".
 
 **Implementación local del 23/09, pendiente de verificación independiente:** el alta web
-crea alumno, plan, inscripción y cuota en una transacción. P0 del 04/10 corrige el período
-a mes real de ingreso y la vigencia del plan a esa fecha; pendiente de Gemini. La deuda
+crea alumno, plan, inscripción y cuota en una transacción. P0 del 04/10 corrige la
+vigencia del plan a la fecha real de ingreso; A43 incorpora la decisión de cuota
+corriente para ingresos en meses cerrados. Entrega pendiente de Gemini. La deuda
 conserva el importe y `porcentaje_alta`; el cobro y su vista previa no vuelven a calcular
 esa primera cuota. No se generan deudas retroactivas para registros existentes.
 Las deudas anteriores, sin esa marca, conservan el tratamiento previo de §4, y el

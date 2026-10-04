@@ -34,6 +34,7 @@ class Alumno extends Model
         'fecha_nacimiento' => 'date',
         'fecha_alta' => 'date',
         'activo' => 'boolean',
+        'alta_cuota' => 'array',
     ];
 
     /**

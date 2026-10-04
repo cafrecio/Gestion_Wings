@@ -136,7 +136,8 @@ class AlumnoGrupoDelDeporteTest extends TestCase
             'dni'              => '31445566',
             'celular'          => '3413334444',
             'fecha_nacimiento' => '1998-03-15',
-            'fecha_alta'       => '2026-06-01',
+            // Este caso prueba grupo/deporte; no debe entrar en el alta de mes cerrado.
+            'fecha_alta'       => now()->toDateString(),
         ], $extra);
     }
 }
