@@ -267,6 +267,34 @@ Y verificar el criterio de aceptación específico que la tarea declara en
 
 ---
 
+## 6-bis. Cada agente corre la suite en su propia base
+
+**Decision del 04/10/2026.** Los tres agentes trabajan a la vez en la misma maquina y
+`php artisan test` usa `wings_testing` para todos. Dos suites al mismo tiempo se traban
+entre si: el 04/10 seis pruebas dieron rojo por un deadlock y las mismas seis pasaron en
+una base propia. Un rojo asi es peor que una falla, porque hace dudar de codigo sano, y un
+verde en esas condiciones tampoco vale.
+
+Cada agente corre con la suya, anteponiendo la variable al comando:
+
+```bash
+DB_DATABASE=wings_testing_claude php artisan test     # Claude
+DB_DATABASE=wings_testing_codex  php artisan test     # Codex
+DB_DATABASE=wings_testing_gemini php artisan test     # Gemini
+```
+
+En PowerShell: `$env:DB_DATABASE='wings_testing_codex'; php artisan test`.
+
+Las tres bases ya existen en CAB. En otra maquina se crean una sola vez:
+
+```sql
+CREATE DATABASE wings_testing_claude CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Son descartables: las migraciones las rehacen en cada corrida. `wings_testing` queda como
+la base por defecto para quien corra la suite sin variable, y la base de trabajo del club
+no se usa nunca para probar.
+
 ## 6a. Lo que hace uno, lo controla otro — decisión de Carlos, 23/09/2026
 
 **Ninguna tarea la cierra el mismo agente que la hizo.** Quien la hace la entrega; otro la
