@@ -10,6 +10,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-04 — LOG GEM CAB — Verificación independiente de Configuración (A11, commit 7a8fe09)
+
+- **Objetivo:** Verificar de forma independiente en código y navegador real la entrega de Configuración (A11) realizada por Codex CAB.
+- **Acciones y comprobaciones:**
+  - Código: inspeccionados `ConfiguracionWebController.php`, `ReglaPrimerPagoWebController.php`, vistas Blade (`configuraciones/index.blade.php`, `_campo.blade.php`, `_regla.blade.php`), script `resources/js/configuraciones.js` e integración Vite.
+  - Navegador real (CDP): recorrido completo en escritorio (1280×950) y móvil (375×812).
+  - Grupos: «La plata», «La cobranza» y «Los avisos» con títulos y explicaciones claras en castellano.
+  - Validación de servidor: rechazo comprobado de inscripción negativa (-100), días de gracia fuera de rango (29) y email con formato inválido. Los errores se despliegan en el resumen superior y junto al campo, y **permanecen visibles** (>5s sin auto-dismiss).
+  - Guardado: al ingresar valores válidos se guarda asíncronamente vía PATCH, se eliminan los errores y aparece el estado «Guardado».
+  - Parámetro inmutable: la generación de cuotas se presenta como dato fijo (día 1 a las 06:00, hora Argentina) y el controlador rechaza peticiones directas de modificación.
+  - Reglas de primer pago: editor inline valida porcentajes inválidos (0) con mensaje en castellano («El porcentaje va del 1 al 100.») y el botón Cancelar restaura la visualización sin guardar.
+  - Celular (375px): diseño responsive ordenado, tarjetas y botones contenidos sin desbordes horizontales.
+  - Suite de pruebas: `ConfiguracionA11Test` (8 pruebas / 98 aserciones) y `ReglaPrimerPagoSinSuperposicionTest` (5 pruebas / 39 aserciones) 100% verde en `wings_testing_gemini`.
+- **Dictamen:** Aprobada. A11 queda marcado como CERRADO en `DEFECTOS.md`. Informe y evidencia en `docs/06-pruebas/PRU-02/VERIFICACION-A11.md`.
+- **Siguiente paso:** Pasar Entrega 1 de Cobranza corregida a control de Codex y esperar su verificación antes de arrancar Entrega 2.
+
 ## 2026-10-04 — LOG GEM CAB — Correcciones Entrega 1 Cobranza y responsive filtros (commit abc346a)
 
 - **Objetivo:** Resolver observaciones de Codex y Carlos sobre la Entrega 1 de Cobranza (A51, A52, A18, A19), unificar estado de cobranza y verificar que la regla responsive no afecte negativamente otras pantallas.

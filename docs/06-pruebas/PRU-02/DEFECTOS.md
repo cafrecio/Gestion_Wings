@@ -89,7 +89,7 @@ Está suelto en la barra de totales y lleva a **Movimiento directo**. Nadie pued
 qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al
 lado.
 
-### A11. Configuración es impresentable · Frena · entregada 04/10, pendiente Gemini
+### A11. Configuración es impresentable · Frena · CERRADO 04/10
 
 Muestra los nombres internos: `avisos_email`, `dia_generacion_deuda`, `dias_gracia_cobranza`,
 `inscripcion_importe`. Sin agrupar, sin explicar qué gobierna cada uno. Quien entra no sabe
@@ -103,7 +103,8 @@ Entrega A11 (`7a8fe09`): nombres humanos, grupos, explicaciones, Guardar explíc
 por clave, errores persistentes arriba/junto al campo y generación mensual fija.
 Carlos aprobó la maqueta y escribió la línea Diseno-autorizado. JavaScript separado,
 sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
-**No cerrado: falta verificación independiente de Gemini.**
+
+**Verificación independiente por Gemini (04/10):** Aprobada en código y navegador real en escritorio y celular (375px). Se comprobó el rechazo de valores inválidos (-100, 29, email inválido), la persistencia del resumen y avisos de error (>5s sin desaparecer), el guardado asíncrono con estado "Guardado", el parámetro inmutable de generación mensual y la validación en castellano del editor de reglas de primer pago. Suite verde (356 pruebas / 2073 aserciones). [Informe de verificación y evidencia](VERIFICACION-A11.md). Defecto CERRADO.
 
 ### A12. El inicio del operativo no ayuda a trabajar · Molesta
 

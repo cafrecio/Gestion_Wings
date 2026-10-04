@@ -1,28 +1,34 @@
 # Wings — Estado actual
 
-## P2 / A11 — control de Codex, 04/10/2026
+## A43 y permisos A29/A30/A31 — preparación, 04/10/2026
 
-Entrega 1 de Cobranza revisada en código y navegador local sobre `1c4e6dc` y
-`867c295`: **no aprobada como entrega completa**. A51: filtro por deporte reduce
-el total de deuda de la persona; A52: inscripción altera el estado mensual del listado.
-A18 parcialmente corregido, filtros móviles
-ilegibles (también A19). Suite propia 343/1955 verde. No existe Entrega2Test en
-este checkout; no se corrigió la Entrega 2 ni se desplegó.
-[Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
-A11: [maqueta con estilos Wings existentes](../05-pendientes/maqueta-configuracion/index.html),
-incluidos errores y generación mensual como dato fijo; Carlos la aprobó y escribió
-personalmente la línea Diseno-autorizado. Implementada: grupos, nombres humanos,
-validación en servidor, Guardar explícito y errores persistentes arriba/junto al campo.
-Telegram vacío conserva el destino de respaldo si existe; se corrigió ese texto de
-la maqueta al leer TelegramChannel, sin modificar el envío. No desplegada ni cerrada.
-[Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md); Gemini verificará.
+Después de pull (`853873a`), A43 sigue sin implementar: el alta manual crea cuota
+del mes real de ingreso incluso si ya pasó. [Maqueta del aviso](../05-pendientes/maqueta-alta-mes-cerrado/README.md)
+aprobada por Carlos con «OK ambos» junto a la de permisos; falta su línea formal
+Diseno-autorizado, requerida en el pedido, para modificar las vistas del sistema.
+**Diferencia pendiente de decisión:** A43 dice No = «sin ninguna deuda»;
+`AlumnoWebController::store` también crea inscripción mediante `InscripcionService`.
+Se consultó si No evita solo cuota o también inscripción; no se eligió una interpretación.
+
+[Maqueta de sin permiso](../05-pendientes/maqueta-sin-permiso/README.md) abierta
+en navegador y comprobada a 375 px. Pruebas previas en `wings_testing_codex`:
+12 fallidas / 2 aprobadas; borrador fuera de la suite activa mientras Carlos
+escribe la línea formal de autorización. Ningún middleware ni vista del sistema
+modificado. A29/A30/A31 siguen
+abiertos; tras implementar verifica Gemini. No desplegado.
+
+## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
+
+Entrega 1 de Cobranza: correcciones de A51 (fila por registro con deporte + DNI, columna Deuda y renglón chico de ayuda), A52 (cálculo de estado unificado basado solo en cuotas, inscripción no convierte en deudor) y A18/A19 (filtros responsive en 375px) implementadas en commit `abc346a`. Carlos aprobó el diseño tras inspeccionar las 5 pantallas a 375px. Suite completa 356/2073 verde en `wings_testing_gemini`.
+A11 (Configuración): verificada de forma independiente por Gemini en código y navegador (escritorio y móvil 375px). Grupos «La plata», «La cobranza», «Los avisos», validación estricta en servidor, persistencia de errores, guardado asíncrono y generación mensual fija validados. [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A11.md); defecto A11 cerrado. Sin despliegue.
 
 ## P0/P1 — primera carga, 04/10/2026
 
 P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;
 inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
-importadores anteriores se conservan. A43 pendiente de verificación por Gemini.
+importadores anteriores se conservan. A43 tiene nueva decisión del 04/10 sin
+implementar; ver preparación y consulta pendientes arriba.
 P1: [maqueta estática entregada](../05-pendientes/maqueta-primera-carga/index.html);
 Carlos aprobó el formato de una fila por alumno/deporte con 12 pares Período/Monto;
 instructivo visual en pantalla y Excel. Falta aprobar la maqueta completa antes de
