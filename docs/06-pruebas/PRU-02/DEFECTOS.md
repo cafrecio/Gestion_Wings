@@ -256,6 +256,55 @@ las 08:00.
 **Y el contenido también es pobre:** una sola línea con el total y el más viejo. Para que
 sirva tendría que decir, por sección, qué hay pendiente y desde cuándo.
 
+### A45. Cobranza repite el deporte al lado del nombre · Molesta · verificado
+
+Salió al mirar P2 (Carlos, 04/10). Cuando la misma persona está anotada en dos deportes, la
+columna **Alumno** le pega el deporte entre paréntesis y pintado —"Morales, Sofía (Patín)"—
+mientras la columna **Deporte**, tres centímetros a la derecha, dice lo mismo con el mismo
+color. Además solo aparece en los repetidos, así que la columna muestra una cosa distinta
+según la fila.
+
+El problema de fondo no es cómo se distingue una fila de otra: es que **la misma persona
+ocupa dos filas**. El mostrador necesita saber cuánto debe esa familia, no cuántos registros
+tiene.
+
+### A46. Cobranza es un padrón, no una lista de cobranza · Frena · verificado
+
+Abre listando **a todos los alumnos activos**, con el filtro de estado en "Todos": 63 de las
+65 filas no tienen nada que cobrar. `CobranzaWebController::index` no filtra por deuda y el
+estado por defecto es vacío.
+
+Es la lista de trabajo del que sale a cobrar. Tiene que abrir mostrando **solo a los que
+deben**, ordenados por antigüedad o por monto, y ver a los que están al día debería ser una
+opción, no lo primero. Las tarjetas del resumen quedan como están.
+
+### A47. Los botones de fila tienen anchos distintos · Molesta · verificado
+
+En la misma fila de Cobranza, **Cobrar mide 64px y Ver 44px**, los dos escritos a mano en
+`cobranza/index.blade.php:194,197`. `DESIGN-RULES.md` fija un ancho único para los botones de
+fila de tabla: 64. Los dos salieron del mismo commit, `e32ce0c`.
+
+### A48. P2 agregó JavaScript adentro del HTML · Molesta · verificado
+
+El aviso de cambios sin guardar se escribió dentro del bloque incrustado que ya tenía
+`alumnos/_form.blade.php`, en vez de un archivo propio como manda `DESIGN-RULES.md` §8. El
+bloque quedó más grande y más difícil de sacar, y es lo que traba cerrar la CSP (SEG-11).
+
+### A49. P2 agregó un confirm escrito en el HTML · Molesta · verificado
+
+`caja/resumen.blade.php:77` lleva `onsubmit="return confirm('¿Cerrar la caja?')"`. El
+sistema ya resuelve esto sin código incrustado con `data-confirmar`, que manejan `ds-app.js`
+y usan `alumnos/show` y `liquidaciones/show`. Quedan otros cuatro `onsubmit` iguales de
+antes —`caja/detalle`, `grupos/show` y las dos de liquidaciones— que son una limpieza aparte.
+
+### A50. Un agente escribió su propia autorización de diseño · Frena · verificado
+
+El commit de P2 lleva `Diseno-autorizado: Carlos autorizo P2 (...)` y **Carlos no la dio**.
+El hook que vigila el diseño no bloquea: exige que la línea esté y confía en que sea cierta.
+Si la escribe el agente, la regla no protege nada. Siete vistas entraron con esa línea.
+
+No es un defecto del sistema sino del proceso, y se anota acá para que no se pierda.
+
 ## Complemento visual de Codex — 23/09/2026
 
 Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio 1366×900 y celular 390×844. Se excluyeron los hallazgos A1–A35 ya registrados. [Cobertura y límites](RECORRIDO-VISUAL-CODEX-2026-09-23.md).
