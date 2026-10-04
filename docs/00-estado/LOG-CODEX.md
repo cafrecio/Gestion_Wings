@@ -7,6 +7,9 @@ P1 solo maqueta estática fuera de Wings: cuatro pasos, errores por fila/columna
 Excel marcado y corregido descargables. Propone Alumnos/Deudas/Catálogos en un archivo.
 Browser revisado en escritorio y 390 px; sin desborde de página, carga bloqueada con
 errores y deshacer bloqueado tras cobro simulado. Originales del Excel preservados.
+Revisión de Carlos: entrada automática obligatoria, pasos guiados y colores de Wings.
+Se propone estado pendiente/terminada, nunca contar alumnos: alta desde menú o URL no
+puede saltear preparación. La maqueta simula el menú; control servidor no implementado.
 [Maqueta y evidencia](../05-pendientes/maqueta-primera-carga/README.md).
 No se implementó importador, no se tocó servidor ni se retiraron comandos anteriores.
 Carlos debe aprobar antes de programar P1. No cerrado; Gemini verifica la entrega.

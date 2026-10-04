@@ -9,19 +9,22 @@
 </head>
 <body>
   <div class="preview"><strong>Maqueta para acordar</strong><span>Datos de ejemplo. No guarda en Wings.</span></div>
-  <header class="top"><span class="brand">W<span>WINGS</span></span><span>Sistema / Primera carga</span><span class="role">ADMIN</span></header>
+  <header class="top"><span class="brand">W<span>WINGS</span></span><span>Preparar el club</span><button id="menu-alumnos" class="secondary">Alumnos</button><span class="role">ADMIN</span></header>
   <main>
-    <div class="intro"><p class="eyebrow">PONER EL CLUB EN WINGS</p><h1>Primera carga</h1><p>Cargá los alumnos y lo que deben desde un único Excel. Primero lo revisamos; después cargamos todo junto.</p></div>
+    <div class="intro"><p class="eyebrow">PRIMER INGRESO AL CLUB</p><h1>Vamos a preparar Wings</h1><p>Tu sesión ya está iniciada. Completá estos cuatro pasos para empezar a trabajar con los alumnos del club.</p></div>
+    <div id="entrada-pendiente" class="notice info onboarding"><strong>Primera carga pendiente.</strong> Wings te lleva directamente a este recorrido al ingresar. Cada paso habilita el siguiente; no hay que buscarlo en un menú.</div>
+    <div id="acceso-alumnos" class="notice warning" hidden role="status"></div>
     <div class="demo"><label for="escenario">Mirar un ejemplo</label><select id="escenario"><option value="errores">Archivo con errores</option><option value="correcto">Archivo corregido</option><option value="catalogos">Faltan catálogos</option><option value="pagos">Carga realizada con cobros</option></select><button id="reiniciar" class="secondary">Reiniciar</button></div>
     <ol class="progress" aria-label="Pasos"><li>1. Catálogos</li><li>2. Plantilla</li><li>3. Revisión</li><li>4. Carga</li></ol>
 
-    <section class="card" aria-labelledby="catalogos-titulo">
+    <section class="card current" aria-labelledby="catalogos-titulo">
       <div class="card-heading"><span class="step">1</span><h2 id="catalogos-titulo">Preparar los catálogos</h2></div>
       <p>Antes de completar el Excel, cargá deportes, niveles, grupos y planes con precio.</p>
       <div class="stats"><div><strong>2</strong><span>Deportes</span></div><div><strong>2</strong><span>Niveles</span></div><div><strong>2</strong><span>Grupos</span></div><div><strong id="planes-total">2</strong><span>Planes con precio</span></div></div>
       <div id="catalogos-estado" class="notice success">Listo. Podés descargar la plantilla.</div>
       <details id="catalogos-lista"><summary>Ver las opciones del ejemplo</summary><div class="table-wrap"><table><thead><tr><th>Deporte</th><th>Grupo</th><th>Plan</th><th>Precio mensual</th></tr></thead><tbody><tr><td>Patín</td><td>Inicial</td><td>2 clases por semana</td><td>$52.000</td></tr><tr><td>Fútbol</td><td>Juveniles</td><td>2 clases por semana</td><td>$48.000</td></tr></tbody></table></div><p class="small">Son opciones ficticias de esta maqueta. En Wings, la plantilla llevará las listas reales del club.</p></details>
       <div id="catalogos-acciones" class="actions" hidden><button id="preparar" class="primary">Preparar</button><span class="small">Simula cargar los catálogos que faltan.</span></div>
+      <div id="catalogos-continuar" class="actions"><button id="continuar" class="primary">Continuar</button><span class="small">Siguiente paso: descargar el Excel para completar.</span></div>
     </section>
 
     <section class="card" aria-labelledby="plantilla-titulo">

@@ -11,6 +11,18 @@ El selector superior permite mirar un archivo con errores, uno corregido, catál
 incompletos y una carga que ya tiene cobros. Las acciones de carga/deshacer son simuladas.
 Los mensajes son los textos propuestos para esos casos; no provienen de un motor existente.
 
+**Revisión solicitada por Carlos durante la revisión del 04/10:** entrada automática,
+obligatoria y por pasos. Solo el paso actual muestra acciones; los siguientes se habilitan
+al avanzar. Alumnos en la barra permite probar el intento de saltear por el menú: vuelve
+al recorrido mientras la carga esté pendiente. No se deduce carga terminada del número
+de alumnos. La regla pendiente/terminada y el control en servidor son la corrección
+propuesta; no están implementados en Wings. Preparación de catálogos sigue accesible.
+
+La maqueta ahora usa los colores principales vigentes de Wings: marca #BE123C,
+botones #4A6880/#6888A0, encabezado #4A4A4A y colores semánticos del sistema.
+Las capturas iniciales `escritorio-errores.png` y `celular-errores.png` muestran la primera
+versión de la maqueta; la revisión guiada se conserva en `entrada-guiada.png`.
+
 Un único Excel con tres hojas:
 
 - **Alumnos:** DNI, Apellido, Nombre, Fecha nacimiento, Fecha ingreso, Celular, Email,

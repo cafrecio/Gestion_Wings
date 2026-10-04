@@ -6,6 +6,15 @@
 
 ## Decisiones de Carlos del 04/10/2026
 
+- **Ingreso automático y obligatorio:** la primera carga no es una opción que ADMIN
+  deba encontrar o entender leyendo instrucciones. Al ingresar a un club pendiente de
+  primera carga, se abre directamente el recorrido y cada paso habilita el siguiente.
+- **Corrección de la propuesta de acceso, pendiente de aprobación:** no decidir si se
+  muestra contando alumnos. Un primer alumno creado por menú no puede saltear la carga.
+  Guardar primera carga pendiente/terminada; mientras esté pendiente, alta individual
+  desde menú o acceso directo vuelve a preparación. El servidor debe aplicar la misma
+  regla, no alcanza esconder un botón. Catálogos/configuración necesarios siguen accesibles.
+
 - **Inscripción:** los alumnos que entran por el Excel **no pagan inscripción**, salvo que el
   propio archivo lo aclare. El Excel lleva una columna para marcar quién la debe, fila por
   fila. Los $5.000 siguen corriendo normalmente para todo el que se carga a mano después.
@@ -61,8 +70,10 @@ los errores por fila y Excel descargable con columna Errores. Propone hojas Alum
 Deudas y Catálogos en un único archivo. [Formato y comprobaciones](maqueta-primera-carga/README.md).
 P0 entregado en `ad24769`, suite 338/1932 verde; Gemini debe verificarlo antes de cerrar.
 
-- **Dónde:** entrada "Primera carga" en la sección Sistema del menú del ADMIN. Aparece solo
-  mientras la base no tiene alumnos y desaparece cuando terminó.
+- **Dónde:** se abre automáticamente al ingresar como ADMIN a un club con primera carga
+  pendiente. No depende del menú ni de que la base tenga cero alumnos. Solo completar
+  correctamente la carga termina el recorrido. Una vez terminada, el ingreso habitual
+  vuelve al Inicio. El menú no debe permitir saltear el recorrido dando un alta individual.
 - **Cómo:** una sola pantalla con cuatro pasos apilados, cada uno en una tarjeta con su
   estado (pendiente / listo / con error):
   1. **Catálogos** — cuántos deportes, grupos y planes hay; listo cuando hay un plan con precio.
