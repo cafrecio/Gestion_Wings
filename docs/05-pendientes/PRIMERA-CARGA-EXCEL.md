@@ -55,6 +55,12 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
 
 ## La pantalla (propuesta, pendiente de maqueta)
 
+**Maqueta entregada por Codex CAB el 04/10, pendiente de aprobación de Carlos:**
+[Abrir en navegador](maqueta-primera-carga/index.html). Cuatro pasos, ejemplos con todos
+los errores por fila y Excel descargable con columna Errores. Propone hojas Alumnos,
+Deudas y Catálogos en un único archivo. [Formato y comprobaciones](maqueta-primera-carga/README.md).
+P0 entregado en `ad24769`, suite 338/1932 verde; Gemini debe verificarlo antes de cerrar.
+
 - **Dónde:** entrada "Primera carga" en la sección Sistema del menú del ADMIN. Aparece solo
   mientras la base no tiene alumnos y desaparece cuando terminó.
 - **Cómo:** una sola pantalla con cuatro pasos apilados, cada uno en una tarjeta con su

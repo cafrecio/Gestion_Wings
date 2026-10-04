@@ -19,7 +19,8 @@ Implementación pendiente de verificación independiente por Gemini.
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que
   se carga a mano sigue las reglas del sistema. Detalle y lo que queda abierto en
   [PRIMERA-CARGA-EXCEL.md](../05-pendientes/PRIMERA-CARGA-EXCEL.md). Codex prepara la
-  maqueta fuera del sistema antes de programar.
+  [maqueta fuera del sistema](../05-pendientes/maqueta-primera-carga/index.html) entregada
+  el 04/10: mirarla en navegador y aprobarla antes de programar.
 - [x] **Regla del alta manual decidida:** cuota del mes de ingreso con el porcentaje del
   día, sin corte ni pregunta (26/09, ratificada 04/10). P0 implementado; Gemini verifica.
 

@@ -240,6 +240,7 @@ Los registros existentes, cargos, pagos y deudas no se recalculan.
 Las cinco pruebas del 26/09 basadas en el corte fueron reemplazadas por casos de esta
 regla. Se comprueban mes antiguo/futuro, porcentaje configurable y cobro sin segundo
 descuento. [Evidencia P0](P0-CARGA-INICIAL-2026-10-04.md).
+Commit de implementación P0: `ad24769` (suite 338/1932 verde).
 **No cerrado:** Gemini debe verificar pantalla y código. Los dos importadores antiguos
 siguen disponibles hasta que el nuevo importador de Excel funcione.
 
@@ -414,7 +415,8 @@ cargos ni pagos. Los importadores antiguos se conservan.
 Sin esto no hay forma legítima de poner el club adentro de Wings, y la prueba grande no
 puede arrancar de nuevo con datos creíbles.
 
-1. Maqueta de la pantalla, **aprobada por Carlos antes de programar**.
+1. [Maqueta entregada el 04/10](../../05-pendientes/maqueta-primera-carga/index.html),
+   **pendiente de aprobación de Carlos antes de programar**.
 2. Plantilla que genera el sistema, con las listas reales de deportes, grupos y planes.
 3. Pasada de revisión que no escribe nada y devuelve todos los errores juntos.
 4. Informe de errores **como Excel**, con la columna al final que dice qué está mal.

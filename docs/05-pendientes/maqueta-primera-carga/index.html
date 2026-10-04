@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Primera carga · Maqueta Wings</title>
+  <link rel="stylesheet" href="maqueta.css">
+  <script src="maqueta.js" defer></script>
+</head>
+<body>
+  <div class="preview"><strong>Maqueta para acordar</strong><span>Datos de ejemplo. No guarda en Wings.</span></div>
+  <header class="top"><span class="brand">W<span>WINGS</span></span><span>Sistema / Primera carga</span><span class="role">ADMIN</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow">PONER EL CLUB EN WINGS</p><h1>Primera carga</h1><p>Cargá los alumnos y lo que deben desde un único Excel. Primero lo revisamos; después cargamos todo junto.</p></div>
+    <div class="demo"><label for="escenario">Mirar un ejemplo</label><select id="escenario"><option value="errores">Archivo con errores</option><option value="correcto">Archivo corregido</option><option value="catalogos">Faltan catálogos</option><option value="pagos">Carga realizada con cobros</option></select><button id="reiniciar" class="secondary">Reiniciar</button></div>
+    <ol class="progress" aria-label="Pasos"><li>1. Catálogos</li><li>2. Plantilla</li><li>3. Revisión</li><li>4. Carga</li></ol>
+
+    <section class="card" aria-labelledby="catalogos-titulo">
+      <div class="card-heading"><span class="step">1</span><h2 id="catalogos-titulo">Preparar los catálogos</h2></div>
+      <p>Antes de completar el Excel, cargá deportes, niveles, grupos y planes con precio.</p>
+      <div class="stats"><div><strong>2</strong><span>Deportes</span></div><div><strong>2</strong><span>Niveles</span></div><div><strong>2</strong><span>Grupos</span></div><div><strong id="planes-total">2</strong><span>Planes con precio</span></div></div>
+      <div id="catalogos-estado" class="notice success">Listo. Podés descargar la plantilla.</div>
+      <details id="catalogos-lista"><summary>Ver las opciones del ejemplo</summary><div class="table-wrap"><table><thead><tr><th>Deporte</th><th>Grupo</th><th>Plan</th><th>Precio mensual</th></tr></thead><tbody><tr><td>Patín</td><td>Inicial</td><td>2 clases por semana</td><td>$52.000</td></tr><tr><td>Fútbol</td><td>Juveniles</td><td>2 clases por semana</td><td>$48.000</td></tr></tbody></table></div><p class="small">Son opciones ficticias de esta maqueta. En Wings, la plantilla llevará las listas reales del club.</p></details>
+      <div id="catalogos-acciones" class="actions" hidden><button id="preparar" class="primary">Preparar</button><span class="small">Simula cargar los catálogos que faltan.</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="plantilla-titulo">
+      <div class="card-heading"><span class="step">2</span><h2 id="plantilla-titulo">Completar la plantilla</h2></div>
+      <p>Un solo archivo, con tres hojas. Elegí deporte, grupo y plan de las listas desplegables.</p>
+      <div class="sheet-grid"><div><h3>Alumnos</h3><p>Una fila por alumno y deporte. Datos de contacto, tutor, ingreso, grupo, plan y <strong>Debe inscripción</strong>.</p></div><div><h3>Deudas</h3><p>Una fila por cuota pendiente: DNI, deporte, período e importe. Permite tantos meses como necesites.</p></div><div><h3>Catálogos</h3><p>Las opciones del club para elegir. Si falta un grupo o un plan, se prepara antes de revisar.</p></div></div>
+      <div class="notice info"><strong>Inscripción en la primera carga:</strong> queda en <strong>No</strong>. Solo se genera para quien tenga <strong>Sí</strong> en su columna. Valor del ejemplo: $5.000, una vez por DNI.</div>
+      <details><summary>Qué se completa en cada columna</summary><p><strong>Alumnos:</strong> DNI, Apellido, Nombre, Fecha nacimiento, Fecha ingreso, Celular, Email, Tutor, Teléfono tutor, Deporte, Grupo, Plan, Debe inscripción.</p><p><strong>Deudas:</strong> DNI, Deporte, Período, Importe. Escribí solamente lo pendiente, sin inventar pagos anteriores. En este ejemplo, un alumno sin filas de deuda arranca sin deuda.</p><p class="small">DNI se guarda como texto. Se aceptan 092026 y 92026 como septiembre de 2026. En importes, 52.000 significa $52.000. Se quitan espacios sobrantes.</p></details>
+      <div class="actions"><a id="descargar-plantilla" class="button primary" href="ejemplos/plantilla-ejemplo.xlsx" download>Descargar</a><span class="small">plantilla-ejemplo.xlsx · incluye instrucciones y listas de ejemplo</span></div>
+    </section>
+
+    <section class="card" aria-labelledby="revision-titulo">
+      <div class="card-heading"><span class="step">3</span><h2 id="revision-titulo">Revisar el Excel</h2></div>
+      <p>La revisión no carga alumnos ni deudas. Si hay errores, aparecen todos juntos.</p>
+      <div class="file-box"><span class="file-icon" aria-hidden="true">XLSX</span><div><strong id="archivo-nombre">club-con-errores.xlsx</strong><span class="small">Archivo del ejemplo seleccionado arriba</span></div><button id="revisar" class="primary">Revisar</button></div>
+      <p class="small">La maqueta usa ejemplos preparados. El selector de archivos reales se construirá después de aprobarla.</p>
+      <div id="revision-vacia" class="notice neutral">Revisá el archivo para saber si está listo para cargar.</div>
+      <div id="revision-resultado" hidden aria-live="polite">
+        <div id="revision-estado" class="notice danger"></div>
+        <div id="errores-panel">
+          <div class="error-list">
+            <article><h3>Alumnos · fila 3 · Deporte</h3><p>“FutbolX” no existe. Elegí Patín o Fútbol de la lista.</p></article>
+            <article><h3>Alumnos · fila 3 · Grupo</h3><p>“GrupoX” no existe. Elegí Inicial o Juveniles de la lista y comprobá que corresponda al deporte.</p></article>
+            <article><h3>Alumnos · fila 3 · Plan</h3><p>“PlanX” no existe. Elegí un plan de la lista que corresponda al grupo.</p></article>
+            <article><h3>Alumnos · fila 4 · Teléfono tutor</h3><p>Falta el teléfono del tutor. Es obligatorio para una alumna menor de edad.</p></article>
+            <article><h3>Deudas · fila 4 · Período</h3><p>“132026” no es un mes válido. Se esperaba mes y año, por ejemplo 092026.</p></article>
+            <article><h3>Deudas · fila 4 · Importe</h3><p>“52x000” no es un importe válido. Se esperaba un número mayor que cero, por ejemplo 52.000.</p></article>
+          </div>
+          <h3>Así vuelve el Excel</h3><p>Se conservan las hojas y los datos que cargaste. Al final de cada hoja con datos se agrega <strong>Errores</strong>; una fila puede tener varios.</p>
+          <div class="table-wrap"><table class="returned"><thead><tr><th>Hoja / fila</th><th>DNI</th><th>Dato original</th><th>Errores (columna nueva)</th></tr></thead><tbody><tr><td>Alumnos / 2</td><td>50.300.001 </td><td>Patín </td><td>Sin errores</td></tr><tr class="bad-row"><td>Alumnos / 3</td><td>50300002</td><td>FutbolX · GrupoX · PlanX</td><td>Deporte inexistente; grupo inexistente; plan inexistente.</td></tr><tr class="bad-row"><td>Alumnos / 4</td><td>50300003</td><td>Teléfono tutor vacío</td><td>Teléfono tutor: obligatorio para menor.</td></tr><tr class="bad-row"><td>Deudas / 4</td><td>50300002</td><td>132026 · 52x000</td><td>Período inválido; importe inválido.</td></tr></tbody></table></div>
+          <div class="actions"><a class="button secondary" href="ejemplos/club-con-errores-revisado.xlsx" download>Descargar</a><span class="small">Corregí las filas en el Excel descargado y volvé a Revisar. La columna Errores se reemplaza en cada revisión.</span></div>
+        </div>
+        <div id="correcto-panel" hidden><div class="stats"><div><strong>4</strong><span>Alumnos</span></div><div><strong>3</strong><span>Cuotas pendientes</span></div><div><strong>1</strong><span>Inscripción</span></div><div><strong>$157.000</strong><span>Deuda total</span></div></div><p class="small">Cuotas: $152.000. Inscripción: $5.000. No se registran ingresos de caja ni recibos por esta carga.</p><div class="notice info">Se leerán correctamente el DNI con puntos, los espacios sobrantes, 92026 como septiembre de 2026 y 52.000 como $52.000.</div><a href="ejemplos/club-corregido.xlsx" download>Ver el Excel corregido del ejemplo</a></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="carga-titulo">
+      <div class="card-heading"><span class="step">4</span><h2 id="carga-titulo">Cargar en Wings</h2></div>
+      <div id="carga-pendiente"><p>Se habilita cuando la revisión termina sin errores. Un solo error y no se carga nada.</p><div class="actions"><button id="cargar" class="primary" disabled>Cargar</button><span id="carga-ayuda" class="small">Primero revisá el Excel.</span></div></div>
+      <div id="confirmacion" hidden><div class="notice info"><strong>Vas a cargar 4 alumnos, 3 cuotas pendientes y 1 inscripción.</strong><br>Deuda total: $157.000. No entra dinero a caja. Se cargará todo en una sola operación.</div><div class="actions"><button id="confirmar" class="primary">Confirmar</button><button id="volver" class="secondary">Volver</button></div></div>
+      <div id="carga-realizada" hidden aria-live="polite"><div class="notice success"><strong>Carga terminada.</strong> Se cargaron 4 alumnos y $157.000 de deuda. El alumno que no debía arranca al día.</div><p>En el sistema, los alumnos estarán en Alumnos y las deudas en Cobranza. La entrada “Primera carga” dejará de ofrecer una nueva importación.</p><div id="deshacer-disponible"><div class="actions"><button id="deshacer" class="secondary">Deshacer</button><span class="small">Disponible mientras no haya cobros. Deshace solamente esta carga.</span></div></div><div id="deshacer-bloqueado" class="notice warning" hidden><strong>No se puede deshacer: ya hay un cobro registrado.</strong> Los alumnos y deudas se conservan.</div></div>
+    </section>
+    <footer>Propuesta del 04/10/2026 · Fuera del sistema · El formato de las hojas y los mensajes se acuerdan con esta maqueta.</footer>
+  </main>
+</body>
+</html>
