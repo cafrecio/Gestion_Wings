@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite del corte versionado A11: **352 pruebas / 2057 aserciones**, todas verdes el 04/10 en wings_testing_codex.
+Suite del corte versionado A11: **355 pruebas / 2066 aserciones**, todas verdes el 04/10 en wings_testing_codex.
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 entregada; Gemini verifica, sin deploy.
 Las cinco pruebas antiguas de A43 fueron reemplazadas por la regla sin corte.
 Implementación de Entrega 1 de P2 (Cobranza) completada con suite verde.
@@ -76,10 +76,10 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 352 pruebas deben pasar
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 355 pruebas deben pasar
 ```
 
-Corte verificado del 04/10: **352 pruebas / 2057 aserciones**, todas verdes en la copia exclusiva de entrega A11; base wings_testing_codex.
+Corte verificado del 04/10: **355 pruebas / 2066 aserciones**, todas verdes en la copia exclusiva de entrega A11; base wings_testing_codex.
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista
