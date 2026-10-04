@@ -40,6 +40,17 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
   con puntos, el período `092026` que Excel convierte en `92026`, el monto `52.000` que se
   leía como $52, los espacios de más al final).
 
+## Decisiones de Carlos del 04/10/2026
+
+- **Inscripción:** los alumnos que entran por el Excel **no pagan inscripción**, salvo que el
+  propio archivo lo aclare. El Excel lleva una columna para marcar quién la debe, fila por
+  fila. Los $5.000 siguen corriendo normalmente para todo el que se carga a mano después.
+- **La maqueta se mira en el navegador**, no en un documento: una página de prueba que no
+  toca el sistema, con los pasos, los mensajes de error y cómo vuelve el Excel corregido.
+  Hasta que Carlos la apruebe, no se programa.
+- **La base del sitio de prueba se rehace con este Excel** cuando esté listo. No hace falta
+  conservar lo que hay cargado hoy.
+
 ## La pantalla (propuesta, pendiente de maqueta)
 
 - **Dónde:** entrada "Primera carga" en la sección Sistema del menú del ADMIN. Aparece solo

@@ -448,7 +448,10 @@ Carlos.
 
 ### P3 · El dueño deja de ser un operativo
 
-Cambio de modelo, no de pantalla: **se diseña con Carlos antes de repartirlo.**
+**Decidido el 04/10:** cuando el dueño cobra, esa plata **va directo al cashflow, sin caja**,
+con su medio de pago y su fecha. No abre caja, no cierra nada y no se valida a sí mismo. La
+caja sigue siendo cosa del mostrador. El camino ya existe en el código
+(`registrarPagoCuotaAdmin`), hoy solo lo usa la API.
 
 | Orden | Qué | Defectos |
 |---|---|---|
@@ -467,10 +470,11 @@ Cambio de modelo, no de pantalla: **se diseña con Carlos antes de repartirlo.**
 | 4.5 | Inicio del operativo y del profesor | A12, A24 |
 | 4.6 | Castellano y formularios que no pidan lo que un club de chicos no tiene | A26, A27, A38–A42 |
 
-### P5 · El celular — **decisión pendiente de Carlos**
+### P5 · El celular — **decidido el 04/10: entra entero en esta versión**
 
-Si entra en esta versión o después. Lo único que hoy se usa sí o sí desde el teléfono es la
-asistencia del profesor.
+Carlos: el celular se arregla ahora, no después de la prueba. Incluye las tablas, los
+filtros y los botones que se rompen en pantalla chica, además de la asistencia del profesor,
+que es lo que más se usa desde el teléfono.
 
 | Orden | Qué | Defectos |
 |---|---|---|
@@ -496,6 +500,9 @@ Después de la prueba, salvo que Carlos adelante algo.
 
 ### Cómo se reparte
 
+- **Reparto del 04/10:** Codex toma P0 y P1 —la carga inicial—, Gemini toma P2 —el
+  mostrador—. **Cada uno verifica el trabajo del otro.** No se pisan: una toca importación y
+  altas, la otra cobranza y pantallas.
 - **Un agente implementa, otro verifica.** Nunca el mismo.
 - **P0 y P1 van primero y en ese orden.** P2 puede arrancar en paralelo: no toca la carga
   inicial.
