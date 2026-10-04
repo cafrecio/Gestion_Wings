@@ -959,6 +959,24 @@ a:hover {
     flex-shrink: 0;
 }
 
+/* En móvil (≤768px): los filtros se apilan con ancho completo para ser legibles y usables con el dedo */
+@media (max-width: 768px) {
+    .filtros-row {
+        flex-wrap: wrap;
+    }
+    .filtros-row > .filtros-select,
+    .filtros-row > .filtros-control[type="date"] {
+        flex: 1 1 100%;
+        min-width: 100%;
+        width: 100%;
+    }
+    .filtros-actions {
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+}
+
 /* search-input-group: copia exacta de CyE */
 .search-input-group {
     position: relative;

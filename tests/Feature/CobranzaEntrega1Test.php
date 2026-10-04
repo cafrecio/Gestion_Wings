@@ -9,6 +9,8 @@ use App\Models\Deporte;
 use App\Models\DeudaCuota;
 use App\Models\Grupo;
 use App\Models\Nivel;
+use App\Models\Rubro;
+use App\Models\Subrubro;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -116,9 +118,8 @@ class CobranzaEntrega1Test extends TestCase
         $response->assertSee('Pérez, Juan');
     }
 
-    public function test_unifica_alumnos_con_mismo_dni_en_una_sola_fila(): void
+    public function test_una_fila_por_registro_y_renglon_de_ayuda_si_repite_dni_con_deuda(): void
     {
-        // Misma persona (Sofía Morales) anotada en Patín y en Fútbol
         $dni = '40000001';
         $moralesPatin = $this->crearAlumno('Morales', 'Sofía', $dni, $this->patin, $this->grupoPatin);
         $moralesFutbol = $this->crearAlumno('Morales', 'Sofía', $dni, $this->futbol, $this->grupoFutbol);
@@ -130,18 +131,97 @@ class CobranzaEntrega1Test extends TestCase
             ->get(route('web.cobranza.index'));
 
         $response->assertOk();
-
         $html = $response->getContent();
 
-        // Debe aparecer una sola vez en el listado
-        $this->assertSame(1, substr_count($html, 'Morales, Sofía'), 'La persona con dos deportes debe figurar en una sola fila.');
+        // Son dos registros: van en dos filas
+        $this->assertSame(2, substr_count($html, 'Morales, Sofía'), 'Deben existir dos filas para la misma persona anotada en dos deportes.');
 
-        // Debe listar ambos deportes/actividades
-        $response->assertSee('Patín');
-        $response->assertSee('Fútbol');
+        // En la fila de Patín debe verse el monto propio (15.000) y renglón de ayuda indicando que también debe en Fútbol (12.000)
+        $response->assertSee('también debe $ 12.000,00 en Fútbol', false);
+        // En la fila de Fútbol debe verse el monto propio (12.000) y renglón de ayuda indicando que también debe en Patín (15.000)
+        $response->assertSee('también debe $ 15.000,00 en Patín', false);
 
-        // Debe mostrar el total adeudado por la persona (15000 + 12000 = 27000)
-        $response->assertSee('$ 27.000,00', false);
+        // La columna se llama "Deuda", no "Total deuda"
+        $response->assertSee('Deuda');
+        $response->assertDontSee('Total deuda');
+    }
+
+    public function test_si_el_otro_registro_no_debe_nada_no_muestra_renglon_de_ayuda(): void
+    {
+        $dni = '40000002';
+        $moralesPatin = $this->crearAlumno('Morales', 'Sofía', $dni, $this->patin, $this->grupoPatin);
+        $moralesFutbol = $this->crearAlumno('Morales', 'Sofía', $dni, $this->futbol, $this->grupoFutbol);
+
+        // Solo debe en Patín; en Fútbol está al día
+        $this->crearDeuda($moralesPatin, '2026-08', 15000);
+
+        $response = $this->actingAs($this->operativo)
+            ->get(route('web.cobranza.index'));
+
+        $response->assertOk();
+        $response->assertDontSee('también debe');
+    }
+
+    public function test_deuda_por_fila_no_cambia_al_filtrar_por_deporte(): void
+    {
+        $dni = '40000003';
+        $moralesPatin = $this->crearAlumno('Morales', 'Sofía', $dni, $this->patin, $this->grupoPatin);
+        $moralesFutbol = $this->crearAlumno('Morales', 'Sofía', $dni, $this->futbol, $this->grupoFutbol);
+
+        $this->crearDeuda($moralesPatin, '2026-08', 15000);
+        $this->crearDeuda($moralesFutbol, '2026-09', 12000);
+
+        // Filtrando solo Fútbol
+        $response = $this->actingAs($this->operativo)
+            ->get(route('web.cobranza.index', ['deporte_id' => $this->futbol->id]));
+
+        $response->assertOk();
+        // Debe mostrar exactamente la fila de Fútbol con sus $12.000,00
+        $response->assertSee('$ 12.000,00', false);
+        // Debe mantener el renglón de ayuda informando la deuda en el otro deporte
+        $response->assertSee('también debe $ 15.000,00 en Patín', false);
+    }
+
+    public function test_inscripcion_impaga_no_convierte_en_deudor_en_listado_ficha_ni_resumen(): void
+    {
+        $alumno = $this->crearAlumno('Gaitán', 'Lucía', '30000099', $this->patin, $this->grupoPatin);
+        $rubro = Rubro::firstOrCreate(['nombre' => 'Ingresos'], ['tipo' => 'INGRESO', 'activo' => true]);
+        $subrubro = Subrubro::firstOrCreate(['nombre' => 'Inscripción'], ['rubro_id' => $rubro->id, 'activo' => true]);
+
+        CargoAlumno::create([
+            'alumno_id' => $alumno->id,
+            'dni' => '30000099',
+            'tipo' => 'INSCRIPCION',
+            'clave_origen' => 'INSCRIPCION-30000099',
+            'subrubro_id' => $subrubro->id,
+            'monto_original' => 5000,
+            'monto_condonado' => 0,
+            'estado' => 'VIGENTE',
+            'calculo' => ['tipo' => 'fijo'],
+        ]);
+
+        // 1. En Cobranza con filtro TODOS: su estado debe ser AL_DIA (no DEUDOR)
+        $respCobranza = $this->actingAs($this->operativo)
+            ->get(route('web.cobranza.index', ['estado' => 'TODOS']));
+        $respCobranza->assertOk();
+        $respCobranza->assertSee('Al día');
+
+        // Y no debe aparecer en el filtro por defecto de DEUDORES porque no tiene cuotas vencidas
+        $respDefecto = $this->actingAs($this->operativo)
+            ->get(route('web.cobranza.index'));
+        $respDefecto->assertDontSee('Gaitán, Lucía');
+
+        // 2. En Ficha del alumno: estado de cobranza sigue siendo Al día
+        $respFicha = $this->actingAs($this->operativo)
+            ->get(route('web.alumnos.show', $alumno->id));
+        $respFicha->assertOk();
+        $respFicha->assertSee('Al día');
+
+        // 3. En Resumen superior / servicio: se cuenta como AL_DIA
+        $servicio = app(\App\Services\CobranzaEstadoService::class);
+        $resumen = $servicio->resumenDashboard();
+        $this->assertEquals(1, $resumen['por_estado']['AL_DIA'] ?? 0);
+        $this->assertEquals(0, $resumen['por_estado']['DEUDOR'] ?? 0);
     }
 
     public function test_muestra_total_adeudado_en_tarjetas_superiores(): void

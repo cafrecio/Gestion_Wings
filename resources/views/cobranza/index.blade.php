@@ -88,9 +88,9 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 <div class="stats-bar mb-2">
     <div class="stats-info">
         @if($estadoFiltro === 'DEUDORES' || !$estadoFiltro)
-            Mostrando <strong>{{ $alumnos->count() }}</strong> {{ $alumnos->count() === 1 ? 'persona con deuda' : 'personas con deuda' }} de <strong>{{ $totalActivos }}</strong> alumnos activos (ordenado de deuda más antigua a más reciente)
+            Mostrando <strong>{{ $alumnos->count() }}</strong> {{ $alumnos->count() === 1 ? 'alumno con deuda' : 'alumnos con deuda' }} de <strong>{{ $totalActivos }}</strong> alumnos activos (ordenado de deuda más antigua a más reciente)
         @else
-            <strong>{{ $alumnos->count() }}</strong> {{ $alumnos->count() === 1 ? 'persona' : 'personas' }}
+            <strong>{{ $alumnos->count() }}</strong> {{ $alumnos->count() === 1 ? 'alumno' : 'alumnos' }}
         @endif
     </div>
 </div>
@@ -112,7 +112,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                 <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deporte</th>
                 <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Grupo</th>
                 <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deuda desde</th>
-                <th style="padding:10px 14px; text-align:right; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Total deuda</th>
+                <th style="padding:10px 14px; text-align:right; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deuda</th>
                 <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Estado</th>
                 <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Acciones</th>
             </tr>
@@ -136,7 +136,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                     default  => $ec,
                 };
                 $dniNorm = \App\Services\InscripcionService::dni($alumno->dni);
-                $inscPendiente = $inscripciones[$dniNorm] ?? ($alumno->inscripcion_pendiente ?? 0);
+                $inscPendiente = (float)($alumno->inscripcion_pendiente ?? 0);
             @endphp
             <tr style="border-bottom:1px solid var(--color-border);">
                 {{-- Alumno --}}
@@ -147,28 +147,30 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                             DNI: {{ number_format((int)$dniNorm, 0, '', '.') }}
                         </div>
                     @endif
+                    @if(!empty($alumno->ayuda_otro_deporte))
+                        <div style="font-size:0.72rem; font-weight:400; color:var(--color-text-muted); margin-top:2px;">
+                            {{ $alumno->ayuda_otro_deporte }}
+                        </div>
+                    @endif
                 </td>
 
                 {{-- Deporte --}}
                 <td style="padding:10px 14px; font-size:0.8rem;">
-                    @if(isset($alumno->actividades) && count($alumno->actividades) > 0)
-                        <div style="display:flex; flex-direction:column; gap:4px;">
-                            @foreach($alumno->actividades as $act)
-                                @php
-                                    $depSlug = match(strtolower($act['deporte'])) {
-                                        'patín', 'patin' => 'patin',
-                                        'fútbol', 'futbol' => 'futbol',
-                                        default => 'otro',
-                                    };
-                                @endphp
-                                <div>
-                                    <span style="font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px;
-                                                 background:color-mix(in srgb, var(--color-sport-{{ $depSlug }}) 15%, transparent);
-                                                 color:var(--color-sport-{{ $depSlug }});">
-                                        {{ $act['deporte'] }}
-                                    </span>
-                                </div>
-                            @endforeach
+                    @php
+                        $depNombre = $alumno->deporte->nombre ?? null;
+                        $depSlug = match(strtolower($depNombre ?? '')) {
+                            'patín', 'patin' => 'patin',
+                            'fútbol', 'futbol' => 'futbol',
+                            default => 'otro',
+                        };
+                    @endphp
+                    @if($depNombre)
+                        <div>
+                            <span style="font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px;
+                                         background:color-mix(in srgb, var(--color-sport-{{ $depSlug }}) 15%, transparent);
+                                         color:var(--color-sport-{{ $depSlug }});">
+                                {{ $depNombre }}
+                            </span>
                         </div>
                     @else
                         <span style="color:var(--color-text-muted);">–</span>
@@ -177,15 +179,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 
                 {{-- Grupo --}}
                 <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text);">
-                    @if(isset($alumno->actividades) && count($alumno->actividades) > 0)
-                        <div style="display:flex; flex-direction:column; gap:4px;">
-                            @foreach($alumno->actividades as $act)
-                                <div>{{ $act['grupo'] }}</div>
-                            @endforeach
-                        </div>
-                    @else
-                        <span style="color:var(--color-text-muted);">–</span>
-                    @endif
+                    {{ $alumno->grupo->nivel->nombre ?? ($alumno->grupo->nombre ?? '–') }}
                 </td>
 
                 {{-- Deuda desde --}}
@@ -211,7 +205,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                     @endif
                 </td>
 
-                {{-- Total deuda --}}
+                {{-- Deuda --}}
                 <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap; color:{{ ($alumno->deuda_total ?? 0) > 0 ? 'var(--color-danger)' : 'var(--color-text-muted)' }};">
                     $ {{ number_format($alumno->deuda_total ?? 0, 2, ',', '.') }}
                 </td>
@@ -228,7 +222,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                     <div style="display:inline-flex; gap:6px; justify-content:center;">
                         <a href="{{ route('web.caja.cobrar', $alumno->id) }}"
                            class="ds-btn-row"
-                           style="width:64px; height:26px; font-size:0.72rem; background:var(--color-btn-primary); color:#fff; border:1px solid var(--color-btn-primary); text-decoration:none;">Cobrar</a>
+                           style="width:64px; height:26px; font-size:0.72rem; background:var(--color-btn-primary); color:var(--color-surface); border:1px solid var(--color-btn-primary); text-decoration:none;">Cobrar</a>
                         <a href="{{ route('web.alumnos.show', $alumno->id) }}"
                            class="ds-btn-row ds-btn-row--sec"
                            style="width:64px; height:26px; font-size:0.72rem; text-decoration:none;">Ver</a>
