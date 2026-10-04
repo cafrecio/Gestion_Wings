@@ -151,6 +151,19 @@ echo "permisos ok"
 
 paso "8. migraciones"
 sudo -u "${USUARIO}" php82 artisan migrate --force
+
+paso "8b. limpiar lo que quedo cacheado de la version anterior"
+# El 23/09 el sitio quedo sirviendo la lista de rutas del 13/09: las pantallas
+# nuevas reventaban con "Route [...] not defined" aunque el codigo estuviera al
+# dia, y desde afuera parecia un problema de login. Limpiar es parte del
+# despliegue, no una tarea que alguien tenga que acordarse de hacer.
+for QUE in route config view; do
+    sudo -u "${USUARIO}" php82 artisan "${QUE}:clear"
+done
+# Aviso temprano si alguna ruta nueva no existe en el codigo desplegado.
+sudo -u "${USUARIO}" php82 artisan route:list --json >/dev/null \
+    || { echo "FALLA: las rutas no se pueden leer despues de limpiar la cache"; exit 1; }
+echo "caches limpias"
 echo "migraciones aplicadas"
 
 paso "9. sitio en Apache (solo HTTP por ahora)"

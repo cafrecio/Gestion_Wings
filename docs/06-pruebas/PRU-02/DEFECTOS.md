@@ -455,11 +455,15 @@ una escuela de patín y fútbol infantil; sin tutores ni celulares cargados. El 
 **Servicios (Luz, Internet)** que este club no paga porque alquila las canchas. Y los saldos
 iniciales de caja son inventados: los $1.570.000 del cashflow salen de ahí, no de plata real.
 
-### B14. El despliegue no limpiaba la caché de rutas · Verificado y corregido
+### B14. El despliegue no limpiaba la caché de rutas · Verificado y CERRADO 04/10
 
-El servidor de prueba servía la lista de rutas del 13/09: las pantallas nuevas reventaban.
-Se limpió el 23/09. **El script de despliegue todavía no lo hace solo.**
+El servidor de prueba servía la lista de rutas del 13/09: las pantallas nuevas reventaban
+con "Route [...] not defined" aunque el código estuviera al día, y desde afuera parecía un
+problema de login. Se limpió a mano el 23/09.
 
+**Corregido el 04/10:** `montar-test.sh` limpia rutas, configuración y vistas como paso
+propio del despliegue, y después comprueba que las rutas se puedan leer; si no, el
+despliegue falla en vez de dejar el sitio roto.
 ### B15. El SPF del subdominio anuló su comodín de DNS · Verificado y corregido
 
 Documentado en `docs/04-tecnico/SERVIDOR.md`. Queda como lección de proceso: comprobar desde
