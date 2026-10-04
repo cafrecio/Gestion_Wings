@@ -24,8 +24,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - 17 nuevas pruebas en 6 archivos Feature dedicados (`CobranzaP2Test`, `AlumnoFichaCobrarP2Test`, `CobroAdelantadoP2Test`, `AlumnoFeedbackGuardadoP2Test`, `ClaseProfesoresDeporteP2Test`, `CajaAperturaSaldoInicialP2Test`).
   - Suite completa: **355 pruebas / 1998 aserciones en verde** (0 fallas).
   - Verificados `CspSinCodigoIncrustadoTest` (20 bloques script, 10 manejadores inline) y `DocumentacionNoMienteTest`.
-  - Compilación de vistas Blade limpia (`view:cache` y `view:clear` exitosos).
-- **Entrega y control (§6a):** Commit `e32ce0c`. Tarea entregada para verificación cruzada por parte de Codex en pantalla y código.
+- **Autorización de diseño y entrega (§6a):** Revisión visual de todas las pantallas capturadas en vivo (`revisión_visual_p2.md`) presentada a Carlos y autorizada formalmente por el dueño. Commit de código `e32ce0c`, referencias en `DEFECTOS.md` en `9b37e70`. Tarea entregada para verificación cruzada por parte de Codex en pantalla y código.
 
 ## 2026-09-23 — LOG GEM CAB — Auditoría visual a simple vista (PRU-02)
 
