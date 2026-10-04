@@ -23,7 +23,7 @@ ir a Alumnos y buscarlo de nuevo.
 Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trabajo.
 `resources/views/cobranza/index.blade.php`.
 
-### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · implementado, pendiente de verificación
+### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · CERRADO 23/09
 
 Con el padrón recién importado, Cobranza clasifica **a los 60 alumnos como deudores**,
 mientras el tablero del operativo muestra 20 con deuda. Uno de los dos miente y nadie sabe
@@ -226,7 +226,12 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ### A43. El alumno antiguo cargado a mano recibe el descuento de bienvenida · Frena · verificado
 
-**Regla decidida por Carlos el 26/09/2026.** El corte del sistema
+**Atención: la regla escrita abajo quedó sin efecto.** Más tarde ese mismo 26/09 Carlos
+decidió [la primera carga por Excel](../../05-pendientes/PRIMERA-CARGA-EXCEL.md), que
+**saca la fecha de corte** y deja una sola regla: la cuota del alta es la del mes de la
+fecha de ingreso, con el porcentaje del día. Resolverlo es el paso **P0** del plan.
+
+**Regla anterior, del 26/09/2026, ya sin efecto.** El corte del sistema
 (`inscripcion_fecha_corte`, el mismo parametro que ya usa la inscripcion) separa al
 alumno viejo del nuevo, y la cuota que nace en el alta es la del **mes de la fecha de
 ingreso**, no la del mes de la carga.
@@ -286,13 +291,15 @@ un camino directo a cashflow sin caja (`registrarPagoCuotaAdmin`) que **solo usa
 
 El modelo de fondo es el problema: el dueño no es una mula del sistema.
 
-### B2. El estado de cobranza no distingue "sin deuda" de "nunca pagó" · Frena · implementado, pendiente de verificación
+### B2. El estado de cobranza no distingue "sin deuda" de "nunca pagó" · Frena · CERRADO 23/09
 
 Causa confirmada de A2 en `app/Services/CobranzaEstadoService.php`.
 **Commit de corrección: `b3619bf`**. Eliminado "nunca pagó" del cálculo individual y
 masivo; DEUDOR exige mes cerrado impago. La cuota del alta evita dejar sin deuda a los
-nuevos. [Pruebas y límites](IMPLEMENTACION-A2.md). Pendiente de verificación independiente;
-no cerrado ni desplegado.
+nuevos. [Pruebas y límites](IMPLEMENTACION-A2.md). **Verificado por Claude el 23/09**: regla de
+estado leída en el código, sin rastros de "tiene pagos" en los listados masivos, descuento
+que no se aplica dos veces y suite corrida (331 pruebas). De esa verificación salió A43.
+Falta desplegarlo al sitio de prueba.
 
 ### B3. Las excepciones del contrato no existen · Falta
 
@@ -377,73 +384,106 @@ El mostrador no veía los cobros del otro turno. Ahora filtra por rubro, como ma
 
 ---
 
-## Plan de acción
+## Plan de implementación — 04/10/2026
 
-El orden no es por gravedad suelta: es por lo que traba al club primero. Cada bloque se
-cierra con la verificación de otro agente, como manda `AGENTS.md` §6a.
+Reemplaza al plan de bloques del 23/09. Mismo criterio —primero lo que traba al club—, pero
+ordenado por **lo que bloquea a lo siguiente**, y con el estado real de cada cosa.
 
-### Bloque 1 — Que el mostrador pueda trabajar
+Regla que vale para todo el plan: **lo hace uno, lo verifica otro** (`AGENTS.md` §6a). Una
+tarea no está cerrada hasta que otro agente la miró en pantalla y en el código.
 
-Es lo único que frena plata todos los días. Nada del resto se toca hasta que esto esté.
+### Lo que ya está hecho
 
-| Orden | Qué | Defectos |
-|---|---|---|
-| 1.1 | Diagnóstico y enmienda implementados en `b3619bf`; **pendiente verificación independiente en código y pantalla**, sin deploy | A2, B2 |
-| 1.2 | Cobranza: mostrar cuánto debe cada uno, el total adeudado, y poder cobrar desde ahí | A1, A21, A22 |
-| 1.3 | Cobrar desde la ficha del alumno, y ver ahí sus recibos | A17, A34 |
-| 1.4 | Poder cobrar por adelantado, que el motor ya soporta | A3 |
-| 1.5 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado | A4, A14 |
-| 1.6 | Filtrar los profesores por el deporte de la clase | A5 |
-| 1.7 | Apertura de caja con saldo inicial y arqueo | A25 |
+| Qué | Estado |
+|---|---|
+| A2 y B2 — el estado de cobranza clasificaba mal a los conciliados | Implementado en `b3619bf`, **verificado por Claude el 23/09** leyendo el código y corriendo la suite |
+| B16 — el mostrador no veía los cobros del otro turno | Corregido y con prueba propia |
+| B14, B15 — caché de rutas vieja y el DNS del sitio de prueba | Corregidos, documentados en `SERVIDOR.md` |
 
-### Bloque 2 — El dueño deja de ser un operativo
+### P0 · Resolver la contradicción de la carga inicial — **bloquea todo lo demás**
 
-Cambio de modelo, no de pantalla: se diseña con Carlos antes de repartirlo.
+El 26/09 se decidieron dos cosas incompatibles entre sí: **A43** quedó escrito con una regla
+basada en `inscripcion_fecha_corte`, y más tarde ese mismo día
+[PRIMERA-CARGA-EXCEL.md](../../05-pendientes/PRIMERA-CARGA-EXCEL.md) decidió **sacar el corte**
+y hacer una sola carga inicial por Excel.
 
-| Orden | Qué | Defectos |
-|---|---|---|
-| 2.1 | Que cobrar no le abra caja al admin, y que no se valide a sí mismo | A13, B1 |
-| 2.2 | Pantalla de caja propia del dueño: la del que mira, no la del que rinde | A13 |
-| 2.3 | Un tablero de dueño que sirva para decidir | A23 |
+Manda la decisión más nueva. Entonces:
 
-### Bloque 3 — Que se entienda
+- La ficha de **A43** se reescribe: sin corte, la cuota del alta es la del **mes de la fecha
+  de ingreso**, con el porcentaje del día. Desaparece la pantalla que pregunta.
+- Se quita `inscripcion_fecha_corte`: el parámetro, su lugar en Configuración y la prueba
+  que lo cuida.
+- Se retiran los dos importadores viejos (`wings:importar-padron`, `wings:importar-deuda-inicial`)
+  **cuando el nuevo esté andando**, no antes.
 
-| Orden | Qué | Defectos |
-|---|---|---|
-| 3.1 | Configuración con nombres humanos, agrupada, explicada y con validación real | A11 |
-| 3.2 | Consistencia: un verbo por botón, los puntos, los interruptores, el botón Nuevo | A6, A8, A9, A10, A32, A35 |
-| 3.3 | Listado de alumnos y ficha: que el dato esté donde se busca | A7, A37 |
-| 3.4 | Permisos: mismo trato para todos los roles y una pantalla de "sin permiso" que sirva | A29, A30, A31 |
-| 3.5 | Inicio del operativo y del profesor: que digan por dónde empezar el día | A12, A24 |
-| 3.6 | Textos en castellano y formularios que no pidan lo que un club de chicos no tiene | A26, A27, A38 a A42 |
+Es media hora de documentación y una decisión ya tomada. Sin esto, cualquier cosa que se
+toque de altas y cuotas se hace sobre una regla muerta.
 
-### Bloque 4 — El celular
+### P1 · La primera carga por Excel — **bloquea la prueba grande**
 
-**Decisión pendiente de Carlos:** si el celular entra en esta versión o después. Hoy el
-mostrador trabaja en computadora, pero el profesor toma asistencia con el teléfono.
+Sin esto no hay forma legítima de poner el club adentro de Wings, y la prueba grande no
+puede arrancar de nuevo con datos creíbles.
 
-| Orden | Qué | Defectos |
-|---|---|---|
-| 4.1 | Asistencia en el celular, que es lo único que hoy se usa así | A33 |
-| 4.2 | Tablas y filtros que no se rompan en pantalla chica | A18, A19, A20, A28, A36 |
+1. Maqueta de la pantalla, **aprobada por Carlos antes de programar**.
+2. Plantilla que genera el sistema, con las listas reales de deportes, grupos y planes.
+3. Pasada de revisión que no escribe nada y devuelve todos los errores juntos.
+4. Informe de errores **como Excel**, con la columna al final que dice qué está mal.
+5. Importación todo-o-nada, que **rechaza** lo que no existe en los catálogos.
+6. Ensayo en el sitio de prueba con vuelta atrás.
 
-### Bloque 5 — Los datos de prueba
+Relacionado: **B13**, los datos de prueba. El padrón nuevo sale de este mismo camino: chicos
+con sus tutores, el catálogo sin los servicios que el club no paga y los saldos que decida
+Carlos.
 
-Sin esto, ninguna prueba nueva significa nada. Los datos los armó Claude y están mal.
-
-| Orden | Qué | Defectos |
-|---|---|---|
-| 5.1 | Alumnos que sean chicos, con sus tutores y sus teléfonos | B13 |
-| 5.2 | Catálogo sin los servicios que el club no paga, con los rubros que sí usa | B13 |
-| 5.3 | Saldos iniciales que decida Carlos, no inventados | B13 |
-
-### Bloque 6 — Lo que el club necesita y no existe
-
-Después de la prueba, salvo que Carlos decida adelantarlo.
+### P2 · Que el mostrador pueda trabajar
 
 | Orden | Qué | Defectos |
 |---|---|---|
-| 6.1 | Canchas y su alquiler por hora: el gasto más grande del club | B5, A15 |
+| 2.1 | Cobranza: cuánto debe cada uno, el total adeudado y cobrar desde ahí | A1, A21, A22 |
+| 2.2 | Cobrar desde la ficha del alumno y ver ahí sus recibos | A17, A34 |
+| 2.3 | Cobrar por adelantado, que el motor ya soporta | A3 |
+| 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado | A4, A14 |
+| 2.5 | Filtrar los profesores por el deporte de la clase | A5 |
+| 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
+
+### P3 · El dueño deja de ser un operativo
+
+Cambio de modelo, no de pantalla: **se diseña con Carlos antes de repartirlo.**
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 3.1 | Que cobrar no le abra caja al admin, y que no se valide a sí mismo | A13, B1 |
+| 3.2 | Pantalla de caja del dueño: la del que mira, no la del que rinde | A13 |
+| 3.3 | Un tablero de dueño que sirva para decidir | A23 |
+
+### P4 · Que se entienda
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 4.1 | Configuración con nombres humanos, agrupada, explicada y validada | A11 |
+| 4.2 | Consistencia: un verbo por botón, los puntos, los interruptores, el botón Nuevo | A6, A8, A9, A10, A32, A35 |
+| 4.3 | Listado de alumnos y ficha: el dato donde se busca | A7, A37 |
+| 4.4 | Permisos: mismo trato para todos los roles y una pantalla de "sin permiso" que sirva | A29, A30, A31 |
+| 4.5 | Inicio del operativo y del profesor | A12, A24 |
+| 4.6 | Castellano y formularios que no pidan lo que un club de chicos no tiene | A26, A27, A38–A42 |
+
+### P5 · El celular — **decisión pendiente de Carlos**
+
+Si entra en esta versión o después. Lo único que hoy se usa sí o sí desde el teléfono es la
+asistencia del profesor.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 5.1 | Asistencia en el celular | A33 |
+| 5.2 | Tablas y filtros que no se rompan en pantalla chica | A18, A19, A20, A28, A36 |
+
+### P6 · Lo que el club necesita y no existe
+
+Después de la prueba, salvo que Carlos adelante algo.
+
+| Orden | Qué | Defectos |
+|---|---|---|
+| 6.1 | Canchas y su alquiler por hora | B5, A15 |
 | 6.2 | Clases particulares | B6 |
 | 6.3 | Motivos y avisos de las excepciones del contrato | B3 |
 | 6.4 | Reportes: las cuatro preguntas del cierre del día | B12 |
@@ -452,13 +492,17 @@ Después de la prueba, salvo que Carlos decida adelantarlo.
 | 6.7 | Stock y compra de mercadería | B7 |
 | 6.8 | Punitorios por mora | B11 |
 | 6.9 | Clases sin asistencia en el resumen diario | B4 |
-| 6.10 | Carga del horario con días y horarios distintos en una sola vez | A16 |
+| 6.10 | Carga del horario con días y horarios distintos de una sola vez | A16 |
 
-### Cómo se trabaja cada bloque
+### Cómo se reparte
 
-1. Lo hace un agente y **lo verifica otro**, en pantalla y en el código.
-2. Cada defecto cerrado se marca acá, con el commit que lo cierra.
-3. Si al arreglar uno aparece otro, se agrega a la lista antes de seguir.
+- **Un agente implementa, otro verifica.** Nunca el mismo.
+- **P0 y P1 van primero y en ese orden.** P2 puede arrancar en paralelo: no toca la carga
+  inicial.
+- **P3 no se programa hasta que Carlos apruebe el modelo**, igual que P1 no se programa hasta
+  que apruebe la maqueta.
+- Cada defecto cerrado se marca acá con el commit que lo cierra. Si al arreglar uno aparece
+  otro, se agrega a la lista antes de seguir.
 
 ## Qué mirar en la próxima prueba
 
