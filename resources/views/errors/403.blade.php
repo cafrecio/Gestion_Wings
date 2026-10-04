@@ -1,21 +1,24 @@
 @extends('layouts.app')
 
-@section('title', 'Acceso denegado – Wings')
+@section('title', 'Sin permiso – Wings')
+@section('module-title', 'Sin permiso')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center px-4">
-    <div class="w-full max-w-sm text-center glass-card p-8">
-        <div class="flex justify-center mb-6">
-            <img src="{{ asset('img/logo-wings.png') }}" alt="Wings" class="h-16 w-auto opacity-40">
-        </div>
-
-        <div class="mb-2 text-4xl font-semibold" style="color: rgba(230, 37, 47, 0.8);">403</div>
-        <h1 class="text-base font-medium mb-2 text-wings">Acceso denegado</h1>
-        <p class="text-sm mb-6 text-wings-muted">No tenés permisos para acceder a esta página.</p>
-
-        <a href="/login" class="inline-block px-6 py-3 text-sm font-semibold text-white wings-btn">
-            Volver al inicio
-        </a>
+@php
+    $inicio = match (auth()->user()?->rol) {
+        'ADMIN' => route('admin.dashboard'),
+        'OPERATIVO' => route('web.operativo.dashboard'),
+        'PROFESOR' => route('web.clases.index'),
+        default => route('login'),
+    };
+@endphp
+<article class="alumno-card" aria-labelledby="sin-permiso">
+    <div class="alumno-card-header">
+        <h2 id="sin-permiso" class="alumno-nombre">No podés entrar a esta sección</h2>
     </div>
-</div>
+    <p class="text-wings-muted mb-3">No tenés permiso para abrir esta sección con tu usuario. Podés volver a tu inicio y seguir trabajando.</p>
+    <div class="alumno-actions">
+        <x-ds.button variant="secondary" href="{{ $inicio }}">Volver</x-ds.button>
+    </div>
+</article>
 @endsection

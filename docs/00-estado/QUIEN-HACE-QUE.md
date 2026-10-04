@@ -9,7 +9,7 @@ corregirlo acá en el momento.
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **La maqueta de la pantalla "sin permiso"**, para los defectos A29, A30 y A31. Codex la está armando en `docs/05-pendientes/maqueta-sin-permiso/` | Codex | 04/10 15:30 |
+| **A43 y permisos ya autorizados por Carlos** con línea Diseno-autorizado; no esperan aprobación. Ver entregas en la sección Codex | Codex | 04/10 |
 
 ## Gemini
 
@@ -26,7 +26,7 @@ corregirlo acá en el momento.
 |---|---|
 | **A11 — Configuración** | **Cerrada**, verificada y aprobada por Gemini |
 | **A43** — el alta avisa cuando el ingreso cae en un mes cerrado | Commiteada en `218ffc5`; falta que Gemini la verifique |
-| **Permisos** (A29, A30, A31) | En curso: tiene la maqueta de "sin permiso" y cambios sin commitear |
+| **Permisos** (A29, A30, A31) | Entregados; suite propia 380/2242, tres roles normal/375 px. [Informe](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Falta que Gemini verifique |
 | **Verificar la Entrega 1 de Cobranza** | **Pendiente**, y bloquea a Gemini |
 | **P1 — primera carga por Excel** | Maqueta aprobada; la implementación no arrancó |
 

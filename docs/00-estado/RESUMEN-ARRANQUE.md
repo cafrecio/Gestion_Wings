@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | A43: 366 pruebas / 2131 aserciones verdes el 04/10 en copia exclusiva sobre e5bc981 + A43, base wings_testing_codex. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Sin despliegue; Gemini verifica. |
+| Suite | A43 + permisos: 380 pruebas / 2242 aserciones verdes el 04/10 en copia exclusiva sobre 218ffc5 más permisos, base wings_testing_codex. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Sin despliegue; Gemini verifica. |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -32,6 +32,12 @@
 
 ## Trabajo que continúa
 
+- **A43 y A29/A30/A31 entregados:** autorización literal de Carlos y «A43 solo la cuota».
+  Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
+  Acceso restringido usa aviso común y Volver al inicio del rol. Código y navegador
+  normal/375 px comprobados; suite 380/2242. Pendientes Gemini, sin despliegue.
+  [A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md) · [Permisos](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md).
+
 - **P2 Entrega 1 no aprobada en el control independiente de Codex:** A51 reduce
   el total por persona al filtrar; A52 altera estado mensual por inscripción.
   A18 parcial, filtros móviles ilegibles (A19). Sin correcciones ni despliegue.
@@ -39,7 +45,7 @@
   **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
   por Carlos. Nombres humanos, grupos, validación y errores persistentes;
   generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
-  Pendiente Gemini; sin despliegue ni cierre.
+  Gemini registró A11 aprobada el 04/10 en [su informe](../06-pruebas/PRU-02/VERIFICACION-A11.md); sin despliegue.
 
 - **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; A43 entregada añade elección de cuota corriente completa o ninguna cuota para ingreso en mes cerrado; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 

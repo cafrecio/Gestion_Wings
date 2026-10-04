@@ -1,6 +1,6 @@
 # Wings — Estado actual
 
-## A43 entregada; permisos A29/A30/A31 en curso — 04/10/2026
+## A43 y permisos A29/A30/A31 entregados, pendientes Gemini — 04/10/2026
 
 Carlos escribió la autorización de ambas maquetas y aclaró «A43 solo la cuota».
 A43 implementada: ingreso en mes cerrado exige Sí/No; Sí genera mes corriente
@@ -10,7 +10,10 @@ Suite propia verde: 366 pruebas / 2131 aserciones. Navegador normal y 375 px, am
 opciones y guardado bloqueado sin decisión comprobados en wings_testing_codex.
 [Entrega A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Requiere nueva migración
 alta_cuota al desplegar. No desplegada; pendiente Gemini, no cerrada.
-Permisos autorizados; implementación siguiente. No requiere nuevas decisiones de Carlos.
+Permisos A29/A30/A31 implementados y comprobados: 403 explícito con Volver al inicio propio,
+sin cambios de acceso. Navegador normal/375 px con tres roles; conserva sesión.
+Suite final conjunta 380/2242 verde. [Entrega permisos](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md).
+No requiere nuevas decisiones de Carlos; Gemini verifica ambas entregas.
 
 ## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
 
@@ -184,7 +187,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **366 pruebas**, 2131 aserciones; suite completa verde el 04/10 en copia exclusiva A43, base wings_testing_codex. Entrega 1 de P2 (Cobranza): unificación por persona (DNI), total adeudado en pesos, orden por antigüedad de deuda impaga, botones Cobrar y Ver de 64px fijos (A1, A21, A22, A45, A46, A47). P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **380 pruebas**, 2242 aserciones; suite completa verde el 04/10 en copia exclusiva A43 + permisos, base wings_testing_codex |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 de P2 implementada: apertura filtrando a deudores/morosos ordenados por antigüedad, fila unificada por persona con actividades agrupadas, total adeudado en pesos y botones Cobrar/Ver fijos de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

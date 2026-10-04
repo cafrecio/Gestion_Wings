@@ -204,20 +204,27 @@ Captura: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
 En `/grupos` desde el teléfono, el texto de los planes ("Planes: 1x/sem — $38.000 · 2x/sem — $48.000") sobresale por el lateral derecho. Además, el interruptor "Activo" está pegado al botón Editar, facilitando que un toque táctil desactive el grupo por error.
 Captura: `evidencia/audit_admin_grupos_index_mobile.png`.
 
-### A29. Redirección silenciosa a Caja para el operativo en secciones de administración · Molesta · verificado
+### A29. Redirección silenciosa a Caja para el operativo en secciones de administración · Molesta · entregado 04/10, pendiente Gemini
 
 Cuando Sandra Vidal intenta abrir `/cashflow`, `/liquidaciones`, `/usuarios` o `/configuraciones`, el sistema la redirige en silencio a `/caja` sin ningún mensaje explicativo. La persona cree que el enlace no funcionó o que el sistema falló.
 Captura: `evidencia/audit_operativo_acceso_cashflow_desktop.png`.
 
-### A30. Comportamiento dispar entre Profesor y Operativo ante accesos restringidos · Molesta · verificado
+### A30. Comportamiento dispar entre Profesor y Operativo ante accesos restringidos · Molesta · entregado 04/10, pendiente Gemini
 
 A un profesor que intenta ingresar a Alumnos, Caja o Grupos se le muestra una pantalla de error 403 ("Acceso denegado"), pero si intenta ingresar a Cashflow o Liquidaciones se lo redirige silenciosamente a `/clases`. Dos respuestas completamente distintas ante el mismo tipo de restricción de permisos.
 Capturas: `evidencia/audit_profesor_acceso_alumnos_desktop.png` y `evidencia/audit_profesor_acceso_cashflow_desktop.png`.
 
-### A31. La pantalla de error 403 manda al usuario logueado a la pantalla de login · Molesta · verificado
+### A31. La pantalla de error 403 manda al usuario logueado a la pantalla de login · Molesta · entregado 04/10, pendiente Gemini
 
 En la pantalla de error 403 (`resources/views/errors/403.blade.php`), el botón "Volver al inicio" tiene como enlace fijo `href="/login"`, mandando a quien ya tiene sesión iniciada a la página de ingreso.
 Captura: `evidencia/audit_profesor_acceso_alumnos_desktop.png`.
+
+**Entrega conjunta A29/A30/A31, Codex CAB 04/10:** rechazo 403 explícito y aviso en
+castellano para cuenta activa; Volver al tablero ADMIN, inicio OPERATIVO o Clases PROFESOR.
+No se habilitan permisos. Anónimo/inactivo siguen al login. Carlos escribió autorización.
+Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados.
+[Implementación, pruebas y capturas](IMPLEMENTACION-PERMISOS.md). Sin despliegue ni cierre;
+Gemini debe verificar código y pantalla.
 
 ### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · verificado
 
@@ -267,7 +274,7 @@ alta **avisa antes de guardar** y ofrece una sola decisión:
   sola con el porcentaje del día, como está hoy.
 - La decisión y quién la tomó quedan registradas con el alta.
 
-**Entrega Codex CAB, 04/10:** implementada y autorizada por Carlos; No evita solo cuota.
+**Entrega Codex CAB, 04/10, commit `218ffc5`:** implementada y autorizada por Carlos; No evita solo cuota.
 366 pruebas / 2131 aserciones verdes; formulario real normal/375 px.
 [Implementación, pruebas y capturas](IMPLEMENTACION-A43.md). Sin despliegue ni cierre; Gemini verifica.
 
@@ -518,7 +525,9 @@ y hacer una sola carga inicial por Excel.
 Manda la decisión más nueva. Entonces:
 
 - La ficha de **A43** se reescribe: sin corte, la cuota del alta es la del **mes de la fecha
-  de ingreso**, con el porcentaje del día. Desaparece la pantalla que pregunta.
+  de ingreso**, con el porcentaje del día. Esta regla de P0 fue enmendada después
+  por A43 del 04/10: ingreso en mes cerrado exige elegir cuota corriente completa
+  o ninguna cuota; inscripción independiente.
 - Se quita `inscripcion_fecha_corte`: el parámetro, su lugar en Configuración y la prueba
   que lo cuida.
 - Se retiran los dos importadores viejos (`wings:importar-padron`, `wings:importar-deuda-inicial`)
@@ -577,7 +586,7 @@ caja sigue siendo cosa del mostrador. El camino ya existe en el código
 | 4.1 | Configuración entregada el 04/10; pendiente verificación de Gemini | A11 |
 | 4.2 | Consistencia: un verbo por botón, los puntos, los interruptores, el botón Nuevo | A6, A8, A9, A10, A32, A35 |
 | 4.3 | Listado de alumnos y ficha: el dato donde se busca | A7, A37 |
-| 4.4 | Permisos: mismo trato para todos los roles y una pantalla de "sin permiso" que sirva | A29, A30, A31 |
+| 4.4 | Permisos entregados 04/10: aviso común y regreso al inicio propio; pendiente Gemini | A29, A30, A31 |
 | 4.5 | Inicio del operativo y del profesor | A12, A24 |
 | 4.6 | Castellano y formularios que no pidan lo que un club de chicos no tiene | A26, A27, A38–A42 |
 

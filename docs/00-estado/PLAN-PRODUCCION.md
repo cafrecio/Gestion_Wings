@@ -15,7 +15,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **366 pruebas**, 2131 aserciones; verde completo el 04/10 en copia exclusiva A43, base wings_testing_codex |
+| Suite | **380 pruebas**, 2242 aserciones; suite completa verde el 04/10 en copia exclusiva A43 + permisos, base wings_testing_codex |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
@@ -24,6 +24,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Primera carga P0/P1 | P0 implementado; A43 entregada, pendiente Gemini: ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente. P1 requiere aprobación de maqueta en navegador antes de programar. Importadores antiguos conservados hasta que funcione el nuevo |
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
+| Permisos A29/A30/A31 | Entregados: rechazo explícito y Volver al inicio propio, sin ampliar accesos. Suite 380/2242, tres roles normal/375 px. Pendiente Gemini; sin deploy |
 | CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Quedan 19 bloques script y 10 manejadores inline |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |

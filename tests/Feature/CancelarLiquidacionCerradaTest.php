@@ -181,17 +181,17 @@ class CancelarLiquidacionCerradaTest extends TestCase
         $liquidacion = $this->service->generarLiquidacionMensual($this->profesor->id, 8, 2026);
         $this->service->cerrarLiquidacion($liquidacion->id);
 
-        // Operativo: rechazado por EnsureAdminWeb con redirect a su home
+        // Operativo: rechazo explícito, sin redirección silenciosa.
         $respOperativo = $this->actingAs($this->operativo)->post(route('web.liquidaciones.cancelar', $liquidacion->id), [
             'motivo' => 'Intento operativo de cancelacion',
         ]);
-        $respOperativo->assertRedirect(route('web.caja.index'));
+        $respOperativo->assertForbidden();
 
-        // Profesor: rechazado por EnsureAdminWeb con redirect a su home
+        // Profesor: mismo rechazo explícito que el operativo.
         $respProfesor = $this->actingAs($this->profesorUser)->post(route('web.liquidaciones.cancelar', $liquidacion->id), [
             'motivo' => 'Intento profesor de cancelacion',
         ]);
-        $respProfesor->assertRedirect(route('web.clases.index'));
+        $respProfesor->assertForbidden();
 
         // Anónimo: redirect a login
         auth()->logout();

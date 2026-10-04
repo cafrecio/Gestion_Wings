@@ -215,8 +215,8 @@ class RubroReservadoTest extends TestCase
             $originalSub = $sub->fresh()->getAttributes();
             foreach ([User::ROL_ADMIN, User::ROL_OPERATIVO, User::ROL_PROFESOR] as $rol) {
                 $this->actingAs(User::factory()->create(['rol' => $rol, 'activo' => true]));
-                // EnsureAdminWeb redirige a caja/clases a los otros roles.
-                $status = 302;
+                // ADMIN ve el rechazo de catálogo; otros roles no entran al dominio.
+                $status = $rol === User::ROL_ADMIN ? 302 : 403;
                 $this->get(route('web.rubros.edit', $rubro->id))->assertStatus($status);
                 $this->put(route('web.rubros.update', $rubro->id), [
                     'nombre' => $nombre.' ', 'tipo' => $tipo, 'observacion' => 'Modificada',

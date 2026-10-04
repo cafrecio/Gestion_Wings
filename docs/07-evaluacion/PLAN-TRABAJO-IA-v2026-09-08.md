@@ -173,6 +173,10 @@ Ingreso en mes cerrado elige cuota corriente completa o sin cuota; decisión y a
 Suite propia 366/2131, navegador normal/375 px. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md).
 Pendiente Gemini; sin despliegue ni cierre.
 
+**Permisos A29/A30/A31 entregados 04/10:** rechazo explícito, mismo aviso para los roles
+activos y Volver a su propio inicio; sin ampliar permisos. Autorización literal de Carlos.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Suite final propia 380/2242 y tres roles normal/375 px. Pendiente Gemini, sin despliegue.
+
 ### PRU-03 · Estados de cobranza
 
 Revalidar los 60 casos preparados. Antes de usar “DEUDOR” para reclamar, Carlos debe

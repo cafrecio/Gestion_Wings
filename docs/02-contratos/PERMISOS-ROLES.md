@@ -6,6 +6,16 @@ Fuente de verdad de qué puede hacer y ver cada rol. **Leer antes de tocar cualq
 
 ---
 
+## Rechazo de acceso web — decisión Carlos, 04/10/2026
+
+Una cuenta activa que entra a una sección restringida ve el mismo aviso en castellano,
+sin redirecciones silenciosas. El rechazo sigue siendo HTTP 403 y no habilita ninguna
+ruta ni acción. **Volver** lleva al inicio de su rol: ADMIN al tablero, OPERATIVO a su
+inicio y PROFESOR a Clases; conserva la sesión. Anónimo debe ingresar y cuenta inactiva
+se desconecta. La protección de cuenta ADMIN conserva su rechazo; usa el mismo aviso.
+
+Entrega A29/A30/A31; pendiente verificación de Gemini, sin despliegue.
+
 ## El error mental a evitar
 
 > ❌ "Cada operativo ve/hace solo lo suyo."

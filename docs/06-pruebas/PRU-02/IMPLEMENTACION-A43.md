@@ -1,6 +1,6 @@
 # A43 — alta manual con ingreso en mes cerrado
 
-Entrega de Codex CAB, 04/10/2026. **Pendiente de verificación independiente por Gemini. No cerrado ni desplegado.**
+Entrega de Codex CAB, 04/10/2026, commit `218ffc5`. **Pendiente de verificación independiente por Gemini. No cerrado ni desplegado.**
 
 Carlos aprobó las dos maquetas y escribió:
 
