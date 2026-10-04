@@ -9,8 +9,8 @@ corregirlo acá en el momento.
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **La línea `Diseno-autorizado` de Cobranza**, que incluye el cambio en `resources/css/app.css` (afecta los filtros de todas las pantallas) | Gemini, Entrega 1 corregida, **sin commitear** | 04/10 13:45 |
-| **Decidir si acepta la revisión de las cinco pantallas en celular hecha por Gemini**, que es quien hizo el cambio, o espera la de Codex | Claude | 04/10 14:55 |
+| **Nada que aprobar hasta que haya capturas.** El cambio de filtros en `resources/css/app.css` afecta seis pantallas y no hay imágenes guardadas: se le piden a Codex antes de volver a preguntarle | — | 04/10 15:05 |
+| **Nada más por ahora.** Lo del cambio de filtros vuelve cuando haya capturas en el repositorio para mirar | — | — |
 
 ## Gemini
 
@@ -47,6 +47,7 @@ corregirlo acá en el momento.
 ## Cómo se evita el desorden
 
 1. **Cada prompt dice a quién va en la primera línea**, y se anota acá antes de entregarlo.
+0. **Lo visual no se aprueba por texto.** Sin capturas en el repositorio no se le pide a Carlos ninguna autorización de diseño (`AGENTS.md` §1).
 2. **Lo que hace uno lo verifica el otro**, nunca el autor. Si se cruzó, se dice y se repite.
 3. **Una tarea por agente a la vez.** Lo que está esperando a Carlos no se adelanta.
 4. **Lo que espera una decisión de Carlos vive arriba de todo**, en esta hoja.

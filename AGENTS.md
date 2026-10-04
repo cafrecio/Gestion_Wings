@@ -46,6 +46,21 @@ Si una tarea parece requerir tocarlos: **frenar y preguntar.** No improvisar.
 El plan vigente identifica las tareas que pueden requerir vistas. Esa marca **no es
 autorizacion**: si el pedido concreto de Carlos no autoriza el cambio visual, frenar.
 
+### No se pide autorizacion de diseno sin imagenes — 04/10/2026
+
+**Lo visual no se aprueba leyendo.** Antes de pedirle a Carlos la linea
+`Diseno-autorizado`, tiene que haber **capturas guardadas en el repositorio** de cada
+pantalla afectada, en escritorio y a 375 de ancho, y se le pasan las rutas exactas para
+abrirlas. Sin eso no se pide nada: no se le describe la pantalla con palabras ni se le
+resume lo que se hizo.
+
+Si el cambio toca `resources/css/app.css` o cualquier pieza compartida, **las capturas son
+de todas las pantallas que cambian**, no solo de la que se estaba trabajando.
+
+Nace de este dia: se le pidio dos veces que autorizara por texto un cambio de filtros que
+afectaba seis pantallas, y las capturas que un agente dijo haber sacado no estaban en
+ninguna parte.
+
 ### Si el dueño autoriza tocar una vista
 
 Leer ANTES, sin excepción:
