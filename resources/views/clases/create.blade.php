@@ -110,6 +110,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                     @foreach($grupos as $grupo)
                         <option value="{{ $grupo->id }}"
                                 data-deporte="{{ $grupo->deporte->nombre ?? '' }}"
+                                data-deporte-id="{{ $grupo->deporte_id }}"
                                 {{ old('grupo_id') == $grupo->id ? 'selected' : '' }}>
                             {{ $grupo->nombre_completo }}
                         </option>
@@ -163,7 +164,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                         $depP  = strtr($depP, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
                         $railP = str_contains($depP, 'pat') ? 'patin' : (str_contains($depP, 'fut') ? 'futbol' : 'otro');
                     @endphp
-                    <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                    <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);" class="profesor-label" data-deporte-id="{{ $profesor->deporte_id }}">
                         <input type="checkbox" name="profesores[]" value="{{ $profesor->id }}"
                             {{ in_array($profesor->id, old('profesores', [])) ? 'checked' : '' }}>
                         {{ $profesor->apellido }}, {{ $profesor->nombre }}
@@ -266,6 +267,26 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         horaInicio.addEventListener('change', validarHoras);
         horaFin.addEventListener('change', validarHoras);
     }
+
+    function filtrarProfesoresPorGrupo() {
+        var grupoSelect = document.getElementById('grupo_id');
+        if (!grupoSelect) return;
+        var selectedOption = grupoSelect.options[grupoSelect.selectedIndex];
+        var deporteId = selectedOption ? selectedOption.getAttribute('data-deporte-id') : null;
+
+        document.querySelectorAll('.profesor-label').forEach(function (lbl) {
+            var profDepId = lbl.getAttribute('data-deporte-id');
+            if (!deporteId || !profDepId || profDepId === deporteId) {
+                lbl.style.display = 'inline-flex';
+            } else {
+                lbl.style.display = 'none';
+                var chk = lbl.querySelector('input[type="checkbox"]');
+                if (chk) chk.checked = false;
+            }
+        });
+    }
+    document.getElementById('grupo_id')?.addEventListener('change', filtrarProfesoresPorGrupo);
+    filtrarProfesoresPorGrupo();
 })();
 </script>
 @endpush

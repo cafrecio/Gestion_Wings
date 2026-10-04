@@ -39,6 +39,9 @@
         </button>
     </form>
     @endif
+    @if(!auth()->user()?->isProfesor() && $alumno->activo)
+    <x-ds.button variant="primary" href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
+    @endif
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.edit', $alumno->id) }}">Editar</x-ds.button>
 </div>
 
@@ -155,6 +158,13 @@
                              color:{{ $ecColor }};">{{ $ecLabel }}</span>
                 @if($ecGracia > 0)
                     <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $ecGracia }} día{{ $ecGracia !== 1 ? 's' : '' }} de gracia</span>
+                @endif
+                @if(!auth()->user()?->isProfesor() && $alumno->activo)
+                    <a href="{{ route('web.caja.cobrar', $alumno->id) }}"
+                       class="ds-btn-row ds-btn-row--sec"
+                       style="background:var(--color-btn-primary); color:#fff; text-decoration:none; margin-left:auto; width:64px;">
+                        Cobrar
+                    </a>
                 @endif
             </div>
             @if($ecDeudas->isNotEmpty())

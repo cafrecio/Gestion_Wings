@@ -49,25 +49,38 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         </p>
     </div>
 
-    {{-- ── Banner: sin caja hoy ─── --}}
+    {{-- ── Banner: sin caja hoy / Apertura de caja ─── --}}
     @elseif($sinCajaHoy)
     <div class="filtros-card mb-4">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
-            <div>
-                <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:4px;">
-                    No tenés caja abierta hoy.
-                </p>
-                <p style="font-size:0.82rem; color:var(--color-text-muted);">
-                    Se abrirá automáticamente al registrar el primer movimiento.
-                </p>
+        <form method="POST" action="{{ route('web.caja.abrir') }}">
+            @csrf
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+                <div style="min-width:240px; flex:1;">
+                    <p style="font-size:0.9rem; font-weight:700; color:var(--color-text); margin-bottom:4px;">
+                        Apertura de caja
+                    </p>
+                    <p style="font-size:0.82rem; color:var(--color-text-muted); margin-bottom:8px;">
+                        Ingresá el saldo inicial en efectivo para cambio o abrí directamente.
+                    </p>
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        <label for="saldo_inicial" style="font-size:0.82rem; font-weight:600; color:var(--color-text);">Saldo inicial:</label>
+                        <div style="position:relative; width:140px;">
+                            <span style="position:absolute; left:10px; top:50%; transform:translateY(-50%); font-weight:600; color:var(--color-text-muted);">$</span>
+                            <input type="number" step="0.01" min="0" name="saldo_inicial" id="saldo_inicial"
+                                   placeholder="0,00" value="{{ old('saldo_inicial', '0') }}"
+                                   class="filtros-control" style="width:100%; padding-left:24px; text-align:right;">
+                        </div>
+                        <button type="submit" class="ds-btn" style="background:var(--color-btn-primary); color:#fff;">Abrir</button>
+                    </div>
+                </div>
+                <div style="display:flex; gap:8px; flex-shrink:0;">
+                    <a href="{{ route('web.caja.movimiento') }}"
+                       class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Nuevo</a>
+                    <a href="{{ route('web.caja.cobrar-cuota') }}"
+                       class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
+                </div>
             </div>
-            <div style="display:flex; gap:8px; flex-shrink:0;">
-                <a href="{{ route('web.caja.movimiento') }}"
-                   class="ds-btn" style="background:var(--color-btn-primary); color:#fff;">Nuevo</a>
-                <a href="{{ route('web.caja.cobrar-cuota') }}"
-                   class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
-            </div>
-        </div>
+        </form>
     </div>
     @endif
 @endif
@@ -122,11 +135,17 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         $egrCaja = $movAct->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO')->sum('monto');
         $netoCaja = $ingCaja - $egrCaja;
     @endphp
-    <div class="alumno-info" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="alumno-info" style="grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));">
         <div class="info-item">
             <span class="info-label">Estado</span>
             <span class="info-value" style="color:{{ $estadoColor }}; font-weight:700;">{{ $caja->estado }}</span>
         </div>
+        @if($caja->saldo_inicial > 0)
+        <div class="info-item">
+            <span class="info-label">Inicial</span>
+            <span class="info-value">${{ number_format($caja->saldo_inicial, 0, ',', '.') }}</span>
+        </div>
+        @endif
         <div class="info-item">
             <span class="info-label">Movimientos</span>
             <span class="info-value">{{ $movAct->count() }}</span>

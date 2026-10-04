@@ -202,6 +202,18 @@ class ClaseWebController extends Controller
         ]);
 
         $profesoresIds = $request->input('profesores', []);
+        $grupo = Grupo::with('deporte')->find($validated['grupo_id']);
+        if ($grupo && !empty($profesoresIds)) {
+            foreach ($profesoresIds as $profesorId) {
+                $profesor = Profesor::find($profesorId);
+                if ($profesor && $profesor->deporte_id !== $grupo->deporte_id) {
+                    $depNombre = $grupo->deporte?->nombre ?? 'la clase';
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        'profesores' => "El profesor {$profesor->nombre_completo} no corresponde al deporte {$depNombre}.",
+                    ]);
+                }
+            }
+        }
 
         try {
             $count = DB::transaction(function () use ($tipo, $validated, $profesoresIds, $request) {
@@ -247,6 +259,8 @@ class ClaseWebController extends Controller
 
                 return $creadas;
             });
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
             return back()->withInput()->with('error', $e->getMessage());
         }
@@ -266,7 +280,17 @@ class ClaseWebController extends Controller
             return;
         }
 
+        $clase->loadMissing('grupo.deporte');
+        $deporteId = $clase->grupo?->deporte_id;
+
         foreach ($profesoresIds as $profesorId) {
+            $profesor = \App\Models\Profesor::find($profesorId);
+            if ($profesor && $deporteId && $profesor->deporte_id !== $deporteId) {
+                $depNombre = $clase->grupo?->deporte?->nombre ?? 'la clase';
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'profesores' => "El profesor {$profesor->nombre_completo} no corresponde al deporte {$depNombre}.",
+                ]);
+            }
             $chequeo = $this->claseService->verificarDisponibilidadProfesor($clase->id, (int) $profesorId);
             if (!$chequeo['puede_asignar']) {
                 throw new \Exception($chequeo['razon']);
@@ -486,6 +510,18 @@ class ClaseWebController extends Controller
             $actuales = $clase->profesores()->pluck('profesores.id')->all();
             $finales = $pasada ? $actuales : array_map('intval', $validated['profesores'] ?? []);
             $clase->fill(collect($validated)->only(['fecha', 'hora_inicio', 'hora_fin'])->all())->save();
+
+            $clase->loadMissing('grupo.deporte');
+            $deporteId = $clase->grupo?->deporte_id;
+            foreach ($finales as $profesorId) {
+                $profesor = \App\Models\Profesor::find($profesorId);
+                if ($profesor && $deporteId && $profesor->deporte_id !== $deporteId) {
+                    $depNombre = $clase->grupo?->deporte?->nombre ?? 'la clase';
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        'profesores' => "El profesor {$profesor->nombre_completo} no corresponde al deporte {$depNombre}.",
+                    ]);
+                }
+            }
 
             // Los verificadores leen el horario nuevo; cualquier rechazo revierte todo.
             $aValidar = ($fechaCambio || $horarioCambio) ? $finales : array_diff($finales, $actuales);

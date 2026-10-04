@@ -92,16 +92,16 @@
 </div>
 @endif
 
-    {{-- Cuotas pendientes --}}
+    {{-- Cuotas pendientes y cobro adelantado --}}
     <div class="filtros-card mb-4">
         <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Cuotas pendientes — seleccioná las que querés cobrar
+            Cuotas a cobrar — seleccioná las que querés registrar
         </p>
 
         @if($alumno->deudaCuotas->isEmpty())
-            <p style="font-size:0.85rem; color:var(--color-text-muted);">Sin deudas pendientes.</p>
+            <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.75rem;">Sin deudas pendientes.</p>
         @else
-            <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:1rem;">
                 @foreach($alumno->deudaCuotas as $deuda)
                     @php
                         [$year, $month] = explode('-', $deuda->periodo);
@@ -145,10 +145,56 @@
                     </div>
                 @endforeach
             </div>
-            @error('periodos')
-                <p style="font-size:0.75rem; color:var(--color-danger); margin-top:8px;">{{ $message }}</p>
-            @enderror
         @endif
+
+        {{-- Cobro por adelantado --}}
+        @if(!empty($periodoAdelantado) && $precioAdelantado > 0)
+            @php
+                [$yearA, $monthA] = explode('-', $periodoAdelantado);
+                $meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+                $periodoAdelantadoLabel = ($meses[(int)$monthA] ?? $monthA) . ' ' . $yearA;
+            @endphp
+            <div style="border-top:1px dashed var(--color-border); padding-top:0.75rem;">
+                <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted); margin-bottom:0.5rem;">
+                    Cobro por adelantado
+                </p>
+                <div class="cuota-row" style="
+                    display:flex; align-items:center; gap:12px;
+                    padding:10px 14px;
+                    border:1px solid var(--color-border);
+                    border-radius:8px; background:var(--color-surface);
+                    transition:background 0.15s;
+                ">
+                    <input type="checkbox"
+                           name="periodos[]"
+                           value="{{ $periodoAdelantado }}"
+                           class="cuota-check"
+                           data-saldo="{{ $precioAdelantado }}"
+                           data-pagado="0"
+                           data-periodo="{{ $periodoAdelantado }}"
+                           style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
+                    <div style="flex:1; cursor:default;">
+                        <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $periodoAdelantadoLabel }}</span>
+                        <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:8px;">(Adelantado — tarifa plan)</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <input type="text"
+                               name="montos_cuota[{{ $periodoAdelantado }}]"
+                               class="monto-cuota wings-input"
+                               data-periodo="{{ $periodoAdelantado }}"
+                               data-saldo="{{ $precioAdelantado }}"
+                               value="{{ number_format((float)$precioAdelantado, 0, ',', '.') }}"
+                               disabled
+                               data-money="true"
+                               style="width:110px; padding:4px 10px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-text);">
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @error('periodos')
+            <p style="font-size:0.75rem; color:var(--color-danger); margin-top:8px;">{{ $message }}</p>
+        @enderror
     </div>
 
     {{-- Medio de pago + fecha + observaciones --}}

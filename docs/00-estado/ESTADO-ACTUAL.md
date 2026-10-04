@@ -165,12 +165,12 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **338 pruebas**, 1932 aserciones; suite completa verde el 04/10 en wings_testing. P0 reemplaza las cinco pruebas antiguas de A43 y añade cobertura de migración y cobro histórico. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
+| **Tests** | **355 pruebas**, 1998 aserciones; suite completa verde el 04/10 en wings_testing. P0 añade cobertura de migración y cobro histórico; P2 añade 17 pruebas en 6 suites para Cobranza, Ficha, Cobro adelantado, Formulario alumnos, Clases por deporte y Caja con saldo inicial/arqueo. Pasan contraseñas, recibos, FIN-10, FIN-11, ENT-05, SEG-11, FIN-06, FIN-13, FIN-09, FIN-12 (concurrencia de cancelación y pago con dos conexiones MariaDB), el seeder de primera carga, el endpoint de avisos de CSP, el resumen diario de pendientes al ADMIN (ENT-06) e instrucciones en Excel de padrón |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
-| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado |
+| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado. P2 implementa total adeudado monetario, montos por fila, botón Cobrar directo, badge de deporte para multidisciplina y tabla responsive a 375px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
-| Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
+| Caja | Apertura con saldo inicial / fondo para cambio, movimientos, cierre con arqueo y control de diferencia de efectivo, rechazo, validación y cancelación |
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |

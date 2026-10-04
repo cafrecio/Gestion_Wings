@@ -87,6 +87,35 @@ class CajaWebController extends Controller
         return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes'));
     }
 
+    public function abrir(Request $request)
+    {
+        $user = Auth::user();
+
+        try {
+            $this->cajaService->validarCajaViejaAbierta($user->id);
+        } catch (\Exception $e) {
+            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+        }
+
+        $request->validate([
+            'saldo_inicial' => 'nullable|numeric|min:0',
+        ], [
+            'saldo_inicial.numeric' => 'El saldo inicial debe ser un número válido.',
+            'saldo_inicial.min' => 'El saldo inicial no puede ser negativo.',
+        ]);
+
+        $saldoInicial = (float) $request->input('saldo_inicial', 0);
+
+        try {
+            $caja = $this->cajaService->abrirCajaSiNoExiste($user->id, $saldoInicial);
+        } catch (\Exception $e) {
+            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+        }
+
+        return redirect()->route('web.caja.resumen', $caja->id)
+            ->with('success', 'Caja abierta correctamente.');
+    }
+
     // ── Historial: movimientos del último trimestre (solo lectura) ───────
     // Une movimientos de cajas operativas y cashflow directo del admin,
     // limitado a subrubros permitidos para OPERATIVO. Los asientos de cashflow
@@ -259,7 +288,15 @@ class CajaWebController extends Controller
         $neto = $ingresos - $egresos;
         $numMovimientos = $movsActivos->count();
 
-        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto', 'numMovimientos'));
+        $efectivoTipo = TipoCaja::where('nombre', 'like', '%efectivo%')->first();
+        $netoEfectivo = (float) $movsActivos
+            ->when($efectivoTipo, fn($col) => $col->where('tipo_caja_id', $efectivoTipo->id))
+            ->sum(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO'
+                ? -abs((float) $m->monto)
+                : abs((float) $m->monto));
+        $efectivoEsperado = (float) $caja->saldo_inicial + $netoEfectivo;
+
+        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto', 'numMovimientos', 'efectivoEsperado'));
     }
 
     // ── Detalle: tabla de movimientos ────────────────────────────────────
@@ -522,8 +559,16 @@ class CajaWebController extends Controller
             abort(403);
         }
 
+        $request->validate([
+            'saldo_cierre_efectivo' => 'nullable|numeric|min:0',
+        ]);
+
+        $saldoCierre = $request->filled('saldo_cierre_efectivo')
+            ? (float) $request->input('saldo_cierre_efectivo')
+            : null;
+
         try {
-            $this->cajaService->cerrarCajaOperativa($id, $user->id, $esAdmin);
+            $this->cajaService->cerrarCajaOperativa($id, $user->id, $esAdmin, $saldoCierre);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -700,7 +745,12 @@ class CajaWebController extends Controller
                 : $precioDelMes;
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento'));
+        $ultimoPeriodo = max($periodoVigente, $alumno->deudaCuotas->max('periodo') ?? $periodoVigente);
+        $periodoAdelantado = Carbon::parse($ultimoPeriodo . '-01')->addMonth()->format('Y-m');
+        $planAdelantado = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $periodoAdelantado);
+        $precioAdelantado = $planAdelantado?->plan ? (float) $planAdelantado->plan->precio_mensual : 0.0;
+
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento', 'periodoAdelantado', 'precioAdelantado'));
     }
 
     /**
