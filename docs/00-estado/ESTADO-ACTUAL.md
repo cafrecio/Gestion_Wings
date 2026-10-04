@@ -1,5 +1,18 @@
 # Wings — Estado actual
 
+## P2 / A11 — control de Codex, 04/10/2026
+
+Entrega 1 de Cobranza revisada en código y navegador local sobre `1c4e6dc` y
+`867c295`: **no aprobada como entrega completa**. A51: filtro por deporte reduce
+el total de deuda de la persona; A52: inscripción altera el estado mensual del listado.
+A18 parcialmente corregido, filtros móviles
+ilegibles (también A19). Suite propia 343/1955 verde. No existe Entrega2Test en
+este checkout; no se corrigió la Entrega 2 ni se desplegó.
+[Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
+A11: [maqueta con estilos Wings existentes](../05-pendientes/maqueta-configuracion/index.html),
+incluidos errores y generación mensual como dato fijo; pendiente de autorización
+escrita por Carlos antes de implementar. Gemini verificará la implementación.
+
 ## P0/P1 — primera carga, 04/10/2026
 
 P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;

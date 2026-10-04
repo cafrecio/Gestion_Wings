@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-04 — Codex CAB — Control de Cobranza y propuesta A11
+
+Revisión independiente de Entrega 1 sobre `1c4e6dc` y `867c295`, código y navegador local.
+No aprobada completa: A51 total por persona cambia con filtros; A52 inscripción altera estado.
+A18 parcial; filtros a 375 px siguen ilegibles (A19). No se corrigió código ajeno ni datos.
+Suite propia verde: 343/1955 en wings_testing, sin corridas simultáneas; Entrega2Test ausente.
+[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md); base local sin monto_condonado.
+A11: [maqueta estática](../05-pendientes/maqueta-configuracion/README.md), CSS Wings existente,
+grupos, etiquetas, errores y generación mensual fija. Abierta en navegador para Carlos.
+Pendiente su línea Diseno-autorizado; no implementada. Gemini verificará la entrega futura.
+
+
 ## 2026-10-04 — Codex CAB — Maqueta P1 en navegador, espera aprobación
 
 P0 en `ad24769`, suite 338/1932 verde en ese corte; pendiente de Gemini.
@@ -102,15 +114,6 @@ Falta confirmar fecha concreta de inicio; no inventarla. Propuesta técnica, sin
 Tableros y resumen enlazados; verificación documental, sin suite ni base.
 [Entrada antigua conservada](../99-archivo/bitacoras/2026-09-22-LOG-CODEX.md).
 
-## 2026-09-21 — Codex CyE — POS-07: plan de canchas y liquidaciones
-
-Entrevista preservada en [plan v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md): ocho etapas y matriz de aceptación.
-Ubicaciones/canchas/tarifas, bloques completos, manual protegido y costos solo ADMIN.
-Liquidar mes o fechas elegidas: solo clases dictadas al corte, sin repetir liquidadas aunque estén sin pagar.
-Cancelación operativa conserva su permiso; decisión de pagar pendiente del ADMIN, sin exponer costos.
-Índices IA/HTML, encuesta, estado y resumen sincronizados; Reportes V1 conserva antecedente señalado.
-Fuente revisada hasta 49f66e9; codebase-memory como mapa, cuerpos reales cotejados. Sin código ni base.
-Verificación documental: enlaces, IDs, diff y archivo íntegro de la entrada antigua; no suite ni migraciones.
-Siguiente: Carlos ordena implementación por etapas; Reportes general conserva su pregunta pendiente.
-
 [Entradas anteriores preservadas](../99-archivo/bitacoras/2026-10-04-LOG-CODEX.md).
+
+[Entrada POS-07 archivada](../99-archivo/bitacoras/2026-10-04-LOG-CODEX-POS07.md).

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuración — propuesta A11</title>
+  <link rel="stylesheet" href="http://gestion-wings/build/assets/app-Byshpf6Q.css">
+</head>
+<body>
+<div class="ds-layout">
+  <aside class="ds-sidebar">
+    <div class="ds-nav-group">WINGS</div>
+    <nav>
+      <div class="ds-nav-group">Sistema</div>
+      <a class="ds-nav-link ds-nav-link--active" href="index.html">Configuración</a>
+    </nav>
+  </aside>
+  <div class="ds-main">
+    <div class="ds-topbar"><span>Admin · Vista previa</span><a href="index.html">Volver</a></div>
+    <header class="ds-module-header"><div class="ds-module-header__inner"><h1 class="ds-module-header__title">Configuración</h1></div></header>
+    <main class="ds-content">
+      <div class="ds-flash"><strong>Propuesta para revisar.</strong> Estos ejemplos no guardan ni cambian datos del club.</div>
+      <div class="ds-flash ds-flash--error" role="alert"><strong>No se guardaron estos cambios.</strong><p>Corregí los campos señalados. Los valores anteriores siguen vigentes.</p><ul><li><a href="#inscripcion">Inscripción: ingresá un importe mayor que cero.</a></li><li><a href="#gracia">Días de gracia: ingresá un número entero del 1 al 28.</a></li><li><a href="#correo">Correo: ingresá una dirección válida, por ejemplo administracion@club.com.</a></li></ul></div>
+      <section aria-labelledby="plata">
+        <div class="stats-bar mb-3"><h2 id="plata" class="alumno-nombre">La plata</h2></div>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
+          <p class="text-wings-muted mb-3">Se cobra una sola vez por persona. Cambiar este importe afecta las inscripciones nuevas; las deudas ya creadas conservan su precio.</p>
+          <label class="form-label" for="inscripcion">Importe de la inscripción ($)</label>
+          <input id="inscripcion" class="wings-input w-full p-3 mb-3" type="number" min="0.01" step="0.01" required value="-100" aria-invalid="true" aria-describedby="ayuda-inscripcion">
+          <p id="ayuda-inscripcion" class="text-wings-muted mb-3">Ingresá un importe mayor que cero, con hasta dos decimales.</p>
+          <p class="ds-flash ds-flash--error">No se guardó: el importe debe ser mayor que cero y tener hasta dos decimales.</p>
+          <div class="alumno-actions"><button type="button" class="ds-btn ds-btn--secondary">Guardar</button></div>
+        </article>
+      </section>
+      <section aria-labelledby="cobranza">
+        <div class="stats-bar mb-3"><h2 id="cobranza" class="alumno-nombre">La cobranza</h2></div>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Días de gracia para pagar</h3></div>
+          <p class="text-wings-muted mb-3">Hasta este día del mes, el que no pagó todavía no es moroso. Si debe meses anteriores, sigue siendo deudor.</p>
+          <label class="form-label" for="gracia">Último día de gracia del mes</label>
+          <input id="gracia" class="wings-input w-full p-3 mb-3" type="number" min="1" max="28" step="1" required value="35" aria-invalid="true" aria-describedby="ayuda-gracia">
+          <p id="ayuda-gracia" class="text-wings-muted mb-3">Elegí un día del 1 al 28. Con 10, una cuota de este mes pasa a morosa el día 11.</p>
+          <p class="ds-flash ds-flash--error">No se guardó: elegí un número entero del 1 al 28.</p>
+          <div class="alumno-actions"><button type="button" class="ds-btn ds-btn--secondary">Guardar</button></div>
+        </article>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Generación de cuotas mensuales</h3></div>
+          <p class="text-wings-muted mb-3">El sistema genera las cuotas automáticamente el día 1 de cada mes, a las 06:00.</p>
+          <div class="alumno-info"><div class="info-item"><span class="info-label">Día:</span><strong class="info-value">1 · Fijo</strong></div><div class="info-item"><span class="info-label">Horario:</span><strong class="info-value">06:00 · Hora Argentina</strong></div></div>
+          <p class="text-wings-muted">No se cambia desde esta pantalla.</p>
+        </article>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Importe de la primera cuota</h3></div>
+          <p class="text-wings-muted mb-3">Al dar de alta un alumno, su fecha real de ingreso determina qué porcentaje del plan se cobra ese primer mes. No modifica cuotas ya creadas.</p>
+          <div class="alumno-info"><div class="info-item"><span class="info-label">Del 1 al 15:</span><strong class="info-value">100%</strong></div><div class="info-item"><span class="info-label">Del 16 al 23:</span><strong class="info-value">70%</strong></div><div class="info-item"><span class="info-label">Del 24 al 31:</span><strong class="info-value">40%</strong></div></div>
+          <div class="alumno-actions"><button type="button" class="ds-btn ds-btn--secondary">Editar</button></div>
+        </article>
+      </section>
+      <section aria-labelledby="avisos">
+        <div class="stats-bar mb-3"><h2 id="avisos" class="alumno-nombre">Los avisos</h2></div>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Correo para los avisos del club</h3></div>
+          <p class="text-wings-muted mb-3">Acá llegan los pendientes y las situaciones que necesitan atención. Si queda vacío, se usan los correos de los administradores.</p>
+          <label class="form-label" for="correo">Correo electrónico</label>
+          <input id="correo" class="wings-input w-full p-3 mb-3" type="email" value="esto no es un correo" aria-invalid="true" placeholder="Ejemplo: administracion@club.com" aria-describedby="ayuda-correo">
+          <p id="ayuda-correo" class="text-wings-muted mb-3">Ingresá una dirección completa o dejá el campo vacío.</p>
+          <p class="ds-flash ds-flash--error">No se guardó: ingresá un correo válido o dejá el campo vacío.</p>
+          <div class="alumno-actions"><button type="button" class="ds-btn ds-btn--secondary">Guardar</button></div>
+        </article>
+        <article class="alumno-card">
+          <div class="alumno-card-header"><h3 class="alumno-nombre">Telegram para los avisos del club</h3></div>
+          <p class="text-wings-muted mb-3">También permite recibir los avisos por Telegram. Si queda vacío, no se envían por este canal.</p>
+          <label class="form-label" for="telegram">Número del chat de Telegram</label>
+          <input id="telegram" class="wings-input w-full p-3 mb-3" type="text" value="" placeholder="Número del chat, no del teléfono" aria-describedby="ayuda-telegram">
+          <p id="ayuda-telegram" class="text-wings-muted mb-3">Primero escribile al bot del club. Usá el número del chat que haya sido verificado; no ingreses tu teléfono.</p>
+          <div class="alumno-actions"><button type="button" class="ds-btn ds-btn--secondary">Guardar</button></div>
+        </article>
+      </section>
+    </main>
+    <footer class="ds-footer"><div class="ds-footer__inner">Wings · Propuesta A11 pendiente de autorización de Carlos</div></footer>
+  </div>
+</div>
+</body>
+</html>

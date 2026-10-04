@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | Reejecutada el 19/09: 263 pasan / 1505 aserciones; incluye FIN-13, FIN-10, FIN-11, SEG-11, ENT-05, FIN-06, FIN-09, el seeder de primera carga y el endpoint de avisos de CSP |
+| Suite | Reejecutada por Codex el 04/10 sobre `867c295`: 343 pasan / 1955 aserciones en wings_testing. Incluye Entrega 1 de Cobranza y CSP. No hay Entrega2Test en este checkout. [Control y límites](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md) |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -31,6 +31,14 @@
 | Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
 
 ## Trabajo que continúa
+
+- **P2 Entrega 1 no aprobada en el control independiente de Codex:** A51 reduce
+  el total por persona al filtrar; A52 altera estado mensual por inscripción.
+  A18 parcial, filtros móviles ilegibles (A19). Sin correcciones ni despliegue.
+  [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
+  **A11: [maqueta de Configuración](../05-pendientes/maqueta-configuracion/index.html)**
+  abierta para Carlos. Requiere que él escriba `Diseno-autorizado:` antes de implementar;
+  Codex no emite esa autorización. Gemini verificará el resultado.
 
 - **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 
