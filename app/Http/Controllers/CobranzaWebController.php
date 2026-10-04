@@ -13,21 +13,21 @@ class CobranzaWebController extends Controller
 
     public function index(Request $request)
     {
-        $estadoFiltro = in_array($request->input('estado'), [
-            CobranzaEstadoService::ESTADO_AL_DIA,
-            CobranzaEstadoService::ESTADO_EN_PLAZO,
-            CobranzaEstadoService::ESTADO_MOROSO,
-            CobranzaEstadoService::ESTADO_DEUDOR,
-        ])
-            ? $request->input('estado')
-            : null;
+        $estadoInput = $request->input('estado');
+        $estadoFiltro = $request->has('estado')
+            ? ($estadoInput === '' ? 'TODOS' : $estadoInput)
+            : 'DEUDORES';
+
         $deporteId = $request->filled('deporte_id') ? (int) $request->input('deporte_id') : null;
         $grupoId   = $request->filled('grupo_id')   ? (int) $request->input('grupo_id')   : null;
 
-        $alumnos = $this->cobranzaService->filtrarAlumnosPorEstado($estadoFiltro, $deporteId, $grupoId);
-        $inscripciones = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')->where('estado', 'VIGENTE')
-            ->whereIn('dni', $alumnos->map(fn ($a) => \App\Services\InscripcionService::dni($a->dni)))
-            ->with('pagos')->get()->mapWithKeys(fn ($c) => [$c->dni => round((float) $c->monto_original - (float) $c->monto_condonado - (float) $c->pagos->sum('pivot.monto_aplicado'), 2)]);
+        $alumnos = $this->cobranzaService->listadoCobranza($estadoFiltro, $deporteId, $grupoId);
+        $dnis = $alumnos->map(fn ($a) => \App\Services\InscripcionService::dni($a->dni))->filter()->unique();
+        $inscripciones = $dnis->isEmpty()
+            ? collect()
+            : \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')->where('estado', 'VIGENTE')
+                ->whereIn('dni', $dnis)
+                ->with('pagos')->get()->mapWithKeys(fn ($c) => [$c->dni => round((float) $c->monto_original - (float) $c->monto_condonado - (float) $c->pagos->sum('pivot.monto_aplicado'), 2)]);
 
         $resumen = $this->cobranzaService->resumenDashboard();
 

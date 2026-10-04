@@ -114,6 +114,158 @@ class CobranzaEstadoService
     }
 
     /**
+     * Listado unificado por persona para la pantalla de cobranza.
+     * Agrupa alumnos con el mismo DNI en una sola fila, totaliza deudas
+     * y ordena por defecto a quienes deben (antigüedad de deuda asc).
+     */
+    public function listadoCobranza(
+        ?string $estadoFiltro = null,
+        ?int $deporteId = null,
+        ?int $grupoId = null,
+        ?Carbon $fecha = null
+    ): Collection {
+        $fecha = $fecha ?? Carbon::now();
+        $diasGracia = $this->diasGracia();
+
+        $query = Alumno::where('activo', true)
+            ->with([
+                'deudaCuotas',
+                'deporte',
+                'grupo.deporte',
+                'grupo.nivel',
+                'planActivo.plan',
+            ]);
+
+        if ($deporteId) {
+            $query->where('deporte_id', $deporteId);
+        }
+        if ($grupoId) {
+            $query->where('grupo_id', $grupoId);
+        }
+
+        $alumnos = $query->get();
+
+        // Cargar inscripciones para los DNI involucrados
+        $dnis = $alumnos->map(fn($a) => \App\Services\InscripcionService::dni($a->dni))->filter()->unique();
+        $cargosInscripcion = $dnis->isEmpty()
+            ? collect()
+            : \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
+                ->where('estado', 'VIGENTE')
+                ->whereIn('dni', $dnis)
+                ->with('pagos')
+                ->get()
+                ->mapWithKeys(function ($cargo) {
+                    $pagado = (float)$cargo->pagos->sum('pivot.monto_aplicado');
+                    $condonado = (float)$cargo->monto_condonado;
+                    $orig = (float)$cargo->monto_original;
+                    $pendiente = max(0, $orig - $pagado - $condonado);
+                    return [$cargo->dni => round($pendiente, 2)];
+                });
+
+        // Agrupar por persona (DNI normalizado, o ID si no tiene DNI)
+        $personas = $alumnos->groupBy(function (Alumno $a) {
+            $dniNorm = \App\Services\InscripcionService::dni($a->dni);
+            return !empty($dniNorm) ? 'dni_' . $dniNorm : 'id_' . $a->id;
+        });
+
+        $severidad = [
+            self::ESTADO_DEUDOR => 4,
+            self::ESTADO_MOROSO => 3,
+            self::ESTADO_EN_PLAZO => 2,
+            self::ESTADO_AL_DIA => 1,
+        ];
+
+        $resultado = $personas->map(function (Collection $alumnosPersona) use ($fecha, $diasGracia, $cargosInscripcion, $severidad) {
+            /** @var Alumno $primerAlumno */
+            $primerAlumno = $alumnosPersona->first();
+            $dniNorm = \App\Services\InscripcionService::dni($primerAlumno->dni);
+            $inscripcionPendiente = (float)($cargosInscripcion[$dniNorm] ?? 0.0);
+
+            $peorEstado = self::ESTADO_AL_DIA;
+            $peorSeveridad = 1;
+            $totalDeudaCuotas = 0.0;
+            $deudaMasAntigua = null;
+            $actividades = [];
+            $alumnoConDeudaMasVieja = $primerAlumno;
+
+            foreach ($alumnosPersona as $alumno) {
+                $info = $this->calcularEstadoDesdeDeudas(
+                    $alumno->deudaCuotas,
+                    $fecha,
+                    $diasGracia
+                );
+
+                $estadoAlumno = $info['estado'];
+                $sev = $severidad[$estadoAlumno] ?? 1;
+                if ($sev > $peorSeveridad) {
+                    $peorSeveridad = $sev;
+                    $peorEstado = $estadoAlumno;
+                }
+
+                $nombreDeporte = $alumno->deporte->nombre ?? 'Sin deporte';
+                $nombreGrupo = $alumno->grupo->nombre ?? 'Sin grupo';
+                $actividades[] = [
+                    'deporte' => $nombreDeporte,
+                    'grupo' => $nombreGrupo,
+                ];
+
+                foreach ($alumno->deudaCuotas as $deuda) {
+                    if ($this->estaImpaga($deuda)) {
+                        $saldo = max(0, (float)$deuda->monto_original - (float)$deuda->monto_pagado - (float)$deuda->monto_condonado);
+                        $totalDeudaCuotas += $saldo;
+
+                        if ($deudaMasAntigua === null || $deuda->periodo < $deudaMasAntigua) {
+                            $deudaMasAntigua = $deuda->periodo;
+                            $alumnoConDeudaMasVieja = $alumno;
+                        }
+                    }
+                }
+            }
+
+            $deudaTotal = round($totalDeudaCuotas + $inscripcionPendiente, 2);
+            if ($inscripcionPendiente > 0 && in_array($peorEstado, [self::ESTADO_AL_DIA, self::ESTADO_EN_PLAZO])) {
+                $peorEstado = self::ESTADO_DEUDOR;
+            }
+
+            $representante = clone $alumnoConDeudaMasVieja;
+            $representante->setAttribute('estado_cobranza', $peorEstado);
+            $representante->setAttribute('deuda_total', $deudaTotal);
+            $representante->setAttribute('deuda_mas_antigua', $deudaMasAntigua ?? '9999-99');
+            $representante->setAttribute('actividades', $actividades);
+            $representante->setAttribute('inscripcion_pendiente', $inscripcionPendiente);
+            $representante->setAttribute('alumnos_relacionados', $alumnosPersona);
+
+            return $representante;
+        })->values();
+
+        // Filtrado por estado
+        if ($estadoFiltro === 'TODOS') {
+            // No filtrar: ver todos
+        } elseif ($estadoFiltro && in_array($estadoFiltro, [self::ESTADO_AL_DIA, self::ESTADO_EN_PLAZO, self::ESTADO_MOROSO, self::ESTADO_DEUDOR])) {
+            $resultado = $resultado->filter(fn(Alumno $a) => $a->estado_cobranza === $estadoFiltro)->values();
+        } else {
+            // Default (o DEUDORES): solo deudores, morosos o con deuda > 0
+            $resultado = $resultado->filter(function (Alumno $a) {
+                return in_array($a->estado_cobranza, [self::ESTADO_DEUDOR, self::ESTADO_MOROSO]) || ($a->deuda_total ?? 0) > 0;
+            })->values();
+        }
+
+        // Ordenamiento por antigüedad de deuda impaga (más vieja primero), luego por apellido y nombre
+        return $resultado->sort(function (Alumno $a, Alumno $b) {
+            $antiguedadA = $a->deuda_mas_antigua ?? '9999-99';
+            $antiguedadB = $b->deuda_mas_antigua ?? '9999-99';
+
+            if ($antiguedadA !== $antiguedadB) {
+                return strcmp($antiguedadA, $antiguedadB);
+            }
+
+            $nombreCompletoA = $a->apellido . ' ' . $a->nombre;
+            $nombreCompletoB = $b->apellido . ' ' . $b->nombre;
+            return strcmp($nombreCompletoA, $nombreCompletoB);
+        })->values();
+    }
+
+    /**
      * Resumen dashboard de cobranza.
      */
     public function resumenDashboard(?Carbon $fecha = null): array
@@ -134,6 +286,7 @@ class CobranzaEstadoService
         $porDeporte = [];
         $porGrupo = [];
         $diasGracia = $this->diasGracia();
+        $totalAdeudadoCuotas = 0.0;
 
         foreach ($alumnos as $alumno) {
             $info = $this->calcularEstadoDesdeDeudas(
@@ -143,6 +296,12 @@ class CobranzaEstadoService
             );
             $estado = $info['estado'];
             $conteos[$estado]++;
+
+            foreach ($alumno->deudaCuotas as $deuda) {
+                if ($this->estaImpaga($deuda)) {
+                    $totalAdeudadoCuotas += max(0, (float)$deuda->monto_original - (float)$deuda->monto_pagado - (float)$deuda->monto_condonado);
+                }
+            }
 
             // Por deporte
             $depId = $alumno->deporte_id;
@@ -173,8 +332,28 @@ class CobranzaEstadoService
             $porGrupo[$grpId][$estado]++;
         }
 
+        // Inscripciones pendientes para alumnos activos
+        $dnis = $alumnos->map(fn($a) => \App\Services\InscripcionService::dni($a->dni))->filter()->unique();
+        $totalAdeudadoInscripciones = 0.0;
+        if ($dnis->isNotEmpty()) {
+            $cargosInscripcion = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
+                ->where('estado', 'VIGENTE')
+                ->whereIn('dni', $dnis)
+                ->with('pagos')
+                ->get();
+            foreach ($cargosInscripcion as $cargo) {
+                $pagado = (float)$cargo->pagos->sum('pivot.monto_aplicado');
+                $condonado = (float)$cargo->monto_condonado;
+                $orig = (float)$cargo->monto_original;
+                $totalAdeudadoInscripciones += max(0, $orig - $pagado - $condonado);
+            }
+        }
+
+        $totalAdeudado = round($totalAdeudadoCuotas + $totalAdeudadoInscripciones, 2);
+
         return [
             'total_alumnos_activos' => $alumnos->count(),
+            'total_adeudado' => $totalAdeudado,
             'por_estado' => $conteos,
             'por_deporte' => array_values($porDeporte),
             'por_grupo' => array_values($porGrupo),

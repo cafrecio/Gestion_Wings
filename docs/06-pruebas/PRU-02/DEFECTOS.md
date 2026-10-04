@@ -14,7 +14,7 @@ se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
 ## Parte A — Lo que se ve
 
-### A1. Cobranza no sirve para cobrar · Frena · verificado
+### A1. Cobranza no sirve para cobrar · Frena · CERRADO 04/10
 
 La pantalla de Cobranza lista a los alumnos con su estado y un botón **Ver**. No muestra
 **cuánto debe** cada uno ni tiene botón de **Cobrar**. Para cobrarle a alguien hay que salir,
@@ -22,6 +22,8 @@ ir a Alumnos y buscarlo de nuevo.
 
 Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trabajo.
 `resources/views/cobranza/index.blade.php`.
+
+**Resuelto en Entrega 1 de P2 (04/10):** Columna de Total deuda en pesos y botón Cobrar fijo de 64px (`ds-btn-row`) que dirige a `caja/cobrar/{alumnoId}`. Cubierto en `CobranzaEntrega1Test`.
 
 ### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · CERRADO 23/09
 
@@ -142,15 +144,19 @@ Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admi
 En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
 Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
 
-### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · verificado
+### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · CERRADO 04/10
 
 Un alumno anotado en dos actividades (como Sofía Morales en Patín y Fútbol) aparece dos veces consecutivas en el listado de Cobranza con el mismo nombre y apellido, sin totalizar su deuda global ni clarificar a simple vista a qué corresponde cada fila.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
-### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · verificado
+**Resuelto en Entrega 1 de P2 (04/10):** Unificación por DNI en una sola fila por persona, con sus actividades listadas en viñetas dentro de la celda y deuda total consolidada. Cubierto en `CobranzaEntrega1Test`.
+
+### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · CERRADO 04/10
 
 Las tarjetas superiores de Cobranza muestran conteos de alumnos (`Total Activos 60`, `Al día 0`, `En plazo 0`, `Morosos 0`, `Deudores 60`), pero no dicen cuánta plata representa la deuda ni cuánto dinero falta recaudar. Quien gestiona no sabe cuántos pesos están en juego.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
+
+**Resuelto en Entrega 1 de P2 (04/10):** Se agregó tarjeta destacada "Total adeudado" en pesos en el resumen superior. Cubierto en `CobranzaEntrega1Test`.
 
 ### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · Molesta · verificado
 
@@ -256,7 +262,7 @@ las 08:00.
 **Y el contenido también es pobre:** una sola línea con el total y el más viejo. Para que
 sirva tendría que decir, por sección, qué hay pendiente y desde cuándo.
 
-### A45. Cobranza repite el deporte al lado del nombre · Molesta · verificado
+### A45. Cobranza repite el deporte al lado del nombre · Molesta · CERRADO 04/10
 
 Salió al mirar P2 (Carlos, 04/10). Cuando la misma persona está anotada en dos deportes, la
 columna **Alumno** le pega el deporte entre paréntesis y pintado —"Morales, Sofía (Patín)"—
@@ -268,7 +274,9 @@ El problema de fondo no es cómo se distingue una fila de otra: es que **la mism
 ocupa dos filas**. El mostrador necesita saber cuánto debe esa familia, no cuántos registros
 tiene.
 
-### A46. Cobranza es un padrón, no una lista de cobranza · Frena · verificado
+**Resuelto en Entrega 1 de P2 (04/10):** Se eliminó la etiqueta del deporte en el nombre; cada persona ocupa una sola fila por DNI y sus deportes/grupos se listan con viñetas en la columna Actividades.
+
+### A46. Cobranza es un padrón, no una lista de cobranza · Frena · CERRADO 04/10
 
 Abre listando **a todos los alumnos activos**, con el filtro de estado en "Todos": 63 de las
 65 filas no tienen nada que cobrar. `CobranzaWebController::index` no filtra por deuda y el
@@ -278,11 +286,15 @@ Es la lista de trabajo del que sale a cobrar. Tiene que abrir mostrando **solo a
 deben**, ordenados por antigüedad o por monto, y ver a los que están al día debería ser una
 opción, no lo primero. Las tarjetas del resumen quedan como están.
 
-### A47. Los botones de fila tienen anchos distintos · Molesta · verificado
+**Resuelto en Entrega 1 de P2 (04/10):** Al abrir Cobranza sin parámetros, filtra por defecto a quienes tienen deuda (`DEUDOR` y `MOROSO`), ordenados de la deuda más vieja a la más nueva. El filtro permite seleccionar "Todos" u otros estados explícitamente. Cubierto en `CobranzaEntrega1Test`.
+
+### A47. Los botones de fila tienen anchos distintos · Molesta · CERRADO 04/10
 
 En la misma fila de Cobranza, **Cobrar mide 64px y Ver 44px**, los dos escritos a mano en
 `cobranza/index.blade.php:194,197`. `DESIGN-RULES.md` fija un ancho único para los botones de
 fila de tabla: 64. Los dos salieron del mismo commit, `e32ce0c`.
+
+**Resuelto en Entrega 1 de P2 (04/10):** Ambos botones `Cobrar` y `Ver` tienen ancho uniforme y fijo de 64px respetando Objeto C de `DESIGN-RULES.md`.
 
 ### A48. P2 agregó JavaScript adentro del HTML · Molesta · verificado
 

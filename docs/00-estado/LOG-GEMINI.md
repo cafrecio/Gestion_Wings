@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-04 — LOG GEM CAB — Entrega 1 de P2: Cobranza desde cero
+
+- **Objetivo:** Implementar la Entrega 1 de P2 (Cobranza) resolviendo los defectos A1, A21, A22, A45, A46 y A47 con estricto apego al Design System y TDD.
+- **Acciones y cambios:**
+  - Mockup visual preliminar generado y revisado en Desktop y Mobile (375px).
+  - TDD en rojo primero: `tests/Feature/CobranzaEntrega1Test.php` (5 pruebas / 23 aserciones).
+  - `CobranzaEstadoService`: método `listadoCobranza` con consolidación por DNI, deuda consolidada, orden por antigüedad de deuda impaga asc, y tarjeta `total_adeudado` en pesos en `resumenDashboard`.
+  - `CobranzaWebController`: filtro por defecto a personas con deuda (`DEUDORES`), integración con selector `TODOS`, `AL_DIA`, etc.
+  - `resources/views/cobranza/index.blade.php`: tarjeta destacada de total adeudado en pesos, tabla en contenedor con `overflow-x: auto`, fila unificada por persona con actividades en viñetas, botones `Cobrar` y `Ver` fijos de 64px (`ds-btn-row`), cero scripts inline.
+  - Verificación: suite completa verde (343 pruebas / 1955 aserciones). `DocumentacionNoMienteTest` y `TablerosNoDivergenTest` en verde.
+- **Siguiente paso:** Entrega 2 de P2 (Cobrar desde donde está la persona: botón Cobrar en ficha del alumno, recibos reimprimibles, cobro por adelantado).
+
 ## 2026-10-04 — LOG GEM CAB — Reversión de P2 en rama principal
 
 - **Objetivo:** Restaurar `main` al estado previo a P2, revirtiendo todas las vistas y componentes modificados sin autorización previa de diseño de Carlos.

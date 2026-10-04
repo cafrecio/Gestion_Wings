@@ -9,9 +9,9 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite local de P0: **338 pruebas / 1932 aserciones**, todas verdes el 04/10 en wings_testing.
+Suite local de Entrega 1 (P2): **343 pruebas / 1955 aserciones**, todas verdes el 04/10 en wings_testing.
 Las cinco pruebas antiguas de A43 fueron reemplazadas por la regla sin corte.
-Implementación pendiente de verificación independiente por Gemini.
+Implementación de Entrega 1 de P2 (Cobranza) completada con suite verde.
 
 **Lo que necesita tu decision o tu presencia:**
 
@@ -75,10 +75,10 @@ powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servido
 7. Ejecutar la suite completa:
 
 ```bash
-php artisan test          # 338 pruebas deben pasar
+php artisan test          # 343 pruebas deben pasar
 ```
 
-Corte verificado del 04/10: **338 pruebas / 1932 aserciones**, todas verdes; base descartable exclusiva.
+Corte verificado del 04/10: **343 pruebas / 1955 aserciones**, todas verdes; base descartable exclusiva.
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista
