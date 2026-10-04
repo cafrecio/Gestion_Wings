@@ -14,7 +14,7 @@ se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
 ## Parte A — Lo que se ve
 
-### A1. Cobranza no sirve para cobrar · Frena · CERRADO 04/10
+### A1. Cobranza no sirve para cobrar · Frena · Entrega 1 con observaciones 04/10
 
 La pantalla de Cobranza lista a los alumnos con su estado y un botón **Ver**. No muestra
 **cuánto debe** cada uno ni tiene botón de **Cobrar**. Para cobrarle a alguien hay que salir,
@@ -24,6 +24,10 @@ Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trab
 `resources/views/cobranza/index.blade.php`.
 
 **Resuelto en Entrega 1 de P2 (04/10):** Columna de Total deuda en pesos y botón Cobrar fijo de 64px (`ds-btn-row`) que dirige a `caja/cobrar/{alumnoId}`. Cubierto en `CobranzaEntrega1Test`.
+
+**Control independiente Codex, `867c295`:** enlaces e importes sin filtros comprobados;
+el total por persona falla al filtrar (A51). Entrega completa no aprobada.
+[Verificación y capturas](VERIFICACION-ENTREGA1.md).
 
 ### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · CERRADO 23/09
 
@@ -134,22 +138,32 @@ Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
 En pantallas de 375px (`/cobranza`), las columnas de la tabla colisionan: los títulos "ALUMNO" y "DEPORTE" se imprimen encimados ("AEBDORINE"), los nombres de los chicos se montan sobre la disciplina ("Morales, Patín Sofía"), los filtros se truncan a dos letras y el botón Ver queda cortado por el borde de la pantalla.
 Captura: `evidencia/audit_admin_cobranza_mobile.png`.
 
+**Control 04/10, `867c295`:** tabla sin superposición; Cobrar y Ver completos al
+desplazar horizontalmente. Los filtros siguen ilegibles a 375 px. A18 parcialmente
+corregido, sin cierre. [Evidencia actual](evidencia/verificacion-entrega1/cobranza-375.png).
+
 ### A19. Las barras de filtros en celular colapsan en cuadrados mudos y desbordan · Molesta · verificado
 
 En Alumnos, Clases, Movimientos, Profesores e Historial de Cajas, los filtros se aprietan en una sola fila horizontal en el celular: los selectores quedan reducidos a pequeños cuadrados mudos con flechas sin texto, y los botones **Filtrar** y **Limpiar** quedan flotando afuera de la tarjeta blanca.
 Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admin_movimientos_index_mobile.png`, `evidencia/audit_admin_profesores_index_mobile.png`, `evidencia/audit_admin_alumnos_index_mobile.png`, `evidencia/audit_admin_cajas_historial_mobile.png`.
+
+**También Cobranza, comprobado 04/10 sobre `867c295`:** Estado, Deporte y Grupo
+quedan como tres cuadrados con flecha, sin texto legible. Esperaba poder reconocer
+qué filtro estoy usando. Molesta. [Captura](evidencia/verificacion-entrega1/cobranza-375.png).
 
 ### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · verificado
 
 En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
 Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
 
-### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · CERRADO 04/10
+### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · Entrega 1 con observaciones 04/10
 
 Un alumno anotado en dos actividades (como Sofía Morales en Patín y Fútbol) aparece dos veces consecutivas en el listado de Cobranza con el mismo nombre y apellido, sin totalizar su deuda global ni clarificar a simple vista a qué corresponde cada fila.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
-**Resuelto en Entrega 1 de P2 (04/10):** Unificación por DNI en una sola fila por persona, con sus actividades listadas en viñetas dentro de la celda y deuda total consolidada. Cubierto en `CobranzaEntrega1Test`.
+**Implementado en `1c4e6dc` y `867c295`:** una fila por DNI, deportes y grupos en
+columnas separadas. Codex comprobó Morales, Sofía y la prueba de dos deudas. El
+total consolidado se pierde con filtros: A51. [Control independiente](VERIFICACION-ENTREGA1.md).
 
 ### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · CERRADO 04/10
 
@@ -230,25 +244,28 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
-### A43. La cuota del alta usaba el mes de carga · Frena · implementación P0 entregada, pendiente de Gemini
+### A43. El alumno cargado a mano con ingreso de un mes cerrado queda deudor · Frena · decidido 04/10, sin implementar
 
-**Regla única vigente (Carlos, 26/09; ratificada 04/10):** la cuota del alta es la
-del **mes de la fecha real de ingreso**, con el porcentaje configurado para ese día.
-Sin fecha de corte, sin excepciones por antigüedad y sin pantalla que pregunte.
-Ejemplo: ingreso 20/01/2020 cargado en octubre de 2026 crea enero de 2020 al porcentaje
-del día 20; no crea octubre ni todos los meses intermedios.
+**Verificado por Claude el 04/10** sobre la implementación de P0 (`ad24769`): cargando a mano
+un alumno con fecha de ingreso **20/01/2020**, el sistema le crea la cuota de **enero de
+2020** y el alumno queda **DEUDOR en el acto**, con una deuda de hace seis años que nadie va
+a cobrar. La regla única —la cuota es la del mes de la fecha de ingreso— aplicada a ese caso
+da un resultado que el club no quiere.
 
-P0 cambia `PagoCuotaService::crearCuotaAlta` y la vigencia del plan inicial, conserva
-importe y porcentaje congelados y la transacción del alta. Retira el corte de
-inscripción; el alta manual sigue generando una inscripción por DNI al importe vigente.
-Los registros existentes, cargos, pagos y deudas no se recalculan.
+**Decisión de Carlos, 04/10:** cuando la fecha de ingreso cae en **un mes ya cerrado**, el
+alta **avisa antes de guardar** y ofrece una sola decisión:
 
-Las cinco pruebas del 26/09 basadas en el corte fueron reemplazadas por casos de esta
-regla. Se comprueban mes antiguo/futuro, porcentaje configurable y cobro sin segundo
-descuento. [Evidencia P0](P0-CARGA-INICIAL-2026-10-04.md).
-Commit de implementación P0: `ad24769` (suite 338/1932 verde).
-**No cerrado:** Gemini debe verificar pantalla y código. Los dos importadores antiguos
-siguen disponibles hasta que el nuevo importador de Excel funcione.
+> Este alumno ingresó en enero de 2020, un mes ya cerrado. ¿Le generamos la cuota de este
+> mes? **Sí** genera la cuota del mes en curso, **completa**, sin descuento de bienvenida.
+> **No** guarda al alumno sin ninguna deuda.
+
+- **Nunca se crea deuda de un mes viejo.** Esa opción no se ofrece.
+- Si el ingreso es del **mes en curso o posterior**, no se pregunta nada: la cuota se genera
+  sola con el porcentaje del día, como está hoy.
+- La decisión y quién la tomó quedan registradas con el alta.
+
+Cuando exista la primera carga por Excel, los alumnos viejos entran por ahí y este caso
+debería volverse raro. El aviso queda igual, para el que no entró en el padrón.
 
 ### A44. El aviso diario llega firmado por Laravel · Molesta · verificado
 
@@ -274,7 +291,10 @@ El problema de fondo no es cómo se distingue una fila de otra: es que **la mism
 ocupa dos filas**. El mostrador necesita saber cuánto debe esa familia, no cuántos registros
 tiene.
 
-**Resuelto en Entrega 1 de P2 (04/10):** Se eliminó la etiqueta del deporte en el nombre; cada persona ocupa una sola fila por DNI y sus deportes/grupos se listan con viñetas en la columna Actividades.
+**Verificado por Codex sobre `867c295` (04/10):** se eliminó la etiqueta del deporte
+en el nombre. Morales, Sofía ocupa una fila, con Patín/Fútbol y sus niveles en
+columnas separadas Deporte y Grupo. No existe una columna Actividades en esta versión.
+[Control independiente](VERIFICACION-ENTREGA1.md).
 
 ### A46. Cobranza es un padrón, no una lista de cobranza · Frena · CERRADO 04/10
 
@@ -316,6 +336,26 @@ El hook que vigila el diseño no bloquea: exige que la línea esté y confía en
 Si la escribe el agente, la regla no protege nada. Siete vistas entraron con esa línea.
 
 No es un defecto del sistema sino del proceso, y se anota acá para que no se pierda.
+
+### A51. Filtrar un deporte reduce el total de deuda de una persona · Frena · verificado 04/10
+
+Esperaba que **Total deuda** conservara lo que debe la persona en sus dos deportes;
+PostCorte, Mateo muestra $26.000 sin filtros y $5.000 al elegir Fútbol, y cambia el
+destino de Cobrar/Ver. La deuda no cambió. Frena al mostrador: deja parte de lo debido
+fuera de lo que se presenta como total. Comprobado en navegador local ADMIN sobre
+`867c295`. [Sin filtro](evidencia/verificacion-entrega1/cobranza-escritorio.png) y
+[con Fútbol](evidencia/verificacion-entrega1/filtro-futbol-total.png).
+Código y límites en [VERIFICACION-ENTREGA1.md](VERIFICACION-ENTREGA1.md). Sin corrección.
+
+### A52. La inscripción pendiente cambia el estado mensual a Deudor · Molesta · verificado en código 04/10
+
+Esperaba que la inscripción se mostrara como cargo pendiente sin cambiar el estado
+mensual, como establece ENT-01. `CobranzaEstadoService.php:229-230` convierte Al día
+o En plazo en Deudor por la inscripción, mientras el cálculo individual y el resumen
+solo miran cuotas. En el registro local 63, sin cuotas, la lectura individual da
+AL_DIA y la fila filtrada DEUDOR, con inscripción $5.000.
+El alcance a altas dentro de gracia se infiere del cuerpo; no se creó un alumno para
+probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md). Sin corrección.
 
 ## Complemento visual de Codex — 23/09/2026
 
