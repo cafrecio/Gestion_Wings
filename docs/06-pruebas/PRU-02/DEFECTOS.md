@@ -404,12 +404,16 @@ El contrato de cobranza exige **motivo obligatorio y aviso al admin** en cuatro 
 cobro parcial, cobro que deja impago un mes anterior, deudor que entra a clase, y alumno
 nuevo desde la tercera clase. **Ninguna pide motivo hoy.** Tarea ENT-11.
 
-### B4. El resumen diario no incluye las clases sin asistencia · Molesta · verificado
+### B4. El resumen diario no incluía las clases sin asistencia · Molesta · CERRADO 04/10
 
-El aviso que llega por mail y Telegram cubre cajas, revisiones y liquidaciones. Una clase
-sin lista tomada **traba el pago del profesor** y solo se ve como un contador en el menú de
-quien entra.
+Una clase sin lista tomada **traba el pago del profesor** —sin asistencia no se liquida— y
+hasta hoy solo se veía como un contador en el menú de quien entraba. El dueño podía no
+enterarse nunca.
 
+**Corregido el 04/10:** el resumen diario incluye cuántas hay, cuál es la más vieja, de qué
+grupo, y dice por qué importa: hasta que se carguen no se le puede pagar al profesor. Usa la
+misma consulta que el contador del menú, para que los dos digan siempre lo mismo. Las clases
+validadas a mano para liquidar no aparecen. Cubierto por `AvisoAdminResumenDiarioTest`.
 ### B5. Las canchas no existen · Falta
 
 No hay dónde decir en qué cancha se juega, cuál es la tarifa de esa hora ni cuánto se paga

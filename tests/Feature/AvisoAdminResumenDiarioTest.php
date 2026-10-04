@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Alumno;
 use App\Models\AlumnoRevisionCobranza;
 use App\Models\CajaOperativa;
+use App\Models\Clase;
 use App\Models\Configuracion;
 use App\Models\Deporte;
 use App\Models\Grupo;
@@ -379,6 +380,44 @@ class AvisoAdminResumenDiarioTest extends TestCase
         $this->assertSame('Wings', $mensaje->salutation, 'Sin despedida propia, Laravel firma "Regards" con el nombre de la aplicacion.');
         $this->assertStringContainsString('Wings', $mensaje->subject);
         $this->assertStringNotContainsStringIgnoringCase('laravel', $mensaje->subject . ' ' . $mensaje->greeting . ' ' . $mensaje->salutation);
+    }
+
+    /**
+     * Una clase sin lista tomada traba el pago del profesor: sin asistencia no se
+     * liquida. Hasta el 04/10/2026 eso solo se veia como un numero en el menu de
+     * quien entraba, y el duenio podia no enterarse nunca.
+     */
+    public function test_el_resumen_avisa_de_las_clases_sin_lista_tomada(): void
+    {
+        Http::fake(['api.telegram.org/*' => Http::response(['ok' => true])]);
+
+        $grupo = Grupo::create([
+            'deporte_id' => $this->deporte->id,
+            'nivel_id'   => Nivel::create(['nombre' => 'Principiantes'])->id,
+            'activo'     => true,
+        ]);
+        $clase = Clase::create([
+            'grupo_id'    => $grupo->id,
+            'fecha'       => now()->subDay()->toDateString(),
+            'hora_inicio' => '17:00',
+            'hora_fin'    => '18:00',
+            'cancelada'   => false,
+        ]);
+
+        $this->assertTrue(app(AvisoAdminService::class)->resumenDiario());
+
+        Http::assertSent(function ($peticion) {
+            $texto = $peticion->data()['text'];
+
+            return str_contains($texto, 'Clases sin lista tomada')
+                && str_contains($texto, 'no se le puede pagar al profesor')
+                && str_contains($texto, route('web.clases.index'));
+        });
+
+        // Validada a mano para liquidar: deja de estar pendiente y no hay nada que avisar.
+        $clase->update(['validada_para_liquidacion' => true]);
+        Http::fake();
+        $this->assertFalse(app(AvisoAdminService::class)->resumenDiario());
     }
 
     public function test_el_comando_queda_programado_a_las_08_00(): void

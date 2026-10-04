@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\AlumnoRevisionCobranza;
 use App\Models\CajaOperativa;
+use App\Models\Clase;
 use App\Models\Configuracion;
 use App\Models\Liquidacion;
 use App\Models\MovimientoOperativo;
@@ -90,15 +91,30 @@ class AvisoAdminService
             ->where('estado_pago', Liquidacion::ESTADO_PAGO_PENDIENTE)
             ->get();
 
+        // Clases que ya pasaron y nadie tomó lista. Traban el pago del profesor:
+        // sin asistencia no se liquidan, y hasta hoy esto solo se veía como un
+        // número en el menú de quien entraba. Misma consulta que ese contador
+        // (AppServiceProvider), para que los dos digan siempre lo mismo.
+        $clasesSinAsistencia = Clase::query()
+            ->where('cancelada', false)
+            ->whereDate('fecha', '<', today())
+            ->where('validada_para_liquidacion', false)
+            ->whereDoesntHave('asistencias', fn ($q) => $q->where('presente', true))
+            ->with(['grupo.deporte', 'grupo.nivel'])
+            ->orderBy('fecha', 'asc')
+            ->get();
+
         $cantLiqAbiertas = Liquidacion::query()
             ->where('estado', Liquidacion::ESTADO_ABIERTA)
             ->count();
 
+        $cantClasesSinAsistencia = $clasesSinAsistencia->count();
         $cantCajas = $cajasCerradas->count();
         $cantRevisiones = $revisiones->count();
         $cantLiqCerradas = $liqCerradasSinPagar->count();
 
-        if ($cantCajas === 0 && $cantRevisiones === 0 && $cantLiqCerradas === 0 && $cantLiqAbiertas === 0) {
+        if ($cantCajas === 0 && $cantRevisiones === 0 && $cantLiqCerradas === 0 && $cantLiqAbiertas === 0
+            && $cantClasesSinAsistencia === 0) {
             return false;
         }
 
@@ -133,6 +149,21 @@ class AvisoAdminService
                 $quien,
                 $fecha,
                 route('web.caja.index')
+            );
+        }
+
+        if ($cantClasesSinAsistencia > 0) {
+            $claseVieja = $clasesSinAsistencia->first();
+            $queGrupo = $claseVieja->grupo?->deporte?->nombre
+                ? $claseVieja->grupo->deporte->nombre . ' — ' . ($claseVieja->grupo->nivel?->nombre ?? $claseVieja->grupo->nombre ?? '')
+                : 'Sin grupo';
+
+            $datos['Clases sin lista tomada'] = sprintf(
+                '%d — la más vieja: %s del %s — hasta que se carguen no se le puede pagar al profesor — %s',
+                $cantClasesSinAsistencia,
+                trim($queGrupo, ' —'),
+                $claseVieja->fecha?->format('d/m/Y') ?? 'sin fecha',
+                route('web.clases.index')
             );
         }
 
