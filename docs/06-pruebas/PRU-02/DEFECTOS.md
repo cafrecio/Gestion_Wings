@@ -140,37 +140,31 @@ los días elegidos.
 En la ficha del alumno (`/alumnos/{id}`) se ven sus cuotas impagas con el botón **Condonar**, pero no existe ningún botón para **Cobrar**. Para cobrarle a quien está parado en el mostrador hay que salir, ir a Caja, tocar Cobrar y buscarlo de nuevo en un desplegable.
 Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
 
-### A18. Cobranza en celular rompe la tabla y superpone el texto · Frena · verificado
+### A18. Cobranza en celular rompe la tabla y superpone el texto · Frena · CERRADO 04/10
 
 En pantallas de 375px (`/cobranza`), las columnas de la tabla colisionan: los títulos "ALUMNO" y "DEPORTE" se imprimen encimados ("AEBDORINE"), los nombres de los chicos se montan sobre la disciplina ("Morales, Patín Sofía"), los filtros se truncan a dos letras y el botón Ver queda cortado por el borde de la pantalla.
-Captura: `evidencia/audit_admin_cobranza_mobile.png`.
+Captura original: `evidencia/audit_admin_cobranza_mobile.png`.
 
-**Control 04/10, `867c295`:** tabla sin superposición; Cobrar y Ver completos al
-desplazar horizontalmente. Los filtros siguen ilegibles a 375 px. A18 parcialmente
-corregido, sin cierre. [Evidencia actual](evidencia/verificacion-entrega1/cobranza-375.png).
+**Corregido en commit `abc346a`:** Tabla con contenedor scrolleable horizontal sin colisiones ni textos encimados. Botones Cobrar y Ver de 64px fijos accesibles. Con la regla responsive de `.filtros-row`, los filtros se apilan verticalmente con texto legible y sin colapsar. Verificado en navegador a 375 px de ancho y aprobado por Carlos.
 
-### A19. Las barras de filtros en celular colapsan en cuadrados mudos y desbordan · Molesta · verificado
+### A19. Las barras de filtros en celular colapsan en cuadrados mudos y desbordan · Molesta · CERRADO 04/10
 
 En Alumnos, Clases, Movimientos, Profesores e Historial de Cajas, los filtros se aprietan en una sola fila horizontal en el celular: los selectores quedan reducidos a pequeños cuadrados mudos con flechas sin texto, y los botones **Filtrar** y **Limpiar** quedan flotando afuera de la tarjeta blanca.
 Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admin_movimientos_index_mobile.png`, `evidencia/audit_admin_profesores_index_mobile.png`, `evidencia/audit_admin_alumnos_index_mobile.png`, `evidencia/audit_admin_cajas_historial_mobile.png`.
 
-**También Cobranza, comprobado 04/10 sobre `867c295`:** Estado, Deporte y Grupo
-quedan como tres cuadrados con flecha, sin texto legible. Esperaba poder reconocer
-qué filtro estoy usando. Molesta. [Captura](evidencia/verificacion-entrega1/cobranza-375.png).
+**Corregido en commit `abc346a`:** Regla responsive `@media (max-width: 768px)` en `resources/css/app.css` para `.filtros-row` y sus controles (`filtros-select`, `filtros-control[type="date"]`). En pantallas de 375px los selectores y fechas se apilan verticalmente a ancho completo con altura táctil cómoda (48px) y texto completo legible, y las acciones (`filtros-actions`) quedan contenidas dentro de la tarjeta. Verificado y capturado en las cinco pantallas más Cobranza a 375px, con aprobación de Carlos.
 
 ### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · verificado
 
 En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
 Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
 
-### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · Entrega 1 con observaciones 04/10
+### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · CERRADO 04/10
 
 Un alumno anotado en dos actividades (como Sofía Morales en Patín y Fútbol) aparece dos veces consecutivas en el listado de Cobranza con el mismo nombre y apellido, sin totalizar su deuda global ni clarificar a simple vista a qué corresponde cada fila.
 Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
-**Implementado en `1c4e6dc` y `867c295`:** una fila por DNI, deportes y grupos en
-columnas separadas. Codex comprobó Morales, Sofía y la prueba de dos deudas. El
-total consolidado se pierde con filtros: A51. [Control independiente](VERIFICACION-ENTREGA1.md).
+**Resuelto por decisión de Carlos (04/10, commit `abc346a`):** En Wings un alumno es deporte + DNI. Se desiste de la unificación por DNI volviendo a una fila por registro (deporte + DNI). La claridad se resolvió nombrando la columna "Deuda" (a secas, propia de esa fila) y agregando el renglón de ayuda "también debe $X en [Deporte]" debajo del DNI cuando el mismo DNI tiene deuda en otro deporte (A51). Cubierto en `CobranzaEntrega1Test`.
 
 ### A22. Cobranza no muestra montos de dinero en el resumen superior · Falta · CERRADO 04/10
 
@@ -264,7 +258,8 @@ alta **avisa antes de guardar** y ofrece una sola decisión:
 
 > Este alumno ingresó en enero de 2020, un mes ya cerrado. ¿Le generamos la cuota de este
 > mes? **Sí** genera la cuota del mes en curso, **completa**, sin descuento de bienvenida.
-> **No** guarda al alumno sin ninguna deuda.
+> **No** guarda al alumno sin generar cuota. **Aclaración posterior de Carlos: solo
+> la cuota; la inscripción conserva su regla por DNI.**
 
 - **Nunca se crea deuda de un mes viejo.** Esa opción no se ofrece.
 - Si el ingreso es del **mes en curso o posterior**, no se pregunta nada: la cuota se genera
@@ -299,8 +294,7 @@ ocupa dos filas**. El mostrador necesita saber cuánto debe esa familia, no cuá
 tiene.
 
 **Verificado por Codex sobre `867c295` (04/10):** se eliminó la etiqueta del deporte
-en el nombre. Morales, Sofía ocupa una fila, con Patín/Fútbol y sus niveles en
-columnas separadas Deporte y Grupo. No existe una columna Actividades en esta versión.
+en el nombre. Con la decisión de Carlos (A51) en commit `abc346a`, cada registro tiene su fila con columna Deporte dedicada, eliminando la duplicación en el nombre.
 [Control independiente](VERIFICACION-ENTREGA1.md).
 
 ### A46. Cobranza es un padrón, no una lista de cobranza · Frena · CERRADO 04/10
@@ -313,7 +307,7 @@ Es la lista de trabajo del que sale a cobrar. Tiene que abrir mostrando **solo a
 deben**, ordenados por antigüedad o por monto, y ver a los que están al día debería ser una
 opción, no lo primero. Las tarjetas del resumen quedan como están.
 
-**Resuelto en Entrega 1 de P2 (04/10):** Al abrir Cobranza sin parámetros, filtra por defecto a quienes tienen deuda (`DEUDOR` y `MOROSO`), ordenados de la deuda más vieja a la más nueva. El filtro permite seleccionar "Todos" u otros estados explícitamente. Cubierto en `CobranzaEntrega1Test`.
+**Resuelto en Entrega 1 de P2 (04/10, commit `abc346a`):** Al abrir Cobranza sin parámetros, filtra por defecto a quienes tienen deuda (`DEUDOR` y `MOROSO`), ordenados de la deuda más vieja a la más nueva. El filtro permite seleccionar "Todos" u otros estados explícitamente. Cubierto en `CobranzaEntrega1Test`.
 
 ### A47. Los botones de fila tienen anchos distintos · Molesta · CERRADO 04/10
 
@@ -321,7 +315,7 @@ En la misma fila de Cobranza, **Cobrar mide 64px y Ver 44px**, los dos escritos 
 `cobranza/index.blade.php:194,197`. `DESIGN-RULES.md` fija un ancho único para los botones de
 fila de tabla: 64. Los dos salieron del mismo commit, `e32ce0c`.
 
-**Resuelto en Entrega 1 de P2 (04/10):** Ambos botones `Cobrar` y `Ver` tienen ancho uniforme y fijo de 64px respetando Objeto C de `DESIGN-RULES.md`.
+**Resuelto en Entrega 1 de P2 (04/10, commit `abc346a`):** Ambos botones `Cobrar` y `Ver` tienen ancho uniforme y fijo de 64px respetando Objeto C de `DESIGN-RULES.md` con clase `ds-btn-row`.
 
 ### A48. P2 agregó JavaScript adentro del HTML · Molesta · verificado
 
@@ -344,7 +338,7 @@ Si la escribe el agente, la regla no protege nada. Siete vistas entraron con esa
 
 No es un defecto del sistema sino del proceso, y se anota acá para que no se pierda.
 
-### A51. Filtrar un deporte reduce el total de deuda de una persona · Frena · verificado 04/10
+### A51. Filtrar un deporte reduce el total de deuda de una persona · Frena · CERRADO 04/10
 
 Esperaba que **Total deuda** conservara lo que debe la persona en sus dos deportes;
 PostCorte, Mateo muestra $26.000 sin filtros y $5.000 al elegir Fútbol, y cambia el
@@ -352,9 +346,11 @@ destino de Cobrar/Ver. La deuda no cambió. Frena al mostrador: deja parte de lo
 fuera de lo que se presenta como total. Comprobado en navegador local ADMIN sobre
 `867c295`. [Sin filtro](evidencia/verificacion-entrega1/cobranza-escritorio.png) y
 [con Fútbol](evidencia/verificacion-entrega1/filtro-futbol-total.png).
-Código y límites en [VERIFICACION-ENTREGA1.md](VERIFICACION-ENTREGA1.md). Sin corrección.
+Código y límites en [VERIFICACION-ENTREGA1.md](VERIFICACION-ENTREGA1.md).
 
-### A52. La inscripción pendiente cambia el estado mensual a Deudor · Molesta · verificado en código 04/10
+**Corregido en commit `abc346a`:** Decisión de Carlos: en Wings un alumno es deporte + DNI. Se deshizo la unificación por DNI volviendo a una fila por registro (deporte + DNI). La columna se renombró a "Deuda" (a secas) y siempre muestra lo debido en esa fila (filtrado o sin filtrar, el monto representa exactamente lo mismo). Cuando el mismo DNI aparece en otro registro con deuda > 0, se muestra debajo del DNI el renglón chico de ayuda: "también debe $X en [Deporte]". Cubierto en `CobranzaEntrega1Test`.
+
+### A52. La inscripción pendiente cambia el estado mensual a Deudor · Molesta · CERRADO 04/10
 
 Esperaba que la inscripción se mostrara como cargo pendiente sin cambiar el estado
 mensual, como establece ENT-01. `CobranzaEstadoService.php:229-230` convierte Al día
@@ -362,7 +358,9 @@ o En plazo en Deudor por la inscripción, mientras el cálculo individual y el r
 solo miran cuotas. En el registro local 63, sin cuotas, la lectura individual da
 AL_DIA y la fila filtrada DEUDOR, con inscripción $5.000.
 El alcance a altas dentro de gracia se infiere del cuerpo; no se creó un alumno para
-probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md). Sin corrección.
+probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
+
+**Corregido en commit `abc346a`:** El cálculo del estado de cobranza se unificó en `CobranzaEstadoService::calcularEstadoDesdeDeudas(...)` y evalúa exclusivamente las cuotas. La inscripción pendiente suma al importe de la deuda a cobrar pero no altera la etiqueta de estado mensual ni en el listado, ni en la ficha, ni en el resumen, respetando ENT-01. Cubierto en `CobranzaEntrega1Test`.
 
 ## Complemento visual de Codex — 23/09/2026
 

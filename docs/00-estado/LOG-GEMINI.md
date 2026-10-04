@@ -10,6 +10,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-04 — LOG GEM CAB — Correcciones Entrega 1 Cobranza y responsive filtros (commit abc346a)
+
+- **Objetivo:** Resolver observaciones de Codex y Carlos sobre la Entrega 1 de Cobranza (A51, A52, A18, A19), unificar estado de cobranza y verificar que la regla responsive no afecte negativamente otras pantallas.
+- **Acciones y cambios:**
+  - A51: Vuelta a una fila por registro (deporte + DNI). Columna renombrada a "Deuda" a secas (muestra la deuda propia de esa fila). Renglón chico de ayuda debajo del DNI ("también debe $X en [Deporte]") cuando el mismo DNI tiene deuda activa en otro registro.
+  - A52: Cálculo de estado unificado en `CobranzaEstadoService::calcularEstadoDesdeDeudas(...)` basado estrictamente en cuotas. La inscripción impaga suma a la deuda pero no altera la etiqueta mensual ni en listado, ni en ficha, ni en resumen (ENT-01).
+  - Eliminado color hex en línea en `cobranza/index.blade.php` (`var(--color-surface)`).
+  - A18/A19: Regla `@media (max-width: 768px)` en `resources/css/app.css` para apilar selectores y fechas a ancho completo con altura táctil cómoda (48px). Inspección en pantalla a 375px en las 5 pantallas del sistema (Alumnos, Clases, Movimientos, Profesores, Historial de Cajas) confirmando legibilidad y usabilidad.
+  - Aprobación de Carlos con línea `Diseno-autorizado:` y commit `abc346a`.
+  - Cierre y actualización de defectos A18, A19, A21, A45, A46, A47, A51 y A52 en `docs/06-pruebas/PRU-02/DEFECTOS.md`.
+  - Verificación: suite completa en `wings_testing_gemini` verde con 356 pruebas y 2073 aserciones.
+- **Siguiente paso:** Proceder a la verificación independiente de Configuración (A11 / entrega de Codex).
+
 ## 2026-10-04 — LOG GEM CAB — Entrega 1 de P2: Cobranza desde cero
 
 - **Objetivo:** Implementar la Entrega 1 de P2 (Cobranza) resolviendo los defectos A1, A21, A22, A45, A46 y A47 con estricto apego al Design System, validación de pantalla en vivo y aprobación explícita de Carlos.
