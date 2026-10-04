@@ -12,15 +12,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 ## 2026-10-04 — LOG GEM CAB — Entrega 1 de P2: Cobranza desde cero
 
-- **Objetivo:** Implementar la Entrega 1 de P2 (Cobranza) resolviendo los defectos A1, A21, A22, A45, A46 y A47 con estricto apego al Design System y TDD.
+- **Objetivo:** Implementar la Entrega 1 de P2 (Cobranza) resolviendo los defectos A1, A21, A22, A45, A46 y A47 con estricto apego al Design System, validación de pantalla en vivo y aprobación explícita de Carlos.
 - **Acciones y cambios:**
-  - Mockup visual preliminar generado y revisado en Desktop y Mobile (375px).
+  - Mockups y capturas reales generadas y revisadas con Carlos en Desktop y Mobile (375px).
   - TDD en rojo primero: `tests/Feature/CobranzaEntrega1Test.php` (5 pruebas / 23 aserciones).
-  - `CobranzaEstadoService`: método `listadoCobranza` con consolidación por DNI, deuda consolidada, orden por antigüedad de deuda impaga asc, y tarjeta `total_adeudado` en pesos en `resumenDashboard`.
+  - `CobranzaEstadoService`: método `listadoCobranza` con consolidación por DNI, deuda consolidada, orden por antigüedad de deuda impaga asc, cálculo de cuotas impagas y tarjeta `total_adeudado` en pesos en `resumenDashboard`.
   - `CobranzaWebController`: filtro por defecto a personas con deuda (`DEUDORES`), integración con selector `TODOS`, `AL_DIA`, etc.
-  - `resources/views/cobranza/index.blade.php`: tarjeta destacada de total adeudado en pesos, tabla en contenedor con `overflow-x: auto`, fila unificada por persona con actividades en viñetas, botones `Cobrar` y `Ver` fijos de 64px (`ds-btn-row`), cero scripts inline.
-  - Verificación: suite completa verde (343 pruebas / 1955 aserciones). `DocumentacionNoMienteTest` y `TablerosNoDivergenTest` en verde.
-- **Siguiente paso:** Entrega 2 de P2 (Cobrar desde donde está la persona: botón Cobrar en ficha del alumno, recibos reimprimibles, cobro por adelantado).
+  - `resources/views/cobranza/index.blade.php`: tabla de 7 columnas acordada con Carlos (Alumno, Deporte con badge cromático, Grupo, Deuda desde con período y cuotas impagas, Total deuda en una línea, Estado y Acciones), filtros canónicos en una sola fila (`filtros-row`), botones `Cobrar` y `Ver` fijos de 64px (`ds-btn-row`), y tarjetas superiores con borde superior cromático unificado y soporte para cifras millonarias sin salto de línea.
+  - Pruebas en pantalla reales vía CDP: botón `Cobrar` probado en pantalla redirigiendo a la pantalla de cobro del alumno con sus cuotas pendientes cargadas; botón `Ver` probado abriendo la ficha del alumno; filtros combinados (Estado: TODOS + Deporte: Patín + Grupo: Principiantes) probados y validados; botón `Limpiar` probado restableciendo el listado al default de deudores.
+  - Verificación: suite completa 100% verde (343 pruebas / 1955 aserciones). `DocumentacionNoMienteTest` y `TablerosNoDivergenTest` en verde.
+- **Siguiente paso:** Pase a verificación por parte de Codex antes de iniciar Entrega 2.
 
 ## 2026-10-04 — LOG GEM CAB — Reversión de P2 en rama principal
 

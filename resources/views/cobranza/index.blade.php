@@ -15,12 +15,12 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 @endphp
 
 {{-- Cards resumen --}}
-<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:12px; margin-bottom:1rem;">
-    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-danger);">
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap:12px; margin-bottom:1rem;">
+    <div class="filtros-card" style="text-align:center; padding:1rem 0.5rem; border-top:3px solid var(--color-danger);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--color-danger); margin-bottom:4px;">Total adeudado</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-danger); font-family:monospace;">$ {{ number_format($totalAdeudado, 2, ',', '.') }}</p>
+        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;">$ {{ number_format($totalAdeudado, 2, ',', '.') }}</p>
     </div>
-    <div class="filtros-card" style="text-align:center; padding:1rem;">
+    <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-text-muted);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Total activos</p>
         <p style="font-size:1.6rem; font-weight:800; color:var(--color-text);">{{ $totalActivos }}</p>
     </div>
@@ -44,55 +44,39 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 
 {{-- Filtros --}}
 <form method="GET" action="{{ route('web.cobranza.index') }}">
-<div class="filtros-card mb-3">
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto; gap:12px; align-items:end;">
-        <div>
-            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Estado</label>
-            <select name="estado" class="w-full px-3 py-2 text-sm wings-input">
+    <div class="filtros-card mb-3">
+        <div class="filtros-row">
+            <select name="estado" class="filtros-control filtros-select">
                 <option value="DEUDORES" {{ ($estadoFiltro === 'DEUDORES' || !$estadoFiltro) ? 'selected' : '' }}>Con deuda (Deudores y morosos)</option>
-                <option value="TODOS"    {{ $estadoFiltro === 'TODOS' ? 'selected' : '' }}>Todos</option>
+                <option value="TODOS"    {{ $estadoFiltro === 'TODOS' ? 'selected' : '' }}>Todos los estados</option>
                 <option value="AL_DIA"   {{ $estadoFiltro === 'AL_DIA'  ? 'selected' : '' }}>Al día</option>
                 <option value="EN_PLAZO" {{ $estadoFiltro === 'EN_PLAZO' ? 'selected' : '' }}>En plazo</option>
                 <option value="MOROSO"   {{ $estadoFiltro === 'MOROSO'  ? 'selected' : '' }}>Moroso</option>
                 <option value="DEUDOR"   {{ $estadoFiltro === 'DEUDOR'  ? 'selected' : '' }}>Deudor</option>
             </select>
-        </div>
-        <div>
-            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Deporte</label>
-            <select name="deporte_id" class="w-full px-3 py-2 text-sm wings-input">
-                <option value="">Todos</option>
+
+            <select name="deporte_id" class="filtros-control filtros-select">
+                <option value="">Deporte</option>
                 @foreach($deportes as $dep)
                     <option value="{{ $dep->id }}" {{ $deporteId == $dep->id ? 'selected' : '' }}>{{ $dep->nombre }}</option>
                 @endforeach
             </select>
-        </div>
-        <div>
-            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Grupo</label>
-            <select name="grupo_id" class="w-full px-3 py-2 text-sm wings-input">
-                <option value="">Todos</option>
+
+            <select name="grupo_id" class="filtros-control filtros-select">
+                <option value="">Grupo</option>
                 @foreach($grupos as $grp)
                     <option value="{{ $grp->id }}" {{ $grupoId == $grp->id ? 'selected' : '' }}>{{ $grp->nombre }}</option>
                 @endforeach
             </select>
-        </div>
-        <div style="display:flex; gap:8px;">
-            <button type="submit"
-                    style="display:inline-flex; align-items:center; justify-content:center; height:38px; padding:0 16px;
-                           font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                           border:none; font-family:inherit; background:var(--color-btn-primary); color:#fff;">
-                Filtrar
-            </button>
-            @if($estadoFiltro !== 'DEUDORES' || $deporteId || $grupoId)
-            <a href="{{ route('web.cobranza.index') }}"
-               style="display:inline-flex; align-items:center; justify-content:center; height:38px; padding:0 16px;
-                      font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                      text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
-                Limpiar
-            </a>
-            @endif
+
+            <div class="filtros-actions">
+                <x-ds.button variant="primary" type="submit">Filtrar</x-ds.button>
+                @if($estadoFiltro !== 'DEUDORES' || $deporteId || $grupoId)
+                    <x-ds.button variant="secondary" href="{{ route('web.cobranza.index') }}">Limpiar</x-ds.button>
+                @endif
+            </div>
         </div>
     </div>
-</div>
 </form>
 
 {{-- Tabla alumnos --}}
@@ -112,18 +96,22 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 </div>
 
 <div class="alumno-card" style="padding:0; overflow-x:auto;">
-    <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:680px;">
+    <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:860px;">
         <colgroup>
-            <col style="width:auto;">
-            <col style="width:200px;">
+            <col style="width:180px;">
+            <col style="width:110px;">
+            <col style="width:140px;">
+            <col style="width:150px;">
             <col style="width:130px;">
             <col style="width:100px;">
-            <col style="width:160px;">
+            <col style="width:150px;">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
                 <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Alumno</th>
-                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Actividades</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deporte</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Grupo</th>
+                <th style="padding:10px 14px; text-align:left; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Deuda desde</th>
                 <th style="padding:10px 14px; text-align:right; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Total deuda</th>
                 <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Estado</th>
                 <th style="padding:10px 14px; text-align:center; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Acciones</th>
@@ -151,6 +139,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                 $inscPendiente = $inscripciones[$dniNorm] ?? ($alumno->inscripcion_pendiente ?? 0);
             @endphp
             <tr style="border-bottom:1px solid var(--color-border);">
+                {{-- Alumno --}}
                 <td style="padding:10px 14px; font-size:0.85rem; font-weight:600; color:var(--color-text);">
                     {{ $alumno->apellido }}, {{ $alumno->nombre }}
                     @if($alumno->dni)
@@ -158,31 +147,83 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
                             DNI: {{ number_format((int)$dniNorm, 0, '', '.') }}
                         </div>
                     @endif
-                    @if($inscPendiente > 0)
-                        <div style="font-size:0.7rem; font-weight:600; color:var(--color-warning); margin-top:3px;">
-                            Inscripción pendiente: ${{ number_format($inscPendiente, 2, ',', '.') }} (por persona)
+                </td>
+
+                {{-- Deporte --}}
+                <td style="padding:10px 14px; font-size:0.8rem;">
+                    @if(isset($alumno->actividades) && count($alumno->actividades) > 0)
+                        <div style="display:flex; flex-direction:column; gap:4px;">
+                            @foreach($alumno->actividades as $act)
+                                @php
+                                    $depSlug = match(strtolower($act['deporte'])) {
+                                        'patín', 'patin' => 'patin',
+                                        'fútbol', 'futbol' => 'futbol',
+                                        default => 'otro',
+                                    };
+                                @endphp
+                                <div>
+                                    <span style="font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px;
+                                                 background:color-mix(in srgb, var(--color-sport-{{ $depSlug }}) 15%, transparent);
+                                                 color:var(--color-sport-{{ $depSlug }});">
+                                        {{ $act['deporte'] }}
+                                    </span>
+                                </div>
+                            @endforeach
                         </div>
-                    @endif
-                </td>
-                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted);">
-                    @if(isset($alumno->actividades) && count($alumno->actividades) > 1)
-                        @foreach($alumno->actividades as $act)
-                            <div style="line-height:1.4;">• {{ $act['deporte'] }} — {{ $act['grupo'] }}</div>
-                        @endforeach
-                    @elseif(isset($alumno->actividades) && count($alumno->actividades) === 1)
-                        <div>{{ $alumno->actividades[0]['deporte'] }} — {{ $alumno->actividades[0]['grupo'] }}</div>
                     @else
-                        <div>{{ $alumno->deporte->nombre ?? '–' }} — {{ $alumno->grupo->nombre ?? '–' }}</div>
+                        <span style="color:var(--color-text-muted);">–</span>
                     @endif
                 </td>
-                <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; font-family:monospace; color:{{ ($alumno->deuda_total ?? 0) > 0 ? 'var(--color-danger)' : 'var(--color-text-muted)' }};">
+
+                {{-- Grupo --}}
+                <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text);">
+                    @if(isset($alumno->actividades) && count($alumno->actividades) > 0)
+                        <div style="display:flex; flex-direction:column; gap:4px;">
+                            @foreach($alumno->actividades as $act)
+                                <div>{{ $act['grupo'] }}</div>
+                            @endforeach
+                        </div>
+                    @else
+                        <span style="color:var(--color-text-muted);">–</span>
+                    @endif
+                </td>
+
+                {{-- Deuda desde --}}
+                <td style="padding:10px 14px;">
+                    @if($alumno->deuda_mas_antigua && $alumno->deuda_mas_antigua !== '9999-99')
+                        @php
+                            $mesStr = \Carbon\Carbon::parse($alumno->deuda_mas_antigua . '-01')->translatedFormat('M Y');
+                            $cant = $alumno->cantidad_cuotas_impagas ?? 1;
+                        @endphp
+                        <div>
+                            <span style="font-size:0.8rem; font-weight:600; color:var(--color-danger);">{{ ucfirst($mesStr) }}</span>
+                            <span style="font-size:0.72rem; color:var(--color-text-muted);">({{ $cant }} {{ $cant === 1 ? 'cuota' : 'cuotas' }})</span>
+                        </div>
+                        @if($inscPendiente > 0)
+                            <div style="font-size:0.68rem; font-weight:600; color:var(--color-warning); margin-top:2px;">
+                                + Inscripción
+                            </div>
+                        @endif
+                    @elseif($inscPendiente > 0)
+                        <span style="font-size:0.75rem; font-weight:600; color:var(--color-warning);">Inscripción</span>
+                    @else
+                        <span style="font-size:0.8rem; color:var(--color-text-muted);">–</span>
+                    @endif
+                </td>
+
+                {{-- Total deuda --}}
+                <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap; color:{{ ($alumno->deuda_total ?? 0) > 0 ? 'var(--color-danger)' : 'var(--color-text-muted)' }};">
                     $ {{ number_format($alumno->deuda_total ?? 0, 2, ',', '.') }}
                 </td>
+
+                {{-- Estado --}}
                 <td style="padding:10px 14px; text-align:center;">
                     <span style="font-size:0.7rem; font-weight:700; padding:3px 10px; border-radius:999px;
                                  background:color-mix(in srgb, {{ $ecColor }} 15%, transparent);
                                  color:{{ $ecColor }};">{{ $ecLabel }}</span>
                 </td>
+
+                {{-- Acciones --}}
                 <td style="padding:10px 14px; text-align:center;">
                     <div style="display:inline-flex; gap:6px; justify-content:center;">
                         <a href="{{ route('web.caja.cobrar', $alumno->id) }}"

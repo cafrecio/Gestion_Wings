@@ -184,6 +184,7 @@ class CobranzaEstadoService
             $peorEstado = self::ESTADO_AL_DIA;
             $peorSeveridad = 1;
             $totalDeudaCuotas = 0.0;
+            $cantidadCuotasImpagas = 0;
             $deudaMasAntigua = null;
             $actividades = [];
             $alumnoConDeudaMasVieja = $primerAlumno;
@@ -202,17 +203,19 @@ class CobranzaEstadoService
                     $peorEstado = $estadoAlumno;
                 }
 
-                $nombreDeporte = $alumno->deporte->nombre ?? 'Sin deporte';
-                $nombreGrupo = $alumno->grupo->nombre ?? 'Sin grupo';
+                $nombreDeporte = $alumno->deporte->nombre ?? '–';
+                $nombreNivel = $alumno->grupo->nivel->nombre ?? ($alumno->grupo->nombre ?? '–');
                 $actividades[] = [
                     'deporte' => $nombreDeporte,
-                    'grupo' => $nombreGrupo,
+                    'grupo' => $nombreNivel,
+                    'deporte_slug' => strtolower($nombreDeporte),
                 ];
 
                 foreach ($alumno->deudaCuotas as $deuda) {
                     if ($this->estaImpaga($deuda)) {
                         $saldo = max(0, (float)$deuda->monto_original - (float)$deuda->monto_pagado - (float)$deuda->monto_condonado);
                         $totalDeudaCuotas += $saldo;
+                        $cantidadCuotasImpagas++;
 
                         if ($deudaMasAntigua === null || $deuda->periodo < $deudaMasAntigua) {
                             $deudaMasAntigua = $deuda->periodo;
@@ -231,6 +234,7 @@ class CobranzaEstadoService
             $representante->setAttribute('estado_cobranza', $peorEstado);
             $representante->setAttribute('deuda_total', $deudaTotal);
             $representante->setAttribute('deuda_mas_antigua', $deudaMasAntigua ?? '9999-99');
+            $representante->setAttribute('cantidad_cuotas_impagas', $cantidadCuotasImpagas);
             $representante->setAttribute('actividades', $actividades);
             $representante->setAttribute('inscripcion_pendiente', $inscripcionPendiente);
             $representante->setAttribute('alumnos_relacionados', $alumnosPersona);
