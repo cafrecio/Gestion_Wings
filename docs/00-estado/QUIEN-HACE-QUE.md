@@ -1,4 +1,4 @@
-# Quién hace qué — 05/10/2026, 12:30
+# Quién hace qué — 05/10/2026, 13:40
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos

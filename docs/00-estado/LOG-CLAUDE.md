@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-05 — Claude CyE — verificacion cruzada de la Entrega 2 (A17, A34, A3)
+
+Verificada leyendo el codigo y probando, no el informe. **A17 y A3: correctos.** Las 8
+pruebas del autor pasan y agregue tres propias en los bordes que su informe no cubre:
+cobrar adelantado a quien debe meses viejos **pide confirmacion y motivo** —la regla vieja
+sigue viva—, el adelantado no toca la deuda anterior, y la busqueda nueva del selector no
+rompe el contador de deudores que arregle el mismo dia (A54).
+**A34 no era exacto:** el enlace Recibo de cada pago ya existia desde ENT-05 (`04e3125`,
+13/09) y estaba en la version auditada el 23/09; lo unico que cambio es el historial, de 8
+a 12 pagos. Anotado en DEFECTOS para no heredar un hallazgo sin comprobar.
+**La entrega estaba sin commitear** y mezclada en la misma carpeta con P1 de Codex: la
+commitee yo. Codex subio P1 mientras tanto (`d530c85`).
+Suite completa: 415 pruebas / 2862 aserciones, verde. Sin deploy.
+
 ## 2026-10-05 — Claude CyE — el acceso al servidor deja de arreglarse a mano
 
 Carlos pidio chequear si produccion tiene alumnos cargados y **no se pudo**: `ssh vps`

@@ -253,6 +253,13 @@ Captura: `evidencia/audit_profesor_clases_show_mobile.png`.
 
 ### A34. La ficha del alumno no tiene historial ni descarga de recibos · Falta · CERRADO 05/10
 
+**Verificacion cruzada de Claude, 05/10:** el enlace **Recibo** de cada pago **ya existia**
+desde ENT-05 (`04e3125`, 13/09) y estaba en la version que se audito el 23/09, asi que el
+defecto, tal como se escribio, no era exacto: no faltaba la descarga del recibo. Lo que si
+cambio la Entrega 2 es que el historial muestra 12 pagos en vez de 8. Se deja anotado para
+no heredar como cierto un hallazgo que no se comprobo contra el codigo.
+
+
 Si un familiar se acerca al mostrador solicitando una copia del recibo abonado anteriormente, la ficha del alumno (`/alumnos/{id}`) no ofrece el historial de comprobantes con opción de descarga o reimpresión en PDF.
 Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
 
