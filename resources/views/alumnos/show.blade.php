@@ -23,7 +23,7 @@
 @endphp
 
 {{-- Barra de acciones --}}
-<div class="filtros-actions mb-4" style="justify-content: flex-end; flex-wrap: wrap;">
+<div class="flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end">
     <span style="
         font-size: 0.7rem; font-weight: 600;
         padding: 0.2rem 0.65rem; border-radius: 999px;
@@ -168,12 +168,11 @@
                     $periodoLabel = ($meses[(int)$mo] ?? $mo) . ' ' . $yr;
                     $saldo = (float)$deuda->saldo_pendiente;
                 @endphp
-                <div style="display:flex; justify-content:space-between; align-items:center;
-                            padding:4px 8px; border-radius:6px;
-                            background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
+                <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded"
+                     style="background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
                     <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }};">
+                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
+                        <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
                             ${{ number_format($saldo, 0, ',', '.') }}
                         </span>
                         @if(!auth()->user()?->isProfesor())
@@ -244,11 +243,8 @@
                     }
                     $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
                 @endphp
-                {{-- En celular la fila se apila: con Recibo y Anular juntos no entraba y
-                     el botón quedaba fuera de la pantalla. --}}
-                <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;
-                            flex-wrap:wrap; padding:5px 8px; border-radius:6px;
-                            background:color-mix(in srgb, var(--color-border) 40%, transparent);">
+                <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded"
+                     style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
                     <div>
                         <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $pago->fecha_pago?->format('d/m/Y') ?? '–' }}</span>
                         @if($periodos)
@@ -258,7 +254,7 @@
                         <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Anulado</span>
                         @endif
                     </div>
-                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
                         <span style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
                             ${{ number_format($pago->monto_final, 0, ',', '.') }}
                         </span>
@@ -361,7 +357,7 @@
 @endif
 
 {{-- Volver --}}
-<div class="filtros-actions mt-4" style="justify-content: flex-end;">
+<div class="flex flex-wrap items-center gap-2 mt-4 justify-start sm:justify-end">
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Volver</x-ds.button>
 </div>
 

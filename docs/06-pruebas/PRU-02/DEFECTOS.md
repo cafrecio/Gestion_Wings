@@ -14,6 +14,7 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 
 > A4 y A5: **Hecho (Cx), a revisar — 05/10**. Diseño aprobado por Carlos sobre
 > capturas. No se suman a los cerrados hasta la verificación independiente.
+> Retoque de A4: motivo de fecha de ingreso alineado; nuevas capturas listas, pendiente autorización de Carlos para subirlo.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -76,6 +77,11 @@ visible y no entiende por qué. Es el mismo defecto que se corrigió en Revisió
 a los campos; conserva datos y plan al rechazar. Menú/Cancelar piden confirmación;
 cierre/recarga mantienen beforeunload. JavaScript en archivo propio; sin CSS.
 [Implementación y capturas reales](IMPLEMENTACION-A4-A5.md). Pendiente control ajeno.
+
+**Retoque pedido por Carlos, 05/10:** motivo de corrección de ingreso dentro de la grilla,
+rótulo arriba y cuadro con el mismo formato que los demás; sin CSS ni reglas nuevas.
+[Capturas del retoque](IMPLEMENTACION-A4-A5.md#retoque-del-motivo-de-ingreso--05102026).
+Pendiente autorización visual y commit; A4 conserva Hecho (Cx), a revisar.
 
 ### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · Hecho (Cx), a revisar 05/10
 
@@ -304,15 +310,21 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura.
 
-### A37. Ficha del alumno en celular · Molesta · verificado
+### A37. Ficha del alumno en celular · Molesta · HECHO (Gemini), a revisar 05/10
 
-**Asignado a Gemini el 05/10.** Al agregar el boton Anular quedo a la vista que la ficha
-entera es mas ancha que la pantalla del telefono: se corta todo el lado derecho, botones
-incluidos. Claude dejo los datos en una sola columna y la barra de acciones apilada, pero el
-desborde de fondo sigue y no se pudo ubicar desde una captura de archivo, que no ejecuta
-JavaScript. Carlos, 05/10: "no puede quedar asi".
+**Asignado a Gemini el 05/10.** Al agregar el botón Anular quedó a la vista que la ficha
+entera era más ancha que la pantalla del teléfono: se cortaba todo el lado derecho, botones
+incluidos (`Cobrar`, `Editar`, `Recibo`, `Anular`).
 
-esperaba leer el correo completo dentro de la ficha; el email de Acosta, Alan atraviesa el borde derecho y obliga a desplazar horizontalmente la página. Captura.
+**Causa raíz diagnosticada:**
+1. En `resources/views/alumnos/show.blade.php`, la barra superior de acciones tenía `<div class="filtros-actions mb-4" style="justify-content: flex-end; flex-wrap: wrap;">`. La regla CSS en `app.css` para mobile (`justify-content: flex-start; width: 100%`) era pisada por el estilo inline `justify-content: flex-end`, empujando los botones hacia el borde derecho y cortando el botón **Editar**.
+2. En las filas de deudas pendientes y de historial de pagos, el bloque de acciones de la derecha (Monto + Recibo + Anular / Cobrar + Condonar) sumaba ~230px que, junto a la fecha/período de la izquierda (~130px), no entraban en los 343px útiles de pantalla en 375px.
+
+**Solución aplicada:**
+- Barra superior de acciones migrada a contenedor flexible responsivo `flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end`.
+- Filas de deudas e historial adaptadas con `flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded` y contenedor de acciones `w-full sm:w-auto justify-end`, permitiendo que en 375px los botones se ubiquen en un renglón dedicado sin desbordar el contenedor.
+- Botón Volver inferior adaptado con `justify-start sm:justify-end`.
+- Cubierto por prueba automatizada `tests/Feature/FichaAlumnoResponsiveA37Test.php`. Capturas de evidencia en `docs/06-pruebas/PRU-02/capturas-a37/`.
 
 ### A38. Paginación de Clases · Molesta · verificado
 

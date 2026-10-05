@@ -10,6 +10,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-05 — LOG GEM CYE — Resolución defecto A37 (Ficha del alumno en celular 375px)
+
+- **Objetivo:** Resolver el defecto A37 donde la ficha del alumno (`/alumnos/{id}`) desbordaba horizontalmente en celulares a 375px de ancho, cortando los botones de la cabecera (Editar) y las filas de deudas e historial (Recibo, Anular).
+- **Causa raíz diagnosticada:**
+  1. En `resources/views/alumnos/show.blade.php`, la barra superior de acciones tenía `<div class="filtros-actions mb-4" style="justify-content: flex-end; flex-wrap: wrap;">`. La regla móvil de `app.css` (`justify-content: flex-start`) era anulada por el estilo inline `justify-content: flex-end`, empujando los botones (`Cobrar`, `Editar`) y badge (`Activo`) fuera del margen derecho visible en 375px.
+  2. En las filas de deudas e historial de pagos, el bloque de acciones de la derecha (Monto + Recibo + Anular o Cobrar + Condonar) no colapsaba fluidamente en pantallas de 343px útiles y forzaba el ensanchamiento horizontal.
+- **Cambios realizados:**
+  - `resources/views/alumnos/show.blade.php`:
+    - Barra de acciones superior: migrada a `flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end`.
+    - Filas de deudas e historial: contenedores flex responsivos `flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded` con bloque de acciones `w-full sm:w-auto justify-end` para apilar o fluir según el ancho disponible sin desbordar.
+    - Contenedor inferior de Volver: ajustado a `justify-start sm:justify-end`.
+    - Respeto total de las reglas de diseño de Wings: botones de un solo verbo (`Cobrar`, `Editar`, `Recibo`, `Anular`, `Condonar`, `Volver`), sin frameworks nuevos, sin alterar app.css global, sin tocar tokens.
+- **Verificación y pruebas:**
+  - Nueva prueba feature: `tests/Feature/FichaAlumnoResponsiveA37Test.php`.
+  - Capturas comparativas guardadas en el repositorio en `docs/06-pruebas/PRU-02/capturas-a37/` (`ficha-375-antes.png`, `ficha-375-despues.png`, `ficha-escritorio-despues.png`).
+  - Actualizados `DEFECTOS.md` y `DEFECTOS.html` marcando A37 como `HECHO (Gemini), a revisar`.
+- **Siguiente paso:** Pase de verificación independiente a otro agente (Codex o Claude) conforme a AGENTS.md §6a.
+
 ## 2026-10-05 — LOG GEM CYE — Verificación independiente de P1 (Primera Carga por Excel)
 
 - **Objetivo:** Auditar y verificar de manera independiente en código, archivos Excel, datos y capturas la entrega P1 implementada por Codex CAB en el commit `d530c85`.

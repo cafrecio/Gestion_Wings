@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A37 · Ficha del alumno en celular 375px · Capturas</title>
+  <style>
+    body { font: 16px system-ui, -apple-system, sans-serif; margin: 24px; max-width: 1200px; color: #1e293b; }
+    h1 { margin-bottom: 4px; }
+    .muted { color: #64748b; margin-bottom: 24px; }
+    .grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; margin-bottom: 40px; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; max-width: 100%; }
+    .card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; }
+    img { display: block; max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 4px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0369a1; }
+  </style>
+</head>
+<body>
+
+  <h1>A37 · Ficha del alumno en celular (375px)</h1>
+  <p class="muted">Defecto A37 resuelto por Gemini el 05/10/2026. Maqueta responsive y visualización real.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Antes · 375 px (Desborde lateral)</h3>
+      <p class="muted">La barra superior empujaba los botones fuera del borde derecho y el historial no colapsaba.</p>
+      <img src="ficha-375-antes.png" alt="Ficha del alumno antes en 375px">
+    </div>
+
+    <div class="card">
+      <h3>Después · 375 px (Contenido dentro del ancho)</h3>
+      <p class="muted">Los botones y las acciones de pago fluyen dentro de los 375px sin scroll horizontal.</p>
+      <img src="ficha-375-despues.png" alt="Ficha del alumno después en 375px">
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Después · Escritorio (1280 px)</h3>
+    <p class="muted">Comprobación de que el layout en escritorio conserva la grilla y alineación intactas.</p>
+    <img src="ficha-escritorio-despues.png" alt="Ficha del alumno en escritorio">
+  </div>
+
+</body>
+</html>

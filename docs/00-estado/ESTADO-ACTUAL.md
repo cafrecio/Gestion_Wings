@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## A37 resuelto (Ficha del alumno en celular 375px) — 05/10/2026
+
+- **Defecto A37:** La ficha del alumno (`/alumnos/{id}`) desbordaba horizontalmente en celulares a 375px, cortando los botones de cabecera (`Editar`) y filas de historial (`Recibo`, `Anular`).
+- **Solución implementada:**
+  - `resources/views/alumnos/show.blade.php`: la barra superior de acciones reemplazó el `justify-content: flex-end` inline por `flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end`.
+  - Las filas de deudas pendientes e historial de pagos adoptaron `flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded` con bloque de acciones `w-full sm:w-auto justify-end` para adaptarse en 375px sin desbordes.
+  - Botón Volver inferior actualizado a `justify-start sm:justify-end`.
+  - Cubierto con `tests/Feature/FichaAlumnoResponsiveA37Test.php` y capturas comparativas en `docs/06-pruebas/PRU-02/capturas-a37/`. Marcado como `HECHO (Gemini), a revisar`.
+
 ## P2 Entrega 2 implementada y probada (A17, A34, A3) — 05/10/2026
 
 Implementación de los tres defectos de la ficha del alumno y cobro:
