@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md)
 
+## 2026-10-05 — Claude CyE — el acceso al servidor deja de arreglarse a mano
+
+Carlos pidio chequear si produccion tiene alumnos cargados y **no se pudo**: `ssh vps`
+rechaza la clave de CyE aunque sigue publicada en su GitHub y el alias esta bien armado
+(probadas las dos claves locales). Es la segunda vez: el 22/09 solo entraba CAB. La causa
+de fondo es que el acceso vivia en un archivo del servidor escrito a mano, que un deploy o
+una restauracion pisa sin que nadie se entere hasta que un agente lo necesita.
+Hecho: `scripts/servidor/acceso-agentes.sh` rearma `/root/.ssh/authorized_keys` cada 15
+minutos desde `https://github.com/cafrecio.keys`, conservando las claves propias del
+servidor, descartando respuestas vacias o invalidas y avisando por Telegram si queda roto.
+Probado en seco en local: sincroniza, conserva la clave ajena y `--verificar` detecta la
+falta del cron. **Falta un unico paso con root** (comando en CHECKLIST §1.6); desde ahi una
+maquina nueva entra solo cargando su clave en GitHub.
+Pendiente que sigue: **nadie verifico todavia si produccion tiene alumnos**.
+Dato que conviene saber: el repositorio es **publico** — por eso el comando de instalacion
+funciona con `curl` sin credenciales. Ver si eso esta bien es decision de Carlos.
+
 ## 2026-10-05 — Claude CyE — A54 y A55: un solo calculo de cuanto debe un alumno
 
 Tercera vez que el mismo problema de raiz daba defectos distintos: cada pantalla calculaba

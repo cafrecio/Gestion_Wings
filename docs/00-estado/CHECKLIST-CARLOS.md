@@ -73,6 +73,20 @@ Unblock-File .\install.ps1
 powershell -ExecutionPolicy Bypass -File scripts\maquina\instalar-acceso-servidor.ps1
 ```
 
+   Si el script deja el alias bien y el servidor igual rechaza la clave, **falta la
+   sincronizacion automatica en el servidor** (05/10/2026). Se instala una sola vez, como
+   root, desde el panel del servidor o por SSH desde una maquina que entre:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts/servidor/acceso-agentes.sh \
+  -o /root/acceso-agentes.sh && bash /root/acceso-agentes.sh --instalar
+```
+
+   Desde ahi, el servidor rearma la lista de claves cada 15 minutos desde
+   `https://github.com/cafrecio.keys` y avisa por Telegram si queda roto. **Una maquina
+   nueva no necesita ningun paso en el servidor:** alcanza con cargar su clave publica en
+   el GitHub de Carlos. No agregar claves a mano: se pierden en la siguiente vuelta.
+
    **No tenes que hacer nada:** CAB y CyE estan autorizadas desde el 22/09 (CyE con la
    clave que cargaste en GitHub). Si en una maquina no entra, el agente corre el script.
 7. Ejecutar la suite completa:

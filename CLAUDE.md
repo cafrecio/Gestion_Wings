@@ -46,14 +46,21 @@ tengo acceso" ni "eso lo hacemos en la otra maquina" sin haber corrido antes
 
 Si falla, **lo arregla el agente, no Carlos**: correr
 `scripts/maquina/instalar-acceso-servidor.ps1`, que arma el alias con la clave propia de
-la maquina y prueba. Autorizadas al 22/09: CAB (`cafre@CAB-vps`) y CyE
-(`cafre@CyE-github`). Una maquina nueva carga su clave publica en el GitHub de Carlos y
-una que ya entra la autoriza bajandola de `https://github.com/cafrecio.keys`. Ninguna
-clave privada viaja ni pasa por el repositorio. `ssh vps` no pide permiso: esta en
-`.claude/settings.json`.
+la maquina y prueba. Una maquina nueva entra cargando su clave publica en el GitHub de
+Carlos. Ninguna clave privada viaja ni pasa por el repositorio. `ssh vps` no pide
+permiso: esta en `.claude/settings.json`.
 
-Hasta el 22/09/2026 solo CAB estaba autorizada, y todo trabajo de servidor quedaba
-para "cuando estes en la otra maquina". Carlos pidio expresamente no volver a eso.
+**El servidor se autoriza solo desde el 05/10/2026.** `scripts/servidor/acceso-agentes.sh`
+rearma `/root/.ssh/authorized_keys` cada 15 minutos desde `https://github.com/cafrecio.keys`
+—la fuente de verdad— conservando las claves propias del servidor en
+`/root/.ssh/claves-del-servidor`. Si GitHub no responde o devuelve algo invalido, no toca
+nada. Un aviso diario por Telegram avisa si la sincronizacion quedo rota, en vez de
+descubrirlo cuando un agente necesita el servidor.
+
+Pasó dos veces: el 22/09 solo CAB entraba y todo quedaba "para la otra maquina", y el
+05/10 CyE dejo de entrar aunque su clave seguia publicada — algo repuso una lista de
+claves vieja. **No volver a arreglarlo a mano:** eso es lo que hacia que se repitiera. Si
+`ssh vps` falla, verificar la sincronizacion (`--verificar`), no agregar claves a mano.
 
 ## Antes de cerrar una tarea
 
