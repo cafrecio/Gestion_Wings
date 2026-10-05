@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-05 — Claude CyE — A50 estaba resuelto desde ayer y nadie lo habia marcado
+
+Carlos: "si todos van a ser unos pajeros que no anotan lo que hacen, vamos a estar dando
+vueltas sobre lo mismo". Tenia razon: A50 se habia resuelto el 04/10 con Codex —la regla de
+`AGENTS.md` que prohibe pedir autorizacion de diseno sin capturas guardadas en el repo— y la
+lista de defectos seguia diciendolo pendiente, asi que hoy se volvio a discutir de cero.
+Cerrado A50 en los dos archivos con su evidencia. Quedan **27 de 71 cerrados**; los que
+frenan bajan a cuatro: A4, A5, A13 y B1.
+Hecho para que no se repita: `DefectosNoDivergenTest` pone la suite en rojo si la lista y el
+tablero dejan de listar los mismos defectos, si uno dice cerrado y el otro abierto, o si el
+avance de arriba no es el real. Y regla 5 en QUIEN-HACE-QUE: el defecto se marca en el mismo
+commit que lo corrige.
+Limite: ningun candado puede comprobar quien autorizo un diseno, porque los tres agentes
+commitean con el nombre de Git de Carlos. Lo que protege es la captura obligatoria.
+
 ## 2026-10-05 — Claude CyE — la lista de defectos y su tablero no coincidian
 
 Carlos abrio DEFECTOS.md y dijo lo que se veia: "esta todo igual que hace 10 dias". Tenia

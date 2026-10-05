@@ -15,7 +15,7 @@ Codex CAB verificó `abc346a` sobre HEAD `4fb185e` en código y navegador:
 A51/A52 resueltos, deuda por registro estable al filtrar, ayuda por otro deporte
 solo con saldo y estado mensual sin inscripción en listado/ficha/resumen.
 Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
-`wings_testing_codex`: **384 pruebas / 2862 aserciones**, todas verdes.
+`wings_testing_codex`: **384 pruebas / 2874 aserciones**, todas verdes.
 Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
 el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro;
@@ -26,7 +26,7 @@ documentados sin corrección. Gemini puede continuar Entrega 2.
 Verificación independiente realizada por Gemini sobre commits `218ffc5` (A43) y `97cf933` (Permisos).
 - **A43:** Ingreso en mes cerrado (`2020-01-20`) muestra aviso dinámico con importes congelados y radios obligatorios; opción Sí genera cuota corriente 100% ($30.000) sin cuotas históricas y deja al alumno En plazo; opción No no genera cuota, conserva inscripción ($5.000) y deja al alumno Al día. Ingreso en mes corriente (`2026-10-05`) oculta el aviso y genera cuota automática con porcentaje del día. Registro de auditoría `alta_cuota` en JSON (`modo`, `usuario_id`, fecha, período, monto).
 - **Permisos (A29, A30, A31):** Redirecciones silenciosas eliminadas; Operativo recibe 403 con mensaje en castellano en administración y Volver a `/operativo` con sesión activa; `/admin` y `/caja/validaciones` responden 404 sin exponer datos. Profesor recibe 403 en administración y en `/alumnos`, `/caja`, `/grupos` con Volver a `/clases`. Admin común en cuenta protegida recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Probado en escritorio y móvil (375 px).
-- **Suite completa:** 384 pruebas / 2862 aserciones aprobadas en `wings_testing_gemini`.
+- **Suite completa:** 384 pruebas / 2874 aserciones aprobadas en `wings_testing_gemini`.
 - [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Defectos A29, A30, A31 y A43 CERRADOS. Pendiente de despliegue con migración `alta_cuota`.
 
 ## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
@@ -207,7 +207,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **415 pruebas**, 2862 aserciones; suite completa verde el 05/10 en copia exclusiva P1 sobre main f1df4fd, wings_testing_codex. [Evidencia](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). No incluye las 8 pruebas ajenas de P2 aún sin commit |
+| **Tests** | **418 pruebas**, 2874 aserciones; suite completa verde el 05/10 en copia exclusiva P1 sobre main f1df4fd, wings_testing_codex. [Evidencia](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). No incluye las 8 pruebas ajenas de P2 aún sin commit |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

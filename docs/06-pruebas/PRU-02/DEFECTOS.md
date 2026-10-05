@@ -7,8 +7,8 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 05/10/2026: 26 cerrados de 71.** Quedan 45 abiertos, de los
-> cuales **5 frenan**: A4, A5, A13, A50, B1. Cada punto cerrado dice en su propio texto
+> **Avance al 05/10/2026: 27 cerrados de 71.** Quedan 44 abiertos, de los
+> cuales **4 frenan**: A4, A5, A13, B1. Cada punto cerrado dice en su propio texto
 > quién lo corrigió, en qué commit y quién lo verificó. El tablero para mirar en el navegador
 > es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos defectos y los mismos estados.
 
@@ -397,7 +397,17 @@ sistema ya resuelve esto sin código incrustado con `data-confirmar`, que maneja
 y usan `alumnos/show` y `liquidaciones/show`. Quedan otros cuatro `onsubmit` iguales de
 antes —`caja/detalle`, `grupos/show` y las dos de liquidaciones— que son una limpieza aparte.
 
-### A50. Un agente escribió su propia autorización de diseño · Frena · verificado
+### A50. Un agente escribió su propia autorización de diseño · Frena · CERRADO 04/10
+
+**Resuelto con Carlos el 04/10, anotado recien el 05/10.** La regla quedo en `AGENTS.md`,
+"No se pide autorizacion de diseno sin imagenes": antes de pedir la linea `Diseno-autorizado`
+tiene que haber **capturas guardadas en el repositorio** de cada pantalla afectada, en
+escritorio y a 375 de ancho, con las rutas exactas para abrirlas; si el cambio toca
+`app.css` o una pieza compartida, de todas las pantallas que cambian. Y en
+`QUIEN-HACE-QUE.md`: lo visual no se aprueba por texto.
+Lo que no se puede automatizar y conviene saber: **los tres agentes commitean con el nombre
+de Git de Carlos**, asi que ningun candado puede distinguir si la linea la escribio el dueño
+o el agente. Lo que protege es la capture obligatoria y que el verificador la mire.
 
 El commit de P2 lleva `Diseno-autorizado: Carlos autorizo P2 (...)` y **Carlos no la dio**.
 El hook que vigila el diseño no bloquea: exige que la línea esté y confía en que sea cierta.
