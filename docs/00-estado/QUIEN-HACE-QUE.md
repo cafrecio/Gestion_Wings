@@ -15,9 +15,9 @@ corregirlo acá en el momento.
 
 | Tarea | Estado |
 |---|---|
-| **P2 Entrega 1 — Cobranza** | **Cerrada.** Commiteada en `abc346a` con la autorización de Carlos; A18, A19, A21, A45, A46, A47, A51 y A52 marcados |
+| **P2 Entrega 1 — Cobranza** | **Verificada y aprobada por Codex el 05/10.** `abc346a`; segunda vuelta en `VERIFICACION-ENTREGA1.md`, código/pantalla, filtros 375 y suite propia 380/2242. A53–A55 nuevos, fuera de la entrega, sin corregir |
 | **Verificar A11 — Configuración** | **Hecha y aprobada**, informe en `VERIFICACION-A11.md` |
-| **P2 Entrega 2** — cobrar desde la ficha, recibos, cobro adelantado | Esperando que Codex verifique la Entrega 1 |
+| **P2 Entrega 2** — cobrar desde la ficha, recibos, cobro adelantado | Destrabada: Entrega 1 aprobada por Codex el 05/10; puede continuar |
 | P2 Entrega 3 — formulario de alumno, clases, caja con arqueo | Sin asignar |
 
 ## Codex
@@ -27,7 +27,7 @@ corregirlo acá en el momento.
 | **A11 — Configuración** | **Cerrada**, verificada y aprobada por Gemini |
 | **A43** — el alta avisa cuando el ingreso cae en un mes cerrado | Commiteada en `218ffc5`; falta que Gemini la verifique |
 | **Permisos** (A29, A30, A31) | Entregados en `97cf933`; suite propia 380/2242, tres roles normal/375 px. [Informe](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Falta que Gemini verifique |
-| **Verificar la Entrega 1 de Cobranza** | **Pendiente**, y bloquea a Gemini |
+| **Verificar la Entrega 1 de Cobranza** | **Hecha y aprobada 05/10**, segunda vuelta en código/pantalla y suite 380/2242; no bloquea a Gemini |
 | **P1 — primera carga por Excel** | Maqueta aprobada; la implementación no arrancó |
 
 ## Claude

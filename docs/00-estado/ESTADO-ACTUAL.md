@@ -1,5 +1,17 @@
 # Wings — Estado actual
 
+## P2 Entrega 1 aprobada en segunda verificación — 05/10/2026
+
+Codex CAB verificó `abc346a` sobre HEAD `4fb185e` en código y navegador:
+A51/A52 resueltos, deuda por registro estable al filtrar, ayuda por otro deporte
+solo con saldo y estado mensual sin inscripción en listado/ficha/resumen.
+Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
+`wings_testing_codex`: **380 pruebas / 2242 aserciones**, todas verdes.
+Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
+el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
+A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro;
+documentados sin corrección. Gemini puede continuar Entrega 2.
+
 ## A43 y permisos A29/A30/A31 entregados, pendientes Gemini — 04/10/2026
 
 Carlos escribió la autorización de ambas maquetas y aclaró «A43 solo la cuota».
@@ -189,7 +201,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
 | **Tests** | **380 pruebas**, 2242 aserciones; suite completa verde el 04/10 en copia exclusiva A43 + permisos, base wings_testing_codex |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
-| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 de P2 implementada: apertura filtrando a deudores/morosos ordenados por antigüedad, fila unificada por persona con actividades agrupadas, total adeudado en pesos y botones Cobrar/Ver fijos de 64px |
+| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
 | Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |

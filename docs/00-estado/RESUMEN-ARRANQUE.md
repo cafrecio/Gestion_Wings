@@ -38,9 +38,11 @@
   normal/375 px comprobados; suite 380/2242. Pendientes Gemini, sin despliegue.
   [A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md) · [Permisos](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md).
 
-- **P2 Entrega 1 no aprobada en el control independiente de Codex:** A51 reduce
-  el total por persona al filtrar; A52 altera estado mensual por inscripción.
-  A18 parcial, filtros móviles ilegibles (A19). Sin correcciones ni despliegue.
+- **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
+  corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
+  Barras de filtros a 375 revisadas; suite propia **380/2242**. Nuevos A53–A55,
+  fuera de esta entrega, registrados sin corregir. Sin despliegue; Gemini puede
+  continuar Entrega 2.
   [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
   **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
   por Carlos. Nombres humanos, grupos, validación y errores persistentes;

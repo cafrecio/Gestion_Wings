@@ -18,7 +18,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Suite | **380 pruebas**, 2242 aserciones; suite completa verde el 04/10 en copia exclusiva A43 + permisos, base wings_testing_codex |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
-| Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado |
+| Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10 en código/pantalla, filtros 375 y suite propia 380/2242. A53–A55 fuera de esa entrega pendientes; sin despliegue |
 | A2/B2 | Cuota en alta y estados por deuda implementados localmente el 23/09; suite 331/1900. Pendiente verificación independiente y despliegue con migración porcentaje_alta |
 | Inscripción ENT-01 | Por DNI, cargos separados, prioridad de inscripción. P0 del 04/10 retira corte y conserva cargos/pagos; pendiente Gemini. Sin deploy |
 | Primera carga P0/P1 | P0 implementado; A43 entregada, pendiente Gemini: ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente. P1 requiere aprobación de maqueta en navegador antes de programar. Importadores antiguos conservados hasta que funcione el nuevo |

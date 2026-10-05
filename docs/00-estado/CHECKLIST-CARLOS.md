@@ -12,7 +12,9 @@ Codex y Claude no van aca.
 Suite del corte A43 + permisos: **380 pruebas / 2242 aserciones**, todas verdes el 04/10 en wings_testing_codex.
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 entregada, pendiente Gemini; sin deploy.
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
-Implementación de Entrega 1 de P2 (Cobranza) completada con suite verde.
+Entrega 1 de P2 (Cobranza) **verificada y aprobada por Codex el 05/10**:
+`abc346a`, código/pantalla y filtros 375; suite propia 380/2242.
+Gemini puede continuar Entrega 2. A53–A55 registrados para asignación, sin cambios.
 
 **Lo que necesita tu decision o tu presencia:**
 

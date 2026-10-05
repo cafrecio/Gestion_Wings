@@ -14,7 +14,7 @@ se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
 ## Parte A — Lo que se ve
 
-### A1. Cobranza no sirve para cobrar · Frena · Entrega 1 con observaciones 04/10
+### A1. Cobranza no sirve para cobrar · Frena · CERRADO, verificado 05/10
 
 La pantalla de Cobranza lista a los alumnos con su estado y un botón **Ver**. No muestra
 **cuánto debe** cada uno ni tiene botón de **Cobrar**. Para cobrarle a alguien hay que salir,
@@ -28,6 +28,10 @@ Es la pantalla que más se usa en el mostrador y es la que peor resuelve su trab
 **Control independiente Codex, `867c295`:** enlaces e importes sin filtros comprobados;
 el total por persona falla al filtrar (A51). Entrega completa no aprobada.
 [Verificación y capturas](VERIFICACION-ENTREGA1.md).
+
+**Segunda vuelta, Codex CAB 05/10:** Entrega 1 aprobada sobre `abc346a` y HEAD
+`4fb185e`: columna **Deuda por registro**, ayuda por otro deporte, enlaces y filtros
+375 comprobados; A51/A52 resueltos. Suite propia 380/2242. [Informe](VERIFICACION-ENTREGA1.md).
 
 ### A2. Cobranza dice 60 deudores y el dashboard dice 20 · Frena · CERRADO 23/09
 
@@ -153,7 +157,7 @@ Captura original: `evidencia/audit_admin_cobranza_mobile.png`.
 En Alumnos, Clases, Movimientos, Profesores e Historial de Cajas, los filtros se aprietan en una sola fila horizontal en el celular: los selectores quedan reducidos a pequeños cuadrados mudos con flechas sin texto, y los botones **Filtrar** y **Limpiar** quedan flotando afuera de la tarjeta blanca.
 Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admin_movimientos_index_mobile.png`, `evidencia/audit_admin_profesores_index_mobile.png`, `evidencia/audit_admin_alumnos_index_mobile.png`, `evidencia/audit_admin_cajas_historial_mobile.png`.
 
-**Corregido en commit `abc346a`:** Regla responsive `@media (max-width: 768px)` en `resources/css/app.css` para `.filtros-row` y sus controles (`filtros-select`, `filtros-control[type="date"]`). En pantallas de 375px los selectores y fechas se apilan verticalmente a ancho completo con altura táctil cómoda (48px) y texto completo legible, y las acciones (`filtros-actions`) quedan contenidas dentro de la tarjeta. Verificado y capturado en las cinco pantallas más Cobranza a 375px, con aprobación de Carlos.
+**Corregido en commit `abc346a`:** Regla responsive `@media (max-width: 768px)` en `resources/css/app.css` para `.filtros-row` y sus controles (`filtros-select`, `filtros-control[type="date"]`). En pantallas de 375px los selectores y fechas comunes se apilan con altura de 48px, texto identificable y acciones (`filtros-actions`) contenidas dentro de la tarjeta. Cadenas largas conservan elipsis; Historial mantiene fechas de 160px y Caja su campo de mes de 230px. **Verificación independiente Codex CAB 05/10 aprobada**, con todas las barras consumidoras recorridas, capturas propias y suite 380/2242; [segunda vuelta](VERIFICACION-ENTREGA1.md). Hallazgos fuera de los filtros: A53–A55.
 
 ### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · verificado
 
@@ -373,6 +377,23 @@ El alcance a altas dentro de gracia se infiere del cuerpo; no se creó un alumno
 probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 **Corregido en commit `abc346a`:** El cálculo del estado de cobranza se unificó en `CobranzaEstadoService::calcularEstadoDesdeDeudas(...)` y evalúa exclusivamente las cuotas. La inscripción pendiente suma al importe de la deuda a cobrar pero no altera la etiqueta de estado mensual ni en el listado, ni en la ficha, ni en el resumen, respetando ENT-01. Cubierto en `CobranzaEntrega1Test`.
+
+## Hallazgos de la segunda verificación de Entrega 1 — 05/10/2026
+
+### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · verificado
+
+Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg). Sin corrección.
+
+### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · verificado
+
+Esperaba que «alumnos con deuda pendiente» contara registros con saldo por cobrar; muestra 6 cuando solo 5 tienen saldo, incluyendo a Ana Pérez en Fútbol con $0, mes pagado y ninguna inscripción pendiente. [Captura](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg). Datos ficticios de la base propia; sin corrección.
+
+### A55. El saldo del selector de cobro omite la inscripción · Molesta · verificado
+
+Esperaba el mismo saldo pendiente que Cobranza y la ficha; Lucía Gaitán debe inscripción $5.000 pero el selector muestra $0, y Luz Gómez debe $53.000 pero muestra $48.000. [Selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg), [Cobranza](evidencia/verificacion-entrega1-v2/cobranza-todos-inscripcion.jpg), [ficha](evidencia/verificacion-entrega1-v2/ficha-inscripcion-al-dia.jpg). Datos ficticios; sin corrección.
+
+La Entrega 1 queda aprobada; estos hallazgos surgieron al revisar pantallas con la
+barra compartida y quedan para asignación. [Código, cobertura y límites](VERIFICACION-ENTREGA1.md).
 
 ## Complemento visual de Codex — 23/09/2026
 
