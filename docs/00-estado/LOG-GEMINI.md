@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-05 — LOG GEM CAB — Verificación independiente de A43 y Permisos (A29, A30, A31)
+
+- **Objetivo:** Verificar de forma independiente en código, base de datos y navegador real (escritorio y 375 px) las entregas de Codex CAB correspondientes a A43 (commit `218ffc5`) y Permisos A29/A30/A31 (commit `97cf933`).
+- **Comprobaciones y resultados:**
+  - **A43 (Alta manual con fecha de ingreso antigua):** Comprobado en `PagoCuotaService.php:363-405`, `AlumnoWebController.php:194-263`, `alumnos/_form.blade.php:192-206` y script `alumnos-inscripcion.js:31-94`. En navegador real: fecha corriente (`2026-10-05`) oculta el aviso y genera cuota automática con porcentaje del día; fecha cerrada (`2020-01-20`) muestra advertencia dinámica antes de guardar con importes congelados y radios obligatorios. La opción "Sí" generó cuota corriente al 100% ($30.000) sin cuotas históricas y dejó al alumno en estado `En plazo`; la opción "No" suprimió la cuota, conservó la inscripción ($5.000) y dejó al alumno en estado `Al día` (la inscripción impaga no vuelve deudor a nadie). Auditoría `alta_cuota` en JSON verificada en base de datos (`modo`, `usuario_id`, fecha, período, monto). Visualización en 375 px limpia sin desbordes.
+  - **Permisos (A29, A30, A31):** Comprobado en `EnsureAdminWeb.php:23`, `RejectProfesorWeb.php:15`, `403.blade.php:8-13` y `UsuarioWebController.php:264`. En navegador real con los 3 roles: Operativo navegando a `/cashflow`, `/liquidaciones`, `/configuraciones`, `/usuarios` y `/admin/dashboard` recibe HTTP 403 con mensaje explicativo en castellano ("No podés entrar a esta sección") y botón Volver que regresa a `/operativo` conservando la sesión; `/admin` y `/caja/validaciones` devuelven 404 sin exponer datos. Profesor recibe 403 en administración y en `/alumnos`, `/caja`, `/grupos` con Volver a `/clases`. Admin común en cuenta protegida de superadmin recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Nunca redirige al login.
+  - **Pruebas:** Suite completa en base propia `wings_testing_gemini` verde con 380 pruebas / 2242 aserciones.
+- **Dictamen:** Aprobadas ambas entregas. Defectos A29, A30, A31 y A43 CERRADOS. Informe y capturas en `docs/06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md`.
+- **Siguiente paso:** Habiendo verificado A43, Permisos y Configuración (A11), y con la Entrega 1 de Cobranza aprobada por Codex, continuar con la Entrega 2 de Cobranza según orden de trabajo.
+
 ## 2026-10-04 — LOG GEM CAB — Verificación independiente de Configuración (A11, commit 7a8fe09)
 
 - **Objetivo:** Verificar de forma independiente en código y navegador real la entrega de Configuración (A11) realizada por Codex CAB.

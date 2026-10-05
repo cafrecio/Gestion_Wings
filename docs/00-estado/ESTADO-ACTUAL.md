@@ -12,20 +12,13 @@ el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02
 A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro;
 documentados sin corrección. Gemini puede continuar Entrega 2.
 
-## A43 y permisos A29/A30/A31 entregados, pendientes Gemini — 04/10/2026
+## A43 y permisos A29/A30/A31 verificados y cerrados — 05/10/2026
 
-Carlos escribió la autorización de ambas maquetas y aclaró «A43 solo la cuota».
-A43 implementada: ingreso en mes cerrado exige Sí/No; Sí genera mes corriente
-completo y No evita solo cuota, conservando inscripción por DNI. Decisión y autor
-persistidos en la transacción, con reintento y rollback probados; no cuotas históricas.
-Suite propia verde: 366 pruebas / 2131 aserciones. Navegador normal y 375 px, ambas
-opciones y guardado bloqueado sin decisión comprobados en wings_testing_codex.
-[Entrega A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Requiere nueva migración
-alta_cuota al desplegar. No desplegada; pendiente Gemini, no cerrada.
-Permisos A29/A30/A31 implementados y comprobados: 403 explícito con Volver al inicio propio,
-sin cambios de acceso. Navegador normal/375 px con tres roles; conserva sesión.
-Suite final conjunta 380/2242 verde. [Entrega permisos](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md).
-No requiere nuevas decisiones de Carlos; Gemini verifica ambas entregas.
+Verificación independiente realizada por Gemini sobre commits `218ffc5` (A43) y `97cf933` (Permisos).
+- **A43:** Ingreso en mes cerrado (`2020-01-20`) muestra aviso dinámico con importes congelados y radios obligatorios; opción Sí genera cuota corriente 100% ($30.000) sin cuotas históricas y deja al alumno En plazo; opción No no genera cuota, conserva inscripción ($5.000) y deja al alumno Al día. Ingreso en mes corriente (`2026-10-05`) oculta el aviso y genera cuota automática con porcentaje del día. Registro de auditoría `alta_cuota` en JSON (`modo`, `usuario_id`, fecha, período, monto).
+- **Permisos (A29, A30, A31):** Redirecciones silenciosas eliminadas; Operativo recibe 403 con mensaje en castellano en administración y Volver a `/operativo` con sesión activa; `/admin` y `/caja/validaciones` responden 404 sin exponer datos. Profesor recibe 403 en administración y en `/alumnos`, `/caja`, `/grupos` con Volver a `/clases`. Admin común en cuenta protegida recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Probado en escritorio y móvil (375 px).
+- **Suite completa:** 380 pruebas / 2242 aserciones aprobadas en `wings_testing_gemini`.
+- [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Defectos A29, A30, A31 y A43 CERRADOS. Pendiente de despliegue con migración `alta_cuota`.
 
 ## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
 
@@ -37,7 +30,7 @@ A11 (Configuración): verificada de forma independiente por Gemini en código y 
 P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;
 inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
-importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; entregada, pendiente Gemini.
+importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; verificada y cerrada por Gemini el 05/10.
 P1: [maqueta estática entregada](../05-pendientes/maqueta-primera-carga/index.html);
 Carlos aprobó el formato de una fila por alumno/deporte con 12 pares Período/Monto;
 instructivo visual en pantalla y Excel. Falta aprobar la maqueta completa antes de
@@ -199,7 +192,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **380 pruebas**, 2242 aserciones; suite completa verde el 04/10 en copia exclusiva A43 + permisos, base wings_testing_codex |
+| **Tests** | **380 pruebas**, 2242 aserciones; suite completa verde el 05/10 en bases wings_testing_gemini y wings_testing_codex |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

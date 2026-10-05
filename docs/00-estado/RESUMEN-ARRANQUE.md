@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | A43 + permisos: 380 pruebas / 2242 aserciones verdes el 04/10 en copia exclusiva sobre 218ffc5 más permisos, base wings_testing_codex. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Sin despliegue; Gemini verifica. |
+| Suite | A43 + permisos: 380 pruebas / 2242 aserciones verdes el 05/10 en base wings_testing_gemini y wings_testing_codex. Verificados y cerrados por Gemini el 05/10. [Informe](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -32,11 +32,11 @@
 
 ## Trabajo que continúa
 
-- **A43 y A29/A30/A31 entregados:** autorización literal de Carlos y «A43 solo la cuota».
+- **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
-  Acceso restringido usa aviso común y Volver al inicio del rol. Código y navegador
-  normal/375 px comprobados; suite 380/2242. Pendientes Gemini, sin despliegue.
-  [A43](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md) · [Permisos](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md).
+  Acceso restringido usa aviso común y Volver al inicio del rol sin exponer datos ni redirigir al login.
+  Código, navegador normal/375 px y base de datos comprobados; suite 380/2242 verde.
+  [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue.
 
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
