@@ -12,6 +12,9 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 
+> A4 y A5: **Hecho (Cx), a revisar — 05/10**. Diseño aprobado por Carlos sobre
+> capturas. No se suman a los cerrados hasta la verificación independiente.
+
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
@@ -61,7 +64,7 @@ todo el tiempo.
 **Resuelto en Entrega 2 de P2 (05/10):**
 `CajaWebController::cobrar()` ahora proyecta y ofrece en memoria los períodos futuros inmediatos (los próximos 2 meses) al precio de lista vigente del plan activo (`$plan->precio_mensual`), con badge identificatorio «Adelantado». Al cobrar un período adelantado, se crea la `DeudaCuota` con estado `PAGADA` y el `Pago` correspondiente. Al llegar el día 1 del mes, el comando mensual `cobranza:generar-deudas` comprueba que la deuda ya existe y la omite (`$contSkipped++`), evitando duplicaciones. Además, el selector `/caja/cobrar` permite buscar a cualquier alumno activo por nombre, apellido o DNI para cobrarle por adelantado. Cubierto en `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A4. Editar alumno no avisa por qué no guardó · Frena · verificado
+### A4. Editar alumno no avisa por qué no guardó · Frena · Hecho (Cx), a revisar 05/10
 
 Al cambiar la fecha de nacimiento, el tutor pasa a ser obligatorio. El error aparece **abajo
 de todo**, en una pantalla más alta que el monitor. La persona aprieta Guardar, no pasa nada
@@ -69,10 +72,20 @@ visible y no entiende por qué. Es el mismo defecto que se corrigió en Revisió
 
 **Y peor:** si se va por el menú lateral, **nadie le avisa que va a perder lo que cargó**.
 
-### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · verificado
+**Entrega Codex CAB, 05/10:** resumen persistente arriba en alta/edición, foco y enlaces
+a los campos; conserva datos y plan al rechazar. Menú/Cancelar piden confirmación;
+cierre/recarga mantienen beforeunload. JavaScript en archivo propio; sin CSS.
+[Implementación y capturas reales](IMPLEMENTACION-A4-A5.md). Pendiente control ajeno.
+
+### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · Hecho (Cx), a revisar 05/10
 
 Una fila de casillas con todos los profesores del club, sin filtrar. En una clase de patín
 se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la clase.
+
+**Entrega Codex CAB, 05/10:** solo activos del deporte del grupo; al cambiar de grupo
+se desmarca/deshabilita el ajeno. Filtrado en edición/ficha y validación servidor en
+alta única/serie, edición y reasignación, sin escrituras parciales. No cambia permisos
+ni borra asignaciones históricas. [Entrega y capturas](IMPLEMENTACION-A4-A5.md).
 
 ### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta
 
@@ -679,8 +692,8 @@ Carlos.
 | 2.1 | Cobranza: cuánto debe cada uno, el total adeudado y cobrar desde ahí | A1, A21, A22 |
 | 2.2 | Cobrar desde la ficha del alumno y ver ahí sus recibos | A17, A34 |
 | 2.3 | Cobrar por adelantado, que el motor ya soporta | A3 |
-| 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado | A4, A14 |
-| 2.5 | Filtrar los profesores por el deporte de la clase | A5 |
+| 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado; A4 Hecho (Cx), a revisar 05/10; A14 pendiente | A4, A14 |
+| 2.5 | Profesores activos del deporte de la clase; Hecho (Cx), a revisar 05/10 | A5 |
 | 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
 
 ### P3 · El dueño deja de ser un operativo

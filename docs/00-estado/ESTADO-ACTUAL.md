@@ -204,7 +204,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **427 pruebas**, 2906 aserciones; suite completa verde el 05/10 en copia exclusiva P1 sobre main f1df4fd, wings_testing_codex. [Evidencia](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). No incluye las 8 pruebas ajenas de P2 aún sin commit |
+| **Tests** | **438 pruebas: 437 aprobadas y 1 omitida, 2949 aserciones** el 05/10 en wings_testing_codex, con A4/A5. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -279,12 +279,11 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 9. Contradicciones abiertas
 
-**A4/A5 — freno documental, 05/10/2026:** el prompt pide al implementador marcar
-ambos defectos CERRADOS, pero AGENTS.md §6a y DEFECTOS.md (plan de resolución)
-exigen verificación independiente antes del cierre. No se modificó aplicación,
-vistas, pruebas, base ni servidor. Carlos debe confirmar si se entregan como
-IMPLEMENTADOS, pendientes de revisión, en ambos seguimientos, y el verificador
-los marca CERRADOS después. No se cuentan como resueltos durante esta pausa.
+**A4/A5 — freno resuelto por Carlos, 05/10/2026:** entregar como **Hecho (Cx), a revisar**;
+el cierre sigue reservado al verificador independiente. Diseño aprobado después de
+ver las capturas: aviso superior y profesores activos del deporte de la clase, sin CSS.
+Implementación y comprobaciones del autor en [la entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md).
+Sin despliegue ni base del club tocada. No sumar a los cerrados antes del control ajeno.
 
 FIN-11, 12/09: reproducido y corregido cancelar/validar en ambos órdenes
 (dejaba pago ANULADO y deuda pagada 0 con 10.000 en cashflow). Corregidas también

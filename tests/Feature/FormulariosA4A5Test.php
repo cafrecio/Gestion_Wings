@@ -8,7 +8,6 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Tests\TestCase;
 
-// Borrador fuera de tests/: no altera la suite compartida durante la aprobación visual.
 class FormulariosA4A5Test extends TestCase
 {
     use RefreshDatabase;
@@ -21,7 +20,6 @@ class FormulariosA4A5Test extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->assertSame('wings_testing_codex', config('database.connections.mysql.database'));
         $this->actingAs(User::factory()->create(['rol' => 'ADMIN', 'activo' => true]));
         $patin = Deporte::create(['nombre' => 'Patín A5', 'activo' => true, 'tipo_liquidacion' => 'HORA']);
         $futbol = Deporte::create(['nombre' => 'Fútbol A5', 'activo' => true, 'tipo_liquidacion' => 'HORA']);
@@ -122,5 +120,25 @@ class FormulariosA4A5Test extends TestCase
         $datos['profesores'] = [$this->correcto->id];
         $this->post(route('web.clases.store'), $datos)->assertRedirect()->assertSessionHasNoErrors();
         $this->assertDatabaseHas('clase_profesor', ['profesor_id' => $this->correcto->id]);
+    }
+
+    public function test_a5_rechaza_profesor_inactivo_del_mismo_deporte(): void
+    {
+        $this->correcto->update(['activo' => false]);
+        $datos = $this->datosClase();
+        $datos['profesores'] = [$this->correcto->id];
+        $this->post(route('web.clases.store'), $datos)->assertSessionHasErrors('profesores');
+        $this->assertDatabaseCount('clases', 0);
+    }
+
+    public function test_a5_ficha_y_edicion_solo_ofrecen_profesores_activos_del_deporte(): void
+    {
+        $clase = $this->clase();
+        $this->correcto->update(['activo' => false]);
+        foreach (['web.clases.edit', 'web.clases.show'] as $ruta) {
+            $this->get(route($ruta, $clase))->assertOk()
+                ->assertDontSee('value="'.$this->ajeno->id.'"', false)
+                ->assertDontSee('value="'.$this->correcto->id.'"', false);
+        }
     }
 }

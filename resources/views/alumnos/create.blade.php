@@ -4,8 +4,9 @@
 @section('module-title', 'Nuevo Alumno')
 
 @section('content')
+@include('alumnos._errores')
 <div class="filtros-card">
-    <form method="POST" action="{{ route('web.alumnos.store') }}">
+    <form method="POST" action="{{ route('web.alumnos.store') }}" data-alumno-form data-con-errores="{{ $errors->any() ? '1' : '0' }}">
         @csrf
         @include('alumnos._form')
 

@@ -285,9 +285,9 @@ class ClaseWebController extends Controller
             'profesores.*' => 'integer|exists:profesores,id',
         ]);
         $ids = array_values(array_unique(array_map('intval', $datos['profesores'] ?? [])));
-        if ($ids && Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->count() !== count($ids)) {
+        if ($ids && Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->where('activo', true)->count() !== count($ids)) {
             throw ValidationException::withMessages([
-                'profesores' => 'Solo se pueden asignar profesores del deporte de la clase.',
+                'profesores' => 'Solo se pueden asignar profesores activos del deporte de la clase.',
             ]);
         }
         return $ids;

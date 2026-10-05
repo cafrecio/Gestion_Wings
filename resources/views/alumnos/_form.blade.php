@@ -17,10 +17,6 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
     @error('motivo_fecha_alta') <p>{{ $message }}</p> @enderror
 </div>
 @endisset
-@push('scripts')
-    @vite('resources/js/alumnos-inscripcion.js')
-@endpush
-
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {{-- Nombre --}}
     <div>
@@ -28,7 +24,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
             Nombre <span class="form-required">*</span>
         </label>
-        <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $alumno->nombre ?? '') }}" required autofocus
+        <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $alumno->nombre ?? '') }}" required @if(!$errors->any()) autofocus @endif
                class="w-full px-4 py-2.5 text-sm wings-input" placeholder="Nombre">
         @error('nombre') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
@@ -150,7 +146,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 
 {{-- Frecuencia semanal --}}
 @php $currentPlanId = old('plan_id', isset($alumno) ? ($alumno->planActivo?->plan_id ?? '') : ''); @endphp
-<div id="plan-section" class="mt-4" style="{{ isset($alumno) ? '' : 'display:none' }}">
+<div id="plan-section" class="mt-4" data-planes="{{ json_encode($grupoPlanesJson ?? []) }}" data-plan-actual="{{ $currentPlanId }}" style="{{ isset($alumno) ? '' : 'display:none' }}">
     <label for="plan_id" class="{{ $labelClass }}">
         <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         Frecuencia semanal
@@ -209,145 +205,6 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 @endunless
 
 {{-- JS: filtrar grupos por deporte + cargar planes por grupo --}}
-<script>
-(function () {
-    const grupoPlanes = @json($grupoPlanesJson ?? []);
-
-    function actualizarPlanes(grupoId) {
-        const section  = document.getElementById('plan-section');
-        if (!section) return;
-
-        const select = document.getElementById('plan_id');
-        const planes = grupoPlanes[grupoId] || [];
-
-        select.innerHTML = '<option value="">Seleccionar frecuencia...</option>';
-
-        if (planes.length > 0) {
-            planes.forEach(p => {
-                const opt     = document.createElement('option');
-                opt.value     = p.id;
-                const veces   = p.clases === 1 ? '1 vez/semana' : p.clases + ' veces/semana';
-                const precio  = parseFloat(p.precio).toLocaleString('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 });
-                opt.textContent = veces + ' — ' + precio;
-                if (String({{ $currentPlanId ?: 'null' }}) === String(p.id)) opt.selected = true;
-                select.appendChild(opt);
-            });
-            section.style.display = '';
-        } else {
-            section.style.display = 'none';
-        }
-    }
-
-    function filtrarGruposPorDeporte(deporteId) {
-        const grupoSelect = document.getElementById('grupo_id');
-        const options     = grupoSelect.querySelectorAll('option[data-deporte]');
-
-        grupoSelect.value = '';
-        options.forEach(opt => {
-            opt.style.display = (!deporteId || opt.dataset.deporte === deporteId) ? '' : 'none';
-        });
-
-        const section = document.getElementById('plan-section');
-        if (section) section.style.display = 'none';
-    }
-
-    // Celular: "mismo que tutor"
-    const chkMismo = document.getElementById('celular-mismo-tutor');
-    if (chkMismo) {
-        const celularInput   = document.getElementById('celular');
-        const tutorTelInput  = document.getElementById('telefono_tutor');
-
-        function sincronizarCelular() {
-            if (chkMismo.checked) {
-                celularInput.value    = tutorTelInput.value;
-                celularInput.readOnly = true;
-                celularInput.style.opacity = '0.6';
-            } else {
-                celularInput.readOnly = false;
-                celularInput.style.opacity = '';
-            }
-        }
-
-        chkMismo.addEventListener('change', sincronizarCelular);
-        tutorTelInput.addEventListener('input', () => {
-            if (chkMismo.checked) celularInput.value = tutorTelInput.value;
-        });
-    }
-
-    const deporteSelect = document.getElementById('deporte_id');
-    if (deporteSelect && deporteSelect.tagName === 'SELECT') {
-        deporteSelect.addEventListener('change', function () {
-            filtrarGruposPorDeporte(this.value);
-        });
-    }
-
-    document.getElementById('grupo_id').addEventListener('change', function () {
-        actualizarPlanes(this.value);
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const deporteEl = document.getElementById('deporte_id');
-        const deporteId = deporteEl ? deporteEl.value : '';
-        if (deporteId) {
-            document.getElementById('grupo_id').querySelectorAll('option[data-deporte]').forEach(opt => {
-                opt.style.display = opt.dataset.deporte === deporteId ? '' : 'none';
-            });
-        }
-        const grupoId = document.getElementById('grupo_id').value;
-        if (grupoId) actualizarPlanes(grupoId);
-    });
-
-    // Validación fecha de nacimiento en tiempo real
-    const fechaInput   = document.getElementById('fecha_nacimiento');
-    const fechaError   = document.getElementById('fecha-nacimiento-error');
-    const fechaErrorSv = document.getElementById('error-fecha-nacimiento');
-    if (fechaInput && fechaError) {
-        fechaInput.addEventListener('input', function () {
-            const val = this.value;
-            if (!val) { fechaError.style.display = 'none'; fechaError.textContent = ''; return; }
-            const year = parseInt(val.split('-')[0], 10);
-            const today = new Date().toISOString().split('T')[0];
-            if (year < 1900 || year > new Date().getFullYear()) {
-                fechaError.textContent = 'El año ingresado no es válido.';
-                fechaError.style.display = '';
-                this.setCustomValidity('Año inválido');
-            } else if (val > today) {
-                fechaError.textContent = 'La fecha debe ser anterior a hoy.';
-                fechaError.style.display = '';
-                this.setCustomValidity('Fecha futura');
-            } else {
-                fechaError.style.display = 'none';
-                fechaError.textContent = '';
-                if (fechaErrorSv) fechaErrorSv.style.display = 'none';
-                this.setCustomValidity('');
-            }
-        });
-    }
-
-    // Validación email en tiempo real
-    const emailInput   = document.getElementById('email');
-    const emailError   = document.getElementById('email-error');
-    const emailErrorSv = document.getElementById('error-email-alumno');
-    if (emailInput && emailError) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        function validarEmail() {
-            if (emailInput.value && !emailRegex.test(emailInput.value)) {
-                emailError.textContent = 'El email no tiene un formato válido.';
-                emailError.style.display = '';
-            } else {
-                emailError.style.display = 'none';
-                emailError.textContent = '';
-                if (emailErrorSv) emailErrorSv.style.display = 'none';
-            }
-        }
-        emailInput.addEventListener('blur', validarEmail);
-        emailInput.addEventListener('input', function () {
-            if (!this.value || emailRegex.test(this.value)) {
-                emailError.style.display = 'none';
-                emailError.textContent = '';
-                if (emailErrorSv) emailErrorSv.style.display = 'none';
-            }
-        });
-    }
-})();
-</script>
+@push('scripts')
+    @vite('resources/js/alumnos-form.js')
+@endpush

@@ -134,30 +134,5 @@ $profAsignados = $clase->profesores->pluck('id')->toArray();
 @endsection
 
 @push('scripts')
-<script>
-(function () {
-    const horaInicio   = document.getElementById('hora_inicio');
-    const horaFin      = document.getElementById('hora_fin');
-    const horaFinError = document.getElementById('hora-fin-error');
-
-    const horaFinErrorSv = document.getElementById('error-hora-fin');
-
-    function validarHoras() {
-        if (!horaInicio.value || !horaFin.value) return;
-        if (horaFin.value <= horaInicio.value) {
-            horaFinError.style.display = '';
-            horaFin.setCustomValidity('La hora de fin debe ser posterior a la hora de inicio.');
-        } else {
-            horaFinError.style.display = 'none';
-            if (horaFinErrorSv) horaFinErrorSv.style.display = 'none';
-            horaFin.setCustomValidity('');
-        }
-    }
-
-    if (horaInicio && horaFin) {
-        horaInicio.addEventListener('change', validarHoras);
-        horaFin.addEventListener('change', validarHoras);
-    }
-})();
-</script>
+@vite('resources/js/clases-form.js')
 @endpush

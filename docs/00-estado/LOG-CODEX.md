@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-05 — Codex CAB — A4/A5 hechos, a revisar
+
+Carlos aprobó aviso superior y profesores activos del deporte de la clase; pidió Hecho (Cx), a revisar.
+A4: resumen visible, datos/plan conservados y advertencia de salida; A5: filtro y rechazo servidor.
+JavaScript propio/Vite; sin CSS ni permisos nuevos. Backend inicial A5 entró con 8869263 de Claude.
+Previas: 7 rojas/2 verdes, 27 aserciones; específica final: 11/39 verdes.
+Suite propia wings_testing_codex: 437 aprobadas, 1 omitida, 2949 aserciones; última vuelta 129,48 s. PHP/Blade/build OK.
+Diez capturas reales escritorio/375; Chrome mostró confirm al salir, pero se trabó al cancelar: revisor debe comprobar retención y cierre.
+[Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md); ambos seguimientos y cuatro estados actualizados.
+Sin base del club ni servidor tocados; no desplegado ni cerrado. Sigue control independiente.
+
 ## 2026-10-05 — Codex CAB — A4/A5 frenados por instrucción de cierre contradictoria
 
 Main sincronizado en `6ebfe83`; árbol limpio al iniciar y continuidad revisada.
@@ -106,18 +117,7 @@ Carlos aprueba maqueta («Ok, aprobada»); autorización e implementación poste
 Pruebas A11 preparadas localmente: 7 rojas / 1 verde, 58 aserciones. Sin commit de los tests.
 
 
-## 2026-10-04 — Codex CAB — Maqueta P1 en navegador, espera aprobación
-
-P0 en `ad24769`, suite 338/1932 verde en ese corte; pendiente de Gemini.
-P1 solo maqueta estática: cuatro pasos, errores por fila/columna y Excel marcado.
-Carlos aprobó una fila con datos, dos Sí/No y 12 pares Período/Monto; reemplaza hojas separadas.
-Solo Alumnos se completa; Catálogos alimenta listas y Guía reproduce ejemplos visuales.
-Entrada automática obligatoria pedida; estado pendiente/terminada y bloqueo de alta son propuesta.
-Instructivo y colores Wings revisados en escritorio/390 px, sin desborde; descarga comprobada.
-XLSX: 38 columnas, tipos/valores originales conservados en marcado; ejemplo total $301.000.
-Carga bloqueada con errores y Deshacer tras cobro simulado; Excel nativo no comprobado.
-[Maqueta y evidencia](../05-pendientes/maqueta-primera-carga/README.md). Sin importador ni servidor tocados.
-Carlos debe aprobar maqueta completa antes de programar. No cerrado; Gemini verifica.
+Entrada de maqueta P1 archivada intacta en [LOG-CODEX-MAQUETA-P1.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-MAQUETA-P1.md).
 
 Entrada P0 archivada en [LOG-CODEX-P0.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-P0.md); texto original conservado, acceso a evidencia indicado allí.
 

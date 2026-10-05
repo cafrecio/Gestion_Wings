@@ -42,7 +42,8 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * A11 (04/10): quedan 19 al mover Configuración y su editor de reglas
      * a resources/js/configuraciones.js, cargado por @vite en esa pantalla.
      */
-    private const BLOQUES_SCRIPT_PERMITIDOS = 19;
+    // A4/A5 (05/10): alumnos/_form y clases/create/edit usan módulos propios.
+    private const BLOQUES_SCRIPT_PERMITIDOS = 16;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

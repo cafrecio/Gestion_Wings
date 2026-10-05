@@ -9,6 +9,8 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
+Último corte A4/A5, 05/10: **438 pruebas: 437 aprobadas y 1 omitida, 2949 aserciones**, en wings_testing_codex. Diseño aprobado por Carlos; **Hecho (Cx), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue.
+
 Entrega P1: **427 pruebas / 2906 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 entregada, pendiente Gemini; sin deploy.
@@ -93,7 +95,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 427 pruebas deben pasar
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 438 pruebas: 437 aprobadas y 1 omitida; 2949 aserciones
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2906 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

@@ -29,6 +29,13 @@ Regla general: crear/editar/validar clases queda exclusivo de ADMIN — es una e
 
 ## 4.b Solapamiento de horarios
 
+**Precisión A5 aprobada por Carlos el 05/10/2026:** al asignar profesores se ofrecen
+solo los **activos del deporte del grupo de la clase**. Se controla también en el
+servidor al crear (única/serie), editar hoy/futuro y reasignar desde la ficha; un
+formulario adulterado se rechaza sin cambios parciales. Los roles, motivos retroactivos
+y bloqueos por liquidación permanecen como estaban. No se borran asignaciones históricas
+por desactivar posteriormente un profesor.
+
 - Un profesor no puede quedar asignado a dos clases que se solapen en fecha+horario.
 - Un alumno no puede quedar con `presente=true` en dos clases que se solapen en fecha+horario.
 - Se valida en **todos** los puntos de entrada del flujo web real: crear clase (única y cada clase de una serie recurrente), reasignar profesores, guardar asistencias.

@@ -110,6 +110,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                     @foreach($grupos as $grupo)
                         <option value="{{ $grupo->id }}"
                                 data-deporte="{{ $grupo->deporte->nombre ?? '' }}"
+                                data-deporte-id="{{ $grupo->deporte_id }}"
                                 {{ old('grupo_id') == $grupo->id ? 'selected' : '' }}>
                             {{ $grupo->nombre_completo }}
                         </option>
@@ -163,7 +164,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                         $depP  = strtr($depP, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
                         $railP = str_contains($depP, 'pat') ? 'patin' : (str_contains($depP, 'fut') ? 'futbol' : 'otro');
                     @endphp
-                    <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                    <label data-profesor-deporte="{{ $profesor->deporte_id }}" style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
                         <input type="checkbox" name="profesores[]" value="{{ $profesor->id }}"
                             {{ in_array($profesor->id, old('profesores', [])) ? 'checked' : '' }}>
                         {{ $profesor->apellido }}, {{ $profesor->nombre }}
@@ -178,6 +179,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                 @endforelse
             </div>
             @error('profesores') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
+            <p id="profesores-deporte-aviso" class="text-xs mt-1 text-wings-muted" aria-live="polite">Elegí un grupo para ver sus profesores activos.</p>
         </div>
 
         {{-- Acciones --}}
@@ -192,80 +194,5 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 @endsection
 
 @push('scripts')
-<script>
-(function () {
-    const radios        = document.querySelectorAll('input[name="tipo_creacion"]');
-    const secUnica      = document.getElementById('seccion-unica');
-    const secRecurrente = document.getElementById('seccion-recurrente');
-    const lblUnica      = document.getElementById('lbl-unica');
-    const lblRec        = document.getElementById('lbl-recurrente');
-    const grupoSelect   = document.getElementById('grupo_id');
-    const deporteInfo   = document.getElementById('deporte-info');
-    const horaInicio    = document.getElementById('hora_inicio');
-    const horaFin       = document.getElementById('hora_fin');
-    const horaFinError  = document.getElementById('hora-fin-error');
-
-    function actualizarModo() {
-        const tipo = document.querySelector('input[name="tipo_creacion"]:checked').value;
-        if (tipo === 'unica') {
-            secUnica.style.display = '';
-            secRecurrente.style.display = 'none';
-            lblUnica.style.background = 'color-mix(in srgb, var(--color-btn-primary) 12%, transparent)';
-            lblUnica.style.borderColor = 'var(--color-btn-primary)';
-            lblRec.style.background = '';
-            lblRec.style.borderColor = 'var(--color-border)';
-        } else {
-            secUnica.style.display = 'none';
-            secRecurrente.style.display = '';
-            lblRec.style.background = 'color-mix(in srgb, var(--color-btn-primary) 12%, transparent)';
-            lblRec.style.borderColor = 'var(--color-btn-primary)';
-            lblUnica.style.background = '';
-            lblUnica.style.borderColor = 'var(--color-border)';
-        }
-    }
-
-    radios.forEach(r => r.addEventListener('change', actualizarModo));
-    actualizarModo();
-
-    // Deporte info dinámico al seleccionar grupo
-    if (grupoSelect && deporteInfo) {
-        grupoSelect.addEventListener('change', function () {
-            const sel = this.options[this.selectedIndex];
-            const dep = sel.dataset.deporte || '';
-            if (dep) {
-                deporteInfo.textContent = 'Deporte: ' + dep;
-                deporteInfo.style.display = '';
-            } else {
-                deporteInfo.style.display = 'none';
-            }
-        });
-        // Init
-        const sel = grupoSelect.options[grupoSelect.selectedIndex];
-        if (sel && sel.dataset.deporte) {
-            deporteInfo.textContent = 'Deporte: ' + sel.dataset.deporte;
-            deporteInfo.style.display = '';
-        }
-    }
-
-    const horaFinErrorSv = document.getElementById('error-hora-fin');
-
-    // Validación hora fin
-    function validarHoras() {
-        if (!horaInicio.value || !horaFin.value) return;
-        if (horaFin.value <= horaInicio.value) {
-            horaFinError.style.display = '';
-            horaFin.setCustomValidity('La hora de fin debe ser posterior a la hora de inicio.');
-        } else {
-            horaFinError.style.display = 'none';
-            if (horaFinErrorSv) horaFinErrorSv.style.display = 'none';
-            horaFin.setCustomValidity('');
-        }
-    }
-
-    if (horaInicio && horaFin) {
-        horaInicio.addEventListener('change', validarHoras);
-        horaFin.addEventListener('change', validarHoras);
-    }
-})();
-</script>
+@vite('resources/js/clases-form.js')
 @endpush

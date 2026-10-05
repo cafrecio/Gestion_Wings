@@ -11,6 +11,8 @@ export default defineConfig({
                 'resources/js/grupos.js',
                 'resources/js/usuarios.js',
                 'resources/js/alumnos-inscripcion.js',
+                'resources/js/alumnos-form.js',
+                'resources/js/clases-form.js',
                 'resources/js/cobrar.js',
                 'resources/js/configuraciones.js',
                 'resources/js/primera-carga.js',

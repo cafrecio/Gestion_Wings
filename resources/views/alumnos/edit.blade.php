@@ -4,6 +4,7 @@
 @section('module-title', 'Editar: ' . $alumno->apellido . ', ' . $alumno->nombre)
 
 @section('content')
+@include('alumnos._errores')
 
 @php $tienePlanValido = $alumno->planActivo && $alumno->planActivo->plan; @endphp
 
@@ -19,7 +20,7 @@
 @endif
 
 <div class="filtros-card">
-    <form method="POST" action="{{ route('web.alumnos.update', $alumno->id) }}">
+    <form method="POST" action="{{ route('web.alumnos.update', $alumno->id) }}" data-alumno-form data-con-errores="{{ $errors->any() ? '1' : '0' }}">
         @csrf
         @method('PUT')
         @include('alumnos._form')
