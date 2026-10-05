@@ -282,6 +282,13 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 9. Contradicciones abiertas
 
+**A4/A5 — freno documental, 05/10/2026:** el prompt pide al implementador marcar
+ambos defectos CERRADOS, pero AGENTS.md §6a y DEFECTOS.md (plan de resolución)
+exigen verificación independiente antes del cierre. No se modificó aplicación,
+vistas, pruebas, base ni servidor. Carlos debe confirmar si se entregan como
+IMPLEMENTADOS, pendientes de revisión, en ambos seguimientos, y el verificador
+los marca CERRADOS después. No se cuentan como resueltos durante esta pausa.
+
 FIN-11, 12/09: reproducido y corregido cancelar/validar en ambos órdenes
 (dejaba pago ANULADO y deuda pagada 0 con 10.000 en cashflow). Corregidas también
 las esperas tardías de cobrar/cancelar y validar/cobrar. Seis casos pasan, 103

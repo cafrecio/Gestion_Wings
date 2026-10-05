@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-05 — Codex CAB — A4/A5 frenados por instrucción de cierre contradictoria
+
+Main sincronizado en `6ebfe83`; árbol limpio al iniciar y continuidad revisada.
+El prompt exige CERRADOS por el autor; AGENTS.md §6a y DEFECTOS.md exigen control ajeno previo.
+Consulta: entregar IMPLEMENTADOS pendientes de revisión en ambos seguimientos y cerrar después del control.
+Freno registrado en ESTADO-ACTUAL §9; A4/A5 siguen abiertos, sin modificar sus contadores.
+MCP probado: transporte cerrado; contraste documental hecho contra archivos reales.
+Sin aplicación, vistas, pruebas, datos ni servidor tocados; no se corrió suite por documentación.
+Siguiente: Carlos aclara el cierre; después propuesta visual con capturas antes de pedir autorización.
+
 ## 2026-10-05 — Codex CAB — P1 implementada, pendiente Gemini
 
 Carlos aprobó maqueta y aclaró producción sin alumnos/deudas/pagos; levantado el freno previo.
@@ -109,16 +119,6 @@ Carga bloqueada con errores y Deshacer tras cobro simulado; Excel nativo no comp
 [Maqueta y evidencia](../05-pendientes/maqueta-primera-carga/README.md). Sin importador ni servidor tocados.
 Carlos debe aprobar maqueta completa antes de programar. No cerrado; Gemini verifica.
 
-## 2026-10-04 — Codex CAB — P0 entregado; P1 requiere maqueta aprobada
-
-A43 reescrito: cuota del mes real de ingreso al porcentaje del día, sin corte ni pregunta.
-Plan inicial vigente desde ingreso; cobro conserva importe congelado. Inscripción manual
-única por DNI, sin corte; corrección auditada no crea/anula cargos por fecha.
-Migración retira solo el parámetro legado; ambos importadores anteriores se conservan.
-Pruebas antes: 9 fallos/20 correctas; final MariaDB wings_testing: 338/1932, todo verde.
-Sintaxis PHP, compilación Blade y diff verificados; campo de Configuración retirado con
-autorización de P0, sin CSS nuevo ni deploy. Documentos vigentes y tableros actualizados.
-[Evidencia](../06-pruebas/PRU-02/P0-CARGA-INICIAL-2026-10-04.md). Pendiente Gemini, no cerrado.
-Siguiente: maqueta P1 fuera de Wings; Carlos aprueba en navegador antes de programar.
+Entrada P0 archivada en [LOG-CODEX-P0.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-P0.md); texto original conservado, acceso a evidencia indicado allí.
 
 Entradas anteriores archivadas intactas en [LOG-CODEX-ANTES-A43.md](../99-archivo/bitacoras/2026-10-04/LOG-CODEX-ANTES-A43.md).
