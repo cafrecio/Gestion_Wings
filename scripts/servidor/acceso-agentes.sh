@@ -34,7 +34,7 @@ log() { printf '[%s] %s\n' "$(date '+%F %T')" "$*"; }
 sincronizar() {
     local tmp
     tmp="$(mktemp)"
-    trap 'rm -f "${tmp}"' RETURN
+    trap 'rm -f "${tmp:-}"' RETURN
 
     if ! curl -fsS --max-time 20 "${FUENTE}" -o "${tmp}"; then
         log "GitHub no respondio: no se toca ${DESTINO}."
@@ -52,18 +52,22 @@ sincronizar() {
     touch "${PROPIAS}"
     chmod 600 "${PROPIAS}"
 
-    local nuevo
-    nuevo="$(mktemp)"
+    # Se escribe directo sobre el destino, no moviendo un archivo de /tmp: en AlmaLinux
+    # con SELinux, un archivo creado en /tmp llega con una etiqueta que `sshd` no puede
+    # leer, y el acceso queda rechazado aunque la clave figure en authorized_keys.
     {
         echo "# Lo arma ${CRON} desde ${FUENTE}. No editar a mano:"
         echo "# lo que se agregue aca se pierde en la proxima sincronizacion."
         echo "# Una clave que no venga de GitHub va en ${PROPIAS}."
         grep -E '^(ssh-(ed25519|rsa)|ecdsa-sha2-)' "${tmp}"
         grep -E '^(ssh-(ed25519|rsa)|ecdsa-sha2-)' "${PROPIAS}" 2>/dev/null || true
-    } | awk '!vistas[$1" "$2]++' > "${nuevo}"
+    } | awk '!vistas[$1" "$2]++' > "${DESTINO}"
 
-    install -m 600 "${nuevo}" "${DESTINO}"
-    rm -f "${nuevo}"
+    chmod 600 "${DESTINO}"
+    chown root:root "${DESTINO}" 2>/dev/null || true
+    # Por las dudas, se repone la etiqueta de SELinux si el sistema la usa.
+    command -v restorecon >/dev/null && restorecon -F "${DESTINO}" "$(dirname "${DESTINO}")" 2>/dev/null || true
+
     log "Autorizadas $(grep -cE '^(ssh-|ecdsa-)' "${DESTINO}") clave(s) en ${DESTINO}."
 }
 
@@ -79,7 +83,7 @@ verificar() {
 
     local tmp
     tmp="$(mktemp)"
-    trap 'rm -f "${tmp}"' RETURN
+    trap 'rm -f "${tmp:-}"' RETURN
     if ! curl -fsS --max-time 20 "${FUENTE}" -o "${tmp}"; then
         echo "No se pudo leer ${FUENTE}; no se puede comparar."
         return "${problemas}"
