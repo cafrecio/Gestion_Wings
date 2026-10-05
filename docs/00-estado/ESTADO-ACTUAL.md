@@ -31,10 +31,13 @@ P0 implementado localmente: cuota del mes real de ingreso con porcentaje congela
 inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
 importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; verificada y cerrada por Gemini el 05/10.
-P1: [maqueta estática entregada](../05-pendientes/maqueta-primera-carga/index.html);
-Carlos aprobó el formato de una fila por alumno/deporte con 12 pares Período/Monto;
-instructivo visual en pantalla y Excel. Falta aprobar la maqueta completa antes de
-programar el importador. P0 commit `ad24769`.
+P1: [maqueta completa aprobada](../05-pendientes/maqueta-primera-carga/README.md)
+por Carlos el 05/10; implementación solicitada con una fila por alumno/deporte,
+12 pares Período/Monto e instructivo visual. **Freno previo a implementar:** aún no
+existe estado persistente pendiente/terminada. Falta decidir cómo inicializarlo en
+bases que ya tienen alumnos sin bloquear su alta manual ni deducir el control del
+conteo de alumnos. Consultado a Carlos; sin cambios de aplicación ni datos.
+P0 commit `ad24769`.
 [Regla vigente](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 
 ## A2/B2 — implementados localmente, 23/09/2026
@@ -201,7 +204,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | P1 pendiente: un Excel con alumnos y deuda, sin inscripción salvo indicación por fila. Catálogos previos, revisión sin escritura, informe Excel y carga atómica. Maqueta requiere aprobación de Carlos. `wings:importar-padron` y `wings:importar-deuda-inicial` se conservan hasta que el nuevo funcione |
+| Carga inicial | P1 autorizada el 05/10: Excel con alumnos y deuda, inscripción solo por indicación del archivo. Catálogos previos, revisión sin escritura, informe Excel y carga atómica. Pendiente decidir transición del estado de primera carga para bases existentes, antes de implementar. `wings:importar-padron` y `wings:importar-deuda-inicial` se conservan hasta que el nuevo funcione |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
