@@ -97,6 +97,15 @@ class Pago extends Model
     /**
      * Relación con DeudaCuotas (a través de la tabla pivote)
      */
+    /**
+     * Un cobro del dueño no pasa por ninguna caja: va derecho al cashflow (A13/B1).
+     * Es el único que se puede anular desde la ficha; el del mostrador se anula en su caja.
+     */
+    public function sinCaja(): bool
+    {
+        return !MovimientoOperativo::where('pago_id', $this->id)->exists();
+    }
+
     public function deudasCuota(): BelongsToMany
     {
         return $this->belongsToMany(DeudaCuota::class, 'pago_deuda_cuota')

@@ -120,6 +120,10 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
+
+        // A13/B1: el cobro del dueño no pasa por ninguna caja, asi que tampoco se puede
+        // anular desde el detalle de una caja. Se anula desde el historial de la ficha.
+        Route::post('/pagos/{id}/anular', [AlumnoWebController::class, 'anularPago'])->name('web.pagos.anular');
     });
 
     // Alumnos CRUD — accesible para ADMIN y OPERATIVO

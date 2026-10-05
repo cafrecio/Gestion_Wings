@@ -123,7 +123,16 @@ sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
 Tres cuadros en cero, una tarjeta que dice "Sin caja hoy" y nada que diga por dónde empezar
 el día.
 
-### A13. El admin termina con caja propia · Frena · verificado
+### A13. El admin termina con caja propia · Frena · HECHO 05/10 (Claude), a revisar
+
+**Hecho el 05/10 (Claude), junto con B1, que es la misma raiz.** Cuando cobra un ADMIN, la
+pantalla usa el camino directo al cashflow que ya existia y no le abre ninguna caja; el
+operativo sigue cobrando por la suya. Se agrego lo que faltaba para que eso no dejara un
+agujero: **anular ese cobro**, que vivia solo dentro de la caja del mostrador. Se anula desde
+el historial de la ficha, con motivo obligatorio, y el cashflow recibe un asiento en contra
+en vez de borrar el original. `AdminCobraSinCajaTest`, 8 pruebas; 6 fallan con el codigo
+anterior. Diseno del boton autorizado por Carlos el 05/10 sobre capturas
+(`capturas-a13/`). **Falta: que otro agente lo verifique.**
 
 Cuando el dueño cobra una cuota, el sistema **le abre una caja a su nombre**
 (`abrirCajaSiNoExiste`). Después tiene que cerrarla y validarse a sí mismo.
@@ -283,6 +292,12 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura.
 
 ### A37. Ficha del alumno en celular · Molesta · verificado
+
+**Asignado a Gemini el 05/10.** Al agregar el boton Anular quedo a la vista que la ficha
+entera es mas ancha que la pantalla del telefono: se corta todo el lado derecho, botones
+incluidos. Claude dejo los datos en una sola columna y la barra de acciones apilada, pero el
+desborde de fondo sigue y no se pudo ubicar desde una captura de archivo, que no ejecuta
+JavaScript. Carlos, 05/10: "no puede quedar asi".
 
 esperaba leer el correo completo dentro de la ficha; el email de Acosta, Alan atraviesa el borde derecho y obliga a desplazar horizontalmente la página. Captura.
 
@@ -486,7 +501,7 @@ Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio
 
 ## Parte B — Lo que no se ve
 
-### B1. El admin está modelado como un operativo más · Frena · verificado
+### B1. El admin está modelado como un operativo más · Frena · HECHO 05/10 (Claude), a revisar
 
 La pantalla de cobro manda siempre por el camino del mostrador
 (`registrarPagoCuotaOperativo`), sin importar el rol, y por eso le abre caja al dueño. Existe

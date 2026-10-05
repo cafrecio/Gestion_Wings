@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Entrega P1: **418 pruebas / 2874 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
+Entrega P1: **427 pruebas / 2906 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 entregada, pendiente Gemini; sin deploy.
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
@@ -93,10 +93,10 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 418 pruebas deben pasar
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 427 pruebas deben pasar
 ```
 
-Entrega P1 del 05/10: **418 pruebas / 2874 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
+Entrega P1 del 05/10: **427 pruebas / 2906 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
 Ver [resultado y límites](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.

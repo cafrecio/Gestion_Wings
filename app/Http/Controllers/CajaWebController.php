@@ -924,15 +924,22 @@ class CajaWebController extends Controller
                     return ['periodo' => $periodo, 'monto' => max($monto, 0.01)];
                 })->values()->all();
 
-                return $this->pagoCuotaService->registrarPagoCuotaOperativo([
-                    'alumno_id'            => $alumnoId,
-                    'tipo_caja_id'         => $request->input('tipo_caja_id'),
-                    'usuario_operativo_id' => $user->id,
-                    'items'                => $items,
-                    'monto_entregado'      => $request->input('monto_entregado'),
-                    'fecha_pago'           => $request->input('fecha_pago', today()->toDateString()),
-                    'observaciones'        => $observacionesPago ?: null,
-                ]);
+                $datosPago = [
+                    'alumno_id'       => $alumnoId,
+                    'tipo_caja_id'    => $request->input('tipo_caja_id'),
+                    'items'           => $items,
+                    'monto_entregado' => $request->input('monto_entregado'),
+                    'fecha_pago'      => $request->input('fecha_pago', today()->toDateString()),
+                    'observaciones'   => $observacionesPago ?: null,
+                ];
+
+                // A13 y B1: el dueño no tiene caja. Hasta el 05/10 esta pantalla mandaba a
+                // todos por el camino del mostrador sin mirar el rol, así que al admin se le
+                // abría una caja a su nombre y después tenía que cerrarla y validarse a sí
+                // mismo. Su cobro va derecho al cashflow, que es lo que ya hacía la API.
+                return $user->isAdmin()
+                    ? $this->pagoCuotaService->registrarPagoCuotaAdmin($datosPago + ['usuario_admin_id' => $user->id])
+                    : $this->pagoCuotaService->registrarPagoCuotaOperativo($datosPago + ['usuario_operativo_id' => $user->id]);
             });
 
             if ($requiereAvisoDeudaAnterior) {

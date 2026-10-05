@@ -287,6 +287,8 @@
 
    Maneja:
      [data-confirmar]        pide confirmación antes de enviar/ejecutar
+     [data-abrir-anular]     abre el modal de anulación del cobro del dueño (alumnos/show)
+     [data-cerrar-anular]    cierra ese modal
      [data-abrir-condonar]   abre el modal de condonación de deuda (alumnos/show)
      [data-cerrar-condonar]  cierra el modal de condonación de deuda
      [data-abrir-rechazar]   abre el modal de rechazo de caja (caja/detalle y resumen)
@@ -310,6 +312,24 @@
                 evento.stopPropagation();
                 return;
             }
+        }
+
+        // 2-bis. Anular cobro del dueño (alumnos/show)
+        var btnAbrirAnular = evento.target.closest('[data-abrir-anular]');
+        if (btnAbrirAnular) {
+            var urlAnular = btnAbrirAnular.getAttribute('data-abrir-anular');
+            var formAnular = document.getElementById('form-anular');
+            if (formAnular && urlAnular) formAnular.action = urlAnular;
+            var modalAnular = document.getElementById('modal-anular');
+            if (modalAnular) modalAnular.style.display = 'flex';
+            return;
+        }
+
+        var btnCerrarAnular = evento.target.closest('[data-cerrar-anular]');
+        if (btnCerrarAnular) {
+            var modalCerrarAnular = document.getElementById('modal-anular');
+            if (modalCerrarAnular) modalCerrarAnular.style.display = 'none';
+            return;
         }
 
         // 2. Condonar deuda (alumnos/show)

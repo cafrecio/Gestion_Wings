@@ -167,6 +167,31 @@ class AlumnoWebController extends Controller
             ->with('success', 'Deuda condonada correctamente.');
     }
 
+    /**
+     * Anular un cobro del dueño, que no pasó por ninguna caja (A13/B1).
+     */
+    public function anularPago(Request $request, int $id, PagoCuotaService $pagoCuotaService)
+    {
+        $request->validate([
+            'motivo' => 'required|string|min:10|max:500',
+        ], [
+            'motivo.required' => 'El motivo de la anulación es obligatorio.',
+            'motivo.min' => 'El motivo de la anulación debe tener al menos 10 caracteres.',
+        ]);
+
+        $pago = \App\Models\Pago::findOrFail($id);
+
+        try {
+            $pagoCuotaService->anularCobroAdmin($id, $request->input('motivo'), (int) $request->user()->id);
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+
+        return redirect()
+            ->route('web.alumnos.show', $pago->alumno_id)
+            ->with('success', 'Cobro anulado y deuda restituida.');
+    }
+
     public function create()
     {
         $deportes = Deporte::where('activo', true)->orderBy('nombre')->get();

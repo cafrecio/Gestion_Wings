@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class ClaseWebController extends Controller
 {
@@ -201,7 +202,7 @@ class ClaseWebController extends Controller
             'dias_semana.min'      => 'Debe seleccionar al menos un día de la semana.',
         ]);
 
-        $profesoresIds = $request->input('profesores', []);
+        $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) Grupo::findOrFail($validated['grupo_id'])->deporte_id);
 
         try {
             $count = DB::transaction(function () use ($tipo, $validated, $profesoresIds, $request) {
@@ -276,6 +277,22 @@ class ClaseWebController extends Controller
         $clase->profesores()->sync($profesoresIds);
     }
 
+    /** A5: la selección de pantalla y los formularios manipulados deben respetar el deporte. */
+    private function validarProfesoresDelDeporte(Request $request, int $deporteId): array
+    {
+        $datos = $request->validate([
+            'profesores' => 'nullable|array',
+            'profesores.*' => 'integer|exists:profesores,id',
+        ]);
+        $ids = array_values(array_unique(array_map('intval', $datos['profesores'] ?? [])));
+        if ($ids && Profesor::whereIn('id', $ids)->where('deporte_id', $deporteId)->count() !== count($ids)) {
+            throw ValidationException::withMessages([
+                'profesores' => 'Solo se pueden asignar profesores del deporte de la clase.',
+            ]);
+        }
+        return $ids;
+    }
+
     public function show(int $id)
     {
         $clase = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias.alumno'])->findOrFail($id);
@@ -296,7 +313,7 @@ class ClaseWebController extends Controller
             );
         }
 
-        $profesoresDisponibles = Profesor::where('activo', true)->orderBy('apellido')->get();
+        $profesoresDisponibles = Profesor::where('activo', true)->where('deporte_id', $clase->grupo->deporte_id)->orderBy('apellido')->get();
         $esAdmin    = Auth::user()->isAdmin();
         $esProfesor = Auth::user()->isProfesor();
 
@@ -443,7 +460,7 @@ class ClaseWebController extends Controller
     public function edit(int $id)
     {
         $clase      = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores'])->findOrFail($id);
-        $profesores = Profesor::where('activo', true)->orderBy('apellido')->get();
+        $profesores = Profesor::where('activo', true)->where('deporte_id', $clase->grupo->deporte_id)->orderBy('apellido')->get();
 
         return view('clases.edit', compact('clase', 'profesores'));
     }
@@ -484,7 +501,7 @@ class ClaseWebController extends Controller
                 $clase->motivo_cambio_horario = $motivo;
             }
             $actuales = $clase->profesores()->pluck('profesores.id')->all();
-            $finales = $pasada ? $actuales : array_map('intval', $validated['profesores'] ?? []);
+            $finales = $pasada ? $actuales : $this->validarProfesoresDelDeporte($request, (int) $clase->grupo->deporte_id);
             $clase->fill(collect($validated)->only(['fecha', 'hora_inicio', 'hora_fin'])->all())->save();
 
             // Los verificadores leen el horario nuevo; cualquier rechazo revierte todo.
@@ -575,7 +592,7 @@ class ClaseWebController extends Controller
         $clase    = Clase::findOrFail($id);
         $esPasada = $clase->fecha->lt(today());
 
-        $profesoresIds = array_map('intval', $request->input('profesores', []));
+        $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) $clase->grupo->deporte_id);
         $actualesIds   = $clase->profesores()->pluck('profesores.id')->toArray();
         $removidos     = array_diff($actualesIds, $profesoresIds);
         $agregados     = array_diff($profesoresIds, $actualesIds);

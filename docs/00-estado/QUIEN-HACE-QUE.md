@@ -1,4 +1,4 @@
-# Quién hace qué — 05/10/2026, 15:10
+# Quién hace qué — 05/10/2026, 17:00
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -41,7 +41,7 @@ corregirlo acá en el momento.
 | **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **Hechos y subidos el 05/10**: un solo cálculo, `saldoDeAlumnos()`, para Cobranza, ficha y selector. **Esperan verificación de Codex o Gemini** |
 | **Verificar la Entrega 2 de Gemini** | **Hecha el 05/10**: A17 y A3 correctos; A34 estaba mal descrito, el botón de recibo ya existía |
 | **La lista de defectos y su tablero decían cosas distintas** | **Arreglado el 05/10**, con `DefectosNoDivergenTest` para que no se repita |
-| **A13 y B1 — el dueño no tiene caja** | **Tomados ahora**: cobrar como ADMIN no abre caja; la pantalla de Caja del dueño necesitará tu OK de diseño, con capturas |
+| **A13 y B1 — el dueño no tiene caja** | **Hechos el 05/10, esperan verificación.** El ADMIN cobra sin caja y puede anular su cobro desde la ficha. Botón autorizado por Carlos sobre capturas |
 
 ## Cómo se evita el desorden
 

@@ -23,7 +23,7 @@
 @endphp
 
 {{-- Barra de acciones --}}
-<div class="filtros-actions mb-4" style="justify-content: flex-end;">
+<div class="filtros-actions mb-4" style="justify-content: flex-end; flex-wrap: wrap;">
     <span style="
         font-size: 0.7rem; font-weight: 600;
         padding: 0.2rem 0.65rem; border-radius: 999px;
@@ -52,14 +52,14 @@
     <div class="md:col-span-3 filtros-card">
 
         {{-- Datos personales --}}
-        <div class="grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-4">
 
             <div>
                 <p class="flex items-center gap-1.5 mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0"/></svg>
                     DNI
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->dni ?: '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->dni ?: '–' }}</p>
             </div>
 
             <div>
@@ -67,7 +67,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     Nacimiento
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->fecha_nacimiento ? $alumno->fecha_nacimiento->format('d/m/Y') : '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->fecha_nacimiento ? $alumno->fecha_nacimiento->format('d/m/Y') : '–' }}</p>
             </div>
 
             <div>
@@ -75,7 +75,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                     Celular
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->celular ?: '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->celular ?: '–' }}</p>
             </div>
 
             <div>
@@ -83,7 +83,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     Email
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->email ?: '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->email ?: '–' }}</p>
             </div>
 
             <div>
@@ -91,7 +91,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     Deporte
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->deporte->nombre ?? '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->deporte->nombre ?? '–' }}</p>
             </div>
 
             <div>
@@ -99,7 +99,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     Grupo
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->grupo->nombre_completo ?? '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->grupo->nombre_completo ?? '–' }}</p>
             </div>
 
             <div>
@@ -107,7 +107,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     Plan
                 </p>
-                <p class="text-sm font-medium text-wings">
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">
                     @if($alumno->planActivo && $alumno->planActivo->plan)
                         {{ $alumno->planActivo->plan->clases_por_semana }}x sem. — ${{ number_format($alumno->planActivo->plan->precio_mensual, 0, ',', '.') }}/mes
                     @else
@@ -121,7 +121,7 @@
                     <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     Alta
                 </p>
-                <p class="text-sm font-medium text-wings">{{ $alumno->fecha_alta ? $alumno->fecha_alta->format('d/m/Y') : '–' }}</p>
+                <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->fecha_alta ? $alumno->fecha_alta->format('d/m/Y') : '–' }}</p>
             </div>
 
         </div>
@@ -204,15 +204,15 @@
                 <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 Tutor
             </p>
-            <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 <div>
                     <p class="text-wings-muted mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Nombre</p>
-                    <p class="text-sm font-medium text-wings">{{ $alumno->nombre_tutor }}</p>
+                    <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->nombre_tutor }}</p>
                 </div>
                 @if($alumno->telefono_tutor)
                 <div>
                     <p class="text-wings-muted mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Teléfono</p>
-                    <p class="text-sm font-medium text-wings">{{ $alumno->telefono_tutor }}</p>
+                    <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">{{ $alumno->telefono_tutor }}</p>
                 </div>
                 @endif
             </div>
@@ -244,8 +244,10 @@
                     }
                     $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
                 @endphp
+                {{-- En celular la fila se apila: con Recibo y Anular juntos no entraba y
+                     el botón quedaba fuera de la pantalla. --}}
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;
-                            padding:5px 8px; border-radius:6px;
+                            flex-wrap:wrap; padding:5px 8px; border-radius:6px;
                             background:color-mix(in srgb, var(--color-border) 40%, transparent);">
                     <div>
                         <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $pago->fecha_pago?->format('d/m/Y') ?? '–' }}</span>
@@ -256,7 +258,7 @@
                         <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Anulado</span>
                         @endif
                     </div>
-                    <div style="display:flex; align-items:center; gap:8px;">
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
                         <span style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
                             ${{ number_format($pago->monto_final, 0, ',', '.') }}
                         </span>
@@ -265,6 +267,15 @@
                            class="ds-btn-row ds-btn-row--sec"
                            style="background:var(--color-surface); flex-shrink:0;"
                            target="_blank">Recibo</a>
+                        @endif
+                        {{-- A13/B1: el cobro del dueño no pasa por caja, así que se anula acá. --}}
+                        @if(Auth::user()->isAdmin() && !$esAnulado && $pago->sinCaja())
+                        <button type="button"
+                                class="ds-btn-row ds-btn-row--dang"
+                                style="flex-shrink:0;"
+                                data-abrir-anular="{{ route('web.pagos.anular', $pago->id) }}">
+                            Anular
+                        </button>
                         @endif
                     </div>
                 </div>
@@ -306,6 +317,27 @@
 </div>
 
 @if(Auth::user()->isAdmin())
+{{-- Modal anular cobro del dueño (A13/B1): mismo patrón que condonar. --}}
+<div id="modal-anular" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
+        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Anular cobro</p>
+        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda vuelve a quedar pendiente y la plata sale del cashflow. El recibo queda marcado como anulado.</p>
+        <form id="form-anular" method="POST" action="">
+            @csrf
+            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
+                      placeholder="Motivo de la anulación..."
+                      class="w-full px-4 py-2.5 text-sm wings-input"
+                      style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button type="button" data-cerrar-anular
+                        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
+                <button type="submit"
+                        class="ds-btn" style="background:var(--color-danger); color:var(--color-surface);">Anular</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 {{-- Modal condonar deuda: replica el patrón de cancelar cobro. --}}
 <div id="modal-condonar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">

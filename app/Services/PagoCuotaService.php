@@ -965,6 +965,99 @@ class PagoCuotaService
     }
 
     /**
+     * Anular un cobro hecho por el ADMIN, que no pasa por ninguna caja.
+     *
+     * A13/B1: desde el 05/10/2026 el dueño cobra directo al cashflow. Anular vivía sólo
+     * dentro de la caja del mostrador (`cancelarCobroOperativo`), así que un cobro suyo mal
+     * hecho —medio equivocado, importe de más— quedaba sin forma de corregirse desde la
+     * pantalla. Revierte lo mismo que el otro camino y además saca la plata del cashflow
+     * con un asiento en contra, para no borrar lo que pasó.
+     */
+    public function anularCobroAdmin(int $pagoId, string $motivo, int $adminId): void
+    {
+        DB::transaction(function () use ($pagoId, $motivo, $adminId) {
+            $pago = Pago::whereKey($pagoId)->lockForUpdate()->firstOrFail();
+
+            if ($pago->estado === 'ANULADO') {
+                throw new \Exception('Este cobro ya fue anulado.');
+            }
+
+            if (MovimientoOperativo::where('pago_id', $pago->id)->exists()) {
+                throw new \Exception('Este cobro se hizo por caja: se anula desde el detalle de esa caja.');
+            }
+
+            app(InscripcionService::class)->bloquear(Alumno::findOrFail($pago->alumno_id)->dni, false);
+            Alumno::whereKey($pago->alumno_id)->lockForUpdate()->firstOrFail();
+
+            $pagoDeudas = PagoDeudaCuota::where('pago_id', $pago->id)
+                ->orderBy('deuda_cuota_id')->lockForUpdate()->get();
+
+            foreach ($pagoDeudas as $pd) {
+                $pd->setRelation('deudaCuota', DeudaCuota::whereKey($pd->deuda_cuota_id)
+                    ->lockForUpdate()->firstOrFail());
+            }
+
+            // El detalle se guarda antes de retirar las imputaciones: el recibo anulado
+            // tiene que seguir diciendo qué periodos cubría y por cuánto.
+            $pago->detalle_anulacion = [
+                'motivo' => $motivo,
+                'cargos' => $pago->cargos->map(fn ($c) => [
+                    'periodo' => '',
+                    'periodo_texto' => 'Inscripción al club',
+                    'monto_aplicado' => $c->pivot->monto_aplicado,
+                ])->all(),
+                'periodos' => $pagoDeudas->map(fn ($pd) => [
+                    'periodo' => $pd->deudaCuota->periodo,
+                    'monto_aplicado' => $pd->monto_aplicado,
+                ])->all(),
+            ];
+
+            foreach ($pagoDeudas as $pd) {
+                $deuda = $pd->deudaCuota;
+                $deuda->monto_pagado = max(0, (float) $deuda->monto_pagado - (float) $pd->monto_aplicado);
+                $deuda->estado = (float) $deuda->monto_pagado >= (float) $deuda->monto_original
+                    ? DeudaCuota::ESTADO_PAGADA
+                    : DeudaCuota::ESTADO_PENDIENTE;
+                $deuda->observaciones = $this->agregarObservacion(
+                    $deuda->observaciones,
+                    "[ANULADO] Pago #{$pago->id} revertido - {$motivo}"
+                );
+                $deuda->save();
+            }
+
+            PagoDeudaCuota::where('pago_id', $pago->id)->delete();
+            $pago->cargos()->detach();
+
+            $pago->estado = 'ANULADO';
+            $pago->save();
+
+            // El asiento original no se borra: se le pone uno en contra, así el cashflow
+            // cuenta lo que pasó de verdad y el saldo del medio de pago queda bien.
+            $originales = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_PAGO_CUOTA)
+                ->where('referencia_id', $pago->id)
+                ->lockForUpdate()
+                ->get();
+
+            foreach ($originales as $original) {
+                if ((float) $original->monto <= 0) {
+                    continue;
+                }
+
+                CashflowMovimiento::create([
+                    'fecha' => now()->toDateString(),
+                    'subrubro_id' => $original->subrubro_id,
+                    'tipo_caja_id' => $original->tipo_caja_id,
+                    'monto' => -1 * (float) $original->monto,
+                    'observaciones' => "Anulación del cobro #{$pago->id} - {$motivo}",
+                    'usuario_admin_id' => $adminId,
+                    'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA,
+                    'referencia_id' => $pago->id,
+                ]);
+            }
+        });
+    }
+
+    /**
      * Distribuir el total entregado: primero inscripción, después cuotas.
      */
     private function distribuirInscripcion(array $data, array $items): array

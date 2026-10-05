@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-05 — Claude CyE — A13 y B1: el dueño cobra sin caja, y puede anularlo
+
+Cuando el ADMIN cobraba, la pantalla lo mandaba por el camino del mostrador sin mirar el rol
+y le abria una caja a su nombre, que despues tenia que cerrar y validarse a si mismo. Ahora
+usa el camino directo al cashflow, que ya existia y solo usaba la API apagada.
+**Lo que faltaba y encontre antes de programar:** anular vivia solo dentro de la caja, asi
+que un cobro del dueño mal hecho quedaba sin arreglo posible. Se agrego `anularCobroAdmin`:
+revierte la deuda, guarda el detalle para el recibo anulado, exige motivo y le pone al
+cashflow un **asiento en contra** en vez de borrar el original. Se anula desde el historial
+de la ficha, solo el ADMIN y solo los cobros sin caja.
+`AdminCobraSinCajaTest`, 8 pruebas; 6 fallan con el codigo anterior. Suite 427/2906.
+Capturas en `capturas-a13/`, generadas con Chrome sin ventana sobre el HTML real de la ficha.
+Carlos autorizo el boton en escritorio. **En celular quedo a la vista A37**: la ficha entera
+es mas ancha que la pantalla. Deje los datos en una columna y la barra de acciones apilada,
+pero el desborde de fondo sigue: no se puede ubicar desde un archivo suelto, que no corre
+JavaScript. **Pasa a Gemini**, que lo abre en un navegador de verdad. Sin deploy.
+
 ## 2026-10-05 — Claude CyE — cierra el que verifica, no el que hace
 
 Codex freno con razon: el prompt que le escribi le pedia marcar A4 y A5 como CERRADOS, y
