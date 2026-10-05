@@ -32,11 +32,14 @@ inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina
 parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
 importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; verificada y cerrada por Gemini el 05/10.
 P1: [maqueta completa aprobada](../05-pendientes/maqueta-primera-carga/README.md)
-por Carlos el 05/10; implementación solicitada con una fila por alumno/deporte,
-12 pares Período/Monto e instructivo visual. **Freno previo a implementar:** aún no
-existe estado persistente pendiente/terminada. Falta decidir cómo inicializarlo en
-bases que ya tienen alumnos sin bloquear su alta manual ni deducir el control del
-conteo de alumnos. Consultado a Carlos; sin cambios de aplicación ni datos.
+por Carlos el 05/10; implementada con una fila por alumno/deporte y 12 pares.
+Plantilla vacía con catálogos reales, revisión completa sin escritura, Excel marcado,
+carga transaccional y Deshacer protegido. Estado persistente pendiente/terminada:
+ADMIN entra al recorrido y el servidor impide saltear por alta individual.
+Carlos informó producción sin alumnos/deudas/pagos; se levantó el freno anterior.
+No se inspeccionó ni modificó producción en esta tarea. Usuarios y catálogos se conservan.
+Entrega pendiente de verificación independiente por Gemini; no está cerrada ni desplegada.
+[Pruebas, capturas y pase](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 P0 commit `ad24769`.
 [Regla vigente](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
 
@@ -195,7 +198,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **384 pruebas**, 2261 aserciones; suite completa verde el 05/10 en bases wings_testing_gemini y wings_testing_codex |
+| **Tests** | **404 pruebas**, 2815 aserciones; suite completa verde el 05/10 en copia exclusiva P1 sobre main f1df4fd, wings_testing_codex. [Evidencia](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). No incluye las 8 pruebas ajenas de P2 aún sin commit |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -204,7 +207,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | P1 autorizada el 05/10: Excel con alumnos y deuda, inscripción solo por indicación del archivo. Catálogos previos, revisión sin escritura, informe Excel y carga atómica. Pendiente decidir transición del estado de primera carga para bases existentes, antes de implementar. `wings:importar-padron` y `wings:importar-deuda-inicial` se conservan hasta que el nuevo funcione |
+| Carga inicial | P1 implementada el 05/10, pendiente Gemini: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Inscripción solo por indicación del archivo. Estado persistente y control servidor; sin deploy ni limpieza de bases. Los dos importadores antiguos se conservan hasta la aceptación independiente; retiro en commit aparte |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |

@@ -160,8 +160,10 @@ componentes `ds-*` y `x-ds.*`) y necesita su autorizacion de diseno.
 roles dejo **58 defectos** —42 que se ven y 16 internos— con capturas y verificacion
 cruzada. Estan en [DEFECTOS.md](../06-pruebas/PRU-02/DEFECTOS.md), con su
 [tablero](../06-pruebas/PRU-02/DEFECTOS.html) y el **plan vigente del 04/10**: P0 regla del alta sin corte, P1 primera carga por Excel,
-P2 mostrador. P0 implementado localmente con suite 338/1932; pendiente Gemini. P1 requiere
-aprobación de maqueta en navegador antes de programar. No se cierra PRU-02 con esta entrega.
+P2 mostrador. P0 implementado localmente con suite 338/1932 en ese corte; A43 verificada por Gemini.
+P1 aprobada e implementada el 05/10, pendiente de Gemini: [entrega, pruebas y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
+Los importadores antiguos se conservan hasta aceptar P1 y se retiran en commit aparte.
+Sin despliegue ni limpieza de bases. No se cierra PRU-02 con esta entrega.
 
 **A11, entrega del 04/10:** Configuración con grupos, nombres en castellano, errores
 visibles y validación; maqueta y línea Diseno-autorizado aprobadas por Carlos.

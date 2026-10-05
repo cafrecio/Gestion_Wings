@@ -1,8 +1,18 @@
 # Primera carga por Excel — decisiones de Carlos del 26/09/2026
 
-> **P0 implementado localmente el 04/10, pendiente de Gemini. P1 pendiente de aprobación de maqueta.**
-> Reemplaza el enfoque anterior de carga inicial; el importador nuevo no está implementado.
-> Nada de esto se programa antes de que Carlos apruebe la maqueta de la pantalla.
+> **P1 aprobada e implementada el 05/10/2026; pendiente de verificación independiente por Gemini.**
+> [Entrega, pruebas y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
+> Sin despliegue ni limpieza de bases. Importadores antiguos conservados hasta aceptar P1.
+
+## Aclaración de Carlos del 05/10/2026
+
+La maqueta completa está aprobada. Carlos informó que producción no tiene alumnos,
+deudas ni pagos; sí usuarios y catálogos reales que se conservan. Esta entrega no
+inspecciona ni modifica producción. Se inicializa primera_carga como PENDIENTE,
+independientemente del conteo de alumnos. No hace falta resolver migración de alumnos
+existentes para Wings; no aplicar esta entrega por su cuenta a otro club ya operativo.
+La plantilla generada está vacía: no exporta alumnos de ninguna base.
+Las aprobaciones entonces pendientes en el antecedente del 04/10 quedan resueltas.
 
 ## Decisiones de Carlos del 04/10/2026
 
@@ -19,11 +29,11 @@ porcentaje del día y no pregunta. Esta excepción no implementa ni altera P1.
   ejemplo y casos completos. Una única hoja para completar. Catálogos no se completa;
   Guía reproduce los ejemplos dentro del archivo. Guardar/revisar/corregir/confirmar se
   explican con el mismo vocabulario de los botones. Este acuerdo de formato e instructivo
-  no autoriza todavía implementar P1: falta aprobar la maqueta completa.
+  quedó completado con la aprobación de la maqueta completa del 05/10.
 - **Ingreso automático y obligatorio:** la primera carga no es una opción que ADMIN
   deba encontrar o entender leyendo instrucciones. Al ingresar a un club pendiente de
   primera carga, se abre directamente el recorrido y cada paso habilita el siguiente.
-- **Corrección de la propuesta de acceso, pendiente de aprobación:** no decidir si se
+- **Acceso aprobado el 05/10:** no decidir si se
   muestra contando alumnos. Un primer alumno creado por menú no puede saltear la carga.
   Guardar primera carga pendiente/terminada; mientras esté pendiente, alta individual
   desde menú o acceso directo vuelve a preparación. El servidor debe aplicar la misma
@@ -34,7 +44,7 @@ porcentaje del día y no pregunta. Esta excepción no implementa ni altera P1.
   fila. Los $5.000 siguen corriendo normalmente para todo el que se carga a mano después.
 - **La maqueta se mira en el navegador**, no en un documento: una página de prueba que no
   toca el sistema, con los pasos, los mensajes de error y cómo vuelve el Excel corregido.
-  Hasta que Carlos la apruebe, no se programa.
+  Aprobada el 05/10; las capturas de implementación están en la entrega enlazada arriba.
 - **La base del sitio de prueba se rehace con este Excel** cuando esté listo. No hace falta
   conservar lo que hay cargado hoy.
 
@@ -77,9 +87,9 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
   con puntos, el período `092026` que Excel convierte en `92026`, el monto `52.000` que se
   leía como $52, los espacios de más al final).
 
-## La pantalla (propuesta, pendiente de maqueta)
+## La pantalla aprobada e implementada
 
-**Maqueta entregada por Codex CAB el 04/10, pendiente de aprobación de Carlos:**
+**Maqueta entregada el 04/10 y aprobada por Carlos el 05/10:**
 [Abrir en navegador](maqueta-primera-carga/index.html). Cuatro pasos, ejemplos con todos
 los errores por fila y Excel descargable con columna Errores. **Alumnos es la única hoja
 que se completa**, con 12 pares de deuda en la misma fila. Catálogos alimenta desplegables;
@@ -108,13 +118,13 @@ P0 entregado en `ad24769`, suite 338/1932 verde; Gemini debe verificarlo antes d
   agregar. Con eso, cualquier excepción —el que quedó afuera del Excel, el que arrancó el
   mes pasado, el que pagó por fuera— se resuelve sin inventar reglas nuevas. Para Claude es
   lo más importante de esta lista.
-- **Regla resuelta en P0:** el alta manual acepta fecha real de ingreso válida, crea la
-  cuota de ese mes con el porcentaje del día y una inscripción única por DNI. Sin corte
-  ni pregunta. No genera los meses intermedios ni modifica alumnos existentes. Las cinco
-  pruebas antiguas de A43 fueron reemplazadas por esta regla.
+- **Alta manual:** P0 conserva fecha real y elimina el corte; A43 del 04/10 enmienda
+  meses cerrados con elección de cuota corriente completa o ninguna cuota. Inscripción
+  independiente por DNI. P1 no usa crearCuotaAlta ni aplica descuentos: carga solo lo declarado.
 - **El Excel real:** si Vanina ya tiene una planilla, el formato se copia de la de ella.
-- **La base de test** tiene 60 alumnos cargados a mano: hay que vaciarla para ensayar la
-  carga desde cero, que es lo que va a pasar en el club.
+- **Sitio de prueba:** Carlos pidió dejarlo como lo recibirá Vanina. Su limpieza y ensayo
+  real se hacen en una operación separada y autorizada, no durante la implementación.
+  La prueba de P1 usa únicamente la base descartable wings_testing_codex.
 - **Los 58 defectos de PRU-02 no se mezclan con esto.** Muchos son de la misma familia
   (filtros que se rompen en el celular, pantallas más altas que el monitor) y se arreglan de
   una pasada con un criterio escrito, no defecto por defecto.

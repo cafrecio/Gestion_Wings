@@ -114,6 +114,15 @@ Esta es la única área del sistema donde el operativo tiene, a propósito, meno
 
 ## Cómo aplicar esto al escribir código
 
+### Primera carga P1 — Carlos, 05/10/2026
+
+Preparar, descargar, revisar, confirmar y deshacer en `web.primera-carga.*`: solo ADMIN.
+Con estado persistente PENDIENTE, ADMIN ingresa directamente al recorrido y los accesos
+a Alumnos (incluida alta directa) vuelven a preparación; OPERATIVO recibe 403 indicando
+que ADMIN debe terminar la carga. PROFESOR no gana acceso. Catálogos y configuración
+necesarios siguen disponibles para ADMIN. Al completar, vuelve el acceso habitual por rol.
+El control no se deduce del conteo de alumnos. [Contrato P1](Wings-contrato-alumno-grupo-deporte-deuda-v4.md).
+
 Antes de escribir un `if ($user->isOperativo() && $registro->usuario_id === $user->id)`, preguntarse:
 
 1. ¿Este dato pertenece a un **rubro/dominio** que el operativo puede ver? → Si sí, lo ve **todo**, no solo lo suyo.

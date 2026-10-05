@@ -9,7 +9,8 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Suite del corte A43 + permisos: **384 pruebas / 2261 aserciones**, todas verdes el 04/10 en wings_testing_codex.
+Entrega P1: **404 pruebas / 2815 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
+resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 entregada, pendiente Gemini; sin deploy.
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
 Entrega 1 de P2 (Cobranza) **verificada y aprobada por Codex el 05/10**:
@@ -18,12 +19,12 @@ Gemini puede continuar Entrega 2. A53–A55 registrados para asignación, sin ca
 
 **Lo que necesita tu decision o tu presencia:**
 
-- [ ] **Aprobar la maqueta de la pantalla de Primera carga.** Decision del 26/09: la carga
+- [x] **Maqueta de Primera carga aprobada el 05/10.** Decision del 26/09: la carga
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que
   se carga a mano sigue las reglas del sistema. Detalle y lo que queda abierto en
   [PRIMERA-CARGA-EXCEL.md](../05-pendientes/PRIMERA-CARGA-EXCEL.md). Codex prepara la
   [maqueta fuera del sistema](../05-pendientes/maqueta-primera-carga/index.html) entregada
-  el 04/10: mirarla en navegador y aprobarla antes de programar.
+  el 04/10 y aprobada el 05/10. P1 implementada, pendiente Gemini; no volver a pedir esa aprobación.
 - [x] **Regla del alta manual decidida:** cuota del mes de ingreso con el porcentaje del
   día, sin corte. A43 enmienda el ingreso en mes cerrado: Sí cuota corriente completa, No solo evita cuota. P0 y A43 entregados; Gemini verifica.
 
@@ -92,10 +93,11 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 384 pruebas deben pasar
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 404 pruebas deben pasar
 ```
 
-Corte verificado del 04/10: **384 pruebas / 2261 aserciones**, todas verdes en la copia exclusiva de entrega A43 + permisos; base wings_testing_codex.
+Entrega P1 del 05/10: **404 pruebas / 2815 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
+Ver [resultado y límites](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
 **Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista

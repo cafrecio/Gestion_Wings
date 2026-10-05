@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/alumnos-inscripcion.js',
                 'resources/js/cobrar.js',
                 'resources/js/configuraciones.js',
+                'resources/js/primera-carga.js',
             ],
             refresh: true,
         }),

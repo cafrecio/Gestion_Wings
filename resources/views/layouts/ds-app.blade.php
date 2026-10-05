@@ -228,6 +228,14 @@
 
                         <div class="ds-nav-group">Sistema</div>
 
+                        @if(\App\Models\PrimeraCarga::pendiente())
+                        <a href="{{ route('web.primera-carga.index') }}"
+                           class="ds-nav-link {{ request()->is('sistema/primera-carga*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M5 4h14v16H5z"/></svg>
+                            Primera carga
+                        </a>
+                        @endif
+
                         <a href="{{ route('web.configuraciones.index') }}"
                            class="ds-nav-link {{ request()->is('configuraciones*') ? 'ds-nav-link--active' : '' }}">
                             <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

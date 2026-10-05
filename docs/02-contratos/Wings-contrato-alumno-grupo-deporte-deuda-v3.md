@@ -1,5 +1,8 @@
 # Wings-Contrato-Alumno-Grupo-Deporte-Deuda-V3.md
 
+> Antecedente. Desde el 05/10/2026 rige [V4](Wings-contrato-alumno-grupo-deporte-deuda-v4.md),
+> que explicita el saldo declarado en la primera carga por Excel; demás reglas conservadas.
+
 **Caso de uso (Index):** 2) Alumno–Grupo–Deporte–Deuda  
 **Versión:** V3  
 **Estado:** CERRADO  

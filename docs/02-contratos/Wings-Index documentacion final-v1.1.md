@@ -42,7 +42,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 ## 2) Alumno–Grupo–Deporte–Deuda (base de identidad + deuda por período)
 
 ### 2.1 Contrato
-- ✅ `Wings-contrato-alumno-grupo-deporte-deuda-v3.md`
+- ✅ `Wings-contrato-alumno-grupo-deporte-deuda-v4.md` — P1 del 05/10, pendiente Gemini; V3 conservada como antecedente.
 
 ### 2.2 ER
 - ✅ `Wings-ER-Alumno-Grupo-Deporte-Deuda-V2.md`
@@ -196,7 +196,7 @@ Para cada **Caso de uso** idealmente mantenemos 4 piezas:
 
 1. `docs/99-archivo/` si aparece una version historica V2  
 2. `docs/99-archivo/` si aparece una version historica V2.2  
-3. `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v3.md`  
+3. `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v4.md`
 4. `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md`
 
 Todo lo demás marcado como ⏳ **no existe todavía en el repo**.

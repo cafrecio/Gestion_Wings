@@ -28,7 +28,8 @@ La pantalla muestra las indicaciones antes de descargar, sin esconderlas en un
 desplegable: dónde escribir, cómo elegir, las dos respuestas, un par explicado y cuatro
 casos completos. Incluye pagos parciales, fecha real de ingreso, menores/tutor,
 guardado .xlsx, errores y nueva revisión. El Excel reproduce las indicaciones en Guía.
-Todo esto sigue siendo preparación de P1, sin motor de importación implementado.
+La maqueta conserva la preparación visual; el motor ya está implementado en P1.
+[Entrega del 05/10, pruebas y capturas](../../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 
 ## Recorrido y colores
 
@@ -38,8 +39,8 @@ incompletos y carga con cobros. Los mensajes, carga y Deshacer son simulaciones.
 
 Carlos pidió ingreso automático obligatorio. El botón Alumnos permite mirar la propuesta
 para impedir saltear por menú. Se propone guardar carga pendiente/terminada y aplicar
-el control también en servidor, sin deducirlo del número de alumnos. Ese control no
-está implementado y su detalle espera aprobación. Catálogos necesarios siguen accesibles.
+el control también en servidor, sin deducirlo del número de alumnos. Ese control quedó
+aprobado e implementado el 05/10. Catálogos necesarios siguen accesibles.
 
 Colores principales de Wings: marca #BE123C, botones #4A6880/#6888A0, encabezado
 #4A4A4A y colores semánticos. No se tocaron vistas ni CSS de Wings.
@@ -79,5 +80,6 @@ al formato anterior, reemplazado. entrada-guiada.png documenta la propuesta de a
 Las capturas instructivo-escritorio.png e instructivo-celular.png muestran la revisión actual.
 
 P0 se entregó en ad24769, suite 338/1932 verde en ese corte; pendiente de Gemini.
-**Siguiente:** Carlos mira y aprueba la maqueta completa; después, pruebas en rojo e
-implementación de P1. No se cierra la tarea ni se retiran los importadores viejos.
+**Siguiente:** Gemini verifica P1 implementada y sus capturas reales. No se vuelve a pedir
+la aprobación ya recibida. No se cierra la tarea ni se retiran los importadores viejos
+hasta aceptar la entrega; su retiro va en commit separado.

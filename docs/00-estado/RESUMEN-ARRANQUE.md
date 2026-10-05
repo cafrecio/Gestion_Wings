@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Corte documental: 13/09/2026. Actualizado por Codex CAB para FIN-11.
+> Actualización de P1: 05/10/2026, Codex CAB; los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -21,14 +21,14 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | A43 + permisos: 384 pruebas / 2261 aserciones verdes el 05/10 en base wings_testing_gemini y wings_testing_codex. Verificados y cerrados por Gemini el 05/10. [Informe](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue |
+| Suite | P1: 404 pruebas / 2815 aserciones, todas verdes el 05/10 en copia exclusiva sobre f1df4fd, wings_testing_codex; no incluye 8 pruebas ajenas de P2 sin commit. [Evidencia](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
 | SEG-01 | Retiro de Axios y audit/build verificados al 11/09; no afirma estado actual de dependencias locales |
 | FDS-02 / alertas | Cierre documentado 09/09 con recepción de email y Telegram; no revalidado hoy |
 | Servidor | Último despliegue documentado 81f27ef. Las correcciones posteriores no se dan por desplegadas |
-| Base del club | Carga humana en curso según Carlos; no suponer base vacía ni limpiar. Datos no inspeccionados hoy |
+| Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
 
@@ -49,7 +49,7 @@
   generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
   Gemini registró A11 aprobada el 04/10 en [su informe](../06-pruebas/PRU-02/VERIFICACION-A11.md); sin despliegue.
 
-- **P0 del 04/10 implementado en `ad24769`, pendiente Gemini:** cuota del mes real de ingreso con porcentaje del día; A43 entregada añade elección de cuota corriente completa o ninguna cuota para ingreso en mes cerrado; inscripción manual $5.000 por DNI, sin corte. Cargos y pagos existentes preservados. Importadores antiguos conservados. **P1: [maqueta entregada en navegador](../05-pendientes/maqueta-primera-carga/index.html), requiere aprobación completa antes de programar**. Carlos aprobó datos/deudas en una fila con 12 pares Período/Monto e instructivo visual; solo Alumnos se completa. [Primera carga por Excel](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
+- **P0 del 04/10 implementado en `ad24769`:** cuota del mes real de ingreso; A43 verificada por Gemini añade elección para mes cerrado. Inscripción manual por DNI, sin corte; cargos/pagos preservados. **P1 aprobada e implementada el 05/10:** Alumnos con 12 pares, plantilla vacía y catálogos reales, revisión sin escritura con informe Excel, carga transaccional y Deshacer protegido. Estado persistente, entrada ADMIN y bloqueo servidor. [Entrega y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). Gemini verifica; no cerrar ni desplegar. Importadores antiguos conservados hasta aceptar P1; retirar en commit aparte. No limpiar el sitio de prueba ni producción en esta entrega.
 
 - **ENT-01:** inscripción primero, sin comisión, desglose caja/recibo; importe obligatorio. Editar ingreso sin pagos conserva cargo con auditoría; con pagos rechaza. [Regla y ENT-10 pendiente](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Sin despliegue en esta tarea.
 

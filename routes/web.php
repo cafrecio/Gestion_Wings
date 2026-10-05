@@ -42,7 +42,16 @@ Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
-Route::middleware(['auth', 'ensure.active.web'])->group(function () {
+Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPrimeraCarga::class])->group(function () {
+    Route::middleware('ensure.admin.web')->prefix('sistema/primera-carga')->name('web.primera-carga.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\PrimeraCargaWebController::class, 'index'])->name('index');
+        Route::post('/continuar', [\App\Http\Controllers\PrimeraCargaWebController::class, 'continuar'])->name('continuar');
+        Route::get('/plantilla', [\App\Http\Controllers\PrimeraCargaWebController::class, 'plantilla'])->name('plantilla');
+        Route::post('/revisar', [\App\Http\Controllers\PrimeraCargaWebController::class, 'revisar'])->name('revisar');
+        Route::get('/informe', [\App\Http\Controllers\PrimeraCargaWebController::class, 'informe'])->name('informe');
+        Route::post('/cargar', [\App\Http\Controllers\PrimeraCargaWebController::class, 'cargar'])->name('cargar');
+        Route::post('/deshacer', [\App\Http\Controllers\PrimeraCargaWebController::class, 'deshacer'])->name('deshacer');
+    });
     Route::middleware('reject.profesor.web')->group(function () {
     // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
