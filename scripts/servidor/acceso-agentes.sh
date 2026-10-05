@@ -148,8 +148,21 @@ ${salida}"
     return 1
 }
 
+diagnostico() {
+    echo "== por que sshd puede estar rechazando =="
+    echo "-- SELinux: $(command -v getenforce >/dev/null && getenforce || echo 'no instalado')"
+    echo "-- donde busca sshd las claves:"
+    sshd -T 2>/dev/null | grep -iE 'authorizedkeysfile|permitrootlogin|pubkeyauthentication' || echo '   (no se pudo leer la configuracion)'
+    echo "-- el archivo y su etiqueta:"
+    ls -ldZ "$(dirname "${DESTINO}")" "${DESTINO}" 2>/dev/null || ls -ld "$(dirname "${DESTINO}")" "${DESTINO}"
+    echo "-- claves autorizadas: $(grep -cE '^(ssh-|ecdsa-)' "${DESTINO}" 2>/dev/null || echo 0)"
+    echo "-- ultimos rechazos:"
+    grep -iE 'sshd.*(Failed|denied|invalid|Authentication refused)' /var/log/secure 2>/dev/null | tail -4 || echo '   (sin registro)'
+}
+
 case "${1:-}" in
-    --instalar)        instalar ;;
+    --instalar)        instalar; echo; diagnostico ;;
+    --diagnostico)     diagnostico ;;
     --sincronizar)     sincronizar ;;
     --verificar)       verificar ;;
     --avisar-si-falla) avisar_si_falla ;;

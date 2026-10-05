@@ -10,6 +10,7 @@ set -Eeuo pipefail
 
 BASE="https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts/servidor"
 
-curl -fsSL "${BASE}/acceso-agentes.sh" -o /root/acceso-agentes.sh
+# El "?v=" evita que GitHub sirva una copia vieja de su cache.
+curl -fsSL -H 'Cache-Control: no-cache' "${BASE}/acceso-agentes.sh?v=$(date +%s)" -o /root/acceso-agentes.sh
 chmod +x /root/acceso-agentes.sh
 exec /root/acceso-agentes.sh --instalar
