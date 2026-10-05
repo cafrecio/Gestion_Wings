@@ -7,6 +7,11 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
+> **Avance al 05/10/2026: 26 cerrados de 71.** Quedan 45 abiertos, de los
+> cuales **5 frenan**: A4, A5, A13, A50, B1. Cada punto cerrado dice en su propio texto
+> quién lo corrigió, en qué commit y quién lo verificó. El tablero para mirar en el navegador
+> es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos defectos y los mismos estados.
+
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
@@ -273,6 +278,34 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
+### A36. Rubros en celular · Molesta · verificado
+
+esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura.
+
+### A37. Ficha del alumno en celular · Molesta · verificado
+
+esperaba leer el correo completo dentro de la ficha; el email de Acosta, Alan atraviesa el borde derecho y obliga a desplazar horizontalmente la página. Captura.
+
+### A38. Paginación de Clases · Molesta · verificado
+
+esperaba indicaciones en español como el resto de la pantalla; al pie aparece “Showing 1 to 20 of 76 results”. Captura.
+
+### A39. Acceso a Movimientos del OPERATIVO · Falta · verificado
+
+esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. Captura.
+
+### A40. Inicio de ADMIN en celular · Molesta · verificado
+
+esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. Captura.
+
+### A41. Fechas del filtro de Movimientos · Molesta · verificado
+
+esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. Captura.
+
+### A42. Aviso de inscripción al editar alumno · Molesta · verificado
+
+esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. Al abrir · Tras reingresar el DNI.
+
 ### A43. El alumno cargado a mano con ingreso de un mes cerrado queda deudor · Frena · CERRADO 05/10
 
 **Verificado por Claude el 04/10** sobre la implementación de P0 (`ad24769`): cargando a mano
@@ -538,12 +571,12 @@ problema de login. Se limpió a mano el 23/09.
 **Corregido el 04/10:** `montar-test.sh` limpia rutas, configuración y vistas como paso
 propio del despliegue, y después comprueba que las rutas se puedan leer; si no, el
 despliegue falla en vez de dejar el sitio roto.
-### B15. El SPF del subdominio anuló su comodín de DNS · Verificado y corregido
+### B15. El SPF del subdominio anuló su comodín de DNS · CERRADO, verificado
 
 Documentado en `docs/04-tecnico/SERVIDOR.md`. Queda como lección de proceso: comprobar desde
 afuera, no desde el servidor.
 
-### B16. `/movimientos` filtraba por caja propia · Verificado y corregido el 23/09
+### B16. `/movimientos` filtraba por caja propia · CERRADO 23/09, verificado
 
 El mostrador no veía los cobros del otro turno. Ahora filtra por rubro, como manda
 `PERMISOS-ROLES.md`. Cubierto por `MovimientosVisibilidadPorRubroTest`.

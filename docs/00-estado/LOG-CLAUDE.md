@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-05 — Claude CyE — la lista de defectos y su tablero no coincidian
+
+Carlos abrio DEFECTOS.md y dijo lo que se veia: "esta todo igual que hace 10 dias". Tenia
+razon en lo que miraba. Los cierres estaban escritos adentro de cada defecto, pero **arriba
+no habia ningun avance** y **el tablero HTML estaba atrasado**: 11 defectos cerrados seguian
+figurando abiertos, 7 (A36–A42) existian solo en el tablero y 3 (A48–A50) solo en la lista.
+Sincronizados los dos: **71 defectos, 26 cerrados**, mismos estados en los dos archivos, y un
+resumen de avance arriba de cada uno con los 5 que frenan nombrados (A4, A5, A13, A50, B1).
+B15 y B16 decian "Verificado y corregido" en vez de CERRADO y por eso no contaban.
+Leccion: el avance tiene que leerse en la primera pantalla, no deducirse leyendo 71 fichas.
+
 ## 2026-10-05 — Claude CyE — verificacion cruzada de la Entrega 2 (A17, A34, A3)
 
 Verificada leyendo el codigo y probando, no el informe. **A17 y A3: correctos.** Las 8
