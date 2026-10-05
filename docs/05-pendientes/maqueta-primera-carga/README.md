@@ -1,6 +1,7 @@
 # P1 — maqueta de primera carga · 04/10/2026
 
-**Formato aprobado por Carlos; maqueta completa pendiente de aprobación.**
+**Formato y maqueta completa aprobados por Carlos el 05/10/2026.** La implementación de P1
+se hace sobre esta maqueta: cualquier desvío lo decide Carlos.
 No es un importador y no escribe en Wings. Abrir [index.html](index.html) en un navegador.
 No requiere Laravel. En esta máquina está disponible en http://127.0.0.1:8766/.
 
