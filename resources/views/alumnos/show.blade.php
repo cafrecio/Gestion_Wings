@@ -39,6 +39,9 @@
         </button>
     </form>
     @endif
+    @if(!auth()->user()?->isProfesor())
+    <x-ds.button variant="primary" href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
+    @endif
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.edit', $alumno->id) }}">Editar</x-ds.button>
 </div>
 
@@ -173,6 +176,13 @@
                         <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }};">
                             ${{ number_format($saldo, 0, ',', '.') }}
                         </span>
+                        @if(!auth()->user()?->isProfesor())
+                        <a href="{{ route('web.caja.cobrar', $alumno->id) }}"
+                           class="ds-btn-row"
+                           style="background:var(--color-btn-primary); color:var(--color-surface); text-decoration:none;">
+                            Cobrar
+                        </a>
+                        @endif
                         @if(Auth::user()->isAdmin() && $deuda->estado === \App\Models\DeudaCuota::ESTADO_PENDIENTE)
                         <button type="button"
                                 class="ds-btn-row ds-btn-row--dang"

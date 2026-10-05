@@ -584,8 +584,7 @@ class CajaWebController extends Controller
         ));
 
         $query = Alumno::with(['deporte', 'grupo'])
-            ->where('activo', true)
-            ->whereIn('id', $porCobrar);
+            ->where('activo', true);
 
         if ($request->filled('search')) {
             $s = addcslashes($request->input('search'), '%_\\');
@@ -594,6 +593,8 @@ class CajaWebController extends Controller
                 ->orWhere('apellido', 'like', "%{$s}%")
                 ->orWhere('dni', 'like', "%{$s}%")
             );
+        } else {
+            $query->whereIn('id', $porCobrar);
         }
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
@@ -652,6 +653,28 @@ class CajaWebController extends Controller
 
             $alumno->setRelation('deudaCuotas', $deudas);
         }
+
+        // A3: Ofrecer períodos futuros para cobro adelantado al precio vigente del plan.
+        $periodosExistentes = DeudaCuota::where('alumno_id', $alumno->id)->pluck('periodo')->all();
+        $maxPeriodo = max(array_merge([$periodoVigente], $periodosExistentes));
+        $maxDate = \Carbon\Carbon::parse($maxPeriodo . '-01');
+
+        for ($i = 1; $i <= 2; $i++) {
+            $periodoFuturo = $maxDate->copy()->addMonthsNoOverflow($i)->format('Y-m');
+            if (!$alumno->deudaCuotas->contains('periodo', $periodoFuturo)) {
+                $planFuturo = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $periodoFuturo);
+                if ($planFuturo?->plan) {
+                    $alumno->deudaCuotas->push(new DeudaCuota([
+                        'alumno_id' => $alumno->id,
+                        'periodo' => $periodoFuturo,
+                        'monto_original' => (float) $planFuturo->plan->precio_mensual,
+                        'monto_pagado' => 0,
+                        'estado' => DeudaCuota::ESTADO_PENDIENTE,
+                    ]));
+                }
+            }
+        }
+        $alumno->setRelation('deudaCuotas', $alumno->deudaCuotas->sortBy('periodo')->values());
 
         $tiposCaja        = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $planesDisponibles = $alumno->grupo

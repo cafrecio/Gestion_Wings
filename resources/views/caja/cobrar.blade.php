@@ -95,11 +95,11 @@
     {{-- Cuotas pendientes --}}
     <div class="filtros-card mb-4">
         <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Cuotas pendientes — seleccioná las que querés cobrar
+            Cuotas pendientes y cobro adelantado — seleccioná las que querés cobrar
         </p>
 
         @if($alumno->deudaCuotas->isEmpty())
-            <p style="font-size:0.85rem; color:var(--color-text-muted);">Sin deudas pendientes.</p>
+            <p style="font-size:0.85rem; color:var(--color-text-muted);">Sin cuotas pendientes ni períodos disponibles.</p>
         @else
             <div style="display:flex; flex-direction:column; gap:8px;">
                 @foreach($alumno->deudaCuotas as $deuda)
@@ -107,6 +107,7 @@
                         [$year, $month] = explode('-', $deuda->periodo);
                         $meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
                         $periodoLabel = $meses[(int)$month] . ' ' . $year;
+                        $esAdelantado = ($deuda->periodo > now()->format('Y-m'));
                     @endphp
                     <div class="cuota-row" style="
                         display:flex; align-items:center; gap:12px;
@@ -125,6 +126,11 @@
                                style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
                         <div style="flex:1; cursor:default;">
                             <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $periodoLabel }}</span>
+                            @if($esAdelantado)
+                                <span style="font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:8px;
+                                             background:color-mix(in srgb, var(--color-info) 15%, transparent);
+                                             color:var(--color-info);">Adelantado</span>
+                            @endif
                             @if((float)$deuda->monto_pagado > 0)
                                 <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:8px;">
                                     Orig: ${{ number_format($deuda->monto_original, 0, ',', '.') }} · Pagado: ${{ number_format($deuda->monto_pagado, 0, ',', '.') }}

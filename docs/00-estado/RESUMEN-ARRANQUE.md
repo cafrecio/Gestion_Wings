@@ -38,6 +38,13 @@
   Código, navegador normal/375 px y base de datos comprobados; suite 380/2242 verde.
   [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue.
 
+- **P2 Entrega 2 implementada por Gemini el 05/10 (A17, A34, A3):**
+  Ficha del alumno con botón principal Cobrar y botón de fila en cuotas pendientes hacia `/caja/cobrar/{id}`;
+  historial con enlace directo a Recibo (PDF con descarga e impresión); cobro adelantado de períodos futuros
+  al precio vigente del plan con badge «Adelantado», omitido sin duplicar por `cobranza:generar-deudas` el día 1;
+  búsqueda en caja para cualquier alumno activo. 8 pruebas / 40 aserciones verdes en `wings_testing_gemini`.
+  Pendiente de control cruzado (§6a). Sin despliegue.
+
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
   Barras de filtros a 375 revisadas; suite propia **380/2242**. Nuevos A53–A55,

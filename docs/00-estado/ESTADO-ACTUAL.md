@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## P2 Entrega 2 implementada y probada (A17, A34, A3) — 05/10/2026
+
+Implementación de los tres defectos de la ficha del alumno y cobro:
+- **A17 (Cobrar desde la ficha):** Botón principal **Cobrar** (`x-ds.button variant="primary"`) incorporado en la cabecera de la ficha del alumno para Admin y Operativo, conduciendo a `/caja/cobrar/{id}`. En la sección de cobranza, cada cuota impaga cuenta con botón de fila **Cobrar** (`ds-btn-row`).
+- **A34 (Historial y reimpresión/descarga de recibos):** Sección «Historial de pagos» con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el PDF oficial generado con DomPDF (permitiendo imprimir y descargar). Pagos anulados identificados con badge e importe tachado. Historial ampliado a 12 registros en `AlumnoWebController::show`.
+- **A3 (Cobro adelantado sin duplicación):** `CajaWebController::cobrar()` proyecta y ofrece en memoria los períodos futuros (próximos 2 meses) al precio de lista vigente del plan activo, con badge «Adelantado». Al cobrar un período adelantado, se crea la `DeudaCuota` como `PAGADA`. Al llegar el día 1, el comando `cobranza:generar-deudas` la omite sin duplicar (`$contSkipped++`). Búsqueda en `/caja/cobrar` permite encontrar a cualquier alumno activo aunque no tenga deuda pendiente.
+- **Suite:** 8 pruebas nuevas con 40 aserciones en `tests/Feature/P2Entrega2FichaCobroAdelantadoTest.php`, 100% aprobadas en `wings_testing_gemini`. Regresiones de Cobro y Cobranza (`CobroReciboAccesoTest`, `CobranzaEntrega1Test`, `SaldoUnicoPorAlumnoTest`) 100% verdes.
+- **Pendiente:** Control cruzado independiente por otro agente (§6a). Sin despliegue.
+
 ## P2 Entrega 1 aprobada en segunda verificación — 05/10/2026
 
 Codex CAB verificó `abc346a` sobre HEAD `4fb185e` en código y navegador:

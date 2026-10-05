@@ -46,12 +46,15 @@ estados basados en deuda real; suite 331 pruebas / 1900 aserciones.
 [Evidencia](IMPLEMENTACION-A2.md). Pendiente de otro agente en código y pantalla;
 sin despliegue y sin cierre de la tarea por el implementador.
 
-### A3. No se puede cobrar por adelantado · Molesta · verificado
+### A3. No se puede cobrar por adelantado · Molesta · CERRADO 05/10
 
 Si el alumno no tiene una deuda generada, la pantalla de cobro muestra "Sin deudas
 pendientes" y el botón queda apagado. **El motor sí lo soporta** —cobrar un período sin
 deuda usa el precio del plan— pero la pantalla no lo ofrece. Un club cobra por adelantado
 todo el tiempo.
+
+**Resuelto en Entrega 2 de P2 (05/10):**
+`CajaWebController::cobrar()` ahora proyecta y ofrece en memoria los períodos futuros inmediatos (los próximos 2 meses) al precio de lista vigente del plan activo (`$plan->precio_mensual`), con badge identificatorio «Adelantado». Al cobrar un período adelantado, se crea la `DeudaCuota` con estado `PAGADA` y el `Pago` correspondiente. Al llegar el día 1 del mes, el comando mensual `cobranza:generar-deudas` comprueba que la deuda ya existe y la omite (`$contSkipped++`), evitando duplicaciones. Además, el selector `/caja/cobrar` permite buscar a cualquier alumno activo por nombre, apellido o DNI para cobrarle por adelantado. Cubierto en `P2Entrega2FichaCobroAdelantadoTest`.
 
 ### A4. Editar alumno no avisa por qué no guardó · Frena · verificado
 
@@ -140,10 +143,13 @@ Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar 
 hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos
 los días elegidos.
 
-### A17. La ficha del alumno no tiene botón para cobrar · Frena · verificado
+### A17. La ficha del alumno no tiene botón para cobrar · Frena · CERRADO 05/10
 
 En la ficha del alumno (`/alumnos/{id}`) se ven sus cuotas impagas con el botón **Condonar**, pero no existe ningún botón para **Cobrar**. Para cobrarle a quien está parado en el mostrador hay que salir, ir a Caja, tocar Cobrar y buscarlo de nuevo en un desplegable.
-Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
+Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
+
+**Resuelto en Entrega 2 de P2 (05/10):**
+Se agregó el botón principal de página **Cobrar** (`x-ds.button variant="primary"`) en la barra de acciones superior de la ficha (`resources/views/alumnos/show.blade.php`), visible para Admin y Operativo (`!auth()->user()?->isProfesor()`), que conduce directo a `/caja/cobrar/{alumnoId}`. Asimismo, en la sección «Estado de cobranza», cada fila de cuota impaga incluye el botón de fila **Cobrar** (`ds-btn-row`) junto al botón Condonar. Cubierto en `P2Entrega2FichaCobroAdelantadoTest`.
 
 ### A18. Cobranza en celular rompe la tabla y superpone el texto · Frena · CERRADO 04/10
 
@@ -245,10 +251,13 @@ Captura: `evidencia/audit_admin_usuarios_index_desktop.png`.
 En la ficha de la clase (`/clases/{id}`), cada alumno ocupa una tarjeta individual completa. Para una clase habitual de 15 o 20 alumnos, el profesor debe desplazarse metros de pantalla en la cancha para marcar los presentes y llegar al botón inferior de guardar.
 Captura: `evidencia/audit_profesor_clases_show_mobile.png`.
 
-### A34. La ficha del alumno no tiene historial ni descarga de recibos · Falta · verificado
+### A34. La ficha del alumno no tiene historial ni descarga de recibos · Falta · CERRADO 05/10
 
 Si un familiar se acerca al mostrador solicitando una copia del recibo abonado anteriormente, la ficha del alumno (`/alumnos/{id}`) no ofrece el historial de comprobantes con opción de descarga o reimpresión en PDF.
-Captura: `evidencia/audit_admin_alumnos_show_desktop.png`.
+Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
+
+**Resuelto en Entrega 2 de P2 (05/10):**
+En `resources/views/alumnos/show.blade.php`, la sección «Historial de pagos» expone el listado cronológico de cobros con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el comprobante oficial en PDF generado por `ReciboService` / DomPDF (con opciones nativas de impresión y descarga). Los pagos anulados se indican explícitamente con badge «Anulado», importe tachado y sello de anulación en el PDF. Se amplió el límite en `AlumnoWebController::show()` de 8 a 12 pagos para brindar un año completo de historial. Cubierto en `CobroReciboAccesoTest` y `P2Entrega2FichaCobroAdelantadoTest`.
 
 ### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · verificado
 

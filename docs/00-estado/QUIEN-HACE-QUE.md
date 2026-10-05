@@ -17,7 +17,7 @@ corregirlo acá en el momento.
 |---|---|
 | **P2 Entrega 1 — Cobranza** | **Cerrada y aprobada** por Codex en la segunda vuelta |
 | **Verificar A11, A43 y permisos** | **Hechas y aprobadas**; A29, A30, A31 y A43 quedan cerrados |
-| **P2 Entrega 2** — cobrar desde la ficha (A17), recibos (A34), cobro adelantado (A3) | **Prompt entregado el 05/10**; en curso |
+| **P2 Entrega 2** — cobrar desde la ficha (A17), recibos (A34), cobro adelantado (A3) | **Implementada el 05/10**; pendiente de verificación por otro agente (§6a) |
 | P2 Entrega 3 — formulario de alumno, clases, caja con arqueo | Sin asignar |
 
 ## Codex

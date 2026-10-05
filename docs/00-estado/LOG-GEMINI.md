@@ -10,6 +10,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-05 — LOG GEM CYE — Implementación de P2 Entrega 2 (A17, A34, A3)
+
+- **Objetivo:** Resolver los tres defectos interconectados de la ficha del alumno y el cobro: A17 (cobrar desde la ficha), A34 (historial y reimpresión/descarga de recibos) y A3 (cobro por adelantado).
+- **Cambios implementados:**
+  - **A17 (Frena):** Añadido botón principal **Cobrar** (`x-ds.button variant="primary"`, Objeto A) en la cabecera de la ficha del alumno (`resources/views/alumnos/show.blade.php`) para Admin y Operativo (`!auth()->user()?->isProfesor()`), con destino `/caja/cobrar/{alumnoId}`. Añadido botón de fila **Cobrar** (`ds-btn-row`, Objeto C) en cada fila de deuda pendiente de la sección «Estado de cobranza», junto a Condonar.
+  - **A34 (Falta):** Sección «Historial de pagos» en `alumnos/show.blade.php` con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el PDF emitido por `ReciboService` / DomPDF con opciones estándar de impresión y descarga. Pagos anulados identificados con badge «Anulado», importe tachado y sello de anulación en el PDF. Ampliado el límite de consulta en `AlumnoWebController::show()` de 8 a 12 pagos para cubrir un año de historial.
+  - **A3 (Molesta):** `CajaWebController::cobrar()` proyecta y ofrece en memoria los períodos futuros (próximos 2 meses) al precio de lista vigente del plan activo (`$plan->precio_mensual`), con badge «Adelantado» (`var(--color-info)`). Al cobrar un período adelantado, `CajaWebController::pagar()` y `PagoCuotaService::obtenerOcrearDeuda()` crean la `DeudaCuota` con estado `PAGADA`. Al llegar el día 1, el comando `cobranza:generar-deudas` la omite sin duplicar (`$contSkipped++`). El selector `/caja/cobrar` permite buscar a cualquier alumno activo por nombre, apellido o DNI para iniciar cobro adelantado.
+  - **Vistas tocadas:** `resources/views/alumnos/show.blade.php` y `resources/views/caja/cobrar.blade.php`. Respetadas las reglas de diseño (un solo verbo por botón, tokens semánticos, sin hex hardcodeados, sin Alpine ni Livewire).
+- **Pruebas y verificaciones:**
+  - Suite de pruebas propia en `wings_testing_gemini`: 8 pruebas nuevas / 40 aserciones en `tests/Feature/P2Entrega2FichaCobroAdelantadoTest.php` 100% verdes.
+  - Pruebas de regresión (`CobroReciboAccesoTest`, `CobranzaEntrega1Test`, `SaldoUnicoPorAlumnoTest`): 15 pruebas / 77 aserciones 100% verdes.
+- **Siguiente paso:** Pase de verificación independiente a otro agente (Codex / Claude) conforme a AGENTS.md §6a.
+
 ## 2026-10-05 — LOG GEM CAB — Verificación independiente de A43 y Permisos (A29, A30, A31)
 
 - **Objetivo:** Verificar de forma independiente en código, base de datos y navegador real (escritorio y 375 px) las entregas de Codex CAB correspondientes a A43 (commit `218ffc5`) y Permisos A29/A30/A31 (commit `97cf933`).

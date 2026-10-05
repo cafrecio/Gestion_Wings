@@ -121,7 +121,7 @@ class AlumnoWebController extends Controller
         $ultimosPagos = $alumno->pagos()
             ->with('deudasCuota')
             ->orderByDesc('fecha_pago')
-            ->limit(8)
+            ->limit(12)
             ->get();
 
         $asistenciasMes = $alumno->asistencias()
