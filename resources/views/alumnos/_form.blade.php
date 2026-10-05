@@ -10,13 +10,6 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 <input type="hidden" name="inscripcion_importe_visto" id="inscripcion-importe-visto">
 <p id="inscripcion-aviso" class="filtros-card text-sm mb-3" aria-live="polite"
    data-alumno="{{ $alumno->id ?? '' }}" data-url="{{ route('web.alumnos.inscripcion-preview') }}">Ingrese el DNI y la fecha real de ingreso para consultar la inscripción.</p>
-@isset($alumno)
-<div class="mb-3">
-    <label for="motivo_fecha_alta">Motivo si corrige la fecha de ingreso</label>
-    <input id="motivo_fecha_alta" name="motivo_fecha_alta" value="{{ old('motivo_fecha_alta') }}" maxlength="500" class="wings-input">
-    @error('motivo_fecha_alta') <p>{{ $message }}</p> @enderror
-</div>
-@endisset
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {{-- Nombre --}}
     <div>
@@ -142,6 +135,17 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         </select>
         @error('grupo_id') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
+    @isset($alumno)
+    <div>
+        <label for="motivo_fecha_alta" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+            Motivo si corrige la fecha de ingreso
+        </label>
+        <input type="text" id="motivo_fecha_alta" name="motivo_fecha_alta" value="{{ old('motivo_fecha_alta') }}" maxlength="500"
+               class="w-full px-4 py-2.5 text-sm wings-input">
+        @error('motivo_fecha_alta') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+    @endisset
 </div>
 
 {{-- Frecuencia semanal --}}

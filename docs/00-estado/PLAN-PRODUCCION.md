@@ -15,7 +15,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **438 pruebas: 437 aprobadas y 1 omitida, 2949 aserciones** el 05/10 en wings_testing_codex, con A4/A5. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| Suite | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10 en código/pantalla, filtros 375 y suite propia 380/2242. A53–A55 fuera de esa entrega pendientes; sin despliegue |

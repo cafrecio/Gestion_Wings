@@ -10,6 +10,8 @@ Suite propia wings_testing_codex: 437 aprobadas, 1 omitida, 2949 aserciones; úl
 Diez capturas reales escritorio/375; Chrome mostró confirm al salir, pero se trabó al cancelar: revisor debe comprobar retención y cierre.
 [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md); ambos seguimientos y cuatro estados actualizados.
 Sin base del club ni servidor tocados; no desplegado ni cerrado. Sigue control independiente.
+Retoque A4: motivo en grilla, rótulo arriba e ícono de Descripción pedido por Carlos; sin CSS. Suite actual (incluye A37): 438 aprobadas, 1 omitida, 2960 aserciones; 134,62 s.
+Capturas nuevas en galería/maqueta/tablero/HTML del plan: Carlos señaló la omisión y se corrigió. Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push; después A13/B1/A54/A55.
 
 ## 2026-10-05 — Codex CAB — A4/A5 frenados por instrucción de cierre contradictoria
 

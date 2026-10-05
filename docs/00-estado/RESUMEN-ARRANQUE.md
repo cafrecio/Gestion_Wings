@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **438 pruebas: 437 aprobadas y 1 omitida, 2949 aserciones** el 05/10 en wings_testing_codex, con A4/A5. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| Suite | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -33,6 +33,8 @@
 ## Trabajo que continúa
 
 - **A4/A5 entregados por Codex CAB el 05/10:** aviso superior en alta/edición, conservación de datos y advertencia al salir; profesores activos del deporte de la clase con rechazo servidor. Carlos aprobó las capturas y pidió **Hecho (Cx), a revisar**, no cerrado. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Otro agente verifica; sin despliegue.
+  Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
+  Al entregar el retoque, Codex verifica A13, B1, A54 y A55 de Claude; no mezclar antes.
 
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.

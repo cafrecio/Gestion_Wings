@@ -14,7 +14,7 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 
 > A4 y A5: **Hecho (Cx), a revisar — 05/10**. Diseño aprobado por Carlos sobre
 > capturas. No se suman a los cerrados hasta la verificación independiente.
-> Retoque de A4: motivo de fecha de ingreso alineado; nuevas capturas listas, pendiente autorización de Carlos para subirlo.
+> Retoque de A4: motivo de fecha de ingreso alineado y con ícono; nuevas capturas listas, aprobado por Carlos el 05/10 para subirlo.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -79,9 +79,9 @@ cierre/recarga mantienen beforeunload. JavaScript en archivo propio; sin CSS.
 [Implementación y capturas reales](IMPLEMENTACION-A4-A5.md). Pendiente control ajeno.
 
 **Retoque pedido por Carlos, 05/10:** motivo de corrección de ingreso dentro de la grilla,
-rótulo arriba y cuadro con el mismo formato que los demás; sin CSS ni reglas nuevas.
+rótulo arriba con el ícono de Descripción ya usado en Wings y cuadro con el mismo formato que los demás; sin CSS ni reglas nuevas.
 [Capturas del retoque](IMPLEMENTACION-A4-A5.md#retoque-del-motivo-de-ingreso--05102026).
-Pendiente autorización visual y commit; A4 conserva Hecho (Cx), a revisar.
+Diseño aprobado por Carlos el 05/10; A4 conserva Hecho (Cx), a revisar.
 
 ### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · Hecho (Cx), a revisar 05/10
 

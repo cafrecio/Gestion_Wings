@@ -40,3 +40,29 @@ JavaScript en `resources/js/alumnos-form.js` y `clases-form.js`, cargados por Vi
 Otro agente revisa código y pantalla: guardar inválido/válido, conservar plan/datos, aviso de menú/Cancelar/cierre, profesor ajeno/inactivo mediante formulario adulterado y profesor compatible en alta, edición y ficha. Repetir escritorio y 375. Solo después puede marcar A4/A5 CERRADOS en ambos seguimientos. No desplegar ni probar contra `gestion_wings`.
 
 El fixture `a4-a5-fixture.php` se niega a correr fuera de CLI / testing / wings_testing_codex. Es ayuda local, no seeder ni herramienta de producción.
+
+## Retoque del motivo de ingreso — 05/10/2026
+
+Pedido de Carlos sobre `373f9b4`: el campo de motivo estaba fuera de la grilla y sin las clases de los demás campos.
+Se movió al final de la grilla existente, sin reordenar los otros campos: junto a Grupo en escritorio y debajo en celular.
+Rótulo arriba con `$labelClass`, cuadro con `w-full px-4 py-2.5 text-sm wings-input` y error con el token ya usado.
+Carlos pidió además el ícono que faltaba: reutilizado el SVG de Descripción de Tipos de caja con `$iconAttr`, 14×14 y mismo color que los otros rótulos.
+Conserva nombre, valor rechazado, límite de 500 caracteres y presencia solo en edición. Sin CSS, componentes nuevos ni lógica funcional.
+
+Capturas reales de la ruta de edición, con datos sintéticos de `wings_testing_codex`:
+
+[Galería HTML del retoque](capturas-a4-motivo/index.html); también enlazada desde el tablero, el HTML del plan y la maqueta histórica.
+
+- [Escritorio con ícono, 1280×950](capturas-a4-motivo/editar-alumno-escritorio-icono.jpg).
+- [Celular con ícono, 375×812](capturas-a4-motivo/editar-alumno-375-icono.jpg); desplazada hasta el campo, menú cerrado.
+- Capturas anteriores, sin ícono, conservadas como antecedente: [escritorio](capturas-a4-motivo/editar-alumno-escritorio.jpg) y [375](capturas-a4-motivo/editar-alumno-375.jpg).
+
+El navegador comprobó rótulo sobre el cuadro y clases iguales a Celular; a 375 no hay desborde horizontal.
+`a4-motivo-preview.php` permite solo GET local y base Codex, usa el controlador/vistas/JS reales con el usuario sintético;
+no guarda ni cambia permisos de la aplicación. El GET de inscripción también se ejecuta sobre esa base.
+PHP y compilación Blade sin errores. Suite completa del primer retoque, antes de agregar el ícono, en base Codex:
+**437 aprobadas, 1 omitida, 2949 aserciones; 141,23 s**. En ese corte había 438 pruebas; este retoque no agrega pruebas.
+Después del ícono: `FormulariosA4A5Test` **11 aprobadas / 39 aserciones, 7,38 s**, PHP y Blade verdes; navegador confirma mismo tamaño/color y sin desborde a 375.
+Suite completa final, incluyendo A37 de Gemini (`3062f95`), en `wings_testing_codex`: **438 aprobadas, 1 omitida, 2960 aserciones; 134,62 s** (439 pruebas). La omitida sigue siendo `CapturaFichaAnularTest`, de capturas optativas. Los cuatro documentos de estado se actualizan a este corte.
+Carlos aprobó las capturas con ícono el 05/10 mediante «OK». Autorizado alinear el motivo de ingreso y reutilizar el ícono existente; sin CSS. Entrega pendiente de control independiente.
+A4 sigue **Hecho (Cx), a revisar por otro agente**. Después de entregarlo: verificar A13, B1, A54 y A55 de Claude.
