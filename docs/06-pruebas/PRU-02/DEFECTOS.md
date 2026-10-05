@@ -644,12 +644,18 @@ Manda la decisión más nueva. Entonces:
 - Se retiran los dos importadores viejos (`wings:importar-padron`, `wings:importar-deuda-inicial`)
   **cuando el nuevo esté andando**, no antes.
 
-**04/10: P0 implementado localmente; pendiente de verificación por Gemini.**
+**P0 CERRADO el 05/10:** implementado por Codex (`ad24769`) y verificado por Gemini, que aprobó A43 y los permisos.
 Evidencia y pruebas en [P0-CARGA-INICIAL-2026-10-04.md](P0-CARGA-INICIAL-2026-10-04.md).
 La migración nueva elimina solo el parámetro de instalaciones existentes; no modifica
 cargos ni pagos. Los importadores antiguos se conservan.
 
 ### P1 · La primera carga por Excel — **bloquea la prueba grande**
+
+**P1 CERRADO el 05/10:** implementado por Codex (`d530c85`) y verificado por Gemini
+(`a7070c7`, informe en [VERIFICACION-P1.md](VERIFICACION-P1.md)): plantilla con los catálogos
+reales, revisión que no escribe nada y devuelve el Excel marcado, carga todo o nada y
+Deshacer protegido. **Queda afuera, a propósito:** retirar los dos importadores viejos, que
+hoy conviven con el nuevo.
 
 Sin esto no hay forma legítima de poner el club adentro de Wings, y la prueba grande no
 puede arrancar de nuevo con datos creíbles.
@@ -678,6 +684,9 @@ Carlos.
 | 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
 
 ### P3 · El dueño deja de ser un operativo
+
+**05/10: hecho por Claude, falta verificar.** El ADMIN cobra sin caja y puede anular su
+cobro desde la ficha (A13, B1). Su pantalla de Caja propia sigue sin definir.
 
 **Decidido el 04/10:** cuando el dueño cobra, esa plata **va directo al cashflow, sin caja**,
 con su medio de pago y su fecha. No abre caja, no cierra nada y no se valida a sí mismo. La

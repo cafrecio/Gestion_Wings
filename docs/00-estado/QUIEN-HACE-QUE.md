@@ -59,7 +59,10 @@ corregirlo acá en el momento.
    verifica.** Nadie cierra lo suyo. Lo encontró Codex el 05/10 leyendo un prompt mal escrito
    por Claude que le pedía cerrar su propia tarea; Carlos confirmó el criterio. El avance de
    arriba cuenta solo los CERRADO: lo hecho y sin revisar todavía no es avance.
-7. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
+7. **Los bloques del plan (P0, P1, P2…) se marcan igual que los defectos.** Están en el mismo
+   tablero y nadie los tocaba: P1 figuraba sin terminar un día después de estar verificada, y
+   Carlos lo vio antes que los tres agentes.
+8. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
    que lo corrige.** Si no se marca, se vuelve a hablar de él como pendiente y se paga dos
    veces el mismo trabajo. Lo cubre `DefectosNoDivergenTest`, que pone la suite en rojo si
    los dos archivos dejan de coincidir o si el avance de arriba no es el real.
