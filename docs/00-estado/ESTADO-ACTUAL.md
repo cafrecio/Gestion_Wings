@@ -34,23 +34,20 @@ Verificación independiente realizada por Gemini sobre commits `218ffc5` (A43) y
 Entrega 1 de Cobranza: correcciones de A51 (fila por registro con deporte + DNI, columna Deuda y renglón chico de ayuda), A52 (cálculo de estado unificado basado solo en cuotas, inscripción no convierte en deudor) y A18/A19 (filtros responsive en 375px) implementadas en commit `abc346a`. Carlos aprobó el diseño tras inspeccionar las 5 pantallas a 375px. Suite completa 356/2073 verde en `wings_testing_gemini`.
 A11 (Configuración): verificada de forma independiente por Gemini en código y navegador (escritorio y móvil 375px). Grupos «La plata», «La cobranza», «Los avisos», validación estricta en servidor, persistencia de errores, guardado asíncrono y generación mensual fija validados. [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A11.md); defecto A11 cerrado. Sin despliegue.
 
-## P0/P1 — primera carga, 04/10/2026
+## P1 — primera carga por Excel verificada y aprobada, 05/10/2026
 
-P0 implementado localmente: cuota del mes real de ingreso con porcentaje congelado;
-inscripción manual única por DNI, sin fecha de corte. Migración nueva elimina solo el
-parámetro legado; no recalcula alumnos, cuotas, cargos ni pagos existentes. Los dos
-importadores anteriores se conservan. A43 enmienda esa regla para meses cerrados: elección de cuota corriente completa o sin cuota; verificada y cerrada por Gemini el 05/10.
-P1: [maqueta completa aprobada](../05-pendientes/maqueta-primera-carga/README.md)
-por Carlos el 05/10; implementada con una fila por alumno/deporte y 12 pares.
-Plantilla vacía con catálogos reales, revisión completa sin escritura, Excel marcado,
-carga transaccional y Deshacer protegido. Estado persistente pendiente/terminada:
-ADMIN entra al recorrido y el servidor impide saltear por alta individual.
-Carlos informó producción sin alumnos/deudas/pagos; se levantó el freno anterior.
-No se inspeccionó ni modificó producción en esta tarea. Usuarios y catálogos se conservan.
-Entrega pendiente de verificación independiente por Gemini; no está cerrada ni desplegada.
-[Pruebas, capturas y pase](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
-P0 commit `ad24769`.
-[Regla vigente](../05-pendientes/PRIMERA-CARGA-EXCEL.md).
+P1 implementada por Codex CAB (`d530c85`) y **verificada de forma independiente por Gemini CyE** (`LOG GEM CYE`).
+- **Plantilla y Catálogos:** Generación de plantilla con catálogos reales (deportes, grupos y planes activos con precio) y validación de lista desplegable en hoja Alumnos vacía de 38 columnas. Hoja Guía con instructivo y ejemplos.
+- **Revisión y reporte:** Detección de múltiples errores simultáneos (6 errores en `club-con-errores.xlsx`) sin persistencia en base de datos. Exportación de informe con columna AM (`Errores`) preservando intactas las 7.638 celdas A:AL originales y sus tipos de datos.
+- **Carga atómica:** Importación transaccional (`DB::transaction`) de 4 alumnos, 6 cuotas ($296.000) y 1 inscripción ($5.000) sumando $301.000 exactos de deuda. Sin cobros, sin movimientos de caja ni descuentos indebidos.
+- **Formatos:** Sanitización unificada en `FormatoExcelCargaService` para montos con punto de miles ("52.000"), períodos numéricos de 5 dígitos (92026 -> 2026-09), texto con cero y DNI.
+- **Deshacer:** Restricción estricta si existen cobros registrados (incluso anulados) o actividad posterior. Si está libre, revierte íntegramente la carga y restaura el estado a `PENDIENTE`.
+- **Permisos y flujo:** Redirección automática de ADMIN mientras esté `PENDIENTE`, bloqueo de alta manual por URL vía middleware `PrepararPrimeraCarga`, y respuesta HTTP 403 para roles Operativo y Profesor.
+- **Diseño responsive:** Recorrido en 4 pasos apilados conforme a tokens del Design System, validado en escritorio y móvil (375 px).
+- [Informe de verificación independiente](../06-pruebas/PRU-02/VERIFICACION-P1.md). P1 APROBADA.
+- **Pendiente de despliegue:** Migración `2026_10_05_180000_create_primera_carga.php`, build de Vite y retiro posterior de importadores antiguos (`wings:importar-padron` y `wings:importar-deuda-inicial`).
+
+## P0 — primera carga, 04/10/2026
 
 ## A2/B2 — implementados localmente, 23/09/2026
 

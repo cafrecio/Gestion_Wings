@@ -10,6 +10,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-05 — LOG GEM CYE — Verificación independiente de P1 (Primera Carga por Excel)
+
+- **Objetivo:** Auditar y verificar de manera independiente en código, archivos Excel, datos y capturas la entrega P1 implementada por Codex CAB en el commit `d530c85`.
+- **Comprobaciones y resultados:**
+  - **Plantilla y Catálogos:** `PrimeraCargaExcelService::plantilla()` genera hoja Alumnos vacía de 38 columnas (200 filas preparadas) con validaciones nativas de lista en columnas J a N leyendo catálogos activos con precio. Guía con ejemplos e instructivo en hoja separada.
+  - **Revisión y detección múltiple:** `club-con-errores.xlsx` probado contra `revisar()`; detecta los 6 errores simultáneos (J3, K3, L3, I4, O5, P5) sin escribir en base de datos. `guardarInforme()` genera Excel con columna AM (Errores) preservando intactas las 7.638 celdas A:AL originales con sus tipos de datos.
+  - **Carga transaccional:** Archivo corregido crea 4 alumnos, 6 cuotas ($296.000) y 1 inscripción ($5.000) sumando $301.000 exactos de deuda. Sin cobros, sin movimientos de caja ni descuentos automáticos de bienvenida. Atomicidad garantizada con `DB::transaction()`.
+  - **Formatos:** Sanitización en `FormatoExcelCargaService` para montos con punto de miles ("52.000" -> $52.000), períodos de 5 dígitos (92026 -> 2026-09), texto 082026 y espacios sobrantes.
+  - **Deshacer:** Restricción activa si existen cobros registrados (incluso anulados). Si está libre, borra exactamente lo creado y regresa a PENDIENTE.
+  - **Permisos y flujo:** Redirección automática de ADMIN mientras esté PENDIENTE; bloqueo de alta manual por URL vía middleware `PrepararPrimeraCarga`. HTTP 403 para Operativo y Profesor.
+  - **Diseño móvil (375 px) y escritorio:** 4 pasos apilados, botones de un verbo, tabla de errores legible sin desbordes.
+- **Dictamen:** P1 APROBADA. Informe completo registrado en `docs/06-pruebas/PRU-02/VERIFICACION-P1.md`.
+- **Siguiente paso:** Pasar a Carlos para habilitación de retiro de importadores viejos y ventana de despliegue.
+
 ## 2026-10-05 — LOG GEM CYE — Implementación de P2 Entrega 2 (A17, A34, A3)
 
 - **Objetivo:** Resolver los tres defectos interconectados de la ficha del alumno y el cobro: A17 (cobrar desde la ficha), A34 (historial y reimpresión/descarga de recibos) y A3 (cobro por adelantado).
