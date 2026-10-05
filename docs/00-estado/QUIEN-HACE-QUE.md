@@ -1,4 +1,4 @@
-# Quién hace qué — 05/10/2026, 11:10
+# Quién hace qué — 05/10/2026, 12:30
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -36,7 +36,7 @@ corregirlo acá en el momento.
 | Una base de prueba por agente | **Hecho**, `AGENTS.md` §6-bis |
 | El hook de push, que además pisaba la base local en cada `git pull` | **Arreglado dos veces**: volvió a aparecer el 05/10 y se sacó de nuevo |
 | Verificar P0 de Codex | **Hecho**; de ahí salió A43 |
-| **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **Tomada por Claude el 05/10**: un solo cálculo de saldo para ficha, Cobranza y selector de cobro. Es la tercera vez que aparece el mismo problema de raíz |
+| **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **Hechos y subidos el 05/10**: un solo cálculo, `saldoDeAlumnos()`, para Cobranza, ficha y selector. **Esperan verificación de Codex o Gemini** |
 
 ## Cómo se evita el desorden
 

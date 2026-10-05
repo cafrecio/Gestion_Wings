@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | A43 + permisos: 380 pruebas / 2242 aserciones verdes el 05/10 en base wings_testing_gemini y wings_testing_codex. Verificados y cerrados por Gemini el 05/10. [Informe](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue |
+| Suite | A43 + permisos: 384 pruebas / 2261 aserciones verdes el 05/10 en base wings_testing_gemini y wings_testing_codex. Verificados y cerrados por Gemini el 05/10. [Informe](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |

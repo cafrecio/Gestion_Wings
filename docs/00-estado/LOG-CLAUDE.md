@@ -9,7 +9,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
-· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md)
+· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md)
+
+## 2026-10-05 — Claude CyE — A54 y A55: un solo calculo de cuanto debe un alumno
+
+Tercera vez que el mismo problema de raiz daba defectos distintos: cada pantalla calculaba
+el saldo por su cuenta. Ahora `CobranzaEstadoService::saldoDeAlumnos()` es el unico calculo
+—cuotas impagas mas inscripcion pendiente— y lo usan Cobranza, la ficha y el selector de
+cobro; `listadoCobranza` quedo encima de ese metodo en vez de repetirlo.
+**Colision que encontro la suite, no una lectura:** filtrar el selector por "saldo > 0"
+rompia el cobro adelantado de Gemini (A3), porque al que no debe nada no se le podia cobrar
+el mes. Criterio final: la lista ofrece a quien tiene **algo por cobrar** —saldo pendiente o
+el mes en curso sin generar— y el contador del encabezado cuenta solo a los que deben, que
+es lo que decia mal A54. `DeudaCuota::saldo_pendiente` ahora tambien resta lo condonado.
+Lo que **no** era: el `monto_condonado` de cuotas no lo escribe nadie (condonar usa el
+estado), asi que esa no era la causa; se dejo alineado igual.
+`SaldoUnicoPorAlumnoTest` 4 pruebas, las 4 fallan con el codigo anterior. Suite 384/2261.
+Pendiente: lo verifica Codex o Gemini. Sin deploy.
 
 ## 2026-09-26 — Claude CyE — se cambia el enfoque de la primera carga
 
@@ -124,15 +140,3 @@ Ahora: numero de Excel tal cual; texto en formato argentino; lo ambiguo ("52,000
 5 pruebas, las 5 fallan con el codigo anterior. Suite 284/1637. Instructivo actualizado.
 Revision de FIN-09: cubre caja, cobro y Cashflow; **pagar una liquidacion acepta cualquier
 fecha**, registrado en el plan para que decida Carlos. Ensayo de restauracion: no hecho.
-
-## 2026-09-21 — Claude CyE — FIN-08 cerrada: la revision la hace el operativo
-
-Carlos: si solo el admin puede hacer cosas, los otros roles no tienen sentido.
-Ruta de revision (ver y resolver) pasada de `ensure.admin.web` al grupo que comparten
-ADMIN y OPERATIVO, como Cobranza. Enlace del menu movido de "Plata" (admin) a "Dia a dia",
-mismo `ds-nav-link` e icono; diseno autorizado por Carlos. Condonar sigue solo ADMIN.
-Parcial y precio: Carlos acepta que ya no aplican (nada pisa un parcial; precio vigente, igual
-que la generacion mensual). Se retiro la prueba que exigia "la revision es del admin".
-`RevisionCobranzaOperativoTest` 6 pruebas, 4 fallan con la ruta vieja. Suite 279/1585.
-PERMISOS-ROLES con el caso nuevo. Sin deploy. Enfasis de Carlos: todo retoque de diseno de
-la prueba grande respeta siempre el design system (anotado en PRU-02).

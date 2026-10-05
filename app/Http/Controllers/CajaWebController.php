@@ -567,9 +567,25 @@ class CajaWebController extends Controller
             return redirect()->route('web.caja.index')->with('error', $e->getMessage());
         }
 
+        // A54/A55: cuanto debe cada alumno lo decide un solo calculo, el de cobranza.
+        // Antes esta pantalla sumaba por su cuenta las cuotas PENDIENTE —contando a quien
+        // tenia una en cero— y no miraba la inscripcion, asi que decia otro numero.
+        $saldos = app(\App\Services\CobranzaEstadoService::class)
+            ->saldoDeAlumnos(Alumno::where('activo', true)->get(['id', 'dni']));
+
+        // Se ofrece a quien tiene algo por cobrar: saldo pendiente, o el mes en curso
+        // todavia sin generar, que es el cobro adelantado o la primera cuota (A3).
+        $periodoVigente = now()->format('Y-m');
+        $conDeudaDelMes = DeudaCuota::where('periodo', $periodoVigente)->pluck('alumno_id')->all();
+        $porCobrar = array_keys(array_filter(
+            $saldos,
+            fn (array $saldo, int $id) => $saldo['total'] > 0 || !in_array($id, $conDeudaDelMes, true),
+            ARRAY_FILTER_USE_BOTH
+        ));
+
         $query = Alumno::with(['deporte', 'grupo'])
             ->where('activo', true)
-            ->with(['deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo')]);
+            ->whereIn('id', $porCobrar);
 
         if ($request->filled('search')) {
             $s = addcslashes($request->input('search'), '%_\\');
@@ -582,7 +598,11 @@ class CajaWebController extends Controller
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
 
-        return view('caja.cobrar-cuota', compact('alumnos'));
+        // El encabezado cuenta a los que deben, no a los que la lista ofrece: la lista
+        // incluye además a quien se le puede cobrar el mes en curso por adelantado.
+        $conDeuda = count(array_filter($saldos, fn (array $saldo) => $saldo['total'] > 0));
+
+        return view('caja.cobrar-cuota', compact('alumnos', 'saldos', 'conDeuda'));
     }
 
     public function cobrar(int $alumnoId)

@@ -28,9 +28,9 @@
 
 <div class="stats-bar mb-3">
     <div class="stats-info">
-        @if($alumnos->total() > 0)
-            <strong>{{ $alumnos->total() }}</strong>
-            {{ $alumnos->total() === 1 ? 'alumno con deuda pendiente' : 'alumnos con deuda pendiente' }}
+        @if($conDeuda > 0)
+            <strong>{{ $conDeuda }}</strong>
+            {{ $conDeuda === 1 ? 'alumno con deuda pendiente' : 'alumnos con deuda pendiente' }}
         @else
             Sin deudas pendientes
         @endif
@@ -44,8 +44,9 @@
         $dep  = mb_strtolower($alumno->deporte->nombre ?? '');
         $dep  = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
         $rail = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
-        $saldo  = $alumno->deudaCuotas->sum('saldo_pendiente');
-        $cuotas = $alumno->deudaCuotas->count();
+        // El saldo lo calcula el servicio de cobranza, igual que Cobranza y la ficha.
+        $saldo  = $saldos[$alumno->id]['total'] ?? 0;
+        $cuotas = $saldos[$alumno->id]['cuotas_impagas'] ?? 0;
     @endphp
     <div class="alumno-card alumno-card--{{ $rail }}">
         <div class="alumno-card-header">

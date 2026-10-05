@@ -63,7 +63,12 @@ class DeudaCuota extends Model
      */
     public function getSaldoPendienteAttribute(): float
     {
-        return max(0, (float) $this->monto_original - (float) $this->monto_pagado);
+        // Lo condonado se resta: ya no se le va a cobrar. Hasta el 05/10/2026 no se
+        // restaba acá y sí en CobranzaEstadoService, así que la ficha y el selector de
+        // cobro mostraban saldo de más en una cuota con condonación parcial (A54).
+        return max(0, (float) $this->monto_original
+            - (float) $this->monto_pagado
+            - (float) $this->monto_condonado);
     }
 
     /**

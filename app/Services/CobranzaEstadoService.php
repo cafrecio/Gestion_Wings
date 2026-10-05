@@ -67,6 +67,113 @@ class CobranzaEstadoService
     }
 
     /**
+     * Cuánto debe cada alumno: cuotas impagas más la inscripción pendiente.
+     *
+     * A54 y A55: este es el **único** cálculo de saldo del sistema. Antes cada pantalla
+     * lo sacaba por su cuenta y decían cosas distintas del mismo alumno — el selector de
+     * cobro contaba como deudor a quien tenía una cuota PENDIENTE con saldo cero y se
+     * olvidaba la inscripción. Si falta un dato acá, se agrega acá; no se calcula aparte.
+     *
+     * La inscripción es una por persona (por DNI), así que a quien está anotado en dos
+     * deportes se le imputa en un solo registro, el primero, para no contarla dos veces.
+     *
+     * @param Collection<int, Alumno> $alumnos
+     * @return array<int, array{cuotas: float, inscripcion: float, total: float, cuotas_impagas: int, mas_antigua: string}>
+     */
+    public function saldoDeAlumnos(Collection $alumnos): array
+    {
+        if ($alumnos->isEmpty()) {
+            return [];
+        }
+
+        $alumnoIds = $alumnos->pluck('id');
+
+        $deudasPorAlumno = DeudaCuota::whereIn('alumno_id', $alumnoIds)
+            ->get()
+            ->groupBy('alumno_id');
+
+        $inscripcionPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
+
+        $saldos = [];
+        foreach ($alumnos as $alumno) {
+            $cuotas = 0.0;
+            $impagas = 0;
+            $masAntigua = null;
+
+            foreach ($deudasPorAlumno->get($alumno->id, collect()) as $deuda) {
+                if (!$this->estaImpaga($deuda)) {
+                    continue;
+                }
+
+                $cuotas += max(0, (float) $deuda->monto_original
+                    - (float) $deuda->monto_pagado
+                    - (float) $deuda->monto_condonado);
+                $impagas++;
+
+                if ($masAntigua === null || $deuda->periodo < $masAntigua) {
+                    $masAntigua = $deuda->periodo;
+                }
+            }
+
+            $inscripcion = (float) ($inscripcionPorAlumno[$alumno->id] ?? 0.0);
+
+            $saldos[$alumno->id] = [
+                'cuotas' => round($cuotas, 2),
+                'inscripcion' => $inscripcion,
+                'total' => round($cuotas + $inscripcion, 2),
+                'cuotas_impagas' => $impagas,
+                'mas_antigua' => $masAntigua ?? '9999-99',
+            ];
+        }
+
+        return $saldos;
+    }
+
+    /**
+     * Inscripción vigente que todavía no se cobró, por alumno.
+     *
+     * El cargo puede apuntar a un registro que no está en la colección —otro deporte de la
+     * misma persona, o un registro inactivo—: en ese caso se imputa al primero de la
+     * colección que tenga el mismo DNI.
+     *
+     * @param Collection<int, Alumno> $alumnos
+     * @return array<int, float>
+     */
+    private function inscripcionPendientePorAlumno(Collection $alumnos): array
+    {
+        $cargos = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
+            ->where('estado', 'VIGENTE')
+            ->with('pagos')
+            ->get();
+
+        $pendientes = [];
+        foreach ($cargos as $cargo) {
+            $pendiente = max(0, (float) $cargo->monto_original
+                - (float) $cargo->pagos->sum('pivot.monto_aplicado')
+                - (float) $cargo->monto_condonado);
+
+            if ($pendiente <= 0) {
+                continue;
+            }
+
+            $destino = $alumnos->firstWhere('id', $cargo->alumno_id);
+
+            if ($destino === null) {
+                $dniNorm = \App\Services\InscripcionService::dni($cargo->dni ?? '');
+                $destino = $alumnos->first(
+                    fn (Alumno $a) => \App\Services\InscripcionService::dni($a->dni ?? '') === $dniNorm
+                );
+            }
+
+            if ($destino !== null) {
+                $pendientes[$destino->id] = round($pendiente, 2);
+            }
+        }
+
+        return $pendientes;
+    }
+
+    /**
      * Filtrar alumnos activos por estado de cobranza computado.
      */
     public function filtrarAlumnosPorEstado(
@@ -137,32 +244,7 @@ class CobranzaEstadoService
             ])
             ->get();
 
-        // Cargar inscripciones vigentes y mapear a alumno_id
-        $cargos = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
-            ->where('estado', 'VIGENTE')
-            ->with('pagos')
-            ->get();
-
-        $cargosPorAlumno = [];
-        foreach ($cargos as $cargo) {
-            $pagado = (float)$cargo->pagos->sum('pivot.monto_aplicado');
-            $condonado = (float)$cargo->monto_condonado;
-            $orig = (float)$cargo->monto_original;
-            $pendiente = max(0, $orig - $pagado - $condonado);
-            if ($pendiente <= 0) continue;
-
-            if ($todosAlumnos->contains('id', $cargo->alumno_id)) {
-                $cargosPorAlumno[$cargo->alumno_id] = round($pendiente, 2);
-            } else {
-                $dniNorm = \App\Services\InscripcionService::dni($cargo->dni ?? '');
-                $primerActivo = $todosAlumnos->first(function ($a) use ($dniNorm) {
-                    return \App\Services\InscripcionService::dni($a->dni ?? '') === $dniNorm;
-                });
-                if ($primerActivo) {
-                    $cargosPorAlumno[$primerActivo->id] = round($pendiente, 2);
-                }
-            }
-        }
+        $saldos = $this->saldoDeAlumnos($todosAlumnos);
 
         // Calcular estado y deuda para cada registro individual
         foreach ($todosAlumnos as $alumno) {
@@ -171,33 +253,14 @@ class CobranzaEstadoService
                 $fecha,
                 $diasGracia
             );
-            $estadoAlumno = $info['estado'];
+            $saldo = $saldos[$alumno->id];
 
-            $totalDeudaCuotas = 0.0;
-            $cantidadCuotasImpagas = 0;
-            $deudaMasAntigua = null;
-
-            foreach ($alumno->deudaCuotas as $deuda) {
-                if ($this->estaImpaga($deuda)) {
-                    $saldo = max(0, (float)$deuda->monto_original - (float)$deuda->monto_pagado - (float)$deuda->monto_condonado);
-                    $totalDeudaCuotas += $saldo;
-                    $cantidadCuotasImpagas++;
-
-                    if ($deudaMasAntigua === null || $deuda->periodo < $deudaMasAntigua) {
-                        $deudaMasAntigua = $deuda->periodo;
-                    }
-                }
-            }
-
-            $inscripcionPendiente = (float)($cargosPorAlumno[$alumno->id] ?? 0.0);
-            $deudaTotal = round($totalDeudaCuotas + $inscripcionPendiente, 2);
-
-            $alumno->setAttribute('estado_cobranza', $estadoAlumno);
-            $alumno->setAttribute('deuda_total', $deudaTotal);
-            $alumno->setAttribute('deuda_cuotas', round($totalDeudaCuotas, 2));
-            $alumno->setAttribute('inscripcion_pendiente', $inscripcionPendiente);
-            $alumno->setAttribute('deuda_mas_antigua', $deudaMasAntigua ?? '9999-99');
-            $alumno->setAttribute('cantidad_cuotas_impagas', $cantidadCuotasImpagas);
+            $alumno->setAttribute('estado_cobranza', $info['estado']);
+            $alumno->setAttribute('deuda_total', $saldo['total']);
+            $alumno->setAttribute('deuda_cuotas', $saldo['cuotas']);
+            $alumno->setAttribute('inscripcion_pendiente', $saldo['inscripcion']);
+            $alumno->setAttribute('deuda_mas_antigua', $saldo['mas_antigua']);
+            $alumno->setAttribute('cantidad_cuotas_impagas', $saldo['cuotas_impagas']);
         }
 
         // Calcular renglón de ayuda para registros que comparten DNI
