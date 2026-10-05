@@ -45,7 +45,11 @@ corregirlo acá en el momento.
 2. **Lo que hace uno lo verifica el otro**, nunca el autor. Si se cruzó, se dice y se repite.
 3. **Una tarea por agente a la vez.** Lo que está esperando a Carlos no se adelanta.
 4. **Lo que espera una decisión de Carlos vive arriba de todo**, en esta hoja.
-5. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
+5. **Todo prompt termina con lo mismo, sin excepción:** dejar asentado qué se hizo en la
+   bitácora propia y actualizar el seguimiento en los **dos** archivos, `DEFECTOS.md` y
+   `DEFECTOS.html`, más el estado y el plan si cambió el número de pruebas. Si el prompt no
+   lo pide, está mal escrito: lo que no queda anotado se vuelve a discutir y se paga dos veces.
+6. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
    que lo corrige.** Si no se marca, se vuelve a hablar de él como pendiente y se paga dos
    veces el mismo trabajo. Lo cubre `DefectosNoDivergenTest`, que pone la suite en rojo si
    los dos archivos dejan de coincidir o si el avance de arriba no es el real.
