@@ -7,10 +7,10 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 05/10/2026: 27 cerrados de 71.** Quedan 44 abiertos, de los
-> cuales **4 frenan**: A4, A5, A13, B1. Cada punto cerrado dice en su propio texto
-> quién lo corrigió, en qué commit y quién lo verificó. El tablero para mirar en el navegador
-> es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos defectos y los mismos estados.
+> **Avance al 05/10/2026: 25 cerrados de 71.** Quedan 46 abiertos, de los
+> cuales **4 frenan**: A4, A5, A13, B1. Un defecto se marca **CERRADO solo cuando
+> otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
+> mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -445,11 +445,11 @@ probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg). Sin corrección.
 
-### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · CERRADO 05/10
+### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · HECHO 05/10 (Claude), a revisar
 
 Esperaba que «alumnos con deuda pendiente» contara registros con saldo por cobrar; muestra 6 cuando solo 5 tienen saldo, incluyendo a Ana Pérez en Fútbol con $0, mes pagado y ninguna inscripción pendiente. [Captura](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg). Datos ficticios de la base propia; sin corrección.
 
-### A55. El saldo del selector de cobro omite la inscripción · Molesta · CERRADO 05/10
+### A55. El saldo del selector de cobro omite la inscripción · Molesta · HECHO 05/10 (Claude), a revisar
 
 Esperaba el mismo saldo pendiente que Cobranza y la ficha; Lucía Gaitán debe inscripción $5.000 pero el selector muestra $0, y Luz Gómez debe $53.000 pero muestra $48.000. [Selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg), [Cobranza](evidencia/verificacion-entrega1-v2/cobranza-todos-inscripcion.jpg), [ficha](evidencia/verificacion-entrega1-v2/ficha-inscripcion-al-dia.jpg). Datos ficticios; sin corrección.
 

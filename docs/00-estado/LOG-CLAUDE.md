@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-05 — Claude CyE — cierra el que verifica, no el que hace
+
+Codex freno con razon: el prompt que le escribi le pedia marcar A4 y A5 como CERRADOS, y
+`AGENTS.md` dice que cierra otro agente. Carlos confirmo el criterio: el que implementa deja
+**HECHO (quien), a revisar** y CERRADO lo escribe el que verifica.
+Me corregi a mi mismo: A54 y A55 los habia marcado CERRADOS yo, que los implemente. Pasan a
+"hecho, a revisar" en los dos seguimientos. El avance real baja a **25 de 71**: lo hecho y
+sin revisar no es avance, y contarlo como tal es engañarse.
+Regla 6 escrita en QUIEN-HACE-QUE para que no dependa de que el que escribe el prompt se
+acuerde. `DefectosNoDivergenTest` ya cuenta solo los CERRADO, asi que la cuenta de arriba no
+se puede inflar sin que la suite lo marque.
+
 ## 2026-10-05 — Claude CyE — A50 estaba resuelto desde ayer y nadie lo habia marcado
 
 Carlos: "si todos van a ser unos pajeros que no anotan lo que hacen, vamos a estar dando

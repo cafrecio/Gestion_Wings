@@ -54,7 +54,11 @@ corregirlo acá en el momento.
    bitácora propia y actualizar el seguimiento en los **dos** archivos, `DEFECTOS.md` y
    `DEFECTOS.html`, más el estado y el plan si cambió el número de pruebas. Si el prompt no
    lo pide, está mal escrito: lo que no queda anotado se vuelve a discutir y se paga dos veces.
-6. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
+6. **El que implementa marca `HECHO <fecha> (quién), a revisar`; CERRADO lo escribe el que
+   verifica.** Nadie cierra lo suyo. Lo encontró Codex el 05/10 leyendo un prompt mal escrito
+   por Claude que le pedía cerrar su propia tarea; Carlos confirmó el criterio. El avance de
+   arriba cuenta solo los CERRADO: lo hecho y sin revisar todavía no es avance.
+7. **Un defecto corregido se marca en `DEFECTOS.md` y en `DEFECTOS.html` en el mismo commit
    que lo corrige.** Si no se marca, se vuelve a hablar de él como pendiente y se paga dos
    veces el mismo trabajo. Lo cubre `DefectosNoDivergenTest`, que pone la suite en rojo si
    los dos archivos dejan de coincidir o si el avance de arriba no es el real.
