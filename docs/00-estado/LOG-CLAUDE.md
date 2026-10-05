@@ -9,7 +9,7 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
-· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md)
+· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
 ## 2026-10-05 — Claude CyE — el acceso al servidor deja de arreglarse a mano
 
@@ -145,15 +145,3 @@ aviso de Caja (copiado tal cual, tokens del design system) y avisa al ADMIN. Bot
 anterior. La regla no estaba en ningun contrato: escrita en Caja-Cashflow V4 §3.6.
 Suite 288/1656. Acceso al servidor desde CyE: `~/.ssh` sin cambios desde 2025 salvo la
 llave `id_ed25519_wings_cab` (08/09, comentario de Codex); `known_hosts` solo GitHub.
-
-## 2026-09-21 — Claude CyE — ensayo del padron: "52.000" se grababa como $52
-
-Ensayo del primer paso de PRU-02 en base descartable: seeder de 60 alumnos, exportar padron,
-completarlo como una persona e importarlo. **Defecto mio, del importador:** el monto escrito
-como texto "52.000" quedaba en $52 (`is_numeric` lee el punto como decimal, como COB-01), y
-el periodo 092026 que Excel guarda como el numero 92026 se rechazaba sin decir por que.
-Ahora: numero de Excel tal cual; texto en formato argentino; lo ambiguo ("52,000", "52.5",
-"$") se rechaza con ejemplo. El export trae los periodos como texto. `CargaPadronFormatosExcelTest`
-5 pruebas, las 5 fallan con el codigo anterior. Suite 284/1637. Instructivo actualizado.
-Revision de FIN-09: cubre caja, cobro y Cashflow; **pagar una liquidacion acepta cualquier
-fecha**, registrado en el plan para que decida Carlos. Ensayo de restauracion: no hecho.
