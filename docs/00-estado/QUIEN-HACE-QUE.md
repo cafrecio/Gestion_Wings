@@ -1,4 +1,4 @@
-# Quién hace qué — 05/10/2026, 17:00
+# Quién hace qué — 05/10/2026, 17:40
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -29,6 +29,7 @@ corregirlo acá en el momento.
 | **Verificar la Entrega 1 de Cobranza** | **Hecha**: aprobada en la segunda vuelta; de ahí salieron A53, A54 y A55 |
 | **P1 — primera carga por Excel** | **Aprobada** por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
 | **A4 y A5 — los formularios que frenan** | **Prompt entregado el 05/10**: el alta de alumno no avisa por qué no guardó, y se eligen profesores de otro deporte |
+| **Verificar A13, B1, A54 y A55 de Claude** | **Después de A4 y A5** (Carlos, 05/10). Hasta entonces esos cuatro no cuentan como cerrados |
 
 ## Claude
 
