@@ -1,6 +1,6 @@
 # Caja y Cashflow — V5, enmienda A25
 
-**Fecha/version:** 06/10/2026.v1. **Autor:** Codex CAB.
+**Fecha/version:** 06/10/2026.v2. **Autor:** Codex CAB.
 **Estado:** implementada, diseño aprobado por Carlos; pendiente verificación independiente.
 No desplegada. [V4 antecedente](Wings-Contrato-Caja-Cashflow-V4.md).
 [Decisiones de Carlos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
@@ -8,6 +8,30 @@ No desplegada. [V4 antecedente](Wings-Contrato-Caja-Cashflow-V4.md).
 Esta enmienda sustituye V4 §3.1, §3.3, §3.4 y las referencias a apertura automática
 o validación que cierra sin contar. No cambia las reglas financieras del cobro,
 sus comisiones, la inscripción ni la integración idempotente con Cashflow.
+
+## Decisiones de Carlos — lectura común obligatoria
+
+Consolidación documental solicitada el 06/10/2026: reúne sus respuestas, sin agregar
+reglas nuevas a V5.v1. Codex, Claude y Gemini deben usar esta versión para A25;
+V4 queda como antecedente, no como instrucción para abrir o cerrar el cajón.
+
+| Tema | Regla aprobada y ejemplo |
+|---|---|
+| Cajón compartido | Uno para el club, no uno por operativa. Si Susana dejó $10.000, la siguiente operativa recibe esa propuesta. |
+| Turnos | Cerrar el anterior antes de abrir otro; no dos turnos abiertos sobre el mismo cajón. |
+| Primera apertura | Quien abre declara cuánto recibió; no se inventa un importe inicial. |
+| Aperturas siguientes | Proponer el cambio del último cierre del club y pedir confirmación. Si propone $10.000 y cuenta $8.000, declara $8.000 con motivo; conservar ambos valores. |
+| Cierre y retiro | Quien cierra cuenta y decide cuánto deja. Contado $35.000, cambio $10.000: retiro $25.000. Puede dejar $15.000 y retirar $20.000; no está atado al cambio inicial. |
+| Diferencias | Inicio $10.000 + cobros $30.000 − gastos $5.000: esperado $35.000. Contado $34.000: faltante $1.000. Mostrar los tres y permitir cerrar; ADMIN revisa. |
+| Medio físico | ADMIN configura una vez qué medio corresponde al efectivo del cajón; Transferencia no integra ese conteo. |
+| Cobros del ADMIN | Vanina guarda su efectivo aparte: no aumenta el esperado del turno operativo. |
+| Validación ADMIN | Debe contar y cerrar primero, incluso el turno de otra persona. Validar no sustituye el conteo. |
+| Rechazo posterior | Corregir movimientos conserva lo contado y entregado; no cambia lo recibido por el turno siguiente. Respuesta de Carlos: «Sí, conservar lo que se contó y entregó». |
+
+El cambio para vuelto es custodia física, no un ingreso nuevo ni el `saldo_inicial`
+contable del TipoCaja. Tampoco se crea automáticamente un ajuste por la diferencia.
+La aprobación de estas reglas y del diseño **no cierra A25**: continúa HECHO (Codex),
+a revisar por otro agente, sin despliegue. El detalle normativo sigue a continuación.
 
 ## Apertura y turnos
 

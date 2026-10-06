@@ -4,6 +4,7 @@
 **Estado:** HECHO (Codex), a revisar; diseño aprobado por Carlos el 06/10, sin despliegue.
 [Defecto A25](../06-pruebas/PRU-02/DEFECTOS.md) · [Entrega y capturas reales](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md).
 Los relevamientos siguientes conservan el estado anterior para explicar las decisiones.
+**Reglas vigentes:** [Contrato Caja/Cashflow V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md), con todas las respuestas de Carlos consolidadas; usarlo para implementar o verificar, no el relevamiento histórico.
 
 ## 1. Lo que se comprobó, no lo que se supone
 

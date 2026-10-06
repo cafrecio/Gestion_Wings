@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — Decisiones A25 consolidadas en el contrato
+
+Pedido de Carlos: modificar el contrato con sus respuestas y dejar aviso común.
+[Contrato Caja/Cashflow V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): diez decisiones con ejemplos; sin reglas nuevas respecto de V5.v1.
+Cajón compartido, herencia confirmada/motivo, conteo, cambio/retiro, diferencias y efectivo ADMIN separado.
+Rechazadas conservan lo contado/entregado y el turno siguiente; validación exige cierre contado.
+Resumen compartido y relevamiento enlazan la versión vigente para Codex, Claude y Gemini.
+Solo documentación: enlaces/diff comprobados; sin suite, aplicación, base ni servidor tocados.
+A25 sigue HECHO (Codex), a revisar por otro agente; no cerrada ni desplegada.
+
 ## 2026-10-06 — Codex CAB — A25 implementada, diseño aprobado; a revisar
 
 Apertura explícita, recibido/heredado y motivo; un cajón compartido con un turno abierto.
@@ -107,16 +117,7 @@ Tres roles en navegador normal/375 px; Volver conserva sesión y abre inicio cor
 [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Sin deploy ni cierre.
 A43 en 218ffc5; siguiente paso: Gemini debe verificar ambas entregas.
 
-## 2026-10-04 — Codex CAB — A43 entregada, pendiente Gemini
-
-Commit `218ffc5`. Carlos escribió la autorización literal y aclaró «A43 solo la cuota».
-Mes cerrado exige elección: Sí cuota corriente completa, No solo evita cuota.
-Inscripción por DNI conservada; decisión/autor auditados, rollback y reintento probados.
-Pruebas previas 10 rojas; final 366/2131 verde en copia exclusiva sobre e5bc981 + A43.
-Base wings_testing_codex; PHP/Blade/build verificados, archivos idénticos a entrega.
-Formulario real normal/375 px: decisión obligatoria, Sí/No y ficha comprobados.
-[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Migración nueva alta_cuota; no deploy.
-No cerrada: Gemini verifica. Siguiente: permisos A29/A30/A31 ya autorizados.
+A43 entregada archivada intacta en [LOG-CODEX-A43-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-ENTREGA.md).
 
 Preparación A43/permisos archivada intacta en [LOG-CODEX-A43-PREPARACION.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-PREPARACION.md).
 

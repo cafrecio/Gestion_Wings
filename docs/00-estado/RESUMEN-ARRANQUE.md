@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Actualización de verificación A13/B1/A54/A55 y entrega A25: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
+> Actualización de verificación A13/B1/A54/A55, entrega y decisiones A25: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -43,7 +43,7 @@
   push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
 
 - **A25, HECHO (Codex), a revisar 06/10:** apertura confirmada, cajón compartido y arqueo;
-  configuración ADMIN, herencia/motivo y cambio/entrega separados. Rechazadas conservan
+  [Contrato V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): respuestas de Carlos consolidadas para los tres agentes. Rechazadas conservan
   lo contado/entregado, sin cambiar el turno siguiente. Diseño aprobado en capturas reales.
   Suite propia 468 aprobadas/2 omitidas, 3116 aserciones; sin CSS ni base real tocados.
   [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Otro agente verifica; no desplegado.
@@ -117,7 +117,7 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- A25: reglas implementadas, diseño aprobado; falta control independiente, no otra decisión de negocio. [Detalle](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md).
+- A25: decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. Falta control independiente, no otra decisión de negocio ni despliegue.
 - Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan
