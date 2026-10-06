@@ -11,9 +11,9 @@ Avance: **30 cerrados de 72**. Frenan dos, A13 y B1.
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **Permiso para publicar A15 y A16 en main.** El trabajo está terminado y preparado en la carpeta (45 archivos), sin commit: Codex no publica en main sin autorización directa | Codex | 06/10 |
+| **Nada.** El permiso para publicar A15 y A16 ya se dio: están en main (`05dd962`) | — | — |
 
-Nada más. La redacción del renglón de inscripción (A55) y el diseño de A25 y de A15/A16
+La redacción del renglón de inscripción (A55) y el diseño de A25 y de A15/A16
 ya están aprobados.
 
 ## Lo que frena: A13 y B1
@@ -26,9 +26,9 @@ aplique el texto aprobado e integre la rama**, y que otro agente verifique.
 
 | Qué | Lo hizo | Quién puede verificar |
 |---|---|---|
-| **A25** — declarar el efectivo y arquear el cajón (`30f38f8`) | Codex | Gemini o Claude |
+| **A25** — declarar el efectivo y arquear el cajón (`30f38f8`) | Codex | **Gemini**, prompt entregado el 06/10 |
 | **Paquete de celular** — A14, A20, A27, A28, A33, A36, A40, A41, A53 (`26a67c6`, retoque `20dc5ae`) | Gemini | Codex o Claude |
-| **A15 y A16** — aviso al programar clases y horarios por día | Codex | Gemini o Claude, una vez publicado |
+| **A15 y A16** — aviso al programar clases y horarios por día (`05dd962`) | Codex | **Gemini**, mismo prompt, después de A25 |
 | **A13, B1 y A55** — segunda vuelta | Claude | Codex, al integrar la rama |
 
 ## Gemini
@@ -36,7 +36,8 @@ aplique el texto aprobado e integre la rama**, y que otro agente verifique.
 | Tarea | Estado |
 |---|---|
 | **Paquete de celular** (A14, A20, A27, A28, A33, A36, A40, A41, A53) | **HECHO el 06/10, a revisar.** Incluye lo que era la Entrega 3 de P2 |
-| **Completar las capturas de su cambio en `app.css`** | **Pendiente.** El cambio alcanza a muchas más pantallas que las capturadas; sin eso no se puede verificar el paquete |
+| **Verificar A25 y después A15/A16, de Codex** | **Prompt entregado el 06/10.** Dos informes separados; cierra solo lo que apruebe |
+| **Completar las capturas de su cambio en `app.css`** | **Pendiente, después de las verificaciones.** El cambio alcanza a muchas más pantallas que las capturadas; sin eso no se puede verificar el paquete |
 | Verificar A4 y A5 de Codex | **Hecha el 06/10** (`94e368e`): cerrados |
 | A37 — ficha del alumno en celular | **Cerrado**, verificado por Claude el 06/10 |
 | P2 Entregas 1 y 2, A11, A43, permisos, P1 | Cerradas |
@@ -46,7 +47,7 @@ aplique el texto aprobado e integre la rama**, y que otro agente verifique.
 | Tarea | Estado |
 |---|---|
 | **Aplicar el texto aprobado e integrar `a55-inscripcion`** | **Pendiente.** Es lo que destraba A13 y B1 |
-| **A15 y A16 — las clases** | **HECHO el 06/10, a revisar.** Sin commit: espera el permiso de Carlos para publicar. Suite propia: 486 aprobadas y 2 omitidas |
+| **A15 y A16 — las clases** | **HECHO el 06/10, a revisar.** Publicado en main (`05dd962`). Suite propia: 486 aprobadas y 2 omitidas. Lo verifica Gemini |
 | **Verificar A56 de Claude** | **Hecha el 06/10** (`ad7f9fb`): cerrado |
 | **A25 — apertura y arqueo** | **HECHO el 06/10** (`30f38f8`), contrato de Caja-Cashflow en V5. Falta que otro agente lo verifique |
 | P1 — primera carga por Excel | Aprobada por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
