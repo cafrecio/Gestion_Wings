@@ -63,6 +63,8 @@ con dos conexiones, no una afirmación de haber cubierto todas las carreras del 
 
 **Suite completa final:** 470 pruebas: 468 aprobadas, 2 omitidas, 3.116 aserciones,
 181,44 s, wings_testing_codex; ninguna falla. Corte sobre 262e917 con A25.
+Código entregado en 30f38f8. Integración posterior de 94e368e/a89ebbe conserva el cierre
+ajeno A4/A5 y sus evidencias; solo cambia documentación, no aplicación ni pruebas.
 Las omitidas son productores de HTML previos (`CapturaCashflowSignoTest` y
 `CapturaFichaAnularTest`), no casos funcionales A25 omitidos. Guardianes documentales
 repetidos después de actualizar los textos: 4 pruebas / 19 aserciones verdes.

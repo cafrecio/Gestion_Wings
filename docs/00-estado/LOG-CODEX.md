@@ -10,7 +10,7 @@ Rechazadas conservan contado/entrega y actor/fecha originales, sin alterar el tu
 PHP/Blade/build verdes. Carlos aprobó cinco pantallas escritorio/375: «OK, aprobado» y «Sí».
 [Entrega, límites y capturas reales](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md); sin CSS ni base real/servidor tocados.
 Contrato/ER V5, ambos seguimientos y cuatro estados actualizados. HECHO (Codex), no CERRADO.
-Otro agente verifica en pantalla; sin deploy. Publicación y sincronización se comprueban al terminar.
+Código 30f38f8; integrados 94e368e/a89ebbe sin cambiar aplicación/pruebas. Otro agente verifica; sin deploy. Publicación se comprueba al terminar.
 
 ## 2026-10-06 — Codex CAB — A25 relevado, decisiones antes de programar
 

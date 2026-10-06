@@ -1,4 +1,4 @@
-# Quién hace qué — 05/10/2026, 17:40
+# Quién hace qué — 06/10/2026, 18:30
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -9,7 +9,7 @@ corregirlo acá en el momento.
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **Nada.** Todo lo entregado está verificado y subido. Se sigue desde CyE con `git pull` | — | 05/10 07:05 |
+| **Nada por decidir de A25.** Reglas y capturas aprobadas; falta control independiente, no otra aprobación de Carlos | Codex | 06/10 |
 
 ## Gemini
 
@@ -28,8 +28,9 @@ corregirlo acá en el momento.
 | **A11, A43 y permisos** | **Cerrados**, verificados por Gemini |
 | **Verificar la Entrega 1 de Cobranza** | **Hecha**: aprobada en la segunda vuelta; de ahí salieron A53, A54 y A55 |
 | **P1 — primera carga por Excel** | **Aprobada** por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
-| **A4 y A5 — los formularios que frenan** | **Prompt entregado el 05/10**: el alta de alumno no avisa por qué no guardó, y se eligen profesores de otro deporte |
-| **Verificar A13, B1, A54 y A55 de Claude** | **Después de A4 y A5** (Carlos, 05/10). Hasta entonces esos cuatro no cuentan como cerrados |
+| **A4 y A5 — los formularios que frenan** | **CERRADOS el 06/10**, verificados por Gemini (`94e368e`), incluido el aviso al salir sin guardar que Codex no había podido probar |
+| **Verificar A13, B1, A54 y A55 de Claude** | **Hecha el 06/10.** A54 cerrado; A55, A13 y B1 devueltos con observaciones |
+| **A25 — apertura y arqueo** | **HECHO (Codex), a revisar**, commit 30f38f8. Diseño aprobado por Carlos; 468 pruebas aprobadas/2 omitidas, 3116 aserciones. Otro agente verifica; sin deploy |
 
 ## Claude
 
@@ -39,10 +40,17 @@ corregirlo acá en el momento.
 | Una base de prueba por agente | **Hecho**, `AGENTS.md` §6-bis |
 | El hook de push, que además pisaba la base local en cada `git pull` | **Arreglado dos veces**: volvió a aparecer el 05/10 y se sacó de nuevo |
 | Verificar P0 de Codex | **Hecho**; de ahí salió A43 |
-| **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **Hechos y subidos el 05/10**: un solo cálculo, `saldoDeAlumnos()`, para Cobranza, ficha y selector. **Esperan verificación de Codex o Gemini** |
+| **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **A54 cerrado.** A55 falla con dos deportes; Claude lo corrigió, **sin subir**: espera el OK de diseño |
 | **Verificar la Entrega 2 de Gemini** | **Hecha el 05/10**: A17 y A3 correctos; A34 estaba mal descrito, el botón de recibo ya existía |
 | **La lista de defectos y su tablero decían cosas distintas** | **Arreglado el 05/10**, con `DefectosNoDivergenTest` para que no se repita |
-| **A13 y B1 — el dueño no tiene caja** | **Hechos el 05/10, esperan verificación.** El ADMIN cobra sin caja y puede anular su cobro desde la ficha. Botón autorizado por Carlos sobre capturas |
+| **A13 y B1 — el dueño no tiene caja** | **Devueltos por Codex**: el historial anulado mostraba el mes del pago. Claude lo corrigió, **sin subir**: espera el OK de diseño de Carlos |
+
+## Esperando una decisión de Carlos
+
+| Qué | Desde |
+|---|---|
+| **El renglón de la inscripción en la ficha del segundo deporte** — "Figura en su registro de Patín, para no cobrarla dos veces". Es el único cambio visible de los arreglos de A55, A13 y B1, que están hechos y probados pero **sin subir** | 06/10 |
+| **Qué hace Claude de ahora en más.** Carlos: "no vas a programar más". Queda en prompts, verificaciones, tableros y documentación | 06/10 |
 
 ## Cómo se evita el desorden
 

@@ -7,16 +7,14 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 27 cerrados de 72.** Quedan 45 abiertos, de los
-> cuales **4 frenan**: A4, A5, A13, B1. Un defecto se marca **CERRADO solo cuando
+> **Avance al 06/10/2026: 29 cerrados de 72.** Quedan 43 abiertos, de los
+> cuales **2 frenan**: A13, B1. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 
-> A4 y A5: **Hecho (Cx), a revisar — 05/10**. Diseño aprobado por Carlos sobre
-> capturas. No se suman a los cerrados hasta la verificación independiente.
+> A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **HECHO (Codex), a revisar — 06/10**; diseño aprobado sobre capturas reales.
 > No se suma a cerrados hasta control de otro agente; sin despliegue.
-> Retoque de A4: motivo de fecha de ingreso alineado y con ícono; nuevas capturas listas, aprobado por Carlos el 05/10 para subirlo.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -67,7 +65,7 @@ todo el tiempo.
 **Resuelto en Entrega 2 de P2 (05/10):**
 `CajaWebController::cobrar()` ahora proyecta y ofrece en memoria los períodos futuros inmediatos (los próximos 2 meses) al precio de lista vigente del plan activo (`$plan->precio_mensual`), con badge identificatorio «Adelantado». Al cobrar un período adelantado, se crea la `DeudaCuota` con estado `PAGADA` y el `Pago` correspondiente. Al llegar el día 1 del mes, el comando mensual `cobranza:generar-deudas` comprueba que la deuda ya existe y la omite (`$contSkipped++`), evitando duplicaciones. Además, el selector `/caja/cobrar` permite buscar a cualquier alumno activo por nombre, apellido o DNI para cobrarle por adelantado. Cubierto en `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A4. Editar alumno no avisa por qué no guardó · Frena · Hecho (Cx), a revisar 05/10
+### A4. Editar alumno no avisa por qué no guardó · Frena · CERRADO 06/10, verificado Gemini
 
 Al cambiar la fecha de nacimiento, el tutor pasa a ser obligatorio. El error aparece **abajo
 de todo**, en una pantalla más alta que el monitor. La persona aprieta Guardar, no pasa nada
@@ -78,14 +76,16 @@ visible y no entiende por qué. Es el mismo defecto que se corrigió en Revisió
 **Entrega Codex CAB, 05/10:** resumen persistente arriba en alta/edición, foco y enlaces
 a los campos; conserva datos y plan al rechazar. Menú/Cancelar piden confirmación;
 cierre/recarga mantienen beforeunload. JavaScript en archivo propio; sin CSS.
-[Implementación y capturas reales](IMPLEMENTACION-A4-A5.md). Pendiente control ajeno.
+[Implementación y capturas reales](IMPLEMENTACION-A4-A5.md).
 
 **Retoque pedido por Carlos, 05/10:** motivo de corrección de ingreso dentro de la grilla,
 rótulo arriba con el ícono de Descripción ya usado en Wings y cuadro con el mismo formato que los demás; sin CSS ni reglas nuevas.
 [Capturas del retoque](IMPLEMENTACION-A4-A5.md#retoque-del-motivo-de-ingreso--05102026).
-Diseño aprobado por Carlos el 05/10; A4 conserva Hecho (Cx), a revisar.
+Diseño aprobado por Carlos el 05/10.
 
-### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · Hecho (Cx), a revisar 05/10
+**Verificación independiente Gemini CyE, 06/10:** comprobado en Chrome interactivo el aviso al salir por menú/Cancelar y `beforeunload`; aviso superior visible sin scroll en escritorio y móvil 375 px dentro de marco; datos y plan conservados. [Informe de verificación](VERIFICACION-A4-A5.md).
+
+### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · CERRADO 06/10, verificado Gemini
 
 Una fila de casillas con todos los profesores del club, sin filtrar. En una clase de patín
 se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la clase.
@@ -94,6 +94,8 @@ se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la
 se desmarca/deshabilita el ajeno. Filtrado en edición/ficha y validación servidor en
 alta única/serie, edición y reasignación, sin escrituras parciales. No cambia permisos
 ni borra asignaciones históricas. [Entrega y capturas](IMPLEMENTACION-A4-A5.md).
+
+**Verificación independiente Gemini CyE, 06/10:** comprobado filtrado dinámico en frontend, rechazo de profesores de otro deporte o inactivos en backend con `ValidationException`, y comportamiento sin grupo definido. 11 pruebas pasando. [Informe de verificación](VERIFICACION-A4-A5.md).
 
 ### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta
 

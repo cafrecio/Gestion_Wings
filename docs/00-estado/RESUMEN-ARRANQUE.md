@@ -32,14 +32,14 @@
 
 ## Trabajo que continúa
 
-- **A4/A5 entregados por Codex CAB el 05/10:** aviso superior en alta/edición, conservación de datos y advertencia al salir; profesores activos del deporte de la clase con rechazo servidor. Carlos aprobó las capturas y pidió **Hecho (Cx), a revisar**, no cerrado. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Otro agente verifica; sin despliegue.
+- **A4/A5 entregados por Codex CAB el 05/10:** aviso superior, conservación y salida; profesores activos del deporte. Gemini registró control y cierre independiente el 06/10 en 94e368e. [Informe](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue.
   Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
   Control posterior registrado 06/10: **A54 cerrado por Codex; A13/B1/A55 abiertos**.
   A55: dos deportes muestran distinta inscripción entre selector y ficha. A13/B1:
   reversión financiera correcta, historial anulado y signo del contraasiento en pantalla fallan.
   Cierre operativo comprobado por servicio, no por pantalla. Claude corrige.
   [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Ambos seguimientos:
-  26 cerrados de 71; sin suite completa nueva ni deploy. Publicado en `ddefe00`:
+  Corte de aquel informe: 26/71; hoy 29/72 tras A37 y cierre ajeno A4/A5. Publicado en `ddefe00`:
   push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
 
 - **A25, HECHO (Codex), a revisar 06/10:** apertura confirmada, cajón compartido y arqueo;
