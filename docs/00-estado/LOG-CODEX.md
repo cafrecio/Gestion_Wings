@@ -1,5 +1,28 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — A55/A13/B1, capturas y redacción aprobada
+
+Rama a55-inscripcion, código 31194c2; copia aislada porque main tiene cambios ajenos.
+Persona ficticia en Patín/Fútbol; inscripción única pendiente $5.000; agosto cobrado en octubre y anulado.
+Respuestas HTTP reales: ficha propietaria, otro deporte con el renglón nuevo e historial «Ago 2026».
+Ocho imágenes escritorio/375, incluidos dos controles login; marco real, sin achicar Chrome a 375.
+[Capturas y procedencia](../06-pruebas/PRU-02/capturas-a55/README.md). Generación propia: 1/12; build correcto, no suite completa.
+Sin cambios de aplicación/vistas/CSS ni base real/servidor; solo wings_testing_codex.
+Capturas publicadas en 459ec42, solo evidencia en esta rama, sin merge a main ni A25.
+Carlos pidió aclarar y aprobó con «OK» la redacción exacta del README: inscripción única y consulta del estado en la ficha del deporte propietario.
+Pendiente aplicar ese texto; imágenes con redacción anterior conservadas. No se programa, cierra ni despliega por esta aprobación.
+
+## 2026-10-06 — Codex CyE — Texto A55 preparado; integración autorizada
+
+Objetivo: verificar A13/B1/A55 y asentar A48/A49; pull al día en 63bffd4 al iniciar.
+Texto exacto aprobado y deporte dinámico en A55; capturas Fútbol escritorio/375 rehechas, login control completo.
+Commit local 4eb3f59, solo frase/README/tres imágenes. Sin CSS, Gemini ni base del club tocados.
+Rama: 11 pruebas/45 aserciones cumplen, con avisos del entorno; no se certifica main integrado.
+A48/A49: búsqueda coincide con Claude; CSP en main 2 aprobadas/2 aserciones.
+Carlos respondió directamente «OK» a integrar la rama y publicar los cierres aprobados; rechazo automático resuelto.
+[Control en curso y ensayo preparado](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md); sin cierres nuevos ni despliegue.
+Merge preparado conservando ambos logs; solo conflicto documental, sin CSS. Sigue verificar sobre main y publicar el dictamen.
+
 ## 2026-10-06 — Codex CyE — A15/A16 implementadas, a revisar; A56 publicado
 
 A56 publicado en main ad7f9fb con autorización directa de Carlos; cerrado por verificador.
@@ -94,29 +117,9 @@ MCP probado: transporte cerrado; contraste documental hecho contra archivos real
 Sin aplicación, vistas, pruebas, datos ni servidor tocados; no se corrió suite por documentación.
 Siguiente: Carlos aclara el cierre; después propuesta visual con capturas antes de pedir autorización.
 
-## 2026-10-05 — Codex CAB — P1 implementada, pendiente Gemini
+Entrega P1 archivada intacta en [LOG-CODEX-P1-IMPLEMENTADA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-P1-IMPLEMENTADA.md).
 
-Carlos aprobó maqueta y aclaró producción sin alumnos/deudas/pagos; levantado el freno previo.
-Plantilla vacía, listas reales, revisión completa sin escritura y Excel original con AM Errores.
-Carga atómica de lo declarado, sin descuento ni cuota automática; Deshacer protegido.
-Estado persistente y entrada ADMIN automática; alta individual no saltea el control servidor.
-Previas: 16 rojas. Final exclusiva: 404/2815 verdes, wings_testing_codex, 134,16 s; PHP/Blade/build OK.
-Navegador normal/375: seis errores, carga 4 alumnos/6 cuotas + inscripción = $301.000, cero caja; Deshacer verificado.
-Writer omitía textos vacíos: informe corregido y prueba compara el XLSX guardado por valor/tipo.
-[Entrega y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). P2 ajeno preservado fuera del commit.
-Sin deploy, limpieza ni base real tocada. Gemini verifica; después retiro de CLI antiguos en commit aparte.
-
-## 2026-10-05 — Codex CAB — P1 autorizada; freno por transición de bases existentes
-
-Main actualizado desde GitHub; HEAD `1503df2`. Leídos decisión, maqueta aprobada y P0.
-Revisados importador de padrón, inscripción, rutas y entrada por rol; MCP sin transporte.
-No existe estado persistente de primera carga en aplicación/migraciones.
-La tarea exige estado pendiente/terminada y bloqueo servidor, sin inferirlo por alumnos.
-Falta decidir cómo inicializar ese estado en un club que ya está trabajando con alumnos.
-Marcar todas las bases pendientes podría bloquear el alta manual existente; no se implementó.
-Consulta a Carlos: conservar esas bases como preparadas y exigir Excel solo a clubes nuevos.
-Sin código, migraciones, suite, datos ni servidor tocados; importadores antiguos conservados.
-Cambios simultáneos ajenos en Cobranza/cobro y su prueba preservados. P1 no entregada.
+Preparación P1 y freno inicial archivados intactos en [LOG-CODEX-P1-AUTORIZADA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-P1-AUTORIZADA.md).
 
 Verificación de Cobranza Entrega 1 archivada intacta en [LOG-CODEX-COBRANZA-ENTREGA1.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-COBRANZA-ENTREGA1.md).
 
