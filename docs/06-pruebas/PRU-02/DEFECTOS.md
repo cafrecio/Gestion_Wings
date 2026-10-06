@@ -243,6 +243,8 @@ mostrar esperado/contado/diferencia permitiendo cerrar para revisión ADMIN. Un 
 compartido: hereda el último cierre del club. Primera apertura declarada; corrección con
 motivo; un turno abierto; cambio retenido elegible y retiro = contado − retenido.
 ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar.
+Al corregir rechazadas se conserva conteo/entrega, sin cambiar el siguiente turno. Previas propias:
+3 fallos actuales + 9 funciones ausentes, 12/15; no se alteró la suite compartida.
 [Relevamiento y ejemplos](../../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
 Codex prepara; **no implementado, no Hecho y no cerrado**. Sin vistas ni datos tocados.
 Captura: `evidencia/audit_operativo_caja_desktop.png`.

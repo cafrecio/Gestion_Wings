@@ -11,7 +11,9 @@ hereda último cierre del club. Primera apertura declarada; corrección de lo he
 motivo; un solo turno abierto; cambio retenido elegible, retiro = contado − retenido.
 ADMIN configura el medio físico una vez y guarda aparte sus cobros. También debe contar
 y cerrar antes de validar. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-Sin aplicación, vistas, datos ni suite modificados. A25 Falta; no entregado ni cerrado.
+Previas propias aisladas: 3 fallos actuales y 9 funciones ausentes, 12/15. Carlos conserva
+conteo/cambio/retiro al corregir rechazadas, sin alterar el siguiente turno. Sin aplicación, vistas,
+base real ni suite permanente modificadas. A25 Falta; no entregado ni cerrado.
 
 ## Verificación A13/B1/A54/A55 registrada — 06/10/2026
 

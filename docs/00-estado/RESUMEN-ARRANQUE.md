@@ -117,7 +117,7 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- A25: reglas de apertura/cierre respondidas el 06/10. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Pendiente implementación.
+- A25: reglas recibidas; corrección de rechazadas conserva conteo/entrega y no cambia el siguiente turno. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Previas 3 fallos + 9 funciones ausentes, falta implementación.
 - Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan

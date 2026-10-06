@@ -31,6 +31,8 @@ otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite comple
   un turno abierto y cambio retenido elegible. ADMIN configura el medio físico una vez y
   guarda aparte sus cobros; debe contar/cerrar antes de validar. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
   Reglas recibidas; falta implementar y mostrar capturas reales para aprobación visual.
+- [x] **Excepción A25 respondida 06/10:** al corregir una caja rechazada se conservan
+  contado/cambio/retiro originales, sin modificar lo recibido por el siguiente turno.
 
 - [x] **Maqueta de Primera carga aprobada el 05/10.** Decision del 26/09: la carga
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que

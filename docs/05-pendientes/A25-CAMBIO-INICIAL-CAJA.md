@@ -114,8 +114,13 @@ Las tres aclaraciones consultadas juntas fueron respondidas por Carlos el 06/10:
   ADMIN debe contar y cerrar primero, incluso si es el turno de otra persona. Validar
   no puede inventar un conteo ni cerrar automáticamente una caja que continúa abierta.
 
-Las consultas anteriores están respondidas. La implementación debe explicitar el
-tratamiento de cierres rechazados/sin validar sin atribuir conteos físicos inexistentes.
+Las consultas anteriores están respondidas. **Excepción aclarada por Carlos:** una
+caja RECHAZADA permite corregir movimientos hoy. Si el cambio de ese cierre ya lo recibió
+otro turno, se corrigen los movimientos conservando contado/cambio/retiro originales,
+sin modificar lo recibido por el siguiente. Ejemplo: lunes dejó $10.000, martes ya los
+recibió otra operativa; ADMIN rechaza el lunes después. **Respuesta literal: «Sí, conservar
+lo que se contó y entregó».** El arqueo puede reflejar la corrección del movimiento, pero
+no reescribir el conteo físico ni la entrega ya realizados.
 Las siguientes son precauciones de integridad, no respuestas a esas decisiones:
 
 1. El dinero para vuelto ya pertenece al club. Declararlo por turno no puede duplicar
@@ -154,6 +159,8 @@ contradicción adicional se reporta antes de implementar la parte afectada.
 - ADMIN configura el medio físico una vez; un cambio de nombre no cambia su identificación.
 - ADMIN cobra efectivo y lo guarda aparte: cashflow correcto, sin aumentar el esperado operativo.
 - ADMIN no puede validar una caja ABIERTA: antes declara contado/cambio y la cierra.
+- Caja RECHAZADA corregida después de que otro turno recibió el cambio: mantiene
+  contado/cambio/retiro originales y no modifica el importe que recibió el siguiente turno.
 - Primera apertura sin cierre previo, cambio de operativo y cierre anterior sin validar.
 - Rechazo y nuevo cierre conservan trazabilidad y no vuelven a reflejar ingresos en cashflow.
 - Cierre forzado ADMIN de caja vieja; no atribuirle un conteo que nadie realizó.
@@ -171,4 +178,12 @@ Leer design system, usar componentes/tokens existentes y JS en archivo; no maque
 Después de implementar y de la autorización visual: entrada en LOG-CODEX, A25 **HECHO
 (Codex), a revisar** en DEFECTOS.md y DEFECTOS.html, contador real sin sumarlo a CERRADOS,
 contrato con las decisiones aceptadas, cuatro estados si cambia la suite, commit y push.
-Otro agente hace la verificación y decide el cierre. Hoy A25 permanece **Falta, definido**.
+Otro agente hace la verificación y decide el cierre. Hoy A25 permanece **Falta**, con
+reglas y excepción de corrección tras arrastre definidas; falta implementación.
+
+## 6. Pruebas previas reales — 06/10
+
+[Archivo de pruebas y resultado](../06-pruebas/PRU-02/evidencia/a25/README.md): 12 pruebas,
+15 aserciones; 3 fallos contra comportamientos actuales y 9 errores por funciones nuevas
+inexistentes. Solo `wings_testing_codex`, fuera de la suite compartida; no son 12 defectos
+reproducidos ni una implementación. No se modificó código de aplicación por este ensayo.

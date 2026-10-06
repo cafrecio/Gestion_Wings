@@ -11,6 +11,7 @@ Aceptados: primer importe declarado, corrección con motivo, un turno abierto y 
 Ambos seguimientos: A25 Falta, no implementado. No se inventa arqueo existente.
 Sin vistas, CSS, base real, servidor ni suite permanente modificados; cambios ajenos preservados.
 ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar.
+Previas propias: 12/15, 3 fallos reales + 9 métodos ausentes; [evidencia](../06-pruebas/PRU-02/evidencia/a25/README.md). Carlos conserva conteo/entrega al corregir rechazadas.
 
 ## 2026-10-06 — Codex CAB — Verificación A13/B1/A54/A55 documentada
 
