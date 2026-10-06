@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — la hoja de quien hace que estaba atrasada medio dia
+
+Al retomar en un chat nuevo, `QUIEN-HACE-QUE.md` no nombraba A56, A15/A16 ni el paquete de
+celular de Gemini, y seguia pidiendole a Carlos una redaccion que ya aprobo. Rehecha contra
+las bitacoras, `DEFECTOS.md` y git: 30 cerrados de 72; frenan A13 y B1, que esperan que Codex
+integre `a55-inscripcion` (tres commits fuera de main, comprobado con `git log`).
+Lo unico que espera a Carlos es el permiso para publicar A15/A16, que Codex dejo preparado y
+sin commit. Sumadas a la hoja las reglas del marco de 375 y de la carpeta compartida.
+No verificado por mi: cuantas pantallas alcanza el cambio de `app.css` de Gemini.
+Solo documentacion; el trabajo preparado de Codex no se toco.
+
 ## 2026-10-06 — Claude CyE — A37 verificado y cerrado
 
 Gemini rehizo la evidencia desde la aplicacion y saco la maqueta escrita a mano. Verificado

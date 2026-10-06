@@ -1,57 +1,68 @@
-# Quién hace qué — 06/10/2026, 19:30
+# Quién hace qué — 06/10/2026, 14:00
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
 decide algo. Si esto no coincide con la realidad, lo que manda es la realidad y hay que
 corregirlo acá en el momento.
 
+Avance: **30 cerrados de 72**. Frenan dos, A13 y B1.
+
 ## Esperando a Carlos
 
 | Qué espera | De quién salió | Desde |
 |---|---|---|
-| **Nada por decidir de A25.** Reglas y capturas aprobadas; falta control independiente, no otra aprobación de Carlos | Codex | 06/10 |
+| **Permiso para publicar A15 y A16 en main.** El trabajo está terminado y preparado en la carpeta (45 archivos), sin commit: Codex no publica en main sin autorización directa | Codex | 06/10 |
+
+Nada más. La redacción del renglón de inscripción (A55) y el diseño de A25 y de A15/A16
+ya están aprobados.
+
+## Lo que frena: A13 y B1
+
+Arreglados, pero en la rama `a55-inscripcion`, tres commits sin integrar a main
+(`31194c2`, `459ec42`, `bbe722d`). Carlos aprobó la redacción el 06/10. **Falta que Codex
+aplique el texto aprobado e integre la rama**, y que otro agente verifique.
+
+## Esperando verificación de otro agente
+
+| Qué | Lo hizo | Quién puede verificar |
+|---|---|---|
+| **A25** — declarar el efectivo y arquear el cajón (`30f38f8`) | Codex | Gemini o Claude |
+| **Paquete de celular** — A14, A20, A27, A28, A33, A36, A40, A41, A53 (`26a67c6`, retoque `20dc5ae`) | Gemini | Codex o Claude |
+| **A15 y A16** — aviso al programar clases y horarios por día | Codex | Gemini o Claude, una vez publicado |
+| **A13, B1 y A55** — segunda vuelta | Claude | Codex, al integrar la rama |
 
 ## Gemini
 
 | Tarea | Estado |
 |---|---|
-| **P2 Entrega 1 — Cobranza** | **Cerrada y aprobada** por Codex en la segunda vuelta |
-| **Verificar A11, A43 y permisos** | **Hechas y aprobadas**; A29, A30, A31 y A43 quedan cerrados |
-| **P2 Entrega 2** — cobrar desde la ficha (A17), recibos (A34), cobro adelantado (A3) | **Cerrada**: implementada por Gemini y verificada por Claude el 05/10 |
-| **Verificar P1, la primera carga por Excel de Codex** | **Verificada y aprobada** el 05/10 (`LOG GEM CYE`). Informe en `VERIFICACION-P1.md` |
-| P2 Entrega 3 — pantallas en celular que quedan (A27, A28, A33, A36, A37, A40, A53) | Sin asignar; lista para iniciar |
+| **Paquete de celular** (A14, A20, A27, A28, A33, A36, A40, A41, A53) | **HECHO el 06/10, a revisar.** Incluye lo que era la Entrega 3 de P2 |
+| **Completar las capturas de su cambio en `app.css`** | **Pendiente.** El cambio alcanza a muchas más pantallas que las capturadas; sin eso no se puede verificar el paquete |
+| Verificar A4 y A5 de Codex | **Hecha el 06/10** (`94e368e`): cerrados |
+| A37 — ficha del alumno en celular | **Cerrado**, verificado por Claude el 06/10 |
+| P2 Entregas 1 y 2, A11, A43, permisos, P1 | Cerradas |
 
 ## Codex
 
 | Tarea | Estado |
 |---|---|
-| **A11, A43 y permisos** | **Cerrados**, verificados por Gemini |
-| **Verificar la Entrega 1 de Cobranza** | **Hecha**: aprobada en la segunda vuelta; de ahí salieron A53, A54 y A55 |
-| **P1 — primera carga por Excel** | **Aprobada** por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
-| **A4 y A5 — los formularios que frenan** | **CERRADOS el 06/10**, verificados por Gemini (`94e368e`), incluido el aviso al salir sin guardar que Codex no había podido probar |
-| **A25 — declarar el efectivo y arquear el cajón** | **HECHO el 06/10** (`30f38f8`), con el contrato de Caja-Cashflow en V5. **Falta que otro agente lo verifique** |
-| **Verificar A13, B1, A54 y A55 de Claude** | **Hecha el 06/10.** A54 cerrado; A55, A13 y B1 devueltos con observaciones |
-| **A25 — apertura y arqueo** | **HECHO (Codex), a revisar**, commit 30f38f8. Diseño aprobado por Carlos; 468 pruebas aprobadas/2 omitidas, 3116 aserciones. Otro agente verifica; sin deploy |
+| **Aplicar el texto aprobado e integrar `a55-inscripcion`** | **Pendiente.** Es lo que destraba A13 y B1 |
+| **A15 y A16 — las clases** | **HECHO el 06/10, a revisar.** Sin commit: espera el permiso de Carlos para publicar. Suite propia: 486 aprobadas y 2 omitidas |
+| **Verificar A56 de Claude** | **Hecha el 06/10** (`ad7f9fb`): cerrado |
+| **A25 — apertura y arqueo** | **HECHO el 06/10** (`30f38f8`), contrato de Caja-Cashflow en V5. Falta que otro agente lo verifique |
+| P1 — primera carga por Excel | Aprobada por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
+| A4, A5, A11, A43, permisos, A54 | Cerrados |
 
 ## Claude
 
+**Desde el 06/10 Claude no programa.** Escribe los prompts, verifica, y mantiene tableros
+y documentación. Las capturas las miran Codex o Gemini.
+
 | Tarea | Estado |
 |---|---|
-| B4, B14, A44 | **Cerrados** |
-| Una base de prueba por agente | **Hecho**, `AGENTS.md` §6-bis |
-| El hook de push, que además pisaba la base local en cada `git pull` | **Arreglado dos veces**: volvió a aparecer el 05/10 y se sacó de nuevo |
-| Verificar P0 de Codex | **Hecho**; de ahí salió A43 |
-| **A54 y A55 — cada pantalla calcula la deuda por su cuenta** | **A54 cerrado.** A55 falla con dos deportes; Claude lo corrigió, **sin subir**: espera el OK de diseño |
-| **Verificar la Entrega 2 de Gemini** | **Hecha el 05/10**: A17 y A3 correctos; A34 estaba mal descrito, el botón de recibo ya existía |
-| **La lista de defectos y su tablero decían cosas distintas** | **Arreglado el 05/10**, con `DefectosNoDivergenTest` para que no se repita |
-| **A13 y B1 — el dueño no tiene caja** | **Devueltos por Codex**: el historial anulado mostraba el mes del pago. Claude lo corrigió, **sin subir**: espera el OK de diseño de Carlos |
-
-## Esperando una decisión de Carlos
-
-| Qué | Desde |
-|---|---|
-| **El renglón de la inscripción en la ficha del segundo deporte** — "Figura en su registro de Patín, para no cobrarla dos veces". Es el único cambio visible de los arreglos de A55, A13 y B1, que están hechos y probados pero **sin subir** | 06/10 |
-| **Qué hace Claude de ahora en más.** Carlos: "no vas a programar más". Queda en prompts, verificaciones, tableros y documentación | 06/10 |
+| **A56 — Cashflow en celular** | **Cerrado**, verificado por Codex el 06/10 |
+| **A13, B1 y A55** | Corregidos en `a55-inscripcion`; redacción aprobada. Esperan que Codex integre y verifique |
+| Verificar A37 de Gemini | **Hecha el 06/10**: cerrado |
+| B4, B14, A44, A54 | Cerrados |
 
 ## Cómo se evita el desorden
 
@@ -75,3 +86,9 @@ corregirlo acá en el momento.
    que lo corrige.** Si no se marca, se vuelve a hablar de él como pendiente y se paga dos
    veces el mismo trabajo. Lo cubre `DefectosNoDivergenTest`, que pone la suite en rojo si
    los dos archivos dejan de coincidir o si el avance de arriba no es el real.
+9. **Las capturas de celular van en un marco de 375**, no achicando la ventana de Chrome:
+   Windows no deja ventanas de menos de 500 píxeles y recorta. El control es capturar el
+   login: si sale cortado, el que mide mal es el método. Usar
+   `docs/06-pruebas/PRU-02/capturas-cashflow/marco-375.html`.
+10. **Los tres agentes comparten la carpeta.** Antes de commitear, mirar que no se esté
+    llevando trabajo ajeno sin commitear.
