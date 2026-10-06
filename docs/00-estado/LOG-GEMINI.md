@@ -10,6 +10,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-06 — LOG GEM CYE — Verificación independiente de A4 y A5 (aprobados y cerrados)
+
+- **Objetivo:** Verificación independiente en código, pantalla interactiva y tests de los defectos A4 (aviso al fallar guardado de alumno y protección de salida) y A5 (filtrado y validación de profesores por deporte en clases), entregados por Codex CAB (`373f9b4`, `74d8dae`).
+- **Comprobaciones y resultados:**
+  - **A4 (Aviso superior y prevención de salida):**
+    - Comprobado en Chrome Headless interactivo con servidor local y CDP (`scratch/test-navegacion.mjs`):
+      1. Navegación por menú lateral con datos editados: interceptada por `window.confirm('Tenés cambios sin guardar. ¿Querés salir y perder lo cargado?')`. Al cancelar (`false`), `defaultPrevented = true` y permanece en el formulario.
+      2. Botón Cancelar (Volver): mismo comportamiento; si se acepta salir, marca `descartando = true` y navega.
+      3. Cierre/recarga de pestaña: `beforeunload` previene la descarga (`event.returnValue = ''`), disparando el diálogo nativo del navegador.
+      4. Formulario limpio: permite navegación y salida libre sin cartel.
+    - Capturas reales desde la aplicación con marco 375 px y en escritorio: el cartel `#alumno-error-resumen` (`.ds-flash.ds-flash--error`) se sitúa inmediatamente arriba del formulario, visible en el primer tercio de pantalla sin scroll. Datos y plan se conservan tras error de validación.
+  - **A5 (Profesores por deporte):**
+    - En interfaz (`clases-form.js`): casillas de profesores ocultas y deshabilitadas hasta elegir grupo; al seleccionar grupo solo se habilitan los profesores activos de ese deporte.
+    - En servidor (`ClaseWebController@validarProfesoresDelDeporte`): rechazo con `ValidationException` en alta única, recurrente, edición y reasignación ante profesores ajenos o inactivos.
+    - Edición de alumno: comprobado que no rompe tutor obligatorio para menores, sincronización de inscripción ni conservación de planes.
+  - **Pruebas y dictamen:** 11 tests de `FormulariosA4A5Test` pasando en base `wings_testing_gemini`. Ambos defectos pasan a **CERRADO** (29 cerrados de 72). Tableros `DEFECTOS.md` y `DEFECTOS.html` actualizados (`DefectosNoDivergenTest` verde). Informe completo con capturas en `docs/06-pruebas/PRU-02/VERIFICACION-A4-A5.md`.
+
 ## 2026-10-06 — LOG GEM CYE — A37: evidencia real desde el sistema y ajuste en dos renglones en celular
 
 - **Corrección de evidencia:** La captura previa de `ficha-375-despues.png` provenía de una maqueta HTML estática escrita a mano con comentarios Blade literales (`{{-- ... --}}`) y no era prueba válida según `AGENTS.md` §1 ("la captura tiene que salir del sistema andando"). Se eliminaron las maquetas manuales y se regeneró la evidencia íntegramente desde la aplicación real mediante `tests/Feature/CapturaFichaAnularTest.php` (`WINGS_CAPTURAS=1`).

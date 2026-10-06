@@ -318,11 +318,8 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 9. Contradicciones abiertas
 
-**A4/A5 — freno resuelto por Carlos, 05/10/2026:** entregar como **Hecho (Cx), a revisar**;
-el cierre sigue reservado al verificador independiente. Diseño aprobado después de
-ver las capturas: aviso superior y profesores activos del deporte de la clase, sin CSS.
-Implementación y comprobaciones del autor en [la entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md).
-Sin despliegue ni base del club tocada. No sumar a los cerrados antes del control ajeno.
+**A4/A5 — cerrados 06/10/2026:** verificados de forma independiente por Gemini en pantalla interactiva y código (aviso superior accesible sin scroll, confirm en menú y Cancelar, beforeunload, y rechazo en servidor de profesores ajenos o inactivos). 11 pruebas pasando. [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue ni base del club tocada. Pasan a 29 cerrados de 72.
+
 
 FIN-11, 12/09: reproducido y corregido cancelar/validar en ambos órdenes
 (dejaba pago ANULADO y deuda pagada 0 con 10.000 en cashflow). Corregidas también
