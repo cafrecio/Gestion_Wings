@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CyE — Bitácora abreviada y archivo conservado
+
+Carlos pidió reducir la bitácora y publicarla en GitHub.
+Cinco entradas antiguas pasan al histórico; quedan cinco recientes y esta entrada.
+Corte previo completo conservado byte por byte, incluidas decisiones y autorizaciones.
+Decisiones vigentes A25/A4/A5 y antecedentes A13/A54 ya enlazados en el resumen común.
+Índice reúne los archivos anteriores y accesos a evidencias desde su nueva ubicación.
+Control documental: integridad, enlaces y diff; sin ejecutar suite ni tocar aplicación.
+Siguiente: continuar la tarea asignada; histórico solo por tema o fecha.
+
 ## 2026-10-06 — Codex CyE — Celular: seis cierres, tres devoluciones y T1 devuelto
 
 Verificación independiente del paquete Gemini sobre main 6f9d214; aplicación intacta.
@@ -62,87 +72,4 @@ Ensayo documental 1/24; existentes signo/celular/tableros 7/24 verdes. Sin más 
 Cambios de Gemini preservados; sin vistas/CSS/base del club/producción tocados.
 Siguiente: Carlos decide A15; relevar A16 y proponer carga por día sin repetir grupo/rango/profesor.
 
-## 2026-10-06 — Codex CAB — Decisiones A25 consolidadas en el contrato
-
-Pedido de Carlos: modificar el contrato con sus respuestas y dejar aviso común.
-[Contrato Caja/Cashflow V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): diez decisiones con ejemplos; sin reglas nuevas respecto de V5.v1.
-Cajón compartido, herencia confirmada/motivo, conteo, cambio/retiro, diferencias y efectivo ADMIN separado.
-Rechazadas conservan lo contado/entregado y el turno siguiente; validación exige cierre contado.
-Resumen compartido y relevamiento enlazan la versión vigente para Codex, Claude y Gemini.
-Solo documentación: enlaces/diff comprobados; sin suite, aplicación, base ni servidor tocados.
-A25 sigue HECHO (Codex), a revisar por otro agente; no cerrada ni desplegada.
-
-## 2026-10-06 — Codex CAB — A25 implementada, diseño aprobado; a revisar
-
-Apertura explícita, recibido/heredado y motivo; un cajón compartido con un turno abierto.
-ADMIN configura el medio una vez y guarda sus cobros aparte; cuenta/cierra antes de validar.
-Arqueo, contado, diferencia, cambio/entrega; faltantes no bloquean ni crean ajustes contables.
-Rechazadas conservan contado/entrega y actor/fecha originales, sin alterar el turno siguiente.
-26 pruebas nuevas; suite propia 468 aprobadas/2 omitidas, 3116 aserciones, 181,44 s, sin fallas.
-PHP/Blade/build verdes. Carlos aprobó cinco pantallas escritorio/375: «OK, aprobado» y «Sí».
-[Entrega, límites y capturas reales](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md); sin CSS ni base real/servidor tocados.
-Contrato/ER V5, ambos seguimientos y cuatro estados actualizados. HECHO (Codex), no CERRADO.
-Código 30f38f8; integración e3b268a con 94e368e/a89ebbe solo documental. Push recibido en main y pull --ff-only al día: HEAD local/remoto e3b268a comprobados 06/10. Otro agente verifica; sin deploy.
-
-## 2026-10-06 — Codex CAB — A25 relevado, decisiones antes de programar
-
-Verificación previa publicada en ddefe00: HEAD y main remoto iguales; pull al día.
-A25: apertura sin importe y cierre sin conteo/comparación; confirmado en cuerpos y migraciones.
-Carlos definió separar cambio/retiro, heredar último cierre del club con confirmación,
-un cajón compartido y cierre con esperado/contado/diferencia para revisión ADMIN.
-Aceptados: primer importe declarado, corrección con motivo, un turno abierto y cambio retenido elegible.
-[Decisiones, límites y pruebas previstas](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-Ambos seguimientos: A25 Falta, no implementado. No se inventa arqueo existente.
-Sin vistas, CSS, base real, servidor ni suite permanente modificados; cambios ajenos preservados.
-ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar.
-Previas propias: 12/15, 3 fallos reales + 9 métodos ausentes; [evidencia](../06-pruebas/PRU-02/evidencia/a25/README.md). Carlos conserva conteo/entrega al corregir rechazadas.
-
-## 2026-10-06 — Codex CAB — Verificación A13/B1/A54/A55 documentada
-
-Ensayos reales del 05/10 sobre 4571dbc/8869263; filas propias releídas el 06/10.
-A54 pasa y queda CERRADO por el verificador; A55 falla con dos deportes ($0/$5.000).
-A13/B1: reversión financiera pasa; historial anulado y dibujo del contraasiento fallan.
-Tres hallazgos dentro de esos IDs, sin duplicar números; Claude corrige. Ambos seguimientos 26/71.
-Cierre operativo comprobado por servicio, no por pantalla; concurrencia limitada a tres órdenes.
-Selección 23/106 y ensayo HTTP 2/9 el 05/10; no suite completa nueva ni aumento permanente.
-[Informe y evidencia ordenada](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md); herramientas aisladas bajo docs.
-Retirados generador/HTML redundantes y tres capturas con assets incompletos; cambios ajenos preservados.
-Sin base del club ni servidor tocados; publicación se comprueba al terminar. Sigue A25, decisiones antes de programar.
-
-## 2026-10-05 — Codex CAB — A4/A5 hechos, a revisar
-
-Carlos aprobó aviso superior y profesores activos del deporte de la clase; pidió Hecho (Cx), a revisar.
-A4: resumen visible, datos/plan conservados y advertencia de salida; A5: filtro y rechazo servidor.
-JavaScript propio/Vite; sin CSS ni permisos nuevos. Backend inicial A5 entró con 8869263 de Claude.
-Previas: 7 rojas/2 verdes, 27 aserciones; específica final: 11/39 verdes.
-Suite propia wings_testing_codex: 437 aprobadas, 1 omitida, 2949 aserciones; última vuelta 129,48 s. PHP/Blade/build OK.
-Diez capturas reales escritorio/375; Chrome mostró confirm al salir, pero se trabó al cancelar: revisor debe comprobar retención y cierre.
-[Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md); ambos seguimientos y cuatro estados actualizados.
-Sin base del club ni servidor tocados; no desplegado ni cerrado. Sigue control independiente.
-Retoque A4: motivo en grilla, rótulo arriba e ícono de Descripción pedido por Carlos; sin CSS. Suite actual (incluye A37): 438 aprobadas, 1 omitida, 2960 aserciones; 134,62 s.
-Capturas nuevas en galería/maqueta/tablero/HTML del plan: Carlos señaló la omisión y se corrigió. Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push; después A13/B1/A54/A55.
-
-
-Entrega P1 archivada intacta en [LOG-CODEX-P1-IMPLEMENTADA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-P1-IMPLEMENTADA.md).
-
-Preparación P1 y freno inicial archivados intactos en [LOG-CODEX-P1-AUTORIZADA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-P1-AUTORIZADA.md).
-
-Verificación de Cobranza Entrega 1 archivada intacta en [LOG-CODEX-COBRANZA-ENTREGA1.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-COBRANZA-ENTREGA1.md).
-
-A29/A30/A31 archivados intactos en [LOG-CODEX-A29-A30-A31.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A29-A30-A31.md).
-
-A43 entregada archivada intacta en [LOG-CODEX-A43-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-ENTREGA.md).
-
-Preparación A43/permisos archivada intacta en [LOG-CODEX-A43-PREPARACION.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-PREPARACION.md).
-
-Entrega A11 archivada en [LOG-CODEX-A11-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A11-ENTREGA.md).
-
-Control de Cobranza/propuesta A11 archivado en [LOG-CODEX-CONTROL-A11.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-CONTROL-A11.md).
-
-Entrada de maqueta P1 archivada intacta en [LOG-CODEX-MAQUETA-P1.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-MAQUETA-P1.md).
-
-Entrada P0 archivada en [LOG-CODEX-P0.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-P0.md); texto original conservado, acceso a evidencia indicado allí.
-
-Entradas anteriores archivadas intactas en [LOG-CODEX-ANTES-A43.md](../99-archivo/bitacoras/2026-10-04/LOG-CODEX-ANTES-A43.md).
-
-Freno inicial A4/A5 archivado intacto en [LOG-CODEX-A4-A5-FRENO.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A4-A5-FRENO.md).
+[Índice del histórico](../99-archivo/bitacoras/2026-10-06/INDICE-CODEX.md) · [Corte completo anterior](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-CORTE-2.md).
