@@ -43,7 +43,8 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * a resources/js/configuraciones.js, cargado por @vite en esa pantalla.
      */
     // A4/A5 (05/10): alumnos/_form y clases/create/edit usan módulos propios.
-    private const BLOQUES_SCRIPT_PERMITIDOS = 16;
+    // A27 (06/10): caja/movimiento extrae su script a resources/js/caja-movimiento.js.
+    private const BLOQUES_SCRIPT_PERMITIDOS = 15;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

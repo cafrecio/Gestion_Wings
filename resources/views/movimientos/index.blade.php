@@ -11,10 +11,17 @@
 <form method="GET" action="{{ route('web.movimientos.index') }}">
     <div class="filtros-card mb-4">
         <div class="filtros-row" style="gap:8px;">
-            <input type="date" name="desde" value="{{ request('desde') }}"
-                   class="filtros-control" style="width:auto;" title="Desde">
-            <input type="date" name="hasta" value="{{ request('hasta') }}"
-                   class="filtros-control" style="width:auto;" title="Hasta">
+            <div style="display:inline-flex; align-items:center; gap:6px;">
+                <label for="filtro-desde" style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted); white-space:nowrap;">Desde</label>
+                <input type="date" id="filtro-desde" name="desde" value="{{ request('desde') }}"
+                       class="filtros-control" style="width:auto;">
+            </div>
+
+            <div style="display:inline-flex; align-items:center; gap:6px;">
+                <label for="filtro-hasta" style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted); white-space:nowrap;">Hasta</label>
+                <input type="date" id="filtro-hasta" name="hasta" value="{{ request('hasta') }}"
+                       class="filtros-control" style="width:auto;">
+            </div>
 
             <select name="tipo" class="filtros-control filtros-select" style="width:auto;">
                 <option value="">Ingreso / Egreso</option>
@@ -51,9 +58,9 @@
             </select>
             @endif
 
-            <div class="filtros-actions">
-                <x-ds.button variant="primary" type="submit">Filtrar</x-ds.button>
+            <div class="filtros-actions flex items-center justify-end gap-2 w-full sm:w-auto">
                 <x-ds.button variant="secondary" href="{{ route('web.movimientos.index') }}">Limpiar</x-ds.button>
+                <x-ds.button variant="primary" type="submit">Filtrar</x-ds.button>
             </div>
         </div>
     </div>
@@ -72,7 +79,7 @@
 </div>
 
 @if($movimientos->isNotEmpty())
-    <div class="alumno-card" style="padding:0; overflow:hidden;">
+    <div class="alumno-card" style="padding:0; overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
             <colgroup>
                 <col style="width:85px">

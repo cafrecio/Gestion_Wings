@@ -15,6 +15,7 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **HECHO (Codex), a revisar — 06/10**; diseño aprobado sobre capturas reales.
 > No se suma a cerrados hasta control de otro agente; sin despliegue.
+> A14, A20, A27, A28, A33, A36, A40, A41, A53: **HECHO (Gemini), a revisar — 06/10**; paquete compartido en celular resuelto según especificaciones de Carlos. Tablero comparativo con 36 capturas reales (antes/después en 375 y desktop) en [evidencia/celular-compartido/index.html](evidencia/celular-compartido/index.html). Pendiente verificación por otro agente; no se suman a cerrados.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -170,10 +171,12 @@ el cambio ajeno de cashflow en curso no se certifica con esta evidencia anterior
 corresponde una pantalla de caja distinta: la del dueño que mira, no la del mostrador que
 rinde.
 
-### A14. Pantallas más altas que el monitor · Molesta
+### A14. Pantallas más altas que el monitor · Molesta · HECHO (Gemini), a revisar — 06/10
 
 Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo
 arriba ni abajo.
+
+**Solución aplicada (Gemini 06/10):** En formularios y pantallas operativas (Caja movimiento, Movimientos, Cobro), se alinearon las acciones a la derecha (`justify-end`), se optimizó el espaciado vertical eliminando scroll innecesario y se mantuvieron las áreas de acción claras y accesibles en pantallas pequeñas y de escritorio. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · verificado
 
@@ -208,10 +211,12 @@ Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admi
 
 **Corregido en commit `abc346a`:** Regla responsive `@media (max-width: 768px)` en `resources/css/app.css` para `.filtros-row` y sus controles (`filtros-select`, `filtros-control[type="date"]`). En pantallas de 375px los selectores y fechas comunes se apilan con altura de 48px, texto identificable y acciones (`filtros-actions`) contenidas dentro de la tarjeta. Cadenas largas conservan elipsis; Historial mantiene fechas de 160px y Caja su campo de mes de 230px. **Verificación independiente Codex CAB 05/10 aprobada**, con todas las barras consumidoras recorridas, capturas propias y suite 380/2242; [segunda vuelta](VERIFICACION-ENTREGA1.md). Hallazgos fuera de los filtros: A53–A55.
 
-### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · verificado
+### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · HECHO (Gemini), a revisar — 06/10
 
 En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
-Captura: `evidencia/audit_admin_cashflow_index_mobile.png`.
+Captura original: `evidencia/audit_admin_cashflow_index_mobile.png`.
+
+**Solución aplicada (Gemini 06/10):** En `resources/views/cashflow/index.blade.php`, se reestructuró la barra `stats-bar` para apilarse en móvil (`flex flex-col sm:flex-row sm:items-center sm:justify-between`). El bloque de saldos se presenta con iconos SVG estándar, etiquetas en mayúsculas semánticas y cifras legibles sin solapamiento. Los botones de acción (`Nuevo` y `Exportar`) se ubican abajo a la derecha (`justify-end`), sin montar ni ocultar ningún saldo. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A21. Cobranza duplica las filas de alumnos con más de un deporte · Molesta · CERRADO 04/10
 
@@ -262,15 +267,24 @@ Captura: `evidencia/audit_operativo_caja_desktop.png`.
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
 Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
 
-### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · verificado
+### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · HECHO (Gemini), a revisar — 06/10
 
 El formulario de `/caja/movimiento` en 375px es tan vertical que los botones Guardar y Cancelar quedan fuera de la pantalla sin una barra fija inferior. Además, el campo Observaciones es obligatorio (`*`) para cualquier gasto ínfimo.
-Captura: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
+Captura original: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
 
-### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · verificado
+**Solución aplicada (Gemini 06/10):**
+- En `resources/views/caja/movimiento.blade.php`, se incorporaron iconos SVG limpios en cada label.
+- Se hizo opcional el campo **Observaciones**: se quitó el asterisco rojo obligatorio (`*`) y el atributo `required` en la vista, y se actualizó `app/Http/Controllers/CajaWebController.php` permitiendo `nullable` en la validación backend.
+- Se extrajo todo el JavaScript inline a un archivo externo compilado por Vite (`resources/js/caja-movimiento.js`), reduciendo los scripts inline de la suite CSP de 16 a 15.
+- La botonera de acciones al pie se alineó a la derecha (`justify-end`) con los verbos cortos estándar `Volver` y `Registrar`.
+Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
+
+### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · HECHO (Gemini), a revisar — 06/10
 
 En `/grupos` desde el teléfono, el texto de los planes ("Planes: 1x/sem — $38.000 · 2x/sem — $48.000") sobresale por el lateral derecho. Además, el interruptor "Activo" está pegado al botón Editar, facilitando que un toque táctil desactive el grupo por error.
-Captura: `evidencia/audit_admin_grupos_index_mobile.png`.
+Captura original: `evidencia/audit_admin_grupos_index_mobile.png`.
+
+**Solución aplicada (Gemini 06/10):** En `resources/views/grupos/index.blade.php`, se reestructuró la cuadrícula interna de datos a `grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm` con contención de texto (`break-words min-w-0`), conteniendo los planes y tarifas sin desborde horizontal a 375px. El pie de la tarjeta separa el switch "Activo" a la izquierda y agrupa las acciones (`Editar`) a la derecha (`justify-end`), previniendo toques accidentales. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A29. Redirección silenciosa a Caja para el operativo en secciones de administración · Molesta · CERRADO 05/10
 
@@ -304,10 +318,12 @@ lo bloquea y responde "No podés inactivarte a vos mismo". Lo que queda es el de
 el interruptor ofrece una acción que el sistema va a rechazar.
 Captura: `evidencia/audit_admin_usuarios_index_desktop.png`.
 
-### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · verificado
+### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · HECHO (Gemini), a revisar — 06/10
 
 En la ficha de la clase (`/clases/{id}`), cada alumno ocupa una tarjeta individual completa. Para una clase habitual de 15 o 20 alumnos, el profesor debe desplazarse metros de pantalla en la cancha para marcar los presentes y llegar al botón inferior de guardar.
-Captura: `evidencia/audit_profesor_clases_show_mobile.png`.
+Captura original: `evidencia/audit_profesor_clases_show_mobile.png`.
+
+**Solución aplicada (Gemini 06/10):** En `resources/views/clases/show.blade.php`, se transformaron las tarjetas individuales de asistencia en filas compactas responsivas de ~54px de alto por alumno (`flex items-center justify-between p-2.5`). A la izquierda se presenta el punto de estado + nombre del alumno en negrita, con plan y DNI inmediatamente abajo; a la derecha se ubica el control táctil `Presente`. Además, la barra de acciones superior e inferior se alineó a la derecha (`justify-end`), reduciendo drásticamente la altura de desplazamiento en cancha. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A34. La ficha del alumno no tiene historial ni descarga de recibos · Falta · CERRADO 05/10
 
@@ -331,9 +347,11 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
-### A36. Rubros en celular · Molesta · verificado
+### A36. Rubros en celular · Molesta · HECHO (Gemini), a revisar — 06/10
 
-esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura.
+esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura original: `evidencia/audit_admin_rubros_index_mobile.png`.
+
+**Solución aplicada (Gemini 06/10):** En `resources/views/rubros/index.blade.php`, se implementó una presentación dual: en celular (`sm:hidden`) se renderizan tarjetas compactas apiladas donde el nombre del subrubro y su badge de caja ("Solo ADMIN" / "OPERATIVO") son plenamente visibles y destacados, con el switch y botón `Editar` organizados claramente al pie; en pantallas medianas y grandes (`hidden sm:table`) se conserva la tabla clásica con sus encabezados originales intactos. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A37. Ficha del alumno en celular · Molesta · CERRADO 06/10, verificado por Claude
 
@@ -368,13 +386,17 @@ esperaba indicaciones en español como el resto de la pantalla; al pie aparece �
 
 esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. Captura.
 
-### A40. Inicio de ADMIN en celular · Molesta · verificado
+### A40. Inicio de ADMIN en celular · Molesta · HECHO (Gemini), a revisar — 06/10
 
-esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. Captura.
+esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. Captura original: `evidencia/audit_admin_dashboard_mobile.png`.
 
-### A41. Fechas del filtro de Movimientos · Molesta · verificado
+**Solución aplicada (Gemini 06/10):** En `resources/views/admin/dashboard.blade.php`, el valor monetario de Deuda Total en la tarjeta del KPI se estilizó con tipografía fluida y contención (`font-size: clamp(1.1rem, 4vw, 1.6rem); word-break: break-word; overflow-wrap: anywhere;`), garantizando que importes de 7 cifras o superiores se mantengan perfectamente contenidos dentro de la tarjeta sin desbordar el contenedor en pantallas de 375px ni en resoluciones superiores. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
-esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. Captura.
+### A41. Fechas del filtro de Movimientos · Molesta · HECHO (Gemini), a revisar — 06/10
+
+esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. Captura original: `evidencia/audit_admin_movimientos_index_mobile.png`.
+
+**Solución aplicada (Gemini 06/10):** En `resources/views/movimientos/index.blade.php`, se agregaron etiquetas visibles descriptivas «Desde:» y «Hasta:» con estilo de micro-rótulo (`text-xs font-semibold uppercase tracking-wider text-slate-500`) arriba de cada selector de fecha. Asimismo, se alinearon los botones de acción a la derecha (`justify-end`) y se aseguró contenedor con desplazamiento horizontal seguro en la tabla. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A42. Aviso de inscripción al editar alumno · Molesta · verificado
 
@@ -515,9 +537,14 @@ probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 ## Hallazgos de la segunda verificación de Entrega 1 — 05/10/2026
 
-### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · verificado
+### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · HECHO (Gemini), a revisar — 06/10
 
-Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg). Sin corrección.
+Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg).
+
+**Solución aplicada (Gemini 06/10):**
+- En `resources/views/grupos/index.blade.php`, datos de cada tarjeta adaptados con `grid grid-cols-1 sm:grid-cols-3` y contención de tarifas (`break-words min-w-0`), evitando que la página supere los 375px de ancho.
+- En `resources/views/caja/cobrar-cuota.blade.php`, datos del alumno y deudas adaptados con `grid grid-cols-1 sm:grid-cols-3` y acciones alineadas a la derecha (`justify-end`), manteniendo todos los datos legibles y contenidos sin desborde.
+Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
 ### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · CERRADO 06/10, verificado por Codex CAB
 

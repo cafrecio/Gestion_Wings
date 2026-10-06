@@ -10,6 +10,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-06 — LOG GEM CYE — Paquete compartido de celular resuelto (A14, A20, A27, A28, A33, A36, A40, A41, A53)
+
+- **Objetivo:** Resolver el paquete de 9 defectos de desborde y visualización en celular (A14, A20, A27, A28, A33, A36, A40, A41, A53) según directivas explícitas de Carlos (cero JS inline, componentes compartidos y botones con verbos cortos alineados a la derecha).
+- **Implementación por pantalla:**
+  - **A40 (Dashboard Admin):** Deuda Total estilizada con tipografía fluida `clamp(1.1rem, 4vw, 1.6rem)` y contención `word-break: break-word`, asegurando cifras de más de 7 dígitos contenidas dentro de la tarjeta sin desborde.
+  - **A27 (Nuevo Movimiento de Caja):** Iconos SVG en cada label; campo `observaciones` opcional (retirado `*` y `required` en vista, validación `nullable` en `CajaWebController`); JS inline extraído a `resources/js/caja-movimiento.js` compilado por Vite (reduciendo scripts inline CSP a 15); botones `Volver` y `Registrar` alineados a la derecha (`justify-end`).
+  - **A20 (Cashflow):** Barra `stats-bar` adaptada con layout responsivo (`flex-col sm:flex-row`), iconos SVG y etiquetas uppercase semánticas; botones `Nuevo` y `Exportar` abajo a la derecha (`justify-end`) sin tapar los saldos.
+  - **A28 y A53 (Grupos y Cobrar cuota):** Cuadrículas de datos adaptadas a `grid-cols-1 sm:grid-cols-3` con contención de texto y tarifas (`break-words min-w-0`); en Grupos, interruptor Activo separado a la izquierda y botón `Editar` a la derecha.
+  - **A33 (Asistencia en Clases):** Filas de alumnos compactas de ~54px (`flex items-center justify-between`) con dot + nombre en negrita arriba, plan/DNI abajo y checkbox táctil `Presente` a la derecha; acciones superior e inferior con `justify-end`, eliminando el desplazamiento kilométrico.
+  - **A36 (Rubros):** Vista dual responsiva: tarjetas compactas apiladas en móvil (`sm:hidden`) con nombre y badge de caja ("Solo ADMIN" / "OPERATIVO") siempre visibles y legibles; tabla clásica conservada para desktop (`hidden sm:table`).
+  - **A41 y A14 (Filtro y Pantalla de Movimientos):** Rótulos visibles "Desde:" y "Hasta:" en mayúsculas semánticas sobre los selectores de fecha; botones con `justify-end` y tabla con desplazamiento horizontal seguro.
+- **Evidencia visual:** 36 capturas reales tomadas sobre el sistema corriendo con usuario autenticado (18 en escritorio 1280px y 18 en celular 375px con marco de iframe según `AGENTS.md` §1), integradas en el tablero interactivo `docs/06-pruebas/PRU-02/evidencia/celular-compartido/index.html`.
+- **Pruebas y verificación:**
+  - `SaldoInicialTipoCajaTest`: 8 passed (135 assertions).
+  - `CspSinCodigoIncrustadoTest`: 2 passed (2 assertions; constante de scripts inline actualizada a 15).
+  - `DocumentacionNoMienteTest`: 1 passed (7 assertions, 470 pruebas declaradas exactas).
+  - `DefectosNoDivergenTest`: 3 passed (12 assertions).
+  - `php artisan view:clear && php artisan view:cache`: Vistas compilan sin errores.
+- **Estado:** Actualizados `DEFECTOS.md` y `DEFECTOS.html` marcando los 9 defectos como `HECHO (Gemini), a revisar 06/10` (no cerrados) para control independiente de otro agente (§6a).
+
 ## 2026-10-06 — LOG GEM CYE — Verificación independiente de A4 y A5 (aprobados y cerrados)
 
 - **Objetivo:** Verificación independiente en código, pantalla interactiva y tests de los defectos A4 (aviso al fallar guardado de alumno y protección de salida) y A5 (filtrado y validación de profesores por deporte en clases), entregados por Codex CAB (`373f9b4`, `74d8dae`).

@@ -53,7 +53,7 @@
             <span class="alumno-dot alumno-dot--danger"></span>
             <h3 class="alumno-nombre">{{ $alumno->apellido }}, {{ $alumno->nombre }}</h3>
         </div>
-        <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="alumno-info grid grid-cols-1 sm:grid-cols-3 gap-2">
             <div class="info-item">
                 <span class="info-label">Saldo:</span>
                 <span class="info-value" style="font-weight:700; color:var(--color-danger);">
@@ -69,9 +69,9 @@
                 <span class="info-value ds-truncate">{{ $alumno->grupo->nombre_completo ?? '–' }}</span>
             </div>
         </div>
-        <div class="alumno-actions">
-            <x-ds.button variant="primary" href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
+        <div class="alumno-actions flex items-center justify-end gap-2 w-full">
             <x-ds.button variant="secondary" href="{{ route('web.alumnos.show', $alumno->id) }}">Ver</x-ds.button>
+            <x-ds.button variant="primary" href="{{ route('web.caja.cobrar', $alumno->id) }}">Cobrar</x-ds.button>
         </div>
     </div>
 @empty

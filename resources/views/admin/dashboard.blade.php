@@ -20,7 +20,7 @@
 
         <div class="filtros-card" style="text-align: center;">
             <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted); margin-bottom: 6px;">Deuda total</p>
-            <p style="font-size: 1.6rem; font-weight: 800; color: var(--color-danger); line-height: 1;">
+            <p style="font-size: clamp(1.1rem, 4vw, 1.6rem); font-weight: 800; color: var(--color-danger); line-height: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${{ number_format($totalDeudaPendiente, 0, ',', '.') }}">
                 ${{ number_format($totalDeudaPendiente, 0, ',', '.') }}
             </p>
         </div>

@@ -61,29 +61,41 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 </form>
 
 {{-- Stats --}}
-<div class="stats-bar mb-3">
-    <div class="stats-info" style="gap:12px 20px; display:flex; align-items:center; flex-wrap:wrap;">
-        <span>
+<div class="stats-bar mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div class="stats-info" style="gap:10px 16px; display:flex; align-items:center; flex-wrap:wrap;">
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
+            </svg>
             <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
-            <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">ingresos</span>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">ingresos</span>
         </span>
-        <span>
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-danger);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
+            </svg>
             <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
-            <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">egresos</span>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
         </span>
-        <span>
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-text-muted);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
             <strong>${{ number_format($saldoInicial, 0, ',', '.') }}</strong>
-            <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">saldo inicial</span>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">saldo inicial</span>
         </span>
-        <span>
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:{{ $balanceColor }};">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
+            </svg>
             <strong style="color:{{ $balanceColor }};">${{ number_format($balance, 0, ',', '.') }}</strong>
-            <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">balance</span>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">balance</span>
         </span>
-        <span style="font-size:0.78rem; color:var(--color-text-muted);">
+        <span style="font-size:0.75rem; color:var(--color-text-muted);">
             {{ $movimientos->total() }} movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
         </span>
     </div>
-    <div style="display:flex; gap:8px;">
+    <div class="flex items-center justify-end gap-2 w-full sm:w-auto">
         @if($mes || $tipoCajaId || $tipo)
             <a href="{{ route('web.cashflow.index', ['anio' => $anio]) }}"
                style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px;

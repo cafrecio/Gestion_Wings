@@ -95,7 +95,7 @@
             </div>
 
             {{-- Acciones --}}
-            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <div class="flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto">
 
                 {{-- Cancelar clase: panel inline (solo si no cancelada, no para profesor) --}}
                 @if(!$clase->cancelada && !$esProfesor)
@@ -308,38 +308,48 @@
 
     <div class="ds-card__rail ds-rail ds-rail--{{ $rail }}"></div>
 
-    <div class="ds-card__content">
+    <div class="ds-card__content" style="padding: 10px 14px;">
 
-        <div class="ds-card__header">
-            <span class="ds-dot ds-dot--{{ $dotEstado }}"></span>
-            <span style="font-weight:800; font-size:0.95rem;">
-                {{ $alumno->apellido }}, {{ $alumno->nombre }}
-            </span>
-        </div>
-
-        <div class="ds-card__info" data-cols="3" style="margin-top:8px;">
-            <div>
-                <span class="ds-info-label">Plan semana</span>
-                @if($planSemana)
-                    <span style="font-size:0.82rem; font-weight:600;
-                        color:{{ $excede ? 'var(--color-danger)' : ($asisSemana >= $planSemana ? 'var(--color-warning)' : 'var(--color-success)') }};">
-                        {{ $asisSemana }} de {{ $planSemana }}
-                        @if($excede) — Excede @elseif($asisSemana >= $planSemana) — Completo @endif
+        <div class="flex items-center justify-between gap-3">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="ds-dot ds-dot--{{ $dotEstado }} flex-shrink-0"></span>
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">
+                        {{ $alumno->apellido }}, {{ $alumno->nombre }}
                     </span>
-                @else
-                    <span style="font-size:0.82rem; color:var(--color-text-muted);">Sin plan</span>
-                @endif
+                </div>
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
+                    @if($planSemana)
+                        <span style="font-weight:600; color:{{ $excede ? 'var(--color-danger)' : ($asisSemana >= $planSemana ? 'var(--color-warning)' : 'var(--color-success)') }};">
+                            {{ $asisSemana }}/{{ $planSemana }}
+                            @if($excede) (Excede) @elseif($asisSemana >= $planSemana) (Completo) @endif
+                        </span>
+                    @else
+                        <span>Sin plan</span>
+                    @endif
+                    @if($alumno->dni)
+                        <span>· DNI {{ $alumno->dni }}</span>
+                    @endif
+                </div>
             </div>
-            <div>
-                <span class="ds-info-label">DNI</span>
-                <span style="font-size:0.82rem; color:var(--color-text);">{{ $alumno->dni ?? '–' }}</span>
+
+            <div class="flex-shrink-0">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"
+                       for="presente-{{ $alumno->id }}">
+                    <span class="hidden sm:inline">Presente</span>
+                    <input type="checkbox"
+                           id="presente-{{ $alumno->id }}"
+                           class="presente-checkbox"
+                           data-alumno-id="{{ $alumno->id }}"
+                           {{ $estaPresente ? 'checked' : '' }}
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
+                </label>
             </div>
-            <div></div>
         </div>
 
         {{-- Panel de exceso --}}
         <div id="exceso-{{ $alumno->id }}"
-             style="display:none; margin-top:8px; padding:10px 12px;
+             style="display:none; margin-top:8px; padding:8px 12px;
                     background:color-mix(in srgb, var(--color-danger) 8%, transparent);
                     border-radius:var(--radius-btn);
                     border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">
@@ -350,24 +360,10 @@
             <select id="motivo-{{ $alumno->id }}"
                     style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);
                            border:1px solid var(--color-border); background:var(--color-surface);
-                           color:var(--color-text); cursor:pointer; font-family:inherit;">
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">
                 <option value="EXTRA">Clase adicional (EXTRA)</option>
                 <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>
             </select>
-        </div>
-
-        <div class="ds-card__actions" style="margin-top:12px; padding-top:10px; border-top:1px solid var(--color-border);">
-            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;
-                          font-size:0.9rem; font-weight:700; user-select:none; width:fit-content;"
-                   for="presente-{{ $alumno->id }}">
-                <input type="checkbox"
-                       id="presente-{{ $alumno->id }}"
-                       class="presente-checkbox"
-                       data-alumno-id="{{ $alumno->id }}"
-                       {{ $estaPresente ? 'checked' : '' }}
-                       style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
-                Presente
-            </label>
         </div>
 
     </div>

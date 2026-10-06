@@ -71,7 +71,7 @@
                 <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
             </div>
 
-            <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="alumno-info grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <div class="info-item">
                     <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -98,25 +98,25 @@
                 </div>
             </div>
 
-            <div class="alumno-actions">
-                <x-ds.button variant="primary"
-                             href="{{ route('web.grupos.show', $grupo->id) }}">
-                    Ver
-                </x-ds.button>
-
+            <div class="alumno-actions flex flex-wrap items-center justify-end gap-2 w-full">
                 @if(auth()->user()->rol === 'ADMIN')
+                    <div class="mr-auto">
+                        <x-ds.toggle
+                            labelOn="Activo"
+                            labelOff="Inactivo"
+                            :checked="(bool) $grupo->activo"
+                            data-url="{{ route('web.grupos.toggle-activo', $grupo->id) }}"
+                        />
+                    </div>
                     <x-ds.button variant="secondary"
                                  href="{{ route('web.grupos.edit', $grupo->id) }}">
                         Editar
                     </x-ds.button>
-
-                    <x-ds.toggle
-                        labelOn="Activo"
-                        labelOff="Inactivo"
-                        :checked="(bool) $grupo->activo"
-                        data-url="{{ route('web.grupos.toggle-activo', $grupo->id) }}"
-                    />
                 @endif
+                <x-ds.button variant="primary"
+                             href="{{ route('web.grupos.show', $grupo->id) }}">
+                    Ver
+                </x-ds.button>
             </div>
 
         </div>

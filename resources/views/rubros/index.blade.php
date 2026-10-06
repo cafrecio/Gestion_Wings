@@ -48,8 +48,39 @@
         @endif
 
         {{-- Tabla de subrubros ─────────────────────────────────────────────── --}}
+        {{-- Subrubros: Desktop (tabla) y Móvil (tarjetas compactas) --}}
         @if($rubro->subrubros->isNotEmpty())
-            <table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:0.8rem; margin-bottom:0.5rem;">
+            {{-- Móvil --}}
+            <div class="sm:hidden space-y-2 mb-3">
+                @foreach($rubro->subrubros as $subrubro)
+                    <div style="padding:10px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface); {{ $subrubro->activo ? '' : 'opacity:0.6;' }}">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                            <span style="font-weight:700; font-size:0.85rem; color:var(--color-text);">
+                                {{ $subrubro->nombre }}
+                                @unless($subrubro->activo)<span style="font-size:0.7rem; color:var(--color-text-muted); font-weight:normal;">(inactivo)</span>@endunless
+                            </span>
+                            @if($subrubro->afecta_caja)
+                                <span style="font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--color-success) 12%, transparent); color:var(--color-success);">Caja</span>
+                            @endif
+                        </div>
+                        @if($subrubro->permitido_para)
+                            <p style="font-size:0.75rem; color:var(--color-text-muted); margin:4px 0 0;">Permitido para: {{ $subrubro->permitido_para }}</p>
+                        @endif
+                        @unless($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema)
+                            <div style="display:flex; align-items:center; justify-content:flex-end; gap:8px; margin-top:8px; padding-top:6px; border-top:1px solid var(--color-border);">
+                                <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
+                                <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>
+                                </form>
+                            </div>
+                        @endunless
+                    </div>
+                @endforeach
+            </div>
+
+            {{-- Desktop --}}
+            <table class="hidden sm:table" style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:0.8rem; margin-bottom:0.5rem;">
                 <colgroup>
                     <col>                        {{-- Nombre: toma el espacio restante --}}
                     <col style="width:140px;">   {{-- Permitido para --}}
@@ -95,13 +126,13 @@
         @php $rubroReservado = $rubro->es_reservado_sistema || ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
         @unless($rubroReservado)
-        <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
+        <div class="alumno-actions flex flex-wrap items-center justify-end gap-2 w-full" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
+            <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-right:auto;">Subrubro</a>
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
             <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>
-            <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-left:auto;">+ Subrubro</a>
         </div>
         @endunless
 
@@ -138,8 +169,39 @@
         @endif
 
         {{-- Tabla de subrubros ─────────────────────────────────────────────── --}}
+        {{-- Subrubros: Desktop (tabla) y Móvil (tarjetas compactas) --}}
         @if($rubro->subrubros->isNotEmpty())
-            <table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:0.8rem; margin-bottom:0.5rem;">
+            {{-- Móvil --}}
+            <div class="sm:hidden space-y-2 mb-3">
+                @foreach($rubro->subrubros as $subrubro)
+                    <div style="padding:10px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface); {{ $subrubro->activo ? '' : 'opacity:0.6;' }}">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                            <span style="font-weight:700; font-size:0.85rem; color:var(--color-text);">
+                                {{ $subrubro->nombre }}
+                                @unless($subrubro->activo)<span style="font-size:0.7rem; color:var(--color-text-muted); font-weight:normal;">(inactivo)</span>@endunless
+                            </span>
+                            @if($subrubro->afecta_caja)
+                                <span style="font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:999px; background:color-mix(in srgb, var(--color-success) 12%, transparent); color:var(--color-success);">Caja</span>
+                            @endif
+                        </div>
+                        @if($subrubro->permitido_para)
+                            <p style="font-size:0.75rem; color:var(--color-text-muted); margin:4px 0 0;">Permitido para: {{ $subrubro->permitido_para }}</p>
+                        @endif
+                        @unless($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema)
+                            <div style="display:flex; align-items:center; justify-content:flex-end; gap:8px; margin-top:8px; padding-top:6px; border-top:1px solid var(--color-border);">
+                                <a href="{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}" class="ds-btn-row ds-btn-row--sec">Editar</a>
+                                <form method="POST" action="{{ route('web.subrubros.toggle-activo', [$rubro->id, $subrubro->id]) }}" style="display:contents;">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>
+                                </form>
+                            </div>
+                        @endunless
+                    </div>
+                @endforeach
+            </div>
+
+            {{-- Desktop --}}
+            <table class="hidden sm:table" style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:0.8rem; margin-bottom:0.5rem;">
                 <colgroup>
                     <col>
                     <col style="width:140px;">
@@ -185,13 +247,13 @@
         @php $rubroReservado = $rubro->es_reservado_sistema || ($rubro->subrubros->isNotEmpty() && $rubro->subrubros->every(fn($s) => $s->es_reservado_sistema)); @endphp
         {{-- Acciones del card ──────────────────────────────────────────────── --}}
         @unless($rubroReservado)
-        <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
+        <div class="alumno-actions flex flex-wrap items-center justify-end gap-2 w-full" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem;">
+            <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-right:auto;">Subrubro</a>
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
             <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>
-            <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }} margin-left:auto;">+ Subrubro</a>
         </div>
         @endunless
 

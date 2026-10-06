@@ -23,8 +23,14 @@ if ($rubroActual) {
     @csrf
 
     {{-- ── Tipo I/E ─────────────────────────────────────────────────────── --}}
-    <div class="filtros-card mb-4" id="tipo-card" style="transition: border-left 0.2s;">
+    <div class="filtros-card mb-4" id="tipo-card"
+         data-rubro-actual="{{ $rubroActual }}"
+         data-subrubro-actual="{{ $subrubroActual }}"
+         style="transition: border-left 0.2s;">
         <p class="{{ $labelClass }}" style="margin-bottom:0.75rem;">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
             Tipo de movimiento <span class="form-required">*</span>
         </p>
         <div style="display:flex; gap:12px; margin-bottom:1.25rem;">
@@ -53,7 +59,12 @@ if ($rubroActual) {
 
             {{-- Tipo de caja --}}
             <div>
-                <label for="tipo_caja_id" class="{{ $labelClass }}">Medio de pago <span class="form-required">*</span></label>
+                <label for="tipo_caja_id" class="{{ $labelClass }}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    Medio de pago <span class="form-required">*</span>
+                </label>
                 <select id="tipo_caja_id" name="tipo_caja_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
@@ -68,7 +79,12 @@ if ($rubroActual) {
 
             {{-- Rubro --}}
             <div>
-                <label for="rubro_id" class="{{ $labelClass }}">Rubro <span class="form-required">*</span></label>
+                <label for="rubro_id" class="{{ $labelClass }}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                    </svg>
+                    Rubro <span class="form-required">*</span>
+                </label>
                 <select id="rubro_id" name="rubro_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
@@ -84,7 +100,12 @@ if ($rubroActual) {
 
             {{-- Subrubro --}}
             <div>
-                <label for="subrubro_id" class="{{ $labelClass }}">Subrubro <span class="form-required">*</span></label>
+                <label for="subrubro_id" class="{{ $labelClass }}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    Subrubro <span class="form-required">*</span>
+                </label>
                 <select id="subrubro_id" name="subrubro_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar rubro primero...</option>
@@ -103,7 +124,12 @@ if ($rubroActual) {
 
             {{-- Monto --}}
             <div>
-                <label for="monto" class="{{ $labelClass }}">Monto <span class="form-required">*</span></label>
+                <label for="monto" class="{{ $labelClass }}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Monto <span class="form-required">*</span>
+                </label>
                 <input type="text" id="monto" name="monto"
                        value="{{ old('monto') }}"
                        required data-money="true"
@@ -114,18 +140,23 @@ if ($rubroActual) {
 
             {{-- Observaciones --}}
             <div>
-                <label for="observaciones" class="{{ $labelClass }}">Observaciones <span class="form-required">*</span></label>
+                <label for="observaciones" class="{{ $labelClass }}">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                    Observaciones <span class="text-xs font-normal text-wings-muted">(opcional)</span>
+                </label>
                 <input type="text" id="observaciones" name="observaciones"
-                       value="{{ old('observaciones') }}" required maxlength="500"
+                       value="{{ old('observaciones') }}" maxlength="500"
                        class="w-full px-4 py-2.5 text-sm wings-input"
-                       placeholder="Descripción del movimiento">
+                       placeholder="Descripción del movimiento (opcional)">
                 @error('observaciones') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
             </div>
 
         </div>
     </div>
 
-    <div class="filtros-actions" style="justify-content:flex-end;">
+    <div class="filtros-actions flex items-center justify-end gap-2 w-full">
         <x-ds.button variant="secondary" href="{{ route('web.caja.index') }}">Cancelar</x-ds.button>
         <x-ds.button variant="primary" type="submit">Registrar</x-ds.button>
     </div>
@@ -135,84 +166,5 @@ if ($rubroActual) {
 @endsection
 
 @push('scripts')
-<script>
-(function () {
-    var rubrosData     = @json($rubros->map(fn($r) => ['id' => $r->id, 'tipo' => $r->tipo]));
-
-    var tipoIngreso = document.getElementById('tipo-ingreso');
-    var tipoEgreso  = document.getElementById('tipo-egreso');
-    var btnIngreso  = document.getElementById('btn-ingreso');
-    var btnEgreso   = document.getElementById('btn-egreso');
-    var card        = document.getElementById('tipo-card');
-    var selectRubro = document.getElementById('rubro_id');
-    var selectSub   = document.getElementById('subrubro_id');
-
-    var rubroActual    = '{{ $rubroActual }}';
-    var subrubroActual = '{{ $subrubroActual }}';
-
-    function actualizarBotonesTipo(tipo) {
-        if (tipo === 'INGRESO') {
-            btnIngreso.style.borderColor = 'var(--color-success)';
-            btnIngreso.style.color       = 'var(--color-success)';
-            btnIngreso.style.background  = 'color-mix(in srgb, var(--color-success) 8%, transparent)';
-            btnEgreso.style.borderColor  = 'var(--color-border)';
-            btnEgreso.style.color        = 'var(--color-text-muted)';
-            btnEgreso.style.background   = 'transparent';
-            card.style.borderLeft        = '4px solid var(--color-success)';
-        } else {
-            btnEgreso.style.borderColor  = 'var(--color-danger)';
-            btnEgreso.style.color        = 'var(--color-danger)';
-            btnEgreso.style.background   = 'color-mix(in srgb, var(--color-danger) 8%, transparent)';
-            btnIngreso.style.borderColor = 'var(--color-border)';
-            btnIngreso.style.color       = 'var(--color-text-muted)';
-            btnIngreso.style.background  = 'transparent';
-            card.style.borderLeft        = '4px solid var(--color-danger)';
-        }
-        filtrarRubros(tipo);
-    }
-
-    function filtrarRubros(tipo) {
-        var opts = selectRubro.querySelectorAll('option[data-tipo]');
-        opts.forEach(function (opt) {
-            opt.style.display = (!tipo || opt.dataset.tipo === tipo) ? '' : 'none';
-        });
-        if (selectRubro.value) {
-            var selected = selectRubro.querySelector('option[value="' + selectRubro.value + '"]');
-            if (selected && selected.style.display === 'none') {
-                selectRubro.value = '';
-                filtrarSubrubros('');
-            } else {
-                filtrarSubrubros(selectRubro.value);
-            }
-        }
-    }
-
-    function filtrarSubrubros(rubroId) {
-        var opts = selectSub.querySelectorAll('option[data-rubro]');
-        opts.forEach(function (opt) {
-            opt.style.display = (!rubroId || opt.dataset.rubro === String(rubroId)) ? '' : 'none';
-        });
-        if (selectSub.value) {
-            var sel = selectSub.querySelector('option[value="' + selectSub.value + '"]:not([style*="display: none"])');
-            if (!sel) selectSub.value = '';
-        }
-        if (!rubroId) {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar rubro primero...';
-        } else {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar...';
-        }
-    }
-
-    tipoIngreso.addEventListener('change', function () { if (this.checked) actualizarBotonesTipo('INGRESO'); });
-    tipoEgreso.addEventListener('change',  function () { if (this.checked) actualizarBotonesTipo('EGRESO'); });
-
-    selectRubro.addEventListener('change', function () { filtrarSubrubros(this.value); });
-
-    // Init
-    var tipoInicial = tipoIngreso.checked ? 'INGRESO' : 'EGRESO';
-    actualizarBotonesTipo(tipoInicial);
-    filtrarSubrubros(rubroActual);
-    if (subrubroActual) selectSub.value = subrubroActual;
-})();
-</script>
+@vite('resources/js/caja-movimiento.js')
 @endpush

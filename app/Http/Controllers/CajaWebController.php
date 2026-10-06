@@ -1096,7 +1096,7 @@ class CajaWebController extends Controller
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
             'monto'         => 'required|numeric|min:0.01',
-            'observaciones' => 'required|string|max:500',
+            'observaciones' => 'nullable|string|max:500',
         ]);
 
         try {

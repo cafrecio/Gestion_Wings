@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/js/configuraciones.js',
                 'resources/js/primera-carga.js',
                 'resources/js/caja-arqueo.js',
+                'resources/js/caja-movimiento.js',
             ],
             refresh: true,
         }),

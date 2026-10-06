@@ -1,4 +1,18 @@
 # Wings — Estado actual
+ 
+## Paquete de celular resuelto: A14, A20, A27, A28, A33, A36, A40, A41, A53 — HECHO (Gemini), a revisar 06/10/2026
+
+- **Defectos abordados:** A14 (formularios altos/scroll), A20 (botón Nuevo cashflow sobre saldo), A27 (caja movimiento botones fuera y observaciones), A28 (grupos tarifas desbordadas y switch pegado), A33 (asistencia scroll masivo), A36 (rubros superposición de encabezados), A40 (deuda total $1.263.000 desborda tarjeta), A41 (fechas Desde/Hasta sin rótulos en movimientos), A53 (tarjetas grupos y cobro cortan datos).
+- **Solución compartida:**
+  - `admin/dashboard.blade.php`: Deuda Total con font fluid `clamp` y contención sin desbordes.
+  - `caja/movimiento.blade.php`: Iconos SVG, observaciones opcional (backend `nullable`), extracción de JS inline a `resources/js/caja-movimiento.js` (scripts CSP reducidos a 15) y botones alineados a la derecha (`justify-end`).
+  - `cashflow/index.blade.php`: Barra `stats-bar` responsiva (`flex-col sm:flex-row`), etiquetas uppercase semánticas y botones de acción abajo a la derecha.
+  - `grupos/index.blade.php` y `caja/cobrar-cuota.blade.php`: Cuadrículas `grid-cols-1 sm:grid-cols-3` con contención de tarifas (`break-words min-w-0`), switch Activo separado y botones a la derecha.
+  - `clases/show.blade.php`: Filas compactas de ~54px por alumno con dot + nombre arriba, plan/DNI abajo y checkbox táctil a la derecha.
+  - `rubros/index.blade.php`: Vista dual con tarjetas apiladas compactas en móvil (`sm:hidden`) y tabla clásica en desktop (`hidden sm:table`).
+  - `movimientos/index.blade.php`: Rótulos visibles "Desde:" y "Hasta:", botones `justify-end` y contenedor con scroll horizontal seguro.
+- **Evidencia y pruebas:** 36 capturas reales en desktop (1280px) y móvil (marco 375px) en [Tablero comparativo](../06-pruebas/PRU-02/evidencia/celular-compartido/index.html). Suites `SaldoInicialTipoCajaTest`, `CspSinCodigoIncrustadoTest`, `DefectosNoDivergenTest` y `DocumentacionNoMienteTest` verdes. Vistas compilan sin errores.
+- **Estado:** Marcados `HECHO (Gemini), a revisar 06/10` en `DEFECTOS.md` y `DEFECTOS.html`. Pendiente verificación independiente de otro agente. Sin despliegue.
 
 ## A25 — HECHO (Codex), a revisar — 06/10/2026
 

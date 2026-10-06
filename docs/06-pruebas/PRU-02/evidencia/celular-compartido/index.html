@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Evidencia Visual — Comparativa ANTES vs DESPUÉS (9 Defectos Móviles)</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+    h1 { font-size: 1.6rem; margin-bottom: 4px; color: #fff; }
+    p.sub { color: #94a3b8; font-size: 0.9rem; margin-top: 0; margin-bottom: 24px; }
+    .card { background: #1e293b; border-radius: 12px; border: 1px solid #334155; padding: 20px; margin-bottom: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3); }
+    .card-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .badge { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #fee2e2; color: #b91c1c; }
+    .badge-ok { background: #064e3b; color: #6ee7b7; border: 1px solid #059669; }
+    .desc { font-size: 0.88rem; color: #cbd5e1; margin-bottom: 16px; line-height: 1.5; }
+    .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: start; }
+    .preview-box { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; }
+    .preview-box h4 { margin: 0 0 8px 0; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: space-between; }
+    .tag-antes { color: #f87171; font-weight: 700; }
+    .tag-despues { color: #34d399; font-weight: 700; }
+    .preview-box img { width: 100%; height: auto; border: 1px solid #475569; border-radius: 6px; display: block; }
+  </style>
+</head>
+<body>
+
+  <h1>Wings · Evidencia Visual: ANTES vs DESPUÉS</h1>
+  <p class="sub">Paquete de 9 defectos móviles resueltos con enfoque compartido. Capturas obtenidas del sistema real andando en base de pruebas mediante Chrome Headless a 1280px y celular a 375px dentro de marco iframe.</p>
+
+  <!-- 01. Login -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">01. Control del Método (Login)</h2>
+      <span class="badge-ok">Método Válido</span>
+    </div>
+    <div class="desc">
+      Comprobación canónica exigida por AGENTS.md: la pantalla de login entra 100% íntegra y centrada a 375px, validando que el método de marco mide la realidad del dispositivo sin recortar falsamente.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES</span></h4>
+        <img src="antes/01-login-celular-375.png" alt="Login Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS</span></h4>
+        <img src="despues/01-login-celular-375.png" alt="Login Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 02. A40 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">02. A40 — Dashboard Admin (Deuda total entra en tarjeta)</h2>
+      <span class="badge-ok">Resuelto A40</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> El importe $1.263.000 se desbordaba por la derecha de la tarjeta debido a una tipografía fija de 1.6rem.<br>
+      <strong>Después:</strong> Se implementó <code>clamp(1.1rem, 4vw, 1.6rem)</code> y contención por tarjeta. La cifra se adapta fluidamente a los 155px disponibles sin salirse de la caja.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (Desbordaba)</span></h4>
+        <img src="antes/02-admin-dashboard-celular-375.png" alt="Dashboard Admin Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (Dentro de card)</span></h4>
+        <img src="despues/02-admin-dashboard-celular-375.png" alt="Dashboard Admin Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 03. A20 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">03. A20 — Cashflow (Stats bar no monta saldo ni botón Nuevo)</h2>
+      <span class="badge-ok">Resuelto A20</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Los valores y el botón "Nuevo" se montaban sobre el saldo inicial y lo tapaban.<br>
+      <strong>Después:</strong> <code>stats-bar</code> responsiva (columna en celular, fila en desktop), etiquetas uppercase estilizadas con iconos SVG estándar y botón "Nuevo" ubicado abajo a la derecha accesible.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (Se montaba)</span></h4>
+        <img src="antes/03-cashflow-celular-375.png" alt="Cashflow Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (Limpio y ordenado)</span></h4>
+        <img src="despues/03-cashflow-celular-375.png" alt="Cashflow Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 04. A27 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">04. A27 — Nuevo Movimiento (Iconos, observaciones opcional y botones a la derecha)</h2>
+      <span class="badge-ok">Resuelto A27</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Formulario sin iconos en labels, observaciones marcado como obligatorio con asterisco, y botones de acción sin alinear.<br>
+      <strong>Después:</strong> Todos los labels cuentan con sus iconos SVG estándar del design system, campo Observaciones ahora es opcional con placeholder explicativo, JS inline extraído a <code>resources/js/caja-movimiento.js</code> compilado en Vite y botones alineados a la derecha.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES</span></h4>
+        <img src="antes/04-caja-movimiento-celular-375.png" alt="Caja Movimiento Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS</span></h4>
+        <img src="despues/04-caja-movimiento-celular-375.png" alt="Caja Movimiento Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 05. A28 y A53 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">05. A28 y A53 — Grupos (Tarjetas de 1 col, planes completos y switch separado)</h2>
+      <span class="badge-ok">Resuelto A28 & A53</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Forzaba 3 columnas fijas en cualquier ancho, cortando nombres de planes ("Principiante $..."). El switch Activo estaba pegado a Editar.<br>
+      <strong>Después:</strong> <code>alumno-info</code> se apila en 1 columna en móvil y 3 en desktop. Los planes se leen íntegros. El switch Activo queda separado a la izquierda y los botones de acción alineados a la derecha.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (Datos cortados)</span></h4>
+        <img src="antes/05-grupos-celular-375.png" alt="Grupos Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (Datos completos)</span></h4>
+        <img src="despues/05-grupos-celular-375.png" alt="Grupos Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 06. A53 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">06. A53 — Selector de Cobro / Cobrar Cuota (Tarjetas adaptadas)</h2>
+      <span class="badge-ok">Resuelto A53</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Las tarjetas de alumnos con deuda dividían la información en columnas angostas que comprimían los saldos y grupos.<br>
+      <strong>Después:</strong> Información apilada en móvil, saldos claros y botones [Ver] y [Cobrar] alineados a la derecha al alcance del pulgar.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES</span></h4>
+        <img src="antes/06-cobrar-selector-celular-375.png" alt="Cobrar Selector Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS</span></h4>
+        <img src="despues/06-cobrar-selector-celular-375.png" alt="Cobrar Selector Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 07. A33 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">07. A33 — Tomar Asistencia en Clases (Tarjetas ultra compactas)</h2>
+      <span class="badge-ok">Resuelto A33</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Cada alumno ocupaba 140px de alto con 3 filas y bordes internos innecesarios, requiriendo desplazamiento masivo de pantalla.<br>
+      <strong>Después:</strong> Fila compacta de ~54px por alumno (dot + nombre en fila superior, plan y DNI en subtítulo inferior, y checkbox Presente a la derecha). Entran 5 a 6 alumnos por pantalla. Botones superiores de la clase alineados a la derecha.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (140px / alumno)</span></h4>
+        <img src="antes/07-clase-asistencia-celular-375.png" alt="Clase Asistencia Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (54px / alumno)</span></h4>
+        <img src="despues/07-clase-asistencia-celular-375.png" alt="Clase Asistencia Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 08. A36 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">08. A36 — Rubros (Subrubros legibles en móvil)</h2>
+      <span class="badge-ok">Resuelto A36</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Una tabla con 358px de columnas fijas comprimía la columna "Nombre" a 0px en pantallas de 375px, volviéndola completamente invisible.<br>
+      <strong>Después:</strong> En pantallas pequeñas se renderiza una lista de tarjetas compactas y limpias donde el nombre del subrubro destaca con badge de caja, detalles de permisos y botones Editar / Pausar a la derecha. En pantallas de escritorio se conserva la tabla tradicional.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (Nombre cortado a 0px)</span></h4>
+        <img src="antes/08-rubros-celular-375.png" alt="Rubros Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (Nombre visible y claro)</span></h4>
+        <img src="despues/08-rubros-celular-375.png" alt="Rubros Celular Después">
+      </div>
+    </div>
+  </div>
+
+  <!-- 09. A41 y A14 -->
+  <div class="card">
+    <div class="card-header">
+      <h2 style="font-size:1.15rem; margin:0; color:#38bdf8;">09. A41 y A14 — Movimientos (Rótulos Desde/Hasta, tabla con scroll y datos reales)</h2>
+      <span class="badge-ok">Resuelto A41 & A14</span>
+    </div>
+    <div class="desc">
+      <strong>Antes:</strong> Los dos campos date de filtro eran idénticos sin indicar cuál era Desde y cuál Hasta. La tabla vacía no permitía validar filas y los botones estaban desalineados.<br>
+      <strong>Después:</strong> Rótulos visibles "Desde" y "Hasta", botones Filtrar y Limpiar alineados a la derecha, tabla con scroll horizontal suave sin desbordar el viewport de la página y poblada con movimientos reales.
+    </div>
+    <div class="comparison-grid">
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-antes">ANTES (Campos idénticos)</span></h4>
+        <img src="antes/09-movimientos-celular-375.png" alt="Movimientos Celular Antes">
+      </div>
+      <div class="preview-box">
+        <h4><span>Celular 375 px</span> <span class="tag-despues">DESPUÉS (Desde/Hasta claros)</span></h4>
+        <img src="despues/09-movimientos-celular-375.png" alt="Movimientos Celular Después">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
