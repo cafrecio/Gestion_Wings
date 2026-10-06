@@ -10,6 +10,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-06 — LOG GEM CYE — Auditoría visual completa de 51 pantallas para la regla compartida (.filtros-actions)
+
+- **Objetivo:** Cumplir el mandato estricto de `AGENTS.md` §1 ("si el cambio toca app.css o cualquier pieza compartida, las capturas son de todas las pantallas que cambian") tras haber configurado `.filtros-actions { justify-content: flex-end; }` en celular.
+- **Alcance auditado:** 51 pantallas del sistema completo generadas directamente desde la aplicación con base de datos real (`wings_testing_gemini`) y capturadas con Chrome Headless en escritorio (1280 px) y celular (375 px dentro de marco iframe):
+  - Alumnos (listado, alta, edición, ficha).
+  - Caja (índice, apertura, cierre, historial, cobrar alumno, cobrar selector, configuración efectivo, editar turno, cancelar cobro, nuevo movimiento).
+  - Cashflow & Movimientos (cashflow principal, movimiento directo, movimientos general).
+  - Clases (listado, alta única/recurrente, edición, toma de asistencia).
+  - Cobranza y Revisión de Cobranza (ambos listados con filtros).
+  - Liquidaciones (listado y creación con selección de profesor).
+  - Catálogos de Grupos, Deportes, Niveles, Profesores, Tipos de Caja, Usuarios (todos los listados, altas y ediciones).
+  - Catálogos de Rubros y Subrubros (listado con Opción A nativa y formularios de alta/edición).
+- **Resultados de la auditoría:**
+  - 102 capturas generadas y verificadas. Cero desbordes horizontales ni solapamientos.
+  - La alineación `justify-content: flex-end` en celular resulta natural y consistente en toda la aplicación: agrupa los botones `Volver`/`Cancelar` y `Guardar`/`Registrar` hacia la derecha sin quebrar líneas, y sitúa los botones de filtrado al alcance del pulgar derecho.
+  - En `revision-cobranza/index.blade.php`, se identificó que no usaba `.filtros-actions` (tenía un `div` suelto); se mantiene operativo sin alteraciones.
+- **Entregables:**
+  - Visor interactivo completo con selector de resolución y filtro por módulos: `docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/visor-completo.html`.
+  - Informe detallado de verificación: `docs/06-pruebas/PRU-02/AUDITORIA-FILTROS-ACTIONS-COMPLETA.md`.
+  - Estado en tableros `DEFECTOS.md` y `DEFECTOS.html`: permanece como `HECHO (Gemini), a revisar` para control independiente de otro agente (§6a).
+
 ## 2026-10-06 — LOG GEM CYE — Ajuste fino en celular pedido por Carlos (botones a la derecha, alineación Clases y Rubros Opción A)
 
 - **Objetivo:** Aplicar las correcciones solicitadas expresamente por Carlos sobre el comportamiento en celular (375 px):
