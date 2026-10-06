@@ -33,7 +33,7 @@
 
 ## Trabajo que continúa
 
-- **Celular, control independiente Codex CyE 06/10:** A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. 84 capturas propias y 102 originales revisadas; roles ADMIN/OPERATIVO/PROFESOR, 20 alumnos, nombres largos y tarifas millonarias. [Informe](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Corte versionado 41/72; sin despliegue. El cierre A25 pendiente en archivos de otro agente se conserva fuera de esta publicación.
+- **Celular, control independiente Codex CyE 06/10:** A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. 84 capturas propias y 102 originales revisadas; roles ADMIN/OPERATIVO/PROFESOR, 20 alumnos, nombres largos y tarifas millonarias. [Informe](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Corte versionado 41/72; sin despliegue. Gemini incluyó esta entrega en d91a840 junto con A25; Claude reabrió A25 en abda923. Se conservan los dictámenes de celular y A25 sigue a revisar.
 
 - **A13/B1/A55 CERRADOS por Codex CyE, 06/10:** rama integrada entera en main `6d3f68a`; texto aprobado y capturas reales renovadas. Historial, contraasientos, inscripción única y separación ADMIN/cajón de A25 comprobados por HTTP, navegador y filas. A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide. **41/72 cerrados, 31 abiertos, 0 frenan.** [Informe](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
 

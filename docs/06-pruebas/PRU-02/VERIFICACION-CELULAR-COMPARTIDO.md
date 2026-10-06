@@ -120,7 +120,9 @@ No se atribuyen esos cambios a la regla CSS ni se reparan en esta verificación.
 - Tablero canónico: seis cierres, tres devoluciones y T1 devuelto; ambos DEFECTOS actualizados.
 - Controles posteriores de documentación/CSP: 6 aprobados, 21 aserciones, 0,55 s.
   [Salida](evidencia/verificacion-celular-compartido/controles.txt).
-- Corte publicado: **41/72 cerrados, 31 abiertos, 0 frenan**. El cierre A25 de Gemini
-  permanece fuera del commit propio; se conservan sus archivos de trabajo.
+- Corte vigente: **41/72 cerrados, 31 abiertos, 0 frenan**. Gemini incluyó esta
+  verificación y sus evidencias en su commit `d91a840`, junto con A25, antes de que
+  Codex pudiera publicar por separado. Claude reabrió A25 en `abda923`; los seis
+  cierres y las cuatro devoluciones de celular se conservan. Este informe no verifica A25.
 - Diferencias de aplicación/vistas/CSS vacías. Solo documentación e instrumentación del ensayo.
 - Commit/push autorizados por el prompt de Carlos; sin despliegue.

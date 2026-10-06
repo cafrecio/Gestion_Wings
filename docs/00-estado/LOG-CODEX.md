@@ -8,7 +8,8 @@ A20/A28/A33/A36/A40/A41 CERRADOS; A14/A27/A53 DEVUELTOS a Gemini.
 T1 DEVUELTO: falta grupos/show, recortes Caja/Cobrar/Clases y efectos de escritorio sin explicitar.
 A36 tabla Opción A; A33 filas de 61,61 px. No asumir legibilidad completa por ausencia de desborde.
 Suite 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s, wings_testing_codex.
-Corte versionado 41/72, 31 abiertos, 0 frenan; cierre A25 ajeno excluido del commit.
+Corte 41/72, 31 abiertos, 0 frenan. Gemini incluyó esta entrega en d91a840 junto con A25;
+Claude reabrió A25 en abda923. Se conserva ese estado; este control no verifica A25.
 [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Sin deploy ni base real/servidor.
 Siguiente: Gemini resuelve las tres devoluciones y T1; sin otro cambio de alcance.
 
