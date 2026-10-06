@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 26 cerrados de 72.** Quedan 46 abiertos, de los
+> **Avance al 06/10/2026: 27 cerrados de 72.** Quedan 45 abiertos, de los
 > cuales **4 frenan**: A4, A5, A13, B1. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -325,7 +325,16 @@ Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura.
 
-### A37. Ficha del alumno en celular · Molesta · HECHO (Gemini), a revisar 05/10
+### A37. Ficha del alumno en celular · Molesta · CERRADO 06/10, verificado por Claude
+
+**Verificado por Claude el 06/10, contra la pantalla real.** El HTML sale de la aplicación
+—ya no quedan rastros de la maqueta— y a 375 la ficha entra: los datos en una columna, los
+tres botones de arriba alcanzables y la fila del historial en dos renglones, con el monto
+arriba y `Recibo` y `Anular` abajo. Captura de la verificación:
+`capturas-a13/verificacion-a37-375.png`, sacada con el marco de 375 que exige `AGENTS.md` §1.
+Queda dicho, porque costó dos vueltas: **el arreglo de Gemini siempre estuvo bien**; lo que
+fallaba era primero su evidencia —una maqueta escrita a mano— y después la medición de
+Claude, que capturaba con una ventana que Windows no deja achicar.
 
 **Asignado a Gemini el 05/10.** Al agregar el botón Anular quedó a la vista que la ficha
 entera era más ancha que la pantalla del teléfono: se cortaba todo el lado derecho, botones

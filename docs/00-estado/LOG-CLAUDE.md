@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — A37 verificado y cerrado
+
+Gemini rehizo la evidencia desde la aplicacion y saco la maqueta escrita a mano. Verificado
+contra la pantalla real con el marco de 375: la ficha entra, los datos van en una columna,
+los tres botones de arriba se alcanzan y la fila del historial queda en dos renglones, con
+el monto arriba y Recibo y Anular abajo. Captura de la verificacion en
+`capturas-a13/verificacion-a37-375.png`. Cerrado por Claude, que no lo implemento.
+Costo dos vueltas por dos errores distintos y conviene no olvidarlo: primero la evidencia
+era una maqueta, despues la medicion de Claude capturaba con una ventana que Windows no deja
+achicar. **El arreglo siempre estuvo bien.**
+Avance: 27 cerrados de 72.
+
 ## 2026-10-06 — Claude CyE — el cashflow mostraba la devolucion como ingreso, y yo medi mal
 
 **Lo encontro Codex** verificando A13: al anular el cobro del dueño, el contraasiento vive en
