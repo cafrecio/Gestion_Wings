@@ -85,6 +85,33 @@ class CapturaFichaAnularTest extends TestCase
         file_put_contents($destino, $html);
 
         $this->assertStringContainsString('data-abrir-anular', $html);
+
+        // Segunda ficha: la misma persona anotada en otro deporte, para ver cómo queda la
+        // inscripción, que es una sola y vive en el primer registro (A55).
+        $otroDeporte = \App\Models\Deporte::create([
+            'nombre' => 'Fútbol', 'tipo_liquidacion' => \App\Models\Deporte::TIPO_LIQUIDACION_COMISION, 'activo' => true,
+        ]);
+        $otroGrupo = Grupo::create(['deporte_id' => $otroDeporte->id, 'nivel_id' => $nivel->id, 'activo' => true]);
+        $otroPlan = GrupoPlan::create([
+            'grupo_id' => $otroGrupo->id, 'clases_por_semana' => 2, 'precio_mensual' => 40000, 'activo' => true,
+        ]);
+        $enDosDeportes = Alumno::create([
+            'apellido' => 'Gómez', 'nombre' => 'Luz', 'dni' => $alumno->dni,
+            'deporte_id' => $otroDeporte->id, 'grupo_id' => $otroGrupo->id,
+            'fecha_nacimiento' => '2005-01-01', 'celular' => '11-4000-0000',
+            'fecha_alta' => '2026-09-01', 'activo' => true,
+        ]);
+        AlumnoPlan::create([
+            'alumno_id' => $enDosDeportes->id, 'plan_id' => $otroPlan->id,
+            'fecha_desde' => '2026-09-01', 'activo' => true,
+        ]);
+
+        $otroHtml = $this->actingAs($admin)->get(route('web.alumnos.show', $enDosDeportes->id))->assertOk()->getContent();
+        $otroHtml = str_replace(['src="/build/', 'href="/build/'], [
+            'src="'.str_replace('\\', '/', public_path('build')).'/',
+            'href="'.str_replace('\\', '/', public_path('build')).'/',
+        ], $otroHtml);
+        file_put_contents(dirname($destino).'/ficha-otro-deporte.html', $otroHtml);
         Carbon::setTestNow();
     }
 }

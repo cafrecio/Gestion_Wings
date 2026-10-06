@@ -6,11 +6,22 @@
 @section('content')
 @php
     $inscripcion = app(\App\Services\InscripcionService::class)->cargo($alumno->dni);
+    // La inscripción es una por persona, y la persona puede estar en dos deportes, o sea
+    // en dos registros. La muestra el registro al que está atada; el otro dice dónde está,
+    // para que la ficha y el selector de cobro no digan números distintos (A55).
+    $inscripcionEsDeEsteRegistro = $inscripcion && (int) $inscripcion->alumno_id === (int) $alumno->id;
+    $registroDeLaInscripcion = $inscripcion && !$inscripcionEsDeEsteRegistro
+        ? \App\Models\Alumno::with('deporte')->find($inscripcion->alumno_id)
+        : null;
 @endphp
 @if($inscripcion)
 <div class="alumno-card mb-3">
     <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
-    <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: $'.number_format($inscripcion->saldo_pendiente, 2, ',', '.') }}</p>
+    @if($inscripcionEsDeEsteRegistro)
+        <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: $'.number_format($inscripcion->saldo_pendiente, 2, ',', '.') }}</p>
+    @else
+        <p>Por única vez por persona. Figura en su registro de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}, para no cobrarla dos veces.</p>
+    @endif
 </div>
 @endif
 
@@ -240,13 +251,19 @@
                 <div style="display:flex; flex-direction:column; gap:5px;">
                 @foreach($ultimosPagos as $pago)
                 @php
-                    $periodos = $pago->deudasCuota->pluck('periodo')
+                    $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
+                    // Al anular se borran las imputaciones, así que los meses cobrados se
+                    // leen del detalle de anulación, igual que hace el recibo. Antes caía al
+                    // mes del pago y un cobro de agosto hecho en octubre decía "Octubre".
+                    $periodosCrudos = $esAnulado && !empty($pago->detalle_anulacion['periodos'])
+                        ? collect($pago->detalle_anulacion['periodos'])->pluck('periodo')->filter()
+                        : $pago->deudasCuota->pluck('periodo');
+                    $periodos = $periodosCrudos
                         ->map(fn($p) => ($meses[(int) explode('-', $p)[1]] ?? explode('-', $p)[1]) . ' ' . explode('-', $p)[0])
                         ->join(', ');
                     if (!$periodos && $pago->mes && $pago->anio) {
                         $periodos = ($meses[$pago->mes] ?? $pago->mes) . ' ' . $pago->anio;
                     }
-                    $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
                 @endphp
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
                      style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
