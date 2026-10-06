@@ -1,0 +1,34 @@
+﻿
+   PASS  Tests\Feature\CajaCambioInicialA25Test
+  Ô£ô no se abre automaticamente sin declarar el efectivo                                                          5.53s  
+  Ô£ô primera apertura conserva importe sin crear ingresos                                                         0.04s  
+  Ô£ô esperado excluye transferencias cancelados y cobros admin                                                    0.05s  
+  Ô£ô cierra con faltante y separa el cambio del retiro                                                            0.04s  
+  Ô£ô puede dejar mas cambio que en la apertura                                                                    0.05s  
+  Ô£ô siguiente operativa hereda ultimo cierre del club sin esperar validacion                                     0.07s  
+  Ô£ô corregir lo heredado requiere motivo                                                                         0.05s  
+  Ô£ô corregir lo heredado con motivo conserva ambos importes                                                      0.06s  
+  Ô£ô otro operativo no puede abrir un turno simultaneo                                                            0.05s  
+  Ô£ô admin no valida una caja abierta sin conteo                                                                  0.04s  
+  Ô£ô cerrar sin conteo no cambia el estado                                                                        0.02s  
+  Ô£ô no puede dejar mas cambio que efectivo contado                                                               0.05s  
+  Ô£ô corregir rechazada conserva la entrega y el turno siguiente                                                  0.80s  
+  Ô£ô rechazada no permite reescribir el conteo fisico                                                             0.07s  
+  Ô£ô rechazar no cierra una caja sin conteo                                                                       0.05s  
+  Ô£ô admin abre para la operativa sin crearse caja propia                                                         0.03s  
+  Ô£ô formulario no permite inicial negativo ni sin confirmacion                                                   0.05s  
+  Ô£ô cierre web normaliza miles y admin puede contar turno ajeno                                                  0.08s  
+  Ô£ô operativo no configura y profesor no accede al arqueo                                                        0.15s  
+  Ô£ô segundo operativo no cierra turno ajeno por url                                                              0.06s  
+  Ô£ô pantalla vieja no abre con cierre origen desactualizado                                                      0.03s  
+  Ô£ô caja historica no inventa inicial ni diferencia                                                              0.02s  
+
+   PASS  Tests\Feature\CajaArqueoConcurrenteA25Test
+  Ô£ô dos aperturas no crean dos turnos                                                                           13.49s  
+  Ô£ô cerrar primero rechaza movimiento tardio                                                                    12.80s  
+  Ô£ô movimiento primero se incluye en el arqueo                                                                  13.15s  
+  Ô£ô dos cierres no reescriben el conteo                                                                         12.44s  
+
+  Tests:    26 passed (142 assertions)
+  Duration: 59.40s
+

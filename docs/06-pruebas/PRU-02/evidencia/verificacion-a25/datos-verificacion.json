@@ -1,0 +1,264 @@
+{
+    "paso1": {
+        "descripcion": "ADMIN configura medio de efectivo",
+        "tipo_caja_id": 1,
+        "tipo_caja_nombre": "Efectivo Mostrador",
+        "caja_mostrador": {
+            "id": 1,
+            "tipo_caja_id": 1,
+            "configurado_por_id": 1,
+            "configurado_at": "2026-10-06 15:54:25"
+        }
+    },
+    "paso2": {
+        "descripcion": "OPERATIVO intenta cobrar sin caja abierta",
+        "get_cobrar_status": 302,
+        "post_pagar_status": 422,
+        "post_pagar_body": {
+            "success": false,
+            "message": "Abrí la caja y confirmá el efectivo antes de cobrar."
+        }
+    },
+    "paso3": {
+        "descripcion": "OPERATIVO 1 abre Turno 1 declarando inicial",
+        "turno_id": 1,
+        "efectivo_inicial": "14000.00",
+        "estado": "ABIERTA",
+        "usuario": "Sandra Vidal (Operativa)",
+        "fila_bd": {
+            "id": 1,
+            "usuario_operativo_id": 2,
+            "apertura_at": "2026-10-06T18:54:26.000000Z",
+            "cierre_at": null,
+            "estado": "ABIERTA",
+            "cerrada_por_admin": false,
+            "usuario_admin_cierre_id": null,
+            "usuario_admin_validacion_id": null,
+            "validada_at": null,
+            "motivo_rechazo": null,
+            "created_at": "2026-10-06T18:54:26.000000Z",
+            "updated_at": "2026-10-06T18:54:26.000000Z",
+            "tipo_caja_efectivo_id": 1,
+            "caja_origen_id": null,
+            "efectivo_heredado": null,
+            "efectivo_inicial": "14000.00",
+            "motivo_apertura": "Primera apertura del ciclo Gemini",
+            "efectivo_esperado": null,
+            "efectivo_contado": null,
+            "diferencia_efectivo": null,
+            "cambio_retenido": null,
+            "efectivo_retirado": null,
+            "usuario_cierre_id": null,
+            "usuario_apertura_id": 2
+        }
+    },
+    "paso4": {
+        "descripcion": "Movimientos del Turno 1 registrados",
+        "movimientos": [
+            {
+                "id": 1,
+                "monto": "25000.00",
+                "tipo_caja_id": 1,
+                "subrubro_id": 2,
+                "alumno_id": 1,
+                "observaciones": "Pago cuota alumno #1 - Períodos: 2026-10"
+            },
+            {
+                "id": 2,
+                "monto": "18000.00",
+                "tipo_caja_id": 2,
+                "subrubro_id": 2,
+                "alumno_id": 2,
+                "observaciones": "Pago cuota alumno #2 - Períodos: 2026-10"
+            },
+            {
+                "id": 3,
+                "monto": "6000.00",
+                "tipo_caja_id": 1,
+                "subrubro_id": 3,
+                "alumno_id": null,
+                "observaciones": "Compra de artículos de limpieza y librería"
+            }
+        ]
+    },
+    "paso5": {
+        "descripcion": "Cobro directo ADMIN sin caja",
+        "pago_id": 3,
+        "monto": null,
+        "usuario_admin_id": null,
+        "cajas_admin_count": 0
+    },
+    "paso6": {
+        "descripcion": "Arqueo previo al cierre de Turno 1",
+        "efectivo_inicial": "14000.00",
+        "ingresos_efectivo": "25000.00",
+        "egresos_efectivo": "6000.00",
+        "efectivo_esperado_calculado": "33000.00",
+        "efectivo_esperado_pantalla": "33000.00",
+        "transferencia_excluida": "18000.00",
+        "cobro_admin_excluido": "32000.00"
+    },
+    "paso7": {
+        "descripcion": "Turno 1 cerrado con faltante de $1.500",
+        "movimientos_antes": 3,
+        "movimientos_despues": 3,
+        "diferencia_movimientos": 0,
+        "fila_caja_cerrada": {
+            "id": 1,
+            "usuario_operativo_id": 2,
+            "apertura_at": "2026-10-06T18:54:26.000000Z",
+            "cierre_at": "2026-10-06T18:54:26.000000Z",
+            "estado": "CERRADA",
+            "cerrada_por_admin": false,
+            "usuario_admin_cierre_id": null,
+            "usuario_admin_validacion_id": null,
+            "validada_at": null,
+            "motivo_rechazo": null,
+            "created_at": "2026-10-06T18:54:26.000000Z",
+            "updated_at": "2026-10-06T18:54:26.000000Z",
+            "tipo_caja_efectivo_id": 1,
+            "caja_origen_id": null,
+            "efectivo_heredado": null,
+            "efectivo_inicial": "14000.00",
+            "motivo_apertura": "Primera apertura del ciclo Gemini",
+            "efectivo_esperado": "33000.00",
+            "efectivo_contado": "31500.00",
+            "diferencia_efectivo": "-1500.00",
+            "cambio_retenido": "12000.00",
+            "efectivo_retirado": "19500.00",
+            "usuario_cierre_id": 2,
+            "usuario_apertura_id": 2
+        }
+    },
+    "paso8": {
+        "descripcion": "ADMIN valida Turno 1",
+        "estado_final": "VALIDADA",
+        "admin_validador": "Carlos Bonifacio (Admin)",
+        "validada_at": "2026-10-06 15:54:26"
+    },
+    "paso9": {
+        "descripcion": "OPERATIVO 2 abre Turno 2 con discrepancia justificada",
+        "propuesta_heredada": "12000.00",
+        "efectivo_inicial_declarado": "9000.00",
+        "motivo": "Faltaban billetes de 500 al recibir el cajón",
+        "fila_bd": {
+            "id": 2,
+            "usuario_operativo_id": 3,
+            "apertura_at": "2026-10-06T18:54:27.000000Z",
+            "cierre_at": null,
+            "estado": "ABIERTA",
+            "cerrada_por_admin": false,
+            "usuario_admin_cierre_id": null,
+            "usuario_admin_validacion_id": null,
+            "validada_at": null,
+            "motivo_rechazo": null,
+            "created_at": "2026-10-06T18:54:27.000000Z",
+            "updated_at": "2026-10-06T18:54:27.000000Z",
+            "tipo_caja_efectivo_id": 1,
+            "caja_origen_id": 1,
+            "efectivo_heredado": "12000.00",
+            "efectivo_inicial": "9000.00",
+            "motivo_apertura": "Faltaban billetes de 500 al recibir el cajón",
+            "efectivo_esperado": null,
+            "efectivo_contado": null,
+            "diferencia_efectivo": null,
+            "cambio_retenido": null,
+            "efectivo_retirado": null,
+            "usuario_cierre_id": null,
+            "usuario_apertura_id": 3
+        }
+    },
+    "paso10": {
+        "descripcion": "Ciclo 2: sobrante, rechazo, apertura turno 3 y corrección preservando físico",
+        "turno2_cerrado": {
+            "id": 2,
+            "usuario_operativo_id": 3,
+            "apertura_at": "2026-10-06T18:54:27.000000Z",
+            "cierre_at": "2026-10-06T18:54:27.000000Z",
+            "estado": "CERRADA",
+            "cerrada_por_admin": false,
+            "usuario_admin_cierre_id": null,
+            "usuario_admin_validacion_id": 1,
+            "validada_at": null,
+            "motivo_rechazo": "Revisar comprobante de egreso por $4.000",
+            "created_at": "2026-10-06T18:54:27.000000Z",
+            "updated_at": "2026-10-06T18:54:27.000000Z",
+            "tipo_caja_efectivo_id": 1,
+            "caja_origen_id": 1,
+            "efectivo_heredado": "12000.00",
+            "efectivo_inicial": "9000.00",
+            "motivo_apertura": "Faltaban billetes de 500 al recibir el cajón",
+            "efectivo_esperado": "26000.00",
+            "efectivo_contado": "26200.00",
+            "diferencia_efectivo": "200.00",
+            "cambio_retenido": "10000.00",
+            "efectivo_retirado": "16200.00",
+            "usuario_cierre_id": 3,
+            "usuario_apertura_id": 3
+        },
+        "turno3_abierto": {
+            "id": 3,
+            "usuario_operativo_id": 2,
+            "apertura_at": "2026-10-06T18:54:27.000000Z",
+            "cierre_at": null,
+            "estado": "ABIERTA",
+            "cerrada_por_admin": false,
+            "usuario_admin_cierre_id": null,
+            "usuario_admin_validacion_id": null,
+            "validada_at": null,
+            "motivo_rechazo": null,
+            "created_at": "2026-10-06T18:54:27.000000Z",
+            "updated_at": "2026-10-06T18:54:27.000000Z",
+            "tipo_caja_efectivo_id": 1,
+            "caja_origen_id": 2,
+            "efectivo_heredado": "10000.00",
+            "efectivo_inicial": "10000.00",
+            "motivo_apertura": null,
+            "efectivo_esperado": null,
+            "efectivo_contado": null,
+            "diferencia_efectivo": null,
+            "cambio_retenido": null,
+            "efectivo_retirado": null,
+            "usuario_cierre_id": null,
+            "usuario_apertura_id": 2
+        }
+    },
+    "ataques_post_directo": {
+        "skip_declaracion": {
+            "status": 302,
+            "error": ""
+        },
+        "skip_confirmacion": {
+            "status": 302,
+            "error": ""
+        },
+        "inicial_negativo": {
+            "status": 302,
+            "error": ""
+        },
+        "cambio_mayor_contado": {
+            "status": 302,
+            "error": "The cambio retenido field must be less than or equal to 10000.00."
+        },
+        "cierre_turno_ajeno": {
+            "status": 403,
+            "error": "Bloqueado con redirect"
+        },
+        "dos_turnos_simultaneos": {
+            "status": 422,
+            "error": "Hay un turno abierto. Cerralo antes de abrir otro."
+        },
+        "validar_sin_conteo": {
+            "status": 422,
+            "error": "Contá el efectivo y cerrá la caja antes de validarla."
+        },
+        "operativo_configura": {
+            "status": 403,
+            "error": "403 Forbidden por ensure.admin.web"
+        },
+        "profesor_accede_caja": {
+            "status": 403,
+            "error": "403 Forbidden por reject.profesor.web"
+        }
+    }
+}

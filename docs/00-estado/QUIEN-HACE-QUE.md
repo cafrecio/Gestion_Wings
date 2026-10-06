@@ -42,6 +42,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 
 ## Codex
@@ -55,7 +56,6 @@ Nada en este momento.
 | **A14** Pantallas más altas que el monitor | Devuelto (hizo Gemini, verifica Codex) | Alcanzar botones y resumen de errores en formularios largos sin perderlos de vista |
 | **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
 | **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
-| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini recorre el flujo completo en pantalla con capturas propias; Claude contrasta el informe contra el repositorio antes del cierre |
 | **A27** Cargar movimiento de caja en celular oculta los botones de acción | Devuelto (hizo Gemini, verifica Codex) | Registrar y Cancelar quedan a y=740 fuera del marco 375x667; Observaciones opcional sí pasa |
 | **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Devuelto (hizo Gemini, verifica Codex) | Mostrar tarifas completas y grupo del selector: ds-truncate sigue cortando datos largos |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |

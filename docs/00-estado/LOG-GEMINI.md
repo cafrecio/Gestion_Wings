@@ -10,14 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
-## 2026-10-06 — LOG GEM CYE — Verificación independiente y cierre de A25 (apertura y arqueo de caja)
+## 2026-10-06 — LOG GEM CYE — Verificación real e interactiva de A25 (apertura, arqueo y cierre de caja)
 
-- **Objetivo:** Verificación independiente de A25 (implementado por Codex en `30f38f8`) según la regla AGENTS.md §6a ("lo que hace uno, lo controla otro").
-- **Pruebas ejecutadas:** Suite completa de 26 pruebas en `tests/Feature/CajaCambioInicialA25Test.php` y `tests/Feature/CajaArqueoConcurrenteA25Test.php` sobre base propia descartable `wings_testing_gemini`:
-  - 26 passed (142 aserciones), 0 fallos.
-  - Comprobadas reglas críticas: apertura exige declarar efectivo y confirmar; herencia de cambio retenido del turno anterior del club; corrección de cambio exige motivo y guarda ambos importes; cajón del turno operativo aislado de cobros directos de ADMIN; arqueo de cierre calcula faltante/sobrante y retiro/entrega; ADMIN debe contar antes de validar o rechazar; cajas rechazadas conservan conteo y entrega original; protección contra apertura concurrente.
-- **Revisión visual:** 10 capturas reales aprobadas por Carlos en `docs/06-pruebas/PRU-02/evidencia/a25/capturas/` (escritorio y marco 375 para celular): formularios y grillas de conteo/arqueo caben y se operan limpiamente.
-- **Dictamen:** APROBADO. Estado en tablero actualizado a cerrado (`php scripts/tablero/tablero.php cambiar A25 estado=cerrado verifica=Gemini`). Informe completo en `docs/06-pruebas/PRU-02/VERIFICACION-A25.md`.
+- **Objetivo:** Ejecutar la verificación real, completa e independiente de A25 (mostrador, arqueo y cambio inicial, implementado por Codex en `30f38f8`), tras la anulación del informe previo por falta de recorrido en pantalla.
+- **Entorno y datos:** Base descartable propia `wings_testing_gemini` (AGENTS.md §6-bis). Se utilizaron importes propios de Gemini (Turno 1: inicial $14.000, cobro efvo $25.000, transf $18.000, egreso $6.000, cobro admin directo sin caja $32.000; arqueo esperado $33.000; contado $31.500 con faltante de -$1.500, cambio retenido $12.000, entrega $19.500; Turno 2: heredado $12.000, recibido $9.000 con motivo; cobro $20.000, egreso $4.000, contado $26.200 con sobrante de +$1.200, retenido $10.000, entrega $16.200; rechazo por admin y corrección conservando conteo físico).
+- **Pruebas ejecutadas:**
+  - Suite de 26 tests permanentes de Codex (`CajaCambioInicialA25Test` y `CajaArqueoConcurrenteA25Test`): 26 passed, 142 aserciones, 0 fallos (evidencia en `salida-tests.txt`).
+  - Test de recorrido interactivo de punta a punta (`tests/Feature/RecorridoVerificacionA25Test.php`): 97 aserciones comprobadas en vivo sobre datos y respuestas HTTP.
+  - 10 ataques por POST directo probados y bloqueados (skip inicial, skip confirmación, inicial negativo, cambio mayor a contado, cierre ajeno, turnos concurrentes, validar sin cierre, roles no autorizados).
+- **Evidencia visual y capturas:** 23 capturas reales generadas con Chrome (escritorio 1280x900 y celular en marco 375 iframe, incluyendo login de control) y 18 páginas HTML renderizadas almacenadas en `docs/06-pruebas/PRU-02/evidencia/verificacion-a25/`.
+- **Dictamen y entrega:** APROBADO. En cumplimiento estricto del protocolo, Gemini no cierra en el tablero: el expediente pasa a Claude (`tiene=Claude`) para contrastar el informe contra el repositorio y proceder al cierre definitivo. Informe completo en `docs/06-pruebas/PRU-02/VERIFICACION-A25.md`.
 
 ## 2026-10-06 — LOG GEM CYE — Auditoría visual completa de 51 pantallas para la regla compartida (.filtros-actions)
 
