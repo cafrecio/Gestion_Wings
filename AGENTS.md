@@ -347,6 +347,28 @@ octubre; y una respuesta sobre cómo cobra el admin se dio de memoria y estaba m
 Verificar no es leer el informe del otro: es abrir la pantalla o el archivo. Si el que
 controla no puede comprobar algo, lo dice; no lo hereda como cierto. Ver §6c.
 
+## 6a-bis. El estado de cada tarea se anota en el tablero — decisión de Carlos, 06/10/2026
+
+**El estado de toda tarea vive en `docs/00-estado/tareas.json` y lo cambia el agente que la
+mueve, en el mismo commit**, sin esperar a que otro lo anote:
+
+```
+php scripts/tablero/tablero.php ver Codex
+php scripts/tablero/tablero.php cambiar A25 estado=a_verificar hizo=Codex tiene=Gemini paso="Qué sigue"
+php scripts/tablero/tablero.php cambiar A25 estado=cerrado verifica=Gemini
+```
+
+De ahí se generan `docs/00-estado/TABLERO.html`, que es lo que abre Carlos, y el bloque de
+arriba de `QUIEN-HACE-QUE.md`. Ninguno de los dos se edita a mano. El comando no guarda si
+falta el dueño, falta el próximo paso o si verifica el mismo que lo hizo. El detalle y los
+cinco estados están en `QUIEN-HACE-QUE.md`.
+
+Existe porque el estado se llevaba a mano en tres documentos y se atrasaba: 27 de 72
+defectos no tenían dueño ni próximo paso, y Carlos dio por hecho algo que no lo estaba.
+
+Transición: `DEFECTOS.md` y `DEFECTOS.html` se siguen marcando como hasta ahora hasta que
+Claude avise que el estado salió de ahí.
+
 ## 6b. Frenar ante contradicciones — NO improvisar
 
 Si una tarea contradice lo que ves en el código, en los datos o en otro documento:

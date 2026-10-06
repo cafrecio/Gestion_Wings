@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — un solo tablero de tareas, a pedido de Carlos
+
+Carlos: "somos 4 trabajando en lo mismo, mi cerebro no da para llevar todas las tareas sin
+un control". Medido sobre `DEFECTOS.md`: 27 de 72 sin dueño ni paso, y "verificado" usado
+con dos sentidos opuestos. Aprobo la propuesta. Hecho: el estado vive en
+`docs/00-estado/tareas.json`; `scripts/tablero/tablero.php` lo cambia, lo valida y genera
+`TABLERO.html` para Carlos y el bloque de arriba de `QUIEN-HACE-QUE.md`. No guarda si falta
+dueño, falta el paso o si verifica el mismo que lo hizo. Cargados los 72 defectos y tres
+tareas que no figuraban en ningun lado (T1 a T3). Pantalla revisada en una captura.
+**Falta, y es T3:** sacar el estado de `DEFECTOS.md`/`.html` y agregar la prueba que vigila
+el tablero. No se hizo hoy porque Codex y Gemini estan escribiendo esos archivos y una
+prueba nueva cambia el numero que vigila `DocumentacionNoMienteTest`. Hasta entonces se
+siguen marcando los dos seguimientos y Claude los trae con `tablero.php traer`.
+Contradiccion anotada, sin resolver: la hoja vieja daba A44 por cerrado y `DEFECTOS.md` no.
+
 ## 2026-10-06 — Claude CyE — la hoja de quien hace que estaba atrasada medio dia
 
 Al retomar en un chat nuevo, `QUIEN-HACE-QUE.md` no nombraba A56, A15/A16 ni el paquete de

@@ -122,7 +122,7 @@ No usar el `README.md` raiz como fuente de verdad del proyecto. Se conserva como
 | **Plan de trabajo vigente (08/09/2026 v4)** | `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` |
 | Plan navegable para Carlos | `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` |
 | Estado actual del proyecto | `docs/00-estado/ESTADO-ACTUAL.md` |
-| **Quien hace que, ahora mismo** | `docs/00-estado/QUIEN-HACE-QUE.md` — lo actualiza Claude en cada entrega |
+| **Quien hace que, ahora mismo** | `docs/00-estado/QUIEN-HACE-QUE.md` y `docs/00-estado/TABLERO.html` — se generan desde `docs/00-estado/tareas.json`; el estado se cambia con `php scripts/tablero/tablero.php cambiar ...`, nunca a mano |
 | Bitacora de Claude Code | `docs/00-estado/LOG-CLAUDE.md` |
 | Bitacora de Codex | `docs/00-estado/LOG-CODEX.md` |
 | Pasos manuales por maquina y pendientes del duenio | `docs/00-estado/CHECKLIST-CARLOS.md` |

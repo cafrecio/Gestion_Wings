@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wings · Tablero</title>
+<!-- Generado por scripts/tablero desde docs/00-estado/tareas.json. No editar a mano. -->
+<style>
+  :root { --fondo:#f6f5f1; --carta:#fff; --texto:#1d1d1b; --suave:#6b6a65; --borde:#e2e0d8; --ok:#2f7d4f; --frena:#b3261e; --molesta:#9a6700; --falta:#5b5fc7; --vos:#fff4d6; --alerta:#fdeceb; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#18181a; --carta:#222225; --texto:#ececea; --suave:#a09f9a; --borde:#35353a; --ok:#6fcf97; --frena:#ff8a80; --molesta:#f2c94c; --falta:#a5a8ff; --vos:#3a3115; --alerta:#3d1f1d; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.45 system-ui, "Segoe UI", sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:20px 16px 60px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  .sub { color:var(--suave); margin:0 0 14px; font-size:.9rem; }
+  .avance { background:var(--carta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin-bottom:18px; }
+  .avance b { font-size:1.6rem; }
+  .barra { height:10px; background:var(--borde); border-radius:6px; overflow:hidden; margin:8px 0; }
+  .barra i { display:block; height:100%; width:42%; background:var(--ok); }
+  section, details { background:var(--carta); border:1px solid var(--borde); border-radius:12px; padding:12px 16px; margin-bottom:14px; }
+  section.vos { background:var(--vos); }
+  section.alerta { background:var(--alerta); }
+  h2, summary { font-size:1.1rem; margin:0 0 8px; font-weight:700; }
+  summary { cursor:pointer; margin:0; }
+  details[open] summary { margin-bottom:8px; }
+  .n { color:var(--suave); font-weight:400; font-size:.9rem; }
+  ul { list-style:none; margin:0; padding:0; }
+  li { padding:9px 0; border-top:1px solid var(--borde); }
+  li:first-child { border-top:0; }
+  .cab { display:flex; gap:8px; align-items:baseline; }
+  .id { min-width:2.6em; }
+  .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:4px 0 0 calc(2.6em + 8px); font-size:.8rem; }
+  .g, .e { border:1px solid currentColor; border-radius:999px; padding:0 8px; white-space:nowrap; }
+  .g-frena { color:var(--frena); font-weight:700; } .g-molesta { color:var(--molesta); } .g-falta { color:var(--falta); }
+  .e { color:var(--suave); } .e-cerrado { color:var(--ok); } .e-devuelto { color:var(--frena); }
+  .q { color:var(--suave); }
+  .paso { margin:4px 0 0 calc(2.6em + 8px); font-size:.92rem; }
+  .vacio { color:var(--suave); margin:0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Wings · Tablero</h1>
+  <p class="sub">Último cambio: 06/10/2026. Esta pantalla se arma sola; el estado se cambia en un solo lugar.</p>
+  <div class="avance">
+    <b>30</b> defectos cerrados de 72
+    <div class="barra"><i></i></div>
+    Frenan: <b style="font-size:1rem">A13, B1</b>
+  </div>
+  <section class="vos"><h2>Esperan por vos <span class="n">0</span></h2><p class="vacio">Nada espera por vos.</p></section><section class="alerta"><h2>Hecho y sin nadie que lo verifique <span class="n">3</span></h2><ul><li><div class="cab"><b class="id">A15</b><span class="tit">Una clase de 17:30 a 18:30 se acepta sin decir nada</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Codex</span></div><p class="paso">Falta asignar verificador. El prompt esta escrito, va junto con A16</p></li>
+<li><div class="cab"><b class="id">A16</b><span class="tit">Cargar el horario obliga a repetir la carga</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Codex</span></div><p class="paso">Falta asignar verificador. El prompt esta escrito, va junto con A15</p></li>
+<li><div class="cab"><b class="id">A25</b><span class="tit">La apertura de caja no contempla saldo inicial ni cambio para vuelto</span></div><div class="meta"><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Codex</span></div><p class="paso">Falta asignar verificador. El prompt esta escrito: recorrer abrir, cobrar, cerrar y validar en pantalla</p></li></ul></section><section class=""><h2>Claude <span class="n">1</span></h2><ul><li><div class="cab"><b class="id">T3</b><span class="tit">Pasar el seguimiento al tablero unico</span></div><div class="meta"><span class="e e-en_curso">En curso</span></div><p class="paso">Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero</p></li></ul></section><section class=""><h2>Codex <span class="n">5</span></h2><ul><li><div class="cab"><b class="id">A13</b><span class="tit">El admin termina con caja propia</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Claude · verifica Codex</span></div><p class="paso">Aplicar el texto aprobado, integrar la rama a55-inscripcion a main, verificar en pantalla y cerrar</p></li>
+<li><div class="cab"><b class="id">B1</b><span class="tit">El admin está modelado como un operativo más</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Claude · verifica Codex</span></div><p class="paso">Va junto con A13: misma rama y misma verificacion</p></li>
+<li><div class="cab"><b class="id">A48</b><span class="tit">P2 agregó JavaScript adentro del HTML</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Codex · verifica Claude</span></div><p class="paso">Claude ya lo verifico en el codigo; Codex repite la busqueda sobre main y lo asienta cerrado</p></li>
+<li><div class="cab"><b class="id">A49</b><span class="tit">P2 agregó un confirm escrito en el HTML</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Codex · verifica Claude</span></div><p class="paso">Claude ya lo verifico en el codigo; Codex repite la busqueda sobre main y lo asienta cerrado</p></li>
+<li><div class="cab"><b class="id">A55</b><span class="tit">El saldo del selector de cobro omite la inscripción</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Claude · verifica Codex</span></div><p class="paso">Va junto con A13: comprobar que la inscripcion figura una sola vez con dos deportes</p></li></ul></section><section class=""><h2>Gemini <span class="n">10</span></h2><ul><li><div class="cab"><b class="id">A14</b><span class="tit">Pantallas más altas que el monitor</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A20</b><span class="tit">El botón &quot;Nuevo&quot; del cashflow en celular tapa el saldo</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A27</b><span class="tit">Cargar movimiento de caja en celular oculta los botones de acción</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A28</b><span class="tit">En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A33</b><span class="tit">La toma de asistencia de clases en celular exige scroll masivo</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A36</b><span class="tit">Rubros en celular</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A40</b><span class="tit">Inicio de ADMIN en celular</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A41</b><span class="tit">Fechas del filtro de Movimientos</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">A53</b><span class="tit">Las tarjetas de Grupos y del selector de cobro cortan datos en celular</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-a_verificar">Hecho, espera verificación</span><span class="q">lo hizo Gemini</span></div><p class="paso">Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente</p></li>
+<li><div class="cab"><b class="id">T1</b><span class="tit">Completar las capturas del cambio en app.css</span></div><div class="meta"><span class="e e-en_curso">En curso</span></div><p class="paso">Capturar todas las pantallas que alcanza el cambio, en escritorio y 375</p></li></ul></section><details><summary>Sin empezar <span class="n">26</span></summary><ul><li><div class="cab"><b class="id">A6</b><span class="tit">&quot;Modificar&quot; donde en todo el resto dice &quot;Editar&quot;</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A7</b><span class="tit">El listado de alumnos desperdicia la pantalla</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A8</b><span class="tit">Puntos grises que no dicen nada</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A9</b><span class="tit">El interruptor &quot;Activo&quot; en las tarjetas</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A10</b><span class="tit">El botón &quot;Nuevo&quot; del cashflow</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A12</b><span class="tit">El inicio del operativo no ayuda a trabajar</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A23</b><span class="tit">El dashboard de administración está casi vacío y no tiene acciones rápidas</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A24</b><span class="tit">El inicio del operativo invita a &quot;Cobrar&quot; sin tener la caja abierta</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A26</b><span class="tit">El formulario de alta exige celular personal obligatorio para menores</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A32</b><span class="tit">El interruptor de usuario muestra apagado al usuario activo</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A35</b><span class="tit">Botón redundante &quot;Historial&quot; dentro de la propia pantalla de historial de cajas</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A38</b><span class="tit">Paginación de Clases</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A42</b><span class="tit">Aviso de inscripción al editar alumno</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">A44</b><span class="tit">El aviso diario llega firmado por Laravel</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B13</b><span class="tit">Los datos de prueba no representan al club</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">T2</b><span class="tit">Retirar los dos importadores viejos de la primera carga</span></div><div class="meta"><span class="e e-sin_empezar">Sin empezar</span><span class="q">asignado a Codex</span></div><p class="paso">En un commit aparte, ahora que P1 esta aprobada</p></li>
+<li><div class="cab"><b class="id">A39</b><span class="tit">Acceso a Movimientos del OPERATIVO</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B3</b><span class="tit">Las excepciones del contrato no existen</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B5</b><span class="tit">Las canchas no existen</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B6</b><span class="tit">Las clases particulares no existen</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B7</b><span class="tit">Se vende ropa pero no hay stock ni compra</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B8</b><span class="tit">No existe la familia</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B9</b><span class="tit">El adelanto al profesor no se descuenta solo</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B10</b><span class="tit">No hay dónde guardar el CBU del profesor</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B11</b><span class="tit">Los punitorios están definidos y sin motor</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li>
+<li><div class="cab"><b class="id">B12</b><span class="tit">No hay reportes</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-sin_empezar">Sin empezar</span></div></li></ul></details><details><summary>Cerradas <span class="n">30</span></summary><ul><li><div class="cab"><b class="id">A1</b><span class="tit">Cobranza no sirve para cobrar</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A2</b><span class="tit">Cobranza dice 60 deudores y el dashboard dice 20</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A4</b><span class="tit">Editar alumno no avisa por qué no guardó</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span><span class="q">verificó Gemini</span></div></li>
+<li><div class="cab"><b class="id">A5</b><span class="tit">Los profesores se eligen sin saber de qué deporte es la clase</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span><span class="q">verificó Gemini</span></div></li>
+<li><div class="cab"><b class="id">A11</b><span class="tit">Configuración es impresentable</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A17</b><span class="tit">La ficha del alumno no tiene botón para cobrar</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A18</b><span class="tit">Cobranza en celular rompe la tabla y superpone el texto</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A43</b><span class="tit">El alumno cargado a mano con ingreso de un mes cerrado queda deudor</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A46</b><span class="tit">Cobranza es un padrón, no una lista de cobranza</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A50</b><span class="tit">Un agente escribió su propia autorización de diseño</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A51</b><span class="tit">Filtrar un deporte reduce el total de deuda de una persona</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">B2</b><span class="tit">El estado de cobranza no distingue &quot;sin deuda&quot; de &quot;nunca pagó&quot;</span></div><div class="meta"><span class="g g-frena">Frena</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A3</b><span class="tit">No se puede cobrar por adelantado</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A19</b><span class="tit">Las barras de filtros en celular colapsan en cuadrados mudos y desbordan</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A21</b><span class="tit">Cobranza duplica las filas de alumnos con más de un deporte</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A29</b><span class="tit">Redirección silenciosa a Caja para el operativo en secciones de administración</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A30</b><span class="tit">Comportamiento dispar entre Profesor y Operativo ante accesos restringidos</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A31</b><span class="tit">La pantalla de error 403 manda al usuario logueado a la pantalla de login</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A37</b><span class="tit">Ficha del alumno en celular</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span><span class="q">verificó Claude</span></div></li>
+<li><div class="cab"><b class="id">A45</b><span class="tit">Cobranza repite el deporte al lado del nombre</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A47</b><span class="tit">Los botones de fila tienen anchos distintos</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A52</b><span class="tit">La inscripción pendiente cambia el estado mensual a Deudor</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A54</b><span class="tit">El selector de cobro cuenta alumnos sin saldo como deuda pendiente</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span><span class="q">verificó Codex</span></div></li>
+<li><div class="cab"><b class="id">A56</b><span class="tit">Cashflow en celular se corta y sus filtros no se apilan</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span><span class="q">verificó Codex</span></div></li>
+<li><div class="cab"><b class="id">B4</b><span class="tit">El resumen diario no incluía las clases sin asistencia</span></div><div class="meta"><span class="g g-molesta">Molesta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">B14</b><span class="tit">El despliegue no limpiaba la caché de rutas</span></div><div class="meta"><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">B15</b><span class="tit">El SPF del subdominio anuló su comodín de DNS</span></div><div class="meta"><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">B16</b><span class="tit">`/movimientos` filtraba por caja propia</span></div><div class="meta"><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A22</b><span class="tit">Cobranza no muestra montos de dinero en el resumen superior</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-cerrado">Cerrado</span></div></li>
+<li><div class="cab"><b class="id">A34</b><span class="tit">La ficha del alumno no tiene historial ni descarga de recibos</span></div><div class="meta"><span class="g g-falta">Falta</span><span class="e e-cerrado">Cerrado</span></div></li></ul></details>
+</main>
+</body>
+</html>
