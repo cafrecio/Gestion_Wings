@@ -1,0 +1,18 @@
+PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.14s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.03s
+
+   PASS  Tests\Feature\DefectosNoDivergenTest
+  ✓ los dos archivos listan los mismos defectos                                                                  0.01s
+  ✓ lo cerrado esta cerrado en los dos
+  ✓ el avance figura arriba de los dos
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.01s
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+  Tests:    8 passed (30 assertions)
+  Duration: 0.44s

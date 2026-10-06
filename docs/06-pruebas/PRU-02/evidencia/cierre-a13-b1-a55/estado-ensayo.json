@@ -1,0 +1,181 @@
+{
+    "saldos_iniciales": {
+        "1": {
+            "cuotas": 0,
+            "inscripcion": 5000,
+            "total": 5000,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        },
+        "2": {
+            "cuotas": 0,
+            "inscripcion": 0,
+            "total": 0,
+            "cuotas_impagas": 0,
+            "mas_antigua": "9999-99"
+        }
+    },
+    "alumnos": [
+        {
+            "id": 1,
+            "dni": "33444555",
+            "deporte_id": 1
+        },
+        {
+            "id": 2,
+            "dni": "33444555",
+            "deporte_id": 2
+        }
+    ],
+    "deudas": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "periodo": "2026-08",
+            "monto_original": "48000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE"
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "periodo": "2026-09",
+            "monto_original": "48000.00",
+            "monto_pagado": "0.00",
+            "estado": "PENDIENTE"
+        },
+        {
+            "id": 3,
+            "alumno_id": 2,
+            "periodo": "2026-10",
+            "monto_original": "48000.00",
+            "monto_pagado": "48000.00",
+            "estado": "PAGADA"
+        }
+    ],
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "101000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": {
+                "motivo": "Control independiente: medio equivocado",
+                "cargos": [
+                    {
+                        "periodo": "",
+                        "periodo_texto": "Inscripción al club",
+                        "monto_aplicado": "5000.00"
+                    }
+                ],
+                "periodos": [
+                    {
+                        "periodo": "2026-08",
+                        "monto_aplicado": "48000.00"
+                    },
+                    {
+                        "periodo": "2026-09",
+                        "monto_aplicado": "48000.00"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "monto_final": "5000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 3,
+            "alumno_id": 1,
+            "monto_final": "96000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": {
+                "motivo": "Control independiente: segunda anulación",
+                "cargos": [],
+                "periodos": [
+                    {
+                        "periodo": "2026-08",
+                        "monto_aplicado": "48000.00"
+                    },
+                    {
+                        "periodo": "2026-09",
+                        "monto_aplicado": "48000.00"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "alumno_id": 2,
+            "monto_final": "48000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        }
+    ],
+    "asientos": [
+        {
+            "id": 1,
+            "referencia_id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "96000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 2,
+            "referencia_id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "5000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 3,
+            "referencia_id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "-96000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 4,
+            "referencia_id": 1,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "-5000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 5,
+            "referencia_id": 2,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "5000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 6,
+            "referencia_id": 3,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "96000.00",
+            "tipo_caja_id": 1
+        },
+        {
+            "id": 7,
+            "referencia_id": 3,
+            "referencia_tipo": "PAGO_CUOTA",
+            "monto": "-96000.00",
+            "tipo_caja_id": 1
+        }
+    ],
+    "cajas": [
+        {
+            "id": 1,
+            "usuario_operativo_id": 2,
+            "efectivo_inicial": "10000.00",
+            "estado": "ABIERTA"
+        }
+    ],
+    "arqueo": {
+        "efectivo_esperado": "58000.00",
+        "diferencia_efectivo": null
+    }
+}

@@ -1,5 +1,18 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CyE — A13/B1/A55 cerrados; A48/A49 verificado Claude
+
+Texto aprobado aplicado; capturas Fútbol escritorio/375 renovadas con login de control.
+Rama integrada entera en main 6d3f68a, conservando ambos logs; Carlos autorizó publicar con OK.
+Control HTTP 1/43; navegador real: motivo obligatorio, anulación y cobro ADMIN sin caja.
+Historial Ago/Sep y contraasientos E negativos rojos comprobados; inscripción única coherente.
+A25: cajón operativo esperado 58.000, solo inicial 10.000 + cobro propio 48.000.
+Selección main 11/45; suite 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s, base Codex.
+A48/A49: búsqueda coincide con Claude; cierre asentado con ese verificador.
+Ambos DEFECTOS y tablero 35/72; 37 abiertos, 0 frenan. Sin CSS, base real ni servidor tocados.
+[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
+Siguiente: otro agente controla A15/A16/A25; cambios ajenos preservados.
+
 ## 2026-10-06 — Codex CAB — A55/A13/B1, capturas y redacción aprobada
 
 Rama a55-inscripcion, código 31194c2; copia aislada porque main tiene cambios ajenos.
@@ -11,17 +24,6 @@ Sin cambios de aplicación/vistas/CSS ni base real/servidor; solo wings_testing_
 Capturas publicadas en 459ec42, solo evidencia en esta rama, sin merge a main ni A25.
 Carlos pidió aclarar y aprobó con «OK» la redacción exacta del README: inscripción única y consulta del estado en la ficha del deporte propietario.
 Pendiente aplicar ese texto; imágenes con redacción anterior conservadas. No se programa, cierra ni despliega por esta aprobación.
-
-## 2026-10-06 — Codex CyE — Texto A55 preparado; integración autorizada
-
-Objetivo: verificar A13/B1/A55 y asentar A48/A49; pull al día en 63bffd4 al iniciar.
-Texto exacto aprobado y deporte dinámico en A55; capturas Fútbol escritorio/375 rehechas, login control completo.
-Commit local 4eb3f59, solo frase/README/tres imágenes. Sin CSS, Gemini ni base del club tocados.
-Rama: 11 pruebas/45 aserciones cumplen, con avisos del entorno; no se certifica main integrado.
-A48/A49: búsqueda coincide con Claude; CSP en main 2 aprobadas/2 aserciones.
-Carlos respondió directamente «OK» a integrar la rama y publicar los cierres aprobados; rechazo automático resuelto.
-[Control en curso y ensayo preparado](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md); sin cierres nuevos ni despliegue.
-Merge preparado conservando ambos logs; solo conflicto documental, sin CSS. Sigue verificar sobre main y publicar el dictamen.
 
 ## 2026-10-06 — Codex CyE — A15/A16 implementadas, a revisar; A56 publicado
 

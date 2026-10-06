@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 06/10/2026. Avance: **30 defectos cerrados de 72**. Frenan: A13, B1.
+Último cambio: 06/10/2026. Avance: **35 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -50,13 +50,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A13** El admin termina con caja propia | Hecho, espera verificación (hizo Claude, verifica Codex) | Aplicar el texto aprobado, integrar la rama a55-inscripcion a main, verificar en pantalla y cerrar |
-| **B1** El admin está modelado como un operativo más | Hecho, espera verificación (hizo Claude, verifica Codex) | Va junto con A13: misma rama y misma verificacion |
-| **A48** P2 agregó JavaScript adentro del HTML | Hecho, espera verificación (hizo Codex, verifica Claude) | Claude ya lo verifico en el codigo; Codex repite la busqueda sobre main y lo asienta cerrado |
-| **A49** P2 agregó un confirm escrito en el HTML | Hecho, espera verificación (hizo Codex, verifica Claude) | Claude ya lo verifico en el codigo; Codex repite la busqueda sobre main y lo asienta cerrado |
-| **A55** El saldo del selector de cobro omite la inscripción | Hecho, espera verificación (hizo Claude, verifica Codex) | Va junto con A13: comprobar que la inscripcion figura una sola vez con dos deportes |
+Nada en este momento.
 
 ## Gemini
 

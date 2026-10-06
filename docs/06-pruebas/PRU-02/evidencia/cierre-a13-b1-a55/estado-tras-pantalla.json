@@ -1,0 +1,111 @@
+{
+    "pagos": [
+        {
+            "id": 1,
+            "alumno_id": 1,
+            "monto_final": "101000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": {
+                "motivo": "Control independiente: medio equivocado",
+                "cargos": [
+                    {
+                        "periodo": "",
+                        "periodo_texto": "Inscripción al club",
+                        "monto_aplicado": "5000.00"
+                    }
+                ],
+                "periodos": [
+                    {
+                        "periodo": "2026-08",
+                        "monto_aplicado": "48000.00"
+                    },
+                    {
+                        "periodo": "2026-09",
+                        "monto_aplicado": "48000.00"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "alumno_id": 1,
+            "monto_final": "5000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": {
+                "motivo": "Control de pantalla: anulación de inscripción",
+                "cargos": [
+                    {
+                        "periodo": "",
+                        "periodo_texto": "Inscripción al club",
+                        "monto_aplicado": "5000.00"
+                    }
+                ],
+                "periodos": []
+            }
+        },
+        {
+            "id": 3,
+            "alumno_id": 1,
+            "monto_final": "96000.00",
+            "estado": "ANULADO",
+            "detalle_anulacion": {
+                "motivo": "Control independiente: segunda anulación",
+                "cargos": [],
+                "periodos": [
+                    {
+                        "periodo": "2026-08",
+                        "monto_aplicado": "48000.00"
+                    },
+                    {
+                        "periodo": "2026-09",
+                        "monto_aplicado": "48000.00"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "alumno_id": 2,
+            "monto_final": "48000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        },
+        {
+            "id": 5,
+            "alumno_id": 1,
+            "monto_final": "101000.00",
+            "estado": "COMPLETADO",
+            "detalle_anulacion": null
+        }
+    ],
+    "cajas": [
+        {
+            "id": 1,
+            "usuario_operativo_id": 2,
+            "estado": "ABIERTA",
+            "efectivo_inicial": "10000.00"
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "caja_operativa_id": 1,
+            "fecha": "2026-10-06T03:00:00.000000Z",
+            "tipo_caja_id": 1,
+            "subrubro_id": 2,
+            "monto": "48000.00",
+            "observaciones": "Pago cuota alumno #2 - Períodos: 2026-10",
+            "usuario_id": 2,
+            "alumno_id": 2,
+            "pago_id": 4,
+            "estado": "ACTIVO",
+            "motivo_cancelacion": null,
+            "created_at": "2026-10-06T13:00:00.000000Z",
+            "updated_at": "2026-10-06T13:00:00.000000Z"
+        }
+    ],
+    "arqueo": {
+        "efectivo_esperado": "58000.00",
+        "diferencia_efectivo": null
+    }
+}

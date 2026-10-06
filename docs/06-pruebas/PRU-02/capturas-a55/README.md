@@ -23,7 +23,7 @@ Carlos pidió aclarar el mensaje y aprobó con «OK» esta redacción exacta:
 El deporte mencionado debe seguir siendo el del registro que tiene el cargo, como
 en la rama actual; Patín es el ejemplo mostrado, no un nombre fijo para todos.
 **Aplicada por Codex CyE el 06/10:** solo el renglón aprobado, sin CSS ni otros cambios visuales. Las capturas de Fútbol fueron reemplazadas por respuestas reales con la nueva redacción. Las imágenes de Patín e historial conservan el ensayo original.
-No se declara cerrado A55, A13 ni B1, ni se hizo merge o despliegue.
+Integrada entera en main con `6d3f68a`. A55, A13 y B1 CERRADOS por Codex CyE tras el [control independiente sobre main](../VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
 
 ## Capturas reales
 

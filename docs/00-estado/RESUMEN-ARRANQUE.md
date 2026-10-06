@@ -22,7 +22,7 @@
 | A15/A16 | HECHO (Codex), a revisar. Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones** el 06/10 en wings_testing_codex; 342,01 s, sin fallas. A15/A16 HECHO (Codex), a revisar. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Sin despliegue |
+| Suite | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -33,15 +33,13 @@
 
 ## Trabajo que continúa
 
+- **A13/B1/A55 CERRADOS por Codex CyE, 06/10:** rama integrada entera en main `6d3f68a`; texto aprobado y capturas reales renovadas. Historial, contraasientos, inscripción única y separación ADMIN/cajón de A25 comprobados por HTTP, navegador y filas. A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide. **35/72 cerrados, 37 abiertos, 0 frenan.** [Informe](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
+
 - **A4/A5 entregados por Codex CAB el 05/10:** aviso superior, conservación y salida; profesores activos del deporte. Gemini registró control y cierre independiente el 06/10 en 94e368e. [Informe](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue.
   Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
-  Control posterior registrado 06/10: **A54 cerrado por Codex; A13/B1/A55 abiertos**.
-  A55: dos deportes muestran distinta inscripción entre selector y ficha. A13/B1:
-  reversión financiera correcta, historial anulado y signo del contraasiento en pantalla fallan.
-  Cierre operativo comprobado por servicio, no por pantalla. Claude corrige.
-  [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Ambos seguimientos:
-  Corte de aquel informe: 26/71; hoy 30/72 tras A37, cierre ajeno A4/A5 y control independiente A56. Publicado en `ddefe00`:
-  push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
+  Primer control: A54 cerrado y A13/B1/A55 devueltos; [antecedente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md).
+  Segundo control sobre main integrado: A13/B1/A55 CERRADOS por Codex; A48/A49 asentados verificado Claude.
+  Corte actual: 35/72 y ningún defecto que frene. A53 permanece HECHO (Gemini), a revisar.
 
 - **A25, HECHO (Codex), a revisar 06/10:** apertura confirmada, cajón compartido y arqueo;
   [Contrato V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): respuestas de Carlos consolidadas para los tres agentes. Rechazadas conservan
@@ -65,7 +63,7 @@
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
   Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron
-  fuera de esta entrega; al 06/10 A54 cerrado y A53/A55 abiertos. Sin despliegue; Gemini puede
+  fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 HECHO (Gemini), a revisar. Sin despliegue; Gemini puede
   continuar Entrega 2.
   [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
   **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas

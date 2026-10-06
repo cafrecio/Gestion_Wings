@@ -7,8 +7,8 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 30 cerrados de 72.** Quedan 42 abiertos, de los
-> cuales **2 frenan**: A13, B1. Un defecto se marca **CERRADO solo cuando
+> **Avance al 06/10/2026: 35 cerrados de 72.** Quedan 37 abiertos, de los
+> cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 
@@ -147,29 +147,13 @@ sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
 Tres cuadros en cero, una tarjeta que dice "Sin caja hoy" y nada que diga por dónde empezar
 el día.
 
-### A13. El admin termina con caja propia · Frena · ABIERTO, verificación con observaciones 06/10
+### A13. El admin termina con caja propia · Frena · CERRADO 06/10, verificado Codex
 
-**Hecho el 05/10 (Claude), junto con B1, que es la misma raiz.** Cuando cobra un ADMIN, la
-pantalla usa el camino directo al cashflow que ya existia y no le abre ninguna caja; el
-operativo sigue cobrando por la suya. Se agrego lo que faltaba para que eso no dejara un
-agujero: **anular ese cobro**, que vivia solo dentro de la caja del mostrador. Se anula desde
-el historial de la ficha, con motivo obligatorio, y el cashflow recibe un asiento en contra
-en vez de borrar el original. `AdminCobraSinCajaTest`, 8 pruebas; 6 fallan con el codigo
-anterior. Diseno del boton autorizado por Carlos el 05/10 sobre capturas
-(`capturas-a13/`). **Verificación independiente Codex CAB, registrada 06/10:** cobrar sin
-caja y anular restituyen correctamente cuota, inscripción y saldo. No se aprueba completa:
-el historial anulado muestra el mes del pago en lugar de los períodos cobrados, y la
-pantalla de cashflow ensayada dibuja el contraasiento negativo como ingreso positivo.
-Son dos fallas de esta misma cadena, registradas aquí y en B1, sin IDs nuevos.
-[Informe, filas y capturas](VERIFICACION-A13-A54.md). Corrección a cargo de Claude;
-el cambio ajeno de cashflow en curso no se certifica con esta evidencia anterior.
+ADMIN cobró y anuló desde la ficha con motivo obligatorio. No abrió caja ni agregó movimientos al cajón del operativo. Historial anulado conserva Agosto y Septiembre; Cashflow muestra los contraasientos como egresos negativos en rojo. A25 conserva el esperado del operativo en $58.000.
 
-**Antecedente anterior a `8869263`:** cuando el dueño cobraba una cuota, el sistema **le abría una caja a su nombre**
-(`abrirCajaSiNoExiste`). Después tiene que cerrarla y validarse a sí mismo.
+[Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
 
-**Decisión de Carlos, 23/09:** el admin **no tiene caja**. No cierra ni valida lo suyo. Le
-corresponde una pantalla de caja distinta: la del dueño que mira, no la del mostrador que
-rinde.
+El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
 ### A14. Pantallas más altas que el monitor · Molesta · HECHO (Gemini), a revisar — 06/10
 
@@ -492,18 +476,17 @@ fila de tabla: 64. Los dos salieron del mismo commit, `e32ce0c`.
 
 **Resuelto en Entrega 1 de P2 (04/10, commit `abc346a`):** Ambos botones `Cobrar` y `Ver` tienen ancho uniforme y fijo de 64px respetando Objeto C de `DESIGN-RULES.md` con clase `ds-btn-row`.
 
-### A48. P2 agregó JavaScript adentro del HTML · Molesta · verificado
+### A48. P2 agregó JavaScript adentro del HTML · Molesta · CERRADO 06/10, verificado Claude
 
-El aviso de cambios sin guardar se escribió dentro del bloque incrustado que ya tenía
-`alumnos/_form.blade.php`, en vez de un archivo propio como manda `DESIGN-RULES.md` §8. El
-bloque quedó más grande y más difícil de sacar, y es lo que traba cerrar la CSP (SEG-11).
+Verificación de Claude del 06/10 asentada por pedido de Carlos. Búsqueda repetida sobre main integrado: alumnos/_form.blade.php no contiene bloques <script>; el aviso de cambios sin guardar vive en resources/js/alumnos-form.js. CspSinCodigoIncrustadoTest aprueba.
 
-### A49. P2 agregó un confirm escrito en el HTML · Molesta · verificado
+[Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
 
-`caja/resumen.blade.php:77` lleva `onsubmit="return confirm('¿Cerrar la caja?')"`. El
-sistema ya resuelve esto sin código incrustado con `data-confirmar`, que manejan `ds-app.js`
-y usan `alumnos/show` y `liquidaciones/show`. Quedan otros cuatro `onsubmit` iguales de
-antes —`caja/detalle`, `grupos/show` y las dos de liquidaciones— que son una limpieza aparte.
+### A49. P2 agregó un confirm escrito en el HTML · Molesta · CERRADO 06/10, verificado Claude
+
+Verificación de Claude del 06/10 asentada por pedido de Carlos. Búsqueda repetida sobre main integrado: caja/resumen.blade.php no contiene onsubmit ni confirm escrito en HTML. Conserva un script ajeno a este defecto. Los manejadores antiguos de otras vistas quedan fuera de este cierre. CspSinCodigoIncrustadoTest aprueba.
+
+[Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
 
 ### A50. Un agente escribió su propia autorización de diseño · Frena · CERRADO 04/10
 
@@ -567,34 +550,13 @@ la lista además conserva al alumno sin deuda para adelantar (A3). Con casos adi
 8 positivos y encabezado 8. [Informe §7](VERIFICACION-A13-A54.md#7-contador-y-saldo-entre-selector-cobranza-y-ficha),
 [captura de cero pendiente](evidencia/verificacion-a13-a54/selector-cero-pendiente.png).
 
-### A55. El saldo del selector de cobro omite la inscripción · Molesta · ABIERTO, verificación rechazada 06/10
+### A55. El saldo del selector de cobro omite la inscripción · Molesta · CERRADO 06/10, verificado Codex
 
-**Antecedente:** el selector omitía inscripción incluso en un solo deporte.
-`4571dbc` corrige ese caso; **Codex CAB no aprueba A55**: misma persona en Patín y
-Fútbol, una inscripción $5.000. Selector del segundo deporte $0; su ficha $5.000.
-El cálculo masivo adjudica el cargo a `cargo.alumno_id` y la ficha lo busca por DNI.
-[Selector](evidencia/verificacion-a13-a54/selector-dos-deportes.png),
-[ficha](evidencia/verificacion-a13-a54/ficha-segundo-deporte-inscripcion.png),
-[informe §7](VERIFICACION-A13-A54.md#7-contador-y-saldo-entre-selector-cobranza-y-ficha).
-Es la misma inconsistencia de A55, no un defecto nuevo; Claude corrige sin duplicar inscripción.
+Una persona ficticia en Patín y Fútbol: una sola inscripción de $5.000. Selector y ficha propietaria imputan $5.000 a Patín; Fútbol no repite deuda y remite dinámicamente a esa ficha. Total pendiente inicial $5.000, una sola persona con deuda. Pago y anulación actualizan el cargo compartido. Texto exacto aprobado aplicado y capturas reales renovadas en escritorio y marco de 375.
 
-**Implementados el 05/10 por Claude; control independiente registrado el 06/10.**
-`CobranzaEstadoService::saldoDeAlumnos()` suma cuotas e inscripción para Cobranza y
-selector; no es correcto extender esa unificación a la ficha, que consulta inscripción
-por DNI. **A54 pasa y queda cerrado; A55 falla con dos deportes y sigue abierto.**
+[Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
 
-- El selector ya no suma las cuotas PENDIENTE por su cuenta ni cuenta como deudor a quien
-  tiene una en cero; el contador del encabezado cuenta a los que deben.
-- La lista sigue ofreciendo a quien no debe nada pero se le puede cobrar el mes en curso
-  por adelantado (A3): si no, el cobro adelantado quedaba sin pantalla. Esa colision la
-  encontro la suite, no una lectura.
-- `DeudaCuota::saldo_pendiente` tambien resta lo condonado, como ya hacia el servicio.
-- 4 pruebas en `SaldoUnicoPorAlumnoTest`; las 4 fallan con el codigo anterior.
-- Verificado por Codex en base propia: selección de 23 pruebas / 106 aserciones el 05/10;
-  no se corrió suite completa para este control. Detalles y límites en el informe nuevo.
-
-La Entrega 1 conserva su aprobación; A53 queda abierto, A54 cerrado y A55 devuelto a Claude.
-[Antecedente de Entrega 1](VERIFICACION-ENTREGA1.md); [verificación nueva](VERIFICACION-A13-A54.md).
+El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
 ## Complemento visual de Codex — 23/09/2026
 
@@ -644,17 +606,13 @@ empuja el ancho de toda la pantalla.
 Es la misma familia que A37, A53 y A14: cada pantalla resuelve el celular por su cuenta en
 vez de usar lo compartido. Conviene tomarlas juntas.
 
-### B1. El admin está modelado como un operativo más · Frena · ABIERTO, verificación con observaciones 06/10
+### B1. El admin está modelado como un operativo más · Frena · CERRADO 06/10, verificado Codex
 
-**Antecedente anterior a `8869263`:** la pantalla usaba siempre el camino operativo;
-el cobro directo ADMIN solo se alcanzaba por la API apagada. Ahora la pantalla distingue
-roles y el ADMIN cobra directo al cashflow sin caja. Codex comprobó la reversión de parciales,
-varios meses e inscripción, permisos y tres órdenes concurrentes. **No se cierra:** historial
-anulado con período equivocado y contraasiento negativo dibujado positivo en la versión
-ensayada. Son los mismos dos hallazgos de A13; no se cuentan dos veces ni se crean otros IDs.
-[Informe con evidencia y límites](VERIFICACION-A13-A54.md). Claude corrige; no tocar la vista de Gemini.
+El ADMIN usa el cobro directo a Cashflow; el OPERATIVO usa su caja. Ensayo HTTP y navegador sobre main integrado: cobro admin $101.000, anulación con motivo y caja operativa con solo su movimiento $48.000. Inicial $10.000, esperado $58.000. Los hallazgos de historial y contraasiento de A13 quedaron comprobados en pantalla.
 
-El modelo de fondo es el problema: el dueño no es una mula del sistema.
+[Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
+
+El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
 ### B2. El estado de cobranza no distingue "sin deuda" de "nunca pagó" · Frena · CERRADO 23/09
 
@@ -833,8 +791,8 @@ Carlos.
 ### P3 · El dueño deja de ser un operativo
 
 **Control independiente registrado 06/10:** ADMIN cobra sin caja y puede anular desde
-la ficha; la reversión financiera pasó, pero A13/B1 siguen abiertos por historial y
-representación del contraasiento. [Informe](VERIFICACION-A13-A54.md).
+la ficha con motivo obligatorio. A13/B1 CERRADOS por Codex tras comprobar historial y
+contraasientos en pantalla sobre main integrado. [Informe](VERIFICACION-A13-B1-A55-CIERRE.md).
 Su pantalla de Caja propia sigue sin definir.
 
 **Decidido el 04/10:** cuando el dueño cobra, esa plata **va directo al cashflow, sin caja**,

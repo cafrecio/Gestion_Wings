@@ -1,0 +1,21 @@
+changed in both
+  base   100644 4ee9ff77d14c1f69105ffd44a4444f2f7021523e docs/00-estado/LOG-CODEX.md
+  our    100644 ab0ad4f2b25edb370275c07547a402a03f0b4890 docs/00-estado/LOG-CODEX.md
+  their  100644 0ce9629b6798f2cddbe422632612aa3f9279a7af docs/00-estado/LOG-CODEX.md
+  our    100644 5b7ae57a5edbf37edbce27d0334e9a82a9e50951 docs/06-pruebas/PRU-02/capturas-a13/ficha-anular.html
+  their  100644 e9a44847006fee09e5bdb8798857610fd4e12abd docs/06-pruebas/PRU-02/capturas-a13/ficha-otro-deporte-375.png
+  their  100644 4b1dc4e129a79bee0d922c1b24fb705161a2041f docs/06-pruebas/PRU-02/capturas-a13/ficha-otro-deporte.html
+  their  100644 33adf13df32ad5572961319376626ced25b61b76 docs/06-pruebas/PRU-02/capturas-a13/marco-otro-deporte.html
+  their  100644 f41a82caed94dca9be136bc8b1ba90fb278ecf0e docs/06-pruebas/PRU-02/capturas-a55/README.md
+  their  100644 077880960c1d5b27e9ff7eb26a5fe3ff46158d1e docs/06-pruebas/PRU-02/capturas-a55/ficha-futbol-375.png
+  their  100644 834b8d365ddbc5bccac7e0a7170e0fb1aa951fde docs/06-pruebas/PRU-02/capturas-a55/ficha-futbol-escritorio.png
+  their  100644 d99f86e8e485fc91f9abba787aa3e81f01fd2b31 docs/06-pruebas/PRU-02/capturas-a55/ficha-patin-375.png
+  their  100644 ac2c3134bff62a3ba9da5b82f79e1052dac4dde9 docs/06-pruebas/PRU-02/capturas-a55/ficha-patin-escritorio.png
+  their  100644 da4e35d4e9dde4dc6f06446161181687ddcede87 docs/06-pruebas/PRU-02/capturas-a55/historial-anulado-375.png
+  their  100644 5799e1300f389ce490aaf5d72da25770fb82dddd docs/06-pruebas/PRU-02/capturas-a55/historial-anulado-escritorio.png
+  their  100644 c6f02b315e2303749f0e8d22ae0c0081ed13c5e0 docs/06-pruebas/PRU-02/capturas-a55/login-375.png
+  their  100644 6fe04967a5b6e535537e6338ebf3fa9a2d301ba3 docs/06-pruebas/PRU-02/capturas-a55/login-escritorio.png
+  their  100644 978e8e050f961d7d43f6d9c24554e5ccbd6130d6 docs/99-archivo/bitacoras/2026-10-06/LOG-CODEX-PERMISOS-ENTREGA.md
+  our    100644 36815964ea218e6e65a1810791332b8d8f500571 resources/views/alumnos/show.blade.php
+  our    100644 31c74a0b793a10f14eac990e6b34e2c8b3d9a036 tests/Feature/CapturaFichaAnularTest.php
+  their  100644 46d80e74cdc4db8c6c3169c23f50f5ebac706c32 tests/Feature/SaldoYAnulacionCoherentesTest.php

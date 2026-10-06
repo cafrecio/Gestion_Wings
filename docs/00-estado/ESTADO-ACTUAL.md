@@ -38,19 +38,18 @@ Carlos aprobó las cinco pantallas escritorio/375; sin CSS ni componentes compar
 [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) · [Contrato V5](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md).
 Otro agente verifica; no CERRADO ni desplegado. Base del club y servidor intactos.
 
-## Verificación A13/B1/A54/A55 registrada — 06/10/2026
+## A13/B1/A55 cerrados; A48/A49 asentados — 06/10/2026
 
-Codex CAB verificó las entregas `4571dbc` y `8869263` en navegador, servicios y base
-propia el 05/10; evidencia ordenada y filas releídas el 06/10. **A54 CERRADO**:
-cuota PENDIENTE cero no infla el contador y se conserva el cobro adelantado.
-**A55 ABIERTO:** con dos deportes, selector $0 y ficha $5.000 de inscripción por DNI.
-**A13/B1 ABIERTOS:** cobro sin caja y reversión financiera pasan; historial anulado
-usa el mes del pago y el cashflow ensayado dibuja positivo un contraasiento negativo.
-Los hallazgos quedan dentro de esos IDs; Claude corrige. No se certifica el cambio
-ajeno sin commit de cashflow. **Cierre operativo probado por servicio, no por pantalla.**
-Ambos seguimientos: **26 cerrados de 71, 45 abiertos**. Selección del 05/10: 23/106;
-ensayo HTTP independiente 2/9; sin suite completa nueva ni cambio del número permanente.
-[Informe, evidencia y límites](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Sin deploy.
+Rama a55-inscripcion integrada entera en main `6d3f68a`, conservando ambos logs.
+A13/B1/A55 CERRADOS por Codex CyE: cobro ADMIN sin caja, anulación desde ficha con
+motivo, historial con períodos originales, contraasientos negativos como egreso y
+una inscripción por persona coherente entre selector y ambas fichas.
+Regresión A25: esperado operativo $58.000 ($10.000 inicial + $48.000 propios),
+sin sumar cobro directo ADMIN de $101.000 ni abrirle caja.
+A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide.
+**35/72 cerrados, 37 abiertos, 0 frenan.** A54 conserva su cierre anterior.
+El primer control rechazado queda como antecedente, no como estado actual.
+[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin deploy.
 
 ## A37 resuelto (Ficha del alumno en celular 375px) — 05/10/2026
 
@@ -80,8 +79,8 @@ Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
 Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
 el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A53/A54/A55 surgieron fuera de Entrega 1. Estado posterior al control registrado 06/10:
-A53 abierto; A54 corregido por Claude y cerrado por Codex; A55 devuelto a Claude por
-inscripción con dos deportes. Ver informe nuevo arriba. Gemini puede continuar Entrega 2.
+A53 HECHO (Gemini), a revisar; A54/A55 corregidos por Claude y cerrados por Codex.
+Ver control sobre main integrado arriba. Gemini puede continuar Entrega 2.
 
 ## A43 y permisos A29/A30/A31 verificados y cerrados — 05/10/2026
 
@@ -266,7 +265,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones** el 06/10 en wings_testing_codex; 342,01 s, sin fallas. A15/A16 HECHO (Codex), a revisar. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Sin despliegue |
+| **Tests** | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

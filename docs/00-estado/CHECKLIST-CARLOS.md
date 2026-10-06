@@ -17,11 +17,10 @@ El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 e
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
 Entrega 1 de P2 (Cobranza) **verificada y aprobada por Codex el 05/10**:
 `abc346a`, código/pantalla y filtros 375; suite propia 380/2242.
-Gemini puede continuar Entrega 2. Control Codex registrado 06/10: A54 cerrado; A53 abierto;
-A55 devuelto a Claude por inscripción con dos deportes. A13/B1 siguen abiertos por historial
-anulado y representación del contraasiento, aunque el saldo real y la reversión pasan.
-[Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Este control no requiere
-otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite completa nueva ni deploy.
+Gemini puede continuar Entrega 2. A54 conserva su cierre; A53 HECHO (Gemini), a revisar.
+A13/B1/A55 CERRADOS por Codex CyE el 06/10 sobre main integrado; A48/A49 CERRADOS,
+verificado Claude. Carlos autorizó integrar y publicar; no queda aprobación pendiente
+para estos cierres. [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin deploy.
 
 **Lo que necesita tu decision o tu presencia:**
 
@@ -111,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 491 pruebas: 489 aprobadas, 2 omitidas; 3924 aserciones, 203,84 s
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
