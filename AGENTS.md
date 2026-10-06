@@ -61,6 +61,19 @@ Nace de este dia: se le pidio dos veces que autorizara por texto un cambio de fi
 afectaba seis pantallas, y las capturas que un agente dijo haber sacado no estaban en
 ninguna parte.
 
+**Y la captura tiene que salir del sistema andando** — 05/10/2026. No vale fabricar un HTML
+a mano que se parezca a la pantalla: eso prueba como quedo el archivo inventado, no como
+quedo Wings. Dos formas validas:
+
+- Levantar Wings en un navegador, entrar con un usuario y achicar a 375.
+- Si no se puede levantar el sitio: una prueba que le pida la pantalla a la aplicacion y
+  guarde el HTML que devuelve (ver `tests/Feature/CapturaFichaAnularTest.php`), y despues
+  Chrome sin ventana sobre ese archivo.
+
+Si no se puede capturar, se dice; no se simula. Nace de A37: se entrego como resuelto con la
+captura de una maqueta escrita a mano — se delataba sola, mostraba impresos los comentarios
+`{{-- ... --}}` que Blade nunca manda al navegador — y en la pantalla real el defecto seguia.
+
 ### Si el dueño autoriza tocar una vista
 
 Leer ANTES, sin excepción:
