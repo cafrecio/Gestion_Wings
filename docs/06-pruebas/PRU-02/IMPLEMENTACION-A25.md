@@ -90,5 +90,6 @@ recorrer abrir → cobrar → contar/cerrar → validar/rechazar → siguiente t
 
 A25 queda HECHO (Codex), a revisar; no CERRADO. Ambos seguimientos conservan el
 contador de cerrados sin sumar esta implementación. Cuatro estados con el conteo real.
-Commit/push y pull se comprueban al publicar; no se atribuye un deploy ni una aprobación
-funcional a Carlos por haber aprobado las imágenes.
+Código 30f38f8, integración e3b268a. Push recibido en main y pull --ff-only al día;
+HEAD local y remoto e3b268a comprobados el 06/10. Sin cambios ajenos agregados al commit
+de A25. No se atribuye deploy ni aprobación funcional a Carlos por aprobar imágenes.
