@@ -337,9 +337,9 @@ incluidos (`Cobrar`, `Editar`, `Recibo`, `Anular`).
 
 **Solución aplicada:**
 - Barra superior de acciones migrada a contenedor flexible responsivo `flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end`.
-- Filas de deudas e historial adaptadas con `flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded` y contenedor de acciones `w-full sm:w-auto justify-end`, permitiendo que en 375px los botones se ubiquen en un renglón dedicado sin desbordar el contenedor.
+- Filas de deudas e historial adaptadas con estructura en dos renglones en móvil (`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded`): primer renglón con fecha/período y monto, segundo renglón exclusivo para los botones de acción (`Recibo`, `Anular` / `Cobrar`, `Condonar`) alineados a la derecha (`w-full sm:w-auto justify-end`), eliminando todo desborde.
 - Botón Volver inferior adaptado con `justify-start sm:justify-end`.
-- Cubierto por prueba automatizada `tests/Feature/FichaAlumnoResponsiveA37Test.php`. Capturas de evidencia en `docs/06-pruebas/PRU-02/capturas-a37/`.
+- Cubierto por prueba automatizada `tests/Feature/FichaAlumnoResponsiveA37Test.php`. Capturas de evidencia real tomadas sobre el sistema corriendo (`tests/Feature/CapturaFichaAnularTest.php`) en `docs/06-pruebas/PRU-02/capturas-a37/`.
 
 ### A38. Paginación de Clases · Molesta · verificado
 

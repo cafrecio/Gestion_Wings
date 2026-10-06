@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="XcEQjdr5lGSoo6dzhuAtp5J4sb8RzdEvvlzSWd1Y">
+    <meta name="csrf-token" content="GPaQP9HSM21QNIFrF8Rvzi1YexNzmFKXg0TZuyMF">
     <title>Gómez, Luz – Wings</title>
     <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
@@ -205,10 +205,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Ricky Heaney</span>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Ottilie Bradtke IV</span>
                 </div>
                 <form method="POST" action="http://gestion-wings/logout">
-                    <input type="hidden" name="_token" value="XcEQjdr5lGSoo6dzhuAtp5J4sb8RzdEvvlzSWd1Y" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+                    <input type="hidden" name="_token" value="GPaQP9HSM21QNIFrF8Rvzi1YexNzmFKXg0TZuyMF" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
             type="submit"
             >
 
@@ -374,14 +374,19 @@
                 Historial de pagos
             </p>
                             <div style="display:flex; flex-direction:column; gap:5px;">
-                                                <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded"
+                                                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
                      style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
-                    <div>
-                        <span style="font-size:0.72rem; color:var(--color-text-muted);">05/10/2026</span>
-                                                <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · Oct 2026</span>
-                                                                    </div>
-                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
-                        <span style="font-size:0.75rem; font-weight:700; color:var(--color-success); white-space:nowrap; ">
+                    <div class="flex justify-between items-center w-full sm:w-auto gap-2">
+                        <div>
+                            <span style="font-size:0.72rem; color:var(--color-text-muted);">05/10/2026</span>
+                                                        <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · Oct 2026</span>
+                                                                                </div>
+                        <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:var(--color-success); white-space:nowrap; ">
+                            $48.000
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
+                        <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:var(--color-success); white-space:nowrap; ">
                             $48.000
                         </span>
                                                 <a href="http://gestion-wings/recibos/cuota/1?inline=1"
@@ -419,7 +424,7 @@
         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Anular cobro</p>
         <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">La deuda vuelve a quedar pendiente y la plata sale del cashflow. El recibo queda marcado como anulado.</p>
         <form id="form-anular" method="POST" action="">
-            <input type="hidden" name="_token" value="XcEQjdr5lGSoo6dzhuAtp5J4sb8RzdEvvlzSWd1Y" autocomplete="off">            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
+            <input type="hidden" name="_token" value="GPaQP9HSM21QNIFrF8Rvzi1YexNzmFKXg0TZuyMF" autocomplete="off">            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
                       placeholder="Motivo de la anulación..."
                       class="w-full px-4 py-2.5 text-sm wings-input"
                       style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>
@@ -439,7 +444,7 @@
         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Condonar deuda</p>
         <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">Esta acción no genera un ingreso de caja y no se puede deshacer.</p>
         <form id="form-condonar" method="POST" action="">
-            <input type="hidden" name="_token" value="XcEQjdr5lGSoo6dzhuAtp5J4sb8RzdEvvlzSWd1Y" autocomplete="off">            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
+            <input type="hidden" name="_token" value="GPaQP9HSM21QNIFrF8Rvzi1YexNzmFKXg0TZuyMF" autocomplete="off">            <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
                       placeholder="Motivo de la condonación..."
                       class="w-full px-4 py-2.5 text-sm wings-input"
                       style="display:block; width:100%; margin-bottom:1rem; resize:vertical;"></textarea>

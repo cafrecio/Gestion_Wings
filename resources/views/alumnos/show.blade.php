@@ -168,11 +168,16 @@
                     $periodoLabel = ($meses[(int)$mo] ?? $mo) . ' ' . $yr;
                     $saldo = (float)$deuda->saldo_pendiente;
                 @endphp
-                <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded"
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
                      style="background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
-                    <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
-                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
-                        <span style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
+                    <div class="flex justify-between items-center w-full sm:w-auto gap-2">
+                        <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
+                        <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
+                            ${{ number_format($saldo, 0, ',', '.') }}
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
+                        <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
                             ${{ number_format($saldo, 0, ',', '.') }}
                         </span>
                         @if(!auth()->user()?->isProfesor())
@@ -243,19 +248,24 @@
                     }
                     $esAnulado = ($pago->estado === \App\Models\Pago::ESTADO_ANULADO);
                 @endphp
-                <div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 p-2 rounded"
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
                      style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
-                    <div>
-                        <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $pago->fecha_pago?->format('d/m/Y') ?? '–' }}</span>
-                        @if($periodos)
-                        <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · {{ $periodos }}</span>
-                        @endif
-                        @if($esAnulado)
-                        <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Anulado</span>
-                        @endif
+                    <div class="flex justify-between items-center w-full sm:w-auto gap-2">
+                        <div>
+                            <span style="font-size:0.72rem; color:var(--color-text-muted);">{{ $pago->fecha_pago?->format('d/m/Y') ?? '–' }}</span>
+                            @if($periodos)
+                            <span style="font-size:0.65rem; color:var(--color-text-muted); opacity:.7;"> · {{ $periodos }}</span>
+                            @endif
+                            @if($esAnulado)
+                            <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Anulado</span>
+                            @endif
+                        </div>
+                        <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
+                            ${{ number_format($pago->monto_final, 0, ',', '.') }}
+                        </span>
                     </div>
-                    <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
-                        <span style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
+                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
+                        <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
                             ${{ number_format($pago->monto_final, 0, ',', '.') }}
                         </span>
                         @if(!auth()->user()?->isProfesor())

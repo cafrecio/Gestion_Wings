@@ -84,8 +84,8 @@ class FichaAlumnoResponsiveA37Test extends TestCase
         $this->assertStringContainsString('Anular', $html);
         $this->assertStringContainsString('Volver', $html);
 
-        // 3. Fila de deudas e historial: contenedor responsive con flex-wrap y w-full sm:w-auto en acciones
-        $this->assertStringContainsString('flex flex-wrap sm:flex-nowrap justify-between items-center', $html);
+        // 3. Fila de deudas e historial: contenedor responsive en dos renglones móviles y uno en escritorio
+        $this->assertStringContainsString('flex flex-col sm:flex-row sm:justify-between sm:items-center', $html);
         $this->assertStringContainsString('w-full sm:w-auto', $html);
 
         Carbon::setTestNow();
