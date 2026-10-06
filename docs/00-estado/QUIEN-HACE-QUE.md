@@ -36,11 +36,7 @@ Nada.
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex) | Falta asignar verificador. El prompt esta escrito, va junto con A16 |
-| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex) | Falta asignar verificador. El prompt esta escrito, va junto con A15 |
-| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex) | Falta asignar verificador. El prompt esta escrito: recorrer abrir, cobrar, cerrar y validar en pantalla |
+Nada.
 
 ## Claude
 
@@ -50,22 +46,26 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A20** El botón "Nuevo" del cashflow en celular tapa el saldo | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A28** En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A33** La toma de asistencia de clases en celular exige scroll masivo | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A36** Rubros en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A40** Inicio de ADMIN en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A41** Fechas del filtro de Movimientos | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
+| **T1** Completar las capturas del cambio en app.css | Hecho, espera verificación (hizo Gemini, verifica Codex) | Va junto con los nueve defectos de celular: 102 capturas de 51 pantallas entregadas |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A20** El botón "Nuevo" del cashflow en celular tapa el saldo | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A28** En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A33** La toma de asistencia de clases en celular exige scroll masivo | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A36** Rubros en celular | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A40** Inicio de ADMIN en celular | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A41** Fechas del filtro de Movimientos | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Gemini) | Gemini completa las capturas de su cambio en app.css; despues lo verifica otro agente |
-| **T1** Completar las capturas del cambio en app.css | En curso | Capturar todas las pantallas que alcanza el cambio, en escritorio y 375 |
+| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
+| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
+| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
 
 ## Sin empezar (26)
 
