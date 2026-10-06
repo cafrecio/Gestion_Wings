@@ -1,4 +1,4 @@
-# Quién hace qué — 06/10/2026, 18:30
+# Quién hace qué — 06/10/2026, 19:30
 
 Una sola hoja para saber, en cualquier momento, qué tiene cada uno y qué está esperando.
 **La actualiza Claude** cada vez que se entrega un prompt, llega un resultado o Carlos
@@ -29,6 +29,7 @@ corregirlo acá en el momento.
 | **Verificar la Entrega 1 de Cobranza** | **Hecha**: aprobada en la segunda vuelta; de ahí salieron A53, A54 y A55 |
 | **P1 — primera carga por Excel** | **Aprobada** por Gemini el 05/10. Falta retirar los dos importadores viejos y desplegar |
 | **A4 y A5 — los formularios que frenan** | **CERRADOS el 06/10**, verificados por Gemini (`94e368e`), incluido el aviso al salir sin guardar que Codex no había podido probar |
+| **A25 — declarar el efectivo y arquear el cajón** | **HECHO el 06/10** (`30f38f8`), con el contrato de Caja-Cashflow en V5. **Falta que otro agente lo verifique** |
 | **Verificar A13, B1, A54 y A55 de Claude** | **Hecha el 06/10.** A54 cerrado; A55, A13 y B1 devueltos con observaciones |
 | **A25 — apertura y arqueo** | **HECHO (Codex), a revisar**, commit 30f38f8. Diseño aprobado por Carlos; 468 pruebas aprobadas/2 omitidas, 3116 aserciones. Otro agente verifica; sin deploy |
 
