@@ -1,0 +1,20 @@
+{
+    "ingresos_netos": 0,
+    "egresos": 2500,
+    "saldo_inicial": 10000,
+    "balance": 7500,
+    "filas": {
+        "$48.000": {
+            "tipo": "I",
+            "estilo": "padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);"
+        },
+        "−$48.000": {
+            "tipo": "E",
+            "estilo": "padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);"
+        },
+        "−$2.500": {
+            "tipo": "E",
+            "estilo": "padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);"
+        }
+    }
+}

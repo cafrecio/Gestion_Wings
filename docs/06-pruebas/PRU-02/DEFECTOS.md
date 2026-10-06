@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 29 cerrados de 72.** Quedan 43 abiertos, de los
+> **Avance al 06/10/2026: 30 cerrados de 72.** Quedan 42 abiertos, de los
 > cuales **2 frenan**: A13, B1. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -600,7 +600,15 @@ Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio
 
 ## Parte B — Lo que no se ve
 
-### A56. Cashflow en celular se corta y sus filtros no se apilan · Molesta · HECHO 06/10 (Claude), a revisar
+### A56. Cashflow en celular se corta y sus filtros no se apilan · Molesta · CERRADO 06/10, verificado Codex CyE
+
+**Control independiente Codex CyE 06/10:** cobro/anulación reales y gasto normal por POST.
+Contraasiento −$48.000 y gasto −$2.500: E y color de salida; original I y color de ingreso.
+Ingresos netos $0, egresos $2.500, inicial $10.000, balance $7.500 comprobados.
+Login de control y Cashflow en Chrome, marco real de 375: filtros/totales contenidos;
+tabla con desplazamiento dentro de su tarjeta. 7 pruebas existentes/24 aserciones verdes,
+ensayo independiente 1/24; sin aumento de suite ni despliegue.
+[Informe y alcance](VERIFICACION-A56.md). El filtro Tipo conserva su criterio por rubro.
 
 **Hecho el 06/10 (Claude).** Los filtros dejan la grilla fija de cuatro columnas y usan una
 que se apila; los totales bajan de renglón. La tabla sigue desplazándose de costado dentro
@@ -612,7 +620,7 @@ roto, y también aparecía cortado. Ahora la captura de celular se saca con un `
 375 dentro de una ventana grande (`capturas-cashflow/marco-375.html`), y está escrito en
 `AGENTS.md` §1. **A37 estaba bien arreglado por Gemini**; lo que fallaba era la medición.
 
-Visto el 06/10 por Carlos sobre una captura del sistema. En `/cashflow` a 375 de ancho, la
+**Hallazgo anterior al arreglo:** visto el 06/10 por Carlos sobre una captura del sistema. En `/cashflow` a 375 de ancho, la
 barra de filtros, la de totales y la tabla **se salen de la pantalla**: el cuarto filtro
 queda afuera y "2 movimientos" se lee a medias.
 

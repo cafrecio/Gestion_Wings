@@ -330,6 +330,11 @@ Los criterios y dependencias estan en el plan vigente. La version HTML marcable 
 
 ## 9. Contradicciones abiertas
 
+**A56 — cerrado por Codex CyE 06/10/2026:** signo real del contraasiento y gasto normal,
+totales y marco 375 verificados en código, HTTP y navegador. Inicial $10.000, cobro y
+devolución compensados, gasto $2.500, balance $7.500. Ambos seguimientos 30/72.
+[Informe y límites](../06-pruebas/PRU-02/VERIFICACION-A56.md). Sin nuevas pruebas permanentes ni deploy.
+
 **A4/A5 — cerrados 06/10/2026:** verificados de forma independiente por Gemini en pantalla interactiva y código (aviso superior accesible sin scroll, confirm en menú y Cancelar, beforeunload, y rechazo en servidor de profesores ajenos o inactivos). 11 pruebas pasando. [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue ni base del club tocada. Pasan a 29 cerrados de 72.
 
 

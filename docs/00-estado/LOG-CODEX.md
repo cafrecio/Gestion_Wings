@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CyE — A56 verificado y cerrado
+
+Pedido: control independiente de Claude antes de A15/A16. Main 26a67c6, sin a55-inscripcion.
+Cobro/anulación reales y gasto normal por POST; signo, letra/color y cifras contrastados.
+Inicial $10.000, ingreso neto $0, egreso $2.500, balance $7.500; filas propias verificadas.
+Chrome con Wings HTTP/base descartable y marco 375: login control y Cashflow contenidos.
+Ensayo documental 1/24; existentes signo/celular/tableros 7/24 verdes. Sin más pruebas permanentes.
+[Informe y límites](../06-pruebas/PRU-02/VERIFICACION-A56.md); ambos seguimientos 30/72.
+Cambios de Gemini preservados; sin vistas/CSS/base del club/producción tocados.
+Siguiente: Carlos decide A15; relevar A16 y proponer carga por día sin repetir grupo/rango/profesor.
+
 ## 2026-10-06 — Codex CAB — Decisiones A25 consolidadas en el contrato
 
 Pedido de Carlos: modificar el contrato con sus respuestas y dejar aviso común.

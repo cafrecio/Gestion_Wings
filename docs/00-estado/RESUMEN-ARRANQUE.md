@@ -39,7 +39,7 @@
   reversión financiera correcta, historial anulado y signo del contraasiento en pantalla fallan.
   Cierre operativo comprobado por servicio, no por pantalla. Claude corrige.
   [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Ambos seguimientos:
-  Corte de aquel informe: 26/71; hoy 29/72 tras A37 y cierre ajeno A4/A5. Publicado en `ddefe00`:
+  Corte de aquel informe: 26/71; hoy 30/72 tras A37, cierre ajeno A4/A5 y control independiente A56. Publicado en `ddefe00`:
   push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
 
 - **A25, HECHO (Codex), a revisar 06/10:** apertura confirmada, cajón compartido y arqueo;
