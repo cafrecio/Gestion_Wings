@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — A25 cerrado tras la segunda verificacion de Gemini
+
+Gemini rehizo la verificacion (`a8fb0bc`). Contrastada: 23 capturas, 18 paginas y JSON
+existen; ninguna prueba inventada; columnas, mensajes y permisos citados estan en el codigo.
+Reproduje su recorrido en `wings_testing_claude`: 97 aserciones verdes, con sus importes.
+A25 CERRADO, verifica Gemini; 42 de 72. Limites anotados al pie de su informe: no hubo
+sesion interactiva de navegador (es una prueba HTTP mas paginas dibujadas), quedan nombres
+escritos de memoria (dos capturas, una tabla, tres rutas) y son nueve intentos POST, no diez.
+Su prueba habia entrado en `tests/Feature`: suite en rojo por `DocumentacionNoMienteTest`
+(492 contra 491) y reescribia la evidencia en cada corrida. Movida a la carpeta de evidencia.
+No corri la suite completa; si los cuatro guardianes documentales, verdes.
+
 ## 2026-10-06 — Claude CyE — anulado el cierre de A25 que hizo Gemini
 
 Gemini cerro A25 en `d91a840`. Contrastado contra el repositorio, su informe no se sostiene:

@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 06/10/2026. Avance: **41 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 06/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -42,7 +42,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 
 ## Codex

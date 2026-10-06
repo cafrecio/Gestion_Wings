@@ -21,7 +21,7 @@ Suite 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s, wings_testing_codex.
 [Dictámenes, cobertura y límites](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md).
 Sin cambios de aplicación ni despliegue.
 
-## A25 HECHO (Codex), a revisar — 06/10/2026
+## A25 CERRADO (verificado por Gemini, contrastado por Claude) — 06/10/2026
 
 Apertura explícita con recibido confirmado, herencia del último cierre del club y motivo
 si difiere. Un cajón compartido, un turno abierto. ADMIN configura el medio físico una
@@ -32,7 +32,7 @@ actor/fecha originales, sin cambiar la apertura siguiente. Históricos NULL no s
 26 pruebas permanentes (142 aserciones) pasando en suite compartida, sin fallas.
 Carlos aprobó las cinco pantallas escritorio/375; sin CSS ni componentes compartidos tocados.
 [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) · [Contrato V5](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md).
-No verificado todavía: el cierre de Gemini del 06/10 fue anulado por Claude ([informe anulado y motivo](../06-pruebas/PRU-02/VERIFICACION-A25.md)). Base del club y servidor intactos.
+Verificado por Gemini en una segunda vuelta, con recorrido propio por HTTP y 23 capturas; Claude reprodujo el recorrido y contrastó el informe; CERRADO 06/10 ([Informe](../06-pruebas/PRU-02/VERIFICACION-A25.md)). Sin sesión interactiva de navegador. Base del club y servidor intactos.
 
 ## A13/B1/A55 cerrados; A48/A49 asentados — 06/10/2026
 
@@ -266,7 +266,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
-| Caja | A25 HECHA, a revisar: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Cierre de Gemini anulado 06/10; falta verificación real. No desplegada |
+| Caja | A25 CERRADA: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Verificado por Gemini 06/10, contrastado por Claude. No desplegada |
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
@@ -374,7 +374,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
-| Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). HECHO (Codex), a revisar: cierre de Gemini anulado 06/10; no desplegada |
+| Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). CERRADO (verificado por Gemini 06/10); no desplegada |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |

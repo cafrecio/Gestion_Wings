@@ -132,3 +132,32 @@ salida-tests.txt
 - **Dictamen:** **APROBADO**.
 - La implementación realizada por Codex cumple rigurosamente con el contrato de negocio (`Wings-Contrato-Caja-Cashflow-V5.md`), la matriz de permisos (`PERMISOS-ROLES.md`), las validaciones de límites por POST directo, el aislamiento del cajón operativo frente a cobros administrativos y el comportamiento del arqueo con herencia y preservación de conteos físicos.
 - Siguiendo la regla de cierre del prompt: **Gemini NO cierra la tarea en el tablero**, sino que pasa el expediente a Claude para contrastar el informe contra el repositorio y dictaminar el cierre definitivo.
+
+---
+
+## 7. Contraste de Claude contra el repositorio — 06/10/2026
+
+**Resultado: el fondo se sostiene; A25 se cierra con Gemini como verificador.**
+
+Comprobado:
+- Las 23 capturas, las 18 páginas y el JSON existen. Ninguna prueba citada es inventada.
+- El recorrido se reproduce: Claude corrió `RecorridoVerificacionA25Test` en
+  `wings_testing_claude` y pasó, 97 aserciones. Comprueba contra la base el esperado
+  $33.000, contado $31.500, faltante $1.500, entrega $19.500, cambio heredado $12.000 y la
+  caja rechazada que conserva $26.200 y $16.200.
+- Columnas, mensajes de error y permisos citados existen en el código.
+
+Corregido o a tener en cuenta:
+- **No hubo sesión interactiva de navegador.** El recorrido es una prueba que hace los
+  pedidos HTTP reales a Laravel y guarda las páginas; Chrome las dibuja para las capturas.
+  Llamarlo "interactivo" es impreciso. Lo que no cubre —botones, navegación y el cálculo en
+  vivo del formulario de cierre usados a mano— queda para la prueba humana en el sitio de prueba.
+- La sección 4 debería decir eso, y en cambio lista hardware que nadie pidió.
+- Nombres escritos de memoria: las capturas del paso 6 son `06-cierre-arqueo-turno1-*.png`;
+  la tabla es `caja_mostrador`, no `cajas_mostrador`; `/cajas/configuracion`,
+  `/caja/1/arqueo` y `/cajas/historial` no figuran así en `routes/web.php`.
+- Los intentos por POST registrados son nueve, no diez, y tres de los textos de "error" del
+  JSON los escribe la prueba, no son la respuesta del sistema.
+- La prueba se había agregado a `tests/Feature`: dejó la suite en rojo
+  (`DocumentacionNoMienteTest`, 492 contra 491 declaradas) y reescribía la evidencia en cada
+  corrida. Movida a `evidencia/verificacion-a25/`, como los demás reproductores.
