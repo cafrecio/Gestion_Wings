@@ -1,5 +1,16 @@
 # Wings — Estado actual
 
+## A25 — definición de cambio inicial y arqueo pendiente — 06/10/2026
+
+Releídos apertura/cierre/validación, modelo, migraciones y resumen. Hoy no se declara
+efectivo al abrir y el cierre no pide conteo ni calcula diferencia; no hay arqueo existente
+que solo necesite sumar el inicio. A25 incluye definir ambos extremos antes de programar.
+Carlos decidió: separar cambio/retiro; heredar el cambio con confirmación; mostrar
+esperado/contado/diferencia y permitir cerrar para revisión ADMIN. Un cajón compartido,
+hereda último cierre del club. Faltan primera apertura/correcciones, turnos simultáneos y
+cambio retenido variable/fijo. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+Sin aplicación, vistas, datos ni suite modificados. A25 Falta; no entregado ni cerrado.
+
 ## Verificación A13/B1/A54/A55 registrada — 06/10/2026
 
 Codex CAB verificó las entregas `4571dbc` y `8869263` en navegador, servicios y base
@@ -38,7 +49,7 @@ Codex CAB verificó `abc346a` sobre HEAD `4fb185e` en código y navegador:
 A51/A52 resueltos, deuda por registro estable al filtrar, ayuda por otro deporte
 solo con saldo y estado mensual sin inscripción en listado/ficha/resumen.
 Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
-`wings_testing_codex`: **384 pruebas / 2906 aserciones**, todas verdes.
+`wings_testing_codex`: **384 pruebas / 2968 aserciones**, todas verdes.
 Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
 el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A53/A54/A55 surgieron fuera de Entrega 1. Estado posterior al control registrado 06/10:
@@ -50,7 +61,7 @@ inscripción con dos deportes. Ver informe nuevo arriba. Gemini puede continuar 
 Verificación independiente realizada por Gemini sobre commits `218ffc5` (A43) y `97cf933` (Permisos).
 - **A43:** Ingreso en mes cerrado (`2020-01-20`) muestra aviso dinámico con importes congelados y radios obligatorios; opción Sí genera cuota corriente 100% ($30.000) sin cuotas históricas y deja al alumno En plazo; opción No no genera cuota, conserva inscripción ($5.000) y deja al alumno Al día. Ingreso en mes corriente (`2026-10-05`) oculta el aviso y genera cuota automática con porcentaje del día. Registro de auditoría `alta_cuota` en JSON (`modo`, `usuario_id`, fecha, período, monto).
 - **Permisos (A29, A30, A31):** Redirecciones silenciosas eliminadas; Operativo recibe 403 con mensaje en castellano en administración y Volver a `/operativo` con sesión activa; `/admin` y `/caja/validaciones` responden 404 sin exponer datos. Profesor recibe 403 en administración y en `/alumnos`, `/caja`, `/grupos` con Volver a `/clases`. Admin común en cuenta protegida recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Probado en escritorio y móvil (375 px).
-- **Suite completa:** 384 pruebas / 2906 aserciones aprobadas en `wings_testing_gemini`.
+- **Suite completa:** 384 pruebas / 2968 aserciones aprobadas en `wings_testing_gemini`.
 - [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Defectos A29, A30, A31 y A43 CERRADOS. Pendiente de despliegue con migración `alta_cuota`.
 
 ## P2 / A11 — Entrega 1 corregida y A11 aprobada, 04/10/2026
@@ -228,7 +239,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| **Tests** | **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -339,7 +350,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
-| Wings no tiene arqueo | `cajas_operativas` no guarda importe contado ni diferencia; el cierre nunca pregunta cuanta plata hay. `PERMISOS-ROLES.md:84` y `Wings-Contrato-Punitorios-Mora-V1.md:267` usan la palabra como si existiera, y el segundo tiene un criterio de aceptacion —"no hay diferencia"— que hoy no se puede evaluar | Carlos define si la caja debe pedir conteo al cerrar, o se corrigen los contratos |
+| Wings no tiene arqueo | Revalidado en código 06/10: caja sin importe inicial declarado ni contado/diferencia; el cierre solo guarda estado/fecha. La mención del pedido a una comparación existente contra cero no coincide con la implementación | A25: [tres decisiones con ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md), pendientes de Carlos; no programar ni cambiar contrato hasta aclarar |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |

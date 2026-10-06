@@ -15,10 +15,11 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| Suite | **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10. Control posterior registrado 06/10: A54 cerrado por Codex; A53 abierto, A55 abierto por inscripción con dos deportes. A13/B1 cobran/anulan sin caja, pero siguen abiertos por historial anulado y representación del contraasiento. [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Sin despliegue |
+| Caja A25 | Carlos definió separar cambio/retiro, heredar con confirmación del último cierre del club (cajón compartido) y permitir cerrar con diferencia para revisión ADMIN. Hoy falta implementar inicio y arqueo. Primera apertura/correcciones, turnos simultáneos y cambio retenido variable/fijo pendientes. [Decisiones](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). No Hecho, no cerrado; sin aplicación ni datos modificados |
 | A2/B2 | Cuota en alta y estados por deuda implementados localmente el 23/09; suite 331/1900. Pendiente verificación independiente y despliegue con migración porcentaje_alta |
 | Inscripción ENT-01 | Por DNI, cargos separados, prioridad de inscripción. P0 del 04/10 retira corte y conserva cargos/pagos; pendiente Gemini. Sin deploy |
 | Primera carga P0/P1 | P0 implementado; A43 verificada por Gemini el 05/10. P1 aprobada e implementada: plantilla, revisión, carga y Deshacer, capturas escritorio/375. Pendiente Gemini y despliegue con migración primera_carga y build. No limpia producción/test; importadores antiguos se retiran en commit aparte después de aceptar P1 |

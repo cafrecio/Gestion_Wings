@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 26 cerrados de 71.** Quedan 45 abiertos, de los
+> **Avance al 06/10/2026: 26 cerrados de 72.** Quedan 46 abiertos, de los
 > cuales **4 frenan**: A4, A5, A13, B1. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -233,9 +233,17 @@ Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
 
-### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · verificado
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · pendiente decisión 06/10
 
-Al operar en el mostrador, la caja se abre automáticamente en $0 al primer movimiento. No existe campo ni pantalla de arqueo inicial para registrar el fondo fijo de efectivo con el que abre el cajón para dar cambio.
+La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.
+Revalidado en código el 06/10: tampoco hay un arqueo de cierre que compare contado y
+esperado; el cierre solo cambia estado/fecha. No es una comparación existente contra cero.
+Carlos decidió el 06/10: separar cambio/retiro, heredar el cambio con confirmación y
+mostrar esperado/contado/diferencia permitiendo cerrar para revisión ADMIN. Un solo cajón
+compartido: hereda el último cierre del club. Falta precisar primera apertura/correcciones,
+turnos simultáneos y si puede variar el cambio retenido, antes de programar.
+[Relevamiento y ejemplos](../../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+Codex prepara; **no implementado, no Hecho y no cerrado**. Sin vistas ni datos tocados.
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
 
 ### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · verificado
@@ -544,6 +552,30 @@ Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio
 ---
 
 ## Parte B — Lo que no se ve
+
+### A56. Cashflow en celular se corta y sus filtros no se apilan · Molesta · HECHO 06/10 (Claude), a revisar
+
+**Hecho el 06/10 (Claude).** Los filtros dejan la grilla fija de cuatro columnas y usan una
+que se apila; los totales bajan de renglón. La tabla sigue desplazándose de costado dentro
+de su marco, como el resto de las tablas.
+**Corrección de método, en el camino:** la captura con la que se dijo que esto —y A37—
+estaban cortados **medía mal**. Chrome en Windows no abre ventanas de menos de ~500px, así
+que renderizaba a 500 y recortaba a 375. Se comprobó capturando el login, que no puede estar
+roto, y también aparecía cortado. Ahora la captura de celular se saca con un `<iframe>` de
+375 dentro de una ventana grande (`capturas-cashflow/marco-375.html`), y está escrito en
+`AGENTS.md` §1. **A37 estaba bien arreglado por Gemini**; lo que fallaba era la medición.
+
+Visto el 06/10 por Carlos sobre una captura del sistema. En `/cashflow` a 375 de ancho, la
+barra de filtros, la de totales y la tabla **se salen de la pantalla**: el cuarto filtro
+queda afuera y "2 movimientos" se lee a medias.
+
+La causa está ubicada: `cashflow/index.blade.php:17` arma su **propia grilla a mano**, con
+cuatro columnas fijas —`grid-template-columns: 100px 1fr 1fr 1fr`—, en vez de usar la barra
+de filtros compartida que Gemini dejó responsive al cerrar A19. Como la grilla no se apila,
+empuja el ancho de toda la pantalla.
+
+Es la misma familia que A37, A53 y A14: cada pantalla resuelve el celular por su cuenta en
+vez de usar lo compartido. Conviene tomarlas juntas.
 
 ### B1. El admin está modelado como un operativo más · Frena · ABIERTO, verificación con observaciones 06/10
 

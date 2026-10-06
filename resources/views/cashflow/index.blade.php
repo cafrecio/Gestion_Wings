@@ -14,7 +14,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 {{-- Filtros --}}
 <form method="GET" action="{{ route('web.cashflow.index') }}" id="filtros-form">
 <div class="filtros-card mb-4">
-    <div style="display:grid; grid-template-columns: 100px 1fr 1fr 1fr; gap:12px; align-items:end;">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-end">
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Año</label>
@@ -62,7 +62,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 
 {{-- Stats --}}
 <div class="stats-bar mb-3">
-    <div class="stats-info" style="gap:20px; display:flex; align-items:center;">
+    <div class="stats-info" style="gap:12px 20px; display:flex; align-items:center; flex-wrap:wrap;">
         <span>
             <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
             <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:4px;">ingresos</span>
@@ -137,7 +137,15 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 $ieColor   = $tipoRubro === 'EGRESO' ? 'var(--color-danger)' : 'var(--color-text)';
                 $rubroNom  = $mov->subrubro?->rubro?->nombre ?? '';
                 $subNom    = $mov->subrubro?->nombre ?? '–';
-                $montoColor = $tipoRubro === 'EGRESO' ? 'var(--color-danger)' : 'var(--color-success)';
+                // El signo sale del importe, no del rubro: la devolución de un cobro
+                // anulado vive en un subrubro de ingresos con importe negativo, y pintarla
+                // por rubro la mostraba como si hubiera entrado plata otra vez.
+                $saleDeLaCaja = $tipoRubro === 'EGRESO' || (float) $mov->monto < 0;
+                $montoColor = $saleDeLaCaja ? 'var(--color-danger)' : 'var(--color-success)';
+                if ($saleDeLaCaja && $tipoRubro !== null) {
+                    $ieLabel = 'E';
+                    $ieColor = 'var(--color-danger)';
+                }
             @endphp
             <tr style="border-bottom:1px solid var(--color-border);">
                 <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
@@ -160,7 +168,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                     {{ $mov->observaciones ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
-                    {{ $tipoRubro === 'EGRESO' ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
+                    {{ $saleDeLaCaja ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                     {{ $mov->usuarioAdmin?->name ?? '–' }}

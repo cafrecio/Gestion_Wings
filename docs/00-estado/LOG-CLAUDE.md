@@ -11,6 +11,26 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — el cashflow mostraba la devolucion como ingreso, y yo medi mal
+
+**Lo encontro Codex** verificando A13: al anular el cobro del dueño, el contraasiento vive en
+un subrubro de Cuotas con importe negativo, y la pantalla deducia el signo del **rubro**, no
+del importe: ese menos $48.000 se dibujaba verde como un ingreso mas. El saldo siempre
+estuvo bien; mentia lo que se leia. Ahora el signo, el color y la letra I/E salen del
+importe. Carlos autorizo el cambio sobre capturas.
+**A56, de paso.** Al mirarlo en el telefono, Carlos vio que Cashflow no entra: sus filtros
+armaban una grilla propia de cuatro columnas fijas en vez de usar la barra compartida que
+quedo responsive en A19. Corregido: se apilan, y los totales bajan de renglon.
+**Correccion importante de metodo, y error mio.** Dije que A37 seguia roto en el celular. Era
+falso: **mi captura medía mal**. Chrome en Windows no abre ventanas de menos de ~500px, asi
+que `--window-size=375` dibuja a 500 y recorta a 375, y todo aparece cortado aunque este
+bien. Lo comprobe capturando el login, que no puede estar roto, y tambien salia cortado. La
+captura de celular se saca con un `<iframe>` de 375 dentro de una ventana grande; quedo en
+`AGENTS.md` §1 junto con la prueba del login para detectar que el metodo miente.
+**A37 estaba bien arreglado por Gemini.** Lo que seguia mal era su evidencia: la captura
+salia de un HTML escrito a mano, no del sistema.
+7 pruebas nuevas entre las dos cosas. Suite 444/2968. Sin deploy.
+
 ## 2026-10-05 — Claude CyE — A13 y B1: el dueño cobra sin caja, y puede anularlo
 
 Cuando el ADMIN cobraba, la pantalla lo mandaba por el camino del mostrador sin mirar el rol

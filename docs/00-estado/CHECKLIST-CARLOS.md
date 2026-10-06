@@ -9,9 +9,9 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Último corte A4/A5 + A37, 05/10: **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones**, en wings_testing_codex. Diseño aprobado por Carlos; **Hecho (Cx), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue.
+Último corte A4/A5 + A37, 05/10: **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones**, en wings_testing_codex. Diseño aprobado por Carlos; **Hecho (Cx), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue.
 
-Entrega P1: **427 pruebas / 2906 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
+Entrega P1: **427 pruebas / 2968 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 entregada, pendiente Gemini; sin deploy.
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
@@ -24,6 +24,12 @@ anulado y representación del contraasiento, aunque el saldo real y la reversió
 otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite completa nueva ni deploy.
 
 **Lo que necesita tu decision o tu presencia:**
+
+- [ ] **A25, cambio del mostrador — 06/10:** definido separar cambio/retiro, heredar con
+  confirmación del último cierre del club (cajón compartido) y permitir cierre con diferencia
+  para revisión ADMIN. Faltan primera apertura/correcciones, turnos simultáneos y cambio
+  retenido variable/fijo. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+  No hay arqueo previo; Codex no programa ni pide autorización de diseño hasta aclararlo.
 
 - [x] **Maqueta de Primera carga aprobada el 05/10.** Decision del 26/09: la carga
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que
@@ -99,10 +105,10 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones
 ```
 
-Entrega P1 del 05/10: **427 pruebas / 2906 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
+Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
 Ver [resultado y límites](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.

@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Actualización de verificación A13/B1/A54/A55: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
+> Actualización de verificación A13/B1/A54/A55 y preparación A25: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -21,7 +21,7 @@
 |---|---|
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| Suite | **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -39,7 +39,16 @@
   reversión financiera correcta, historial anulado y signo del contraasiento en pantalla fallan.
   Cierre operativo comprobado por servicio, no por pantalla. Claude corrige.
   [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Ambos seguimientos:
-  26 cerrados de 71; sin suite completa nueva ni deploy. Después: A25, decisiones de Carlos antes de programar.
+  26 cerrados de 71; sin suite completa nueva ni deploy. Publicado en `ddefe00`:
+  push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
+
+- **A25, preparado el 06/10, no implementado:** hoy no se declara efectivo inicial
+  ni hay conteo/comparación en el cierre. Carlos definió separar cambio/retiro, heredar
+  el cambio con confirmación y permitir cerrar con diferencia para revisión ADMIN.
+  Un cajón compartido: último cierre del club. Faltan primera apertura/correcciones,
+  turnos simultáneos y cambio retenido variable/fijo.
+  [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+  Ambos seguimientos lo mantienen Falta; no adelantar código ni autorización visual.
 
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
@@ -112,7 +121,9 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- Alcance de arqueo. Inscripción: tratamiento aprobado e implementado.
+- A25: primera apertura/correcciones, turnos simultáneos y cambio retenido variable/fijo
+  pendientes; decisiones principales y cajón compartido definidos el 06/10. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+  Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan
 

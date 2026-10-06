@@ -72,7 +72,18 @@ quedo Wings. Dos formas validas:
 
 Si no se puede capturar, se dice; no se simula. Nace de A37: se entrego como resuelto con la
 captura de una maqueta escrita a mano — se delataba sola, mostraba impresos los comentarios
-`{{-- ... --}}` que Blade nunca manda al navegador — y en la pantalla real el defecto seguia.
+`{{-- ... --}}` que Blade nunca manda al navegador.
+
+**Y la captura de celular se saca dentro de un marco, no achicando la ventana** —
+06/10/2026. Chrome en Windows no abre ventanas de menos de ~500px: pedirle
+`--window-size=375` dibuja la pagina a 500 y recorta a 375, asi que **todo aparece cortado
+aunque este bien**. Con eso se acuso de roto un arreglo que estaba bien (A37) y se invento un
+defecto que no existia. La forma correcta es una pagina con un `<iframe>` de 375 de ancho
+adentro de una ventana grande: ahi el contenido se maqueta al ancho real del telefono. Ver
+`docs/06-pruebas/PRU-02/capturas-cashflow/marco-375.html`.
+
+Como se comprueba que el metodo no miente: capturar una pantalla simple que no pueda estar
+rota —el login— y mirar si entra. Si esa aparece cortada, el que mide mal es el metodo.
 
 ### Si el dueño autoriza tocar una vista
 
