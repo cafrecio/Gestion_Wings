@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CyE — Celular: seis cierres, tres devoluciones y T1 devuelto
+
+Verificación independiente del paquete Gemini sobre main 6f9d214; aplicación intacta.
+84 capturas propias y 102 originales inspeccionadas; tres roles, 20 alumnos, nombres/importes grandes.
+A20/A28/A33/A36/A40/A41 CERRADOS; A14/A27/A53 DEVUELTOS a Gemini.
+T1 DEVUELTO: falta grupos/show, recortes Caja/Cobrar/Clases y efectos de escritorio sin explicitar.
+A36 tabla Opción A; A33 filas de 61,61 px. No asumir legibilidad completa por ausencia de desborde.
+Suite 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s, wings_testing_codex.
+Corte versionado 41/72, 31 abiertos, 0 frenan; cierre A25 ajeno excluido del commit.
+[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Sin deploy ni base real/servidor.
+Siguiente: Gemini resuelve las tres devoluciones y T1; sin otro cambio de alcance.
+
 ## 2026-10-06 — Codex CyE — A13/B1/A55 cerrados; A48/A49 verificado Claude
 
 Texto aprobado aplicado; capturas Fútbol escritorio/375 renovadas con login de control.
@@ -109,15 +121,6 @@ Sin base del club ni servidor tocados; no desplegado ni cerrado. Sigue control i
 Retoque A4: motivo en grilla, rótulo arriba e ícono de Descripción pedido por Carlos; sin CSS. Suite actual (incluye A37): 438 aprobadas, 1 omitida, 2960 aserciones; 134,62 s.
 Capturas nuevas en galería/maqueta/tablero/HTML del plan: Carlos señaló la omisión y se corrigió. Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push; después A13/B1/A54/A55.
 
-## 2026-10-05 — Codex CAB — A4/A5 frenados por instrucción de cierre contradictoria
-
-Main sincronizado en `6ebfe83`; árbol limpio al iniciar y continuidad revisada.
-El prompt exige CERRADOS por el autor; AGENTS.md §6a y DEFECTOS.md exigen control ajeno previo.
-Consulta: entregar IMPLEMENTADOS pendientes de revisión en ambos seguimientos y cerrar después del control.
-Freno registrado en ESTADO-ACTUAL §9; A4/A5 siguen abiertos, sin modificar sus contadores.
-MCP probado: transporte cerrado; contraste documental hecho contra archivos reales.
-Sin aplicación, vistas, pruebas, datos ni servidor tocados; no se corrió suite por documentación.
-Siguiente: Carlos aclara el cierre; después propuesta visual con capturas antes de pedir autorización.
 
 Entrega P1 archivada intacta en [LOG-CODEX-P1-IMPLEMENTADA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-P1-IMPLEMENTADA.md).
 
@@ -140,3 +143,5 @@ Entrada de maqueta P1 archivada intacta en [LOG-CODEX-MAQUETA-P1.md](../99-archi
 Entrada P0 archivada en [LOG-CODEX-P0.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-P0.md); texto original conservado, acceso a evidencia indicado allí.
 
 Entradas anteriores archivadas intactas en [LOG-CODEX-ANTES-A43.md](../99-archivo/bitacoras/2026-10-04/LOG-CODEX-ANTES-A43.md).
+
+Freno inicial A4/A5 archivado intacto en [LOG-CODEX-A4-A5-FRENO.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A4-A5-FRENO.md).

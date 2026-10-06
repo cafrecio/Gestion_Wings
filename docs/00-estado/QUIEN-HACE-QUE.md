@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 06/10/2026. Avance: **35 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 06/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -46,26 +46,18 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A20** El botón "Nuevo" del cashflow en celular tapa el saldo | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A28** En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A33** La toma de asistencia de clases en celular exige scroll masivo | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A36** Rubros en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A40** Inicio de ADMIN en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A41** Fechas del filtro de Movimientos | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica en pantalla con las 102 capturas de Gemini y cierra o devuelve |
-| **T1** Completar las capturas del cambio en app.css | Hecho, espera verificación (hizo Gemini, verifica Codex) | Va junto con los nueve defectos de celular: 102 capturas de 51 pantallas entregadas |
+Nada en este momento.
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A14** Pantallas más altas que el monitor | Devuelto (hizo Gemini, verifica Codex) | Alcanzar botones y resumen de errores en formularios largos sin perderlos de vista |
 | **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
 | **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
-| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
+| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Devuelto (hizo Gemini, verifica Codex) | Registrar y Cancelar quedan a y=740 fuera del marco 375x667; Observaciones opcional sí pasa |
+| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Devuelto (hizo Gemini, verifica Codex) | Mostrar tarifas completas y grupo del selector: ds-truncate sigue cortando datos largos |
+| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
 ## Sin empezar (26)
 

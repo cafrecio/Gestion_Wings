@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Entrega A15/A16, 06/10: **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones**; 18 nuevas, suite completa final en wings_testing_codex (342,01 s), sin fallas. Diseño aprobado por Carlos; **HECHO (Codex), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Diseño A25 también aprobado; [entrega A25](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) pendiente de otro verificador. Sin despliegue.
+Entrega A15/A16, 06/10: **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones**; 18 nuevas, suite completa final en wings_testing_codex (342,01 s), sin fallas. Diseño aprobado por Carlos; **HECHO (Codex), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). A25 CERRADO: verificado por Gemini de forma independiente ([informe](../06-pruebas/PRU-02/VERIFICACION-A25.md)). Sin despliegue.
 
 Entrega P1: **427 pruebas / 2968 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
@@ -17,7 +17,7 @@ El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 e
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
 Entrega 1 de P2 (Cobranza) **verificada y aprobada por Codex el 05/10**:
 `abc346a`, código/pantalla y filtros 375; suite propia 380/2242.
-Gemini puede continuar Entrega 2. A54 conserva su cierre; A53 HECHO (Gemini), a revisar.
+Gemini puede continuar Entrega 2. A54 conserva su cierre; A53 DEVUELTO a Gemini por Codex CyE 06/10; [control de celular](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md).
 A13/B1/A55 CERRADOS por Codex CyE el 06/10 sobre main integrado; A48/A49 CERRADOS,
 verificado Claude. Carlos autorizó integrar y publicar; no queda aprobación pendiente
 para estos cierres. [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin deploy.

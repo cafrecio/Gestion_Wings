@@ -22,7 +22,7 @@
 | A15/A16 | HECHO (Codex), a revisar. Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| Suite | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s. Suite completa para el control de celular sobre main 6f9d214, base wings_testing_codex, 06/10. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). A15/A16/A25 siguen a revisar en el corte publicado; sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -33,19 +33,21 @@
 
 ## Trabajo que continúa
 
-- **A13/B1/A55 CERRADOS por Codex CyE, 06/10:** rama integrada entera en main `6d3f68a`; texto aprobado y capturas reales renovadas. Historial, contraasientos, inscripción única y separación ADMIN/cajón de A25 comprobados por HTTP, navegador y filas. A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide. **35/72 cerrados, 37 abiertos, 0 frenan.** [Informe](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
+- **Celular, control independiente Codex CyE 06/10:** A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. 84 capturas propias y 102 originales revisadas; roles ADMIN/OPERATIVO/PROFESOR, 20 alumnos, nombres largos y tarifas millonarias. [Informe](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Corte versionado 41/72; sin despliegue. El cierre A25 pendiente en archivos de otro agente se conserva fuera de esta publicación.
+
+- **A13/B1/A55 CERRADOS por Codex CyE, 06/10:** rama integrada entera en main `6d3f68a`; texto aprobado y capturas reales renovadas. Historial, contraasientos, inscripción única y separación ADMIN/cajón de A25 comprobados por HTTP, navegador y filas. A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide. **41/72 cerrados, 31 abiertos, 0 frenan.** [Informe](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
 
 - **A4/A5 entregados por Codex CAB el 05/10:** aviso superior, conservación y salida; profesores activos del deporte. Gemini registró control y cierre independiente el 06/10 en 94e368e. [Informe](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue.
   Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
   Primer control: A54 cerrado y A13/B1/A55 devueltos; [antecedente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md).
   Segundo control sobre main integrado: A13/B1/A55 CERRADOS por Codex; A48/A49 asentados verificado Claude.
-  Corte actual: 35/72 y ningún defecto que frene. A53 permanece HECHO (Gemini), a revisar.
+  Corte versionado: 41/72 y ningún defecto que frene. A53 fue DEVUELTO a Gemini por Codex CyE 06/10.
 
-- **A25, HECHO (Codex), a revisar 06/10:** apertura confirmada, cajón compartido y arqueo;
+- **A25, CERRADO 06/10 (verificado por Gemini):** apertura confirmada, cajón compartido y arqueo;
   [Contrato V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): respuestas de Carlos consolidadas para los tres agentes. Rechazadas conservan
   lo contado/entregado, sin cambiar el turno siguiente. Diseño aprobado en capturas reales.
-  Suite propia 468 aprobadas/2 omitidas, 3116 aserciones; sin CSS ni base real tocados.
-  [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Otro agente verifica; no desplegado.
+  26 pruebas permanentes (142 aserciones) pasando en suite compartida; sin CSS ni base real tocados.
+  [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A25.md). No desplegado.
 
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
@@ -63,7 +65,7 @@
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
   Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron
-  fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 HECHO (Gemini), a revisar. Sin despliegue; Gemini puede
+  fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 DEVUELTO a Gemini por Codex CyE 06/10. Sin despliegue; Gemini puede
   continuar Entrega 2.
   [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
   **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
@@ -116,7 +118,7 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- A25: decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. Falta control independiente, no otra decisión de negocio ni despliegue.
+- A25: CERRADO 06/10 (verificado por Gemini); decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. No desplegado.
 - Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan

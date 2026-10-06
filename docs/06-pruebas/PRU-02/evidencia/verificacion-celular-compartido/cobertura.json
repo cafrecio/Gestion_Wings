@@ -1,0 +1,202 @@
+[
+  {
+    "vista": "resources/views/alumnos/create.blade.php",
+    "pantalla": "11-alumnos-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/alumnos/edit.blade.php",
+    "pantalla": "12-alumnos-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/alumnos/index.blade.php",
+    "pantalla": "10-alumnos-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/apertura.blade.php",
+    "pantalla": "15-caja-apertura",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/cancelar-movimiento.blade.php",
+    "pantalla": "21-caja-cancelar-movimiento",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/cierre.blade.php",
+    "pantalla": "16-caja-cierre",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/cobrar-cuota.blade.php",
+    "pantalla": "06-cobrar-selector",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/cobrar.blade.php",
+    "pantalla": "18-caja-cobrar-alumno",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/configuracion.blade.php",
+    "pantalla": "19-caja-configuracion",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/editar.blade.php",
+    "pantalla": "20-caja-editar",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/historial.blade.php",
+    "pantalla": "17-caja-historial",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/index.blade.php",
+    "pantalla": "14-caja-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/caja/movimiento.blade.php",
+    "pantalla": "04-caja-movimiento",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/cashflow/movimiento.blade.php",
+    "pantalla": "22-cashflow-movimiento",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/clases/create.blade.php",
+    "pantalla": "25-clases-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/clases/edit.blade.php",
+    "pantalla": "26-clases-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/clases/index.blade.php",
+    "pantalla": "24-clases-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/cobranza/index.blade.php",
+    "pantalla": "23-cobranza-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/deportes/create.blade.php",
+    "pantalla": "28-deportes-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/deportes/edit.blade.php",
+    "pantalla": "29-deportes-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/grupos/create.blade.php",
+    "pantalla": "46-grupos-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/grupos/edit.blade.php",
+    "pantalla": "47-grupos-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/grupos/index.blade.php",
+    "pantalla": "05-grupos-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/grupos/show.blade.php",
+    "pantalla": null,
+    "capturas": false
+  },
+  {
+    "vista": "resources/views/liquidaciones/create.blade.php",
+    "pantalla": "45-liquidaciones-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/movimientos/index.blade.php",
+    "pantalla": "09-movimientos-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/niveles/create.blade.php",
+    "pantalla": "31-niveles-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/niveles/edit.blade.php",
+    "pantalla": "32-niveles-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/profesores/create.blade.php",
+    "pantalla": "34-profesores-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/profesores/edit.blade.php",
+    "pantalla": "35-profesores-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/profesores/index.blade.php",
+    "pantalla": "33-profesores-index",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/profesores/show.blade.php",
+    "pantalla": "36-profesores-show",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/rubros/create.blade.php",
+    "pantalla": "48-rubros-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/rubros/edit.blade.php",
+    "pantalla": "49-rubros-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/subrubros/create.blade.php",
+    "pantalla": "50-subrubros-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/subrubros/edit.blade.php",
+    "pantalla": "51-subrubros-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/tipos-caja/create.blade.php",
+    "pantalla": "38-tipos-caja-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/tipos-caja/edit.blade.php",
+    "pantalla": "39-tipos-caja-edit",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/usuarios/create.blade.php",
+    "pantalla": "41-usuarios-create",
+    "capturas": true
+  },
+  {
+    "vista": "resources/views/usuarios/edit.blade.php",
+    "pantalla": "42-usuarios-edit",
+    "capturas": true
+  }
+]

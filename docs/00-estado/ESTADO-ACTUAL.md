@@ -11,21 +11,17 @@ Build/PHP/Blade correctos; capturas reales y login de control a 375 comprobados.
 [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md) · [Contrato V2](../02-contratos/Wings-Contrato-Clases-Asistencias-V2.md).
 Solo creación web; no reservas, tarifas, edición masiva ni despliegue. Verifica otro agente.
 
-## Paquete de celular resuelto: A14, A20, A27, A28, A33, A36, A40, A41, A53 — HECHO (Gemini), a revisar 06/10/2026
+## Paquete de celular — verificado por Codex CyE 06/10/2026
 
-- **Defectos abordados:** A14 (formularios altos/scroll), A20 (botón Nuevo cashflow sobre saldo), A27 (caja movimiento botones fuera y observaciones), A28 (grupos tarifas desbordadas y switch pegado), A33 (asistencia scroll masivo), A36 (rubros superposición de encabezados), A40 (deuda total $1.263.000 desborda tarjeta), A41 (fechas Desde/Hasta sin rótulos en movimientos), A53 (tarjetas grupos y cobro cortan datos).
-- **Solución compartida:**
-  - `admin/dashboard.blade.php`: Deuda Total con font fluid `clamp` y contención sin desbordes.
-  - `caja/movimiento.blade.php`: Iconos SVG, observaciones opcional (backend `nullable`), extracción de JS inline a `resources/js/caja-movimiento.js` (scripts CSP reducidos a 15) y botones alineados a la derecha (`justify-end`).
-  - `cashflow/index.blade.php`: Barra `stats-bar` responsiva (`flex-col sm:flex-row`), etiquetas uppercase semánticas y botones de acción abajo a la derecha.
-  - `grupos/index.blade.php` y `caja/cobrar-cuota.blade.php`: Cuadrículas `grid-cols-1 sm:grid-cols-3` con contención de tarifas (`break-words min-w-0`), switch Activo separado y botones a la derecha.
-  - `clases/show.blade.php`: Filas compactas de ~54px por alumno con dot + nombre arriba, plan/DNI abajo y checkbox táctil a la derecha.
-  - `rubros/index.blade.php`: Vista dual con tarjetas apiladas compactas en móvil (`sm:hidden`) y tabla clásica en desktop (`hidden sm:table`).
-  - `movimientos/index.blade.php`: Rótulos visibles "Desde:" y "Hasta:", botones `justify-end` y contenedor con scroll horizontal seguro.
-- **Evidencia y pruebas:** 36 capturas reales en desktop (1280px) y móvil (marco 375px) en [Tablero comparativo](../06-pruebas/PRU-02/evidencia/celular-compartido/index.html). Suites `SaldoInicialTipoCajaTest`, `CspSinCodigoIncrustadoTest`, `DefectosNoDivergenTest` y `DocumentacionNoMienteTest` verdes. Vistas compilan sin errores.
-- **Estado:** Marcados `HECHO (Gemini), a revisar 06/10` en `DEFECTOS.md` y `DEFECTOS.html`. Pendiente verificación independiente de otro agente. Sin despliegue.
+A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes.
 
-## A25 — HECHO (Codex), a revisar — 06/10/2026
+84 capturas propias, 102 originales inspeccionadas; tres roles y datos ficticios de estrés.
+A36 conserva tabla Opción A, no tarjetas; A33 mide 61,61 px por fila.
+Suite 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s, wings_testing_codex.
+[Dictámenes, cobertura y límites](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md).
+Sin cambios de aplicación ni despliegue.
+
+## A25 CERRADO (verificado por Gemini) — 06/10/2026
 
 Apertura explícita con recibido confirmado, herencia del último cierre del club y motivo
 si difiere. Un cajón compartido, un turno abierto. ADMIN configura el medio físico una
@@ -33,10 +29,10 @@ vez, guarda aparte sus cobros y cuenta/cierra antes de validar o rechazar.
 Cierre con esperado/contado/diferencia, cambio que queda y entrega; permite diferencias
 para revisión ADMIN, sin crear asientos de ajuste. Rechazadas conservan conteo/entrega y
 actor/fecha originales, sin cambiar la apertura siguiente. Históricos NULL no se rellenan.
-26 pruebas nuevas; suite 468 aprobadas/2 omitidas, 3116 aserciones, sin fallas, base propia.
+26 pruebas permanentes (142 aserciones) pasando en suite compartida, sin fallas.
 Carlos aprobó las cinco pantallas escritorio/375; sin CSS ni componentes compartidos tocados.
 [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) · [Contrato V5](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md).
-Otro agente verifica; no CERRADO ni desplegado. Base del club y servidor intactos.
+Verificado de forma independiente por Gemini en pantalla y código; CERRADO 06/10 ([Informe](../06-pruebas/PRU-02/VERIFICACION-A25.md)). Base del club y servidor intactos.
 
 ## A13/B1/A55 cerrados; A48/A49 asentados — 06/10/2026
 
@@ -47,7 +43,7 @@ una inscripción por persona coherente entre selector y ambas fichas.
 Regresión A25: esperado operativo $58.000 ($10.000 inicial + $48.000 propios),
 sin sumar cobro directo ADMIN de $101.000 ni abrirle caja.
 A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide.
-**35/72 cerrados, 37 abiertos, 0 frenan.** A54 conserva su cierre anterior.
+**41/72 cerrados, 31 abiertos, 0 frenan.** A54 conserva su cierre anterior.
 El primer control rechazado queda como antecedente, no como estado actual.
 [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin deploy.
 
@@ -79,7 +75,7 @@ Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
 Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
 el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
 A53/A54/A55 surgieron fuera de Entrega 1. Estado posterior al control registrado 06/10:
-A53 HECHO (Gemini), a revisar; A54/A55 corregidos por Claude y cerrados por Codex.
+A53 DEVUELTO a Gemini por Codex CyE 06/10; A54/A55 corregidos por Claude y cerrados por Codex.
 Ver control sobre main integrado arriba. Gemini puede continuar Entrega 2.
 
 ## A43 y permisos A29/A30/A31 verificados y cerrados — 05/10/2026
@@ -270,7 +266,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
-| Caja | A25 implementada: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Diseño aprobado; pendiente control ajeno. No desplegada |
+| Caja | A25 CERRADA: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Verificado por Gemini 06/10. No desplegada |
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
@@ -378,7 +374,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
-| Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). HECHO (Codex), a revisar; no desplegada |
+| Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). CERRADO (verificado por Gemini 06/10); no desplegada |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |

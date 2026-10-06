@@ -1,0 +1,512 @@
+[
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/01-login-escritorio.png",
+    "sha256": "cc12527398e214d6d25478703a2a9943b82c45a0839d1abb9163d133de8b1279",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/01-login-celular-375.png",
+    "sha256": "68d28427c88621a6ff38b04888e9c9b0608ed55497c123055d19b75f5c2b59a4",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/02-admin-dashboard-escritorio.png",
+    "sha256": "c05f7f63674c4345000e83eee12df28aab84a2184e4c4d9da80573d2834a6c0c",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/02-admin-dashboard-celular-375.png",
+    "sha256": "723080af742c49a8ae00e1e7ca24b049c2b0222e684af9d77b1a7b60bafd354f",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/03-cashflow-escritorio.png",
+    "sha256": "b5473b3e39d234df0dcf6b0f043fa93c4b31c17361ac96ef1e9a750073e16bbd",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/03-cashflow-celular-375.png",
+    "sha256": "e52fefb6090752139f1860b3fb256431109a5c37948cff9051c6bff6acd78c89",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/04-caja-movimiento-escritorio.png",
+    "sha256": "20e3007b8305799cee22fe833ff07cf56c0246fa3ec6cfdb11bcc32f35bd6326",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/04-caja-movimiento-celular-375.png",
+    "sha256": "d8980c48b1215b9dbe5bd2c6e76de34271d9586fc403d112c45f0ea949f52645",
+    "lamina": 1
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/05-grupos-index-escritorio.png",
+    "sha256": "c54b183dbf76e15ac98d3cc314a30411f01bffc4b694e7775d42ff06ef670c4e",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/05-grupos-index-celular-375.png",
+    "sha256": "79af23e5d555f11bac3040740378110aad39ca9779e29b236240deba9d1f6bd2",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/06-cobrar-selector-escritorio.png",
+    "sha256": "01ced1d1cca3e44f3f20ae2175bbe3f9bd7350dcafc2e4c5c4a0574156f32e88",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/06-cobrar-selector-celular-375.png",
+    "sha256": "dabf82feda8726a8761861aec81770db68780a268b041e3f0831198cc19696e1",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/07-clase-asistencia-escritorio.png",
+    "sha256": "f4ee5bd59ea0129a5b4285266d93222098fdc2d64eb6e4be4108ce3f7cb5da81",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/07-clase-asistencia-celular-375.png",
+    "sha256": "4af505fd1236c798846e21d91b211998604b20799430e9555fcf26681d582cdb",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/08-rubros-index-escritorio.png",
+    "sha256": "f3d9c3d2ddabf638a0d0595c787f9a1d4ca053537f98aa1b79f98714b9950465",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/08-rubros-index-celular-375.png",
+    "sha256": "9057137b7cc2bb0136bca35f31aa9970f7e1e199433a3ec7918cde9ca428b06f",
+    "lamina": 2
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/09-movimientos-index-escritorio.png",
+    "sha256": "717b46efb1b994c5cd78338d6f952afc466272bcb1eec56347e753020eed57ac",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/09-movimientos-index-celular-375.png",
+    "sha256": "69dc119f4ac9db3ca60fb116735e90f7f66e0ed484c743885c524486c0398741",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/10-alumnos-index-escritorio.png",
+    "sha256": "df045471777c189b179cd1c68d77d07e16fd91ac8b2ed97952d57d24f05c8ca5",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/10-alumnos-index-celular-375.png",
+    "sha256": "d4474b28d14d897a8dcd1ab8ae62f3166462f9863613c5b623813ca60dac1e61",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/11-alumnos-create-escritorio.png",
+    "sha256": "ea3770b27f55c34125bdff1cb7111a847ac92ead137ebe021324982e14c9ffee",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/11-alumnos-create-celular-375.png",
+    "sha256": "67c22fefd419c8f6014ac4908bf99075806e20a72d0dedb6e88de71cf64a99bf",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/12-alumnos-edit-escritorio.png",
+    "sha256": "7c2ef42ffda8a7756872bfc98b9e0dd6eb50e44bc9fb26f6f6cceb956b1954aa",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/12-alumnos-edit-celular-375.png",
+    "sha256": "39dd38a56f94a81f22b01ccc5b64e17f4bf00e77685f300fc116ce2b0b08e2af",
+    "lamina": 3
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/13-alumnos-show-escritorio.png",
+    "sha256": "705ea47d792db550c7ce3213916a8fd93891083bcce0c8f3fe75c8a834ce3b95",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/13-alumnos-show-celular-375.png",
+    "sha256": "334f8d6dec9f730856dd9942e2a61b674c49fee7af495d2495bea49eb1ac68c9",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/14-caja-index-escritorio.png",
+    "sha256": "5185d56390e94804a4ff5081342a2790fa09d7828200cfece5bffc1c4624b487",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/14-caja-index-celular-375.png",
+    "sha256": "8cef5501a9a16a73b45deeab5ed30b4191060e65f289a073a566b4c6c632a11c",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/15-caja-apertura-escritorio.png",
+    "sha256": "a48c1dca8932b727b9f8a0b913d9d12cb6721fc0dff1cc62b3b983ffb1f0a6ea",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/15-caja-apertura-celular-375.png",
+    "sha256": "6157607cd34af70c9b896392d5cb33b4c811bcea17f86a2dbe4da782528b8336",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/16-caja-cierre-escritorio.png",
+    "sha256": "d9f2399e074659be88769518bf28703922be5c7f9364f6197d10b4d80b1965fb",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/16-caja-cierre-celular-375.png",
+    "sha256": "ddbe88b715ce2b9ceb8ea904664d3536028ccacd1c344f14cdf2c23d8edc7c4a",
+    "lamina": 4
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/17-caja-historial-escritorio.png",
+    "sha256": "1ce127b56f192c2ed0b341107241eb1b73d488dd0fb383a051909b23e649b1a5",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/17-caja-historial-celular-375.png",
+    "sha256": "9f095a250749aa51d8e8b0d8396aa9566a085ffff24d0f923abe6b583c51a961",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/18-caja-cobrar-alumno-escritorio.png",
+    "sha256": "b50b13fc3e0e3120178d917f2b84b41619c521f178bbb3e0ea1b0c267b3b2303",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/18-caja-cobrar-alumno-celular-375.png",
+    "sha256": "2de0ed9e5e56c2be8bd245c1889d26ad33c7afa58608d7dafa7b0245cfab6a7e",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/19-caja-configuracion-escritorio.png",
+    "sha256": "ca72737cfb9a89ebf3445b877e9c1dd2432e998ed536452d0fe6149b1c1d9ddc",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/19-caja-configuracion-celular-375.png",
+    "sha256": "98b7d684f65359c1a1e6e9474d87b607368acc8bff0633ad8d33637365932d91",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/20-caja-editar-escritorio.png",
+    "sha256": "502a02022a0a87b85b07bef368fe4e85946f50016bcafb68b25c94a66fb5bd1c",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/20-caja-editar-celular-375.png",
+    "sha256": "0a99c8d1270df9d9c838bf6e36153470f7bf027fbd64d0945f9514bf39035b31",
+    "lamina": 5
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/21-caja-cancelar-movimiento-escritorio.png",
+    "sha256": "27fba83788ae35a86868e8c11f80c2e8b56e4e1cae40d45ed3fe52e7ba618779",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/21-caja-cancelar-movimiento-celular-375.png",
+    "sha256": "2387d635b67085e1b881b2dc94ea09d27bc901ffc6d67899281d132581188da9",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/22-cashflow-movimiento-escritorio.png",
+    "sha256": "3754a7b8c517eeef73982ed0b04308f6905350aa8e549b7b91c80b505c465f2b",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/22-cashflow-movimiento-celular-375.png",
+    "sha256": "8d3130047ae6b6c278da5e7c2629ce126378951c36b8adb04ba06978bedcde84",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/23-cobranza-index-escritorio.png",
+    "sha256": "8783df7b938353c69086db1925fd8595cb20cc485e1b81ec370716e990b0dd5a",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/23-cobranza-index-celular-375.png",
+    "sha256": "323551cb4d74a640b440e73b18824d700880d70740456db937f8c4a8c30a3730",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/24-clases-index-escritorio.png",
+    "sha256": "b1f63346b1be334a8ec9da275f3870e4fe7a95552546a00b31a270b89cd4e45e",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/24-clases-index-celular-375.png",
+    "sha256": "3f37bf3af1bc59838d6ca4c0f63b20812aeb1be5c60b059d4c7abc1590613171",
+    "lamina": 6
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/25-clases-create-escritorio.png",
+    "sha256": "8015832b5be20f403b413e43f6e340fdcd1a8c6414364474aa2e76ee9caf4728",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/25-clases-create-celular-375.png",
+    "sha256": "e45b1a965b698e2930d19f445cb22418805405dbdaa70af2643daece086452b1",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/26-clases-edit-escritorio.png",
+    "sha256": "0c9dc137e32cba7ed44fdf96f8e38f6c7d3c403ccdac39c61888bd0f4ba4ca18",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/26-clases-edit-celular-375.png",
+    "sha256": "afb4af732dc1ebf109608e8a06fbadcb9f91a2e8f8b54e62a8f4390c2999abdf",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/27-deportes-index-escritorio.png",
+    "sha256": "7583550a8b8863958e502d8bc29b1b0b1fa7fbdc4462c8d3be87edee93dda4c3",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/27-deportes-index-celular-375.png",
+    "sha256": "f2872f35d9ae345ccb6fd170c3260a0fb8c63edb30b63e6e605898dd0cb452ed",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/28-deportes-create-escritorio.png",
+    "sha256": "68330cd9642f3b9c88806cc964204c6e5e5fbac26090d989706cce9c3f78d244",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/28-deportes-create-celular-375.png",
+    "sha256": "1e924f2c60d7d8304dae8f133d1bb8ee896e3d0bc5bbd25af507ff563928e0c8",
+    "lamina": 7
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/29-deportes-edit-escritorio.png",
+    "sha256": "fd8db012bee7aefffaddded9c830f5e2e4ae317d60b4bb5b71b486ec851615b1",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/29-deportes-edit-celular-375.png",
+    "sha256": "715e315db4718dc5fddb8f088e23bd476e0a20be766d2c831a0f419651e0ba51",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/30-niveles-index-escritorio.png",
+    "sha256": "fb1826fc78701bb33faf02f150307370ec4f60126917a3a89cffbe569f1c3975",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/30-niveles-index-celular-375.png",
+    "sha256": "00ca6122317697fd5174bcfc3544e9fbf35e9a1246b481d3b1e5b86b45543118",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/31-niveles-create-escritorio.png",
+    "sha256": "a90c768f9ef9132e53842e3921780612730d2298c17c508ea0ad8efb0e24465f",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/31-niveles-create-celular-375.png",
+    "sha256": "f54d75081c19869f0993be8c86dfceca969a3961bbe1431c3eaf59e295ed5757",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/32-niveles-edit-escritorio.png",
+    "sha256": "a2a317429a3b413c1158e234cf0cc2e726a0ed21e21bca209b740f4f1c28d433",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/32-niveles-edit-celular-375.png",
+    "sha256": "93ed70025ece33b599b458ff32b9ca7e303ab5d2aac1b3bd4d48faca500341fc",
+    "lamina": 8
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/33-profesores-index-escritorio.png",
+    "sha256": "11de6ee2d3344d65c096d31bb852ae8136e99dae2bbbeb2df0aa2342ad3e6504",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/33-profesores-index-celular-375.png",
+    "sha256": "158cf65217adde1295408afd9a68969e8bcc57badc996328f219980de0e0c4a1",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/34-profesores-create-escritorio.png",
+    "sha256": "5a2042aeff2bb8cdbc041b2f43a6851d4d676f6764f95f0690b2fa5a54a0ca5a",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/34-profesores-create-celular-375.png",
+    "sha256": "b23c2df6a92e9532766671076ae60bb4217347732c622486b30428eae48cdd0e",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/35-profesores-edit-escritorio.png",
+    "sha256": "7c0198232bf04a8687517a6471d2aca7ef4b11af98793680c50bb823b582d7df",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/35-profesores-edit-celular-375.png",
+    "sha256": "5149bad71ddb8f773a24c3c3fef3cf7a36941c23101d4e29760fc7f913131981",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/36-profesores-show-escritorio.png",
+    "sha256": "a36c7bfe87cb0969a1eae2c8b4cd7ec0129264e0825ead1619ec325a5e3d30b5",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/36-profesores-show-celular-375.png",
+    "sha256": "99b327adc8bfd30dbd4a4f6e652c9f9899a80b6c6aae671c64ed9dabcf78bf77",
+    "lamina": 9
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/37-tipos-caja-index-escritorio.png",
+    "sha256": "793f09719c8b0d912fd77da19cc942d788e0a8ca6cd2353ec91c7747ddefddc9",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/37-tipos-caja-index-celular-375.png",
+    "sha256": "e18a88a23cea6e4affedf5ce52023111985a63f6ec8df4c6bf6b24a3518b41cc",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/38-tipos-caja-create-escritorio.png",
+    "sha256": "4dcc4deb5f2903c377ff17c6d97fea73c40e866a82c4d43129d75db05cce9304",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/38-tipos-caja-create-celular-375.png",
+    "sha256": "0fa076e7a81c4cc04614466bc225e2caa399926917a9e8b7828f30abcd290d3f",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/39-tipos-caja-edit-escritorio.png",
+    "sha256": "12f753adfe299608cab69a0c32c281b70113afa3e40e455986014405bd09228d",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/39-tipos-caja-edit-celular-375.png",
+    "sha256": "50c3900e928bfcda90098050c9b555b4158e7c1243df3dad06cb596cce5aa1c4",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/40-usuarios-index-escritorio.png",
+    "sha256": "b652fafdeaa307b0cef2008108d98ee73cdf8a1a6f807cdb3b258eea4af2c7fa",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/40-usuarios-index-celular-375.png",
+    "sha256": "eea863d6f8a35ec33c70880c75e39fa2e31b78d2781b6198ca12222cdd4741fd",
+    "lamina": 10
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/41-usuarios-create-escritorio.png",
+    "sha256": "82e44db52d5144cb741b52c6b5914333bdb3e50e3f06ca545d3ce0cd530be2d8",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/41-usuarios-create-celular-375.png",
+    "sha256": "c39ff2543706e25bdad022c6a1296b90c515fcfb144153bdba2cde29ca4ed472",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/42-usuarios-edit-escritorio.png",
+    "sha256": "ee73ff0a71aa0d29cf715d3c7fdc6702aa80c7be8f5116f30d1aba10775f4738",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/42-usuarios-edit-celular-375.png",
+    "sha256": "5b0744654f3a7c5ce8de54f450b1ab35ef1a47c0fecefff4d19c82edb331833a",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/43-revision-cobranza-index-escritorio.png",
+    "sha256": "117f7484b60bafe7681e84d8eeabdd4d4bd867b11d68d94e6be16f2aa3ae8d53",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/43-revision-cobranza-index-celular-375.png",
+    "sha256": "5fdf4f877f11068a2f41fdf6c7d2d908f25b3568f8f246d44b4e7bee50abe24c",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/44-liquidaciones-index-escritorio.png",
+    "sha256": "818ab78b58018f4e8778632d97408e24db660b287b8282a09c1ba87a62262530",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/44-liquidaciones-index-celular-375.png",
+    "sha256": "f5d455e9bd38f3b504e57f4dd9cb05547367bd827d8f2eca02760b7b5da53003",
+    "lamina": 11
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/45-liquidaciones-create-escritorio.png",
+    "sha256": "03f4bd0b9e2435971cff5414c77e0493a950cddd1185161ad3cb5df776a4d4f3",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/45-liquidaciones-create-celular-375.png",
+    "sha256": "0a511b281b90210cf0ede68ea81e097e78bc92d562def2950073090471e3294c",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/46-grupos-create-escritorio.png",
+    "sha256": "90034b2d4e3bc0d3d6341e23cb7c529d976353ad0fe1642d6e7542d458b75377",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/46-grupos-create-celular-375.png",
+    "sha256": "bc3684516d26c019b2846ae64802907756f126caf36a9a5313f6eaebfac59642",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/47-grupos-edit-escritorio.png",
+    "sha256": "7dfe61273775d9807ce70ea2e7619199743821d744876a49f44688f651532761",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/47-grupos-edit-celular-375.png",
+    "sha256": "a8178d6f5d376dcad5d19ab1a6400fe9b5ea77d67fe611cd9b469b21dcbe0bbf",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/48-rubros-create-escritorio.png",
+    "sha256": "9e3ee79db48f50fa2abdbe647bb255d2d2d7ed1720b03993578161e0aa3defe3",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/48-rubros-create-celular-375.png",
+    "sha256": "ba2e6b6bbf0e348b4110a67cc1d6473927824bf576027c8cfa42395d8081cfee",
+    "lamina": 12
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/49-rubros-edit-escritorio.png",
+    "sha256": "52495cffc6dc94775d190253412b467d506e29ec82e486c0f4b071c6a4f8736b",
+    "lamina": 13
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/49-rubros-edit-celular-375.png",
+    "sha256": "ce3660f7d19f1ada523c812350bd81debdb59b6c5d59a0eabb75edf0942aeab3",
+    "lamina": 13
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/50-subrubros-create-escritorio.png",
+    "sha256": "947d770936cb402112713421ce28b8888fe1724b08c15e3d5f31f02f0ab246dd",
+    "lamina": 13
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/50-subrubros-create-celular-375.png",
+    "sha256": "b4226eaa398a12364f1a9db75313ba0d4b09b9794b710f6c3f0c5e63375b49fb",
+    "lamina": 13
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/51-subrubros-edit-escritorio.png",
+    "sha256": "38a8b4af42bde8fff4e1e17f25b34c2b96d523028b483c3f1a1247f03b64f71b",
+    "lamina": 13
+  },
+  {
+    "archivo": "C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-02/evidencia/celular-compartido/todas/51-subrubros-edit-celular-375.png",
+    "sha256": "c7d8ad3d5f1b77d2f9b5b29541df0c85d1d7071f87e680d402ad4d51258f7f91",
+    "lamina": 13
+  }
+]

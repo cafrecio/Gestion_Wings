@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-06 — LOG GEM CYE — Verificación independiente y cierre de A25 (apertura y arqueo de caja)
+
+- **Objetivo:** Verificación independiente de A25 (implementado por Codex en `30f38f8`) según la regla AGENTS.md §6a ("lo que hace uno, lo controla otro").
+- **Pruebas ejecutadas:** Suite completa de 26 pruebas en `tests/Feature/CajaCambioInicialA25Test.php` y `tests/Feature/CajaArqueoConcurrenteA25Test.php` sobre base propia descartable `wings_testing_gemini`:
+  - 26 passed (142 aserciones), 0 fallos.
+  - Comprobadas reglas críticas: apertura exige declarar efectivo y confirmar; herencia de cambio retenido del turno anterior del club; corrección de cambio exige motivo y guarda ambos importes; cajón del turno operativo aislado de cobros directos de ADMIN; arqueo de cierre calcula faltante/sobrante y retiro/entrega; ADMIN debe contar antes de validar o rechazar; cajas rechazadas conservan conteo y entrega original; protección contra apertura concurrente.
+- **Revisión visual:** 10 capturas reales aprobadas por Carlos en `docs/06-pruebas/PRU-02/evidencia/a25/capturas/` (escritorio y marco 375 para celular): formularios y grillas de conteo/arqueo caben y se operan limpiamente.
+- **Dictamen:** APROBADO. Estado en tablero actualizado a cerrado (`php scripts/tablero/tablero.php cambiar A25 estado=cerrado verifica=Gemini`). Informe completo en `docs/06-pruebas/PRU-02/VERIFICACION-A25.md`.
+
 ## 2026-10-06 — LOG GEM CYE — Auditoría visual completa de 51 pantallas para la regla compartida (.filtros-actions)
 
 - **Objetivo:** Cumplir el mandato estricto de `AGENTS.md` §1 ("si el cambio toca app.css o cualquier pieza compartida, las capturas son de todas las pantallas que cambian") tras haber configurado `.filtros-actions { justify-content: flex-end; }` en celular.
