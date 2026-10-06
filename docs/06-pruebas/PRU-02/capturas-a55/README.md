@@ -1,7 +1,7 @@
 # A55 / A13 / B1 — capturas y redacción aprobada
 
 06/10/2026 — Codex CAB. Rama `a55-inscripcion`, código `31194c2`.
-Solo preparación y capturas; no se corrigió código ni se mezcló con main.
+Preparación original conservada. Codex CyE aplicó el 06/10 la redacción aprobada y rehizo las capturas de Fútbol y el login móvil antes de integrar.
 
 ## Qué se muestra
 
@@ -12,7 +12,7 @@ conserva `Ago 2026`, la fecha 06/10/2026 y el importe anulado $53.000.
 
 La ficha de Fútbol muestra literalmente:
 
-> Por única vez por persona. Figura en su registro de Patín, para no cobrarla dos veces.
+> La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de Patín.
 
 ## Redacción aprobada por Carlos — 06/10/2026
 
@@ -22,9 +22,7 @@ Carlos pidió aclarar el mensaje y aprobó con «OK» esta redacción exacta:
 
 El deporte mencionado debe seguir siendo el del registro que tiene el cargo, como
 en la rama actual; Patín es el ejemplo mostrado, no un nombre fijo para todos.
-**Pendiente de aplicar en la vista:** las capturas conservan el texto anterior y no
-representan esta nueva redacción. Esta tarea seguía siendo solo de evidencia, sin
-programar; se registra la aprobación para quien integre el arreglo.
+**Aplicada por Codex CyE el 06/10:** solo el renglón aprobado, sin CSS ni otros cambios visuales. Las capturas de Fútbol fueron reemplazadas por respuestas reales con la nueva redacción. Las imágenes de Patín e historial conservan el ensayo original.
 No se declara cerrado A55, A13 ni B1, ni se hizo merge o despliegue.
 
 ## Capturas reales
@@ -32,7 +30,7 @@ No se declara cerrado A55, A13 ni B1, ni se hizo merge o despliegue.
 | Pantalla | Escritorio | Celular, contenido real de 375 px |
 |---|---|---|
 | Patín: inscripción pendiente | [Imagen](ficha-patin-escritorio.png) | [Imagen](ficha-patin-375.png) |
-| Fútbol: ubicación del aviso, con la redacción anterior | [Imagen](ficha-futbol-escritorio.png) | [Imagen](ficha-futbol-375.png) |
+| Fútbol: aviso con la redacción aprobada | [Imagen](ficha-futbol-escritorio.png) | [Imagen](ficha-futbol-375.png) |
 | Historial del cobro anulado | [Imagen](historial-anulado-escritorio.png) | [Imagen](historial-anulado-375.png) |
 | Login: control de la medición | [Imagen](login-escritorio.png) | [Imagen](login-375.png) |
 
@@ -50,3 +48,7 @@ No se declara cerrado A55, A13 ni B1, ni se hizo merge o despliegue.
   Login revisado visualmente: formulario y logo completos, sin recorte horizontal.
 - Los HTML, perfil de Chrome y generadores temporales no se publican; solo estas imágenes
   y su explicación. No son una verificación de navegación interactiva ni de concurrencia.
+
+## Reproducción del texto nuevo — Codex CyE
+
+[Generador documental](../evidencia/cierre-a13-b1-a55/GenerarCapturasA55Test.php): 1 ensayo, 12 aserciones, base wings_testing_codex. Respuestas de Laravel sobre la rama a55-inscripcion, Chrome con marco 375. Login completo y texto dinámico inspeccionados. El entorno del worktree emitió un aviso de deprecación; no se presenta como suite completa. Los archivos PNG se guardan desde la captura del navegador, sin maqueta.

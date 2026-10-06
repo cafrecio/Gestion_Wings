@@ -20,7 +20,7 @@
     @if($inscripcionEsDeEsteRegistro)
         <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: $'.number_format($inscripcion->saldo_pendiente, 2, ',', '.') }}</p>
     @else
-        <p>Por única vez por persona. Figura en su registro de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}, para no cobrarla dos veces.</p>
+        <p>La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}.</p>
     @endif
 </div>
 @endif
