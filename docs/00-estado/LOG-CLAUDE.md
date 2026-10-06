@@ -11,6 +11,28 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — PARA RETOMAR EN CASA: despliegue al sitio de prueba y primera carga
+
+**Decidido por Carlos:** esta noche se despliega main al **sitio de prueba** (no produccion),
+se borran **solo alumnos y deudas** (usuarios, catalogos y clases quedan) y se prueba la
+primera carga por Excel como la haria una persona, con los mismos datos que habia.
+**Servidor, leido el 06/10 con `ssh vps`, sin modificar:** prueba en `/home/wingstest/app`,
+commit `443b0bc` del 23/09, 60 alumnos, 77 deudas, 0 pagos, 0 cajas, sin migraciones
+pendientes; recibe 5. Produccion en `314e485` del 22/09, vacia de alumnos, con 7 migraciones
+atrasadas; su despliegue pide la clave de `wings_migrate`, que esta en el disco D: de CAB.
+**Hecho:** respaldo completo de la base de prueba en el servidor,
+`/var/backups/wings/wingstest_antes-de-limpiar_2026-10-06_1845.sql.gz`. No confirme si la
+rotacion de esa carpeta lo borra: copiarlo a otro lado antes de limpiar.
+**No hecho:** el archivo con los 60 alumnos en las 38 columnas de la plantilla. Lo exporte y
+cuadra (60 filas, 20 con deuda, 34 cuotas, $1.263.000) pero el control de seguridad de la
+sesion bloqueo dos veces escribirlo en el repositorio, aun con autorizacion de Carlos, y quedo
+en una carpeta temporal que no viaja. Se rearma desde el respaldo. El padron original si esta:
+`docs/06-pruebas/PADRON-PRUEBA-v2.xlsx`.
+**A saber antes de probar:** Sofia Morales (DNI 32123456) figura en dos deportes con distinta
+fecha de nacimiento; ningun alumno tiene tutor ni debe inscripcion. No hay comando para
+limpiar: es a mano sobre `wingstest`. El sitio de prueba no usa `deploy.sh` con clave aparte.
+**Orden:** rearmar el archivo, resguardar el respaldo, desplegar, limpiar, probar.
+
 ## 2026-10-06 — Claude CyE — A25 cerrado tras la segunda verificacion de Gemini
 
 Gemini rehizo la verificacion (`a8fb0bc`). Contrastada: 23 capturas, 18 paginas y JSON

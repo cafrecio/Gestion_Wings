@@ -43,6 +43,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 
 ## Codex
 
