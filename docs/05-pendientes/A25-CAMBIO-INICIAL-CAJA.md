@@ -1,8 +1,9 @@
 # A25 — Cambio inicial y cierre de caja
 
 **Versión:** 2026-10-06.v1. **Autor:** Codex CAB.
-**Estado:** decisiones principales recibidas; pendiente implementación y revisión independiente.
-[Defecto A25](../06-pruebas/PRU-02/DEFECTOS.md#a25-la-apertura-de-caja-no-contempla-saldo-inicial-ni-cambio-para-vuelto--falta--definido-0610).
+**Estado:** HECHO (Codex), a revisar; diseño aprobado por Carlos el 06/10, sin despliegue.
+[Defecto A25](../06-pruebas/PRU-02/DEFECTOS.md) · [Entrega y capturas reales](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md).
+Los relevamientos siguientes conservan el estado anterior para explicar las decisiones.
 
 ## 1. Lo que se comprobó, no lo que se supone
 
@@ -91,7 +92,7 @@ la diferencia. No bloquear el cierre por un faltante/sobrante. No registrar una 
 como ingreso, gasto, condonación ni ajuste automáticamente. Si se pide motivo, aclarar su
 obligatoriedad; la diferencia y su revisión no implican que Carlos autorizó inventar un asiento.
 
-## 3. Límites para la implementación posterior
+## 3. Límites aprobados para la implementación
 
 Las tres aclaraciones consultadas juntas fueron respondidas por Carlos el 06/10:
 
@@ -169,17 +170,14 @@ contradicción adicional se reporta antes de implementar la parte afectada.
 - Pruebas primero rojas, luego verdes, en `wings_testing_codex`; suite completa propia al entregar código.
 - Apertura/cierre/resumen en navegador real, escritorio y 375 px; importes y errores visibles.
 
-## 5. Diseño y entrega
+## 5. Diseño y entrega — actualizado 06/10
 
-No se modificó ninguna vista ni CSS por este documento. No se pide autorización visual
-sin haber guardado capturas del sistema andando: escritorio y 375 de cada pantalla afectada.
-Leer design system, usar componentes/tokens existentes y JS en archivo; no maqueta HTML manual.
-
-Después de implementar y de la autorización visual: entrada en LOG-CODEX, A25 **HECHO
-(Codex), a revisar** en DEFECTOS.md y DEFECTOS.html, contador real sin sumarlo a CERRADOS,
-contrato con las decisiones aceptadas, cuatro estados si cambia la suite, commit y push.
-Otro agente hace la verificación y decide el cierre. Hoy A25 permanece **Falta**, con
-reglas y excepción de corrección tras arrastre definidas; falta implementación.
+Implementado después de estas decisiones; componentes existentes y JS de cierre propio,
+sin CSS compartido. Capturas reales de las cinco pantallas en escritorio/375 aprobadas
+por Carlos: «OK, aprobado» y «Sí». [Galería](../06-pruebas/PRU-02/evidencia/a25/capturas/index.html).
+A25 **HECHO (Codex), a revisar** en los dos seguimientos; no sumar a CERRADOS.
+Contrato/ER V5, cuatro estados y pruebas incluidos en la [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md).
+Otro agente verifica y decide el cierre; no desplegado ni base del club tocada.
 
 ## 6. Pruebas previas reales — 06/10
 

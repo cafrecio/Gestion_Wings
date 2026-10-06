@@ -61,6 +61,7 @@ class ReciboMedioDePagoTest extends TestCase
         $this->efectivo = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
         $this->transferencia = TipoCaja::create(['nombre' => 'Transferencia', 'activo' => true]);
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->efectivo->id);
 
         $deporte = Deporte::create([
             'nombre' => 'Hockey',

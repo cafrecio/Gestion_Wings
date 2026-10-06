@@ -64,7 +64,8 @@ class CspSinCodigoIncrustadoTest extends TestCase
      * eliminaciones: no se tocan hasta poder comprobarlos con un clic real, porque si
      * se mueven a JavaScript y el archivo no carga, el borrado se ejecutaria sin preguntar.
      */
-    private const MANEJADORES_PERMITIDOS = 10;
+    // A25: Cerrar navega al formulario de conteo; sale el confirm sin arqueo anterior.
+    private const MANEJADORES_PERMITIDOS = 9;
 
     public function test_no_crece_la_cantidad_de_bloques_de_codigo_incrustado(): void
     {

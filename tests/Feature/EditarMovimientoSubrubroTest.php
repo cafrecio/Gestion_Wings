@@ -27,6 +27,7 @@ class EditarMovimientoSubrubroTest extends TestCase
             'estado' => CajaOperativa::ESTADO_ABIERTA,
         ]);
         $tipoCaja = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        $caja->update(['efectivo_inicial' => 0, 'tipo_caja_efectivo_id' => $tipoCaja->id]);
         $rubro = Rubro::create([
             'nombre' => 'Gastos',
             'tipo' => 'EGRESO',

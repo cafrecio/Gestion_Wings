@@ -92,11 +92,13 @@ class InscripcionConcurrenteTest extends TestCase
 
     public function test_segundo_cobro_relee_saldo_despues_de_esperar(): void
     {
+        $cobrador = User::factory()->create(['rol' => 'OPERATIVO', 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($cobrador->id, TipoCaja::firstOrFail()->id);
         $this->post('/alumnos', $this->datos)->assertRedirect();
         $alumno = Alumno::firstOrFail();
         // La cuota ya nace en el alta (enmienda 23/09); no recrearla en el fixture.
         $this->assertDatabaseHas('deuda_cuotas', ['alumno_id' => $alumno->id, 'periodo' => '2026-09', 'monto_original' => 30000, 'monto_pagado' => 0, 'estado' => 'PENDIENTE']);
-        $data = ['alumno_id' => $alumno->id, 'usuario_operativo_id' => $this->usuario->id, 'tipo_caja_id' => TipoCaja::first()->id,
+        $data = ['alumno_id' => $alumno->id, 'usuario_operativo_id' => $cobrador->id, 'tipo_caja_id' => TipoCaja::first()->id,
             'fecha_pago' => '2026-09-24', 'items' => [['periodo' => '2026-09', 'monto' => 30000]]];
         $this->iniciar(fn () => app(PagoCuotaService::class)->registrarPagoCuotaOperativo($data + ['monto_entregado' => 3000]));
         $this->esperaSinEscribir(fn () => app(PagoCuotaService::class)->registrarPagoCuotaOperativo($data + ['monto_entregado' => 7000]));

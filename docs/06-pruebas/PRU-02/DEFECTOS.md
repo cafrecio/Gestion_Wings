@@ -14,6 +14,8 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 
 > A4 y A5: **Hecho (Cx), a revisar — 05/10**. Diseño aprobado por Carlos sobre
 > capturas. No se suman a los cerrados hasta la verificación independiente.
+> A25: **HECHO (Codex), a revisar — 06/10**; diseño aprobado sobre capturas reales.
+> No se suma a cerrados hasta control de otro agente; sin despliegue.
 > Retoque de A4: motivo de fecha de ingreso alineado y con ícono; nuevas capturas listas, aprobado por Carlos el 05/10 para subirlo.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
@@ -233,7 +235,7 @@ Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
 
-### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · definido 06/10
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · HECHO (Codex), a revisar 06/10
 
 La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.
 Revalidado en código el 06/10: tampoco hay un arqueo de cierre que compare contado y
@@ -246,7 +248,11 @@ ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar
 Al corregir rechazadas se conserva conteo/entrega, sin cambiar el siguiente turno. Previas propias:
 3 fallos actuales + 9 funciones ausentes, 12/15; no se alteró la suite compartida.
 [Relevamiento y ejemplos](../../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-Codex prepara; **no implementado, no Hecho y no cerrado**. Sin vistas ni datos tocados.
+**Implementado el 06/10 (Codex), a revisar.** Apertura explícita, un turno compartido,
+herencia confirmada/motivo, conteo/diferencia, retenido/entrega y conservación de rechazada.
+26 pruebas nuevas; suite 468 aprobadas/2 omitidas, 3116 aserciones. Carlos aprobó diseño
+de cinco pantallas escritorio/375; sin CSS ni base real tocados. [Entrega y capturas](IMPLEMENTACION-A25.md).
+No CERRADO ni desplegado; otro agente verifica.
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
 
 ### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · verificado
@@ -773,7 +779,7 @@ Carlos.
 | 2.3 | Cobrar por adelantado, que el motor ya soporta | A3 |
 | 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado; A4 Hecho (Cx), a revisar 05/10; A14 pendiente | A4, A14 |
 | 2.5 | Profesores activos del deporte de la clase; Hecho (Cx), a revisar 05/10 | A5 |
-| 2.6 | Apertura de caja con saldo inicial y arqueo | A25 |
+| 2.6 | Apertura declarada y arqueo; HECHO (Codex), a revisar 06/10 | A25 |
 
 ### P3 · El dueño deja de ser un operativo
 

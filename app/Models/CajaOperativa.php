@@ -26,6 +26,18 @@ class CajaOperativa extends Model
         'usuario_admin_validacion_id',
         'validada_at',
         'motivo_rechazo',
+        'tipo_caja_efectivo_id',
+        'caja_origen_id',
+        'efectivo_heredado',
+        'efectivo_inicial',
+        'motivo_apertura',
+        'efectivo_esperado',
+        'efectivo_contado',
+        'diferencia_efectivo',
+        'cambio_retenido',
+        'efectivo_retirado',
+        'usuario_cierre_id',
+        'usuario_apertura_id',
     ];
 
     protected $casts = [
@@ -33,6 +45,13 @@ class CajaOperativa extends Model
         'cierre_at' => 'datetime',
         'validada_at' => 'datetime',
         'cerrada_por_admin' => 'boolean',
+        'efectivo_heredado' => 'decimal:2',
+        'efectivo_inicial' => 'decimal:2',
+        'efectivo_esperado' => 'decimal:2',
+        'efectivo_contado' => 'decimal:2',
+        'diferencia_efectivo' => 'decimal:2',
+        'cambio_retenido' => 'decimal:2',
+        'efectivo_retirado' => 'decimal:2',
     ];
 
     /**

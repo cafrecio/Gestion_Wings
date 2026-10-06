@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Último corte A4/A5 + A37, 05/10: **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones**, en wings_testing_codex. Diseño aprobado por Carlos; **Hecho (Cx), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue.
+Último corte A25, 06/10: **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones**, wings_testing_codex; 181,44 s, sin fallas. Diseño A25 aprobado por Carlos; **Hecho (Codex), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue.
 
 Entrega P1: **427 pruebas / 2968 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
@@ -30,7 +30,7 @@ otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite comple
   para revisión ADMIN. Ya respondió: primer importe declarado, corrección con motivo,
   un turno abierto y cambio retenido elegible. ADMIN configura el medio físico una vez y
   guarda aparte sus cobros; debe contar/cerrar antes de validar. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-  Reglas recibidas; falta implementar y mostrar capturas reales para aprobación visual.
+  Implementado; Carlos aprobó las cinco pantallas escritorio/375 el 06/10. [Capturas](../06-pruebas/PRU-02/evidencia/a25/capturas/index.html). No volver a pedir esa aprobación; verifica otro agente.
 - [x] **Excepción A25 respondida 06/10:** al corregir una caja rechazada se conservan
   contado/cambio/retiro originales, sin modificar lo recibido por el siguiente turno.
 
@@ -108,7 +108,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

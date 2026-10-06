@@ -46,6 +46,7 @@ class CobrarPrimeraCuotaWebTest extends TestCase
             'rol' => User::ROL_OPERATIVO,
             'activo' => true,
         ]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
 
         $deporte = Deporte::create([
             'nombre' => 'Hockey',
@@ -171,7 +172,12 @@ class CobrarPrimeraCuotaWebTest extends TestCase
 
     public function test_la_primera_cuota_autocreada_con_descuento_deja_al_alumno_al_dia(): void
     {
+        $anterior = \App\Models\CajaOperativa::sole();
+        app(\App\Services\CajaService::class)->cerrarCajaOperativa($anterior->id, $this->operativo->id, false, [
+            'efectivo_contado' => 0, 'cambio_retenido' => 0,
+        ]);
         Carbon::setTestNow('2026-08-20 10:00:00');
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
         $this->alumno->update(['fecha_alta' => '2026-08-20']);
         ReglaPrimerPago::create([
             'nombre' => 'Segunda quincena',

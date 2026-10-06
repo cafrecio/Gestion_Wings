@@ -119,6 +119,7 @@ class AdminCobraSinCajaTest extends TestCase
 
     public function test_el_operativo_sigue_cobrando_por_su_caja(): void
     {
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
         $this->cobrar($this->operativo)->assertSessionHas('success');
 
         $caja = CajaOperativa::sole();

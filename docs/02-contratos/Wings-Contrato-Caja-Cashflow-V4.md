@@ -1,4 +1,8 @@
 # Wings-Contrato-Caja-Cashflow-V4.md
+> Antecedente histórico. Desde A25 (06/10/2026), apertura, turno compartido y arqueo
+> se rigen por la [enmienda V5](Wings-Contrato-Caja-Cashflow-V5.md), que sustituye
+> la apertura automática y el cierre/validación sin conteo. V4 no certifica el código actual.
+
 **Caso de Uso:** Caja Operativa + Cashflow  
 **Versión:** V4  
 **Estado:** Candidato a Cierre (pendiente validación)  

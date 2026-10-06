@@ -49,6 +49,7 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
             'fecha_alta' => '2025-01-01', 'activo' => true,
         ]));
         $this->caja = $this->guardar(TipoCaja::create(['nombre' => 'FIN11', 'activo' => true]));
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->caja->id);
         if (!Subrubro::where('nombre', 'Cuota Mensual')->exists()) {
             $rubro = $this->guardar(Rubro::create(['nombre' => 'Cuotas FIN11', 'tipo' => 'INGRESO']));
             $this->guardar(Subrubro::create(['nombre' => 'Cuota Mensual', 'rubro_id' => $rubro->id,
@@ -105,6 +106,13 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
 
     private function validar(int $id): void
     {
+        // A25: ADMIN cuenta y cierra antes de validar; se prueba también ese bloqueo.
+        $service = app(CajaService::class);
+        if (\App\Models\CajaOperativa::findOrFail($id)->estado === 'ABIERTA') {
+            $service->cerrarCajaOperativa($id, $this->admin->id, true, [
+                'efectivo_contado' => $service->arqueoCaja($id)['efectivo_esperado'], 'cambio_retenido' => 0,
+            ]);
+        }
         app(CajaService::class)->validarCaja($id, $this->admin->id);
     }
 
@@ -187,6 +195,16 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
                 $this->assertStringContainsString('caja esté abierta o rechazada', $e->getMessage());
             }
             $this->assertSame($antes, $this->foto());
+        } elseif ($primero === 'validar' && $segundo === 'cobrar') {
+            // A25: el cierre anterior no puede reabrirse por cobrar. Primero se declara otro turno.
+            try {
+                $acciones[$segundo]();
+                $this->fail('Cobró sin declarar la apertura del siguiente turno.');
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                $this->assertStringContainsString('abrir', $e->getMessage());
+            }
+            \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->caja->id);
+            $acciones[$segundo]();
         } else {
             $acciones[$segundo]();
         }

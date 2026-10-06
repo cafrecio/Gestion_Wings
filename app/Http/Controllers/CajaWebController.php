@@ -18,6 +18,7 @@ use App\Models\TipoCaja;
 use App\Models\User;
 use App\Notifications\CobroConDeudaAnteriorNotification;
 use App\Services\CajaService;
+use App\Services\FormatoExcelCargaService;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,6 +35,76 @@ class CajaWebController extends Controller
         private CajaService $cajaService,
         private PagoCuotaService $pagoCuotaService
     ) {}
+
+    public function configuracionMostrador()
+    {
+        $propuesta = $this->cajaService->propuestaApertura();
+        $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
+        return view('caja.configuracion', compact('propuesta', 'tiposCaja'));
+    }
+
+    public function configurarMostrador(Request $request)
+    {
+        $datos = $request->validate(['tipo_caja_id' => 'required|integer|exists:tipos_caja,id']);
+        $this->cajaService->configurarMostrador((int) $datos['tipo_caja_id'], Auth::id());
+        return redirect()->route('web.caja.index')->with('success', 'Medio de efectivo configurado.');
+    }
+
+    public function apertura()
+    {
+        $propuesta = $this->cajaService->propuestaApertura();
+        $tipoEfectivo = TipoCaja::find($propuesta['tipo_caja_id']);
+        $turnoAbierto = CajaOperativa::where('estado', 'ABIERTA')->with('usuarioOperativo')->first();
+        $operativos = Auth::user()->isAdmin()
+            ? User::where('rol', User::ROL_OPERATIVO)->where('activo', true)->orderBy('name')->get()
+            : collect();
+        return view('caja.apertura', compact('propuesta', 'tipoEfectivo', 'turnoAbierto', 'operativos'));
+    }
+
+    public function abrir(Request $request)
+    {
+        $this->normalizarImportesArqueo($request, ['efectivo_inicial']);
+        $operativoId = Auth::id();
+        if (Auth::user()->isAdmin()) {
+            $request->validate(['operativo_id' => ['required', 'integer', Rule::exists('users', 'id')->where('rol', User::ROL_OPERATIVO)->where('activo', true)]]);
+            $operativoId = (int) $request->input('operativo_id');
+        }
+        $caja = $this->cajaService->abrirCajaOperativa($operativoId, $request->all(), Auth::id());
+        return redirect()->route('web.caja.resumen', $caja->id)->with('success', 'Caja abierta con el efectivo declarado.');
+    }
+
+    public function cierre(int $id)
+    {
+        $caja = CajaOperativa::with('usuarioOperativo')->findOrFail($id);
+        abort_unless(Auth::user()->isAdmin() || $caja->usuario_operativo_id === Auth::id(), 403);
+        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA', 'CERRADA'])) {
+            return redirect()->route('web.caja.resumen', $id)->with('error', 'La caja ya está validada.');
+        }
+        // Una caja histórica CERRADA sin conteo puede completar la declaración, no operar.
+        if ($caja->estado === 'CERRADA' && $caja->efectivo_contado !== null) {
+            return redirect()->route('web.caja.resumen', $id);
+        }
+        $arqueo = $this->cajaService->arqueoCaja($id);
+        return view('caja.cierre', compact('caja', 'arqueo'));
+    }
+
+    private function normalizarImportesArqueo(Request $request, array $campos): void
+    {
+        foreach ($campos as $campo) {
+            $crudo = $request->input($campo);
+            $normalizado = FormatoExcelCargaService::monto($crudo);
+            if ($normalizado !== null) {
+                $request->merge([$campo => $normalizado]);
+            }
+        }
+    }
+
+    private function aperturaNecesaria(): bool
+    {
+        if (!Auth::user()->isOperativo()) return false;
+        $caja = $this->cajaService->obtenerCajaAbierta(Auth::id());
+        return !$caja || $caja->efectivo_inicial === null || $caja->tipo_caja_efectivo_id === null;
+    }
 
     // ── Índice: listado de cajas en cards ────────────────────────────────
 
@@ -84,7 +155,8 @@ class CajaWebController extends Controller
             $sinCajaHoy = !$cajaAbiertaHoy && !$cajaVieja;
         }
 
-        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes'));
+        $mostradorConfigurado = $this->cajaService->propuestaApertura()['tipo_caja_id'] !== null;
+        return view('caja.index', compact('cajas', 'cajaVieja', 'sinCajaHoy', 'operativos', 'mes', 'mostradorConfigurado'));
     }
 
     // ── Historial: movimientos del último trimestre (solo lectura) ───────
@@ -258,8 +330,11 @@ class CajaWebController extends Controller
             ->sum('monto');
         $neto = $ingresos - $egresos;
         $numMovimientos = $movsActivos->count();
+        $arqueo = $this->cajaService->arqueoCaja($id);
+        $efectivoEsperado = $arqueo['efectivo_esperado'];
+        $diferenciaEfectivo = $arqueo['diferencia_efectivo'];
 
-        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto', 'numMovimientos'));
+        return view('caja.resumen', compact('caja', 'porTipo', 'porRubro', 'ingresos', 'egresos', 'neto', 'numMovimientos', 'efectivoEsperado', 'diferenciaEfectivo'));
     }
 
     // ── Detalle: tabla de movimientos ────────────────────────────────────
@@ -433,30 +508,32 @@ class CajaWebController extends Controller
 
     public function destroyMovimiento(int $cajaId, int $movId)
     {
-        $user = Auth::user();
-        $caja = CajaOperativa::findOrFail($cajaId);
+        return DB::transaction(function () use ($cajaId, $movId) {
+            $user = Auth::user();
+            $caja = CajaOperativa::whereKey($cajaId)->lockForUpdate()->firstOrFail();
 
-        if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
-            abort(403);
-        }
+            if (!$user->isAdmin() && $caja->usuario_operativo_id !== $user->id) {
+                abort(403);
+            }
 
-        if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
-            return back()->with('error', 'Solo se pueden eliminar movimientos de una caja abierta o rechazada.');
-        }
+            if (!in_array($caja->estado, ['ABIERTA', 'RECHAZADA'])) {
+                return back()->with('error', 'Solo se pueden eliminar movimientos de una caja abierta o rechazada.');
+            }
 
-        $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->findOrFail($movId);
+            $movimiento = MovimientoOperativo::where('caja_operativa_id', $cajaId)->lockForUpdate()->findOrFail($movId);
 
-        if (!is_null($movimiento->alumno_id)) {
-            return back()->with('error', 'Los cobros de cuota no se pueden eliminar directamente. Usá la opción Cancelar.');
-        }
+            if (!is_null($movimiento->alumno_id)) {
+                return back()->with('error', 'Los cobros de cuota no se pueden eliminar directamente. Usá la opción Cancelar.');
+            }
 
-        if ($movimiento->subrubro?->es_reservado_sistema) {
-            return back()->with('error', 'No se puede eliminar un movimiento generado automáticamente por el sistema.');
-        }
+            if ($movimiento->subrubro?->es_reservado_sistema) {
+                return back()->with('error', 'No se puede eliminar un movimiento generado automáticamente por el sistema.');
+            }
 
-        $movimiento->delete();
+            $movimiento->delete();
 
-        return back()->with('success', 'Movimiento eliminado.');
+            return back()->with('success', 'Movimiento eliminado.');
+        });
     }
 
     // ── Cancelar cobro de cuota ───────────────────────────────────────────
@@ -522,8 +599,11 @@ class CajaWebController extends Controller
             abort(403);
         }
 
+        $this->normalizarImportesArqueo($request, ['efectivo_contado', 'cambio_retenido']);
         try {
-            $this->cajaService->cerrarCajaOperativa($id, $user->id, $esAdmin);
+            $this->cajaService->cerrarCajaOperativa($id, $user->id, $esAdmin, $request->all());
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            throw $e;
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
@@ -560,6 +640,7 @@ class CajaWebController extends Controller
     public function cobrarCuotaSelect(Request $request)
     {
         $user = Auth::user();
+        if ($this->aperturaNecesaria()) return redirect()->route('web.caja.apertura');
 
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);
@@ -609,6 +690,7 @@ class CajaWebController extends Controller
     public function cobrar(int $alumnoId)
     {
         $user = Auth::user();
+        if ($this->aperturaNecesaria()) return redirect()->route('web.caja.apertura');
 
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);
@@ -775,6 +857,9 @@ class CajaWebController extends Controller
     public function pagar(Request $request, int $alumnoId)
     {
         $user   = Auth::user();
+        if ($this->aperturaNecesaria()) {
+            return response()->json(['success' => false, 'message' => 'Abrí la caja y confirmá el efectivo antes de cobrar.'], 422);
+        }
         $alumno = Alumno::findOrFail($alumnoId);
 
         // El formulario arma su FormData antes de que el script de moneda limpie los
@@ -986,6 +1071,7 @@ class CajaWebController extends Controller
     public function movimientoForm()
     {
         $user = Auth::user();
+        if ($this->aperturaNecesaria()) return redirect()->route('web.caja.apertura');
 
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);

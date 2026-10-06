@@ -47,6 +47,7 @@ class SaldoUnicoPorAlumnoTest extends TestCase
         Carbon::setTestNow('2026-10-05 10:00:00');
 
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, \App\Models\TipoCaja::firstOrFail()->id);
         $this->deporte = Deporte::create([
             'nombre' => 'Patín',
             'tipo_liquidacion' => Deporte::TIPO_LIQUIDACION_HORA,

@@ -1,19 +1,17 @@
 # Wings — Estado actual
 
-## A25 — cambio inicial y arqueo definidos, pendiente implementación — 06/10/2026
+## A25 — HECHO (Codex), a revisar — 06/10/2026
 
-Releídos apertura/cierre/validación, modelo, migraciones y resumen. Hoy no se declara
-efectivo al abrir y el cierre no pide conteo ni calcula diferencia; no hay arqueo existente
-que solo necesite sumar el inicio. A25 incluye definir ambos extremos antes de programar.
-Carlos decidió: separar cambio/retiro; heredar el cambio con confirmación; mostrar
-esperado/contado/diferencia y permitir cerrar para revisión ADMIN. Un cajón compartido,
-hereda último cierre del club. Primera apertura declarada; corrección de lo heredado con
-motivo; un solo turno abierto; cambio retenido elegible, retiro = contado − retenido.
-ADMIN configura el medio físico una vez y guarda aparte sus cobros. También debe contar
-y cerrar antes de validar. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-Previas propias aisladas: 3 fallos actuales y 9 funciones ausentes, 12/15. Carlos conserva
-conteo/cambio/retiro al corregir rechazadas, sin alterar el siguiente turno. Sin aplicación, vistas,
-base real ni suite permanente modificadas. A25 Falta; no entregado ni cerrado.
+Apertura explícita con recibido confirmado, herencia del último cierre del club y motivo
+si difiere. Un cajón compartido, un turno abierto. ADMIN configura el medio físico una
+vez, guarda aparte sus cobros y cuenta/cierra antes de validar o rechazar.
+Cierre con esperado/contado/diferencia, cambio que queda y entrega; permite diferencias
+para revisión ADMIN, sin crear asientos de ajuste. Rechazadas conservan conteo/entrega y
+actor/fecha originales, sin cambiar la apertura siguiente. Históricos NULL no se rellenan.
+26 pruebas nuevas; suite 468 aprobadas/2 omitidas, 3116 aserciones, sin fallas, base propia.
+Carlos aprobó las cinco pantallas escritorio/375; sin CSS ni componentes compartidos tocados.
+[Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) · [Contrato V5](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md).
+Otro agente verifica; no CERRADO ni desplegado. Base del club y servidor intactos.
 
 ## Verificación A13/B1/A54/A55 registrada — 06/10/2026
 
@@ -243,12 +241,12 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **444 pruebas: 438 aprobadas y 1 omitida, 2968 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
+| **Tests** | **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones** el 06/10 en wings_testing_codex; 181,44 s, sin fallas. A25 implementada, pendiente control ajeno. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
-| Caja | Apertura, movimientos, cierre, rechazo, validacion y cancelacion |
+| Caja | A25 implementada: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Diseño aprobado; pendiente control ajeno. No desplegada |
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
@@ -354,7 +352,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
-| Wings no tiene arqueo | Revalidado en código 06/10: caja sin importe inicial declarado ni contado/diferencia; el cierre solo guarda estado/fecha. La mención del pedido a una comparación existente contra cero no coincide con la implementación | A25: reglas definidas el 06/10. ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Pendiente implementación |
+| Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). HECHO (Codex), a revisar; no desplegada |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |

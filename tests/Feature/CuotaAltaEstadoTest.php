@@ -64,6 +64,7 @@ class CuotaAltaEstadoTest extends TestCase
     {
         $alumno = $this->alta('2026-09-20');
         $deuda = DeudaCuota::where('alumno_id', $alumno->id)->firstOrFail();
+        \Tests\Support\CajaDeclarada::crear($this->usuario->id, TipoCaja::firstOrFail()->id);
         ReglaPrimerPago::query()->update(['porcentaje' => 40]);
         $this->plan->update(['precio_mensual' => 90000]);
         $this->get(route('web.caja.cobrar', $alumno))->assertOk()->assertViewHas('alumno', function ($mostrado) {
@@ -190,6 +191,7 @@ class CuotaAltaEstadoTest extends TestCase
 
     public function test_cobrar_cuota_corriente_de_ingreso_antiguo_no_reaplica_porcentaje(): void
     {
+        \Tests\Support\CajaDeclarada::crear($this->usuario->id, TipoCaja::firstOrFail()->id);
         $datos = $this->datos('2020-01-20') + ['generar_cuota_actual' => '1'];
         $this->post(route('web.alumnos.store'), $datos)->assertSessionHasNoErrors();
         $alumno = Alumno::where('dni', $datos['dni'])->firstOrFail();
@@ -239,6 +241,7 @@ class CuotaAltaEstadoTest extends TestCase
     public function test_parcial_anulacion_y_recobro_conservan_la_cuota_del_alta(): void
     {
         $alumno = $this->alta('2026-09-20');
+        \Tests\Support\CajaDeclarada::crear($this->usuario->id, TipoCaja::firstOrFail()->id);
         $service = app(PagoCuotaService::class);
         $datos = ['alumno_id' => $alumno->id, 'usuario_operativo_id' => $this->usuario->id,
             'tipo_caja_id' => TipoCaja::first()->id, 'fecha_pago' => '2026-09-20',

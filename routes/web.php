@@ -55,6 +55,10 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::middleware('reject.profesor.web')->group(function () {
     // ── Caja: rutas estáticas ANTES de las parametrizadas ─────────────────
     Route::get('/caja', [CajaWebController::class, 'index'])->name('web.caja.index');
+    Route::get('/caja/apertura', [CajaWebController::class, 'apertura'])->name('web.caja.apertura');
+    Route::post('/caja/apertura', [CajaWebController::class, 'abrir'])->name('web.caja.abrir');
+    Route::get('/caja/configuracion', [CajaWebController::class, 'configuracionMostrador'])->middleware('ensure.admin.web')->name('web.caja.configuracion');
+    Route::post('/caja/configuracion', [CajaWebController::class, 'configurarMostrador'])->middleware('ensure.admin.web')->name('web.caja.configuracion.store');
     Route::get('/caja/movimiento', [CajaWebController::class, 'movimientoForm'])->name('web.caja.movimiento');
     Route::post('/caja/movimiento', [CajaWebController::class, 'movimientoStore'])->name('web.caja.movimiento.store');
     Route::get('/caja/historial', [CajaWebController::class, 'historial'])->name('web.caja.historial');
@@ -68,6 +72,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::get('/caja/{id}/editar', [CajaWebController::class, 'editarForm'])->name('web.caja.editar');
     Route::post('/caja/{id}/editar', [CajaWebController::class, 'editarStore'])->name('web.caja.editar.store');
     Route::post('/caja/{id}/cerrar', [CajaWebController::class, 'cerrar'])->name('web.caja.cerrar');
+    Route::get('/caja/{id}/cerrar', [CajaWebController::class, 'cierre'])->name('web.caja.cierre');
 
     // Editar / eliminar / cancelar movimiento individual
     Route::get('/caja/{cajaId}/movimientos/{movId}/editar', [CajaWebController::class, 'editarMovimientoForm'])->name('web.caja.movimientos.editar');

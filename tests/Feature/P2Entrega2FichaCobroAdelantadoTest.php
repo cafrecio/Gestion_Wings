@@ -56,6 +56,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $this->tipoCaja = TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
         $this->admin = User::factory()->create(['rol' => User::ROL_ADMIN, 'activo' => true]);
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
         $this->profesor = User::factory()->create(['rol' => User::ROL_PROFESOR, 'activo' => true]);
 
         $deporte = Deporte::create([

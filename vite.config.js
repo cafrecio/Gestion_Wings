@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/js/cobrar.js',
                 'resources/js/configuraciones.js',
                 'resources/js/primera-carga.js',
+                'resources/js/caja-arqueo.js',
             ],
             refresh: true,
         }),

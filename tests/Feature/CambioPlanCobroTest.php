@@ -54,6 +54,7 @@ class CambioPlanCobroTest extends TestCase
             'rol' => User::ROL_OPERATIVO,
             'activo' => true,
         ]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
 
         $deporte = Deporte::create([
             'nombre' => 'Hockey',

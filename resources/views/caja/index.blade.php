@@ -36,6 +36,10 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         </div>
     </div>
 </form>
+<div class="stats-bar mb-4">
+    <span class="stats-info">Cajón compartido del mostrador</span>
+    <x-ds.button variant="primary" href="{{ $mostradorConfigurado ? route('web.caja.apertura') : route('web.caja.configuracion') }}">{{ $mostradorConfigurado ? 'Abrir' : 'Configurar' }}</x-ds.button>
+</div>
 
 @else
     {{-- ── Banner: caja vieja bloqueante ─── --}}
@@ -45,7 +49,7 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
             Caja pendiente de cierre
         </p>
         <p style="font-size:0.9rem; color:var(--color-text);">
-            Tenés una caja abierta de un día anterior. Hacé clic en "Detalle" para cerrarla antes de operar.
+            Tenés una caja abierta de un día anterior. Entrá en "Resumen" para contarla y cerrarla antes de operar.
         </p>
     </div>
 
@@ -58,14 +62,11 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
                     No tenés caja abierta hoy.
                 </p>
                 <p style="font-size:0.82rem; color:var(--color-text-muted);">
-                    Se abrirá automáticamente al registrar el primer movimiento.
+                    Contá y confirmá el efectivo recibido antes de registrar movimientos.
                 </p>
             </div>
             <div style="display:flex; gap:8px; flex-shrink:0;">
-                <a href="{{ route('web.caja.movimiento') }}"
-                   class="ds-btn" style="background:var(--color-btn-primary); color:#fff;">Nuevo</a>
-                <a href="{{ route('web.caja.cobrar-cuota') }}"
-                   class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
+                <x-ds.button variant="primary" href="{{ route('web.caja.apertura') }}">Abrir</x-ds.button>
             </div>
         </div>
     </div>

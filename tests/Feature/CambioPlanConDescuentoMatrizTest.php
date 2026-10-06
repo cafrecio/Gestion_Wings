@@ -60,6 +60,7 @@ class CambioPlanConDescuentoMatrizTest extends TestCase
         ]);
         $this->tipoCaja = TipoCaja::create(['nombre' => 'Caja General', 'activo' => true]);
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
 
         $deporte = Deporte::create([
             'nombre' => 'Hockey',

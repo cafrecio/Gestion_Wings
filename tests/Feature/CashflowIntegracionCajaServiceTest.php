@@ -44,6 +44,7 @@ class CashflowIntegracionCajaServiceTest extends TestCase
         $this->crearMovimiento($caja, $tipoCaja, $subrubro, $operativo, 9000, MovimientoOperativo::ESTADO_CANCELADO);
 
         $service = app(CajaService::class);
+        $service->cerrarCajaOperativa($caja->id, $admin->id, true, ['efectivo_contado' => 1000, 'cambio_retenido' => 0]);
         $service->validarCaja($caja->id, $admin->id);
         $service->validarCaja($caja->id, $admin->id);
 

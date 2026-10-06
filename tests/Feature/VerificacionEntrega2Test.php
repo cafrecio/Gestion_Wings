@@ -41,6 +41,7 @@ class VerificacionEntrega2Test extends TestCase
 
         $this->operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
         $this->caja = TipoCaja::first() ?? TipoCaja::create(['nombre' => 'Efectivo', 'activo' => true]);
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->caja->id);
 
         $deporte = Deporte::first() ?? Deporte::create([
             'nombre' => 'Patín',

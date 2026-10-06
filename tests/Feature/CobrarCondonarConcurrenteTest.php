@@ -42,6 +42,7 @@ class CobrarCondonarConcurrenteTest extends TestCase
             'fecha_alta' => '2025-01-01', 'activo' => true,
         ]));
         $this->caja = $this->guardar(TipoCaja::create(['nombre' => 'FIN07', 'activo' => true]));
+        \Tests\Support\CajaDeclarada::crear($this->operativo->id, $this->caja->id);
         if (!Subrubro::where('nombre', 'Cuota Mensual')->exists()) {
             $rubro = $this->guardar(Rubro::create(['nombre' => 'Cuotas FIN07', 'tipo' => 'INGRESO']));
             $this->guardar(Subrubro::create(['nombre' => 'Cuota Mensual', 'rubro_id' => $rubro->id,
@@ -168,7 +169,8 @@ class CobrarCondonarConcurrenteTest extends TestCase
         $this->assertSame(0, DB::table('pagos')->where('alumno_id', $this->alumno->id)->count());
         $this->assertSame(0, DB::table('pago_deuda_cuota')->where('deuda_cuota_id', $this->deuda->id)->count());
         $this->assertSame(0, DB::table('movimientos_operativos')->where('alumno_id', $this->alumno->id)->count());
-        $this->assertSame(0, DB::table('cajas_operativas')->where('usuario_operativo_id', $this->operativo->id)->count());
+        // La caja declarada del fixture existía antes de intentar el cobro; no se crea otra.
+        $this->assertSame(1, DB::table('cajas_operativas')->where('usuario_operativo_id', $this->operativo->id)->count());
     }
 
     public function test_pago_completo_en_curso_impide_condonar_una_vez_confirmado(): void

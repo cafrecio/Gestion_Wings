@@ -1,4 +1,7 @@
 # Wings-ER-Caja-Cashflow-V4.md
+> Antecedente histórico, no esquema actual completo. Los campos y restricciones de
+> A25 se documentan en la [enmienda ER V5](Wings-ER-Caja-Cashflow-V5.md).
+
 **Caso de Uso:** Caja Operativa + Cashflow  
 **Versión:** V4  
 **Estado:** Candidato a Cierre (pendiente validación)  

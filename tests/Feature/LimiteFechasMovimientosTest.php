@@ -60,6 +60,7 @@ class LimiteFechasMovimientosTest extends TestCase
 
         $this->cajaAbierta = CajaOperativa::create([
             'usuario_operativo_id' => $this->operativo->id,
+            'efectivo_inicial' => 0, 'tipo_caja_efectivo_id' => $this->tipoCaja->id,
             'apertura_at' => now(),
             'estado' => CajaOperativa::ESTADO_ABIERTA,
         ]);

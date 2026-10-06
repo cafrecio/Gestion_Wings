@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — A25 implementada, diseño aprobado; a revisar
+
+Apertura explícita, recibido/heredado y motivo; un cajón compartido con un turno abierto.
+ADMIN configura el medio una vez y guarda sus cobros aparte; cuenta/cierra antes de validar.
+Arqueo, contado, diferencia, cambio/entrega; faltantes no bloquean ni crean ajustes contables.
+Rechazadas conservan contado/entrega y actor/fecha originales, sin alterar el turno siguiente.
+26 pruebas nuevas; suite propia 468 aprobadas/2 omitidas, 3116 aserciones, 181,44 s, sin fallas.
+PHP/Blade/build verdes. Carlos aprobó cinco pantallas escritorio/375: «OK, aprobado» y «Sí».
+[Entrega, límites y capturas reales](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md); sin CSS ni base real/servidor tocados.
+Contrato/ER V5, ambos seguimientos y cuatro estados actualizados. HECHO (Codex), no CERRADO.
+Otro agente verifica en pantalla; sin deploy. Publicación y sincronización se comprueban al terminar.
+
 ## 2026-10-06 — Codex CAB — A25 relevado, decisiones antes de programar
 
 Verificación previa publicada en ddefe00: HEAD y main remoto iguales; pull al día.
@@ -106,19 +118,7 @@ Formulario real normal/375 px: decisión obligatoria, Sí/No y ficha comprobados
 [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A43.md). Migración nueva alta_cuota; no deploy.
 No cerrada: Gemini verifica. Siguiente: permisos A29/A30/A31 ya autorizados.
 
-## 2026-10-04 — Codex CAB — A43 y permisos, maquetas para autorizar
-
-Pull al día en `853873a`; cambios ajenos de Cobranza/CSS conservados.
-A43 no estaba a medias: aún genera cuota histórica; maqueta del aviso preparada.
-Ajustado pie de maqueta A43 al alta existente: Cancelar y Guardar a la derecha.
-Consulta entonces pendiente sobre inscripción; Carlos aclaró después «A43 solo la cuota».
-A29/A30/A31: maqueta con mensaje común y Volver al inicio de cada rol.
-Carlos pidió quitar la comparación de perfiles; retirada de las tres maquetas.
-Carlos aprobó ambas maquetas: «OK ambos». Luego escribió la línea formal; ver entrega posterior.
-Navegador normal/375 px; prueba previa propia: 12 rojas/2 verdes, 21 aserciones.
-Borrador de pruebas retirado de suite activa durante la espera de autorización.
-Sin aplicación modificada, suite completa ni deploy; defectos siguen abiertos.
-Preparación histórica; autorización y aclaración recibidas, implementación en entrada superior.
+Preparación A43/permisos archivada intacta en [LOG-CODEX-A43-PREPARACION.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-PREPARACION.md).
 
 Entrega A11 archivada en [LOG-CODEX-A11-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A11-ENTREGA.md).
 

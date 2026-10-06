@@ -19,7 +19,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 
 {{-- ── Info de la caja ─────────────────────────────────────────────────── --}}
 <div class="filtros-card mb-4">
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Operativo</p>
             <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $caja->usuarioOperativo->name ?? '–' }}</p>
@@ -46,25 +46,22 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 </div>
 
 {{-- ── Stats + acciones ─────────────────────────────────────────────────── --}}
-<div class="stats-bar mb-4">
-    <div class="stats-info">
+<div class="stats-bar mb-4" style="flex-wrap:wrap; gap:12px;">
+    <div class="stats-info" style="flex-shrink:0;">
         <strong>{{ $numMovimientos }}</strong>
         movimiento{{ $numMovimientos !== 1 ? 's' : '' }}
     </div>
-    <div style="display:flex; gap:8px; align-items:center;">
+    <div class="w-full sm:w-auto" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
         @if(in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esPropietario)
             <a href="{{ route('web.caja.cobrar-cuota') }}"
                class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>
             <a href="{{ route('web.caja.editar', $caja->id) }}"
                class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Nuevo</a>
-            <form method="POST" action="{{ route('web.caja.cerrar', $caja->id) }}"
-                  onsubmit="return confirm('¿Cerrar la caja?')">
-                @csrf
-                <button type="submit"
-                        class="ds-btn" style="background:var(--color-danger); color:#fff;">Cerrar</button>
-            </form>
         @endif
-        @if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA')
+        @if(($esPropietario || Auth::user()->isAdmin()) && (in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) || ($caja->estado === 'CERRADA' && $caja->efectivo_contado === null)))
+            <x-ds.button variant="primary" href="{{ route('web.caja.cierre', $caja->id) }}">Cerrar</x-ds.button>
+        @endif
+        @if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA' && $caja->efectivo_contado !== null)
             <button type="button" data-abrir-rechazar
                     class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>
             <form method="POST" action="{{ route('web.cajas.validar', $caja->id) }}">
@@ -78,6 +75,16 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         <a href="{{ route('web.caja.index') }}"
            class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Volver</a>
     </div>
+</div>
+
+<div class="alumno-card mb-4">
+    <div class="alumno-card-header"><h3 class="alumno-nombre">Efectivo del mostrador</h3></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
+        @foreach(['Inicial' => $caja->efectivo_inicial, 'Esperado' => $efectivoEsperado, 'Contado' => $caja->efectivo_contado, 'Diferencia' => $diferenciaEfectivo, 'Cambio que queda' => $caja->cambio_retenido, 'Retiro / entrega' => $caja->efectivo_retirado] as $rotulo => $importe)
+        <div><span class="info-label">{{ $rotulo }}</span><p class="info-value">{{ $importe === null ? 'Sin declarar' : '$'.number_format($importe, 2, ',', '.') }}</p></div>
+        @endforeach
+    </div>
+    <p class="text-xs text-wings-muted mt-3">Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.</p>
 </div>
 
 @if($numMovimientos === 0)
@@ -191,7 +198,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 @endif
 
 {{-- ── Modal rechazo (solo admin + CERRADA) ────────────────────────────── --}}
-@if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA')
+@if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA' && $caja->efectivo_contado !== null)
 <div id="modal-rechazar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
         <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:1rem;">Motivo del rechazo <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:400;">(opcional)</span></p>
@@ -215,7 +222,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 @endsection
 
 @push('scripts')
-@if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA')
+@if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA' && $caja->efectivo_contado !== null)
 <script>
 function abrirRechazar() {
     var m = document.getElementById('modal-rechazar');
