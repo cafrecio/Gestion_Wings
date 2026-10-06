@@ -1,0 +1,577 @@
+{
+  "saldos": {
+    "1": {
+      "cuotas": 40000,
+      "inscripcion": 5000,
+      "total": 45000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-10"
+    },
+    "2": {
+      "cuotas": 96000,
+      "inscripcion": 5000,
+      "total": 101000,
+      "cuotas_impagas": 2,
+      "mas_antigua": "2026-09"
+    },
+    "3": {
+      "cuotas": 0,
+      "inscripcion": 0,
+      "total": 0,
+      "cuotas_impagas": 0,
+      "mas_antigua": "9999-99"
+    },
+    "4": {
+      "cuotas": 48000,
+      "inscripcion": 0,
+      "total": 48000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-11"
+    },
+    "5": {
+      "cuotas": 0,
+      "inscripcion": 5000,
+      "total": 5000,
+      "cuotas_impagas": 0,
+      "mas_antigua": "9999-99"
+    },
+    "6": {
+      "cuotas": 0,
+      "inscripcion": 0,
+      "total": 0,
+      "cuotas_impagas": 0,
+      "mas_antigua": "9999-99"
+    },
+    "7": {
+      "cuotas": 0,
+      "inscripcion": 0,
+      "total": 0,
+      "cuotas_impagas": 0,
+      "mas_antigua": "9999-99"
+    },
+    "8": {
+      "cuotas": 40000,
+      "inscripcion": 0,
+      "total": 40000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-10"
+    },
+    "9": {
+      "cuotas": 48000,
+      "inscripcion": 0,
+      "total": 48000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-10"
+    },
+    "10": {
+      "cuotas": 48000,
+      "inscripcion": 0,
+      "total": 48000,
+      "cuotas_impagas": 1,
+      "mas_antigua": "2026-10"
+    },
+    "11": {
+      "cuotas": 0,
+      "inscripcion": 0,
+      "total": 0,
+      "cuotas_impagas": 0,
+      "mas_antigua": "9999-99"
+    }
+  },
+  "deudas": [
+    {
+      "id": 1,
+      "alumno_id": 1,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "8000.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 2,
+      "alumno_id": 2,
+      "periodo": "2026-09",
+      "monto_original": "48000.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 3,
+      "alumno_id": 2,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 4,
+      "alumno_id": 3,
+      "periodo": "2026-10",
+      "monto_original": "0.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 5,
+      "alumno_id": 6,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "48000.00",
+      "estado": "PAGADA"
+    },
+    {
+      "id": 6,
+      "alumno_id": 4,
+      "periodo": "2026-11",
+      "monto_original": "48000.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 7,
+      "alumno_id": 7,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "48000.00",
+      "estado": "PAGADA"
+    },
+    {
+      "id": 8,
+      "alumno_id": 8,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "8000.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 9,
+      "alumno_id": 9,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    },
+    {
+      "id": 10,
+      "alumno_id": 10,
+      "periodo": "2026-10",
+      "monto_original": "48000.00",
+      "monto_pagado": "0.00",
+      "estado": "PENDIENTE"
+    }
+  ],
+  "pagos": [
+    {
+      "id": 1,
+      "alumno_id": 1,
+      "monto_final": "15000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Prueba de anulación parcial",
+        "cargos": [
+          {
+            "periodo": "",
+            "periodo_texto": "Inscripción al club",
+            "monto_aplicado": "5000.00"
+          }
+        ],
+        "periodos": [
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "alumno_id": 1,
+      "monto_final": "8000.00",
+      "estado": "COMPLETADO",
+      "detalle_anulacion": null
+    },
+    {
+      "id": 3,
+      "alumno_id": 2,
+      "monto_final": "63000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Prueba con meses e inscripción",
+        "cargos": [
+          {
+            "periodo": "",
+            "periodo_texto": "Inscripción al club",
+            "monto_aplicado": "5000.00"
+          }
+        ],
+        "periodos": [
+          {
+            "periodo": "2026-09",
+            "monto_aplicado": "48000.00"
+          },
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "alumno_id": 6,
+      "monto_final": "48000.00",
+      "estado": "COMPLETADO",
+      "detalle_anulacion": null
+    },
+    {
+      "id": 5,
+      "alumno_id": 4,
+      "monto_final": "48000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Verificación independiente de anulación",
+        "cargos": [],
+        "periodos": [
+          {
+            "periodo": "2026-11",
+            "monto_aplicado": "48000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "alumno_id": 7,
+      "monto_final": "10000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Verificación concurrente independiente",
+        "cargos": [],
+        "periodos": [
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "alumno_id": 8,
+      "monto_final": "10000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Verificación concurrente independiente",
+        "cargos": [],
+        "periodos": [
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "alumno_id": 9,
+      "monto_final": "10000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Verificación concurrente independiente",
+        "cargos": [],
+        "periodos": [
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "alumno_id": 10,
+      "monto_final": "10000.00",
+      "estado": "ANULADO",
+      "detalle_anulacion": {
+        "motivo": "Verificación primera pestaña",
+        "cargos": [],
+        "periodos": [
+          {
+            "periodo": "2026-10",
+            "monto_aplicado": "10000.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "alumno_id": 7,
+      "monto_final": "8000.00",
+      "estado": "COMPLETADO",
+      "detalle_anulacion": null
+    },
+    {
+      "id": 11,
+      "alumno_id": 8,
+      "monto_final": "8000.00",
+      "estado": "COMPLETADO",
+      "detalle_anulacion": null
+    },
+    {
+      "id": 12,
+      "alumno_id": 7,
+      "monto_final": "40000.00",
+      "estado": "COMPLETADO",
+      "detalle_anulacion": null
+    }
+  ],
+  "imputaciones": [
+    {
+      "id": 2,
+      "pago_id": 2,
+      "deuda_cuota_id": 1,
+      "monto_aplicado": "8000.00",
+      "created_at": "2026-10-05 15:47:13",
+      "updated_at": "2026-10-05 15:47:13"
+    },
+    {
+      "id": 5,
+      "pago_id": 4,
+      "deuda_cuota_id": 5,
+      "monto_aplicado": "48000.00",
+      "created_at": "2026-10-05 15:47:13",
+      "updated_at": "2026-10-05 15:47:13"
+    },
+    {
+      "id": 11,
+      "pago_id": 10,
+      "deuda_cuota_id": 7,
+      "monto_aplicado": "8000.00",
+      "created_at": "2026-10-05 15:57:33",
+      "updated_at": "2026-10-05 15:57:33"
+    },
+    {
+      "id": 12,
+      "pago_id": 11,
+      "deuda_cuota_id": 8,
+      "monto_aplicado": "8000.00",
+      "created_at": "2026-10-05 15:57:33",
+      "updated_at": "2026-10-05 15:57:33"
+    },
+    {
+      "id": 13,
+      "pago_id": 12,
+      "deuda_cuota_id": 7,
+      "monto_aplicado": "40000.00",
+      "created_at": "2026-10-05 15:59:59",
+      "updated_at": "2026-10-05 15:59:59"
+    }
+  ],
+  "cargos": [],
+  "cajas": [
+    {
+      "id": 1,
+      "usuario_operativo_id": 2,
+      "estado": "VALIDADA"
+    },
+    {
+      "id": 2,
+      "usuario_operativo_id": 2,
+      "estado": "ABIERTA"
+    }
+  ],
+  "movimientos": [
+    {
+      "id": 1,
+      "pago_id": 4,
+      "caja_operativa_id": 1,
+      "monto": "48000.00",
+      "estado": "ACTIVO"
+    },
+    {
+      "id": 2,
+      "pago_id": 12,
+      "caja_operativa_id": 2,
+      "monto": "40000.00",
+      "estado": "ACTIVO"
+    }
+  ],
+  "cashflow": [
+    {
+      "id": 1,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 1
+    },
+    {
+      "id": 2,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "5000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 1
+    },
+    {
+      "id": 3,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "8000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 2
+    },
+    {
+      "id": 4,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 1
+    },
+    {
+      "id": 5,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-5000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 1
+    },
+    {
+      "id": 6,
+      "fecha": "2026-09-30T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "58000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 3
+    },
+    {
+      "id": 7,
+      "fecha": "2026-09-30T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "5000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 3
+    },
+    {
+      "id": 8,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-58000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 3
+    },
+    {
+      "id": 9,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-5000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 3
+    },
+    {
+      "id": 10,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "48000.00",
+      "referencia_tipo": "CAJA_OPERATIVA",
+      "referencia_id": 1
+    },
+    {
+      "id": 11,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 7,
+      "monto": "48000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 5
+    },
+    {
+      "id": 12,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 7,
+      "monto": "-48000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 5
+    },
+    {
+      "id": 13,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 6
+    },
+    {
+      "id": 14,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 7
+    },
+    {
+      "id": 15,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 8
+    },
+    {
+      "id": 16,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 9
+    },
+    {
+      "id": 17,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 6
+    },
+    {
+      "id": 18,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "8000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 10
+    },
+    {
+      "id": 19,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "8000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 11
+    },
+    {
+      "id": 20,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 7
+    },
+    {
+      "id": 21,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 8
+    },
+    {
+      "id": 22,
+      "fecha": "2026-10-05T03:00:00.000000Z",
+      "tipo_caja_id": 6,
+      "monto": "-10000.00",
+      "referencia_tipo": "PAGO_CUOTA",
+      "referencia_id": 9
+    }
+  ]
+}

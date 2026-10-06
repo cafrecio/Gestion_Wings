@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — Verificación A13/B1/A54/A55 documentada
+
+Ensayos reales del 05/10 sobre 4571dbc/8869263; filas propias releídas el 06/10.
+A54 pasa y queda CERRADO por el verificador; A55 falla con dos deportes ($0/$5.000).
+A13/B1: reversión financiera pasa; historial anulado y dibujo del contraasiento fallan.
+Tres hallazgos dentro de esos IDs, sin duplicar números; Claude corrige. Ambos seguimientos 26/71.
+Cierre operativo comprobado por servicio, no por pantalla; concurrencia limitada a tres órdenes.
+Selección 23/106 y ensayo HTTP 2/9 el 05/10; no suite completa nueva ni aumento permanente.
+[Informe y evidencia ordenada](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md); herramientas aisladas bajo docs.
+Retirados generador/HTML redundantes y tres capturas con assets incompletos; cambios ajenos preservados.
+Sin base del club ni servidor tocados; publicación se comprueba al terminar. Sigue A25, decisiones antes de programar.
+
 ## 2026-10-05 — Codex CAB — A4/A5 hechos, a revisar
 
 Carlos aprobó aviso superior y profesores activos del deporte de la clase; pidió Hecho (Cx), a revisar.
@@ -106,18 +118,7 @@ Copia exclusiva de entrega verde: 352/2057, base wings_testing_codex; archivos c
 Escritorio/375 px, errores y corrección comprobados con valores originales; sin deploy.
 [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md). Pendiente Gemini; no cerrada.
 
-## 2026-10-04 — Codex CAB — Control de Cobranza y propuesta A11
-
-Revisión independiente de Entrega 1 sobre `1c4e6dc` y `867c295`, código y navegador local.
-No aprobada completa: A51 total por persona cambia con filtros; A52 inscripción altera estado.
-A18 parcial; filtros a 375 px siguen ilegibles (A19). No se corrigió código ajeno ni datos.
-Suite propia verde: 343/1955 en wings_testing, sin corridas simultáneas; Entrega2Test ausente.
-[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md); base local sin monto_condonado.
-A11: [maqueta estática](../05-pendientes/maqueta-configuracion/README.md), CSS Wings existente,
-grupos, etiquetas, errores y generación mensual fija. Abierta en navegador para Carlos.
-Carlos aprueba maqueta («Ok, aprobada»); autorización e implementación posteriores en la entrada superior.
-Pruebas A11 preparadas localmente: 7 rojas / 1 verde, 58 aserciones. Sin commit de los tests.
-
+Control de Cobranza/propuesta A11 archivado en [LOG-CODEX-CONTROL-A11.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-CONTROL-A11.md).
 
 Entrada de maqueta P1 archivada intacta en [LOG-CODEX-MAQUETA-P1.md](../99-archivo/bitacoras/2026-10-05/LOG-CODEX-MAQUETA-P1.md).
 

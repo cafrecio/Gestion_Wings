@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## Verificación A13/B1/A54/A55 registrada — 06/10/2026
+
+Codex CAB verificó las entregas `4571dbc` y `8869263` en navegador, servicios y base
+propia el 05/10; evidencia ordenada y filas releídas el 06/10. **A54 CERRADO**:
+cuota PENDIENTE cero no infla el contador y se conserva el cobro adelantado.
+**A55 ABIERTO:** con dos deportes, selector $0 y ficha $5.000 de inscripción por DNI.
+**A13/B1 ABIERTOS:** cobro sin caja y reversión financiera pasan; historial anulado
+usa el mes del pago y el cashflow ensayado dibuja positivo un contraasiento negativo.
+Los hallazgos quedan dentro de esos IDs; Claude corrige. No se certifica el cambio
+ajeno sin commit de cashflow. **Cierre operativo probado por servicio, no por pantalla.**
+Ambos seguimientos: **26 cerrados de 71, 45 abiertos**. Selección del 05/10: 23/106;
+ensayo HTTP independiente 2/9; sin suite completa nueva ni cambio del número permanente.
+[Informe, evidencia y límites](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Sin deploy.
+
 ## A37 resuelto (Ficha del alumno en celular 375px) — 05/10/2026
 
 - **Defecto A37:** La ficha del alumno (`/alumnos/{id}`) desbordaba horizontalmente en celulares a 375px, cortando los botones de cabecera (`Editar`) y filas de historial (`Recibo`, `Anular`).
@@ -27,8 +41,9 @@ Filtros compartidos recorridos a 375px; build verde. Suite desde el repo en
 `wings_testing_codex`: **384 pruebas / 2906 aserciones**, todas verdes.
 Datos visuales ficticios en copia local alineada a HEAD; sin tocar el padrón ni
 el servidor, sin cobros ni despliegue. [Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
-A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro;
-documentados sin corrección. Gemini puede continuar Entrega 2.
+A53/A54/A55 surgieron fuera de Entrega 1. Estado posterior al control registrado 06/10:
+A53 abierto; A54 corregido por Claude y cerrado por Codex; A55 devuelto a Claude por
+inscripción con dos deportes. Ver informe nuevo arriba. Gemini puede continuar Entrega 2.
 
 ## A43 y permisos A29/A30/A31 verificados y cerrados — 05/10/2026
 

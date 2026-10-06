@@ -18,7 +18,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Suite | **439 pruebas: 438 aprobadas y 1 omitida, 2960 aserciones** el 05/10 en wings_testing_codex, con A4/A5 y A37 de Gemini (3062f95). [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Sin despliegue |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
-| Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10 en código/pantalla, filtros 375 y suite propia 380/2242. A53–A55 fuera de esa entrega pendientes; sin despliegue |
+| Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10. Control posterior registrado 06/10: A54 cerrado por Codex; A53 abierto, A55 abierto por inscripción con dos deportes. A13/B1 cobran/anulan sin caja, pero siguen abiertos por historial anulado y representación del contraasiento. [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Sin despliegue |
 | A2/B2 | Cuota en alta y estados por deuda implementados localmente el 23/09; suite 331/1900. Pendiente verificación independiente y despliegue con migración porcentaje_alta |
 | Inscripción ENT-01 | Por DNI, cargos separados, prioridad de inscripción. P0 del 04/10 retira corte y conserva cargos/pagos; pendiente Gemini. Sin deploy |
 | Primera carga P0/P1 | P0 implementado; A43 verificada por Gemini el 05/10. P1 aprobada e implementada: plantilla, revisión, carga y Deshacer, capturas escritorio/375. Pendiente Gemini y despliegue con migración primera_carga y build. No limpia producción/test; importadores antiguos se retiran en commit aparte después de aceptar P1 |

@@ -17,7 +17,11 @@ El corte previo de Entrega 1 (P2) fue 343/1955. A11 verificada por Gemini; A43 e
 A43: Carlos autorizó el diseño y aclaró que No evita solo cuota; inscripción sin cambios.
 Entrega 1 de P2 (Cobranza) **verificada y aprobada por Codex el 05/10**:
 `abc346a`, código/pantalla y filtros 375; suite propia 380/2242.
-Gemini puede continuar Entrega 2. A53–A55 registrados para asignación, sin cambios.
+Gemini puede continuar Entrega 2. Control Codex registrado 06/10: A54 cerrado; A53 abierto;
+A55 devuelto a Claude por inscripción con dos deportes. A13/B1 siguen abiertos por historial
+anulado y representación del contraasiento, aunque el saldo real y la reversión pasan.
+[Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Este control no requiere
+otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite completa nueva ni deploy.
 
 **Lo que necesita tu decision o tu presencia:**
 

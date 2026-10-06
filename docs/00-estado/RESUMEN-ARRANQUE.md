@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Actualización de P1: 05/10/2026, Codex CAB; los cortes históricos conservan su fecha.
+> Actualización de verificación A13/B1/A54/A55: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -34,7 +34,12 @@
 
 - **A4/A5 entregados por Codex CAB el 05/10:** aviso superior en alta/edición, conservación de datos y advertencia al salir; profesores activos del deporte de la clase con rechazo servidor. Carlos aprobó las capturas y pidió **Hecho (Cx), a revisar**, no cerrado. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A4-A5.md). Otro agente verifica; sin despliegue.
   Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
-  Al entregar el retoque, Codex verifica A13, B1, A54 y A55 de Claude; no mezclar antes.
+  Control posterior registrado 06/10: **A54 cerrado por Codex; A13/B1/A55 abiertos**.
+  A55: dos deportes muestran distinta inscripción entre selector y ficha. A13/B1:
+  reversión financiera correcta, historial anulado y signo del contraasiento en pantalla fallan.
+  Cierre operativo comprobado por servicio, no por pantalla. Claude corrige.
+  [Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Ambos seguimientos:
+  26 cerrados de 71; sin suite completa nueva ni deploy. Después: A25, decisiones de Carlos antes de programar.
 
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
@@ -51,8 +56,8 @@
 
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
-  Barras de filtros a 375 revisadas; suite propia **380/2242**. Nuevos A53–A55,
-  fuera de esta entrega, registrados sin corregir. Sin despliegue; Gemini puede
+  Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron
+  fuera de esta entrega; al 06/10 A54 cerrado y A53/A55 abiertos. Sin despliegue; Gemini puede
   continuar Entrega 2.
   [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
   **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
