@@ -25,11 +25,12 @@ otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite comple
 
 **Lo que necesita tu decision o tu presencia:**
 
-- [ ] **A25, cambio del mostrador — 06/10:** definido separar cambio/retiro, heredar con
+- [x] **Reglas A25, cambio del mostrador — 06/10:** definido separar cambio/retiro, heredar con
   confirmación del último cierre del club (cajón compartido) y permitir cierre con diferencia
-  para revisión ADMIN. Faltan primera apertura/correcciones, turnos simultáneos y cambio
-  retenido variable/fijo. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-  No hay arqueo previo; Codex no programa ni pide autorización de diseño hasta aclararlo.
+  para revisión ADMIN. Ya respondió: primer importe declarado, corrección con motivo,
+  un turno abierto y cambio retenido elegible. ADMIN configura el medio físico una vez y
+  guarda aparte sus cobros; debe contar/cerrar antes de validar. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+  Reglas recibidas; falta implementar y mostrar capturas reales para aprobación visual.
 
 - [x] **Maqueta de Primera carga aprobada el 05/10.** Decision del 26/09: la carga
   inicial pasa a ser un Excel unico con alumnos y deuda, se saca la fecha de corte y lo que

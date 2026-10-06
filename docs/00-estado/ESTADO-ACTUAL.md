@@ -1,14 +1,16 @@
 # Wings — Estado actual
 
-## A25 — definición de cambio inicial y arqueo pendiente — 06/10/2026
+## A25 — cambio inicial y arqueo definidos, pendiente implementación — 06/10/2026
 
 Releídos apertura/cierre/validación, modelo, migraciones y resumen. Hoy no se declara
 efectivo al abrir y el cierre no pide conteo ni calcula diferencia; no hay arqueo existente
 que solo necesite sumar el inicio. A25 incluye definir ambos extremos antes de programar.
 Carlos decidió: separar cambio/retiro; heredar el cambio con confirmación; mostrar
 esperado/contado/diferencia y permitir cerrar para revisión ADMIN. Un cajón compartido,
-hereda último cierre del club. Faltan primera apertura/correcciones, turnos simultáneos y
-cambio retenido variable/fijo. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+hereda último cierre del club. Primera apertura declarada; corrección de lo heredado con
+motivo; un solo turno abierto; cambio retenido elegible, retiro = contado − retenido.
+ADMIN configura el medio físico una vez y guarda aparte sus cobros. También debe contar
+y cerrar antes de validar. [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
 Sin aplicación, vistas, datos ni suite modificados. A25 Falta; no entregado ni cerrado.
 
 ## Verificación A13/B1/A54/A55 registrada — 06/10/2026
@@ -350,7 +352,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | Recalcular una liquidacion puede cambiar el total de una ya cerrada | `LiquidacionService::recalcularLiquidacion()` chequea si esta cerrada **afuera** de la transaccion y sin tomar la fila. Si otra pestaña la cierra en ese instante, el recalculo cambia el total igual. `cerrarLiquidacion()` y `eliminarLiquidacion()` tienen el mismo patron, con daño nulo o que requiere tres acciones a la vez. El doble clic lo frena el anti doble envio de `ds-app.js`; queda el caso de dos pestañas o dos personas | Encontrado en el barrido de FIN-05. Corresponde a FIN-11 |
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
-| Wings no tiene arqueo | Revalidado en código 06/10: caja sin importe inicial declarado ni contado/diferencia; el cierre solo guarda estado/fecha. La mención del pedido a una comparación existente contra cero no coincide con la implementación | A25: [tres decisiones con ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md), pendientes de Carlos; no programar ni cambiar contrato hasta aclarar |
+| Wings no tiene arqueo | Revalidado en código 06/10: caja sin importe inicial declarado ni contado/diferencia; el cierre solo guarda estado/fecha. La mención del pedido a una comparación existente contra cero no coincide con la implementación | A25: reglas definidas el 06/10. ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Pendiente implementación |
 | Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |

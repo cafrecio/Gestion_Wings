@@ -233,15 +233,16 @@ Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
 
-### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · pendiente decisión 06/10
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · Falta · definido 06/10
 
 La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.
 Revalidado en código el 06/10: tampoco hay un arqueo de cierre que compare contado y
 esperado; el cierre solo cambia estado/fecha. No es una comparación existente contra cero.
 Carlos decidió el 06/10: separar cambio/retiro, heredar el cambio con confirmación y
 mostrar esperado/contado/diferencia permitiendo cerrar para revisión ADMIN. Un solo cajón
-compartido: hereda el último cierre del club. Falta precisar primera apertura/correcciones,
-turnos simultáneos y si puede variar el cambio retenido, antes de programar.
+compartido: hereda el último cierre del club. Primera apertura declarada; corrección con
+motivo; un turno abierto; cambio retenido elegible y retiro = contado − retenido.
+ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar.
 [Relevamiento y ejemplos](../../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
 Codex prepara; **no implementado, no Hecho y no cerrado**. Sin vistas ni datos tocados.
 Captura: `evidencia/audit_operativo_caja_desktop.png`.

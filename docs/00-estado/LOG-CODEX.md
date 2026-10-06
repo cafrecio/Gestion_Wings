@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — A25 relevado, decisiones antes de programar
+
+Verificación previa publicada en ddefe00: HEAD y main remoto iguales; pull al día.
+A25: apertura sin importe y cierre sin conteo/comparación; confirmado en cuerpos y migraciones.
+Carlos definió separar cambio/retiro, heredar último cierre del club con confirmación,
+un cajón compartido y cierre con esperado/contado/diferencia para revisión ADMIN.
+Aceptados: primer importe declarado, corrección con motivo, un turno abierto y cambio retenido elegible.
+[Decisiones, límites y pruebas previstas](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
+Ambos seguimientos: A25 Falta, no implementado. No se inventa arqueo existente.
+Sin vistas, CSS, base real, servidor ni suite permanente modificados; cambios ajenos preservados.
+ADMIN configura el medio físico una vez, guarda aparte sus cobros y debe contar/cerrar antes de validar.
+
 ## 2026-10-06 — Codex CAB — Verificación A13/B1/A54/A55 documentada
 
 Ensayos reales del 05/10 sobre 4571dbc/8869263; filas propias releídas el 06/10.
@@ -107,16 +119,7 @@ Borrador de pruebas retirado de suite activa durante la espera de autorización.
 Sin aplicación modificada, suite completa ni deploy; defectos siguen abiertos.
 Preparación histórica; autorización y aclaración recibidas, implementación en entrada superior.
 
-## 2026-10-04 — Codex CAB — A11 Configuración entregada
-
-Commit `7a8fe09`; Carlos aprobó maqueta y escribió Diseno-autorizado, respetada literalmente.
-Grupos, nombres humanos, validación de servidor y errores persistentes arriba/junto al campo.
-Guardar explícito; generación mensual fija; editor de porcentajes conserva días 1–31.
-JavaScript propio/Vite; CSP 20→19, sin CSS nuevo ni controles de acceso modificados.
-Pruebas previas 7 rojas/1 verde; suite en base Codex 355/2070 verde, incluye pruebas ajenas.
-Copia exclusiva de entrega verde: 352/2057, base wings_testing_codex; archivos coinciden.
-Escritorio/375 px, errores y corrección comprobados con valores originales; sin deploy.
-[Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md). Pendiente Gemini; no cerrada.
+Entrega A11 archivada en [LOG-CODEX-A11-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A11-ENTREGA.md).
 
 Control de Cobranza/propuesta A11 archivado en [LOG-CODEX-CONTROL-A11.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-CONTROL-A11.md).
 

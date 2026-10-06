@@ -42,13 +42,11 @@
   26 cerrados de 71; sin suite completa nueva ni deploy. Publicado en `ddefe00`:
   push recibido en main y pull al día, comprobados el 06/10; cambios ajenos quedaron fuera.
 
-- **A25, preparado el 06/10, no implementado:** hoy no se declara efectivo inicial
-  ni hay conteo/comparación en el cierre. Carlos definió separar cambio/retiro, heredar
-  el cambio con confirmación y permitir cerrar con diferencia para revisión ADMIN.
-  Un cajón compartido: último cierre del club. Faltan primera apertura/correcciones,
-  turnos simultáneos y cambio retenido variable/fijo.
-  [Decisiones y ejemplos](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-  Ambos seguimientos lo mantienen Falta; no adelantar código ni autorización visual.
+- **A25, preparado 06/10, no implementado:** inicio y arqueo inexistentes. Carlos definió
+  cajón compartido, herencia confirmada, primer importe declarado, corrección con motivo,
+  un turno abierto, cambio retenido elegible y cierre con diferencia para revisión ADMIN.
+  ADMIN configura el medio físico una vez, guarda aparte sus cobros y cuenta/cierra antes de validar.
+  [Decisiones](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Ambos seguimientos: Falta; siguiente implementación y capturas reales.
 
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
@@ -83,8 +81,6 @@
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
 
 - POS-06: [contrato de particulares](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado el 13/09; implementación PENDIENTE. [Ficha y siguiente paso: Reportes](../05-pendientes/CLASES-PARTICULARES.md).
-
-
 - FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable;
   error de motivo y guardado comprobados. Sin deploy.
 
@@ -121,9 +117,8 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- A25: primera apertura/correcciones, turnos simultáneos y cambio retenido variable/fijo
-  pendientes; decisiones principales y cajón compartido definidos el 06/10. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md).
-  Inscripción: tratamiento aprobado e implementado.
+- A25: reglas de apertura/cierre respondidas el 06/10. [Detalle](../05-pendientes/A25-CAMBIO-INICIAL-CAJA.md). Pendiente implementación.
+- Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan
 
