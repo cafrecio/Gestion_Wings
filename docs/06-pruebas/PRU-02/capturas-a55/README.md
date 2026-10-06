@@ -1,4 +1,4 @@
-# A55 / A13 / B1 — pantallas para aprobar el texto
+# A55 / A13 / B1 — capturas y redacción aprobada
 
 06/10/2026 — Codex CAB. Rama `a55-inscripcion`, código `31194c2`.
 Solo preparación y capturas; no se corrigió código ni se mezcló con main.
@@ -14,15 +14,25 @@ La ficha de Fútbol muestra literalmente:
 
 > Por única vez por persona. Figura en su registro de Patín, para no cobrarla dos veces.
 
-**Pendiente:** Carlos aprueba ese texto o indica otro. No se declara cerrado A55,
-A13 ni B1 por estas imágenes, ni se autoriza un merge por adelantado.
+## Redacción aprobada por Carlos — 06/10/2026
+
+Carlos pidió aclarar el mensaje y aprobó con «OK» esta redacción exacta:
+
+> La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de Patín.
+
+El deporte mencionado debe seguir siendo el del registro que tiene el cargo, como
+en la rama actual; Patín es el ejemplo mostrado, no un nombre fijo para todos.
+**Pendiente de aplicar en la vista:** las capturas conservan el texto anterior y no
+representan esta nueva redacción. Esta tarea seguía siendo solo de evidencia, sin
+programar; se registra la aprobación para quien integre el arreglo.
+No se declara cerrado A55, A13 ni B1, ni se hizo merge o despliegue.
 
 ## Capturas reales
 
 | Pantalla | Escritorio | Celular, contenido real de 375 px |
 |---|---|---|
 | Patín: inscripción pendiente | [Imagen](ficha-patin-escritorio.png) | [Imagen](ficha-patin-375.png) |
-| Fútbol: renglón nuevo a aprobar | [Imagen](ficha-futbol-escritorio.png) | [Imagen](ficha-futbol-375.png) |
+| Fútbol: ubicación del aviso, con la redacción anterior | [Imagen](ficha-futbol-escritorio.png) | [Imagen](ficha-futbol-375.png) |
 | Historial del cobro anulado | [Imagen](historial-anulado-escritorio.png) | [Imagen](historial-anulado-375.png) |
 | Login: control de la medición | [Imagen](login-escritorio.png) | [Imagen](login-375.png) |
 

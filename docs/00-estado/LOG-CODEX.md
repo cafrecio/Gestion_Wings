@@ -1,6 +1,6 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-06 — Codex CAB — A55/A13/B1, capturas para aprobar texto
+## 2026-10-06 — Codex CAB — A55/A13/B1, capturas y redacción aprobada
 
 Rama a55-inscripcion, código 31194c2; copia aislada porque main tiene cambios ajenos.
 Persona ficticia en Patín/Fútbol; inscripción única pendiente $5.000; agosto cobrado en octubre y anulado.
@@ -8,7 +8,9 @@ Respuestas HTTP reales: ficha propietaria, otro deporte con el renglón nuevo e 
 Ocho imágenes escritorio/375, incluidos dos controles login; marco real, sin achicar Chrome a 375.
 [Capturas y procedencia](../06-pruebas/PRU-02/capturas-a55/README.md). Generación propia: 1/12; build correcto, no suite completa.
 Sin cambios de aplicación/vistas/CSS ni base real/servidor; solo wings_testing_codex.
-Solo evidencia en esta rama, sin merge a main ni A25; Carlos debe aprobar el texto o pedir otro.
+Capturas publicadas en 459ec42, solo evidencia en esta rama, sin merge a main ni A25.
+Carlos pidió aclarar y aprobó con «OK» la redacción exacta del README: inscripción única y consulta del estado en la ficha del deporte propietario.
+Pendiente aplicar ese texto; imágenes con redacción anterior conservadas. No se programa, cierra ni despliega por esta aprobación.
 
 ## 2026-10-06 — Codex CAB — Decisiones A25 consolidadas en el contrato
 
