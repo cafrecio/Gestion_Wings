@@ -46,7 +46,7 @@ aplique el texto aprobado e integre la rama**, y que otro agente verifique.
 
 | Tarea | Estado |
 |---|---|
-| **Aplicar el texto aprobado e integrar `a55-inscripcion`** | **Pendiente.** Es lo que destraba A13 y B1 |
+| **Aplicar el texto aprobado, integrar `a55-inscripcion`, verificar y cerrar A13, B1 y A55; asentar A48 y A49** | **Prompt entregado el 06/10.** El texto aprobado no está aplicado en ninguna rama (buscado el 06/10). A48 y A49 ya no existen en el código: los verificó Claude por búsqueda y con `CspSinCodigoIncrustadoTest`; Codex los asienta |
 | **A15 y A16 — las clases** | **HECHO el 06/10, a revisar.** Publicado en main (`05dd962`). Suite propia: 486 aprobadas y 2 omitidas. Lo verifica Gemini |
 | **Verificar A56 de Claude** | **Hecha el 06/10** (`ad7f9fb`): cerrado |
 | **A25 — apertura y arqueo** | **HECHO el 06/10** (`30f38f8`), contrato de Caja-Cashflow en V5. Falta que otro agente lo verifique |
