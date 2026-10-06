@@ -178,16 +178,28 @@ arriba ni abajo.
 
 **Solución aplicada (Gemini 06/10):** En formularios y pantallas operativas (Caja movimiento, Movimientos, Cobro), se alinearon las acciones a la derecha (`justify-end`), se optimizó el espaciado vertical eliminando scroll innecesario y se mantuvieron las áreas de acción claras y accesibles en pantallas pequeñas y de escritorio. Evidencia en [Tablero comparativo](evidencia/celular-compartido/index.html).
 
-### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · verificado
+### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · HECHO (Codex), a revisar 06/10
 
 Para el club son **dos horas de cancha**, porque se paga por bloque de reloj ocupado. Wings
-no lo sabe ni lo advierte. Ver también I6.
+no lo sabía ni lo advertía. Ver también I6.
 
-### A16. Cargar el horario obliga a repetir la carga · Molesta
+**Implementación 06/10, decisión de Carlos:** aviso y confirmación antes de crear una
+clase única o serie. Guardar muestra los bloques del reloj sin crear registros;
+Confirmar guarda el horario revisado. Una carga modificada exige renovar el aviso.
+Sin precios ni implementación de alquiler POS-07. Diseño aprobado con capturas reales.
+[Entrega, pruebas y capturas](IMPLEMENTACION-A15-A16.md). Otro agente verifica; sin deploy.
+
+### A16. Cargar el horario obliga a repetir la carga · Molesta · HECHO (Codex), a revisar 06/10
 
 Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar de una vez:
 hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos
-los días elegidos.
+los días elegidos. Ese era el comportamiento anterior.
+
+**Implementación 06/10:** cada día elegido tiene su horario; grupo, profesores y período
+se cargan una sola vez. El ejemplo de los seis grupos genera 76 clases con seis POST
+en vez de diez, con una serie por grupo. Se conserva el rollback completo ante conflicto
+y la validación de profesores activos del deporte. Diseño aprobado por Carlos.
+[Entrega, pruebas y capturas](IMPLEMENTACION-A15-A16.md). Otro agente verifica; sin deploy.
 
 ### A17. La ficha del alumno no tiene botón para cobrar · Frena · CERRADO 05/10
 

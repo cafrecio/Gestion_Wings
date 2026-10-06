@@ -12,9 +12,6 @@
 
     function actualizarModo() {
         const tipo = document.querySelector('input[name="tipo_creacion"]:checked').value;
-        secUnica.querySelectorAll('input').forEach(input => { input.disabled = tipo !== 'unica'; input.required = tipo === 'unica'; });
-        secRecurrente.querySelectorAll('input[type="date"]').forEach(input => { input.disabled = tipo !== 'recurrente'; input.required = tipo === 'recurrente'; });
-        secRecurrente.querySelectorAll('input[name="dias_semana[]"]').forEach(input => { input.disabled = tipo !== 'recurrente'; });
         document.querySelectorAll('[data-hora-unica]').forEach(bloque => {
             bloque.style.display = tipo === 'unica' ? '' : 'none';
             bloque.querySelectorAll('input').forEach(input => { input.disabled = tipo !== 'unica'; input.required = tipo === 'unica'; });
@@ -106,7 +103,8 @@
 
     // Validación hora fin
     function validarHoras() {
-        if (horaInicio.value && horaFin.value && horaFin.value <= horaInicio.value) {
+        if (!horaInicio.value || !horaFin.value) return;
+        if (horaFin.value <= horaInicio.value) {
             horaFinError.style.display = '';
             horaFin.setCustomValidity('La hora de fin debe ser posterior a la hora de inicio.');
         } else {
@@ -119,18 +117,5 @@
     if (horaInicio && horaFin) {
         horaInicio.addEventListener('change', validarHoras);
         horaFin.addEventListener('change', validarHoras);
-    }
-
-    // Una carga editada vuelve a Guardar; el servidor también invalida la firma anterior.
-    const confirmacion = document.querySelector('input[name="confirmar_cancha"]');
-    const confirmar = document.querySelector('[data-confirmar-cancha]');
-    if (confirmacion && confirmar) {
-        function renovarAviso() {
-            confirmacion.value = '';
-            confirmar.textContent = 'Guardar';
-            document.querySelector('[data-aviso-cancha]')?.remove();
-        }
-        confirmacion.form.addEventListener('input', renovarAviso);
-        confirmacion.form.addEventListener('change', renovarAviso);
     }
 })();

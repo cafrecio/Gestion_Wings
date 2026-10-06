@@ -9,7 +9,7 @@ Codex y Claude no van aca.
 
 ## 0. Para retomar — 21/09/2026
 
-Último corte A25, 06/10: **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones**, wings_testing_codex; 181,44 s, sin fallas. Diseño A25 aprobado por Carlos; **Hecho (Codex), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue.
+Entrega A15/A16, 06/10: **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones**; 18 nuevas, suite completa final en wings_testing_codex (342,01 s), sin fallas. Diseño aprobado por Carlos; **HECHO (Codex), a revisar** por otro agente. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Diseño A25 también aprobado; [entrega A25](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md) pendiente de otro verificador. Sin despliegue.
 
 Entrega P1: **427 pruebas / 2968 aserciones**, todas verdes en copia exclusiva sobre main f1df4fd, base wings_testing_codex;
 resultado y alcance en [evidencia P1](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
@@ -25,6 +25,9 @@ otra aprobación de Carlos; los arreglos corresponden a Claude. Sin suite comple
 
 **Lo que necesita tu decision o tu presencia:**
 
+- [x] **A15/A16, 06/10:** Carlos eligió avisar y permitir confirmar, y aprobó la propuesta
+  de horarios por día con «Si, bien!!». [Capturas aprobadas](../06-pruebas/PRU-02/PROPUESTA-A15-A16.md).
+  Implementadas; otro agente verifica. No volver a pedir aprobación visual de esta entrega.
 - [x] **Reglas A25, cambio del mostrador — 06/10:** definido separar cambio/retiro, heredar con
   confirmación del último cierre del club (cajón compartido) y permitir cierre con diferencia
   para revisión ADMIN. Ya respondió: primer importe declarado, corrección con motivo,
@@ -108,7 +111,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

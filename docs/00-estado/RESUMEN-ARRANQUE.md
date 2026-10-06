@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Actualización de verificación A13/B1/A54/A55, entrega y decisiones A25: 06/10/2026, Codex CAB; los cortes históricos conservan su fecha.
+> Actualización A15/A16 y verificación A56: 06/10/2026, Codex CyE; decisiones A25 de Codex CAB conservadas. Los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -19,9 +19,10 @@
 
 | Tema | Corte y alcance |
 |---|---|
+| A15/A16 | HECHO (Codex), a revisar. Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones** el 06/10 en wings_testing_codex; 181,44 s, sin fallas. A25 implementada, pendiente control ajeno. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue |
+| Suite | **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones** el 06/10 en wings_testing_codex; 342,01 s, sin fallas. A15/A16 HECHO (Codex), a revisar. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Sin despliegue |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |

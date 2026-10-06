@@ -36,8 +36,8 @@ La aplicación envía `X-Frame-Options: DENY`: el servidor de ensayo solicita
 la pantalla a Laravel y coloca **su respuesta real** en `srcdoc` dentro
 del marco. No modifica los headers de Wings ni fabrica la pantalla.
 [Servidor de ensayo](evidencia/verificacion-a56/servidor-verificacion.php).
-La captura interactiva nueva fue observada en el navegador; no se logró
-guardarla desde su herramienta por permisos de escritura. Las capturas
+La [captura nueva a 375](evidencia/verificacion-a56/cashflow-375.jpg)
+se guardó desde Chrome mediante el receptor local del ensayo. Las capturas
 originales de Claude se conservan en [capturas-cashflow](capturas-cashflow/).
 
 Alcance: signo del contraasiento, gasto normal, totales y disposición a 375.

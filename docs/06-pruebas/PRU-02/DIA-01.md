@@ -33,14 +33,17 @@ guardarlo. Ese dato sigue en el teléfono de Vanina.
 
 **Después el horario completo**, como está en
 [CRONOGRAMA-SEMANAL.md](CRONOGRAMA-SEMANAL.md): clases repetidas, **un grupo por vez**, del
-24/09 al 31/10, mirando el listado entre uno y otro. Son seis cargas, una por grupo.
+24/09 al 31/10, mirando el listado entre uno y otro. Son seis cargas, una por grupo,
+con los horarios por día de A16. **Corte 06/10:** implementación local aprobada por
+Carlos, pendiente de control ajeno y despliegue. Antes de A16 hacían falta diez cargas.
+[Entrega y ejemplo comprobado](IMPLEMENTACION-A15-A16.md).
 
 Dos intentos a propósito:
 
 - Una clase para una profesora en un horario que ya tiene ocupado: tiene que frenarla.
-- **Una clase de 17:30 a 18:30.** Wings la acepta sin decir nada. Para el club son **dos
-  horas de cancha**, porque se paga por bloque de reloj ocupado, no por duración. Anotarlo
-  y borrarla.
+- **Una clase de 17:30 a 18:30.** Para el club son **dos bloques de cancha**.
+  Con A15, Guardar debe avisar sin crearla; Confirmar permite continuar. Si se
+  confirma durante la prueba, cancelar esa clase con motivo de prueba.
 
 **El hueco más caro del día:** Wings no sabe qué es una cancha. No hay dónde decir en cuál
 se juega, cuál es la tarifa de esa hora, ni cuánto va a pagar el club este mes. Está

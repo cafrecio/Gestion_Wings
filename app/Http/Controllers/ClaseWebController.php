@@ -12,6 +12,7 @@ use App\Models\Liquidacion;
 use App\Models\LiquidacionDetalle;
 use App\Models\Profesor;
 use App\Services\ClaseService;
+use App\Services\ProgramacionClasesService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ use Illuminate\Validation\ValidationException;
 
 class ClaseWebController extends Controller
 {
-    public function __construct(private ClaseService $claseService) {}
+    public function __construct(private ClaseService $claseService, private ProgramacionClasesService $programacionClases) {}
 
     public function index(Request $request)
     {
@@ -167,89 +168,44 @@ class ClaseWebController extends Controller
 
     public function store(Request $request)
     {
-        $tipo = $request->input('tipo_creacion', 'unica');
-
-        $rules = [
+        $validated = $request->validate([
             'grupo_id'    => 'required|exists:grupos,id',
-            'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin'    => 'required|date_format:H:i|after:hora_inicio',
             'profesores'   => 'nullable|array',
             'profesores.*' => 'exists:profesores,id',
-        ];
-
-        if ($tipo === 'recurrente') {
-            $rules['fecha_desde']   = 'required|date|after_or_equal:today';
-            $rules['fecha_hasta']   = 'required|date|after_or_equal:fecha_desde';
-            $rules['dias_semana']   = 'required|array|min:1';
-            $rules['dias_semana.*'] = 'in:0,1,2,3,4,5,6';
-        } else {
-            $rules['fecha'] = 'required|date|after_or_equal:today';
-        }
-
-        $validated = $request->validate($rules, [
+        ], [
             'grupo_id.required'    => 'Debe seleccionar un grupo.',
             'grupo_id.exists'      => 'El grupo seleccionado no existe.',
-            'hora_inicio.required' => 'La hora de inicio es obligatoria.',
-            'hora_fin.required'    => 'La hora de fin es obligatoria.',
-            'hora_fin.after'       => 'La hora de fin debe ser posterior a la hora de inicio.',
-            'fecha.required'       => 'La fecha es obligatoria.',
-            'fecha.after_or_equal' => 'La fecha debe ser hoy o posterior.',
-            'fecha_desde.required' => 'La fecha de inicio es obligatoria.',
-            'fecha_desde.after_or_equal' => 'No se puede crear una clase con fecha pasada.',
-            'fecha_hasta.required' => 'La fecha de fin es obligatoria.',
-            'fecha_hasta.after_or_equal' => 'La fecha hasta debe ser igual o posterior a fecha desde.',
-            'dias_semana.required' => 'Debe seleccionar al menos un día de la semana.',
-            'dias_semana.min'      => 'Debe seleccionar al menos un día de la semana.',
         ]);
-
+        $programacion = $this->programacionClases->validar($request->all());
         $profesoresIds = $this->validarProfesoresDelDeporte($request, (int) Grupo::findOrFail($validated['grupo_id'])->deporte_id);
+        $aviso = $this->programacionClases->aviso($programacion, (int) $validated['grupo_id'], $profesoresIds, (int) $request->user()->id);
+        if ($this->programacionClases->requiereConfirmacion($aviso, $request->input('confirmar_cancha'))) {
+            return redirect()->route('web.clases.create')
+                ->withInput($request->except(['_token', 'confirmar_cancha']))->with('aviso_cancha', $aviso);
+        }
 
         try {
-            $count = DB::transaction(function () use ($tipo, $validated, $profesoresIds, $request) {
+            $count = DB::transaction(function () use ($programacion, $validated, $profesoresIds) {
                 $creadas = 0;
-
-                if ($tipo === 'recurrente') {
-                    $serieId    = Str::uuid()->toString();
-                    $diasSemana = array_map('intval', $request->input('dias_semana', []));
-                    $desde = Carbon::parse($validated['fecha_desde']);
-                    $hasta = Carbon::parse($validated['fecha_hasta']);
-
-                    $current = $desde->copy();
-                    while ($current->lte($hasta)) {
-                        // Carbon dayOfWeek: 0=Sunday, 1=Monday ... 6=Saturday
-                        if (in_array($current->dayOfWeek, $diasSemana)) {
-                            $clase = Clase::create([
-                                'serie_id'    => $serieId,
-                                'grupo_id'    => $validated['grupo_id'],
-                                'fecha'       => $current->format('Y-m-d'),
-                                'hora_inicio' => $validated['hora_inicio'],
-                                'hora_fin'    => $validated['hora_fin'],
-                                'cancelada'   => false,
-                                'validada_para_liquidacion' => false,
-                            ]);
-                            $this->asignarProfesoresValidando($clase, $profesoresIds);
-                            $creadas++;
-                        }
-                        $current->addDay();
-                    }
-                } else {
+                $serieId = $programacion['tipo_creacion'] === 'recurrente' ? Str::uuid()->toString() : null;
+                foreach ($this->programacionClases->clases($programacion) as $horario) {
                     $clase = Clase::create([
-                        'serie_id'    => null,
+                        'serie_id'    => $serieId,
                         'grupo_id'    => $validated['grupo_id'],
-                        'fecha'       => $validated['fecha'],
-                        'hora_inicio' => $validated['hora_inicio'],
-                        'hora_fin'    => $validated['hora_fin'],
+                        'fecha'       => $horario['fecha'],
+                        'hora_inicio' => $horario['hora_inicio'],
+                        'hora_fin'    => $horario['hora_fin'],
                         'cancelada'   => false,
                         'validada_para_liquidacion' => false,
                     ]);
                     $this->asignarProfesoresValidando($clase, $profesoresIds);
-                    $creadas = 1;
+                    $creadas++;
                 }
 
                 return $creadas;
             });
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', $e->getMessage());
+            return back()->withInput($request->except('confirmar_cancha'))->with('error', $e->getMessage());
         }
 
         return redirect()->route('web.clases.index')

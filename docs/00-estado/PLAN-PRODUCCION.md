@@ -12,10 +12,11 @@ toma de los bloques D1-D6 del plan de agosto.
 
 | Area | Estado al 08/09/2026 |
 |---|---|
+| A15/A16 | HECHO (Codex), a revisar 06/10. Aviso con confirmación antes de crear; horarios por día en una carga por grupo. 76 clases/seis cargas, rollback ante conflicto. Diseño aprobado por Carlos; 18 pruebas nuevas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Verifica otro agente; sin deploy |
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones** el 06/10 en wings_testing_codex; 181,44 s, sin fallas. A25 implementada, pendiente control ajeno. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue |
+| Suite | **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones** el 06/10 en wings_testing_codex; 342,01 s, sin fallas. A15/A16 HECHO (Codex), a revisar. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Sin despliegue |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 `abc346a` aprobada por Codex 05/10. Control posterior registrado 06/10: A54 cerrado por Codex; A53 abierto, A55 abierto por inscripción con dos deportes. A13/B1 cobran/anulan sin caja, pero siguen abiertos por historial anulado y representación del contraasiento. [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md). Sin despliegue |

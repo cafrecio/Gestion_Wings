@@ -1,5 +1,16 @@
 # Wings — Estado actual
  
+## A15/A16 — HECHO (Codex), a revisar — 06/10/2026
+
+Carlos eligió aviso y confirmación de bloques del reloj y aprobó capturas escritorio/375.
+Crear avisa sin escribir; Confirmar permite continuar con los horarios revisados.
+Cada día de una serie tiene su horario: seis POST guardan 76 clases de seis grupos,
+una serie por grupo; conflicto en cualquier fecha revierte toda la tanda.
+18 pruebas nuevas; suite completa final 486 aprobadas/2 omitidas, 3911 aserciones, sin fallas.
+Build/PHP/Blade correctos; capturas reales y login de control a 375 comprobados.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md) · [Contrato V2](../02-contratos/Wings-Contrato-Clases-Asistencias-V2.md).
+Solo creación web; no reservas, tarifas, edición masiva ni despliegue. Verifica otro agente.
+
 ## Paquete de celular resuelto: A14, A20, A27, A28, A33, A36, A40, A41, A53 — HECHO (Gemini), a revisar 06/10/2026
 
 - **Defectos abordados:** A14 (formularios altos/scroll), A20 (botón Nuevo cashflow sobre saldo), A27 (caja movimiento botones fuera y observaciones), A28 (grupos tarifas desbordadas y switch pegado), A33 (asistencia scroll masivo), A36 (rubros superposición de encabezados), A40 (deuda total $1.263.000 desborda tarjeta), A41 (fechas Desde/Hasta sin rótulos en movimientos), A53 (tarjetas grupos y cobro cortan datos).
@@ -255,7 +266,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **470 pruebas: 468 aprobadas y 2 omitidas, 3116 aserciones** el 06/10 en wings_testing_codex; 181,44 s, sin fallas. A25 implementada, pendiente control ajeno. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). Sin despliegue |
+| **Tests** | **488 pruebas: 486 aprobadas y 2 omitidas, 3911 aserciones** el 06/10 en wings_testing_codex; 342,01 s, sin fallas. A15/A16 HECHO (Codex), a revisar. [Entrega y alcance](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

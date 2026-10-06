@@ -1,5 +1,18 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CyE — A15/A16 implementadas, a revisar; A56 publicado
+
+A56 publicado en main ad7f9fb con autorización directa de Carlos; cerrado por verificador.
+Carlos eligió aviso y confirmación para A15. Sin precios ni alquiler POS-07 agregado.
+A16: reproducción de cronograma 76 clases/6 grupos; antes exigía 10 cargas por horarios distintos.
+Carlos aprobó capturas reales escritorio/375: «Si, bien!!». Aviso/confirmación y horas por día integrados.
+18 pruebas nuevas; POST reales crean 76 clases/seis series; conflicto revierte la tanda. Selección 29/834 verde.
+Build/PHP/Blade correctos; navegador renueva aviso al editar. Suite 486 aprobadas/2 omitidas, 3911 aserciones, 342,01 s.
+[Entrega, alcance y capturas finales](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md), con login de control.
+Solo creación/aviso y su JS; Gemini preservado, sin CSS propio, datos del club ni deploy.
+Carlos autorizó explícitamente commit/push de A15/A16 a main; rechazo automático resuelto.
+Siguiente: control por otro agente; A15/A16 HECHO, no CERRADO ni desplegadas.
+
 ## 2026-10-06 — Codex CyE — A56 verificado y cerrado
 
 Pedido: control independiente de Claude antes de A15/A16. Main 26a67c6, sin a55-inscripcion.
@@ -105,28 +118,9 @@ Consulta a Carlos: conservar esas bases como preparadas y exigir Excel solo a cl
 Sin código, migraciones, suite, datos ni servidor tocados; importadores antiguos conservados.
 Cambios simultáneos ajenos en Cobranza/cobro y su prueba preservados. P1 no entregada.
 
-## 2026-10-05 — Codex CAB — Entrega 1 de Cobranza verificada y aprobada
+Verificación de Cobranza Entrega 1 archivada intacta en [LOG-CODEX-COBRANZA-ENTREGA1.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-COBRANZA-ENTREGA1.md).
 
-Pull al día, HEAD `4fb185e`; revisado `abc346a` y cuerpos reales, sin cambiar código.
-A51: fila por deporte + DNI, importe estable en filtros y ayuda solo por saldo ajeno.
-A52: inscripción no cambia estado en listado, ficha ni resumen; Al día/En plazo vistos.
-Navegador ADMIN/OPERATIVO; copia alineada a HEAD y datos ficticios en base propia.
-Build verde y todas las barras compartidas revisadas a 375, con capturas propias.
-Suite propia `wings_testing_codex`: **380/2242**, toda verde (144,94 s).
-A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro; sin arreglos.
-[Segunda vuelta y límites](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md). Sin deploy.
-Siguiente: Gemini puede continuar Entrega 2; A43/permisos siguen pendientes de su control.
-
-## 2026-10-04 — Codex CAB — A29/A30/A31 entregados, pendiente Gemini
-
-Commit `97cf933`. Autorización literal de Carlos aplicada a 403; mismo aviso y Volver al inicio propio.
-EnsureAdminWeb rechaza sin redirect; cuenta inactiva/anónimo mantienen login.
-Pruebas previas 12 rojas/2 verdes; final 380/2242 verde en wings_testing_codex.
-Dos pruebas existentes actualizadas para rechazo explícito; Rubros no cambia lógica.
-PHP/Blade y diff verificados; sin CSS/script nuevos, CSP conserva 19/10.
-Tres roles en navegador normal/375 px; Volver conserva sesión y abre inicio correcto.
-[Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Sin deploy ni cierre.
-A43 en 218ffc5; siguiente paso: Gemini debe verificar ambas entregas.
+A29/A30/A31 archivados intactos en [LOG-CODEX-A29-A30-A31.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A29-A30-A31.md).
 
 A43 entregada archivada intacta en [LOG-CODEX-A43-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-ENTREGA.md).
 

@@ -1,5 +1,7 @@
 # Wings-Contrato-Clases-Asistencias-V1.md
 
+> Enmienda de creación aprobada el 06/10/2026: [V2, A15/A16](Wings-Contrato-Clases-Asistencias-V2.md). Aviso con confirmación para bloques de cancha y horarios distintos por día en una sola carga recurrente. Las demás reglas de V1 se conservan; implementación local pendiente de verificación ajena y despliegue.
+
 > Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
 
 **Caso de uso (Index):** 4) Clases + Asistencias

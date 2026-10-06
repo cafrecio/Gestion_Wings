@@ -1,0 +1,534 @@
+[
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-09-28",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-09-30",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-05",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-07",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-12",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-14",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-19",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-21",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-26",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Principiantes",
+        "serie_id": "7e0af07d-028a-4053-af56-e68277e77018",
+        "fecha": "2026-10-28",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-09-25",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-09-28",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-02",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-05",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-09",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-12",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-16",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-19",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-23",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-26",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Intermedias",
+        "serie_id": "08e6d329-3283-4678-a097-87b2ead7bafe",
+        "fecha": "2026-10-30",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-09-24",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-09-29",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-01",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-06",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-08",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-13",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-15",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-20",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-22",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-27",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Avanzadas",
+        "serie_id": "51aba1cc-31ad-48a4-9c0c-866dc4920f83",
+        "fecha": "2026-10-29",
+        "inicio": "17:00",
+        "fin": "18:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-09-24",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-09-26",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-09-29",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-01",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-03",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-06",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-08",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-10",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-13",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-15",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-17",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-20",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-22",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-24",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-27",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-29",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Patín — Federadas",
+        "serie_id": "d106967f-091a-4d54-823a-63476e90bd75",
+        "fecha": "2026-10-31",
+        "inicio": "10:00",
+        "fin": "11:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-09-28",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-09-30",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-05",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-07",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-12",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-14",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-19",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-21",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-26",
+        "inicio": "16:00",
+        "fin": "17:00"
+    },
+    {
+        "grupo": "Fútbol — Principiantes",
+        "serie_id": "f28b80c1-de6a-4140-9104-6014de1c591b",
+        "fecha": "2026-10-28",
+        "inicio": "18:00",
+        "fin": "19:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-09-24",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-09-26",
+        "inicio": "11:00",
+        "fin": "12:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-09-29",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-01",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-03",
+        "inicio": "11:00",
+        "fin": "12:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-06",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-08",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-10",
+        "inicio": "11:00",
+        "fin": "12:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-13",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-15",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-17",
+        "inicio": "11:00",
+        "fin": "12:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-20",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-22",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-24",
+        "inicio": "11:00",
+        "fin": "12:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-27",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-29",
+        "inicio": "19:00",
+        "fin": "20:00"
+    },
+    {
+        "grupo": "Fútbol — Avanzadas",
+        "serie_id": "97348410-2c25-431c-aabd-8d9e04e4e849",
+        "fecha": "2026-10-31",
+        "inicio": "11:00",
+        "fin": "12:00"
+    }
+]

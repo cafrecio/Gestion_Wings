@@ -100,13 +100,11 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label for="horario-{{ $val }}-inicio" class="{{ $labelClass }}">Hora inicio <span class="form-required">*</span></label>
-                            <input type="time" id="horario-{{ $val }}-inicio" name="horarios[{{ $val }}][hora_inicio]" value="{{ old('horarios.'.$val.'.hora_inicio', old('hora_inicio')) }}" class="w-full px-3 py-2 text-sm wings-input" disabled>
-                            @error('horarios.'.$val.'.hora_inicio') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
+                            <input type="time" id="horario-{{ $val }}-inicio" name="horarios[{{ $val }}][hora_inicio]" value="{{ old('horarios.'.$val.'.hora_inicio') }}" class="w-full px-3 py-2 text-sm wings-input" disabled>
                         </div>
                         <div>
                             <label for="horario-{{ $val }}-fin" class="{{ $labelClass }}">Hora fin <span class="form-required">*</span></label>
-                            <input type="time" id="horario-{{ $val }}-fin" name="horarios[{{ $val }}][hora_fin]" value="{{ old('horarios.'.$val.'.hora_fin', old('hora_fin')) }}" class="w-full px-3 py-2 text-sm wings-input" disabled>
-                            @error('horarios.'.$val.'.hora_fin') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
+                            <input type="time" id="horario-{{ $val }}-fin" name="horarios[{{ $val }}][hora_fin]" value="{{ old('horarios.'.$val.'.hora_fin') }}" class="w-full px-3 py-2 text-sm wings-input" disabled>
                         </div>
                     </div>
                     <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
@@ -208,8 +206,7 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         <div class="filtros-actions mt-6 pt-4" style="border-top:1px solid var(--color-border); justify-content:flex-end;">
             <x-ds.button variant="secondary" href="{{ route('web.clases.index') }}">Volver</x-ds.button>
             @if(session('aviso_cancha'))
-                <input type="hidden" name="confirmar_cancha" value="{{ session('aviso_cancha.firma') }}">
-                <x-ds.button variant="primary" type="submit" data-confirmar-cancha>Confirmar</x-ds.button>
+                <x-ds.button variant="primary" type="submit" name="confirmar_cancha" :value="session('aviso_cancha.firma')">Confirmar</x-ds.button>
             @else
                 <x-ds.button variant="primary" type="submit">Guardar</x-ds.button>
             @endif
@@ -221,5 +218,5 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 @endsection
 
 @push('scripts')
-@vite('resources/js/clases-form.js')
+<script type="module" src="{{ url('/_verificacion/clases-propuesta.js') }}"></script>
 @endpush
