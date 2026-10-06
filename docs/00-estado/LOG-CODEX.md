@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-06 — Codex CAB — A55/A13/B1, capturas para aprobar texto
+
+Rama a55-inscripcion, código 31194c2; copia aislada porque main tiene cambios ajenos.
+Persona ficticia en Patín/Fútbol; inscripción única pendiente $5.000; agosto cobrado en octubre y anulado.
+Respuestas HTTP reales: ficha propietaria, otro deporte con el renglón nuevo e historial «Ago 2026».
+Ocho imágenes escritorio/375, incluidos dos controles login; marco real, sin achicar Chrome a 375.
+[Capturas y procedencia](../06-pruebas/PRU-02/capturas-a55/README.md). Generación propia: 1/12; build correcto, no suite completa.
+Sin cambios de aplicación/vistas/CSS ni base real/servidor; solo wings_testing_codex.
+Solo evidencia en esta rama, sin merge a main ni A25; Carlos debe aprobar el texto o pedir otro.
+
 ## 2026-10-06 — Codex CAB — Decisiones A25 consolidadas en el contrato
 
 Pedido de Carlos: modificar el contrato con sus respuestas y dejar aviso común.
@@ -106,16 +116,7 @@ A53/A54/A55 nuevos, fuera de Entrega 1: tarjetas móviles y selector de cobro; s
 [Segunda vuelta y límites](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md). Sin deploy.
 Siguiente: Gemini puede continuar Entrega 2; A43/permisos siguen pendientes de su control.
 
-## 2026-10-04 — Codex CAB — A29/A30/A31 entregados, pendiente Gemini
-
-Commit `97cf933`. Autorización literal de Carlos aplicada a 403; mismo aviso y Volver al inicio propio.
-EnsureAdminWeb rechaza sin redirect; cuenta inactiva/anónimo mantienen login.
-Pruebas previas 12 rojas/2 verdes; final 380/2242 verde en wings_testing_codex.
-Dos pruebas existentes actualizadas para rechazo explícito; Rubros no cambia lógica.
-PHP/Blade y diff verificados; sin CSS/script nuevos, CSP conserva 19/10.
-Tres roles en navegador normal/375 px; Volver conserva sesión y abre inicio correcto.
-[Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-PERMISOS.md). Sin deploy ni cierre.
-A43 en 218ffc5; siguiente paso: Gemini debe verificar ambas entregas.
+Entrega A29/A30/A31 archivada intacta en [LOG-CODEX-PERMISOS-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-PERMISOS-ENTREGA.md).
 
 A43 entregada archivada intacta en [LOG-CODEX-A43-ENTREGA.md](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-A43-ENTREGA.md).
 
