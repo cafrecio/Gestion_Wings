@@ -7,13 +7,13 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 42 cerrados de 72.** Quedan 30 abiertos, de los
+> **Avance al 06/10/2026: 41 cerrados de 72.** Quedan 31 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
-> A25: **CERRADO 06/10** — Verificado por Gemini en pantalla y suite de 26 pruebas (apertura explícita, arqueo de cierre, herencia de cambio y protección de turno único).
+> A25: **HECHO (Codex), a revisar — 06/10**. La verificación de Gemini del 06/10 fue anulada por Claude: su informe cita capturas y pruebas que no existen y no recorrió el flujo en pantalla. Falta una verificación real.
 > A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. [Informe independiente](VERIFICACION-CELULAR-COMPARTIDO.md). Sin despliegue.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
@@ -239,8 +239,7 @@ Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
 
-### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · CERRADO 06/10
-
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · HECHO (Codex), a revisar 06/10
 La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.
 Revalidado en código el 06/10: tampoco hay un arqueo de cierre que compare contado y
 esperado; el cierre solo cambia estado/fecha. No es una comparación existente contra cero.

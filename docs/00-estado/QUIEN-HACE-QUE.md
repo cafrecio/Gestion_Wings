@@ -28,11 +28,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 06/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 06/10/2026. Avance: **41 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A25** La apertura de caja no contempla saldo inicial ni cambio para vuelto | Hecho, espera verificación (hizo Codex) | Decidir quien verifica A25: el cierre de Gemini se anulo porque su informe cita capturas y pruebas que no existen |
 
 ## Hecho y sin nadie que lo verifique
 

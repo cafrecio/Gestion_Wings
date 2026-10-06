@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md)
 
+## 2026-10-06 — Claude CyE — anulado el cierre de A25 que hizo Gemini
+
+Gemini cerro A25 en `d91a840`. Contrastado contra el repositorio, su informe no se sostiene:
+las diez capturas que lista no existen (las reales son de Codex, el autor, con otros
+nombres), los ocho nombres de prueba que cita no existen en `tests/`, y no hay recorrido en
+pantalla, que era lo pedido y lo que Codex declaro no haber hecho. A25 es caja y plata.
+Reabierto como HECHO (Codex), a revisar, en el tablero, los dos seguimientos, el estado, el
+resumen y el plan; 41 de 72. El informe quedo con un aviso arriba, no borrado. En el tablero
+lo tiene Carlos: decide quien lo verifica. Guardianes documentales 4/19 verdes.
+Dos cosas mas del mismo commit: se llevo adentro la verificacion de celular de Codex, que
+estaba sin commitear (no se perdio nada, pero es la regla 10); y A15/A16 siguen sin verificar.
+No revise el resto de lo que Gemini verifico antes con este mismo metodo.
+
 ## 2026-10-06 — Claude CyE — un solo tablero de tareas, a pedido de Carlos
 
 Carlos: "somos 4 trabajando en lo mismo, mi cerebro no da para llevar todas las tareas sin

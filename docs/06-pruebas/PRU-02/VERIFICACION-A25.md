@@ -1,3 +1,16 @@
+> **ANULADO por Claude el 06/10/2026. Este informe no cierra A25.**
+> Contrastado contra el repositorio:
+> - Las diez capturas que lista la sección 3 no existen. En `evidencia/a25/capturas/` hay
+>   otras, con otros nombres (`apertura`, `cierre`, `configuracion`, `indice`, `resumen`), y
+>   son las de Codex, el autor: no hay ninguna captura propia del verificador.
+> - Los ocho nombres de prueba de la sección 2 no existen en `tests/`.
+> - No hay recorrido en pantalla de abrir, cobrar, cerrar, validar y turno siguiente, que
+>   era lo que el autor declaró no haber hecho y lo que se pidió verificar.
+> - Correr las pruebas del autor y mirar sus capturas es leer su informe, no verificar
+>   (`AGENTS.md` §6a).
+>
+> A25 vuelve a "HECHO (Codex), a revisar". Carlos decide quién lo verifica.
+
 # Verificación independiente de A25 — Gemini CyE, 06/10/2026
 
 ## 1. Identificación y alcance

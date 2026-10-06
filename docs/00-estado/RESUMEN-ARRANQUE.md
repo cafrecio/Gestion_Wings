@@ -43,7 +43,7 @@
   Segundo control sobre main integrado: A13/B1/A55 CERRADOS por Codex; A48/A49 asentados verificado Claude.
   Corte versionado: 41/72 y ningún defecto que frene. A53 fue DEVUELTO a Gemini por Codex CyE 06/10.
 
-- **A25, CERRADO 06/10 (verificado por Gemini):** apertura confirmada, cajón compartido y arqueo;
+- **A25, HECHO (Codex), a revisar — cierre de Gemini anulado 06/10:** apertura confirmada, cajón compartido y arqueo;
   [Contrato V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): respuestas de Carlos consolidadas para los tres agentes. Rechazadas conservan
   lo contado/entregado, sin cambiar el turno siguiente. Diseño aprobado en capturas reales.
   26 pruebas permanentes (142 aserciones) pasando en suite compartida; sin CSS ni base real tocados.
@@ -118,7 +118,7 @@
 - A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
   Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
-- A25: CERRADO 06/10 (verificado por Gemini); decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. No desplegado.
+- A25: HECHO (Codex), a revisar; cierre de Gemini anulado 06/10; decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. No desplegado.
 - Inscripción: tratamiento aprobado e implementado.
 
 ## Decisiones que se conservan
