@@ -402,11 +402,11 @@
                       background:var(--color-surface); color:var(--color-text); font-family:inherit;">
     </div>
 @endif
-<div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px;">
+<div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;">
     <button id="btn-guardar-asistencias"
             {{ $clase->cancelada ? 'disabled' : '' }}
             style="display:inline-flex; align-items:center; justify-content:center;
-                   height:32px; padding:0 1.25rem; font-size:0.82rem; font-weight:600;
+                   width:96px; height:32px; font-size:0.82rem; font-weight:600;
                    border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
                    border:none; font-family:inherit;
                    background:var(--color-btn-primary); color:var(--color-surface);">

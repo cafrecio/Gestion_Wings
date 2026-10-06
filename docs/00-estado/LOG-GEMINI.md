@@ -10,6 +10,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-06 — LOG GEM CYE — Ajuste fino en celular pedido por Carlos (botones a la derecha, alineación Clases y Rubros Opción A)
+
+- **Objetivo:** Aplicar las correcciones solicitadas expresamente por Carlos sobre el comportamiento en celular (375 px):
+  1. Botones alineados a la derecha en celular: en `resources/css/app.css` (`@media (max-width: 768px)`), se cambió `.filtros-actions` a `justify-content: flex-end;`, alineando `Limpiar` y `Filtrar` en Movimientos y `Limpiar` en Grupos hacia la derecha.
+  2. Clases (`resources/views/clases/show.blade.php`): botón `Guardar` al pie alineado en la misma línea vertical que `Volver` en la cabecera (ambos con ancho 96 px y padding de 1.5rem al margen derecho).
+  3. Rubros (`resources/views/rubros/index.blade.php`): Carlos seleccionó la **Opción A** (tabla nativa con scroll horizontal táctil `overflow-x: auto; min-width: 480px`) para conservar el diseño canónico de Wings sin alterar encabezados ni columnas. Botonera inferior (`Subrubro`, `Editar`, `Eliminar`) alineada a la derecha en una sola línea con `gap: 0.5rem` y `min-width: 76px`.
+  4. Los cambios aplican exclusivamente a pantallas de celular sin alterar desktop ni tablet.
+- **Evidencia y verificación:**
+  - Regeneradas las capturas reales desde el sistema andando con marco de 375 px y en escritorio 1280 px: `05-grupos-celular-375.png`, `07-clase-asistencia-celular-375.png`, `08-rubros-celular-375.png` y `09-movimientos-celular-375.png`.
+  - Suite completa: 468 passed, 2 skipped (470 total) en base `wings_testing_gemini`.
+  - Vistas compiladas y verificadas con `php artisan view:clear && php artisan view:cache`.
+
 ## 2026-10-06 — LOG GEM CYE — Paquete compartido de celular resuelto (A14, A20, A27, A28, A33, A36, A40, A41, A53)
 
 - **Objetivo:** Resolver el paquete de 9 defectos de desborde y visualización en celular (A14, A20, A27, A28, A33, A36, A40, A41, A53) según directivas explícitas de Carlos (cero JS inline, componentes compartidos y botones con verbos cortos alineados a la derecha).
