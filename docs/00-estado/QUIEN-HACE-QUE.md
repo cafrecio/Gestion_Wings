@@ -34,7 +34,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Elegir opción: PROPUESTA-A6-A10.md |
+| **A12** El inicio del operativo no ayuda a trabajar | En curso | Elegir opción: PROPUESTA-A12-A24.md |
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | En curso | Elegir opción: PROPUESTA-A12-A24.md |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -51,8 +52,9 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A7** El listado de alumnos desperdicia la pantalla | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
-| **A8** Puntos grises que no dicen nada | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Texto elegido por Carlos aplicado; completar entrega A6-A10 y asignar verificador |
+| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | B aprobada y aplicada; renovar capturas finales y completar entrega A6-A10 |
+| **A8** Puntos grises que no dicen nada | En curso | Capturar variantes A/B en escritorio y 375; ocho respuestas HTTP correctas, Chrome no permite control |
 | **A9** El interruptor "Activo" en las tarjetas | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
 | **A10** El botón "Nuevo" del cashflow | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
 
@@ -62,9 +64,9 @@ Nada.
 |---|---|---|
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
-## Sin empezar (21)
+## Sin empezar (19)
 
-A12, A23, A24, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B11, B12.
+A23, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B11, B12.
 
 <!-- TABLERO:FIN -->
 

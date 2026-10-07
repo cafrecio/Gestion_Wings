@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor Comparativo A12 / A24 — Inicio del Operativo</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --brand: #e11d48;
+    --brand-hover: #be123c;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.5;
+  }
+  header {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  h1 { font-size: 1.4rem; font-weight: 700; color: #fff; }
+  .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+  .badge-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background: #3b82f6;
+    color: #fff;
+    margin-right: 6px;
+  }
+
+  /* Controles */
+  .toolbar {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .control-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .btn-filter {
+    background: #0f172a;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .btn-filter:hover {
+    color: #fff;
+    border-color: #64748b;
+  }
+  .btn-filter.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+  }
+
+  /* Explicación del escenario */
+  .scenario-info {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--brand);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+  }
+  .scenario-info strong { color: #fff; }
+
+  /* Grilla comparativa */
+  .grid-comparison {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1100px) {
+    .grid-comparison { grid-template-columns: 1fr; }
+  }
+
+  .col-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .col-header.antes { background: #331821; color: #fca5a5; }
+  .col-header.opcion1 { background: #162a45; color: #93c5fd; }
+  .col-header.opcion2 { background: #133329; color: #6ee7b7; }
+
+  .img-wrapper {
+    padding: 12px;
+    background: #090d16;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto;
+    max-height: 800px;
+  }
+  .img-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    display: block;
+  }
+  .img-wrapper.mode-375 img {
+    max-width: 375px;
+  }
+
+  .col-footer {
+    padding: 10px 14px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: rgba(15, 23, 42, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1><span class="badge-tag">PRU-02</span> Visor Comparativo A12 / A24 — Inicio del Operativo</h1>
+    <p class="subtitle">Inspección de las 7 situaciones reales del mostrador en Escritorio (1280px) y Celular (375px).</p>
+  </div>
+  <div>
+    <span style="font-size: 0.8rem; color: #94a3b8;">Base: wings_testing_gemini · Capturas reales de Chromium</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="control-group">
+    <span class="control-label">Situación del día:</span>
+    <button class="btn-filter active" onclick="setEscenario(1)">1. Recién llega</button>
+    <button class="btn-filter" onclick="setEscenario(2)">2. Turno propio abierto</button>
+    <button class="btn-filter" onclick="setEscenario(3)">3. Turno de otro compañero</button>
+    <button class="btn-filter" onclick="setEscenario(4)">4. Turno cerrado</button>
+    <button class="btn-filter" onclick="setEscenario(5)">5. Caja rechazada</button>
+    <button class="btn-filter" onclick="setEscenario(6)">6. Clases sin lista</button>
+    <button class="btn-filter" onclick="setEscenario(7)">7. Día sin nada</button>
+  </div>
+
+  <div class="control-group">
+    <span class="control-label">Dispositivo:</span>
+    <button class="btn-filter active" id="btnDesktop" onclick="setDispositivo('desktop')">Escritorio (1280px)</button>
+    <button class="btn-filter" id="btnMobile" onclick="setDispositivo('375')">Celular (375px)</button>
+  </div>
+</div>
+
+<div class="scenario-info" id="scenarioDesc">
+  <!-- Texto dinámico -->
+</div>
+
+<div class="grid-comparison">
+  <!-- Columna 1: Actual (Antes) -->
+  <div class="col-card">
+    <div class="col-header antes">
+      <span>Actual (Antes)</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">Estado vivo en main</span>
+    </div>
+    <div class="img-wrapper" id="wrapAntes">
+      <img id="imgAntes" src="capturas-antes/escenario-1-desktop.png" alt="Actual">
+    </div>
+    <div class="col-footer" id="footAntes">
+      <strong>Problema:</strong> 3 cuadros en 0 mudos. Botón "Cobrar" que rebota con 302 a apertura de caja.
+    </div>
+  </div>
+
+  <!-- Columna 2: Opción 1 -->
+  <div class="col-card">
+    <div class="col-header opcion1">
+      <span>Opción 1 — Mínima y fiel</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">Conserva layout actual</span>
+    </div>
+    <div class="img-wrapper" id="wrapOp1">
+      <img id="imgOp1" src="capturas-propuestas/opcion-1-escenario-1-desktop.png" alt="Opción 1">
+    </div>
+    <div class="col-footer" id="footOp1">
+      <strong>Solución:</strong> Reemplaza "Cobrar" por "Abrir" directo a /caja/apertura. Corrige links de Cobranza y Revisión. Detecta cajón compartido.
+    </div>
+  </div>
+
+  <!-- Columna 3: Opción 2 -->
+  <div class="col-card">
+    <div class="col-header opcion2">
+      <span>Opción 2 — Ergonómica</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">Acción de mostrador primero</span>
+    </div>
+    <div class="img-wrapper" id="wrapOp2">
+      <img id="imgOp2" src="capturas-propuestas/opcion-2-escenario-1-desktop.png" alt="Opción 2">
+    </div>
+    <div class="col-footer" id="footOp2">
+      <strong>Solución:</strong> Acción de inicio arriba de todo ("Cajón listo para iniciar" -> Abrir). Trabajo diario en dos columnas. Métricas como soporte abajo.
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentEscenario = 1;
+  let currentDispositivo = 'desktop';
+
+  const descripciones = {
+    1: {
+      titulo: "Situación 1: Recién llega (sin caja abierta hoy)",
+      texto: "Operativo entra a las 09:00 sin turno abierto en el club. En el estado actual ve 3 cuadros en 0 y un botón 'Cobrar' que rebota a apertura. Ambas propuestas guían directamente a 'Abrir' caja con saldo inicial.",
+      footAntes: "Muestra 'Sin caja hoy' con botón 'Cobrar'. Al clickear, da 302 Redirect a /caja/apertura (A24 comprobado).",
+      footOp1: "Muestra 'Sin caja abierta - Abrí la caja y declará el cambio inicial para empezar a cobrar' con botón 'Abrir' directo a apertura.",
+      footOp2: "Muestra arriba la tarjeta destacada 'Inicio de mostrador - Cajón listo para iniciar' con botón prominente 'Abrir'. Métricas abajo."
+    },
+    2: {
+      titulo: "Situación 2: Turno propio abierto",
+      texto: "Operativo abrió caja a las 09:15 con $10.000 inicial y registró cobro y gasto. Hay 1 presente en acrobacia.",
+      footAntes: "Muestra 'Caja abierta' con botones 'Cobrar', 'Movimiento', 'Resumen'. El botón Alumnos va al padrón general (/alumnos).",
+      footOp1: "Conserva botones con verbos cortos ('Cobrar', 'Registrar', 'Resumen'). Link 'Con deuda' va directo a /cobranza.",
+      footOp2: "Tarjeta superior 'Mostrador activo' con acciones rápidas agrupadas. Acceso directo con enlace claro 'Ir a cobranza →'."
+    },
+    3: {
+      titulo: "Situación 3: Turno abierto por otro compañero (Cajón compartido)",
+      texto: "Marcos Peña abrió caja a las 08:30. Sandra Vidal llega a su turno. El club tiene un solo cajón físico compartido (A25).",
+      footAntes: "Sandra ve 'Sin caja hoy' y 'Cobrar', porque filtra solo por su ID. Si toca 'Cobrar', apertura le prohíbe abrir porque Marcos ya la abrió.",
+      footOp1: "Reconoce el cajón compartido: 'Caja en curso - Abierta por Marcos Peña desde las 08:30. El cajón es compartido.' Botones para operar.",
+      footOp2: "Tarjeta destacada de cajón compartido: 'Turno de Marcos Peña - Abierto a las 08:30. Podés cobrar y registrar en este cajón.' Acciones claras."
+    },
+    4: {
+      titulo: "Situación 4: Turno cerrado y esperando validación",
+      texto: "Operativo cerró caja a las 13:00 con efectivo contado $23.000 y cambio retenido $10.000. Espera validación del Admin.",
+      footAntes: "Muestra botón de dos palabras 'Nueva caja' que lleva al índice general /caja en lugar de la apertura.",
+      footOp1: "Muestra 'Caja cerrada - Última caja: CERRADA' con botón 'Abrir' (un solo verbo) que lleva a la apertura de un nuevo turno.",
+      footOp2: "Tarjeta de estado 'Turno cerrado - Última caja: CERRADA'. Botón claro 'Abrir' para habilitar un nuevo turno si ingresa otro operativo."
+    },
+    5: {
+      titulo: "Situación 5: Tiene una caja rechazada para corregir",
+      texto: "El administrador rechazó una caja de ayer por falta de comprobante. El operativo debe corregirla.",
+      footAntes: "Banner rojo arriba. Abajo sigue apareciendo 'Sin caja hoy' con el botón tramposo 'Cobrar'.",
+      footOp1: "Banner rojo arriba con botón 'Ver' a /caja. Abajo la tarjeta guía a 'Abrir' caja para el nuevo día.",
+      footOp2: "Banner rojo prioritario arriba. Tarjeta de acción de mostrador clara para el día corriente."
+    },
+    6: {
+      titulo: "Situación 6: Clases de hoy con y sin asistencia tomada",
+      texto: "Hay 3 clases programadas hoy: 1 con 5 presentes tomados, y 2 clases 'Sin lista'.",
+      footAntes: "Badges verde y amarillo en lista. Enlaces Alumnos van al padrón, no a cobranza ni a revisión.",
+      footOp1: "Clases claras con botón 'Lista'. Links 'Con deuda' -> /cobranza y 'Posibles inactivos' -> /revision-cobranza.",
+      footOp2: "Clases ordenadas por horario en columna izquierda. Columna derecha con accesos dedicados a cobranza y revisión."
+    },
+    7: {
+      titulo: "Situación 7: Día sin nada (sin clases, sin deudores)",
+      texto: "Día feriado o de baja actividad: 0 clases, 0 deudores, 0 posibles inactivos.",
+      footAntes: "Cuadros en 0 mudos, cartel de no hay clases. Botón 'Cobrar' que rebota a apertura.",
+      footOp1: "Cartel 'No hay clases programadas para hoy'. Botón 'Abrir' claro para habilitar cobros si llega alguien al club.",
+      footOp2: "Tarjeta 'Cajón listo para iniciar'. Estado claro de tranquilidad en mostrador sin números gigantes mudos."
+    }
+  };
+
+  function setEscenario(num) {
+    currentEscenario = num;
+    document.querySelectorAll('.toolbar .control-group:first-child .btn-filter').forEach((btn, idx) => {
+      btn.classList.toggle('active', (idx + 1) === num);
+    });
+    actualizarVista();
+  }
+
+  function setDispositivo(disp) {
+    currentDispositivo = disp;
+    document.getElementById('btnDesktop').classList.toggle('active', disp === 'desktop');
+    document.getElementById('btnMobile').classList.toggle('active', disp === '375');
+    actualizarVista();
+  }
+
+  function actualizarVista() {
+    const esc = currentEscenario;
+    const disp = currentDispositivo;
+    const data = descripciones[esc];
+
+    // Texto de explicación
+    document.getElementById('scenarioDesc').innerHTML = `<strong>${data.titulo}</strong><br>${data.texto}`;
+
+    // Fuentes de imágenes
+    const srcAntes = `capturas-antes/escenario-${esc}-${disp}.png`;
+    const srcOp1 = `capturas-propuestas/opcion-1-escenario-${esc}-${disp}.png`;
+    const srcOp2 = `capturas-propuestas/opcion-2-escenario-${esc}-${disp}.png`;
+
+    document.getElementById('imgAntes').src = srcAntes;
+    document.getElementById('imgOp1').src = srcOp1;
+    document.getElementById('imgOp2').src = srcOp2;
+
+    // Footers
+    document.getElementById('footAntes').innerHTML = `<strong>Problema:</strong> ${data.footAntes}`;
+    document.getElementById('footOp1').innerHTML = `<strong>Solución:</strong> ${data.footOp1}`;
+    document.getElementById('footOp2').innerHTML = `<strong>Solución:</strong> ${data.footOp2}`;
+
+    // Modo 375
+    const is375 = disp === '375';
+    document.getElementById('wrapAntes').classList.toggle('mode-375', is375);
+    document.getElementById('wrapOp1').classList.toggle('mode-375', is375);
+    document.getElementById('wrapOp2').classList.toggle('mode-375', is375);
+  }
+
+  actualizarVista();
+</script>
+
+</body>
+</html>

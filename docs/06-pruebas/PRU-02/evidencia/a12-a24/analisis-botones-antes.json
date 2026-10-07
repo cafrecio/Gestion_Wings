@@ -1,0 +1,720 @@
+{
+    "escenario_1": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/caja/apertura",
+            "es_rebote": true
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_2": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Movimiento",
+            "url": "http://gestion-wings/caja/movimiento",
+            "path": "/caja/movimiento",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Resumen",
+            "url": "http://gestion-wings/caja/1/resumen",
+            "path": "/caja/1/resumen",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Detalle",
+            "url": "http://gestion-wings/caja/1/detalle",
+            "path": "/caja/1/detalle",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_3": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/caja/apertura",
+            "es_rebote": true
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_4": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Nueva caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Detalle",
+            "url": "http://gestion-wings/caja/1/detalle",
+            "path": "/caja/1/detalle",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_5": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Ver",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/caja/apertura",
+            "es_rebote": true
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_6": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/caja/apertura",
+            "es_rebote": true
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/1",
+            "path": "/clases/1",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/2",
+            "path": "/clases/2",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Lista",
+            "url": "http://gestion-wings/clases/3",
+            "path": "/clases/3",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Con deuda\n                \n                    2",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ],
+    "escenario_7": [
+        {
+            "texto": "WINGS",
+            "url": "/",
+            "path": "/",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/login",
+            "es_rebote": false
+        },
+        {
+            "texto": "Inicio",
+            "url": "http://gestion-wings/operativo",
+            "path": "/operativo",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobranza",
+            "url": "http://gestion-wings/cobranza",
+            "path": "/cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Caja",
+            "url": "http://gestion-wings/caja",
+            "path": "/caja",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Alumnos",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Clases",
+            "url": "http://gestion-wings/clases",
+            "path": "/clases",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Revisión",
+            "url": "http://gestion-wings/revision-cobranza",
+            "path": "/revision-cobranza",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Grupos",
+            "url": "http://gestion-wings/grupos",
+            "path": "/grupos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        },
+        {
+            "texto": "Cobrar",
+            "url": "http://gestion-wings/caja/cobrar",
+            "path": "/caja/cobrar",
+            "status": 302,
+            "redirect_target": "http://gestion-wings/caja/apertura",
+            "es_rebote": true
+        },
+        {
+            "texto": "Con deuda\n                \n                    0",
+            "url": "http://gestion-wings/alumnos",
+            "path": "/alumnos",
+            "status": 200,
+            "redirect_target": null,
+            "es_rebote": false
+        }
+    ]
+}

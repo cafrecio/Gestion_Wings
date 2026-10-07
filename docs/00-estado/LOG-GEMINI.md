@@ -11,6 +11,28 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-07 — LOG GEM CYE — Relevamiento y propuesta de diseño para A12 y A24 (Inicio del operativo)
+
+- **Objetivo:** Relevar el comportamiento actual de `/operativo` en las 7 situaciones reales del mostrador y elaborar una propuesta con dos opciones de diseño alternativas, capturas reales de Chromium (escritorio 1280px y celular 375px) y visor interactivo para que Carlos elija.
+- **Entorno y base:**
+  - Base descartable propia: `wings_testing_gemini` (AGENTS.md §6-bis). Código de partida: `c65d628`.
+  - Vistas y CSS en `main` intactos: ninguna vista de producción fue modificada antes de la aprobación de Carlos.
+- **Etapa 1 — Relevamiento del estado actual:**
+  - Se reprodujeron las 7 situaciones reales del día mediante `GenerarEscenariosTest.php` y se probaron todos los enlaces mediante peticiones HTTP reales (`analisis-botones-antes.json`).
+  - **Diagnóstico A24 (comprobado vivo):** En la tarjeta "Sin caja hoy", la vista actual ofrece el botón "Cobrar" (`/caja/cobrar`), el cual rebota con HTTP 302 Redirect a `/caja/apertura` debido a la precondición `aperturaNecesaria()` de A25. La pantalla invita a cobrar antes de declarar el efectivo inicial.
+  - **Diagnóstico A12:** Al iniciar el día los tres cuadros métricos están inevitablemente en $0 y ocupan el espacio más visible sin orientar al operativo. Además, el controlador filtra estrictamente por `usuario_operativo_id`, por lo que si otro compañero abrió el cajón compartido a la mañana, el operativo de la tarde ve erróneamente "Sin caja hoy" y al intentar abrir el sistema le impide operar por caja ya abierta.
+  - **Enlaces:** "Con deuda" enlaza al padrón `/alumnos` en vez de `/cobranza`; "Posibles inactivos" es mudo; y "Nueva caja" viola la regla de un solo verbo y lleva a `/caja`.
+  - 14 capturas tomadas con Chrome headless (7 desktop 1280×900 y 7 celular 375×667 en marco de medición).
+- **Etapa 2 — Propuesta de diseño (2 opciones):**
+  - **Opción 1 (Mínima y fiel al layout actual):** Conserva la grilla actual. Reemplaza el botón "Cobrar" por "Abrir" directo a `/caja/apertura` con texto de guía ("Abrí la caja y declará el cambio inicial para empezar a cobrar"). Detecta si el cajón ya está abierto por otro compañero y muestra "Caja en curso - Abierta por [Nombre] desde las [H:i]. El cajón es compartido" con botones `Cobrar`, `Registrar`, `Detalle`. Corrige enlaces de Alumnos a `/cobranza` y `/revision-cobranza`.
+  - **Opción 2 (Ergonómica orientada al mostrador — Recomendada por Gemini):** Ubica la acción de inicio de turno arriba de todo ("Cajón listo para iniciar" con botón prominente `Abrir`). Coloca en dos columnas centrales el trabajo del día (Clases a la izquierda, Atención a Alumnos con enlaces directos a la derecha). Mueve los 3 cuadros de recaudación abajo como datos de soporte al cierre.
+  - 28 capturas reales generadas con Chromium para las dos opciones en las 7 situaciones.
+- **Entregables y estado:**
+  - Documento: `docs/06-pruebas/PRU-02/PROPUESTA-A12-A24.md`.
+  - Visor interactivo lado a lado: `docs/06-pruebas/PRU-02/evidencia/a12-a24/visor-comparacion.html`.
+  - Tablero actualizado: `A12` y `A24` pasados a `tiene=Carlos paso="Elegir opción: PROPUESTA-A12-A24.md"`.
+  - Estado: **FRENADO** a la espera de la elección de Carlos sin tocar vistas ni CSS.
+
 ## 2026-10-07 — LOG GEM CYE — Verificación interactiva de A14, A27 y A53 (Corrección de Codex en celular)
 
 - **Objetivo:** Ejecutar la verificación interactiva, exhaustiva e independiente de los defectos A14 (botones y errores a la vista en formularios largos), A27 (movimiento de caja operable en celular) y A53 (datos completos sin desborde en Grupos y selector de cobro), corregidos por Codex en commit `3d1808a`.
