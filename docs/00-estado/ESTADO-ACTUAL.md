@@ -1,5 +1,14 @@
 # Wings — Estado actual
  
+## A14/A27/A53 — Verificados y aprobados por Gemini (07/10/2026, espera contraste Claude)
+
+Corrección de Codex (`3d1808a`) verificada de punta a punta con emulación real de navegador (Chrome Headless controlado vía CDP nativo en Node.js v22 con `verificar_interactivo.mjs` a 375×667):
+- **A14 (Formularios largos):** Botones `.mobile-form-actions` visibles al abrir (`top: 610, bottom: 667, height: 57`) y durante todo el scroll (`position: fixed`). Margen libre con el último campo (147.6 a 610 px) sin solapamientos. Resumen dinámico muestra errores en vacío (6 en alumnos, 8 en profesores); al completar un campo desaparece en tiempo real, al vaciarlo reaparece, y al completar todos se oculta. Con DNI repetido (`40111222`), rechazo 422 del servidor muestra mensaje y al modificar el campo pasa a «DNI: dato modificado; se comprueba al guardar». Cartel a 128 px debajo del encabezado sin solaparse.
+- **A27 (Movimiento de caja):** Registrar y Cancelar visibles en `y=610` (antes quedaban en `y=740`). Campo Observaciones alcanzable con 131 px libres. Resumen de errores dinámico. Registro real de movimiento completado con OPERATIVO (Egreso, $1.500) persistido en `movimientos_operativos` (id 1) y con redirección exitosa a `/caja`.
+- **A53 (Grupos y Cobro):** Grupo largo con 3 tarifas de 7 cifras ($1.250.000, $2.450.000, $3.850.000) y tarjeta de alumna en selector de cobro legibles al 100% sin recortes (`scrollWidth <= clientWidth`) y `document.documentElement.scrollWidth = 375` (cero desborde horizontal).
+- **Regresiones:** Salir sin guardar (A4) activo con diálogo `confirm`. En escritorio 1280×900 las 7 vistas conservan layout de escritorio sin barra fija ni cartel móvil. `CspSinCodigoIncrustadoTest` 2/2 PASSED.
+- [Informe completo](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md) · Evidencia y 30 capturas en `docs/06-pruebas/PRU-02/evidencia/verificacion-a14-a27-a53/`. Dictamen: APROBADO. Pasa a Claude para control cruzado y cierre definitivo (§6a).
+
 ## A15/A16 — CERRADOS 07/10/2026 (verificado por Gemini, contrastado por Claude)
 
 Carlos eligió aviso y confirmación de bloques del reloj y aprobó capturas escritorio/375.

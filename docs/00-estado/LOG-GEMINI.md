@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-07 — LOG GEM CYE — Verificación interactiva de A14, A27 y A53 (Corrección de Codex en celular)
+
+- **Objetivo:** Ejecutar la verificación interactiva, exhaustiva e independiente de los defectos A14 (botones y errores a la vista en formularios largos), A27 (movimiento de caja operable en celular) y A53 (datos completos sin desborde en Grupos y selector de cobro), corregidos por Codex en commit `3d1808a`.
+- **Entorno y herramientas:**
+  - Base propia aislada: `wings_testing_gemini` (AGENTS.md §6-bis). Servidor local en puerto 8088. Assets compilados con `npm run build`.
+  - Navegador real: Google Chrome Headless controlado mediante Chrome DevTools Protocol nativo (CDP vía WebSocket en Node.js v22 con `verificar_interactivo.mjs`).
+  - Viewport de celular: Emulado por protocolo a 375×667 (`window.innerWidth === 375`, verificado en control de login).
+  - Medidas exactas del DOM: todas obtenidas vía `getBoundingClientRect()`, `scrollWidth`, `clientWidth`, `window.scrollY`.
+- **Resultados funcionales:**
+  - **A14 (Alumnos y Profesores, alta y edición):** En las 4 pantallas, la barra de acciones `.mobile-form-actions` permanece dentro del viewport de 667 px al abrir (`top: 610.0, bottom: 667.0, height: 57.0`) y durante todo el scroll (`position: fixed`). La separación con el último campo deja margen libre suficiente (147.6 px a 610 px) evitando solapamientos. Al enviar vacío se despliega el resumen dinámico con 6 errores en alumnos y 8 en profesores. Al completar un campo (nombre), el error se remueve dinámicamente sin recargar; al vaciarlo reaparece; al completar todos se oculta. Con DNI repetido (`40111222`), el backend rechaza con 422 y cartel de servidor; al modificar el campo a `40111223`, pasa dinámicamente a "DNI: dato modificado; se comprueba al guardar". El cartel se ubica a 128 px debajo del encabezado sin solapar.
+  - **A27 (Movimiento de caja):** Con ADMIN y OPERATIVO, los botones de Registrar y Cancelar están visibles al abrir en `y=610` (antes quedaban en `y=740`). El campo Observaciones es alcanzable y deja 131 px libres con la barra fija. Al enviar con errores, `#movimiento-error-resumen` lista los 4 campos faltantes. Se registró un movimiento real completo de punta a punta con OPERATIVO (Egreso, Efectivo, Subrubro 24, Monto $1.500), persistido en BD `movimientos_operativos` (id 1, creado a las 10:39:40) y con redirección exitosa a `/caja`.
+  - **A53 (Grupos y Selector de cobro):** Con grupo largo de nombre extenso y 3 tarifas de 7 cifras ($1.250.000, $2.450.000, $3.850.000), en `/grupos` a 375 px nombre y tarifas se leen completos sin cortes (`scrollWidth <= clientWidth`) y `document.documentElement.scrollWidth = 375`. En el selector de cobro (`/caja/cobrar`), la tarjeta de la alumna y el grupo se leen completos con saldo `$1.250.000` y sin desborde horizontal (375 px). Grupos cortos conservan aspecto estándar sin renglones vacíos.
+  - **No regresión:** El aviso de "salir sin guardar" de A4 en `alumnos-form.js` funciona intacto (disparó el diálogo `confirm` con texto "Tenés cambios sin guardar. ¿Querés salir y perder lo cargado?"). En escritorio (1280×900), las 7 vistas comprobadas muestran la barra en flujo normal (no fixed) y los resúmenes móviles ocultos. `CspSinCodigoIncrustadoTest` pasó en verde (2/2 tests).
+- **Evidencia y artefactos:** Carpeta `docs/06-pruebas/PRU-02/evidencia/verificacion-a14-a27-a53/` con `cdp.mjs`, `preparar_escenario.php`, `verificar_interactivo.mjs`, `mediciones-verificacion.json` y 30 capturas PNG generadas desde la sesión viva de Chrome.
+- **Dictamen y entrega:** A14 APROBADO, A27 APROBADO, A53 APROBADO. Tareas actualizadas en el tablero pasando a Claude (`tiene=Claude`) para contrastar el informe contra el repositorio y proceder al cierre (§6a). Informe completo: `docs/06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md`.
+
 ## 2026-10-07 — LOG GEM CYE — Verificación real e independiente de A15 y A16 (Programación de clases)
 
 - **Objetivo:** Verificar de punta a punta y con datos propios en base `wings_testing_gemini` los defectos A15 (aviso de bloques de cancha y confirmación obligatoria) y A16 (programación recurrente con horarios por día), implementados por Codex (`05dd962`).

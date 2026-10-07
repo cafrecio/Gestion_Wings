@@ -1,0 +1,271 @@
+{
+  "login_control": {
+    "innerWidth": 375,
+    "innerHeight": 667
+  },
+  "a14_p1_alumnos_create_acciones_inicial": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "left": 0,
+    "right": 375,
+    "within667": true
+  },
+  "a14_p2_alumnos_create_acciones_fondo": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "scrollY": 832,
+    "within667": true
+  },
+  "a14_p3_alumnos_create_ultimo_campo": {
+    "lastFieldId": "",
+    "lastFieldBottom": 0,
+    "barTop": 610,
+    "libertadEspacio": 610
+  },
+  "a14_p4_alumnos_create_errores_vacio": {
+    "hidden": false,
+    "cantidad": 6,
+    "mensajes": [
+      "Nombre: Completa este campo",
+      "Apellido: Completa este campo",
+      "DNI: Completa este campo",
+      "Fecha de nacimiento: Completa este campo",
+      "Deporte: Selecciona un elemento de la lista",
+      "Grupo: Selecciona un elemento de la lista"
+    ],
+    "posicion": {
+      "top": 189,
+      "bottom": 404,
+      "height": 215
+    }
+  },
+  "a14_p5_alumnos_create_completa_nombre": {
+    "cantidad": 5,
+    "mensajes": [
+      "Apellido: Completa este campo",
+      "DNI: Completa este campo",
+      "Fecha de nacimiento: Completa este campo",
+      "Deporte: Selecciona un elemento de la lista",
+      "Grupo: Selecciona un elemento de la lista"
+    ],
+    "contieneNombre": false
+  },
+  "a14_p5_alumnos_create_vacia_nombre": {
+    "cantidad": 6,
+    "contieneNombre": true
+  },
+  "a14_p5_alumnos_create_todos_completos": {
+    "hidden": false,
+    "display": "block"
+  },
+  "a14_p6_dni_repetido_servidor": {
+    "hidden": false,
+    "items": [
+      "El celular es obligatorio.",
+      "El nombre del tutor es obligatorio para menores de edad.",
+      "El teléfono del tutor es obligatorio para menores de edad.",
+      "Ya existe un alumno con ese DNI en el mismo deporte."
+    ],
+    "headerStrong": "No se guardó.",
+    "headerDiv": "Revisá estos datos; lo que cargaste se conserva."
+  },
+  "a14_p6_dni_modificado_pendiente": {
+    "items": [
+      "El celular es obligatorio.",
+      "El nombre del tutor es obligatorio para menores de edad.",
+      "El teléfono del tutor es obligatorio para menores de edad.",
+      "DNI: dato modificado; se comprueba al guardar."
+    ],
+    "headerStrong": "No se guardó.",
+    "headerDiv": "Revisá estos datos; lo que cargaste se conserva."
+  },
+  "a14_p7_header_y_cartel": {
+    "headerBottom": 61,
+    "summaryTop": 189,
+    "summaryHeight": 220,
+    "superposicion": false,
+    "distanciaLibre": 128
+  },
+  "a14_edicion_alumnos_acciones_inicial": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "within667": true
+  },
+  "a14_edicion_alumnos_acciones_fondo": {
+    "actions": {
+      "top": 610,
+      "bottom": 667,
+      "height": 57,
+      "within667": true
+    },
+    "ultimoCampo": "telefono_tutor",
+    "libertadEspacio": 147.625
+  },
+  "a14_profesores_create_acciones_inicial": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "within667": true
+  },
+  "a14_profesores_create_errores_vacio": {
+    "hidden": false,
+    "cantidad": 8,
+    "mensajes": [
+      "Nombre: Completa este campo",
+      "Apellido: Completa este campo",
+      "DNI: Completa este campo",
+      "Fecha de nacimiento: Completa este campo",
+      "Dirección: Completa este campo",
+      "Localidad: Completa este campo",
+      "Teléfono: Completa este campo",
+      "Deporte: Selecciona un elemento de la lista"
+    ]
+  },
+  "a14_profesores_edit_acciones_inicial": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "within667": true
+  },
+  "a14_profesores_edit_acciones_fondo": {
+    "actions": {
+      "top": 610,
+      "bottom": 667,
+      "height": 57,
+      "within667": true
+    },
+    "ultimoCampo": "porcentaje_comision",
+    "libertadEspacio": 610
+  },
+  "a27_p1_admin_posicion": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "within667": true
+  },
+  "a27_p2_observaciones_campo": {
+    "obsBottom": 479,
+    "barTop": 610,
+    "separacion": 131
+  },
+  "a27_p3_errores_movimiento": {
+    "hidden": false,
+    "cantidad": 4,
+    "mensajes": [
+      "Medio de pago: Selecciona un elemento de la lista",
+      "Rubro: Selecciona un elemento de la lista",
+      "Subrubro: Selecciona un elemento de la lista",
+      "Monto: Completa este campo"
+    ]
+  },
+  "a27_p1_operativo_posicion": {
+    "top": 610,
+    "bottom": 667,
+    "height": 57,
+    "within667": true
+  },
+  "a27_p4_url_tras_registrar": "http://127.0.0.1:8088/caja",
+  "a53_p2_grupos_verificacion": {
+    "encontrado": true,
+    "nombreTexto": "Entrenamiento Especial Federadas Patín Artístico — Avanzado Competitivo Internacional",
+    "nombreScrollW": 282,
+    "nombreClientW": 282,
+    "nombreDesborda": false,
+    "tarifasTexto": "Entrenamiento Especial Federadas Patín Artístico",
+    "tarifasScrollW": 233,
+    "tarifasClientW": 233,
+    "tarifasDesborda": false,
+    "docScrollWidth": 375,
+    "desbordaDoc": false
+  },
+  "a53_p3_selector_cobro": {
+    "encontrado": true,
+    "nombreTexto": "Domínguez de la Sierra, Valentina Guillermina",
+    "nombreScrollW": 282,
+    "nombreClientW": 282,
+    "nombreDesborda": false,
+    "grupoTexto": "Entrenamiento Especial Federadas Patín Artístico — Avanzado Competitivo Internacional",
+    "grupoScrollW": 263,
+    "grupoClientW": 263,
+    "grupoDesborda": false,
+    "saldoTexto": "$1.250.000",
+    "docScrollWidth": 375,
+    "desbordaDoc": false
+  },
+  "regresion_a4_dialog_recibido": {
+    "url": "http://127.0.0.1:8088/alumnos/create",
+    "frameId": "021104B0E2775744C3981C28DE71EB6C",
+    "message": "Tenés cambios sin guardar. ¿Querés salir y perder lo cargado?",
+    "type": "confirm",
+    "hasBrowserHandler": true,
+    "defaultPrompt": ""
+  },
+  "escritorio_1280": {
+    "alumnos_create": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "alumnos_edit": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "profesores_create": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "profesores_edit": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "caja_movimiento": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "grupos_index": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    },
+    "caja_cobrar": {
+      "barPresente": false,
+      "barPosition": null,
+      "barEsFixed": false,
+      "summaryPresente": false,
+      "summaryDisplay": null,
+      "summaryEsVisible": false,
+      "docScrollWidth": 1280
+    }
+  }
+}
