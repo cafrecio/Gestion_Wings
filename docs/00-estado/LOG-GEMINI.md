@@ -31,7 +31,11 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - Documento: `docs/06-pruebas/PRU-02/PROPUESTA-A12-A24.md`.
   - Visor interactivo lado a lado: `docs/06-pruebas/PRU-02/evidencia/a12-a24/visor-comparacion.html`.
   - Tablero actualizado: `A12` y `A24` pasados a `tiene=Carlos paso="Elegir opción: PROPUESTA-A12-A24.md"`.
-  - Estado: **FRENADO** a la espera de la elección de Carlos sin tocar vistas ni CSS.
+  - Vistas y CSS en `main`: 0 modificaciones en `resources/views/operativo` ni CSS.
+  - Commit y push completados (`a10dbdd`).
+- **Dónde quedamos y qué sigue:**
+  - **Estado actual:** FRENADO a la espera de que Carlos abra el visor o la propuesta y elija entre la Opción 1 (mínima) o la Opción 2 (ergonómica, recomendada por Gemini).
+  - **Próximo paso (Etapa 3):** Con la respuesta de Carlos, implementar únicamente la opción elegida en `resources/views/operativo/dashboard.blade.php` y `app/Http/Controllers/OperativoDashboardController.php`, regenerar capturas finales, correr suite completa en verde y pasar a verificación por otro agente (§6a).
 
 ## 2026-10-07 — LOG GEM CYE — Verificación interactiva de A14, A27 y A53 (Corrección de Codex en celular)
 

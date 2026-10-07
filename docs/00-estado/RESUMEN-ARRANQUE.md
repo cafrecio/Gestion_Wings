@@ -19,6 +19,7 @@
 
 | Tema | Corte y alcance |
 |---|---|
+| A12/A24 | Propuesta entregada 07/10, Gemini CyE. Relevamiento 7 situaciones reales (14 capturas Chromium antes). Defecto A24 confirmado vivo (botón Cobrar rebota con 302 a apertura). Dos opciones formuladas: Opción 1 (mínima) y Opción 2 (ergonómica mostrador, recomendada); 28 capturas de propuestas y visor interactivo ([informe](../06-pruebas/PRU-02/PROPUESTA-A12-A24.md)). En espera de elección de Carlos para implementar |
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
@@ -32,6 +33,8 @@
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **A6–A10, preparación local 07/10, Codex CyE:** Carlos recibe pantallas una por una. A6 elegido: conservar formato y ubicación, únicamente Modificar → Editar. Seis capturas reales nuevas; panel comprobado. A7: Carlos rechazó A y aprobó B. B aplicada localmente, una tarjeta por fila; regla permanente en diseño. Plan/celular a la vista. Capturas finales pendientes: Chrome no disponible; visor conserva las imágenes previas aprobadas. A8 A elegida y aplicada; distintivo de Profesores conservado. Carlos rechazó capturas que ocultan botones: hay que renovarlas. Acciones móviles a derecha (A7/A9); A10 período explícito e íconos aplicados. Diez respuestas HTTP correctas; revisión visual pendiente por control de Chrome indisponible. Falta propuesta visual restante A10. [Propuesta y evidencia](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md). Suite completa/publicación en la entrega conjunta; sin autocierre ni deploy.
 
 - **A14/A27/A53, CERRADOS 07/10 (verificado Gemini, contrastado Claude; [informe](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md)):** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
 
