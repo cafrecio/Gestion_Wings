@@ -36,11 +36,7 @@ Nada.
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
+Nada.
 
 ## Claude
 
@@ -57,6 +53,9 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en un navegador real, escribiendo y tocando; Claude contrasta el informe antes del cierre |
+| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en un navegador real, escribiendo y tocando; Claude contrasta el informe antes del cierre |
+| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en un navegador real, escribiendo y tocando; Claude contrasta el informe antes del cierre |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
 ## Sin empezar (26)
