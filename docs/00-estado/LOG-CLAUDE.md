@@ -11,6 +11,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md)
 
+## 2026-10-07 — Claude CyE — DONDE QUEDE: A26, A38, A39 y A44 hechos y SIN SUBIR
+
+Carlos me habilito a programar estos: «Hace A38 39 y 26 / A35 y 32 / A38 A39 A26 A44».
+**Hecho en la carpeta, sin commitear:** A26 celular opcional para menores (se guarda el del
+tutor; `AlumnoWebController`, `alumnos/_form`, `alumnos-form.js`); A38 idioma fijo en
+castellano (`config/app.php`, `lang/`); A39 Movimientos en el menu del operativo
+(`layouts/ds-app`); A44 plantilla de correo propia (`resources/views/vendor/mail`).
+Pruebas: `DefectosMenoresA26A38A39A44Test`, 8/28. Suite 499: 496 aprobadas, 2 omitidas; solo
+falla el contador de `DocumentacionNoMienteTest`, que hay que pasar de 491 a 499 en
+ESTADO-ACTUAL, CHECKLIST-CARLOS y PLAN-PRODUCCION al publicar.
+**Por que no esta subido:** A26 y A39 se ven en pantalla. Le mostre a Carlos dos capturas
+(`evidencia/a26-a38-a39-a44/`) y espero su OK de diseño. No escribir yo esa linea.
+**Al tener el OK:** actualizar los tres contadores; marcar A26, A38, A39 y A44 como HECHO
+(Claude), a revisar, en DEFECTOS.md, DEFECTOS.html y el tablero; A35 a verificar como «no es
+un defecto» (captura mal rotulada); A32 sigue presente y va con A9, que tiene Codex. Agregar
+los archivos por nombre: Codex tiene abiertos app.css, alumnos/index, clases/show y sus docs.
+Entrega escrita: `docs/06-pruebas/PRU-02/IMPLEMENTACION-A26-A38-A39-A44.md`.
+**Hoy tambien:** cerrados A15, A16, A14, A27 y A53 tras contrastar a Gemini (47 de 72);
+bitacora archivada; A6 a A10 en Codex y A12/A24 en Gemini, los dos con propuesta a Carlos.
+**Sigue pendiente:** el despliegue al sitio de prueba (entrada de abajo) y T3.
+
 ## 2026-10-06 — Claude CyE — PARA RETOMAR EN CASA: despliegue al sitio de prueba y primera carga
 
 **Decidido por Carlos:** esta noche se despliega main al **sitio de prueba** (no produccion),
