@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 07/10/2026: 44 cerrados de 72.** Quedan 28 abiertos, de los
+> **Avance al 07/10/2026: 47 cerrados de 72.** Quedan 25 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -15,7 +15,7 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **CERRADO 06/10, verificado Gemini** — segunda verificación, con recorrido propio por HTTP, importes propios y 23 capturas; Claude reprodujo el recorrido (97 aserciones) y contrastó el informe. Sin sesión interactiva de navegador: eso lo cubre la prueba humana. [Informe](VERIFICACION-A25.md).
 > A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53 fueron devueltos a Gemini el 06/10; T1 sigue devuelto por cobertura incompleta y recortes. [Informe independiente](VERIFICACION-CELULAR-COMPARTIDO.md). Sin despliegue.
-> A14, A27 y A53: HECHO (Codex), a revisar, 07/10. Carlos aprobó las capturas ANTES/DESPUÉS; falta asignar verificador. [Propuesta y capturas ANTES/DESPUÉS](PROPUESTA-A14-A27-A53.md). No cerrados.
+> A14, A27 y A53: **CERRADOS 07/10, verificado Gemini** con un navegador manejado por programa; Claude contrastó el informe ([verificación](VERIFICACION-A14-A27-A53.md)). Carlos aprobó las capturas ANTES/DESPUÉS. [Propuesta y capturas ANTES/DESPUÉS](PROPUESTA-A14-A27-A53.md). No cerrados.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -155,7 +155,7 @@ ADMIN cobró y anuló desde la ficha con motivo obligatorio. No abrió caja ni a
 
 El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
-### A14. Pantallas más altas que el monitor · Molesta · HECHO (Codex), a revisar 07/10
+### A14. Pantallas más altas que el monitor · Molesta · CERRADO 07/10, verificado Gemini
 
 
 Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo
@@ -264,7 +264,7 @@ Captura: `evidencia/audit_operativo_caja_desktop.png`.
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
 Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
 
-### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · HECHO (Codex), a revisar 07/10
+### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · CERRADO 07/10, verificado Gemini
 
 
 El formulario de `/caja/movimiento` en 375px es tan vertical que los botones Guardar y Cancelar quedan fuera de la pantalla sin una barra fija inferior. Además, el campo Observaciones es obligatorio (`*`) para cualquier gasto ínfimo.
@@ -536,7 +536,7 @@ probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 ## Hallazgos de la segunda verificación de Entrega 1 — 05/10/2026
 
-### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · HECHO (Codex), a revisar 07/10
+### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · CERRADO 07/10, verificado Gemini
 
 
 Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg).

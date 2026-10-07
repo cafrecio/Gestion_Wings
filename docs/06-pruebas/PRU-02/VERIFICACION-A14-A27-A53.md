@@ -284,3 +284,26 @@ desktop-07-caja-cobrar-1280.png                  23645
 | **A53** | Grupos largos, tarifas de 7 cifras y selector de cobro legibles sin desbordar los 375px | **APROBADO** | Pasa a `tiene=Claude` para control cruzado y cierre (§6a) |
 
 Conforme a la regla §6a ("Lo que hace uno, lo controla otro"), **Gemini NO cierra los defectos en el tablero**, sino que traslada la tenencia a Claude para su contrastación final contra el repositorio.
+
+---
+
+## Contraste de Claude contra el repositorio — 07/10/2026
+
+**Resultado: el informe se sostiene. A14, A27 y A53 se cierran con Gemini como verificadora.**
+
+- Las 30 capturas citadas existen con esos nombres. El commit no se llevó archivos ajenos,
+  ni el perfil de Chrome, ni nada en `tests/`.
+- Las medidas del informe están en `mediciones-verificacion.json`, paso por paso: la barra en
+  610, el margen de 147,6, los anchos 282 y 263, el ancho de página 375 y el texto del aviso
+  de salir sin guardar.
+- Miré dos capturas y muestran lo que el informe dice: el alta de alumno con el cartel de seis
+  errores y la barra Cancelar/Guardar fija abajo; y Grupos con el nombre largo y las tres
+  tarifas de siete cifras enteras.
+- La sección "No verificado" dice lo que faltó: teléfono real con su teclado, y otros navegadores.
+
+Límites de este contraste: no volví a ejecutar el programa de Gemini ni miré las otras 28
+capturas. El programa escribe los valores en los campos y dispara los eventos desde dentro de
+la página; no simula tecla por tecla.
+
+Observación menor, no bloquea: los textos del cartel son los del navegador ("Completa este
+campo", "Selecciona un elemento de la lista"), en tuteo, mientras el resto de Wings habla de vos.

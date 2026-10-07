@@ -28,11 +28,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 07/10/2026. Avance: **44 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 07/10/2026. Avance: **47 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Elegir opción: PROPUESTA-A6-A10.md |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -42,9 +44,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Codex, verifica Gemini) | Claude contrasta el informe de Gemini (VERIFICACION-A14-A27-A53.md) contra el repositorio y cierra |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Codex, verifica Gemini) | Claude contrasta el informe de Gemini (VERIFICACION-A14-A27-A53.md) contra el repositorio y cierra |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Codex, verifica Gemini) | Claude contrasta el informe de Gemini (VERIFICACION-A14-A27-A53.md) contra el repositorio y cierra |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 
@@ -52,7 +51,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso | Codex cambia Modificar por Editar en la ficha de la clase y trae capturas; despues verifica otro agente |
 | **A7** El listado de alumnos desperdicia la pantalla | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
 | **A8** Puntos grises que no dicen nada | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
 | **A9** El interruptor "Activo" en las tarjetas | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
