@@ -1,0 +1,212 @@
+[
+  {
+    "before": "admin-alumno-error-antes-desktop.jpg",
+    "after": "admin-alumno-error-despues-desktop.jpg",
+    "box": [
+      815,
+      176,
+      864,
+      248
+    ],
+    "mean": [
+      0.011493168841761827,
+      0.010838091353996738,
+      0.01199021207177814
+    ]
+  },
+  {
+    "before": "admin-alumnos-alta-antes-desktop.jpg",
+    "after": "admin-alumnos-alta-despues-desktop.jpg",
+    "box": [
+      239,
+      168,
+      870,
+      305
+    ],
+    "mean": [
+      0.00895824836867863,
+      0.008698256525285481,
+      0.00813621533442088
+    ]
+  },
+  {
+    "before": "admin-alumnos-editar-antes-desktop.jpg",
+    "after": "admin-alumnos-editar-despues-desktop.jpg",
+    "box": [
+      797,
+      176,
+      872,
+      241
+    ],
+    "mean": [
+      0.00922716150081566,
+      0.008175723898858076,
+      0.008006219412724306
+    ]
+  },
+  {
+    "before": "admin-grupos-antes-desktop.jpg",
+    "after": "admin-grupos-despues-desktop.jpg",
+    "box": [
+      797,
+      168,
+      872,
+      248
+    ],
+    "mean": [
+      0.01030408849918434,
+      0.00950117251223491,
+      0.008993933523654159
+    ]
+  },
+  {
+    "before": "admin-movimiento-antes-desktop.jpg",
+    "after": "admin-movimiento-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "before": "admin-profesor-error-antes-desktop.jpg",
+    "after": "admin-profesor-error-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "before": "admin-profesores-alta-antes-desktop.jpg",
+    "after": "admin-profesores-alta-despues-desktop.jpg",
+    "box": [
+      16,
+      15,
+      1061,
+      593
+    ],
+    "mean": [
+      1.6704399469820554,
+      1.8793969208809136,
+      1.8266071064437195
+    ]
+  },
+  {
+    "before": "admin-profesores-editar-antes-desktop.jpg",
+    "after": "admin-profesores-editar-despues-desktop.jpg",
+    "box": [
+      16,
+      15,
+      1032,
+      593
+    ],
+    "mean": [
+      2.2360216150081564,
+      2.8175927814029365,
+      2.6588766823001633
+    ]
+  },
+  {
+    "before": "admin-selector-antes-desktop.jpg",
+    "after": "admin-selector-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "before": "login-antes-desktop.jpg",
+    "after": "login-despues-desktop.jpg",
+    "box": [
+      792,
+      168,
+      870,
+      248
+    ],
+    "mean": [
+      0.005347675367047308,
+      0.005295422104404568,
+      0.005741486541598695
+    ]
+  },
+  {
+    "before": "operativo-alumnos-alta-antes-desktop.jpg",
+    "after": "operativo-alumnos-alta-despues-desktop.jpg",
+    "box": [
+      797,
+      176,
+      872,
+      246
+    ],
+    "mean": [
+      0.008769626835236542,
+      0.008096706769983687,
+      0.0077933829526916805
+    ]
+  },
+  {
+    "before": "operativo-alumnos-editar-antes-desktop.jpg",
+    "after": "operativo-alumnos-editar-despues-desktop.jpg",
+    "box": [
+      797,
+      176,
+      872,
+      241
+    ],
+    "mean": [
+      0.009332942495921696,
+      0.008546594616639478,
+      0.00833885603588907
+    ]
+  },
+  {
+    "before": "operativo-grupos-antes-desktop.jpg",
+    "after": "operativo-grupos-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "before": "operativo-movimiento-antes-desktop.jpg",
+    "after": "operativo-movimiento-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "before": "operativo-movimiento-error-antes-desktop.jpg",
+    "after": "operativo-movimiento-error-despues-desktop.jpg",
+    "box": [
+      797,
+      173,
+      872,
+      232
+    ],
+    "mean": [
+      0.010839365823817292,
+      0.009642638662316476,
+      0.008993933523654159
+    ]
+  },
+  {
+    "before": "operativo-selector-antes-desktop.jpg",
+    "after": "operativo-selector-despues-desktop.jpg",
+    "box": null,
+    "mean": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]

@@ -1,0 +1,71 @@
+{
+    "base": "wings_testing_codex",
+    "grupo": 1,
+    "alumno": 1,
+    "clase": 1,
+    "profesor": 1,
+    "caja": 1,
+    "filas_alumnos": [
+        {
+            "id": 1,
+            "nombre": "María de los Ángeles Alejandra",
+            "apellido": "Fernández de la Cruz de prueba",
+            "dni": "33444555"
+        },
+        {
+            "id": 3,
+            "nombre": "Alumno de prueba 1",
+            "apellido": "Apellido compuesto de prueba 1",
+            "dni": "35000001"
+        },
+        {
+            "id": 4,
+            "nombre": "Alumno de prueba 2",
+            "apellido": "Apellido compuesto de prueba 2",
+            "dni": "35000002"
+        },
+        {
+            "id": 5,
+            "nombre": "Alumno de prueba 3",
+            "apellido": "Apellido compuesto de prueba 3",
+            "dni": "35000003"
+        },
+        {
+            "id": 6,
+            "nombre": "Alumno de prueba 4",
+            "apellido": "Apellido compuesto de prueba 4",
+            "dni": "35000004"
+        }
+    ],
+    "alumnos_clase": 20,
+    "deuda_total": "24691357.80",
+    "planes": [
+        {
+            "id": 1,
+            "grupo_id": 1,
+            "clases_por_semana": 2,
+            "precio_mensual": "2345678.90",
+            "activo": true,
+            "created_at": "2026-10-06T13:00:00.000000Z",
+            "updated_at": "2026-10-07T11:41:34.000000Z"
+        },
+        {
+            "id": 3,
+            "grupo_id": 1,
+            "clases_por_semana": 1,
+            "precio_mensual": "9876543.21",
+            "activo": true,
+            "created_at": "2026-10-07T11:41:34.000000Z",
+            "updated_at": "2026-10-07T11:41:34.000000Z"
+        },
+        {
+            "id": 4,
+            "grupo_id": 1,
+            "clases_por_semana": 3,
+            "precio_mensual": "9876543.21",
+            "activo": true,
+            "created_at": "2026-10-07T11:41:34.000000Z",
+            "updated_at": "2026-10-07T11:41:34.000000Z"
+        }
+    ]
+}

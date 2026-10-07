@@ -159,34 +159,6 @@ if (form && resumen) {
     }
 
     if (!resumen.hidden) mostrarResumen();
-    form.addEventListener('invalid', event => {
-        // El aviso queda arriba también si el navegador rechaza antes del POST.
-        event.preventDefault();
-        const lista = resumen.querySelector('ul');
-        lista.replaceChildren();
-        const vistos = new Set();
-        form.querySelectorAll(':invalid').forEach(campo => {
-            if (vistos.has(campo.name)) return;
-            vistos.add(campo.name);
-            const item = document.createElement('li');
-            const enlace = document.createElement('a');
-            const destino = campo.id || campo.closest('[id]')?.id || '';
-            enlace.href = '#' + destino;
-            const etiqueta = campo.labels?.[0]?.textContent.trim().replace(/\s+/g, ' ');
-            enlace.textContent = (etiqueta ? etiqueta + ': ' : '') + campo.validationMessage;
-            item.append(enlace);
-            lista.append(item);
-        });
-        mostrarResumen();
-    }, true);
-
-    resumen.addEventListener('click', event => {
-        const enlace = event.target.closest('a[href^="#"]');
-        if (!enlace) return;
-        const destino = document.getElementById(enlace.hash.slice(1));
-        if (destino) destino.focus();
-    });
-
     form.addEventListener('submit', event => {
         // No desactivar el aviso si otro validador impidió el envío.
         ultimoEnvio = event;

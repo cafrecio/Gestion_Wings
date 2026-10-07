@@ -48,7 +48,7 @@
         $saldo  = $saldos[$alumno->id]['total'] ?? 0;
         $cuotas = $saldos[$alumno->id]['cuotas_impagas'] ?? 0;
     @endphp
-    <div class="alumno-card alumno-card--{{ $rail }}">
+    <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
         <div class="alumno-card-header">
             <span class="alumno-dot alumno-dot--danger"></span>
             <h3 class="alumno-nombre">{{ $alumno->apellido }}, {{ $alumno->nombre }}</h3>

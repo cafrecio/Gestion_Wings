@@ -64,7 +64,7 @@
                 ->join(' · ');
         @endphp
 
-        <div class="alumno-card alumno-card--{{ $rail }}">
+        <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
 
             <div class="alumno-card-header">
                 <span class="alumno-dot alumno-dot--neutral" title="Estado"></span>

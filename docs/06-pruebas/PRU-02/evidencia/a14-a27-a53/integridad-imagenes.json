@@ -1,0 +1,1556 @@
+[
+  {
+    "file": "admin-alumno-error-abajo-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        1,
+        255
+      ],
+      [
+        15,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumno-error-abajo-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumno-error-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumno-error-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumno-error-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumno-error-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-alta-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-alta-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-alta-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-alta-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-editar-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-editar-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-editar-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-alumnos-editar-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-detalle-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-grupos-detalle-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-movimiento-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-movimiento-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-movimiento-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-movimiento-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesor-error-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesor-error-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesor-error-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesor-error-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-alta-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-alta-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-alta-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-alta-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-editar-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-editar-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-editar-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-profesores-editar-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-selector-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-selector-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-selector-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "admin-selector-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "login-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "login-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "login-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "login-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-alta-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-alta-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-alta-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-alta-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-editar-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-editar-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-editar-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-alumnos-editar-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-grupos-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-grupos-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-grupos-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-grupos-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-error-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-error-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-error-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-movimiento-error-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-selector-antes-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-selector-antes-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-selector-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "operativo-selector-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-cartel-editado-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-cartel-un-error-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-clase-control-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-clase-control-despues-desktop.jpg",
+    "size": [
+      1280,
+      613
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-dni-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  },
+  {
+    "file": "profesor-dni-pendiente-despues-375.jpg",
+    "size": [
+      376,
+      667
+    ],
+    "extrema": [
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        0,
+        255
+      ]
+    ]
+  }
+]

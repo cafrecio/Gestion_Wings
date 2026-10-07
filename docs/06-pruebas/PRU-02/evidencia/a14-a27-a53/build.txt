@@ -1,0 +1,121 @@
+
+> build
+> vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+public/build/assets/inter-vietnamese-400-normal-DMkecbls.woff2     4.97 kB
+public/build/assets/inter-vietnamese-900-normal-C4P836tE.woff2     5.03 kB
+public/build/assets/inter-vietnamese-300-normal-Bdr24Bqb.woff2     5.06 kB
+public/build/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2     5.10 kB
+public/build/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2     5.10 kB
+public/build/assets/inter-vietnamese-500-normal-DOriooB6.woff2     5.11 kB
+public/build/assets/inter-vietnamese-800-normal-Cm7tD1pz.woff2     5.18 kB
+public/build/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2      5.26 kB
+public/build/assets/inter-greek-ext-300-normal-l2DDyC6M.woff2      5.35 kB
+public/build/assets/inter-greek-ext-900-normal-voj7phVX.woff2      5.35 kB
+public/build/assets/inter-greek-ext-500-normal-C4iEst2y.woff2      5.43 kB
+public/build/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2      5.43 kB
+public/build/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2      5.44 kB
+public/build/assets/inter-greek-ext-800-normal-B--PVpEC.woff2      5.55 kB
+public/build/assets/inter-vietnamese-900-normal-DBSPUrC7.woff      6.46 kB
+public/build/assets/inter-vietnamese-400-normal-Bbgyi5SW.woff      6.50 kB
+public/build/assets/inter-vietnamese-300-normal-DDGmYYdT.woff      6.59 kB
+public/build/assets/inter-vietnamese-500-normal-mJboJaSs.woff      6.60 kB
+public/build/assets/inter-vietnamese-700-normal-BZaoP0fm.woff      6.63 kB
+public/build/assets/inter-vietnamese-600-normal-BuLX-rYi.woff      6.64 kB
+public/build/assets/inter-vietnamese-800-normal-DDlpr_Ee.woff      6.64 kB
+public/build/assets/inter-greek-ext-400-normal-KugGGMne.woff       7.06 kB
+public/build/assets/inter-greek-ext-900-normal-LVqH4fM3.woff       7.10 kB
+public/build/assets/inter-greek-ext-300-normal-DLbbeei1.woff       7.13 kB
+public/build/assets/inter-greek-ext-500-normal-2j5mBUwD.woff       7.19 kB
+public/build/assets/inter-greek-ext-800-normal-DUe57HfS.woff       7.20 kB
+public/build/assets/inter-greek-ext-600-normal-B8X0CLgF.woff       7.21 kB
+public/build/assets/inter-greek-ext-700-normal-BoQ6DsYi.woff       7.22 kB
+public/build/assets/inter-cyrillic-400-normal-obahsSVq.woff2       7.71 kB
+public/build/assets/inter-greek-400-normal-B4URO6DV.woff2          7.78 kB
+public/build/assets/inter-cyrillic-900-normal-CjyCg421.woff2       7.81 kB
+public/build/assets/inter-cyrillic-300-normal-BnqRxXuy.woff2       7.81 kB
+public/build/assets/inter-greek-900-normal-Clii5heL.woff2          7.84 kB
+public/build/assets/inter-greek-800-normal-CLIouy3y.woff2          7.89 kB
+public/build/assets/inter-cyrillic-500-normal-BasfLYem.woff2       7.90 kB
+public/build/assets/inter-cyrillic-700-normal-CjBOestx.woff2       7.90 kB
+public/build/assets/inter-greek-500-normal-BIZE56-Y.woff2          7.92 kB
+public/build/assets/inter-greek-700-normal-C3JjAnD8.woff2          7.92 kB
+public/build/assets/inter-greek-600-normal-plRanbMR.woff2          7.94 kB
+public/build/assets/inter-cyrillic-600-normal-CWCymEST.woff2       7.97 kB
+public/build/assets/inter-cyrillic-800-normal-C7MGvYyJ.woff2       7.99 kB
+public/build/assets/inter-greek-300-normal-DmGD3g_f.woff2          8.00 kB
+public/build/assets/inter-cyrillic-400-normal-HOLc17fK.woff        9.78 kB
+public/build/assets/inter-cyrillic-300-normal-LR1W_oT8.woff        9.82 kB
+public/build/assets/inter-cyrillic-900-normal-BAVML7y5.woff        9.83 kB
+public/build/assets/inter-greek-900-normal-7n5hB3DA.woff           9.90 kB
+public/build/assets/inter-cyrillic-700-normal-DrXBdSj3.woff        9.91 kB
+public/build/assets/inter-greek-400-normal-q2sYcFCs.woff           9.92 kB
+public/build/assets/inter-cyrillic-600-normal-4D_pXhcN.woff        9.94 kB
+public/build/assets/inter-cyrillic-500-normal-CxZf_p3X.woff        9.94 kB
+public/build/assets/inter-cyrillic-800-normal-CCHyn08d.woff        9.94 kB
+public/build/assets/inter-greek-800-normal-BU00tryP.woff           9.96 kB
+public/build/assets/inter-greek-500-normal-Xzm54t5V.woff           9.98 kB
+public/build/assets/inter-greek-700-normal-BUv2fZ6O.woff           9.98 kB
+public/build/assets/inter-greek-300-normal-BrhSP0vQ.woff          10.00 kB
+public/build/assets/inter-greek-600-normal-BZpKdvQh.woff          10.03 kB
+public/build/assets/inter-cyrillic-ext-900-normal-buRuWz4h.woff2  10.16 kB
+public/build/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2  10.23 kB
+public/build/assets/inter-cyrillic-ext-300-normal-CgCALhwJ.woff2  10.36 kB
+public/build/assets/inter-cyrillic-ext-500-normal-B0yAr1jD.woff2  10.43 kB
+public/build/assets/inter-cyrillic-ext-800-normal-BZOjs1Xv.woff2  10.44 kB
+public/build/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2  10.48 kB
+public/build/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2  10.50 kB
+public/build/assets/inter-cyrillic-ext-900-normal-BUlv-ou0.woff   13.22 kB
+public/build/assets/inter-cyrillic-ext-400-normal-DQukG94-.woff   13.34 kB
+public/build/assets/inter-cyrillic-ext-300-normal-RId2JxDB.woff   13.40 kB
+public/build/assets/inter-cyrillic-ext-700-normal-LO58E6JB.woff   13.41 kB
+public/build/assets/inter-cyrillic-ext-500-normal-BmqWE9Dz.woff   13.45 kB
+public/build/assets/inter-cyrillic-ext-600-normal-Bcila6Z-.woff   13.46 kB
+public/build/assets/inter-cyrillic-ext-800-normal-Ca-gJeZY.woff   13.48 kB
+public/build/assets/inter-latin-400-normal-C38fXH4l.woff2         23.66 kB
+public/build/assets/inter-latin-900-normal-D4nM5aha.woff2         23.90 kB
+public/build/assets/inter-latin-300-normal-BVlfKGgI.woff2         23.92 kB
+public/build/assets/inter-latin-500-normal-Cerq10X2.woff2         24.27 kB
+public/build/manifest.json                                        24.29 kB │ gzip:  2.33 kB
+public/build/assets/inter-latin-700-normal-Yt3aPRUw.woff2         24.36 kB
+public/build/assets/inter-latin-800-normal-BYj_oED-.woff2         24.40 kB
+public/build/assets/inter-latin-600-normal-LgqL8muc.woff2         24.45 kB
+public/build/assets/inter-latin-900-normal-EUCDUbiG.woff          30.68 kB
+public/build/assets/inter-latin-400-normal-CyCys3Eg.woff          30.70 kB
+public/build/assets/inter-latin-300-normal-i8F0SvXL.woff          31.01 kB
+public/build/assets/inter-latin-600-normal-CiBQ2DWP.woff          31.26 kB
+public/build/assets/inter-latin-500-normal-BL9OpVg8.woff          31.28 kB
+public/build/assets/inter-latin-800-normal-D1mf63XC.woff          31.30 kB
+public/build/assets/inter-latin-700-normal-BLAVimhd.woff          31.32 kB
+public/build/assets/inter-latin-ext-400-normal-C1nco2VV.woff2     35.00 kB
+public/build/assets/inter-latin-ext-900-normal-ty8Tfvw5.woff2     35.33 kB
+public/build/assets/inter-latin-ext-300-normal-CPgO9Ksf.woff2     35.88 kB
+public/build/assets/inter-latin-ext-500-normal-CV4jyFjo.woff2     36.02 kB
+public/build/assets/inter-latin-ext-800-normal-DZJjya6U.woff2     36.13 kB
+public/build/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2     36.24 kB
+public/build/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2     36.26 kB
+public/build/assets/inter-latin-ext-400-normal-77YHD8bZ.woff      47.56 kB
+public/build/assets/inter-latin-ext-900-normal-DG9wZIMw.woff      47.66 kB
+public/build/assets/inter-latin-ext-500-normal-BxGbmqWO.woff      48.49 kB
+public/build/assets/inter-latin-ext-800-normal-BOMpwxm3.woff      48.59 kB
+public/build/assets/inter-latin-ext-300-normal-Dp1L8vcn.woff      48.61 kB
+public/build/assets/inter-latin-ext-700-normal-TidjK2hL.woff      48.63 kB
+public/build/assets/inter-latin-ext-600-normal-CIVaiw4L.woff      48.67 kB
+public/build/assets/app-CU_ghAws.css                              75.71 kB │ gzip: 15.38 kB
+public/build/assets/caja-arqueo-DLvywdbF.js                        1.09 kB │ gzip:  0.59 kB
+public/build/assets/primera-carga-DAqnaeS5.js                      1.19 kB │ gzip:  0.59 kB
+public/build/assets/grupos-H6UfBVrx.js                             1.79 kB │ gzip:  0.82 kB
+public/build/assets/caja-movimiento-HxhZ2rhL.js                    2.03 kB │ gzip:  0.69 kB
+public/build/assets/usuarios-BL2XdTTo.js                           2.39 kB │ gzip:  0.87 kB
+public/build/assets/alumnos-inscripcion-B36oKQ0O.js                2.68 kB │ gzip:  1.09 kB
+public/build/assets/clases-form-D_y0Z8Yp.js                        4.03 kB │ gzip:  1.21 kB
+public/build/assets/cobrar-CvrXFaso.js                             4.24 kB │ gzip:  1.57 kB
+public/build/assets/alumnos-form-ZG4iz22a.js                       5.43 kB │ gzip:  2.25 kB
+public/build/assets/configuraciones-t5jYkHCs.js                    6.25 kB │ gzip:  2.31 kB
+public/build/assets/app-xJzr7jY4.js                               12.26 kB │ gzip:  3.73 kB
+✓ built in 13.19s

@@ -14,7 +14,8 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **CERRADO 06/10, verificado Gemini** — segunda verificación, con recorrido propio por HTTP, importes propios y 23 capturas; Claude reprodujo el recorrido (97 aserciones) y contrastó el informe. Sin sesión interactiva de navegador: eso lo cubre la prueba humana. [Informe](VERIFICACION-A25.md).
-> A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. [Informe independiente](VERIFICACION-CELULAR-COMPARTIDO.md). Sin despliegue.
+> A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53 fueron devueltos a Gemini el 06/10; T1 sigue devuelto por cobertura incompleta y recortes. [Informe independiente](VERIFICACION-CELULAR-COMPARTIDO.md). Sin despliegue.
+> A14, A27 y A53: HECHO (Codex), a revisar, 07/10. Carlos aprobó las capturas ANTES/DESPUÉS; falta asignar verificador. [Propuesta y capturas ANTES/DESPUÉS](PROPUESTA-A14-A27-A53.md). No cerrados.
 
 Criterio de gravedad: **Frena** = el club no puede trabajar o pierde plata · **Molesta** =
 se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
@@ -154,13 +155,15 @@ ADMIN cobró y anuló desde la ficha con motivo obligatorio. No abrió caja ni a
 
 El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
-### A14. Pantallas más altas que el monitor · Molesta · DEVUELTO a Gemini 06/10, verificado Codex
+### A14. Pantallas más altas que el monitor · Molesta · HECHO (Codex), a revisar 07/10
 
 
 Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo
 arriba ni abajo.
 
 **Control independiente 06/10 (Codex CyE):** DEVUELTO a Gemini: Guardar de Profesor comienza en y=1086; tras error de Alumno está en y=1498. Al llegar al pie el resumen de errores queda fuera de vista. Alinear a derecha no resuelve acciones y errores de formularios largos. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
+
+**Entrega 07/10 (Codex CyE), a revisar:** acciones fijas en celular y resumen visible que se actualiza al modificar los datos, con JavaScript externo. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
 ### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · CERRADO 07/10, verificado Gemini
 
@@ -261,13 +264,15 @@ Captura: `evidencia/audit_operativo_caja_desktop.png`.
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
 Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
 
-### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · DEVUELTO a Gemini 06/10, verificado Codex
+### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · HECHO (Codex), a revisar 07/10
 
 
 El formulario de `/caja/movimiento` en 375px es tan vertical que los botones Guardar y Cancelar quedan fuera de la pantalla sin una barra fija inferior. Además, el campo Observaciones es obligatorio (`*`) para cualquier gasto ínfimo.
 Captura original: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
 
 **Control independiente 06/10 (Codex CyE):** DEVUELTO a Gemini: en marco 375 × 667 Registrar y Cancelar quedan en y=740–772, fuera de vista y sin barra fija. Observaciones opcional sí pasa en vista y validación nullable; falta resolver las acciones. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
+
+**Entrega 07/10 (Codex CyE), a revisar:** Registrar/Cancelar visibles en barra móvil para ADMIN y OPERATIVO; Observaciones sigue opcional. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
 ### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · CERRADO 06/10, verificado Codex
 
@@ -531,12 +536,14 @@ probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 ## Hallazgos de la segunda verificación de Entrega 1 — 05/10/2026
 
-### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · DEVUELTO a Gemini 06/10, verificado Codex
+### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · HECHO (Codex), a revisar 07/10
 
 
 Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg).
 
 **Control independiente 06/10 (Codex CyE):** DEVUELTO a Gemini: ds-truncate sigue ocultando datos. Tarifas requieren 383 px y reciben 225; grupo del selector requiere 695 y recibe 248. Nombres compuestos e importes grandes probados; nombre del alumno y saldo sí entran. Mostrar completos tarifas y grupo sin desborde. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
+
+**Entrega 07/10 (Codex CyE), a revisar:** nombres de grupo largos y tres tarifas millonarias completos en varias líneas a 375, para ADMIN y OPERATIVO. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
 ### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · CERRADO 06/10, verificado por Codex CAB
 
@@ -781,7 +788,7 @@ Carlos.
 | 2.1 | Cobranza: cuánto debe cada uno, el total adeudado y cobrar desde ahí | A1, A21, A22 |
 | 2.2 | Cobrar desde la ficha del alumno y ver ahí sus recibos | A17, A34 |
 | 2.3 | Cobrar por adelantado, que el motor ya soporta | A3 |
-| 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado; A4 Hecho (Cx), a revisar 05/10; A14 devuelto a Gemini 06/10 | A4, A14 |
+| 2.4 | Que el usuario sepa por qué no se guardó, y que se le avise antes de perder lo cargado; A4 Hecho (Cx), a revisar 05/10; A14 HECHO (Codex), a revisar 07/10, diseño aprobado por Carlos | A4, A14 |
 | 2.5 | Profesores activos del deporte de la clase; Hecho (Cx), a revisar 05/10 | A5 |
 | 2.6 | Apertura declarada y arqueo; HECHO (Codex), a revisar 06/10 | A25 |
 

@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Actualización A15/A16 y verificación A56: 06/10/2026, Codex CyE; decisiones A25 de Codex CAB conservadas. Los cortes históricos conservan su fecha.
+> Entrega A14/A27/A53: 07/10/2026, Codex CyE; diseño aprobado por Carlos, a verificar. Aportes anteriores y cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -32,6 +32,8 @@
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **A14/A27/A53, HECHO (Codex), a revisar 07/10:** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
 
 - **Celular, control independiente Codex CyE 06/10:** A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. 84 capturas propias y 102 originales revisadas; roles ADMIN/OPERATIVO/PROFESOR, 20 alumnos, nombres largos y tarifas millonarias. [Informe](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Corte versionado 41/72; sin despliegue. Gemini incluyó esta entrega en d91a840 junto con A25; Claude reabrió A25 en abda923. Se conservan los dictámenes de celular y A25 sigue a revisar.
 

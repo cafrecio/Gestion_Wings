@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-07 — Codex CyE — A14/A27/A53 entregados, a verificar
+
+Barra móvil en cinco formularios; errores visibles y dinámicos con JS externo; tarjetas sin elipsis móvil.
+74 capturas reales ANTES/DESPUÉS inspeccionadas; tres roles, 20 alumnos y precios grandes.
+Carlos revisó el visor y aprobó: «Ahi vi el archivo antes y despues y parece que esta bien. Doy el OK».
+Suite propia 489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s; build y nueve vistas correctos.
+Escenario solo wings_testing_codex; capturas inválidas repetidas tras corregir reloj/caja ficticia.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md) y [propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md).
+Tablero: cada uno a_verificar, hizo Codex, tiene nadie; DEFECTOS md/html HECHO (Codex), a revisar 07/10.
+Sin deploy ni servidor/base real; no se cierran por el autor. T1 conserva sus pendientes.
+Siguiente: asignar otro agente para verificar cada defecto.
+
 ## 2026-10-06 — Codex CyE — Bitácora abreviada y archivo conservado
 
 Carlos pidió reducir la bitácora y publicarla en GitHub.

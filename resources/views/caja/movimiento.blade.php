@@ -19,7 +19,8 @@ if ($rubroActual) {
 }
 @endphp
 
-<form method="POST" action="{{ route('web.caja.movimiento.store') }}" id="mov-form">
+<x-ds.mobile-errors id="movimiento-error-resumen" />
+<form class="mobile-form" method="POST" action="{{ route('web.caja.movimiento.store') }}" id="mov-form" data-error-summary="movimiento-error-resumen">
     @csrf
 
     {{-- ── Tipo I/E ─────────────────────────────────────────────────────── --}}
@@ -156,7 +157,7 @@ if ($rubroActual) {
         </div>
     </div>
 
-    <div class="filtros-actions flex items-center justify-end gap-2 w-full">
+    <div class="filtros-actions mobile-form-actions flex items-center justify-end gap-2 w-full">
         <x-ds.button variant="secondary" href="{{ route('web.caja.index') }}">Cancelar</x-ds.button>
         <x-ds.button variant="primary" type="submit">Registrar</x-ds.button>
     </div>

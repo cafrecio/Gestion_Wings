@@ -36,7 +36,11 @@ Nada.
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A14** Pantallas más altas que el monitor | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
+| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
+| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
 
 ## Claude
 
@@ -47,11 +51,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A14** Pantallas más altas que el monitor | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
+Nada en este momento.
 
 ## Gemini
 
