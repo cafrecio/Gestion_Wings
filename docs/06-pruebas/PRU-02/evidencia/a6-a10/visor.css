@@ -1,0 +1,12 @@
+body { margin:0; background:#f4f6f8; color:#111827; font:16px/1.5 system-ui,sans-serif; }
+main { max-width:1180px; margin:auto; padding:24px; }
+h1,h2 { line-height:1.2; }
+a { color:#174a77; }
+.comparacion { display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; }
+figure { margin:0 0 24px; }
+figcaption { margin-bottom:8px; font-weight:600; }
+.telefono { width:375px; height:667px; overflow:hidden; border:1px solid #d8e0ea; background:white; }
+.telefono img { width:1280px; max-width:none; height:900px; margin-left:-452.5px; }
+.escritorio { max-width:100%; height:auto; border:1px solid #d8e0ea; }
+.nota { padding:12px 16px; background:white; border-left:4px solid #174a77; }
+@media(max-width:430px) { main { padding:12px; } .telefono { max-width:100%; } }

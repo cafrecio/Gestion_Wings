@@ -91,7 +91,10 @@ return [
 
     'fecha_simulada' => env('FECHA_SIMULADA'),
 
-    'locale' => env('APP_LOCALE', 'en'),
+    // Wings se usa solo en castellano. Va fijo y no por APP_LOCALE: cada .env traia
+    // "en" de fabrica y las listas mostraban "Showing 1 to 20 of 76 results" (A38).
+    // Los textos estan en lang/es y lang/es.json; lo que falte cae al ingles de abajo.
+    'locale' => 'es',
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 

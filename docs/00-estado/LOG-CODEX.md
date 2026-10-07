@@ -1,5 +1,40 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-07 — Codex CyE — A8 A elegida; correcciones de la revisión de Carlos
+
+Carlos eligió «A8 Opcion A»; punto con estado aplicado, distintivo coloreado de Profesores intacto.
+Rechazó capturas móviles sin acciones y escritorio Profesores; quedan como antecedente, no entrega.
+Acciones/interruptor a derecha en celular en Alumnos/Grupos/Profesores; tamaños/funciones conservados.
+Cashflow muestra año/mes, no caja diaria: período explícito; movimiento recibe siete íconos existentes.
+Diez respuestas HTTP 200; seis vistas con sintaxis correcta, Blade correcto, build 10,22 s.
+[Decisiones y alcance](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md); HTTP no certifica aspecto final.
+Chrome sigue sin control; capturas completas y propuesta restante A10 pendientes. Sin publicación/cierre.
+Siguiente: renovar imágenes, elegir resto A10, suite completa y entrega para otro verificador.
+
+## 2026-10-07 — Codex CyE — A8: variantes preparadas, capturas pendientes
+
+Dos opciones: punto con significado explícito o retirarlo de Grupos/Niveles/Profesores.
+Aplicadas temporalmente; ocho respuestas Laravel 200 en base propia, luego vistas restauradas.
+Niveles distingue Con/Sin grupos, no Activo; Alumnos conserva su punto de cobranza.
+[Opciones, parches y control HTTP](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md); HTTP no equivale a revisión visual.
+Control de Chrome nuevamente indisponible; no se guardaron imágenes posteriores ficticias.
+A8 sigue en preparación con Codex; A6/A7 elegidos conservados; sin commit/push ni cierre.
+Siguiente: capturar ambas variantes y presentarlas; después A9/A10 y entrega conjunta.
+
+## 2026-10-07 — Codex CyE — A6 y A7 elegidos; B aplicada localmente
+
+Carlos pidió las pantallas una por una; A6 conserva el formato y ubicación originales.
+Decisión literal: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto».
+Único cambio de aplicación: Modificar → Editar en la ficha de Clase; propuestas anteriores descartadas.
+Seis capturas nuevas reales, tres roles y dos anchos; Editar abre el mismo panel.
+Diff de una palabra y sintaxis correctos; solo wings_testing_codex, sin CSS, servidor ni despliegue.
+[Propuesta y visor](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md); Carlos rechazó A y aprobó B; A8–A10 todavía pendientes.
+Suite completa y publicación reunidas con la entrega elegida A6–A10; A6 no se autocierra.
+A7: dos distribuciones solo del listado, con plan/celular; capturas ADMIN/OPERATIVO y control PROFESOR.
+B reaplicada: una tarjeta por fila y regla permanente de diseño. Build 14,91 s y vistas correctas.
+Capturas finales A7 pendientes: Chrome devolvió User unavailable en dos consultas.
+Siguiente: recuperar captura final; después A8. Suite/publicación reunidas al entregar A6–A10.
+
 ## 2026-10-07 — Codex CyE — A14/A27/A53 entregados, a verificar
 
 Barra móvil en cinco formularios; errores visibles y dinámicos con JS externo; tarjetas sin elipsis móvil.

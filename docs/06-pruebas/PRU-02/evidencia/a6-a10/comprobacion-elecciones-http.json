@@ -1,0 +1,58 @@
+{
+  "tipo": "Comprobación HTTP y fuente; no revisión visual",
+  "fecha": "2026-10-07",
+  "base": "wings_testing_codex",
+  "casos": [
+    {
+      "ruta": "/cashflow?actor=admin&anio=2026",
+      "http": 200,
+      "periodo": "Período: Año 2026 completo"
+    },
+    {
+      "ruta": "/cashflow?actor=admin&anio=2026&mes=10",
+      "http": 200,
+      "periodo": "Período: Octubre 2026"
+    },
+    {
+      "ruta": "/cashflow?actor=admin&anio=2025&mes=9",
+      "http": 200,
+      "periodo": "Período: Septiembre 2025"
+    },
+    {
+      "ruta": "/cashflow/movimiento?actor=admin",
+      "http": 200,
+      "iconos_por_campo": {
+        "fecha": 1,
+        "tipo_caja_id": 1,
+        "rubro_id": 1,
+        "subrubro_id": 1,
+        "monto": 1,
+        "observaciones": 1
+      }
+    },
+    {
+      "ruta": "/grupos?actor=admin",
+      "http": 200
+    },
+    {
+      "ruta": "/grupos?actor=operativo",
+      "http": 200
+    },
+    {
+      "ruta": "/niveles?actor=admin",
+      "http": 200
+    },
+    {
+      "ruta": "/profesores?actor=admin",
+      "http": 200
+    },
+    {
+      "ruta": "/alumnos?actor=admin",
+      "http": 200
+    },
+    {
+      "ruta": "/alumnos?actor=operativo",
+      "http": 200
+    }
+  ]
+}

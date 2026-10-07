@@ -109,21 +109,32 @@ Una tarjeta por alumno del ancho completo, con el nombre a la izquierda y el dep
 treinta centímetros. El botón **Ver** desborda su lugar. El gris de la tarjeta no significa
 nada. Para saber el plan o el celular de alguien hay que abrir su ficha, uno por uno.
 
+**EN CURSO, Codex CyE 07/10:** Carlos rechazó A y aprobó B. B aplicada localmente: una tarjeta por fila; plan y celular a la vista. Regla permanente en diseño. Carlos rechazó la captura móvil por no mostrar botones: renovar con acciones completas. Alineación móvil a derecha aplicada. Capturas finales y entrega conjunta pendientes. Solo listado Alumnos, sin modificar tarjetas compartidas. [Propuesta y alcance](PROPUESTA-A6-A10.md), [visor B aprobada](evidencia/a6-a10/visor-a7.html). No entregado ni cerrado.
+
 ### A8. Puntos grises que no dicen nada · Molesta
 
 En grupos, niveles y profesores cada tarjeta tiene un punto de color. En alumnos el color es
 el deporte; en el resto es gris siempre. O significa algo o no va.
+
+**EN CURSO, Codex CyE 07/10:** Carlos eligió «A8 Opcion A»: punto con estado aplicado localmente; distintivo coloreado de Profesores conservado. Capturas completas posteriores pendientes. No entregado ni cerrado. [Propuesta](PROPUESTA-A6-A10.md).
+
 
 ### A9. El interruptor "Activo" en las tarjetas · Molesta
 
 En grupos, niveles y profesores aparece un interruptor al lado de los botones, con otro
 tamaño y otra lógica visual que el resto del sistema.
 
+**EN CURSO, Codex CyE 07/10:** Grupos/Profesores ya usan el mismo x-ds.toggle que Alumnos; Niveles no tiene interruptor. Acciones móviles a derecha según Carlos, sin cambiar tamaño ni funcionamiento. Falta captura/revisión visual. No entregado ni cerrado. [Propuesta](PROPUESTA-A6-A10.md).
+
+
 ### A10. El botón "Nuevo" del cashflow · Molesta
 
 Está suelto en la barra de totales y lleva a **Movimiento directo**. Nadie puede adivinar
 qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al
 lado.
+
+**EN CURSO, Codex CyE 07/10:** Período anual/mensual explícito e íconos en movimiento aplicados localmente por revisión de Carlos. Captura móvil completa y propuesta visual de Nuevo/destino pendientes. No entregado ni cerrado. [Propuesta](PROPUESTA-A6-A10.md).
+
 
 ### A11. Configuración es impresentable · Frena · CERRADO 04/10
 

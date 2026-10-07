@@ -1,0 +1,171 @@
+diff --git a/resources/views/alumnos/_form.blade.php b/resources/views/alumnos/_form.blade.php
+index c66b4bf..a87f6f7 100644
+--- a/resources/views/alumnos/_form.blade.php
++++ b/resources/views/alumnos/_form.blade.php
+@@ -74,7 +74,7 @@ class="w-full px-4 py-2.5 text-sm wings-input">
+     <div>
+         <label for="celular" class="{{ $labelClass }}">
+             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+-            Celular <span class="form-required">*</span>
++            Celular <span class="form-required" id="celular-obligatorio">*</span>
+         </label>
+         <input type="text" id="celular" name="celular" value="{{ old('celular', $alumno->celular ?? '') }}"
+                class="w-full px-4 py-2.5 text-sm wings-input" placeholder="11-1234-5678">
+diff --git a/resources/views/layouts/ds-app.blade.php b/resources/views/layouts/ds-app.blade.php
+index 30a1bbd..b7b6199 100644
+--- a/resources/views/layouts/ds-app.blade.php
++++ b/resources/views/layouts/ds-app.blade.php
+@@ -256,6 +256,19 @@ class="ds-nav-link {{ request()->is('usuarios*') ? 'ds-nav-link--active' : '' }}
+ 
+                     @else
+ 
++                        {{-- El operativo consulta los movimientos de su rubro (A39):
++                             la ruta ya lo dejaba entrar, faltaba el acceso. --}}
++                        <div class="ds-nav-group">Plata</div>
++
++                        <a href="{{ route('web.movimientos.index') }}"
++                           class="ds-nav-link {{ request()->is('movimientos*') ? 'ds-nav-link--active' : '' }}">
++                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
++                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
++                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
++                            </svg>
++                            Movimientos
++                        </a>
++
+                         {{-- El operativo ve un solo catálogo: los grupos, que
+                              necesita para inscribir a un alumno. --}}
+                         <div class="ds-nav-group">El club</div>
+diff --git a/resources/views/vendor/mail/html/layout.blade.php b/resources/views/vendor/mail/html/layout.blade.php
+new file mode 100644
+index 0000000..1bbeff5
+--- /dev/null
++++ b/resources/views/vendor/mail/html/layout.blade.php
+@@ -0,0 +1,58 @@
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
++<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
++<head>
++<title>Wings</title>
++<meta name="viewport" content="width=device-width, initial-scale=1.0" />
++<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
++<meta name="color-scheme" content="light">
++<meta name="supported-color-schemes" content="light">
++<style>
++@media only screen and (max-width: 600px) {
++.inner-body {
++width: 100% !important;
++}
++
++.footer {
++width: 100% !important;
++}
++}
++
++@media only screen and (max-width: 500px) {
++.button {
++width: 100% !important;
++}
++}
++</style>
++{!! $head ?? '' !!}
++</head>
++<body>
++
++<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
++<tr>
++<td align="center">
++<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
++{!! $header ?? '' !!}
++
++<!-- Email Body -->
++<tr>
++<td class="body" width="100%" cellpadding="0" cellspacing="0" style="border: hidden !important;">
++<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
++<!-- Body content -->
++<tr>
++<td class="content-cell">
++{!! Illuminate\Mail\Markdown::parse($slot) !!}
++
++{!! $subcopy ?? '' !!}
++</td>
++</tr>
++</table>
++</td>
++</tr>
++
++{!! $footer ?? '' !!}
++</table>
++</td>
++</tr>
++</table>
++</body>
++</html>
+diff --git a/resources/views/vendor/mail/html/message.blade.php b/resources/views/vendor/mail/html/message.blade.php
+new file mode 100644
+index 0000000..9ae40fe
+--- /dev/null
++++ b/resources/views/vendor/mail/html/message.blade.php
+@@ -0,0 +1,31 @@
++{{-- Plantilla de los correos de Wings (A44). Reemplaza la de Laravel, que firmaba con
++     el nombre de la aplicacion: si APP_NAME quedaba en "Laravel", al duenio del club le
++     llegaba el aviso con el logo y el pie de Laravel. El nombre va escrito aca para que
++     no dependa de la configuracion de cada servidor. --}}
++<x-mail::layout>
++{{-- Header --}}
++<x-slot:header>
++<x-mail::header :url="config('app.url')">
++Wings
++</x-mail::header>
++</x-slot:header>
++
++{{-- Body --}}
++{!! $slot !!}
++
++{{-- Subcopy --}}
++@isset($subcopy)
++<x-slot:subcopy>
++<x-mail::subcopy>
++{!! $subcopy !!}
++</x-mail::subcopy>
++</x-slot:subcopy>
++@endisset
++
++{{-- Footer --}}
++<x-slot:footer>
++<x-mail::footer>
++Aviso automático de Wings. No hace falta responder este correo.
++</x-mail::footer>
++</x-slot:footer>
++</x-mail::layout>
+diff --git a/resources/views/vendor/mail/text/message.blade.php b/resources/views/vendor/mail/text/message.blade.php
+new file mode 100644
+index 0000000..4b78568
+--- /dev/null
++++ b/resources/views/vendor/mail/text/message.blade.php
+@@ -0,0 +1,27 @@
++<x-mail::layout>
++    {{-- Header --}}
++    <x-slot:header>
++        <x-mail::header :url="config('app.url')">
++            Wings
++        </x-mail::header>
++    </x-slot:header>
++
++    {{-- Body --}}
++    {{ $slot }}
++
++    {{-- Subcopy --}}
++    @isset($subcopy)
++        <x-slot:subcopy>
++            <x-mail::subcopy>
++                {{ $subcopy }}
++            </x-mail::subcopy>
++        </x-slot:subcopy>
++    @endisset
++
++    {{-- Footer --}}
++    <x-slot:footer>
++        <x-mail::footer>
++            Aviso automático de Wings. No hace falta responder este correo.
++        </x-mail::footer>
++    </x-slot:footer>
++</x-mail::layout>

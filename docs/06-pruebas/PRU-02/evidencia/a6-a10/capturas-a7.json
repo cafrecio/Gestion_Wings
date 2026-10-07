@@ -1,0 +1,176 @@
+{
+  "base_codigo": "b49d997",
+  "main_documental": "c65d628",
+  "metodo": "Laravel real local, iframe 375 CSS x 667, captura nativa completa; escritorio viewport 1280x900",
+  "opciones_retiradas": true,
+  "capturas": [
+    {
+      "archivo": "a7-alumnos-admin-a-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "a2f47717ecc4d9f071098cb8383d32046117c7d94ea986b3fae6dd0b8387b445"
+    },
+    {
+      "archivo": "a7-alumnos-admin-a-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "20c86463443ffc125d95f67a4018a8a01106ac3d6caba0edf878807dbb300340"
+    },
+    {
+      "archivo": "a7-alumnos-admin-a-largo-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "31939494b75ed0deb120ae3284b9a20f45606ce81c48ac04a3f79c08b4858c10"
+    },
+    {
+      "archivo": "a7-alumnos-admin-a-largo-desktop.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "09745f5e1fb497cbc5e3e145a28cc71cfae1d13408994b8b78e21b6353eaf6b6"
+    },
+    {
+      "archivo": "a7-alumnos-admin-antes-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "9553c8a3c9fcf1ed2cc9a0448aff6e4d1a24aeb60e4be287404db3e9d698315c"
+    },
+    {
+      "archivo": "a7-alumnos-admin-antes-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "e075001b96919ab6337f5ec891a3d3b105deec5925d5991478ff9cf91251a4a0"
+    },
+    {
+      "archivo": "a7-alumnos-admin-antes-enfoque-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "51a380443f9281b326c815855948fe3610f6e09cc2aa547b6860e309fecb9d8b"
+    },
+    {
+      "archivo": "a7-alumnos-admin-antes-enfoque-largo-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "1e8b0e205a135b04c3752b57b10d7f5345fb9e53167b47e159280309b855543d"
+    },
+    {
+      "archivo": "a7-alumnos-admin-antes-enfoque-largo-desktop.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "171f35d64c0c500ebf75cb87478e0dbcb3df7c26ac287f5fb3fa846e32b1a64d"
+    },
+    {
+      "archivo": "a7-alumnos-admin-b-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "a2f47717ecc4d9f071098cb8383d32046117c7d94ea986b3fae6dd0b8387b445"
+    },
+    {
+      "archivo": "a7-alumnos-admin-b-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "ca6aefe9c9fcf01b12ed6f8bcc14bfc4ca0b70293942a7983c7f77522f3161eb"
+    },
+    {
+      "archivo": "a7-alumnos-admin-b-largo-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "fef1802657ae1fd02a83af8ed87a5a225d26884cf0d41565d9193ea059026c48"
+    },
+    {
+      "archivo": "a7-alumnos-admin-b-largo-desktop.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "f6014feb916beb49411b108b77148e6ac9aeb70b6e8dea3290e5250d151c74d4"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-a-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "a1a910ee53cc294dc71097476af247e9823131b955104678f9cb7c856902291c"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-a-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "2d7ff0496d936989f0e7a9c337a8b24a2886730babbe88eb8047982a448c7d8a"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-antes-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "d8cde98fb946f97b8a29e0842d335b2ac71a474800939973403e2a9b81793374"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-antes-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "c1bc468fc6a4835fde633c891d4c5f91743546314781c7a57ee232b0edcbe756"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-antes-enfoque-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "7c785a9457989eeff7aaa499e35aecf42d57d1b9e72f2e7b514a1575a2878b6a"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-b-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "a1a910ee53cc294dc71097476af247e9823131b955104678f9cb7c856902291c"
+    },
+    {
+      "archivo": "a7-alumnos-operativo-b-desktop.jpg",
+      "tamano": [
+        1265,
+        889
+      ],
+      "sha256": "cdd945c1caa2e8436e7dfbee2d00e188d9316e724bffac619a67c1bcbb750ec8"
+    },
+    {
+      "archivo": "a7-profesor-sin-permiso-375.jpg",
+      "tamano": [
+        1280,
+        900
+      ],
+      "sha256": "af2f18028ac03045365ccfa80aaf969e20ccf6875d8bb22fd5d8ee90cb13c3ca"
+    }
+  ]
+}

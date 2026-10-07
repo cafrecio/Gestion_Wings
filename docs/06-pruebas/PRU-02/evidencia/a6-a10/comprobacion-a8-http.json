@@ -1,0 +1,78 @@
+[
+  {
+    "opcion": "a",
+    "pantalla": "grupos",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Activo\"\r\n                      title=\"Activo\">",
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Activo\"\r\n                      title=\"Activo\">"
+    ],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "a",
+    "pantalla": "grupos",
+    "rol": "operativo",
+    "estado_http": 200,
+    "puntos": [
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Activo\"\r\n                      title=\"Activo\">",
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Activo\"\r\n                      title=\"Activo\">"
+    ],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "a",
+    "pantalla": "niveles",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [
+      "<span class=\"alumno-dot alumno-dot--neutral\"\r\n                      role=\"img\" aria-label=\"Sin grupos\"\r\n                      title=\"Sin grupos\">",
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Con grupos\"\r\n                      title=\"Con grupos\">",
+      "<span class=\"alumno-dot alumno-dot--neutral\"\r\n                      role=\"img\" aria-label=\"Sin grupos\"\r\n                      title=\"Sin grupos\">"
+    ],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "a",
+    "pantalla": "profesores",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [
+      "<span class=\"alumno-dot alumno-dot--active\"\r\n                      role=\"img\" aria-label=\"Activo\"\r\n                      title=\"Activo\">"
+    ],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "b",
+    "pantalla": "grupos",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "b",
+    "pantalla": "grupos",
+    "rol": "operativo",
+    "estado_http": 200,
+    "puntos": [],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "b",
+    "pantalla": "niveles",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [],
+    "tipo": "respuesta Laravel, no captura visual"
+  },
+  {
+    "opcion": "b",
+    "pantalla": "profesores",
+    "rol": "admin",
+    "estado_http": 200,
+    "puntos": [],
+    "tipo": "respuesta Laravel, no captura visual"
+  }
+]

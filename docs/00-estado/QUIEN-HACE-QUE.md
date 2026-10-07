@@ -53,10 +53,10 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Texto elegido por Carlos aplicado; completar entrega A6-A10 y asignar verificador |
-| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | B aprobada y aplicada; renovar capturas finales y completar entrega A6-A10 |
-| **A8** Puntos grises que no dicen nada | En curso | Capturar variantes A/B en escritorio y 375; ocho respuestas HTTP correctas, Chrome no permite control |
-| **A9** El interruptor "Activo" en las tarjetas | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
-| **A10** El botón "Nuevo" del cashflow | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | B aplicada; Carlos rechazo captura movil sin botones: renovar completa con acciones a derecha |
+| **A8** Puntos grises que no dicen nada | En curso | Carlos eligio A, aplicada; conservar distintivo Profesores y renovar capturas completas |
+| **A9** El interruptor "Activo" en las tarjetas | En curso | Mismo interruptor que Alumnos; alineacion movil pedida aplicada, falta captura completa |
+| **A10** El botón "Nuevo" del cashflow | En curso | Periodo e iconos pedidos aplicados; captura completa y propuesta de Nuevo/destino pendientes |
 
 ## Gemini
 

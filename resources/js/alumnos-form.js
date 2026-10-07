@@ -62,6 +62,30 @@
         });
     }
 
+    // Celular: obligatorio solo para mayores. Un menor puede no tener uno propio;
+    // si queda vacio, el servidor guarda el telefono del tutor.
+    const marcaCelular = document.getElementById('celular-obligatorio');
+    const nacimientoInput = document.getElementById('fecha_nacimiento');
+    if (marcaCelular && nacimientoInput) {
+        function esMenor() {
+            const nacimiento = new Date(nacimientoInput.value + 'T00:00:00');
+            if (Number.isNaN(nacimiento.getTime())) return false;
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const cumplio = hoy.getMonth() > nacimiento.getMonth()
+                || (hoy.getMonth() === nacimiento.getMonth() && hoy.getDate() >= nacimiento.getDate());
+            if (!cumplio) edad--;
+            return edad < 18;
+        }
+
+        function actualizarMarcaCelular() {
+            marcaCelular.hidden = esMenor();
+        }
+
+        nacimientoInput.addEventListener('change', actualizarMarcaCelular);
+        actualizarMarcaCelular();
+    }
+
     const deporteSelect = document.getElementById('deporte_id');
     if (deporteSelect && deporteSelect.tagName === 'SELECT') {
         deporteSelect.addEventListener('change', function () {
