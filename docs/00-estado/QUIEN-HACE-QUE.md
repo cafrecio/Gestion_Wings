@@ -47,7 +47,13 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso | Codex cambia Modificar por Editar en la ficha de la clase y trae capturas; despues verifica otro agente |
+| **A7** El listado de alumnos desperdicia la pantalla | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A8** Puntos grises que no dicen nada | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A9** El interruptor "Activo" en las tarjetas | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A10** El botón "Nuevo" del cashflow | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
 
 ## Gemini
 
@@ -58,9 +64,9 @@ Nada en este momento.
 | **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en un navegador real, escribiendo y tocando; Claude contrasta el informe antes del cierre |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
-## Sin empezar (26)
+## Sin empezar (21)
 
-A6, A7, A8, A9, A10, A12, A23, A24, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B11, B12.
+A12, A23, A24, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B11, B12.
 
 <!-- TABLERO:FIN -->
 
