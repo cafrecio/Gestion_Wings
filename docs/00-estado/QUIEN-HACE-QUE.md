@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 06/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 07/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -47,17 +47,18 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A14** Pantallas más altas que el monitor | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
+| **A27** Cargar movimiento de caja en celular oculta los botones de acción | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
+| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | En curso (hizo Codex) | Codex corrige lo que el mismo devolvio; propone con capturas reales antes de tocar diseño; despues verifica otro agente |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A14** Pantallas más altas que el monitor | Devuelto (hizo Gemini, verifica Codex) | Alcanzar botones y resumen de errores en formularios largos sin perderlos de vista |
-| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
-| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con el prompt ya escrito y cierra o devuelve |
-| **A27** Cargar movimiento de caja en celular oculta los botones de acción | Devuelto (hizo Gemini, verifica Codex) | Registrar y Cancelar quedan a y=740 fuera del marco 375x667; Observaciones opcional sí pasa |
-| **A53** Las tarjetas de Grupos y del selector de cobro cortan datos en celular | Devuelto (hizo Gemini, verifica Codex) | Mostrar tarifas completas y grupo del selector: ds-truncate sigue cortando datos largos |
+| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con capturas propias; Claude contrasta el informe antes del cierre |
+| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con capturas propias; Claude contrasta el informe antes del cierre |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
 ## Sin empezar (26)
