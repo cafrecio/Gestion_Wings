@@ -11,6 +11,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-07 — LOG GEM CYE — Verificación real e independiente de A15 y A16 (Programación de clases)
+
+- **Objetivo:** Verificar de punta a punta y con datos propios en base `wings_testing_gemini` los defectos A15 (aviso de bloques de cancha y confirmación obligatoria) y A16 (programación recurrente con horarios por día), implementados por Codex (`05dd962`).
+- **Recorrido funcional y datos:**
+  - A15: Horario 17:30–18:30 devolvió aviso exacto de 2 bloques (17–18 y 18–19), conservó inputs y dejó 0 clases y 0 asignaciones en DB. Confirmar con firma válida persistió exactamente 1 clase. Alterar campos (hora fin, hora inicio, fecha, grupo, profesor, período) invalidó firmas viejas (0 clases). POSTs apócrifos con "si", hash falso o firma de otro usuario fueron bloqueados. Horario 17:00–18:00 guardó directo sin aviso. Bordes según Contrato V2 (17:30–18:00, 17:00–18:30, 17:01–18:00, 17:00–18:01 avisan; 17:00–18:00 no) verificados rigurosamente.
+  - A16: Serie de 3 días con 3 horarios distintos (Lun 16–17, Mié 17–18, Vie 18–19) creó 6 clases con un solo `serie_id`. Horas obligatorias validadas por día. Conflicto de horario en segundo día revirtió atómicamente la serie completa (1 clase previa antes, 1 clase después). Rechazo de fechas pasadas, inactivos y profesor de otro deporte confirmado. Cronograma de 76 clases en 6 cargas (`relevamiento-76-clases.json`) reproducido de punta a punta con 6 series UUID.
+  - Regresiones y roles: Edición de clase, cancelación con motivo y toma de asistencia operaron sin fallas. Matriz de roles comprobada: Operativo (cancelar autorizado; crear/editar 403), Profesor (asistencia autorizada; cancelar/crear/editar 403).
+- **Evidencia y capturas:** Reproductor `docs/06-pruebas/PRU-02/evidencia/verificacion-a15-a16/VerificacionA15A16Test.php` (431 aserciones pasadas en verde, 0 fallos). 8 páginas HTML emitidas por Laravel y 16 capturas con Chrome Headless (escritorio 1280×900 y celular 375 px en marco iframe) en carpeta `evidencia/verificacion-a15-a16/`. Exclusiones declaradas con veracidad (capturas basadas en respuestas HTML servidas localmente; sin sesión interactiva de ratón/teclado).
+- **Dictamen y entrega:** A15 APROBADO, A16 APROBADO. Tareas pasadas a Claude (`tiene=Claude`) en el tablero para contrastar el informe contra el repositorio y proceder al cierre (§6a). Informe completo: `docs/06-pruebas/PRU-02/VERIFICACION-A15-A16.md`.
+
 ## 2026-10-06 — LOG GEM CYE — Verificación real e interactiva de A25 (apertura, arqueo y cierre de caja)
 
 - **Objetivo:** Ejecutar la verificación real, completa e independiente de A25 (mostrador, arqueo y cambio inicial, implementado por Codex en `30f38f8`), tras la anulación del informe previo por falta de recorrido en pantalla.

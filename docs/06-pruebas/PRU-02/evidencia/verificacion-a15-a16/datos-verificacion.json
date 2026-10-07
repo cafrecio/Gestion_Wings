@@ -1,0 +1,170 @@
+{
+    "A15_paso1": {
+        "descripcion": "Cargar 17:30 a 18:30 y Guardar devuelve aviso sin crear filas",
+        "clases_antes": 0,
+        "clases_despues": 0,
+        "aviso_detalle": "17:30–18:30: dura 1 hora, pero ocupa 2 bloques de alquiler: 17:00–18:00, 18:00–19:00.",
+        "bloques": 2,
+        "firma": "8b2233cfd42d143437a3a3611ef98dfd7dccc12906a22abfbb7688f0db7180b4",
+        "aprobado": true
+    },
+    "A15_paso2": {
+        "descripcion": "Confirmar con firma válida guarda la clase de 17:30 a 18:30",
+        "clases_antes": 0,
+        "clases_despues": 1,
+        "clase_id": 1,
+        "fecha": "2026-10-15",
+        "hora_inicio": "17:30",
+        "hora_fin": "18:30",
+        "aprobado": true
+    },
+    "A15_paso3": {
+        "descripcion": "Comprobada invalidación de aviso al cambiar hora_fin, hora_inicio, fecha, grupo, profesor y período",
+        "cambios_probados": [
+            "hora_fin",
+            "hora_inicio",
+            "fecha",
+            "grupo",
+            "profesor",
+            "periodo"
+        ],
+        "clases_creadas": 0,
+        "aprobado": true
+    },
+    "A15_paso4": {
+        "descripcion": "POST directos con firma falsa (\"si\", hash falso, firma de otro usuario) bloqueados",
+        "respuestas": {
+            "texto_plano_si": "302 Redirect a \/clases\/create con aviso_cancha",
+            "hash_inventado": "302 Redirect a \/clases\/create con aviso_cancha",
+            "firma_otro_usuario": "302 Redirect a \/clases\/create con aviso_cancha"
+        },
+        "clases_creadas": 0,
+        "aprobado": true
+    },
+    "A15_paso5": {
+        "descripcion": "Horario en punto (17:00–18:00) guarda directo sin aviso",
+        "clases_creadas": 1,
+        "aviso_presente": false,
+        "aprobado": true
+    },
+    "A15_paso6": {
+        "descripcion": "Bordes del aviso según contrato V2",
+        "casos": {
+            "17:30–18:00": {
+                "bloques": 1,
+                "detalle": "17:30–18:00: dura 30 minutos, pero ocupa 1 bloque de alquiler: 17:00–18:00.",
+                "avisa": true
+            },
+            "17:00–18:30": {
+                "bloques": 2,
+                "detalle": "17:00–18:30: dura 90 minutos, pero ocupa 2 bloques de alquiler: 17:00–18:00, 18:00–19:00.",
+                "avisa": true
+            },
+            "17:01–18:00": {
+                "bloques": 1,
+                "detalle": "17:01–18:00: dura 59 minutos, pero ocupa 1 bloque de alquiler: 17:00–18:00.",
+                "avisa": true
+            },
+            "17:00–18:01": {
+                "bloques": 2,
+                "detalle": "17:00–18:01: dura 61 minutos, pero ocupa 2 bloques de alquiler: 17:00–18:00, 18:00–19:00.",
+                "avisa": true
+            },
+            "17:00–18:00": {
+                "bloques": 0,
+                "detalle": "Sin aviso (guarda directo)",
+                "avisa": false
+            }
+        },
+        "aprobado": true
+    },
+    "A16_paso1": {
+        "descripcion": "Tres días con tres horarios distintos (Lun 16-17, Mié 17-18, Vie 18-19) guardan correctamente con un solo serie_id",
+        "clases_creadas": 6,
+        "serie_id_unico": "1680228d-61e4-4d2a-b3dc-0183d0501c38",
+        "aprobado": true
+    },
+    "A16_paso2": {
+        "descripcion": "Validación de horas obligatorias y hora_fin posterior al inicio por cada día",
+        "errores_capturados": [
+            "horarios.5.hora_inicio",
+            "horarios.5.hora_fin"
+        ],
+        "aprobado": true
+    },
+    "A16_paso3": {
+        "descripcion": "Conflicto en el segundo día revierte la serie entera atómicamente",
+        "clases_antes": 1,
+        "clases_despues": 1,
+        "mensaje_error": "El profesor Verónica Salinas ya tiene asignada otra clase que se solapa en fecha 2026-10-16 entre 18:00 y 19:00.",
+        "aprobado": true
+    },
+    "A16_paso4": {
+        "descripcion": "Rechazo de fechas pasadas, profesor inactivo y profesor de otro deporte",
+        "aprobado": true
+    },
+    "A16_paso5": {
+        "descripcion": "Cronograma completo de 76 clases en 6 cargas ejecutado exitosamente",
+        "total_clases": 76,
+        "total_series": 6,
+        "detalle": [
+            {
+                "grupo": "Patín — Principiantes",
+                "profesor": "Gaitán, Lucía",
+                "clases_generadas": 10,
+                "serie_id": "5c0af74e-d124-44e3-9dbf-e53192e6d524"
+            },
+            {
+                "grupo": "Patín — Intermedias",
+                "profesor": "Salinas, Verónica",
+                "clases_generadas": 11,
+                "serie_id": "c214f2e0-cd2b-4679-85b7-344468901ccc"
+            },
+            {
+                "grupo": "Patín — Avanzadas",
+                "profesor": "Ocampo, Mariela",
+                "clases_generadas": 11,
+                "serie_id": "06055cb6-f86c-4ed8-9dda-df9ccf786ed9"
+            },
+            {
+                "grupo": "Patín — Federadas",
+                "profesor": "Ocampo, Mariela",
+                "clases_generadas": 17,
+                "serie_id": "cf450210-2196-4433-b320-cc7a9310bf41"
+            },
+            {
+                "grupo": "Fútbol — Principiantes",
+                "profesor": "Quintana, Hernán",
+                "clases_generadas": 10,
+                "serie_id": "b7076ffd-1780-4eb7-b4de-e7deb21a481c"
+            },
+            {
+                "grupo": "Fútbol — Avanzadas",
+                "profesor": "Quintana, Hernán",
+                "clases_generadas": 17,
+                "serie_id": "668d59fc-9e10-4dc7-a7cd-61f2c4e6bbed"
+            }
+        ],
+        "aprobado": true
+    },
+    "regresiones": {
+        "asistencia_tomada": true,
+        "edicion_exitosa": true,
+        "cancelacion_con_motivo": true,
+        "aprobado": true
+    },
+    "roles": {
+        "operativo_clases_index": 200,
+        "operativo_clases_show": 200,
+        "operativo_cancelar": 302,
+        "operativo_create": 403,
+        "operativo_edit": 403,
+        "profesor_clases_index": 200,
+        "profesor_clases_show": 200,
+        "profesor_asistencias": 302,
+        "profesor_cancelar": 403,
+        "profesor_create": 403,
+        "profesor_edit": 403,
+        "aprobado": true
+    }
+}

@@ -42,6 +42,8 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
+| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 
@@ -57,8 +59,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con capturas propias; Claude contrasta el informe antes del cierre |
-| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Gemini verifica en pantalla con capturas propias; Claude contrasta el informe antes del cierre |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
 ## Sin empezar (26)
