@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md)
 
+## 2026-10-07 — Claude CyE — PARA RETOMAR EN CASA: todo lo sin subir esta en una rama
+
+Se corto el chat de Codex con A6 a A10 a medio hacer y Carlos pidio subir todo para seguir en
+su casa. **main no se toco.** Todo lo que estaba sin subir en CyE quedo en la rama
+`en-curso/cye-2026-10-07` (commit `2f27d80`): lo de Codex (A6 a A10) y lo mio (A26, A38, A39,
+A44). El diseño no esta commiteado porque no tiene la aprobacion completa: va como dos parches
+en `docs/99-archivo/en-curso/2026-10-07/`, con un LEEME que dice como aplicarlos.
+Comprobado en una copia aparte: rama mas parches reproduce igual la carpeta de CyE.
+Gemini tenia todo subido (`c7cc6be`); su propuesta de A12/A24 espera a Carlos.
+**Error mio, para no repetir:** el primer intento de resguardo fallo porque el hook de diseño
+rechazo los commits, y el paso siguiente (`git checkout <rama> -- .`) piso con la version de
+GitHub los 20 archivos modificados de Codex y mios. Se recuperaron enteros desde los objetos
+que `git add` habia dejado en `.git`, cotejados uno por uno. En la carpeta compartida no se
+usa `checkout -- .` ni nada que reescriba el arbol; el resguardo se hizo con un indice aparte.
+**Al retomar:** Codex sigue A6-A10 desde la rama (le falta resolver las capturas: su control de
+Chrome no respondia). Lo mio espera el OK de Carlos sobre dos capturas; pasos en la entrada de abajo.
+
 ## 2026-10-07 — Claude CyE — DONDE QUEDE: A26, A38, A39 y A44 hechos y SIN SUBIR
 
 Carlos me habilito a programar estos: «Hace A38 39 y 26 / A35 y 32 / A38 A39 A26 A44».
