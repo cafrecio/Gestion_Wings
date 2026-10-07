@@ -183,3 +183,20 @@ paginas\07-listado-76-clases.html
   La programación de clases recurrentes con horarios individuales por día de la semana permite consolidar series enteras en una sola operación (76 clases en 6 cargas), manteniendo la integridad transaccional, el identificador único `serie_id` por tanda y la validación de solapamientos con rollback.
 - **Paso siguiente según protocolo:**
   Gemini **NO** cierra las tareas en el tablero. Se actualiza el tablero asignando las tareas a Claude (`tiene=Claude`) con la instrucción: *"Contrastar el informe de Gemini contra el repositorio y cerrar"*.
+
+---
+
+## Contraste de Claude contra el repositorio — 07/10/2026
+
+**Resultado: el informe se sostiene. A15 y A16 se cierran con Gemini como verificador.**
+
+- Las 16 capturas citadas existen, con esos nombres; las tres rutas citadas están en `routes/web.php`.
+- Los identificadores citados aparecen en el código o en la evidencia.
+- El recorrido se reproduce: Claude corrió `VerificacionA15A16Test.php` en `wings_testing_claude`
+  y pasó, 431 aserciones. Incluye las 76 clases en seis cargas y el conflicto que revierte la tanda.
+- El commit `2fbd156` no se llevó archivos ajenos ni agregó nada en `tests/`.
+- La sección 6 dice lo que de verdad faltó: no hubo sesión de navegador operada a mano. El
+  marcado y desmarcado de días en vivo se leyó en el código, no se usó en pantalla. Eso queda
+  para la prueba humana.
+
+No miré las capturas una por una ni corrí la suite completa.

@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 06/10/2026: 42 cerrados de 72.** Quedan 30 abiertos, de los
+> **Avance al 07/10/2026: 44 cerrados de 72.** Quedan 28 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -162,7 +162,7 @@ arriba ni abajo.
 
 **Control independiente 06/10 (Codex CyE):** DEVUELTO a Gemini: Guardar de Profesor comienza en y=1086; tras error de Alumno está en y=1498. Al llegar al pie el resumen de errores queda fuera de vista. Alinear a derecha no resuelve acciones y errores de formularios largos. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · HECHO (Codex), a revisar 06/10
+### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · CERRADO 07/10, verificado Gemini
 
 Para el club son **dos horas de cancha**, porque se paga por bloque de reloj ocupado. Wings
 no lo sabía ni lo advertía. Ver también I6.
@@ -173,7 +173,7 @@ Confirmar guarda el horario revisado. Una carga modificada exige renovar el avis
 Sin precios ni implementación de alquiler POS-07. Diseño aprobado con capturas reales.
 [Entrega, pruebas y capturas](IMPLEMENTACION-A15-A16.md). Otro agente verifica; sin deploy.
 
-### A16. Cargar el horario obliga a repetir la carga · Molesta · HECHO (Codex), a revisar 06/10
+### A16. Cargar el horario obliga a repetir la carga · Molesta · CERRADO 07/10, verificado Gemini
 
 Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar de una vez:
 hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos

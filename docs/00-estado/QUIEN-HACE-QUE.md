@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 07/10/2026. Avance: **42 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 07/10/2026. Avance: **44 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -42,8 +42,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A15** Una clase de 17:30 a 18:30 se acepta sin decir nada | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
-| **A16** Cargar el horario obliga a repetir la carga | Hecho, espera verificación (hizo Codex, verifica Gemini) | Contrastar el informe de Gemini contra el repositorio y cerrar |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 

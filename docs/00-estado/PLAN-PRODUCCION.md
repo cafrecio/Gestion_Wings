@@ -12,7 +12,7 @@ toma de los bloques D1-D6 del plan de agosto.
 
 | Area | Estado al 08/09/2026 |
 |---|---|
-| A15/A16 | HECHO (Codex), a revisar 06/10. Aviso con confirmación antes de crear; horarios por día en una carga por grupo. 76 clases/seis cargas, rollback ante conflicto. Diseño aprobado por Carlos; 18 pruebas nuevas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Verifica otro agente; sin deploy |
+| A15/A16 | CERRADOS 07/10, verificado Gemini. Aviso con confirmación antes de crear; horarios por día en una carga por grupo. 76 clases/seis cargas, rollback ante conflicto. Diseño aprobado por Carlos; 18 pruebas nuevas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Verifica otro agente; sin deploy |
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | `81f27ef`, verificado por consola el 09/09; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |

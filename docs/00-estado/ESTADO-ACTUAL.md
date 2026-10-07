@@ -1,6 +1,6 @@
 # Wings — Estado actual
  
-## A15/A16 — HECHO (Codex), a revisar — 06/10/2026
+## A15/A16 — CERRADOS 07/10/2026 (verificado por Gemini, contrastado por Claude)
 
 Carlos eligió aviso y confirmación de bloques del reloj y aprobó capturas escritorio/375.
 Crear avisa sin escribir; Confirmar permite continuar con los horarios revisados.
