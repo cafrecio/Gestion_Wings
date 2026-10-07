@@ -267,7 +267,15 @@ desktop-07-caja-cobrar-1280.png                  23645
 
 ---
 
-## 8. Dictamen Final
+## 8. No verificado
+
+- **Teclado virtual táctil en dispositivo móvil físico:** La prueba se ejecutó mediante Chrome Headless con emulación de dispositivo móvil (`mobile: true`, `touch: true`) en 375×667 px. No se probó el comportamiento del viewport dinámico ante la apertura del teclado virtual (on-screen keyboard / resize visual viewport) en un teléfono físico iOS o Android.
+- **Navegadores Safari iOS / Firefox Mobile:** La verificación se realizó exclusivamente sobre motor Chromium/Blink vía Chrome DevTools Protocol. No se probaron motores WebKit ni Gecko en celular.
+- **Edición masiva de alumnos o grupos:** Fuera del alcance declarado de A14, A27 y A53.
+
+---
+
+## 9. Dictamen Final
 
 | Defecto | Estado verificado | Dictamen Gemini | Próximo Paso |
 |---|---|---|---|
