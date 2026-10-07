@@ -19,7 +19,7 @@
 
 | Tema | Corte y alcance |
 |---|---|
-| A15/A16 | HECHO (Codex), a revisar. Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
+| A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
 | Suite | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s. Suite completa para el control de celular sobre main 6f9d214, base wings_testing_codex, 06/10. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). A15/A16/A25 siguen a revisar en el corte publicado; sin despliegue |
