@@ -81,3 +81,29 @@ texto «Cajón listo para iniciar».
 - [A dónde llega al tocar Cobrar](evidencia/verificacion-a12-a24/situacion-3-cobrar.png): «Hay un turno abierto de Marcos Peña. Debe cerrarse antes de abrir el siguiente.»
 
 [Reproductor](evidencia/verificacion-a12-a24/CapturasSituacion3Test.php). Páginas pedidas a Laravel y dibujadas con Chrome.
+
+---
+
+## Segunda vuelta de A24 — 08/10/2026: CERRADO
+
+Gemini corrigió la pantalla (`decfb8c`) con el texto que eligió Carlos. Repetí el mismo
+recorrido de ocho situaciones sobre esa versión, en `wings_testing_claude`:
+[resultado](evidencia/verificacion-a12-a24/resultado.json).
+
+| # | Situación | Qué dice ahora | Botones | Resultado |
+|---|---|---|---|---|
+| 3 | La caja la abrió un compañero hoy | «Caja abierta de Marcos Peña. Abierta hoy a las 10:00. Para atender tu turno, Marcos debe cerrar su caja.» | **Caja** → abre | Bien |
+| 6 | Un compañero la dejó abierta ayer | «Caja abierta de Marcos Peña. Abierta ayer a las 10:00. […]» | **Caja** → abre | Bien |
+| 7 | Ella dejó la suya abierta ayer | «Tu caja sigue abierta. Abierta ayer a las 10:00. Cerrá este turno para poder comenzar el día.» | **Cerrar** → abre el cierre | Bien |
+| 1, 2, 4, 4b, 5, 8 | Las demás | Igual que antes | Todos abren | Bien |
+
+En las ocho situaciones la pantalla responde y **ningún botón rebota ni es rechazado**. Si
+la operativa intenta abrir igual con una caja ajena abierta, el sistema lo sigue rechazando,
+que es lo que corresponde.
+
+Además Gemini dejó una prueba permanente, `tests/Feature/InicioOperativoTest.php`, que
+recorre los botones de la tarjeta y falla si alguno no abre. La corrí: 8 pruebas, 99
+aserciones, en verde.
+
+No verificado: el aspecto, que es de Carlos; la sesión de navegador a mano; la columna de
+clases y los enlaces de alumnos, que siguen leídos en el código y no abiertos.

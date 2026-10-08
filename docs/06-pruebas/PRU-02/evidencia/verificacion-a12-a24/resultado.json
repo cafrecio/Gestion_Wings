@@ -2,7 +2,7 @@
     "1 recién llega, nadie abrió": {
         "usuario": "Sandra Vidal",
         "pantalla_responde": 200,
-        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Cajón listo para iniciar No hay turno abierto hoy Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
         "botones": [
             {
                 "boton": "Caja",
@@ -112,7 +112,7 @@
     "3 el turno lo abrió Marcos; entra Sandra": {
         "usuario": "Sandra Vidal",
         "pantalla_responde": 200,
-        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Cajón compartido en curso Turno de Marcos Peña Abierto a las 10:00. Podés cobrar y registrar en este cajón. Cobrar Registrar Detalle",
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno en curso Caja abierta de Marcos Peña Abierta hoy a las 10:00. Para atender tu turno, Marcos debe cerrar su caja. Caja",
         "botones": [
             {
                 "boton": "Caja",
@@ -136,23 +136,9 @@
                 "aviso": null
             },
             {
-                "boton": "Cobrar",
-                "lleva_a": "/caja/cobrar",
-                "responde": 302,
-                "rebota_a": "/caja/apertura",
-                "aviso": null
-            },
-            {
-                "boton": "Registrar",
-                "lleva_a": "/caja/movimiento",
-                "responde": 302,
-                "rebota_a": "/caja/apertura",
-                "aviso": null
-            },
-            {
-                "boton": "Detalle",
-                "lleva_a": "/caja/2/detalle",
-                "responde": 403,
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
                 "rebota_a": null,
                 "aviso": null
             }
@@ -167,7 +153,7 @@
     },
     "3 Sandra intenta abrir igual": {
         "status": 302,
-        "va_a": "http://gestion-wings/caja/2/detalle",
+        "va_a": "http://gestion-wings/caja",
         "errores": [
             "Hay un turno abierto. Cerralo antes de abrir otro."
         ],
@@ -225,7 +211,7 @@
     "4b la caja de Sandra está cerrada; entra Marcos": {
         "usuario": "Marcos Peña",
         "pantalla_responde": 200,
-        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Marcos Peña Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Marcos Peña Caja Cobranza Alumnos Cajón listo para iniciar No hay turno abierto hoy Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
         "botones": [
             {
                 "boton": "Caja",
@@ -327,7 +313,7 @@
     "6 Marcos dejó el turno abierto ayer; hoy entra Sandra": {
         "usuario": "Sandra Vidal",
         "pantalla_responde": 200,
-        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno en curso Caja abierta de Marcos Peña Abierta ayer a las 10:00. Para atender tu turno, Marcos debe cerrar su caja. Caja",
         "botones": [
             {
                 "boton": "Caja",
@@ -351,8 +337,8 @@
                 "aviso": null
             },
             {
-                "boton": "Abrir",
-                "lleva_a": "/caja/apertura",
+                "boton": "Caja",
+                "lleva_a": "/caja",
                 "responde": 200,
                 "rebota_a": null,
                 "aviso": null
@@ -362,13 +348,13 @@
         "cobros": 0,
         "cajas_hoy": 0,
         "caja_propia": null,
-        "caja_del_club": null,
+        "caja_del_club": 5,
         "bloqueo_activo": false,
         "cajas_abiertas_en_la_base": 1
     },
     "6 Sandra intenta abrir": {
         "status": 302,
-        "va_a": "http://gestion-wings/caja/apertura",
+        "va_a": "http://gestion-wings/caja",
         "errores": [
             "Hay un turno abierto. Cerralo antes de abrir otro."
         ],
@@ -377,7 +363,7 @@
     "7 Sandra dejó su turno abierto ayer; entra hoy": {
         "usuario": "Sandra Vidal",
         "pantalla_responde": 200,
-        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno pendiente Tenés una caja abierta de un día anterior. Debés cerrarla antes de operar. Ver Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial.",
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno pendiente de cierre Tu caja sigue abierta Abierta ayer a las 10:00. Cerrá este turno para poder comenzar el día. Cerrar",
         "botones": [
             {
                 "boton": "Caja",
@@ -401,8 +387,8 @@
                 "aviso": null
             },
             {
-                "boton": "Ver",
-                "lleva_a": "/caja/6/resumen",
+                "boton": "Cerrar",
+                "lleva_a": "/caja/6/cerrar",
                 "responde": 200,
                 "rebota_a": null,
                 "aviso": null
@@ -411,7 +397,7 @@
         "cobrado_hoy": 0,
         "cobros": 0,
         "cajas_hoy": 0,
-        "caja_propia": null,
+        "caja_propia": 6,
         "caja_del_club": null,
         "bloqueo_activo": true,
         "cajas_abiertas_en_la_base": 1

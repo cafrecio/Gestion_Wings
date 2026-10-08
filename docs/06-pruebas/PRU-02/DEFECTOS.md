@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 59 cerrados de 72.** Quedan 13 abiertos, de los
+> **Avance al 08/10/2026: 60 cerrados de 72.** Quedan 12 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -243,7 +243,7 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 Más de la mitad de la pantalla principal del administrador es espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 
-### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · HECHO (Gemini), a revisar 08/10
+### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · CERRADO 08/10, verificado Claude
 
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay turno abierto hoy" y ofrece el botón **Abrir**, guiándola a abrir la caja del día con su cambio inicial. Si un compañero tiene una caja abierta, muestra "Caja abierta de [Nombre]" con botón **Caja**, sin botones trampa. Si dejó su caja abierta ayer, muestra "Tu caja sigue abierta" con botón **Cerrar**.
 Pruebas permanentes en `tests/Feature/InicioOperativoTest.php` (8 situaciones). [Implementación y evidencia](IMPLEMENTACION-A24-VUELTA-2.md).

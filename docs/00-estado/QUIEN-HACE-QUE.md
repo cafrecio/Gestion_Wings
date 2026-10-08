@@ -28,13 +28,15 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **59 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **60 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Revisar plan conjunto B12/A23; inicio ADMIN usara los mismos calculos que Reportes. Desarrollo no iniciado. |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
+| **B12** No hay reportes | En curso (hizo Codex) | Revisar plan conjunto B12/A23; desarrollo no iniciado. Resolver retiros, cobertura historica y puerta de prueba humana. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -44,7 +46,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar que ningún botón del inicio falle en las ocho situaciones |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desplegado d577cb7 en el sitio de prueba y base sin alumnos (08/10). Falta la prueba manual de la primera carga, que dirige Carlos |
 
@@ -56,9 +57,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (15)
+## Sin empezar (13)
 
-A23, A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11, B12.
+A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11.
 
 <!-- TABLERO:FIN -->
 
