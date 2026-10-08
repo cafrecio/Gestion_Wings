@@ -1,0 +1,403 @@
+{
+    "ADMIN": {
+        "pantalla_caja_url": "http:\/\/gestion-wings\/caja",
+        "botones_en_caja": [
+            {
+                "tipo": "link",
+                "texto": "Wings",
+                "href": "\/"
+            },
+            {
+                "tipo": "link",
+                "texto": "Dashboard",
+                "href": "http:\/\/gestion-wings\/admin\/dashboard"
+            },
+            {
+                "tipo": "link",
+                "texto": "Alumnos",
+                "href": "http:\/\/gestion-wings\/alumnos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Clases",
+                "href": "http:\/\/gestion-wings\/clases"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobranza",
+                "href": "http:\/\/gestion-wings\/cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Caja",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Movimientos",
+                "href": "http:\/\/gestion-wings\/movimientos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cashflow",
+                "href": "http:\/\/gestion-wings\/cashflow"
+            },
+            {
+                "tipo": "link",
+                "texto": "Liquidaciones",
+                "href": "http:\/\/gestion-wings\/liquidaciones"
+            },
+            {
+                "tipo": "link",
+                "texto": "Revisión",
+                "href": "http:\/\/gestion-wings\/revision-cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Deportes",
+                "href": "http:\/\/gestion-wings\/deportes"
+            },
+            {
+                "tipo": "link",
+                "texto": "Niveles",
+                "href": "http:\/\/gestion-wings\/niveles"
+            },
+            {
+                "tipo": "link",
+                "texto": "Grupos",
+                "href": "http:\/\/gestion-wings\/grupos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Profesores",
+                "href": "http:\/\/gestion-wings\/profesores"
+            },
+            {
+                "tipo": "link",
+                "texto": "Rubros",
+                "href": "http:\/\/gestion-wings\/rubros"
+            },
+            {
+                "tipo": "link",
+                "texto": "Tipos de Caja",
+                "href": "http:\/\/gestion-wings\/tipos-caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Configuración",
+                "href": "http:\/\/gestion-wings\/configuraciones"
+            },
+            {
+                "tipo": "link",
+                "texto": "Usuarios",
+                "href": "http:\/\/gestion-wings\/usuarios"
+            },
+            {
+                "tipo": "link",
+                "texto": "Limpiar",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Configurar",
+                "href": "http:\/\/gestion-wings\/caja\/configuracion"
+            },
+            {
+                "tipo": "link",
+                "texto": "Historial",
+                "href": "http:\/\/gestion-wings\/caja\/historial"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobrar",
+                "href": "http:\/\/gestion-wings\/caja\/cobrar"
+            },
+            {
+                "tipo": "link",
+                "texto": "Agregar",
+                "href": "http:\/\/gestion-wings\/caja\/1\/editar"
+            },
+            {
+                "tipo": "link",
+                "texto": "Resumen",
+                "href": "http:\/\/gestion-wings\/caja\/1\/resumen"
+            },
+            {
+                "tipo": "link",
+                "texto": "Detalle",
+                "href": "http:\/\/gestion-wings\/caja\/1\/detalle"
+            },
+            {
+                "tipo": "button",
+                "texto": "Salir",
+                "button_type": "submit"
+            },
+            {
+                "tipo": "button",
+                "texto": "Filtrar",
+                "button_type": "submit"
+            }
+        ],
+        "pantalla_historial_url": "http:\/\/gestion-wings\/caja\/historial",
+        "botones_en_historial": [
+            {
+                "tipo": "link",
+                "texto": "Wings",
+                "href": "\/"
+            },
+            {
+                "tipo": "link",
+                "texto": "Dashboard",
+                "href": "http:\/\/gestion-wings\/admin\/dashboard"
+            },
+            {
+                "tipo": "link",
+                "texto": "Alumnos",
+                "href": "http:\/\/gestion-wings\/alumnos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Clases",
+                "href": "http:\/\/gestion-wings\/clases"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobranza",
+                "href": "http:\/\/gestion-wings\/cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Caja",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Movimientos",
+                "href": "http:\/\/gestion-wings\/movimientos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cashflow",
+                "href": "http:\/\/gestion-wings\/cashflow"
+            },
+            {
+                "tipo": "link",
+                "texto": "Liquidaciones",
+                "href": "http:\/\/gestion-wings\/liquidaciones"
+            },
+            {
+                "tipo": "link",
+                "texto": "Revisión",
+                "href": "http:\/\/gestion-wings\/revision-cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Deportes",
+                "href": "http:\/\/gestion-wings\/deportes"
+            },
+            {
+                "tipo": "link",
+                "texto": "Niveles",
+                "href": "http:\/\/gestion-wings\/niveles"
+            },
+            {
+                "tipo": "link",
+                "texto": "Grupos",
+                "href": "http:\/\/gestion-wings\/grupos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Profesores",
+                "href": "http:\/\/gestion-wings\/profesores"
+            },
+            {
+                "tipo": "link",
+                "texto": "Rubros",
+                "href": "http:\/\/gestion-wings\/rubros"
+            },
+            {
+                "tipo": "link",
+                "texto": "Tipos de Caja",
+                "href": "http:\/\/gestion-wings\/tipos-caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Configuración",
+                "href": "http:\/\/gestion-wings\/configuraciones"
+            },
+            {
+                "tipo": "link",
+                "texto": "Usuarios",
+                "href": "http:\/\/gestion-wings\/usuarios"
+            },
+            {
+                "tipo": "link",
+                "texto": "Limpiar",
+                "href": "http:\/\/gestion-wings\/caja\/historial"
+            },
+            {
+                "tipo": "link",
+                "texto": "Volver",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "button",
+                "texto": "Salir",
+                "button_type": "submit"
+            },
+            {
+                "tipo": "button",
+                "texto": "Filtrar",
+                "button_type": "submit"
+            }
+        ]
+    },
+    "OPERATIVO": {
+        "pantalla_caja_url": "http:\/\/gestion-wings\/caja",
+        "botones_en_caja": [
+            {
+                "tipo": "link",
+                "texto": "Wings",
+                "href": "\/"
+            },
+            {
+                "tipo": "link",
+                "texto": "Inicio",
+                "href": "http:\/\/gestion-wings\/operativo"
+            },
+            {
+                "tipo": "link",
+                "texto": "Alumnos",
+                "href": "http:\/\/gestion-wings\/alumnos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Clases",
+                "href": "http:\/\/gestion-wings\/clases"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobranza",
+                "href": "http:\/\/gestion-wings\/cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Caja",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Movimientos",
+                "href": "http:\/\/gestion-wings\/movimientos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Revisión",
+                "href": "http:\/\/gestion-wings\/revision-cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Grupos",
+                "href": "http:\/\/gestion-wings\/grupos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Historial",
+                "href": "http:\/\/gestion-wings\/caja\/historial"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobrar",
+                "href": "http:\/\/gestion-wings\/caja\/cobrar"
+            },
+            {
+                "tipo": "link",
+                "texto": "Agregar",
+                "href": "http:\/\/gestion-wings\/caja\/1\/editar"
+            },
+            {
+                "tipo": "link",
+                "texto": "Resumen",
+                "href": "http:\/\/gestion-wings\/caja\/1\/resumen"
+            },
+            {
+                "tipo": "link",
+                "texto": "Detalle",
+                "href": "http:\/\/gestion-wings\/caja\/1\/detalle"
+            },
+            {
+                "tipo": "button",
+                "texto": "Salir",
+                "button_type": "submit"
+            }
+        ],
+        "pantalla_historial_url": "http:\/\/gestion-wings\/caja\/historial",
+        "botones_en_historial": [
+            {
+                "tipo": "link",
+                "texto": "Wings",
+                "href": "\/"
+            },
+            {
+                "tipo": "link",
+                "texto": "Inicio",
+                "href": "http:\/\/gestion-wings\/operativo"
+            },
+            {
+                "tipo": "link",
+                "texto": "Alumnos",
+                "href": "http:\/\/gestion-wings\/alumnos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Clases",
+                "href": "http:\/\/gestion-wings\/clases"
+            },
+            {
+                "tipo": "link",
+                "texto": "Cobranza",
+                "href": "http:\/\/gestion-wings\/cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Caja",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "link",
+                "texto": "Movimientos",
+                "href": "http:\/\/gestion-wings\/movimientos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Revisión",
+                "href": "http:\/\/gestion-wings\/revision-cobranza"
+            },
+            {
+                "tipo": "link",
+                "texto": "Grupos",
+                "href": "http:\/\/gestion-wings\/grupos"
+            },
+            {
+                "tipo": "link",
+                "texto": "Limpiar",
+                "href": "http:\/\/gestion-wings\/caja\/historial"
+            },
+            {
+                "tipo": "link",
+                "texto": "Volver",
+                "href": "http:\/\/gestion-wings\/caja"
+            },
+            {
+                "tipo": "button",
+                "texto": "Salir",
+                "button_type": "submit"
+            },
+            {
+                "tipo": "button",
+                "texto": "Filtrar",
+                "button_type": "submit"
+            }
+        ]
+    }
+}

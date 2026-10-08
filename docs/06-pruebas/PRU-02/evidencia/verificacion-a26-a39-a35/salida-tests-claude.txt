@@ -1,0 +1,17 @@
+PASS  Tests\Feature\DefectosMenoresA26A44Test
+✓ a26 un menor sin celular se guarda con el telefono del tutor
+✓ a26 un menor con celular propio lo conserva
+✓ a26 a un mayor se le sigue exigiendo el celular
+✓ a26 al editar un menor y vaciar el celular queda el del tutor
+✓ a44 el correo de avisos no lleva la firma de laravel
+
+PASS  Tests\Feature\MenuYMovimientosA38A39Test
+✓ a38 la paginacion habla en castellano
+✓ a39 el menu del operativo ofrece movimientos y la pantalla abre
+✓ a39 el profesor no ve movimientos en su menu
+✓ el operativo ve los movimientos de un companero pero nada de los rubros del admin
+
+Tests:    9 passed (40 assertions)
+Duration: 6.65s
+Base de datos: wings_testing_gemini
+Commit verificado: 7122210 (con trabajo de Claude 975fae3)

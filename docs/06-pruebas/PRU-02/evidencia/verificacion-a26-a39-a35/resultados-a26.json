@@ -1,0 +1,51 @@
+{
+    "caso_1": {
+        "descripcion": "Alta menor sin celular",
+        "status": 302,
+        "bd_celular": "11-4444-5555",
+        "bd_telefono_tutor": "11-4444-5555",
+        "exito": true
+    },
+    "caso_2": {
+        "descripcion": "Alta menor con celular propio",
+        "status": 302,
+        "bd_celular": "11-9999-8888",
+        "bd_telefono_tutor": "11-3333-2222",
+        "exito": true
+    },
+    "caso_3": {
+        "descripcion": "Alta mayor sin celular",
+        "status": 302,
+        "mensaje_error": "El celular es obligatorio.",
+        "exito": true
+    },
+    "caso_4": {
+        "descripcion": "Edición menor vaciando celular",
+        "status": 302,
+        "bd_celular": "11-3333-2222",
+        "exito": true
+    },
+    "caso_5_borde_hoy": {
+        "fecha": "2008-10-08",
+        "es_menor_servidor": false,
+        "celular_exigido": true,
+        "guardado": false,
+        "session_errors": []
+    },
+    "caso_5_borde_manana": {
+        "fecha": "2008-10-09",
+        "es_menor_servidor": true,
+        "celular_exigido": false,
+        "guardado": true,
+        "bd_celular": "11-7777-6666"
+    },
+    "caso_6": {
+        "descripcion": "Menor sin celular y sin tel tutor",
+        "status": 302,
+        "errores": [
+            "telefono_tutor"
+        ],
+        "mensaje_tutor": "El teléfono del tutor es obligatorio para menores de edad.",
+        "exito": true
+    }
+}

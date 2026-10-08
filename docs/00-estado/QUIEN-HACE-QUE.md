@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **56 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **59 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -56,9 +56,6 @@ Nada en este momento.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Devuelto (hizo Gemini, verifica Claude) | Las cajas son individuales (Carlos, 08/10): con el turno de un compañero no se puede cobrar. La pantalla tiene que decirlo y no ofrecer Cobrar, Registrar ni Detalle. Igual con un turno de ayer sin cerrar |
-| **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
-| **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
-| **A39** Acceso a Movimientos del OPERATIVO | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 
 ## Sin empezar (15)
 

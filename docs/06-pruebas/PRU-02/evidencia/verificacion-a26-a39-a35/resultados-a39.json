@@ -1,0 +1,39 @@
+{
+    "menu_tiene_movimientos": true,
+    "ve_sandra_propio": true,
+    "ve_marcos_companero": true,
+    "bloquea_sueldos_admin": true,
+    "bloquea_alquileres_admin": true,
+    "bloquea_reparacion_admin_en_rubro_mixto": true,
+    "total_ingresos_operativo_calculado": "15000.00",
+    "total_egresos_operativo_calculado": "7500.00",
+    "rubros_visibles_operativo": [
+        "Cobranzas",
+        "Cuotas",
+        "Gastos Mostrador",
+        "Gastos Operativos",
+        "Indumentaria",
+        "Inscripciones",
+        "Mantenimiento General",
+        "Torneos"
+    ],
+    "subrubros_visibles_operativo": [
+        "Artículos de Limpieza",
+        "Cuota Mensual",
+        "Cuotas Gimnasia",
+        "Indumentaria institucional",
+        "Inscripción al club",
+        "Inscripciones",
+        "Insumos Varios",
+        "Librería",
+        "Librería y Papelería",
+        "Limpieza",
+        "Patines",
+        "VG Indumentaria"
+    ],
+    "ataque_get_subrubro_admin_filas": 0,
+    "ataque_get_rubro_admin_filas": 0,
+    "admin_ve_total_filas": 6,
+    "admin_total_egresos": "307500.00",
+    "profesor_status": 403
+}

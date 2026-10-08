@@ -11,6 +11,25 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-08 — LOG GEM CYE — Verificación independiente de A26, A39 y A35 (Trabajo de Claude)
+
+- **Objetivo:** Verificar de forma cruzada e independiente los defectos A26 (celular de menores), A39 (acceso a Movimientos para OPERATIVO) y A35 (botón redundante Historial en Caja), resueltos por Claude en commit `975fae3`.
+- **Base y entorno:** `wings_testing_gemini` exclusivamente. Commit base: `7122210`. Sin tocar código de aplicación, vistas ni CSS.
+- **Verificación A26 (Celular de menores):**
+  - Comprobado en base de datos: menor sin celular hereda teléfono del tutor en alta y edición; menor con celular propio lo conserva; mayor sin celular es rechazado con mensaje de validación; bordes exactos verificados (cumple 18 hoy exige celular, cumple 18 mañana lo permite vacío); menor sin celular ni tutor rechaza por tutor sin dar error 500.
+  - Comprobado en vivo en navegador con Chrome Headless vía CDP: al ingresar fecha de menor en `/alumnos/create`, `#celular-obligatorio` se oculta dinámicamente (`hidden = true`); al cambiar a fecha de mayor, vuelve a mostrarse (`hidden = false`); checkbox "Mismo que el teléfono del tutor" sincroniza en tiempo real.
+- **Verificación A39 (Operativo y Movimientos):**
+  - Pantalla `/movimientos` abre para OPERATIVO (Sandra) y el ítem existe en el menú bajo "Plata".
+  - Sandra ve su propio movimiento y el de su compañero de mostrador (Marcos); los movimientos y rubros del ADMIN (Sueldos, Alquileres) no se muestran en tabla ni en dropdowns de filtro, y sus importes no se suman en los totales de ingresos, egresos ni neto.
+  - Ataque por GET directo (`?rubro_id=...` o `?subrubro_id=...`) neutralizado; rol PROFESOR da 403 y no tiene ítem en menú.
+- **Verificación A35 (Botón redundante Historial en Caja):**
+  - Auditados todos los botones y enlaces de `/caja` y `/caja/historial` para ADMIN y OPERATIVO.
+  - Confirmado **NO-DEFECTO**: la captura original correspondía a `/caja` (donde el botón Historial va a `/caja/historial`). En `/caja/historial` el botón de retorno se llama "Volver" y va a `/caja`. Ningún botón es autorreferencial.
+- **Evidencia y cierre:**
+  - Informe detallado: `docs/06-pruebas/PRU-02/VERIFICACION-A26-A39-A35.md`.
+  - Capturas y volcados en `docs/06-pruebas/PRU-02/evidencia/verificacion-a26-a39-a35/`.
+  - Tablero: `A26`, `A39` y `A35` cerrados (58 de 72 cerrados). Actualizados `DEFECTOS.md` y `DEFECTOS.html`.
+
 ## 2026-10-08 — LOG GEM CYE — Implementación de A12 y A24 (Inicio del operativo: Opción 2 Variante B)
 
 - **Objetivo:** Implementar la solución definitiva para A12 (organización del mostrador) y A24 (apertura obligatoria y cajón compartido) sobre `resources/views/operativo/dashboard.blade.php` y `OperativoDashboardController.php`, conforme a la Opción 2 Variante B elegida y autorizada por Carlos.

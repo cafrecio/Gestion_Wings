@@ -1,0 +1,69 @@
+{
+  "a26_inicial": {
+    "marcaExiste": true,
+    "marcaHidden": false,
+    "marcaOffsetParent": true,
+    "fechaVal": ""
+  },
+  "a26_menor": {
+    "fechaVal": "2016-05-10",
+    "marcaHidden": true,
+    "marcaDisplay": "none"
+  },
+  "a26_mayor": {
+    "fechaVal": "2001-05-10",
+    "marcaHidden": false,
+    "marcaDisplay": "block"
+  },
+  "a26_tilde_tutor": {
+    "telTutor": "11-8888-9999",
+    "celularSincronizado": "11-8888-9999",
+    "coinciden": true
+  },
+  "a39_sandra": {
+    "statsInfo": "3 movimientos  ·  Ingresos $15.000  ·  Egresos $10.500  ·  Neto $4.500",
+    "filas": [
+      [
+        "08/10/2026",
+        "I",
+        "EFT",
+        "Cobranzas — Cuotas Gimnasia",
+        "Cobro Cuota Alumno Prueba por Sandra",
+        "$15.000",
+        "08/10/2026"
+      ],
+      [
+        "08/10/2026",
+        "E",
+        "EFT",
+        "Gastos Mostrador — Librería y Papelería",
+        "Compra Artículos Mostrador por Marc…",
+        "$7.500",
+        "08/10/2026"
+      ],
+      [
+        "08/10/2026",
+        "E",
+        "EFT",
+        "Mantenimiento General — Pintura y Arreglos Menores",
+        "Compra Pintura Puerta por Sandra",
+        "$3.000",
+        "08/10/2026"
+      ]
+    ],
+    "tarjetasTotales": [],
+    "opcionesRubros": [
+      "Rubro",
+      "Cobranzas",
+      "Cuotas",
+      "Gastos Mostrador",
+      "Gastos Operativos",
+      "Indumentaria",
+      "Inscripciones",
+      "Mantenimiento General",
+      "Torneos"
+    ],
+    "opcionesSubrubros": [],
+    "menuMovimientosTexto": "Movimientos"
+  }
+}

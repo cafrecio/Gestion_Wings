@@ -7,12 +7,12 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 56 cerrados de 72.** Quedan 16 abiertos, de los
+> **Avance al 08/10/2026: 59 cerrados de 72.** Quedan 13 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 >
-> A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: HECHO (Claude), a revisar — lo que se ve lo aprobó Carlos; falta que otro agente verifique la regla (celular del tutor en menores; el operativo no ve rubros del admin). A35: revisado, no es un defecto; a confirmar. [Entrega](IMPLEMENTACION-A26-A38-A39-A44.md).
+> A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: **CERRADOS 08/10, verificado Gemini** en base de datos y navegador interactivo real. A35: **CERRADO 08/10, verificado Gemini** (auditadas `/caja` y `/caja/historial`, confirmado no-defecto por captura original mal rotulada). [Informe de verificación](VERIFICACION-A26-A39-A35.md). [Entrega previa de Claude](IMPLEMENTACION-A26-A38-A39-A44.md).
 >
 > A12: **CERRADO 08/10, verificado Claude**; el aspecto lo aprobó Carlos. A24: **DEVUELTO a Gemini**: con el turno abierto por un compañero la pantalla dice «podés cobrar» y los tres botones fallan; con un turno de ayer sin cerrar ofrece Abrir y el sistema lo rechaza. [Verificación](VERIFICACION-A12-A24.md).
 
@@ -265,10 +265,12 @@ herencia confirmada/motivo, conteo/diferencia, retenido/entrega y conservación 
 26 pruebas permanentes (142 aserciones) pasando; capturas reales en marco 375 y desktop aprobadas por Carlos. [Entrega y capturas](IMPLEMENTACION-A25.md).
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
 
-### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · HECHO (Claude), a revisar 08/10
+### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · CERRADO 08/10, verificado Gemini
 
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
-Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
+Captura original: `evidencia/audit_admin_alumnos_create_desktop.png`.
+
+**Verificado por Gemini el 08/10:** CERRADO. Verificado en base de datos `wings_testing_gemini` y con navegador Chrome Headless vía CDP interactivo. Menor sin celular hereda teléfono de tutor en alta y edición; mayor sin celular es rechazado; bordes exactos verificados (cumple 18 hoy exige celular, cumple 18 mañana permite celular vacío); menor sin celular ni tutor rechaza por tutor sin error 500; asterisco rojo desaparece/aparece en vivo al cambiar la fecha de nacimiento en el DOM y tilde sincroniza. [Informe de verificación](VERIFICACION-A26-A39-A35.md). Capturas: `evidencia/verificacion-a26-a39-a35/a26-asterisco-menor.png` y `a26-asterisco-mayor.png`.
 
 ### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · CERRADO 07/10, verificado Gemini
 
@@ -337,10 +339,12 @@ Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
 **Resuelto en Entrega 2 de P2 (05/10):**
 En `resources/views/alumnos/show.blade.php`, la sección «Historial de pagos» expone el listado cronológico de cobros con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el comprobante oficial en PDF generado por `ReciboService` / DomPDF (con opciones nativas de impresión y descarga). Los pagos anulados se indican explícitamente con badge «Anulado», importe tachado y sello de anulación en el PDF. Se amplió el límite en `AlumnoWebController::show()` de 8 a 12 pagos para brindar un año completo de historial. Cubierto en `CobroReciboAccesoTest` y `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · HECHO (Claude), a revisar 08/10
+### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · CERRADO 08/10, verificado Gemini
 
 En `/caja/historial`, la cabecera incluye un botón **Historial** que enlaza a la misma pantalla en la que el usuario ya está navegando.
-Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
+Captura original: `evidencia/audit_admin_cajas_historial_mobile.png`.
+
+**Verificado por Gemini el 08/10:** CERRADO (Confirmado NO-DEFECTO). Se auditaron exhaustivamente todos los botones y enlaces en `/caja` y `/caja/historial` para roles ADMIN y OPERATIVO. La captura original correspondía a la pantalla principal `/caja` (cuyo botón Historial navega a `/caja/historial`). En `/caja/historial` el botón de retorno se denomina "Volver" y navega a `/caja`. No existe ningún botón autorreferencial ni redundante. [Informe de verificación](VERIFICACION-A26-A39-A35.md). Inventario completo en `evidencia/verificacion-a26-a39-a35/resultados-a35.json`.
 
 ---
 
@@ -380,9 +384,11 @@ incluidos (`Cobrar`, `Editar`, `Recibo`, `Anular`).
 
 esperaba indicaciones en español como el resto de la pantalla; al pie aparece “Showing 1 to 20 of 76 results”. Captura.
 
-### A39. Acceso a Movimientos del OPERATIVO · Falta · HECHO (Claude), a revisar 08/10
+### A39. Acceso a Movimientos del OPERATIVO · Falta · CERRADO 08/10, verificado Gemini
 
 esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. Captura.
+
+**Verificado por Gemini el 08/10:** CERRADO. Verificado en base de datos `wings_testing_gemini` y con navegador Chrome Headless vía CDP interactivo. El menú lateral ofrece "Movimientos" bajo el grupo "Plata" tanto para ADMIN como OPERATIVO; PROFESOR recibe 403 y no lo ve en menú. Sandra ve su movimiento y el de su compañero de mostrador; no ve filas ni importes de rubros reservados a Admin (sueldos, alquileres); totales de ingresos, egresos y neto calculados exactamente sin incluir datos de admin; filtros excluyen rubros y subrubros de admin; ataques por GET directo con IDs de rubros/subrubros de admin devuelven cero filas y totales en cero; rubros mixtos exponen exclusivamente los subrubros y movimientos operativos. [Informe de verificación](VERIFICACION-A26-A39-A35.md). Captura: `evidencia/verificacion-a26-a39-a35/a39-sandra-movimientos.png`.
 
 ### A40. Inicio de ADMIN en celular · Molesta · CERRADO 06/10, verificado Codex
 
