@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 55 cerrados de 72.** Quedan 17 abiertos, de los
+> **Avance al 08/10/2026: 56 cerrados de 72.** Quedan 16 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -310,9 +310,9 @@ Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados
 [Implementación, pruebas y capturas](IMPLEMENTACION-PERMISOS.md).
 **Verificación independiente por Gemini (05/10):** Aprobada en código y navegador real en escritorio y celular (375 px). Se recorrieron manualmente las rutas con los tres roles (`sandra.vidal@wings.test`, `lucia.gaitan@wings.test` y `admin@wings.test`). Operativo recibe 403 en `/cashflow`, `/liquidaciones`, `/configuraciones`, `/usuarios` y `/admin/dashboard`, y el botón Volver regresa a `/operativo` con la sesión activa; `/admin` y `/caja/validaciones` devuelven 404 sin exponer datos. Profesor recibe 403 en las de administración y en `/alumnos`, `/caja`, `/grupos`, con Volver a `/clases` conservando su sesión. Admin común intentando editar cuenta protegida recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Suite completa verde en `wings_testing_gemini` (380 pruebas / 2242 aserciones). [Informe de verificación y evidencia](VERIFICACION-A43-PERMISOS.md). Defectos A29, A30 y A31 CERRADOS.
 
-### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · verificado
+### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · CERRADO 08/10, verificado Carlos
 
-Comprobación actual 08/10, Codex CyE: la cuenta propia tiene checked=true y disabled=true; etiqueta Activo visible, opacidad 0,45. Parece apagada por atenuación. El controlador impide desactivarse a sí mismo. Propuesta: Activo, Tu cuenta y candado; demás interruptores originales. En celular Editar coincide con Nuevo; escritorio conservado. Nueve capturas reales, originales intactos; falta elección de Carlos, no aplicado. [ANTES/propuesta](evidencia/a6-a10/visor-a32.html), [detalle y controles](PROPUESTA-A32.md).
+Carlos aprobó «A-32 OK». Aplicado Activo, Tu cuenta y candado a la cuenta propia; otras cuentas conservan interruptor. Solo celular Editar/Nuevo coinciden x=224–320; escritorio conservado. Cinco capturas reales posteriores, idénticas a la propuesta aprobada. Suite 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; build 43,32 s. Vista local únicamente; CSS, toggle compartido y controlador intactos. CERRADO, verifica Carlos; sin despliegue. [Entrega y capturas](IMPLEMENTACION-A32.md).
 
 ### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · CERRADO 06/10, verificado Codex
 

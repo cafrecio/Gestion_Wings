@@ -1,12 +1,12 @@
 # Wings — Estado actual
 
-## A32 — Propuesta 08/10/2026, Codex CyE
+## A32 — CERRADO 08/10/2026, verifica Carlos
 
-Comprobación actual 08/10, Codex CyE: la cuenta propia tiene checked=true y disabled=true; etiqueta Activo visible, opacidad 0,45. Parece apagada por atenuación. El controlador impide desactivarse a sí mismo. Propuesta: Activo, Tu cuenta y candado; demás interruptores originales. En celular Editar coincide con Nuevo; escritorio conservado. Nueve capturas reales, originales intactos; falta elección de Carlos, no aplicado. [Visor](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a32.html). Base ficticia wings_testing_codex, login de calibración; no se modifica la cuenta real ni permisos.
+Carlos aprobó «A-32 OK». Aplicado Activo, Tu cuenta y candado a la cuenta propia; otras cuentas conservan interruptor. Solo celular Editar/Nuevo coinciden x=224–320; escritorio conservado. Cinco capturas reales posteriores, idénticas a la propuesta aprobada. Suite 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; build 43,32 s. Vista local únicamente; CSS, toggle compartido y controlador intactos. CERRADO, verifica Carlos; sin despliegue. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md).
 
 ## A6–A10 — CERRADOS 08/10/2026
 
-A6–A9 verifica Carlos; A10 verifica Claude en segunda revisión, con 432 combinaciones/442 pedidos, 19 pruebas propias del corte final y 45 comprobaciones de navegador sin fallos. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; build 38,28 s y capturas finales renovadas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md), [verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 continúa como propuesta, pendiente de Carlos. Sin despliegue.
+A6–A9 verifica Carlos; A10 verifica Claude en segunda revisión, con 432 combinaciones/442 pedidos, 19 pruebas propias del corte final y 45 comprobaciones de navegador sin fallos. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; build 38,28 s y capturas finales renovadas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md), [verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 cerrado por Carlos en entrega separada. Sin despliegue.
 
 ## Antecedentes A6–A10, antes del cierre (07/08 de octubre)
 
@@ -328,7 +328,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **510 pruebas**: 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; suite final Codex CyE 08/10 posterior a corregir Limpiar. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **510 pruebas**: 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; suite final A32 Codex CyE 08/10. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

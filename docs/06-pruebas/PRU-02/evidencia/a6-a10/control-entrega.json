@@ -1,9 +1,9 @@
 {
-  "fecha": "2026-10-08T14:31:55.874Z",
+  "fecha": "2026-10-08T14:45:22.899Z",
   "huellasA10Vigentes": true,
   "capturasFinalesComprobadas": 65,
-  "visores": 18,
-  "enlacesLocales": 338,
+  "visores": 19,
+  "enlacesLocales": 351,
   "suite": {
     "aprobadas": 508,
     "omitidas": 2,
@@ -17,5 +17,5 @@
     "A9"
   ],
   "a10": "cerrado",
-  "a32": "en_curso"
+  "a32": "cerrado"
 }

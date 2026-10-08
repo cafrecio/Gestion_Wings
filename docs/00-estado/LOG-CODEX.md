@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-08 — Codex CyE — A32 aprobado y aplicado
+
+Carlos aprobó «A-32 OK» en el visor; aplicado exactamente el Blade de la propuesta.
+Cuenta propia Activo/Tu cuenta/candado; otras cuentas conservan toggle, celular Editar/Nuevo x=224–320.
+Cinco capturas posteriores de Laravel real idénticas a propuesta; escritorio conservado y marco 375 sin desborde.
+SHA256 confirma CSS, toggle compartido y controlador intactos; vista aplicada idéntica por bytes.
+Suite completa 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; build 43,32 s; sintaxis/Blade correctos.
+Escenario ficticio 4/15 verde, 7,48 s; solo wings_testing_codex, ninguna cuenta real modificada.
+Tablero A32 cerrado, verifica Carlos (§6a); 56/72. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md).
+Laboratorio detenido; sin despliegue. A6–A10 y A32 entregados, sin pendientes de este paquete.
+Décima entrada retirada únicamente tras comprobar archivo íntegro del corte A10.
+
 ## 2026-10-08 — Codex CyE — A10 cerrado tras revisión y corrección de Limpiar
 
 Claude ejecutó revisión real: devolvió Limpiar por doble escape; resto contrastado con 432 combinaciones/442 pedidos.
@@ -109,17 +121,6 @@ Contradicción con el pase: botones A7 siguen a izquierda en celular; asentada e
 Build correcto 1m 3s; escenario propio 4/15 verde, 52,24 s; solo wings_testing_codex.
 [Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-retoma.html); sin suite completa, publicación ni cierre.
 Siguiente: resolver diferencia A7 según §6b; después capturas A8/A9/A10 y propuesta restante A10.
-
-## 2026-10-07 — Codex CyE — A8 A elegida; correcciones de la revisión de Carlos
-
-Carlos eligió «A8 Opcion A»; punto con estado aplicado, distintivo coloreado de Profesores intacto.
-Rechazó capturas móviles sin acciones y escritorio Profesores; quedan como antecedente, no entrega.
-Acciones/interruptor a derecha en celular en Alumnos/Grupos/Profesores; tamaños/funciones conservados.
-Cashflow muestra año/mes, no caja diaria: período explícito; movimiento recibe siete íconos existentes.
-Diez respuestas HTTP 200; seis vistas con sintaxis correcta, Blade correcto, build 10,22 s.
-[Decisiones y alcance](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md); HTTP no certifica aspecto final.
-Chrome sigue sin control; capturas completas y propuesta restante A10 pendientes. Sin publicación/cierre.
-Siguiente: renovar imágenes, elegir resto A10, suite completa y entrega para otro verificador.
 
 
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).

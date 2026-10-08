@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 510 pruebas: 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; A10 cerrado, verifica Claude
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 510 pruebas: 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; A32 cerrado, verifica Carlos; A10 cerrado, verifica Claude
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

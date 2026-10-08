@@ -4,6 +4,13 @@
 @section('module-title', 'Usuarios')
 
 @section('content')
+<style>
+ .usuarios-cuenta-propia { display:inline-flex; align-items:center; gap:10px; min-height:32px; }
+ @media(max-width:639px) {
+  .alumno-actions.usuarios-actions { display:grid; grid-template-columns:96px; justify-content:end; padding-right:calc(.5rem - 1px); }
+  .usuarios-actions > .ds-toggle, .usuarios-actions > .usuarios-cuenta-propia { justify-self:end; }
+ }
+</style>
 
 @php
     $btnB = 'display:inline-flex; align-items:center; justify-content:center;'
@@ -84,9 +91,20 @@
         @endif
     </div>
 
-    <div class="alumno-actions">
+    <div class="alumno-actions usuarios-actions">
         <a href="{{ route('web.usuarios.edit', $usuario->id) }}" style="{{ $btnBSec }}">Editar</a>
 
+        @if($esSelf)
+            <span class="usuarios-cuenta-propia" title="No podés desactivar tu propia cuenta.">
+                <span style="display:flex; flex-direction:column; align-items:flex-end; line-height:1.2;">
+                    <strong style="color:var(--color-text); font-size:0.875rem;">{{ $activo ? 'Activo' : 'Inactivo' }}</strong>
+                    <span style="color:var(--color-text-muted); font-size:0.7rem;">Tu cuenta</span>
+                </span>
+                <svg aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-text-muted);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11V7a5 5 0 0110 0v4M6 11h12a1 1 0 011 1v8a1 1 0 01-1 1H6a1 1 0 01-1-1v-8a1 1 0 011-1z" />
+                </svg>
+            </span>
+        @else
         <x-ds.toggle
             labelOn="Activo"
             labelOff="Inactivo"
@@ -94,6 +112,7 @@
             :disabled="$esSelf"
             data-url="{{ route('web.usuarios.toggle-activo', $usuario->id) }}"
         />
+        @endif
     </div>
 
 </div>
@@ -117,4 +136,3 @@
 @endif
 
 @endsection
-

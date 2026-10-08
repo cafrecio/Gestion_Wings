@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Cierre A6–A10: 08/10/2026, Codex CyE; aspecto aprobado por Carlos y lógica A10 verificada por Claude. A32 espera elección visual. Los cortes históricos conservan su fecha.
+> Cierre A6–A10: 08/10/2026, Codex CyE; aspecto aprobado por Carlos y lógica A10 verificada por Claude. A32 cerrado, aprobado por Carlos. Los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -17,7 +17,7 @@
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 
-A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica lógica A10 en segunda revisión. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508/2, 4077 aserciones, 423,14 s; 510 pruebas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md) · [Verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 espera elección de Carlos, no aplicado. Sin despliegue.
+A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica lógica A10 en segunda revisión. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508/2, 4077 aserciones, 423,14 s; 510 pruebas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md) · [Verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 aprobado y aplicado; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md). Sin despliegue.
 
 | Tema | Corte y alcance |
 |---|---|
@@ -37,39 +37,31 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **A6–A10, CERRADOS 08/10:** aspecto verifica Carlos; lógica A10 verifica Claude con 432 combinaciones/442 pedidos y 45 comprobaciones de navegador sin fallos. Regresión nueva de Limpiar, diez A10/110 aserciones; suite completa 508/2, 4077 aserciones, 423,14 s; build 38,28 s. Capturas finales renovadas; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md). A32 separado, espera elección de Carlos. Sin despliegue.
-
+- **A6–A10, CERRADOS 08/10:** aspecto verifica Carlos; lógica A10 verifica Claude con 432 combinaciones/442 pedidos y 45 comprobaciones de navegador sin fallos. Regresión nueva de Limpiar, diez A10/110 aserciones; suite completa 508/2, 4077 aserciones, 423,14 s; build 38,28 s. Capturas finales renovadas; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md). A32 cerrado por Carlos, entrega separada. Sin despliegue.
 - **A14/A27/A53, CERRADOS 07/10 (verificado Gemini, contrastado Claude; [informe](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md)):** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
-
 - **Celular, control independiente Codex CyE 06/10:** A20, A28, A33, A36, A40 y A41: CERRADOS, verificado Codex CyE 06/10. A14, A27 y A53: DEVUELTOS a Gemini; T1 también devuelto por cobertura incompleta y recortes. 84 capturas propias y 102 originales revisadas; roles ADMIN/OPERATIVO/PROFESOR, 20 alumnos, nombres largos y tarifas millonarias. [Informe](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Corte versionado 41/72; sin despliegue. Gemini incluyó esta entrega en d91a840 junto con A25; Claude reabrió A25 en abda923. Se conservan los dictámenes de celular y A25 sigue a revisar.
-
 - **A13/B1/A55 CERRADOS por Codex CyE, 06/10:** rama integrada entera en main `6d3f68a`; texto aprobado y capturas reales renovadas. Historial, contraasientos, inscripción única y separación ADMIN/cajón de A25 comprobados por HTTP, navegador y filas. A48/A49 CERRADOS, verificado Claude; búsqueda repetida sobre main coincide. **41/72 cerrados, 31 abiertos, 0 frenan.** [Informe](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
-
 - **A4/A5 entregados por Codex CAB el 05/10:** aviso superior, conservación y salida; profesores activos del deporte. Gemini registró control y cierre independiente el 06/10 en 94e368e. [Informe](../06-pruebas/PRU-02/VERIFICACION-A4-A5.md). Sin despliegue.
   Retoque pedido después sobre el motivo de ingreso: alineado dentro de la grilla y con ícono existente, sin CSS; capturas nuevas listas, Carlos aprobó las capturas con ícono el 05/10; autorizado el commit/push.
   Primer control: A54 cerrado y A13/B1/A55 devueltos; [antecedente](../06-pruebas/PRU-02/VERIFICACION-A13-A54.md).
   Segundo control sobre main integrado: A13/B1/A55 CERRADOS por Codex; A48/A49 asentados verificado Claude.
   Corte versionado: 41/72 y ningún defecto que frene. A53 fue DEVUELTO a Gemini por Codex CyE 06/10.
-
 - **A25, CERRADO 06/10 (verificado por Gemini, contrastado por Claude):** apertura confirmada, cajón compartido y arqueo;
   [Contrato V5, 06/10/2026.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md): respuestas de Carlos consolidadas para los tres agentes. Rechazadas conservan
   lo contado/entregado, sin cambiar el turno siguiente. Diseño aprobado en capturas reales.
   26 pruebas permanentes (142 aserciones) pasando en suite compartida; sin CSS ni base real tocados.
   [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A25.md). No desplegado.
-
 - **A43 y A29/A30/A31 verificados y cerrados por Gemini el 05/10:** autorización literal de Carlos y «A43 solo la cuota».
   Ingreso cerrado elige cuota corriente completa o sin cuota; inscripción independiente.
   Acceso restringido usa aviso común y Volver al inicio del rol sin exponer datos ni redirigir al login.
   Código, navegador normal/375 px y base de datos comprobados; suite 380/2242 verde.
   [Informe de verificación](../06-pruebas/PRU-02/VERIFICACION-A43-PERMISOS.md). Sin despliegue.
-
 - **P2 Entrega 2 implementada por Gemini el 05/10 (A17, A34, A3):**
   Ficha del alumno con botón principal Cobrar y botón de fila en cuotas pendientes hacia `/caja/cobrar/{id}`;
   historial con enlace directo a Recibo (PDF con descarga e impresión); cobro adelantado de períodos futuros
   al precio vigente del plan con badge «Adelantado», omitido sin duplicar por `cobranza:generar-deudas` el día 1;
   búsqueda en caja para cualquier alumno activo. 8 pruebas / 40 aserciones verdes en `wings_testing_gemini`.
   Pendiente de control cruzado (§6a). Sin despliegue.
-
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
   corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
   Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron

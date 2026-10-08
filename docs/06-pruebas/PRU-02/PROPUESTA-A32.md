@@ -1,8 +1,8 @@
 # A32 — Estado de tu propia cuenta
 
-08/10/2026 · Codex CyE. **Propuesta para Carlos, todavía no aplicada.**
+08/10/2026 · Codex CyE. **Antecedente aprobado por Carlos: «A-32 OK». Aplicado y cerrado.** [Entrega y capturas posteriores](IMPLEMENTACION-A32.md).
 
-## Comprobado ahora
+## Comprobado antes de aplicar
 
 `usuarios/index.blade.php` pasa `checked=true` y `disabled=true` a la cuenta propia activa. La pantalla real muestra la etiqueta Activo y el botón a derecha, pero todo el control tiene opacidad 0,45 por `.ds-toggle--disabled`: esa atenuación provoca la apariencia apagada. No está desmarcado.
 
@@ -20,6 +20,6 @@ La variante deriva del Blade original y es renderizada por el controlador real e
 
 Sintaxis PHP/Blade y scripts correctos; controles documentales y enlaces comprobados. Sin build ni suite funcional por ser una propuesta documental. Servidor del laboratorio detenido al entregar.
 
-## Pendiente
+## Aprobación y entrega
 
-Carlos elige viendo las imágenes, conforme AGENTS §1. Tablero A32 en curso, tiene Carlos. Si aprueba, aplicar exclusivamente el cambio local en `usuarios/index.blade.php`, guardar capturas posteriores y ejecutar los controles de código requeridos. No tocar el componente compartido ni los permisos. Sin publicación/despliegue.
+Carlos aprobó las imágenes: «A-32 OK». Variante aplicada exclusivamente en `usuarios/index.blade.php`, capturas finales y suite completa verdes. Tablero cerrado, verifica Carlos (§6a). El ensayo de nueve capturas y sus huellas anteriores se conservan como antecedente; el [control posterior](evidencia/a6-a10/control-a32-aplicado.json) certifica lo aplicado. Sin despliegue.
