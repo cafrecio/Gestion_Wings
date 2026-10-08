@@ -4,6 +4,11 @@
 @section('module-title', 'Inicio')
 
 @section('content')
+@php
+    // El aviso de turno pendiente viene dentro de $estado. Al rehacer la pantalla (A12/A24)
+    // se perdió esta línea y el inicio del operativo daba error 500.
+    $bloqueo = $estado['bloqueo'];
+@endphp
 <div class="container mx-auto px-4 py-4" style="max-width:1100px;">
 
     {{-- Encabezado unificado --}}
