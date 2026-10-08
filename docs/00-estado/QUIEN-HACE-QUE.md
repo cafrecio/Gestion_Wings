@@ -34,11 +34,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T8** Definir si dos operativos pueden cobrar a la vez en el mismo turno | Sin empezar | Hoy solo cobra quien abrio el turno, como dice el contrato de caja. Si en el club atienden dos a la vez, hay que revisarlo |
+| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A10** El botón "Nuevo" del cashflow | Hecho, espera verificación (hizo Codex) | Aspecto aprobado por Carlos; otro agente verifica intervalos, validaciones y resultado. Suite 507/2 verde, 24 capturas finales. Sin deploy |
 
 ## Claude
 
@@ -55,17 +57,15 @@ Nada.
 | **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | Aspecto final aprobado por Carlos 08/10; completar A8-A10, entrega conjunta y verificacion independiente |
 | **A8** Puntos grises que no dicen nada | En curso | Resultado visual aprobado por Carlos 08/10: A-8 APROBADO; completar paquete A6-A10 y entregar para verificacion independiente |
 | **A9** El interruptor "Activo" en las tarjetas | En curso | Carlos confirmo expresamente APROBADO A-9; alineacion con Nuevo medida; completar A10 y entrega para verificacion independiente |
-| **A10** El botón "Nuevo" del cashflow | En curso | Propuesta A10 completa 08/10: 28 capturas reales de Cashflow/Nuevo movimiento; Carlos elige; despues aplicar y entregar para verificacion independiente |
 | **A32** El interruptor de usuario muestra apagado al usuario activo | En curso | Codex propone como mostrar el interruptor del propio usuario, junto con A9, y Carlos elige |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Devuelto (hizo Gemini, verifica Claude) | Con el turno de un compañero la pantalla dice que puede cobrar y los tres botones fallan; con un turno de ayer ofrece Abrir y se rechaza. Carlos define el texto |
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Devuelto (hizo Gemini, verifica Claude) | Las cajas son individuales (Carlos, 08/10): con el turno de un compañero no se puede cobrar. La pantalla tiene que decirlo y no ofrecer Cobrar, Registrar ni Detalle. Igual con un turno de ayer sin cerrar |
 | **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 | **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
-| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 | **A39** Acceso a Movimientos del OPERATIVO | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 
 ## Sin empezar (15)
