@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-08 — Codex CyE — A32 nombres y rol aprobados
+
+Carlos pidió título de persona y rol alineado; aprobó nuevas capturas: «Ok, APROBADO A32».
+Profesor usa Apellido, Nombre vinculado; eliminado dato repetido, Email/Rol uniformes en cuatro tarjetas.
+Pedro/Sandra/Victoria son nombres ficticios de la base Codex; ninguna cuenta real renombrada.
+Seis capturas reales: escritorio/375, propia/profesor/operativo/inactivo/login; rol alineado y Editar/Nuevo x=224–320.
+Controlador, CSS y toggle compartido intactos por SHA256; sintaxis y Blade correctos.
+Corrida completa: 506 verdes/2 omitidas, 2 fallos documentales durante edición simultánea A26/A35.
+Documentos sincronizados sin revertir al otro agente; repetición 4/19 verde, 0,31 s. Salida anterior conservada.
+Tablero A32 cerrado, verifica Carlos; [entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md). Sin despliegue.
+Laboratorio detenido; entrada antigua retirada tras validar copia íntegra del corte A10.
+
 ## 2026-10-08 — Codex CyE — A32 aprobado y aplicado
 
 Carlos aprobó «A-32 OK» en el visor; aplicado exactamente el Blade de la propuesta.
@@ -110,17 +122,6 @@ Build 26,41 s y Blade correctos; suite propia 496 aprobadas/2 omitidas/1 falla, 
 Única falla: contador documental declara 491 y hay 499; ya anotado en el pase de Claude.
 [Antes/después y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-derecha.html); solo wings_testing_codex.
 A7 sigue en curso con el paquete; no commit/push, autocierre ni deploy. Siguiente: capturas A8/A9/A10.
-
-## 2026-10-08 — Codex CyE — Retoma A6–A10; A7 capturada, alineación pendiente
-
-Carlos pidió leer la bitácora del chat roto; tarea identificada A6–A10, cambios locales conservados.
-Elecciones A6 solo texto, A7 B y A8 A intactas; no se modificó aplicación.
-Control CUA falló; Chrome/CDP sobre laboratorio HTTP real permitió 12 imágenes A7 nuevas.
-ADMIN/OPERATIVO escritorio/375, nombre largo, login control; pie con controles completo.
-Contradicción con el pase: botones A7 siguen a izquierda en celular; asentada en ESTADO-ACTUAL.
-Build correcto 1m 3s; escenario propio 4/15 verde, 52,24 s; solo wings_testing_codex.
-[Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-retoma.html); sin suite completa, publicación ni cierre.
-Siguiente: resolver diferencia A7 según §6b; después capturas A8/A9/A10 y propuesta restante A10.
 
 
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).

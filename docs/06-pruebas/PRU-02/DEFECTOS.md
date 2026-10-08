@@ -312,7 +312,7 @@ Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados
 
 ### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · CERRADO 08/10, verificado Carlos
 
-Carlos aprobó «A-32 OK». Aplicado Activo, Tu cuenta y candado a la cuenta propia; otras cuentas conservan interruptor. Solo celular Editar/Nuevo coinciden x=224–320; escritorio conservado. Cinco capturas reales posteriores, idénticas a la propuesta aprobada. Suite 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; build 43,32 s. Vista local únicamente; CSS, toggle compartido y controlador intactos. CERRADO, verifica Carlos; sin despliegue. [Entrega y capturas](IMPLEMENTACION-A32.md).
+Carlos aprobó el retoque: «Ok, APROBADO A32». Nombre de la persona en el título; Profesor toma Apellido, Nombre de su ficha vinculada y no repite ese dato abajo. Todas las tarjetas muestran Email y Rol en columnas consistentes. Pedro/Sandra/Victoria son nombres ficticios del ensayo. Se conservan Activo/Tu cuenta/candado y Editar/Nuevo x=224–320 en celular. Seis capturas reales y medidas correctas; controlador, CSS y toggle compartido intactos. CERRADO, verifica Carlos; sin despliegue. [Entrega y capturas](IMPLEMENTACION-A32.md).
 
 ### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · CERRADO 06/10, verificado Codex
 

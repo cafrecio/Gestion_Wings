@@ -1,6 +1,6 @@
 # A32 — Estado de tu propia cuenta
 
-08/10/2026 · Codex CyE. **Antecedente aprobado por Carlos: «A-32 OK». Aplicado y cerrado.** [Entrega y capturas posteriores](IMPLEMENTACION-A32.md).
+08/10/2026 · Codex CyE. **Antecedente aprobado por Carlos: «A-32 OK». Aplicado y cerrado; Carlos aprobó también el retoque de nombres y rol.** [Entrega y capturas posteriores](IMPLEMENTACION-A32.md).
 
 ## Comprobado antes de aplicar
 
@@ -22,4 +22,4 @@ Sintaxis PHP/Blade y scripts correctos; controles documentales y enlaces comprob
 
 ## Aprobación y entrega
 
-Carlos aprobó las imágenes: «A-32 OK». Variante aplicada exclusivamente en `usuarios/index.blade.php`, capturas finales y suite completa verdes. Tablero cerrado, verifica Carlos (§6a). El ensayo de nueve capturas y sus huellas anteriores se conservan como antecedente; el [control posterior](evidencia/a6-a10/control-a32-aplicado.json) certifica lo aplicado. Sin despliegue.
+Carlos aprobó las imágenes: «A-32 OK». Variante aplicada exclusivamente en `usuarios/index.blade.php`, capturas finales y suite completa verdes. Aprobación del candado conservada (§6a); el retoque posterior de nombres y rol también aprobado, «Ok, APROBADO A32». El ensayo de nueve capturas y sus huellas anteriores se conservan como antecedente; el [control posterior](evidencia/a6-a10/control-a32-aplicado.json) certifica lo aplicado. Sin despliegue.

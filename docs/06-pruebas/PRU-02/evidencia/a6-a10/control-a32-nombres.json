@@ -1,0 +1,1316 @@
+{
+  "fecha": "2026-10-08T14:53:11.589Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel real, vista aplicada, iframe 375x667 dentro de 1280x900",
+  "estado": "cerrado, verifica Carlos",
+  "vistaSha256": "4a768a1653210f29734544d6c2148a6c07796c73536dbf3170a8b6b4c18ce7ac",
+  "rolesAlineados": true,
+  "nombresPersonas": true,
+  "compartidosIntactos": true,
+  "alineacion375": {
+    "x": 224,
+    "right": 320
+  },
+  "capturas": [
+    {
+      "nombre": "a32-nombres-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 0,
+      "nuevo": null,
+      "tarjetas": []
+    },
+    {
+      "nombre": "a32-nombres-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "documento": 1265,
+      "scroll": 0,
+      "nuevo": {
+        "x": 1129,
+        "y": 197,
+        "width": 96,
+        "height": 32,
+        "right": 1225,
+        "bottom": 229
+      },
+      "tarjetas": [
+        {
+          "nombre": "Pedro (vos)",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.admin@example.test",
+              "rect": {
+                "x": 276,
+                "y": 304.796875,
+                "width": 474,
+                "height": 19.265625,
+                "right": 750,
+                "bottom": 324.0625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Administrador",
+              "rect": {
+                "x": 758,
+                "y": 304.796875,
+                "width": 474,
+                "height": 19.265625,
+                "right": 1232,
+                "bottom": 324.0625
+              }
+            }
+          ],
+          "rect": {
+            "x": 256,
+            "y": 253,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 385.0625
+          },
+          "editar": {
+            "x": 276,
+            "y": 336.0625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 368.0625
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 384,
+              "y": 336.0625,
+              "width": 80.359375,
+              "height": 32,
+              "right": 464.359375,
+              "bottom": 368.0625
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "Gómez de prueba, Mariana",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.profesor@example.test",
+              "rect": {
+                "x": 276,
+                "y": 452.859375,
+                "width": 474,
+                "height": 19.265625,
+                "right": 750,
+                "bottom": 472.125
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Profesor",
+              "rect": {
+                "x": 758,
+                "y": 452.859375,
+                "width": 474,
+                "height": 19.265625,
+                "right": 1232,
+                "bottom": 472.125
+              }
+            }
+          ],
+          "rect": {
+            "x": 256,
+            "y": 401.0625,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 533.125
+          },
+          "editar": {
+            "x": 276,
+            "y": 484.125,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 516.125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 489.625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 510.625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Sandra",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.operativo@example.test",
+              "rect": {
+                "x": 276,
+                "y": 600.921875,
+                "width": 474,
+                "height": 19.265625,
+                "right": 750,
+                "bottom": 620.1875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 758,
+                "y": 600.921875,
+                "width": 474,
+                "height": 19.265625,
+                "right": 1232,
+                "bottom": 620.1875
+              }
+            }
+          ],
+          "rect": {
+            "x": 256,
+            "y": 549.125,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 681.1875
+          },
+          "editar": {
+            "x": 276,
+            "y": 632.1875,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 664.1875
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 637.6875,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 658.6875
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Victoria",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.inactivo@example.test",
+              "rect": {
+                "x": 276,
+                "y": 748.984375,
+                "width": 474,
+                "height": 19.265625,
+                "right": 750,
+                "bottom": 768.25
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 758,
+                "y": 748.984375,
+                "width": 474,
+                "height": 19.265625,
+                "right": 1232,
+                "bottom": 768.25
+              }
+            }
+          ],
+          "rect": {
+            "x": 256,
+            "y": 697.1875,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 829.25
+          },
+          "editar": {
+            "x": 276,
+            "y": 780.25,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 812.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 785.75,
+              "width": 99.828125,
+              "height": 21,
+              "right": 483.828125,
+              "bottom": 806.75
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-nombres-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 0,
+      "nuevo": {
+        "x": 224,
+        "y": 201,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 233
+      },
+      "tarjetas": [
+        {
+          "nombre": "Pedro (vos)",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.admin@example.test",
+              "rect": {
+                "x": 36,
+                "y": 308.796875,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 326.0625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Administrador",
+              "rect": {
+                "x": 36,
+                "y": 334.0625,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 353.328125
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 257,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": 458.328125
+          },
+          "editar": {
+            "x": 224,
+            "y": 365.328125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 397.328125
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": 409.328125,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": 441.328125
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "Gómez de prueba, Mariana",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.profesor@example.test",
+              "rect": {
+                "x": 36,
+                "y": 526.125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 543.390625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Profesor",
+              "rect": {
+                "x": 36,
+                "y": 551.390625,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 570.65625
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 474.328125,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 664.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 582.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 614.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 626.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 647.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Sandra",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.operativo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 732.453125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 749.71875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 757.71875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 776.984375
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 680.65625,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 870.984375
+          },
+          "editar": {
+            "x": 224,
+            "y": 788.984375,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 820.984375
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 832.984375,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 853.984375
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Victoria",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.inactivo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 938.78125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 956.046875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 964.046875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 983.3125
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 886.984375,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 1077.3125
+          },
+          "editar": {
+            "x": 224,
+            "y": 995.3125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 1027.3125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 1039.3125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 1060.3125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-nombres-375-profesor.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 398,
+      "nuevo": {
+        "x": 224,
+        "y": -197,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -165
+      },
+      "tarjetas": [
+        {
+          "nombre": "Pedro (vos)",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.admin@example.test",
+              "rect": {
+                "x": 36,
+                "y": -89.203125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": -71.9375
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Administrador",
+              "rect": {
+                "x": 36,
+                "y": -63.9375,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": -44.671875
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": -141,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": 60.328125
+          },
+          "editar": {
+            "x": 224,
+            "y": -32.671875,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": -0.671875
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": 11.328125,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": 43.328125
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "Gómez de prueba, Mariana",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.profesor@example.test",
+              "rect": {
+                "x": 36,
+                "y": 128.125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 145.390625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Profesor",
+              "rect": {
+                "x": 36,
+                "y": 153.390625,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 172.65625
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 76.328125,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 266.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 184.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 216.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 228.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 249.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Sandra",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.operativo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 334.453125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 351.71875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 359.71875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 378.984375
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 282.65625,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 472.984375
+          },
+          "editar": {
+            "x": 224,
+            "y": 390.984375,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 422.984375
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 434.984375,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 455.984375
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Victoria",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.inactivo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 540.78125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 558.046875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 566.046875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 585.3125
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 488.984375,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 679.3125
+          },
+          "editar": {
+            "x": 224,
+            "y": 597.3125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 629.3125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 641.3125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 662.3125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-nombres-375-operativo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 485,
+      "nuevo": {
+        "x": 224,
+        "y": -284,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -252
+      },
+      "tarjetas": [
+        {
+          "nombre": "Pedro (vos)",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.admin@example.test",
+              "rect": {
+                "x": 36,
+                "y": -176.203125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": -158.9375
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Administrador",
+              "rect": {
+                "x": 36,
+                "y": -150.9375,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": -131.671875
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": -228,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": -26.671875
+          },
+          "editar": {
+            "x": 224,
+            "y": -119.671875,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": -87.671875
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": -75.671875,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": -43.671875
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "Gómez de prueba, Mariana",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.profesor@example.test",
+              "rect": {
+                "x": 36,
+                "y": 41.125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 58.390625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Profesor",
+              "rect": {
+                "x": 36,
+                "y": 66.390625,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 85.65625
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": -10.671875,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 179.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 97.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 129.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 141.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 162.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Sandra",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.operativo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 247.453125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 264.71875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 272.71875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 291.984375
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 195.65625,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 385.984375
+          },
+          "editar": {
+            "x": 224,
+            "y": 303.984375,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 335.984375
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 347.984375,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 368.984375
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Victoria",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.inactivo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 453.78125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 471.046875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 479.046875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 498.3125
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 401.984375,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 592.3125
+          },
+          "editar": {
+            "x": 224,
+            "y": 510.3125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 542.3125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 554.3125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 575.3125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-nombres-375-inactivo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 485,
+      "nuevo": {
+        "x": 224,
+        "y": -284,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -252
+      },
+      "tarjetas": [
+        {
+          "nombre": "Pedro (vos)",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.admin@example.test",
+              "rect": {
+                "x": 36,
+                "y": -176.203125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": -158.9375
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Administrador",
+              "rect": {
+                "x": 36,
+                "y": -150.9375,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": -131.671875
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": -228,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": -26.671875
+          },
+          "editar": {
+            "x": 224,
+            "y": -119.671875,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": -87.671875
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": -75.671875,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": -43.671875
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "Gómez de prueba, Mariana",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.profesor@example.test",
+              "rect": {
+                "x": 36,
+                "y": 41.125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 58.390625
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Profesor",
+              "rect": {
+                "x": 36,
+                "y": 66.390625,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 85.65625
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": -10.671875,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 179.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 97.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 129.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 141.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 162.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Sandra",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.operativo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 247.453125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 264.71875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 272.71875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 291.984375
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 195.65625,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 385.984375
+          },
+          "editar": {
+            "x": 224,
+            "y": 303.984375,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 335.984375
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 347.984375,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 368.984375
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "Victoria",
+          "datos": [
+            {
+              "etiqueta": "Email:",
+              "valor": "celular.inactivo@example.test",
+              "rect": {
+                "x": 36,
+                "y": 453.78125,
+                "width": 291,
+                "height": 17.265625,
+                "right": 327,
+                "bottom": 471.046875
+              }
+            },
+            {
+              "etiqueta": "Rol:",
+              "valor": "Operativo",
+              "rect": {
+                "x": 36,
+                "y": 479.046875,
+                "width": 291,
+                "height": 19.265625,
+                "right": 327,
+                "bottom": 498.3125
+              }
+            }
+          ],
+          "rect": {
+            "x": 16,
+            "y": 401.984375,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 592.3125
+          },
+          "editar": {
+            "x": 224,
+            "y": 510.3125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 542.3125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 554.3125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 575.3125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    }
+  ],
+  "aprobacion": "Ok, APROBADO A32"
+}

@@ -24,6 +24,6 @@ A6 solo texto; A7 listado de Alumnos y carga de su plan, CSS exclusivo. A8/A9 tr
 
 El selector, fechas y resultados están verificados. El apartado de saldo acumulado de Reportes continúa fuera de A10 (POS-01).
 
-**A32 cerrado en entrega separada:** Carlos aprobó «A-32 OK»; [aplicación y controles](IMPLEMENTACION-A32.md). Toggle compartido y permisos intactos.
+**A32 en entrega separada:** Carlos aprobó el candado «A-32 OK»; aprobó después la corrección de nombres y Rol, A32 cerrado; [aplicación y controles](IMPLEMENTACION-A32.md). Toggle compartido y permisos intactos.
 
 Entrega de código y evidencia validada; sin despliegue. [Antecedente íntegro de esta entrega](../../99-archivo/pruebas/2026-10-08/IMPLEMENTACION-A6-A10-ANTES-CIERRE.md.txt); conserva los cortes anteriores como texto, con sus rutas relativas originales.

@@ -1,4 +1,12 @@
-# A32 — Tu cuenta activa
+# A32 — Usuarios: nombre y rol
+
+08/10/2026 · Codex CyE. **CERRADO, verifica Carlos: «Ok, APROBADO A32».**
+
+Carlos aprobó el retoque: «Ok, APROBADO A32». Nombre de la persona en el título; Profesor toma Apellido, Nombre de su ficha vinculada y no repite ese dato abajo. Todas las tarjetas muestran Email y Rol en columnas consistentes. Pedro/Sandra/Victoria son nombres ficticios del ensayo. Se conservan Activo/Tu cuenta/candado y Editar/Nuevo x=224–320 en celular. Seis capturas reales y medidas correctas; controlador, CSS y toggle compartido intactos. CERRADO, verifica Carlos; sin despliegue.
+
+[Capturas actuales](evidencia/a6-a10/visor-a32-nombres.html) · [Control de nombres y alineación](evidencia/a6-a10/control-a32-nombres.json). Sintaxis PHP/Blade correctas. Corrida completa: 506 aprobadas, 2 omitidas, 2 fallos documentales durante edición simultánea de A26/A35 y sus contadores, 4075 aserciones, 275,69 s; ninguna prueba de código falló. [Salida conservada](evidencia/a6-a10/suite-a32-nombres-2026-10-08.txt). Controles documentales repetidos: 4 aprobados/19 aserciones, 0,31 s; los dos fallos resueltos. [Salida](evidencia/a6-a10/controles-a32-nombres-2026-10-08.txt). Solo vista Usuarios y nombres ficticios de su escenario; controlador, CSS y toggle compartido intactos por SHA256. Sin despliegue.
+
+## Antecedente aprobado: estado de tu cuenta
 
 08/10/2026 · Codex CyE. **CERRADO, verifica Carlos:** «A-32 OK».
 
