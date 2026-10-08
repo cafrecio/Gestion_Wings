@@ -1,5 +1,28 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-08 — Codex CyE — Continuidad de Desarrollo II a Desarrollo III
+
+Leído completo GestionWings - Desarrollo II (20 turnos); pedido actual: conservar pendientes y subir todo el avance.
+Últimas decisiones: A6–A9 aprobados visualmente; A10 aprobado y revisado por Claude tras corregir Limpiar.
+A32: «A-32 OK» y después «Ok, APROBADO A32»; nombres de personas y roles alineados, sin decisión pendiente.
+Comprobados tablero cerrado y commits 655eb63, 6f8a754 y cb4190c incluidos en main; no repetí pruebas funcionales.
+Sin respuesta de Carlos: revisar el [plan conjunto B12/A23](../07-evaluacion/PLAN-REPORTES-TABLERO-v2026-10-08.md); primero plan, después desarrollo.
+Antes de código dependiente: decidir retiros del dueño y puerta de prueba humana; historia disponible requiere comprobación del agente.
+B12/A23 siguen en_curso, tiene Carlos; no autorizados a desarrollar ni cerrados por esta publicación.
+GitHub main comprobado en 91e2650 antes de publicar; faltaban el plan y continuidad. Publicación final comprobable en Git.
+Control documental independiente aprobado: 20 turnos, 62 enlaces y cortes íntegros; sin cambios de aplicación, base o servidor.
+Siguiente: Carlos revisa el plan; entrada antigua archivada intacta en el corte Desarrollo II.
+
+## 2026-10-08 — Codex CyE — B12/A23, plan para revisar
+
+Carlos pidió plan conjunto antes de desarrollar; recuperada encuesta 13–22/09 y FIN-04.
+Leídos cuerpos actuales de inicio ADMIN, saldos/integración, liquidación/pago, avisos, generador y anulación.
+[Propuesta](../07-evaluacion/PLAN-REPORTES-TABLERO-v2026-10-08.md): cálculo común, B12 mensual, A23, detalle/evolución y control independiente.
+Conservar seis meses cerrados con datos, fechas reales, confirmación separada, gastos del club y Revisión única.
+Antes de código: conciliar retiros del dueño entre contratos, comprobar historia y puerta de prueba humana.
+Solo planificación documental: sin pruebas, consultas a base real, cambios de aplicación ni despliegue.
+Siguiente: Carlos revisa el plan; desarrollo no iniciado. Entrada antigua archivada íntegra en corte de Reportes.
+
 ## 2026-10-08 — Codex CyE — A32 nombres y rol aprobados
 
 Carlos pidió título de persona y rol alineado; aprobó nuevas capturas: «Ok, APROBADO A32».
@@ -99,29 +122,8 @@ Seis fallas: $bloqueo ausente en Inicio operativo ajeno; una: contador documenta
 A8/A9 aprobados visualmente, en curso sin autocierre/publicación; completar A10/entrega conjunta.
 Diez entradas activas; la retirada ya está íntegra en el corte 08/10, comprobada por contenido.
 
-## 2026-10-08 — Codex CyE — A7, Cobrar/Editar y Ver/Nuevo alineados
-
-Carlos pidió alinear Cobrar/Editar entre sí y Ver con Nuevo, solo celular.
-Pie móvil con dos columnas de 96 px y margen compensado; Nuevo conserva su posición.
-12 imágenes nuevas reales; ADMIN/OPERATIVO y nombre largo: Cobrar/Editar x=116, Ver/Nuevo x=224–320.
-Tres imágenes de escritorio idénticas al antes por SHA256; botones siguen 96×32 px.
-Build 29,39 s y Blade correctos; escenario 4/15 verde; suite 496 aprobadas/2 omitidas/1 falla, 367,51 s.
-Única falla: contador documental 491/499; mismo resultado anterior, 3948 aserciones.
-[Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-columnas.html); solo wings_testing_codex.
-A7 sigue en curso con el paquete; sin publicación, autocierre ni deploy.
-Carlos vio el visor actual y aprobó el aspecto: «Muy buen trabajo, me gusta».
-Siguiente: capturas A8/A9/A10 y propuesta restante A10; entrega conjunta y verificación independiente.
-
-## 2026-10-08 — Codex CyE — A7, controles a derecha solo en celular
-
-Carlos vio la retoma y pidió: «en celular alinealos a la derecha. No asi en escritorio».
-Una regla CSS exclusiva de Alumnos bajo 640 px; botones/componentes conservados.
-12 capturas nuevas reales, ADMIN/OPERATIVO, nombre largo y login; dos filas terminan a derecha.
-Tres imágenes de escritorio idénticas al antes por SHA256; botones 96×32 px.
-Build 26,41 s y Blade correctos; suite propia 496 aprobadas/2 omitidas/1 falla, 3948 aserciones, 319,38 s.
-Única falla: contador documental declara 491 y hay 499; ya anotado en el pase de Claude.
-[Antes/después y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-derecha.html); solo wings_testing_codex.
-A7 sigue en curso con el paquete; no commit/push, autocierre ni deploy. Siguiente: capturas A8/A9/A10.
-
-
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
+
+[Entrada íntegra retirada en este corte de Reportes](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-PLAN-REPORTES.txt).
+
+[Entrada íntegra retirada al recuperar Desarrollo II](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-DESARROLLO-II.txt).

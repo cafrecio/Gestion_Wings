@@ -1,0 +1,13 @@
+## 2026-10-08 — Codex CyE — A7, Cobrar/Editar y Ver/Nuevo alineados
+
+Carlos pidió alinear Cobrar/Editar entre sí y Ver con Nuevo, solo celular.
+Pie móvil con dos columnas de 96 px y margen compensado; Nuevo conserva su posición.
+12 imágenes nuevas reales; ADMIN/OPERATIVO y nombre largo: Cobrar/Editar x=116, Ver/Nuevo x=224–320.
+Tres imágenes de escritorio idénticas al antes por SHA256; botones siguen 96×32 px.
+Build 29,39 s y Blade correctos; escenario 4/15 verde; suite 496 aprobadas/2 omitidas/1 falla, 367,51 s.
+Única falla: contador documental 491/499; mismo resultado anterior, 3948 aserciones.
+[Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-columnas.html); solo wings_testing_codex.
+A7 sigue en curso con el paquete; sin publicación, autocierre ni deploy.
+Carlos vio el visor actual y aprobó el aspecto: «Muy buen trabajo, me gusta».
+Siguiente: capturas A8/A9/A10 y propuesta restante A10; entrega conjunta y verificación independiente.
+

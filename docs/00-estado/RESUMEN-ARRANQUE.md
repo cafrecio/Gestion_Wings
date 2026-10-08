@@ -12,8 +12,7 @@
 - Las evaluaciones del 8/9 son históricas: no tratarlas como defectos actuales.
 - No leer todo el histórico para ponerse al día; buscar ID y fragmento relevante.
 - No ejecutar tareas por aparecer aquí: respetar el pedido actual de Carlos.
-- **Desde el 17/09, para analizar o buscar en el repo usar primero `codebase-memory-mcp`**
-  (AGENTS.md §6e): pista, no hecho; reindexar tras pull; se instala por máquina. CyE: sí.
+- **Desde el 17/09, para analizar o buscar en el repo usar primero `codebase-memory-mcp`** (AGENTS.md §6e): pista, no hecho; reindexar tras pull; se instala por máquina. CyE: sí.
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 
@@ -34,8 +33,9 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | Servidor | **Sitio de prueba:** `b7cf0a7` desplegado el 08/10 (incluye A24), sin alumnos ni deudas, listo para la primera carga. **Producción:** `314e485` (22/09), leído por consola el 06/10, con 7 migraciones sin correr; no se tocó. Nada posterior está en producción |
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
-
 ## Trabajo que continúa
+
+- **B12/A23, plan pendiente de Carlos (08/10):** [propuesta conjunta](../07-evaluacion/PLAN-REPORTES-TABLERO-v2026-10-08.md), presentada al final de Desarrollo II y todavía sin respuesta. Primero revisar el plan, después desarrollar. Pendientes: retiros del dueño, comprobación de historia y condición de prueba humana. Ambos siguen en curso a nombre de Carlos; esta publicación no los cierra ni inicia el desarrollo.
 
 - **A6–A10, CERRADOS 08/10:** aspecto verifica Carlos; lógica A10 verifica Claude con 432 combinaciones/442 pedidos y 45 comprobaciones de navegador sin fallos. Regresión nueva de Limpiar, diez A10/110 aserciones; suite completa 508/2, 4077 aserciones, 423,14 s; build 38,28 s. Capturas finales renovadas; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md). A32 cerrado; Carlos aprobó también nombres y rol. Sin despliegue.
 - **A14/A27/A53, CERRADOS 07/10 (verificado Gemini, contrastado Claude; [informe](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md)):** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
@@ -115,8 +115,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
 - Balance filtrado definido 22/09 (FIN-04); implementación de Reportes pendiente. Revisiones y límites de fechas: consultar estados individuales del plan.
-- A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta.
-  Implementado localmente con importe congelado, pendiente de verificación independiente
+- A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta. Implementado localmente con importe congelado, pendiente de verificación independiente
   y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
 - A25: CERRADO 06/10 (verificado por Gemini); decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. No desplegado.
 - Inscripción: tratamiento aprobado e implementado.

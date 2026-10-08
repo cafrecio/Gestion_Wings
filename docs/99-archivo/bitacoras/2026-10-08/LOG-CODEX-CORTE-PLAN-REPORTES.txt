@@ -1,0 +1,12 @@
+## 2026-10-08 — Codex CyE — A7, controles a derecha solo en celular
+
+Carlos vio la retoma y pidió: «en celular alinealos a la derecha. No asi en escritorio».
+Una regla CSS exclusiva de Alumnos bajo 640 px; botones/componentes conservados.
+12 capturas nuevas reales, ADMIN/OPERATIVO, nombre largo y login; dos filas terminan a derecha.
+Tres imágenes de escritorio idénticas al antes por SHA256; botones 96×32 px.
+Build 26,41 s y Blade correctos; suite propia 496 aprobadas/2 omitidas/1 falla, 3948 aserciones, 319,38 s.
+Única falla: contador documental declara 491 y hay 499; ya anotado en el pase de Claude.
+[Antes/después y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-derecha.html); solo wings_testing_codex.
+A7 sigue en curso con el paquete; no commit/push, autocierre ni deploy. Siguiente: capturas A8/A9/A10.
+
+
