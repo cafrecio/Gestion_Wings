@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-08 — Claude CyE — sitio de prueba desplegado y sin alumnos, listo para la primera carga
+
+Pedido de Carlos: desplegar en test y dejar la base sin alumnos para hacer la primera carga
+como la va a hacer Vanina. Hecho en `test.gestionar-te.com.ar`: `443b0bc` → `d577cb7`, cinco
+migraciones, sin errores en el log. Respaldo previo fuera de la carpeta que rota:
+`/root/respaldos-manuales/wingstest_antes-del-despliegue_2026-10-08_1639.sql.gz`, junto al del 06/10.
+Borrado en una transaccion: 60 alumnos, 77 deudas, 60 planes de alumno y 60 revisiones. Quedan
+7 usuarios, catalogos y 77 clases; sin cajas ni pagos. Primera carga en PENDIENTE.
+Comprobado dentro del servidor, sin claves: el admin es llevado a Primera carga y la plantilla
+baja; operativo y profesor abren lo suyo. Mientras la carga este pendiente el operativo no
+entra a Alumnos (403), que es lo previsto en P1.
+El despliegue fue a mano con el usuario `wingstest`, siguiendo los pasos de `scripts/deploy.sh`,
+que es solo para produccion. Produccion no se toco: sigue en `314e485` con 7 migraciones sin correr.
+Corregidos cuatro documentos que daban a produccion en `81f27ef`.
+**Sigue:** la prueba manual que dirige Carlos. No esta hecho el archivo con los 60 alumnos en
+formato de plantilla (bloqueado el 06/10); el padron original es `docs/06-pruebas/PADRON-PRUEBA-v2.xlsx`.
+
 ## 2026-10-08 — Claude CyE — A10 cerrado en segunda revision
 
 Codex corrigio solo el enlace de Limpiar (`:href`). Antes de repetir guarde la evidencia de la

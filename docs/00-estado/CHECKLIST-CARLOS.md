@@ -117,7 +117,7 @@ Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusi
 Ver [resultado y límites](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md).
 Suite completa el 22/09: incluye ENT-01, ENT-06 y FIN-10, FIN-11, SEG, ENT-05, FIN-06, FIN-13, FIN-09, FIN-12
 y el seeder de primera carga.
-**Migraciones pendientes en produccion: seis** (el servidor corre `81f27ef`). Lista
+**Migraciones pendientes en produccion: doce al 08/10** (corre `314e485`: siete ya estaban sin correr el 06/10, leído con `migrate:status`, y main sumó cinco). Lo que sigue es el conteo viejo del 22/09, cuando eran seis sobre `81f27ef`. Lista
 sacada de git el 22/09 con `git log 81f27ef..origin/main --diff-filter=A -- database/migrations`,
 no escrita a mano: la version anterior de esta lista tenia cuatro y se le habian pasado dos.
 

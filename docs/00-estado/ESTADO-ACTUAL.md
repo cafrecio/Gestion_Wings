@@ -268,7 +268,7 @@ FIN-03 implementada el 11/09: anulaciones nuevas conservan periodos/importes y
 motivo para el PDF, sin imputaciones activas. Contrato Recibos V2; V1 historica.
 Suite 166/1026 y PDF real revisado. Pendiente verificacion cruzada de Claude y deploy.
 
-**Nada de esto esta desplegado:** el servidor sigue en `81f27ef`, anterior a las ocho
+**Nada de esto esta desplegado:** producción sigue en `314e485` (leído por consola el 06/10; este texto decía `81f27ef`), anterior a las ocho
 correcciones. No hay riesgo inmediato porque el club todavia no cargo alumnos.
 
 Las ocho evaluaciones historicas se conservaron sin cambios de contenido en
@@ -284,7 +284,7 @@ fue inspeccionado.
 
 | Que | Estado |
 |---|---|
-| Commit desplegado | `81f27ef`, fast-forward verificado por consola el 09/09 |
+| Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `d577cb7` desde el 08/10 |
 | Diferencia con `main` al corte | El servidor incorporo documentos y scripts hasta `81f27ef`; los commits posteriores requieren sincronizacion |
 | Plataforma | AlmaLinux 9, PHP 8.2.33, Laravel 12.68.0 |
 | HTTPS | Activo |
