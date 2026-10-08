@@ -11,6 +11,28 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-08 — Claude CyE — DONDE QUEDE al cierre del 08/10
+
+**Avance: 59 de 72, ninguno frena.** main en verde y al dia. Sitio de prueba desplegado en
+`d577cb7`, sin alumnos, con la primera carga pendiente (entrada de abajo). Produccion sin tocar.
+**Lo proximo es la prueba manual en el sitio de prueba, que dirige Carlos conmigo.** Antes de
+empezar: el admin tiene que configurar que medio de pago es el efectivo del mostrador; la
+operativa no entra a Alumnos hasta que termine la primera carga; falta decidir con que datos se
+carga (el Excel de los 60 no esta armado; el padron viejo es `PADRON-PRUEBA-v2.xlsx`).
+**Lo que tengo a mi nombre:** A24, que Gemini entrego en segunda vuelta y espera que yo
+verifique que ningun boton del inicio del operativo falle (no lo mire todavia; lo desplegado en
+test tiene la version anterior, con el defecto). T3, terminar el tablero unico, y T7, pasar
+`sidebar.css` a `app.css`: los dos quedaron libres porque Codex ya publico A6-A10.
+**Lo que espera a Carlos:** T1 (mirar cuatro pantallas desde el celular en test), y A23 y B12,
+que esta definiendo con Codex (`PLAN-REPORTES-TABLERO-v2026-10-08.md`, sin subir, de Codex).
+**Reglas de Carlos de hoy, ya en memoria y en AGENTS.md:** lo visual que el aprueba no pasa por
+otra IA; lo que tenga que decidir va con enlace al navegador, que cambia y por que
+(`docs/00-estado/PARA-DECIDIR.html`); las cajas de los operativos son individuales.
+**Cuidados:** hay otra sesion de Claude en esta maquina (verifico A10 y escribe en esta
+bitacora). Para publicar con archivos ajenos abiertos: copia limpia con `git worktree`, y
+despues mezclar la carpeta a tres bandas; nunca `checkout -- .`. Queda la rama remota
+`en-curso/cye-2026-10-07`, que ya se puede borrar: todo lo suyo esta en main.
+
 ## 2026-10-08 — Claude CyE — sitio de prueba desplegado y sin alumnos, listo para la primera carga
 
 Pedido de Carlos: desplegar en test y dejar la base sin alumnos para hacer la primera carga
@@ -88,64 +110,4 @@ regla; A35 a confirmar como no-defecto; A32 va con A9. 500 pruebas, 9 nuevas.
 Publicado desde una copia limpia y la carpeta compartida reconciliada sin pisar lo ajeno.
 **Regla suya para mi:** lo que tenga que definir va con enlace al navegador, que cambia y por que.
 **Pendiente:** el despliegue al sitio de prueba (entrada del 06/10), T3 y recortar esta bitacora.
-
-## 2026-10-07 — Claude CyE — PARA RETOMAR EN CASA: todo lo sin subir esta en una rama
-
-Se corto el chat de Codex con A6 a A10 a medio hacer y Carlos pidio subir todo para seguir en
-su casa. **main no se toco.** Todo lo que estaba sin subir en CyE quedo en la rama
-`en-curso/cye-2026-10-07` (commit `2f27d80`): lo de Codex (A6 a A10) y lo mio (A26, A38, A39,
-A44). El diseño no esta commiteado porque no tiene la aprobacion completa: va como dos parches
-en `docs/99-archivo/en-curso/2026-10-07/`, con un LEEME que dice como aplicarlos.
-Comprobado en una copia aparte: rama mas parches reproduce igual la carpeta de CyE.
-Gemini tenia todo subido (`c7cc6be`); su propuesta de A12/A24 espera a Carlos.
-**Error mio, para no repetir:** el primer intento de resguardo fallo porque el hook de diseño
-rechazo los commits, y el paso siguiente (`git checkout <rama> -- .`) piso con la version de
-GitHub los 20 archivos modificados de Codex y mios. Se recuperaron enteros desde los objetos
-que `git add` habia dejado en `.git`, cotejados uno por uno. En la carpeta compartida no se
-usa `checkout -- .` ni nada que reescriba el arbol; el resguardo se hizo con un indice aparte.
-**Al retomar:** Codex sigue A6-A10 desde la rama (le falta resolver las capturas: su control de
-Chrome no respondia). Lo mio espera el OK de Carlos sobre dos capturas; pasos en la entrada de abajo.
-
-## 2026-10-07 — Claude CyE — DONDE QUEDE: A26, A38, A39 y A44 hechos y SIN SUBIR
-
-Carlos me habilito a programar estos: «Hace A38 39 y 26 / A35 y 32 / A38 A39 A26 A44».
-**Hecho en la carpeta, sin commitear:** A26 celular opcional para menores (se guarda el del
-tutor; `AlumnoWebController`, `alumnos/_form`, `alumnos-form.js`); A38 idioma fijo en
-castellano (`config/app.php`, `lang/`); A39 Movimientos en el menu del operativo
-(`layouts/ds-app`); A44 plantilla de correo propia (`resources/views/vendor/mail`).
-Pruebas: `DefectosMenoresA26A38A39A44Test`, 8/28. Suite 499: 496 aprobadas, 2 omitidas; solo
-falla el contador de `DocumentacionNoMienteTest`, que hay que pasar de 491 a 499 en
-ESTADO-ACTUAL, CHECKLIST-CARLOS y PLAN-PRODUCCION al publicar.
-**Por que no esta subido:** A26 y A39 se ven en pantalla. Le mostre a Carlos dos capturas
-(`evidencia/a26-a38-a39-a44/`) y espero su OK de diseño. No escribir yo esa linea.
-**Al tener el OK:** actualizar los tres contadores; marcar A26, A38, A39 y A44 como HECHO
-(Claude), a revisar, en DEFECTOS.md, DEFECTOS.html y el tablero; A35 a verificar como «no es
-un defecto» (captura mal rotulada); A32 sigue presente y va con A9, que tiene Codex. Agregar
-los archivos por nombre: Codex tiene abiertos app.css, alumnos/index, clases/show y sus docs.
-Entrega escrita: `docs/06-pruebas/PRU-02/IMPLEMENTACION-A26-A38-A39-A44.md`.
-**Hoy tambien:** cerrados A15, A16, A14, A27 y A53 tras contrastar a Gemini (47 de 72);
-bitacora archivada; A6 a A10 en Codex y A12/A24 en Gemini, los dos con propuesta a Carlos.
-**Sigue pendiente:** el despliegue al sitio de prueba (entrada de abajo) y T3.
-
-## 2026-10-06 — Claude CyE — PARA RETOMAR EN CASA: despliegue al sitio de prueba y primera carga
-
-**Decidido por Carlos:** esta noche se despliega main al **sitio de prueba** (no produccion),
-se borran **solo alumnos y deudas** (usuarios, catalogos y clases quedan) y se prueba la
-primera carga por Excel como la haria una persona, con los mismos datos que habia.
-**Servidor, leido el 06/10 con `ssh vps`, sin modificar:** prueba en `/home/wingstest/app`,
-commit `443b0bc` del 23/09, 60 alumnos, 77 deudas, 0 pagos, 0 cajas, sin migraciones
-pendientes; recibe 5. Produccion en `314e485` del 22/09, vacia de alumnos, con 7 migraciones
-atrasadas; su despliegue pide la clave de `wings_migrate`, que esta en el disco D: de CAB.
-**Hecho:** respaldo completo de la base de prueba en el servidor,
-`/var/backups/wings/wingstest_antes-de-limpiar_2026-10-06_1845.sql.gz`. No confirme si la
-rotacion de esa carpeta lo borra: copiarlo a otro lado antes de limpiar.
-**No hecho:** el archivo con los 60 alumnos en las 38 columnas de la plantilla. Lo exporte y
-cuadra (60 filas, 20 con deuda, 34 cuotas, $1.263.000) pero el control de seguridad de la
-sesion bloqueo dos veces escribirlo en el repositorio, aun con autorizacion de Carlos, y quedo
-en una carpeta temporal que no viaja. Se rearma desde el respaldo. El padron original si esta:
-`docs/06-pruebas/PADRON-PRUEBA-v2.xlsx`.
-**A saber antes de probar:** Sofia Morales (DNI 32123456) figura en dos deportes con distinta
-fecha de nacimiento; ningun alumno tiene tutor ni debe inscripcion. No hay comando para
-limpiar: es a mano sobre `wingstest`. El sitio de prueba no usa `deploy.sh` con clave aparte.
-**Orden:** rearmar el archivo, resguardar el respaldo, desplegar, limpiar, probar.
 
