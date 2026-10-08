@@ -20,7 +20,12 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - `resources/views/operativo/dashboard.blade.php`: Reemplazo de textos confusos de "cajón compartido" y retiro de botones trampa (`Cobrar`, `Registrar`, `Detalle`). En situación 7 (propia de ayer), muestra «Tu caja sigue abierta» con botón `Cerrar`, eliminando la contradicción con «Cajón listo para iniciar».
 - **Pruebas permanentes:** Creado `tests/Feature/InicioOperativoTest.php` (8 pruebas, 99 aserciones) cubriendo las ocho situaciones de mostrador y comprobando dinámicamente que ningún enlace de la tarjeta rebota, da 403 ni 500.
 - **Suite completa:** 518 pruebas (516 aprobadas, 2 omitidas), 4.172 aserciones en `wings_testing_gemini`. `DocumentacionNoMienteTest` verde (sincronizados `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`).
-- **Evidencia y entrega:** Capturas finales de las ocho situaciones en escritorio y móvil 375px (`evidencia/a24-vuelta-2/finales/`). Documento de entrega `IMPLEMENTACION-A24-VUELTA-2.md`. Tablero actualizado a `a_verificar` asignado a Claude.
+- **Evidencia y entrega:**
+  - Capturas finales de las ocho situaciones en escritorio y móvil 375px (`evidencia/a24-vuelta-2/finales/`).
+  - Documento de entrega: `docs/06-pruebas/PRU-02/IMPLEMENTACION-A24-VUELTA-2.md`.
+  - Commit entregado: `decfb8c` (`Diseno-autorizado: Carlos eligio Opcion 1 para mostrador operativo en A24 segunda vuelta`).
+  - Tablero: `A24` en estado `a_verificar` asignado a Claude (`paso="Verificar que ningún botón del inicio falle en las ocho situaciones"`).
+- **Próximo paso pendiente:** Claude verifica en código y comportamiento real que ningún botón falle en las 8 situaciones.
 
 ## 2026-10-08 — LOG GEM CYE — Verificación independiente de A26, A39 y A35 (Trabajo de Claude)
 
