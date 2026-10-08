@@ -74,3 +74,10 @@ texto «Cajón listo para iniciar».
 - Una sesión de navegador usada a mano.
 - La pantalla tiene muchos estilos escritos en el HTML; no rompe nada hoy y no es parte de
   este dictamen. Queda anotado para el día que se active el control de seguridad del navegador.
+
+## Capturas de la situación 3
+
+- [Lo que ve Sandra en el inicio](evidencia/verificacion-a12-a24/situacion-3-inicio.png): «Podés cobrar y registrar en este cajón», con Cobrar, Registrar y Detalle.
+- [A dónde llega al tocar Cobrar](evidencia/verificacion-a12-a24/situacion-3-cobrar.png): «Hay un turno abierto de Marcos Peña. Debe cerrarse antes de abrir el siguiente.»
+
+[Reproductor](evidencia/verificacion-a12-a24/CapturasSituacion3Test.php). Páginas pedidas a Laravel y dibujadas con Chrome.
