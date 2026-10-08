@@ -7,35 +7,48 @@
 
 @php
 $mesesNombres = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-$balance = (float)$saldoInicial + (float)$totalIngresos - (float)$totalEgresos;
+$balance = (float)$totalIngresos - (float)$totalEgresos;
 $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 @endphp
 
 {{-- Filtros --}}
 <form method="GET" action="{{ route('web.cashflow.index') }}" id="filtros-form">
 <div class="filtros-card mb-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-end">
-
+    <div class="cashflow-periodos-grid">
         <div>
-            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Año</label>
-            <select name="anio" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
+            <label for="periodo" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Período</label>
+            <select id="periodo" name="periodo" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
+                @foreach(['dia'=>'Día','semana'=>'Semana','mes'=>'Mes','anio'=>'Año'] as $valor=>$nombre)
+                    <option value="{{ $valor }}" @selected($modo === $valor)>{{ $nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+        @if(in_array($modo, ['dia','semana']))
+        <div>
+            <label for="fecha" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">{{ $modo === 'semana' ? 'Fecha de la semana' : 'Fecha' }}</label>
+            <input id="fecha" name="fecha" type="date" value="{{ $fechaReferencia->toDateString() }}" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
+        </div>
+        @else
+        <input type="hidden" name="fecha" value="{{ $fechaReferencia->toDateString() }}">
+        <div>
+            <label for="anio" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Año</label>
+            <select id="anio" name="anio" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
                 @foreach($aniosDisponibles as $a)
-                    <option value="{{ $a }}" {{ $anio == $a ? 'selected' : '' }}>{{ $a }}</option>
+                    <option value="{{ $a }}" @selected($anio == $a)>{{ $a }}</option>
                 @endforeach
             </select>
         </div>
-
+        @if($modo === 'mes')
         <div>
-            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Mes</label>
-            <select name="mes" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
-                <option value="">Todos</option>
-                @foreach($mesesNombres as $num => $nombre)
-                    @if($num > 0)
-                    <option value="{{ $num }}" {{ $mes == $num ? 'selected' : '' }}>{{ $nombre }}</option>
-                    @endif
+            <label for="mes" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Mes</label>
+            <select id="mes" name="mes" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
+                @foreach($mesesNombres as $num=>$nombre)
+                    @if($num > 0)<option value="{{ $num }}" @selected($mes == $num)>{{ $nombre }}</option>@endif
                 @endforeach
             </select>
         </div>
+        @endif
+        @endif
 
         <div>
             <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Tipo de caja</label>
@@ -57,8 +70,21 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         </div>
 
     </div>
+    @if($tipoCajaId || $tipo)
+        <div class="filtros-actions mt-3">
+            <x-ds.button variant="secondary" :href="route('web.cashflow.index', ['periodo' => $modo, 'anio' => $anio, 'mes' => $mes, 'fecha' => $fechaReferencia->toDateString()])">Limpiar</x-ds.button>
+        </div>
+    @endif
 </div>
 </form>
+
+<p class="flex flex-wrap items-center gap-1.5 text-sm text-wings-muted mb-3" id="cashflow-periodo">
+    <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+    <span>Período:</span>
+    <strong>{{ $periodoTexto }}</strong>
+</p>
 
 {{-- Stats --}}
 <div class="stats-bar mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -77,40 +103,24 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
         </span>
-        <span class="inline-flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-text-muted);">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <strong>${{ number_format($saldoInicial, 0, ',', '.') }}</strong>
-            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">saldo inicial</span>
-        </span>
+
         <span class="inline-flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:{{ $balanceColor }};">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
             </svg>
             <strong style="color:{{ $balanceColor }};">${{ number_format($balance, 0, ',', '.') }}</strong>
-            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">balance</span>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">resultado del período</span>
         </span>
-        <span style="font-size:0.75rem; color:var(--color-text-muted);">
-            {{ $movimientos->total() }} movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
-        </span>
+
     </div>
-    <div class="flex items-center justify-end gap-2 w-full sm:w-auto">
-        @if($mes || $tipoCajaId || $tipo)
-            <a href="{{ route('web.cashflow.index', ['anio' => $anio]) }}"
-               style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px;
-                      font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                      text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
-                Limpiar
-            </a>
-        @endif
-        <a href="{{ route('web.cashflow.movimiento') }}"
-           style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px;
-                  font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                  text-decoration:none; background:var(--color-btn-primary); color:#fff;">
-            Nuevo
-        </a>
+
+</div>
+
+<div class="stats-bar mb-3" id="cashflow-acciones">
+    <div class="stats-info">
+        <strong>{{ $movimientos->total() }}</strong> movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
     </div>
+    <x-ds.button variant="primary" href="{{ route('web.cashflow.movimiento') }}">Nuevo</x-ds.button>
 </div>
 
 {{-- Tabla --}}
@@ -199,4 +209,9 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 @endif
 @endif
 
+<style>
+.cashflow-periodos-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:end;}
+.cashflow-periodos-grid > div {min-width:0;}
+@media(min-width:1024px) {.cashflow-periodos-grid {grid-template-columns:repeat({{ $modo === 'mes' ? 5 : 4 }},minmax(0,1fr));}}
+</style>
 @endsection

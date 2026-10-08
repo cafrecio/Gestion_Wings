@@ -1,0 +1,1569 @@
+{
+  "fecha": "2026-10-08T10:37:32.268Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel HTTP real, CDP, marco iframe 375x667 dentro de 1280x900",
+  "capturas": [
+    {
+      "nombre": "a7-final-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "tarjeta": null,
+      "datos": [],
+      "acciones": [],
+      "columnas": null
+    },
+    {
+      "nombre": "a7-final-admin-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "scroll": 0,
+      "anchoDocumento": 1265,
+      "tarjeta": {
+        "x": 256,
+        "y": 375,
+        "width": 993,
+        "height": 237.390625,
+        "right": 1249,
+        "bottom": 612.390625
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 276,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 509,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 517,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 750,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 758,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 991,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 999,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 1232,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 276,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 509,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 517,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 750,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 758,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 991,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 999,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 1232,
+            "bottom": 538.390625
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 276,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 384,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 480,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 492,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 588,
+            "bottom": 595.390625
+          }
+        }
+      ],
+      "columnas": "993px"
+    },
+    {
+      "nombre": "a7-final-admin-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 556.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 1012.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 631.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 665.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 673.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 742.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 750.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 768.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 776.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 793.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 801.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 818.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 826.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 843.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 851.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 869.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 877.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 894.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 919.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 951.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 919.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 951.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 963.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 995.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-admin-375-tarjeta.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 545,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 11.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 467.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 86.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 120.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 128.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 197.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 205.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 223.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 231.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 248.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 256.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 273.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 281.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 298.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 306.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 324.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 332.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 349.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 418.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 450.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-admin-375-acciones.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 365,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 191.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 647.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 266.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 300.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 308.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 377.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 385.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 403.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 411.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 428.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 436.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 453.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 461.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 478.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 486.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 504.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 512.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 529.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 598.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 630.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-operativo-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "scroll": 0,
+      "anchoDocumento": 1265,
+      "tarjeta": {
+        "x": 256,
+        "y": 375,
+        "width": 993,
+        "height": 237.390625,
+        "right": 1249,
+        "bottom": 612.390625
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 276,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 509,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 517,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 750,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 758,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 991,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 999,
+            "y": 426.796875,
+            "width": 233,
+            "height": 86.328125,
+            "right": 1232,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 276,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 509,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 517,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 750,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 758,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 991,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 999,
+            "y": 521.125,
+            "width": 233,
+            "height": 17.265625,
+            "right": 1232,
+            "bottom": 538.390625
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 276,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 384,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 480,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 492,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 588,
+            "bottom": 595.390625
+          }
+        }
+      ],
+      "columnas": "993px"
+    },
+    {
+      "nombre": "a7-final-operativo-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 556.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 1012.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 631.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 665.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 673.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 742.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 750.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 768.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 776.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 793.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 801.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 818.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 826.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 843.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 851.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 869.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 877.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 894.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 919.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 951.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 919.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 951.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 963.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 995.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-operativo-375-tarjeta.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 545,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 11.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 467.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 86.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 120.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 128.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 197.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 205.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 223.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 231.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 248.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 256.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 273.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 281.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 298.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 306.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 324.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 332.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 349.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 418.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 450.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-operativo-375-acciones.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 365,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 191.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 647.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 266.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 300.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 308.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 377.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 385.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 403.046875
+          }
+        },
+        {
+          "texto": "DNI:\n35000001",
+          "rect": {
+            "x": 36,
+            "y": 411.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 428.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 436.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 453.578125
+          }
+        },
+        {
+          "texto": "Edad:\n16 años",
+          "rect": {
+            "x": 36,
+            "y": 461.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 478.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 486.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 504.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 512.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 529.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 598.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 630.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-largo-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "scroll": 0,
+      "anchoDocumento": 1280,
+      "tarjeta": {
+        "x": 256,
+        "y": 375,
+        "width": 1008,
+        "height": 237.390625,
+        "right": 1264,
+        "bottom": 612.390625
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 276,
+            "y": 426.796875,
+            "width": 236.75,
+            "height": 86.328125,
+            "right": 512.75,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 520.75,
+            "y": 426.796875,
+            "width": 236.75,
+            "height": 86.328125,
+            "right": 757.5,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 765.5,
+            "y": 426.796875,
+            "width": 236.75,
+            "height": 86.328125,
+            "right": 1002.25,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "DNI:\n33444555",
+          "rect": {
+            "x": 1010.25,
+            "y": 426.796875,
+            "width": 236.75,
+            "height": 86.328125,
+            "right": 1247,
+            "bottom": 513.125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 276,
+            "y": 521.125,
+            "width": 236.75,
+            "height": 17.265625,
+            "right": 512.75,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Edad:\n21 años",
+          "rect": {
+            "x": 520.75,
+            "y": 521.125,
+            "width": 236.75,
+            "height": 17.265625,
+            "right": 757.5,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 765.5,
+            "y": 521.125,
+            "width": 236.75,
+            "height": 17.265625,
+            "right": 1002.25,
+            "bottom": 538.390625
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 1010.25,
+            "y": 521.125,
+            "width": 236.75,
+            "height": 17.265625,
+            "right": 1247,
+            "bottom": 538.390625
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 276,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 384,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 480,
+            "bottom": 595.390625
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 492,
+            "y": 563.390625,
+            "width": 96,
+            "height": 32,
+            "right": 588,
+            "bottom": 595.390625
+          }
+        }
+      ],
+      "columnas": "1008px"
+    },
+    {
+      "nombre": "a7-final-largo-375-tarjeta.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 545,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 11.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 467.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 86.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 120.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 128.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 197.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 205.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 223.046875
+          }
+        },
+        {
+          "texto": "DNI:\n33444555",
+          "rect": {
+            "x": 36,
+            "y": 231.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 248.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 256.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 273.578125
+          }
+        },
+        {
+          "texto": "Edad:\n21 años",
+          "rect": {
+            "x": 36,
+            "y": 281.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 298.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 306.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 324.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 332.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 349.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 374.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 406.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 418.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 450.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    },
+    {
+      "nombre": "a7-final-largo-375-acciones.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 365,
+      "anchoDocumento": 360,
+      "tarjeta": {
+        "x": 16,
+        "y": 191.59375,
+        "width": 328,
+        "height": 455.78125,
+        "right": 344,
+        "bottom": 647.375
+      },
+      "datos": [
+        {
+          "texto": "Deporte:\nPatín artístico competitivo y preparación internacional",
+          "rect": {
+            "x": 36,
+            "y": 266.1875,
+            "width": 291,
+            "height": 34.53125,
+            "right": 327,
+            "bottom": 300.71875
+          }
+        },
+        {
+          "texto": "Grupo:\nPatín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales",
+          "rect": {
+            "x": 36,
+            "y": 308.71875,
+            "width": 291,
+            "height": 69.0625,
+            "right": 327,
+            "bottom": 377.78125
+          }
+        },
+        {
+          "texto": "Plan:\n2 clases/semana",
+          "rect": {
+            "x": 36,
+            "y": 385.78125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 403.046875
+          }
+        },
+        {
+          "texto": "DNI:\n33444555",
+          "rect": {
+            "x": 36,
+            "y": 411.046875,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 428.3125
+          }
+        },
+        {
+          "texto": "Celular:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 436.3125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 453.578125
+          }
+        },
+        {
+          "texto": "Edad:\n21 años",
+          "rect": {
+            "x": 36,
+            "y": 461.578125,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 478.84375
+          }
+        },
+        {
+          "texto": "Tutor:\nTutor de prueba",
+          "rect": {
+            "x": 36,
+            "y": 486.84375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 504.109375
+          }
+        },
+        {
+          "texto": "Tel. tutor:\n11-4000-0000",
+          "rect": {
+            "x": 36,
+            "y": 512.109375,
+            "width": 291,
+            "height": 17.265625,
+            "right": 327,
+            "bottom": 529.375
+          }
+        }
+      ],
+      "acciones": [
+        {
+          "texto": "Cobrar",
+          "rect": {
+            "x": 36,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Ver",
+          "rect": {
+            "x": 144,
+            "y": 554.375,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 586.375
+          }
+        },
+        {
+          "texto": "Editar",
+          "rect": {
+            "x": 36,
+            "y": 598.375,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 630.375
+          }
+        }
+      ],
+      "columnas": "328px"
+    }
+  ]
+}

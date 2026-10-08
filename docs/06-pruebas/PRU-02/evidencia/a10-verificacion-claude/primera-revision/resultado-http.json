@@ -1,0 +1,842 @@
+{
+    "ensayo": "VerificacionA10ClaudeTest",
+    "base": "wings_testing_claude",
+    "reloj_del_ensayo": "2025-03-31 10:00",
+    "resultados": {
+        "matriz": {
+            "movimientos_sembrados": 118,
+            "combinaciones": 432,
+            "pedidos_http": 442,
+            "combinaciones_con_varias_paginas": 8,
+            "maximo_de_paginas": 3,
+            "resultado": "modo, texto del período, ingresos, egresos, resultado en pantalla y filas (todas las páginas) coinciden con el cálculo propio"
+        },
+        "semana_desde_sus_siete_dias": [
+            {
+                "lunes": "2024-12-30",
+                "domingo": "2025-01-05",
+                "texto": "Del 30/12/2024 al 05/01/2025",
+                "filas": 16,
+                "fechas_de_las_filas": [
+                    "2024-12-30",
+                    "2024-12-31",
+                    "2025-01-01",
+                    "2025-01-05"
+                ]
+            },
+            {
+                "lunes": "2024-02-26",
+                "domingo": "2024-03-03",
+                "texto": "Del 26/02/2024 al 03/03/2024",
+                "filas": 19,
+                "fechas_de_las_filas": [
+                    "2024-02-26",
+                    "2024-02-28",
+                    "2024-02-29",
+                    "2024-03-01",
+                    "2024-03-03"
+                ]
+            },
+            {
+                "lunes": "2025-03-24",
+                "domingo": "2025-03-30",
+                "texto": "Del 24/03/2025 al 30/03/2025",
+                "filas": 5,
+                "fechas_de_las_filas": [
+                    "2025-03-30"
+                ]
+            },
+            {
+                "lunes": "2023-12-25",
+                "domingo": "2023-12-31",
+                "texto": "Del 25/12/2023 al 31/12/2023",
+                "filas": 8,
+                "fechas_de_las_filas": [
+                    "2023-12-25",
+                    "2023-12-31"
+                ]
+            }
+        ],
+        "signos": {
+            "dia_mixto": {
+                "ingresos": 950,
+                "egresos": 380,
+                "resultado": 570,
+                "ok": true
+            },
+            "solo_devolucion_en_el_periodo": {
+                "ingresos": -48000,
+                "egresos": 2000,
+                "resultado": -50000,
+                "ok": true
+            },
+            "semana_negativa": {
+                "ingresos": 100,
+                "egresos": 350,
+                "resultado": -250,
+                "ok": true
+            },
+            "reversion_de_egreso_sola_NO_ALCANZABLE": {
+                "movimientos": [
+                    "+500 ingreso",
+                    "+70 en subrubro de egreso"
+                ],
+                "suma_real_de_la_plata": 570,
+                "observado": {
+                    "ingresos": 500,
+                    "egresos": 70,
+                    "resultado_en_pantalla": 430
+                },
+                "nota": "abs() sobre la suma de egresos: si el neto del período es positivo se muestra como egreso y se resta. Ya estaba antes de A10 (y en CashflowSaldoService). Ningún servicio crea egresos positivos hoy."
+            }
+        },
+        "saldo_inicial": {
+            "saldo_inicial_caja_alfa": 777000,
+            "resultado_del_periodo": 750,
+            "saldo_disponible_CashflowSaldoService::obtenerSaldosPorTipoCaja": 777750,
+            "pantalla_cashflow_muestra_saldo_inicial": false
+        },
+        "conservacion_de_fecha": [
+            {
+                "cambio": "periodo=semana",
+                "enviado": {
+                    "periodo": "semana",
+                    "fecha": "2024-01-31",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Del 29/01/2024 al 04/02/2024",
+                "campos_devueltos": {
+                    "periodo": "semana",
+                    "fecha": "2024-01-31",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "periodo=mes",
+                "enviado": {
+                    "periodo": "mes",
+                    "fecha": "2024-01-31",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Enero 2024",
+                "campos_devueltos": {
+                    "periodo": "mes",
+                    "fecha": "2024-01-31",
+                    "anio": "2024",
+                    "mes": "1",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "mes=2",
+                "enviado": {
+                    "mes": "2",
+                    "periodo": "mes",
+                    "fecha": "2024-01-31",
+                    "anio": "2024",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Febrero 2024",
+                "campos_devueltos": {
+                    "periodo": "mes",
+                    "fecha": "2024-02-29",
+                    "anio": "2024",
+                    "mes": "2",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "anio=2023",
+                "enviado": {
+                    "anio": "2023",
+                    "periodo": "mes",
+                    "fecha": "2024-02-29",
+                    "mes": "2",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Febrero 2023",
+                "campos_devueltos": {
+                    "periodo": "mes",
+                    "fecha": "2023-02-28",
+                    "anio": "2023",
+                    "mes": "2",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "periodo=anio",
+                "enviado": {
+                    "periodo": "anio",
+                    "fecha": "2023-02-28",
+                    "anio": "2023",
+                    "mes": "2",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Año 2023 completo",
+                "campos_devueltos": {
+                    "periodo": "anio",
+                    "fecha": "2023-02-28",
+                    "anio": "2023",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "anio=2024",
+                "enviado": {
+                    "anio": "2024",
+                    "periodo": "anio",
+                    "fecha": "2023-02-28",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "Año 2024 completo",
+                "campos_devueltos": {
+                    "periodo": "anio",
+                    "fecha": "2024-02-28",
+                    "anio": "2024",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "periodo=dia",
+                "enviado": {
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "anio": "2024",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "28 de febrero de 2024",
+                "campos_devueltos": {
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "tipo_caja_id=12",
+                "enviado": {
+                    "tipo_caja_id": "12",
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "tipo": ""
+                },
+                "periodo_mostrado": "28 de febrero de 2024",
+                "campos_devueltos": {
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "12",
+                    "tipo": ""
+                }
+            },
+            {
+                "cambio": "tipo=EGRESO",
+                "enviado": {
+                    "tipo": "EGRESO",
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "12"
+                },
+                "periodo_mostrado": "28 de febrero de 2024",
+                "campos_devueltos": {
+                    "periodo": "dia",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "12",
+                    "tipo": "EGRESO"
+                }
+            },
+            {
+                "cambio": "periodo=semana",
+                "enviado": {
+                    "periodo": "semana",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "12",
+                    "tipo": "EGRESO"
+                },
+                "periodo_mostrado": "Del 26/02/2024 al 03/03/2024",
+                "campos_devueltos": {
+                    "periodo": "semana",
+                    "fecha": "2024-02-28",
+                    "tipo_caja_id": "12",
+                    "tipo": "EGRESO"
+                }
+            }
+        ],
+        "limpiar": {
+            "enlace": "http://gestion-wings/cashflow?periodo=semana&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-28",
+            "despues": {
+                "periodo": "semana",
+                "fecha": "2024-02-28",
+                "tipo_caja_id": "",
+                "tipo": ""
+            },
+            "periodo": "Del 26/02/2024 al 03/03/2024"
+        },
+        "enlaces_anteriores_y_sin_parametros": [
+            {
+                "parametros": {
+                    "anio": 2024,
+                    "mes": 2
+                },
+                "modo": "mes",
+                "periodo": "Febrero 2024",
+                "fecha_de_referencia": "2024-02-29"
+            },
+            {
+                "parametros": {
+                    "anio": 2025,
+                    "mes": 2
+                },
+                "modo": "mes",
+                "periodo": "Febrero 2025",
+                "fecha_de_referencia": "2025-02-28"
+            },
+            {
+                "parametros": {
+                    "mes": 4
+                },
+                "modo": "mes",
+                "periodo": "Abril 2025",
+                "fecha_de_referencia": "2025-04-30"
+            },
+            {
+                "parametros": {
+                    "anio": 2024
+                },
+                "modo": "anio",
+                "periodo": "Año 2024 completo",
+                "fecha_de_referencia": "2024-03-31"
+            },
+            {
+                "parametros": {
+                    "anio": 2024,
+                    "mes": ""
+                },
+                "modo": "anio",
+                "periodo": "Año 2024 completo",
+                "fecha_de_referencia": "2024-03-31"
+            },
+            {
+                "parametros": {
+                    "periodo": "mes"
+                },
+                "modo": "mes",
+                "periodo": "Marzo 2025",
+                "fecha_de_referencia": "2025-03-31"
+            },
+            {
+                "parametros": {
+                    "periodo": "dia"
+                },
+                "modo": "dia",
+                "periodo": "31 de marzo de 2025",
+                "fecha_de_referencia": "2025-03-31"
+            },
+            {
+                "parametros": {
+                    "periodo": "semana"
+                },
+                "modo": "semana",
+                "periodo": "Del 31/03/2025 al 06/04/2025",
+                "fecha_de_referencia": "2025-03-31"
+            },
+            {
+                "parametros": {
+                    "periodo": "dia",
+                    "anio": 2024,
+                    "mes": 2
+                },
+                "modo": "dia",
+                "periodo": "31 de marzo de 2025",
+                "fecha_de_referencia": "2025-03-31"
+            },
+            {
+                "parametros": {
+                    "periodo": "mes",
+                    "fecha": "2024-02-29"
+                },
+                "modo": "mes",
+                "periodo": "Febrero 2024",
+                "fecha_de_referencia": "2024-02-29"
+            },
+            {
+                "parametros": {
+                    "periodo": "anio",
+                    "fecha": "2024-02-29"
+                },
+                "modo": "anio",
+                "periodo": "Año 2024 completo",
+                "fecha_de_referencia": "2024-02-29"
+            },
+            {
+                "parametros": {
+                    "periodo": "anio",
+                    "fecha": "2024-02-29",
+                    "anio": 2025
+                },
+                "modo": "anio",
+                "periodo": "Año 2025 completo",
+                "fecha_de_referencia": "2025-02-28"
+            }
+        ],
+        "parametros_invalidos": [
+            {
+                "parametros": {
+                    "periodo": "xyz"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en periodo"
+            },
+            {
+                "parametros": {
+                    "periodo": "DIA"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en periodo"
+            },
+            {
+                "parametros": {
+                    "periodo": [
+                        "dia"
+                    ]
+                },
+                "http": 302,
+                "esperado": "rechazo con error en periodo"
+            },
+            {
+                "parametros": {
+                    "periodo": "dia;drop"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en periodo"
+            },
+            {
+                "parametros": {
+                    "fecha": "31/12/2024"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": "2025-02-29"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": "2024-13-01"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": "2024-1-5"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": [
+                        "2024-01-01"
+                    ]
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": "2024-01-01 10:00"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "fecha": "hoy"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "periodo": "semana",
+                    "fecha": "2024-02-30"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en fecha"
+            },
+            {
+                "parametros": {
+                    "anio": 1899
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "anio": 2101
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "anio": "abc"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "anio": "2024.5"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "anio": [
+                        2024
+                    ]
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "anio": -2024
+                },
+                "http": 302,
+                "esperado": "rechazo con error en anio"
+            },
+            {
+                "parametros": {
+                    "mes": 0
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "mes": 13
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "mes": -1
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "mes": "abc"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "mes": "2.5"
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "mes": [
+                        3
+                    ]
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "anio": 2024,
+                    "mes": 99
+                },
+                "http": 302,
+                "esperado": "rechazo con error en mes"
+            },
+            {
+                "parametros": {
+                    "tipo_caja_id": "abc"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo_caja_id": [
+                        1
+                    ]
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo_caja_id": 999999
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo_caja_id": -1
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo": "OTRO"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo": [
+                        "INGRESO"
+                    ]
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "tipo": "ingreso"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "page": "abc"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "page": -1
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "page": 9999
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "page": [
+                        2
+                    ]
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "periodo": "semana",
+                    "fecha": "0001-01-01"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Del 01/01/0001 al 07/01/0001"
+            },
+            {
+                "parametros": {
+                    "periodo": "semana",
+                    "fecha": "9999-12-31"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Del 27/12/9999 al 02/01/10000"
+            },
+            {
+                "parametros": {
+                    "periodo": "dia",
+                    "fecha": "9999-12-31"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "31 de diciembre de 9999"
+            },
+            {
+                "parametros": {
+                    "periodo": "mes",
+                    "fecha": "0001-01-01"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Enero 0001"
+            },
+            {
+                "parametros": {
+                    "periodo": "mes",
+                    "anio": 1900,
+                    "mes": 1
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Enero 1900"
+            },
+            {
+                "parametros": {
+                    "periodo": "mes",
+                    "anio": 2100,
+                    "mes": 12
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Diciembre 2100"
+            },
+            {
+                "parametros": {
+                    "periodo": "anio",
+                    "anio": 2100,
+                    "fecha": "2024-02-29"
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2100 completo"
+            },
+            {
+                "parametros": {
+                    "periodo": "",
+                    "fecha": "",
+                    "anio": "",
+                    "mes": ""
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "Año 2025 completo"
+            },
+            {
+                "parametros": {
+                    "periodo": "dia",
+                    "fecha": ""
+                },
+                "http": 200,
+                "esperado": "sin 500",
+                "periodo": "31 de marzo de 2025"
+            }
+        ],
+        "permisos_y_alta": [
+            {
+                "quien": "anónimo",
+                "pedido": "GET /cashflow",
+                "http": 302,
+                "destino": "http://gestion-wings/login"
+            },
+            {
+                "quien": "anónimo",
+                "pedido": "GET /cashflow?periodo=dia&fecha=2025-03-31",
+                "http": 302,
+                "destino": "http://gestion-wings/login"
+            },
+            {
+                "quien": "anónimo",
+                "pedido": "GET /cashflow/movimiento",
+                "http": 302,
+                "destino": "http://gestion-wings/login"
+            },
+            {
+                "quien": "anónimo",
+                "pedido": "POST /cashflow/movimiento",
+                "http": 302,
+                "destino": "http://gestion-wings/login"
+            },
+            {
+                "quien": "OPERATIVO",
+                "pedido": "GET /cashflow",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "OPERATIVO",
+                "pedido": "GET /cashflow?periodo=dia&fecha=2025-03-31",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "OPERATIVO",
+                "pedido": "GET /cashflow/movimiento",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "OPERATIVO",
+                "pedido": "POST /cashflow/movimiento",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "PROFESOR",
+                "pedido": "GET /cashflow",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "PROFESOR",
+                "pedido": "GET /cashflow?periodo=dia&fecha=2025-03-31",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "PROFESOR",
+                "pedido": "GET /cashflow/movimiento",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "PROFESOR",
+                "pedido": "POST /cashflow/movimiento",
+                "http": 403,
+                "destino": null
+            },
+            {
+                "quien": "ADMIN",
+                "pedido": "POST /cashflow/movimiento (egreso 1234.50)",
+                "http": 302,
+                "destino": "http://gestion-wings/cashflow"
+            }
+        ]
+    }
+}

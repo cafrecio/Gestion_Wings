@@ -7,9 +7,9 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 50 cerrados de 72.** Quedan 22 abiertos, de los
+> **Avance al 08/10/2026: 55 cerrados de 72.** Quedan 17 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
-> otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
+> otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 >
 > A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: HECHO (Claude), a revisar — lo que se ve lo aprobó Carlos; falta que otro agente verifique la regla (celular del tutor en menores; el operativo no ve rubros del admin). A35: revisado, no es un defecto; a confirmar. [Entrega](IMPLEMENTACION-A26-A38-A39-A44.md).
@@ -102,32 +102,34 @@ ni borra asignaciones históricas. [Entrega y capturas](IMPLEMENTACION-A4-A5.md)
 
 **Verificación independiente Gemini CyE, 06/10:** comprobado filtrado dinámico en frontend, rechazo de profesores de otro deporte o inactivos en backend con `ValidationException`, y comportamiento sin grupo definido. 11 pruebas pasando. [Informe de verificación](VERIFICACION-A4-A5.md).
 
-### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta
+### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta · CERRADO 08/10 · verificado Carlos
 
-En la ficha de la clase el botón se llama **Modificar** y tiene otro formato. Rompe la regla
-de un verbo por acción, igual en todas las pantallas.
+**Cierre visual, AGENTS §6a:** Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A7. El listado de alumnos desperdicia la pantalla · Molesta
+### A7. El listado de alumnos desperdicia la pantalla · Molesta · CERRADO 08/10 · verificado Carlos
 
-Una tarjeta por alumno del ancho completo, con el nombre a la izquierda y el deporte a
-treinta centímetros. El botón **Ver** desborda su lugar. El gris de la tarjeta no significa
-nada. Para saber el plan o el celular de alguien hay que abrir su ficha, uno por uno.
+**Cierre visual, AGENTS §6a:** Carlos: «Muy buen trabajo, me gusta». Una tarjeta por fila, plan/celular y columnas móviles Cobrar/Editar, Ver/Nuevo alineadas; escritorio conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A8. Puntos grises que no dicen nada · Molesta
+### A8. Puntos grises que no dicen nada · Molesta · CERRADO 08/10 · verificado Carlos
 
-En grupos, niveles y profesores cada tarjeta tiene un punto de color. En alumnos el color es
-el deporte; en el resto es gris siempre. O significa algo o no va.
+**Cierre visual, AGENTS §6a:** Carlos: «A-8 APROBADO». Estados útiles en Grupos, Niveles y Profesores; distintivo original de Profesores conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A9. El interruptor "Activo" en las tarjetas · Molesta
+### A9. El interruptor "Activo" en las tarjetas · Molesta · CERRADO 08/10 · verificado Carlos
 
-En grupos, niveles y profesores aparece un interruptor al lado de los botones, con otro
-tamaño y otra lógica visual que el resto del sistema.
+**Cierre visual, AGENTS §6a:** Carlos: «Perfecto, APROBADO A-9 Entonces». Acciones móviles a derecha; último botón y Nuevo x=224–320 en las tres pantallas; interruptor termina en x=320. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A10. El botón "Nuevo" del cashflow · Molesta
+### A10. El botón "Nuevo" del cashflow · Molesta · CERRADO 08/10 · verificado Claude
 
 Está suelto en la barra de totales y lleva a **Movimiento directo**. Nadie puede adivinar
 qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al
 lado.
+
+**HECHO (Codex), a revisar 08/10:** Carlos: «Me gusta, A10 Aprobado». Aplicados Nuevo junto al contador, Limpiar en filtros, título Nuevo movimiento y selector Día/Semana/Mes/Año. Resultado del período sin saldo inicial. Suite propia 507 aprobadas/2 omitidas, 4037 aserciones; build/Blade correctos y 24 capturas finales coincidentes con propuesta. [Entrega](IMPLEMENTACION-A10-PERIODOS.md). Aspecto verificado por Carlos; intervalos/cálculos pendientes de otro agente, sin deploy.
+
+**Primera revisión, 08/10 — devuelto por Claude:** al pulsar Limpiar en el navegador el período volvía a hoy, en los cuatro modos; el enlace salía con el `&` escapado dos veces. [Evidencia de esa devolución](evidencia/a10-verificacion-claude/primera-revision/LEEME.md).
+
+**CERRADO 08/10, verificado Claude (segunda revisión):** Codex corrigió solo el enlace de Limpiar. Pulsado en Chrome en Día, Semana, Mes y Año con fecha lejana, caja y tipo: conserva período y fecha y quita los dos filtros; el enlace llega con sus cuatro parámetros. Controlador sin cambios desde la primera revisión, donde quedaron comprobados intervalos, validaciones, signos, saldo inicial, paginación, permisos y alta. El aspecto lo aprobó Carlos. [Verificación](VERIFICACION-A10.md). Sin deploy.
+
 
 ### A11. Configuración es impresentable · Frena · CERRADO 04/10
 
@@ -310,13 +312,7 @@ Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados
 
 ### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · verificado
 
-En `/usuarios`, el administrador activo ("Admin Prueba (vos)") figura con el interruptor en gris (apagado) a pesar de tener el punto verde de activo.
-
-**Corregido en la verificación cruzada (Claude, 23/09):** el informe original decía que el
-administrador podía desactivarse a sí mismo con un clic. **Es falso.** `UsuarioWebController::toggleActivo`
-lo bloquea y responde "No podés inactivarte a vos mismo". Lo que queda es el defecto visual:
-el interruptor ofrece una acción que el sistema va a rechazar.
-Captura: `evidencia/audit_admin_usuarios_index_desktop.png`.
+Comprobación actual 08/10, Codex CyE: la cuenta propia tiene checked=true y disabled=true; etiqueta Activo visible, opacidad 0,45. Parece apagada por atenuación. El controlador impide desactivarse a sí mismo. Propuesta: Activo, Tu cuenta y candado; demás interruptores originales. En celular Editar coincide con Nuevo; escritorio conservado. Nueve capturas reales, originales intactos; falta elección de Carlos, no aplicado. [ANTES/propuesta](evidencia/a6-a10/visor-a32.html), [detalle y controles](PROPUESTA-A32.md).
 
 ### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · CERRADO 06/10, verificado Codex
 

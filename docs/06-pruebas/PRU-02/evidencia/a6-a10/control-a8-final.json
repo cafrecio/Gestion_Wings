@@ -1,0 +1,36 @@
+{
+  "fecha": "2026-10-08T12:18:27.530Z",
+  "capturas": 22,
+  "escritorios": [
+    {
+      "caso": "grupos-admin",
+      "antes": "531fd9e777bb90de40136765da5235732a25961f3b45dca18c9fcddb706d0221",
+      "despues": "531fd9e777bb90de40136765da5235732a25961f3b45dca18c9fcddb706d0221",
+      "identico": true
+    },
+    {
+      "caso": "grupos-operativo",
+      "antes": "385b95916cd2dcf4d6aace805d574aad2bc1b11d3dc0023c16d24785375892f7",
+      "despues": "385b95916cd2dcf4d6aace805d574aad2bc1b11d3dc0023c16d24785375892f7",
+      "identico": true
+    },
+    {
+      "caso": "niveles-admin",
+      "antes": "54a056bc634758f138422b5a0adb7d3c38b4b5d294c21c6c2c69233640ac72d3",
+      "despues": "54a056bc634758f138422b5a0adb7d3c38b4b5d294c21c6c2c69233640ac72d3",
+      "identico": true
+    },
+    {
+      "caso": "profesores-admin",
+      "antes": "3e0072df2e37aa42bc54baf15da20ee3a33427bcdb33468ae6e5324e35ad3f60",
+      "despues": "3e0072df2e37aa42bc54baf15da20ee3a33427bcdb33468ae6e5324e35ad3f60",
+      "identico": true
+    }
+  ],
+  "movil": {
+    "ancho": 375,
+    "botones": "96×32; dos botones en una misma fila; borde derecho 320",
+    "interruptores": "borde derecho 320; componente original",
+    "desborde": false
+  }
+}

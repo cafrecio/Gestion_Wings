@@ -1,0 +1,1273 @@
+{
+  "fecha": "2026-10-08T13:34:58.681Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel real, variante Blade del original, iframe 375x667 dentro de 1280x900",
+  "estado": "propuesta, no aplicada",
+  "diagnostico": "Cuenta propia checked=true, disabled=true, label Activo visible, opacity=0.45; parece apagado por atenuación",
+  "originales": {
+    "resources/views/usuarios/index.blade.php": "e657a160cb17a4c55a97301722da91fb84a37a5d354e0cec477655c9c66a1115",
+    "resources/views/components/ds/toggle.blade.php": "ca13ed883da27602c80908d75a9979c34f2094a024ae19c7242feb287825caaf",
+    "resources/css/app.css": "d321c7d260c5f76f3c9d24512c835cbec09fde37e87d59e9df7078cc0dd9f129",
+    "app/Http/Controllers/UsuarioWebController.php": "d7513cab9b4974c8aa62d5301be40e1ac5921b0b737c0a2cce06f08fd346df35"
+  },
+  "comparacionEscritorio": true,
+  "alineacion375": {
+    "x": 224,
+    "right": 320
+  },
+  "capturas": [
+    {
+      "nombre": "a32-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 0,
+      "nuevo": null,
+      "tarjetas": []
+    },
+    {
+      "nombre": "a32-actual-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "documento": 1265,
+      "scroll": 0,
+      "nuevo": {
+        "x": 1129,
+        "y": 197,
+        "width": 96,
+        "height": 32,
+        "right": 1225,
+        "bottom": 229
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 256,
+            "y": 253,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 385.0625
+          },
+          "editar": {
+            "x": 276,
+            "y": 336.0625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 368.0625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": true,
+            "opacity": "0.45",
+            "rect": {
+              "x": 384,
+              "y": 341.5625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 362.5625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 256,
+            "y": 401.0625,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 533.125
+          },
+          "editar": {
+            "x": 276,
+            "y": 484.125,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 516.125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 489.625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 510.625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 256,
+            "y": 549.125,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 681.1875
+          },
+          "editar": {
+            "x": 276,
+            "y": 632.1875,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 664.1875
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 637.6875,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 658.6875
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 256,
+            "y": 697.1875,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 829.25
+          },
+          "editar": {
+            "x": 276,
+            "y": 780.25,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 812.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 785.75,
+              "width": 99.828125,
+              "height": 21,
+              "right": 483.828125,
+              "bottom": 806.75
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-actual-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 0,
+      "nuevo": {
+        "x": 224,
+        "y": 201,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 233
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": 257,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 414.328125
+          },
+          "editar": {
+            "x": 36,
+            "y": 365.328125,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 397.328125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": true,
+            "opacity": "0.45",
+            "rect": {
+              "x": 144,
+              "y": 370.828125,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 391.828125
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": 430.328125,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 587.65625
+          },
+          "editar": {
+            "x": 36,
+            "y": 538.65625,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 570.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 544.15625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 565.15625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 603.65625,
+            "width": 328,
+            "height": 182.59375,
+            "right": 344,
+            "bottom": 786.25
+          },
+          "editar": {
+            "x": 36,
+            "y": 737.25,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 769.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 742.75,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 763.75
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 802.25,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 959.578125
+          },
+          "editar": {
+            "x": 36,
+            "y": 910.578125,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 942.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 916.078125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 243.828125,
+              "bottom": 937.078125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-actual-375-otro-activo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 354,
+      "nuevo": {
+        "x": 224,
+        "y": -153,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -121
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": -97,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 60.328125
+          },
+          "editar": {
+            "x": 36,
+            "y": 11.328125,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 43.328125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": true,
+            "opacity": "0.45",
+            "rect": {
+              "x": 144,
+              "y": 16.828125,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 37.828125
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": 76.328125,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 233.65625
+          },
+          "editar": {
+            "x": 36,
+            "y": 184.65625,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 216.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 190.15625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 211.15625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 249.65625,
+            "width": 328,
+            "height": 182.59375,
+            "right": 344,
+            "bottom": 432.25
+          },
+          "editar": {
+            "x": 36,
+            "y": 383.25,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 415.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 388.75,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 409.75
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 448.25,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 605.578125
+          },
+          "editar": {
+            "x": 36,
+            "y": 556.578125,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 588.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 562.078125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 243.828125,
+              "bottom": 583.078125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-actual-375-inactivo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 368,
+      "nuevo": {
+        "x": 224,
+        "y": -167,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -135
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": -111,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 46.328125
+          },
+          "editar": {
+            "x": 36,
+            "y": -2.671875,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 29.328125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": true,
+            "opacity": "0.45",
+            "rect": {
+              "x": 144,
+              "y": 2.828125,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 23.828125
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": 62.328125,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 219.65625
+          },
+          "editar": {
+            "x": 36,
+            "y": 170.65625,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 202.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 176.15625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 197.15625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 235.65625,
+            "width": 328,
+            "height": 182.59375,
+            "right": 344,
+            "bottom": 418.25
+          },
+          "editar": {
+            "x": 36,
+            "y": 369.25,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 401.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 374.75,
+              "width": 89.015625,
+              "height": 21,
+              "right": 233.015625,
+              "bottom": 395.75
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 434.25,
+            "width": 328,
+            "height": 157.328125,
+            "right": 344,
+            "bottom": 591.578125
+          },
+          "editar": {
+            "x": 36,
+            "y": 542.578125,
+            "width": 96,
+            "height": 32,
+            "right": 132,
+            "bottom": 574.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 144,
+              "y": 548.078125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 243.828125,
+              "bottom": 569.078125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-propuesta-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "documento": 1265,
+      "scroll": 0,
+      "nuevo": {
+        "x": 1129,
+        "y": 197,
+        "width": 96,
+        "height": 32,
+        "right": 1225,
+        "bottom": 229
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 256,
+            "y": 253,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 385.0625
+          },
+          "editar": {
+            "x": 276,
+            "y": 336.0625,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 368.0625
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 384,
+              "y": 336.0625,
+              "width": 80.359375,
+              "height": 32,
+              "right": 464.359375,
+              "bottom": 368.0625
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 256,
+            "y": 401.0625,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 533.125
+          },
+          "editar": {
+            "x": 276,
+            "y": 484.125,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 516.125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 489.625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 510.625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 256,
+            "y": 549.125,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 681.1875
+          },
+          "editar": {
+            "x": 276,
+            "y": 632.1875,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 664.1875
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 637.6875,
+              "width": 89.015625,
+              "height": 21,
+              "right": 473.015625,
+              "bottom": 658.6875
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 256,
+            "y": 697.1875,
+            "width": 993,
+            "height": 132.0625,
+            "right": 1249,
+            "bottom": 829.25
+          },
+          "editar": {
+            "x": 276,
+            "y": 780.25,
+            "width": 96,
+            "height": 32,
+            "right": 372,
+            "bottom": 812.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 384,
+              "y": 785.75,
+              "width": 99.828125,
+              "height": 21,
+              "right": 483.828125,
+              "bottom": 806.75
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-propuesta-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 0,
+      "nuevo": {
+        "x": 224,
+        "y": 201,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 233
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": 257,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": 458.328125
+          },
+          "editar": {
+            "x": 224,
+            "y": 365.328125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 397.328125
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": 409.328125,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": 441.328125
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": 474.328125,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 664.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 582.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 614.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 626.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 647.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 680.65625,
+            "width": 328,
+            "height": 215.59375,
+            "right": 344,
+            "bottom": 896.25
+          },
+          "editar": {
+            "x": 224,
+            "y": 814.25,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 846.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 858.25,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 879.25
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 912.25,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 1102.578125
+          },
+          "editar": {
+            "x": 224,
+            "y": 1020.578125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 1052.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 1064.578125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 1085.578125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-propuesta-375-otro-activo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 398,
+      "nuevo": {
+        "x": 224,
+        "y": -197,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -165
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": -141,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": 60.328125
+          },
+          "editar": {
+            "x": 224,
+            "y": -32.671875,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": -0.671875
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": 11.328125,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": 43.328125
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": 76.328125,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 266.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 184.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 216.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 228.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 249.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 282.65625,
+            "width": 328,
+            "height": 215.59375,
+            "right": 344,
+            "bottom": 498.25
+          },
+          "editar": {
+            "x": 224,
+            "y": 416.25,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 448.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 460.25,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 481.25
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 514.25,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 704.578125
+          },
+          "editar": {
+            "x": 224,
+            "y": 622.578125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 654.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 666.578125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 687.578125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "a32-propuesta-375-inactivo.png",
+      "ancho": 375,
+      "alto": 667,
+      "documento": 360,
+      "scroll": 511,
+      "nuevo": {
+        "x": 224,
+        "y": -310,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": -278
+      },
+      "tarjetas": [
+        {
+          "nombre": "ADMIN de prueba (vos)",
+          "rect": {
+            "x": 16,
+            "y": -254,
+            "width": 328,
+            "height": 201.328125,
+            "right": 344,
+            "bottom": -52.671875
+          },
+          "editar": {
+            "x": 224,
+            "y": -145.671875,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": -113.671875
+          },
+          "propia": {
+            "texto": "Activo\nTu cuenta",
+            "rect": {
+              "x": 239.640625,
+              "y": -101.671875,
+              "width": 80.359375,
+              "height": 32,
+              "right": 320,
+              "bottom": -69.671875
+            },
+            "titulo": "No podés desactivar tu propia cuenta."
+          },
+          "toggle": null
+        },
+        {
+          "nombre": "OPERATIVO de prueba",
+          "rect": {
+            "x": 16,
+            "y": -36.671875,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 153.65625
+          },
+          "editar": {
+            "x": 224,
+            "y": 71.65625,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 103.65625
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 115.65625,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 136.65625
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "PROFESOR de prueba",
+          "rect": {
+            "x": 16,
+            "y": 169.65625,
+            "width": 328,
+            "height": 215.59375,
+            "right": 344,
+            "bottom": 385.25
+          },
+          "editar": {
+            "x": 224,
+            "y": 303.25,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 335.25
+          },
+          "propia": null,
+          "toggle": {
+            "checked": true,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 230.984375,
+              "y": 347.25,
+              "width": 89.015625,
+              "height": 21,
+              "right": 320,
+              "bottom": 368.25
+            },
+            "onVisible": true,
+            "offVisible": false
+          }
+        },
+        {
+          "nombre": "ZZ Usuario inactivo de prueba",
+          "rect": {
+            "x": 16,
+            "y": 401.25,
+            "width": 328,
+            "height": 190.328125,
+            "right": 344,
+            "bottom": 591.578125
+          },
+          "editar": {
+            "x": 224,
+            "y": 509.578125,
+            "width": 96,
+            "height": 32,
+            "right": 320,
+            "bottom": 541.578125
+          },
+          "propia": null,
+          "toggle": {
+            "checked": false,
+            "disabled": false,
+            "opacity": "1",
+            "rect": {
+              "x": 220.171875,
+              "y": 553.578125,
+              "width": 99.828125,
+              "height": 21,
+              "right": 320,
+              "bottom": 574.578125
+            },
+            "onVisible": false,
+            "offVisible": true
+          }
+        }
+      ]
+    }
+  ]
+}

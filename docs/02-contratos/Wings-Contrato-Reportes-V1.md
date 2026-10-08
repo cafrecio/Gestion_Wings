@@ -13,6 +13,8 @@
 
 ## Enmienda FIN-04 — definición cerrada el 22/09/2026
 
+**Consulta de Cashflow, A10 08/10/2026:** Carlos aprobó la propuesta Día/Semana/Mes/Año con Resultado del período. Implementada y verificada por Claude el 08/10 (segunda revisión): Día usa una fecha; Semana la semana lunes–domingo que la contiene, sin recortar por mes/año; Mes/Año usan el intervalo completo seleccionado. Filas e ingresos/egresos comparten fechas inclusivas y filtro de caja; Tipo afecta las filas y mantiene ambos totales. Resultado del período = ingresos − egresos, sin saldo inicial. Sin selector explícito se conserva la consulta anual y los enlaces anteriores Año/Mes. Limpiar quita Caja/Tipo conservando período y fecha; el enlace se comprobó con clic real en los cuatro modos. Esta consulta no implementa POS-01 ni el apartado de saldo acumulado. [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md).
+
 Decisiones expresas de Carlos, consolidadas desde la entrevista. Esta enmienda
 prevalece sobre formulaciones anteriores incompatibles de este documento.
 Cierra la definición funcional de FIN-04, no la implementación de Reportes (POS-01).

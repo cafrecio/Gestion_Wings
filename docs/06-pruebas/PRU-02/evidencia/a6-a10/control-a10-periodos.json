@@ -1,0 +1,24 @@
+{
+  "fecha": "2026-10-08T12:48:59.582Z",
+  "capturas": 20,
+  "base": "wings_testing_codex",
+  "originalesSinCambios": {
+    "resources/views/cashflow/index.blade.php": "0461212886968171112061e5c74d44cf1da5546636a9f9bab9da118308a7768e",
+    "resources/views/cashflow/movimiento.blade.php": "2c5fce5212dde71f40a0bf69b32f9dad5e15cef02b5568850c571a6a4df34dbb",
+    "resources/css/app.css": "d321c7d260c5f76f3c9d24512c835cbec09fde37e87d59e9df7078cc0dd9f129",
+    "app/Http/Controllers/CashflowWebController.php": "1c2d438b2456a62651651cb15e092d74922fc7606b29fc10530a1d0fc91b1d08"
+  },
+  "intervalos": {
+    "dia": "8 de octubre de 2026",
+    "semana": "Del 05/10/2026 al 11/10/2026",
+    "mes": "Octubre 2026",
+    "anio": "Año 2026 completo",
+    "semana-cruce-mes": "Del 28/09/2026 al 04/10/2026",
+    "semana-cruce-anio": "Del 28/12/2026 al 03/01/2027"
+  },
+  "selectorDiaSemanaEjercitado": true,
+  "documentoSinDesborde": true,
+  "datosFicticios": true,
+  "estado": "Propuesta de diseño; no implementada en la aplicación",
+  "notaFinanciera": "Resultado = ingresos menos egresos del intervalo; no incorpora saldo inicial. Saldo acumulado no propuesto ni implementado."
+}

@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-08T14:13:30.404Z",
+  "capturas": 24,
+  "base": "wings_testing_codex",
+  "variantesDesactivadas": true,
+  "filtrosGeometriaIgualAPropuesta": true,
+  "periodosFilasIgualesAPropuesta": true,
+  "camposConIconos": 6,
+  "accionesVisibles": true,
+  "huellas": {
+    "app/Http/Controllers/CashflowWebController.php": "7e87564e75d3c1ce38627e1899d4e059e2df9f0afa6c5720c6c1a7c73ac36657",
+    "resources/views/cashflow/index.blade.php": "ba783459e2951a2fbbfd1f77a97c48af58e12406e47ec81419c22c0046bb40f4",
+    "resources/views/cashflow/movimiento.blade.php": "4a69087ad1b9afd7a692ad8752530a7ad02f0d13b2a2bb50f8a34f8340d79175"
+  },
+  "disenoVerifica": "Carlos: Me gusta, A10 Aprobado",
+  "logica": "Verificado Claude (segunda revisión, 08/10/2026)",
+  "desplegado": false
+}

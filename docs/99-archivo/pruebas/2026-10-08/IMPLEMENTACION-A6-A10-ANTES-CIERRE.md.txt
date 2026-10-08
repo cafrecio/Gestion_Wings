@@ -1,0 +1,61 @@
+#**Corte vigente 08/10:** A6–A9 cerrados con Carlos como verificador visual (AGENTS §6a), citando sus decisiones. A10 aplicado, aspecto aprobado; revisión funcional asignada a Claude: [orden concreta](VERIFICAR-A10.md). Suite final 507 aprobadas/2 omitidas; no desplegado. Las entradas anteriores conservan sus fechas y pendientes de aquel momento.
+
+ A6–A10 — Implementación en preparación
+
+**A10 aprobado/aplicado localmente 08/10:** Carlos: «Me gusta, A10 Aprobado». [Entrega funcional](IMPLEMENTACION-A10-PERIODOS.md): Día/Semana/Mes/Año y resultado sin saldo inicial, además de Nuevo en su barra y título Nuevo movimiento. Nueve pruebas de intervalos pasan; suite 507 aprobadas/2 omitidas y 24 capturas finales correctas. Aspecto validado por Carlos; reglas de intervalos/cálculos a verificar por otro agente (§6a). Las notas de maquetas siguientes conservan su fecha anterior a aplicar. No desplegado.
+
+**Ampliación A10 08/10, solo propuesta:** Carlos pidió evaluar Día/Semana y mostrar maquetas. [Selector Día / Semana / Mes / Año](evidencia/a6-a10/visor-a10-periodos.html), 20 capturas reales en base descartable Codex; escritorio/375, login de control, cruces de mes/año y cambio Día → Semana en navegador. Variante documental filtra filas/totales por el mismo intervalo; Resultado del período = ingresos − egresos. Saldo acumulado pendiente de definición. Originales de Cashflow/controlador/CSS idénticos por SHA256; sintaxis y enlaces correctos. No aplicada, no aprobada ni desplegada; la lógica futura requerirá verificación independiente. [Controles](evidencia/a6-a10/control-a10-periodos.json).
+
+**Antecedente A10, propuesta completa antes de aprobación 08/10:** [Cashflow ANTES/propuesta](evidencia/a6-a10/visor-a10.html) y [destino de Nuevo, formulario completo](evidencia/a6-a10/visor-a10-movimiento.html). 28 capturas reales ADMIN, escritorio/375; año completo, Octubre y Septiembre sin movimientos. Propuesta: contador/Nuevo en barra propia, Limpiar en filtros; título «Nuevo movimiento». Dos variantes Blade derivadas de los originales, renderizadas por los mismos controladores exclusivamente en laboratorio. Aplicación conservada; no se aplica aún esta elección. Período/filas idénticos, seis campos con íconos, Cancelar/Registrar visibles en la toma inferior. Nuevo pulsado en escritorio abre el formulario real; capturas móviles en srcdoc por X-Frame-Options DENY. Sintaxis/enlaces correctos, assets existentes; sin build/suite completa por esta propuesta documental. [Mediciones y huellas](evidencia/a6-a10/control-a10.json). Falta elección de Carlos y entrega/verificación independiente del paquete.
+
+**A9, confirmación explícita posterior 08/10:** Carlos respondió «Perfecto, APROBADO A-9 Entonces». No se pide otra aprobación de A9.
+
+**A9, condición de aprobación comprobada 08/10:** Carlos indicó «Si quedan alineados con el boton de arriba esta OK. Chequear eso». Medición nueva sobre Laravel real a 375 px: Nuevo y último botón de tarjeta comparten x=224 y borde derecho x=320 en Grupos, Niveles y Profesores. Los interruptores también terminan en x=320. Siete capturas nuevas, todos los registros de las tres páginas medidos; sin cambios de aplicación. [Mediciones](evidencia/a6-a10/comprobacion-a9-alineacion.json). Condición cumplida; A9 aprobado visualmente, entrega/verificación independiente pendientes.
+
+**A8 aprobado por Carlos, 08/10:** abrió el visor actual y respondió «A-8 APROBADO». Elección y resultado visual aprobados; no se pide otra aprobación de A8. Resta verificación independiente del paquete. Siguiente tema: A9, disposición móvil de botones/interruptor.
+
+**Suite posterior A8/A9:** 491 aprobadas/2 omitidas/7 fallas; 3944 aserciones, 293,60 s, wings_testing_codex. Seis HTTP 500 por `$bloqueo` ausente en Inicio operativo, editado simultáneamente fuera del alcance; una por contador documental 491/500. Fuente y salida comprobadas; no se corrigieron cambios ajenos. [Salida completa](evidencia/a6-a10/suite-a8-a9-2026-10-08.txt). La suite no está verde.
+
+**A8/A9, capturas reales 08/10:** 22 imágenes actuales: Grupos ADMIN/OPERATIVO, Niveles y Profesores ADMIN, escritorio y marco 375×667; login de control. [Grupos](evidencia/a6-a10/visor-a8-grupos.html) · [Niveles](evidencia/a6-a10/visor-a8-niveles.html) · [Profesores](evidencia/a6-a10/visor-a8-profesores.html). Filas activas/inactivas y niveles con/sin grupos; distintivo original de Profesores conservado. Las utilidades del pase no alineaban los controles: corregido con reglas CSS exclusivas de estos tres pies bajo 640 px y una clase por vista. Botones 96×32, ambos en una fila; último botón e interruptor terminan en x=320. Cuatro escritorios idénticos al antes por SHA256. Build 24,21 s, sintaxis y Blade correctos; escenario 4/15 verde, 7,53 s. Suite posterior finalizada: resultado y causas arriba. No se cierra ni publica el paquete.
+
+**Aprobación visual de A7, 08/10:** Carlos abrió el visor de columnas alineadas y respondió «Muy buen trabajo, me gusta». Queda aprobado este aspecto final; entrega conjunta, verificación independiente y publicación siguen pendientes.
+
+**Último ajuste A7, 08/10:** Carlos pidió alinear Cobrar/Editar entre sí y Ver con Nuevo. Pie móvil con dos columnas de 96 px; margen derecho igualado al botón Nuevo, sin mover este último. [12 capturas reales nuevas](evidencia/a6-a10/visor-a7-columnas.html): ADMIN/OPERATIVO y nombre largo a 375 px, Cobrar/Editar x=116 y Ver/Nuevo x=224–320. Botones 96×32 px. Las tres imágenes de escritorio siguen idénticas por SHA256. Build 29,39 s y Blade correctos; escenario propio 4/15 verde, 8,55 s. Suite final propia: 496 aprobadas, 2 omitidas, 1 falla documental 491/499; 3948 aserciones, 367,51 s. Misma falla anterior, sin corregir fuera del alcance. No se cierra el paquete.
+
+07/10/2026, Codex CyE; actualizado 08/10. A7/A8/A9/A10 aprobados visualmente por Carlos. A10 aplicado con períodos, 24 capturas posteriores y suite 507 aprobadas/2 omitidas; [entrega funcional](IMPLEMENTACION-A10-PERIODOS.md). Falta verificación independiente de la lógica. Sin commit, push ni despliegue.
+
+**Antecedente: primera retoma 08/10:** [A7 con capturas nuevas completas](evidencia/a6-a10/visor-a7-retoma.html); se detectó alineación móvil a izquierda, contraria al pedido y al pase. Las correcciones y capturas posteriores de A7/A8/A9 están registradas arriba. Los controles del 07/10 conservan su fecha; no describen el resultado actual.
+
+**Corrección posterior 08/10, pedida por Carlos:** «Recien vi la captura, queda feo, en celular alinealos a la derecha. No asi en escritorio». Agregada una regla exclusiva `.alumnos-listado .alumno-actions` bajo 640 px. [12 imágenes nuevas](evidencia/a6-a10/visor-a7-derecha.html) de ADMIN/OPERATIVO, nombre largo y login. En celular `justify-content: flex-end`; escritorio `flex-start`, con geometría de tarjetas/botones idéntica a las tres tomas anteriores. Se conserva tamaño 96×32 px. Solo Alumnos recibe esta regla; los componentes compartidos y otras pantallas no se modificaron. Build 26,41 s correcto; revisión independiente del paquete A6–A10 sigue pendiente.
+
+Control completo posterior: 496 aprobadas, 2 omitidas, 1 falla; 3948 aserciones, 319,38 s, wings_testing_codex. Única falla `DocumentacionNoMienteTest`: ESTADO-ACTUAL declara 491 y hay 499; diferencia ya registrada en LOG-CLAUDE, ajena al CSS y sin resolver aquí. Generador con sintaxis correcta; Blade compila y caché retirado; enlaces del visor correctos; tres imágenes de escritorio idénticas por SHA256 al antes. La suite no está verde.
+
+| Defecto | Elección de Carlos | Cambio aplicado | Estado |
+|---|---|---|---|
+| A6 | «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto» | Modificar → Editar; formato, ubicación, condiciones e identificadores originales | CERRADO 08/10, verificado Carlos; seis capturas reales |
+| A7 | «A- NUNCA EN LA PUTA VIDA, NO CAMBIAR ESO NUNCA / B- OK espero que nadie le ponga un nombre tan largo al deporte ni al nivel» | Solo B: una tarjeta por fila; ocho datos, incluidos plan y celular; textos completos. Regla permanente en DESIGN-RULES.md | CERRADO 08/10, verificado Carlos; capturas finales aprobadas |
+| A8 | «A8 Opcion A»; conservar distintivo de Profesores | Punto con estado; distintivo original intacto | CERRADO 08/10, verificado Carlos: «A-8 APROBADO» |
+| A9 | «los botones en el celular se alinean todos a la derecha» | Alineación móvil de acciones/interruptor; mismo componente y tamaño | CERRADO 08/10, verificado Carlos; condición medida y aprobación explícita |
+| A10 | «Me gusta, A10 Aprobado» | Día/Semana/Mes/Año, resultado del período, Nuevo junto al contador y título Nuevo movimiento | Aplicado; 24 capturas finales, suite 507/2; lógica a_verificar |
+
+## Alcance comprobado
+
+- A6: `resources/views/clases/show.blade.php`, una palabra.
+- A7: `resources/views/alumnos/index.blade.php` y CSS exclusivo subordinado a `.alumnos-listado` en `resources/css/app.css`; contenedor de tarjetas de una columna. Sin selector doble, sin modificar componentes compartidos ni controles de acceso.
+- A7 conserva datos previos y muestra deporte, grupo, plan activo (clases/semana), DNI, celular, edad, tutor y teléfono del tutor. Singular «1 clase/semana»; plan/celular vacío con alternativa textual. Carga del plan en lote para la página, sin nueva consulta por tarjeta.
+- Regla permanente: [DESIGN-RULES.md](../../03-diseno-ui/design-system/DESIGN-RULES.md). [Decisiones, imágenes y consumidores](PROPUESTA-A6-A10.md).
+
+- A8/A9: Grupos, Niveles y Profesores; tres clases de pie exclusivas y reglas CSS bajo 640 px. A7 conserva su alineación propia. Sin cambiar componentes compartidos ni distintivo coloreado de Profesores.
+- A10: selector Día/Semana/Mes/Año y rango explícito; resultado del período sin saldo inicial. Nuevo junto al contador, Limpiar en filtros, título Nuevo movimiento con íconos existentes. Controlador usa el mismo intervalo inclusivo para filas/totales; controles reutilizan el envío al cambiar. [Entrega específica](IMPLEMENTACION-A10-PERIODOS.md).
+
+## Verificado / pendiente
+
+Verificado por lectura de código: A7 tiene una columna de tarjetas en todos los anchos; cero selectores doble, CSS subordinado al listado, componentes de acciones conservados. Las tres clases nuevas A9 aparecen solo en sus respectivos listados. Los resultados anteriores de build 14,91 s corresponden al 07/10; control actual de A8/A9 arriba. Entorno de capturas: APP_ENV=testing, DB_DATABASE=wings_testing_codex.
+
+Verificación visual previa: opción B propuesta, ADMIN y OPERATIVO en escritorio/375, nombres largos, 21 alumnos; PROFESOR sin acceso. Capturas reales miradas por Codex, [visor](evidencia/a6-a10/visor-a7.html). No equivale a la revisión final después de aplicar la elección.
+
+Pendiente actual: verificación independiente de intervalos/cálculos A10 y entrega del paquete para publicación. A7/A8/A9/A10 tienen aprobación visual de Carlos; A10 aplicado con nueve pruebas funcionales nuevas y suite completa 507 aprobadas/2 omitidas. Registro A10 a_verificar; sin commit/push/deploy. Los cambios exclusivamente visuales no requieren otro agente desde la excepción de AGENTS §6a.
+
+Carlos verifica lo visual; otro agente verifica la lógica antes de cerrar A10. Producción, servidor y base del club intactos.
+
+Antecedente 07/10: diez respuestas HTTP 200; período anual/mensual y seis etiquetas con íconos comprobados. Sintaxis de seis vistas, compilación Blade y build 10,22 s correctos. [Evidencia HTTP](evidencia/a6-a10/comprobacion-elecciones-http.json). En ese corte la alineación móvil se había inferido del CSS; las capturas del 08/10 mostraron que no alcanzaba y se corrigió como consta arriba.

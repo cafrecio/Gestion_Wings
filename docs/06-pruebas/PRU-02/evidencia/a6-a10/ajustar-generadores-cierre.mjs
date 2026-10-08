@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+const p='docs/06-pruebas/PRU-02/evidencia/a6-a10/preparar-visor-a10-aplicado.mjs';
+let s=await readFile(p,'utf8');
+s=s.replace('Resultado del período sin saldo inicial. Intervalos/cálculos pendientes de verificación independiente; saldo acumulado de Reportes pendiente.','Resultado del período sin saldo inicial. ${revision} Saldo acumulado de Reportes pendiente.');
+s=s.replace("logica:'Pendiente de verificación independiente'","logica:verificado?'Verificado Claude (segunda revisión, 08/10/2026)':'Pendiente de verificación independiente'");
+await writeFile(p,s);
+const v='docs/06-pruebas/PRU-02/evidencia/a6-a10/validar-entrega.mjs';
+s=await readFile(v,'utf8');
+s=s.replace('suite-a10-2026-10-08.txt','suite-a10-limpiar-2026-10-08.txt').replace('2 skipped, 507 passed (4037 assertions)','2 skipped, 508 passed (4077 assertions)').replace('379.46s','423.14s').replace('aprobadas:507,omitidas:2,aserciones:4037,duracion:379.46','aprobadas:508,omitidas:2,aserciones:4077,duracion:423.14');
+await writeFile(v,s);
+console.log('Generadores ajustados al veredicto actual y suite posterior a Limpiar');

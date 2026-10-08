@@ -1,0 +1,35 @@
+# A10 — Períodos y acciones de Cashflow
+
+08/10/2026 · Codex CyE. **Diseño aprobado por Carlos:** «Me gusta, A10 Aprobado».
+
+## Corrección tras revisión independiente
+
+Claude comprobó 432 combinaciones y 442 pedidos; devolvió el botón Limpiar por doble escape de su dirección. [Informe independiente](VERIFICACION-A10.md). Corregido `href` a parámetro ligado `:href`, sin cambio visual. La nueva prueba interpreta el enlace con DOM como Chrome: falla con amp;anio/amp;fecha/amp;mes antes y pasa después. A10: diez pruebas/110 aserciones verdes (7,78 s); sintaxis y Blade correctos. Suite completa de 510 y segunda revisión independientes en ejecución. No cerrado ni desplegado.
+
+## Aplicado localmente
+
+- Selector Período: Día, Semana, Mes, Año; campos de fecha/año/mes según selección.
+- Semana lunes–domingo; mismo intervalo inclusivo para filas, ingresos y egresos.
+- Enlaces anteriores `anio`/`mes` compatibles; sin parámetros sigue el año actual completo.
+- Fecha conservada al cambiar el modo; día limitado al último válido del mes elegido.
+- Nuevo junto al contador; Limpiar conserva el período y elimina caja/tipo.
+- Destino titulado Nuevo movimiento; campos e íconos de la propuesta aprobada.
+- Resultado del período = ingresos − egresos, sin sumar saldo inicial. No implementa el apartado de saldo acumulado de Reportes.
+
+Archivos: `CashflowWebController::index`, `cashflow/index.blade.php`, títulos de `cashflow/movimiento.blade.php`; nueve pruebas nuevas y dos pruebas existentes adaptadas al comportamiento aprobado. Sin modificación de permisos ni registros de la base del club.
+
+## Verificación
+
+Nueve pruebas propias de intervalos: **9 aprobadas, 70 aserciones**, 9,12 s, `wings_testing_codex`.
+Comprueban vecinos del día, lunes/domingo, cruces de mes/año, febrero bisiesto, enlaces anteriores, filtros, conservación de fecha, parámetros inválidos y paginación. El ensayo existente de saldo inicial ahora exige resultado sin arrastre; los ensayos de saldo disponible conservan sus criterios.
+
+Suite completa propia: **507 aprobadas / 2 omitidas**, 4037 aserciones, 379,46 s; 509 pruebas declaradas. [Salida completa](evidencia/a6-a10/suite-a10-2026-10-08.txt).
+Build 31,01 s; sintaxis de los seis PHP/Blade tocados correcta, `view:cache` y `view:clear` correctos.
+Después de actualizar estados/contadores: DocumentacionNoMiente, DefectosNoDivergen y TablerosNoDivergen, **6 aprobadas / 28 aserciones**, 0,26 s; enlaces de los cinco visores y diff correctos.
+Escenario ficticio 4/15 verde, 9,07 s, preparado después de la suite. **24 capturas posteriores a aplicar**, sin variantes del laboratorio: cuatro modos, cruces de mes/año, selección Día → Semana y Nuevo pulsado hasta el formulario completo. Geometría de filtros, rango y filas idénticos a las 20 capturas de la propuesta; seis etiquetas con íconos y botones del formulario visibles. Login de control correcto a 375×667. [Resultado aplicado](evidencia/a6-a10/visor-a10-aplicado.html) · [Mediciones/huellas](evidencia/a6-a10/control-a10-aplicado.json). Servidor de laboratorio detenido.
+
+## Aprobación y siguiente paso
+
+[Maqueta de escritorio aprobada](evidencia/a6-a10/visor-a10-escritorio.html) · [Cuatro modos y celular](evidencia/a6-a10/visor-a10-periodos.html).
+
+Lo visual fue verificado por Carlos (§6a). A10 queda **a_verificar**, asignado a Claude: debe comprobar intervalos, validaciones y cálculo del resultado; [orden preparada](VERIFICAR-A10.md), todavía no ejecutada. No desplegado ni publicado.

@@ -1,0 +1,37 @@
+diff --git a/resources/views/grupos/index.blade.php b/resources/views/grupos/index.blade.php
+index 4b67c12..44fbdb6 100644
+--- a/resources/views/grupos/index.blade.php
++++ b/resources/views/grupos/index.blade.php
+@@ -67,7 +67,6 @@
+         <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
+ 
+             <div class="alumno-card-header">
+-                <span class="alumno-dot alumno-dot--neutral" title="Estado"></span>
+                 <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
+             </div>
+ 
+diff --git a/resources/views/niveles/index.blade.php b/resources/views/niveles/index.blade.php
+index b32471e..502b87f 100644
+--- a/resources/views/niveles/index.blade.php
++++ b/resources/views/niveles/index.blade.php
+@@ -29,7 +29,6 @@
+     <div class="alumno-card alumno-card--otro">
+ 
+         <div class="alumno-card-header">
+-            <span class="alumno-dot alumno-dot--neutral"></span>
+             <h3 class="alumno-nombre">{{ $nivel->nombre }}</h3>
+         </div>
+ 
+diff --git a/resources/views/profesores/index.blade.php b/resources/views/profesores/index.blade.php
+index 0fdb290..626ef70 100644
+--- a/resources/views/profesores/index.blade.php
++++ b/resources/views/profesores/index.blade.php
+@@ -74,8 +74,6 @@ class="filtros-control"
+         <div class="alumno-card alumno-card--{{ $rail }}">
+ 
+             <div class="alumno-card-header">
+-                <span class="alumno-dot {{ $profesor->activo ? 'alumno-dot--activo' : 'alumno-dot--inactivo' }}"
+-                      title="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"></span>
+                 <h3 class="alumno-nombre">{{ $profesor->apellido }}, {{ $profesor->nombre }}</h3>
+                 <span style="
+                     margin-left: auto;

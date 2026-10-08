@@ -1,0 +1,14 @@
+diff --git a/resources/views/cashflow/movimiento.blade.php b/docs/06-pruebas/PRU-02/evidencia/a6-a10/opciones/a10/cashflow/movimiento.blade.php
+index 0601721..7c123c7 100644
+--- a/resources/views/cashflow/movimiento.blade.php
++++ b/docs/06-pruebas/PRU-02/evidencia/a6-a10/opciones/a10/cashflow/movimiento.blade.php
+@@ -1,7 +1,7 @@
+ @extends('layouts.ds-app')
+ 
+-@section('title', 'Movimiento directo – Wings')
+-@section('module-title', 'Movimiento directo')
++@section('title', 'Nuevo movimiento – Cashflow – Wings')
++@section('module-title', 'Nuevo movimiento')
+ 
+ @section('content')
+ 

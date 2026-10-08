@@ -1,0 +1,860 @@
+{
+  "fecha": "2026-10-08T12:27:03.572Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel HTTP real; marco iframe 375x667; Nuevo pulsado en escritorio para comprobar destino; móvil en srcdoc por X-Frame-Options DENY",
+  "capturas": [
+    {
+      "nombre": "a10-actual-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Ingresar – Wings",
+      "nuevo": null,
+      "barras": [],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-anual-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 1171.03125,
+          "y": 360.796875,
+          "width": 68.96875,
+          "height": 32,
+          "right": 1240,
+          "bottom": 392.796875
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 348.796875,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 404.796875
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-anual-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 674.578125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 706.578125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 562.1875,
+            "width": 328,
+            "height": 156.390625,
+            "right": 344,
+            "bottom": 718.578125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-anual-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 430.578125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.578125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 318.1875,
+            "width": 328,
+            "height": 156.390625,
+            "right": 344,
+            "bottom": 474.578125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-octubre-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 1171.03125,
+          "y": 360.796875,
+          "width": 68.96875,
+          "height": 32,
+          "right": 1240,
+          "bottom": 392.796875
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 348.796875,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 404.796875
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-octubre-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 674.578125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 706.578125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 562.1875,
+            "width": 328,
+            "height": 156.390625,
+            "right": 344,
+            "bottom": 718.578125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-octubre-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 430.578125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.578125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$1.570.000\nBALANCE\n1 movimiento\nLimpiar\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 318.1875,
+            "width": 328,
+            "height": 156.390625,
+            "right": 344,
+            "bottom": 474.578125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-actual-septiembre-vacio-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nSeptiembre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 1171.03125,
+          "y": 360.796875,
+          "width": 68.96875,
+          "height": 32,
+          "right": 1240,
+          "bottom": 392.796875
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 348.796875,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 404.796875
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-septiembre-vacio-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nSeptiembre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 669.78125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 701.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 562.1875,
+            "width": 328,
+            "height": 151.59375,
+            "right": 344,
+            "bottom": 713.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-septiembre-vacio-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 203,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nSeptiembre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 251.03125,
+          "y": 466.78125,
+          "width": 68.96875,
+          "height": 32,
+          "right": 320,
+          "bottom": 498.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nSALDO INICIAL\n$0\nBALANCE\n0 movimientos\nLimpiar\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 359.1875,
+            "width": 328,
+            "height": 151.59375,
+            "right": 344,
+            "bottom": 510.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-movimiento-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Movimiento directo – Wings",
+      "cabecera": "Movimiento directo",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 306,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 322
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 306,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 322
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 386,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 402
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 386,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 402
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 465,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 481
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 465,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 481
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 1064,
+            "y": 578,
+            "width": 96,
+            "height": 32,
+            "right": 1160,
+            "bottom": 610
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 1168,
+            "y": 578,
+            "width": 96,
+            "height": 32,
+            "right": 1264,
+            "bottom": 610
+          }
+        }
+      ],
+      "formulario": {
+        "x": 256,
+        "y": 185,
+        "width": 1008,
+        "height": 425,
+        "right": 1264,
+        "bottom": 610
+      },
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-movimiento-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Movimiento directo – Wings",
+      "cabecera": "Movimiento directo",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 310,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 326
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 390,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 406
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 469,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 485
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 548,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 564
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 627,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 643
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 707,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 723
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 820,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 852
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 820,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 852
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": 189,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 852
+      },
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-movimiento-375-campos.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Movimiento directo – Wings",
+      "cabecera": "Movimiento directo",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 66,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 82
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 146,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 162
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 225,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 241
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 304,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 320
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 383,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 399
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 463,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 479
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 608
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 608
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": -55,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 608
+      },
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-actual-movimiento-375-acciones.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Movimiento directo – Wings",
+      "cabecera": "Movimiento directo",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 66,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 82
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 146,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 162
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 225,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 241
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 304,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 320
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 383,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 399
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 463,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 479
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 608
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 608
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": -55,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 608
+      },
+      "tablaFilas": []
+    }
+  ]
+}

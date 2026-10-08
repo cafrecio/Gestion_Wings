@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 500 pruebas: 498 aprobadas, 2 omitidas; 3960 aserciones (08/10)
+$env:DB_DATABASE='wings_testing_codex'; php artisan test  # 510 pruebas: 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; A10 cerrado, verifica Claude
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
@@ -153,8 +153,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   conexiones. Detalle en el plan, seccion FIN-05.
 - [x] **COB-04:** un pago anulado **no** cuenta como primer pago. Decidido el 10/09;
   corregido y verificado en navegador.
-- [ ] **FIN-04:** decidir si “Balance” de Cashflow significa saldo acumulado o
-  resultado del periodo.
+- [x] **FIN-04, definición:** Carlos distinguió resultado del período y saldo acumulado el 22/09.
+  A10 aprobado 08/10 muestra resultado sin saldo inicial; aplicado y cerrado, verifica Claude en segunda revisión; Limpiar conserva el período con clic real en los cuatro modos.
+  El apartado de saldo acumulado de Reportes sigue pendiente; no requiere repetir la decisión.
 - [x] **FIN-08, retoques de la pantalla Revision** (encontrados por Gemini 21/09): mostrar el
   error si la nota falta, filtros que no se aprieten en celular y sacar un script duplicado.
   **Implementados por Gemini el 22/09:** banner de `$errors` visible sin JS (`ds-flash--error`),

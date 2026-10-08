@@ -1,0 +1,17 @@
+Claude: revisión independiente A10, asignada por Carlos mediante AGENTS.md §6a y el pedido de terminar las tareas.
+
+Trabajás en C:/xampp/htdocs/Gestion_Wings. Codex no puede cerrar su propia lógica. Sos Claude, firmá Claude CyE. Revisá el estado real; no heredes como cierta la entrega de Codex.
+
+Leé AGENTS.md y CLAUDE.md completos, protocolo y novedades de los tres logs. Seguí docs/06-pruebas/PRU-02/VERIFICAR-A10.md. Si usás MCP de codebase-memory, las pistas del padre son: proyecto C-xampp-htdocs-Gestion_Wings, método CashflowWebController.index en app/Http/Controllers/CashflowWebController.php líneas 17–86; check_index_coverage de 08/10 devuelve metadata_changed para controlador, dos vistas Cashflow y CashflowPeriodosA10Test; hay que leer fuentes actuales. No confíes en el índice para vistas.
+
+Tu responsabilidad exclusiva: comprobar intervalos, validaciones, conservación de fecha, paginación/filtros, signos del resultado y separación de saldo inicial; también permisos intactos y controles reales de selección/Nuevo/Limpiar. Leer cuerpo y diff actual, no solo nombres de funciones. La apariencia ya está aprobada por Carlos; no rediseñar nada.
+
+No estás solo en el repo: Codex prepara la entrega A6–A10/A32, Gemini tiene evidencia A12/A24 y A26/A39/A35. No revertir, ordenar ni commitear cambios ajenos. No tocar código de producción, las vistas ni CSS; si descubrís un defecto, describilo con reproducción en tu informe y devolvé A10 a Codex. No commit, push ni despliegue.
+
+Trabajá únicamente con DB_DATABASE=wings_testing_claude; no usar wings_testing_codex ni gestion_wings. La base Codex conserva las capturas A32. Si hace falta un servidor de captura usá otro puerto, nunca 8794, y detenido al entregar. No leer/imprimir secretos ni .env; PHP carga su configuración normalmente sin exponerla.
+
+Además de las pruebas del autor, armá comprobaciones independientes con otros importes/fechas y registros de ingreso negativo/reversión de egreso. Podés poner ensayos y scripts documentales fuera de la suite permanente en docs/06-pruebas/PRU-02/evidencia/a10-verificacion-claude/. Pantalla real de Laravel: HTTP autenticado, HTML producido por aplicación y/o navegador Chrome CDP; celular dentro de iframe375, login de calibración. Si algo no pudo comprobarse, declararlo; no cerrar por confianza ni por el informe anterior.
+
+Archivos que podés crear/escribir: carpeta de evidencia a10-verificacion-claude, docs/06-pruebas/PRU-02/VERIFICACION-A10.md y LOG-CLAUDE.md. El tablero se cambia exclusivamente por scripts/tablero/tablero.php. Si toda la lógica está realmente verificada, cerrá A10 con verifica=Claude; si falla, devolvelo a Codex con reproducción. Actualizá solo A10 en DEFECTOS.md y DEFECTOS.html y los contadores de avance correspondientes, conservando cambios ajenos. Respetá presupuesto/archivo íntegro del log. Codex actualizará su entrega y resumen después.
+
+Respuesta final corta: veredicto, hechos probados, pruebas/capturas propias, archivos creados y limitaciones. Registrar tu verificación real en tu bitácora y estado del tablero. Si aumentás suite permanente, además estado y plan; preferí ensayo documental para esta revisión.

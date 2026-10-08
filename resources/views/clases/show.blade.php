@@ -68,7 +68,7 @@
                             style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
                                    border:1px solid var(--color-border); background:transparent;
                                    color:var(--color-text-muted); cursor:pointer; font-family:inherit;">
-                        Modificar
+                        Editar
                     </button>
                 @endif
             </div>

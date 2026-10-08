@@ -1,0 +1,3036 @@
+{
+  "fecha": "2026-10-08T14:13:30.404Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel HTTP real; marco iframe 375x667; selector Día → Semana ejercitado en escritorio; móvil en srcdoc por X-Frame-Options DENY",
+  "capturas": [
+    {
+      "nombre": "a10-aplicado-periodos-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Ingresar – Wings",
+      "nuevo": null,
+      "barras": [],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "filtros": [],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-dia-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\n8 de octubre de 2026",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 420.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 452.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 349.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 396.59375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 408.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 464.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "dia",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 511.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "FECHA",
+          "rect": {
+            "x": 523.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 38,
+            "right": 754,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 996.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 1239,
+            "bottom": 268.796875
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-dia-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\n8 de octubre de 2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 559.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 591.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 423.59375,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 535.984375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 547.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 603.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "dia",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 215,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 231.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 235.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 272.796875
+          }
+        },
+        {
+          "texto": "FECHA",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 230.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 234.796875,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 272.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 284.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 301.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 305.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 342.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 284.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 301.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 305.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 342.59375
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-dia-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 129,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\n8 de octubre de 2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 430.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 294.59375,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 406.984375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 418.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 474.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "dia",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 86,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 102.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 106.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 143.796875
+          }
+        },
+        {
+          "texto": "FECHA",
+          "rect": {
+            "x": 186,
+            "y": 85,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 101.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 105.796875,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 143.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 155.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 172.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 176.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 213.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 155.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 172.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 176.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 213.59375
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 05/10/2026 al 11/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 420.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 452.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 349.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 396.59375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 408.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 464.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 511.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 523.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 38,
+            "right": 754,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 996.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 1239,
+            "bottom": 268.796875
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 05/10/2026 al 11/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 576.78125,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 608.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 440.390625,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 552.78125
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 564.78125,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 620.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 231.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 248.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 252.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 247.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 251.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 359.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 359.390625
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 146,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 05/10/2026 al 11/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 430.78125,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 294.390625,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 406.78125
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 418.78125,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 474.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 85.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 102.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 106.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 143.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 68,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 101.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 105.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 143.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 155.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 172.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 176.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 213.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 155.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 172.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 176.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 213.390625
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-mes-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 419.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 451.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 348.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 395.59375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 407.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 463.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "mes",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 210,
+            "width": 182,
+            "height": 16.796875,
+            "right": 463,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 230.796875,
+            "width": 182,
+            "height": 37,
+            "right": 463,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 475,
+            "y": 210,
+            "width": 182,
+            "height": 16.796875,
+            "right": 657,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 475,
+            "y": 230.796875,
+            "width": 182,
+            "height": 37,
+            "right": 657,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "MES",
+          "rect": {
+            "x": 669,
+            "y": 210,
+            "width": 182,
+            "height": 16.796875,
+            "right": 851,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 669,
+            "y": 230.796875,
+            "width": 182,
+            "height": 37,
+            "right": 851,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 863,
+            "y": 210,
+            "width": 182,
+            "height": 16.796875,
+            "right": 1045,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 863,
+            "y": 230.796875,
+            "width": 182,
+            "height": 37,
+            "right": 1045,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1057,
+            "y": 210,
+            "width": 182,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 1057,
+            "y": 230.796875,
+            "width": 182,
+            "height": 37,
+            "right": 1239,
+            "bottom": 267.796875
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-mes-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 628.78125,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 660.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 492.390625,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 604.78125
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 616.78125,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 672.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "mes",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 214,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 230.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 234.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 271.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 230.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 234.796875,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 271.796875
+          }
+        },
+        {
+          "texto": "MES",
+          "rect": {
+            "x": 41,
+            "y": 283.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 300.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 304.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 341.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 186,
+            "y": 283.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 300.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 304.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 341.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 41,
+            "y": 353.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 370.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 374.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 411.390625
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-mes-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 198,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nOctubre 2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 430.78125,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.78125
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 294.390625,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 406.78125
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 418.78125,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 474.78125
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "mes",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 16,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 32.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 36.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 73.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 186,
+            "y": 16,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 32.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 36.796875,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 73.796875
+          }
+        },
+        {
+          "texto": "MES",
+          "rect": {
+            "x": 41,
+            "y": 85.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 102.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 106.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 143.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 186,
+            "y": 85.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 102.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 106.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 143.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 41,
+            "y": 155.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 172.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 176.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 213.390625
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-anio-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 419.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 451.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 348.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 395.59375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 407.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 463.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "anio",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 511.5,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 523.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 754,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 996.5,
+            "bottom": 267.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 1239,
+            "bottom": 267.796875
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-anio-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 558.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 590.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 422.59375,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 534.984375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 546.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 602.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "anio",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 214,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 230.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 234.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 271.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 230.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 234.796875,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 271.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 283.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 300.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 304.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 341.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 283.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 300.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 304.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 341.59375
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-anio-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 128,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nAño 2026 completo",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 430.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 462.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 294.59375,
+            "width": 328,
+            "height": 112.390625,
+            "right": 344,
+            "bottom": 406.984375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 418.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 474.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "anio",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 86,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 102.796875
+          },
+          "control": {
+            "x": 41,
+            "y": 106.796875,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 143.796875
+          }
+        },
+        {
+          "texto": "AÑO",
+          "rect": {
+            "x": 186,
+            "y": 86,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 102.796875
+          },
+          "control": {
+            "x": 186,
+            "y": 106.796875,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 143.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 155.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 172.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 176.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 213.59375
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 155.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 172.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 176.59375,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 213.59375
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-mes-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/09/2026 al 04/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 420.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 452.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 349.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 396.59375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 408.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 464.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 511.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 523.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 38,
+            "right": 754,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 996.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 1239,
+            "bottom": 268.796875
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-mes-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/09/2026 al 04/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 543.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 575.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 440.390625,
+            "width": 328,
+            "height": 79.59375,
+            "right": 344,
+            "bottom": 519.984375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 531.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 587.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 231.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 248.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 252.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 247.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 251.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 359.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 359.390625
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-mes-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 78,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/09/2026 al 04/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 465.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 497.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 362.390625,
+            "width": 328,
+            "height": 79.59375,
+            "right": 344,
+            "bottom": 441.984375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 453.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 509.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 153.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 170.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 174.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 211.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 136,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 169.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 173.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 211.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 223.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 240.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 244.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 281.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 223.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 240.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 244.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 281.390625
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-anio-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/12/2026 al 03/01/2027",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 420.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 452.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 349.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 396.59375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 408.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 464.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 511.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 523.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 38,
+            "right": 754,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 996.5,
+            "bottom": 268.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 37,
+            "right": 1239,
+            "bottom": 268.796875
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-anio-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/12/2026 al 03/01/2027",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 543.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 575.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 440.390625,
+            "width": 328,
+            "height": 79.59375,
+            "right": 344,
+            "bottom": 519.984375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 531.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 587.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 231.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 248.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 252.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 214,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 247.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 251.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 289.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 359.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 301.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 318.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 322.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 359.390625
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-semana-cruce-anio-375-resumen.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 78,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 28/12/2026 al 03/01/2027",
+      "nuevo": {
+        "rect": {
+          "x": 224,
+          "y": 465.984375,
+          "width": 96,
+          "height": 32,
+          "right": 320,
+          "bottom": 497.984375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "0 movimientos\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$0\nINGRESOS\n$0\nEGRESOS\n$0\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 16,
+            "y": 362.390625,
+            "width": 328,
+            "height": 79.59375,
+            "right": 344,
+            "bottom": 441.984375
+          }
+        },
+        {
+          "texto": "0 movimientos\nNuevo",
+          "rect": {
+            "x": 16,
+            "y": 453.984375,
+            "width": 328,
+            "height": 56,
+            "right": 344,
+            "bottom": 509.984375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 41,
+            "y": 153.796875,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 170.59375
+          },
+          "control": {
+            "x": 41,
+            "y": 174.59375,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 211.59375
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 186,
+            "y": 136,
+            "width": 133,
+            "height": 33.59375,
+            "right": 319,
+            "bottom": 169.59375
+          },
+          "control": {
+            "x": 186,
+            "y": 173.59375,
+            "width": 133,
+            "height": 38,
+            "right": 319,
+            "bottom": 211.59375
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 41,
+            "y": 223.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 174,
+            "bottom": 240.390625
+          },
+          "control": {
+            "x": 41,
+            "y": 244.390625,
+            "width": 133,
+            "height": 37,
+            "right": 174,
+            "bottom": 281.390625
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 186,
+            "y": 223.59375,
+            "width": 133,
+            "height": 16.796875,
+            "right": 319,
+            "bottom": 240.390625
+          },
+          "control": {
+            "x": 186,
+            "y": 244.390625,
+            "width": 133,
+            "height": 37,
+            "right": 319,
+            "bottom": 281.390625
+          }
+        }
+      ],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-selector-interactivo-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Cashflow histórico – Wings",
+      "cabecera": "Cashflow",
+      "periodo": "Período:\nDel 05/10/2026 al 11/10/2026",
+      "nuevo": {
+        "rect": {
+          "x": 1144,
+          "y": 421.59375,
+          "width": 96,
+          "height": 32,
+          "right": 1240,
+          "bottom": 453.59375
+        },
+        "destino": "http://127.0.0.1:8794/cashflow/movimiento",
+        "barra": "1 movimiento\nNuevo"
+      },
+      "barras": [
+        {
+          "texto": "$1.570.000\nINGRESOS\n$0\nEGRESOS\n$1.570.000\nRESULTADO DEL PERÍODO",
+          "rect": {
+            "x": 256,
+            "y": 350.796875,
+            "width": 1008,
+            "height": 46.796875,
+            "right": 1264,
+            "bottom": 397.59375
+          }
+        },
+        {
+          "texto": "1 movimiento\nNuevo",
+          "rect": {
+            "x": 256,
+            "y": 409.59375,
+            "width": 1008,
+            "height": 56,
+            "right": 1264,
+            "bottom": 465.59375
+          }
+        }
+      ],
+      "campos": [],
+      "acciones": [],
+      "formulario": null,
+      "selectorPeriodo": "semana",
+      "filtros": [
+        {
+          "texto": "PERÍODO",
+          "rect": {
+            "x": 281,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 511.5,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 281,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 39,
+            "right": 511.5,
+            "bottom": 269.796875
+          }
+        },
+        {
+          "texto": "FECHA DE LA SEMANA",
+          "rect": {
+            "x": 523.5,
+            "y": 211,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 754,
+            "bottom": 227.796875
+          },
+          "control": {
+            "x": 523.5,
+            "y": 231.796875,
+            "width": 230.5,
+            "height": 38,
+            "right": 754,
+            "bottom": 269.796875
+          }
+        },
+        {
+          "texto": "TIPO DE CAJA",
+          "rect": {
+            "x": 766,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 996.5,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 766,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 39,
+            "right": 996.5,
+            "bottom": 269.796875
+          }
+        },
+        {
+          "texto": "TIPO",
+          "rect": {
+            "x": 1008.5,
+            "y": 210,
+            "width": 230.5,
+            "height": 16.796875,
+            "right": 1239,
+            "bottom": 226.796875
+          },
+          "control": {
+            "x": 1008.5,
+            "y": 230.796875,
+            "width": 230.5,
+            "height": 39,
+            "right": 1239,
+            "bottom": 269.796875
+          }
+        }
+      ],
+      "tablaFilas": [
+        "08/10/2026\tI\tEFT\tCuotas — Cuota Mensual\tIngreso ficticio para estrés visual\t$1.570.000\tADMIN de prueba"
+      ]
+    },
+    {
+      "nombre": "a10-aplicado-periodos-movimiento-desktop.png",
+      "ancho": 1280,
+      "alto": 900,
+      "anchoDocumento": 1280,
+      "scroll": 0,
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "cabecera": "Nuevo movimiento",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 306,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 322
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 306,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 322
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 386,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 402
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 386,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 402
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 284,
+            "y": 465,
+            "width": 469.5,
+            "height": 16,
+            "right": 753.5,
+            "bottom": 481
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 769.5,
+            "y": 465,
+            "width": 469.5,
+            "height": 16,
+            "right": 1239,
+            "bottom": 481
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 1064,
+            "y": 578,
+            "width": 96,
+            "height": 32,
+            "right": 1160,
+            "bottom": 610
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 1168,
+            "y": 578,
+            "width": 96,
+            "height": 32,
+            "right": 1264,
+            "bottom": 610
+          }
+        }
+      ],
+      "formulario": {
+        "x": 256,
+        "y": 185,
+        "width": 1008,
+        "height": 425,
+        "right": 1264,
+        "bottom": 610
+      },
+      "filtros": [],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-movimiento-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 0,
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "cabecera": "Nuevo movimiento",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 310,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 326
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 390,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 406
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 469,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 485
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 548,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 564
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 627,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 643
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 707,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 723
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 820,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 852
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 820,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 852
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": 189,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 852
+      },
+      "filtros": [],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-movimiento-375-campos.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "cabecera": "Nuevo movimiento",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 66,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 82
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 146,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 162
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 225,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 241
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 304,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 320
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 383,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 399
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 463,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 479
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 608
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 608
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": -55,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 608
+      },
+      "filtros": [],
+      "tablaFilas": []
+    },
+    {
+      "nombre": "a10-aplicado-periodos-movimiento-375-acciones.png",
+      "ancho": 375,
+      "alto": 667,
+      "anchoDocumento": 360,
+      "scroll": 244,
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "cabecera": "Nuevo movimiento",
+      "nuevo": null,
+      "barras": [],
+      "campos": [
+        {
+          "texto": "Fecha\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 66,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 82
+          }
+        },
+        {
+          "texto": "Medio de pago\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 146,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 162
+          }
+        },
+        {
+          "texto": "Rubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 225,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 241
+          }
+        },
+        {
+          "texto": "Subrubro\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 304,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 320
+          }
+        },
+        {
+          "texto": "Monto\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 383,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 399
+          }
+        },
+        {
+          "texto": "Observaciones\n*",
+          "icono": true,
+          "rect": {
+            "x": 44,
+            "y": 463,
+            "width": 275,
+            "height": 16,
+            "right": 319,
+            "bottom": 479
+          }
+        }
+      ],
+      "tipo": "Tipo de movimiento\n*",
+      "acciones": [
+        {
+          "texto": "Cancelar",
+          "rect": {
+            "x": 144,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 240,
+            "bottom": 608
+          }
+        },
+        {
+          "texto": "Registrar",
+          "rect": {
+            "x": 248,
+            "y": 576,
+            "width": 96,
+            "height": 32,
+            "right": 344,
+            "bottom": 608
+          }
+        }
+      ],
+      "formulario": {
+        "x": 16,
+        "y": -55,
+        "width": 328,
+        "height": 663,
+        "right": 344,
+        "bottom": 608
+      },
+      "filtros": [],
+      "tablaFilas": []
+    }
+  ]
+}

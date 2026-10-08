@@ -1218,3 +1218,49 @@ a:hover {
 
     .mobile-readable-card .info-value { flex: 1; min-width: 0; }
 }
+
+/* A7: listado de Alumnos, una tarjeta por fila (Carlos, 07/10/2026). */
+.alumnos-listado { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-card-gap); }
+.alumnos-listado > .alumno-card { min-width: 0; margin-bottom: 0; }
+.alumnos-listado .alumno-nombre { min-width: 0; overflow-wrap: anywhere; }
+.alumnos-listado .alumno-info { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.alumnos-listado .info-item { min-width: 0; align-items: flex-start; }
+.alumnos-listado .info-value { white-space: normal; overflow-wrap: anywhere; }
+.alumnos-listado .alumno-actions { border-top: 1px solid var(--color-border); padding-top: 0.75rem; }
+.alumnos-listado .empty-state { grid-column: 1 / -1; }
+@media (max-width: 1099px) { .alumnos-listado .alumno-info { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .alumnos-listado .alumno-info { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 639px) {
+    .alumnos-listado .alumno-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 96px);
+        justify-content: end;
+        /* Igualar el borde de Nuevo: stats-bar 1.5rem, tarjeta 1rem + borde 1px. */
+        padding-right: calc(0.5rem - 1px);
+    }
+    .alumnos-listado .alumno-actions .ds-toggle { justify-self: end; }
+}
+
+/* A9: acciones a derecha solo en estos tres listados móviles (Carlos, 07/10). */
+@media (max-width: 639px) {
+    .alumno-actions.grupos-actions,
+    .alumno-actions.profesores-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 96px);
+        justify-content: end;
+        padding-right: calc(0.5rem - 1px);
+    }
+    .grupos-actions > div {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: end;
+        margin-right: 0;
+    }
+    .grupos-actions > a { grid-row: 1; }
+    .grupos-actions > a:last-child { grid-column: 2; }
+    .profesores-actions .ds-toggle { grid-column: 1 / -1; justify-self: end; }
+    .alumno-actions.niveles-actions {
+        justify-content: flex-end;
+        padding-right: calc(0.5rem - 1px);
+    }
+}

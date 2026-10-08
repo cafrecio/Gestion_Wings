@@ -74,7 +74,8 @@
         <div class="alumno-card alumno-card--{{ $rail }}">
 
             <div class="alumno-card-header">
-                <span class="alumno-dot {{ $profesor->activo ? 'alumno-dot--activo' : 'alumno-dot--inactivo' }}"
+                <span class="alumno-dot alumno-dot--{{ $profesor->activo ? 'active' : 'neutral' }}"
+                      role="img" aria-label="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"
                       title="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"></span>
                 <h3 class="alumno-nombre">{{ $profesor->apellido }}, {{ $profesor->nombre }}</h3>
                 <span style="
@@ -158,7 +159,7 @@
 
             </div>
 
-            <div class="alumno-actions">
+            <div class="alumno-actions profesores-actions max-sm:justify-end">
                 <x-ds.button variant="primary"
                              href="{{ route('web.profesores.show', $profesor->id) }}">
                     Ver

@@ -67,7 +67,9 @@
         <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
 
             <div class="alumno-card-header">
-                <span class="alumno-dot alumno-dot--neutral" title="Estado"></span>
+                <span class="alumno-dot alumno-dot--{{ $grupo->activo ? 'active' : 'neutral' }}"
+                      role="img" aria-label="{{ $grupo->activo ? 'Activo' : 'Inactivo' }}"
+                      title="{{ $grupo->activo ? 'Activo' : 'Inactivo' }}"></span>
                 <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
             </div>
 
@@ -98,9 +100,9 @@
                 </div>
             </div>
 
-            <div class="alumno-actions flex flex-wrap items-center justify-end gap-2 w-full">
+            <div class="alumno-actions grupos-actions flex flex-wrap items-center justify-end gap-2 w-full">
                 @if(auth()->user()->rol === 'ADMIN')
-                    <div class="mr-auto">
+                    <div class="mr-auto max-sm:mr-0">
                         <x-ds.toggle
                             labelOn="Activo"
                             labelOff="Inactivo"

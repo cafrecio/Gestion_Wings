@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-10-08T14:31:55.874Z",
+  "huellasA10Vigentes": true,
+  "capturasFinalesComprobadas": 65,
+  "visores": 18,
+  "enlacesLocales": 338,
+  "suite": {
+    "aprobadas": 508,
+    "omitidas": 2,
+    "aserciones": 4077,
+    "duracion": 423.14
+  },
+  "cierresVisuales": [
+    "A6",
+    "A7",
+    "A8",
+    "A9"
+  ],
+  "a10": "cerrado",
+  "a32": "en_curso"
+}

@@ -1,87 +1,125 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-07 — Codex CyE — A14/A27/A53 entregados, a verificar
+## 2026-10-08 — Codex CyE — A10 cerrado tras revisión y corrección de Limpiar
 
-Barra móvil en cinco formularios; errores visibles y dinámicos con JS externo; tarjetas sin elipsis móvil.
-74 capturas reales ANTES/DESPUÉS inspeccionadas; tres roles, 20 alumnos y precios grandes.
-Carlos revisó el visor y aprobó: «Ahi vi el archivo antes y despues y parece que esta bien. Doy el OK».
-Suite propia 489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s; build y nueve vistas correctos.
-Escenario solo wings_testing_codex; capturas inválidas repetidas tras corregir reloj/caja ficticia.
-[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md) y [propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md).
-Tablero: cada uno a_verificar, hizo Codex, tiene nadie; DEFECTOS md/html HECHO (Codex), a revisar 07/10.
-Sin deploy ni servidor/base real; no se cierran por el autor. T1 conserva sus pendientes.
-Siguiente: asignar otro agente para verificar cada defecto.
+Claude ejecutó revisión real: devolvió Limpiar por doble escape; resto contrastado con 432 combinaciones/442 pedidos.
+Corregido solo el href; regresión DOM roja antes/verde después, diez A10/110 aserciones.
+Segunda revisión Claude: 19 pruebas/6819 aserciones, 45 comprobaciones de navegador sin fallos, 18 capturas; A10 cerrado.
+Suite final Codex 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; 510 pruebas. Build 38,28 s, sintaxis/Blade correctos.
+65 capturas finales del paquete renovadas después del build; escenario ficticio 4/15 verde, 8,72 s; controles documentales 6/28.
+A6–A9 cerrados por Carlos; [entrega verificada](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md), estados/contrato y contadores actualizados.
+A32 sigue sin aplicar: propuesta lista, pregunta visual pendiente de Carlos según AGENTS §1. Sin despliegue.
+Servidores de ensayo detenidos; pruebas siempre en bases propias, base del club intacta.
+Diez entradas; copia íntegra previa en LOG-CODEX-REVISION-A10.md comprobada antes de retirar la más antigua.
 
-## 2026-10-06 — Codex CyE — Bitácora abreviada y archivo conservado
+## 2026-10-08 — Codex CyE — A6–A9 cerrados; A32 propuesta
 
-Carlos pidió reducir la bitácora y publicarla en GitHub.
-Cinco entradas antiguas pasan al histórico; quedan cinco recientes y esta entrada.
-Corte previo completo conservado byte por byte, incluidas decisiones y autorizaciones.
-Decisiones vigentes A25/A4/A5 y antecedentes A13/A54 ya enlazados en el resumen común.
-Índice reúne los archivos anteriores y accesos a evidencias desde su nueva ubicación.
-Control documental: integridad, enlaces y diff; sin ejecutar suite ni tocar aplicación.
-Siguiente: continuar la tarea asignada; histórico solo por tema o fecha.
+A6/A7/A8/A9 cerrados con Carlos como verificador visual (§6a), decisiones citadas en DEFECTOS y entrega.
+A10 asignado a Claude: [orden concreta](../06-pruebas/PRU-02/VERIFICAR-A10.md), revisión funcional todavía no ejecutada.
+A32 comprobado: cuenta propia checked/disabled, opacidad 0,45; controlador impide desactivarla.
+Variante documental propone Activo, Tu cuenta y candado; otros interruptores originales, celular alineado con Nuevo.
+[Nueve capturas reales](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a32.html): escritorio/375, login y cuentas activa/inactiva.
+Originales de vista Usuarios, toggle, CSS y controlador idénticos por SHA256; geometría escritorio conservada.
+Controles documentales 6/28 verdes; sintaxis PHP/Blade/Node y enlaces correctos; no suite funcional por propuesta documental.
+Tablero A32 tiene Carlos para elegir; no aplicada ni desplegada. Laboratorio detenido.
+Diez entradas; A6/A7 del 07/10 retirada solo tras comprobar copia íntegra en el corte 08/10.
 
-## 2026-10-06 — Codex CyE — Celular: seis cierres, tres devoluciones y T1 devuelto
+## 2026-10-08 — Codex CyE — A10 aprobado y aplicado, lógica a verificar
 
-Verificación independiente del paquete Gemini sobre main 6f9d214; aplicación intacta.
-84 capturas propias y 102 originales inspeccionadas; tres roles, 20 alumnos, nombres/importes grandes.
-A20/A28/A33/A36/A40/A41 CERRADOS; A14/A27/A53 DEVUELTOS a Gemini.
-T1 DEVUELTO: falta grupos/show, recortes Caja/Cobrar/Clases y efectos de escritorio sin explicitar.
-A36 tabla Opción A; A33 filas de 61,61 px. No asumir legibilidad completa por ausencia de desborde.
-Suite 489 aprobadas/2 omitidas, 3924 aserciones, 187,17 s, wings_testing_codex.
-Corte 41/72, 31 abiertos, 0 frenan. Gemini incluyó esta entrega en d91a840 junto con A25;
-Claude reabrió A25 en abda923. Se conserva ese estado; este control no verifica A25.
-[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). Sin deploy ni base real/servidor.
-Siguiente: Gemini resuelve las tres devoluciones y T1; sin otro cambio de alcance.
+Carlos aprobó: «Me gusta, A10 Aprobado»; aspecto verificado por él según AGENTS §6a.
+Aplicados Día/Semana/Mes/Año, Nuevo junto a contador, Limpiar en filtros y título Nuevo movimiento.
+Resultado del período sin saldo inicial; intervalos inclusivos, enlaces anteriores y fecha conservados.
+Suite propia 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; nueve nuevas de A10 (70 aserciones).
+Build 31,01 s; seis sintaxis y Blade correctos. Escenario ficticio 4/15 verde, 9,07 s; controles documentales 6/28 verdes.
+24 capturas reales después de aplicar: geometría/rango/filas idénticos a propuesta, seis íconos, botones visibles.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md); tablero a_verificar, tiene nadie; sin commit/push/deploy.
+Siguiente: otro agente comprueba intervalos, validaciones y resultado; saldo acumulado de Reportes pendiente.
+Servidor de laboratorio detenido; antigua entrada A14/A27/A53 íntegra en corte 08/10, comprobada antes de retirar.
 
-## 2026-10-06 — Codex CyE — A13/B1/A55 cerrados; A48/A49 verificado Claude
+## 2026-10-08 — Codex CyE — A10, maquetas de Día/Semana/Mes/Año
 
-Texto aprobado aplicado; capturas Fútbol escritorio/375 renovadas con login de control.
-Rama integrada entera en main 6d3f68a, conservando ambos logs; Carlos autorizó publicar con OK.
-Control HTTP 1/43; navegador real: motivo obligatorio, anulación y cobro ADMIN sin caja.
-Historial Ago/Sep y contraasientos E negativos rojos comprobados; inscripción única coherente.
-A25: cajón operativo esperado 58.000, solo inicial 10.000 + cobro propio 48.000.
-Selección main 11/45; suite 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s, base Codex.
-A48/A49: búsqueda coincide con Claude; cierre asentado con ese verificador.
-Ambos DEFECTOS y tablero 35/72; 37 abiertos, 0 frenan. Sin CSS, base real ni servidor tocados.
-[Informe y capturas](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue.
-Siguiente: otro agente controla A15/A16/A25; cambios ajenos preservados.
+Carlos pidió evaluar día/semana y después mostrar maquetas; propuesta preparada en laboratorio.
+Selector único y campos según período; fecha elige semana lunes–domingo, rango explícito.
+20 capturas reales ADMIN escritorio/375, login de control, cruces de mes/año y selección ejercitada.
+Resultado propuesto = ingresos − egresos; saldo acumulado pendiente, sin alterar cálculo de aplicación.
+Vistas/controlador/CSS originales idénticos por SHA256; sintaxis, intervalos, filas y enlaces comprobados.
+[Visor de las cuatro maquetas](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10-periodos.html); tablero y documentos actualizados.
+Tras aviso de Carlos, visor-a10 integra Día/Semana en escritorio arriba; [enlace directo nuevo](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10-escritorio.html) para evitar la página anterior cargada.
+Sin build/suite completa por la propuesta documental; servidor de laboratorio detenido, sin deploy.
+Siguiente: Carlos elige aspecto; implementación de intervalos/cálculos requiere verificación independiente.
+Diez entradas; antigua abreviación 06/10 íntegra en el corte 08/10, comprobada antes de retirarla.
 
-## 2026-10-06 — Codex CAB — A55/A13/B1, capturas y redacción aprobada
+## 2026-10-08 — Codex CyE — A9 confirmado; A10 propuesta completa
 
-Rama a55-inscripcion, código 31194c2; copia aislada porque main tiene cambios ajenos.
-Persona ficticia en Patín/Fútbol; inscripción única pendiente $5.000; agosto cobrado en octubre y anulado.
-Respuestas HTTP reales: ficha propietaria, otro deporte con el renglón nuevo e historial «Ago 2026».
-Ocho imágenes escritorio/375, incluidos dos controles login; marco real, sin achicar Chrome a 375.
-[Capturas y procedencia](../06-pruebas/PRU-02/capturas-a55/README.md). Generación propia: 1/12; build correcto, no suite completa.
-Sin cambios de aplicación/vistas/CSS ni base real/servidor; solo wings_testing_codex.
-Capturas publicadas en 459ec42, solo evidencia en esta rama, sin merge a main ni A25.
-Carlos pidió aclarar y aprobó con «OK» la redacción exacta del README: inscripción única y consulta del estado en la ficha del deporte propietario.
-Pendiente aplicar ese texto; imágenes con redacción anterior conservadas. No se programa, cierra ni despliega por esta aprobación.
+Carlos confirmó «Perfecto, APROBADO A-9 Entonces»; aprobación explícita registrada.
+A10: dos variantes Blade derivadas del original, mismos controladores, solo laboratorio Codex.
+Propuesta: Nuevo junto a contador en barra propia, Limpiar en filtros y título Nuevo movimiento.
+28 capturas reales ADMIN escritorio/375: año/mes/vacío y formulario hasta Cancelar/Registrar.
+Filas/período idénticos; seis campos con íconos, cero desborde; Nuevo pulsado en escritorio.
+X-Frame-Options DENY impide navegación en marco; móvil capturado en srcdoc de Laravel.
+PHP/Blade y enlaces correctos; assets existentes; sin nueva suite/build ni cambios de aplicación.
+[ANTES/propuesta y formulario completo](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10.html); estado/tablero actualizados.
+A10 espera elección; paquete sin autocierre/publicación, verificación independiente pendiente.
+Diez entradas; retirada antigua íntegra en el corte 08/10, comprobada antes de quitarla.
 
-## 2026-10-06 — Codex CyE — A15/A16 implementadas, a revisar; A56 publicado
+## 2026-10-08 — Codex CyE — A8/A9, estados y controles completos
 
-A56 publicado en main ad7f9fb con autorización directa de Carlos; cerrado por verificador.
-Carlos eligió aviso y confirmación para A15. Sin precios ni alquiler POS-07 agregado.
-A16: reproducción de cronograma 76 clases/6 grupos; antes exigía 10 cargas por horarios distintos.
-Carlos aprobó capturas reales escritorio/375: «Si, bien!!». Aviso/confirmación y horas por día integrados.
-18 pruebas nuevas; POST reales crean 76 clases/seis series; conflicto revierte la tanda. Selección 29/834 verde.
-Build/PHP/Blade correctos; navegador renueva aviso al editar. Suite 486 aprobadas/2 omitidas, 3911 aserciones, 342,01 s.
-[Entrega, alcance y capturas finales](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md), con login de control.
-Solo creación/aviso y su JS; Gemini preservado, sin CSS propio, datos del club ni deploy.
-Carlos autorizó explícitamente commit/push de A15/A16 a main; rechazo automático resuelto.
-Siguiente: control por otro agente; A15/A16 HECHO, no CERRADO ni desplegadas.
+Retoma tras aviso de Carlos; A8 final aprobado: «A-8 APROBADO»; distintivo de Profesores conservado.
+Escenario ficticio añade grupo/profesor inactivos y nivel sin grupos; solo wings_testing_codex.
+22 capturas A8/A9; siete nuevas para comparar Nuevo, tres pantallas reales ADMIN/375 y login.
+Las utilidades del pase no alineaban los controles: tres clases de pie y CSS exclusivo móvil.
+Carlos confirmó «Perfecto, APROBADO A-9 Entonces»; condición medida: botones x=224–320/toggle derecha320.
+Build 24,21 s; PHP/Blade correctos; escenario 4/15 verde, 7,53 s; suite 491/2/7, 3944 aserciones, 293,60 s.
+Seis fallas: $bloqueo ausente en Inicio operativo ajeno; una: contador documental 491/500.
+[Alineación con Nuevo](../06-pruebas/PRU-02/evidencia/a6-a10/comprobacion-a9-alineacion.json); documentos/tablero actualizados.
+A8/A9 aprobados visualmente, en curso sin autocierre/publicación; completar A10/entrega conjunta.
+Diez entradas activas; la retirada ya está íntegra en el corte 08/10, comprobada por contenido.
 
-## 2026-10-06 — Codex CyE — A56 verificado y cerrado
+## 2026-10-08 — Codex CyE — A7, Cobrar/Editar y Ver/Nuevo alineados
 
-Pedido: control independiente de Claude antes de A15/A16. Main 26a67c6, sin a55-inscripcion.
-Cobro/anulación reales y gasto normal por POST; signo, letra/color y cifras contrastados.
-Inicial $10.000, ingreso neto $0, egreso $2.500, balance $7.500; filas propias verificadas.
-Chrome con Wings HTTP/base descartable y marco 375: login control y Cashflow contenidos.
-Ensayo documental 1/24; existentes signo/celular/tableros 7/24 verdes. Sin más pruebas permanentes.
-[Informe y límites](../06-pruebas/PRU-02/VERIFICACION-A56.md); ambos seguimientos 30/72.
-Cambios de Gemini preservados; sin vistas/CSS/base del club/producción tocados.
-Siguiente: Carlos decide A15; relevar A16 y proponer carga por día sin repetir grupo/rango/profesor.
+Carlos pidió alinear Cobrar/Editar entre sí y Ver con Nuevo, solo celular.
+Pie móvil con dos columnas de 96 px y margen compensado; Nuevo conserva su posición.
+12 imágenes nuevas reales; ADMIN/OPERATIVO y nombre largo: Cobrar/Editar x=116, Ver/Nuevo x=224–320.
+Tres imágenes de escritorio idénticas al antes por SHA256; botones siguen 96×32 px.
+Build 29,39 s y Blade correctos; escenario 4/15 verde; suite 496 aprobadas/2 omitidas/1 falla, 367,51 s.
+Única falla: contador documental 491/499; mismo resultado anterior, 3948 aserciones.
+[Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-columnas.html); solo wings_testing_codex.
+A7 sigue en curso con el paquete; sin publicación, autocierre ni deploy.
+Carlos vio el visor actual y aprobó el aspecto: «Muy buen trabajo, me gusta».
+Siguiente: capturas A8/A9/A10 y propuesta restante A10; entrega conjunta y verificación independiente.
 
-[Índice del histórico](../99-archivo/bitacoras/2026-10-06/INDICE-CODEX.md) · [Corte completo anterior](../99-archivo/bitacoras/2026-10-06/LOG-CODEX-CORTE-2.md).
+## 2026-10-08 — Codex CyE — A7, controles a derecha solo en celular
+
+Carlos vio la retoma y pidió: «en celular alinealos a la derecha. No asi en escritorio».
+Una regla CSS exclusiva de Alumnos bajo 640 px; botones/componentes conservados.
+12 capturas nuevas reales, ADMIN/OPERATIVO, nombre largo y login; dos filas terminan a derecha.
+Tres imágenes de escritorio idénticas al antes por SHA256; botones 96×32 px.
+Build 26,41 s y Blade correctos; suite propia 496 aprobadas/2 omitidas/1 falla, 3948 aserciones, 319,38 s.
+Única falla: contador documental declara 491 y hay 499; ya anotado en el pase de Claude.
+[Antes/después y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-derecha.html); solo wings_testing_codex.
+A7 sigue en curso con el paquete; no commit/push, autocierre ni deploy. Siguiente: capturas A8/A9/A10.
+
+## 2026-10-08 — Codex CyE — Retoma A6–A10; A7 capturada, alineación pendiente
+
+Carlos pidió leer la bitácora del chat roto; tarea identificada A6–A10, cambios locales conservados.
+Elecciones A6 solo texto, A7 B y A8 A intactas; no se modificó aplicación.
+Control CUA falló; Chrome/CDP sobre laboratorio HTTP real permitió 12 imágenes A7 nuevas.
+ADMIN/OPERATIVO escritorio/375, nombre largo, login control; pie con controles completo.
+Contradicción con el pase: botones A7 siguen a izquierda en celular; asentada en ESTADO-ACTUAL.
+Build correcto 1m 3s; escenario propio 4/15 verde, 52,24 s; solo wings_testing_codex.
+[Visor y mediciones](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-retoma.html); sin suite completa, publicación ni cierre.
+Siguiente: resolver diferencia A7 según §6b; después capturas A8/A9/A10 y propuesta restante A10.
+
+## 2026-10-07 — Codex CyE — A8 A elegida; correcciones de la revisión de Carlos
+
+Carlos eligió «A8 Opcion A»; punto con estado aplicado, distintivo coloreado de Profesores intacto.
+Rechazó capturas móviles sin acciones y escritorio Profesores; quedan como antecedente, no entrega.
+Acciones/interruptor a derecha en celular en Alumnos/Grupos/Profesores; tamaños/funciones conservados.
+Cashflow muestra año/mes, no caja diaria: período explícito; movimiento recibe siete íconos existentes.
+Diez respuestas HTTP 200; seis vistas con sintaxis correcta, Blade correcto, build 10,22 s.
+[Decisiones y alcance](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md); HTTP no certifica aspecto final.
+Chrome sigue sin control; capturas completas y propuesta restante A10 pendientes. Sin publicación/cierre.
+Siguiente: renovar imágenes, elegir resto A10, suite completa y entrega para otro verificador.
+
+
+[Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).

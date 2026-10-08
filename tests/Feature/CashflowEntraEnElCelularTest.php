@@ -36,8 +36,8 @@ class CashflowEntraEnElCelularTest extends TestCase
     {
         $vista = file_get_contents(base_path('resources/views/cashflow/index.blade.php'));
 
-        $this->assertStringContainsString('grid-cols-1', $vista, 'Los filtros arrancan en una columna.');
-        $this->assertStringContainsString('sm:grid-cols-2', $vista, 'Y se abren cuando hay lugar.');
+        $this->assertStringContainsString('repeat(2,minmax(0,1fr))', $vista, 'Los filtros móviles usan columnas flexibles.');
+        $this->assertStringContainsString('@media(min-width:1024px)', $vista, 'La grilla de escritorio se limita a pantallas amplias.');
         $this->assertStringContainsString('flex-wrap', $vista, 'Los totales tienen que poder bajar de renglón.');
     }
 

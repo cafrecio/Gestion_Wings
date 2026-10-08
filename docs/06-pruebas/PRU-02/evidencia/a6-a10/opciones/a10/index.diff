@@ -1,0 +1,51 @@
+diff --git a/resources/views/cashflow/index.blade.php b/docs/06-pruebas/PRU-02/evidencia/a6-a10/opciones/a10/cashflow/index.blade.php
+index 3c55b0f..b461068 100644
+--- a/resources/views/cashflow/index.blade.php
++++ b/docs/06-pruebas/PRU-02/evidencia/a6-a10/opciones/a10/cashflow/index.blade.php
+@@ -57,6 +57,11 @@
+         </div>
+ 
+     </div>
++    @if($mes || $tipoCajaId || $tipo)
++        <div class="filtros-actions mt-3">
++            <x-ds.button variant="secondary" href="{{ route('web.cashflow.index', ['anio' => $anio]) }}">Limpiar</x-ds.button>
++        </div>
++    @endif
+ </div>
+ </form>
+ 
+@@ -99,26 +104,16 @@
+             <strong style="color:{{ $balanceColor }};">${{ number_format($balance, 0, ',', '.') }}</strong>
+             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">balance</span>
+         </span>
+-        <span style="font-size:0.75rem; color:var(--color-text-muted);">
+-            {{ $movimientos->total() }} movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
+-        </span>
++
+     </div>
+-    <div class="flex items-center justify-end gap-2 w-full sm:w-auto">
+-        @if($mes || $tipoCajaId || $tipo)
+-            <a href="{{ route('web.cashflow.index', ['anio' => $anio]) }}"
+-               style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px;
+-                      font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
+-                      text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
+-                Limpiar
+-            </a>
+-        @endif
+-        <a href="{{ route('web.cashflow.movimiento') }}"
+-           style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 14px;
+-                  font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
+-                  text-decoration:none; background:var(--color-btn-primary); color:#fff;">
+-            Nuevo
+-        </a>
++
++</div>
++
++<div class="stats-bar mb-3" id="cashflow-acciones">
++    <div class="stats-info">
++        <strong>{{ $movimientos->total() }}</strong> movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
+     </div>
++    <x-ds.button variant="primary" href="{{ route('web.cashflow.movimiento') }}">Nuevo</x-ds.button>
+ </div>
+ 
+ {{-- Tabla --}}

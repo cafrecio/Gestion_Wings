@@ -1,0 +1,9 @@
+{
+    "base": "wings_testing_codex",
+    "grupo_activo": 7,
+    "grupo_inactivo": 9,
+    "nivel_con_grupos": 13,
+    "nivel_sin_grupos": 17,
+    "profesor_activo": 1,
+    "profesor_inactivo": 2
+}

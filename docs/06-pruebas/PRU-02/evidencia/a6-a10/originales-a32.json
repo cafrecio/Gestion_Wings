@@ -1,0 +1,9 @@
+{
+  "fecha": "2026-10-08T13:32:58.796Z",
+  "originales": {
+    "resources/views/usuarios/index.blade.php": "e657a160cb17a4c55a97301722da91fb84a37a5d354e0cec477655c9c66a1115",
+    "resources/views/components/ds/toggle.blade.php": "ca13ed883da27602c80908d75a9979c34f2094a024ae19c7242feb287825caaf",
+    "resources/css/app.css": "d321c7d260c5f76f3c9d24512c835cbec09fde37e87d59e9df7078cc0dd9f129",
+    "app/Http/Controllers/UsuarioWebController.php": "d7513cab9b4974c8aa62d5301be40e1ac5921b0b737c0a2cce06f08fd346df35"
+  }
+}

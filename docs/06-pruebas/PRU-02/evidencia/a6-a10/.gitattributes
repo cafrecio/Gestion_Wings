@@ -1,0 +1,3 @@
+# Salidas originales de consola y parches: conservar espacios de la evidencia.
+*.txt -whitespace
+*.diff -whitespace

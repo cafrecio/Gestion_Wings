@@ -1,0 +1,44 @@
+diff --git a/resources/views/grupos/index.blade.php b/resources/views/grupos/index.blade.php
+index 4b67c12..55bf987 100644
+--- a/resources/views/grupos/index.blade.php
++++ b/resources/views/grupos/index.blade.php
+@@ -67,7 +67,9 @@
+         <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
+ 
+             <div class="alumno-card-header">
+-                <span class="alumno-dot alumno-dot--neutral" title="Estado"></span>
++                <span class="alumno-dot alumno-dot--{{ $grupo->activo ? 'active' : 'neutral' }}"
++                      role="img" aria-label="{{ $grupo->activo ? 'Activo' : 'Inactivo' }}"
++                      title="{{ $grupo->activo ? 'Activo' : 'Inactivo' }}"></span>
+                 <h3 class="alumno-nombre">{{ $grupo->nombre_completo }}</h3>
+             </div>
+ 
+diff --git a/resources/views/niveles/index.blade.php b/resources/views/niveles/index.blade.php
+index b32471e..73f9fc1 100644
+--- a/resources/views/niveles/index.blade.php
++++ b/resources/views/niveles/index.blade.php
+@@ -29,7 +29,9 @@
+     <div class="alumno-card alumno-card--otro">
+ 
+         <div class="alumno-card-header">
+-            <span class="alumno-dot alumno-dot--neutral"></span>
++            <span class="alumno-dot alumno-dot--{{ $nivel->grupos_count > 0 ? 'active' : 'neutral' }}"
++                      role="img" aria-label="{{ $nivel->grupos_count > 0 ? 'Con grupos' : 'Sin grupos' }}"
++                      title="{{ $nivel->grupos_count > 0 ? 'Con grupos' : 'Sin grupos' }}"></span>
+             <h3 class="alumno-nombre">{{ $nivel->nombre }}</h3>
+         </div>
+ 
+diff --git a/resources/views/profesores/index.blade.php b/resources/views/profesores/index.blade.php
+index 0fdb290..e4d5d83 100644
+--- a/resources/views/profesores/index.blade.php
++++ b/resources/views/profesores/index.blade.php
+@@ -74,7 +74,8 @@ class="filtros-control"
+         <div class="alumno-card alumno-card--{{ $rail }}">
+ 
+             <div class="alumno-card-header">
+-                <span class="alumno-dot {{ $profesor->activo ? 'alumno-dot--activo' : 'alumno-dot--inactivo' }}"
++                <span class="alumno-dot alumno-dot--{{ $profesor->activo ? 'active' : 'neutral' }}"
++                      role="img" aria-label="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"
+                       title="{{ $profesor->activo ? 'Activo' : 'Inactivo' }}"></span>
+                 <h3 class="alumno-nombre">{{ $profesor->apellido }}, {{ $profesor->nombre }}</h3>
+                 <span style="

@@ -15,6 +15,13 @@
 - **Prohibido en el header**: botones, badges, observaciones, subtítulos, íconos de acción, fechas.
 - La observación/descripción va **debajo** del header como `<p>` separado, con el mismo indentado que el texto del título (`padding-left: 1.5rem`).
 
+### Listado de Alumnos — decisión de Carlos, 07/10/2026
+
+- Una tarjeta por fila, también en escritorio. No distribuir alumnos en dos tarjetas por fila.
+- Carlos rechazó la opción A de A7 y aprobó B: «A- NUNCA EN LA PUTA VIDA, NO CAMBIAR ESO NUNCA / B- OK espero que nadie le ponga un nombre tan largo al deporte ni al nivel».
+- Los datos dentro de la tarjeta pueden usar varias columnas, como en B. Esta regla se refiere a tarjetas por fila.
+- Evidencia: [propuesta A6–A10](../../06-pruebas/PRU-02/PROPUESTA-A6-A10.md), [visor A7](../../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7.html).
+
 ### 1.2 alumno-info — filas del card
 
 - **NO agregar filas extra** si hay espacio en blanco disponible. Maximizar densidad horizontal antes de añadir una nueva fila.
@@ -118,6 +125,12 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 - El `alumno-actions` es `justify-content: flex-start` con el botón secundario ("+ hijo") en `margin-left: auto`.
 
 ---
+
+### Celular — alineación de acciones, decisión de Carlos 07/10/2026
+
+- En celular, los botones y el interruptor del pie de tarjeta se alinean a la derecha, también cuando ocupan más de una fila.
+- Carlos: «Dijimos que los botones en el celular se alinean todos a la derecha».
+- Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. Ajuste local actual: Alumnos, Grupos y Profesores. No se cambia el tamaño ni el funcionamiento del interruptor.
 
 ## 8. DÓNDE VIVE EL JAVASCRIPT
 

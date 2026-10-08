@@ -1,0 +1,339 @@
+{
+  "fecha": "2026-10-08T13:56:16.373Z",
+  "base": "wings_testing_claude",
+  "servidor": "http://127.0.0.1:8811",
+  "metodo": "Chrome headless por CDP; login por formulario; período vecino elegido con flechas del teclado; Limpiar, Nuevo y paginación pulsados con el mouse; celular en <iframe> de 375 (se quita solo X-Frame-Options en el servidor de ensayo)",
+  "fallos": 4,
+  "hechos": [
+    {
+      "paso": "calibración: login en marco de 375 sin desborde",
+      "ok": true,
+      "ancho": 375,
+      "anchoDocumento": 360,
+      "titulo": "Ingresar – Wings"
+    },
+    {
+      "paso": "anónimo: /cashflow redirige a /login",
+      "ok": true,
+      "url": "/login"
+    },
+    {
+      "paso": "login por formulario con usuario que solo existe en wings_testing_claude",
+      "ok": true,
+      "url": "/sistema/primera-carga"
+    },
+    {
+      "paso": "pantalla: día 08/10/2026",
+      "ok": true,
+      "ruta": "/cashflow?periodo=dia&fecha=2026-10-08",
+      "periodo": "8 de octubre de 2026",
+      "totales": "$2.200 INGRESOS $750 EGRESOS $1.450 RESULTADO DEL PERÍODO",
+      "contador": "4 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: semana del 08/10/2026",
+      "ok": true,
+      "ruta": "/cashflow?periodo=semana&fecha=2026-10-08",
+      "periodo": "Del 05/10/2026 al 11/10/2026",
+      "totales": "$3.700 INGRESOS $1.080 EGRESOS $2.620 RESULTADO DEL PERÍODO",
+      "contador": "6 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: semana que cruza de mes",
+      "ok": true,
+      "ruta": "/cashflow?periodo=semana&fecha=2026-10-01",
+      "periodo": "Del 28/09/2026 al 04/10/2026",
+      "totales": "$730 INGRESOS $210 EGRESOS $520 RESULTADO DEL PERÍODO",
+      "contador": "2 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: semana que cruza de año",
+      "ok": true,
+      "ruta": "/cashflow?periodo=semana&fecha=2027-01-01",
+      "periodo": "Del 28/12/2026 al 03/01/2027",
+      "totales": "$1.200 INGRESOS $200 EGRESOS $1.000 RESULTADO DEL PERÍODO",
+      "contador": "2 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: mes octubre 2026",
+      "ok": true,
+      "ruta": "/cashflow?periodo=mes&anio=2026&mes=10",
+      "periodo": "Octubre 2026",
+      "totales": "$12.500 INGRESOS $1.290 EGRESOS $11.210 RESULTADO DEL PERÍODO",
+      "contador": "8 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: febrero bisiesto",
+      "ok": true,
+      "ruta": "/cashflow?anio=2024&mes=2",
+      "periodo": "Febrero 2024",
+      "totales": "$1.900 INGRESOS $350 EGRESOS $1.550 RESULTADO DEL PERÍODO",
+      "contador": "2 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: año 2026",
+      "ok": true,
+      "ruta": "/cashflow?anio=2026",
+      "periodo": "Año 2026 completo",
+      "totales": "$23.870 INGRESOS $1.290 EGRESOS $22.580 RESULTADO DEL PERÍODO",
+      "contador": "45 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: sin parámetros",
+      "ok": true,
+      "ruta": "/cashflow",
+      "periodo": "Año 2026 completo",
+      "totales": "$23.870 INGRESOS $1.290 EGRESOS $22.580 RESULTADO DEL PERÍODO",
+      "contador": "45 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "pantalla: año 2026 solo Caja Alfa",
+      "ok": true,
+      "ruta": "/cashflow?anio=2026&tipo_caja_id=1",
+      "periodo": "Año 2026 completo",
+      "totales": "$23.870 INGRESOS $0 EGRESOS $23.870 RESULTADO DEL PERÍODO",
+      "contador": "41 movimientos Nuevo",
+      "saldo_inicial_ausente": true
+    },
+    {
+      "paso": "Día → Semana conserva la fecha",
+      "ok": true,
+      "elegido": "periodo=semana",
+      "metodo": "teclado",
+      "url": "/cashflow?periodo=semana&fecha=2024-01-31&tipo_caja_id=&tipo=",
+      "periodo": "Del 29/01/2024 al 04/02/2024",
+      "totales": "$640 INGRESOS $0 EGRESOS $640 RESULTADO DEL PERÍODO",
+      "contador": "1 movimiento Nuevo",
+      "fecha": "2024-01-31",
+      "visibles": "periodo,fecha,tipo_caja_id,tipo"
+    },
+    {
+      "paso": "Semana → Mes muestra Año y Mes",
+      "ok": true,
+      "elegido": "periodo=mes",
+      "metodo": "teclado",
+      "url": "/cashflow?periodo=mes&fecha=2024-01-31&tipo_caja_id=&tipo=",
+      "periodo": "Enero 2024",
+      "totales": "$640 INGRESOS $0 EGRESOS $640 RESULTADO DEL PERÍODO",
+      "contador": "1 movimiento Nuevo",
+      "fecha": "2024-01-31",
+      "visibles": "periodo,anio,mes,tipo_caja_id,tipo"
+    },
+    {
+      "paso": "Mes Enero → Febrero limita el 31 al 29",
+      "ok": true,
+      "elegido": "mes=2",
+      "metodo": "teclado",
+      "url": "/cashflow?periodo=mes&fecha=2024-01-31&anio=2024&mes=2&tipo_caja_id=&tipo=",
+      "periodo": "Febrero 2024",
+      "totales": "$1.900 INGRESOS $350 EGRESOS $1.550 RESULTADO DEL PERÍODO",
+      "contador": "2 movimientos Nuevo",
+      "fecha": "2024-02-29",
+      "visibles": "periodo,anio,mes,tipo_caja_id,tipo"
+    },
+    {
+      "paso": "Mes → Año",
+      "ok": true,
+      "elegido": "periodo=anio",
+      "metodo": "teclado",
+      "url": "/cashflow?periodo=anio&fecha=2024-02-29&anio=2024&mes=2&tipo_caja_id=&tipo=",
+      "periodo": "Año 2024 completo",
+      "totales": "$7.540 INGRESOS $350 EGRESOS $7.190 RESULTADO DEL PERÍODO",
+      "contador": "4 movimientos Nuevo",
+      "fecha": "2024-02-29",
+      "visibles": "periodo,anio,tipo_caja_id,tipo"
+    },
+    {
+      "paso": "Año → Día vuelve al 29 de febrero",
+      "ok": true,
+      "elegido": "periodo=dia",
+      "metodo": "evento change",
+      "url": "/cashflow?periodo=dia&fecha=2024-02-29&anio=2024&tipo_caja_id=&tipo=",
+      "periodo": "29 de febrero de 2024",
+      "totales": "$1.900 INGRESOS $350 EGRESOS $1.550 RESULTADO DEL PERÍODO",
+      "contador": "2 movimientos Nuevo",
+      "fecha": "2024-02-29",
+      "visibles": "periodo,fecha,tipo_caja_id,tipo"
+    },
+    {
+      "paso": "campo Fecha envía al cambiar",
+      "ok": true,
+      "periodo": "11 de octubre de 2026",
+      "url": "/cashflow?periodo=dia&fecha=2026-10-11&tipo_caja_id=&tipo="
+    },
+    {
+      "paso": "Limpiar (día): sin filtros no aparece",
+      "ok": true
+    },
+    {
+      "paso": "Filtro Tipo (día): conserva período y totales, recorta filas",
+      "ok": true,
+      "periodo": "29 de febrero de 2024",
+      "filasAntes": 2,
+      "filasDespues": 1,
+      "url": "/cashflow?periodo=dia&fecha=2024-02-29&tipo_caja_id=&tipo=EGRESO"
+    },
+    {
+      "paso": "Limpiar (día): quita filtros y CONSERVA el período",
+      "ok": false,
+      "periodoAntes": "29 de febrero de 2024",
+      "periodoDespues": "8 de octubre de 2026",
+      "enlace_en_html": "http://127.0.0.1:8811/cashflow?periodo=dia&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-29",
+      "url_despues": "/cashflow?periodo=dia&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-29",
+      "fecha_despues": "2026-10-08"
+    },
+    {
+      "paso": "Limpiar (semana): sin filtros no aparece",
+      "ok": true
+    },
+    {
+      "paso": "Filtro Tipo (semana): conserva período y totales, recorta filas",
+      "ok": true,
+      "periodo": "Del 26/02/2024 al 03/03/2024",
+      "filasAntes": 3,
+      "filasDespues": 1,
+      "url": "/cashflow?periodo=semana&fecha=2024-02-29&tipo_caja_id=&tipo=EGRESO"
+    },
+    {
+      "paso": "Limpiar (semana): quita filtros y CONSERVA el período",
+      "ok": false,
+      "periodoAntes": "Del 26/02/2024 al 03/03/2024",
+      "periodoDespues": "Del 05/10/2026 al 11/10/2026",
+      "enlace_en_html": "http://127.0.0.1:8811/cashflow?periodo=semana&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-29",
+      "url_despues": "/cashflow?periodo=semana&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-29",
+      "fecha_despues": "2026-10-08"
+    },
+    {
+      "paso": "Limpiar (mes): sin filtros no aparece",
+      "ok": true
+    },
+    {
+      "paso": "Filtro Tipo (mes): conserva período y totales, recorta filas",
+      "ok": true,
+      "periodo": "Febrero 2024",
+      "filasAntes": 2,
+      "filasDespues": 1,
+      "url": "/cashflow?periodo=mes&fecha=2024-02-08&anio=2024&mes=2&tipo_caja_id=&tipo=EGRESO"
+    },
+    {
+      "paso": "Limpiar (mes): quita filtros y CONSERVA el período",
+      "ok": false,
+      "periodoAntes": "Febrero 2024",
+      "periodoDespues": "Octubre 2026",
+      "enlace_en_html": "http://127.0.0.1:8811/cashflow?periodo=mes&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-08",
+      "url_despues": "/cashflow?periodo=mes&amp;anio=2024&amp;mes=2&amp;fecha=2024-02-08",
+      "fecha_despues": "2026-10-08"
+    },
+    {
+      "paso": "Limpiar (año): sin filtros no aparece",
+      "ok": true
+    },
+    {
+      "paso": "Filtro Tipo (año): conserva período y totales, recorta filas",
+      "ok": true,
+      "periodo": "Año 2024 completo",
+      "filasAntes": 4,
+      "filasDespues": 1,
+      "url": "/cashflow?periodo=anio&fecha=2024-10-08&anio=2024&tipo_caja_id=&tipo=EGRESO"
+    },
+    {
+      "paso": "Limpiar (año): quita filtros y CONSERVA el período",
+      "ok": false,
+      "periodoAntes": "Año 2024 completo",
+      "periodoDespues": "Año 2026 completo",
+      "enlace_en_html": "http://127.0.0.1:8811/cashflow?periodo=anio&amp;anio=2024&amp;mes=10&amp;fecha=2024-10-08",
+      "url_despues": "/cashflow?periodo=anio&amp;anio=2024&amp;mes=10&amp;fecha=2024-10-08",
+      "fecha_despues": "2026-10-08"
+    },
+    {
+      "paso": "paginación: página 2 conserva período, caja y totales",
+      "ok": true,
+      "url": "/cashflow?periodo=anio&anio=2026&tipo_caja_id=1&page=2",
+      "filasPagina1": 30,
+      "filasPagina2": 11,
+      "totales": "$23.870 INGRESOS $0 EGRESOS $23.870 RESULTADO DEL PERÍODO"
+    },
+    {
+      "paso": "Nuevo abre el formulario de alta",
+      "ok": true,
+      "url": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "cabecera": "Nuevo movimiento"
+    },
+    {
+      "paso": "inválido en navegador sin 500: /cashflow?fecha=2026-02-30",
+      "ok": true,
+      "url": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "error500": false
+    },
+    {
+      "paso": "inválido en navegador sin 500: /cashflow?periodo=otro",
+      "ok": true,
+      "url": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "error500": false
+    },
+    {
+      "paso": "inválido en navegador sin 500: /cashflow?mes=13",
+      "ok": true,
+      "url": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "error500": false
+    },
+    {
+      "paso": "inválido en navegador sin 500: /cashflow?anio=1800",
+      "ok": true,
+      "url": "/cashflow/movimiento",
+      "titulo": "Nuevo movimiento – Cashflow – Wings",
+      "error500": false
+    },
+    {
+      "paso": "celular 375 (dia): entra sin desborde",
+      "ok": true,
+      "ancho": 375,
+      "anchoDocumento": 360,
+      "periodo": "8 de octubre de 2026",
+      "totales": "$2.200 INGRESOS $750 EGRESOS $1.450 RESULTADO DEL PERÍODO"
+    },
+    {
+      "paso": "celular 375 (semana): entra sin desborde",
+      "ok": true,
+      "ancho": 375,
+      "anchoDocumento": 360,
+      "periodo": "Del 28/12/2026 al 03/01/2027",
+      "totales": "$1.200 INGRESOS $200 EGRESOS $1.000 RESULTADO DEL PERÍODO"
+    },
+    {
+      "paso": "celular 375 (mes): entra sin desborde",
+      "ok": true,
+      "ancho": 375,
+      "anchoDocumento": 360,
+      "periodo": "Febrero 2024",
+      "totales": "$1.900 INGRESOS $350 EGRESOS $1.550 RESULTADO DEL PERÍODO"
+    },
+    {
+      "paso": "celular 375 (anio): entra sin desborde",
+      "ok": true,
+      "ancho": 375,
+      "anchoDocumento": 360,
+      "periodo": "Año 2026 completo",
+      "totales": "$23.870 INGRESOS $1.290 EGRESOS $22.580 RESULTADO DEL PERÍODO"
+    },
+    {
+      "paso": "celular 375: Día → Semana dentro del marco",
+      "ok": true,
+      "periodo": "Del 05/10/2026 al 11/10/2026",
+      "fecha": "2026-10-08",
+      "totales": "$3.700 INGRESOS $1.080 EGRESOS $2.620 RESULTADO DEL PERÍODO"
+    }
+  ]
+}

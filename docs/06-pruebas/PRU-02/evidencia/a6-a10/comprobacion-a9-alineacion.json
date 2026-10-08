@@ -1,0 +1,1028 @@
+{
+  "fecha": "2026-10-08T14:15:22.663Z",
+  "base": "wings_testing_codex",
+  "metodo": "Laravel HTTP real; iframe 375x667 en 1280x900",
+  "capturas": [
+    {
+      "nombre": "a9-alineacion-login-375.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "nuevo": null,
+      "tarjetas": []
+    },
+    {
+      "nombre": "a9-alineacion-grupos-admin-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 373.796875,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 405.796875
+      },
+      "tarjetas": [
+        {
+          "texto": "Fútbol — Avanzadas de competencia y preparación de exhibiciones regionales\nDeporte:\nFútbol\nAlumnos activos:\n1\nPlanes:\n2x/sem — $48.000\nActivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 436.59375,
+            "width": 328,
+            "height": 262.1875,
+            "right": 344,
+            "bottom": 698.78125
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 613.78125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 645.78125
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 613.78125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 645.78125
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 659.78125,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 680.78125
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Patín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales\nDeporte:\nPatín artístico competitivo y preparación internacional\nAlumnos activos:\n20\nPlanes:\n1x/sem — $9.876.543 · 2x/sem — $2.345.679 · 3x/sem — $9.876.543\nActivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 714.78125,
+            "width": 328,
+            "height": 342.3125,
+            "right": 344,
+            "bottom": 1057.09375
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 972.09375,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 1004.09375
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 972.09375,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 1004.09375
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 1018.09375,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 1039.09375
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Patín artístico competitivo y preparación internacional — Inicial de prueba\nDeporte:\nPatín artístico competitivo y preparación internacional\nAlumnos activos:\n0\nPlanes:\n–\nInactivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 1073.09375,
+            "width": 328,
+            "height": 279.453125,
+            "right": 344,
+            "bottom": 1352.546875
+          },
+          "punto": {
+            "estado": "Inactivo",
+            "titulo": "Inactivo",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 1267.546875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 1299.546875
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 1267.546875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 1299.546875
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 220.171875,
+            "y": 1313.546875,
+            "width": 99.828125,
+            "height": 21,
+            "right": 320,
+            "bottom": 1334.546875
+          },
+          "alineacion": "end"
+        }
+      ]
+    },
+    {
+      "nombre": "a9-alineacion-grupos-admin-375-tarjeta-1.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 361,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 12.796875,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 44.796875
+      },
+      "tarjetas": [
+        {
+          "texto": "Fútbol — Avanzadas de competencia y preparación de exhibiciones regionales\nDeporte:\nFútbol\nAlumnos activos:\n1\nPlanes:\n2x/sem — $48.000\nActivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 75.59375,
+            "width": 328,
+            "height": 262.1875,
+            "right": 344,
+            "bottom": 337.78125
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 252.78125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 284.78125
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 252.78125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 284.78125
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 298.78125,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 319.78125
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Patín artístico competitivo y preparación internacional — Avanzadas de competencia y preparación de exhibiciones regionales\nDeporte:\nPatín artístico competitivo y preparación internacional\nAlumnos activos:\n20\nPlanes:\n1x/sem — $9.876.543 · 2x/sem — $2.345.679 · 3x/sem — $9.876.543\nActivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 353.78125,
+            "width": 328,
+            "height": 342.3125,
+            "right": 344,
+            "bottom": 696.09375
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 611.09375,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 643.09375
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 611.09375,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 643.09375
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 657.09375,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 678.09375
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Patín artístico competitivo y preparación internacional — Inicial de prueba\nDeporte:\nPatín artístico competitivo y preparación internacional\nAlumnos activos:\n0\nPlanes:\n–\nInactivo\nEditar\nVer",
+          "rect": {
+            "x": 16,
+            "y": 712.09375,
+            "width": 328,
+            "height": 279.453125,
+            "right": 344,
+            "bottom": 991.546875
+          },
+          "punto": {
+            "estado": "Inactivo",
+            "titulo": "Inactivo",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 906.546875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 938.546875
+              }
+            },
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 224,
+                "y": 906.546875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 938.546875
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 220.171875,
+            "y": 952.546875,
+            "width": 99.828125,
+            "height": 21,
+            "right": 320,
+            "bottom": 973.546875
+          },
+          "alineacion": "end"
+        }
+      ]
+    },
+    {
+      "nombre": "a9-alineacion-niveles-admin-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 201,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 233
+      },
+      "tarjetas": [
+        {
+          "texto": "Avanzadas\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 257,
+            "width": 328,
+            "height": 130.0625,
+            "right": 344,
+            "bottom": 387.0625
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 338.0625,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 370.0625
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 338.0625,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 370.0625
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Avanzadas de competencia y preparación de exhibiciones regionales\nGrupos:\n2\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 403.0625,
+            "width": 328,
+            "height": 175.65625,
+            "right": 344,
+            "bottom": 578.71875
+          },
+          "punto": {
+            "estado": "Con grupos",
+            "titulo": "Con grupos",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 529.71875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 561.71875
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 529.71875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 561.71875
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Inicial de prueba\n\nNivel del grupo inactivo ficticio\n\nGrupos:\n1\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 594.71875,
+            "width": 328,
+            "height": 153.25,
+            "right": 344,
+            "bottom": 747.96875
+          },
+          "punto": {
+            "estado": "Con grupos",
+            "titulo": "Con grupos",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 698.96875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 730.96875
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 698.96875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 730.96875
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Intermedias\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 763.96875,
+            "width": 328,
+            "height": 130.0625,
+            "right": 344,
+            "bottom": 894.03125
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 845.03125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 877.03125
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 845.03125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 877.03125
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Sin grupos de prueba\n\nNivel ficticio sin grupos asociados\n\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 910.03125,
+            "width": 328,
+            "height": 153.25,
+            "right": 344,
+            "bottom": 1063.28125
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 1014.28125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 1046.28125
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 1014.28125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 1046.28125
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        }
+      ]
+    },
+    {
+      "nombre": "a9-alineacion-niveles-admin-375-tarjeta-1.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 181,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 20,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 52
+      },
+      "tarjetas": [
+        {
+          "texto": "Avanzadas\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 76,
+            "width": 328,
+            "height": 130.0625,
+            "right": 344,
+            "bottom": 206.0625
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 157.0625,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 189.0625
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 157.0625,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 189.0625
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Avanzadas de competencia y preparación de exhibiciones regionales\nGrupos:\n2\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 222.0625,
+            "width": 328,
+            "height": 175.65625,
+            "right": 344,
+            "bottom": 397.71875
+          },
+          "punto": {
+            "estado": "Con grupos",
+            "titulo": "Con grupos",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 348.71875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 380.71875
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 348.71875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 380.71875
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Inicial de prueba\n\nNivel del grupo inactivo ficticio\n\nGrupos:\n1\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 413.71875,
+            "width": 328,
+            "height": 153.25,
+            "right": 344,
+            "bottom": 566.96875
+          },
+          "punto": {
+            "estado": "Con grupos",
+            "titulo": "Con grupos",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 517.96875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 549.96875
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 517.96875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 549.96875
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Intermedias\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 582.96875,
+            "width": 328,
+            "height": 130.0625,
+            "right": 344,
+            "bottom": 713.03125
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 664.03125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 696.03125
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 664.03125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 696.03125
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        },
+        {
+          "texto": "Sin grupos de prueba\n\nNivel ficticio sin grupos asociados\n\nGrupos:\n0\nEditar\nEliminar",
+          "rect": {
+            "x": 16,
+            "y": 729.03125,
+            "width": 328,
+            "height": 153.25,
+            "right": 344,
+            "bottom": 882.28125
+          },
+          "punto": {
+            "estado": "Sin grupos",
+            "titulo": "Sin grupos",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 116,
+                "y": 833.28125,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 865.28125
+              }
+            },
+            {
+              "texto": "Eliminar",
+              "rect": {
+                "x": 224,
+                "y": 833.28125,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 865.28125
+              }
+            }
+          ],
+          "interruptor": null,
+          "alineacion": "flex-end"
+        }
+      ]
+    },
+    {
+      "nombre": "a9-alineacion-profesores-admin-375-inicio.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 0,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 433.796875,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 465.796875
+      },
+      "tarjetas": [
+        {
+          "texto": "Gómez de prueba, Mariana\nActivo\nDeporte:\nPatín artístico competitivo y preparación internacional\nLiquidación:\nPor hora\nValor/hora:\n$1.000\nTeléfono:\n–\nEmail:\n–\nVer\nEditar\nActivo",
+          "rect": {
+            "x": 16,
+            "y": 496.59375,
+            "width": 328,
+            "height": 264.125,
+            "right": 344,
+            "bottom": 760.71875
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 116,
+                "y": 678.71875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 710.71875
+              }
+            },
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 224,
+                "y": 678.71875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 710.71875
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 722.71875,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 743.71875
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Prueba inactiva, Lucía\nInactivo\nDeporte:\nPatín artístico competitivo y preparación internacional\nLiquidación:\nPor hora\nValor/hora:\n$1.000\nTeléfono:\n–\nEmail:\n–\nVer\nEditar\nInactivo",
+          "rect": {
+            "x": 16,
+            "y": 776.71875,
+            "width": 328,
+            "height": 264.125,
+            "right": 344,
+            "bottom": 1040.84375
+          },
+          "punto": {
+            "estado": "Inactivo",
+            "titulo": "Inactivo",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 116,
+                "y": 958.84375,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 990.84375
+              }
+            },
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 224,
+                "y": 958.84375,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 990.84375
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 220.171875,
+            "y": 1002.84375,
+            "width": 99.828125,
+            "height": 21,
+            "right": 320,
+            "bottom": 1023.84375
+          },
+          "alineacion": "end"
+        }
+      ]
+    },
+    {
+      "nombre": "a9-alineacion-profesores-admin-375-tarjeta-1.png",
+      "ancho": 375,
+      "alto": 667,
+      "scroll": 421,
+      "anchoDocumento": 360,
+      "nuevo": {
+        "x": 224,
+        "y": 12.796875,
+        "width": 96,
+        "height": 32,
+        "right": 320,
+        "bottom": 44.796875
+      },
+      "tarjetas": [
+        {
+          "texto": "Gómez de prueba, Mariana\nActivo\nDeporte:\nPatín artístico competitivo y preparación internacional\nLiquidación:\nPor hora\nValor/hora:\n$1.000\nTeléfono:\n–\nEmail:\n–\nVer\nEditar\nActivo",
+          "rect": {
+            "x": 16,
+            "y": 75.59375,
+            "width": 328,
+            "height": 264.125,
+            "right": 344,
+            "bottom": 339.71875
+          },
+          "punto": {
+            "estado": "Activo",
+            "titulo": "Activo",
+            "color": "rgb(22, 163, 74)"
+          },
+          "acciones": [
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 116,
+                "y": 257.71875,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 289.71875
+              }
+            },
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 224,
+                "y": 257.71875,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 289.71875
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 230.984375,
+            "y": 301.71875,
+            "width": 89.015625,
+            "height": 21,
+            "right": 320,
+            "bottom": 322.71875
+          },
+          "alineacion": "end"
+        },
+        {
+          "texto": "Prueba inactiva, Lucía\nInactivo\nDeporte:\nPatín artístico competitivo y preparación internacional\nLiquidación:\nPor hora\nValor/hora:\n$1.000\nTeléfono:\n–\nEmail:\n–\nVer\nEditar\nInactivo",
+          "rect": {
+            "x": 16,
+            "y": 355.71875,
+            "width": 328,
+            "height": 264.125,
+            "right": 344,
+            "bottom": 619.84375
+          },
+          "punto": {
+            "estado": "Inactivo",
+            "titulo": "Inactivo",
+            "color": "rgb(91, 91, 91)"
+          },
+          "acciones": [
+            {
+              "texto": "Ver",
+              "rect": {
+                "x": 116,
+                "y": 537.84375,
+                "width": 96,
+                "height": 32,
+                "right": 212,
+                "bottom": 569.84375
+              }
+            },
+            {
+              "texto": "Editar",
+              "rect": {
+                "x": 224,
+                "y": 537.84375,
+                "width": 96,
+                "height": 32,
+                "right": 320,
+                "bottom": 569.84375
+              }
+            }
+          ],
+          "interruptor": {
+            "x": 220.171875,
+            "y": 581.84375,
+            "width": 99.828125,
+            "height": 21,
+            "right": 320,
+            "bottom": 602.84375
+          },
+          "alineacion": "end"
+        }
+      ]
+    }
+  ]
+}

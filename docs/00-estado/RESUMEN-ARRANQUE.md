@@ -1,6 +1,6 @@
 # Resumen de arranque — Wings
 
-> Entrega A14/A27/A53: 07/10/2026, Codex CyE; diseño aprobado por Carlos, a verificar. Aportes anteriores y cortes históricos conservan su fecha.
+> Cierre A6–A10: 08/10/2026, Codex CyE; aspecto aprobado por Carlos y lógica A10 verificada por Claude. A32 espera elección visual. Los cortes históricos conservan su fecha.
 > Orienta a los tres agentes; no reemplaza verificar código, base o servidor.
 > [Protocolo común](PROTOCOLO-CONTINUIDAD.md) · [Plan compacto](../07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md)
 
@@ -17,6 +17,8 @@
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 
+A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica lógica A10 en segunda revisión. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508/2, 4077 aserciones, 423,14 s; 510 pruebas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md) · [Verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 espera elección de Carlos, no aplicado. Sin despliegue.
+
 | Tema | Corte y alcance |
 |---|---|
 | A12/A24 | IMPLEMENTADAS 08/10, Gemini CyE ([informe](../06-pruebas/PRU-02/IMPLEMENTACION-A12-A24.md)). Carlos autorizó Opción 2 Variante B. Vista y controlador actualizados: estado del cajón primero, botón Abrir a /caja/apertura, reconocimiento de turno compartido, tareas diarias en 2 columnas con scroll interno de clases a 165px para nivelar alturas, recaudación al pie. Suite verde (Cobranza, Revision, CajaCambioInicial, CSP). Pasadas a_verificar en tablero |
@@ -32,9 +34,10 @@
 | Servidor | Último despliegue documentado 81f27ef. Las correcciones posteriores no se dan por desplegadas |
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
+
 ## Trabajo que continúa
 
-- **A6–A10, retoma 08/10, Codex CyE:** elecciones A6 solo texto, A7 B y A8 A conservadas. A7 final aprobado por Carlos: Cobrar/Editar en columna y Ver con Nuevo; [visor](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-columnas.html). A8/A9: 22 imágenes nuevas reales, activos/inactivos y niveles con/sin grupos; controles completos a derecha en celular. Corregidas utilidades insuficientes con tres clases de pie y CSS exclusivo bajo 640 px. Botones 96×32 en una fila; cuatro escritorios idénticos por SHA256; distintivo de Profesores intacto. [Grupos y accesos a Niveles/Profesores](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a8-grupos.html). Build 24,21 s, Blade y escenario 4/15 correctos; suite posterior en ejecución, solo base Codex. Sigue revisión de estas pantallas, capturas/propuesta restante A10 y entrega conjunta; sin autocierre ni deploy. [Decisiones y alcance](../06-pruebas/PRU-02/PROPUESTA-A6-A10.md).
+- **A6–A10, CERRADOS 08/10:** aspecto verifica Carlos; lógica A10 verifica Claude con 432 combinaciones/442 pedidos y 45 comprobaciones de navegador sin fallos. Regresión nueva de Limpiar, diez A10/110 aserciones; suite completa 508/2, 4077 aserciones, 423,14 s; build 38,28 s. Capturas finales renovadas; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md). A32 separado, espera elección de Carlos. Sin despliegue.
 
 - **A14/A27/A53, CERRADOS 07/10 (verificado Gemini, contrastado Claude; [informe](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md)):** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
 

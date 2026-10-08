@@ -1,4 +1,62 @@
 # Wings — Estado actual
+
+## A32 — Propuesta 08/10/2026, Codex CyE
+
+Comprobación actual 08/10, Codex CyE: la cuenta propia tiene checked=true y disabled=true; etiqueta Activo visible, opacidad 0,45. Parece apagada por atenuación. El controlador impide desactivarse a sí mismo. Propuesta: Activo, Tu cuenta y candado; demás interruptores originales. En celular Editar coincide con Nuevo; escritorio conservado. Nueve capturas reales, originales intactos; falta elección de Carlos, no aplicado. [Visor](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a32.html). Base ficticia wings_testing_codex, login de calibración; no se modifica la cuenta real ni permisos.
+
+## A6–A10 — CERRADOS 08/10/2026
+
+A6–A9 verifica Carlos; A10 verifica Claude en segunda revisión, con 432 combinaciones/442 pedidos, 19 pruebas propias del corte final y 45 comprobaciones de navegador sin fallos. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; build 38,28 s y capturas finales renovadas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md), [verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 continúa como propuesta, pendiente de Carlos. Sin despliegue.
+
+## Antecedentes A6–A10, antes del cierre (07/08 de octubre)
+
+### Corrección tras primera revisión independiente, 08/10/2026
+
+Claude devolvió A10: Limpiar escapaba dos veces la dirección y perdía fecha/año/mes en Chrome. El resto de la lógica quedó comprobado con 432 combinaciones y 442 pedidos propios. [Verificación](../06-pruebas/PRU-02/VERIFICACION-A10.md). Corregido el parámetro href de Limpiar; nueva prueba DOM reproduce el rojo antes y pasa después. Diez pruebas A10/110 aserciones verdes; sintaxis y Blade correctos. Suite completa y segunda revisión de Claude en ejecución; A32 sigue esperando elección de Carlos. No desplegado.
+
+### Primera entrega A6–A10, anterior al cierre, 08/10/2026
+
+A6–A9 cerrados con aprobación visual de Carlos (§6a); decisiones y capturas en [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md). A10 asignado a Claude para verificar lógica; [orden](../06-pruebas/PRU-02/VERIFICAR-A10.md) preparada, revisión todavía no ejecutada. Los cortes anteriores de este apartado son antecedentes.
+
+A10 aprobado por Carlos: «Me gusta, A10 Aprobado». Aplicado localmente Día/Semana/Mes/Año, Nuevo junto al contador y título Nuevo movimiento. Resultado del período = ingresos − egresos; deja de sumar saldo inicial, de acuerdo con la propuesta aprobada y FIN-04. No implementa saldo acumulado. Nueve pruebas de intervalos pasan, 70 aserciones; suite 507 aprobadas/2 omitidas y 24 capturas finales correctas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md). Aspecto verificado por Carlos; intervalos/cálculos pendientes de otro agente (§6a), sin deploy. Las notas de maquetas de este apartado conservan el corte anterior a aplicar.
+
+Elecciones conservadas: A6 solo texto, A7 B, A8 A. Capturas A7 renovadas desde Wings con
+ADMIN/OPERATIVO en escritorio y marco real de 375×667; el pie muestra los controles.
+**Contradicción detectada y corregida por pedido posterior de Carlos:** el pase decía
+alineación móvil a derecha aplicada; las primeras capturas mostraron A7 a izquierda.
+Carlos pidió corregir únicamente celular. Regla CSS exclusiva de Alumnos bajo 640 px;
+12 imágenes posteriores y tres comparaciones geométricas de escritorio correctas.
+Build 26,41 s correcto; escenario propio previo 4 pruebas/15 aserciones.
+Última suite propia después del ajuste de columnas: 496 aprobadas, 2 omitidas, 1 falla; 3948 aserciones, 367,51 s.
+La única falla es el contador documental 491/499, ya registrado en el pase de Claude.
+Pedido posterior: Cobrar/Editar alineados entre sí y Ver alineado con Nuevo.
+Dos columnas móviles de 96 px y ajuste de margen, sin mover Nuevo; coincidencia exacta
+en ADMIN/OPERATIVO y nombre largo. Tres imágenes de escritorio idénticas al antes.
+[Antes/después y mediciones actuales](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a7-columnas.html).
+A7 aprobado visualmente por Carlos el 08/10; paquete todavía en curso.
+A8/A9: 22 imágenes actuales reales; Grupos ADMIN/OPERATIVO, Niveles/Profesores ADMIN,
+375×667 y escritorio. Activo/Inactivo y Con/Sin grupos comprobados en filas ficticias.
+El pase también sobreestimaba la alineación de estos listados: corregida con tres clases
+de pie y CSS exclusivo bajo 640 px; controles a derecha, botones 96×32 en una fila.
+Cuatro escritorios idénticos al antes por SHA256; distintivo coloreado de Profesores intacto.
+Build 24,21 s, sintaxis y Blade correctos; escenario 4/15 verde, 7,53 s.
+Suite posterior: 491 aprobadas/2 omitidas/7 fallas, 3944 aserciones, 293,60 s; base Codex.
+Seis fallas HTTP 500 por `$bloqueo` ausente en `operativo/dashboard.blade.php`, modificado
+simultáneamente fuera de A6–A10; su controlador entrega `estado`, no `bloqueo` en ese corte.
+Una falla documental: contador 491/500, pruebas nuevas todavía locales. No se corrigieron
+estos cambios ajenos. [Salida completa](../06-pruebas/PRU-02/evidencia/a6-a10/suite-a8-a9-2026-10-08.txt).
+[Grupos y accesos a las otras dos pantallas](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a8-grupos.html).
+Carlos abrió el visor actual y respondió «A-8 APROBADO» el 08/10; resultado visual aprobado.
+A9: Carlos aprobó si coincide con Nuevo; condición comprobada en las tres pantallas reales
+a 375 px: Nuevo/último botón x=224–320; interruptor termina en x=320. Siete capturas nuevas,
+sin cambios de aplicación. [Control exacto](../06-pruebas/PRU-02/evidencia/a6-a10/comprobacion-a9-alineacion.json).
+Carlos confirmó después «Perfecto, APROBADO A-9 Entonces»; no se vuelve a pedir A9.
+A10: 28 capturas reales actuales/propuesta, ADMIN escritorio/375; año/mes/vacío y formulario
+completo. Nuevo junto al contador en barra propia, Limpiar en filtros y título Nuevo movimiento
+propuestos inicialmente mediante dos variantes Blade; luego aprobados/aplicados, ver entrega A10 arriba.
+Filas/período idénticos, seis campos con íconos y acciones móviles visibles; enlaces/sintaxis correctos.
+[Cashflow ANTES/propuesta y acceso al formulario](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10.html).
+Sin nueva suite/build por la propuesta documental; entrega/verificación pendientes, sin autocierre/deploy.
  
 ## A14/A27/A53 — CERRADOS 07/10/2026 (verificados por Gemini, contrastados por Claude)
 
@@ -270,7 +328,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **500 pruebas**: 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **510 pruebas**: 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; suite final Codex CyE 08/10 posterior a corregir Limpiar. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -384,7 +442,7 @@ Evidencia: `docs/06-pruebas/COB-03-VERIFICACION-2026-09-10.md`.
 | `pagos.monto_base` se guarda mal | `crearPago()` lo reconstruye dividiendo lo cobrado por el porcentaje. Con una seña en el mes de alta da 10.000 / 0,7 = 14.285; con el mes de alta y otro mes en el mismo cobro divide tambien el que no tenia descuento. **Nadie lo lee hoy**: ni pantallas, ni recibos, ni reportes. Es una trampa para el rediseño del recibo, que querria mostrar el precio sin descuento | Definir que tiene que valer en un cobro con seña o con varios meses antes de que algo lo use |
 | Descuento a un alumno de carga inicial cobrado en su propio mes de alta | `calcularReglaPrimerPago()` solo exige que el mes de alta este entre los periodos cobrados. Un alumno importado con deuda inicial de su mes de alta recibe el descuento al pagarla. La prueba existente solo cubre cobrarle **otro** mes | Carlos define si un alumno traido de la carga inicial puede recibir descuento de primer pago alguna vez |
 | Wings no tenía arqueo | Relevamiento previo 06/10 confirmó que faltaban tanto inicio como conteo/diferencia; no era sumar a un arqueo existente | A25 implementada después de decisiones de Carlos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md). CERRADO (verificado por Gemini 06/10); no desplegada |
-| Balance filtrado de Cashflow | Mezcla saldo inicial historico con movimientos del periodo | Definido 22/09 en contrato Reportes: mostrar saldo y resultado separados. Corrección funcional pendiente (POS-01); descripción previa no revalidada en este turno documental |
+| Resultado y saldo de Cashflow | A10 muestra resultado del período sin sumar saldo inicial | Aplicado localmente 08/10, aspecto aprobado por Carlos; intervalos/cálculo a verificar. El apartado de saldo acumulado de Reportes sigue pendiente (POS-01) |
 | Estado minimo de entrega | El club ya carga datos reales | FDS-03 pausada por Carlos el 09/09; redefinir, no limpiar |
 | Tope de 1200px en guia de diseño | `app.css` no lo implementa | Decidir guia o implementacion; no tocar sin autorizacion |
 

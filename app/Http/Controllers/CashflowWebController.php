@@ -16,49 +16,72 @@ class CashflowWebController extends Controller
 
     public function index(Request $request)
     {
-        $anio       = (int) $request->input('anio', now()->year);
-        $mes        = $request->filled('mes') ? (int) $request->input('mes') : null;
+        $request->validate([
+            'periodo' => 'nullable|in:dia,semana,mes,anio',
+            'fecha' => 'nullable|date_format:Y-m-d',
+            'anio' => 'nullable|integer|between:1900,2100',
+            'mes' => 'nullable|integer|between:1,12',
+        ]);
+        // Sin selector explícito, mantener los enlaces históricos Año/Mes.
+        $modo = $request->input('periodo') ?? ($request->filled('mes') ? 'mes' : 'anio');
+        $fechaReferencia = Carbon::parse($request->input('fecha') ?: today()->toDateString())->startOfDay();
+        $anio = $request->filled('anio') ? (int) $request->input('anio') : $fechaReferencia->year;
+        $mes = $request->filled('mes') ? (int) $request->input('mes') : $fechaReferencia->month;
+        if (in_array($modo, ['mes', 'anio'], true)) {
+            $primerDia = Carbon::create($anio, $mes, 1)->startOfDay();
+            $fechaReferencia = $primerDia->day(min($fechaReferencia->day, $primerDia->daysInMonth));
+        } else {
+            $anio = $fechaReferencia->year;
+            $mes = $fechaReferencia->month;
+        }
+        $inicio = match ($modo) {
+            'dia' => $fechaReferencia->copy(),
+            'semana' => $fechaReferencia->copy()->startOfWeek(Carbon::MONDAY),
+            'mes' => Carbon::create($anio, $mes, 1)->startOfDay(),
+            'anio' => Carbon::create($anio, 1, 1)->startOfDay(),
+        };
+        $fin = match ($modo) {
+            'dia' => $inicio->copy(),
+            'semana' => $inicio->copy()->addDays(6),
+            'mes' => $inicio->copy()->endOfMonth()->startOfDay(),
+            'anio' => $inicio->copy()->endOfYear()->startOfDay(),
+        };
+        $periodoTexto = match ($modo) {
+            'dia' => $inicio->locale('es')->translatedFormat('j \d\e F \d\e Y'),
+            'semana' => 'Del '.$inicio->format('d/m/Y').' al '.$fin->format('d/m/Y'),
+            'mes' => ucfirst($inicio->locale('es')->translatedFormat('F Y')),
+            'anio' => 'Año '.$anio.' completo',
+        };
         $tipoCajaId = $request->filled('tipo_caja_id') ? (int) $request->input('tipo_caja_id') : null;
         $tipo       = in_array($request->input('tipo'), ['INGRESO', 'EGRESO']) ? $request->input('tipo') : null;
 
-        $movimientos = CashflowMovimiento::with(['subrubro.rubro', 'tipoCaja', 'usuarioAdmin'])
-            ->whereYear('fecha', $anio)
-            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
-            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+        // Un mismo intervalo inclusivo para las filas y los dos totales.
+        $base = CashflowMovimiento::query()
+            ->whereBetween('fecha', [$inicio->toDateString(), $fin->toDateString()])
+            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId));
+        $movimientos = (clone $base)->with(['subrubro.rubro', 'tipoCaja', 'usuarioAdmin'])
             ->when($tipo, fn($q) => $q->whereHas('subrubro.rubro', fn($r) => $r->where('tipo', $tipo)))
             ->orderBy('fecha', 'desc')
             ->paginate(30)
             ->withQueryString();
 
-        $totalIngresos = CashflowMovimiento::whereYear('fecha', $anio)
-            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
-            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+        $totalIngresos = (clone $base)
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))
             ->sum('monto');
 
         // Los egresos se guardan negativos; para mostrar se usa el valor absoluto
-        $totalEgresos = abs(CashflowMovimiento::whereYear('fecha', $anio)
-            ->when($mes, fn($q) => $q->whereMonth('fecha', $mes))
-            ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId))
+        $totalEgresos = abs((clone $base)
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'EGRESO'))
             ->sum('monto'));
 
-        $saldoInicial = TipoCaja::query()
-            ->when($tipoCajaId, fn($q) => $q->whereKey($tipoCajaId))
-            ->sum('saldo_inicial');
-
         $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
         $aniosDisponibles = CashflowMovimiento::selectRaw('YEAR(fecha) as anio')
-            ->distinct()->orderBy('anio', 'desc')->pluck('anio');
-
-        if ($aniosDisponibles->isEmpty()) {
-            $aniosDisponibles = collect([now()->year]);
-        }
+            ->distinct()->pluck('anio')->push($anio)->push(now()->year)->unique()->sortDesc()->values();
 
         return view('cashflow.index', compact(
             'movimientos', 'tiposCaja', 'aniosDisponibles',
             'anio', 'mes', 'tipoCajaId', 'tipo',
-            'totalIngresos', 'totalEgresos', 'saldoInicial'
+            'totalIngresos', 'totalEgresos', 'modo', 'fechaReferencia', 'periodoTexto'
         ));
     }
 

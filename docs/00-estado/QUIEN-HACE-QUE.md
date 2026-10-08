@@ -28,19 +28,18 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **50 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **55 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A32** El interruptor de usuario muestra apagado al usuario activo | En curso (hizo Codex) | Carlos mira ANTES/propuesta en visor-a32.html: Activo, Tu cuenta y candado; Editar con Nuevo en celular. Originales intactos, 9 capturas reales |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A10** El botón "Nuevo" del cashflow | Hecho, espera verificación (hizo Codex) | Aspecto aprobado por Carlos; otro agente verifica intervalos, validaciones y resultado. Suite 507/2 verde, 24 capturas finales. Sin deploy |
+Nada.
 
 ## Claude
 
@@ -51,13 +50,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Texto elegido por Carlos aplicado; completar entrega A6-A10 y asignar verificador |
-| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | Aspecto final aprobado por Carlos 08/10; completar A8-A10, entrega conjunta y verificacion independiente |
-| **A8** Puntos grises que no dicen nada | En curso | Resultado visual aprobado por Carlos 08/10: A-8 APROBADO; completar paquete A6-A10 y entregar para verificacion independiente |
-| **A9** El interruptor "Activo" en las tarjetas | En curso | Carlos confirmo expresamente APROBADO A-9; alineacion con Nuevo medida; completar A10 y entrega para verificacion independiente |
-| **A32** El interruptor de usuario muestra apagado al usuario activo | En curso | Codex propone como mostrar el interruptor del propio usuario, junto con A9, y Carlos elige |
+Nada en este momento.
 
 ## Gemini
 

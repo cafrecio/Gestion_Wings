@@ -1,0 +1,6 @@
+{
+  "resources/views/cashflow/index.blade.php": "0461212886968171112061e5c74d44cf1da5546636a9f9bab9da118308a7768e",
+  "resources/views/cashflow/movimiento.blade.php": "2c5fce5212dde71f40a0bf69b32f9dad5e15cef02b5568850c571a6a4df34dbb",
+  "resources/css/app.css": "d321c7d260c5f76f3c9d24512c835cbec09fde37e87d59e9df7078cc0dd9f129",
+  "app/Http/Controllers/CashflowWebController.php": "1c2d438b2456a62651651cb15e092d74922fc7606b29fc10530a1d0fc91b1d08"
+}

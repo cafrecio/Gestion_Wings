@@ -174,7 +174,7 @@ class SaldoInicialTipoCajaTest extends TestCase
             ->assertSee('Se ajusta con un movimiento, no editando el saldo inicial.');
     }
 
-    public function test_cashflow_muestra_saldo_inicial_separado_y_lo_incluye_en_el_balance(): void
+    public function test_cashflow_muestra_resultado_del_periodo_sin_sumar_saldo_inicial(): void
     {
         $admin = User::factory()->create(['rol' => User::ROL_ADMIN, 'activo' => true]);
         $tipoCaja = TipoCaja::create([
@@ -191,7 +191,8 @@ class SaldoInicialTipoCajaTest extends TestCase
         ]));
 
         $sinMovimientos->assertOk()
-            ->assertSeeInOrder(['$200.000', 'saldo inicial', '$200.000', 'balance']);
+            ->assertSeeInOrder(['$0', 'ingresos', '$0', 'egresos', '$0', 'resultado del período'])
+            ->assertDontSee('$200.000');
 
         [, $subrubro] = $this->crearSubrubroEgreso();
         CashflowMovimiento::create([
@@ -206,7 +207,8 @@ class SaldoInicialTipoCajaTest extends TestCase
         $this->actingAs($admin)->get(route('web.cashflow.index', [
             'tipo_caja_id' => $tipoCaja->id,
         ]))->assertOk()
-            ->assertSeeInOrder(['$50.000', 'egresos', '$200.000', 'saldo inicial', '$150.000', 'balance']);
+            ->assertSeeInOrder(['$50.000', 'egresos', '$-50.000', 'resultado del período'])
+            ->assertDontSee('$200.000')->assertDontSee('$150.000');
     }
 
     public function test_saldo_inicial_permite_pagar_liquidacion_sin_movimientos_previos(): void
