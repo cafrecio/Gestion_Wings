@@ -7,12 +7,14 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 49 cerrados de 72.** Quedan 23 abiertos, de los
+> **Avance al 08/10/2026: 50 cerrados de 72.** Quedan 22 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
 >
 > A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: HECHO (Claude), a revisar — lo que se ve lo aprobó Carlos; falta que otro agente verifique la regla (celular del tutor en menores; el operativo no ve rubros del admin). A35: revisado, no es un defecto; a confirmar. [Entrega](IMPLEMENTACION-A26-A38-A39-A44.md).
+>
+> A12: **CERRADO 08/10, verificado Claude**; el aspecto lo aprobó Carlos. A24: **DEVUELTO a Gemini**: con el turno abierto por un compañero la pantalla dice «podés cobrar» y los tres botones fallan; con un turno de ayer sin cerrar ofrece Abrir y el sistema lo rechaza. [Verificación](VERIFICACION-A12-A24.md).
 
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **CERRADO 06/10, verificado Gemini** — segunda verificación, con recorrido propio por HTTP, importes propios y 23 capturas; Claude reprodujo el recorrido (97 aserciones) y contrastó el informe. Sin sesión interactiva de navegador: eso lo cubre la prueba humana. [Informe](VERIFICACION-A25.md).
@@ -144,7 +146,7 @@ sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
 
 **Verificación independiente por Gemini (04/10):** Aprobada en código y navegador real en escritorio y celular (375px). Se comprobó el rechazo de valores inválidos (-100, 29, email inválido), la persistencia del resumen y avisos de error (>5s sin desaparecer), el guardado asíncrono con estado "Guardado", el parámetro inmutable de generación mensual y la validación en castellano del editor de reglas de primer pago. Suite verde (356 pruebas / 2073 aserciones). [Informe de verificación y evidencia](VERIFICACION-A11.md). Defecto CERRADO.
 
-### A12. El inicio del operativo no ayuda a trabajar · Molesta
+### A12. El inicio del operativo no ayuda a trabajar · Molesta · CERRADO 08/10, verificado Claude
 
 Tres cuadros en cero, una tarjeta que dice "Sin caja hoy" y nada que diga por dónde empezar
 el día.
@@ -239,7 +241,7 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 Más de la mitad de la pantalla principal del administrador es espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 
-### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · verificado
+### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · DEVUELTO 08/10 (hizo Gemini, verificó Claude)
 
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
 Captura: `evidencia/audit_operativo_dashboard_desktop.png`.

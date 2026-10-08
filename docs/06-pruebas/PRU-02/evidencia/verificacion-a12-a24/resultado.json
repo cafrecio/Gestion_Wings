@@ -1,0 +1,481 @@
+{
+    "1 recién llega, nadie abrió": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Abrir",
+                "lleva_a": "/caja/apertura",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 0,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 0
+    },
+    "2 apertura de Sandra": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/1/resumen",
+        "errores": null,
+        "aviso": null
+    },
+    "2 turno propio abierto, con un cobro de $25.000": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Mostrador activo Caja abierta Abierta por vos a las 10:00 Cobrar Registrar Resumen",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobrar",
+                "lleva_a": "/caja/cobrar",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Registrar",
+                "lleva_a": "/caja/movimiento",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Resumen",
+                "lleva_a": "/caja/1/resumen",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 25000,
+        "cobros": 1,
+        "cajas_hoy": 1,
+        "caja_propia": 1,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 1
+    },
+    "3 apertura de Marcos": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/2/resumen",
+        "errores": null,
+        "aviso": null
+    },
+    "3 el turno lo abrió Marcos; entra Sandra": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Cajón compartido en curso Turno de Marcos Peña Abierto a las 10:00. Podés cobrar y registrar en este cajón. Cobrar Registrar Detalle",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobrar",
+                "lleva_a": "/caja/cobrar",
+                "responde": 302,
+                "rebota_a": "/caja/apertura",
+                "aviso": null
+            },
+            {
+                "boton": "Registrar",
+                "lleva_a": "/caja/movimiento",
+                "responde": 302,
+                "rebota_a": "/caja/apertura",
+                "aviso": null
+            },
+            {
+                "boton": "Detalle",
+                "lleva_a": "/caja/2/detalle",
+                "responde": 403,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 0,
+        "caja_propia": null,
+        "caja_del_club": 2,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 1
+    },
+    "3 Sandra intenta abrir igual": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/2/detalle",
+        "errores": [
+            "Hay un turno abierto. Cerralo antes de abrir otro."
+        ],
+        "aviso": null
+    },
+    "3 cajas abiertas después del intento": [
+        9
+    ],
+    "4 cierre de Sandra": {
+        "status": 302,
+        "estado": "CERRADA"
+    },
+    "4 Sandra cerró su turno, espera validación": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno cerrado Última caja: CERRADA Cerrada a las 10:00. Para atender un nuevo turno, abrí la caja. Abrir",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Abrir",
+                "lleva_a": "/caja/apertura",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 1,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 0
+    },
+    "4b la caja de Sandra está cerrada; entra Marcos": {
+        "usuario": "Marcos Peña",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Marcos Peña Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Abrir",
+                "lleva_a": "/caja/apertura",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 0,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 0
+    },
+    "5 rechazo del admin": {
+        "status": 302,
+        "estado": "RECHAZADA",
+        "errores": null
+    },
+    "5 Sandra tiene una caja rechazada": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Tenés 1 caja rechazada pendiente de corrección El administrador rechazó el cierre. Revisá las observaciones y corregí el arqueo. Ver Turno cerrado Última caja: RECHAZADA Cerrada a las 10:00. Para atender un nuevo turno, abrí la caja. Abrir",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Ver",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Abrir",
+                "lleva_a": "/caja/apertura",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 1,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 0
+    },
+    "6 apertura de Marcos AYER": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/5/resumen",
+        "errores": null,
+        "aviso": null
+    },
+    "6 Marcos dejó el turno abierto ayer; hoy entra Sandra": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial. Abrir",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Abrir",
+                "lleva_a": "/caja/apertura",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 0,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 1
+    },
+    "6 Sandra intenta abrir": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/apertura",
+        "errores": [
+            "Hay un turno abierto. Cerralo antes de abrir otro."
+        ],
+        "aviso": null
+    },
+    "7 Sandra dejó su turno abierto ayer; entra hoy": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Turno pendiente Tenés una caja abierta de un día anterior. Debés cerrarla antes de operar. Ver Inicio de mostrador Cajón listo para iniciar Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial.",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Ver",
+                "lleva_a": "/caja/6/resumen",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 0,
+        "cobros": 0,
+        "cajas_hoy": 0,
+        "caja_propia": null,
+        "caja_del_club": null,
+        "bloqueo_activo": true,
+        "cajas_abiertas_en_la_base": 1
+    },
+    "8 apertura de Sandra a las 22:30": {
+        "status": 302,
+        "va_a": "http://gestion-wings/caja/7/resumen",
+        "errores": null,
+        "aviso": null
+    },
+    "8 turno propio abierto a las 22:30, con un cobro de $9.000": {
+        "usuario": "Sandra Vidal",
+        "pantalla_responde": 200,
+        "texto_arriba": "Mostrador Operativo Jueves 8 de octubre de 2026 · Turno de Sandra Vidal Caja Cobranza Alumnos Mostrador activo Caja abierta Abierta por vos a las 22:30 Cobrar Registrar Resumen",
+        "botones": [
+            {
+                "boton": "Caja",
+                "lleva_a": "/caja",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobranza",
+                "lleva_a": "/cobranza",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Alumnos",
+                "lleva_a": "/alumnos",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Cobrar",
+                "lleva_a": "/caja/cobrar",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Registrar",
+                "lleva_a": "/caja/movimiento",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            },
+            {
+                "boton": "Resumen",
+                "lleva_a": "/caja/7/resumen",
+                "responde": 200,
+                "rebota_a": null,
+                "aviso": null
+            }
+        ],
+        "cobrado_hoy": 9000,
+        "cobros": 1,
+        "cajas_hoy": 1,
+        "caja_propia": 7,
+        "caja_del_club": null,
+        "bloqueo_activo": false,
+        "cajas_abiertas_en_la_base": 1
+    }
+}

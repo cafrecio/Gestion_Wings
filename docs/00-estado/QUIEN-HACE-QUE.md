@@ -28,11 +28,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **49 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **50 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T8** Definir si dos operativos pueden cobrar a la vez en el mismo turno | Sin empezar | Hoy solo cobra quien abrio el turno, como dice el contrato de caja. Si en el club atienden dos a la vez, hay que revisarlo |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -42,8 +44,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A12** El inicio del operativo no ayuda a trabajar | Hecho, espera verificación (hizo Gemini, verifica Claude) | Claude verifica la logica del inicio del operativo; lo visual ya lo aprobo Carlos. Empieza cuando Carlos avise |
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Claude verifica la logica del inicio del operativo; lo visual ya lo aprobo Carlos. Empieza cuando Carlos avise |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 
@@ -62,6 +62,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Devuelto (hizo Gemini, verifica Claude) | Con el turno de un compañero la pantalla dice que puede cobrar y los tres botones fallan; con un turno de ayer ofrece Abrir y se rechaza. Carlos define el texto |
 | **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 | **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |

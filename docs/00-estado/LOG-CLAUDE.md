@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md)
 
+## 2026-10-08 — Claude CyE — A12 aprobado y A24 devuelto; el inicio del operativo estaba roto
+
+Gemini publico el inicio nuevo (`a6ce0f5`) corriendo cuatro archivos de prueba: la pantalla
+daba error 500 por una variable sin definir y fallaban cinco pruebas existentes. Carlos pidio
+repararlo: una linea, `d664c35`; suite completa despues, 498 aprobadas y 2 omitidas.
+Verifique la logica en ocho situaciones con pedidos reales (`VERIFICACION-A12-A24.md`).
+**A12 cerrado. A24 devuelto a Gemini:** con el turno abierto por un compañero la pantalla
+dice «podes cobrar» y Cobrar, Registrar y Detalle fallan los tres; con un turno de ayer sin
+cerrar ofrece Abrir y el sistema lo rechaza. El sistema cumple el contrato V5 (un turno a la
+vez); lo que miente es la pantalla. Quedo T8 para Carlos: si dos operativos atienden a la vez,
+hoy solo cobra quien abrio. 50 de 72.
+Tambien hoy: A26, A39 y A35 a Gemini para verificar; A32 a Codex; T1 lo mira Carlos desde el
+celular cuando este desplegado.
+
 ## 2026-10-08 — Claude CyE — publicados el menu nuevo, A26, A38, A39 y A44
 
 Carlos reviso todo en `docs/00-estado/PARA-DECIDIR.html` y aprobo: «Menu: Mucho mejor,
