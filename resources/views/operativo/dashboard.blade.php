@@ -43,8 +43,8 @@
     </div>
     @endif
 
-    {{-- 2. Alerta de Bloqueo por turno pendiente --}}
-    @if($bloqueo['activo'])
+    {{-- 2. Alerta de Bloqueo por turno pendiente (solo si no es de su propia caja que se resuelve abajo) --}}
+    @if($bloqueo['activo'] && !$cajaPropia)
     <div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1rem 1.25rem;">
         <p style="font-size:0.95rem; font-weight:700; color:var(--color-warning); margin-bottom:2px;">
             {{ $bloqueo['titulo'] ?? 'Turno pendiente' }}
@@ -57,8 +57,8 @@
     @endif
 
     {{-- 3. ESTADO DEL CAJÓN --}}
-    @if($cajaPropia)
-    <div class="filtros-card mb-4" style="border-left:4px solid var(--color-success); padding:1.25rem;">
+    @if($cajaPropia && !$bloqueo['activo'])
+    <div id="tarjeta-cajon" class="filtros-card mb-4" style="border-left:4px solid var(--color-success); padding:1.25rem;">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
             <div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
@@ -94,45 +94,52 @@
             </div>
         </div>
     </div>
-    @elseif($cajaClub)
-    <div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1.25rem;">
+    @elseif($cajaCompanero)
+    <div id="tarjeta-cajon" class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1.25rem;">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
             <div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                     <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--color-warning);"></span>
-                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-warning);">Cajón compartido en curso</span>
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-warning);">Turno en curso</span>
                 </div>
                 <p style="font-size:1.05rem; font-weight:700; color:var(--color-text); margin-bottom:2px;">
-                    Turno de {{ $cajaClub->usuarioOperativo->name ?? 'Operativo' }}
+                    Caja abierta de {{ $cajaCompanero->usuarioOperativo->name ?? 'Operativo' }}
                 </p>
                 <p style="font-size:0.85rem; color:var(--color-text-muted);">
-                    Abierto a las {{ \Carbon\Carbon::parse($cajaClub->apertura_at)->setTimezone('America/Argentina/Buenos_Aires')->format('H:i') }}. Podés cobrar y registrar en este cajón.
+                    Abierta {{ $aperturaCompaneroTexto ?? 'en este momento' }}. Para atender tu turno, {{ explode(' ', $cajaCompanero->usuarioOperativo->name ?? 'tu compañero')[0] }} debe cerrar su caja.
                 </p>
             </div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                <a href="{{ route('web.caja.cobrar-cuota') }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 20px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-primary); color:#fff;">
-                    Cobrar
+            <div style="display:flex; gap:8px;">
+                <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">
+                    Caja
                 </a>
-                <a href="{{ route('web.caja.movimiento') }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 18px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
-                    Registrar
-                </a>
-                <a href="{{ route('web.caja.detalle', $cajaClub->id) }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 18px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
-                    Detalle
+            </div>
+        </div>
+    </div>
+    @elseif($bloqueo['activo'] && $cajaPropia)
+    <div id="tarjeta-cajon" class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1.25rem;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+            <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                    <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--color-warning);"></span>
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-warning);">Turno pendiente de cierre</span>
+                </div>
+                <p style="font-size:1.05rem; font-weight:700; color:var(--color-text); margin-bottom:2px;">
+                    Tu caja sigue abierta
+                </p>
+                <p style="font-size:0.85rem; color:var(--color-text-muted);">
+                    Abierta {{ $aperturaPropiaTexto ?? 'en un turno anterior' }}. Cerrá este turno para poder comenzar el día.
+                </p>
+            </div>
+            <div style="display:flex; gap:8px;">
+                <a href="{{ route('web.caja.cierre', $cajaPropia->id) }}" class="ds-btn ds-btn--primary">
+                    Cerrar
                 </a>
             </div>
         </div>
     </div>
     @elseif($ultimaCaja)
-    <div class="filtros-card mb-4" style="border-left:4px solid var(--color-success); padding:1.25rem;">
+    <div id="tarjeta-cajon" class="filtros-card mb-4" style="border-left:4px solid var(--color-success); padding:1.25rem;">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
             <div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
@@ -160,15 +167,15 @@
         </div>
     </div>
     @else
-    <div class="filtros-card mb-4" style="border-left:4px solid var(--color-brand); padding:1.25rem;">
+    <div id="tarjeta-cajon" class="filtros-card mb-4" style="border-left:4px solid var(--color-brand); padding:1.25rem;">
         <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
             <div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                     <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--color-brand);"></span>
-                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-brand);">Inicio de mostrador</span>
+                    <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-brand);">Cajón listo para iniciar</span>
                 </div>
                 <p style="font-size:1.05rem; font-weight:700; color:var(--color-text); margin-bottom:2px;">
-                    Cajón listo para iniciar
+                    No hay turno abierto hoy
                 </p>
                 <p style="font-size:0.85rem; color:var(--color-text-muted);">
                     Para cobrar cuotas o registrar movimientos en efectivo, primero declará el cambio inicial.

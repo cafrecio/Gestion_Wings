@@ -14,7 +14,7 @@ diagnosticar* se vieron pero todavía no se sabe la causa.
 >
 > A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: **CERRADOS 08/10, verificado Gemini** en base de datos y navegador interactivo real. A35: **CERRADO 08/10, verificado Gemini** (auditadas `/caja` y `/caja/historial`, confirmado no-defecto por captura original mal rotulada). [Informe de verificación](VERIFICACION-A26-A39-A35.md). [Entrega previa de Claude](IMPLEMENTACION-A26-A38-A39-A44.md).
 >
-> A12: **CERRADO 08/10, verificado Claude**; el aspecto lo aprobó Carlos. A24: **DEVUELTO a Gemini**: con el turno abierto por un compañero la pantalla dice «podés cobrar» y los tres botones fallan; con un turno de ayer sin cerrar ofrece Abrir y el sistema lo rechaza. [Verificación](VERIFICACION-A12-A24.md).
+> A12: **CERRADO 08/10, verificado Claude**; el aspecto lo aprobó Carlos. A24: **HECHO (Gemini), a revisar 08/10** — segunda vuelta: eliminados botones trampa y textos de cajón compartido; caja de compañero muestra "Caja abierta de [Nombre]" con botón Caja; caja propia de ayer muestra "Tu caja sigue abierta" con botón Cerrar. 8 pruebas permanentes en InicioOperativoTest. [Implementación](IMPLEMENTACION-A24-VUELTA-2.md).
 
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **CERRADO 06/10, verificado Gemini** — segunda verificación, con recorrido propio por HTTP, importes propios y 23 capturas; Claude reprodujo el recorrido (97 aserciones) y contrastó el informe. Sin sesión interactiva de navegador: eso lo cubre la prueba humana. [Informe](VERIFICACION-A25.md).
@@ -243,10 +243,11 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 Más de la mitad de la pantalla principal del administrador es espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 
-### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · DEVUELTO 08/10 (hizo Gemini, verificó Claude)
+### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · HECHO (Gemini), a revisar 08/10
 
-Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay caja registrada para hoy" y ofrece al lado un botón **Cobrar**, en lugar de guiarla a abrir la caja del día con su cambio inicial.
-Captura: `evidencia/audit_operativo_dashboard_desktop.png`.
+Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay turno abierto hoy" y ofrece el botón **Abrir**, guiándola a abrir la caja del día con su cambio inicial. Si un compañero tiene una caja abierta, muestra "Caja abierta de [Nombre]" con botón **Caja**, sin botones trampa. Si dejó su caja abierta ayer, muestra "Tu caja sigue abierta" con botón **Cerrar**.
+Pruebas permanentes en `tests/Feature/InicioOperativoTest.php` (8 situaciones). [Implementación y evidencia](IMPLEMENTACION-A24-VUELTA-2.md).
+Captura: `evidencia/a24-vuelta-2/finales/situacion-3-desktop.png`.
 
 ### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · CERRADO 06/10, verificado Gemini
 La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.

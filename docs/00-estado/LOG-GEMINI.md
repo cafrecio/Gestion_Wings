@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-08 — LOG GEM CYE — A24 Segunda Vuelta: Implementación Definitiva de Mostrador Operativo
+
+- **Objetivo:** Resolver definitivamente A24 según la regla ratificada por Carlos el 08/10 (*«las cajas de los operativos son individuales, el efectivo es lo compartido y van en serie una tras otra»*).
+- **Elección de Carlos:** Aprobada la Opción 1 («Caja abierta de [Nombre]» con Kicker `TURNO EN CURSO`, texto explicativo de mostrador y botón secundario `Caja`).
+- **Implementación:**
+  - `app/Http/Controllers/OperativoDashboardController.php`: Unificada la consulta con `CajaService`/`CajaWebController` (`CajaOperativa::where('estado', 'ABIERTA')->first()`). Discrimina `$cajaCompanero` vs `$cajaPropia` independientemente de si la caja se abrió hoy o ayer; formatea textos temporales amigables.
+  - `resources/views/operativo/dashboard.blade.php`: Reemplazo de textos confusos de "cajón compartido" y retiro de botones trampa (`Cobrar`, `Registrar`, `Detalle`). En situación 7 (propia de ayer), muestra «Tu caja sigue abierta» con botón `Cerrar`, eliminando la contradicción con «Cajón listo para iniciar».
+- **Pruebas permanentes:** Creado `tests/Feature/InicioOperativoTest.php` (8 pruebas, 99 aserciones) cubriendo las ocho situaciones de mostrador y comprobando dinámicamente que ningún enlace de la tarjeta rebota, da 403 ni 500.
+- **Suite completa:** 518 pruebas (516 aprobadas, 2 omitidas), 4.172 aserciones en `wings_testing_gemini`. `DocumentacionNoMienteTest` verde (sincronizados `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md` y `PLAN-PRODUCCION.md`).
+- **Evidencia y entrega:** Capturas finales de las ocho situaciones en escritorio y móvil 375px (`evidencia/a24-vuelta-2/finales/`). Documento de entrega `IMPLEMENTACION-A24-VUELTA-2.md`. Tablero actualizado a `a_verificar` asignado a Claude.
+
 ## 2026-10-08 — LOG GEM CYE — Verificación independiente de A26, A39 y A35 (Trabajo de Claude)
 
 - **Objetivo:** Verificar de forma cruzada e independiente los defectos A26 (celular de menores), A39 (acceso a Movimientos para OPERATIVO) y A35 (botón redundante Historial en Caja), resueltos por Claude en commit `975fae3`.

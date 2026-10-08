@@ -44,6 +44,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar que ningún botón del inicio falle en las ocho situaciones |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desplegado d577cb7 en el sitio de prueba y base sin alumnos (08/10). Falta la prueba manual de la primera carga, que dirige Carlos |
 
@@ -53,9 +54,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Devuelto (hizo Gemini, verifica Claude) | Las cajas son individuales (Carlos, 08/10): con el turno de un compañero no se puede cobrar. La pantalla tiene que decirlo y no ofrecer Cobrar, Registrar ni Detalle. Igual con un turno de ayer sin cerrar |
+Nada en este momento.
 
 ## Sin empezar (15)
 

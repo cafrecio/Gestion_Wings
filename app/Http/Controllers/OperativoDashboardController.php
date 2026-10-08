@@ -23,28 +23,49 @@ class OperativoDashboardController extends Controller
         $hoyAr = Carbon::now(self::TZ);
         $estado = $this->estadoService->obtenerEstadoHoy($user->id, $hoyAr);
 
-        // 1. Cajas del día
-        $inicioHoyUtc = $hoyAr->copy()->startOfDay()->setTimezone('UTC');
-        $finHoyUtc    = $hoyAr->copy()->endOfDay()->setTimezone('UTC');
-
-        // Caja abierta propia de hoy
-        $cajaPropia = CajaOperativa::where('usuario_operativo_id', $user->id)
-            ->where('estado', 'ABIERTA')
-            ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
+        // 1. Cajas del club: misma regla que CajaService / CajaWebController
+        // Cualquier caja ABIERTA en el club (de hoy o de un turno anterior)
+        $cajaAbiertaClub = CajaOperativa::where('estado', 'ABIERTA')
+            ->with('usuarioOperativo')
             ->first();
 
-        // Caja abierta en el club por cualquier usuario hoy (cajón compartido)
-        $cajaClub = null;
-        if (!$cajaPropia) {
-            $cajaClub = CajaOperativa::where('estado', 'ABIERTA')
-                ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
-                ->with('usuarioOperativo')
-                ->first();
+        $cajaPropia = null;
+        $cajaCompanero = null;
+        $aperturaCompaneroTexto = null;
+        $aperturaPropiaTexto = null;
+
+        if ($cajaAbiertaClub) {
+            if ($cajaAbiertaClub->usuario_operativo_id === $user->id) {
+                $cajaPropia = $cajaAbiertaClub;
+                if ($cajaPropia->apertura_at) {
+                    $apPropiaAr = Carbon::parse($cajaPropia->apertura_at)->setTimezone(self::TZ);
+                    $aperturaPropiaTexto = $apPropiaAr->isToday()
+                        ? 'hoy a las ' . $apPropiaAr->format('H:i')
+                        : ($apPropiaAr->isYesterday()
+                            ? 'ayer a las ' . $apPropiaAr->format('H:i')
+                            : 'el ' . $apPropiaAr->format('d/m') . ' a las ' . $apPropiaAr->format('H:i'));
+                }
+            } else {
+                $cajaCompanero = $cajaAbiertaClub;
+                if ($cajaCompanero->apertura_at) {
+                    $apCompAr = Carbon::parse($cajaCompanero->apertura_at)->setTimezone(self::TZ);
+                    $aperturaCompaneroTexto = $apCompAr->isToday()
+                        ? 'hoy a las ' . $apCompAr->format('H:i')
+                        : ($apCompAr->isYesterday()
+                            ? 'ayer a las ' . $apCompAr->format('H:i')
+                            : 'el ' . $apCompAr->format('d/m') . ' a las ' . $apCompAr->format('H:i'));
+                }
+            }
         }
 
-        // Última caja propia si no hay abierta
+        // Mantener compatibilidad de variable
+        $cajaClub = $cajaCompanero;
+
+        // Última caja propia si no hay ninguna caja abierta en el club
         $ultimaCaja = null;
-        if (!$cajaPropia && !$cajaClub) {
+        if (!$cajaAbiertaClub) {
+            $inicioHoyUtc = $hoyAr->copy()->startOfDay()->setTimezone('UTC');
+            $finHoyUtc    = $hoyAr->copy()->endOfDay()->setTimezone('UTC');
             $ultimaCaja = CajaOperativa::where('usuario_operativo_id', $user->id)
                 ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
                 ->orderBy('apertura_at', 'desc')
@@ -95,7 +116,8 @@ class OperativoDashboardController extends Controller
         return view('operativo.dashboard', compact(
             'estado', 'cajas', 'totalCobradoHoy', 'numCobrosHoy', 'hoyAr',
             'cajasRechazadasCount', 'clasesHoy', 'alumnosConDeuda', 'posiblesInactivos',
-            'cajaPropia', 'cajaClub', 'ultimaCaja'
+            'cajaPropia', 'cajaClub', 'cajaCompanero', 'ultimaCaja',
+            'aperturaCompaneroTexto', 'aperturaPropiaTexto'
         ));
     }
 }
