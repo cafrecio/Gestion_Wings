@@ -28,18 +28,18 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 07/10/2026. Avance: **47 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **47 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A12** El inicio del operativo no ayuda a trabajar | En curso | Elegir opción: PROPUESTA-A12-A24.md |
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | En curso | Elegir opción: PROPUESTA-A12-A24.md |
+Nada.
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A12** El inicio del operativo no ayuda a trabajar | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
 
 ## Claude
 
@@ -53,10 +53,10 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Texto elegido por Carlos aplicado; completar entrega A6-A10 y asignar verificador |
-| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | B aprobada y aplicada; renovar capturas finales y completar entrega A6-A10 |
-| **A8** Puntos grises que no dicen nada | En curso | Capturar variantes A/B en escritorio y 375; ocho respuestas HTTP correctas, Chrome no permite control |
-| **A9** El interruptor "Activo" en las tarjetas | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
-| **A10** El botón "Nuevo" del cashflow | En curso | Codex releva como esta hoy y trae una propuesta con capturas para que Carlos elija; no toca nada antes del OK |
+| **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | Aspecto final aprobado por Carlos 08/10; completar A8-A10, entrega conjunta y verificacion independiente |
+| **A8** Puntos grises que no dicen nada | En curso | Capturas reales completas 08/10: activos/inactivos y niveles con/sin grupos; mostrar a Carlos y entregar paquete para verificacion independiente |
+| **A9** El interruptor "Activo" en las tarjetas | En curso | Controles a derecha solo celular medidos y capturados 08/10; cuatro escritorios identicos; revisar con Carlos y entregar paquete |
+| **A10** El botón "Nuevo" del cashflow | En curso | Periodo e iconos pedidos aplicados; captura completa y propuesta de Nuevo/destino pendientes |
 
 ## Gemini
 

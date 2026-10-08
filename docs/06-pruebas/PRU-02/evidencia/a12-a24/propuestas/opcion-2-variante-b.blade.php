@@ -1,8 +1,5 @@
 @extends('layouts.ds-app')
 
-@section('title', 'Inicio – Wings')
-@section('module-title', 'Inicio')
-
 @section('content')
 <div class="container mx-auto px-4 py-4" style="max-width:1100px;">
 
@@ -42,12 +39,12 @@
     @if($bloqueo['activo'])
     <div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1rem 1.25rem;">
         <p style="font-size:0.95rem; font-weight:700; color:var(--color-warning); margin-bottom:2px;">
-            {{ $bloqueo['titulo'] ?? 'Turno pendiente' }}
+            {{ $bloqueo['titulo'] }}
         </p>
         <p style="font-size:0.82rem; color:var(--color-text-muted); margin-bottom:8px;">
             {{ $bloqueo['mensaje'] }}
         </p>
-        <a href="{{ $bloqueo['url'] ?? route('web.caja.resumen', $bloqueo['caja_id'] ?? 1) }}" class="ds-btn ds-btn--primary">Ver</a>
+        <a href="{{ $bloqueo['url'] }}" class="ds-btn ds-btn--primary">Ver</a>
     </div>
     @endif
 
@@ -181,7 +178,7 @@
     </div>
     @endif
 
-    {{-- 4. TAREAS OPERATIVAS: Clases de hoy y Atención de alumnos (Variante B: alturas niveladas) --}}
+    {{-- VARIANTE B: 2 COLUMNAS CON SCROLL INTERNO EN CLASES --}}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" style="align-items:start;">
 
         {{-- Clases de hoy (Contenedor con scroll si hay más de 2 clases) --}}
@@ -241,7 +238,7 @@
 
     </div>
 
-    {{-- 5. RESUMEN FINANCIERO DEL DÍA (Stats de soporte al pie) --}}
+    {{-- RESUMEN FINANCIERO DEL DÍA (Stats de soporte al pie) --}}
     <div class="stats-bar mb-2">
         <div class="stats-info">Recaudación de hoy</div>
     </div>

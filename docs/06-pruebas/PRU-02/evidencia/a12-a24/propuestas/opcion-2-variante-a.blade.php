@@ -1,8 +1,5 @@
 @extends('layouts.ds-app')
 
-@section('title', 'Inicio – Wings')
-@section('module-title', 'Inicio')
-
 @section('content')
 <div class="container mx-auto px-4 py-4" style="max-width:1100px;">
 
@@ -42,12 +39,12 @@
     @if($bloqueo['activo'])
     <div class="filtros-card mb-4" style="border-left:4px solid var(--color-warning); padding:1rem 1.25rem;">
         <p style="font-size:0.95rem; font-weight:700; color:var(--color-warning); margin-bottom:2px;">
-            {{ $bloqueo['titulo'] ?? 'Turno pendiente' }}
+            {{ $bloqueo['titulo'] }}
         </p>
         <p style="font-size:0.82rem; color:var(--color-text-muted); margin-bottom:8px;">
             {{ $bloqueo['mensaje'] }}
         </p>
-        <a href="{{ $bloqueo['url'] ?? route('web.caja.resumen', $bloqueo['caja_id'] ?? 1) }}" class="ds-btn ds-btn--primary">Ver</a>
+        <a href="{{ $bloqueo['url'] }}" class="ds-btn ds-btn--primary">Ver</a>
     </div>
     @endif
 
@@ -181,67 +178,62 @@
     </div>
     @endif
 
-    {{-- 4. TAREAS OPERATIVAS: Clases de hoy y Atención de alumnos (Variante B: alturas niveladas) --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" style="align-items:start;">
-
-        {{-- Clases de hoy (Contenedor con scroll si hay más de 2 clases) --}}
-        <div>
-            <div class="stats-bar mb-2">
-                <div class="stats-info">
-                    Clases de hoy — <strong>{{ $clasesHoy->count() }}</strong>
-                </div>
+    {{-- VARIANTE A: ATENCIÓN A ALUMNOS EN BANDA HORIZONTAL COMPACTA --}}
+    <div class="stats-bar mb-2">
+        <div class="stats-info">Atención a alumnos</div>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-bottom:1.5rem;">
+        <a href="{{ route('web.cobranza.index') }}" class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; text-decoration:none;">
+            <div>
+                <p style="font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:2px;">Con deuda</p>
+                <p style="font-size:0.8rem; color:var(--color-brand); font-weight:600;">Ir a cobranza →</p>
             </div>
-            @if($clasesHoy->isEmpty())
-            <div class="filtros-card" style="text-align:center; padding:1.25rem;">
-                <p style="font-size:0.82rem; color:var(--color-text-muted);">No hay clases programadas para hoy.</p>
+            <p style="font-size:1.8rem; font-weight:800; color:{{ $alumnosConDeuda > 0 ? 'var(--color-danger)' : 'var(--color-success)' }};">
+                {{ $alumnosConDeuda }}
+            </p>
+        </a>
+        <a href="{{ route('web.revision-cobranza.index') }}" class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; text-decoration:none;">
+            <div>
+                <p style="font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:2px;">Posibles inactivos</p>
+                <p style="font-size:0.8rem; color:var(--color-brand); font-weight:600;">Ir a revisión →</p>
             </div>
-            @else
-            <div style="display:flex; flex-direction:column; gap:6px; max-height:165px; overflow-y:auto; padding-right:4px;">
-                @foreach($clasesHoy as $clase)
-                @php $conLista = $clase->presentes_count > 0; @endphp
-                <div class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;">
-                    <div style="min-width:0;">
-                        <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
-                            {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
-                            — {{ $clase->grupo->nombre_completo ?? 'Grupo' }}
-                        </p>
-                        <p style="font-size:0.72rem; color:{{ $conLista ? 'var(--color-success)' : 'var(--color-warning)' }}; font-weight:600;">
-                            {{ $conLista ? $clase->presentes_count . ' presente' . ($clase->presentes_count !== 1 ? 's' : '') : 'Sin lista' }}
-                        </p>
-                    </div>
-                    <a href="{{ route('web.clases.show', $clase->id) }}" class="ds-btn-row ds-btn-row--sec">Lista</a>
-                </div>
-                @endforeach
-            </div>
-            @endif
-        </div>
-
-        {{-- Atención a Alumnos (Tarjetas fijas que empatan la altura de 165px) --}}
-        <div>
-            <div class="stats-bar mb-2">
-                <div class="stats-info">Atención a alumnos</div>
-            </div>
-            <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;">
-                <a href="{{ route('web.cobranza.index') }}" class="filtros-card" style="text-align:center; padding:1.1rem 0.8rem; text-decoration:none; height:100%; box-sizing:border-box;">
-                    <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Con deuda</p>
-                    <p style="font-size:1.8rem; font-weight:800; color:{{ $alumnosConDeuda > 0 ? 'var(--color-danger)' : 'var(--color-success)' }};">
-                        {{ $alumnosConDeuda }}
-                    </p>
-                    <p style="font-size:0.75rem; color:var(--color-brand); font-weight:600; margin-top:4px;">Ir a cobranza →</p>
-                </a>
-                <a href="{{ route('web.revision-cobranza.index') }}" class="filtros-card" style="text-align:center; padding:1.1rem 0.8rem; text-decoration:none; height:100%; box-sizing:border-box;">
-                    <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Posibles inactivos</p>
-                    <p style="font-size:1.8rem; font-weight:800; color:{{ $posiblesInactivos > 0 ? 'var(--color-warning)' : 'var(--color-text)' }};">
-                        {{ $posiblesInactivos }}
-                    </p>
-                    <p style="font-size:0.75rem; color:var(--color-brand); font-weight:600; margin-top:4px;">Ir a revisión →</p>
-                </a>
-            </div>
-        </div>
-
+            <p style="font-size:1.8rem; font-weight:800; color:{{ $posiblesInactivos > 0 ? 'var(--color-warning)' : 'var(--color-text)' }};">
+                {{ $posiblesInactivos }}
+            </p>
+        </a>
     </div>
 
-    {{-- 5. RESUMEN FINANCIERO DEL DÍA (Stats de soporte al pie) --}}
+    {{-- CLASES DE HOY (ANCHO COMPLETO NATURAL HACIA ABAJO) --}}
+    <div class="stats-bar mb-2">
+        <div class="stats-info">
+            Clases de hoy — <strong>{{ $clasesHoy->count() }}</strong>
+        </div>
+    </div>
+    @if($clasesHoy->isEmpty())
+    <div class="filtros-card mb-4" style="text-align:center; padding:1.25rem;">
+        <p style="font-size:0.82rem; color:var(--color-text-muted);">No hay clases programadas para hoy.</p>
+    </div>
+    @else
+    <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:1.5rem;">
+        @foreach($clasesHoy as $clase)
+        @php $conLista = $clase->presentes_count > 0; @endphp
+        <div class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.65rem 1rem;">
+            <div style="min-width:0;">
+                <p style="font-size:0.88rem; font-weight:600; color:var(--color-text);">
+                    {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
+                    — {{ $clase->grupo->nombre_completo ?? 'Grupo' }}
+                </p>
+                <p style="font-size:0.75rem; color:{{ $conLista ? 'var(--color-success)' : 'var(--color-warning)' }}; font-weight:600;">
+                    {{ $conLista ? $clase->presentes_count . ' presente' . ($clase->presentes_count !== 1 ? 's' : '') : 'Sin lista' }}
+                </p>
+            </div>
+            <a href="{{ route('web.clases.show', $clase->id) }}" class="ds-btn-row ds-btn-row--sec">Lista</a>
+        </div>
+        @endforeach
+    </div>
+    @endif
+
+    {{-- RESUMEN FINANCIERO DEL DÍA (Stats de soporte al pie) --}}
     <div class="stats-bar mb-2">
         <div class="stats-info">Recaudación de hoy</div>
     </div>

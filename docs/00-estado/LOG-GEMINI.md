@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-08 — LOG GEM CYE — Implementación de A12 y A24 (Inicio del operativo: Opción 2 Variante B)
+
+- **Objetivo:** Implementar la solución definitiva para A12 (organización del mostrador) y A24 (apertura obligatoria y cajón compartido) sobre `resources/views/operativo/dashboard.blade.php` y `OperativoDashboardController.php`, conforme a la Opción 2 Variante B elegida y autorizada por Carlos.
+- **Autorización de diseño:** Carlos otorgó la autorización explícita: `Diseno-autorizado: Aprobada opcion 2 variante B para mostrador operativo en A12 y A24`.
+- **Cambios realizados:**
+  - `app/Http/Controllers/OperativoDashboardController.php`: Incorporada consulta de `cajaPropia`, detección de `cajaClub` (cajón compartido abierto por cualquier compañero) y `ultimaCaja`, pasándolos directamente a la vista.
+  - `resources/views/operativo/dashboard.blade.php`: Reorganización total de la pantalla de mostrador:
+    1. Alertas superiores de bloqueo y cajas rechazadas.
+    2. Bloque principal del cajón: "Cajón listo para iniciar" con botón `Abrir` (`/caja/apertura`), o reconocimiento de turno propio/compartido con botones directos (`Cobrar`, `Registrar`, `Resumen`, `Detalle`).
+    3. Tareas operativas en dos columnas niveladas (Variante B): *Clases de hoy* con scroll vertical interno limitado a 165px para no generar desbalances de altura; y *Atención a alumnos* con accesos directos a `/cobranza` y `/revision-cobranza`.
+    4. Resumen financiero de recaudación (`Cobrado hoy`, `Cobros registrados`, `Cajas del turno`) ubicado al pie de la pantalla como soporte previo al cierre de caja.
+  - Vistas compiladas sin errores (`view:cache && view:clear`).
+  - Pruebas en verde en base `wings_testing_gemini`: `CobranzaOperativoTest` (7/7), `RevisionCobranzaOperativoTest` (6/6), `CajaCambioInicialA25Test` (22/22) y `CspSinCodigoIncrustadoTest` (2/2).
+- **Entregables y estado:**
+  - Documento de implementación: `docs/06-pruebas/PRU-02/IMPLEMENTACION-A12-A24.md`.
+  - Tablero: `A12` y `A24` pasados a `estado=a_verificar hizo=Gemini tiene=nadie paso="Verificar en código y pantalla"` (AGENTS.md §6a: Gemini no auto-cierra; pasa a verificación por otro agente).
+
 ## 2026-10-07 — LOG GEM CYE — Relevamiento y propuesta de diseño para A12 y A24 (Inicio del operativo)
 
 - **Objetivo:** Relevar el comportamiento actual de `/operativo` en las 7 situaciones reales del mostrador y elaborar una propuesta con dos opciones de diseño alternativas, capturas reales de Chromium (escritorio 1280px y celular 375px) y visor interactivo para que Carlos elija.

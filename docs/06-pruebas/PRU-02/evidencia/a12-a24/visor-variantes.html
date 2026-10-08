@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor de Variantes para Opción 2 — Clases y Alumnos</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --brand: #e11d48;
+    --brand-hover: #be123c;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.5;
+  }
+  header {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  h1 { font-size: 1.4rem; font-weight: 700; color: #fff; }
+  .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+  .badge-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background: #3b82f6;
+    color: #fff;
+    margin-right: 6px;
+  }
+
+  .toolbar {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .control-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+  .btn-filter {
+    background: #0f172a;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-filter:hover {
+    border-color: #64748b;
+    background: #1e293b;
+  }
+  .btn-filter.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+  }
+
+  .scenario-info {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    padding: 12px 16px;
+    background: #162032;
+    border-left: 4px solid var(--brand);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+  }
+
+  /* Grilla comparativa */
+  .grid-comparison {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 1100px) {
+    .grid-comparison { grid-template-columns: 1fr; }
+  }
+
+  .col-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .col-header.vara { background: #133329; color: #6ee7b7; }
+  .col-header.varb { background: #162a45; color: #93c5fd; }
+  .col-header.varc { background: #332014; color: #fed7aa; }
+
+  .img-wrapper {
+    padding: 12px;
+    background: #090d16;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto;
+    max-height: 800px;
+  }
+  .img-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .img-wrapper img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+  }
+  .img-wrapper.mode-375 img {
+    max-width: 375px;
+  }
+
+  .col-footer {
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: rgba(15, 23, 42, 0.4);
+    line-height: 1.45;
+  }
+
+  /* Modal de Zoom */
+  .modal-zoom {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 999999;
+    overflow: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .modal-zoom.active {
+    display: block !important;
+  }
+  .modal-zoom img {
+    max-width: 90vw;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+    display: inline-block;
+    margin: 20px auto;
+  }
+  .modal-zoom-close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 46px;
+    text-align: center;
+    z-index: 1000000;
+  }
+  .modal-zoom-hint {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 1000000;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1><span class="badge-tag">OPCIÓN 2</span> Solución a la Diferencia de Altura (Clases vs Alumnos)</h1>
+    <p class="subtitle">Inspección de las 3 alternativas reales con 2 clases y con 5 clases. Clic en cualquier imagen para ampliar en pantalla completa.</p>
+  </div>
+  <div>
+    <span style="font-size: 0.8rem; color: #94a3b8;">Capturas tomadas con Chrome Headless sobre Wings</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="control-group">
+    <span class="control-label">Cantidad de Clases:</span>
+    <button class="btn-filter active" id="btn2Clases" onclick="setCarga('2clases')">2 Clases (Poco movimiento)</button>
+    <button class="btn-filter" id="btn5Clases" onclick="setCarga('5clases')">5 Clases (Día normal / cargado)</button>
+  </div>
+
+  <div class="control-group">
+    <span class="control-label">Dispositivo:</span>
+    <button class="btn-filter active" id="btnDesktop" onclick="setDispositivo('desktop')">Escritorio (1280px)</button>
+    <button class="btn-filter" id="btnMobile" onclick="setDispositivo('375')">Celular (375px)</button>
+  </div>
+</div>
+
+<div class="scenario-info" id="scenarioDesc">
+  <!-- Texto dinámico -->
+</div>
+
+<div class="grid-comparison">
+  <!-- Columna 1: Variante A -->
+  <div class="col-card">
+    <div class="col-header vara">
+      <span>Variante A — Apiladas en Franjas</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">Recomendada por Gemini</span>
+    </div>
+    <div class="img-wrapper" id="wrapA">
+      <img id="imgA" src="capturas-variantes/opcion-2-var-a-2clases-desktop.png" alt="Variante A" onclick="openZoom(this.src)">
+    </div>
+    <div class="col-footer">
+      <strong>Cómo funciona:</strong> Primero una franja horizontal compacta con Alumnos (Con deuda y Posibles inactivos lado a lado). Abajo, la lista de clases en ancho completo.<br>
+      <strong>Ventaja:</strong> Cero desbalance visual. No deja huecos vacíos y crece hacia abajo de forma 100% natural sin scrolls artificiales.
+    </div>
+  </div>
+
+  <!-- Columna 2: Variante B -->
+  <div class="col-card">
+    <div class="col-header varb">
+      <span>Variante B — Scroll Interno</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">2 Columnas Fijas</span>
+    </div>
+    <div class="img-wrapper" id="wrapB">
+      <img id="imgB" src="capturas-variantes/opcion-2-var-b-2clases-desktop.png" alt="Variante B" onclick="openZoom(this.src)">
+    </div>
+    <div class="col-footer">
+      <strong>Cómo funciona:</strong> Mantiene las 2 columnas pero fija la altura de Clases a 165px. Si hay más de 2 clases, la lista tiene scroll interno con rueda del mouse.<br>
+      <strong>Ventaja:</strong> Alturas siempre idénticas. Desventaja: Scroll dentro de la página.
+    </div>
+  </div>
+
+  <!-- Columna 3: Variante C -->
+  <div class="col-card">
+    <div class="col-header varc">
+      <span>Variante C — Panel Unificado Alumnos</span>
+      <span style="font-size: 0.72rem; font-weight: normal;">2 Columnas Niveladas</span>
+    </div>
+    <div class="img-wrapper" id="wrapC">
+      <img id="imgC" src="capturas-variantes/opcion-2-var-c-2clases-desktop.png" alt="Variante C" onclick="openZoom(this.src)">
+    </div>
+    <div class="col-footer">
+      <strong>Cómo funciona:</strong> Mantiene 2 columnas. La tarjeta de Alumnos se expande hasta abajo e incluye abajo accesos rápidos útiles de mostrador (Buscar alumno, Nuevo alumno).<br>
+      <strong>Ventaja:</strong> Llena el espacio vacío con herramientas de atención diaria.
+    </div>
+  </div>
+</div>
+
+<!-- Modal para ver imágenes en tamaño grande -->
+<div class="modal-zoom" id="modalZoom">
+  <span class="modal-zoom-close" onclick="closeZoom()">&times;</span>
+  <img id="modalZoomImg" src="" alt="Zoom">
+  <div class="modal-zoom-hint">Clic afuera o presiona ESC para cerrar</div>
+</div>
+
+<script>
+  let currentCarga = '2clases';
+  let currentDispositivo = 'desktop';
+
+  function setCarga(carga) {
+    currentCarga = carga;
+    document.getElementById('btn2Clases').classList.toggle('active', carga === '2clases');
+    document.getElementById('btn5Clases').classList.toggle('active', carga === '5clases');
+    actualizarVista();
+  }
+
+  function setDispositivo(disp) {
+    currentDispositivo = disp;
+    document.getElementById('btnDesktop').classList.toggle('active', disp === 'desktop');
+    document.getElementById('btnMobile').classList.toggle('active', disp === '375');
+    actualizarVista();
+  }
+
+  function actualizarVista() {
+    const c = currentCarga;
+    const disp = currentDispositivo;
+
+    if (c === '2clases') {
+      document.getElementById('scenarioDesc').innerHTML = '<strong>Mostrando escenario con 2 clases:</strong> Así se ven las 3 variantes en un momento de baja carga horaria.';
+    } else {
+      document.getElementById('scenarioDesc').innerHTML = '<strong>Mostrando escenario con 5 clases:</strong> Fijate cómo responde cada variante cuando la lista de clases se extiende: la Variante A crece hacia abajo parejo, la Variante B activa scroll interno para no desfasarse, y la Variante C estira el panel de alumnos.';
+    }
+
+    const srcA = `capturas-variantes/opcion-2-var-a-${c}-${disp}.png`;
+    const srcB = `capturas-variantes/opcion-2-var-b-${c}-${disp}.png`;
+    const srcC = `capturas-variantes/opcion-2-var-c-${c}-${disp}.png`;
+
+    document.getElementById('imgA').src = srcA;
+    document.getElementById('imgB').src = srcB;
+    document.getElementById('imgC').src = srcC;
+
+    const is375 = disp === '375';
+    document.getElementById('wrapA').classList.toggle('mode-375', is375);
+    document.getElementById('wrapB').classList.toggle('mode-375', is375);
+    document.getElementById('wrapC').classList.toggle('mode-375', is375);
+  }
+
+  actualizarVista();
+
+  // Modal Zoom
+  const modal = document.getElementById('modalZoom');
+  const modalImg = document.getElementById('modalZoomImg');
+
+  function openZoom(imgSrc) {
+    if (!imgSrc) return;
+    modalImg.src = imgSrc;
+    modal.classList.add('active');
+  }
+
+  function closeZoom() {
+    modal.classList.remove('active');
+  }
+
+  modal.addEventListener('click', function(e) {
+    if (e.target !== modalImg) {
+      closeZoom();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeZoom();
+    }
+  });
+</script>
+
+</body>
+</html>

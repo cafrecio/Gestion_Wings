@@ -23,6 +23,34 @@ class OperativoDashboardController extends Controller
         $hoyAr = Carbon::now(self::TZ);
         $estado = $this->estadoService->obtenerEstadoHoy($user->id, $hoyAr);
 
+        // 1. Cajas del día
+        $inicioHoyUtc = $hoyAr->copy()->startOfDay()->setTimezone('UTC');
+        $finHoyUtc    = $hoyAr->copy()->endOfDay()->setTimezone('UTC');
+
+        // Caja abierta propia de hoy
+        $cajaPropia = CajaOperativa::where('usuario_operativo_id', $user->id)
+            ->where('estado', 'ABIERTA')
+            ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
+            ->first();
+
+        // Caja abierta en el club por cualquier usuario hoy (cajón compartido)
+        $cajaClub = null;
+        if (!$cajaPropia) {
+            $cajaClub = CajaOperativa::where('estado', 'ABIERTA')
+                ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
+                ->with('usuarioOperativo')
+                ->first();
+        }
+
+        // Última caja propia si no hay abierta
+        $ultimaCaja = null;
+        if (!$cajaPropia && !$cajaClub) {
+            $ultimaCaja = CajaOperativa::where('usuario_operativo_id', $user->id)
+                ->whereBetween('apertura_at', [$inicioHoyUtc, $finHoyUtc])
+                ->orderBy('apertura_at', 'desc')
+                ->first();
+        }
+
         // Stats del día actual para este operativo
         $cajas = CajaOperativa::where('usuario_operativo_id', $user->id)
             ->whereDate('apertura_at', $hoyAr->toDateString())
@@ -66,7 +94,8 @@ class OperativoDashboardController extends Controller
 
         return view('operativo.dashboard', compact(
             'estado', 'cajas', 'totalCobradoHoy', 'numCobrosHoy', 'hoyAr',
-            'cajasRechazadasCount', 'clasesHoy', 'alumnosConDeuda', 'posiblesInactivos'
+            'cajasRechazadasCount', 'clasesHoy', 'alumnosConDeuda', 'posiblesInactivos',
+            'cajaPropia', 'cajaClub', 'ultimaCaja'
         ));
     }
 }
