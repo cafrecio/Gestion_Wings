@@ -13,15 +13,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 ## 2026-10-08 — Claude CyE — DONDE QUEDE al cierre del 08/10
 
-**Avance: 59 de 72, ninguno frena.** main en verde y al dia. Sitio de prueba desplegado en
-`d577cb7`, sin alumnos, con la primera carga pendiente (entrada de abajo). Produccion sin tocar.
+**Avance: 60 de 72, ninguno frena.** main en verde y al dia. Sitio de prueba desplegado en
+`b7cf0a7`, sin alumnos, con la primera carga pendiente (entrada de abajo). Produccion sin tocar.
 **Lo proximo es la prueba manual en el sitio de prueba, que dirige Carlos conmigo.** Antes de
 empezar: el admin tiene que configurar que medio de pago es el efectivo del mostrador; la
 operativa no entra a Alumnos hasta que termine la primera carga; falta decidir con que datos se
 carga (el Excel de los 60 no esta armado; el padron viejo es `PADRON-PRUEBA-v2.xlsx`).
-**Lo que tengo a mi nombre:** A24, que Gemini entrego en segunda vuelta y espera que yo
-verifique que ningun boton del inicio del operativo falle (no lo mire todavia; lo desplegado en
-test tiene la version anterior, con el defecto). T3, terminar el tablero unico, y T7, pasar
+**A24 CERRADO (18:45):** repeti el recorrido de ocho situaciones sobre `decfb8c`; ningun boton
+del inicio del operativo falla. 60 de 72. Sitio de prueba vuelto a desplegar en `b7cf0a7`, ya
+con esa correccion. **Lo que tengo a mi nombre:** T3, terminar el tablero unico, y T7, pasar
 `sidebar.css` a `app.css`: los dos quedaron libres porque Codex ya publico A6-A10.
 **Lo que espera a Carlos:** T1 (mirar cuatro pantallas desde el celular en test), y A23 y B12,
 que esta definiendo con Codex (`PLAN-REPORTES-TABLERO-v2026-10-08.md`, sin subir, de Codex).
