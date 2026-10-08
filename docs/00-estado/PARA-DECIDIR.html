@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wings · Para decidir</title>
+<style>
+  :root { --fondo:#f6f5f1; --carta:#fff; --texto:#1d1d1b; --suave:#6b6a65; --borde:#e2e0d8; --marca:#a3122f; --pide:#fff4d6; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#18181a; --carta:#222225; --texto:#ececea; --suave:#a09f9a; --borde:#35353a; --marca:#ff8fa3; --pide:#3a3115; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto); font:17px/1.5 system-ui, "Segoe UI", sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:20px 16px 80px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .sub { color:var(--suave); margin:0 0 20px; }
+  nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  nav a { background:var(--carta); border:1px solid var(--borde); border-radius:999px; padding:4px 14px; color:var(--texto); text-decoration:none; font-size:.95rem; }
+  section { background:var(--carta); border:1px solid var(--borde); border-radius:14px; padding:18px 20px; margin-bottom:22px; }
+  h2 { font-size:1.25rem; margin:0 0 12px; }
+  h2 span { color:var(--marca); }
+  dl { margin:0 0 14px; }
+  dt { font-weight:700; margin-top:10px; }
+  dd { margin:2px 0 0; }
+  .pide { background:var(--pide); border-radius:10px; padding:10px 14px; margin:14px 0; font-weight:600; }
+  .fotos { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-top:12px; }
+  figure { margin:0; }
+  figcaption { font-size:.9rem; font-weight:700; margin-bottom:6px; }
+  figure img { width:100%; border:1px solid var(--borde); border-radius:8px; display:block; }
+  figure a { display:block; }
+  h3 { font-size:1.05rem; margin:18px 0 0; }
+  .fotos.menu { grid-template-columns:repeat(2, minmax(0, 260px)); align-items:start; }
+  .nota { color:var(--suave); font-size:.92rem; }
+  a { color:var(--marca); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Wings · Para decidir</h1>
+  <p class="sub">08/10/2026 · Lo que espera una definición tuya, solo de lo que hace Claude. Cada punto dice qué cambia, por qué, y muestra la pantalla. Tocá una imagen para verla grande.</p>
+
+  <nav>
+    <a href="#a39">1 · El menú</a>
+    <a href="#a26">2 · Celular de menores</a>
+    <a href="#a44">3 · Correo de avisos</a>
+    <a href="#a38">4 · Paginación</a>
+    <a href="#otras">5 · Dos preguntas</a>
+  </nav>
+
+  <section id="a39">
+    <h2><span>1 · El menú</span> — ordenado por tema y con otra cara</h2>
+    <dl>
+      <dt>Qué cambia en el orden</dt>
+      <dd>Las secciones son las mismas para los dos roles y cada una tiene lo suyo. <b>Día a día</b>: inicio, alumnos y clases. <b>Plata</b>: todo lo que mueve o muestra dinero — Cobranza, Caja, Movimientos, Revisión, y para el admin también Cashflow y Liquidaciones. <b>El club</b>: los catálogos. El operativo ve las mismas secciones con menos renglones.</dd>
+      <dt>Por qué</dt>
+      <dd>Antes Cobranza y Caja estaban en «Día a día» y «Plata» era solo del admin. Al sumarle Movimientos al operativo quedaba una sección «Plata» de un renglón, con la plata repartida en dos lados. Lo marcaste vos.</dd>
+      <dt>Qué cambia en el aspecto</dt>
+      <dd>El logo del club al lado del nombre. Cada renglón con su ícono en una pastilla. La pantalla abierta se marca con el rojo de Wings: el ícono y una barra en el borde. Los títulos de sección llevan una línea. Al pasar el mouse el renglón se aclara.</dd>
+      <dt>Por qué</dt>
+      <dd>Pediste que dejara de ser feo y parco. Usé solo los colores del sistema de diseño de Wings; el rojo aparece como acento, nunca como fondo.</dd>
+      <dt>A quién le cambia</dt>
+      <dd>A todos: el menú está en todas las pantallas. El del profesor conserva sus renglones y toma el aspecto nuevo. En celular es el mismo menú, plegado.</dd>
+      <dt>Quién lo hizo</dt>
+      <dd>Claude. Está aplicado en esta máquina, sin publicar.</dd>
+    </dl>
+    <p class="pide">Te pido: OK, o decime qué cambiar — el orden, el aspecto o las dos cosas.</p>
+    <h3>Operativo</h3>
+    <div class="fotos menu">
+      <figure><figcaption>ANTES</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-operativo-antes.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-operativo-antes.png" alt="ANTES"></a></figure>
+      <figure><figcaption>DESPUÉS</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-operativo-despues.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-operativo-despues.png" alt="DESPUÉS"></a></figure>
+    </div>
+    <h3>Admin</h3>
+    <div class="fotos menu">
+      <figure><figcaption>ANTES</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-admin-antes.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-admin-antes.png" alt="ANTES"></a></figure>
+      <figure><figcaption>DESPUÉS</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-admin-despues.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-admin-despues.png" alt="DESPUÉS"></a></figure>
+    </div>
+    <p><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-admin-pantalla.png" target="_blank">Ver el menú del admin en la pantalla completa →</a> · <a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/menu-operativo-pantalla.png" target="_blank">Ver el del operativo →</a></p>
+    <p class="nota">Los ANTES son capturas del relevamiento del 23/09. No capturé el menú del profesor ni el menú abierto en celular.</p>
+    <dl>
+      <dt>Una duda que encontré: ¿hace falta Movimientos en el menú del operativo?</dt>
+      <dd>El operativo ya llega a sus movimientos por otro lado: en la pantalla <b>Caja</b> hay un botón <b>Historial</b>, que lista los movimientos de su rubro de los últimos 90 días. Y hay una nota vieja del proyecto que dice que Movimientos se sacó de su menú a propósito, porque «ese acceso corresponde a Caja». El defecto A39, del relevamiento del 23/09, pide lo contrario. Son dos pantallas parecidas con dos entradas.<br><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a39-movimientos-operativo.png" target="_blank">Ver la pantalla Movimientos como la ve la operativa →</a></dd>
+    </dl>
+    <p class="pide">Te pido: dejo Movimientos en el menú del operativo, o lo saco y queda solo el Historial dentro de Caja.</p>
+  </section>
+
+  <section id="a26">
+    <h2><span>2 · A26</span> — El celular deja de ser obligatorio para menores</h2>
+    <dl>
+      <dt>Qué cambia</dt>
+      <dd>Al dar de alta o editar un alumno menor de 18, el Celular se puede dejar vacío. Si queda vacío, se guarda el teléfono del tutor. El asterisco rojo del campo desaparece cuando la fecha de nacimiento es de un menor. A los mayores se les sigue exigiendo.</dd>
+      <dt>Por qué</dt>
+      <dd>El sistema pedía celular propio a chicos que no tienen. Para un menor el teléfono del tutor ya era obligatorio, y es al que el club llama de todos modos.</dd>
+      <dt>Quién lo hizo</dt>
+      <dd>Claude. Está hecho y probado, sin publicar.</dd>
+    </dl>
+    <p class="pide">Te pido: OK para publicarlo, o decime si la regla tiene que ser otra.</p>
+    <div class="fotos">
+      <figure><figcaption>ANTES — asterisco siempre</figcaption><a href="../06-pruebas/PRU-02/evidencia/audit_admin_alumnos_create_desktop.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/audit_admin_alumnos_create_desktop.png" alt="Alta de alumno antes"></a></figure>
+      <figure><figcaption>DESPUÉS — menor: Celular sin asterisco</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a26-alta-menor-escritorio.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a26-alta-menor-escritorio.png" alt="Alta de un menor"></a></figure>
+      <figure><figcaption>DESPUÉS — mayor: sigue con asterisco</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a26-alta-mayor-escritorio.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a26-alta-mayor-escritorio.png" alt="Alta de un mayor"></a></figure>
+    </div>
+    <p class="nota">Las dos capturas del DESPUÉS muestran el formulario devuelto con errores, que es como se consigue ver la fecha ya cargada. Fijate en el campo Celular, a la derecha de «Fecha de alta».</p>
+  </section>
+
+  <section id="a44">
+    <h2><span>3 · A44</span> — El correo de avisos deja de salir firmado por Laravel</h2>
+    <dl>
+      <dt>Qué cambia</dt>
+      <dd>La cabecera del correo dice «Wings» y el pie dice «Aviso automático de Wings. No hace falta responder este correo.» El contenido del aviso no cambia.</dd>
+      <dt>Por qué</dt>
+      <dd>El resumen diario te llegaba con el logo de Laravel arriba y «© 2026 Laravel. All rights reserved.» abajo. Salía así porque usaba la plantilla de fábrica, que toma el nombre de la configuración del servidor. Ahora el nombre va escrito en la plantilla y no depende de cada servidor.</dd>
+      <dt>Quién lo hizo</dt>
+      <dd>Claude. Está hecho y probado, sin publicar.</dd>
+    </dl>
+    <p class="pide">Te pido: OK para publicarlo, o decime qué texto querés en la cabecera y en el pie.</p>
+    <div class="fotos">
+      <figure><figcaption>ANTES</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a44-correo-antes.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a44-correo-antes.png" alt="Correo antes"></a></figure>
+      <figure><figcaption>DESPUÉS</figcaption><a href="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a44-correo-despues.png" target="_blank"><img src="../06-pruebas/PRU-02/evidencia/a26-a38-a39-a44/a44-correo-despues.png" alt="Correo después"></a></figure>
+    </div>
+    <p class="nota">Los dos correos se armaron con datos de ejemplo. No se probó en un programa de correo real.</p>
+  </section>
+
+  <section id="a38">
+    <h2><span>4 · A38</span> — La paginación en castellano</h2>
+    <dl>
+      <dt>Qué cambia</dt>
+      <dd>Al pie de las listas, «Showing 1 to 20 of 76 results» pasa a «Mostrando 1 a 20 de 76 resultados», y los botones a «Anterior» y «Siguiente». Vale para las 13 listas paginadas, no solo para Clases.</dd>
+      <dt>Por qué</dt>
+      <dd>El sistema estaba configurado en inglés de fábrica. Lo dejé fijo en castellano.</dd>
+      <dt>Un efecto de paso</dt>
+      <dd>En Cobranza, el mes abreviado de la deuda más vieja pasa a verse en castellano. Era la única fecha que dependía de ese ajuste.</dd>
+    </dl>
+    <p class="pide">Te pido: nada. No toca el diseño; va junto con los tres de arriba. Si no lo querés, decímelo.</p>
+    <p class="nota">No tengo captura de este. Lo cubre una prueba automática.</p>
+  </section>
+
+  <section id="otras">
+    <h2><span>5</span> — Dos preguntas sin pantalla</h2>
+    <dl>
+      <dt>¿Reviso los informes viejos de Gemini?</dt>
+      <dd><b>Qué haría:</b> contrastar contra el repositorio los informes con los que Gemini cerró A4, A5, A43, los permisos y la primera carga por Excel. Solo lectura, no cambia nada.<br>
+          <b>Por qué:</b> el primer informe de Gemini sobre la caja citaba capturas y pruebas que no existían. Esos cinco los verificó antes, y no sé si con el mismo método. Si alguno no se sostiene, se reabre.</dd>
+      <dt>¿Dónde dejo los datos para probar la primera carga?</dt>
+      <dd><b>Qué haría:</b> guardar en el repositorio los 60 alumnos de prueba del sitio de prueba, acomodados en las 38 columnas de la plantilla nueva, para cargarlos como lo haría una persona.<br>
+          <b>Por qué te lo pregunto:</b> me dijiste que sí, pero el control de seguridad de mi sesión lo bloqueó dos veces porque son datos de personas sacados del servidor, aunque sean inventados. Para destrabarlo hace falta que apruebes ese permiso en la sesión, o lo armo desde el respaldo cuando hagamos la prueba.</dd>
+    </dl>
+    <p class="pide">Te pido: sí o no a la revisión; y cómo preferís resolver lo de los datos.</p>
+  </section>
+</main>
+</body>
+</html>

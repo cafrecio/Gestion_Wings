@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **47 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 08/10/2026. Avance: **49 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -40,6 +40,9 @@ Nada.
 |---|---|---|
 | **A12** El inicio del operativo no ayuda a trabajar | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
 | **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
+| **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude) | Lo que se ve lo aprobo Carlos. Falta que otro agente verifique que un menor sin celular se guarda con el telefono del tutor |
+| **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude) | Revisado: no es un defecto, la captura del relevamiento estaba mal rotulada. Falta que otro agente lo confirme |
+| **A39** Acceso a Movimientos del OPERATIVO | Hecho, espera verificación (hizo Claude) | El menu lo aprobo Carlos. Falta que otro agente verifique que el operativo no ve nada de los rubros reservados al admin |
 
 ## Claude
 
@@ -64,9 +67,9 @@ Nada.
 |---|---|---|
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
 
-## Sin empezar (19)
+## Sin empezar (16)
 
-A23, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B11, B12.
+A23, A32, A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11, B12.
 
 <!-- TABLERO:FIN -->
 
@@ -75,6 +78,8 @@ A23, A26, A32, A35, A38, A42, A44, B13, T2, A39, B3, B5, B6, B7, B8, B9, B10, B1
 1. **Cada prompt dice a quién va en la primera línea**, y la tarea se pasa a ese agente en el tablero antes de entregarlo.
 0. **Lo visual no se aprueba por texto.** Sin capturas en el repositorio no se le pide a Carlos ninguna autorización de diseño (`AGENTS.md` §1).
 2. **Lo que hace uno lo verifica el otro**, nunca el autor. Si se cruzó, se dice y se repite.
+   Excepción desde el 08/10: lo visual que Carlos aprueba con capturas se cierra con
+   `verifica=Carlos`; las reglas y los permisos del mismo cambio siguen yendo a otro agente.
 3. **Una tarea por agente a la vez.** Lo que está esperando a Carlos no se adelanta.
 4. **Lo que espera una decisión de Carlos vive arriba de todo**, con `tiene=Carlos`.
 5. **Todo prompt termina con lo mismo, sin excepción:** dejar asentado qué se hizo en la

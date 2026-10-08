@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md)
 
+## 2026-10-08 — Claude CyE — publicados el menu nuevo, A26, A38, A39 y A44
+
+Carlos reviso todo en `docs/00-estado/PARA-DECIDIR.html` y aprobo: «Menu: Mucho mejor,
+implementar!!», «A-26 OK», «A-38 OK», A44 tal cual con mejora futura. Sobre Movimientos:
+«Solo puede ver los que corresponden a rubros del operativo. Nunca sueldos, alquileres».
+El menu paso de un renglon de A39 a un rediseño: orden por tema para los dos roles y aspecto
+nuevo, en `resources/css/sidebar.css` porque `app.css` lo tiene abierto Codex (T7).
+Cerre la fuga de los filtros de Movimientos, que listaban al operativo los rubros del admin.
+**Regla nueva de Carlos:** lo visual que el aprueba no pasa por otro agente. Quedo en
+`AGENTS.md` §6a y el tablero acepta `verifica=Carlos`. Lo que no se ve sigue yendo a otro.
+Estado: A38, A44 y el menu cerrados por Carlos (49 de 72). A26 y A39 a verificar solo por su
+regla; A35 a confirmar como no-defecto; A32 va con A9. 500 pruebas, 9 nuevas.
+Publicado desde una copia limpia y la carpeta compartida reconciliada sin pisar lo ajeno.
+**Regla suya para mi:** lo que tenga que definir va con enlace al navegador, que cambia y por que.
+**Pendiente:** el despliegue al sitio de prueba (entrada del 06/10), T3 y recortar esta bitacora.
+
 ## 2026-10-07 — Claude CyE — PARA RETOMAR EN CASA: todo lo sin subir esta en una rama
 
 Se corto el chat de Codex con A6 a A10 a medio hacer y Carlos pidio subir todo para seguir en

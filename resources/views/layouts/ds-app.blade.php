@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     <meta name="theme-color" content="#0F172A">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/sidebar.css', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -21,14 +21,15 @@
     <aside class="ds-sidebar">
 
         {{-- Logo --}}
-        <div class="pb-4 mb-4 border-b border-white/20">
-            <a href="/" style="display:block; text-align:center; text-decoration:none;">
-                <span style="font-size:1.5rem; font-weight:800; letter-spacing:0.08em; color:#fff;">WINGS</span>
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="{{ asset('img/logo-wings.png') }}" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
             </a>
         </div>
 
         {{-- Nav --}}
-        <nav class="flex flex-col gap-1">
+        <nav class="flex flex-col gap-0.5">
             @auth
 
                 @if(Auth::user()->isProfesor())
@@ -54,10 +55,13 @@
                 @else
 
                     {{-- ── Sidebar completo para ADMIN y OPERATIVO ──────────────
-                         Agrupado por con qué frecuencia se toca cada cosa, no por
-                         módulo: arriba lo de todos los días, después la plata del
-                         admin, después lo que se carga una vez al armar el club, y
-                         al final el sistema. --}}
+                         Agrupado por tema, igual para los dos roles: Día a día es
+                         la gente y las clases; Plata es todo lo que mueve o muestra
+                         dinero; El club son los catálogos; Sistema, la configuración.
+                         El operativo ve las mismas secciones con menos renglones.
+                         Hasta el 08/10/2026 Cobranza y Caja estaban en Día a día y
+                         Plata era solo del admin: al sumarle Movimientos al operativo
+                         (A39) quedaba una sección de un renglón con la plata repartida. --}}
 
                     <div class="ds-nav-group">Día a día</div>
 
@@ -69,21 +73,6 @@
                             </svg>
                             Dashboard
                         </a>
-                        <a href="{{ route('web.cobranza.index') }}"
-                           class="ds-nav-link {{ request()->is('cobranza*') ? 'ds-nav-link--active' : '' }}">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Cobranza
-                        </a>
-                        <a href="{{ route('web.caja.index') }}"
-                           class="ds-nav-link {{ request()->is('caja') || request()->is('cajas*') ? 'ds-nav-link--active' : '' }}">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                            Caja
-                        </a>
                     @else
                         <a href="{{ route('web.operativo.dashboard') }}"
                            class="ds-nav-link {{ request()->is('operativo*') ? 'ds-nav-link--active' : '' }}">
@@ -91,21 +80,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
                             </svg>
                             Inicio
-                        </a>
-                        <a href="{{ route('web.cobranza.index') }}"
-                           class="ds-nav-link {{ request()->is('cobranza*') ? 'ds-nav-link--active' : '' }}">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Cobranza
-                        </a>
-                        <a href="{{ route('web.caja.index') }}"
-                           class="ds-nav-link {{ request()->is('caja*') ? 'ds-nav-link--active' : '' }}">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                            Caja
                         </a>
                     @endif
 
@@ -134,18 +108,34 @@
                         </a>
                     @endif
 
-                    <a href="{{ route('web.revision-cobranza.index') }}"
-                       class="ds-nav-link {{ request()->is('revision-cobranza*') ? 'ds-nav-link--active' : '' }}">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        Revisión
-                    </a>
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="{{ route('web.cobranza.index') }}"
+                           class="ds-nav-link {{ request()->is('cobranza*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
 
                     @if(Auth::user()->isAdmin())
-
-                        <div class="ds-nav-group">Plata</div>
+                        <a href="{{ route('web.caja.index') }}"
+                           class="ds-nav-link {{ request()->is('caja') || request()->is('cajas*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+                    @else
+                        <a href="{{ route('web.caja.index') }}"
+                           class="ds-nav-link {{ request()->is('caja*') ? 'ds-nav-link--active' : '' }}">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+                    @endif
 
                         <a href="{{ route('web.movimientos.index') }}"
                            class="ds-nav-link {{ request()->is('movimientos*') ? 'ds-nav-link--active' : '' }}">
@@ -156,6 +146,7 @@
                             Movimientos
                         </a>
 
+                    @if(Auth::user()->isAdmin())
                         <a href="{{ route('web.cashflow.index') }}"
                            class="ds-nav-link {{ request()->is('cashflow*') ? 'ds-nav-link--active' : '' }}">
                             <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,6 +164,18 @@
                             </svg>
                             Liquidaciones
                         </a>
+                    @endif
+
+                    <a href="{{ route('web.revision-cobranza.index') }}"
+                       class="ds-nav-link {{ request()->is('revision-cobranza*') ? 'ds-nav-link--active' : '' }}">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+                    @if(Auth::user()->isAdmin())
 
                         <div class="ds-nav-group">El club</div>
 

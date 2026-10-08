@@ -109,9 +109,11 @@ function tablero_validar(array $tareas): array
         if (! in_array($t['tiene'], $duenios, true)) {
             $errores[] = "{$id}: tiene='{$t['tiene']}' no existe. Son: " . implode(', ', $duenios) . '.';
         }
-        foreach (['hizo', 'verifica'] as $campo) {
-            if ($t[$campo] !== '' && ! in_array($t[$campo], TABLERO_AGENTES, true)) {
-                $errores[] = "{$id}: {$campo}='{$t[$campo]}' no existe. Son: " . implode(', ', TABLERO_AGENTES) . '.';
+        // Lo visual que Carlos aprueba no pasa por otro agente (decision suya, 08/10/2026):
+        // por eso puede figurar como quien verifica. Nunca como quien lo hizo.
+        foreach (['hizo' => TABLERO_AGENTES, 'verifica' => [...TABLERO_AGENTES, 'Carlos']] as $campo => $validos) {
+            if ($t[$campo] !== '' && ! in_array($t[$campo], $validos, true)) {
+                $errores[] = "{$id}: {$campo}='{$t[$campo]}' no existe. Son: " . implode(', ', $validos) . '.';
             }
         }
         if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $t['fecha'])) {

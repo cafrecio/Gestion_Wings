@@ -244,6 +244,7 @@ class AlumnoWebController extends Controller
             'generar_cuota_actual.required' => 'Elegí si se genera la cuota de este mes antes de guardar.',
             'generar_cuota_actual.boolean' => 'Elegí Sí o No para la cuota de este mes.',
         ]));
+        $validated = $this->completarCelular($validated);
 
         DB::transaction(function () use ($validated, $request, $fingerprint) {
             app(\App\Services\InscripcionService::class)->bloquear($validated['dni']);
@@ -347,6 +348,7 @@ class AlumnoWebController extends Controller
             'plan_id.required' => 'Debe seleccionar la frecuencia semanal.',
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
         ]));
+        $validated = $this->completarCelular($validated);
 
         DB::transaction(function () use ($request, $validated, $alumno) {
         $inscripcion = app(\App\Services\InscripcionService::class);
@@ -397,9 +399,11 @@ class AlumnoWebController extends Controller
             // Obligatoria: la columna es NOT NULL y el boot() del modelo solo
             // completa la fecha al crear, no al actualizar.
             'fecha_alta' => 'required|date',
-            // Obligatorio: la columna es NOT NULL, asi que dejarlo vacio no daba
-            // un mensaje de validacion sino un error 500 contra la base.
-            'celular' => 'required|string|max:255',
+            // Obligatorio para mayores: la columna es NOT NULL, asi que dejarlo vacio no
+            // daba un mensaje de validacion sino un error 500 contra la base.
+            // Un menor puede no tener celular propio (A26): se acepta vacio y se guarda
+            // el telefono del tutor, que para un menor es obligatorio. Ver completarCelular().
+            'celular' => $esMenor ? 'nullable|string|max:255' : 'required|string|max:255',
             'email' => 'nullable|email|max:255',
             'deporte_id' => 'required|exists:deportes,id',
             // El grupo tiene que ser del deporte elegido. Sin la condicion, el
@@ -421,6 +425,19 @@ class AlumnoWebController extends Controller
             'nombre_tutor' => $esMenor ? 'required|string|max:255' : 'nullable|string|max:255',
             'telefono_tutor' => $esMenor ? 'required|string|max:255' : 'nullable|string|max:255',
         ];
+    }
+
+    /**
+     * La columna celular es NOT NULL. Cuando un menor no tiene celular propio vale el
+     * del tutor: es el telefono al que el club llama de todos modos.
+     */
+    private function completarCelular(array $validated): array
+    {
+        if (blank($validated['celular'] ?? null)) {
+            $validated['celular'] = $validated['telefono_tutor'];
+        }
+
+        return $validated;
     }
 
     private function validationMessages(): array

@@ -68,8 +68,13 @@ class MovimientoWebController extends Controller
         $movimientos = $query->orderByDesc('fecha')->orderByDesc('created_at')->paginate(30)->withQueryString();
 
         $tiposCaja  = TipoCaja::orderBy('nombre')->get();
-        $rubros     = Rubro::orderBy('nombre')->get();
-        $subrubros  = Subrubro::orderBy('nombre')->get();
+        // Los filtros siguen el mismo criterio que la lista: el operativo no ve ni
+        // los nombres de lo que el admin reserva para si (sueldos, alquileres). Antes
+        // el desplegable los listaba todos aunque la lista no mostrara sus movimientos.
+        $subrubros  = Subrubro::when(!$user->isAdmin(), fn ($q) => $q->where('permitido_para', 'OPERATIVO'))
+            ->orderBy('nombre')->get();
+        $rubros     = Rubro::when(!$user->isAdmin(), fn ($q) => $q->whereIn('id', $subrubros->pluck('rubro_id')))
+            ->orderBy('nombre')->get();
         $operativos = $user->isAdmin()
             ? User::where('rol', User::ROL_OPERATIVO)->orderBy('name')->get()
             : collect();

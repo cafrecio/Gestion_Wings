@@ -7,6 +7,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/sidebar.css',
                 'resources/js/app.js',
                 'resources/js/grupos.js',
                 'resources/js/usuarios.js',

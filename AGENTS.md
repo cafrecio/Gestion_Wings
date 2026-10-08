@@ -347,6 +347,12 @@ octubre; y una respuesta sobre cómo cobra el admin se dio de memoria y estaba m
 Verificar no es leer el informe del otro: es abrir la pantalla o el archivo. Si el que
 controla no puede comprobar algo, lo dice; no lo hereda como cierto. Ver §6c.
 
+**Excepción, decisión de Carlos del 08/10/2026:** «Lo que sea visual aprobado por mí, no
+necesita validación por otra IA». Un cambio de pantalla que Carlos aprobó mirando capturas
+se cierra con él como verificador (`verifica=Carlos` en el tablero), citando sus palabras.
+Lo que no se ve —reglas de negocio, permisos, validaciones del servidor— sigue yendo a otro
+agente, aunque venga en el mismo cambio.
+
 ## 6a-bis. El estado de cada tarea se anota en el tablero — decisión de Carlos, 06/10/2026
 
 **El estado de toda tarea vive en `docs/00-estado/tareas.json` y lo cambia el agente que la

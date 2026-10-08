@@ -7,10 +7,12 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 07/10/2026: 47 cerrados de 72.** Quedan 25 abiertos, de los
+> **Avance al 08/10/2026: 49 cerrados de 72.** Quedan 23 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; el que lo implementa deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
+>
+> A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: HECHO (Claude), a revisar — lo que se ve lo aprobó Carlos; falta que otro agente verifique la regla (celular del tutor en menores; el operativo no ve rubros del admin). A35: revisado, no es un defecto; a confirmar. [Entrega](IMPLEMENTACION-A26-A38-A39-A44.md).
 
 > A4 y A5: **CERRADOS 06/10** — Verificados de forma independiente por Gemini en pantalla real y código ([Informe de verificación](VERIFICACION-A4-A5.md)).
 > A25: **CERRADO 06/10, verificado Gemini** — segunda verificación, con recorrido propio por HTTP, importes propios y 23 capturas; Claude reprodujo el recorrido (97 aserciones) y contrastó el informe. Sin sesión interactiva de navegador: eso lo cubre la prueba humana. [Informe](VERIFICACION-A25.md).
@@ -259,7 +261,7 @@ herencia confirmada/motivo, conteo/diferencia, retenido/entrega y conservación 
 26 pruebas permanentes (142 aserciones) pasando; capturas reales en marco 375 y desktop aprobadas por Carlos. [Entrega y capturas](IMPLEMENTACION-A25.md).
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
 
-### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · verificado
+### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · HECHO (Claude), a revisar 08/10
 
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
 Captura: `evidencia/audit_admin_alumnos_create_desktop.png`.
@@ -337,7 +339,7 @@ Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
 **Resuelto en Entrega 2 de P2 (05/10):**
 En `resources/views/alumnos/show.blade.php`, la sección «Historial de pagos» expone el listado cronológico de cobros con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el comprobante oficial en PDF generado por `ReciboService` / DomPDF (con opciones nativas de impresión y descarga). Los pagos anulados se indican explícitamente con badge «Anulado», importe tachado y sello de anulación en el PDF. Se amplió el límite en `AlumnoWebController::show()` de 8 a 12 pagos para brindar un año completo de historial. Cubierto en `CobroReciboAccesoTest` y `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · verificado
+### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · HECHO (Claude), a revisar 08/10
 
 En `/caja/historial`, la cabecera incluye un botón **Historial** que enlaza a la misma pantalla en la que el usuario ya está navegando.
 Captura: `evidencia/audit_admin_cajas_historial_mobile.png`.
@@ -376,11 +378,11 @@ incluidos (`Cobrar`, `Editar`, `Recibo`, `Anular`).
 - Botón Volver inferior adaptado con `justify-start sm:justify-end`.
 - Cubierto por prueba automatizada `tests/Feature/FichaAlumnoResponsiveA37Test.php`. Capturas de evidencia real tomadas sobre el sistema corriendo (`tests/Feature/CapturaFichaAnularTest.php`) en `docs/06-pruebas/PRU-02/capturas-a37/`.
 
-### A38. Paginación de Clases · Molesta · verificado
+### A38. Paginación de Clases · Molesta · CERRADO 08/10, aprobado por Carlos
 
 esperaba indicaciones en español como el resto de la pantalla; al pie aparece “Showing 1 to 20 of 76 results”. Captura.
 
-### A39. Acceso a Movimientos del OPERATIVO · Falta · verificado
+### A39. Acceso a Movimientos del OPERATIVO · Falta · HECHO (Claude), a revisar 08/10
 
 esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. Captura.
 
@@ -432,7 +434,7 @@ alta **avisa antes de guardar** y ofrece una sola decisión:
 Cuando exista la primera carga por Excel, los alumnos viejos entran por ahí y este caso
 debería volverse raro. El aviso queda igual, para el que no entró en el padrón.
 
-### A44. El aviso diario llega firmado por Laravel · Molesta · verificado
+### A44. El aviso diario llega firmado por Laravel · Molesta · CERRADO 08/10, aprobado por Carlos
 
 El resumen diario que recibe el dueño usa la **plantilla por defecto de Laravel**: logo de
 Laravel arriba, "Regards, Laravel" al pie y "© 2026 Laravel" abajo. Al dueño del club le

@@ -1,0 +1,166 @@
+/* ════════════════════════════════════════════════════════════════════════
+   Menú lateral — rediseño propuesto el 08/10/2026 (pedido de Carlos).
+
+   Vive en un archivo aparte mientras es propuesta: app.css lo tiene abierto
+   otro agente. Cuando se apruebe, estas reglas reemplazan a las de
+   .ds-sidebar / .ds-nav-* de app.css y este archivo se borra.
+
+   Solo tokens del design system. La marca aparece como acento (una barra y
+   el ícono de la pantalla abierta), nunca como fondo de bloque.
+   ════════════════════════════════════════════════════════════════════════ */
+
+.ds-sidebar {
+    background: linear-gradient(
+        180deg,
+        var(--color-chrome) 0%,
+        color-mix(in srgb, var(--color-chrome) 80%, black) 100%
+    );
+    padding: 0 12px 20px;
+}
+
+/* ── Marca ── */
+.ds-brand {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0 -12px 8px;
+    padding: 18px 20px 16px;
+    background: var(--color-chrome);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.ds-brand__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.ds-sidebar .ds-brand__logo {
+    width: auto;
+    height: 52px;
+    image-rendering: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    flex-shrink: 0;
+}
+
+.ds-brand__name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+}
+
+/* ── Título de sección: texto + línea que llega al borde ── */
+.ds-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 8px 8px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.ds-nav-group::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.ds-nav-group:first-child {
+    padding-top: 12px;
+}
+
+/* ── Renglón ── */
+.ds-nav-link {
+    position: relative;
+    gap: 12px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.78);
+    transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+/* El ícono va en una pastilla: le da cuerpo al renglón y lugar al acento. */
+.ds-nav-link > svg {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.80);
+    transition: background 150ms ease, color 150ms ease;
+}
+
+.ds-nav-link:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    transform: translateX(2px);
+}
+
+.ds-nav-link:hover > svg {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+}
+
+.ds-nav-link:focus-visible,
+.ds-nav-sublink:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ── Pantalla abierta: barra de marca a la izquierda e ícono de marca ── */
+.ds-nav-link--active,
+.ds-nav-link--active:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-weight: 700;
+    transform: none;
+}
+
+.ds-nav-link--active::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 7px;
+    bottom: 7px;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--color-brand);
+}
+
+.ds-nav-link--active > svg,
+.ds-nav-link--active:hover > svg {
+    background: var(--color-brand);
+    color: #fff;
+}
+
+/* ── Sub-renglón (atajo con pendientes) ── */
+.ds-nav-sublink {
+    margin-left: 23px;
+    padding: 5px 10px 5px 26px;
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0 8px 8px 0;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ds-nav-link,
+    .ds-nav-link > svg {
+        transition: none;
+    }
+
+    .ds-nav-link:hover {
+        transform: none;
+    }
+}

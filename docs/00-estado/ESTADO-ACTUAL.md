@@ -270,7 +270,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **491 pruebas**: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **500 pruebas**: 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
