@@ -36,18 +36,14 @@ Nada.
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A12** El inicio del operativo no ayuda a trabajar | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
-| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini) | Verificar en código y pantalla |
-| **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude) | Lo que se ve lo aprobo Carlos. Falta que otro agente verifique que un menor sin celular se guarda con el telefono del tutor |
-| **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude) | Revisado: no es un defecto, la captura del relevamiento estaba mal rotulada. Falta que otro agente lo confirme |
-| **A39** Acceso a Movimientos del OPERATIVO | Hecho, espera verificación (hizo Claude) | El menu lo aprobo Carlos. Falta que otro agente verifique que el operativo no ve nada de los rubros reservados al admin |
+Nada.
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A12** El inicio del operativo no ayuda a trabajar | Hecho, espera verificación (hizo Gemini, verifica Claude) | Claude verifica la logica del inicio del operativo; lo visual ya lo aprobo Carlos. Empieza cuando Carlos avise |
+| **A24** El inicio del operativo invita a "Cobrar" sin tener la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Claude verifica la logica del inicio del operativo; lo visual ya lo aprobo Carlos. Empieza cuando Carlos avise |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Desde casa: rearmar el archivo de datos desde el respaldo, desplegar, limpiar y hacer la prueba como una persona. Detalle en LOG-CLAUDE |
 
@@ -57,19 +53,23 @@ Nada.
 |---|---|---|
 | **A6** "Modificar" donde en todo el resto dice "Editar" | En curso (hizo Codex) | Texto elegido por Carlos aplicado; completar entrega A6-A10 y asignar verificador |
 | **A7** El listado de alumnos desperdicia la pantalla | En curso (hizo Codex) | Aspecto final aprobado por Carlos 08/10; completar A8-A10, entrega conjunta y verificacion independiente |
-| **A8** Puntos grises que no dicen nada | En curso | Capturas reales completas 08/10: activos/inactivos y niveles con/sin grupos; mostrar a Carlos y entregar paquete para verificacion independiente |
-| **A9** El interruptor "Activo" en las tarjetas | En curso | Controles a derecha solo celular medidos y capturados 08/10; cuatro escritorios identicos; revisar con Carlos y entregar paquete |
-| **A10** El botón "Nuevo" del cashflow | En curso | Periodo e iconos pedidos aplicados; captura completa y propuesta de Nuevo/destino pendientes |
+| **A8** Puntos grises que no dicen nada | En curso | Resultado visual aprobado por Carlos 08/10: A-8 APROBADO; completar paquete A6-A10 y entregar para verificacion independiente |
+| **A9** El interruptor "Activo" en las tarjetas | En curso | Carlos confirmo expresamente APROBADO A-9; alineacion con Nuevo medida; completar A10 y entrega para verificacion independiente |
+| **A10** El botón "Nuevo" del cashflow | En curso | Propuesta A10 completa 08/10: 28 capturas reales de Cashflow/Nuevo movimiento; Carlos elige; despues aplicar y entregar para verificacion independiente |
+| **A32** El interruptor de usuario muestra apagado al usuario activo | En curso | Codex propone como mostrar el interruptor del propio usuario, junto con A9, y Carlos elige |
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A26** El formulario de alta exige celular personal obligatorio para menores | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
+| **A35** Botón redundante "Historial" dentro de la propia pantalla de historial de cajas | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Falta grupos/show; revisar recortes Caja/Cobrar/Clases y corregir informe de cero desbordes; incluir roles |
+| **A39** Acceso a Movimientos del OPERATIVO | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la regla en el sistema andando y cierra o devuelve |
 
-## Sin empezar (16)
+## Sin empezar (15)
 
-A23, A32, A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11, B12.
+A23, A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11, B12.
 
 <!-- TABLERO:FIN -->
 
