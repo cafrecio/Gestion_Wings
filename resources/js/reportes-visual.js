@@ -117,4 +117,12 @@ if (root) {
     };
     root.querySelectorAll('[data-rv-impact]').forEach((canvas) => bars(canvas, JSON.parse(canvas.dataset.rvImpact), true));
     root.querySelectorAll('[data-rv-bars]').forEach((canvas) => bars(canvas, JSON.parse(canvas.dataset.rvBars), false));
+
+    const openLinkedDetail = () => {
+        const target = document.getElementById(location.hash.slice(1));
+        if (target?.tagName === 'DETAILS') target.open = true;
+        if (target) target.scrollIntoView({ block: 'start' });
+    };
+    window.addEventListener('hashchange', openLinkedDetail);
+    if (location.hash) openLinkedDetail();
 }

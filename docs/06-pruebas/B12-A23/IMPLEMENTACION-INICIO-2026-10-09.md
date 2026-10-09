@@ -4,7 +4,8 @@
 
 **Revisión posterior:** Carlos pidió más visual y menos lectura, con tres referencias.
 [Propuesta V3 vigente](PROPUESTA-VISUAL-2026-10-09.md); V2 de este informe se conserva
-como antecedente, no aprobación. Inicio mantiene el aspecto aprobado.
+como antecedente, no aprobación. Carlos aprobó V3 después: «Si, mucho mejor»;
+[aplicación y conexión](IMPLEMENTACION-REPORTES-2026-10-09.md). Inicio mantiene el aspecto aprobado.
 
 ## Inicio aplicado
 
@@ -25,9 +26,9 @@ Los cuatro avisos abren listados existentes, sin enviar mensajes:
 - Revisión: filtro existente `estado=PENDIENTE`.
 
 Se conservan los controles ADMIN, OPERATIVO, PROFESOR y primera carga.
-**Ver y las cuatro cifras enlazables están deshabilitados hasta disponer de rutas
-finales de Reportes.** No simular una conexión mediante enlaces a archivos del ensayo.
-Esto mantiene A23 en curso: no está terminado el acceso al detalle.
+**Conexión posterior V3:** Ver y cuatro cifras llevan al mismo mes y sus detalles.
+El estado deshabilitado se conserva en las capturas históricas de esta entrega.
+[Entrega conectada](IMPLEMENTACION-REPORTES-2026-10-09.md). A23 sigue en curso junto a B12.
 
 [Inicio escritorio](capturas/inicio-aplicado-escritorio.png) ·
 [Inicio marco375](capturas/inicio-aplicado-marco-375.png).
@@ -86,10 +87,10 @@ El script de captura admite solo `wings_testing_codex` y usa sesión/cache en me
 
 ## Pendientes que impiden cerrar B12/A23
 
-Elegir la nueva pantalla financiera; implementar Reporte Alumnos y análisis Sueldos;
+Pantalla financiera elegida y conectada, controles en curso. Implementar Reporte Alumnos y análisis Sueldos;
 resolver atribución de cuotas a profesores y cobertura histórica de importes/costos;
 preparar escenario salarial realista con varias clases/profesores y asistencias;
-conectar filtros/rutas/detalles a Inicio; terminar clasificación de antecedentes;
+terminar clasificación de antecedentes;
 verificar lógica y permisos de esas entregas por otro agente y aspecto por Carlos.
 No cambiar reglas de comisión/pago para construir los indicadores. No presentar
 como cero ausencia de historia ni como datos reales el escenario ficticio.

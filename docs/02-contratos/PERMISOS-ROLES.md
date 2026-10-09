@@ -30,6 +30,10 @@ Un operativo que entra al mostrador tiene que poder atender a cualquier alumno, 
 
 ## Los tres roles
 
+Reportes financieros `/reportes`, B12/A23 09/10: solo ADMIN activo; antes de completar
+P1 se redirige a Primera carga. OPERATIVO/PROFESOR reciben403 y anónimo ingresa.
+Agregados económicos no amplían su dominio; Cobranza/Revisión conservan permisos.
+
 | Rol | Qué es | Dominio |
 |-----|--------|---------|
 | **ADMIN** | Dueño/a del negocio | Todo. Ninguna acción del sistema le está vedada. |

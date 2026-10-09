@@ -13,6 +13,12 @@
 
 ## Enmienda FIN-04 — definición cerrada el 22/09/2026
 
+**Aplicación financiera V3, 09/10/2026:** Carlos eligió las capturas: «Si, mucho mejor».
+Ingresos/egresos mensual con filtro de deporte y evolución conectado a Inicio; detalles
+históricos de deuda/pagar al corte, importes confirmados/pendientes y cajas acumuladas.
+Solo ADMIN con primera carga completada. [Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md).
+Reporte Alumnos y análisis Sueldos siguen pendientes; esta aplicación no cambia sus reglas.
+
 **Enmienda B12/A23, 09/10/2026:** Carlos validó los [24 acuerdos de Desarrollo III](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), que prevalecen ante diferencias con antecedentes de este contrato. Disponible por tipo de caja y total, confirmado/pendiente separados; aportes y retiros del dueño cambian saldo pero no resultado del negocio. Consulta mensual, gráficos de hasta seis meses cerrados con datos y mes actual aparte; alumnos activos por deporte/nivel. Inicio ADMIN resume esos mismos cálculos y cuatro avisos breves con acceso al listado. Mensajería interna queda para después. Desarrollo autorizado antes de la prueba manual; aprobación visual posterior mediante imágenes reales. Verificar cobertura histórica antes de prometer cifras reconstruidas.
 
 **Revisión posterior de Carlos, 09/10/2026:** Inicio aprobado en capturas; Reportes original rechazado. Separar Reporte Alumnos e Ingresos/egresos, con origen/destino por rubro y evolución que explique cambios. Análisis Sueldos por deporte/profesor: costo de las clases del mes aunque se paguen después, comparado con cuotas reales del mismo mes netas de bonificaciones y condonación aunque se cobren después; costo por asistencia cuenta cada presencia por separado, no alumnos únicos. Pendientes atribución de cuotas a profesores y cobertura histórica verificable. No modificar por estos indicadores reglas de liquidación/comisión ni fecha real de los movimientos. No convertir falta de historia en cero. [Decisiones literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).

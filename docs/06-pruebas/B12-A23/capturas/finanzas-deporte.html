@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="FICTICIO">
+    <title>Ingresos y egresos – Wings</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/apple-touch-icon.png">
+    <link rel="manifest" href="http://localhost/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="preload" as="style" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/app-xJzr7jY4.js" /><link rel="stylesheet" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="stylesheet" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><script type="module" src="../../../../public/build/assets/app-xJzr7jY4.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+
+    <aside class="ds-sidebar">
+
+
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="../../../../public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+
+        <nav class="flex flex-col gap-0.5">
+
+
+
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://localhost/admin/dashboard"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Dashboard
+                        </a>
+
+                    <a href="http://localhost/alumnos"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://localhost/clases"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://localhost/clases?estado=finalizada"
+                           class="ds-nav-sublink "
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">1</span>
+                        </a>
+
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://localhost/cobranza"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://localhost/caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+
+                        <a href="http://localhost/movimientos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                                            <a href="http://localhost/cashflow"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Cashflow
+                        </a>
+
+                        <a href="http://localhost/liquidaciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            Liquidaciones
+                        </a>
+
+                    <a href="http://localhost/revision-cobranza"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://localhost/deportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Deportes
+                        </a>
+
+                        <a href="http://localhost/niveles"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                            </svg>
+                            Niveles
+                        </a>
+
+                        <a href="http://localhost/grupos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Grupos
+                        </a>
+
+                        <a href="http://localhost/profesores"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            Profesores
+                        </a>
+
+                        <a href="http://localhost/rubros"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                            Rubros
+                        </a>
+
+                        <a href="http://localhost/tipos-caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            Tipos de Caja
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+
+                        <a href="http://localhost/configuraciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Configuración
+                        </a>
+
+                        <a href="http://localhost/usuarios"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Usuarios
+                        </a>
+
+
+                                    </nav>
+
+    </aside>
+
+
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+
+    <div class="ds-main">
+
+
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Admin de prueba</span>
+                </div>
+                <form method="POST" action="http://localhost/logout">
+                    <input type="hidden" name="_token" value="FICTICIO" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+            type="submit"
+            >
+
+
+                            Salir
+
+    </button>
+
+                </form>
+                    </div>
+
+
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Ingresos y egresos</h1>
+    </div>
+</header>
+
+
+        <main class="ds-content">
+
+
+
+            <link rel="preload" as="style" href="../../../../public/build/assets/reportes-visual-BharXbUf.css" /><link rel="stylesheet" href="../../../../public/build/assets/reportes-visual-BharXbUf.css" /><div class="reporte-visual">
+<div class="stats-bar mb-4"><div class="stats-info"><strong>Reportes</strong></div><a class="ds-btn ds-btn--secondary" href="http://localhost/admin/dashboard">Volver</a></div>
+<form method="GET" action="http://localhost/reportes" class="filtros-card rv-filter" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
+    <select name="mes" class="filtros-control" aria-label="Mes" style="flex:1;min-width:130px"><option value="2026-10" >Octubre 2026</option><option value="2026-09" selected>Septiembre 2026</option><option value="2026-08" >Agosto 2026</option><option value="2026-07" >Julio 2026</option><option value="2026-06" >Junio 2026</option><option value="2026-05" >Mayo 2026</option><option value="2026-04" >Abril 2026</option></select>
+    <select name="deporte_id" class="filtros-control" aria-label="Deporte" style="flex:1;min-width:130px"><option value="">Todo el negocio</option><option value="2" >Fútbol</option><option value="1" selected>Patín</option></select>
+    <button type="submit" class="ds-btn ds-btn--secondary">Filtrar</button>
+</form>
+<div class="rv-section"><h2>Septiembre vs agosto</h2><span class="rv-note">Meses cerrados · 2026</span></div>
+<div class="rv-kpis">
+        <section class="rv-kpi"><div class="rv-kpi-label"><span class="rv-swatch" style="background:var(--color-success)"></span>Ingresos</div><div class="rv-amount">$360.000</div><div class="rv-spark"><canvas data-rv-spark="[36000000,36000000,36000000,36000000,36000000,36000000]" data-tone="success" role="img" aria-label="Tendencia mensual de ingresos"></canvas></div><span class="rv-change rv-good">Sin cambio</span></section>
+        <section class="rv-kpi"><div class="rv-kpi-label"><span class="rv-swatch" style="background:var(--color-danger)"></span>Egresos</div><div class="rv-amount">$0</div><div class="rv-spark"><canvas data-rv-spark="[0,0,0,0,0,0]" data-tone="danger" role="img" aria-label="Tendencia mensual de egresos"></canvas></div><span class="rv-change rv-good">Sin cambio</span></section>
+        <section class="rv-kpi"><div class="rv-kpi-label"><span class="rv-swatch" style="background:var(--color-info)"></span>Resultado</div><div class="rv-amount">$360.000</div><div class="rv-spark"><canvas data-rv-spark="[36000000,36000000,36000000,36000000,36000000,36000000]" data-tone="info" role="img" aria-label="Tendencia mensual de resultado"></canvas></div><span class="rv-change rv-good">Sin cambio</span></section>
+<section class="rv-kpi"><div class="rv-kpi-label"><span class="rv-swatch" style="background:var(--color-warning)"></span>Egresos / ingresos</div><div class="rv-amount">0,0%</div><div class="rv-ring-mini"><canvas data-rv-ratio="0" role="img" aria-label="Porcentaje de ingresos equivalente a egresos"></canvas></div><span class="rv-change rv-muted">Del ingreso del mes</span></section>
+</div>
+<div class="rv-main-grid">
+    <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Evolución mensual</h3></div><div class="rv-body"><div class="rv-legend"><span><i class="rv-swatch" style="background:var(--color-success)"></i>Ingresos</span><span><i class="rv-swatch" style="background:var(--color-danger)"></i>Egresos</span><span class="rv-muted">Meses cerrados</span></div><div class="rv-chart"><canvas data-rv-evolution="[{&quot;mes&quot;:&quot;Abr.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000},{&quot;mes&quot;:&quot;May.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000},{&quot;mes&quot;:&quot;Jun.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000},{&quot;mes&quot;:&quot;Jul.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000},{&quot;mes&quot;:&quot;Ago.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000},{&quot;mes&quot;:&quot;Sep.&quot;,&quot;ingresos&quot;:36000000,&quot;egresos&quot;:0,&quot;resultado&quot;:36000000}]" role="img" aria-label="Evolución de ingresos y egresos de los meses cerrados disponibles"></canvas></div></div><details class="rv-detail"><summary>Detalle</summary><div class="rv-detail-row"><span>Abril<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div><div class="rv-detail-row"><span>Mayo<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div><div class="rv-detail-row"><span>Junio<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div><div class="rv-detail-row"><span>Julio<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div><div class="rv-detail-row"><span>Agosto<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div><div class="rv-detail-row"><span>Septiembre<small>Ingresos $360.000 · Egresos $0</small></span><strong>$360.000</strong></div></details></section>
+    <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Cambio en el resultado</h3></div><div class="rv-body"><p class="rv-note" style="margin-bottom:12px">Septiembre vs agosto</p><p class="rv-note">Sin cambios por rubro</p></div></section>
+</div>
+<div class="rv-section"><h2>Septiembre cerrado</h2><span class="rv-note">Hasta 30/09</span></div>
+<div class="rv-current"><div class="rv-current-item"><span>Ingresos</span><strong style="color:var(--color-success)">$360.000</strong></div><div class="rv-current-item"><span>Egresos</span><strong style="color:var(--color-danger)">$0</strong></div><div class="rv-current-item"><span>Resultado</span><strong style="color:var(--color-info)">$360.000</strong></div></div>
+<div class="rv-pair">
+<section class="alumno-card rv-panel" id="ingresos"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Origen de ingresos</h3></div><div class="rv-body">
+<div class="rv-donut-grid"><div class="rv-donut"><canvas data-rv-income="[{&quot;nombre&quot;:&quot;Cuota Mensual&quot;,&quot;importe&quot;:36000000}]" role="img" aria-label="Distribución de ingresos por rubro"></canvas><div class="rv-donut-center"><strong>$360.000</strong><span class="rv-note">Ingresos</span></div></div><div class="rv-breakdown"><div class="rv-breakdown-row"><i class="rv-swatch" style="background:var(--color-success)"></i><div>Cuota Mensual<strong>$360.000<span class="rv-row-share">100,0%</span></strong></div></div></div></div>
+</div><details class="rv-detail"><summary>Detalle</summary>
+<div class="rv-detail-row"><span>Confirmado</span><strong>$360.000</strong></div>
+<div class="rv-detail-row"><span>Por validar</span><strong>$0</strong></div>
+<details style="margin-top:12px"><summary>Cuota Mensual · $360.000</summary><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · BNA<small>Confirmado</small></span><strong>$30.000</strong></div><div class="rv-detail-row"><span>06/09 · MP<small>Confirmado</small></span><strong>$30.000</strong></div></details></details></section>
+<section class="alumno-card rv-panel" id="egresos"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--danger"></span><h3 class="alumno-nombre">Destino de gastos</h3></div><div class="rv-body">
+<div class="rv-chart" style="display:flex;align-items:center;justify-content:center"><p class="rv-note">Sin egresos registrados</p></div>
+</div><details class="rv-detail"><summary>Detalle</summary>
+<div class="rv-detail-row"><span>Confirmado</span><strong>$0</strong></div>
+<div class="rv-detail-row"><span>Por validar</span><strong>$0</strong></div>
+</details></section>
+</div>
+<div class="rv-section"><h2>Situación al 30/09</h2><span class="rv-note">Saldos acumulados</span></div>
+<div class="rv-current"><div class="rv-current-item"><span>Disponible · todo el negocio</span><strong>$3.725.000</strong></div><div class="rv-current-item"><span>Por cobrar</span><strong>$0</strong></div><div class="rv-current-item"><span>Por pagar</span><strong>$0</strong></div></div>
+<details class="filtros-card rv-detail" style="margin-top:12px"><summary>Detalle de cajas y aportes</summary><div class="rv-detail-row"><span>BGA<small>Confirmado $0 · Por validar $0</small></span><strong>$0</strong></div><div class="rv-detail-row"><span>BNA<small>Confirmado $1.550.000 · Por validar $0</small></span><strong>$1.550.000</strong></div><div class="rv-detail-row"><span>Banco Nacion ahorro<small>Confirmado $0 · Por validar $0</small></span><strong>$0</strong></div><div class="rv-detail-row"><span>BLT<small>Confirmado $40.000 · Por validar $0</small></span><strong>$40.000</strong></div><div class="rv-detail-row"><span>EFT<small>Confirmado $125.000 · Por validar $0</small></span><strong>$125.000</strong></div><div class="rv-detail-row"><span>MP<small>Confirmado $2.010.000 · Por validar $0</small></span><strong>$2.010.000</strong></div><div class="rv-detail-row"><span>Aportes / retiros<small>Fuera del resultado · todo el negocio</small></span><strong>$0 / $0</strong></div><div class="rv-detail-row"><span>Resultado global<small>Movimientos del mes, incluidos aportes/retiros</small></span><strong>$675.000</strong></div></details>
+<details class="filtros-card rv-detail" id="deuda" style="margin-top:12px"><summary>Por cobrar · $0</summary>
+<details style="margin-top:12px"><summary>Del mes · $0</summary>
+</details>
+<details style="margin-top:12px"><summary>Meses anteriores · $0</summary>
+</details>
+</details>
+<details class="filtros-card rv-detail" id="profesores" style="margin-top:12px"><summary>Por pagar · $0</summary>
+</details>
+<details class="filtros-card rv-detail" style="margin-top:12px"><summary>Gastos del club · $75.000</summary><p class="rv-note">Gastos generales separados: no descontados del deporte. Disponible y cajas corresponden a todo el negocio.</p></details>
+<div class="rv-footer"><span>Cobros y pagos · confirmado + por validar</span><span>Alumnos y Sueldos: pantallas pendientes</span></div>
+</div>
+
+        </main>
+
+
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+<link rel="modulepreload" as="script" href="../../../../public/build/assets/reportes-visual-BMGDEsow.js" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/chart-DwLVCIBZ.js" /><script type="module" src="../../../../public/build/assets/reportes-visual-BMGDEsow.js"></script>
+</body>
+</html>

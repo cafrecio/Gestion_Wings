@@ -13,9 +13,9 @@ Ingresos/egresos y análisis Sueldos. Sueldos compara costo clases del mes con c
 reales del mismo mes, netas de bonificaciones/condonación, y calcula costo por cada
 asistencia presente; falta atribución por profesor y cobertura histórica. Carlos pidió
 más visual y menos lectura, con tres referencias: [V3](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md)
-con tarjetas, gráficos y detalle plegado pendiente de elección. No aplicar
+con tarjetas, gráficos y detalle plegado aprobada: «Si, mucho mejor». Aplicación financiera con filtros y detalle histórico en [esta entrega](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md). No aplicar
 Reportes original. [Entrega y capturas vigentes](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
-Rutas de Reportes y clasificación pendientes: Ver/indicadores de Inicio deshabilitados.
+Ruta financiera conectada a Ver/indicadores de Inicio; clasificación de antecedentes pendiente.
 Este agregado amplía entrega 4; no cambia reglas de pago ni las fechas reales del cashflow.
 
 ## 1. Una implementación, dos usos

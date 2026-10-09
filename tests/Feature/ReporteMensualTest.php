@@ -254,6 +254,76 @@ class ReporteMensualTest extends TestCase
         $this->assertSame($septiembre['resultado'], $s->obtener('2026-09')['resultado']);
     }
 
+    public function test_reportes_reales_filtran_mes_y_deporte_con_historia_del_corte(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        $actual = $this->get(route('web.reportes.index'))->assertOk()->assertViewIs('reportes.index')->assertDontSee('Datos ficticios');
+        $this->assertSame(66000000, $actual->viewData('reporte')['ingresos']);
+        $septiembre = $this->get(route('web.reportes.index', ['mes' => '2026-09']))->assertOk()->assertSee('Septiembre cerrado');
+        $r = $septiembre->viewData('reporte');
+        $this->assertSame(57000000, $r['deuda']['total']);
+        $this->assertSame('2026-09-30', $r['fecha_corte']);
+        $this->assertSame('2026-09', collect($septiembre->viewData('evolucion'))->last()['mes']);
+        $this->assertSame(6, count($septiembre->viewData('evolucion')));
+        $id = Alumno::firstOrFail()->deporte_id;
+        $filtrado = $this->get(route('web.reportes.index', ['mes' => '2026-09', 'deporte_id' => $id]))->assertOk()->assertSee('Gastos del club');
+        $esperado = app(ReporteMensualService::class)->obtener('2026-09', $id);
+        $this->assertSame($esperado, $filtrado->viewData('reporte'));
+        $this->assertGreaterThan(0, $esperado['ingresos']);
+        $this->assertSame($r['disponible'], $esperado['disponible']);
+        $this->assertSame(0, $esperado['egresos']);
+        $filtrado->assertSee('Sin egresos registrados');
+    }
+
+    public function test_reportes_rechazan_filtros_invalidos_sin_error_del_servidor(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        foreach (['', '2026-13', '2027-01', '0000-01', '2026-1', 'x', ['2026-10']] as $mes) {
+            $this->getJson(route('web.reportes.index', ['mes' => $mes]))->assertUnprocessable()->assertJsonValidationErrors('mes');
+        }
+        foreach ([-1, 999999, 'x', [1]] as $id) {
+            $this->getJson(route('web.reportes.index', ['deporte_id' => $id]))->assertUnprocessable()->assertJsonValidationErrors('deporte_id');
+        }
+        $this->get(route('web.reportes.index', ['deporte_id' => '']))->assertOk();
+    }
+
+    public function test_reportes_solo_admin_y_primera_carga_conserva_su_bloqueo(): void
+    {
+        $this->get(route('web.reportes.index'))->assertRedirect(route('login'));
+        foreach (['OPERATIVO', 'PROFESOR'] as $rol) {
+            $this->actingAs(User::factory()->create(['rol' => $rol, 'activo' => true]))->get(route('web.reportes.index'))->assertForbidden();
+        }
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'PENDIENTE']);
+        $this->get(route('web.reportes.index'))->assertRedirect(route('web.primera-carga.index'));
+    }
+
+    public function test_reportes_detalles_y_enlaces_concilian_inicio_y_saldos_historicos(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        $inicio = $this->get(route('admin.dashboard'))->assertOk();
+        $respuesta = $this->get(route('web.reportes.index', ['mes' => $inicio->viewData('reporte')['mes']]))->assertOk();
+        $r = $respuesta->viewData('reporte');
+        $this->assertSame($inicio->viewData('reporte'), $r);
+        foreach (['ingresos', 'egresos', 'deuda', 'profesores'] as $ancla) $respuesta->assertSee('id="'.$ancla.'"', false);
+        foreach (['deuda', 'por_pagar'] as $clave) $this->assertSame($r[$clave]['total'], array_sum(array_column($r[$clave]['filas'], 'centavos')));
+        $respuesta->assertSee('Del mes')->assertSee('Meses anteriores');
+        $sinHistoria = $this->get(route('web.reportes.index', ['mes' => '2026-03']))->assertOk()->assertSee('Sin historial para este corte');
+        $this->assertNull($sinHistoria->viewData('reporte')['deuda']['total']);
+        $this->assertNull($sinHistoria->viewData('reporte')['disponible']);
+        $this->assertSame('2026-03', collect($sinHistoria->viewData('evolucion'))->last()['mes']);
+        $sinHistoria->assertSee('Marzo cerrado');
+    }
+
+    public function test_reportes_no_inventan_comparacion_con_movimientos_sin_clasificar(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        CashflowMovimiento::where('fecha', '2026-09-06')->firstOrFail()->update(['reporte_clasificacion' => null]);
+        $this->get(route('web.reportes.index'))->assertOk()->assertSee('Sin comparación disponible')->assertDontSee('Sin cambios por rubro');
+        $respuesta = $this->get(route('web.reportes.index', ['mes' => '2026-09']))->assertOk()->assertSee('importes parciales');
+        $this->assertNull($respuesta->viewData('reporte')['resultado']);
+    }
+
     public function test_inicio_admin_usa_el_motor_mensual_y_no_cambia_por_parametros(): void
     {
         $this->actingAs(User::where('rol', 'ADMIN')->first());
@@ -262,8 +332,11 @@ class ReporteMensualTest extends TestCase
         $this->assertSame(app(ReporteMensualService::class)->obtener('2026-10'), $respuesta->viewData('reporte'));
         $respuesta->assertSee('$660.000')->assertSee('$75.000')->assertSee('$585.000')
             ->assertSee('$4.360.000')->assertSee('$690.000')->assertSee('$90.000')->assertDontSee('Datos ficticios');
-        // Reportes sigue esperando elección visual: no publicar vínculos rotos.
-        $respuesta->assertSee('aria-disabled="true"', false)->assertDontSee('reportes.html');
+        // Reportes aprobado: todos los indicadores conservan el mes y su detalle.
+        $respuesta->assertDontSee('aria-disabled="true"', false)->assertDontSee('reportes.html');
+        foreach (['ingresos', 'egresos', 'deuda', 'profesores'] as $ancla) {
+            $respuesta->assertSee(route('web.reportes.index', ['mes' => '2026-10']).'#'.$ancla, false);
+        }
         if (getenv('WINGS_CAPTURAS') === '1') {
             $html = preg_replace('/(<meta name="csrf-token" content=")[^"]+/', '$1FICTICIO', $respuesta->getContent());
             $html = preg_replace('/(name="_token" value=")[^"]+/', '$1FICTICIO', $html);

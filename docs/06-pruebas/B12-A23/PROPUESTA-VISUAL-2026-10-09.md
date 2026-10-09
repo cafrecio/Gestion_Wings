@@ -1,6 +1,9 @@
 # B12 — propuesta visual V3
 
-09/10/2026 · Codex CyE · propuesta de ensayo, pendiente de Carlos.
+09/10/2026 · Codex CyE · propuesta aprobada por Carlos: **«Si, mucho mejor»**.
+
+Elección posterior a las capturas de esta entrega. [Aplicación y conexión real](IMPLEMENTACION-REPORTES-2026-10-09.md).
+El resto describe el ensayo previo a esa aplicación, con su fecha y alcance.
 
 Carlos pidió **«Hacelo mas visual y de menos lectura»** y aportó tres referencias:
 [tarjetas con tendencias](referencia-visual-1.png),
@@ -69,7 +72,7 @@ no fabrican comparación ni pierden signos. Salida `storage/app/reportes-v3-caso
 
 ## Continuidad
 
-Carlos elige V3 antes de aplicar la pantalla final. Luego: rutas/filtros/detalle,
-Reporte Alumnos y análisis Sueldos; atribución de cuotas por profesor e historia
+Carlos eligió V3 («Si, mucho mejor»). Rutas/filtros/detalle se conectan en la
+[entrega aplicada](IMPLEMENTACION-REPORTES-2026-10-09.md). Reporte Alumnos y análisis Sueldos; atribución de cuotas por profesor e historia
 requieren definiciones verificables. No cambiar comisiones para construir reportes.
 Estado B12/A23 en curso, sin despliegue ni modificaciones a la base del club.

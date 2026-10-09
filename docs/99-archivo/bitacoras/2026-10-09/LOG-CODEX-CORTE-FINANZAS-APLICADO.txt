@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-09 — Codex CyE — Finanzas V3 aprobado, aplicado y conectado
-
-Carlos eligió las capturas V3: «Si, mucho mejor». Aspecto aplicado solo a Ingresos/egresos.
-Ruta ADMIN mensual con mes/deporte; Inicio conserva corte/anclas. Deuda/pagar históricas plegadas.
-P1 enumera ruta nueva; mes cerrado sin movimientos entra en tarjetas. Ambos hallados y corregidos en revisión.
-Motor de negocio, app.css/layouts y base del club intactos. B12/A23 siguen abiertos, sin despliegue.
-Suite propia537/2,4369 aserciones,476,20s; módulo21/191 y control posterior de estado vacío2/34 verdes.
-PHP/JS/vistas correctos; build13,07s. CuatroHTTP200, ocho capturas1440/marco375; Chrome abre las dos anclas.
-[Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md) · [visor](../06-pruebas/B12-A23/visor.html).
-Siguiente: Alumnos y Sueldos, atribución por profesor/historia y clasificación; revisión independiente de fuentes/capturas/HTTP aprobada.
-Corte anterior preservado íntegro antes de retirar la entrada más antigua; diez entradas activas.
-
 ## 2026-10-09 — Codex CyE — Reportes V3, más visual y menos lectura
 
 Carlos pidió «Hacelo mas visual y de menos lectura», con tres referencias guardadas; V3 preparada.
@@ -121,6 +109,17 @@ Controles documentales 6/28 verdes; sintaxis PHP/Blade/Node y enlaces correctos;
 Tablero A32 tiene Carlos para elegir; no aplicada ni desplegada. Laboratorio detenido.
 Diez entradas; A6/A7 del 07/10 retirada solo tras comprobar copia íntegra en el corte 08/10.
 
+## 2026-10-08 — Codex CyE — A10 aprobado y aplicado, lógica a verificar
+
+Carlos aprobó: «Me gusta, A10 Aprobado»; aspecto verificado por él según AGENTS §6a.
+Aplicados Día/Semana/Mes/Año, Nuevo junto a contador, Limpiar en filtros y título Nuevo movimiento.
+Resultado del período sin saldo inicial; intervalos inclusivos, enlaces anteriores y fecha conservados.
+Suite propia 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; nueve nuevas de A10 (70 aserciones).
+Build 31,01 s; seis sintaxis y Blade correctos. Escenario ficticio 4/15 verde, 9,07 s; controles documentales 6/28 verdes.
+24 capturas reales después de aplicar: geometría/rango/filas idénticos a propuesta, seis íconos, botones visibles.
+[Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md); tablero a_verificar, tiene nadie; sin commit/push/deploy.
+Siguiente: otro agente comprueba intervalos, validaciones y resultado; saldo acumulado de Reportes pendiente.
+Servidor de laboratorio detenido; antigua entrada A14/A27/A53 íntegra en corte 08/10, comprobada antes de retirar.
 
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
 
@@ -133,5 +132,3 @@ Diez entradas; A6/A7 del 07/10 retirada solo tras comprobar copia íntegra en el
 [Corte íntegro antes de aplicar Inicio y replantear Reportes](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-INICIO-REPORTES.txt).
 
 [Corte íntegro antes de Reportes visual V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-REPORTES-VISUAL.txt).
-
-[Corte íntegro antes de aplicar Finanzas V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-FINANZAS-APLICADO.txt).

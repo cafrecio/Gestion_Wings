@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 534 pruebas (532 aprobadas/2 omitidas, 4286 aserciones, 580,76 s; propuesta visual V3 B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 permanentes en InicioOperativoTest)
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 539 pruebas (537 aprobadas/2 omitidas, 4369 aserciones, 476,20 s; Reportes V3 conectado B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 permanentes en InicioOperativoTest)
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
@@ -155,7 +155,7 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   corregido y verificado en navegador.
 - [x] **FIN-04, definición:** Carlos distinguió resultado del período y saldo acumulado el 22/09.
   A10 aprobado 08/10 muestra resultado sin saldo inicial; aplicado y cerrado, verifica Claude en segunda revisión; Limpiar conserva el período con clic real en los cuatro modos.
-  El apartado de saldo acumulado de Reportes sigue pendiente; no requiere repetir la decisión.
+  Saldo acumulado financiero aplicado localmente en V3 B12, 09/10; faltan clasificación de antecedentes y las demás pantallas. No requiere repetir la decisión.
 - [x] **FIN-08, retoques de la pantalla Revision** (encontrados por Gemini 21/09): mostrar el
   error si la nota falta, filtros que no se aprieten en celular y sacar un script duplicado.
   **Implementados por Gemini el 22/09:** banner de `$errors` visible sin JS (`ds-flash--error`),
