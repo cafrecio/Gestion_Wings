@@ -1,0 +1,22 @@
+ACCESO A REPORTES — Codex CyE,09/10/2026
+Base propia wings_testing_codex, sin base del club.
+
+SUITE REAL
+  ✓ sesion emitida se cierra si el usuario fue desactivado                                                       0.04s
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.15s
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.17s
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.33s
+
+  Tests:    2 skipped, 573 passed (4616 assertions)
+  Duration: 885.32s
+
+
+HTTP Y CAPTURAS
+Inventario menu/inventario.json:56pantallas HTML reales,112PNG escritorio/375 y4menús móviles por clic.
+Anchos menu/anchos.json:56marcos375;55scroll375, Caja465 con/sin entrada nueva.
+OPERATIVO/PROFESOR:inicio200 sin entrada, las3rutas Reportes403.
+Control independiente:fuente/documentos y12PNG; Sueldos corregido900x3804 completo.
+No se certifica saneamiento responsive integral de todas las vistas.
+Tokens CSRF y alta_token sanitizados FICTICIO; sin hashes de contraseña en HTML.

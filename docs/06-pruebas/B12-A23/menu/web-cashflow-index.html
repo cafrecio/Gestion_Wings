@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="FICTICIO">
+    <title>Cashflow histórico – Wings</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/apple-touch-icon.png">
+    <link rel="manifest" href="http://localhost/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="preload" as="style" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/app-xJzr7jY4.js" /><link rel="stylesheet" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="stylesheet" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><script type="module" src="../../../../public/build/assets/app-xJzr7jY4.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+
+    <aside class="ds-sidebar">
+
+
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="../../../../public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+
+        <nav class="flex flex-col gap-0.5">
+
+
+
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://localhost/admin/dashboard"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Dashboard
+                        </a>
+
+                    <a href="http://localhost/alumnos"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://localhost/clases"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://localhost/clases?estado=finalizada"
+                           class="ds-nav-sublink "
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">3</span>
+                        </a>
+
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://localhost/cobranza"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://localhost/caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+
+                        <a href="http://localhost/movimientos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                                            <a href="http://localhost/cashflow"
+                           class="ds-nav-link ds-nav-link--active">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Cashflow
+                        </a>
+
+                        <a href="http://localhost/liquidaciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            Liquidaciones
+                        </a>
+
+                        <a href="http://localhost/reportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/>
+                            </svg>
+                            Reportes
+                        </a>
+
+                    <a href="http://localhost/revision-cobranza"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://localhost/deportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Deportes
+                        </a>
+
+                        <a href="http://localhost/niveles"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                            </svg>
+                            Niveles
+                        </a>
+
+                        <a href="http://localhost/grupos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Grupos
+                        </a>
+
+                        <a href="http://localhost/profesores"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            Profesores
+                        </a>
+
+                        <a href="http://localhost/rubros"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                            Rubros
+                        </a>
+
+                        <a href="http://localhost/tipos-caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            Tipos de Caja
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+
+                        <a href="http://localhost/configuraciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Configuración
+                        </a>
+
+                        <a href="http://localhost/usuarios"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Usuarios
+                        </a>
+
+
+                                    </nav>
+
+    </aside>
+
+
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+
+    <div class="ds-main">
+
+
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Admin de prueba</span>
+                </div>
+                <form method="POST" action="http://localhost/logout">
+                    <input type="hidden" name="_token" value="FICTICIO" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+            type="submit"
+            >
+
+
+                            Salir
+
+    </button>
+
+                </form>
+                    </div>
+
+
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Cashflow</h1>
+    </div>
+</header>
+
+
+        <main class="ds-content">
+
+
+
+
+
+
+<form method="GET" action="http://localhost/cashflow" id="filtros-form">
+<div class="filtros-card mb-4">
+    <div class="cashflow-periodos-grid">
+        <div>
+            <label for="periodo" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Período</label>
+            <select id="periodo" name="periodo" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
+                                    <option value="dia" >Día</option>
+                                    <option value="semana" >Semana</option>
+                                    <option value="mes" >Mes</option>
+                                    <option value="anio" selected>Año</option>
+                            </select>
+        </div>
+                <input type="hidden" name="fecha" value="2026-10-09">
+        <div>
+            <label for="anio" style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Año</label>
+            <select id="anio" name="anio" class="w-full px-3 py-2 text-sm wings-input" style="min-width:0; box-sizing:border-box;" data-enviar-al-cambiar>
+                                    <option value="2026" selected>2026</option>
+                            </select>
+        </div>
+
+        <div>
+            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Tipo de caja</label>
+            <select name="tipo_caja_id" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
+                <option value="">Todos</option>
+                                    <option value="5" >Banco Galicia</option>
+                                    <option value="2" >Banco Nación</option>
+                                    <option value="4" >Banco Nacion ahorro</option>
+                                    <option value="6" >Billetera de prueba</option>
+                                    <option value="1" >Efectivo</option>
+                                    <option value="3" >Mercado Pago</option>
+                            </select>
+        </div>
+
+        <div>
+            <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">Tipo</label>
+            <select name="tipo" class="w-full px-3 py-2 text-sm wings-input" data-enviar-al-cambiar>
+                <option value="">Todos</option>
+                <option value="INGRESO" >Ingresos</option>
+                <option value="EGRESO"  >Egresos</option>
+            </select>
+        </div>
+
+    </div>
+    </div>
+</form>
+
+<p class="flex flex-wrap items-center gap-1.5 text-sm text-wings-muted mb-3" id="cashflow-periodo">
+    <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+    <span>Período:</span>
+    <strong>Año 2026 completo</strong>
+</p>
+
+
+<div class="stats-bar mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div class="stats-info" style="gap:10px 16px; display:flex; align-items:center; flex-wrap:wrap;">
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
+            </svg>
+            <strong style="color:var(--color-success);">$4.495.000</strong>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">ingresos</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-danger);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
+            </svg>
+            <strong style="color:var(--color-danger);">$583.000</strong>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
+        </span>
+
+        <span class="inline-flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
+            </svg>
+            <strong style="color:var(--color-success);">$3.912.000</strong>
+            <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">resultado del período</span>
+        </span>
+
+    </div>
+
+</div>
+
+<div class="stats-bar mb-3" id="cashflow-acciones">
+    <div class="stats-info">
+        <strong>167</strong> movimientos
+    </div>
+    <a class="ds-btn ds-btn--primary"
+       href="http://localhost/cashflow/movimiento"
+       role="button">
+
+
+                            Nuevo
+
+    </a>
+
+</div>
+
+
+<div class="alumno-card" style="padding:0; overflow:hidden; overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:700px;">
+        <colgroup>
+            <col style="width:90px">
+            <col style="width:30px">
+            <col style="width:110px">
+            <col>
+            <col style="width:20%">
+            <col style="width:100px">
+            <col style="width:110px">
+        </colgroup>
+        <thead>
+            <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Fecha</th>
+                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">I/E</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Tipo caja</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Observaciones</th>
+                <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registrado</th>
+            </tr>
+        </thead>
+        <tbody>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    09/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    EFT
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Dueño APORTE</span> — APORTE de prueba
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $90.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    09/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    EFT
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Dueño RETIRO</span> — RETIRO de prueba
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    −$40.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    09/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    EFT
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Ventas de prueba</span> — Venta de prueba
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    09/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Sueldos</span> — Fútbol-Docente 4 Prueba
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago liquidación #4 - Docente 4 (10/2026)
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    −$18.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #1 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #2 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #3 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #4 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #5 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #6 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #7 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #8 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #9 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #10 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #11 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #12 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #13 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #14 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #15 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #16 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #17 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #18 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #19 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #20 - Períodos: 2026-10
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Servicios</span> — Luz
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    −$45.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Servicios</span> — Internet
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    −$18.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/10/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-danger);">
+                    E
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Gastos Operativos</span> — Limpieza
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    –
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                    −$12.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    15/09/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #21 - Períodos: 2026-04, 2026-05, 2026-06, 2026-07, 2026-08
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $150.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/09/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    BNA
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #1 - Períodos: 2026-09
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                                    <tr style="border-bottom:1px solid var(--color-border);">
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
+                    06/09/2026
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.8rem; font-weight:700; color:var(--color-text);">
+                    I
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; font-weight:600; color:var(--color-text);">
+                    MP
+                </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                                            <span style="color:var(--color-text-muted);">Cuotas</span> — Cuota Mensual
+                                    </td>
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Pago cuota alumno #2 - Períodos: 2026-09
+                </td>
+                <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-success);">
+                    $30.000
+                </td>
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Admin de prueba
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+</div>
+
+
+<div style="margin-top:1rem;">
+    <nav role="navigation" aria-label="Paginación">
+
+        <div class="flex gap-2 items-center justify-between sm:hidden">
+
+                            <span class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 cursor-not-allowed leading-5 rounded-md dark:text-gray-300 dark:bg-gray-700 dark:border-gray-600">
+                    &laquo; Anterior
+                </span>
+
+                            <a href="http://localhost/cashflow?page=2" rel="next" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-800 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 dark:hover:text-gray-200">
+                    Siguiente &raquo;
+                </a>
+
+        </div>
+
+        <div class="hidden sm:flex-1 sm:flex sm:gap-2 sm:items-center sm:justify-between">
+
+            <div>
+                <p class="text-sm text-gray-700 leading-5 dark:text-gray-600">
+                    Mostrando
+                                            <span class="font-medium">1</span>
+                        a
+                        <span class="font-medium">30</span>
+                                        de
+                    <span class="font-medium">167</span>
+                    resultados
+                </p>
+            </div>
+
+            <div>
+                <span class="inline-flex rtl:flex-row-reverse shadow-sm rounded-md">
+
+
+                                            <span aria-disabled="true" aria-label="&amp;laquo; Anterior">
+                            <span class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-not-allowed rounded-l-md leading-5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400" aria-hidden="true">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </span>
+
+
+
+
+
+                                                                                                                        <span aria-current="page">
+                                        <span class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-gray-200 border border-gray-300 cursor-default leading-5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300">1</span>
+                                    </span>
+                                                                                                                                <a href="http://localhost/cashflow?page=2" class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 hover:bg-gray-100 dark:hover:bg-gray-900" aria-label="Ir a la página 2">
+                                        2
+                                    </a>
+                                                                                                                                <a href="http://localhost/cashflow?page=3" class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 hover:bg-gray-100 dark:hover:bg-gray-900" aria-label="Ir a la página 3">
+                                        3
+                                    </a>
+                                                                                                                                <a href="http://localhost/cashflow?page=4" class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 hover:bg-gray-100 dark:hover:bg-gray-900" aria-label="Ir a la página 4">
+                                        4
+                                    </a>
+                                                                                                                                <a href="http://localhost/cashflow?page=5" class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 hover:bg-gray-100 dark:hover:bg-gray-900" aria-label="Ir a la página 5">
+                                        5
+                                    </a>
+                                                                                                                                <a href="http://localhost/cashflow?page=6" class="inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-700 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 hover:bg-gray-100 dark:hover:bg-gray-900" aria-label="Ir a la página 6">
+                                        6
+                                    </a>
+
+
+                                            <a href="http://localhost/cashflow?page=2" rel="next" class="inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-gray-300" aria-label="Siguiente &amp;raquo;">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                                    </span>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<style>
+.cashflow-periodos-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:end;}
+.cashflow-periodos-grid > div {min-width:0;}
+@media(min-width:1024px) {.cashflow-periodos-grid {grid-template-columns:repeat(4,minmax(0,1fr));}}
+</style>
+
+        </main>
+
+
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

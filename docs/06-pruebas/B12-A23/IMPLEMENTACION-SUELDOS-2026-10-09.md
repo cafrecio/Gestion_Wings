@@ -1,7 +1,8 @@
 # Sueldos y monto final — entrega en desarrollo, 09/10/2026
 
 Codex CyE. Implementación solicitada por Carlos; **sin despliegue ni cambios en base del club**.
-Alumnos aprobado («Esta OK») e integrado. Sueldos/ajuste: aspecto por revisar con capturas.
+Alumnos aprobado («Esta OK») e integrado. Sueldos aprobado por Carlos:
+«Esta OK, solo deberiamos ver desde donde accede en el menu». Ajuste final por revisar.
 
 ## Resultado
 
@@ -57,8 +58,8 @@ repartir cuota y analizar su costo. Cambio de deporte no mueve clases anteriores
 - Control visual independiente de15 PNG: gráficos y contenidos completos; formularios
   solo donde corresponde. Septiembre302000/720000=41,9%; Patín224000/360000=62,2%.
   El PDF conserva su presentación previa al borde: no hay caracteres fuera de página.
-  No se modificaron sus márgenes. Aprobación visual de Sueldos/ajuste pendiente de Carlos.
-- Publicación GitHub autorizada en el commit de esta entrega; confirmar remoto al publicar.
+  No se modificaron sus márgenes. Sueldos aprobado por Carlos; ajuste final por revisar.
+- Publicación GitHub comprobada: main remoto a132bfd6975dcff88ac728388addfab73623940d.
 
 ## Capturas reproducibles
 
@@ -78,5 +79,8 @@ Motor/servicio solo lectura; pruebas y escenario no exportan users ni dump.
 
 ## Siguiente
 
-Carlos revisa Sueldos/ajuste en capturas; después prueba manual integral de B12/A23
-y clasificación de antecedentes. Tablero abierto; esta entrega no cierra esos IDs.
+Acceso anterior: Inicio → Ver → enlace Sueldos al pie de Ingresos y egresos.
+Tras «Continuar», acceso **Plata → Reportes** aplicado y tres opciones arriba;
+[capturas y alcance](ACCESO-REPORTES-2026-10-09.md). Menú por revisar visualmente.
+Después, revisión visual del ajuste final, prueba manual integral de B12/A23 y
+clasificación de antecedentes. Tablero abierto; esta entrega no cierra esos IDs.

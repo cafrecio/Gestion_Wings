@@ -2,7 +2,7 @@
 @section('title', 'Ingresos y egresos – Wings')
 @section('module-title', 'Ingresos y egresos')
 @section('content')
-@vite('resources/css/reportes-visual.css')
+@vite(['resources/css/reportes-visual.css', 'resources/css/reportes-analiticos.css'])
 @php
     $title = 'Ingresos y egresos';
     $dinero = fn ($n) => $n === null ? 'Sin datos' : '$'.number_format($n / 100, 0, ',', '.');
@@ -30,8 +30,9 @@
     $cajas = $nombresCajas;
     $paleta = ['success','info','warning','danger','text-muted'];
 @endphp
-<div class="reporte-visual">
+<div class="reporte-visual reporte-analitico">
 <div class="stats-bar mb-4"><div class="stats-info"><strong>Reportes</strong></div><a class="ds-btn ds-btn--secondary" href="{{ route('admin.dashboard') }}">Volver</a></div>
+<nav class="ra-subnav" aria-label="Reportes"><strong aria-current="page">Ingresos y egresos</strong><a href="{{ route('web.reportes.alumnos',array_filter(['mes'=>$reporte['mes'],'deporte_id'=>$reporte['deporte_id']],fn ($v) => $v !== null)) }}">Alumnos</a><a href="{{ route('web.reportes.sueldos',array_filter(['mes'=>$reporte['mes'],'deporte_id'=>$reporte['deporte_id']],fn ($v) => $v !== null)) }}">Sueldos</a></nav>
 @if($errors->any())<p class="rv-note" style="color:var(--color-danger);margin-bottom:12px">{{ $errors->first() }}</p>@endif
 <form method="GET" action="{{ route('web.reportes.index') }}" class="filtros-card rv-filter" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
     <select name="mes" class="filtros-control" aria-label="Mes" style="flex:1;min-width:130px">@foreach($meses as $opcion)<option value="{{ $opcion }}" @selected($opcion === $reporte['mes'])>{{ ucfirst($fecha($opcion)->translatedFormat('F Y')) }}</option>@endforeach</select>

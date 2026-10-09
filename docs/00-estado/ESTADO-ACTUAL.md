@@ -7,7 +7,7 @@ actuales; no acredita activos al cierre de septiembre. La propuesta de Alumnos
 separa matrícula de hoy y asistencia del mes por deporte/nivel de la clase;
 no transforma clases sin registros en ausencias ni determina bajas automáticas. Consulta probada y propuesta
 visual revisada en seis capturas reales; [entrega](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md).
-Suite del prototipo543/2,4401aserciones,556,59s correcta. Carlos aprobó el aspecto («Esta OK»); integración habitual en verificación.
+Suite del prototipo543/2,4401aserciones,556,59s correcta. Carlos aprobó el aspecto («Esta OK»); integración habitual comprobada en la entrega posterior.
 Sueldos implementado en desarrollo: reparto de cuota neta por asistencias;
 comisión sobre cuota cobrada, costo por deporte/profesor/asistencia y evolución.
 ADMIN ajusta monto final de comisión ABIERTA o CERRADA sin pagar, con motivo,
@@ -15,9 +15,14 @@ auditoría atómica y bloqueo común con pago; pagadas/canceladas intactas.
 Pago, recibo, pendientes y resúmenes toman el final sin alterar el cálculo original.
 Historia monetaria desde activar; antes, Sin historial. Horarios/asistencias actuales
 pueden modificar estimados y reparto; liquidación cerrada conserva importe.
-Historial9/71, Sueldos+ajuste17/94 aprobados en base propia. Revisión independiente
-de fuente y concurrencia aprobada; suite completa y capturas en preparación.
+Suite de Sueldos573/2,4615aserciones; controles finales30/185 y revisión independiente26/166.
+Catorce HTTP200 y capturas reales completas. Carlos aprobó Sueldos («Esta OK, solo
+deberiamos ver desde donde accede en el menu»). Acceso Plata → Reportes aplicado, aspecto por revisar; ajuste final por revisar.
 [Entrega Sueldos y ajuste final](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Sin activación ni cambios en base del club.
+
+Acceso Plata → Reportes aplicado tras «Continuar»; [control y capturas](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
+Control de ancho en el escenario: Caja375/scroll465 incluso quitando el enlace nuevo;
+contenido fuera del cambio del menú, sin corrección ni reapertura automática de tareas.
 
 Conexión V3, control 09/10: la primera revisión encontró que P1 deja pasar una ruta
 nueva que no enumera y que la evolución omite el mes elegido cuando no tiene
@@ -370,7 +375,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **575 pruebas** (historial y Sueldos/monto final, 09/10 Codex CyE: 573 aprobadas/2 omitidas, 4615 aserciones, 997,45s en wings_testing_codex; después fixture portable y controles 30/185 verdes, 14,02s. Revisión independiente 26/166,15,62s en wings_testing_claude. Sin activación/deploy; aspecto Sueldos/ajuste por revisar). [Entrega y verificaciones](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md) |
+| **Tests** | **575 pruebas** (acceso a Reportes, 09/10 Codex CyE: 573 aprobadas/2 omitidas,4616 aserciones,885,32s en wings_testing_codex. Control independiente de fuente/documentos y muestra12PNG; sin deploy; revisión visual del acceso y ajuste final pendiente Carlos). [Entrega y verificaciones](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

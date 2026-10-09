@@ -1,0 +1,505 @@
+{
+    "pantallas": [
+        {
+            "nombre": "web.primera-carga.index",
+            "ruta": "/sistema/primera-carga",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-primera-carga-index"
+        },
+        {
+            "nombre": "web.caja.index",
+            "ruta": "/caja",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-index"
+        },
+        {
+            "nombre": "web.caja.apertura",
+            "ruta": "/caja/apertura",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-apertura"
+        },
+        {
+            "nombre": "web.caja.configuracion",
+            "ruta": "/caja/configuracion",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-configuracion"
+        },
+        {
+            "nombre": "web.caja.movimiento",
+            "ruta": "/caja/movimiento",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-movimiento"
+        },
+        {
+            "nombre": "web.caja.historial",
+            "ruta": "/caja/historial",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-historial"
+        },
+        {
+            "nombre": "web.caja.cobrar-cuota",
+            "ruta": "/caja/cobrar",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-cobrar-cuota"
+        },
+        {
+            "nombre": "web.caja.cobrar",
+            "ruta": "/caja/cobrar/1",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-cobrar"
+        },
+        {
+            "nombre": "web.caja.resumen",
+            "ruta": "/caja/1/resumen",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-resumen"
+        },
+        {
+            "nombre": "web.caja.detalle",
+            "ruta": "/caja/1/detalle",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-detalle"
+        },
+        {
+            "nombre": "web.caja.editar",
+            "ruta": "/caja/1/editar",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-editar"
+        },
+        {
+            "nombre": "web.caja.cierre",
+            "ruta": "/caja/1/cerrar",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/caja/1/resumen"
+        },
+        {
+            "nombre": "web.caja.movimientos.editar",
+            "ruta": "/caja/1/movimientos/1/editar",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-caja-movimientos-editar"
+        },
+        {
+            "nombre": "web.caja.movimientos.cancelar",
+            "ruta": "/caja/1/movimientos/1/cancelar",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/caja/1/detalle"
+        },
+        {
+            "nombre": "web.cajas.index",
+            "ruta": "/cajas",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/caja"
+        },
+        {
+            "nombre": "web.cajas.show",
+            "ruta": "/cajas/1",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/caja/1/detalle"
+        },
+        {
+            "nombre": "web.operativo.dashboard",
+            "ruta": "/operativo",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-operativo-dashboard"
+        },
+        {
+            "nombre": "web.movimientos.index",
+            "ruta": "/movimientos",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-movimientos-index"
+        },
+        {
+            "nombre": "web.cobranza.index",
+            "ruta": "/cobranza",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-cobranza-index"
+        },
+        {
+            "nombre": "web.revision-cobranza.index",
+            "ruta": "/revision-cobranza",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-revision-cobranza-index"
+        },
+        {
+            "nombre": "admin.dashboard",
+            "ruta": "/admin/dashboard",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "admin-dashboard"
+        },
+        {
+            "nombre": "web.reportes.index",
+            "ruta": "/reportes",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-reportes-index"
+        },
+        {
+            "nombre": "web.reportes.alumnos",
+            "ruta": "/reportes/alumnos",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-reportes-alumnos"
+        },
+        {
+            "nombre": "web.reportes.sueldos",
+            "ruta": "/reportes/sueldos",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-reportes-sueldos"
+        },
+        {
+            "nombre": "web.cashflow.index",
+            "ruta": "/cashflow",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-cashflow-index"
+        },
+        {
+            "nombre": "web.cashflow.movimiento",
+            "ruta": "/cashflow/movimiento",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-cashflow-movimiento"
+        },
+        {
+            "nombre": "web.alumnos.index",
+            "ruta": "/alumnos",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-alumnos-index"
+        },
+        {
+            "nombre": "web.alumnos.create",
+            "ruta": "/alumnos/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-alumnos-create"
+        },
+        {
+            "nombre": "web.alumnos.show",
+            "ruta": "/alumnos/1",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-alumnos-show"
+        },
+        {
+            "nombre": "web.alumnos.edit",
+            "ruta": "/alumnos/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-alumnos-edit"
+        },
+        {
+            "nombre": "web.deportes.index",
+            "ruta": "/deportes",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-deportes-index"
+        },
+        {
+            "nombre": "web.deportes.create",
+            "ruta": "/deportes/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-deportes-create"
+        },
+        {
+            "nombre": "web.deportes.edit",
+            "ruta": "/deportes/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-deportes-edit"
+        },
+        {
+            "nombre": "web.rubros.index",
+            "ruta": "/rubros",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-rubros-index"
+        },
+        {
+            "nombre": "web.rubros.create",
+            "ruta": "/rubros/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-rubros-create"
+        },
+        {
+            "nombre": "web.rubros.edit",
+            "ruta": "/rubros/1/edit",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/rubros"
+        },
+        {
+            "nombre": "web.subrubros.create",
+            "ruta": "/rubros/1/subrubros/create",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/rubros"
+        },
+        {
+            "nombre": "web.subrubros.edit",
+            "ruta": "/rubros/1/subrubros/1/edit",
+            "http": 302,
+            "capturada": false,
+            "destino": "http://localhost/rubros"
+        },
+        {
+            "nombre": "web.grupos.index",
+            "ruta": "/grupos",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-grupos-index"
+        },
+        {
+            "nombre": "web.grupos.create",
+            "ruta": "/grupos/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-grupos-create"
+        },
+        {
+            "nombre": "web.grupos.edit",
+            "ruta": "/grupos/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-grupos-edit"
+        },
+        {
+            "nombre": "web.grupos.show",
+            "ruta": "/grupos/1",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-grupos-show"
+        },
+        {
+            "nombre": "web.clases.create",
+            "ruta": "/clases/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-clases-create"
+        },
+        {
+            "nombre": "web.clases.edit",
+            "ruta": "/clases/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-clases-edit"
+        },
+        {
+            "nombre": "web.clases.index",
+            "ruta": "/clases",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-clases-index"
+        },
+        {
+            "nombre": "web.clases.show",
+            "ruta": "/clases/1",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-clases-show"
+        },
+        {
+            "nombre": "web.liquidaciones.index",
+            "ruta": "/liquidaciones",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-liquidaciones-index"
+        },
+        {
+            "nombre": "web.liquidaciones.create",
+            "ruta": "/liquidaciones/crear",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-liquidaciones-create"
+        },
+        {
+            "nombre": "web.liquidaciones.show",
+            "ruta": "/liquidaciones/2",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-liquidaciones-show"
+        },
+        {
+            "nombre": "web.tipos-caja.index",
+            "ruta": "/tipos-caja",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-tipos-caja-index"
+        },
+        {
+            "nombre": "web.tipos-caja.create",
+            "ruta": "/tipos-caja/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-tipos-caja-create"
+        },
+        {
+            "nombre": "web.tipos-caja.edit",
+            "ruta": "/tipos-caja/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-tipos-caja-edit"
+        },
+        {
+            "nombre": "web.niveles.index",
+            "ruta": "/niveles",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-niveles-index"
+        },
+        {
+            "nombre": "web.niveles.create",
+            "ruta": "/niveles/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-niveles-create"
+        },
+        {
+            "nombre": "web.niveles.edit",
+            "ruta": "/niveles/6/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-niveles-edit"
+        },
+        {
+            "nombre": "web.usuarios.index",
+            "ruta": "/usuarios",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-usuarios-index"
+        },
+        {
+            "nombre": "web.usuarios.create",
+            "ruta": "/usuarios/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-usuarios-create"
+        },
+        {
+            "nombre": "web.usuarios.edit",
+            "ruta": "/usuarios/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-usuarios-edit"
+        },
+        {
+            "nombre": "web.configuraciones.index",
+            "ruta": "/configuraciones",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-configuraciones-index"
+        },
+        {
+            "nombre": "web.profesores.index",
+            "ruta": "/profesores",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-profesores-index"
+        },
+        {
+            "nombre": "web.profesores.create",
+            "ruta": "/profesores/create",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-profesores-create"
+        },
+        {
+            "nombre": "web.profesores.show",
+            "ruta": "/profesores/1",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-profesores-show"
+        },
+        {
+            "nombre": "web.profesores.edit",
+            "ruta": "/profesores/1/edit",
+            "http": 200,
+            "capturada": true,
+            "destino": null,
+            "archivo": "web-profesores-edit"
+        }
+    ],
+    "roles": {
+        "OPERATIVO": "sin entrada; tres reportes403",
+        "PROFESOR": "sin entrada; tres reportes403"
+    }
+}

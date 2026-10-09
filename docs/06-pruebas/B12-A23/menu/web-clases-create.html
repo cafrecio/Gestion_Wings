@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="FICTICIO">
+    <title>Nueva Clase – Wings</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/apple-touch-icon.png">
+    <link rel="manifest" href="http://localhost/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="preload" as="style" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/app-xJzr7jY4.js" /><link rel="stylesheet" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="stylesheet" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><script type="module" src="../../../../public/build/assets/app-xJzr7jY4.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+
+    <aside class="ds-sidebar">
+
+
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="../../../../public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+
+        <nav class="flex flex-col gap-0.5">
+
+
+
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://localhost/admin/dashboard"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Dashboard
+                        </a>
+
+                    <a href="http://localhost/alumnos"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://localhost/clases"
+                       class="ds-nav-link ds-nav-link--active">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://localhost/clases?estado=finalizada"
+                           class="ds-nav-sublink "
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">3</span>
+                        </a>
+
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://localhost/cobranza"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://localhost/caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+
+                        <a href="http://localhost/movimientos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                                            <a href="http://localhost/cashflow"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Cashflow
+                        </a>
+
+                        <a href="http://localhost/liquidaciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            Liquidaciones
+                        </a>
+
+                        <a href="http://localhost/reportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/>
+                            </svg>
+                            Reportes
+                        </a>
+
+                    <a href="http://localhost/revision-cobranza"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://localhost/deportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Deportes
+                        </a>
+
+                        <a href="http://localhost/niveles"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                            </svg>
+                            Niveles
+                        </a>
+
+                        <a href="http://localhost/grupos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Grupos
+                        </a>
+
+                        <a href="http://localhost/profesores"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            Profesores
+                        </a>
+
+                        <a href="http://localhost/rubros"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                            Rubros
+                        </a>
+
+                        <a href="http://localhost/tipos-caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            Tipos de Caja
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+
+                        <a href="http://localhost/configuraciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Configuración
+                        </a>
+
+                        <a href="http://localhost/usuarios"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Usuarios
+                        </a>
+
+
+                                    </nav>
+
+    </aside>
+
+
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+
+    <div class="ds-main">
+
+
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Admin de prueba</span>
+                </div>
+                <form method="POST" action="http://localhost/logout">
+                    <input type="hidden" name="_token" value="FICTICIO" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+            type="submit"
+            >
+
+
+                            Salir
+
+    </button>
+
+                </form>
+                    </div>
+
+
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Nueva Clase</h1>
+    </div>
+</header>
+
+
+        <main class="ds-content">
+
+
+
+
+
+<form method="POST" action="http://localhost/clases">
+    <input type="hidden" name="_token" value="FICTICIO" autocomplete="off">
+
+
+    <div class="filtros-card mb-4">
+        <div class="filtros-row" style="gap:8px;">
+            <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.82rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border);" id="lbl-unica">
+                <input type="radio" name="tipo_creacion" value="unica" checked> Clase única
+            </label>
+            <label style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.82rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border);" id="lbl-recurrente">
+                <input type="radio" name="tipo_creacion" value="recurrente" > Clases recurrentes
+            </label>
+        </div>
+    </div>
+
+    <div class="filtros-card">
+
+
+        <div id="seccion-unica">
+            <div class="mb-4">
+                <label for="fecha" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Fecha <span class="form-required">*</span>
+                </label>
+                <input type="date" id="fecha" name="fecha"
+                       value=""
+                       min="2026-10-09"
+                       class="w-full px-4 py-2.5 text-sm wings-input"
+                       style="max-width:220px;">
+                            </div>
+        </div>
+
+
+        <div id="seccion-recurrente" style="display:none;">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="fecha_desde" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        Fecha desde <span class="form-required">*</span>
+                    </label>
+                    <input type="date" id="fecha_desde" name="fecha_desde"
+                           value=""
+                           min="2026-10-09"
+                           class="w-full px-4 py-2.5 text-sm wings-input">
+                                    </div>
+                <div>
+                    <label for="fecha_hasta" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        Fecha hasta <span class="form-required">*</span>
+                    </label>
+                    <input type="date" id="fecha_hasta" name="fecha_hasta"
+                           value=""
+                           class="w-full px-4 py-2.5 text-sm wings-input">
+                                    </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h8"/></svg>
+                    Días de la semana <span class="form-required">*</span>
+                </label>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="1"
+                                >
+                            Lun
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="2"
+                                >
+                            Mar
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="3"
+                                >
+                            Mié
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="4"
+                                >
+                            Jue
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="5"
+                                >
+                            Vie
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="6"
+                                >
+                            Sáb
+                        </label>
+                                                                    <label style="cursor:pointer; display:flex; align-items:center; gap:4px; font-size:0.78rem; padding:4px 10px; border-radius:999px; border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                            <input type="checkbox" name="dias_semana[]" value="0"
+                                >
+                            Dom
+                        </label>
+                                    </div>
+                            </div>
+
+            <p class="text-xs mb-3 text-wings-muted">Elegí los días y cargá el horario de cada uno. Grupo, profesores y fechas se cargan una sola vez.</p>
+                            <div data-horario-dia="1" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Lunes</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-1-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-1-inicio" name="horarios[1][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-1-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-1-fin" name="horarios[1][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="2" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Martes</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-2-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-2-inicio" name="horarios[2][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-2-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-2-fin" name="horarios[2][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="3" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Miércoles</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-3-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-3-inicio" name="horarios[3][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-3-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-3-fin" name="horarios[3][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="4" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Jueves</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-4-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-4-inicio" name="horarios[4][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-4-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-4-fin" name="horarios[4][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="5" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Viernes</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-5-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-5-inicio" name="horarios[5][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-5-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-5-fin" name="horarios[5][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="6" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Sábado</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-6-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-6-inicio" name="horarios[6][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-6-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-6-fin" name="horarios[6][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                            <div data-horario-dia="0" class="mb-4" style="display:none;">
+                    <p class="text-xs font-medium mb-1.5">Domingo</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="horario-0-inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora inicio <span class="form-required">*</span></label>
+                            <input type="time" id="horario-0-inicio" name="horarios[0][hora_inicio]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                        <div>
+                            <label for="horario-0-fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">Hora fin <span class="form-required">*</span></label>
+                            <input type="time" id="horario-0-fin" name="horarios[0][hora_fin]" value="" class="w-full px-3 py-2 text-sm wings-input" disabled>
+                                                    </div>
+                    </div>
+                    <p class="text-xs mt-1" data-error-horario style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                </div>
+                    </div>
+
+
+        <div style="height:1px; background:var(--color-border); margin:16px 0;"></div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+
+
+            <div>
+                <label for="grupo_id" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Grupo <span class="form-required">*</span>
+                </label>
+                <select id="grupo_id" name="grupo_id" required
+                        class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                    <option value="">Seleccionar grupo...</option>
+                                            <option value="4"
+                                data-deporte="Fútbol"
+                                data-deporte-id="2"
+                                >
+                            Fútbol — Intermedias
+                        </option>
+                                            <option value="3"
+                                data-deporte="Fútbol"
+                                data-deporte-id="2"
+                                >
+                            Fútbol — Principiantes
+                        </option>
+                                            <option value="2"
+                                data-deporte="Patín"
+                                data-deporte-id="1"
+                                >
+                            Patín — Intermedias
+                        </option>
+                                            <option value="1"
+                                data-deporte="Patín"
+                                data-deporte-id="1"
+                                >
+                            Patín — Principiantes
+                        </option>
+                                    </select>
+                                <p id="deporte-info" class="text-xs mt-1 text-wings-muted" style="display:none;"></p>
+            </div>
+
+            <div></div>
+
+
+            <div data-hora-unica>
+                <label for="hora_inicio" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Hora inicio <span class="form-required">*</span>
+                </label>
+                <input type="time" id="hora_inicio" name="hora_inicio"
+                       value=""
+                       required
+                       class="w-full px-4 py-2.5 text-sm wings-input">
+                            </div>
+
+
+            <div data-hora-unica>
+                <label for="hora_fin" class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Hora fin <span class="form-required">*</span>
+                </label>
+                <input type="time" id="hora_fin" name="hora_fin"
+                       value=""
+                       required
+                       class="w-full px-4 py-2.5 text-sm wings-input">
+                <p id="hora-fin-error" class="text-xs mt-1" style="color:var(--color-danger); display:none;">La hora de fin debe ser posterior a la hora de inicio.</p>
+                            </div>
+        </div>
+
+
+        <div class="mt-2">
+            <label class="flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted">
+                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                Profesores
+                <span class="font-normal text-wings-muted">(opcional)</span>
+            </label>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                                                        <label data-profesor-deporte="1" style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                        <input type="checkbox" name="profesores[]" value="1"
+                            >
+                        Prueba, Docente
+                                                    <span style="font-size:0.62rem; font-weight:700; padding:1px 6px; border-radius:999px; background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent); color:var(--color-sport-patin);">
+                                Patín
+                            </span>
+                                            </label>
+                                                        <label data-profesor-deporte="1" style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                        <input type="checkbox" name="profesores[]" value="2"
+                            >
+                        Prueba, Docente 2
+                                                    <span style="font-size:0.62rem; font-weight:700; padding:1px 6px; border-radius:999px; background:color-mix(in srgb, var(--color-sport-patin) 18%, transparent); color:var(--color-sport-patin);">
+                                Patín
+                            </span>
+                                            </label>
+                                                        <label data-profesor-deporte="2" style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                        <input type="checkbox" name="profesores[]" value="3"
+                            >
+                        Prueba, Docente 3
+                                                    <span style="font-size:0.62rem; font-weight:700; padding:1px 6px; border-radius:999px; background:color-mix(in srgb, var(--color-sport-futbol) 18%, transparent); color:var(--color-sport-futbol);">
+                                Fútbol
+                            </span>
+                                            </label>
+                                                        <label data-profesor-deporte="2" style="cursor:pointer; display:flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 12px; border-radius:var(--radius-card); border:1px solid var(--color-border); background:var(--color-surface-alt);">
+                        <input type="checkbox" name="profesores[]" value="4"
+                            >
+                        Prueba, Docente 4
+                                                    <span style="font-size:0.62rem; font-weight:700; padding:1px 6px; border-radius:999px; background:color-mix(in srgb, var(--color-sport-futbol) 18%, transparent); color:var(--color-sport-futbol);">
+                                Fútbol
+                            </span>
+                                            </label>
+                            </div>
+                        <p id="profesores-deporte-aviso" class="text-xs mt-1 text-wings-muted" aria-live="polite">Elegí un grupo para ver sus profesores activos.</p>
+        </div>
+
+
+        <div class="filtros-actions mt-6 pt-4" style="border-top:1px solid var(--color-border); justify-content:flex-end;">
+            <a class="ds-btn ds-btn--secondary"
+       href="http://localhost/clases"
+       role="button">
+
+
+                            Volver
+
+    </a>
+
+                            <button class="ds-btn ds-btn--primary"
+            type="submit"
+            >
+
+
+                            Guardar
+
+    </button>
+
+                    </div>
+
+    </div>
+</form>
+
+
+        </main>
+
+
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+<link rel="modulepreload" as="script" href="../../../../public/build/assets/clases-form-D_y0Z8Yp.js" /><script type="module" src="../../../../public/build/assets/clases-form-D_y0Z8Yp.js"></script>
+</body>
+</html>

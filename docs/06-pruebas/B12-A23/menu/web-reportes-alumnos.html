@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="FICTICIO">
+    <title>Reporte de alumnos – Wings</title>
+    <link rel="icon" type="image/x-icon" href="http://localhost/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/apple-touch-icon.png">
+    <link rel="manifest" href="http://localhost/site.webmanifest">
+    <meta name="theme-color" content="#0F172A">
+    <link rel="preload" as="style" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="preload" as="style" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/app-xJzr7jY4.js" /><link rel="stylesheet" href="../../../../public/build/assets/app-Dt3AeOL8.css" /><link rel="stylesheet" href="../../../../public/build/assets/sidebar-3RJVmJJo.css" /><script type="module" src="../../../../public/build/assets/app-xJzr7jY4.js"></script></head>
+<body>
+
+<div class="ds-layout">
+
+
+    <aside class="ds-sidebar">
+
+
+        <div class="ds-brand">
+            <a href="/" class="ds-brand__link">
+                <img src="../../../../public/img/logo-wings.png" alt="" class="ds-brand__logo">
+                <span class="ds-brand__name">Wings</span>
+            </a>
+        </div>
+
+
+        <nav class="flex flex-col gap-0.5">
+
+
+
+
+                    <div class="ds-nav-group">Día a día</div>
+
+                                            <a href="http://localhost/admin/dashboard"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
+                            </svg>
+                            Dashboard
+                        </a>
+
+                    <a href="http://localhost/alumnos"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
+                        </svg>
+                        Alumnos
+                    </a>
+
+                    <a href="http://localhost/clases"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Clases
+                    </a>
+                                            <a href="http://localhost/clases?estado=finalizada"
+                           class="ds-nav-sublink "
+                           title="Clases que ya pasaron sin lista tomada: no se pueden liquidar">
+                            Sin asistencia
+                            <span class="ds-nav-count">3</span>
+                        </a>
+
+                        <div class="ds-nav-group">Plata</div>
+
+                        <a href="http://localhost/cobranza"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Cobranza
+                        </a>
+
+                                            <a href="http://localhost/caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Caja
+                        </a>
+
+                        <a href="http://localhost/movimientos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Movimientos
+                        </a>
+
+                                            <a href="http://localhost/cashflow"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Cashflow
+                        </a>
+
+                        <a href="http://localhost/liquidaciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            Liquidaciones
+                        </a>
+
+                        <a href="http://localhost/reportes"
+                           class="ds-nav-link ds-nav-link--active">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M4 19h16M7 16V9m5 7V5m5 11v-5"/>
+                            </svg>
+                            Reportes
+                        </a>
+
+                    <a href="http://localhost/revision-cobranza"
+                       class="ds-nav-link ">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Revisión
+                    </a>
+
+
+                        <div class="ds-nav-group">El club</div>
+
+                        <a href="http://localhost/deportes"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Deportes
+                        </a>
+
+                        <a href="http://localhost/niveles"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4"/>
+                            </svg>
+                            Niveles
+                        </a>
+
+                        <a href="http://localhost/grupos"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Grupos
+                        </a>
+
+                        <a href="http://localhost/profesores"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            Profesores
+                        </a>
+
+                        <a href="http://localhost/rubros"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
+                            Rubros
+                        </a>
+
+                        <a href="http://localhost/tipos-caja"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            Tipos de Caja
+                        </a>
+
+                        <div class="ds-nav-group">Sistema</div>
+
+
+                        <a href="http://localhost/configuraciones"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Configuración
+                        </a>
+
+                        <a href="http://localhost/usuarios"
+                           class="ds-nav-link ">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                            Usuarios
+                        </a>
+
+
+                                    </nav>
+
+    </aside>
+
+
+    <div id="ds-sidebar-overlay" class="ds-sidebar-overlay"></div>
+
+
+    <div class="ds-main">
+
+
+        <div class="ds-topbar">
+                            <div style="display:flex; align-items:center; gap:8px; min-width:0;">
+                    <button type="button" id="ds-menu-toggle" class="ds-menu-toggle" aria-label="Abrir menú">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Admin de prueba</span>
+                </div>
+                <form method="POST" action="http://localhost/logout">
+                    <input type="hidden" name="_token" value="FICTICIO" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+            type="submit"
+            >
+
+
+                            Salir
+
+    </button>
+
+                </form>
+                    </div>
+
+
+                    <header class="ds-module-header">
+    <div class="ds-module-header__inner">
+                <h1 class="ds-module-header__title">Reporte de alumnos</h1>
+    </div>
+</header>
+
+
+        <main class="ds-content">
+
+
+
+            <link rel="preload" as="style" href="../../../../public/build/assets/reportes-visual-BharXbUf.css" /><link rel="preload" as="style" href="../../../../public/build/assets/reportes-analiticos-DwXpNXtk.css" /><link rel="stylesheet" href="../../../../public/build/assets/reportes-visual-BharXbUf.css" /><link rel="stylesheet" href="../../../../public/build/assets/reportes-analiticos-DwXpNXtk.css" /><div class="reporte-visual reporte-analitico">
+    <div class="stats-bar mb-4"><div class="stats-info"><strong>Reportes</strong></div><a class="ds-btn ds-btn--secondary" href="http://localhost/reportes?mes=2026-10">Volver</a></div>
+    <div class="ra-subnav"><a href="http://localhost/reportes?mes=2026-10">Ingresos y egresos</a><strong aria-current="page">Alumnos</strong><a href="http://localhost/reportes/sueldos?mes=2026-10">Sueldos</a></div>
+        <form class="filtros-card ra-filters" method="GET" action="http://localhost/reportes/alumnos">
+        <select name="mes" class="filtros-control" aria-label="Mes"><option value="2026-10" selected>Octubre 2026</option><option value="2026-09" >Septiembre 2026</option><option value="2026-08" >Agosto 2026</option><option value="2026-07" >Julio 2026</option><option value="2026-06" >Junio 2026</option><option value="2026-05" >Mayo 2026</option><option value="2026-04" >Abril 2026</option></select>
+        <select name="deporte_id" class="filtros-control" aria-label="Deporte"><option value="">Todos los deportes</option><option value="2" >Fútbol</option><option value="1" >Patín</option></select>
+        <button class="ds-btn ds-btn--secondary" type="submit">Filtrar</button>
+    </form>
+    <div class="rv-section"><h2>Octubre 2026</h2><span class="rv-note">Asistencia hasta 09/10</span></div>
+    <div class="rv-kpis">
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-info)"></i>Activos hoy</div><div class="ra-count">22</div><div class="ra-mini">2 inactivos</div><div class="ra-meter"><i style="width:91.666666666667%;background:var(--color-info)"></i></div><span class="rv-note">Matrícula actual · 09/10</span></section>
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-success)"></i>Asistencias del mes</div><div class="ra-count">80</div><div class="ra-mini">20 alumnos distintos</div><div class="ra-meter"><i style="width:83.3%"></i></div><span class="rv-note">Cada presente cuenta una vez</span></section>
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-warning)"></i>Presencia registrada</div><div class="ra-count">83,3%</div><div class="ra-mini">16 ausencias registradas</div><div class="ra-meter"><i style="width:83.3%;background:var(--color-warning)"></i></div><span class="rv-note">Sobre presentes + ausentes cargados</span></section>
+        <section class="rv-kpi"><div class="rv-kpi-label"><i class="rv-swatch" style="background:var(--color-danger)"></i>Clases sin registros</div><div class="ra-count">1</div><div class="ra-mini">De 17 clases no canceladas</div><div class="ra-meter"><i style="width:5.8823529411765%;background:var(--color-danger)"></i></div><span class="rv-note">No cuentan como ausencias</span></section>
+    </div>
+    <div class="rv-main-grid">
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Evolución de asistencia</h3></div><div class="rv-body"><div class="rv-legend"><span><i class="rv-swatch" style="background:var(--color-success)"></i>Presentes</span><span><i class="rv-swatch" style="background:var(--color-warning)"></i>Ausentes</span><span class="rv-muted">Meses cerrados</span></div>
+                <div class="rv-chart"><canvas data-ra-chart="{&quot;type&quot;:&quot;line&quot;,&quot;labels&quot;:[&quot;abr.&quot;,&quot;may.&quot;,&quot;jun.&quot;,&quot;jul.&quot;,&quot;ago.&quot;,&quot;sep.&quot;],&quot;series&quot;:[{&quot;label&quot;:&quot;Presentes&quot;,&quot;values&quot;:[88,107,124,140,156,173],&quot;tone&quot;:&quot;success&quot;},{&quot;label&quot;:&quot;Ausentes&quot;,&quot;values&quot;:[104,85,68,52,36,19],&quot;tone&quot;:&quot;warning&quot;}],&quot;horizontal&quot;:false}" role="img" aria-label="Evolución de presentes y ausentes registrados"></canvas></div>
+                </div><details class="rv-detail"><summary>Detalle</summary><div class="rv-detail-row"><span>Abril 2026<small>Registros de clases no canceladas · 104 ausentes</small></span><strong>88 presentes</strong></div><div class="rv-detail-row"><span>Mayo 2026<small>Registros de clases no canceladas · 85 ausentes</small></span><strong>107 presentes</strong></div><div class="rv-detail-row"><span>Junio 2026<small>Registros de clases no canceladas · 68 ausentes</small></span><strong>124 presentes</strong></div><div class="rv-detail-row"><span>Julio 2026<small>Registros de clases no canceladas · 52 ausentes</small></span><strong>140 presentes</strong></div><div class="rv-detail-row"><span>Agosto 2026<small>Registros de clases no canceladas · 36 ausentes</small></span><strong>156 presentes</strong></div><div class="rv-detail-row"><span>Septiembre 2026<small>Registros de clases no canceladas · 19 ausentes</small></span><strong>173 presentes</strong></div></details></section>
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Activos por deporte</h3></div><div class="rv-body"><div class="ra-note">Hoy · 09/10</div>
+                <div class="rv-donut"><canvas data-ra-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;labels&quot;:[&quot;Pat\u00edn&quot;,&quot;F\u00fatbol&quot;],&quot;series&quot;:[{&quot;label&quot;:&quot;Activos&quot;,&quot;values&quot;:[12,10]}],&quot;horizontal&quot;:false}" role="img" aria-label="Distribución actual de alumnos activos por deporte"></canvas><div class="rv-donut-center"><strong>22</strong><span class="rv-note">Activos</span></div></div>
+        <div class="ra-duo"><div><strong style="color:var(--color-info)">12</strong><span>Patín</span></div><div><strong style="color:var(--color-success)">10</strong><span>Fútbol</span></div></div>
+                </div></section>
+    </div>
+    <div class="rv-section"><h2>Deporte y nivel</h2><span class="rv-note">Matrícula hoy · Asistencia del mes</span></div>
+    <div class="rv-pair">
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Activos por nivel</h3></div><div class="rv-body"><div class="rv-chart"><canvas data-ra-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;labels&quot;:[&quot;Pat\u00edn \u00b7 Principiantes&quot;,&quot;Pat\u00edn \u00b7 Intermedias&quot;,&quot;F\u00fatbol \u00b7 Principiantes&quot;,&quot;F\u00fatbol \u00b7 Intermedias&quot;],&quot;series&quot;:[{&quot;label&quot;:&quot;Activos hoy&quot;,&quot;values&quot;:[6,6,6,4],&quot;tone&quot;:&quot;info&quot;}],&quot;horizontal&quot;:true}" role="img" aria-label="Activos actuales por deporte y nivel"></canvas></div></div><details class="rv-detail"><summary>Detalle</summary><div class="rv-detail-row"><span>Patín · Principiantes</span><strong>6</strong></div><div class="rv-detail-row"><span>Patín · Intermedias</span><strong>6</strong></div><div class="rv-detail-row"><span>Fútbol · Principiantes</span><strong>6</strong></div><div class="rv-detail-row"><span>Fútbol · Intermedias</span><strong>4</strong></div></details></section>
+        <section class="alumno-card rv-panel"><div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Asistencia por nivel</h3></div><div class="rv-body"><div class="rv-legend"><span><i class="rv-swatch" style="background:var(--color-success)"></i>Presentes</span><span><i class="rv-swatch" style="background:var(--color-warning)"></i>Ausentes</span></div><div class="rv-chart"><canvas data-ra-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;labels&quot;:[&quot;Pat\u00edn \u00b7 Principiantes&quot;,&quot;Pat\u00edn \u00b7 Intermedias&quot;,&quot;F\u00fatbol \u00b7 Principiantes&quot;,&quot;F\u00fatbol \u00b7 Intermedias&quot;],&quot;series&quot;:[{&quot;label&quot;:&quot;Presentes&quot;,&quot;values&quot;:[20,20,20,20],&quot;tone&quot;:&quot;success&quot;},{&quot;label&quot;:&quot;Ausentes&quot;,&quot;values&quot;:[4,4,4,4],&quot;tone&quot;:&quot;warning&quot;}],&quot;horizontal&quot;:true}" role="img" aria-label="Asistencias y ausencias registradas por deporte y nivel"></canvas></div></div><details class="rv-detail"><summary>Detalle</summary><div class="rv-detail-row"><span>Patín · Principiantes<small>4 ausencias · 1 clases sin registros</small></span><strong>20 presentes</strong></div><div class="rv-detail-row"><span>Patín · Intermedias<small>4 ausencias · 0 clases sin registros</small></span><strong>20 presentes</strong></div><div class="rv-detail-row"><span>Fútbol · Principiantes<small>4 ausencias · 0 clases sin registros</small></span><strong>20 presentes</strong></div><div class="rv-detail-row"><span>Fútbol · Intermedias<small>4 ausencias · 0 clases sin registros</small></span><strong>20 presentes</strong></div></details></section>
+    </div>
+    <div class="rv-section"><h2>Seguimiento</h2><span class="rv-note">Sin cambios automáticos de estado</span></div>
+    <details class="filtros-card rv-detail"><summary>Activos hoy sin presentes en octubre · 3</summary><p class="ra-mini">No determina que hayan dejado de venir. Revisar clases y registros antes de decidir.</p><div class="rv-detail-row"><span>Prueba, Alumno 12<small>Patín · Intermedias</small></span><a href="http://localhost/alumnos/12" class="rv-note">Ver</a></div><div class="rv-detail-row"><span>Prueba, Alumno 18<small>Fútbol · Principiantes</small></span><a href="http://localhost/alumnos/18" class="rv-note">Ver</a></div><div class="rv-detail-row"><span>Prueba, Alumno 6<small>Patín · Principiantes</small></span><a href="http://localhost/alumnos/6" class="rv-note">Ver</a></div></details>
+    <div class="ra-note"><i class="rv-swatch" style="background:var(--color-warning)"></i>1 revisiones pendientes <a href="http://localhost/revision-cobranza" style="margin-left:auto">Ver</a></div>
+    <div class="rv-footer"><span>Matrícula actual · asistencia del mes elegido</span><span>Clases canceladas y futuras excluidas</span></div>
+</div>
+
+        </main>
+
+
+        <footer class="ds-footer">
+            <div class="ds-footer__inner">Wings</div>
+        </footer>
+
+    </div>
+
+</div>
+
+<link rel="modulepreload" as="script" href="../../../../public/build/assets/reportes-analiticos-CoaqU5EL.js" /><link rel="modulepreload" as="script" href="../../../../public/build/assets/chart-DwLVCIBZ.js" /><script type="module" src="../../../../public/build/assets/reportes-analiticos-CoaqU5EL.js"></script>
+</body>
+</html>

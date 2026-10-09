@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-09 — Codex CyE — Sueldos aprobado; acceso Plata → Reportes aplicado
+
+Carlos: «Esta OK, solo deberiamos ver desde donde accede en el menu», sobre Sueldos.
+Acceso anterior comprobado: Inicio → Ver → Sueldos al pie. Tras «Continuar», aplicada entrada Reportes en Plata.
+Ubicación recomendada debajo de Liquidaciones, sin elección expresa; tres opciones arriba, mes/deporte conservados.
+56 pantallas Laravel/112PNG y4 menús móviles; roles mantienen403. [Acceso y evidencia](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
+Suite propia573/2,4616aserciones,885,32s; vistas/sintaxis correctas. Control independiente de fuente y12PNG aprobado; sin club/deploy.
+B12/A23 abiertos: revisión del acceso, ajuste final, prueba manual y antecedentes pendientes.
+
 ## 2026-10-09 — Codex CyE — Sueldos y monto final implementados y verificados, aspecto por revisar
 
 Créditos restablecidos; Alumnos aprobado («Esta OK») e integrado a ruta habitual ADMIN.
@@ -110,14 +119,4 @@ GitHub main comprobado en 91e2650 antes de publicar; faltaban el plan y continui
 Control documental independiente aprobado: 20 turnos, 62 enlaces y cortes íntegros; sin cambios de aplicación, base o servidor.
 Siguiente: Carlos revisa el plan; entrada antigua archivada intacta en el corte Desarrollo II.
 
-## 2026-10-08 — Codex CyE — B12/A23, plan para revisar
-
-Carlos pidió plan conjunto antes de desarrollar; recuperada encuesta 13–22/09 y FIN-04.
-Leídos cuerpos actuales de inicio ADMIN, saldos/integración, liquidación/pago, avisos, generador y anulación.
-[Propuesta](../07-evaluacion/PLAN-REPORTES-TABLERO-v2026-10-08.md): cálculo común, B12 mensual, A23, detalle/evolución y control independiente.
-Conservar seis meses cerrados con datos, fechas reales, confirmación separada, gastos del club y Revisión única.
-Antes de código: conciliar retiros del dueño entre contratos, comprobar historia y puerta de prueba humana.
-Solo planificación documental: sin pruebas, consultas a base real, cambios de aplicación ni despliegue.
-Siguiente: Carlos revisa el plan; desarrollo no iniciado. Entrada antigua archivada íntegra en corte de Reportes.
-
-[Archivo íntegro anterior a esta entrega, incluidos cortes previos](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-SUELDOS-IMPLEMENTACION.txt).
+[Archivo íntegro anterior a la aprobación de Sueldos](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-SUELDOS-APROBADO.txt).

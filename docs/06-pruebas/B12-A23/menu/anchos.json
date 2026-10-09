@@ -1,0 +1,282 @@
+{
+  "web.primera-carga.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3096
+  },
+  "web.caja.index": {
+    "ancho": 375,
+    "scroll": 465,
+    "alto": 3000
+  },
+  "web.caja.apertura": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.configuracion": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.movimiento": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.historial": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.cobrar-cuota": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.cobrar": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.resumen": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.detalle": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.editar": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.caja.movimientos.editar": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.operativo.dashboard": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.movimientos.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.cobranza.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.revision-cobranza.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "admin.dashboard": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.reportes.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.reportes.alumnos": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.reportes.sueldos": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3702
+  },
+  "web.cashflow.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.cashflow.movimiento": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.alumnos.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 5177
+  },
+  "web.alumnos.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.alumnos.show": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.alumnos.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.deportes.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.deportes.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.deportes.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.rubros.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3471
+  },
+  "web.rubros.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.grupos.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.grupos.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.grupos.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.grupos.show": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.clases.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.clases.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.clases.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.clases.show": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.liquidaciones.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.liquidaciones.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.liquidaciones.show": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.tipos-caja.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.tipos-caja.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.tipos-caja.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.niveles.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.niveles.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.niveles.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.usuarios.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.usuarios.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.usuarios.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.configuraciones.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.profesores.index": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.profesores.create": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.profesores.show": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  },
+  "web.profesores.edit": {
+    "ancho": 375,
+    "scroll": 375,
+    "alto": 3000
+  }
+}
