@@ -1,91 +1,47 @@
 @extends('layouts.app')
-
-@section('title', 'Dashboard – Wings')
-@section('module-title', 'Dashboard')
-
+@section('title', 'Inicio – Wings')
+@section('module-title', 'Inicio')
 @section('content')
-
-    {{-- KPIs --}}
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-
-        <div class="filtros-card" style="text-align: center;">
-            <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted); margin-bottom: 6px;">Alumnos activos</p>
-            <p style="font-size: 2rem; font-weight: 800; color: var(--color-btn-primary); line-height: 1;">{{ $alumnosActivos }}</p>
-        </div>
-
-        <div class="filtros-card" style="text-align: center;">
-            <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted); margin-bottom: 6px;">Con deuda</p>
-            <p style="font-size: 2rem; font-weight: 800; color: var(--color-danger); line-height: 1;">{{ $alumnosConDeuda }}</p>
-        </div>
-
-        <div class="filtros-card" style="text-align: center;">
-            <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted); margin-bottom: 6px;">Deuda total</p>
-            <p style="font-size: clamp(1.1rem, 4vw, 1.6rem); font-weight: 800; color: var(--color-danger); line-height: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${{ number_format($totalDeudaPendiente, 0, ',', '.') }}">
-                ${{ number_format($totalDeudaPendiente, 0, ',', '.') }}
-            </p>
-        </div>
-
-        <div class="filtros-card" style="text-align: center;">
-            <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted); margin-bottom: 6px;">Altas este mes</p>
-            <p style="font-size: 2rem; font-weight: 800; color: var(--color-success); line-height: 1;">{{ $alumnosNuevosMes }}</p>
-        </div>
-
+@php
+    $dinero = fn ($centavos) => $centavos === null ? 'Sin historial' : '$'.number_format($centavos / 100, 0, ',', '.');
+    $title = 'Inicio';
+    $mes = \Carbon\CarbonImmutable::createFromFormat('!Y-m', $reporte['mes'])->locale('es');
+    $corte = \Carbon\CarbonImmutable::parse($reporte['fecha_corte'])->locale('es');
+    $reportesDisponibles = \Illuminate\Support\Facades\Route::has('web.reportes.index');
+    $enlaceReportes = $reportesDisponibles ? route('web.reportes.index', ['mes' => $reporte['mes']]) : null;
+@endphp
+<div class="stats-bar mb-4"><div class="stats-info"><strong>{{ ucfirst($mes->translatedFormat('F Y')) }}</strong> · Todo el negocio</div>
+    @if($enlaceReportes)<a class="ds-btn ds-btn--secondary" href="{{ $enlaceReportes }}">Ver</a>@else<button type="button" class="ds-btn ds-btn--secondary" disabled>Ver</button>@endif
+</div>
+<p style="color:var(--color-text-muted);font-size:.8rem;margin-bottom:16px">Mes en curso · hasta el {{ $corte->translatedFormat('j \d\e F') }}</p>
+@if($reporte['sin_clasificar'] > 0)
+<p style="color:var(--color-warning);font-size:.8rem;margin-bottom:16px">{{ $reporte['sin_clasificar'] }} movimientos por clasificar. El resultado está incompleto.</p>
+@endif
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px">
+@foreach([['Ingresos del mes',$reporte['ingresos'],'success','ingresos'],['Egresos del mes',$reporte['egresos'],'danger','egresos'],['Alumnos por cobrar',$reporte['deuda']['total'],'warning','deuda'],['Profesores por pagar',$reporte['por_pagar']['total'],'info','profesores']] as [$nombre,$valor,$color,$ancla])
+    <a @if($enlaceReportes) href="{{ $enlaceReportes }}#{{ $ancla }}" @else role="link" aria-disabled="true" @endif class="filtros-card" style="text-decoration:none;display:block;min-width:0">
+        <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">{{ $nombre }}</p>
+        <p style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-{{ $color }});overflow-wrap:anywhere">{{ $dinero($valor) }}</p>
+    </a>
+@endforeach
+</div>
+<div class="filtros-card" style="margin-bottom:20px;display:flex;justify-content:space-between;gap:12px;align-items:center">
+    <span style="font-weight:600">Resultado de {{ $mes->translatedFormat('F') }}</span><strong style="font-size:1.35rem;color:var(--color-{{ $reporte['resultado'] < 0 ? 'danger' : 'success' }})">{{ $reporte['resultado'] === null && $reporte['sin_clasificar'] > 0 ? 'Sin clasificar' : $dinero($reporte['resultado']) }}</strong>
+</div>
+<div class="alumno-card" style="margin-bottom:20px">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Disponible</h3></div>
+    <p style="font-size:1.7rem;font-weight:750;padding:0 16px 12px">{{ $dinero($reporte['disponible']) }}</p>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px">
+    @foreach($reporte['cajas'] ?? [] as $caja)
+        <div><p style="font-size:.75rem;color:var(--color-text-muted)">{{ $caja['nombre'] }}</p><strong>{{ $dinero($caja['total']) }}</strong></div>
+    @endforeach
     </div>
-
-    {{-- Accesos rápidos --}}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-        <a href="{{ route('web.alumnos.index') }}" class="filtros-card" style="
-            text-decoration: none; display: block;
-            transition: box-shadow 0.15s, transform 0.15s;
-        " data-elevar>
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-btn-primary) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg class="w-5 h-5" style="color: var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-wings">Alumnos</p>
-                    <p style="font-size: 0.72rem; color: var(--color-text-muted);">{{ $alumnosActivos }} activos · {{ $alumnosInactivos }} inactivos</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="{{ route('web.grupos.index') }}" class="filtros-card" style="
-            text-decoration: none; display: block;
-            transition: box-shadow 0.15s, transform 0.15s;
-        " data-elevar>
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-success) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg class="w-5 h-5" style="color: var(--color-success);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-wings">Grupos</p>
-                    <p style="font-size: 0.72rem; color: var(--color-text-muted);">Gestión de grupos y planes</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="{{ route('web.rubros.index') }}" class="filtros-card" style="
-            text-decoration: none; display: block;
-            transition: box-shadow 0.15s, transform 0.15s;
-        " data-elevar>
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--color-warning) 12%, transparent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg class="w-5 h-5" style="color: var(--color-warning);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-wings">Rubros</p>
-                    <p style="font-size: 0.72rem; color: var(--color-text-muted);">Rubros y subrubros</p>
-                </div>
-            </div>
-        </a>
-
-    </div>
-
+    <div class="alumno-actions" style="border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted)">Incluye arrastre · {{ $dinero($reporte['cajas'] === null ? null : array_sum(array_column($reporte['cajas'],'pendiente'))) }} por validar</div>
+</div>
+<div class="alumno-card">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Para revisar</h3></div>
+    @foreach([['Cajas por validar','cajas',route('web.caja.index',['pendientes'=>1])],['Liquidaciones pendientes','liquidaciones',route('web.liquidaciones.index',['pendientes'=>1])],['Clases sin asistencia','asistencia',route('web.clases.index',['estado'=>'finalizada'])],['Revisión de alumnos','revision',route('web.revision-cobranza.index',['estado'=>'PENDIENTE'])]] as [$etiqueta,$clave,$enlace])
+        <a href="{{ $enlace }}" style="display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--color-border);text-decoration:none;color:var(--color-text);font-size:.86rem"><span>{{ $etiqueta }}</span><strong>{{ $reporte['avisos'][$clave] }} →</strong></a>
+    @endforeach
+</div>
 @endsection

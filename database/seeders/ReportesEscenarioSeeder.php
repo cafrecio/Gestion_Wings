@@ -105,6 +105,11 @@ class ReportesEscenarioSeeder extends Seeder
             $clase->profesores()->attach($profesor->id);
             AlumnoRevisionCobranza::create(['alumno_id' => $alumnos[23]->id, 'periodo_objetivo' => '2026-11',
                 'motivo' => 'Sin asistencia en escenario ficticio', 'estado_revision' => 'PENDIENTE']);
+            // Este escenario representa un club operativo. No simula una carga
+            // Excel deshacible ni modifica la protección P1 de otras bases.
+            DB::table('primera_carga')->where('id', 1)->update([
+                'estado' => 'TERMINADA', 'usuario_id' => $admin->id, 'detalle' => null,
+            ]);
         } finally {
             Carbon::setTestNow($reloj);
         }

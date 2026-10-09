@@ -1,7 +1,9 @@
 # B12/A23 — motor e historial, ensayo 09/10/2026
 
 Autor: Codex CyE. [24 decisiones de Carlos](../../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).
-En desarrollo: pantallas habituales y rutas de Reportes aún no reemplazadas.
+Primer corte: motor/historial previo a integración de pantallas. Después Carlos aprobó
+Inicio y rechazó Reportes original. [Entrega posterior y límites vigentes](IMPLEMENTACION-INICIO-2026-10-09.md):
+Inicio aplicado; nueva propuesta financiera pendiente, rutas finales B12 aún sin implementar.
 
 ## Datos ficticios y cálculos
 
@@ -75,9 +77,10 @@ más control login. HTML producido por solicitudes reales a Laravel autenticado;
 propuestas Blade fuera de `resources/views`, con tokens/componentes existentes.
 Sin maqueta HTML que simule respuestas de aplicación. Credenciales/tokens no publicados.
 
-Siguiente: Carlos elige primero el aspecto de Inicio; terminar conexión de filtros,
-detalle, clasificación histórica y accesos a listados; verificar lógica/permisos con
-otro agente antes de cerrar. Sin despliegue.
+Siguiente vigente: Carlos elige la nueva propuesta financiera; desarrollar Alumnos/Sueldos,
+conectar filtros/rutas y detalle, y completar clasificación histórica. Inicio aprobado/aplicado
+y sus cuatro avisos verificados por HTTP independiente; indicadores de detalle aún deshabilitados.
+Ver [entrega posterior](IMPLEMENTACION-INICIO-2026-10-09.md) para pruebas/capturas actuales. Sin despliegue.
 
 ## Repetir el escenario
 
@@ -89,6 +92,9 @@ $env:DB_DATABASE='wings_testing_codex'
 php scripts/reportes/preparar-escenario.php
 ```
 
-Para renovar HTML real, usar `WINGS_CAPTURAS=1` y la prueba
-`seis_meses_y_mes_actual_concilian_sin_arrastre_en_el_resultado`, luego capturar
-escritorio o marco375 en Chrome. No cambiar la base del club para mirar estas imágenes.
+Para renovar Inicio real, usar `WINGS_CAPTURAS=1` con la prueba
+`inicio_admin_usa_el_motor_mensual_y_no_cambia_por_parametros`.
+Para Finanzas v2: `php scripts/reportes/capturar-propuesta.php`
+después de restaurar escenario; luego capturar escritorio y marco375 en Chrome.
+Las propuestas originales solo se regeneran con `WINGS_CAPTURAS_ANTERIORES=1`;
+no sustituir el aspecto rechazado por una aprobación. No cambiar la base del club.

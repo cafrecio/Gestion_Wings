@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumno;
-use App\Models\DeudaCuota;
 use App\Models\User;
+use App\Services\ReporteMensualService;
+use App\Support\RegistroReporteDisponible;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,28 +56,18 @@ class WebController extends Controller
         return redirect('/login');
     }
 
-    public function adminDashboard()
+    public function adminDashboard(ReporteMensualService $reportes)
     {
-        $alumnosActivos = Alumno::where('activo', true)->count();
-        $alumnosInactivos = Alumno::where('activo', false)->count();
-        $alumnosConDeuda = Alumno::where('activo', true)
-            ->whereHas('deudaCuotas', fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE))
-            ->count();
-        $totalDeudaPendiente = DeudaCuota::where('estado', DeudaCuota::ESTADO_PENDIENTE)
-            ->selectRaw('SUM(monto_original - monto_pagado) as total')
-            ->value('total') ?? 0;
-        $alumnosNuevosMes = Alumno::where('activo', true)
-            ->whereMonth('fecha_alta', now()->month)
-            ->whereYear('fecha_alta', now()->year)
-            ->count();
-
-        return view('admin.dashboard', compact(
-            'alumnosActivos',
-            'alumnosInactivos',
-            'alumnosConDeuda',
-            'totalDeudaPendiente',
-            'alumnosNuevosMes'
-        ));
+        $mes = today()->format('Y-m');
+        // Inicio siempre muestra el mes en curso. No admite filtros que cambien
+        // silenciosamente los avisos actuales ni requiere migrar la base del club.
+        $reporte = RegistroReporteDisponible::existe() ? $reportes->obtener($mes) : [
+            'mes' => $mes, 'fecha_corte' => today()->toDateString(), 'historial_desde' => null,
+            'ingresos' => null, 'egresos' => null, 'resultado' => null, 'sin_clasificar' => 0,
+            'deuda' => ['total' => null], 'por_pagar' => ['total' => null],
+            'disponible' => null, 'cajas' => null, 'avisos' => $reportes->avisos(),
+        ];
+        return view('admin.dashboard', compact('reporte'));
     }
 
     private function redirectByRole($user)

@@ -47,6 +47,11 @@ class LiquidacionWebController extends Controller
                 default     => null,
             };
         }
+        if ($request->input('pendientes') === '1') {
+            // Mismo conjunto que el aviso de Inicio: cerradas, aún no pagadas,
+            // de cualquier mes. La opción normal "cerrada" sigue incluyendo pagadas.
+            $query->where('estado', 'CERRADA')->where('estado_pago', 'PENDIENTE');
+        }
 
         $liquidaciones     = $query->paginate(20)->withQueryString();
         $profesores        = Profesor::where('activo', true)->orderBy('apellido')->get();

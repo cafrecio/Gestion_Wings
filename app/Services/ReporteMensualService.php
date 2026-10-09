@@ -103,7 +103,7 @@ class ReporteMensualService
             'clasificacion' => $m->reporte_clasificacion];
     }
 
-    private function avisos(): array
+    public function avisos(): array
     {
         // Consultas puras: no llamar resumenDiario(), que también manda avisos.
         return [

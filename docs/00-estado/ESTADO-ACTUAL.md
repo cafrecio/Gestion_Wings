@@ -2,6 +2,13 @@
 
 ## B12/A23 — plan validado, desarrollo autorizado 09/10/2026
 
+Control HTTP independiente de Inicio, 09/10: el escenario guardado dejaba P1 en
+PENDIENTE y el acceso normal redirigía a preparación. Los tests base marcan P1
+TERMINADA antes de cada prueba; ese contexto no se conservaba al reconstruir datos.
+Corregido solo `ReportesEscenarioSeeder`: P1 TERMINADA en el escenario ficticio,
+sin habilitar Deshacer ni retirar la protección del club. Regresión: la prueba fuerza
+P1 PENDIENTE antes del seeder. Control HTTP posterior aprobado (Inicio y cuatro listados).
+
 Comprobación de historia, 09/10: descuentos/cambios de plan sobrescriben el importe
 original de la cuota; las liquidaciones no conservan fecha de cierre ni deporte
 congelado. `afecta_caja` controla admisión operativa, no resultado económico:
@@ -10,7 +17,9 @@ Carlos eligió deuda histórica al cierre: agregar registro fechado desde un cor
 explícito, sin certificar meses previos incompletos. Datos ficticios solo en la base
 Codex. La clasificación económica debe ser independiente de `afecta_caja`.
 
-Carlos validó los [24 acuerdos](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), incluido corte histórico y datos ficticios. Motor e historial implementados en desarrollo; escenario Codex con 24 alumnos y siete meses, doce pruebas nuevas. Revisión independiente de código aprobada tras corregir casos retroactivos/sueldos/edición; suite completa 528 aprobadas/2 omitidas, 4244 aserciones. [Entrega y límites](../06-pruebas/B12-A23/RESULTADO.md), [capturas reales](../06-pruebas/B12-A23/visor.html). Carlos elige primero Inicio. Rutas/vistas habituales y circuito de clasificación aún pendientes; no afirmar B12/A23 terminados ni desplegados.
+Carlos validó los [acuerdos y revisión posterior](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md). Motor/historial en desarrollo; Inicio aprobado («Ok, aprobado»), aplicado y verificado por HTTP independiente. Cuatro avisos abren los listados exactos, incluidos pendientes antiguos; permisos conservados. Suite completa: 532 aprobadas/2 omitidas, 4286 aserciones, 280,70 s; posteriormente cuatro regresiones P1 aprobadas (42 aserciones). [Entrega de Inicio](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md) y [visor](../06-pruebas/B12-A23/visor.html).
+
+Carlos rechazó el Reportes original. Nueva propuesta Ingresos/egresos separa evolución, explicación de variaciones y rubros con filas; aún no aprobada ni aplicada. Reporte Alumnos y análisis Sueldos pendientes. Sueldos: costo de clases del mes / cuotas reales del mismo mes netas de bonificaciones y condonación / cada asistencia presente por separado. Falta resolver atribución por profesor/cobertura histórica. Ver/indicadores de Inicio permanecen deshabilitados hasta tener rutas finales de Reportes; clasificación de antecedentes pendiente. B12/A23 abiertos, sin despliegue ni cambios en base del club.
 
 ## A32 — CERRADO 08/10/2026, verifica Carlos
 
@@ -340,7 +349,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **530 pruebas** (528 aprobadas/2 omitidas, 4244 aserciones, 276,58 s; B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **534 pruebas** (532 aprobadas/2 omitidas, 4286 aserciones, 280,70 s; integración Inicio B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

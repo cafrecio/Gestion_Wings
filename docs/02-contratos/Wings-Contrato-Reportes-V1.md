@@ -15,6 +15,8 @@
 
 **Enmienda B12/A23, 09/10/2026:** Carlos validó los [24 acuerdos de Desarrollo III](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), que prevalecen ante diferencias con antecedentes de este contrato. Disponible por tipo de caja y total, confirmado/pendiente separados; aportes y retiros del dueño cambian saldo pero no resultado del negocio. Consulta mensual, gráficos de hasta seis meses cerrados con datos y mes actual aparte; alumnos activos por deporte/nivel. Inicio ADMIN resume esos mismos cálculos y cuatro avisos breves con acceso al listado. Mensajería interna queda para después. Desarrollo autorizado antes de la prueba manual; aprobación visual posterior mediante imágenes reales. Verificar cobertura histórica antes de prometer cifras reconstruidas.
 
+**Revisión posterior de Carlos, 09/10/2026:** Inicio aprobado en capturas; Reportes original rechazado. Separar Reporte Alumnos e Ingresos/egresos, con origen/destino por rubro y evolución que explique cambios. Análisis Sueldos por deporte/profesor: costo de las clases del mes aunque se paguen después, comparado con cuotas reales del mismo mes netas de bonificaciones y condonación aunque se cobren después; costo por asistencia cuenta cada presencia por separado, no alumnos únicos. Pendientes atribución de cuotas a profesores y cobertura histórica verificable. No modificar por estos indicadores reglas de liquidación/comisión ni fecha real de los movimientos. No convertir falta de historia en cero. [Decisiones literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).
+
 **Consulta de Cashflow, A10 08/10/2026:** Carlos aprobó la propuesta Día/Semana/Mes/Año con Resultado del período. Implementada y verificada por Claude el 08/10 (segunda revisión): Día usa una fecha; Semana la semana lunes–domingo que la contiene, sin recortar por mes/año; Mes/Año usan el intervalo completo seleccionado. Filas e ingresos/egresos comparten fechas inclusivas y filtro de caja; Tipo afecta las filas y mantiene ambos totales. Resultado del período = ingresos − egresos, sin saldo inicial. Sin selector explícito se conserva la consulta anual y los enlaces anteriores Año/Mes. Limpiar quita Caja/Tipo conservando período y fecha; el enlace se comprobó con clic real en los cuatro modos. Esta consulta no implementa POS-01 ni el apartado de saldo acumulado. [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md).
 
 Decisiones expresas de Carlos, consolidadas desde la entrevista. Esta enmienda
@@ -294,8 +296,10 @@ Carlos autorizó construir B12/A23 antes de la prueba funcional completa:
 «Vamos a implementarlo antes de la prueba manual. Avancemos».
 Carlos eligió deuda histórica al cierre; se conservan cambios fechados desde la
 activación. Meses anteriores incompletos quedan indisponibles. [Ensayo y capturas](../06-pruebas/B12-A23/RESULTADO.md).
-Código revisado por otro agente; suite final en ejecución. Pantallas/rutas habituales
-y clasificación de antecedentes pendientes; Carlos elige el aspecto con imágenes.
+Inicio aplicado con aprobación visual de Carlos y control HTTP independiente;
+suite completa 532 aprobadas/2 omitidas, 4286 aserciones. Nueva propuesta financiera,
+Alumnos/Sueldos, rutas de detalle y clasificación de antecedentes pendientes.
+[Entrega y límites de esta integración](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
 
 El menú del administrador se reordena **después** de esto, porque estas pantallas lo
 cambian igual.

@@ -1,18 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-09 — Codex CyE — Inicio aprobado/aplicado, Reportes replanteado
-
-Carlos aprobó Inicio («Ok, aprobado») y rechazó Reportes original; separar Alumnos e Ingresos/egresos.
-Inicio usa motor común; cuatro avisos abren listados exactos, incluidos pendientes anteriores.
-Ver/indicadores deshabilitados hasta rutas finales. Lógica/permisos verificados por HTTP independiente.
-Corregido P1 solo en seeder ficticio; gate del club intacto. Datos exclusivamente wings_testing_codex.
-Suite completa 532/2, 4286 aserciones; después P1 4/42 y módulo 16/108, todos aprobados.
-Sueldos: costo clases del mes, cuotas reales netas del mismo mes, cada presencia por separado.
-Nueva propuesta financiera con evolución y explicación por rubros; revisada, aún no elegida/aplicada.
-[Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md) · [visor](../06-pruebas/B12-A23/visor.html).
-Siguiente: elegir Finanzas, resolver atribución por profesor/historia y desarrollar Alumnos/Sueldos. B12/A23 abiertos, sin deploy.
-Diez entradas activas; corte anterior íntegro archivado antes de retirar la más antigua.
-
 ## 2026-10-09 — Codex CyE — B12/A23, motor e historial con datos ficticios
 
 Carlos validó 24 acuerdos; pidió desarrollar antes de prueba manual y eligió deuda histórica al cierre.
@@ -121,6 +108,19 @@ Sin build/suite completa por la propuesta documental; servidor de laboratorio de
 Siguiente: Carlos elige aspecto; implementación de intervalos/cálculos requiere verificación independiente.
 Diez entradas; antigua abreviación 06/10 íntegra en el corte 08/10, comprobada antes de retirarla.
 
+## 2026-10-08 — Codex CyE — A9 confirmado; A10 propuesta completa
+
+Carlos confirmó «Perfecto, APROBADO A-9 Entonces»; aprobación explícita registrada.
+A10: dos variantes Blade derivadas del original, mismos controladores, solo laboratorio Codex.
+Propuesta: Nuevo junto a contador en barra propia, Limpiar en filtros y título Nuevo movimiento.
+28 capturas reales ADMIN escritorio/375: año/mes/vacío y formulario hasta Cancelar/Registrar.
+Filas/período idénticos; seis campos con íconos, cero desborde; Nuevo pulsado en escritorio.
+X-Frame-Options DENY impide navegación en marco; móvil capturado en srcdoc de Laravel.
+PHP/Blade y enlaces correctos; assets existentes; sin nueva suite/build ni cambios de aplicación.
+[ANTES/propuesta y formulario completo](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10.html); estado/tablero actualizados.
+A10 espera elección; paquete sin autocierre/publicación, verificación independiente pendiente.
+Diez entradas; retirada antigua íntegra en el corte 08/10, comprobada antes de quitarla.
+
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
 
 [Entrada íntegra retirada en este corte de Reportes](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-PLAN-REPORTES.txt).
@@ -128,5 +128,3 @@ Diez entradas; antigua abreviación 06/10 íntegra en el corte 08/10, comprobada
 [Entrada íntegra retirada al recuperar Desarrollo II](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-DESARROLLO-II.txt).
 
 [Corte íntegro B12/A23 09/10](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-B12-A23.txt).
-
-[Corte íntegro antes de aplicar Inicio y replantear Reportes](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-INICIO-REPORTES.txt).

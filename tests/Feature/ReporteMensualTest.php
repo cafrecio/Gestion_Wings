@@ -17,6 +17,9 @@ class ReporteMensualTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        // Reproducir el estado real de migrate:fresh, sin heredar el club
+        // operativo que Tests\TestCase prepara para los tests históricos.
+        DB::table('primera_carga')->where('id', 1)->update(['estado' => 'PENDIENTE']);
         $this->seed(ReportesEscenarioSeeder::class);
         Carbon::setTestNow('2026-10-09 12:00:00');
     }
@@ -44,7 +47,7 @@ class ReporteMensualTest extends TestCase
         $this->assertSame(['cajas' => 1, 'liquidaciones' => 1, 'liquidaciones_abiertas' => 1, 'asistencia' => 1, 'revision' => 1], $r['avisos']);
         $this->assertCount(6, $servicio->evolucion('2026-10'));
         $this->assertSame(24, array_sum(array_column($r['alumnos'], 'cantidad')));
-        if (getenv('WINGS_CAPTURAS') === '1') $this->capturar($r, $servicio->evolucion('2026-10'));
+        if (getenv('WINGS_CAPTURAS_ANTERIORES') === '1') $this->capturar($r, $servicio->evolucion('2026-10'));
     }
 
     public function test_cobro_posterior_no_borra_deuda_del_cierre_anterior(): void
@@ -183,6 +186,9 @@ class ReporteMensualTest extends TestCase
 
     private function capturar(array $reporte, array $evolucion): void
     {
+        $sanear = fn ($html) => preg_replace([
+            '/(<meta name="csrf-token" content=")[^"]+/', '/(name="_token" value=")[^"]+/',
+        ], ['$1FICTICIO', '$1FICTICIO'], $html);
         $directorio = base_path('docs/06-pruebas/B12-A23/capturas');
         if (!is_dir($directorio)) mkdir($directorio, 0775, true);
         foreach (['reportes', 'inicio'] as $pantalla) {
@@ -193,14 +199,14 @@ class ReporteMensualTest extends TestCase
             $html = str_replace(url('/').'/build/', 'file:///'.str_replace('\\', '/', public_path('build')).'/', $html);
             $html = str_replace(['src="/build/', 'href="/build/'], ['src="file:///'.str_replace('\\', '/', public_path('build')).'/',
                 'href="file:///'.str_replace('\\', '/', public_path('build')).'/'], $html);
-            file_put_contents($directorio.'/'.$pantalla.'.html', $html);
+            file_put_contents($directorio.'/'.$pantalla.'.html', $sanear($html));
         }
         $login = $this->get('/login')->getContent();
         // Autenticado redirige: guardar login con sesión cerrada para calibrar 375.
         \Illuminate\Support\Facades\Auth::logout();
         $login = $this->get('/login')->assertOk()->getContent();
         $login = str_replace(url('/').'/build/', 'file:///'.str_replace('\\', '/', public_path('build')).'/', $login);
-        file_put_contents($directorio.'/login.html', $login);
+        file_put_contents($directorio.'/login.html', $sanear($login));
         file_put_contents($directorio.'/calculos.json', json_encode(['reporte' => $reporte, 'evolucion' => array_map(fn ($r) =>
             ['mes' => $r['mes'], 'resultado' => $r['resultado'], 'deuda' => $r['deuda']['total']], $evolucion)], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
@@ -246,6 +252,86 @@ class ReporteMensualTest extends TestCase
         app(PagoCuotaService::class)->anularCobroAdmin($pago->id, 'Anulación ficticia para probar el cierre', User::where('rol', 'ADMIN')->first()->id);
         $this->assertSame($septiembre['deuda']['total'], $s->obtener('2026-09')['deuda']['total']);
         $this->assertSame($septiembre['resultado'], $s->obtener('2026-09')['resultado']);
+    }
+
+    public function test_inicio_admin_usa_el_motor_mensual_y_no_cambia_por_parametros(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->first());
+        $respuesta = $this->get(route('admin.dashboard', ['mes' => '2026-08', 'deporte_id' => 999]));
+        $respuesta->assertOk()->assertViewIs('admin.dashboard');
+        $this->assertSame(app(ReporteMensualService::class)->obtener('2026-10'), $respuesta->viewData('reporte'));
+        $respuesta->assertSee('$660.000')->assertSee('$75.000')->assertSee('$585.000')
+            ->assertSee('$4.360.000')->assertSee('$690.000')->assertSee('$90.000')->assertDontSee('Datos ficticios');
+        // Reportes sigue esperando elección visual: no publicar vínculos rotos.
+        $respuesta->assertSee('aria-disabled="true"', false)->assertDontSee('reportes.html');
+        if (getenv('WINGS_CAPTURAS') === '1') {
+            $html = preg_replace('/(<meta name="csrf-token" content=")[^"]+/', '$1FICTICIO', $respuesta->getContent());
+            $html = preg_replace('/(name="_token" value=")[^"]+/', '$1FICTICIO', $html);
+            $html = preg_replace('#https?://[^/]+/build/#', '../../../../public/build/', $html);
+            $html = preg_replace('#https?://[^/]+/img/#', '../../../../public/img/', $html);
+            $html = preg_replace('/[ \t]+(?=\r?$)/m', '', $html);
+            file_put_contents(base_path('docs/06-pruebas/B12-A23/capturas/inicio-aplicado.html'), $html);
+        }
+    }
+
+    public function test_avisos_abren_exactamente_los_pendientes_incluidos_meses_antiguos(): void
+    {
+        $vieja = CajaOperativa::where('estado', 'CERRADA')->firstOrFail()->replicate();
+        $vieja->apertura_at = '2026-04-10 09:00:00';
+        $vieja->save();
+        $liq = \App\Models\Liquidacion::where('estado', 'CERRADA')->firstOrFail();
+        $pagada = $liq->replicate();
+        $pagada->mes = 5;
+        $pagada->estado_pago = 'PAGADA';
+        $pagada->save();
+        $antigua = $liq->replicate();
+        $antigua->mes = 4;
+        $antigua->save();
+        $this->actingAs(User::where('rol', 'ADMIN')->first());
+        $inicio = $this->get(route('admin.dashboard'))->assertOk();
+        $avisos = $inicio->viewData('reporte')['avisos'];
+        $this->assertSame(2, $avisos['cajas']);
+        $this->assertSame(2, $avisos['liquidaciones']);
+        $cajas = $this->get(route('web.caja.index', ['pendientes' => 1]))->assertOk();
+        $this->assertSame($avisos['cajas'], $cajas->viewData('cajas')->count());
+        $this->assertTrue($cajas->viewData('cajas')->contains('id', $vieja->id));
+        $this->assertSame('', $cajas->viewData('mes'));
+        $this->assertSame(['CERRADA'], $cajas->viewData('cajas')->pluck('estado')->unique()->values()->all());
+        $liqs = $this->get(route('web.liquidaciones.index', ['pendientes' => 1]))->assertOk()->viewData('liquidaciones');
+        $this->assertSame($avisos['liquidaciones'], $liqs->total());
+        $this->assertTrue($liqs->contains('id', $antigua->id));
+        $this->assertFalse($liqs->contains('id', $pagada->id));
+        $this->assertSame($avisos['asistencia'], $this->get(route('web.clases.index', ['estado' => 'finalizada']))->assertOk()->viewData('clasesFiltradas')->total());
+        $this->assertSame($avisos['revision'], $this->get(route('web.revision-cobranza.index', ['estado' => 'PENDIENTE']))->assertOk()->viewData('revisiones')->total());
+    }
+
+    public function test_inicio_y_enlaces_admin_no_exponen_importes_a_otros_roles(): void
+    {
+        foreach (['OPERATIVO', 'PROFESOR'] as $rol) {
+            $usuario = User::factory()->create(['rol' => $rol, 'activo' => true]);
+            $this->actingAs($usuario)->get(route('admin.dashboard'))->assertForbidden()->assertDontSee('$4.360.000');
+            $this->get(route('web.liquidaciones.index', ['pendientes' => 1]))->assertForbidden();
+        }
+        $this->post(route('logout'));
+        $this->get(route('admin.dashboard'))->assertRedirect(route('login'));
+    }
+
+    public function test_inicio_sin_migracion_muestra_indisponible_sin_consultar_historia(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->first());
+        $schema = \Illuminate\Support\Facades\Schema::getFacadeRoot();
+        \Illuminate\Support\Facades\Schema::shouldReceive('hasTable')->with('reporte_eventos')->andReturn(false);
+        $reportes = \Mockery::mock(ReporteMensualService::class)->makePartial();
+        $reportes->shouldNotReceive('obtener');
+        $this->app->instance(ReporteMensualService::class, $reportes);
+        try {
+            $respuesta = $this->get(route('admin.dashboard'))->assertOk()->assertSee('Sin historial');
+            $this->assertNull($respuesta->viewData('reporte')['disponible']);
+            $this->assertNull($respuesta->viewData('reporte')['deuda']['total']);
+            $this->assertSame(1, $respuesta->viewData('reporte')['avisos']['cajas']);
+        } finally {
+            \Illuminate\Support\Facades\Schema::swap($schema);
+        }
     }
 
     public function test_modificar_saldo_inicial_no_reescribe_disponible_anterior(): void

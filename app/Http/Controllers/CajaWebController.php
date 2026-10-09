@@ -123,12 +123,16 @@ class CajaWebController extends Controller
 
         if ($user->isAdmin()) {
             $operativos = User::where('rol', User::ROL_OPERATIVO)->orderBy('name')->get();
-            $mes        = $request->input('mes', now()->format('Y-m'));
-            [$year, $month] = explode('-', $mes);
-
-            $query = CajaOperativa::with(['usuarioOperativo', 'movimientos.subrubro.rubro'])
-                ->whereYear('apertura_at', $year)
-                ->whereMonth('apertura_at', $month);
+            $soloPendientes = $request->boolean('pendientes');
+            $mes = $soloPendientes ? '' : $request->input('mes', now()->format('Y-m'));
+            $query = CajaOperativa::with(['usuarioOperativo', 'movimientos.subrubro.rubro']);
+            if ($soloPendientes) {
+                // El aviso de Inicio cuenta todas las cerradas, incluidas antiguas.
+                $query->where('estado', CajaOperativa::ESTADO_CERRADA);
+            } else {
+                [$year, $month] = explode('-', $mes);
+                $query->whereYear('apertura_at', $year)->whereMonth('apertura_at', $month);
+            }
 
             if ($request->filled('operativo_id')) {
                 $query->where('usuario_operativo_id', $request->operativo_id);

@@ -7,6 +7,16 @@ resultado del negocio; disponible por tipo de caja y total; gráficos en Reporte
 inicio con avisos breves y acceso al listado. El aspecto se elige con imágenes reales.
 El relevamiento del 08/10 y las entregas de abajo conservan su fecha y alcance.
 
+**Revisión posterior 09/10:** Inicio aprobado por Carlos en capturas, aplicado y
+verificado por HTTP independiente. Reportes original rechazado; separar Alumnos,
+Ingresos/egresos y análisis Sueldos. Sueldos compara costo clases del mes con cuotas
+reales del mismo mes, netas de bonificaciones/condonación, y calcula costo por cada
+asistencia presente; falta atribución por profesor y cobertura histórica. Nueva propuesta financiera
+con explicación de cambios y gráfico temporal pendiente de elección. No aplicar
+Reportes original. [Entrega y capturas vigentes](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
+Rutas de Reportes y clasificación pendientes: Ver/indicadores de Inicio deshabilitados.
+Este agregado amplía entrega 4; no cambia reglas de pago ni las fechas reales del cashflow.
+
 ## 1. Una implementación, dos usos
 
 - **B12 / Reportes:** consultar el negocio, elegir el mes y recorrer el detalle.
