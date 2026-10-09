@@ -5,7 +5,9 @@ import { pathToFileURL } from 'node:url';
 
 const base = path.resolve('docs/06-pruebas/B12-A23/capturas');
 const chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const paginas = ['finanzas-aplicado', 'finanzas-septiembre', 'finanzas-deporte', 'inicio-con-reportes'];
+const paginas = process.argv.includes('--alumnos')
+    ? ['alumnos-propuesta', 'alumnos-septiembre', 'alumnos-deporte']
+    : ['finanzas-aplicado', 'finanzas-septiembre', 'finanzas-deporte', 'inicio-con-reportes'];
 for (const pagina of paginas) {
     if (!fs.existsSync(path.join(base, `${pagina}.html`))) throw new Error(`Falta respuesta Laravel ${pagina}`);
     const alto = pagina === 'inicio-con-reportes' ? 1500 : 3000;

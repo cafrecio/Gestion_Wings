@@ -2,6 +2,20 @@
 
 ## B12/A23 — plan validado, desarrollo autorizado 09/10/2026
 
+Revisión Alumnos/Sueldos, 09/10: la matrícula solo guarda estado/deporte/nivel
+actuales; no acredita activos al cierre de septiembre. La propuesta de Alumnos
+separa matrícula de hoy y asistencia del mes por deporte/nivel de la clase;
+no transforma clases sin registros en ausencias ni determina bajas automáticas. Consulta probada y propuesta
+visual revisada en seis capturas reales; [entrega](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md).
+Suite propia543/2,4401aserciones,556,59s correcta. Aplicación pendiente de elección.
+Sueldos: las tarifas actuales no prueban tarifas históricas de clases sin
+liquidación. Los detalles HORA conservan importe/minutos; COMISION calcula sobre
+pagos completados del período, no todas las cuotas devengadas. Las cuotas netas
+se sobrescriben al ajustar; el historial de saldo pendiente no conserva su base
+devengada al cierre. No inferir historia ni cambiar comisión por una comparación.
+Pendiente con Carlos: atribución de cuotas entre profesores (pregunta enviada),
+cobertura histórica y tratamiento analítico de comisión no cobrada.
+
 Conexión V3, control 09/10: la primera revisión encontró que P1 deja pasar una ruta
 nueva que no enumera y que la evolución omite el mes elegido cuando no tiene
 movimientos. Casos registrados antes de ajustar el bloqueo y la selección mensual; corregidos y revisados en fuente. Regresiones permanentes P1/mes sin movimientos.
@@ -353,7 +367,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **539 pruebas** (537 aprobadas/2 omitidas, 4369 aserciones, 476,20 s; Reportes V3 conectado B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **545 pruebas** (543 aprobadas/2 omitidas, 4401 aserciones, 556,59 s; propuesta Alumnos B12 Codex CyE 09/10 en wings_testing_codex). Antecedente financiero: 539 pruebas (537 aprobadas/2 omitidas, 4369 aserciones, 476,20 s; Reportes V3 conectado B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

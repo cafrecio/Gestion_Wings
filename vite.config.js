@@ -22,6 +22,8 @@ export default defineConfig({
                 'resources/js/reportes.js',
                 'resources/js/reportes-visual.js',
                 'resources/css/reportes-visual.css',
+                'resources/css/reportes-analiticos.css',
+                'resources/js/reportes-analiticos.js',
             ],
             refresh: true,
         }),

@@ -17,7 +17,10 @@
 Ingresos/egresos mensual con filtro de deporte y evolución conectado a Inicio; detalles
 históricos de deuda/pagar al corte, importes confirmados/pendientes y cajas acumuladas.
 Solo ADMIN con primera carga completada. [Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md).
-Reporte Alumnos y análisis Sueldos siguen pendientes; esta aplicación no cambia sus reglas.
+Reporte Alumnos: propuesta visual y consulta de matrícula actual/asistencia mensual
+preparadas; aplicación habitual pendiente de elección mirando capturas.
+Análisis Sueldos pendiente de atribución por profesor y cobertura histórica.
+Esta aplicación no cambia sus reglas.
 
 **Enmienda B12/A23, 09/10/2026:** Carlos validó los [24 acuerdos de Desarrollo III](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), que prevalecen ante diferencias con antecedentes de este contrato. Disponible por tipo de caja y total, confirmado/pendiente separados; aportes y retiros del dueño cambian saldo pero no resultado del negocio. Consulta mensual, gráficos de hasta seis meses cerrados con datos y mes actual aparte; alumnos activos por deporte/nivel. Inicio ADMIN resume esos mismos cálculos y cuatro avisos breves con acceso al listado. Mensajería interna queda para después. Desarrollo autorizado antes de la prueba manual; aprobación visual posterior mediante imágenes reales. Verificar cobertura histórica antes de prometer cifras reconstruidas.
 
@@ -298,18 +301,25 @@ preguntas: **cuánto entró, quién me debe, y qué grupo me conviene.**
 ## 7. Estado
 
 **Aspecto, revisión posterior 09/10:** Carlos pidió «Hacelo mas visual y de menos lectura»,
-con tres referencias. [V3 de ensayo](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md)
-preparada y revisada, pendiente de elección. No sustituye pantallas habituales ni
-modifica reglas de negocio. Su comentario favorable sobre el gráfico V2 no aprobó Reportes entero.
+con tres referencias. [V3](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md)
+elegida por Carlos («Si, mucho mejor») y aplicada a Finanzas.
+Su comentario favorable previo sobre el gráfico V2 no aprobaba Reportes entero.
 
-**Motor e historial implementados en desarrollo, 09/10/2026; integración pendiente, sin despliegue.**
+**Motor e historial implementados en desarrollo, 09/10/2026; Inicio y Finanzas conectados, sin despliegue.**
 Carlos autorizó construir B12/A23 antes de la prueba funcional completa:
 «Vamos a implementarlo antes de la prueba manual. Avancemos».
 Carlos eligió deuda histórica al cierre; se conservan cambios fechados desde la
 activación. Meses anteriores incompletos quedan indisponibles. [Ensayo y capturas](../06-pruebas/B12-A23/RESULTADO.md).
 Inicio aplicado con aprobación visual de Carlos y control HTTP independiente;
-suite completa 532 aprobadas/2 omitidas, 4286 aserciones. Nueva propuesta financiera,
-Alumnos/Sueldos, rutas de detalle y clasificación de antecedentes pendientes.
+Finanzas V3 conectado, filtros/detalles reales, suite completa del corte financiero
+537 aprobadas/2 omitidas, 4369 aserciones. Alumnos propuesto: matrícula actual explícita
+por deporte/nivel, presentes/ausentes del mes elegido por fecha y grupo de clase,
+evolución de seis meses cerrados con clases; sin registros se indica cobertura
+incompleta, no ausencia del alumno. Sin bajas ni mensajes automáticos.
+[Propuesta Alumnos](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md).
+No afirma matrícula histórica. Sueldos/atribución de cuotas/historia analítica y
+clasificación de antecedentes siguen pendientes; no cambiar comisión devengada
+por interpretar pagos completados como costo completo del mes.
 [Entrega y límites de esta integración](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
 
 El menú del administrador se reordena **después** de esto, porque estas pantallas lo

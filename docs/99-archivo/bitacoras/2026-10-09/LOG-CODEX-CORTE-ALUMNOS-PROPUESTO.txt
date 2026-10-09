@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-09 — Codex CyE — Alumnos propuesto, Sueldos espera decisión
-
-Carlos pidió «Segui con alumnos y sueldos». Alumnos: matrícula actual, asistencia del mes y gráficos.
-Consulta sin escrituras: canceladas/fechas futuras fuera; presentes separados de alumnos únicos.
-No inventa matrícula histórica ni ausencias sin registros; detalle accesible y seis meses cerrados.
-Escenario ficticio ampliado solo en wings_testing_codex; importes financieros conservados.
-TresHTTP200 reales, seis capturas1440/marco375; revisión independiente final apta para presentar.
-Suite propia543/2,4401aserciones,556,59s; módulo6/29 inicial y aserción histórica adicional. Build8,89s.
-[Propuesta, controles y límites](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md). No aplicada a rutas habituales ni desplegada.
-Sueldos: pregunta de cuota por profesor sin respuesta; historia de cuotas/tarifas y comisión devengada pendientes.
-B12 tiene Carlos para elegir atribución; A23 continúa Codex. No cerrar B12/A23 por esta fase.
-
 ## 2026-10-09 — Codex CyE — Finanzas V3 aprobado, aplicado y conectado
 
 Carlos eligió las capturas V3: «Si, mucho mejor». Aspecto aplicado solo a Ingresos/egresos.
@@ -121,6 +109,18 @@ A32 sigue sin aplicar: propuesta lista, pregunta visual pendiente de Carlos seg�
 Servidores de ensayo detenidos; pruebas siempre en bases propias, base del club intacta.
 Diez entradas; copia íntegra previa en LOG-CODEX-REVISION-A10.md comprobada antes de retirar la más antigua.
 
+## 2026-10-08 — Codex CyE — A6–A9 cerrados; A32 propuesta
+
+A6/A7/A8/A9 cerrados con Carlos como verificador visual (§6a), decisiones citadas en DEFECTOS y entrega.
+A10 asignado a Claude: [orden concreta](../06-pruebas/PRU-02/VERIFICAR-A10.md), revisión funcional todavía no ejecutada.
+A32 comprobado: cuenta propia checked/disabled, opacidad 0,45; controlador impide desactivarla.
+Variante documental propone Activo, Tu cuenta y candado; otros interruptores originales, celular alineado con Nuevo.
+[Nueve capturas reales](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a32.html): escritorio/375, login y cuentas activa/inactiva.
+Originales de vista Usuarios, toggle, CSS y controlador idénticos por SHA256; geometría escritorio conservada.
+Controles documentales 6/28 verdes; sintaxis PHP/Blade/Node y enlaces correctos; no suite funcional por propuesta documental.
+Tablero A32 tiene Carlos para elegir; no aplicada ni desplegada. Laboratorio detenido.
+Diez entradas; A6/A7 del 07/10 retirada solo tras comprobar copia íntegra en el corte 08/10.
+
 
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
 
@@ -135,5 +135,3 @@ Diez entradas; copia íntegra previa en LOG-CODEX-REVISION-A10.md comprobada ant
 [Corte íntegro antes de Reportes visual V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-REPORTES-VISUAL.txt).
 
 [Corte íntegro antes de aplicar Finanzas V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-FINANZAS-APLICADO.txt).
-
-[Corte íntegro antes de Alumnos propuesto](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-ALUMNOS-PROPUESTO.txt).
