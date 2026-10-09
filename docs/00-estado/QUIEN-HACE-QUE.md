@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 08/10/2026. Avance: **60 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 09/10/2026. Avance: **60 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -57,9 +57,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (13)
+## Sin empezar (14)
 
-A42, B13, T2, T6, T7, B3, B5, B6, B7, B8, B9, B10, B11.
+A42, B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B10, B11.
 
 <!-- TABLERO:FIN -->
 

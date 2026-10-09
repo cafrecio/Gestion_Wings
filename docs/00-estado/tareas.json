@@ -78,5 +78,6 @@
   {"id":"T5","titulo":"Menu lateral nuevo: orden por tema y aspecto","gravedad":"","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Carlos","paso":"","ref":"","fecha":"2026-10-08"},
   {"id":"T6","titulo":"Mejorar el diseño del correo de avisos","gravedad":"","estado":"sin_empezar","tiene":"nadie","hizo":"","verifica":"","paso":"Mejora futura pedida por Carlos al aprobar A44","ref":"","fecha":"2026-10-08"},
   {"id":"T7","titulo":"Pasar los estilos del menu de sidebar.css a app.css","gravedad":"","estado":"sin_empezar","tiene":"Claude","hizo":"","verifica":"","paso":"Cuando Codex publique A6 a A10 y suelte app.css","ref":"","fecha":"2026-10-08"},
-  {"id":"T8","titulo":"Definir si dos operativos pueden cobrar a la vez en el mismo turno","gravedad":"","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Carlos","paso":"","ref":"","fecha":"2026-10-08"}
+  {"id":"T8","titulo":"Definir si dos operativos pueden cobrar a la vez en el mismo turno","gravedad":"","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Carlos","paso":"","ref":"","fecha":"2026-10-08"},
+  {"id":"T9","titulo":"Armar el metodo de trabajo comun para proyectos nuevos","gravedad":"","estado":"sin_empezar","tiene":"Claude","hizo":"","verifica":"","paso":"Manana 10/10: repositorio privado aparte de Wings con lo que funciona, lo que fallo y el arranque de proyecto","ref":"","fecha":"2026-10-09"}
 ]
