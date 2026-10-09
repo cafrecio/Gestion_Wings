@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Liquidacion extends Model
 {
     use \App\Models\Concerns\GuardaHistorialAtomico;
+    private bool $ajusteFinalEnCurso = false;
     const TIPO_HORA = 'HORA';
     const TIPO_COMISION = 'COMISION';
 
@@ -48,6 +49,7 @@ class Liquidacion extends Model
         'porcentaje_comision_aplicado' => 'decimal:2',
         'valor_hora_aplicado' => 'decimal:2',
         'total_calculado' => 'decimal:2',
+        'monto_final' => 'decimal:2',
         'cancelada_at' => 'datetime',
         'pagada_at' => 'datetime',
         'pagada_fecha' => 'date',
@@ -85,8 +87,18 @@ class Liquidacion extends Model
     {
         parent::boot();
 
+        static::creating(function ($liquidacion) {
+            if ($liquidacion->monto_final !== null) {
+                throw new \Exception('Primero generá la liquidación; después registrá el ajuste final.');
+            }
+        });
+
         static::updating(function ($liquidacion) {
             $original = $liquidacion->getOriginal();
+
+            if ($liquidacion->isDirty('monto_final') && !$liquidacion->ajusteFinalEnCurso) {
+                throw new \Exception('El monto final se ajusta con administrador y registro del cambio.');
+            }
 
             if ($original['estado'] === self::ESTADO_CERRADA) {
                 $dirty = $liquidacion->getDirty();
@@ -98,7 +110,10 @@ class Liquidacion extends Model
                     && $original['estado_pago'] === self::ESTADO_PAGO_PENDIENTE
                     && empty(array_diff($camposModificados, self::$camposCancelacionPermitidos));
 
-                if (!$soloModificaPago && !$esCancelacion) {
+                $esAjusteFinal = $liquidacion->ajusteFinalEnCurso
+                    && $original['estado_pago'] === self::ESTADO_PAGO_PENDIENTE
+                    && empty(array_diff($camposModificados, ['monto_final']));
+                if (!$soloModificaPago && !$esCancelacion && !$esAjusteFinal) {
                     throw new \Exception('No se puede modificar una liquidación cerrada (solo se permite registrar el pago o cancelar si no está pagada).');
                 }
             }
@@ -127,6 +142,65 @@ class Liquidacion extends Model
     public function profesor(): BelongsTo
     {
         return $this->belongsTo(Profesor::class);
+    }
+
+    public function getMontoAPagarAttribute(): string
+    {
+        return (string) ($this->monto_final ?? $this->total_calculado);
+    }
+
+    public static function ajustesDisponibles(): bool
+    {
+        return \Illuminate\Support\Facades\Schema::hasColumn('liquidaciones','monto_final')
+            && \Illuminate\Support\Facades\Schema::hasTable('liquidacion_ajustes');
+    }
+
+    /** Única escritura del monto final: relectura, bloqueo y auditoría atómicos. */
+    public function ajustarMontoFinal(string $monto, int $adminId, string $motivo, ?string $anteriorEsperado = null): self
+    {
+        if (!self::ajustesDisponibles()) {
+            throw new \RuntimeException('El ajuste final requiere preparar su registro antes de usarlo.');
+        }
+        $monto = trim($monto);
+        $motivo = trim($motivo);
+        if (!preg_match('/^\d{1,10}(?:\.\d{1,2})?$/D', $monto)
+            || mb_strlen($motivo) < 5 || mb_strlen($motivo) > 255) {
+            throw new \InvalidArgumentException('Ingresá un importe válido y un motivo de 5 a 255 caracteres.');
+        }
+        return $this->getConnection()->transaction(function () use ($monto, $adminId, $motivo, $anteriorEsperado) {
+            $admin = User::on($this->getConnectionName())->findOrFail($adminId);
+            if (!$admin->isAdmin() || !$admin->isActivo()) {
+                throw new \Illuminate\Auth\Access\AuthorizationException('Solo un administrador activo puede ajustar el monto final.');
+            }
+            $liq = $this->newQuery()->lockForUpdate()->findOrFail($this->getKey());
+            if ($liq->tipo !== self::TIPO_COMISION || $liq->estado_pago !== self::ESTADO_PAGO_PENDIENTE
+                || !in_array($liq->estado, [self::ESTADO_ABIERTA, self::ESTADO_CERRADA], true)) {
+                throw new \Exception('Solo se ajustan liquidaciones a comisión abiertas o cerradas sin pagar.');
+            }
+            if (CashflowMovimiento::on($this->getConnectionName())->where('referencia_tipo', CashflowMovimiento::REF_LIQUIDACION)
+                ->where('referencia_id', $liq->id)->exists()) {
+                throw new \Exception('La liquidación ya tiene un egreso registrado. No se puede ajustar.');
+            }
+            $centavos = fn ($valor) => (int) round((float) $valor * 100);
+            $antes = $liq->monto_a_pagar;
+            if ($anteriorEsperado !== null && $centavos($anteriorEsperado) !== $centavos($antes)) {
+                throw new \Exception('El importe cambió mientras editabas. Recargá la liquidación antes de guardar.');
+            }
+            if ($centavos($monto) === $centavos($antes)) return $liq;
+            $liq->getConnection()->table('liquidacion_ajustes')->insert([
+                'liquidacion_id'=>$liq->id, 'admin_id'=>$adminId,
+                'calculado'=>$liq->total_calculado, 'anterior'=>$antes, 'nuevo'=>$monto,
+                'motivo'=>$motivo, 'registrado_en'=>now(),
+            ]);
+            $liq->ajusteFinalEnCurso = true;
+            try {
+                $liq->monto_final = $monto;
+                $liq->save();
+            } finally {
+                $liq->ajusteFinalEnCurso = false;
+            }
+            return $liq->fresh();
+        });
     }
 
     /**

@@ -7,14 +7,17 @@ actuales; no acredita activos al cierre de septiembre. La propuesta de Alumnos
 separa matrícula de hoy y asistencia del mes por deporte/nivel de la clase;
 no transforma clases sin registros en ausencias ni determina bajas automáticas. Consulta probada y propuesta
 visual revisada en seis capturas reales; [entrega](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md).
-Suite propia543/2,4401aserciones,556,59s correcta. Aplicación pendiente de elección.
-Sueldos: las tarifas actuales no prueban tarifas históricas de clases sin
-liquidación. Los detalles HORA conservan importe/minutos; COMISION calcula sobre
-pagos completados del período, no todas las cuotas devengadas. Las cuotas netas
-se sobrescriben al ajustar; el historial de saldo pendiente no conserva su base
-devengada al cierre. No inferir historia ni cambiar comisión por una comparación.
-Pendiente con Carlos: atribución de cuotas entre profesores (pregunta enviada),
-cobertura histórica y tratamiento analítico de comisión no cobrada.
+Suite del prototipo543/2,4401aserciones,556,59s correcta. Carlos aprobó el aspecto («Esta OK»); integración habitual en verificación.
+Sueldos implementado en desarrollo: reparto de cuota neta por asistencias;
+comisión sobre cuota cobrada, costo por deporte/profesor/asistencia y evolución.
+ADMIN ajusta monto final de comisión ABIERTA o CERRADA sin pagar, con motivo,
+auditoría atómica y bloqueo común con pago; pagadas/canceladas intactas.
+Pago, recibo, pendientes y resúmenes toman el final sin alterar el cálculo original.
+Historia monetaria desde activar; antes, Sin historial. Horarios/asistencias actuales
+pueden modificar estimados y reparto; liquidación cerrada conserva importe.
+Historial9/71, Sueldos+ajuste17/94 aprobados en base propia. Revisión independiente
+de fuente y concurrencia aprobada; suite completa y capturas en preparación.
+[Entrega Sueldos y ajuste final](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Sin activación ni cambios en base del club.
 
 Conexión V3, control 09/10: la primera revisión encontró que P1 deja pasar una ruta
 nueva que no enumera y que la evolución omite el mes elegido cuando no tiene
@@ -37,7 +40,7 @@ Codex. La clasificación económica debe ser independiente de `afecta_caja`.
 
 Carlos validó los [acuerdos y revisión posterior](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md). Motor/historial en desarrollo; Inicio aprobado («Ok, aprobado»), aplicado y verificado por HTTP independiente. Cuatro avisos abren los listados exactos, incluidos pendientes antiguos; permisos conservados. Suite completa: 532 aprobadas/2 omitidas, 4286 aserciones, 280,70 s; posteriormente cuatro regresiones P1 aprobadas (42 aserciones). [Entrega de Inicio](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md) y [visor](../06-pruebas/B12-A23/visor.html).
 
-Carlos rechazó el Reportes original. Después pidió «Hacelo mas visual y de menos lectura», con tres referencias. [Propuesta V3](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md): tarjetas/tendencias, evolución, cambios por rubro, distribución y detalle plegado; Carlos eligió «Si, mucho mejor». [Aplicada y conectada](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md) a Inicio, con filtros reales y detalles al corte; revisión independiente de fuente, suite completa537/2,4369 aserciones,476,20s correcta. CuatroHTTP200 y ocho capturas reales; revisión independiente final aprobada para esta fase financiera. Reporte Alumnos y análisis Sueldos pendientes. Sueldos: costo de clases del mes / cuotas reales del mismo mes netas de bonificaciones y condonación / cada asistencia presente por separado. Falta resolver atribución por profesor/cobertura histórica. Ver/indicadores de Inicio conectados a la ruta mensual y sus apartados; clasificación de antecedentes pendiente. B12/A23 abiertos, sin despliegue ni cambios en base del club.
+Carlos rechazó el Reportes original. Después pidió «Hacelo mas visual y de menos lectura», con tres referencias. [Propuesta V3](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md): tarjetas/tendencias, evolución, cambios por rubro, distribución y detalle plegado; Carlos eligió «Si, mucho mejor». [Aplicada y conectada](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md) a Inicio, con filtros reales y detalles al corte; revisión independiente de fuente, suite completa537/2,4369 aserciones,476,20s correcta. CuatroHTTP200 y ocho capturas reales; revisión independiente final aprobada para esta fase financiera. Reporte Alumnos aprobado e integrado; Sueldos implementado, aspecto por revisar. Sueldos: costo de clases del mes / cuotas reales del mismo mes netas de bonificaciones y condonación / cada asistencia presente por separado. Atribución proporcional aprobada; historial prospectivo probado en base descartable. Ajuste final ADMIN aplicado también cerrado sin pagar y verificado independientemente. Ver/indicadores de Inicio conectados a la ruta mensual y sus apartados; clasificación de antecedentes pendiente. B12/A23 abiertos, sin despliegue ni cambios en base del club.
 
 ## A32 — CERRADO 08/10/2026, verifica Carlos
 
@@ -367,7 +370,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **545 pruebas** (543 aprobadas/2 omitidas, 4401 aserciones, 556,59 s; propuesta Alumnos B12 Codex CyE 09/10 en wings_testing_codex). Antecedente financiero: 539 pruebas (537 aprobadas/2 omitidas, 4369 aserciones, 476,20 s; Reportes V3 conectado B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **575 pruebas** (historial y Sueldos/monto final, 09/10 Codex CyE: 573 aprobadas/2 omitidas, 4615 aserciones, 997,45s en wings_testing_codex; después fixture portable y controles 30/185 verdes, 14,02s. Revisión independiente 26/166,15,62s en wings_testing_claude. Sin activación/deploy; aspecto Sueldos/ajuste por revisar). [Entrega y verificaciones](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

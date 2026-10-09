@@ -53,6 +53,12 @@ class LiquidacionPagoService
                 throw new \Exception("La liquidación #{$liquidacionId} debe estar CERRADA para poder pagarla. Estado actual: {$liquidacion->estado}");
             }
 
+            // Rechazar un formulario anterior a un ajuste concurrente.
+            if (isset($data['monto_esperado']) && (int) round((float) $data['monto_esperado'] * 100)
+                !== (int) round((float) $liquidacion->monto_a_pagar * 100)) {
+                throw new \Exception('El importe cambió. Recargá la liquidación antes de pagar.');
+            }
+
             // Validar subrubro
             $subrubro = Subrubro::with('rubro')->findOrFail($data['subrubro_id']);
 
@@ -103,7 +109,7 @@ class LiquidacionPagoService
             }
 
             // Crear asiento en cashflow (monto negativo = EGRESO)
-            $montoNegativo = -abs((float) $liquidacion->total_calculado);
+            $montoNegativo = -abs((float) $liquidacion->monto_a_pagar);
 
             $cashflowMovimiento = CashflowMovimiento::create([
                 'fecha' => $fechaPago,

@@ -34,8 +34,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Inicio aprobado y conectado; revisar Sueldos/ajuste de B12 y realizar prueba manual integral antes de cerrar |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
-| **B12** No hay reportes | En curso (hizo Codex) | Alumnos propuesto con capturas reales y revision independiente; elegir atribucion de cuotas a profesores para continuar Sueldos. Aplicacion visual e historia analitica pendientes. |
+| **B12** No hay reportes | En curso (hizo Codex) | Revisar capturas Sueldos y ajuste final en visor B12-A23; lógica verificada26/166, suite573/2; después manual integral y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -50,9 +51,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Inicio/Finanzas conectados; Alumnos propuesto, Sueldos espera decision de Carlos. Completar y verificar B12 antes del cierre conjunto. |
+Nada en este momento.
 
 ## Gemini
 

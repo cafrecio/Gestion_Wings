@@ -257,6 +257,7 @@ class LiquidacionWebController extends Controller
             'fecha_pago'    => 'required|date|before_or_equal:today',
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'observaciones' => 'nullable|string|max:500',
+            'monto_esperado'=> 'nullable|numeric|min:0',
         ], [
             'fecha_pago.required'        => 'La fecha de pago es obligatoria.',
             'fecha_pago.before_or_equal' => 'La fecha de pago no puede ser futura.',
@@ -280,7 +281,7 @@ class LiquidacionWebController extends Controller
 
         $saldoActual = (float) $tipoCaja->saldo_inicial
             + (float) CashflowMovimiento::where('tipo_caja_id', $tipoCaja->id)->sum('monto');
-        $saldoResultante = $saldoActual - (float) $liquidacion->total_calculado;
+        $saldoResultante = $saldoActual - (float) $liquidacion->monto_a_pagar;
 
         if ($saldoResultante < 0 && !$tipoCaja->permite_descubierto) {
             return back()->with('error',
@@ -300,19 +301,20 @@ class LiquidacionWebController extends Controller
         }
 
         try {
-            $this->liquidacionPagoService->marcarComoPagada($id, [
+            $resultado = $this->liquidacionPagoService->marcarComoPagada($id, [
                 'fecha_pago'    => $request->fecha_pago,
                 'tipo_caja_id'  => (int) $request->tipo_caja_id,
                 'subrubro_id'   => $subrubro->id,
                 'observaciones' => $request->observaciones,
                 'admin_id'      => auth()->id(),
+                'monto_esperado'=> $request->input('monto_esperado', $liquidacion->monto_a_pagar),
             ]);
 
-            if ($esFechaVieja) {
+            if ($esFechaVieja && !$resultado['ya_pagada']) {
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: 'Pago de liquidación',
                     fechaDelMovimiento: $request->fecha_pago,
-                    monto: '$' . number_format((float) $liquidacion->total_calculado, 2, ',', '.'),
+                    monto: '$' . number_format((float) $resultado['liquidacion']->monto_a_pagar, 2, ',', '.'),
                     quienLoCargo: auth()->user()?->name,
                 );
             }
@@ -321,6 +323,28 @@ class LiquidacionWebController extends Controller
                 ->with('success', 'Liquidación pagada. Movimiento registrado en cashflow.');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function ajustar(Request $request, int $id): RedirectResponse
+    {
+        abort_unless(Liquidacion::ajustesDisponibles(), 503, 'El ajuste final requiere preparar su registro antes de usarlo.');
+        $datos = $request->validate([
+            'monto_final'=>['required', 'regex:/^\d{1,10}(?:\.\d{1,2})?$/D'],
+            'monto_anterior'=>['required', 'numeric', 'min:0'],
+            'motivo'=>['required', 'string', 'min:5', 'max:255'],
+        ], ['monto_final.required'=>'Ingresá el monto final.', 'monto_final.regex'=>'Ingresá un importe válido, con hasta dos decimales.',
+            'motivo.required'=>'Indicá el motivo del ajuste.', 'motivo.min'=>'El motivo debe tener al menos 5 caracteres.']);
+        try {
+            Liquidacion::findOrFail($id)->ajustarMontoFinal((string) $datos['monto_final'], auth()->id(), $datos['motivo'], (string) $datos['monto_anterior']);
+            return redirect()->route('web.liquidaciones.show', $id)->with('success', 'Monto final actualizado. El cálculo original se conserva.');
+        } catch (\Illuminate\Auth\Access\AuthorizationException $e) {
+            throw $e;
+        } catch (\Illuminate\Database\QueryException $e) {
+            report($e);
+            return back()->withInput()->with('error', 'No se pudo guardar el ajuste. Recargá la liquidación e intentá nuevamente.');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', $e->getMessage());
         }
     }
 

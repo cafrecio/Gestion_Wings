@@ -2,6 +2,26 @@
 
 > Enmienda funcional 13/09/2026, pendiente de implementación: ver [Clases particulares V1](Wings-Contrato-Clases-Particulares-V1.md). Sus reglas específicas prevalecen para particulares sobre las reglas generales de este documento. Para todas las clases, el cierre bloquea asistencia a todos los perfiles; solo ADMIN puede cancelar una cerrada no pagada para revisarla. Una pagada permanece intacta y se corrige económicamente en la próxima liquidación. Las descripciones anteriores de comportamiento no certifican la implementación de esta enmienda.
 
+## Enmienda 09/10/2026 — monto final de comisión, implementado en desarrollo
+
+En Desarrollo III, Carlos eligió comisión sobre **cuotas cobradas** y aclaró que
+ADMIN edita el **«Valor final de la liquidacion»**, no el porcentaje ni la cuota.
+Permite hacerlo **«También cerradas sin pagar»**. Es una excepción económica al
+bloqueo, sin editar detalles del cálculo ni asistencia de la liquidación cerrada.
+Las pagadas conservan el criterio de corrección posterior de la enmienda13/09.
+Conservar cálculo original y registro de cada ajuste final, con responsable y fecha.
+Implementado y probado en base descartable: POST ADMIN activo, monto final separado,
+auditoría de anterior/nuevo/cálculo/motivo/responsable/fecha y bloqueo de fila.
+Pago, recibo, resúmenes y pendientes usan el final; cálculo y detalles quedan intactos.
+No se permite ajuste directo sin auditoría ni ajustes pagados/cancelados/HORA.
+Un formulario viejo se rechaza tras cambio de importe. Sin desplegar ni migrar la base del club.
+
+El reporte separará **Alumnos con pagos registrados** y **Asistencias sin pago de
+cuota**. Atribuir cuotas proporcionalmente a asistencias es solo análisis; no
+cambia la comisión completa vigente para cada profesor.
+[Acuerdos literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md) ·
+[Historia probada, sin activar en el club](../06-pruebas/B12-A23/HISTORIAL-SUELDOS-2026-10-09.md).
+
 ## 1. Modelo de Dominio
 
 ### 1.1 Entidad Central: Deporte
@@ -89,9 +109,10 @@ El **Deporte** es el eje del modelo. Define:
 ### 2.4 Liquidaciones
 
 - **Generación:** Automática por el sistema, nunca manual
-- **Modificación:** Solo liquidaciones ABIERTAS
+- **Modificación general:** Liquidaciones ABIERTAS; ajuste final de comisión según
+  enmienda09/10 también en CERRADAS sin pagar, implementado en desarrollo.
 - **Inmutabilidad:** Liquidaciones CERRADAS no pueden modificarse ni eliminarse —
-  **con la única excepción de la enmienda 13/09/2026 de abajo**
+  **con las excepciones de cancelar13/09 y ajuste final09/10 documentadas aquí**.
 - **Permisos:** Solo Administrador puede crear/gestionar liquidaciones
 
 #### Enmienda 13/09/2026 — cancelar una cerrada que todavía no se pagó (FIN-12)
@@ -313,7 +334,8 @@ El monto viene del PAGO del alumno.
 1. Admin solicita cerrar liquidación
 2. Sistema valida que esté ABIERTA
 3. Sistema cambia estado a CERRADA
-4. Liquidación se vuelve INMUTABLE
+4. Documento/asistencia bloqueados; ajuste final de comisión según enmienda09/10
+   implementado para cerradas sin pagar
 ```
 
 ---
@@ -391,8 +413,9 @@ Liquidación Prof. B: +$960 (8000 × 12%)
 - Valores de cálculo deben ser > 0
 
 ### Al modificar Liquidación:
-- Solo si estado = ABIERTA
-- Cerrada = INMUTABLE
+- Regla general: estado = ABIERTA.
+- Cerrada: documento/asistencia bloqueados; excepción de importe final de comisión
+  aprobada09/10 para CERRADA + PENDIENTE, implementado en desarrollo.
 
 ---
 

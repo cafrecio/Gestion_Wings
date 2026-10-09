@@ -342,13 +342,13 @@ class LiquidacionService
         return [
             'periodo' => sprintf('%02d/%d', $mes, $anio),
             'total_liquidaciones' => $liquidaciones->count(),
-            'total_monto' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->sum('total_calculado'),
+            'total_monto' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->sum('monto_a_pagar'),
             'abiertas' => $liquidaciones->where('estado', Liquidacion::ESTADO_ABIERTA)->count(),
             'cerradas' => $liquidaciones->where('estado', Liquidacion::ESTADO_CERRADA)->count(),
             'canceladas' => $liquidaciones->where('estado', Liquidacion::ESTADO_CANCELADA)->count(),
             'por_tipo' => [
-                'HORA' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_HORA)->sum('total_calculado'),
-                'COMISION' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_COMISION)->sum('total_calculado'),
+                'HORA' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_HORA)->sum('monto_a_pagar'),
+                'COMISION' => $liquidaciones->where('estado', '!=', Liquidacion::ESTADO_CANCELADA)->where('tipo', Liquidacion::TIPO_COMISION)->sum('monto_a_pagar'),
             ],
             'liquidaciones' => $liquidaciones,
         ];

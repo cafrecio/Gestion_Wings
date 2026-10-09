@@ -238,10 +238,12 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
 **Resuelto en Entrega 1 de P2 (04/10):** Se agregó tarjeta destacada "Total adeudado" en pesos en el resumen superior. Cubierto en `CobranzaEntrega1Test`.
 
-### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · Molesta · verificado
+### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · En curso 09/10
 
-Más de la mitad de la pantalla principal del administrador es espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
+**Antecedente del relevamiento:** más de la mitad de la pantalla principal del administrador era espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
+
+**Actualización09/10:** Inicio aprobado por Carlos («Ok, aprobado»), aplicado y verificado; cifras mensuales, cajas por tipo, cuatro avisos y acceso a Reportes. [Entrega](../B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md). Abierto para prueba manual integral junto a B12; el texto anterior describe el defecto original.
 
 ### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · CERRADO 08/10, verificado Claude
 
@@ -690,11 +692,11 @@ Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de V
 Contrato completo en `Wings-Contrato-Punitorios-Mora-V1.md`, con su configuración. Nada los
 calcula (FIN-14).
 
-### B12. No hay reportes · Falta
+### B12. No hay reportes · En curso 09/10
 
 Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
-mano. La definición está cerrada (FIN-04); la implementación es POS-01.
+mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados, aspecto por revisar. [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Faltan revisión visual, manual integral y clasificación de antecedentes; no cierre ni despliegue.
 
 ### B13. Los datos de prueba no representan al club · Molesta · verificado
 

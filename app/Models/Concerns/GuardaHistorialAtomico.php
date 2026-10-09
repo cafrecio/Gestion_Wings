@@ -10,4 +10,9 @@ trait GuardaHistorialAtomico
     {
         return DB::connection($this->getConnectionName())->transaction(fn () => parent::save($options));
     }
+
+    public function delete()
+    {
+        return DB::connection($this->getConnectionName())->transaction(fn () => parent::delete());
+    }
 }

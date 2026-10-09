@@ -103,7 +103,7 @@
 @if($reporte['sin_clasificar'])
 <details class="filtros-card rv-detail" style="margin-top:12px"><summary>Sin clasificar · {{ $reporte['sin_clasificar'] }}</summary><p class="rv-note">El resultado es parcial: falta clasificar movimientos del negocio.</p></details>
 @endif
-<div class="rv-footer"><span>Cobros y pagos · confirmado + por validar</span><span>Alumnos y Sueldos: pantallas pendientes</span></div>
+<div class="rv-footer"><span>Cobros y pagos · confirmado + por validar</span><span><a href="{{ route('web.reportes.alumnos',array_filter(['mes'=>$reporte['mes'],'deporte_id'=>$reporte['deporte_id']],fn ($v) => $v !== null)) }}">Alumnos</a> · <a href="{{ route('web.reportes.sueldos',array_filter(['mes'=>$reporte['mes'],'deporte_id'=>$reporte['deporte_id']],fn ($v) => $v !== null)) }}">Sueldos</a></span></div>
 </div>
 @endsection
 @push('scripts')

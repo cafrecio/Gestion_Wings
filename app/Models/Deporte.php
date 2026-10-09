@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Deporte extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
+
     const TIPO_LIQUIDACION_HORA = 'HORA';
     const TIPO_LIQUIDACION_COMISION = 'COMISION';
 

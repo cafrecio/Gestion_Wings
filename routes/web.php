@@ -123,6 +123,8 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::middleware('ensure.admin.web')->group(function () {
         Route::get('/admin/dashboard', [WebController::class, 'adminDashboard'])->name('admin.dashboard');
         Route::get('/reportes', [ReporteWebController::class, 'index'])->name('web.reportes.index');
+        Route::get('/reportes/alumnos', [ReporteWebController::class, 'alumnos'])->name('web.reportes.alumnos');
+        Route::get('/reportes/sueldos', [ReporteWebController::class, 'sueldos'])->name('web.reportes.sueldos');
         Route::get('/cashflow', [CashflowWebController::class, 'index'])->name('web.cashflow.index');
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
@@ -218,6 +220,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::post('/liquidaciones/{id}/cancelar', [LiquidacionWebController::class, 'cancelar'])->name('web.liquidaciones.cancelar');
         Route::delete('/liquidaciones/{id}', [LiquidacionWebController::class, 'eliminar'])->name('web.liquidaciones.eliminar');
         Route::post('/liquidaciones/{id}/pagar', [LiquidacionWebController::class, 'pagar'])->name('web.liquidaciones.pagar');
+        Route::post('/liquidaciones/{id}/ajustar', [LiquidacionWebController::class, 'ajustar'])->name('web.liquidaciones.ajustar');
     });
 
     // Tipos de Caja — solo admin

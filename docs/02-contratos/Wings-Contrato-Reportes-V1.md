@@ -17,14 +17,19 @@
 Ingresos/egresos mensual con filtro de deporte y evolución conectado a Inicio; detalles
 históricos de deuda/pagar al corte, importes confirmados/pendientes y cajas acumuladas.
 Solo ADMIN con primera carga completada. [Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md).
-Reporte Alumnos: propuesta visual y consulta de matrícula actual/asistencia mensual
-preparadas; aplicación habitual pendiente de elección mirando capturas.
-Análisis Sueldos pendiente de atribución por profesor y cobertura histórica.
+Reporte Alumnos: Carlos aprobó las capturas («Esta OK»); integrado a la ruta habitual.
+Matrícula actual y asistencia del mes seleccionado se distinguen expresamente.
+Sueldos: atribución proporcional a asistencias, historial desde ahora y comisión
+sobre cuotas cobradas aprobados. ADMIN edita monto final de liquidación, también
+cerradas sin pagar; ajuste e historia analítica implementados y probados en base descartable.
+Períodos anteriores a activar sin respaldo muestran Sin historial; sin activación en el club.
+Horarios/asistencias son registros actuales: corregirlos puede cambiar estimados y reparto;
+los valores monetarios conocidos al corte y el importe de una liquidación cerrada se conservan.
 Esta aplicación no cambia sus reglas.
 
 **Enmienda B12/A23, 09/10/2026:** Carlos validó los [24 acuerdos de Desarrollo III](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), que prevalecen ante diferencias con antecedentes de este contrato. Disponible por tipo de caja y total, confirmado/pendiente separados; aportes y retiros del dueño cambian saldo pero no resultado del negocio. Consulta mensual, gráficos de hasta seis meses cerrados con datos y mes actual aparte; alumnos activos por deporte/nivel. Inicio ADMIN resume esos mismos cálculos y cuatro avisos breves con acceso al listado. Mensajería interna queda para después. Desarrollo autorizado antes de la prueba manual; aprobación visual posterior mediante imágenes reales. Verificar cobertura histórica antes de prometer cifras reconstruidas.
 
-**Revisión posterior de Carlos, 09/10/2026:** Inicio aprobado en capturas; Reportes original rechazado. Separar Reporte Alumnos e Ingresos/egresos, con origen/destino por rubro y evolución que explique cambios. Análisis Sueldos por deporte/profesor: costo de las clases del mes aunque se paguen después, comparado con cuotas reales del mismo mes netas de bonificaciones y condonación aunque se cobren después; costo por asistencia cuenta cada presencia por separado, no alumnos únicos. Pendientes atribución de cuotas a profesores y cobertura histórica verificable. No modificar por estos indicadores reglas de liquidación/comisión ni fecha real de los movimientos. No convertir falta de historia en cero. [Decisiones literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).
+**Revisión posterior de Carlos, 09/10/2026:** Inicio aprobado en capturas; Reportes original rechazado. Separar Reporte Alumnos e Ingresos/egresos, con origen/destino por rubro y evolución que explique cambios. Análisis Sueldos por deporte/profesor: costo de las clases del mes aunque se paguen después, comparado con cuotas reales del mismo mes netas de bonificaciones y condonación aunque se cobren después; costo por asistencia cuenta cada presencia por separado, no alumnos únicos. Atribución proporcional a asistencias aprobada; historial prospectivo y monto final editable de liquidación implementados en desarrollo, también cerradas sin pagar; aspecto por revisar y sin despliegue. No modificar por estos indicadores reglas de liquidación/comisión ni fecha real de los movimientos. No convertir falta de historia en cero. [Decisiones literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md).
 
 **Consulta de Cashflow, A10 08/10/2026:** Carlos aprobó la propuesta Día/Semana/Mes/Año con Resultado del período. Implementada y verificada por Claude el 08/10 (segunda revisión): Día usa una fecha; Semana la semana lunes–domingo que la contiene, sin recortar por mes/año; Mes/Año usan el intervalo completo seleccionado. Filas e ingresos/egresos comparten fechas inclusivas y filtro de caja; Tipo afecta las filas y mantiene ambos totales. Resultado del período = ingresos − egresos, sin saldo inicial. Sin selector explícito se conserva la consulta anual y los enlaces anteriores Año/Mes. Limpiar quita Caja/Tipo conservando período y fecha; el enlace se comprobó con clic real en los cuatro modos. Esta consulta no implementa POS-01 ni el apartado de saldo acumulado. [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md).
 
@@ -312,14 +317,15 @@ Carlos eligió deuda histórica al cierre; se conservan cambios fechados desde l
 activación. Meses anteriores incompletos quedan indisponibles. [Ensayo y capturas](../06-pruebas/B12-A23/RESULTADO.md).
 Inicio aplicado con aprobación visual de Carlos y control HTTP independiente;
 Finanzas V3 conectado, filtros/detalles reales, suite completa del corte financiero
-537 aprobadas/2 omitidas, 4369 aserciones. Alumnos propuesto: matrícula actual explícita
+537 aprobadas/2 omitidas, 4369 aserciones. Alumnos aprobado («Esta OK»), integración
+habitual comprobada: matrícula actual explícita
 por deporte/nivel, presentes/ausentes del mes elegido por fecha y grupo de clase,
 evolución de seis meses cerrados con clases; sin registros se indica cobertura
 incompleta, no ausencia del alumno. Sin bajas ni mensajes automáticos.
 [Propuesta Alumnos](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md).
-No afirma matrícula histórica. Sueldos/atribución de cuotas/historia analítica y
-clasificación de antecedentes siguen pendientes; no cambiar comisión devengada
-por interpretar pagos completados como costo completo del mes.
+No afirma matrícula histórica. Sueldos/historia analítica implementados en desarrollo;
+aspecto Sueldos y clasificación de antecedentes siguen pendientes. Carlos eligió comisión sobre cuotas cobradas;
+ADMIN edita monto final de liquidación; pidió alumnos con pagos y asistencias sin pago. Carlos aprobó ajustar también cerradas sin pagar; ajuste implementado y verificado en base descartable.
 [Entrega y límites de esta integración](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
 
 El menú del administrador se reordena **después** de esto, porque estas pantallas lo

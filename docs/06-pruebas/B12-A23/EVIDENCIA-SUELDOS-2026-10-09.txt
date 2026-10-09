@@ -1,0 +1,88 @@
+Codex CyE,09/10/2026. Todas las ejecuciones siguientes en wings_testing_codex.
+
+SUITE COMPLETA
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.42s
+
+  Tests:    2 skipped, 573 passed (4615 assertions)
+  Duration: 997.45s
+
+
+MODULOS Y GUARDIANES POST FIXTURE PORTABLE
+
+   PASS  Tests\Feature\AjusteFinalLiquidacionTest
+  ✓ admin ajusta abierta y cerrada sin cambiar calculo o detalle                                                 6.60s
+  ✓ operativo profesor inactivo y anonimo no ajustan                                                             0.29s
+  ✓ pagada cancelada y por hora rechazan ajustes                                                                 0.34s
+  ✓ pago usa final una sola vez y rechaza formulario viejo                                                       0.18s
+  ✓ ajuste conserva cortes anteriores y saldo pendiente coherente                                                0.13s
+  ✓ falla historial revierte importe y auditoria                                                                 0.14s
+  ✓ guardado directo sin auditoria y edicion vieja rechazados                                                    0.15s
+
+   PASS  Tests\Feature\DefectosNoDivergenTest
+  ✓ los dos archivos listan los mismos defectos                                                                  0.04s
+  ✓ lo cerrado esta cerrado en los dos
+  ✓ el avance figura arriba de los dos
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.06s
+
+   PASS  Tests\Feature\HistorialAnaliticoReportesTest
+  ✓ cobrar no reduce cuota neta y perdonar solo descuenta el saldo                                               0.18s
+  ✓ tarifa y modalidad nuevas no reescriben el dia anterior                                                      0.16s
+  ✓ anulacion posterior no borra el cobro conocido en el corte anterior                                          0.17s
+  ✓ pagar liquidacion conserva el costo y el estado anterior                                                     0.23s
+  ✓ baja no borra historia y mes anterior a cobertura es indisponible                                            0.21s
+  ✓ si falla historial se revierten tanto edicion como baja                                                      0.17s
+  ✓ activacion con datos existentes no retrofecha su historia                                                    0.32s
+  ✓ ficha vieja y reloj retrocedido no falsean el estado conocido                                                0.27s
+  ✓ formato json distinto no duplica estados economicos identicos                                                0.17s
+
+   PASS  Tests\Feature\ReporteSueldosTest
+  ✓ reparte cuota real por asistencias sin dividir la comision                                                   0.35s
+  ✓ pago parcial es cobro y sin pago cuenta cada asistencia                                                      0.33s
+  ✓ falta historia o cuota no se convierte en cero                                                               0.32s
+  ✓ canceladas y futuras no reparten cuota                                                                       0.39s
+  ✓ mes cerrado conserva tarifa y cobro antes de la anulacion                                                    0.40s
+  ✓ liquidacion ajustada prevalece sin duplicar abierta y cerrada                                                0.34s
+  ✓ ruta filtros roles y consulta sin escrituras                                                                 0.63s
+  ✓ cambiar deporte del profesor no mueve su actividad anterior                                                  0.48s
+  ✓ clase con dos profesores no duplica asistencia global                                                        0.30s
+  ✓ hora usa duracion real y no inventa clases previas al historial                                              0.38s
+
+  Tests:    30 passed (185 assertions)
+  Duration: 14.02s
+
+
+HTTP REALES
+finanzas-aplicado: HTTP200 real, HTML guardado.
+finanzas-septiembre: HTTP200 real, HTML guardado.
+finanzas-deporte: HTTP200 real, HTML guardado.
+inicio-con-reportes: HTTP200 real, HTML guardado.
+alumnos-aplicado: HTTP200 real, HTML guardado.
+alumnos-aplicado-septiembre: HTTP200 real, HTML guardado.
+alumnos-aplicado-deporte: HTTP200 real, HTML guardado.
+sueldos-aplicado: HTTP200 real, HTML guardado.
+sueldos-septiembre: HTTP200 real, HTML guardado.
+sueldos-deporte: HTTP200 real, HTML guardado.
+sueldos-sin-historial: HTTP200 real, HTML guardado.
+liquidaciones-final: HTTP200 real, HTML guardado.
+ajuste-final: HTTP200 real, HTML guardado.
+ajuste-pagado: HTTP200 real, HTML guardado.
+Recibo real del escenario ficticio guardado.
+
+ANCHO MARCO REAL
+sueldos-aplicado: {"ancho":375,"scroll":375,"alto":4000}
+sueldos-septiembre: {"ancho":375,"scroll":375,"alto":4000}
+alumnos-aplicado: {"ancho":375,"scroll":375,"alto":3000}
+finanzas-aplicado: {"ancho":375,"scroll":375,"alto":3000}
+ajuste-final: {"ancho":375,"scroll":375,"alto":3000}
+ajuste-pagado: {"ancho":375,"scroll":375,"alto":3000}
+
+INDEPENDIENTE
+verificar_continuidad:26pasadas/166aserciones,15.62s, wings_testing_claude.
+Concurrencia 2procesos/conexiones: ajuste antes,pago espera3.098s egreso-30000.
+Pago antes,ajuste espera2.551s rechazado;0auditorias,1egreso.
+PDF real:2paginas A5; original12000+ajuste6000=final18000.
+Control visual independiente:15PNG revisados, legibles escritorio/375 y gráficos completos.
+PDF contrastado:ningun caracter fuera del ancho; margenes al borde son CSS previo sin diff.
+Sintaxis final:33archivos PHP nuevos/modificados, sin errores. Diff-check correcto.

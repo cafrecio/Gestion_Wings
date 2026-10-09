@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\{Alumno, Asistencia, Clase};
+use App\Models\{Alumno, Asistencia, Clase, PrimeraCarga, User};
 use App\Services\ReporteAlumnosService;
 use Carbon\Carbon;
 use Database\Seeders\{ReportesAsistenciaEscenarioSeeder, ReportesEscenarioSeeder};
@@ -109,5 +109,51 @@ class ReporteAlumnosTest extends TestCase
         $this->assertSame($antes, $despues);
         \Illuminate\Support\Facades\Mail::assertNothingSent();
         \Illuminate\Support\Facades\Notification::assertNothingSent();
+    }
+
+    public function test_ruta_de_alumnos_conserva_mes_y_deporte_entre_reportes(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        $contexto = ['mes'=>'2026-09', 'deporte_id'=>Alumno::firstOrFail()->deporte_id];
+        $r = $this->get(route('web.reportes.alumnos', $contexto))->assertOk()->assertViewIs('reportes.alumnos');
+        $this->assertSame('2026-09', $r->viewData('reporte')['mes']);
+        $this->assertSame($contexto['deporte_id'], $r->viewData('reporte')['deporte_id']);
+        $r->assertSee(route('web.reportes.index', $contexto));
+        $r->assertSee(route('web.reportes.alumnos'), false)->assertSee('Activos hoy')->assertSee('Septiembre 2026');
+        $this->get(route('web.reportes.index', $contexto))->assertOk()->assertSee(route('web.reportes.alumnos', $contexto));
+    }
+
+    public function test_alumnos_rechaza_filtros_invalidos_y_permite_todos_los_deportes(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        foreach (['', '2026-13', '2026-11', '1899-12', '2026-09-01'] as $mes) {
+            $this->getJson(route('web.reportes.alumnos', ['mes'=>$mes]))->assertUnprocessable()->assertJsonValidationErrors('mes');
+        }
+        foreach (['abc', '999999'] as $id) {
+            $this->getJson(route('web.reportes.alumnos', ['deporte_id'=>$id]))->assertUnprocessable()->assertJsonValidationErrors('deporte_id');
+        }
+        $r = $this->get(route('web.reportes.alumnos', ['deporte_id'=>'']))->assertOk();
+        $this->assertNull($r->viewData('reporte')['deporte_id']);
+    }
+
+    public function test_alumnos_solo_admin_y_primera_carga_conserva_el_bloqueo(): void
+    {
+        $this->get(route('web.reportes.alumnos'))->assertRedirect(route('login'));
+        foreach (['OPERATIVO', 'PROFESOR'] as $rol) {
+            $this->actingAs(User::factory()->create(['rol'=>$rol, 'activo'=>true]))->get(route('web.reportes.alumnos'))->assertForbidden();
+        }
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        PrimeraCarga::query()->update(['estado'=>'PENDIENTE']);
+        $this->get(route('web.reportes.alumnos'))->assertRedirect(route('web.primera-carga.index'));
+    }
+
+    public function test_mes_sin_clases_sigue_seleccionado_y_no_inventa_matricula_historica(): void
+    {
+        $this->actingAs(User::where('rol', 'ADMIN')->firstOrFail());
+        $r = $this->get(route('web.reportes.alumnos', ['mes'=>'2026-02']))->assertOk()->assertSee('Febrero 2026')->assertSee('Matrícula actual');
+        $this->assertContains('2026-02', $r->viewData('meses'));
+        $this->assertSame(0, $r->viewData('reporte')['clases']);
+        $this->assertNull($r->viewData('reporte')['porcentaje_presencia']);
+        $this->assertSame(22, $r->viewData('reporte')['activos']);
     }
 }

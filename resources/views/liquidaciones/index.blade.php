@@ -137,7 +137,7 @@
             </svg>
             <span class="info-label">Total:</span>
             <span class="info-value" style="font-weight:700;">
-                ${{ number_format((float)$liq->total_calculado, 0, ',', '.') }}
+                        ${{ number_format((float)$liq->monto_a_pagar, 2, ',', '.') }}
             </span>
         </div>
         <div class="info-item">

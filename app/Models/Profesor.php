@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Profesor extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
+
     protected $table = 'profesores';
 
     protected $fillable = [

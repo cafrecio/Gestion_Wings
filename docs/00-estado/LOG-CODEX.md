@@ -1,5 +1,40 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-09 — Codex CyE — Sueldos y monto final implementados y verificados, aspecto por revisar
+
+Créditos restablecidos; Alumnos aprobado («Esta OK») e integrado a ruta habitual ADMIN.
+Sueldos: cuota real proporcional a asistencias, comisión cobrada, costos por docente/deporte/presencia.
+ADMIN ajusta final de comisión abierta/cerrada sin pagar; cálculo/detalles conservados, auditoría y bloqueo con pago.
+Suite573/2,4615aserciones,997,45s; módulos/guardianes30/185 tras fixture portable; independiente26/166 correcto.
+Horarios/asistencias actuales pueden cambiar estimados/reparto; importes monetarios al corte y cierres conservados.
+[Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). 14HTTP200,30 capturas web y2páginas de recibo; revisor miró15PNG, PDF completo con margen previo al borde. Publicación autorizada en esta entrega.
+B12/A23 abiertos; Carlos revisará Sueldos/ajuste, después manual integral y antecedentes. Sin deploy ni base del club.
+
+## 2026-10-09 — Codex CyE — Historial preparado y ajuste final pendiente
+
+Cuota neta/tarifa/cobros/liquidaciones: snapshots fechados, lectura al corte y bajas sin borrar pasado.
+Provider/modelos conectados; escritura/baja atómica y Deshacer P1 registra cuotas antes del CASCADE.
+Revisión de fuente encontró captura concurrente y comparación JSON; corregidas, segunda lectura conforme.
+Activación exige mantenimiento y detener CLI/workers/escrituras externas; ninguna activación realizada.
+Nueve pruebas nuevas preparadas; 558 métodos comprobados por búsqueda. Sin ejecutar sintaxis ni suite posterior.
+La suite547/2 anterior acredita Alumnos antes del historial; no usarla como validación del agregado.
+Carlos permite ajustar monto FINAL también cerrado sin pagar; [circuito comprobado y revisado](../06-pruebas/B12-A23/AJUSTE-FINAL-PENDIENTE-2026-10-09.md), sin implementar.
+[Preparación y límites](../06-pruebas/B12-A23/HISTORIAL-SUELDOS-2026-10-09.md). Fuente revisada, funcionamiento no certificado.
+Último comando rechazado por auto-review sin créditos; siguen pendientes ejecución, capturas, tablero y GitHub.
+B12/A23 abiertos; ejecución bloqueada, sin commit/push ni despliegue. Reanudar pruebas y ajuste al restablecer créditos.
+
+## 2026-10-09 — Codex CyE — Alumnos conectado en revisión; Sueldos aclarado
+
+Carlos aprobó Alumnos («Esta OK»); ruta ADMIN, mes/deporte y navegación aplicados localmente.
+Módulo10/76 y suite547/2,4447aserciones,521,38s en base propia; fuente revisada sin defectos.
+Sintaxis/diff correctos. Faltan compilar vistas, restaurar escenario y capturar rutas habituales.
+Comisión sobre cuotas cobradas; cuota analítica proporcional a asistencias, historia desde ahora.
+Carlos aclaró monto final editable de liquidación; pidió alumnos pagados/asistencia sin pago.
+El modelo bloquea importes cerrados/pagados; alcance temporal del ajuste todavía sin decidir.
+Auto-review rechazó el siguiente comando por falta de créditos: no ejecutado, sin juicio de inseguridad.
+[Entrega y pendientes](../06-pruebas/B12-A23/IMPLEMENTACION-ALUMNOS-2026-10-09.md). Sin commit/push nuevos ni despliegue.
+Reanudar capturas/compilación, tablero y GitHub al recuperar créditos; luego historia y Sueldos. B12/A23 abiertos.
+
 ## 2026-10-09 — Codex CyE — Alumnos propuesto, Sueldos espera decisión
 
 Carlos pidió «Segui con alumnos y sueldos». Alumnos: matrícula actual, asistencia del mes y gráficos.
@@ -85,55 +120,4 @@ Antes de código: conciliar retiros del dueño entre contratos, comprobar histor
 Solo planificación documental: sin pruebas, consultas a base real, cambios de aplicación ni despliegue.
 Siguiente: Carlos revisa el plan; desarrollo no iniciado. Entrada antigua archivada íntegra en corte de Reportes.
 
-## 2026-10-08 — Codex CyE — A32 nombres y rol aprobados
-
-Carlos pidió título de persona y rol alineado; aprobó nuevas capturas: «Ok, APROBADO A32».
-Profesor usa Apellido, Nombre vinculado; eliminado dato repetido, Email/Rol uniformes en cuatro tarjetas.
-Pedro/Sandra/Victoria son nombres ficticios de la base Codex; ninguna cuenta real renombrada.
-Seis capturas reales: escritorio/375, propia/profesor/operativo/inactivo/login; rol alineado y Editar/Nuevo x=224–320.
-Controlador, CSS y toggle compartido intactos por SHA256; sintaxis y Blade correctos.
-Corrida completa: 506 verdes/2 omitidas, 2 fallos documentales durante edición simultánea A26/A35.
-Documentos sincronizados sin revertir al otro agente; repetición 4/19 verde, 0,31 s. Salida anterior conservada.
-Tablero A32 cerrado, verifica Carlos; [entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md). Sin despliegue.
-Laboratorio detenido; entrada antigua retirada tras validar copia íntegra del corte A10.
-
-## 2026-10-08 — Codex CyE — A32 aprobado y aplicado
-
-Carlos aprobó «A-32 OK» en el visor; aplicado exactamente el Blade de la propuesta.
-Cuenta propia Activo/Tu cuenta/candado; otras cuentas conservan toggle, celular Editar/Nuevo x=224–320.
-Cinco capturas posteriores de Laravel real idénticas a propuesta; escritorio conservado y marco 375 sin desborde.
-SHA256 confirma CSS, toggle compartido y controlador intactos; vista aplicada idéntica por bytes.
-Suite completa 508 aprobadas/2 omitidas, 4077 aserciones, 363,83 s; build 43,32 s; sintaxis/Blade correctos.
-Escenario ficticio 4/15 verde, 7,48 s; solo wings_testing_codex, ninguna cuenta real modificada.
-Tablero A32 cerrado, verifica Carlos (§6a); 56/72. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md).
-Laboratorio detenido; sin despliegue. A6–A10 y A32 entregados, sin pendientes de este paquete.
-Décima entrada retirada únicamente tras comprobar archivo íntegro del corte A10.
-
-## 2026-10-08 — Codex CyE — A10 cerrado tras revisión y corrección de Limpiar
-
-Claude ejecutó revisión real: devolvió Limpiar por doble escape; resto contrastado con 432 combinaciones/442 pedidos.
-Corregido solo el href; regresión DOM roja antes/verde después, diez A10/110 aserciones.
-Segunda revisión Claude: 19 pruebas/6819 aserciones, 45 comprobaciones de navegador sin fallos, 18 capturas; A10 cerrado.
-Suite final Codex 508 aprobadas/2 omitidas, 4077 aserciones, 423,14 s; 510 pruebas. Build 38,28 s, sintaxis/Blade correctos.
-65 capturas finales del paquete renovadas después del build; escenario ficticio 4/15 verde, 8,72 s; controles documentales 6/28.
-A6–A9 cerrados por Carlos; [entrega verificada](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md), estados/contrato y contadores actualizados.
-A32 sigue sin aplicar: propuesta lista, pregunta visual pendiente de Carlos según AGENTS §1. Sin despliegue.
-Servidores de ensayo detenidos; pruebas siempre en bases propias, base del club intacta.
-Diez entradas; copia íntegra previa en LOG-CODEX-REVISION-A10.md comprobada antes de retirar la más antigua.
-
-
-[Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
-
-[Entrada íntegra retirada en este corte de Reportes](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-PLAN-REPORTES.txt).
-
-[Entrada íntegra retirada al recuperar Desarrollo II](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-DESARROLLO-II.txt).
-
-[Corte íntegro B12/A23 09/10](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-B12-A23.txt).
-
-[Corte íntegro antes de aplicar Inicio y replantear Reportes](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-INICIO-REPORTES.txt).
-
-[Corte íntegro antes de Reportes visual V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-REPORTES-VISUAL.txt).
-
-[Corte íntegro antes de aplicar Finanzas V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-FINANZAS-APLICADO.txt).
-
-[Corte íntegro antes de Alumnos propuesto](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-ALUMNOS-PROPUESTO.txt).
+[Archivo íntegro anterior a esta entrega, incluidos cortes previos](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-SUELDOS-IMPLEMENTACION.txt).

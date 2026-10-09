@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pago extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
+
     // Estados válidos (coinciden con el ENUM de la columna estado). D6.
     const ESTADO_COMPLETADO = 'COMPLETADO';
     const ESTADO_ANULADO    = 'ANULADO';

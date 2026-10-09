@@ -14,6 +14,10 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        foreach ([\App\Models\DeudaCuota::class, \App\Models\Profesor::class, \App\Models\Pago::class,
+            \App\Models\Liquidacion::class, \App\Models\Deporte::class] as $modelo) {
+            $modelo::observe(\App\Observers\HistorialAnaliticoReportesObserver::class);
+        }
         \App\Models\DeudaCuota::observe(\App\Observers\HistorialReporteObserver::class);
         \App\Models\Liquidacion::observe(\App\Observers\HistorialReporteObserver::class);
         \App\Models\TipoCaja::observe(\App\Observers\HistorialReporteObserver::class);

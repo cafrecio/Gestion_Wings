@@ -56,6 +56,6 @@ class HistorialReporteObserver
                 : max(0, (int) round(((float) ($datos['monto_original'] ?? 0) - (float) ($datos['monto_pagado'] ?? 0)) * 100));
         }
         return ($datos['estado'] ?? '') === 'CERRADA' && ($datos['estado_pago'] ?? 'PENDIENTE') === 'PENDIENTE'
-            ? (int) round(($datos['total_calculado'] ?? 0) * 100) : 0;
+            ? (int) round(($datos['monto_final'] ?? $datos['total_calculado'] ?? 0) * 100) : 0;
     }
 }

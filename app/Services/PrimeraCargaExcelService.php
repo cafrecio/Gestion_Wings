@@ -341,6 +341,8 @@ class PrimeraCargaExcelService
             }
             DB::table('cargo_alumno_eventos')->whereIn('cargo_alumno_id', $detalle['cargos'])->delete();
             CargoAlumno::whereIn('id', $detalle['cargos'])->delete();
+            // Registrar bajas de cuotas antes del CASCADE de alumnos (historial analítico).
+            DeudaCuota::whereIn('id', $detalle['deudas'])->orderBy('id')->get()->each(fn ($deuda) => $deuda->delete());
             Alumno::whereIn('id', $detalle['alumnos'])->delete();
             foreach ($detalle['personas_nuevas'] as $dni) if (!Alumno::where('dni', $dni)->exists() && !CargoAlumno::where('dni', $dni)->exists()) DB::table('inscripcion_personas')->where('dni', $dni)->delete();
             $estado->update(['estado' => 'PENDIENTE', 'usuario_id' => $usuario, 'detalle' => null]);

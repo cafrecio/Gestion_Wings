@@ -2,14 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Alumno, CashflowMovimiento, Deporte, MovimientoOperativo, Profesor, TipoCaja};
-use App\Services\ReporteMensualService;
+use App\Models\{Alumno, CashflowMovimiento, Clase, Deporte, MovimientoOperativo, Profesor, TipoCaja};
+use App\Services\{ReporteAlumnosService, ReporteMensualService, ReporteSueldosService};
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{DB, Schema};
 
 class ReporteWebController extends Controller
 {
+    public function sueldos(Request $request, ReporteSueldosService $servicio)
+    {
+        $datos = $request->validate([
+            'mes'=>['sometimes','required','date_format:Y-m','after_or_equal:1900-01','before_or_equal:'.today()->format('Y-m')],
+            'deporte_id'=>['nullable','integer','exists:deportes,id'],
+        ]);
+        $mes = $datos['mes'] ?? today()->format('Y-m');
+        $reporte = $servicio->obtener($mes,isset($datos['deporte_id']) ? (int)$datos['deporte_id'] : null);
+        $evolucion = $servicio->evolucion($mes,$reporte['deporte_id']);
+        $deportes = Deporte::orderBy('nombre')->get(['id','nombre']);
+        $desde = min(substr((string)(Clase::min('fecha') ?? $mes),0,7),$mes);
+        $meses = [];
+        for ($p = CarbonImmutable::createFromFormat('!Y-m',today()->format('Y-m')); $p->format('Y-m') >= $desde; $p = $p->subMonth()) $meses[] = $p->format('Y-m');
+        return view('reportes.sueldos',compact('reporte','evolucion','deportes','meses'));
+    }
+
+    public function alumnos(Request $request, ReporteAlumnosService $servicio)
+    {
+        $datos = $request->validate([
+            'mes' => ['sometimes', 'required', 'date_format:Y-m', 'after_or_equal:1900-01', 'before_or_equal:'.today()->format('Y-m')],
+            'deporte_id' => ['nullable', 'integer', 'exists:deportes,id'],
+        ]);
+        $mes = $datos['mes'] ?? today()->format('Y-m');
+        $reporte = $servicio->obtener($mes, isset($datos['deporte_id']) ? (int) $datos['deporte_id'] : null);
+        $evolucion = $servicio->evolucion($mes, $reporte['deporte_id']);
+        $deportes = Deporte::orderBy('nombre')->get(['id', 'nombre']);
+        $desde = min(substr((string) (Clase::min('fecha') ?? $mes), 0, 7), $mes);
+        $meses = [];
+        for ($p = CarbonImmutable::createFromFormat('!Y-m', today()->format('Y-m')); $p->format('Y-m') >= $desde; $p = $p->subMonth()) {
+            $meses[] = $p->format('Y-m');
+        }
+        return view('reportes.alumnos', compact('reporte', 'evolucion', 'deportes', 'meses'));
+    }
+
     public function index(Request $request, ReporteMensualService $servicio)
     {
         $datos = $request->validate([

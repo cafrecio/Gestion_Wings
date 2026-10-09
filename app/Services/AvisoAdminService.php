@@ -185,7 +185,7 @@ class AvisoAdminService
         }
 
         if ($cantLiqCerradas > 0 || $cantLiqAbiertas > 0) {
-            $totalLiqCerradas = (float) $liqCerradasSinPagar->sum('total_calculado');
+            $totalLiqCerradas = (float) $liqCerradasSinPagar->sum('monto_a_pagar');
 
             if ($cantLiqCerradas > 0) {
                 $datos['Liquidaciones cerradas sin pagar'] = sprintf(

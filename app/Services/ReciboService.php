@@ -178,7 +178,7 @@ class ReciboService
                 ];
             }
 
-            $conteoTexto = count($liquidacion->detalles) . ' alumnos con cuota paga';
+            $conteoTexto = $liquidacion->detalles->pluck('referencia_id')->unique()->count() . ' alumnos con pagos registrados';
             $modalidadTexto = 'Comisión (' . number_format($porcentajeGeneral, 1, ',', '.') . '% de cuotas)';
         }
 
@@ -202,13 +202,16 @@ class ReciboService
                 'texto' => $periodoTexto,
                 'conteo_texto' => $conteoTexto,
             ],
-            'monto_total' => (float) $liquidacion->total_calculado,
-            'total_liquidado' => (float) $liquidacion->total_calculado,
+            'monto_total' => (float) $liquidacion->monto_a_pagar,
+            'total_liquidado' => (float) $liquidacion->monto_a_pagar,
+            'total_calculado' => (float) $liquidacion->total_calculado,
+            'ajuste_final' => (float) $liquidacion->monto_a_pagar - (float) $liquidacion->total_calculado,
             'medio_pago' => [
                 'tipo_caja' => $liquidacion->pagadaTipoCaja->nombre ?? 'N/D',
                 'subrubro' => $liquidacion->pagadaSubrubro->nombre ?? 'N/D',
             ],
-            'observaciones' => null, // Liquidación no tiene campo observaciones en pago
+            'observaciones' => $liquidacion->monto_final !== null
+                ? 'Monto final ajustado por Administración. El anexo conserva el cálculo original.' : null,
             'modalidad' => $liquidacion->tipo,
             'detalles' => $detallesFormateados,
         ];

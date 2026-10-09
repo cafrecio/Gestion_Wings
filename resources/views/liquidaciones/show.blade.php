@@ -54,9 +54,9 @@
                     <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $tipoLabel }}</span>
                 </div>
                 <div>
-                    <span style="font-size:0.7rem; color:var(--color-text-muted); display:block;">Total calculado</span>
+                            <span style="font-size:0.7rem; color:var(--color-text-muted); display:block;">Monto final</span>
                     <span style="font-size:1.4rem; font-weight:800; color:var(--color-text);">
-                        ${{ number_format((float)$liquidacion->total_calculado, 0, ',', '.') }}
+                                ${{ number_format((float)$liquidacion->monto_a_pagar, 2, ',', '.') }}
                     </span>
                 </div>
                 <div>
@@ -282,32 +282,57 @@
 @else
 
 {{-- Stats COMISION --}}
+<div class="filtros-card mb-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div><span class="info-label">Cálculo original</span><p class="info-value">${{ number_format((float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
+        <div><span class="info-label">Ajuste del admin</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
+        <div><span class="info-label">Monto final</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar, 2, ',', '.') }}</p></div>
+    </div>
+    @if(!$esPagada && !$esCancelada && \App\Models\Liquidacion::ajustesDisponibles())
+    <details class="mt-3">
+        <summary class="info-label" style="cursor:pointer;">Editar monto final</summary>
+        <form method="POST" action="{{ route('web.liquidaciones.ajustar', $liquidacion->id) }}" class="mt-3">
+            @csrf
+            <input type="hidden" name="monto_anterior" value="{{ $liquidacion->monto_a_pagar }}">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div><label for="monto_final" class="info-label">Monto final</label>
+                    <input id="monto_final" name="monto_final" type="number" min="0" max="9999999999.99" step="0.01" required value="{{ old('monto_final', $liquidacion->monto_a_pagar) }}" class="w-full px-3 py-2 text-sm wings-input">
+                    @error('monto_final')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
+                </div>
+                <div><label for="motivo_ajuste" class="info-label">Motivo del ajuste</label>
+                    <input id="motivo_ajuste" name="motivo" required minlength="5" maxlength="255" value="{{ old('motivo') }}" class="w-full px-3 py-2 text-sm wings-input">
+                    @error('motivo')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
+                </div>
+            </div>
+            <div class="alumno-actions mt-3"><x-ds.button variant="primary" type="submit">Guardar</x-ds.button></div>
+        </form>
+    </details>
+    @endif
+</div>
 <div class="filtros-card mb-3" style="padding:0; overflow:hidden;">
-    <div style="display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr;">
+    <div class="grid grid-cols-1 sm:grid-cols-3">
         <div style="padding:1rem 1.5rem; text-align:center;">
             <span style="font-size:0.68rem; font-weight:600; color:var(--color-text-muted);
                          display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">
-                Alumnos liquidados
+                Alumnos con pagos registrados
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-text);">
-                {{ $totalDetalles }}
+                {{ $liquidacion->detalles->pluck('referencia_id')->unique()->count() }}
             </span>
         </div>
-        <div style="background:var(--color-border);"></div>
         <div style="padding:1rem 1.5rem; text-align:center;">
             <span style="font-size:0.68rem; font-weight:600; color:var(--color-text-muted);
                          display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">
                 % Comisión
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-text);">
-                {{ number_format((float)($liquidacion->profesor->porcentaje_comision ?? 0), 1) }}%
+                {{ number_format((float)($liquidacion->porcentaje_comision_aplicado ?? $liquidacion->profesor->porcentaje_comision ?? 0), 1) }}%
             </span>
         </div>
-        <div style="background:var(--color-border);"></div>
         <div style="padding:1rem 1.5rem; text-align:center;">
             <span style="font-size:0.68rem; font-weight:600; color:var(--color-text-muted);
                          display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">
-                Total
+                Cálculo original
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-btn-primary);">
                 ${{ number_format((float)$totalSum, 2, ',', '.') }}
@@ -370,7 +395,7 @@
             border-radius:var(--radius-card);">
     <span style="font-size:0.82rem; font-weight:600; color:var(--color-text-muted); text-transform:uppercase;
                  letter-spacing:0.05em;">
-        Total liquidado
+        Cálculo de los detalles
     </span>
     <span style="font-size:1.5rem; font-weight:800; color:var(--color-btn-primary);">
         ${{ number_format((float)$totalSum, 2, ',', '.') }}
@@ -387,6 +412,7 @@
 
     <form method="POST" action="{{ route('web.liquidaciones.pagar', $liquidacion->id) }}">
         @csrf
+        <input type="hidden" name="monto_esperado" value="{{ $liquidacion->monto_a_pagar }}">
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 

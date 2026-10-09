@@ -492,9 +492,13 @@
                     <tr><td colspan="4" style="text-align: center; color: #94a3b8;">Sin alumnos comisionados en el período.</td></tr>
                 @endforelse
                 <tr class="recibo-total-row">
-                    <td colspan="3" class="recibo-total-label">Total Comisión Liquidada</td>
-                    <td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td>
+                    <td colspan="3" class="recibo-total-label">Cálculo original</td>
+                    <td class="recibo-total-monto">$ {{ number_format($total_calculado ?? $monto_total, 2, ',', '.') }}</td>
                 </tr>
+                @if(($ajuste_final ?? 0) != 0)
+                <tr><td colspan="3">Ajuste de Administración</td><td class="monto">$ {{ number_format($ajuste_final, 2, ',', '.') }}</td></tr>
+                <tr class="recibo-total-row"><td colspan="3" class="recibo-total-label">Monto final pagado</td><td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td></tr>
+                @endif
             </tbody>
         </table>
     </div>
