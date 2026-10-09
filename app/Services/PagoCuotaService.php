@@ -62,7 +62,7 @@ class PagoCuotaService
                 // 7.000 que ademas cerraba el mes entero.
                 $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
                 $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
-                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento);
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento, $fechaPago);
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
@@ -77,7 +77,8 @@ class PagoCuotaService
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
                 $items,
-                $montosOriginalesNuevasDeudas
+                $montosOriginalesNuevasDeudas,
+                $fechaPago
             );
 
             // Crear el pago
@@ -173,7 +174,7 @@ class PagoCuotaService
                 // 7.000 que ademas cerraba el mes entero.
                 $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
                 $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
-                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento);
+                $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento, $fechaPago);
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
@@ -188,7 +189,8 @@ class PagoCuotaService
             [$deudasActualizadas, $montosAplicados] = $this->aplicarPagoADeudas(
                 $data['alumno_id'],
                 $items,
-                $montosOriginalesNuevasDeudas
+                $montosOriginalesNuevasDeudas,
+                $fechaPago
             );
 
             // Crear el pago
@@ -416,7 +418,8 @@ class PagoCuotaService
     private function aplicarPagoADeudas(
         int $alumnoId,
         array $items,
-        array $montosOriginalesNuevasDeudas = []
+        array $montosOriginalesNuevasDeudas = [],
+        ?string $fechaPago = null
     ): array
     {
         $deudasActualizadas = [];
@@ -458,6 +461,7 @@ class PagoCuotaService
                 $deuda->estado = DeudaCuota::ESTADO_PAGADA;
             }
 
+            $deuda->fechaHistorial = $fechaPago;
             $deuda->save();
             $deudasActualizadas[$item['periodo']] = $deuda;
             $montosAplicados[$item['periodo']] = $montoAplicar;
@@ -825,13 +829,15 @@ class PagoCuotaService
      * parcial de otro mes se quedaba con la seña como monto original: la deuda se
      * marcaba PAGADA y el saldo restante desaparecia.
      */
-    private function ajustarDeudaConDescuento(int $alumnoId, string $periodo, float $monto): void
+    private function ajustarDeudaConDescuento(int $alumnoId, string $periodo, float $monto, string $fechaPago): void
     {
-        $actualizado = DeudaCuota::where('alumno_id', $alumnoId)
+        $deuda = DeudaCuota::where('alumno_id', $alumnoId)
             ->where('periodo', $periodo)
             ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
             ->whereRaw('monto_pagado < ?', [$monto])
-            ->update(['monto_original' => $monto]);
+            ->lockForUpdate()->first();
+        if ($deuda) $deuda->fechaHistorial = $fechaPago;
+        $actualizado = $deuda?->update(['monto_original' => $monto]);
 
         if (!$actualizado) {
             Log::warning('ajustarDeudaConDescuento: omitida para alumno '.$alumnoId.' período '.$periodo.' (monto_pagado >= monto descontado '.$monto.')');
@@ -1048,6 +1054,9 @@ class PagoCuotaService
                     'subrubro_id' => $original->subrubro_id,
                     'tipo_caja_id' => $original->tipo_caja_id,
                     'monto' => -1 * (float) $original->monto,
+                    'reporte_deporte_id' => $original->reporte_deporte_id,
+                    'reporte_clasificacion' => $original->reporte_clasificacion,
+                    'reporte_tipo' => $original->reporte_tipo,
                     'observaciones' => "Anulación del cobro #{$pago->id} - {$motivo}",
                     'usuario_admin_id' => $adminId,
                     'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA,

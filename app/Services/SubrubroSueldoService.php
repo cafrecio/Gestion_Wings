@@ -66,15 +66,22 @@ class SubrubroSueldoService
      */
     private function crearOReutilizar(string $nombre): Subrubro
     {
-        return Subrubro::firstOrCreate(
+        $rubroId = $this->rubroSueldos()->id;
+        $registroDisponible = \App\Support\RegistroReporteDisponible::existe();
+        $subrubro = Subrubro::firstOrCreate(
             ['nombre' => $nombre],
             [
-                'rubro_id'             => $this->rubroSueldos()->id,
+                'rubro_id'             => $rubroId,
                 'permitido_para'       => 'ADMIN',
                 'afecta_caja'          => false,
+                ...($registroDisponible ? ['clasificacion_resultado' => 'NEGOCIO'] : []),
                 'es_reservado_sistema' => true,
             ]
         );
+        if ($registroDisponible && $subrubro->rubro_id === $rubroId && $subrubro->clasificacion_resultado === null) {
+            $subrubro->update(['clasificacion_resultado' => 'NEGOCIO']);
+        }
+        return $subrubro;
     }
 
     private function rubroSueldos(): Rubro

@@ -132,6 +132,7 @@ class CatalogosSeeder extends Seeder
                         'rubro_id' => $rubro->id,
                         'permitido_para' => $datosSubrubro['permitido_para'],
                         'afecta_caja' => $datosSubrubro['afecta_caja'],
+                        ...(\App\Support\RegistroReporteDisponible::existe() ? ['clasificacion_resultado' => 'NEGOCIO'] : []),
                         'es_reservado_sistema' => $datosSubrubro['es_reservado_sistema'] ?? false,
                         'activo' => true,
                     ]

@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class DeudaCuota extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
+    /** Fecha real del cobro, solo contexto de escritura; no es una columna. */
+    public ?string $fechaHistorial = null;
     const ESTADO_PENDIENTE = 'PENDIENTE';
     const ESTADO_PAGADA = 'PAGADA';
     const ESTADO_CONDONADA = 'CONDONADA';

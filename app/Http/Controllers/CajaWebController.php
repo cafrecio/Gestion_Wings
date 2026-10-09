@@ -974,7 +974,7 @@ class CajaWebController extends Controller
                                 ->where('periodo', now()->format('Y-m'))
                                 ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
                                 ->whereRaw('monto_pagado <= ?', [$precioNuevo])
-                                ->update(['monto_original' => $precioNuevo]);
+                                ->lockForUpdate()->get()->each(fn ($deuda) => $deuda->update(['monto_original' => $precioNuevo]));
                         }
                     }
                 }

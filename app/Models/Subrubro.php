@@ -13,6 +13,7 @@ class Subrubro extends Model
         'nombre',
         'permitido_para',
         'afecta_caja',
+        'clasificacion_resultado',
         'es_reservado_sistema',
         'activo',
     ];

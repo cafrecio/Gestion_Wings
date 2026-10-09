@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-09 — Codex CyE — B12/A23, motor e historial con datos ficticios
+
+Carlos validó 24 acuerdos; pidió desarrollar antes de prueba manual y eligió deuda histórica al cierre.
+Motor común e historial fechado: cuotas, liquidaciones/saldo inicial; clasificación independiente de afecta_caja.
+Escenario exclusivamente wings_testing_codex: 24 alumnos, abril–octubre, MP/EFT/banco/billetera y cuatro avisos.
+Pruebas de cierres, retrofechas, descuento, condonación/anulación, caja idempotente, sueldos/edición y rollback.
+Revisión independiente de código aprobada. Suite completa: 528 aprobadas/2 omitidas, 4244 aserciones, 276,58 s.
+Cinco capturas reales desde Laravel: Inicio/Reportes escritorio y marco375; control login completo.
+[Entrega y límites](../06-pruebas/B12-A23/RESULTADO.md) · [visor](../06-pruebas/B12-A23/visor.html); vistas habituales/CSS intactos.
+Siguiente: Carlos elige primero Inicio; falta integración/clasificación de antecedentes. B12/A23 abiertos, sin deploy.
+Esquema anterior físico y migración probados; escenario restaurado. Archivo íntegro; diez entradas activas.
+
 ## 2026-10-08 — Codex CyE — Continuidad de Desarrollo II a Desarrollo III
 
 Leído completo GestionWings - Desarrollo II (20 turnos); pedido actual: conservar pendientes y subir todo el avance.
@@ -109,21 +121,10 @@ PHP/Blade y enlaces correctos; assets existentes; sin nueva suite/build ni cambi
 A10 espera elección; paquete sin autocierre/publicación, verificación independiente pendiente.
 Diez entradas; retirada antigua íntegra en el corte 08/10, comprobada antes de quitarla.
 
-## 2026-10-08 — Codex CyE — A8/A9, estados y controles completos
-
-Retoma tras aviso de Carlos; A8 final aprobado: «A-8 APROBADO»; distintivo de Profesores conservado.
-Escenario ficticio añade grupo/profesor inactivos y nivel sin grupos; solo wings_testing_codex.
-22 capturas A8/A9; siete nuevas para comparar Nuevo, tres pantallas reales ADMIN/375 y login.
-Las utilidades del pase no alineaban los controles: tres clases de pie y CSS exclusivo móvil.
-Carlos confirmó «Perfecto, APROBADO A-9 Entonces»; condición medida: botones x=224–320/toggle derecha320.
-Build 24,21 s; PHP/Blade correctos; escenario 4/15 verde, 7,53 s; suite 491/2/7, 3944 aserciones, 293,60 s.
-Seis fallas: $bloqueo ausente en Inicio operativo ajeno; una: contador documental 491/500.
-[Alineación con Nuevo](../06-pruebas/PRU-02/evidencia/a6-a10/comprobacion-a9-alineacion.json); documentos/tablero actualizados.
-A8/A9 aprobados visualmente, en curso sin autocierre/publicación; completar A10/entrega conjunta.
-Diez entradas activas; la retirada ya está íntegra en el corte 08/10, comprobada por contenido.
-
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
 
 [Entrada íntegra retirada en este corte de Reportes](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-PLAN-REPORTES.txt).
 
 [Entrada íntegra retirada al recuperar Desarrollo II](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-DESARROLLO-II.txt).
+
+[Corte íntegro B12/A23 09/10](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-B12-A23.txt).

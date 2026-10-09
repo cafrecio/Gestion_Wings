@@ -14,6 +14,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        \App\Models\DeudaCuota::observe(\App\Observers\HistorialReporteObserver::class);
+        \App\Models\Liquidacion::observe(\App\Observers\HistorialReporteObserver::class);
+        \App\Models\TipoCaja::observe(\App\Observers\HistorialReporteObserver::class);
+        \App\Models\CashflowMovimiento::observe(\App\Observers\MovimientoReporteObserver::class);
+        \App\Models\MovimientoOperativo::observe(\App\Observers\MovimientoReporteObserver::class);
         // Solo hace algo en el servidor de prueba, y nunca en producción:
         // ver App\Support\RelojSimulado.
         if (!$this->app->runningUnitTests()) {

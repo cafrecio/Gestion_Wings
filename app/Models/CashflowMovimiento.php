@@ -20,6 +20,9 @@ class CashflowMovimiento extends Model
     const REF_LIQUIDACION = 'LIQUIDACION';    // pago de liquidación a profesor
 
     protected $fillable = [
+        'reporte_deporte_id',
+        'reporte_clasificacion',
+        'reporte_tipo',
         'fecha',
         'subrubro_id',
         'tipo_caja_id',

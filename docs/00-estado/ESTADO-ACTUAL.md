@@ -1,5 +1,17 @@
 # Wings — Estado actual
 
+## B12/A23 — plan validado, desarrollo autorizado 09/10/2026
+
+Comprobación de historia, 09/10: descuentos/cambios de plan sobrescriben el importe
+original de la cuota; las liquidaciones no conservan fecha de cierre ni deporte
+congelado. `afecta_caja` controla admisión operativa, no resultado económico:
+Luz/Internet/Intereses son económicos aunque el catálogo lo tiene en falso.
+Carlos eligió deuda histórica al cierre: agregar registro fechado desde un corte
+explícito, sin certificar meses previos incompletos. Datos ficticios solo en la base
+Codex. La clasificación económica debe ser independiente de `afecta_caja`.
+
+Carlos validó los [24 acuerdos](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), incluido corte histórico y datos ficticios. Motor e historial implementados en desarrollo; escenario Codex con 24 alumnos y siete meses, doce pruebas nuevas. Revisión independiente de código aprobada tras corregir casos retroactivos/sueldos/edición; suite completa 528 aprobadas/2 omitidas, 4244 aserciones. [Entrega y límites](../06-pruebas/B12-A23/RESULTADO.md), [capturas reales](../06-pruebas/B12-A23/visor.html). Carlos elige primero Inicio. Rutas/vistas habituales y circuito de clasificación aún pendientes; no afirmar B12/A23 terminados ni desplegados.
+
 ## A32 — CERRADO 08/10/2026, verifica Carlos
 
 Carlos aprobó el retoque: «Ok, APROBADO A32». Nombre de la persona en el título; Profesor toma Apellido, Nombre de su ficha vinculada y no repite ese dato abajo. Todas las tarjetas muestran Email y Rol en columnas consistentes. Pedro/Sandra/Victoria son nombres ficticios del ensayo. Se conservan Activo/Tu cuenta/candado y Editar/Nuevo x=224–320 en celular. Seis capturas reales y medidas correctas; controlador, CSS y toggle compartido intactos. Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. CERRADO, verifica Carlos; sin despliegue. [Entrega y capturas](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md).
@@ -328,7 +340,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **518 pruebas**: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
+| **Tests** | **530 pruebas** (528 aprobadas/2 omitidas, 4244 aserciones, 276,58 s; B12/A23 Codex CyE 09/10 en wings_testing_codex). Corte anterior: 516 aprobadas/2 omitidas, 4172 aserciones; corte A24 Gemini CyE 08/10 en wings_testing_gemini (8 pruebas permanentes para las 8 situaciones de mostrador en InicioOperativoTest). Corte anterior A32 Codex CyE 08/10: 510 pruebas (508/2, 4077 aserciones). Retoque nombres/rol: corrida completa 506 aprobadas, 2 omitidas y 2 fallos documentales durante edición simultánea, 4075 aserciones, 275,69 s; controles documentales repetidos 4/19 verdes, 0,31 s. Ninguna prueba de código falló. Corte A10 anterior: 508/2, 4077 aserciones, 423,14 s. Antecedente 509: 507 aprobadas/2 omitidas, 4037 aserciones, 379,46 s; suite Codex CyE 08/10 en wings_testing_codex. Antecedente: 500 pruebas, 498 aprobadas/2 omitidas, 3960 aserciones, 343,45 s; corrida de Claude CyE el 08/10 en la carpeta compartida (wings_testing_claude), con trabajo sin publicar de Codex presente. Dato anterior: 491 pruebas: 489 aprobadas/2 omitidas, 3924 aserciones, 203,84 s. Suite completa sobre main integrado, base wings_testing_codex, 06/10. A13/B1/A55 CERRADOS por Codex; A48/A49 verificado Claude. [Control y alcance](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). A15/A16/A25 siguen a revisar; sin despliegue |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Liquidacion extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
     const TIPO_HORA = 'HORA';
     const TIPO_COMISION = 'COMISION';
 

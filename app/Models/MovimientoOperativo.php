@@ -15,6 +15,9 @@ class MovimientoOperativo extends Model
     const ESTADO_CANCELADO = 'CANCELADO';
 
     protected $fillable = [
+        'reporte_deporte_id',
+        'reporte_clasificacion',
+        'reporte_tipo',
         'caja_operativa_id',
         'fecha',
         'tipo_caja_id',

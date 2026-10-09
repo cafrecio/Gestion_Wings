@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TipoCaja extends Model
 {
+    use \App\Models\Concerns\GuardaHistorialAtomico;
     protected $table = 'tipos_caja';
 
     protected $fillable = [

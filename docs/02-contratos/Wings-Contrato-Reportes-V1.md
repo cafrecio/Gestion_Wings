@@ -13,6 +13,8 @@
 
 ## Enmienda FIN-04 — definición cerrada el 22/09/2026
 
+**Enmienda B12/A23, 09/10/2026:** Carlos validó los [24 acuerdos de Desarrollo III](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md), que prevalecen ante diferencias con antecedentes de este contrato. Disponible por tipo de caja y total, confirmado/pendiente separados; aportes y retiros del dueño cambian saldo pero no resultado del negocio. Consulta mensual, gráficos de hasta seis meses cerrados con datos y mes actual aparte; alumnos activos por deporte/nivel. Inicio ADMIN resume esos mismos cálculos y cuatro avisos breves con acceso al listado. Mensajería interna queda para después. Desarrollo autorizado antes de la prueba manual; aprobación visual posterior mediante imágenes reales. Verificar cobertura histórica antes de prometer cifras reconstruidas.
+
 **Consulta de Cashflow, A10 08/10/2026:** Carlos aprobó la propuesta Día/Semana/Mes/Año con Resultado del período. Implementada y verificada por Claude el 08/10 (segunda revisión): Día usa una fecha; Semana la semana lunes–domingo que la contiene, sin recortar por mes/año; Mes/Año usan el intervalo completo seleccionado. Filas e ingresos/egresos comparten fechas inclusivas y filtro de caja; Tipo afecta las filas y mantiene ambos totales. Resultado del período = ingresos − egresos, sin saldo inicial. Sin selector explícito se conserva la consulta anual y los enlaces anteriores Año/Mes. Limpiar quita Caja/Tipo conservando período y fecha; el enlace se comprobó con clic real en los cuatro modos. Esta consulta no implementa POS-01 ni el apartado de saldo acumulado. [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A10-PERIODOS.md).
 
 Decisiones expresas de Carlos, consolidadas desde la entrevista. Esta enmienda
@@ -287,9 +289,13 @@ preguntas: **cuánto entró, quién me debe, y qué grupo me conviene.**
 
 ## 7. Estado
 
-**Definido, no implementado.** Se construye cuando cierre la prueba funcional
-completa (`PRUEBA-HUMANA-V1.md`): no tiene sentido armar reportes sobre un sistema del
-que todavía no sabemos si carga bien los datos.
+**Motor e historial implementados en desarrollo, 09/10/2026; integración pendiente, sin despliegue.**
+Carlos autorizó construir B12/A23 antes de la prueba funcional completa:
+«Vamos a implementarlo antes de la prueba manual. Avancemos».
+Carlos eligió deuda histórica al cierre; se conservan cambios fechados desde la
+activación. Meses anteriores incompletos quedan indisponibles. [Ensayo y capturas](../06-pruebas/B12-A23/RESULTADO.md).
+Código revisado por otro agente; suite final en ejecución. Pantallas/rutas habituales
+y clasificación de antecedentes pendientes; Carlos elige el aspecto con imágenes.
 
 El menú del administrador se reordena **después** de esto, porque estas pantallas lo
 cambian igual.

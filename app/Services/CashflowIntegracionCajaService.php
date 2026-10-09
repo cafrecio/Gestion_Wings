@@ -55,7 +55,7 @@ class CashflowIntegracionCajaService
             $rubro = $subrubro->rubro;
 
             // Determinar signo según tipo de rubro
-            $esIngreso = $rubro->tipo === 'INGRESO';
+            $esIngreso = ($movimiento->reporte_tipo ?? $rubro->tipo) === 'INGRESO';
             $montoConSigno = $esIngreso
                 ? abs($movimiento->monto)
                 : -abs($movimiento->monto);
@@ -76,6 +76,9 @@ class CashflowIntegracionCajaService
                 'usuario_admin_id' => $adminId,
                 'referencia_tipo' => CashflowMovimiento::REF_CAJA,
                 'referencia_id' => $cajaId,
+                'reporte_deporte_id' => $movimiento->reporte_deporte_id,
+                'reporte_clasificacion' => $movimiento->reporte_clasificacion,
+                'reporte_tipo' => $movimiento->reporte_tipo,
             ]);
         }
     }

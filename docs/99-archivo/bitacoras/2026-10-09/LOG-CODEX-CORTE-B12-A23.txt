@@ -1,0 +1,13 @@
+## 2026-10-08 — Codex CyE — A8/A9, estados y controles completos
+
+Retoma tras aviso de Carlos; A8 final aprobado: «A-8 APROBADO»; distintivo de Profesores conservado.
+Escenario ficticio añade grupo/profesor inactivos y nivel sin grupos; solo wings_testing_codex.
+22 capturas A8/A9; siete nuevas para comparar Nuevo, tres pantallas reales ADMIN/375 y login.
+Las utilidades del pase no alineaban los controles: tres clases de pie y CSS exclusivo móvil.
+Carlos confirmó «Perfecto, APROBADO A-9 Entonces»; condición medida: botones x=224–320/toggle derecha320.
+Build 24,21 s; PHP/Blade correctos; escenario 4/15 verde, 7,53 s; suite 491/2/7, 3944 aserciones, 293,60 s.
+Seis fallas: $bloqueo ausente en Inicio operativo ajeno; una: contador documental 491/500.
+[Alineación con Nuevo](../06-pruebas/PRU-02/evidencia/a6-a10/comprobacion-a9-alineacion.json); documentos/tablero actualizados.
+A8/A9 aprobados visualmente, en curso sin autocierre/publicación; completar A10/entrega conjunta.
+Diez entradas activas; la retirada ya está íntegra en el corte 08/10, comprobada por contenido.
+

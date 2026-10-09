@@ -205,7 +205,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-05** | Acceso directo al recibo despues de cobrar y desde la ficha | CERRADO 13/09/2026: Acceso a 1 clic mediante botón Recibo (target=_blank, inline=1) en la confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno; diseño autorizado el 07/09 |
 | **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN — IMPLEMENTADA 22/09 | Decisión 22/09: resumen diario a las 08:00 (hora Argentina) vía AvisoAdminService (email y Telegram), activo durante PRU-02. Contenido: cajas cerradas sin validar (total y más vieja), revisiones pendientes (más vieja) y liquidaciones cerradas sin pagar y abiertas (sin sumar al total a pagar). Comando avisos:resumen-diario en scheduler. 5 pruebas en AvisoAdminResumenDiarioTest |
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
-| **ENT-08** | Tablero administrativo util | Despues de prueba humana; no copiar sin criterio el tablero operativo |
+| **ENT-08** | Tablero administrativo util | Carlos adelanta A23 antes de la prueba humana, 09/10; [acuerdos B12/A23](ACUERDOS-B12-A23-2026-10-09.md). Mismos cálculos de Reportes y avisos breves; aprobación visual con imágenes |
 | **ENT-09** | Carga del saldo inicial de todo el padron | Herramienta lista 10/09. **Le toca a Carlos**: exportar el padron, Vanina marca DEBE por alumno, reimportar. Cierra el mes de corte. Procedimiento en `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md` |
 | **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga, Excel sin inscripción por defecto y alta manual con inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
 | **ENT-11** | Excepciones justificadas (contrato de cobranza §8, §9 y §9b) | Separada de ENT-06 el 22/09. El contrato pide motivo obligatorio y aviso al ADMIN en cobro parcial, cobro que deja impago un mes anterior, deudor o alumno nuevo desde la 3ª clase y exceso de plan. No existe en el código: ninguno pide motivo. Unificar los motivos dispersos en un registro único (§11). Después de PRU-02 |
@@ -218,7 +218,7 @@ Guías prácticas para usuarios y preparación. **MUY IMPORTANTE:** explicar fec
 
 | ID | Tema | Alcance |
 |---|---|---|
-| **POS-01** | Reportes acordados | Implementar despues de la prueba humana segun `Wings-Contrato-Reportes-V1.md` |
+| **POS-01** | Reportes acordados | Desarrollo autorizado antes de la prueba humana por Carlos, 09/10; [acuerdos B12/A23](ACUERDOS-B12-A23-2026-10-09.md). Comprobar cálculos e historia, mostrar propuestas y después aplicar lo aprobado |
 | **POS-02** | Auditoria e historial de contactos | Trazar cambios administrativos y gestiones de cobranza |
 | **POS-03** | Recuperacion de acceso | Evaluar autoservicio y MFA segun necesidad real |
 | **POS-04** | Tarifas | Historial de precios y aumentos masivos |

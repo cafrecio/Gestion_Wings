@@ -34,9 +34,8 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Revisar plan conjunto B12/A23; inicio ADMIN usara los mismos calculos que Reportes. Desarrollo no iniciado. |
+| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Elegir aspecto de Inicio en visor B12-A23; despues integrar pantalla y enlaces, con control independiente. |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
-| **B12** No hay reportes | En curso (hizo Codex) | Revisar plan conjunto B12/A23; desarrollo no iniciado. Resolver retiros, cobertura historica y puerta de prueba humana. |
 
 ## Hecho y sin nadie que lo verifique
 
@@ -51,7 +50,9 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **B12** No hay reportes | En curso (hizo Codex) | Motor/historial probados y escenario cargado. Tras Inicio, elegir Reportes; integrar filtros, detalles y clasificacion de antecedentes. |
 
 ## Gemini
 

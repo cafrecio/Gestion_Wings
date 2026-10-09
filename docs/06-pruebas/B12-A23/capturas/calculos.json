@@ -1,0 +1,631 @@
+{
+    "reporte": {
+        "mes": "2026-10",
+        "fecha_corte": "2026-10-09",
+        "deporte_id": null,
+        "ingresos": 66000000,
+        "egresos": 7500000,
+        "resultado": 58500000,
+        "sin_clasificar": 0,
+        "gastos_club": 7500000,
+        "aportes": 9000000,
+        "retiros": 4000000,
+        "deuda": {
+            "disponible": true,
+            "total": 69000000,
+            "mes": 12000000,
+            "anteriores": 57000000,
+            "filas": [
+                {
+                    "id": 22,
+                    "persona_id": 22,
+                    "periodo": "2026-04",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 23,
+                    "persona_id": 23,
+                    "periodo": "2026-04",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 24,
+                    "persona_id": 24,
+                    "periodo": "2026-04",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 47,
+                    "persona_id": 23,
+                    "periodo": "2026-05",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 48,
+                    "persona_id": 24,
+                    "periodo": "2026-05",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 46,
+                    "persona_id": 22,
+                    "periodo": "2026-05",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 72,
+                    "persona_id": 24,
+                    "periodo": "2026-06",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 70,
+                    "persona_id": 22,
+                    "periodo": "2026-06",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 71,
+                    "persona_id": 23,
+                    "periodo": "2026-06",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 96,
+                    "persona_id": 24,
+                    "periodo": "2026-07",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 94,
+                    "persona_id": 22,
+                    "periodo": "2026-07",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 95,
+                    "persona_id": 23,
+                    "periodo": "2026-07",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 118,
+                    "persona_id": 22,
+                    "periodo": "2026-08",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 119,
+                    "persona_id": 23,
+                    "periodo": "2026-08",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 120,
+                    "persona_id": 24,
+                    "periodo": "2026-08",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 143,
+                    "persona_id": 23,
+                    "periodo": "2026-09",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 141,
+                    "persona_id": 21,
+                    "periodo": "2026-09",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 144,
+                    "persona_id": 24,
+                    "periodo": "2026-09",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 142,
+                    "persona_id": 22,
+                    "periodo": "2026-09",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 165,
+                    "persona_id": 21,
+                    "periodo": "2026-10",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 168,
+                    "persona_id": 24,
+                    "periodo": "2026-10",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 166,
+                    "persona_id": 22,
+                    "periodo": "2026-10",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                },
+                {
+                    "id": 167,
+                    "persona_id": 23,
+                    "periodo": "2026-10",
+                    "deporte_id": 2,
+                    "centavos": 3000000
+                }
+            ]
+        },
+        "por_pagar": {
+            "disponible": true,
+            "total": 9000000,
+            "mes": 9000000,
+            "anteriores": 0,
+            "filas": [
+                {
+                    "id": 1,
+                    "persona_id": 1,
+                    "periodo": "2026-10",
+                    "deporte_id": 1,
+                    "centavos": 9000000
+                }
+            ]
+        },
+        "cajas": [
+            {
+                "id": 5,
+                "nombre": "BGA",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 2,
+                "nombre": "BNA",
+                "confirmado": 177500000,
+                "pendiente": 0,
+                "total": 177500000
+            },
+            {
+                "id": 4,
+                "nombre": "Banco Nacion ahorro",
+                "confirmado": 0,
+                "pendiente": 0,
+                "total": 0
+            },
+            {
+                "id": 6,
+                "nombre": "BLT",
+                "confirmado": 4000000,
+                "pendiente": 0,
+                "total": 4000000
+            },
+            {
+                "id": 1,
+                "nombre": "EFT",
+                "confirmado": 20500000,
+                "pendiente": 3000000,
+                "total": 23500000
+            },
+            {
+                "id": 3,
+                "nombre": "MP",
+                "confirmado": 231000000,
+                "pendiente": 0,
+                "total": 231000000
+            }
+        ],
+        "disponible": 436000000,
+        "historial_desde": "2026-04-01",
+        "filas": [
+            {
+                "id": 139,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 140,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 141,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 142,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 143,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 144,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 145,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 146,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 147,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 148,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 149,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 150,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 1,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 151,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 152,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 153,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 154,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 155,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 156,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 157,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 2,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 158,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Cuota Mensual",
+                "tipo_caja_id": 3,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": 2,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 159,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Luz",
+                "tipo_caja_id": 2,
+                "tipo": "EGRESO",
+                "centavos": -4500000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 160,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Internet",
+                "tipo_caja_id": 2,
+                "tipo": "EGRESO",
+                "centavos": -1800000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 161,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-06",
+                "concepto": "Limpieza",
+                "tipo_caja_id": 2,
+                "tipo": "EGRESO",
+                "centavos": -1200000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 164,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-09",
+                "concepto": "APORTE de prueba",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 9000000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "APORTE"
+            },
+            {
+                "id": 165,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-09",
+                "concepto": "RETIRO de prueba",
+                "tipo_caja_id": 1,
+                "tipo": "EGRESO",
+                "centavos": -4000000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "RETIRO"
+            },
+            {
+                "id": 166,
+                "origen": "CASHFLOW",
+                "fecha": "2026-10-09",
+                "concepto": "Venta de prueba",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": true,
+                "deporte_id": null,
+                "clasificacion": "NEGOCIO"
+            },
+            {
+                "id": 2,
+                "origen": "OPERATIVO",
+                "fecha": "2026-10-09",
+                "concepto": "Venta de prueba",
+                "tipo_caja_id": 1,
+                "tipo": "INGRESO",
+                "centavos": 3000000,
+                "confirmado": false,
+                "deporte_id": null,
+                "clasificacion": "NEGOCIO"
+            }
+        ],
+        "avisos": {
+            "cajas": 1,
+            "liquidaciones": 1,
+            "liquidaciones_abiertas": 1,
+            "asistencia": 1,
+            "revision": 1
+        },
+        "alumnos": [
+            {
+                "deporte": "Patín",
+                "nivel": "Principiantes",
+                "cantidad": 6
+            },
+            {
+                "deporte": "Patín",
+                "nivel": "Intermedias",
+                "cantidad": 6
+            },
+            {
+                "deporte": "Fútbol",
+                "nivel": "Principiantes",
+                "cantidad": 6
+            },
+            {
+                "deporte": "Fútbol",
+                "nivel": "Intermedias",
+                "cantidad": 6
+            }
+        ]
+    },
+    "evolucion": [
+        {
+            "mes": "2026-04",
+            "resultado": 52500000,
+            "deuda": 12000000
+        },
+        {
+            "mes": "2026-05",
+            "resultado": 52500000,
+            "deuda": 24000000
+        },
+        {
+            "mes": "2026-06",
+            "resultado": 52500000,
+            "deuda": 36000000
+        },
+        {
+            "mes": "2026-07",
+            "resultado": 52500000,
+            "deuda": 48000000
+        },
+        {
+            "mes": "2026-08",
+            "resultado": 55000000,
+            "deuda": 60000000
+        },
+        {
+            "mes": "2026-09",
+            "resultado": 67500000,
+            "deuda": 57000000
+        }
+    ]
+}

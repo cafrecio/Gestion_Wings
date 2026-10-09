@@ -1,8 +1,11 @@
 # B12 + A23 — Reportes e inicio de ADMIN
 
-**08/10/2026 · Codex CyE · PROPUESTA para revisar con Carlos.**
-Pedido: pensar el plan primero y desarrollar después. No se implementó ni desplegó
-nada en esta etapa. Aprobar este plan no sustituye la revisión visual posterior.
+**09/10/2026 · Codex CyE · PLAN VALIDADO, desarrollo autorizado.**
+Carlos validó por preguntas cortas los [24 acuerdos](ACUERDOS-B12-A23-2026-10-09.md)
+y pidió implementar antes de la prueba manual. Aportes/retiros quedan fuera del
+resultado del negocio; disponible por tipo de caja y total; gráficos en Reportes;
+inicio con avisos breves y acceso al listado. El aspecto se elige con imágenes reales.
+El relevamiento del 08/10 y las entregas de abajo conservan su fecha y alcance.
 
 ## 1. Una implementación, dos usos
 
@@ -42,7 +45,7 @@ Relevamiento de archivos actuales, sin consultar la base real ni ejecutar prueba
 
 - `WebController::adminDashboard()` calcula alumnos y deuda; su vista muestra cuatro
   indicadores y tres accesos. No calcula el resultado económico del negocio.
-- `CashflowIntegracionCajaService::reflejarCajaValidada()` copia movimientos activos
+- `CashflowIntegracionCajaService::reflejarCajaEnCashflow()` copia movimientos activos
   cuando la caja está VALIDADA, conservando la fecha del movimiento. Su referencia
   identifica la caja, no cada movimiento original.
 - `CashflowSaldoService::obtenerSaldosPorTipoCaja()` usa Cashflow y saldo inicial;
@@ -115,17 +118,15 @@ cero. Mostrar hasta seis meses cerrados con información y permitir abrir cada m
 
 ## 5. Puntos que deben quedar resueltos antes del código dependiente
 
-1. **Retiros del dueño:** Caja V4 §4.4 dice que aportes/retiros no generan resultado;
-   FIN-04 diferencia negocio de global e indica restar egresos sin explicitar una
-   excepción para retiros. Conservar ambos antecedentes. Opciones a validar con
-   Carlos: excluir retiros del resultado del negocio, o descontarlos allí; definir
-   asimismo el nombre y alcance del resultado global. No elegirlo en una consulta SQL.
+1. **Aportes/retiros, RESUELTO 09/10:** Carlos confirmó que solo cambian el
+   disponible; no entran al resultado del negocio. Identificarlos explícitamente
+   en datos, sin confundirlos con ingresos/egresos económicos del mes.
 2. **Historia disponible:** comprobar qué se reconstruye con fechas y relaciones
    conservadas y qué exige registrar cambios nuevos. El estado actual de un alumno
    no demuestra su estado pasado. Definir cobertura inicial de cada indicador.
-3. **Puerta de desarrollo:** POS-01 y el contrato subordinan implementación a la
-   prueba humana completa. Este pedido permite planificar; antes de desarrollar,
-   confirmar su cumplimiento o el cambio explícito de orden decidido por Carlos.
+3. **Puerta de desarrollo, RESUELTO 09/10:** Carlos: «Vamos a implementarlo antes
+   de la prueba manual. Avancemos». El cambio de orden autoriza desarrollo;
+   no sustituye la prueba manual ni autoriza despliegue.
 
 Estos puntos no impiden discutir el plan. Impiden dar por resueltas reglas o cifras
 que todavía no quedaron comprobadas o conciliadas.
