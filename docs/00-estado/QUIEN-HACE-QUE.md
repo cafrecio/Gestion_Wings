@@ -47,7 +47,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en b7cf0a7, con A24, y base sin alumnos (08/10). Falta la prueba manual de la primera carga, que dirige Carlos |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 22977b6 (09/10), con Inicio del admin y Reportes, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
 
 ## Codex
 

@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-09 — Claude CyE — sitio de prueba en 22977b6, con Inicio del admin y Reportes
+
+Codex publico A23 y B12 (Inicio del admin, Reportes, ajuste de liquidaciones). Desplegado en
+test: `b7cf0a7` → `22977b6`, tres migraciones, sin errores. Respaldo previo en
+`/root/respaldos-manuales/`. La base sigue sin alumnos y con la primera carga pendiente.
+Comprobado dentro del servidor: mientras la carga este pendiente, el admin es llevado a
+Primera carga tambien desde Inicio y desde Reportes, asi que esas pantallas no se ven hasta
+cargar alumnos. El operativo no entra a Reportes (403), como definio Carlos en la encuesta.
+**Sigue:** la prueba manual que dirige Carlos. A23 y B12 esperan su OK. T9 (metodo comun,
+en el repositorio `Gestion_CAB`) quedo para el 10/10.
+Carlos pidio honestidad sobre el metodo: mi diagnostico y sus decisiones estan en memoria
+(`metodo-trabajo-entre-proyectos`). Se mantienen los tres agentes.
+
 ## 2026-10-08 — Claude CyE — DONDE QUEDE al cierre del 08/10
 
 **Avance: 60 de 72, ninguno frena.** main en verde y al dia. Sitio de prueba desplegado en

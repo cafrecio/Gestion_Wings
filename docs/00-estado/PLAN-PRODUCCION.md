@@ -14,7 +14,7 @@ toma de los bloques D1-D6 del plan de agosto.
 |---|---|
 | A15/A16 | CERRADOS 07/10, verificado Gemini. Aviso con confirmación antes de crear; horarios por día en una carga por grupo. 76 clases/seis cargas, rollback ante conflicto. Diseño aprobado por Carlos; 18 pruebas nuevas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md). Verifica otro agente; sin deploy |
 | Aplicacion | Publicada para preparacion; gate final no firmado |
-| Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `b7cf0a7` desde el 08/10; scripts de monitoreo instalados y probados |
+| Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `22977b6` desde el 09/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
 | Suite | **575 pruebas** (acceso a Reportes, 09/10 Codex CyE: 573 aprobadas/2 omitidas,4616 aserciones,885,32s en wings_testing_codex. Control independiente de fuente/documentos y muestra12PNG; sin deploy; revisión visual del acceso y ajuste final pendiente Carlos). [Entrega y verificaciones](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md) |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
