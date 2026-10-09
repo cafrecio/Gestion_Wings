@@ -291,6 +291,11 @@ preguntas: **cuánto entró, quién me debe, y qué grupo me conviene.**
 
 ## 7. Estado
 
+**Aspecto, revisión posterior 09/10:** Carlos pidió «Hacelo mas visual y de menos lectura»,
+con tres referencias. [V3 de ensayo](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md)
+preparada y revisada, pendiente de elección. No sustituye pantallas habituales ni
+modifica reglas de negocio. Su comentario favorable sobre el gráfico V2 no aprobó Reportes entero.
+
 **Motor e historial implementados en desarrollo, 09/10/2026; integración pendiente, sin despliegue.**
 Carlos autorizó construir B12/A23 antes de la prueba funcional completa:
 «Vamos a implementarlo antes de la prueba manual. Avancemos».

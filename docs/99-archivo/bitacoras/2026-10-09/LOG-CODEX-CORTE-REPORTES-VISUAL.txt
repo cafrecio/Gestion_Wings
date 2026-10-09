@@ -1,18 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-09 — Codex CyE — Reportes V3, más visual y menos lectura
-
-Carlos pidió «Hacelo mas visual y de menos lectura», con tres referencias guardadas; V3 preparada.
-Tarjetas con tendencias, evolución, cambio firmado por rubro, circular de ingresos y barras de gastos.
-Detalle plegado y mes actual separado. CSS/JS privados; vistas habituales, app.css y reglas intactos.
-Capturas reales Laravel: escritorio1440 y marco375, filtros y pie completos; tokens FICTICIO.
-Revisión independiente aprobada tras corregir etiquetas, comparación sin clasificación y alternativa accesible.
-PHP/JS/Blade correctos; build33,73s. Suite propia532/2,4286 aserciones,580,76s; escenario restaurado.
-[Propuesta, controles y límites](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md) · [visor](../06-pruebas/B12-A23/visor.html).
-V2 conservada; «El grafico no esta mal» no aprobó todo Reportes. V3 espera elección de Carlos.
-Siguiente: aplicar lo elegido y conectar rutas/filtros; Alumnos/Sueldos/atribución/historia pendientes. B12/A23 abiertos, sin deploy.
-Diez entradas activas; copia íntegra anterior preservada antes de retirar la más antigua.
-
 ## 2026-10-09 — Codex CyE — Inicio aprobado/aplicado, Reportes replanteado
 
 Carlos aprobó Inicio («Ok, aprobado») y rechazó Reportes original; separar Alumnos e Ingresos/egresos.
@@ -121,6 +108,19 @@ Build 31,01 s; seis sintaxis y Blade correctos. Escenario ficticio 4/15 verde, 9
 Siguiente: otro agente comprueba intervalos, validaciones y resultado; saldo acumulado de Reportes pendiente.
 Servidor de laboratorio detenido; antigua entrada A14/A27/A53 íntegra en corte 08/10, comprobada antes de retirar.
 
+## 2026-10-08 — Codex CyE — A10, maquetas de Día/Semana/Mes/Año
+
+Carlos pidió evaluar día/semana y después mostrar maquetas; propuesta preparada en laboratorio.
+Selector único y campos según período; fecha elige semana lunes–domingo, rango explícito.
+20 capturas reales ADMIN escritorio/375, login de control, cruces de mes/año y selección ejercitada.
+Resultado propuesto = ingresos − egresos; saldo acumulado pendiente, sin alterar cálculo de aplicación.
+Vistas/controlador/CSS originales idénticos por SHA256; sintaxis, intervalos, filas y enlaces comprobados.
+[Visor de las cuatro maquetas](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10-periodos.html); tablero y documentos actualizados.
+Tras aviso de Carlos, visor-a10 integra Día/Semana en escritorio arriba; [enlace directo nuevo](../06-pruebas/PRU-02/evidencia/a6-a10/visor-a10-escritorio.html) para evitar la página anterior cargada.
+Sin build/suite completa por la propuesta documental; servidor de laboratorio detenido, sin deploy.
+Siguiente: Carlos elige aspecto; implementación de intervalos/cálculos requiere verificación independiente.
+Diez entradas; antigua abreviación 06/10 íntegra en el corte 08/10, comprobada antes de retirarla.
+
 [Corte integro 08/10 e indice](../99-archivo/bitacoras/2026-10-08/INDICE-CODEX.md).
 
 [Entrada íntegra retirada en este corte de Reportes](../99-archivo/bitacoras/2026-10-08/LOG-CODEX-CORTE-PLAN-REPORTES.txt).
@@ -130,5 +130,3 @@ Servidor de laboratorio detenido; antigua entrada A14/A27/A53 íntegra en corte 
 [Corte íntegro B12/A23 09/10](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-B12-A23.txt).
 
 [Corte íntegro antes de aplicar Inicio y replantear Reportes](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-INICIO-REPORTES.txt).
-
-[Corte íntegro antes de Reportes visual V3](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-REPORTES-VISUAL.txt).

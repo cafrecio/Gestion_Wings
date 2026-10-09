@@ -35,7 +35,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
-| **B12** No hay reportes | En curso (hizo Codex) | Elegir nueva propuesta financiera en visor. Cuotas reales netas acordadas. Alumnos, Sueldos, atribución por profesor, rutas e historia pendientes |
+| **B12** No hay reportes | En curso (hizo Codex) | Elegir propuesta visual V3 en visor: tarjetas, gráficos y detalle plegado. Alumnos, Sueldos, atribución por profesor, rutas e historia pendientes |
 
 ## Hecho y sin nadie que lo verifique
 

@@ -2,6 +2,10 @@
 
 09/10/2026 · Codex CyE · desarrollo local, sin despliegue.
 
+**Revisión posterior:** Carlos pidió más visual y menos lectura, con tres referencias.
+[Propuesta V3 vigente](PROPUESTA-VISUAL-2026-10-09.md); V2 de este informe se conserva
+como antecedente, no aprobación. Inicio mantiene el aspecto aprobado.
+
 ## Inicio aplicado
 
 Carlos aprobó las capturas de Inicio: **«Ok, aprobado»**. Esa aprobación no incluye
