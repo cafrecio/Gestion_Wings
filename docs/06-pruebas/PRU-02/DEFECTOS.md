@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 08/10/2026: 60 cerrados de 72.** Quedan 12 abiertos, de los
+> **Avance al 10/10/2026: 61 cerrados de 72.** Quedan 11 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -238,7 +238,7 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
 **Resuelto en Entrega 1 de P2 (04/10):** Se agregó tarjeta destacada "Total adeudado" en pesos en el resumen superior. Cubierto en `CobranzaEntrega1Test`.
 
-### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · En curso 09/10
+### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · CERRADO 10/10, aspecto aprobado por Carlos, lógica verificada por Claude
 
 **Antecedente del relevamiento:** más de la mitad de la pantalla principal del administrador era espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.

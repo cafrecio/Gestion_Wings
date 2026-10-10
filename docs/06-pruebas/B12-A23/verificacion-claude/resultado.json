@@ -1,0 +1,321 @@
+{
+    "medios": {
+        "efectivo": "Efectivo",
+        "transferencia": "Banco Nación"
+    },
+    "datos": {
+        "cuota_de_cada_alumno": 48000,
+        "deuda_total_de_cuotas": 144000,
+        "cuotas_generadas": 3,
+        "cargos_de_inscripcion": 3
+    },
+    "0 antes de operar": {
+        "ingresos": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "egresos": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "resultado": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "sin_clasificar": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "disponible": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "efectivo_confirmado": {
+            "inicio": 0,
+            "a_mano": "(sin cuenta)",
+            "coincide": null
+        },
+        "efectivo_pendiente": {
+            "inicio": 0,
+            "a_mano": "(sin cuenta)",
+            "coincide": null
+        },
+        "transferencia_confirmado": {
+            "inicio": 0,
+            "a_mano": "(sin cuenta)",
+            "coincide": null
+        },
+        "transferencia_pendiente": {
+            "inicio": 0,
+            "a_mano": "(sin cuenta)",
+            "coincide": null
+        },
+        "deuda_cuotas": {
+            "inicio": 144000,
+            "a_mano": 144000,
+            "coincide": true
+        },
+        "aviso_cajas": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "aviso_asistencia": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_revision": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_liquidaciones": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        }
+    },
+    "cobrado_de_verdad": {
+        "Ana, efectivo, Sandra (pidio 48.000)": 53000,
+        "Bruno, transferencia, Sandra (pidio 20.000)": 25000,
+        "Carla, efectivo, admin directo (pidio 10.000)": 15000,
+        "saldo_de_cuotas_en_la_base": 66000
+    },
+    "1 caja de Sandra abierta, con cobros y un gasto": {
+        "ingresos": {
+            "inicio": 93000,
+            "a_mano": 93000,
+            "coincide": true
+        },
+        "egresos": {
+            "inicio": 6000,
+            "a_mano": 6000,
+            "coincide": true
+        },
+        "resultado": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "sin_clasificar": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "disponible": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "efectivo_confirmado": {
+            "inicio": 15000,
+            "a_mano": 15000,
+            "coincide": true
+        },
+        "efectivo_pendiente": {
+            "inicio": 47000,
+            "a_mano": 47000,
+            "coincide": true
+        },
+        "transferencia_confirmado": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "transferencia_pendiente": {
+            "inicio": 25000,
+            "a_mano": 25000,
+            "coincide": true
+        },
+        "deuda_cuotas": {
+            "inicio": 66000,
+            "a_mano": 66000,
+            "coincide": true
+        },
+        "aviso_cajas": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "aviso_asistencia": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_revision": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_liquidaciones": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        }
+    },
+    "caja_tras_cerrar": {
+        "estado": "CERRADA",
+        "efectivo_esperado": "57000.00",
+        "efectivo_contado": "57000.00",
+        "diferencia_efectivo": "0.00"
+    },
+    "2 Sandra cerró; falta validar": {
+        "ingresos": {
+            "inicio": 93000,
+            "a_mano": 93000,
+            "coincide": true
+        },
+        "egresos": {
+            "inicio": 6000,
+            "a_mano": 6000,
+            "coincide": true
+        },
+        "resultado": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "sin_clasificar": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "disponible": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "efectivo_confirmado": {
+            "inicio": 15000,
+            "a_mano": 15000,
+            "coincide": true
+        },
+        "efectivo_pendiente": {
+            "inicio": 47000,
+            "a_mano": 47000,
+            "coincide": true
+        },
+        "transferencia_confirmado": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "transferencia_pendiente": {
+            "inicio": 25000,
+            "a_mano": 25000,
+            "coincide": true
+        },
+        "deuda_cuotas": {
+            "inicio": 66000,
+            "a_mano": 66000,
+            "coincide": true
+        },
+        "aviso_cajas": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_asistencia": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_revision": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_liquidaciones": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        }
+    },
+    "caja_tras_validar": {
+        "estado": "VALIDADA"
+    },
+    "3 el admin validó la caja": {
+        "ingresos": {
+            "inicio": 93000,
+            "a_mano": 93000,
+            "coincide": true
+        },
+        "egresos": {
+            "inicio": 6000,
+            "a_mano": 6000,
+            "coincide": true
+        },
+        "resultado": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "sin_clasificar": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "disponible": {
+            "inicio": 87000,
+            "a_mano": 87000,
+            "coincide": true
+        },
+        "efectivo_confirmado": {
+            "inicio": 62000,
+            "a_mano": 62000,
+            "coincide": true
+        },
+        "efectivo_pendiente": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "transferencia_confirmado": {
+            "inicio": 25000,
+            "a_mano": 25000,
+            "coincide": true
+        },
+        "transferencia_pendiente": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "deuda_cuotas": {
+            "inicio": 66000,
+            "a_mano": 66000,
+            "coincide": true
+        },
+        "aviso_cajas": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        },
+        "aviso_asistencia": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_revision": {
+            "inicio": 1,
+            "a_mano": 1,
+            "coincide": true
+        },
+        "aviso_liquidaciones": {
+            "inicio": 0,
+            "a_mano": 0,
+            "coincide": true
+        }
+    },
+    "reportes_mismo_mes": {
+        "ingresos": 93000,
+        "egresos": 6000,
+        "resultado": 87000,
+        "disponible": 87000
+    }
+}
