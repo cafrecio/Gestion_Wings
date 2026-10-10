@@ -39,6 +39,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 1 hecho y verificado. Dia 2 = domingo 11/10, sin actividad: si hay clases se cancelan. Dia 3 = lunes 12/10, feriado, sin actividad. La prueba avanza con el calendario real (Carlos, 10/10) |
 | **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude) | Pantalla aprobada por Carlos (10/10, «La parte de cobro anticipado OK»). Desplegado en el sitio de prueba. Falta que otro agente verifique la logica de cobro; Carlos dice quien. Nadie hizo todavia un cobro adelantado real en el sitio de prueba |
+| **T19** Reportes muestra la deuda sin inscripciones; Inicio y Cobranza ya las cuentan | Sin empezar | Hallado al hacer T17. El recuadro Alumnos por cobrar de Inicio (2.010.000) lleva a Reportes, donde el detalle de deuda cuenta solo cuotas (1.960.000). Arreglarlo toca el registro historico de Reportes. Carlos decide si se hace y quien |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -51,7 +52,6 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
-| **T17** Inicio tiene que contar cuotas mas inscripciones en la deuda | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar en Inicio (/admin/dashboard) que Alumnos por cobrar coincida al peso con Cobranza (cuotas + inscripciones) contra la base |
 
 ## Codex
 

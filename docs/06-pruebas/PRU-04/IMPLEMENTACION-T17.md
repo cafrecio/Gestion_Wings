@@ -59,3 +59,19 @@ Tal como se indicó en las condiciones de la tarea:
 
 ### No probado:
 - No se probó interacción manual en el sitio de prueba remoto `https://test.gestionar-te.com.ar` (corresponde a Claude tras verificar, sin despliegue en este turno).
+
+---
+
+## Verificación de Claude — 10/10/2026 — APROBADO
+
+- **Código leído** (`fdc108f`): el cálculo de inscripciones pendientes no se reescribió; se
+  sacó a un método el mismo que ya usaba Cobranza, y los dos lo comparten.
+- **Contra la base del sitio de prueba**, con una cuenta hecha a mano aparte: cuotas
+  $1.960.000 + inscripciones $50.000 (10 de $5.000) = **$2.010.000**. Inicio muestra
+  $2.010.000. Coincide al peso con Cobranza.
+- Pruebas de Gemini y las de Reportes y Cobranza en `wings_testing_claude`: 58 aprobadas.
+- La prueba vieja que cambió (`ReporteMensualTest`) solo se adaptó a los dos datos nuevos.
+
+**Queda abierto (T19):** el recuadro «Alumnos por cobrar» de Inicio lleva a Reportes, y ahí
+el detalle de deuda sigue contando solo cuotas. Gemini lo anotó como hallazgo y no lo tocó,
+como se le pidió.
