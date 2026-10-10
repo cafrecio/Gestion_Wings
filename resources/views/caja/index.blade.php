@@ -36,6 +36,12 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         </div>
     </div>
 </form>
+{{-- El admin no tiene caja: su cobro va derecho al cashflow. Sin este botón solo podía
+     cobrar entrando a la ficha del alumno (Carlos, 10/10/2026). --}}
+<div class="stats-bar mb-3">
+    <span class="stats-info">Tu cobro entra directo al cashflow, sin abrir caja</span>
+    <x-ds.button variant="primary" href="{{ route('web.caja.cobrar-cuota') }}">Cobrar</x-ds.button>
+</div>
 <div class="stats-bar mb-4">
     <span class="stats-info">Cajón compartido del mostrador</span>
     <x-ds.button variant="primary" href="{{ $mostradorConfigurado ? route('web.caja.apertura') : route('web.caja.configuracion') }}">{{ $mostradorConfigurado ? 'Abrir' : 'Configurar' }}</x-ds.button>

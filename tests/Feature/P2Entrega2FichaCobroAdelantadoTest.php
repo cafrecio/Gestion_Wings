@@ -114,6 +114,12 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $responseOp->assertOk();
         $responseOp->assertSee($urlCobrar);
         $responseOp->assertSee('Cobrar');
+
+        // El admin no tiene caja abierta: igual tiene que poder cobrar desde Caja,
+        // no solo entrando a la ficha (Carlos, 10/10/2026).
+        $this->actingAs($this->admin)->get(route('web.caja.index'))
+            ->assertOk()->assertSee(route('web.caja.cobrar-cuota'))->assertSee('sin abrir caja');
+        $this->actingAs($this->admin)->get(route('web.caja.cobrar-cuota'))->assertOk()->assertSee('Stoessel');
     }
 
     public function test_a17_profesor_no_puede_acceder_a_ficha_ni_a_cobrar(): void
