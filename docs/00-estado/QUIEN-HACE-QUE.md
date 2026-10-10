@@ -47,12 +47,11 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 438ee55 (10/10), con el arreglo de celular y B10, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
+| **B10** No hay dónde guardar el CBU del profesor | Devuelto (hizo Claude, verifica Codex) | Rechazar blancos internos en alias y traducir el rechazo de longitud; informe VERIFICACION-B10.md |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude, verifica Codex) | Publicado. El aspecto lo aprobo Carlos. Codex verifica la regla: guardar, borrar, rechazar lo invalido, que aparezca al pagar y que solo lo vea el admin |
+Nada en este momento.
 
 ## Gemini
 

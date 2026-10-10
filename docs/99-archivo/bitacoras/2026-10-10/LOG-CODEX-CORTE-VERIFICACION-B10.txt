@@ -1,16 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — B10 verificado y devuelto a Claude
-
-Objetivo: verificar438ee55 sobre main63ed840; aspecto aprobado por Carlos, fuera del juicio.
-Chrome real73casos/150GET; filas ficticias y sesiones ADMIN/OPERATIVO/PROFESOR.
-Devuelto: alias con blancos se transforma y guarda; rechazo de200 caracteres en inglés.
-Guardado, roles y privacidad comprobados; pago $7.500 con un solo egreso; PDF sin dato bancario.
-Excel real y siete seeders comprobados con prerrequisitos; suite581/2,4650aserciones,700,07s; build44,01s.
-Solo wings_testing_codex/storage aislado; código/vistas/CSS/tests y base del club intactos; sin deploy.
-Tablero devuelto, tieneClaude;64/74 cerrados. [Informe](../06-pruebas/PRU-02/VERIFICACION-B10.md).
-Siguiente: Claude corrige ambos rechazos; alias numérico es observación para Carlos. Corte anterior íntegro.
-
 ## 2026-10-10 — Codex CyE — A42 verificado sin duplicar la consulta inicial
 
 Carlos autorizó «Sí, verificar y registrar»; la llamada ya existía desde11623b6, confirmado en fuente/bundle.
@@ -112,8 +101,19 @@ PHP/JS/vistas correctos; build13,07s. CuatroHTTP200, ocho capturas1440/marco375;
 Siguiente: Alumnos y Sueldos, atribución por profesor/historia y clasificación; revisión independiente de fuentes/capturas/HTTP aprobada.
 Corte anterior preservado íntegro antes de retirar la entrada más antigua; diez entradas activas.
 
+## 2026-10-09 — Codex CyE — Reportes V3, más visual y menos lectura
+
+Carlos pidió «Hacelo mas visual y de menos lectura», con tres referencias guardadas; V3 preparada.
+Tarjetas con tendencias, evolución, cambio firmado por rubro, circular de ingresos y barras de gastos.
+Detalle plegado y mes actual separado. CSS/JS privados; vistas habituales, app.css y reglas intactos.
+Capturas reales Laravel: escritorio1440 y marco375, filtros y pie completos; tokens FICTICIO.
+Revisión independiente aprobada tras corregir etiquetas, comparación sin clasificación y alternativa accesible.
+PHP/JS/Blade correctos; build33,73s. Suite propia532/2,4286 aserciones,580,76s; escenario restaurado.
+[Propuesta, controles y límites](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md) · [visor](../06-pruebas/B12-A23/visor.html).
+V2 conservada; «El grafico no esta mal» no aprobó todo Reportes. V3 espera elección de Carlos.
+Siguiente: aplicar lo elegido y conectar rutas/filtros; Alumnos/Sueldos/atribución/historia pendientes. B12/A23 abiertos, sin deploy.
+Diez entradas activas; copia íntegra anterior preservada antes de retirar la más antigua.
+
 [Archivo íntegro anterior al retoque del ajuste](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-AJUSTE-LABELS.txt).
 
 [Archivo íntegro anterior a A42](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-A42.txt).
-
-[Archivo íntegro anterior a verificar B10](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-VERIFICACION-B10.txt).

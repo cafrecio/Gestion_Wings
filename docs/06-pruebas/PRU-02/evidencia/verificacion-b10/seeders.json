@@ -1,0 +1,272 @@
+{
+    "database": "wings_testing_codex",
+    "fecha": "2026-10-10T09:50:22-03:00",
+    "casos": [
+        {
+            "seeder": "Database\\Seeders\\PrimeraCargaCompletaSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "30481726",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "dni": "29763018",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "dni": "28914537",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "dni": "30125849",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "ADMIN",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "rol": "PROFESOR",
+                    "profesor_id": 1,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 5,
+                    "rol": "PROFESOR",
+                    "profesor_id": 2,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\UserSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "30481726",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "dni": "29763018",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "dni": "28914537",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "dni": "30125849",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "ADMIN",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "rol": "PROFESOR",
+                    "profesor_id": 1,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 5,
+                    "rol": "PROFESOR",
+                    "profesor_id": 2,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\TestSeeder",
+            "ok": true,
+            "profesores": [],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\ReportesEscenarioSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "31000001",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "ADMIN",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\ReportesAsistenciaEscenarioSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "31000001",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "dni": "31000002",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "dni": "31000003",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "dni": "31000004",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "ADMIN",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\ReportesSueldosEscenarioSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "31000001",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "dni": "31000002",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "dni": "31000003",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "dni": "31000004",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": [
+                {
+                    "id": 1,
+                    "rol": "ADMIN",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "rol": "OPERATIVO",
+                    "profesor_id": null,
+                    "cbu_alias": null
+                }
+            ]
+        },
+        {
+            "seeder": "Database\\Seeders\\DemoSeeder",
+            "ok": true,
+            "profesores": [
+                {
+                    "id": 1,
+                    "dni": "20100001",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 2,
+                    "dni": "20100002",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 3,
+                    "dni": "20100003",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 4,
+                    "dni": "20100004",
+                    "cbu_alias": null
+                },
+                {
+                    "id": 5,
+                    "dni": "20100005",
+                    "cbu_alias": null
+                }
+            ],
+            "usuarios": []
+        }
+    ]
+}

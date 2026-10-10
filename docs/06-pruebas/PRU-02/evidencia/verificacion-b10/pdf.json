@@ -1,0 +1,15 @@
+{
+  "archivo": "recibo-liquidacion.pdf",
+  "paginas": 2,
+  "lector": "pypdf",
+  "sha256": "fed2c2abaa7f9c798409c7ab024c4b7e5f5fa9fe75788a9bfb5fd74249c9d962",
+  "valores_bancarios_encontrados": [],
+  "etiquetas_bancarias_encontradas": [],
+  "importe_7500_en_ambas_paginas": true,
+  "beneficiario_ficticio_presente": true,
+  "descarga_http": {
+    "ADMIN": 200,
+    "OPERATIVO": 403,
+    "PROFESOR": 403
+  }
+}

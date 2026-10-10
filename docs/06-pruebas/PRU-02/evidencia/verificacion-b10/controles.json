@@ -1,0 +1,28 @@
+{
+  "commit": "63ed840d11d572c842ee3c583ad2e56cfe1b12c1",
+  "database": "wings_testing_codex",
+  "build": {
+    "comando": "npm run build",
+    "exit_code": 0,
+    "segundos": 44.01
+  },
+  "suite": {
+    "comando": "DB_DATABASE=wings_testing_codex APP_ENV=testing php artisan test",
+    "exit_code": 0,
+    "aprobadas": 581,
+    "omitidas": 2,
+    "aserciones": 4650,
+    "segundos": 700.07
+  },
+  "casos_navegador": 73,
+  "fallas_criterio": [
+    "alias-espacio",
+    "texto-200",
+    "alias-tab",
+    "alias-salto"
+  ],
+  "rutas_privacidad": 150,
+  "seeders_aprobados": 7,
+  "runtime_storage": "storage/app/verificacion-b10-runtime",
+  "aplicacion_modificada": false
+}

@@ -1,0 +1,90 @@
+{
+  "aceptado-indebido-alias-espacio.png": {
+    "bytes": 37176,
+    "sha256": "c562c3f7eef3c512f47ea935248bceee765a50da8b0b25050adc62580f7dfe3e"
+  },
+  "aceptado-indebido-alias-salto.png": {
+    "bytes": 36828,
+    "sha256": "7a10de5b568bce2c87cc3b873f168eb29ca7c3554a73700542fcda7fd3a47d43"
+  },
+  "aceptado-indebido-alias-tab.png": {
+    "bytes": 36947,
+    "sha256": "6f6a1f6cd50ea09e8970f8405226c8d2573c52e80196114cd673cfcb6d1b0c73"
+  },
+  "cerrar-evidencia.py": {
+    "bytes": 15374,
+    "sha256": "4993b4cb6da022035501786721288e50261748bb156fb78bcd771872e052d011"
+  },
+  "controles.json": {
+    "bytes": 671,
+    "sha256": "85a48a3dc67fa421536299cffd7998d48ead0dc75f01661b675a9514c4795cf4"
+  },
+  "convivencia-monto-ajustado-banco.png": {
+    "bytes": 89481,
+    "sha256": "dcd144eec2a37d36e6ebdbcde62b35a6004ee768caa2467044b1f73668dd7109"
+  },
+  "edicion-operativo-inicial.png": {
+    "bytes": 3709,
+    "sha256": "5a75219e2122477a9d0b7f438d09ef47863995910bdb5defe1088bd39198851c"
+  },
+  "escenarios.php": {
+    "bytes": 11834,
+    "sha256": "109046c7b66028f1ff1f955f328c3cb23877d0524f5a0a1cb36544bfdb93e1f1"
+  },
+  "liquidacion-cerrada-dato.png": {
+    "bytes": 20974,
+    "sha256": "f0fffad3540102a4cc9c100863d70a4e13c3edafb571e69dcd3288769c215b07"
+  },
+  "liquidacion-pagada.png": {
+    "bytes": 50492,
+    "sha256": "09212dd9413194a728056e2a1e37a9d50c70265f619fce84256f25830d9b9966"
+  },
+  "panel-OPERATIVO.png": {
+    "bytes": 42999,
+    "sha256": "28307f7d5a1f9162aa40b0a664d38f0a160efa813a2cb668d410f3efce01ab71"
+  },
+  "panel-PROFESOR.png": {
+    "bytes": 44583,
+    "sha256": "85c2d9d6a0766c401e6d634318adc196348913d5a30cc1196df56907d4237df9"
+  },
+  "pdf.json": {
+    "bytes": 408,
+    "sha256": "ee3fe047e25b8d15a650e742e144ea6a7e740e237904eecd23e7bca277c29787"
+  },
+  "privacidad.md": {
+    "bytes": 12905,
+    "sha256": "d7a09885291e8e9e55301a9c4cd4f38d4ef2dcc17c3109b30e2142f36f317952"
+  },
+  "README.md": {
+    "bytes": 3062,
+    "sha256": "82778eec02f70fc452772aced50ec2f3019c5457a1c7bbc240ecddb2a7eedaf0"
+  },
+  "rechazo-alias-5.png": {
+    "bytes": 8905,
+    "sha256": "ff23b9825c883bded70f404621bdfe5b5225989157cd1bf18d6bbd6654178b6f"
+  },
+  "rechazo-script.png": {
+    "bytes": 11272,
+    "sha256": "2f314a3b0911090844bce89d8604dde085dcb24ddad84067f9ab281dc209a477"
+  },
+  "rechazo-texto-200.png": {
+    "bytes": 6770,
+    "sha256": "b22a7572fbbd4548359ec0b81406024e3ca552c8cbc9117accc82472aeea20bb"
+  },
+  "recibo-liquidacion.pdf": {
+    "bytes": 1702327,
+    "sha256": "fed2c2abaa7f9c798409c7ab024c4b7e5f5fa9fe75788a9bfb5fd74249c9d962"
+  },
+  "resultado.json": {
+    "bytes": 251701,
+    "sha256": "6c91861a2d3f1f0087c75ff84018219e8cd2a9a0d076b2d9bfb18ede8ec99747"
+  },
+  "seeders.json": {
+    "bytes": 7675,
+    "sha256": "b650a3a7bfef486e75c4a2f34b8d89b5ec8091180c736835b56c0454f6d0f934"
+  },
+  "verificar.cjs": {
+    "bytes": 20500,
+    "sha256": "b40b9087d8ef67e02a3169fad6374c390e57440cb2d668447623adb44a94306b"
+  }
+}

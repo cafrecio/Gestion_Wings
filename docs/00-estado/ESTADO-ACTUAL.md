@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## B10 — verificado y devuelto a Claude, 10/10/2026
+
+Contradicción comprobada por HTTP y filas: la orden pide rechazar alias con espacios;
+`CbuOAlias::normalizar()` los elimina antes de validar y guarda otro identificador.
+También transforma tabulación/salto; el rechazo de200 caracteres aparece en inglés.
+Sin corregir código, vistas/CSS o tests. Pago completo, permisos y privacidad,
+primera carga Excel y siete seeders comprobados en base/storage exclusivos de Codex.
+Suite581/2,4650aserciones; build correcto. B10 devuelto a Claude;64/74 cerrados.
+[Informe y evidencia](../06-pruebas/PRU-02/VERIFICACION-B10.md). Sin despliegue.
+
 ## A42 — discrepancia confirmada en fuente, 10/10/2026
 
 La orden indica que falta la consulta inicial. La fuente actual ya ejecuta `actualizar()`

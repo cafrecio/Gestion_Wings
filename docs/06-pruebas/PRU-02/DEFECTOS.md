@@ -699,9 +699,11 @@ una cuenta por casa.
 Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes.
 **Si nadie se acuerda, el club le paga dos veces.**
 
-### B10. No hay dónde guardar el CBU del profesor · Falta · HECHO (Claude), a revisar 10/10
+### B10. No hay dónde guardar el CBU del profesor · Falta · DEVUELTO a Claude 10/10, verificado Codex
 
 Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de Vanina.
+
+**Verificación independiente 10/10:** acepta y transforma alias con espacios, tabulación o salto; el rechazo de 200 caracteres aparece en inglés. Guardado, roles, pago completo, privacidad, Excel y seeders comprobados; suite581/2. Vuelve a Claude para esos dos ajustes. [Informe y evidencia](VERIFICACION-B10.md). B10 sigue abierto: avance64/74.
 
 ### B11. Los punitorios están definidos y sin motor · Falta
 

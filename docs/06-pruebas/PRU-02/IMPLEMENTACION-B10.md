@@ -1,4 +1,6 @@
-# B10 — Dónde guardar el CBU o alias · HECHO (Claude), a revisar
+# B10 — Dónde guardar el CBU o alias · DEVUELTO a Claude 10/10, verificado Codex
+
+Control independiente posterior: acepta y transforma blancos internos en alias y muestra en inglés el rechazo de longitud. [Verificación completa](VERIFICACION-B10.md). La entrega del autor y la aprobación visual de Carlos se conservan abajo; no está cerrado.
 
 10/10/2026, Claude CyE, a pedido de Carlos: «hacelo vos y le pedimos a codex que lo pruebe».
 
