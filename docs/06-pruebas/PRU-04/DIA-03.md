@@ -25,3 +25,21 @@ Hallazgos:
 No se intentó guardar asistencia ni pulsar Activar. La clase cancelada de hoy no es alcanzable para Lucía por menú/filtros; su bloqueo concreto no se pudo comprobar en esa ficha. Para Sandra tampoco se pudo comprobar Activar en las dos recién canceladas. No se consultó código/base ni se investigaron causas. Se completó el cierre financiero. Se dejaron las tres cancelaciones, sin cambiar pagos, caja ni reloj; T14 sigue abierta para Claude.
 
 Tiempo: unos 14 minutos, incluida la entrega. Lo más caro fue el control del navegador y esperar/reintentar ingresos. No dispongo del costo monetario.
+
+---
+
+## Verificación de Claude — 10/10/2026
+
+Comprobado contra la base del sitio de prueba: las tres clases del 12/10 están canceladas,
+con el motivo «Feriado 12 de octubre: el club no abre»; siguen los 4 pagos y la caja del
+sábado, sin nada nuevo.
+
+- **Las canceladas de hoy no se ven — defecto real, confirmado en el código.**
+  `ClaseWebController::index`: el bloque «hoy» deja afuera las canceladas (línea 37) y el
+  listado con filtros deja afuera todo lo de hoy (línea 64). Una clase cancelada el mismo
+  día no aparece en ninguno de los dos. Al día siguiente sí se la encuentra con el filtro
+  Cancelada. Registrado como T21.
+- **«Demasiados intentos seguidos» — ya no es el reloj.** Es el límite real de 5 ingresos
+  por minuto por conexión, que el recorrido automático supera al entrar con varios
+  usuarios seguidos. Se libera solo al minuto. Queda como mejora: el aviso no dice cuánto
+  esperar.

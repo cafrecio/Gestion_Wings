@@ -36,6 +36,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregidas las dos fallas que devolvio Gemini (567f030), desplegado en test. Decision de Carlos 10/10: si se anula un cobro adelantado, el mes queda pendiente con el importe pactado; no se borra y no es falla. Carlos dice cuando vuelve a Gemini |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -52,17 +53,15 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 3 recorrido (DIA-03.md): Sandra cancelo dos clases y admin la tercera; agenda 0, Sin asistencia 33, importes intactos. Hallazgos: canceladas de hoy ocultas para los tres roles y bloqueos intermitentes de ingreso. Claude verifica; conservar las tres cancelaciones para continuar el cuento |
+Nada en este momento.
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (14)
+## Sin empezar (15)
 
-B13, T2, T6, T7, T9, T10, T12, B3, B5, B6, B7, B8, B9, B11.
+B13, T2, T6, T7, T9, T10, T12, T21, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
