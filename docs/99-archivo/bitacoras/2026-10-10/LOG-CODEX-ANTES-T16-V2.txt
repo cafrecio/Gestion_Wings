@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T16 segunda vuelta devuelta por concurrencia
-
-Objetivo: verificar fcdc8f2; copia publicada fija d4f18d6, solo wings_testing_codex.
-Dos fallas originales corregidas: 12 controles/225 aserciones aprobados; ocho adicionales/269 aprobados.
-Altas, campos falsificados, padre cruzado/toggle/inactivos y cambio valido tras reclasificar comprobados.
-Dos procesos con pedidos HTTP aceptados dejan EGRESO + APORTE; prueba fallida, 10 aserciones, evidencia concreta.
-Suite completa: 611 aprobadas/2 omitidas, 5087 aserciones, 785,65 s. Errores de preparacion del auxiliar corregidos.
-Nombres nuevos en INGRESO quedan NULL para revision del admin; migracion repetida no duplica ni pisa.
-Demo: seis sueldos NULL; rechazo production probado en base descartable. Recomiendo arreglo separado, no bloquea T16.
-Sin arreglos de Wings, visita al sitio ni deploy. [Informe actualizado](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Tablero devuelto, tiene Claude/verifica Codex. Sigue: proteger el cruce y volver a verificar; aspecto aprobado.
-
 ## 2026-10-10 — Codex CyE — T16 verificado y devuelto a Claude
 
 Objetivo: verificar clasificación de 462e8b1; copia 1972b48, cambios ajenos T17/T18 fuera.
@@ -112,11 +100,21 @@ Horarios/asistencias actuales pueden cambiar estimados/reparto; importes monetar
 [Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). 14HTTP200,30 capturas web y2páginas de recibo; revisor miró15PNG, PDF completo con margen previo al borde. Publicación autorizada en esta entrega.
 B12/A23 abiertos; Carlos revisará Sueldos/ajuste, después manual integral y antecedentes. Sin deploy ni base del club.
 
+## 2026-10-09 — Codex CyE — Historial preparado y ajuste final pendiente
+
+Cuota neta/tarifa/cobros/liquidaciones: snapshots fechados, lectura al corte y bajas sin borrar pasado.
+Provider/modelos conectados; escritura/baja atómica y Deshacer P1 registra cuotas antes del CASCADE.
+Revisión de fuente encontró captura concurrente y comparación JSON; corregidas, segunda lectura conforme.
+Activación exige mantenimiento y detener CLI/workers/escrituras externas; ninguna activación realizada.
+Nueve pruebas nuevas preparadas; 558 métodos comprobados por búsqueda. Sin ejecutar sintaxis ni suite posterior.
+La suite547/2 anterior acredita Alumnos antes del historial; no usarla como validación del agregado.
+Carlos permite ajustar monto FINAL también cerrado sin pagar; [circuito comprobado y revisado](../06-pruebas/B12-A23/AJUSTE-FINAL-PENDIENTE-2026-10-09.md), sin implementar.
+[Preparación y límites](../06-pruebas/B12-A23/HISTORIAL-SUELDOS-2026-10-09.md). Fuente revisada, funcionamiento no certificado.
+Último comando rechazado por auto-review sin créditos; siguen pendientes ejecución, capturas, tablero y GitHub.
+B12/A23 abiertos; ejecución bloqueada, sin commit/push ni despliegue. Reanudar pruebas y ajuste al restablecer créditos.
+
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
 
 [Archivo íntegro anterior a T16](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16.txt).
-
-
-[Archivo íntegro anterior a T16 segunda vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V2.txt).

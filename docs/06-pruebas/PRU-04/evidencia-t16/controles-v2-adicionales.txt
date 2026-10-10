@@ -1,0 +1,20 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-v2-d4f18d6\phpunit.xml
+
+........                                                            8 / 8 (100%)
+
+Time: 00:10.003, Memory: 54.00 MB
+
+Verificacion T16Segunda Vuelta (Tests\Feature\VerificacionT16SegundaVuelta)
+ ✔ Alta de rubro no importa hijos ni edita el id enviado
+ ✔ Alta de subrubro usa el padre de la ruta y no el falsificado
+ ✔ Editar no mueve subrubro y el padre cruzado no lo encuentra
+ ✔ Hijos inactivos y campos falsificados no eluden el rechazo
+ ✔ Corregir que es permite cambio valido y luego rechaza aporte
+ ✔ Nombres nuevos en ingreso quedan null sin duplicar y admin puede resolver
+ ✔ Nombres nuevos en otro egreso se completan y no pisa clasificacion
+ ✔ Api no registrada y demo bloqueado antes de escribir
+
+OK (8 tests, 269 assertions)

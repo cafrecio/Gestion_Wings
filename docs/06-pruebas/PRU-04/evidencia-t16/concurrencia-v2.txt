@@ -1,0 +1,20 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-v2-d4f18d6\phpunit.xml
+
+F                                                                   1 / 1 (100%)
+
+Time: 00:06.856, Memory: 48.00 MB
+
+Verificacion T16Concurrencia (Tests\Feature\VerificacionT16Concurrencia)
+ ✘ Dos pedidos no deben dejar aporte en egreso
+   │
+   │ Dos pedidos HTTP concurrentes dejaron un APORTE dentro de un rubro de EGRESO.
+   │ Failed asserting that true is false.
+   │
+   │ C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-v2-d4f18d6\docs\06-pruebas\PRU-04\evidencia-t16\VerificacionT16ConcurrenciaTest.php:57
+   │
+
+FAILURES!
+Tests: 1, Assertions: 10, Failures: 1.

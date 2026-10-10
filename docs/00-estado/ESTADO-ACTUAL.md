@@ -1,15 +1,17 @@
 # Wings — Estado actual
 
-## T16 — devuelto a Claude por Codex, 10/10/2026
+## T16 — segunda vuelta devuelta a Claude por Codex, 10/10/2026
 
-Clasificación de `462e8b1` verificada en copia de `1972b48`, fuera de cambios ajenos T17/T18.
-Suite propia 598 aprobadas/2 omitidas, 5.003 aserciones; controles independientes 9/3, 224 aserciones.
-Dos causas: editar el tipo del rubro admite APORTE en egreso/RETIRO en ingreso; la migración
-deja NULL los dos subrubros nuevos si ya existían sin clasificación bajo sus rubros correctos.
-Catálogo normal, instalación nueva, movimientos de ambas tablas y reservados comprobados.
-En test, Inicio/Reportes ya muestran $164.000 ($159.000 cuotas + $5.000 inscripción), sin aviso
-de sin clasificar: supera ese hallazgo histórico del Día 1. No se corrigió ni desplegó nada.
-Claude tiene la siguiente corrección; formulario aprobado por Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
+Corrección `fcdc8f2` comprobada sobre copia fija de `d4f18d6`: los 12 controles originales
+pasan (225 aserciones); las dos fallas originales están corregidas. Ocho controles adicionales
+pasan (269 aserciones): altas, padres falsificados/cruzados, toggle, inactivos y migración.
+Nueva causa de devolución: dos pedidos simultáneos aceptados dejan EGRESO + APORTE;
+el tipo y la clasificación se comprueban y guardan sin impedir ese cruce. Ensayo real de
+dos procesos contra las rutas HTTP en la base propia; 1 fallo/10 aserciones.
+Suite completa 611 aprobadas/2 omitidas, 5.087 aserciones, 785,65 s en wings_testing_codex.
+Nombres nuevos en INGRESO quedan pendientes para el admin; DemoSeeder sigue creando seis
+sueldos NULL, observación separada. Sin cambios de Wings, sitio ni despliegue en esta vuelta.
+Claude corrige concurrencia; aspecto aprobado por Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 
 ## T14 — Día 1 recorrido en test, a verificar por Claude, 10/10/2026
 

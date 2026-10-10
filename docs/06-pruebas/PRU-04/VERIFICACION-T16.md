@@ -35,3 +35,26 @@ php vendor/bin/phpunit --configuration phpunit.xml --testdox docs/06-pruebas/PRU
 ```
 
 Sigue: Claude corrige las dos causas; Codex verifica otra vez. El formulario conserva la aprobación de Carlos («T16 OK»).
+
+## Segunda vuelta — DEVUELTO por concurrencia, 10/10/2026
+
+`fcdc8f2` comprobado sobre copia fija de `d4f18d6`; sus tres archivos de lógica de T16 siguen iguales. **Los 12 controles originales pasan** (225 aserciones). Las dos fallas anteriores están corregidas. Otros **8 controles pasan** (269 aserciones): alta de rubro con hijos/ID falsificados, padre enviado por formulario, intento de mover por ruta cruzada, toggle, hijos inactivos, método falsificado, tipo enviado como array y cambio válido tras reclasificar. API sigue sin rutas registradas.
+
+**Falla nueva reproducida:** dos pedidos de ADMIN simultáneos. A valida cambiar un rubro de INGRESO a EGRESO cuando su subrubro es NEGOCIO; antes de guardar A, B cambia ese subrubro a APORTE, válido todavía en INGRESO. A guarda después: queda **EGRESO + APORTE**. Ambos devuelven 302 sin errores. Ensayo con dos procesos y las rutas HTTP de Wings; una barrera solo ordena los pedidos después de la consulta de validación. No altera la respuesta de la consulta ni el código de la aplicación. [Filas y respuestas](evidencia-t16/casos-v2-concurrencia.jsonl), [prueba fallida](evidencia-t16/concurrencia-v2.txt), [verificador](evidencia-t16/VerificacionT16ConcurrenciaTest.php), [auxiliar](evidencia-t16/pedido-concurrente.php). Falta proteger la comprobación y ambas escrituras frente a ese cruce; no se implementó ningún arreglo.
+
+**Nombres nuevos dentro de INGRESO:** ambos quedan NULL, sin duplicar ni cambiar filas; se ejecutó la migración dos veces y se resolvió luego por los formularios. Me parece correcto dejar pendiente la revisión del admin: evita imponer RETIRO a un ingreso y adivinar si «Pago al organizador» representa realmente el egreso conocido. NEGOCIO sería compatible con ingreso, pero el nombre solo no confirma esa interpretación.
+
+**DemoSeeder:** confirmados los seis sueldos NULL y el rechazo antes de escribir en entorno production simulado, dentro de la base descartable. Recomiendo corregir ese seeder en una tarea separada para que los ensayos no oculten gastos; esta observación no causa la devolución de T16. No se ejecutó DemoSeeder completo.
+
+Suite completa en `wings_testing_codex`; últimas líneas tal como salieron ([salida](evidencia-t16/suite-v2.txt)):
+
+```text
+  Tests:    2 skipped, 611 passed (5087 assertions)
+  Duration: 785.65s
+```
+
+[12 controles](evidencia-t16/controles-v2-originales.txt) · [8 adicionales](evidencia-t16/controles-v2-adicionales.txt) · [casos originales](evidencia-t16/casos-v2-originales.jsonl) · [casos adicionales](evidencia-t16/casos-v2-adicionales.jsonl) · [verificador adicional](evidencia-t16/VerificacionT16SegundaVueltaTest.php). Concurrencia: 1 fallo/10 aserciones. Hubo errores del auxiliar antes de la ejecución válida (cargador de la copia y pedido no inicializado); corregidos, sin cambios de Wings.
+
+Reproducir por separado, sin otra corrida en la misma base: `DB_DATABASE=wings_testing_codex`, `php vendor/bin/phpunit --configuration phpunit.xml docs/06-pruebas/PRU-04/evidencia-t16/VerificacionT16ConcurrenciaTest.php`. Para los otros controles, usar sus respectivas rutas; cada agente conserva su base propia.
+
+**Tablero:** devuelto, tiene Claude, verifica Codex. Sigue corregir el cruce y volver a verificar. Ningún despliegue, visita o modificación del sitio de prueba en esta segunda vuelta; base del club y producción fuera del ensayo. El aspecto conserva la aprobación de Carlos.
