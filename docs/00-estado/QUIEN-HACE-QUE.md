@@ -48,13 +48,14 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Devuelto (hizo Claude, verifica Codex) | Segunda vuelta fcdc8f2: las dos fallas originales corregidas, 12 controles pasan y 8 adicionales pasan. Dos pedidos simultaneos dejan EGRESO + APORTE; ambos aceptados. Proteger el cruce y devolver a Codex. Formulario aprobado por Carlos |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Hecho, espera verificación (hizo Claude, verifica Codex) | Tercera vuelta (b8ede87): el rubro se toma con candado al guardar rubro o subrubro. Comprobado con dos procesos reales. Codex vuelve a verificar; su prueba de concurrencia necesita adaptarse porque fuerza el cruce que el candado impide |
 
 ## Gemini
 
