@@ -18,8 +18,9 @@
 
 {{-- Info del alumno --}}
 <div class="filtros-card mb-4" style="border-left: 4px solid var(--color-sport-{{ $sport }});">
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;">
-        <div>
+    {{-- En el celular el DNI no se muestra: no aporta al cobrar y saca lugar (Carlos, 10/10/2026). --}}
+    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+        <div class="hidden sm:block">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">DNI</p>
             <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $alumno->dni ?: '–' }}</p>
         </div>
