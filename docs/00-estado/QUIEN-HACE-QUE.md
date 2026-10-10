@@ -59,9 +59,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (15)
+## Sin empezar (16)
 
-T16, B13, T2, T6, T7, T9, T10, T12, B3, B5, B6, B7, B8, B9, B11.
+T16, B13, T2, T6, T7, T9, T10, T12, T17, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
