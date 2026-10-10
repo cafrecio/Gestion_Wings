@@ -106,9 +106,24 @@ class CatalogosSeeder extends Seeder
                 'tipo' => 'INGRESO',
                 'observacion' => 'Indumentaria y accesorios en general',
                 'subrubros' => [
-                    ['nombre' => 'Patines', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true],
-                    ['nombre' => 'Indumentaria institucional', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true],
-                    ['nombre' => 'VG Indumentaria', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true],
+                    // Negocio aparte de los dueños que usa la caja del club (Carlos, 10/10/2026).
+                    ['nombre' => 'Patines', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'clasificacion' => 'APORTE'],
+                    ['nombre' => 'Indumentaria institucional', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'clasificacion' => 'APORTE'],
+                    ['nombre' => 'VG Indumentaria', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'clasificacion' => 'APORTE'],
+                ],
+            ],
+            'Retiros' => [
+                'tipo' => 'EGRESO',
+                'observacion' => 'Plata que se llevan los dueños; no es gasto del club',
+                'subrubros' => [
+                    ['nombre' => 'Retiro de dueños', 'permitido_para' => 'ADMIN', 'afecta_caja' => true, 'clasificacion' => 'RETIRO'],
+                ],
+            ],
+            'Gastos de torneos' => [
+                'tipo' => 'EGRESO',
+                'observacion' => 'Lo que el club paga por participar en torneos',
+                'subrubros' => [
+                    ['nombre' => 'Pago al organizador', 'permitido_para' => 'ADMIN', 'afecta_caja' => true],
                 ],
             ],
         ];
@@ -132,7 +147,7 @@ class CatalogosSeeder extends Seeder
                         'rubro_id' => $rubro->id,
                         'permitido_para' => $datosSubrubro['permitido_para'],
                         'afecta_caja' => $datosSubrubro['afecta_caja'],
-                        ...(\App\Support\RegistroReporteDisponible::existe() ? ['clasificacion_resultado' => 'NEGOCIO'] : []),
+                        ...(\App\Support\RegistroReporteDisponible::existe() ? ['clasificacion_resultado' => $datosSubrubro['clasificacion'] ?? 'NEGOCIO'] : []),
                         'es_reservado_sistema' => $datosSubrubro['es_reservado_sistema'] ?? false,
                         'activo' => true,
                     ]

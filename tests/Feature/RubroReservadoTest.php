@@ -126,6 +126,7 @@ class RubroReservadoTest extends TestCase
             ->post(route('web.subrubros.store', $rubro->id), [
                 'nombre'         => 'Contador',
                 'permitido_para' => 'ADMIN',
+                'clasificacion_resultado' => 'NEGOCIO',
             ])
             ->assertSessionHas('success');
 

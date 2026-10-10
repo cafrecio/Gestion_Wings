@@ -48,6 +48,27 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         @error('permitido_para') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
+    {{-- Qué es: plata del club o de los dueños (T16) --}}
+    @if(\App\Support\RegistroReporteDisponible::existe())
+    <div>
+        <label for="clasificacion_resultado" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            Qué es <span class="form-required">*</span>
+        </label>
+        <select id="clasificacion_resultado" name="clasificacion_resultado" required
+                class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+            {{-- Uno nuevo nace «Del club». Uno viejo sin clasificar obliga a elegir. --}}
+            @php $clasifActual = old('clasificacion_resultado', isset($subrubro) ? $subrubro->clasificacion_resultado : \App\Support\ClasificacionSubrubros::NEGOCIO); @endphp
+            @unless($clasifActual)<option value="" selected disabled>Elegí una opción</option>@endunless
+            @foreach(\App\Support\ClasificacionSubrubros::permitidas($rubro->tipo) as $opcion)
+                <option value="{{ $opcion }}" {{ $clasifActual === $opcion ? 'selected' : '' }}>{{ \App\Support\ClasificacionSubrubros::ETIQUETAS[$opcion] }}</option>
+            @endforeach
+        </select>
+        <p class="text-xs mt-1" style="color: var(--color-text-muted);">"Del club": cuenta en los ingresos o gastos de Inicio y Reportes. "De los dueños": se muestra aparte y no cambia el resultado del club.</p>
+        @error('clasificacion_resultado') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+    @endif
+
 </div>
 
 {{-- Afecta caja --}}

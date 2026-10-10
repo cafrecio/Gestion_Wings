@@ -71,6 +71,7 @@
                                 <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                     {{ $subrubro->nombre }}
                                     @unless($subrubro->activo)<span style="font-size:0.68rem; color:var(--color-text-muted);">(inactivo)</span>@endunless
+                                    @if(\App\Support\RegistroReporteDisponible::existe() && !$subrubro->clasificacion_resultado)<span style="font-size:0.68rem; font-weight:600; color:var(--color-warning);">(sin clasificar)</span>@endif
                                 </td>
                                 <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                                 <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
@@ -162,6 +163,7 @@
                                 <td style="padding:0.45rem 0.5rem 0.45rem 0; color:var(--color-text); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                     {{ $subrubro->nombre }}
                                     @unless($subrubro->activo)<span style="font-size:0.68rem; color:var(--color-text-muted);">(inactivo)</span>@endunless
+                                    @if(\App\Support\RegistroReporteDisponible::existe() && !$subrubro->clasificacion_resultado)<span style="font-size:0.68rem; font-weight:600; color:var(--color-warning);">(sin clasificar)</span>@endif
                                 </td>
                                 <td style="padding:0.45rem 0.5rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $subrubro->permitido_para ?: '–' }}</td>
                                 <td style="padding:0.45rem 0.5rem; text-align:center; color:var(--color-text-muted);">
