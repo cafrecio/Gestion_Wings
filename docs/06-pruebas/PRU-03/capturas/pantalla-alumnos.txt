@@ -1,0 +1,305 @@
+WINGS
+DÍA A DÍA
+Dashboard
+Alumnos
+Clases
+Sin asistencia
+32
+PLATA
+Cobranza
+Caja
+Movimientos
+Cashflow
+Liquidaciones
+Reportes
+Revisión
+EL CLUB
+Deportes
+Niveles
+Grupos
+Profesores
+Rubros
+Tipos de Caja
+SISTEMA
+Configuración
+Usuarios
+Admin Prueba
+Salir
+Alumnos
+Deporte
+Fútbol
+Patín
+Grupo
+Fútbol — Avanzadas
+Fútbol — Principiantes
+Patín — Avanzadas
+Patín — Federadas
+Patín — Intermedias
+Patín — Principiantes
+Limpiar
+Mostrando 1 a 12 de 90 alumnos
+Nuevo
+Acosta, Agustin
+Deporte:
+Fútbol
+Grupo:
+Fútbol — Principiantes
+Plan:
+2 clases/semana
+DNI:
+54400005
+Celular:
+1145120005
+Edad:
+8 años
+Tutor:
+Tutor Acosta
+Tel. tutor:
+1145120005
+Cobrar
+Ver
+Editar
+Activo
+Acosta, Victoria
+Deporte:
+Patín
+Grupo:
+Patín — Principiantes
+Plan:
+1 clase/semana
+DNI:
+55400001
+Celular:
+1145120001
+Edad:
+7 años
+Tutor:
+Tutor Acosta
+Tel. tutor:
+1145120001
+Cobrar
+Ver
+Editar
+Activo
+Alvarez, Camila
+Deporte:
+Patín
+Grupo:
+Patín — Avanzadas
+Plan:
+1 clase/semana
+DNI:
+55400037
+Celular:
+1145120037
+Edad:
+13 años 🎂
+Tutor:
+Tutor Alvarez
+Tel. tutor:
+1145120037
+Cobrar
+Ver
+Editar
+Activo
+Alvarez, Julieta
+Deporte:
+Patín
+Grupo:
+Patín — Intermedias
+Plan:
+1 clase/semana
+DNI:
+52300901
+Celular:
+1145123414
+Edad:
+11 años
+Tutor:
+Marta Alvarez
+Tel. tutor:
+1145123414
+Cobrar
+Ver
+Editar
+Activo
+Benitez, Camila
+Deporte:
+Patín
+Grupo:
+Patín — Avanzadas
+Plan:
+2 clases/semana
+DNI:
+51200700
+Celular:
+1145123407
+Edad:
+14 años
+Tutor:
+Esteban Benitez
+Tel. tutor:
+1145123407
+Cobrar
+Ver
+Editar
+Activo
+Benitez, Camila
+Deporte:
+Fútbol
+Grupo:
+Fútbol — Principiantes
+Plan:
+1 clase/semana
+DNI:
+51200700
+Celular:
+1145123407
+Edad:
+14 años
+Tutor:
+Esteban Benitez
+Tel. tutor:
+1145123407
+Cobrar
+Ver
+Editar
+Activo
+Benitez, Milagros
+Deporte:
+Patín
+Grupo:
+Patín — Avanzadas
+Plan:
+2 clases/semana
+DNI:
+55400038
+Celular:
+1145120038
+Edad:
+15 años
+Tutor:
+Tutor Benitez
+Tel. tutor:
+1145120038
+Cobrar
+Ver
+Editar
+Activo
+Benitez, Paulina
+Deporte:
+Patín
+Grupo:
+Patín — Intermedias
+Plan:
+2 clases/semana
+DNI:
+55400031
+Celular:
+1145120031
+Edad:
+10 años
+Tutor:
+Tutor Benitez
+Tel. tutor:
+1145120031
+Cobrar
+Ver
+Editar
+Activo
+Cabrera, Constanza
+Deporte:
+Patín
+Grupo:
+Patín — Intermedias
+Plan:
+1 clase/semana
+DNI:
+55400021
+Celular:
+1145120021
+Edad:
+11 años
+Tutor:
+Tutor Cabrera
+Tel. tutor:
+1145120021
+Cobrar
+Ver
+Editar
+Activo
+Castro, Bruno
+Deporte:
+Fútbol
+Grupo:
+Fútbol — Principiantes
+Plan:
+1 clase/semana
+DNI:
+54400009
+Celular:
+1145120009
+Edad:
+7 años
+Tutor:
+Tutor Castro
+Tel. tutor:
+1145120009
+Cobrar
+Ver
+Editar
+Activo
+Castro, Catalina
+Deporte:
+Patín
+Grupo:
+Patín — Avanzadas
+Plan:
+2 clases/semana
+DNI:
+55400034
+Celular:
+1145120034
+Edad:
+14 años
+Tutor:
+Tutor Castro
+Tel. tutor:
+1145120034
+Cobrar
+Ver
+Editar
+Activo
+Castro, Melina
+Deporte:
+Patín
+Grupo:
+Patín — Avanzadas
+Plan:
+2 clases/semana
+DNI:
+45100803
+Celular:
+1145123410
+Edad:
+20 años
+Tutor:
+–
+Tel. tutor:
+–
+Cobrar
+Ver
+Editar
+Activo
+
+Mostrando 1 a 12 de 90 resultados
+
+1
+2
+3
+4
+5
+6
+7
+8
+Wings

@@ -1,0 +1,192 @@
+WINGS
+DÍA A DÍA
+Dashboard
+Alumnos
+Clases
+Sin asistencia
+32
+PLATA
+Cobranza
+Caja
+Movimientos
+Cashflow
+Liquidaciones
+Reportes
+Revisión
+EL CLUB
+Deportes
+Niveles
+Grupos
+Profesores
+Rubros
+Tipos de Caja
+SISTEMA
+Configuración
+Usuarios
+Admin Prueba
+Salir
+Cobranza
+
+TOTAL ADEUDADO
+
+$ 1.841.000,00
+
+TOTAL ACTIVOS
+
+90
+
+AL DÍA
+
+59
+
+EN PLAZO
+
+19
+
+MOROSOS
+
+0
+
+DEUDORES
+
+12
+
+Con deuda (Deudores y morosos)
+Todos los estados
+Al día
+En plazo
+Moroso
+Deudor
+Deporte
+Fútbol
+Patín
+Grupo
+Fútbol — Avanzadas
+Fútbol — Principiantes
+Patín — Avanzadas
+Patín — Federadas
+Patín — Intermedias
+Patín — Principiantes
+Filtrar
+Mostrando 12 alumnos con deuda de 90 alumnos activos (ordenado de deuda más antigua a más reciente)
+ALUMNO	DEPORTE	GRUPO	DEUDA DESDE	DEUDA	ESTADO	ACCIONES
+Romero, Santino
+DNI: 53.300.902
+	
+Fútbol
+	Principiantes	
+Oct. 2025 (6 cuotas)
+	$ 138.000,00	Deudor	
+Cobrar
+Ver
+
+Alvarez, Julieta
+DNI: 52.300.901
+	
+Patín
+	Intermedias	
+Nov. 2025 (5 cuotas)
+	$ 143.000,00	Deudor	
+Cobrar
+Ver
+
+Sosa, Felipe
+DNI: 50.300.904
+	
+Fútbol
+	Avanzadas	
+Jul. 2026 (3 cuotas)
+	$ 114.000,00	Deudor	
+Cobrar
+Ver
+
+Fernandez, Emma
+DNI: 48.100.301
+	
+Patín
+	Avanzadas	
+Ago. 2026 (3 cuotas)
+	$ 135.000,00	Deudor	
+Cobrar
+Ver
+
+Flores, Zoe
+DNI: 56.300.903
+	
+Patín
+	Principiantes	
+Ago. 2026 (2 cuotas)
+	$ 60.000,00	Deudor	
+Cobrar
+Ver
+
+Sanchez, Berenice
+DNI: 55.400.024
+	
+Patín
+	Intermedias	
+Ago. 2026 (3 cuotas)
+	$ 129.000,00	Deudor	
+Cobrar
+Ver
+
+Gimenez, Helena
+DNI: 52.300.906
+	
+Patín
+	Intermedias	
+Sep. 2026 (2 cuotas)
+	$ 58.000,00	Deudor	
+Cobrar
+Ver
+
+Pereyra, Zoe
+DNI: 55.400.036
+	
+Patín
+	Avanzadas	
+Sep. 2026 (2 cuotas)
+	$ 90.000,00	Deudor	
+Cobrar
+Ver
+
+Ramos, Dante
+DNI: 48.300.909
+	
+Fútbol
+	Avanzadas	
+Sep. 2026 (2 cuotas)
+	$ 68.000,00	Deudor	
+Cobrar
+Ver
+
+Rodriguez, Mateo
+DNI: 49.100.203
+	
+Fútbol
+	Avanzadas	
+Sep. 2026 (2 cuotas)
+	$ 76.000,00	Deudor	
+Cobrar
+Ver
+
+Rossi, Morena
+DNI: 55.400.010
+	
+Patín
+	Principiantes	
+Sep. 2026 (2 cuotas)
+	$ 80.000,00	Deudor	
+Cobrar
+Ver
+
+Suarez, Ignacio
+DNI: 54.400.008
+	
+Fútbol
+	Principiantes	
+Sep. 2026 (2 cuotas)
+	$ 70.000,00	Deudor	
+Cobrar
+Ver
+Wings

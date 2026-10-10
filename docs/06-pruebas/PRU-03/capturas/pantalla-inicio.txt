@@ -1,0 +1,85 @@
+WINGS
+DÍA A DÍA
+Dashboard
+Alumnos
+Clases
+Sin asistencia
+32
+PLATA
+Cobranza
+Caja
+Movimientos
+Cashflow
+Liquidaciones
+Reportes
+Revisión
+EL CLUB
+Deportes
+Niveles
+Grupos
+Profesores
+Rubros
+Tipos de Caja
+SISTEMA
+Configuración
+Usuarios
+Admin Prueba
+Salir
+Inicio
+Octubre 2026 · Todo el negocio
+Ver
+
+Mes en curso · hasta el 10 de octubre
+
+Ingresos del mes
+
+$0
+
+Egresos del mes
+
+$0
+
+Alumnos por cobrar
+
+$1.801.000
+
+Profesores por pagar
+
+$0
+
+Resultado de octubre
+$0
+Disponible
+
+$1.570.000
+
+BGA
+
+$0
+
+BNA
+
+$0
+
+Banco Nacion ahorro
+
+$0
+
+EFE
+
+$250.000
+
+MP
+
+$1.320.000
+Incluye arrastre · $0 por validar
+Para revisar
+Cajas por validar
+0 →
+Liquidaciones pendientes
+0 →
+Clases sin asistencia
+32 →
+Revisión de alumnos
+0 →
+Wings

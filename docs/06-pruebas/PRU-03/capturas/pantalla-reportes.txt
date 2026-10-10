@@ -1,0 +1,79 @@
+WINGS
+DÍA A DÍA
+Dashboard
+Alumnos
+Clases
+Sin asistencia
+32
+PLATA
+Cobranza
+Caja
+Movimientos
+Cashflow
+Liquidaciones
+Reportes
+Revisión
+EL CLUB
+Deportes
+Niveles
+Grupos
+Profesores
+Rubros
+Tipos de Caja
+SISTEMA
+Configuración
+Usuarios
+Admin Prueba
+Salir
+Ingresos y egresos
+Reportes
+Volver
+Ingresos y egresos
+Alumnos
+Sueldos
+Octubre 2026
+Todo el negocio
+Fútbol
+Patín
+Filtrar
+Evolución mensual
+Ingresos
+Egresos
+Meses cerrados
+Detalle
+Cambio en el resultado
+
+Sin comparación disponible
+
+Octubre en curso
+Hasta 10/10
+Ingresos
+$0
+Egresos
+$0
+Resultado
+$0
+Origen de ingresos
+
+Sin ingresos registrados
+
+Detalle
+Destino de gastos
+
+Sin egresos registrados
+
+Detalle
+Situación al 10/10
+Saldos acumulados
+Disponible
+$1.570.000
+Por cobrar
+$1.801.000
+Por pagar
+$0
+Detalle de cajas y aportes
+Por cobrar · $1.801.000
+Por pagar · $0
+Cobros y pagos · confirmado + por validar
+Alumnos · Sueldos
+Wings

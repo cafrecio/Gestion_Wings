@@ -11,6 +11,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Prueba Real de Primera Carga en Navegador (PRU-03)
+
+- **Objetivo:** Ejecutar la prueba de primera carga de alumnos desde el navegador real en `https://test.gestionar-te.com.ar` simulando el rol de Vanina con un padrón realista de 90 filas (60 Patín, 30 Fútbol, familias con hermanos, menores con tutor, mayores de edad, cuotas viejas de 2025 y pagos parciales).
+- **Recorrido completo comprobado (A a G):**
+  - **A (Primer contacto y bloqueos):** Confirmado que con primera carga pendiente, los intentos de navegar a `/inicio`, `/alumnos` o `/reportes` son devueltos a `/sistema/primera-carga` con aviso explicativo.
+  - **B (Catálogos y plantilla):** Descarga de plantilla oficial, inspección de hojas `Alumnos`, `Catálogos` y `Guía`.
+  - **C (Revisión con 11 errores humanos):** Subida de `PADRON-PRU-03-con-errores.xlsx`. El validador detectó 10 errores con mensaje en castellano claro y celda exacta; descargado el Excel marcado con columna `Errores` (AM).
+  - **D y E (Carga y confirmación):** Subida de `PADRON-PRU-03.xlsx` sin errores. Resumen previo perfecto: 90 alumnos, 53 cuotas ($1.801.000), 8 inscripciones ($40.000), total deuda $1.841.000. Confirmación en una sola operación sin plata ingresada a caja.
+  - **F (Simulación de equivocación y Deshacer):** Ejecutado «Deshacer» con diálogo de confirmación; la base quedó en cero alumnos y volvió a estado pendiente de inmediato; recarga final ejecutada y confirmada.
+  - **G (Auditoría visual y dato por dato):** Auditadas 15 fichas de alumnos representativas (cubriendo todos los casos de borde) contrastando DNI, tutor, fecha de ingreso, nacimiento, grupo, plan y deudas; 100% de coincidencia exacta con el Excel.
+- **Entregables guardados:**
+  - Padrón base: `docs/06-pruebas/PRU-03/PADRON-PRU-03.xlsx`.
+  - Padrón con errores: `docs/06-pruebas/PRU-03/PADRON-PRU-03-con-errores.xlsx`.
+  - Excel marcado devuelto: `docs/06-pruebas/PRU-03/PADRON-PRU-03-marcado-errores.xlsx`.
+  - 23 capturas de pantalla de alta resolución (1366 × 768) en `docs/06-pruebas/PRU-03/capturas/`.
+  - Informe completo para Carlos: `docs/06-pruebas/PRU-03/INFORME-PRIMERA-CARGA.md`.
+- **Estado final:** Sitio de prueba dejado con la carga final terminada y activa. Tablero intacto (tarea T4 de Claude).
+
 ## 2026-10-10 — LOG GEM CYE — Verificación Segunda Vuelta y Cierre de B10 (CBU o Alias)
 
 - **Objetivo:** Verificar en segunda vuelta la corrección de Claude (commit `a33cd44`) para el defecto B10 (campo «CBU o alias» de profesor y operativo), tras devolución de Codex por alias con espacios internos y mensaje de longitud en inglés.

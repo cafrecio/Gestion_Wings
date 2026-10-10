@@ -1,0 +1,137 @@
+[
+  {
+    "dni": "56100101",
+    "nombre": "Sofia Gomez",
+    "caso": "al_dia",
+    "url": "https://test.gestionar-te.com.ar/alumnos/151",
+    "deporte": "Patin",
+    "captura": "ficha-56100101-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nGomez, Sofia\nInscripción al club\n\nPor única vez por persona. Saldo pendiente: $5.000,00\n\nActivo\nCobrar\nEditar\n\nDNI\n\n56100101\n\nNACIMIENTO\n\n15/04/2019\n\nCELULAR\n\n1145123401\n\nEMAIL\n\nmarcelo.gomez@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Principiantes\n\nPLAN\n\n1x sem. — $30.000/mes\n\nALTA\n\n15/03/2025\n\nESTADO DE COBRANZA\n\nAl día\n\nTUTOR\n\nNOMBRE\n\nMarcelo Gomez\n\nTELÉFONO\n\n1145123401\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "52100201",
+    "nombre": "Mia Rodriguez",
+    "caso": "al_dia",
+    "url": "https://test.gestionar-te.com.ar/alumnos/153",
+    "deporte": "Patin",
+    "captura": "ficha-52100201-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nRodriguez, Mia\nActivo\nCobrar\nEditar\n\nDNI\n\n52100201\n\nNACIMIENTO\n\n22/02/2015\n\nCELULAR\n\n1145123402\n\nEMAIL\n\nlaura.rodriguez@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Intermedias\n\nPLAN\n\n2x sem. — $43.000/mes\n\nALTA\n\n10/04/2024\n\nESTADO DE COBRANZA\n\nAl día\n\nTUTOR\n\nNOMBRE\n\nLaura Rodriguez\n\nTELÉFONO\n\n1145123402\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "54100102",
+    "nombre": "Lucas Gomez",
+    "caso": "un_mes",
+    "url": "https://test.gestionar-te.com.ar/alumnos/152",
+    "deporte": "Futbol",
+    "captura": "ficha-54100102-1-Futbol.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nGomez, Lucas\nInscripción al club\n\nPor única vez por persona. Saldo pendiente: $5.000,00\n\nActivo\nCobrar\nEditar\n\nDNI\n\n54100102\n\nNACIMIENTO\n\n10/08/2017\n\nCELULAR\n\n1145123401\n\nEMAIL\n\nmarcelo.gomez@testmail.com\n\nDEPORTE\n\nFútbol\n\nGRUPO\n\nFútbol — Principiantes\n\nPLAN\n\n1x sem. — $28.000/mes\n\nALTA\n\n15/03/2025\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$28.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nMarcelo Gomez\n\nTELÉFONO\n\n1145123401\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "46200806",
+    "nombre": "Julian Navarro",
+    "caso": "un_mes_mayor",
+    "url": "https://test.gestionar-te.com.ar/alumnos/171",
+    "deporte": "Futbol",
+    "captura": "ficha-46200806-1-Futbol.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nNavarro, Julian\nActivo\nCobrar\nEditar\n\nDNI\n\n46200806\n\nNACIMIENTO\n\n25/08/2007\n\nCELULAR\n\n1145123413\n\nEMAIL\n\njulian.n@testmail.com\n\nDEPORTE\n\nFútbol\n\nGRUPO\n\nFútbol — Avanzadas\n\nPLAN\n\n2x sem. — $48.000/mes\n\nALTA\n\n15/03/2024\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$48.000\nCobrar\nCondonar\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "48100301",
+    "nombre": "Emma Fernandez",
+    "caso": "varios_meses",
+    "url": "https://test.gestionar-te.com.ar/alumnos/156",
+    "deporte": "Patin",
+    "captura": "ficha-48100301-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nFernandez, Emma\nActivo\nCobrar\nEditar\n\nDNI\n\n48100301\n\nNACIMIENTO\n\n18/09/2011\n\nCELULAR\n\n1145123403\n\nEMAIL\n\ncarlos.f@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Avanzadas\n\nPLAN\n\n2x sem. — $45.000/mes\n\nALTA\n\n01/03/2023\n\nESTADO DE COBRANZA\n\nDeudor\nAgo 2026\n$45.000\nCobrar\nCondonar\nSep 2026\n$45.000\nCobrar\nCondonar\nOct 2026\n$45.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nCarlos Fernandez\n\nTELÉFONO\n\n1145123403\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "49100203",
+    "nombre": "Mateo Rodriguez",
+    "caso": "varios_meses",
+    "url": "https://test.gestionar-te.com.ar/alumnos/155",
+    "deporte": "Futbol",
+    "captura": "ficha-49100203-1-Futbol.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nRodriguez, Mateo\nActivo\nCobrar\nEditar\n\nDNI\n\n49100203\n\nNACIMIENTO\n\n05/06/2012\n\nCELULAR\n\n1145123402\n\nEMAIL\n\nlaura.rodriguez@testmail.com\n\nDEPORTE\n\nFútbol\n\nGRUPO\n\nFútbol — Avanzadas\n\nPLAN\n\n1x sem. — $38.000/mes\n\nALTA\n\n10/04/2024\n\nESTADO DE COBRANZA\n\nDeudor\nSep 2026\n$38.000\nCobrar\nCondonar\nOct 2026\n$38.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nLaura Rodriguez\n\nTELÉFONO\n\n1145123402\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "52300901",
+    "nombre": "Julieta Alvarez",
+    "caso": "meses_2025",
+    "url": "https://test.gestionar-te.com.ar/alumnos/172",
+    "deporte": "Patin",
+    "captura": "ficha-52300901-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nAlvarez, Julieta\nActivo\nCobrar\nEditar\n\nDNI\n\n52300901\n\nNACIMIENTO\n\n14/06/2015\n\nCELULAR\n\n1145123414\n\nEMAIL\n\nmarta.alvarez@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Intermedias\n\nPLAN\n\n1x sem. — $33.000/mes\n\nALTA\n\n10/03/2024\n\nESTADO DE COBRANZA\n\nDeudor\nNov 2025\n$22.000\nCobrar\nCondonar\nDic 2025\n$22.000\nCobrar\nCondonar\nAgo 2026\n$33.000\nCobrar\nCondonar\nSep 2026\n$33.000\nCobrar\nCondonar\nOct 2026\n$33.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nMarta Alvarez\n\nTELÉFONO\n\n1145123414\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "53300902",
+    "nombre": "Santino Romero",
+    "caso": "meses_2025",
+    "url": "https://test.gestionar-te.com.ar/alumnos/173",
+    "deporte": "Futbol",
+    "captura": "ficha-53300902-1-Futbol.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nRomero, Santino\nActivo\nCobrar\nEditar\n\nDNI\n\n53300902\n\nNACIMIENTO\n\n09/01/2016\n\nCELULAR\n\n1145123415\n\nEMAIL\n\ndiego.romero@testmail.com\n\nDEPORTE\n\nFútbol\n\nGRUPO\n\nFútbol — Principiantes\n\nPLAN\n\n1x sem. — $28.000/mes\n\nALTA\n\n01/08/2024\n\nESTADO DE COBRANZA\n\nDeudor\nOct 2025\n$18.000\nCobrar\nCondonar\nNov 2025\n$18.000\nCobrar\nCondonar\nDic 2025\n$18.000\nCobrar\nCondonar\nAgo 2026\n$28.000\nCobrar\nCondonar\nSep 2026\n$28.000\nCobrar\nCondonar\nOct 2026\n$28.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nDiego Romero\n\nTELÉFONO\n\n1145123415\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "51300905",
+    "nombre": "Lucia Ramirez",
+    "caso": "pago_parcial",
+    "url": "https://test.gestionar-te.com.ar/alumnos/176",
+    "deporte": "Patin",
+    "captura": "ficha-51300905-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nRamirez, Lucia\nActivo\nCobrar\nEditar\n\nDNI\n\n51300905\n\nNACIMIENTO\n\n19/05/2012\n\nCELULAR\n\n1145123418\n\nEMAIL\n\nsilvia.ramirez@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Avanzadas\n\nPLAN\n\n2x sem. — $45.000/mes\n\nALTA\n\n10/03/2024\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$25.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nSilvia Ramirez\n\nTELÉFONO\n\n1145123418\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "56300903",
+    "nombre": "Zoe Flores",
+    "caso": "meses_salteados",
+    "url": "https://test.gestionar-te.com.ar/alumnos/174",
+    "deporte": "Patin",
+    "captura": "ficha-56300903-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nFlores, Zoe\nActivo\nCobrar\nEditar\n\nDNI\n\n56300903\n\nNACIMIENTO\n\n11/12/2018\n\nCELULAR\n\n1145123416\n\nEMAIL\n\nclaudia.flores@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Principiantes\n\nPLAN\n\n1x sem. — $30.000/mes\n\nALTA\n\n15/03/2025\n\nESTADO DE COBRANZA\n\nDeudor\nAgo 2026\n$30.000\nCobrar\nCondonar\nOct 2026\n$30.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nClaudia Flores\n\nTELÉFONO\n\n1145123416\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "57100401",
+    "nombre": "Martina Lopez",
+    "caso": "hermana_1_debe_insc",
+    "url": "https://test.gestionar-te.com.ar/alumnos/158",
+    "deporte": "Patin",
+    "captura": "ficha-57100401-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nLopez, Martina\nInscripción al club\n\nPor única vez por persona. Saldo pendiente: $5.000,00\n\nActivo\nCobrar\nEditar\n\nDNI\n\n57100401\n\nNACIMIENTO\n\n12/10/2020\n\nCELULAR\n\n1145123404\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Principiantes\n\nPLAN\n\n1x sem. — $30.000/mes\n\nALTA\n\n20/08/2026\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$30.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nMariana Lopez\n\nTELÉFONO\n\n1145123404\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "55100402",
+    "nombre": "Valentina Lopez",
+    "caso": "hermana_2_debe_insc",
+    "url": "https://test.gestionar-te.com.ar/alumnos/159",
+    "deporte": "Patin",
+    "captura": "ficha-55100402-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nLopez, Valentina\nInscripción al club\n\nPor única vez por persona. Saldo pendiente: $5.000,00\n\nActivo\nCobrar\nEditar\n\nDNI\n\n55100402\n\nNACIMIENTO\n\n03/05/2018\n\nCELULAR\n\n1145123404\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Principiantes\n\nPLAN\n\n2x sem. — $40.000/mes\n\nALTA\n\n20/08/2026\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$40.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nMariana Lopez\n\nTELÉFONO\n\n1145123404\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "44100801",
+    "nombre": "Florencia Vega",
+    "caso": "mayor_edad_al_dia",
+    "url": "https://test.gestionar-te.com.ar/alumnos/166",
+    "deporte": "Patin",
+    "captura": "ficha-44100801-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nVega, Florencia\nActivo\nCobrar\nEditar\n\nDNI\n\n44100801\n\nNACIMIENTO\n\n15/01/2005\n\nCELULAR\n\n1145123408\n\nEMAIL\n\nflor.vega@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Federadas\n\nPLAN\n\n2x sem. — $50.000/mes\n\nALTA\n\n10/03/2022\n\nESTADO DE COBRANZA\n\nAl día\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "51200700",
+    "nombre": "Camila Benitez",
+    "caso": "dos_deportes_patin_y_futbol",
+    "url": "https://test.gestionar-te.com.ar/alumnos/164",
+    "deporte": "Patin",
+    "captura": "ficha-51200700-1-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nBenitez, Camila\nInscripción al club\n\nPor única vez por persona. Saldo pendiente: $5.000,00\n\nActivo\nCobrar\nEditar\n\nDNI\n\n51200700\n\nNACIMIENTO\n\n11/04/2012\n\nCELULAR\n\n1145123407\n\nEMAIL\n\nesteban.benitez@testmail.com\n\nDEPORTE\n\nPatín\n\nGRUPO\n\nPatín — Avanzadas\n\nPLAN\n\n2x sem. — $45.000/mes\n\nALTA\n\n01/03/2023\n\nESTADO DE COBRANZA\n\nEn plazo\nOct 2026\n$45.000\nCobrar\nCondonar\n\nTUTOR\n\nNOMBRE\n\nEsteban Benitez\n\nTELÉFONO\n\n1145123407\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  },
+  {
+    "dni": "51200700",
+    "nombre": "Camila Benitez",
+    "caso": "dos_deportes_patin_y_futbol",
+    "url": "https://test.gestionar-te.com.ar/alumnos/165",
+    "deporte": "Patin",
+    "captura": "ficha-51200700-2-Patin.png",
+    "texto": "WINGS\nDÍA A DÍA\nDashboard\nAlumnos\nClases\nSin asistencia\n32\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdmin Prueba\nSalir\nBenitez, Camila\nInscripción al club\n\nLa inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de Patín.\n\nActivo\nCobrar\nEditar\n\nDNI\n\n51200700\n\nNACIMIENTO\n\n11/04/2012\n\nCELULAR\n\n1145123407\n\nEMAIL\n\nesteban.benitez@testmail.com\n\nDEPORTE\n\nFútbol\n\nGRUPO\n\nFútbol — Principiantes\n\nPLAN\n\n1x sem. — $28.000/mes\n\nALTA\n\n01/03/2023\n\nESTADO DE COBRANZA\n\nAl día\n\nTUTOR\n\nNOMBRE\n\nEsteban Benitez\n\nTELÉFONO\n\n1145123407\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings"
+  }
+]
