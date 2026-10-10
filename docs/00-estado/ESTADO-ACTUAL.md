@@ -6,24 +6,26 @@ Corrección `b8ede87` comprobada sobre copia fija `aa33399`: 12 controles origin
 aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados. APORTE y RETIRO,
 edición/alta, ambos órdenes: espera real comprobada; uno guarda y otro rechaza claramente.
 Los 16 pedidos terminan en 0,263–0,943 s; ocho guardados posteriores pasan; sin pares inválidos.
-Suite completa 611 aprobadas/2 omitidas, 5.087 aserciones, 637,19 s en wings_testing_codex.
+Suite completa 614 aprobadas/2 omitidas, 5.087 aserciones, 637,19 s en wings_testing_codex.
 Carlos acotó a guardados desde Wings; cruces con comandos de consola fuera del alcance.
 Altas automáticas de sueldo escriben NEGOCIO bajo rubro reservado; API sin rutas registradas.
 Nombres nuevos en INGRESO quedan para el admin; DemoSeeder NULL, observación separada.
 Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos.
 Sin cambios de Wings, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 
-## T14 — Día 1 recorrido en test, a verificar por Claude, 10/10/2026
+## T14 — Día 2 recorrido parcial, domingo simulado 11/10, 10/10/2026
 
-Pantallas comprobadas por Codex: 100 activos, cuatro pagos por $164.000; caja 1
-cerrada y validada sin diferencia, contado $136.000, cambio retenido $10.000.
-Mariela guardó seis presentes/dos ausentes en clase 47 y se conservaron al reabrir.
-Hallazgos sin corregir: Inicio muestra deuda $1.960.000 frente a $2.010.000 en
-Cobranza; ingresos $0 y cinco movimientos por clasificar frente a $164.000 en
-Cashflow. Mariela abrió la clase 5 de Lucía y vio sus alumnos y botón Guardar;
-no se ensayó guardar allí. No se investigó causa en código/base ni se cambió el sistema.
-[Informe único y capturas de hallazgos](../06-pruebas/PRU-04/DIA-01.md).
-Conservar carga, pagos y asistencia para mañana; no repetir cobros ni deshacer.
+Codex recorrió por pantalla: Inicio/Cobranza/Reportes concilian $164.000 de ingresos
+y $2.010.000 por cobrar; cuotas $159.000/inscripción $5.000, sin aviso de sin clasificar.
+100 activos: 65 al día, 0 en plazo, 22 morosos, 13 deudores; ayer 65/22/0/13.
+Hoy 0 clases; Sin asistencia 33 históricas, una más que ayer. Mariela conserva 6/2.
+Sandra no ingresó: Demasiados intentos seguidos aun después de más de cinco minutos;
+no se comprobó su pantalla ni Cobrar sin caja. ADMIN ve su caja del sábado VALIDADA,
+contado $136.000, diferencia $0, cambio $10.000. Mariela sigue abriendo clase ajena
+de Lucía, con 26 alumnos y Guardar; no se guardó. Sin causas investigadas ni arreglos.
+T14 abierta; Claude verifica el informe. Día 3: lunes 12 feriado, tres clases para cancelar.
+[Día 2 y capturas](../06-pruebas/PRU-04/DIA-02.md); [Día 1 histórico](../06-pruebas/PRU-04/DIA-01.md).
+Conservar carga, pagos y asistencia; no repetir cobros, abrir caja ni mover el reloj.
 
 ## T15 — implementada, pendiente de verificación por Claude, 10/10/2026
 
@@ -432,7 +434,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **613 pruebas** (611 aprobadas, 2 omitidas; wings_testing_claude, 10/10. T19 suma 2. T17 suma 7 pruebas de conciliación Inicio-Cobranza). [Entrega T17](../06-pruebas/PRU-04/IMPLEMENTACION-T17.md) |
+| **Tests** | **616 pruebas** (614 aprobadas, 2 omitidas; wings_testing_claude, 10/10. T19 suma 2. T17 suma 7 pruebas de conciliación Inicio-Cobranza). [Entrega T17](../06-pruebas/PRU-04/IMPLEMENTACION-T17.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

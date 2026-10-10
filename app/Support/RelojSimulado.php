@@ -23,9 +23,11 @@ class RelojSimulado
 {
     /**
      * @param  string|null  $valor  fecha como `2026-10-15` o `2026-10-15 09:30:00`
+     * @param  int|null     $desde  momento real (segundos Unix) en que se fijó esa fecha. Con
+     *                              este dato el reloj avanza solo desde ahí; sin él queda clavado
      * @return string|null          la fecha aplicada, o null si no se aplicó ninguna
      */
-    public static function aplicar(?string $valor, string $entorno): ?string
+    public static function aplicar(?string $valor, string $entorno, ?int $desde = null): ?string
     {
         if ($valor === null || trim($valor) === '') {
             return null;
@@ -50,7 +52,23 @@ class RelojSimulado
             return null;
         }
 
-        Carbon::setTestNow($fecha);
+        if ($desde === null || $desde > time()) {
+            Carbon::setTestNow($fecha);
+
+            return $fecha->toDateTimeString();
+        }
+
+        // El reloj avanza solo desde la hora fijada. Clavado, lo que depende de que pase
+        // el tiempo no funcionaba: el límite de 5 ingresos por minuto no se limpiaba nunca
+        // y al quinto ingreso nadie más podía entrar (día 2 de PRU-04, 10/10/2026).
+        // No pasa de la medianoche: el día del cuento lo cambia quien dirige la prueba,
+        // no una noche real sin que nadie mire.
+        $tope = $fecha->copy()->endOfDay();
+        Carbon::setTestNow(static function () use ($fecha, $desde, $tope) {
+            $ahora = $fecha->copy()->addSeconds(max(0, time() - $desde));
+
+            return $ahora->greaterThan($tope) ? $tope->copy() : $ahora;
+        });
 
         return $fecha->toDateTimeString();
     }

@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
         // Solo hace algo en el servidor de prueba, y nunca en producción:
         // ver App\Support\RelojSimulado.
         if (!$this->app->runningUnitTests()) {
-            RelojSimulado::aplicar(config('app.fecha_simulada'), $this->app->environment());
+            $desde = config('app.fecha_simulada_desde');
+            RelojSimulado::aplicar(config('app.fecha_simulada'), $this->app->environment(), is_numeric($desde) ? (int) $desde : null);
         }
 
         View::composer('*', function ($view) {

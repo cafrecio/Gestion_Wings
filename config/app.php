@@ -90,6 +90,8 @@ return [
     */
 
     'fecha_simulada' => env('FECHA_SIMULADA'),
+    // Momento real en que se fijó esa fecha; desde ahí el reloj simulado avanza solo.
+    'fecha_simulada_desde' => env('FECHA_SIMULADA_DESDE'),
 
     // Wings se usa solo en castellano. Va fijo y no por APP_LOCALE: cada .env traia
     // "en" de fabrica y las listas mostraban "Showing 1 to 20 of 76 results" (A38).

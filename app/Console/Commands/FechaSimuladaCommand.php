@@ -46,7 +46,7 @@ class FechaSimuladaCommand extends Command
         if ($fecha === null) {
             $vigente = config('app.fecha_simulada');
             $this->line($vigente
-                ? "Fecha simulada vigente: {$vigente}"
+                ? "Fecha simulada fijada: {$vigente}. Para Wings ahora son las " . Carbon::now()->format('d/m/Y H:i')
                 : 'Sin fecha simulada: Wings usa la fecha real, ' . Carbon::now()->format('d/m/Y H:i'));
 
             return self::SUCCESS;
@@ -62,6 +62,7 @@ class FechaSimuladaCommand extends Command
 
         $this->escribir($archivo, $parseada->toDateTimeString());
         $this->info('Wings ahora cree que es ' . $parseada->locale('es')->isoFormat('dddd D [de] MMMM [de] YYYY, HH:mm'));
+        $this->line('El reloj avanza solo desde esa hora y se detiene a la medianoche de ese día.');
         $this->line('Las sesiones abiertas se caen al saltar de día: hay que volver a entrar.');
 
         return self::SUCCESS;
@@ -71,6 +72,11 @@ class FechaSimuladaCommand extends Command
     {
         $contenido = file_get_contents($archivo);
         $linea = $valor === '' ? '' : 'FECHA_SIMULADA="' . $valor . '"';
+        // Junto con la fecha se guarda el momento real en que se fijó: desde ahí avanza.
+        $contenido = preg_replace('/^FECHA_SIMULADA_DESDE=.*\R?/m', '', $contenido);
+        if ($linea !== '') {
+            $linea .= "\nFECHA_SIMULADA_DESDE=" . time();
+        }
 
         if (preg_match('/^FECHA_SIMULADA=.*$/m', $contenido)) {
             $contenido = preg_replace('/^FECHA_SIMULADA=.*$/m', $linea, $contenido);

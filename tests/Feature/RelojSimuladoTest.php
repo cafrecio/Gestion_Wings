@@ -31,6 +31,43 @@ class RelojSimuladoTest extends TestCase
         $this->assertSame('2026-12-05', now()->toDateString(), 'El helper now() es el que usa toda la aplicación.');
     }
 
+    /**
+     * Día 2 de PRU-04: con el reloj clavado, el límite de ingresos por minuto no se
+     * limpiaba nunca y al quinto ingreso nadie más podía entrar al sitio de prueba.
+     */
+    public function test_con_el_momento_en_que_se_fijo_el_reloj_avanza_solo(): void
+    {
+        RelojSimulado::aplicar('2026-12-05 09:30:00', 'staging', time() - 90);
+
+        $ahora = Carbon::now();
+        $this->assertSame('2026-12-05', $ahora->toDateString());
+        $this->assertGreaterThanOrEqual('09:31:30', $ahora->format('H:i:s'));
+        $this->assertLessThan('09:32:00', $ahora->format('H:i:s'));
+
+        // El límite de intentos vuelve a contar cuando pasa su minuto.
+        $limite = app(\Illuminate\Cache\RateLimiter::class);
+        $limite->hit('reloj-simulado', 60);
+        $this->assertSame(1, $limite->attempts('reloj-simulado'));
+        RelojSimulado::aplicar('2026-12-05 09:30:00', 'staging', time() - 90 - 61);
+        $this->assertSame(0, $limite->attempts('reloj-simulado'));
+    }
+
+    public function test_el_reloj_que_avanza_no_cruza_la_medianoche_por_su_cuenta(): void
+    {
+        // Fijado a las 23:00 hace tres horas reales: se detiene en el último segundo del día.
+        RelojSimulado::aplicar('2026-12-05 23:00:00', 'staging', time() - 3 * 3600);
+
+        $this->assertSame('2026-12-05 23:59:59', Carbon::now()->toDateTimeString());
+    }
+
+    public function test_sin_ese_momento_o_si_es_futuro_el_reloj_queda_clavado(): void
+    {
+        foreach ([null, time() + 3600] as $desde) {
+            RelojSimulado::aplicar('2026-12-05 09:30:00', 'staging', $desde);
+            $this->assertSame('2026-12-05 09:30:00', Carbon::now()->toDateTimeString());
+        }
+    }
+
     public function test_en_produccion_se_ignora_aunque_este_escrita(): void
     {
         $antes = Carbon::now()->toDateString();

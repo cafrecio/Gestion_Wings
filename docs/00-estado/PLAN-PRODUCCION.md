@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **613 pruebas** (611 aprobadas, 2 omitidas; wings_testing_claude, 10/10; T19; T17 conciliación Inicio-Cobranza). [Entrega T17](../06-pruebas/PRU-04/IMPLEMENTACION-T17.md) |
+| Suite | **616 pruebas** (614 aprobadas, 2 omitidas; wings_testing_claude, 10/10; T19; T17 conciliación Inicio-Cobranza). [Entrega T17](../06-pruebas/PRU-04/IMPLEMENTACION-T17.md) |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 abc346a aprobada por Codex 05/10. A54 conserva su cierre; A13/B1/A55 CERRADOS por Codex CyE 06/10 sobre main integrado: cobro sin caja, anulación con motivo, historial y contraasientos comprobados en pantalla; inscripción única coherente. A48/A49 CERRADOS, verificado Claude. A53 DEVUELTO a Gemini por Codex CyE 06/10; [control de celular](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue |
