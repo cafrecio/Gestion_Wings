@@ -13,20 +13,24 @@ Nombres nuevos en INGRESO quedan para el admin; DemoSeeder NULL, observación se
 Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos.
 Sin cambios de Wings, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 
-## T14 — Día 2 recorrido, domingo simulado 11/10, 10/10/2026
+## T14 — Día 3 recorrido, lunes simulado 12/10, 10/10/2026
 
-Codex recorrió por pantalla: Inicio/Cobranza/Reportes concilian $164.000 de ingresos
-y $2.010.000 por cobrar; cuotas $159.000/inscripción $5.000, sin aviso de sin clasificar.
-100 activos: 65 al día, 0 en plazo, 22 morosos, 13 deudores; ayer 65/22/0/13.
-Hoy 0 clases; Sin asistencia 33 históricas, una más que ayer. Mariela conserva 6/2.
-Sandra ingresó tras unos diez minutos de Demasiados intentos seguidos; causa sin investigar.
-Ve su caja del sábado VALIDADA, hoy $0/0 cajas; sin reclamo anterior, pero Inicio/Caja piden Abrir.
-Cobrar desde Cobranza la lleva a Apertura; no abrió. ADMIN comprobó contado $136.000,
-diferencia $0, cambio $10.000. Mariela sigue abriendo clase ajena de Lucía, con 26 alumnos
-y Guardar; no se guardó. Sin causas investigadas, cobros, aperturas ni arreglos.
-T14 abierta; Claude verifica el informe. Día 3: lunes 12 feriado, tres clases para cancelar.
-[Día 2 y capturas](../06-pruebas/PRU-04/DIA-02.md); [Día 1 histórico](../06-pruebas/PRU-04/DIA-01.md).
-Conservar carga, pagos y asistencia; no repetir cobros, abrir caja ni mover el reloj.
+Por pantalla: Sandra canceló Patín Principiantes y Fútbol Principiantes 16–17;
+admin canceló Patín Intermedias 17–18. Ver → Cancelar → motivo → Cancelar esta;
+admin también ofrece Cancelar serie. No se usó. Agenda de hoy: 3 → 1 → 0.
+Frena: canceladas del día no aparecen en Clases ni con Cancelada + 12/10,
+comprobado como Sandra, admin y Lucía. Profesora no pudo abrir la cancelada de hoy.
+Sin asistencia conserva 33; las dos páginas contienen solo fechas hasta 10/10.
+En fichas canceladas vistas, Guardar deshabilitado. ADMIN ve Activar; no se pulsó.
+Sandra: opción de reactivar sus dos canceladas no comprobada por quedar ocultas.
+Inicio/Reportes: ingresos $164.000, deuda $2.010.000, por pagar $0; Cobranza $2.010.000.
+Sueldos: Gaitán/Salinas/Quintana $0, Mariela $18.000/6 asistencias.
+Molesta: bloqueos de ingreso de Sandra/admin, luego ingresaron; causa no investigada.
+Decisión vigente de Carlos: suplencias y oferta de abrir caja en feriado son correctas.
+Sin código/base, cobros, apertura, arreglos ni cambio del reloj. T14 sigue abierta;
+Claude verifica [Día 3 y capturas](../06-pruebas/PRU-04/DIA-03.md).
+[Día 2](../06-pruebas/PRU-04/DIA-02.md) y [Día 1](../06-pruebas/PRU-04/DIA-01.md) históricos.
+Conservar cancelaciones, carga, pagos y asistencia para continuar el cuento.
 
 ## T15 — implementada, pendiente de verificación por Claude, 10/10/2026
 

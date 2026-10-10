@@ -1,18 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T14 Día 3 recorrido, a verificar por Claude
-
-Objetivo: feriado simulado lunes 12/10; seis tareas por menú/botones, expectativas antes de actuar.
-Sandra cancela las dos de las 16; admin Patín Intermedias 17–18; motivo y Cancelar esta, sin serie.
-Agenda 3 → 1 → 0; Sin asistencia 33 antes/después, dos páginas sin fechas del 12.
-Frena: canceladas de hoy ocultas en Clases aun con Cancelada + fecha, Sandra/admin/Lucía.
-Guardar deshabilitado en fichas canceladas vistas; ADMIN ve Activar, no se pulsó; Sandra sin comprobar.
-Inicio/Reportes ingresos $164.000/deuda $2.010.000/por pagar $0; Cobranza $2.010.000, 65/0/22/13.
-Sueldos Gaitán/Salinas/Quintana $0; Mariela $18.000/6 asistencias. Bloqueos de ingreso, luego pudieron entrar.
-Carlos decidió suplencias y Abrir en feriado correctos; fuera de hallazgos. Sin código/base, arreglos, cobros ni reloj.
-Chrome real por clics, integrado falló; cinco capturas de fallas. [Informe único](../06-pruebas/PRU-04/DIA-03.md).
-T14 abierta, solo paso actualizado; Claude verifica. Conservar tres cancelaciones; cuenta/navegador propios cerrados.
-
 ## 2026-10-10 — Codex CyE — T14 Día 2 recorrido, a verificar por Claude
 
 Objetivo: domingo simulado 11/10; seis tareas por menú/botones, expectativas antes de actuar.
@@ -120,6 +107,17 @@ Suite572/2omitidas/1falla documental por583 vs575;4612aserciones,733,56s. Guardi
 [Entrega y límites](../06-pruebas/B12-A23/ETIQUETAS-AJUSTE-2026-10-10.md). B12 en_curso: manual/antecedentes; A23 cerrado/Claude.
 Archivo anterior íntegro; publicación autorizada. Sin desplegar el retoque ni tocar la base del club.
 
+## 2026-10-10 — Codex CyE — Acceso a Reportes aprobado por Carlos
+
+Carlos: «Esta OK el acceso». Verifica Carlos el aspecto de Plata → Reportes y sus tres opciones.
+Aprobación registrada en entrega, acuerdos, visores, estado, resumen y tablero; sin cambios de aplicación.
+Menú actual leído; conserva Reportes debajo de Liquidaciones y navegación entre tres reportes.
+A23 ya cerrado por Claude en 59f01a0; su verificación no cubre Alumnos/Sueldos de B12.
+B12 en_curso: aspecto del ajuste final, prueba manual y clasificación de antecedentes pendientes.
+Archivo anterior íntegro preservado; enlaces, integridad y tablero comprobados. Sin repetir suite ni tocar base/servidor.
+Publicación autorizada a GitHub; el commit y sincronización se comprueban al publicar.
+[Entrega y aprobación](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
+
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
@@ -132,5 +130,3 @@ Archivo anterior íntegro; publicación autorizada. Sin desplegar el retoque ni 
 [Archivo íntegro anterior a T16 tercera vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V3.txt).
 
 [Archivo íntegro anterior al Día 2](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-02.txt).
-
-[Archivo íntegro anterior al Día 3](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-03.txt).

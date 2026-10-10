@@ -54,7 +54,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1 y 2 hechos y verificados. Reloj del sitio de prueba en el lunes 12/10/2026 10:00 (avanza solo). Sigue el dia 3 con Codex: feriado, cancelar las 3 clases |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 3 recorrido (DIA-03.md): Sandra cancelo dos clases y admin la tercera; agenda 0, Sin asistencia 33, importes intactos. Hallazgos: canceladas de hoy ocultas para los tres roles y bloqueos intermitentes de ingreso. Claude verifica; conservar las tres cancelaciones para continuar el cuento |
 
 ## Gemini
 
