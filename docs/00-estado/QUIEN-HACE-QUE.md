@@ -49,14 +49,13 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Devuelto (hizo Claude, verifica Codex) | Codex verifico 462e8b1: cambiar el tipo del rubro admite APORTE en egreso y RETIRO en ingreso; la migracion deja NULL los dos nombres nuevos si ya existian. Corregir y devolver a Codex. Formulario aprobado por Carlos (T16 OK) |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 3a3849a (10/10) con 100 alumnos, el dia 1 de PRU-04, T16 y T18 |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Hecho, espera verificación (hizo Claude, verifica Codex) | Formulario aprobado por Carlos (10/10, «T16 OK»). Falta que Codex verifique la logica: clasificacion del catalogo, movimientos ya registrados y reglas del formulario. Desplegado en el sitio de prueba (462e8b1) |
+Nada en este momento.
 
 ## Gemini
 
