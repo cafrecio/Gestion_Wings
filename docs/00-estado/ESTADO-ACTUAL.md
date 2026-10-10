@@ -1,5 +1,17 @@
 # Wings — Estado actual
 
+## T14 — Día 1 recorrido en test, a verificar por Claude, 10/10/2026
+
+Pantallas comprobadas por Codex: 100 activos, cuatro pagos por $164.000; caja 1
+cerrada y validada sin diferencia, contado $136.000, cambio retenido $10.000.
+Mariela guardó seis presentes/dos ausentes en clase 47 y se conservaron al reabrir.
+Hallazgos sin corregir: Inicio muestra deuda $1.960.000 frente a $2.010.000 en
+Cobranza; ingresos $0 y cinco movimientos por clasificar frente a $164.000 en
+Cashflow. Mariela abrió la clase 5 de Lucía y vio sus alumnos y botón Guardar;
+no se ensayó guardar allí. No se investigó causa en código/base ni se cambió el sistema.
+[Informe único y capturas de hallazgos](../06-pruebas/PRU-04/DIA-01.md).
+Conservar carga, pagos y asistencia para mañana; no repetir cobros ni deshacer.
+
 ## T15 — implementada, pendiente de verificación por Claude, 10/10/2026
 
 La orden pedía la nueva404 también para `/alumnos/999999` en los cuatro perfiles.

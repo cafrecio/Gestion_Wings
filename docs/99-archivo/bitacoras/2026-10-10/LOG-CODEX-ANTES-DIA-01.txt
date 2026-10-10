@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T14 Día 1 recorrido, a verificar por Claude
-
-Objetivo: seis tareas del club en test, por menú y botones; expectativas registradas antes de actuar.
-Chrome real con clics automatizados; integrado falló por sandbox. Sin consultas a base, arreglos ni deshacer carga.
-Cuatro pagos 1–4, $164.000 ($126.000 efectivo/$38.000 MP); fichas y pedidos de recibo comprobados; PDF no leído.
-Mariela: clase 47, seis presentes/dos ausentes conservados al reabrir; también pudo abrir clase 5 de Lucía.
-Sandra: caja 1 cerrada y validada, contado $136.000, diferencia $0, cambio $10.000, entrega $126.000.
-Cobranza $2.010.000; Cashflow $164.000 en cinco filas sin duplicar; Inicio $1.960.000/ingresos $0, por clasificar.
-Capturas solo de hallazgos/contrastes; ningún archivo de aplicación cambiado. Solo verificación documental, sin suite.
-[Informe único](../06-pruebas/PRU-04/DIA-01.md). T14 a_verificar, tiene/verifica Claude; sin autocierre.
-Sigue: Claude verifica los hallazgos; mañana continúa desde estos pagos/asistencias, sin repetir cobros ni limpiar.
-
 ## 2026-10-10 — Codex CyE — T15 implementada, a verificar por Claude
 
 Cuatro errores en castellano (404/500/503/429), con el sistema visual de403; menú ADMIN dice Inicio.
@@ -113,6 +101,17 @@ Auto-review rechazó el siguiente comando por falta de créditos: no ejecutado, 
 [Entrega y pendientes](../06-pruebas/B12-A23/IMPLEMENTACION-ALUMNOS-2026-10-09.md). Sin commit/push nuevos ni despliegue.
 Reanudar capturas/compilación, tablero y GitHub al recuperar créditos; luego historia y Sueldos. B12/A23 abiertos.
 
-[Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
+## 2026-10-09 — Codex CyE — Alumnos propuesto, Sueldos espera decisión
 
-[Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
+Carlos pidió «Segui con alumnos y sueldos». Alumnos: matrícula actual, asistencia del mes y gráficos.
+Consulta sin escrituras: canceladas/fechas futuras fuera; presentes separados de alumnos únicos.
+No inventa matrícula histórica ni ausencias sin registros; detalle accesible y seis meses cerrados.
+Escenario ficticio ampliado solo en wings_testing_codex; importes financieros conservados.
+TresHTTP200 reales, seis capturas1440/marco375; revisión independiente final apta para presentar.
+Suite propia543/2,4401aserciones,556,59s; módulo6/29 inicial y aserción histórica adicional. Build8,89s.
+[Propuesta, controles y límites](../06-pruebas/B12-A23/PROPUESTA-ALUMNOS-2026-10-09.md). No aplicada a rutas habituales ni desplegada.
+Sueldos: pregunta de cuota por profesor sin respuesta; historia de cuotas/tarifas y comisión devengada pendientes.
+B12 tiene Carlos para elegir atribución; A23 continúa Codex. No cerrar B12/A23 por esta fase.
+
+
+[Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
