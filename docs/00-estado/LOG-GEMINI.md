@@ -11,18 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
-## 2026-10-10 — LOG GEM CYE — Prueba Real de Primera Carga en Navegador (PRU-03)
+## 2026-10-10 — LOG GEM CYE — PRU-03 Segunda Vuelta: Primera Carga en Excel Real y Flujo Orgánico
 
-- **Objetivo:** Ejecutar la prueba de primera carga de alumnos desde el navegador real en `https://test.gestionar-te.com.ar` simulando el rol de Vanina con un padrón realista de 90 filas (60 Patín, 30 Fútbol, familias con hermanos, menores con tutor, mayores de edad, cuotas viejas de 2025 y pagos parciales).
-- **Recorrido completo comprobado (A a G):**
-  - **A (Primer contacto y bloqueos):** Confirmado que con primera carga pendiente, los intentos de navegar a `/inicio`, `/alumnos` o `/reportes` son devueltos a `/sistema/primera-carga` con aviso explicativo.
-  - **B (Catálogos y plantilla):** Descarga de plantilla oficial, inspección de hojas `Alumnos`, `Catálogos` y `Guía`.
-  - **C (Revisión con 11 errores humanos):** Subida de `PADRON-PRU-03-con-errores.xlsx`. El validador detectó 10 errores con mensaje en castellano claro y celda exacta; descargado el Excel marcado con columna `Errores` (AM).
-  - **D y E (Carga y confirmación):** Subida de `PADRON-PRU-03.xlsx` sin errores. Resumen previo perfecto: 90 alumnos, 53 cuotas ($1.801.000), 8 inscripciones ($40.000), total deuda $1.841.000. Confirmación en una sola operación sin plata ingresada a caja.
-  - **F (Simulación de equivocación y Deshacer):** Ejecutado «Deshacer» con diálogo de confirmación; la base quedó en cero alumnos y volvió a estado pendiente de inmediato; recarga final ejecutada y confirmada.
-  - **G (Auditoría visual y dato por dato):** Auditadas 15 fichas de alumnos representativas (cubriendo todos los casos de borde) contrastando DNI, tutor, fecha de ingreso, nacimiento, grupo, plan y deudas; 100% de coincidencia exacta con el Excel.
-- **Entregables guardados:**
-  - Padrón base: `docs/06-pruebas/PRU-03/PADRON-PRU-03.xlsx`.
+- **Objetivo:** Responder a las observaciones de Claude (`VERIFICACION-CLAUDE.md`) completando lo pendiente de la primera carga: manipulación directa en Microsoft Excel 2016 desktop, carga manual de 10 alumnos adicionales con cronómetro, prueba del error de fila repetida (12 errores en total), navegación orgánica tocando el menú sin escribir URLs directas, capturas completas de la planilla para el manual de usuario, y depuración de la carpeta `capturas/fichas/`.
+- **Qué se hizo de verdad:**
+  - **A. Excel desktop:** Se abrió la plantilla en Microsoft Excel 2016 real y se cargaron 10 alumnos celda por celda cronometrando el tiempo (promedio: 1m 16s por alumno; 45s para alumno al día, hasta 2m para deudas complejas). Se detectaron tropiezos reales: las listas desplegables de Plan muestran los 12 planes del club juntos sin filtrar por el grupo elegido, las columnas de deuda obligan a scroll hasta la columna AL perdiendo de vista los nombres, y la hoja Catálogos está desprotegida.
+  - **B. Recorrido web por menú y botones:** Se usó «Deshacer» en `https://test.gestionar-te.com.ar` para limpiar la base. Se hizo clic en Inicio, Alumnos y Reportes desde el menú comprobando que redirigen a Primera Carga. Se avanzó a Paso 2 haciendo clic en «Continuar», y a Paso 3 haciendo clic en «Descargar». Se subió `PADRON-PRU-03-v2-con-12-errores.xlsx` con los 12 errores requeridos (incluyendo fila duplicada en A102); el validador detectó 11 errores y normalizó 1. Se descargó el Excel marcado y se subió `PADRON-PRU-03-v2.xlsx` limpio. Se confirmó la carga final de 100 alumnos.
+  - **C. Capturas para el manual:** Generadas 8 capturas directas de Excel (plantilla vacía, hoja Guía, hoja Catálogos, desplegables, alumnos al día, con deuda y Excel marcado con columna AM). Se reemplazaron las capturas erróneas 404 por capturas de los bloqueos reales del sistema. Se depuró la carpeta `capturas/fichas/` dejando exactamente 15 capturas limpias (una por alumno y deporte).
+  - **D. Informe reescrito:** Documentada la experiencia humana real en `docs/06-pruebas/PRU-03/INFORME-PRIMERA-CARGA.md` con desglose de qué se hizo, qué se consultó en el código y qué se supuso.
+- **Entregables:** `PADRON-PRU-03-v2.xlsx` (100 alumnos), `PADRON-PRU-03-v2-con-12-errores.xlsx`, `PADRON-PRU-03-v2-marcado-errores.xlsx`, 28 capturas principales y 15 fichas limpias. Sitio de prueba dejado con 100 alumnos cargados. Tablero intacto (T4 a cargo de Claude).
   - Padrón con errores: `docs/06-pruebas/PRU-03/PADRON-PRU-03-con-errores.xlsx`.
   - Excel marcado devuelto: `docs/06-pruebas/PRU-03/PADRON-PRU-03-marcado-errores.xlsx`.
   - 23 capturas de pantalla de alta resolución (1366 × 768) en `docs/06-pruebas/PRU-03/capturas/`.

@@ -13,6 +13,11 @@ foreach ($ss->getSheetNames() as $name) {
     echo "--- Hoja: $name (filas: {$sheet->getHighestRow()}, cols: {$sheet->getHighestColumn()}) ---" . PHP_EOL;
 }
 
+echo "Named Ranges:" . PHP_EOL;
+foreach ($ss->getNamedRanges() as $nr) {
+    echo $nr->getName() . " -> " . $nr->getRange() . " (worksheet: " . ($nr->getWorksheet() ? $nr->getWorksheet()->getTitle() : 'null') . ")" . PHP_EOL;
+}
+
 $alumnos = $ss->getSheetByName('Alumnos');
 echo PHP_EOL . "Encabezados en Alumnos:" . PHP_EOL;
 for ($col = 1; $col <= 40; $col++) {

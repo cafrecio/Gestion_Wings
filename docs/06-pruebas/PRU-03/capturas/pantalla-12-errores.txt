@@ -1,0 +1,167 @@
+WINGS
+DÍA A DÍA
+Dashboard
+Alumnos
+Clases
+Sin asistencia
+32
+PLATA
+Cobranza
+Caja
+Movimientos
+Cashflow
+Liquidaciones
+Reportes
+Revisión
+EL CLUB
+Deportes
+Niveles
+Grupos
+Profesores
+Rubros
+Tipos de Caja
+SISTEMA
+Primera carga
+Configuración
+Usuarios
+Admin Prueba
+Salir
+Primera carga
+Vamos a preparar Wings
+
+Tu sesión ya está iniciada. Completá estos cuatro pasos para empezar a trabajar con los alumnos del club.
+
+Primera carga pendiente. Wings abre este recorrido al ingresar. El alta individual queda disponible cuando terminás.
+
+1. Catálogos
+2. Plantilla
+3. Revisión
+4. Carga
+1. Preparar los catálogos
+
+Antes de completar el Excel, cargá deportes, niveles, grupos y planes con precio.
+
+Deportes:
+2
+Niveles:
+4
+Grupos:
+6
+Planes:
+12
+
+Listo. Podés descargar la plantilla.
+
+Ver las opciones del club
+2. Completar la plantilla
+
+Listo: plantilla descargada o archivo recibido.
+
+Completá solamente la hoja Alumnos
+
+Una fila = un alumno en un deporte. En esa misma fila van sus datos y todos los meses que debe. No vuelvas a escribir el DNI en otra hoja.
+
+Alumnos: acá escribís. Catálogos: no completar. Guía: ejemplos para mirar.
+
+Escribí los datos del alumno.
+
+DNI, apellido, nombre, nacimiento, fecha real de ingreso al club y contacto. Para un menor, también el nombre y teléfono de su tutor.
+
+DNI: 50300001. Ingreso: 20/01/2020. Se aceptan puntos y espacios en el DNI. Las fechas llevan día/mes/año. El ingreso es cuando empezó a asistir, aunque cargues el archivo hoy. Si hace dos deportes, usá una fila para cada deporte.
+
+Elegí deporte, grupo y plan.
+
+Usá la flechita de cada lista: primero Deporte, después su Grupo y después el Plan de ese grupo.
+
+Ejemplo: Fútbol → Juveniles → Fútbol / Juveniles / 2 clases. ¿Falta una opción? Preparala en Wings y descargá otra plantilla. No escribas en Catálogos.
+
+Marcá las dos respuestas.
+
+Debe inscripción: No si no tiene que pagar inscripción en esta carga. Sí genera esa deuda al importe vigente de Configuración, una sola vez por DNI.
+
+Tiene deuda: son cuotas mensuales. No exige todos los pares vacíos. Sí exige un par por cada mes que debe. Son respuestas independientes: puede deber inscripción y no deber cuotas.
+
+Por cada mes que debe, completá un par.
+
+Período 1: 102026 = octubre de 2026. Monto 1: 48000 = debe $48.000. Otro mes va en Período 2 / Monto 2, en la misma fila. Hay 12 pares; los que no usás quedan vacíos.
+
+Escribí solamente lo que falta pagar. Si la cuota era $48.000 y ya pagó $20.000, poné 28000. No cargues meses pagados ni repitas meses.
+
+Agosto: 082026; septiembre: 092026. Si Excel quita el cero y deja 92026, también se acepta. Para $52.000 escribí 52000 o 52.000, sin signo $. Los meses pueden estar desordenados, desde 2025.
+
+Así quedan cuatro casos distintos
+
+Son ejemplos para mirar en Guía, no alumnos de la plantilla. En celular, deslizá la tabla hacia los costados.
+
+Alumno	Debe inscripción	Tiene deuda	Período 1	Monto 1	Período 2	Monto 2	Período 3	Monto 3
+Ana	Sí	Sí	102026	48000				
+Bruno	No	No						
+Carla	No	Sí	092026	52000	102026	52000		
+Diego	No	Sí	082026	48000	102026	48000	092026	48000
+
+Antes de volver a Wings: guardá .xlsx. Conservá los títulos y las hojas. Catálogos viene preparado por el sistema; Guía reproduce estas indicaciones.
+
+3. Revisar el Excel
+
+La revisión no carga alumnos ni deudas. Si hay errores, aparecen todos juntos.
+
+11 errores. No se cargó nada.
+
+Alumnos · fila 4 · Fecha nacimiento (D4)
+
+Nacimiento inválido. Esperado: Fecha real día/mes/año, no futura.
+
+Alumnos · fila 9 · Tutor (H9)
+
+Obligatorio para menor de edad. Esperado: Nombre del tutor.
+
+Alumnos · fila 9 · Teléfono tutor (I9)
+
+Obligatorio para menor de edad. Esperado: Teléfono del tutor.
+
+Alumnos · fila 13 · Plan (L13)
+
+Plan inexistente o ajeno al grupo. Esperado: Elegí un plan activo de ese grupo con precio mayor que cero.
+
+Alumnos · fila 16 · Tiene deuda (N16)
+
+Dice Sí pero no informa deuda. Esperado: Al menos un período con su monto.
+
+Alumnos · fila 22 · Período 2 (Q22)
+
+Período repetido. Esperado: Cada mes una sola vez por alumno y deporte.
+
+Alumnos · fila 27 · Monto 1 (P27)
+
+Monto ausente o inválido. Esperado: Pendiente mayor que cero: 52000 o 52.000; máximo 99.999.999,99.
+
+Alumnos · fila 30 · Monto 1 (P30)
+
+Monto ausente o inválido. Esperado: Pendiente mayor que cero: 52000 o 52.000; máximo 99.999.999,99.
+
+Alumnos · fila 35 · Celular (F35)
+
+Falta el dato o es demasiado largo. Esperado: Texto obligatorio, hasta 255 caracteres.
+
+Alumnos · fila 45 · Período 1 (O45)
+
+Período ausente o inválido. Esperado: Mes y año: 082026 o 92026; desde 2025.
+
+Alumnos · fila 102 · DNI (A102)
+
+DNI y deporte repetidos; ya figura en fila 97. Esperado: Una fila por alumno y deporte.
+
+Así vuelve el Excel
+
+Tus datos se conservan. La columna Errores, al final de Alumnos (AM), dice qué corregir en cada fila.
+
+Descargá el Excel marcado. Abrilo, corregí las celdas indicadas, guardá .xlsx y revisá ese archivo otra vez. No hace falta borrar Errores: se actualiza. No se carga nada hasta que no haya errores.
+
+Excel completado (.xlsx)
+Revisar
+Descargar
+4. Cargar en Wings
+
+Pendiente. Primero revisá el Excel. La carga se habilita solamente con cero errores.
+
+Wings
