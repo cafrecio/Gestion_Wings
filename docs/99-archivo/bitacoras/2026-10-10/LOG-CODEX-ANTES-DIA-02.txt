@@ -1,18 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T14 Día 2 recorrido, a verificar por Claude
-
-Objetivo: domingo simulado 11/10; seis tareas por menú/botones, expectativas antes de actuar.
-Inicio/Cobranza/Reportes: ingresos $164.000, deuda $2.010.000; cuotas $159.000/inscripción $5.000.
-65 al día/0 en plazo/22 morosos/13 deudores; ayer 65/22/0/13, captura contrastada; dos fichas solo octubre Moroso.
-Hoy 0 clases; 33 históricas sin asistencia, antes 32. Mariela conserva sábado 6 presentes/2 ausentes.
-Frena: Mariela abre clase de Lucía con 26 alumnos/Guardar; no guardó. Molesta: domingo pide Abrir.
-Sandra entró tras unos diez minutos de bloqueo; sábado VALIDADA, domingo $0/0 cajas; Cobrar desvía a Apertura.
-Chrome real con clics automatizados; integrado falló. Sin código/base de Wings, cobros, aperturas, arreglos ni reloj.
-[Informe único y cuatro capturas de fallas](../06-pruebas/PRU-04/DIA-02.md). Solo documentación, sin suite ni deploy.
-T14 sigue en_curso: solo paso actualizado; Claude verifica. Día 3 lunes 12 feriado, tres clases previstas para cancelar.
-Archivo anterior íntegro preservado; publicar únicamente archivos propios. Se salió de la cuenta y cerró el navegador propio.
-
 ## 2026-10-10 — Codex CyE — T16 tercera vuelta aprobada
 
 Objetivo: verificar b8ede87 sobre copia fija aa33399; solo wings_testing_codex.
@@ -118,6 +105,15 @@ Archivo anterior íntegro preservado; enlaces, integridad y tablero comprobados.
 Publicación autorizada a GitHub; el commit y sincronización se comprueban al publicar.
 [Entrega y aprobación](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
 
+## 2026-10-09 — Codex CyE — Sueldos aprobado; acceso Plata → Reportes aplicado
+
+Carlos: «Esta OK, solo deberiamos ver desde donde accede en el menu», sobre Sueldos.
+Acceso anterior comprobado: Inicio → Ver → Sueldos al pie. Tras «Continuar», aplicada entrada Reportes en Plata.
+Ubicación recomendada debajo de Liquidaciones, sin elección expresa; tres opciones arriba, mes/deporte conservados.
+56 pantallas Laravel/112PNG y4 menús móviles; roles mantienen403. [Acceso y evidencia](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
+Suite propia573/2,4616aserciones,885,32s; vistas/sintaxis correctas. Control independiente de fuente y12PNG aprobado; sin club/deploy.
+B12/A23 abiertos: revisión del acceso, ajuste final, prueba manual y antecedentes pendientes.
+
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
@@ -128,5 +124,3 @@ Publicación autorizada a GitHub; el commit y sincronización se comprueban al p
 [Archivo íntegro anterior a T16 segunda vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V2.txt).
 
 [Archivo íntegro anterior a T16 tercera vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V3.txt).
-
-[Archivo íntegro anterior al Día 2](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-02.txt).

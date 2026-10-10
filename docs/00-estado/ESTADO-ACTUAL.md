@@ -13,16 +13,17 @@ Nombres nuevos en INGRESO quedan para el admin; DemoSeeder NULL, observación se
 Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos.
 Sin cambios de Wings, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 
-## T14 — Día 2 recorrido parcial, domingo simulado 11/10, 10/10/2026
+## T14 — Día 2 recorrido, domingo simulado 11/10, 10/10/2026
 
 Codex recorrió por pantalla: Inicio/Cobranza/Reportes concilian $164.000 de ingresos
 y $2.010.000 por cobrar; cuotas $159.000/inscripción $5.000, sin aviso de sin clasificar.
 100 activos: 65 al día, 0 en plazo, 22 morosos, 13 deudores; ayer 65/22/0/13.
 Hoy 0 clases; Sin asistencia 33 históricas, una más que ayer. Mariela conserva 6/2.
-Sandra no ingresó: Demasiados intentos seguidos aun después de más de cinco minutos;
-no se comprobó su pantalla ni Cobrar sin caja. ADMIN ve su caja del sábado VALIDADA,
-contado $136.000, diferencia $0, cambio $10.000. Mariela sigue abriendo clase ajena
-de Lucía, con 26 alumnos y Guardar; no se guardó. Sin causas investigadas ni arreglos.
+Sandra ingresó tras unos diez minutos de Demasiados intentos seguidos; causa sin investigar.
+Ve su caja del sábado VALIDADA, hoy $0/0 cajas; sin reclamo anterior, pero Inicio/Caja piden Abrir.
+Cobrar desde Cobranza la lleva a Apertura; no abrió. ADMIN comprobó contado $136.000,
+diferencia $0, cambio $10.000. Mariela sigue abriendo clase ajena de Lucía, con 26 alumnos
+y Guardar; no se guardó. Sin causas investigadas, cobros, aperturas ni arreglos.
 T14 abierta; Claude verifica el informe. Día 3: lunes 12 feriado, tres clases para cancelar.
 [Día 2 y capturas](../06-pruebas/PRU-04/DIA-02.md); [Día 1 histórico](../06-pruebas/PRU-04/DIA-01.md).
 Conservar carga, pagos y asistencia; no repetir cobros, abrir caja ni mover el reloj.

@@ -54,7 +54,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 2 recorrido parcial (DIA-02.md): ingresos 164.000/deuda 2.010.000 concilian; 22 pasaron a moroso; hoy 0 clases. Sandra no ingresa y Mariela abre clases ajenas; Claude verifica. Dia 3 lunes 12 feriado: cancelar las 3 clases previstas, sin repetir cobros |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 2 recorrido (DIA-02.md): importes concilian, 22 pasan a moroso, hoy 0 clases; caja de Sandra validada y Cobrar bloqueado sin abrir. Hallazgos: profesora abre clase ajena, demora de login y pedido de Abrir en domingo. Claude verifica; Dia 3 lunes 12 feriado, cancelar las 3 clases previstas |
 
 ## Gemini
 
