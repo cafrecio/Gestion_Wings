@@ -51,6 +51,7 @@ Nada.
 | **T19** Reportes muestra la deuda sin inscripciones; Inicio y Cobranza ya las cuentan | En curso | Decidido por Carlos el 10/10: «Todo tiene que ser igual, las inscripciones son parte de la deuda». Lo hace Claude: Reportes debe contar inscripciones igual que Inicio y Cobranza |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
+| **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Devuelto (hizo Claude, verifica Gemini) | Corregir que meses futuros pendientes no sumen deuda en CobranzaEstadoService/buscador, y ajustar regex de periodos a meses 01-12 |
 
 ## Codex
 
@@ -60,9 +61,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude, verifica Gemini) | Pantalla aprobada por Carlos (10/10). Gemini verifica la logica de cobro adelantado. Desplegado en el sitio de prueba; alli nadie hizo todavia un cobro adelantado real |
+Nada en este momento.
 
 ## Sin empezar (14)
 

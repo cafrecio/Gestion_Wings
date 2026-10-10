@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Verificación T18: Cobro Adelantado devuelto a Claude
+
+- **Objetivo y resultado:** Verificar la lógica de cobro adelantado implementada por Claude en commit `3a3849a`. Tarea DEVUELTA a Claude por divergencia de saldos entre la ficha de cobro y el buscador/Cobranza ante cuotas futuras pendientes (ej. tras anulación), y por validación incompleta de meses en el regex de períodos.
+- **Qué se probó:**
+  - Suite de comprobaciones independientes en `docs/06-pruebas/PRU-04/evidencia-t18/VerificacionT18Test.php` (13 tests, 104 aserciones, 100% PASS).
+  - Verificados los 9 puntos: rechazo sin confirmación por todos los canales (409), monto cambiado mayor y menor fijado en `monto_original` y `monto_pagado` con estado `PAGADA`, congelamiento de precio ante aumentos y ejecución de `cobranza:generar-deudas`, bordes de 12 y 13 meses, deudas preexistentes, cruces (deuda anterior con motivo, inscripción, primer pago, cambio de plan, múltiples adelantados), anulación y movimientos contables únicos en caja/cashflow.
+- **Fallas detectadas que motivan la devolución:**
+  1. *Divergencia de saldos por cuotas futuras pendientes:* Si una cuota futura queda en estado `PENDIENTE` en la base (ej. tras anular un cobro adelantado con `anularCobroAdmin` o `cancelarCobroOperativo`), `CobranzaEstadoService::saldoDeAlumnos()` no filtra por mes vigente y la suma. En `/caja/cobrar` (ficha) «Total pendiente» dice `$0,00` pero en `/caja/cobrar-cuota` (buscador) y `/cobranza` dice `$35.000` (1 cuota pendiente).
+  2. *Regex de períodos permite meses fuera de 01-12:* `regex:/^\d{4}-\d{2}$/` deja pasar `2026-13` provocando un error 500 no capturado en `Carbon::parse()` en vez de un 422 de validación.
+- **Stash verificado:** `stash@{0}` («dashboard local changes») pertenece a pruebas locales previas de Gemini en dashboard; se mantiene intacto sin aplicar ni borrar.
+- **Tablero:** `T18` pasado a `devuelto` con `tiene=Claude`. Informe: `docs/06-pruebas/PRU-04/VERIFICACION-T18.md`.
+- **Suite completa:** 609 pasadas, 2 omitidas (5065 aserciones, 499.09s) en `wings_testing_gemini`.
+
 ## 2026-10-10 — LOG GEM CYE — T17: Inicio cuenta cuotas + inscripciones en la deuda
 
 - **Objetivo y cambios realizados:**
