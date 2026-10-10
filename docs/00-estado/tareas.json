@@ -40,7 +40,7 @@
   {"id":"A39","titulo":"Acceso a Movimientos del OPERATIVO","gravedad":"Falta","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Gemini","paso":"","ref":"","fecha":"2026-10-08"},
   {"id":"A40","titulo":"Inicio de ADMIN en celular","gravedad":"Molesta","estado":"cerrado","tiene":"nadie","hizo":"Gemini","verifica":"Codex","paso":"","ref":"","fecha":"2026-10-06"},
   {"id":"A41","titulo":"Fechas del filtro de Movimientos","gravedad":"Molesta","estado":"cerrado","tiene":"nadie","hizo":"Gemini","verifica":"Codex","paso":"","ref":"","fecha":"2026-10-06"},
-  {"id":"A42","titulo":"Aviso de inscripción al editar alumno","gravedad":"Molesta","estado":"a_verificar","tiene":"nadie","hizo":"Codex","verifica":"","paso":"Falta asignar verificador","ref":"","fecha":"2026-10-10"},
+  {"id":"A42","titulo":"Aviso de inscripción al editar alumno","gravedad":"Molesta","estado":"cerrado","tiene":"nadie","hizo":"Codex","verifica":"Claude","paso":"","ref":"","fecha":"2026-10-10"},
   {"id":"A43","titulo":"El alumno cargado a mano con ingreso de un mes cerrado queda deudor","gravedad":"Frena","estado":"cerrado","tiene":"nadie","hizo":"","verifica":"","paso":"","ref":"","fecha":"2026-10-05"},
   {"id":"A44","titulo":"El aviso diario llega firmado por Laravel","gravedad":"Molesta","estado":"cerrado","tiene":"nadie","hizo":"Claude","verifica":"Carlos","paso":"","ref":"","fecha":"2026-10-08"},
   {"id":"A45","titulo":"Cobranza repite el deporte al lado del nombre","gravedad":"Molesta","estado":"cerrado","tiene":"nadie","hizo":"","verifica":"","paso":"","ref":"","fecha":"2026-10-04"},

@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 10/10/2026: 63 cerrados de 74.** Quedan 11 abiertos, de los
+> **Avance al 10/10/2026: 64 cerrados de 74.** Quedan 10 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -409,7 +409,7 @@ esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con e
 
 **Control independiente 06/10 (Codex CyE):** CERRADO por Codex: Desde y Hasta visibles junto a cada fecha en ADMIN y OPERATIVO, a 375 y en escritorio. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A42. Aviso de inscripción al editar alumno · Molesta · HECHO (Codex), a revisar · 10/10/2026
+### A42. Aviso de inscripción al editar alumno · Molesta · CERRADO 10/10, verificado Claude
 
 **Antecedente:** esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. Al abrir · Tras reingresar el DNI.
 

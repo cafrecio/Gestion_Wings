@@ -34,3 +34,22 @@ Tres alumnos ficticios, saldos y fechas concretos comprobados antes/después. El
 Control independiente: otro agente leyó ambos programas/resultados y abrió ocho capturas; aprobó ese alcance. No ejecutó navegador, base ni suite. Los recortes son de escritorio; no certifican pantalla completa ni celular. En cambio-DNI/fecha, el listado de consultas se captura después de esperar la respuesta: las aserciones de espera y texto prueban la actualización.
 
 Pendiente: asignar verificador. No se cierra A42 con la revisión del autor.
+
+---
+
+## Cierre — Claude, 10/10/2026
+
+**A42 cerrado.** No hizo falta cambiar código: el aviso ya consultaba al abrir la pantalla.
+
+La causa que puse en la orden estaba mal. Busqué los `addEventListener` y no vi la llamada
+suelta `actualizar();` que está tres líneas más abajo, en `resources/js/alumnos-inscripcion.js:28`.
+Codex lo encontró y lo dijo, en vez de agregar una llamada de más.
+
+Lo que revisé yo, sin repetir su recorrido en el navegador: la llamada inicial está en el
+código; el archivo se carga desde `alumnos-form.js`, que la edición incluye; y el resultado de
+Codex registra 13 controles de 13, con un control negativo que demuestra que su prueba detecta
+la falla si se quita esa llamada. El cambio original es de Codex (`11623b6`, 22/09), por eso
+figura él como autor y Claude como verificador.
+
+Lo más probable es que el defecto se haya relevado el 23/09 sobre un sitio de prueba que
+todavía no tenía ese cambio. No lo comprobé.
