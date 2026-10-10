@@ -51,7 +51,14 @@ class RubroWebController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $rubro = Rubro::findOrFail($id);
+        return \Illuminate\Support\Facades\DB::transaction(fn () => $this->guardarCambios($request, $id));
+    }
+
+    private function guardarCambios(Request $request, int $id)
+    {
+        // Con candado: el cambio de tipo y la clasificación de un subrubro pasan de a uno.
+        // Ver SubrubroWebController::guardarNuevo().
+        $rubro = Rubro::lockForUpdate()->findOrFail($id);
 
         if ($rubro->es_reservado_sistema) {
             return redirect()->route('web.rubros.index')
@@ -73,7 +80,8 @@ class RubroWebController extends Controller
         if ($validated['tipo'] !== $rubro->tipo) {
             $noCorresponden = $rubro->subrubros()->whereNotNull('clasificacion_resultado')
                 ->whereNotIn('clasificacion_resultado', \App\Support\ClasificacionSubrubros::permitidas($validated['tipo']))
-                ->pluck('nombre');
+                // Lectura con candado: ve lo último guardado, no una foto anterior.
+                ->lockForUpdate()->pluck('nombre');
             if ($noCorresponden->isNotEmpty()) {
                 return back()->withInput()->with('error', 'No se puede cambiar el tipo: '.$noCorresponden->join(', ', ' y ')
                     .' está clasificado como plata de los dueños. Cambiá primero qué es ese subrubro.');

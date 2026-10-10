@@ -8,6 +8,7 @@ use App\Rules\NombreUnico;
 use App\Support\ClasificacionSubrubros;
 use App\Support\RegistroReporteDisponible;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubrubroWebController extends Controller
 {
@@ -25,7 +26,15 @@ class SubrubroWebController extends Controller
 
     public function store(Request $request, int $rubroId)
     {
-        $rubro = Rubro::with('subrubros')->findOrFail($rubroId);
+        return DB::transaction(fn () => $this->guardarNuevo($request, $rubroId));
+    }
+
+    private function guardarNuevo(Request $request, int $rubroId)
+    {
+        // El rubro se toma con candado: quien clasifica un subrubro y quien cambia el tipo
+        // del rubro pasan de a uno, y el segundo valida contra lo que dejó el primero.
+        // Sin esto dos guardados simultáneos dejaban un aporte dentro de un egreso (Codex).
+        $rubro = Rubro::with('subrubros')->lockForUpdate()->findOrFail($rubroId);
 
         // Un rubro del sistema no acepta subrubros a mano, ni siquiera vacio: sus
         // subrubros los crea el propio sistema. Antes solo se miraba si todos los
@@ -68,7 +77,13 @@ class SubrubroWebController extends Controller
 
     public function update(Request $request, int $rubroId, int $id)
     {
-        $rubro    = Rubro::findOrFail($rubroId);
+        return DB::transaction(fn () => $this->guardarCambios($request, $rubroId, $id));
+    }
+
+    private function guardarCambios(Request $request, int $rubroId, int $id)
+    {
+        // Mismo candado que en el alta: ver guardarNuevo().
+        $rubro    = Rubro::lockForUpdate()->findOrFail($rubroId);
         $subrubro = Subrubro::where('rubro_id', $rubroId)->findOrFail($id);
 
         if ($rubro->es_reservado_sistema || $subrubro->es_reservado_sistema) {
