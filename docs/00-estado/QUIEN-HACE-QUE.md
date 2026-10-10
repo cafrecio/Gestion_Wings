@@ -39,7 +39,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A42** Aviso de inscripción al editar alumno | Hecho, espera verificación (hizo Codex) | Falta asignar verificador |
 
 ## Claude
 
@@ -51,9 +53,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A42** Aviso de inscripción al editar alumno | En curso | Que el aviso de inscripcion consulte al abrir la edicion, con el DNI y la fecha ya cargados |
+Nada en este momento.
 
 ## Gemini
 

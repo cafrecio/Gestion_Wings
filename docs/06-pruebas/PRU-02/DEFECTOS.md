@@ -409,9 +409,11 @@ esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con e
 
 **Control independiente 06/10 (Codex CyE):** CERRADO por Codex: Desde y Hasta visibles junto a cada fecha en ADMIN y OPERATIVO, a 375 y en escritorio. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A42. Aviso de inscripción al editar alumno · Molesta · verificado
+### A42. Aviso de inscripción al editar alumno · Molesta · HECHO (Codex), a revisar · 10/10/2026
 
-esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. Al abrir · Tras reingresar el DNI.
+**Antecedente:** esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. Al abrir · Tras reingresar el DNI.
+
+**Comprobación 10/10:** la llamada inicial ya existe desde `11623b6`. Carlos autorizó verificar sin duplicarla. Chrome real: pendientes/pagados/sin cargo, alta vacía y vuelta de error consultan como corresponde; DNI/fecha y cuota de mes cerrado conservados. Sin cambios de aplicación. [Entrega y evidencia](IMPLEMENTACION-A42.md). Tablero a_verificar, falta asignar verificador.
 
 ### A43. El alumno cargado a mano con ingreso de un mes cerrado queda deudor · Frena · CERRADO 05/10
 
@@ -583,7 +585,7 @@ Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio
 - **A39 · Acceso a Movimientos del OPERATIVO · Falta:** esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. [Captura](evidencia-codex-visual-2026-09-23/operativo-movimientos-escritorio.png).
 - **A40 · Inicio de ADMIN en celular · Molesta:** esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. [Captura](evidencia-codex-visual-2026-09-23/admin-inicio-celular.png).
 - **A41 · Fechas del filtro de Movimientos · Molesta:** esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. [Captura](evidencia-codex-visual-2026-09-23/operativo-movimientos-escritorio.png).
-- **A42 · Aviso de inscripción al editar alumno · Molesta:** esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. [Al abrir](evidencia-codex-visual-2026-09-23/admin-alumno-edicion-escritorio.png) · [Tras reingresar el DNI](evidencia-codex-visual-2026-09-23/admin-inscripcion-tras-reingresar-dni.png).
+- **A42 · Aviso de inscripción al editar alumno · Molesta · HECHO (Codex), a revisar, 10/10/2026:** comprobado en Chrome actual; [entrega y evidencia](IMPLEMENTACION-A42.md). Antecedente: esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. [Al abrir](evidencia-codex-visual-2026-09-23/admin-alumno-edicion-escritorio.png) · [Tras reingresar el DNI](evidencia-codex-visual-2026-09-23/admin-inscripcion-tras-reingresar-dni.png).
 
 ---
 

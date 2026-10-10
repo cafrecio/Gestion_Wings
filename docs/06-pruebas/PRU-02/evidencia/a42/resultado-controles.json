@@ -1,0 +1,11 @@
+{
+  "fecha": "2026-10-10",
+  "database": "wings_testing_codex",
+  "base_commit": "580f380efff6c27f80001c5de427a1f150d6d90b",
+  "build": {"comando": "npm run build", "exit": 0, "duracion_segundos": 1.63},
+  "suite_completa": {"comando": "DB_DATABASE=wings_testing_codex php artisan test", "exit": 0, "aprobadas": 573, "omitidas": 2, "fallas": 0, "aserciones": 4616, "duracion_segundos": 559.63},
+  "primera_corrida": {"exit": 2, "aprobadas": 552, "omitidas": 2, "fallas": 21, "aserciones": 4548, "duracion_segundos": 460.71, "motivo_observado": "tablas o columnas faltantes", "causa_de_alteracion_esquema_demostrada": false},
+  "navegador": {"casos": 13, "aprobados": 13},
+  "aplicacion_modificada": false,
+  "desplegado": false
+}

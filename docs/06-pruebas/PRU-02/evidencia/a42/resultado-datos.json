@@ -1,0 +1,24 @@
+{
+    "database": "wings_testing_codex",
+    "filas": {
+        "pendiente": {
+            "id": 1,
+            "dni": "99042001",
+            "fecha_alta": "2026-10-10",
+            "saldo": 5000
+        },
+        "pagada": {
+            "id": 2,
+            "dni": "99042002",
+            "fecha_alta": "2026-10-10",
+            "saldo": 0
+        },
+        "sin_cargo": {
+            "id": 3,
+            "dni": "99042003",
+            "fecha_alta": "2026-10-10",
+            "saldo": null
+        }
+    },
+    "alta_invalida_guardada": false
+}

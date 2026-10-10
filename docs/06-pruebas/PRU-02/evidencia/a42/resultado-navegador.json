@@ -1,0 +1,162 @@
+{
+  "fecha": "2026-10-10T11:52:26.861Z",
+  "database": "wings_testing_codex",
+  "base_commit": "580f380efff6c27f80001c5de427a1f150d6d90b",
+  "cases": [
+    {
+      "case": "edicion-pendiente",
+      "aviso": "Esta persona ya tiene una inscripción registrada. Saldo: $5.000,00",
+      "consultas": [
+        {
+          "url": "http://127.0.0.1:8042/alumnos/inscripcion-preview?dni=99042001&fecha_alta=2026-10-10&alumno_id=1",
+          "status": 200
+        }
+      ],
+      "sin_tocar_datos": true
+    },
+    {
+      "case": "edicion-pagada",
+      "aviso": "Esta persona ya tiene una inscripción registrada. Saldo: $0,00",
+      "consultas": [
+        {
+          "url": "http://127.0.0.1:8042/alumnos/inscripcion-preview?dni=99042002&fecha_alta=2026-10-10&alumno_id=2",
+          "status": 200
+        }
+      ],
+      "sin_tocar_datos": true
+    },
+    {
+      "case": "edicion-sin_cargo",
+      "aviso": "Editar el ingreso no genera inscripción retroactiva.",
+      "consultas": [
+        {
+          "url": "http://127.0.0.1:8042/alumnos/inscripcion-preview?dni=99042003&fecha_alta=2026-10-10&alumno_id=3",
+          "status": 200
+        }
+      ],
+      "sin_tocar_datos": true
+    },
+    {
+      "case": "alta-vacia",
+      "aviso": "Ingrese el DNI y la fecha real de ingreso para consultar la inscripción.",
+      "sin_consulta_inscripcion": true,
+      "cuota_cerrada_visible": false
+    },
+    {
+      "case": "alta-con-error",
+      "aviso": "Corresponde inscripción por única vez: $5.000,00",
+      "consultas": [
+        {
+          "url": "http://127.0.0.1:8042/alumnos/inscripcion-preview?dni=99042004&fecha_alta=2026-09-01",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:8042/alumnos/cuota-alta-preview?fecha_alta=2026-09-01&plan_id=1",
+          "status": 200
+        }
+      ],
+      "sin_tocar_datos": true
+    },
+    {
+      "case": "cuota-tras-error",
+      "aviso": "Cuota al dar de alta\n    Este alumno ingresó en septiembre de 2026, un mes ya cerrado. ¿Le generamos la cuota de este mes?\n    \n        \n        Sí. Generar octubre de 2026 por $ 30.000,00, la cuota completa.\n    \n    \n        \n        No. Guardar sin generar la cuota de este mes.\n    \n    La inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.",
+      "importe": 30000,
+      "periodo": "2026-10",
+      "decision_si_restaurada": true,
+      "radio_obligatorio": true
+    },
+    {
+      "case": "edicion-antes-cambios",
+      "aviso": "Esta persona ya tiene una inscripción registrada. Saldo: $5.000,00",
+      "consultas": [
+        {
+          "url": "http://127.0.0.1:8042/alumnos/inscripcion-preview?dni=99042001&fecha_alta=2026-10-10&alumno_id=1",
+          "status": 200
+        }
+      ],
+      "sin_tocar_datos": true
+    },
+    {
+      "case": "cambio-dni",
+      "aviso": "Esta persona ya tiene una inscripción registrada. Saldo: $0,00",
+      "consultas": [],
+      "sin_tocar_datos": false
+    },
+    {
+      "case": "cambio-fecha",
+      "aviso": "Se conservará una única inscripción de $5.000,00",
+      "consultas": [],
+      "sin_tocar_datos": false
+    },
+    {
+      "case": "alta-mes-cerrado",
+      "aviso": "Cuota al dar de alta\n    Este alumno ingresó en septiembre de 2026, un mes ya cerrado. ¿Le generamos la cuota de este mes?\n    \n        \n        Sí. Generar octubre de 2026 por $ 30.000,00, la cuota completa.\n    \n    \n        \n        No. Guardar sin generar la cuota de este mes.\n    \n    La inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.",
+      "importe": 30000,
+      "periodo": "2026-10",
+      "decision_no_seleccionable": true
+    },
+    {
+      "case": "alta-mes-corriente",
+      "cuota_cerrada_visible": false,
+      "decision_borrada_al_cambiar_fecha": true
+    },
+    {
+      "case": "javascript",
+      "controles": [
+        {
+          "pantalla": "edicion-pendiente",
+          "inline": 0
+        },
+        {
+          "pantalla": "edicion-pagada",
+          "inline": 0
+        },
+        {
+          "pantalla": "edicion-sin_cargo",
+          "inline": 0
+        },
+        {
+          "pantalla": "alta-vacia",
+          "inline": 0
+        },
+        {
+          "pantalla": "alta-con-error",
+          "inline": 0
+        },
+        {
+          "pantalla": "alta-error-cuota",
+          "inline": 0
+        },
+        {
+          "pantalla": "edicion-antes-cambios",
+          "inline": 0
+        },
+        {
+          "pantalla": "cambio-dni",
+          "inline": 0
+        },
+        {
+          "pantalla": "cambio-fecha",
+          "inline": 0
+        },
+        {
+          "pantalla": "alta-mes-cerrado-cuota",
+          "inline": 0
+        },
+        {
+          "pantalla": "alta-mes-corriente",
+          "inline": 0
+        }
+      ],
+      "archivos_externos": true,
+      "errores": []
+    },
+    {
+      "case": "control-negativo",
+      "recurso_externo_mutado_solo_en_memoria": true,
+      "sin_llamada_inicial_no_consulta": true,
+      "al_cambiar_dni_consulta": true,
+      "ningun_archivo_aplicacion_modificado": true
+    }
+  ]
+}

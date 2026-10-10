@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## A42 — discrepancia confirmada en fuente, 10/10/2026
+
+La orden indica que falta la consulta inicial. La fuente actual ya ejecuta `actualizar()`
+en `resources/js/alumnos-inscripcion.js:28`, desde `11623b6` (22/09), y el bundle también.
+Carlos decidió «Sí, verificar y registrar»: comprobar los casos pedidos sin duplicar la
+llamada. Sin cambios de aplicación ni JavaScript incrustado. Chrome real:13 controles
+aprobados y filas ficticias conservadas; programas/resultados y ochoPNG revisados por otro agente.
+Suite completa573 aprobadas/2omitidas,4616aserciones,559,63s correcta. [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A42.md).
+
 ## B12/A23 — plan validado, desarrollo autorizado 09/10/2026
 
 Revisión Alumnos/Sueldos, 09/10: la matrícula solo guarda estado/deporte/nivel
