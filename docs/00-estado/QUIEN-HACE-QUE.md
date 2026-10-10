@@ -34,7 +34,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Hecho, espera verificación (hizo Claude) | Hecho por Claude y desplegado en el sitio de prueba (462e8b1): Inicio muestra 164.000 de ingresos y 0 sin clasificar. Carlos mira el formulario de subrubro (campo Que es) y dice quien verifica la logica |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos reviso desde su celular el 10/10: las vistas estan bien. Solo falta Cobrar a un alumno, que necesita alumnos cargados (despues de la primera carga) |
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
@@ -54,7 +53,9 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Hecho, espera verificación (hizo Claude, verifica Codex) | Formulario aprobado por Carlos (10/10, «T16 OK»). Falta que Codex verifique la logica: clasificacion del catalogo, movimientos ya registrados y reglas del formulario. Desplegado en el sitio de prueba (462e8b1) |
 
 ## Gemini
 
