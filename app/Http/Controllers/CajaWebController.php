@@ -31,6 +31,9 @@ use Illuminate\Validation\Rule;
 
 class CajaWebController extends Controller
 {
+    /** Hasta cuántos meses hacia adelante se puede cobrar una cuota. */
+    private const MESES_ADELANTABLES = 12;
+
     public function __construct(
         private CajaService $cajaService,
         private PagoCuotaService $pagoCuotaService
@@ -740,26 +743,22 @@ class CajaWebController extends Controller
             $alumno->setRelation('deudaCuotas', $deudas);
         }
 
-        // A3: Ofrecer períodos futuros para cobro adelantado al precio vigente del plan.
+        // T18: los meses que todavía no empezaron no son deuda y no se mezclan con ella.
+        // Antes se dibujaban dos meses futuros en la misma lista y «Total pendiente» los
+        // sumaba: a quien debía 48.000 le anunciaba 144.000. Ahora se ofrecen aparte, para
+        // que quien cobra elija el mes y el importe.
         $periodosExistentes = DeudaCuota::where('alumno_id', $alumno->id)->pluck('periodo')->all();
-        $maxPeriodo = max(array_merge([$periodoVigente], $periodosExistentes));
-        $maxDate = \Carbon\Carbon::parse($maxPeriodo . '-01');
-
-        for ($i = 1; $i <= 2; $i++) {
-            $periodoFuturo = $maxDate->copy()->addMonthsNoOverflow($i)->format('Y-m');
-            if (!$alumno->deudaCuotas->contains('periodo', $periodoFuturo)) {
-                $planFuturo = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $periodoFuturo);
-                if ($planFuturo?->plan) {
-                    $alumno->deudaCuotas->push(new DeudaCuota([
-                        'alumno_id' => $alumno->id,
-                        'periodo' => $periodoFuturo,
-                        'monto_original' => (float) $planFuturo->plan->precio_mensual,
-                        'monto_pagado' => 0,
-                        'estado' => DeudaCuota::ESTADO_PENDIENTE,
-                    ]));
-                }
-            }
-        }
+        $mesesAdelantables = collect(range(1, self::MESES_ADELANTABLES))
+            ->map(fn ($i) => now()->startOfMonth()->addMonthsNoOverflow($i))
+            ->reject(fn ($mes) => in_array($mes->format('Y-m'), $periodosExistentes, true))
+            ->map(function ($mes) use ($alumno) {
+                $plan = $this->pagoCuotaService->obtenerPlanParaPeriodo($alumno->id, $mes->format('Y-m'));
+                return $plan?->plan ? [
+                    'periodo' => $mes->format('Y-m'),
+                    'etiqueta' => ucfirst($mes->locale('es')->translatedFormat('F Y')),
+                    'precio' => (float) $plan->plan->precio_mensual,
+                ] : null;
+            })->filter()->values();
         $alumno->setRelation('deudaCuotas', $alumno->deudaCuotas->sortBy('periodo')->values());
 
         $tiposCaja        = TipoCaja::where('activo', true)->orderBy('nombre')->get();
@@ -829,7 +828,7 @@ class CajaWebController extends Controller
                 : $precioDelMes;
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento', 'mesesAdelantables'));
     }
 
     /**
@@ -889,6 +888,7 @@ class CajaWebController extends Controller
             'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
             'confirmar_deuda_anterior' => 'nullable|boolean',
             'confirmar_fecha_vieja'    => 'nullable|boolean',
+            'confirmar_pago_adelantado' => 'nullable|boolean',
             'motivo' => 'nullable|string|max:500',
             'monto_entregado' => 'nullable|numeric|min:0.01|max:99999999.99',
         ]);
@@ -907,6 +907,33 @@ class CajaWebController extends Controller
 
         $request->merge(['periodos' => $request->input('periodos') ?? []]);
         $periodosSolicitados = collect($request->input('periodos'))->sort()->values();
+
+        // T18: un mes que todavía no empezó se cobra solo si quien cobra lo confirma.
+        $periodoActual = now()->format('Y-m');
+        $adelantados = $periodosSolicitados->filter(fn ($periodo) => $periodo > $periodoActual)->values();
+        if ($adelantados->isNotEmpty()) {
+            $ultimoPermitido = now()->startOfMonth()->addMonthsNoOverflow(self::MESES_ADELANTABLES)->format('Y-m');
+            if ($adelantados->last() > $ultimoPermitido) {
+                return response()->json(['success' => false,
+                    'message' => 'Se puede cobrar por adelantado hasta '.self::MESES_ADELANTABLES.' meses.'], 422);
+            }
+            foreach ($adelantados as $periodo) {
+                $yaExiste = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->exists();
+                if (!$yaExiste && !is_numeric($request->input("montos_cuota.{$periodo}"))) {
+                    return response()->json(['success' => false,
+                        'message' => 'Indicá el importe del mes que se cobra por adelantado.'], 422);
+                }
+            }
+            if (!$request->boolean('confirmar_pago_adelantado')) {
+                $nombres = $adelantados->map(fn ($periodo) => Carbon::parse($periodo.'-01')->locale('es')->translatedFormat('F Y'));
+                return response()->json([
+                    'success' => false,
+                    'requiere_confirmacion_adelantado' => true,
+                    'message' => 'Estás cobrando por adelantado '.$nombres->join(', ', ' y ').', que todavía no '
+                        .($adelantados->count() > 1 ? 'empezaron' : 'empezó').'. El importe queda fijo aunque después cambie la cuota.',
+                ], 409);
+            }
+        }
         $periodoMasAntiguo = $periodosSolicitados->first();
         $deudasAnteriores = DeudaCuota::where('alumno_id', $alumnoId)
             ->when($periodoMasAntiguo === null, fn ($query) => $query->whereRaw('1 = 0'))
@@ -991,7 +1018,8 @@ class CajaWebController extends Controller
                     ->keyBy('periodo');
 
                 $montosEnviados = $request->input('montos_cuota', []);
-                $items = collect($request->input('periodos'))->map(function ($periodo) use ($deudas, $montosEnviados, $alumnoId) {
+                $montosAdelantados = [];
+                $items = collect($request->input('periodos'))->map(function ($periodo) use ($deudas, $montosEnviados, $alumnoId, &$montosAdelantados) {
                     $deuda = $deudas->get($periodo);
 
                     if ($deuda) {
@@ -1008,6 +1036,14 @@ class CajaWebController extends Controller
                         $monto = isset($montosEnviados[$periodo])
                             ? (float) $montosEnviados[$periodo]
                             : (float) $plan->plan->precio_mensual;
+
+                        // T18 (Carlos, 10/10): pagar adelantado congela el precio, y el
+                        // importe lo puede cambiar quien cobra —un aumento ya anunciado—.
+                        // El mes nace valiendo lo que se cobró y queda pago entero.
+                        if ($periodo > now()->format('Y-m')
+                            && !DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->exists()) {
+                            $montosAdelantados[$periodo] = max($monto, 0.01);
+                        }
                     }
 
                     return ['periodo' => $periodo, 'monto' => max($monto, 0.01)];
@@ -1017,6 +1053,7 @@ class CajaWebController extends Controller
                     'alumno_id'       => $alumnoId,
                     'tipo_caja_id'    => $request->input('tipo_caja_id'),
                     'items'           => $items,
+                    'montos_adelantados' => $montosAdelantados,
                     'monto_entregado' => $request->input('monto_entregado'),
                     'fecha_pago'      => $request->input('fecha_pago', today()->toDateString()),
                     'observaciones'   => $observacionesPago ?: null,

@@ -419,7 +419,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **600 pruebas** (598 aprobadas, 2 omitidas; wings_testing_claude, 10/10. T15 verificado por Claude y T16 suma 4 pruebas; los dos en el sitio de prueba). [Entrega T15](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md) |
+| **Tests** | **604 pruebas** (602 aprobadas, 2 omitidas; wings_testing_claude, 10/10. T15 verificado por Claude; T16 y T18 suman 4 pruebas cada una). [Entrega T15](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

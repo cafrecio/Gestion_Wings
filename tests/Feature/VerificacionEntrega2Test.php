@@ -130,6 +130,7 @@ class VerificacionEntrega2Test extends TestCase
                 'montos_cuota' => ['2026-11' => 48000],
                 'fecha_pago' => '2026-10-05',
                 'confirmar_deuda_anterior' => 1,
+                'confirmar_pago_adelantado' => 1,
                 // Saltear la deuda vieja exige motivo: queda escrito quién decidió y por qué.
                 'motivo' => 'La madre paga noviembre adelantado y arregla septiembre aparte',
             ])->assertSessionHasNoErrors()->assertSessionHas('success');

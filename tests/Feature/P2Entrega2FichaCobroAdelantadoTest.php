@@ -213,11 +213,12 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $response->assertOk();
 
         // No debe quedar en "Sin deudas pendientes" bloqueante sin opciones
-        // Debe ofrecer los períodos adelantados (Noviembre 2026 y Diciembre 2026)
-        $response->assertSee('2026-11');
+        // T18: los meses futuros se ofrecen aparte, en un selector, con el precio de hoy
+        // como sugerencia. Ya no se dibujan como deuda.
+        $response->assertSee('Cobro adelantado');
+        $response->assertSee('value="2026-11" data-precio="35000"', false);
         $response->assertSee('Noviembre 2026');
-        $response->assertSee('Adelantado');
-        $response->assertSee('35.000');
+        $response->assertDontSee('name="montos_cuota[2026-11]"', false);
     }
 
     public function test_a3_cobro_adelantado_registra_pago_y_deuda_al_precio_del_plan(): void
@@ -237,6 +238,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
             'periodos' => ['2026-11'],
             'montos_cuota' => ['2026-11' => '35.000'],
             'fecha_pago' => '2026-10-05',
+            'confirmar_pago_adelantado' => 1,
         ];
 
         $response = $this->actingAs($this->operativo)
@@ -261,6 +263,74 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
             ->first();
         $this->assertNotNull($pago);
         $this->assertEquals(35000.0, (float)$pago->monto_final);
+    }
+
+    // ── T18: el mes futuro no es deuda; se elige aparte, con importe y aviso ───────
+
+    private function octubrePago(): void
+    {
+        DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-10', 'monto_original' => 35000,
+            'monto_pagado' => 35000, 'estado' => DeudaCuota::ESTADO_PAGADA]);
+    }
+
+    public function test_t18_total_pendiente_no_suma_meses_que_no_empezaron(): void
+    {
+        // Debe solo octubre. Antes el cartel sumaba noviembre y diciembre: 105.000.
+        $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id))
+            ->assertOk()->assertSee('$35.000,00')->assertDontSee('105.000');
+    }
+
+    public function test_t18_sin_confirmar_no_se_cobra_un_mes_futuro(): void
+    {
+        $this->octubrePago();
+
+        $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id, 'periodos' => ['2026-11'], 'montos_cuota' => ['2026-11' => 35000],
+        ])->assertStatus(409)->assertJson(['requiere_confirmacion_adelantado' => true])
+            ->assertJsonFragment(['message' => 'Estás cobrando por adelantado noviembre 2026, que todavía no empezó. El importe queda fijo aunque después cambie la cuota.']);
+
+        $this->assertSame(0, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->count());
+        $this->assertSame(0, Pago::count());
+    }
+
+    public function test_t18_el_importe_adelantado_se_puede_cambiar_y_queda_fijo(): void
+    {
+        $this->octubrePago();
+
+        // Se anunció un 10% de aumento para noviembre: se cobra 38.500 en vez de 35.000.
+        foreach ([[$this->operativo, '2026-11'], [$this->admin, '2026-12']] as [$quien, $periodo]) {
+            $this->actingAs($quien)->post(route('web.caja.pagar', $this->alumno->id), [
+                'tipo_caja_id' => $this->tipoCaja->id, 'periodos' => [$periodo], 'montos_cuota' => [$periodo => '38.500'],
+                'confirmar_pago_adelantado' => 1,
+            ])->assertSessionHas('success');
+
+            $deuda = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', $periodo)->sole();
+            $this->assertEquals(38500.0, (float) $deuda->monto_original);
+            $this->assertEquals(38500.0, (float) $deuda->monto_pagado);
+            $this->assertSame(DeudaCuota::ESTADO_PAGADA, $deuda->estado);
+        }
+
+        // El precio queda congelado: aunque el plan suba, el mes pago no vuelve a deber.
+        $this->plan->update(['precio_mensual' => 45000]);
+        Carbon::setTestNow('2026-11-01 06:00:00');
+        $this->artisan('cobranza:generar-deudas')->assertSuccessful();
+        $noviembre = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->sole();
+        $this->assertEquals(38500.0, (float) $noviembre->monto_original);
+        $this->assertSame(DeudaCuota::ESTADO_PAGADA, $noviembre->estado);
+    }
+
+    public function test_t18_no_se_cobra_mas_alla_de_doce_meses_ni_sin_importe(): void
+    {
+        $this->octubrePago();
+        $base = ['tipo_caja_id' => $this->tipoCaja->id, 'confirmar_pago_adelantado' => 1];
+
+        $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id),
+            $base + ['periodos' => ['2027-11'], 'montos_cuota' => ['2027-11' => 35000]])->assertStatus(422);
+        $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id),
+            $base + ['periodos' => ['2026-11']])->assertStatus(422);
+
+        $this->assertSame(1, DeudaCuota::where('alumno_id', $this->alumno->id)->count());
+        $this->assertSame(0, Pago::count());
     }
 
     public function test_a3_generacion_mensual_en_dia_1_no_duplica_el_mes_cobrado_adelantado(): void

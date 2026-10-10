@@ -34,7 +34,8 @@
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Total pendiente</p>
             <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">
-                ${{ number_format($alumno->deudaCuotas->sum('saldo_pendiente') + $saldoInscripcion, 2, ',', '.') }}
+                {{-- Un mes que todavía no empezó no es deuda (T18). --}}
+                ${{ number_format($alumno->deudaCuotas->where('periodo', '<=', now()->format('Y-m'))->sum('saldo_pendiente') + $saldoInscripcion, 2, ',', '.') }}
             </p>
         </div>
     </div>
@@ -95,11 +96,11 @@
     {{-- Cuotas pendientes --}}
     <div class="filtros-card mb-4">
         <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
-            Cuotas pendientes y cobro adelantado — seleccioná las que querés cobrar
+            Cuotas pendientes — seleccioná las que querés cobrar
         </p>
 
         @if($alumno->deudaCuotas->isEmpty())
-            <p style="font-size:0.85rem; color:var(--color-text-muted);">Sin cuotas pendientes ni períodos disponibles.</p>
+            <p style="font-size:0.85rem; color:var(--color-text-muted);">Sin cuotas pendientes.</p>
         @else
             <div style="display:flex; flex-direction:column; gap:8px;">
                 @foreach($alumno->deudaCuotas as $deuda)
@@ -156,6 +157,36 @@
             @enderror
         @endif
     </div>
+
+    {{-- Cobro adelantado: aparte de la deuda, con mes e importe a elección (T18) --}}
+    @if($mesesAdelantables->isNotEmpty())
+    <div class="filtros-card mb-4" id="adelanto-bloque">
+        <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
+            Cobro adelantado — un mes que todavía no empezó
+        </p>
+        <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <div style="display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
+            <div style="flex:1; min-width:180px;">
+                <label for="adelanto-periodo" style="display:block; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">Mes</label>
+                <select id="adelanto-periodo" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
+                    <option value="">Seleccionar...</option>
+                    @foreach($mesesAdelantables as $mes)
+                        <option value="{{ $mes['periodo'] }}" data-precio="{{ $mes['precio'] }}">{{ $mes['etiqueta'] }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div style="width:150px;">
+                <label for="adelanto-monto" style="display:block; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">Importe</label>
+                <input type="text" id="adelanto-monto" inputmode="numeric" class="w-full px-4 py-2.5 text-sm wings-input" style="text-align:right;" placeholder="0">
+            </div>
+            <button type="button" id="adelanto-agregar" class="ds-btn" disabled
+                    style="background:var(--color-btn-secondary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">Agregar</button>
+        </div>
+        <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
+            El importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.
+        </p>
+    </div>
+    @endif
 
     {{-- Medio de pago + fecha + observaciones --}}
     <div class="filtros-card mb-4">

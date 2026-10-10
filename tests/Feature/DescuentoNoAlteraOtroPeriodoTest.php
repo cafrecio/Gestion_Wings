@@ -127,6 +127,8 @@ class DescuentoNoAlteraOtroPeriodoTest extends TestCase
                     '2026-09' => 10000,
                 ],
                 'fecha_pago' => '2026-08-25',
+                // T18: septiembre todavía no empezó; quien cobra lo confirma.
+                'confirmar_pago_adelantado' => 1,
             ]);
 
         $respuesta->assertRedirect(route('web.caja.index'))

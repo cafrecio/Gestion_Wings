@@ -52,7 +52,8 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
-            $montosOriginalesNuevasDeudas = [];
+            // T18: un mes cobrado por adelantado nace valiendo lo que se cobró.
+            $montosOriginalesNuevasDeudas = $data['montos_adelantados'] ?? [];
 
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
@@ -61,7 +62,7 @@ class PagoCuotaService
                 // Aplicarlo sobre lo tipeado convertia una seña de 10.000 en un cobro de
                 // 7.000 que ademas cerraba el mes entero.
                 $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
-                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
+                $montosOriginalesNuevasDeudas[$periodoConDescuento] = $precioConDescuento;
                 $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento, $fechaPago);
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
@@ -164,7 +165,8 @@ class PagoCuotaService
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
             $items = $this->ordenarItemsPorPeriodo($data['items']);
-            $montosOriginalesNuevasDeudas = [];
+            // T18: un mes cobrado por adelantado nace valiendo lo que se cobró.
+            $montosOriginalesNuevasDeudas = $data['montos_adelantados'] ?? [];
 
             // Regla de primer pago: ajustar montos si aplica
             [$porcentaje, $reglaId, $periodoConDescuento] = $this->calcularReglaPrimerPago($data['alumno_id'], $items);
@@ -173,7 +175,7 @@ class PagoCuotaService
                 // Aplicarlo sobre lo tipeado convertia una seña de 10.000 en un cobro de
                 // 7.000 que ademas cerraba el mes entero.
                 $precioConDescuento = $this->precioConDescuento($data['alumno_id'], $periodoConDescuento, $porcentaje);
-                $montosOriginalesNuevasDeudas = [$periodoConDescuento => $precioConDescuento];
+                $montosOriginalesNuevasDeudas[$periodoConDescuento] = $precioConDescuento;
                 $this->ajustarDeudaConDescuento($data['alumno_id'], $periodoConDescuento, $precioConDescuento, $fechaPago);
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }

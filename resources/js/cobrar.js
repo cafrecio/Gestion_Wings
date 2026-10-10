@@ -1,6 +1,7 @@
 (function () {
-    var checks      = document.querySelectorAll('.cuota-check');
-    var montoInputs = document.querySelectorAll('.monto-cuota');
+    // Las filas de cobro adelantado se agregan después de cargar la página (T18), así
+    // que las cuotas se buscan cada vez en lugar de guardarlas al inicio.
+    function checks() { return document.querySelectorAll('.cuota-check'); }
     var selectTipo  = document.getElementById('tipo_caja_id');
     var btnCobrar   = document.getElementById('btn-cobrar');
     var resumen     = document.getElementById('resumen-total');
@@ -24,11 +25,13 @@
 
     function calcularTotal() {
         var total = 0;
-        checks.forEach(function (chk) {
+        checks().forEach(function (chk) {
             if (chk.checked) {
                 var periodo = chk.dataset.periodo;
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
                 var val = inp ? parseMonto(inp.value) : 0;
+                // Un mes adelantado no tiene saldo que lo tope: vale lo que se cobre.
+                if (chk.dataset.adelantado) { total += Math.max(val, 0); return; }
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
                 total += Math.min(Math.max(val, 0), saldo);
             }
@@ -60,23 +63,22 @@
         }
     }
 
-    checks.forEach(function (chk) {
-        chk.addEventListener('change', function () {
-            var periodo = this.dataset.periodo;
-            var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
-            if (inp) {
-                if (this.checked) {
-                    inp.removeAttribute('disabled');
-                } else {
-                    inp.setAttribute('disabled', 'disabled');
-                }
+    cobrarForm.addEventListener('change', function (event) {
+        var chk = event.target;
+        if (!chk.classList || !chk.classList.contains('cuota-check')) return;
+        var inp = document.querySelector('.monto-cuota[data-periodo="' + chk.dataset.periodo + '"]');
+        if (inp) {
+            if (chk.checked) {
+                inp.removeAttribute('disabled');
+            } else {
+                inp.setAttribute('disabled', 'disabled');
             }
-            actualizar();
-        });
+        }
+        actualizar();
     });
 
-    montoInputs.forEach(function (inp) {
-        inp.addEventListener('input', actualizar);
+    cobrarForm.addEventListener('input', function (event) {
+        if (event.target.classList && event.target.classList.contains('monto-cuota')) actualizar();
     });
 
     selectTipo.addEventListener('change', actualizar);
@@ -119,6 +121,14 @@
 
             if (resultado.status === 409 && resultado.datos.requiere_confirmacion) {
                 abrirModalDeuda(resultado.datos, formData);
+                return;
+            }
+
+            if (resultado.status === 409 && resultado.datos.requiere_confirmacion_adelantado) {
+                if (window.confirm(resultado.datos.message + '\n\n¿Confirmás el cobro?')) {
+                    formData.set('confirmar_pago_adelantado', '1');
+                    enviarCobro(formData);
+                }
                 return;
             }
 
@@ -197,7 +207,7 @@
             // Solo la cuota del mes en curso toma el precio nuevo. Las deudas
             // anteriores no se tocan.
             var periodoActual = cobrarForm.dataset.periodoActual;
-            checks.forEach(function (chk) {
+            checks().forEach(function (chk) {
                 if (chk.dataset.periodo !== periodoActual) return;
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodoActual + '"]');
                 if (!inp) return;
@@ -214,6 +224,87 @@
             actualizar();
         });
     });
+
+    // ── Cobro adelantado (T18) ──────────────────────────────────────────────
+    // El mes se elige aparte de la deuda y el importe se puede cambiar: pagar
+    // adelantado congela el precio, y a veces el aumento ya está anunciado.
+    var adelantoPeriodo = document.getElementById('adelanto-periodo');
+    var adelantoMonto   = document.getElementById('adelanto-monto');
+    var adelantoAgregar = document.getElementById('adelanto-agregar');
+    var adelantosLista  = document.getElementById('adelantos-lista');
+
+    function formatoMonto(numero) {
+        return Number(numero).toLocaleString('es-AR', { maximumFractionDigits: 0 });
+    }
+
+    function actualizarAdelanto() {
+        var listo = adelantoPeriodo.value !== '' && parseMonto(adelantoMonto.value) > 0;
+        adelantoAgregar.disabled = !listo;
+        adelantoAgregar.style.opacity = listo ? '1' : '0.4';
+        adelantoAgregar.style.cursor = listo ? 'pointer' : 'not-allowed';
+    }
+
+    function agregarAdelanto() {
+        var opcion = adelantoPeriodo.options[adelantoPeriodo.selectedIndex];
+        var monto = parseMonto(adelantoMonto.value);
+        if (!opcion || !opcion.value || monto <= 0) return;
+
+        var fila = document.createElement('div');
+        fila.className = 'cuota-row';
+        fila.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; border:1px solid var(--color-border); border-radius:8px; background:var(--color-surface);';
+
+        var chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.name = 'periodos[]';
+        chk.value = opcion.value;
+        chk.className = 'cuota-check';
+        chk.checked = true;
+        chk.dataset.periodo = opcion.value;
+        chk.dataset.adelantado = '1';
+        chk.style.cssText = 'width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);';
+
+        var nombre = document.createElement('div');
+        nombre.style.cssText = 'flex:1; cursor:default;';
+        var etiqueta = document.createElement('span');
+        etiqueta.style.cssText = 'font-size:0.85rem; font-weight:600; color:var(--color-text);';
+        etiqueta.textContent = opcion.textContent;
+        var marca = document.createElement('span');
+        marca.style.cssText = 'font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:8px; background:color-mix(in srgb, var(--color-info) 15%, transparent); color:var(--color-info);';
+        marca.textContent = 'Adelantado';
+        nombre.appendChild(etiqueta);
+        nombre.appendChild(marca);
+
+        var inp = document.createElement('input');
+        inp.type = 'text';
+        inp.inputMode = 'numeric';
+        inp.name = 'montos_cuota[' + opcion.value + ']';
+        inp.className = 'monto-cuota wings-input';
+        inp.dataset.periodo = opcion.value;
+        inp.value = formatoMonto(monto);
+        inp.style.cssText = 'width:110px; padding:4px 10px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-text);';
+
+        fila.appendChild(chk);
+        fila.appendChild(nombre);
+        fila.appendChild(inp);
+        adelantosLista.appendChild(fila);
+
+        // Un mes no se agrega dos veces.
+        opcion.disabled = true;
+        adelantoPeriodo.value = '';
+        adelantoMonto.value = '';
+        actualizarAdelanto();
+        actualizar();
+    }
+
+    if (adelantoPeriodo && adelantoMonto && adelantoAgregar && adelantosLista) {
+        adelantoPeriodo.addEventListener('change', function () {
+            var opcion = this.options[this.selectedIndex];
+            adelantoMonto.value = opcion && opcion.dataset.precio ? formatoMonto(opcion.dataset.precio) : '';
+            actualizarAdelanto();
+        });
+        adelantoMonto.addEventListener('input', actualizarAdelanto);
+        adelantoAgregar.addEventListener('click', agregarAdelanto);
+    }
 
     aplicarEstiloPlan();
 })();

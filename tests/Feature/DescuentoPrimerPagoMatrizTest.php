@@ -239,6 +239,8 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
                 'periodos' => [$periodo],
                 'montos_cuota' => [$periodo => $monto],
                 'fecha_pago' => '2026-08-25',
+                // T18: cuando el período es posterior a agosto, quien cobra lo confirma.
+                'confirmar_pago_adelantado' => 1,
             ])
             ->assertRedirect(route('web.caja.index'))
             ->assertSessionHas('success');
