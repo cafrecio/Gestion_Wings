@@ -13,8 +13,8 @@ class ReportesAsistenciaEscenarioSeeder extends Seeder
 {
     public function run(): void
     {
-        if (DB::connection()->getDatabaseName() !== 'wings_testing_codex' || !Alumno::exists() || Asistencia::exists()) {
-            throw new RuntimeException('Requiere escenario financiero sin asistencias en wings_testing_codex.');
+        if (!str_starts_with(DB::connection()->getDatabaseName(), 'wings_testing') || !Alumno::exists() || Asistencia::exists()) {
+            throw new RuntimeException('Requiere escenario financiero sin asistencias en una base wings_testing.');
         }
         $reloj = Carbon::getTestNow();
         try {

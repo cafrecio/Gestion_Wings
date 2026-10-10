@@ -7,10 +7,12 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 10/10/2026: 61 cerrados de 72.** Quedan 11 abiertos, de los
+> **Avance al 10/10/2026: 63 cerrados de 74.** Quedan 11 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
+>
+> A57 y A58: **CERRADOS 10/10, aprobados por Carlos** sobre visor interactivo y capturas reales a 360px. Filtros parejos en todo el sistema y eliminación del desplazamiento lateral en Clases. [Implementación](IMPLEMENTACION-A57-A58.md).
 >
 > A38 y A44: **CERRADOS 08/10, aprobados por Carlos**, junto con el menú lateral nuevo. A26 y A39: **CERRADOS 08/10, verificado Gemini** en base de datos y navegador interactivo real. A35: **CERRADO 08/10, verificado Gemini** (auditadas `/caja` y `/caja/historial`, confirmado no-defecto por captura original mal rotulada). [Informe de verificación](VERIFICACION-A26-A39-A35.md). [Entrega previa de Claude](IMPLEMENTACION-A26-A38-A39-A44.md).
 >
@@ -618,6 +620,18 @@ empuja el ancho de toda la pantalla.
 
 Es la misma familia que A37, A53 y A14: cada pantalla resuelve el celular por su cuenta en
 vez de usar lo compartido. Conviene tomarlas juntas.
+
+### A57. Los campos de los filtros tienen anchos distintos en celular · Molesta · CERRADO 10/10, aprobado por Carlos
+
+En Caja (`/caja`) en móvil (360px), el desplegable «Operativo» ocupaba todo el ancho (278px) y el campo de fecha «octubre de 2026», debajo, era más angosto (230px). Carlos: «El tamaño de los select debería ser el mismo […] fecha es más chico que operativo y queda feo.»
+
+Causa: la regla `@media (max-width: 768px)` en `resources/css/app.css` solo expandía a 100% los `.filtros-select` y los `input[type="date"]`, omitiendo `input[type="month"]` y otros controles. Resuelto generalizando la regla en `resources/css/app.css` para todos los controles dentro de `.filtros-row`. Auditadas 82 pantallas a 360px, 375px y 320px; filtros parejos en todo el sistema. Aspecto aprobado por Carlos sobre el visor y capturas finales. [Evidencia y visor](evidencia/a57-a58/visor.html).
+
+### A58. La pantalla se desliza hacia el costado sin que haya nada a la derecha · Molesta · CERRADO 10/10, aprobado por Carlos
+
+En Clases (`/clases`) en móvil (360px). Carlos: «tiene un scroll lateral la pantalla al pedo, no hay nada a la derecha.»
+
+Causa: la tarjeta de clase en `clases/_card.blade.php` tenía `grid-template-columns: repeat(3, 1fr)` inline que en 360px forzaba un ancho de 451px, y `#clases-hoy-container` con `overflow-y: auto` activaba desplazamiento horizontal (`scrollWidth: 455px` contra `clientWidth: 328px`). Resuelto en `resources/css/app.css` con regla `@media (max-width: 640px)` apilando las tarjetas a 1 columna y fijando `overflow-x: hidden` en el contenedor. Ancho final 328px sin scroll horizontal y escritorio (1280px) 100% intacto. Aspecto aprobado por Carlos sobre el visor y capturas finales. [Evidencia y visor](evidencia/a57-a58/visor.html).
 
 ### B1. El admin está modelado como un operativo más · Frena · CERRADO 06/10, verificado Codex
 

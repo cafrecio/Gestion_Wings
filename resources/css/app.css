@@ -959,16 +959,25 @@ a:hover {
     flex-shrink: 0;
 }
 
-/* En móvil (≤768px): los filtros se apilan con ancho completo para ser legibles y usables con el dedo */
+/* En móvil (≤768px): los filtros se apilan con ancho completo para ser legibles y usables con el dedo (A57) */
 @media (max-width: 768px) {
     .filtros-row {
         flex-wrap: wrap;
     }
     .filtros-row > .filtros-select,
-    .filtros-row > .filtros-control[type="date"] {
-        flex: 1 1 100%;
-        min-width: 100%;
-        width: 100%;
+    .filtros-row > .filtros-control,
+    .filtros-row > select,
+    .filtros-row > input,
+    .filtros-row > .search-input-group,
+    .filtros-row > label,
+    .filtros-row > div:not(.filtros-actions) {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .filtros-row > label .filtros-control,
+    .filtros-row > div:not(.filtros-actions) .filtros-control {
+        width: 100% !important;
     }
     .filtros-actions {
         width: 100%;
@@ -1262,5 +1271,15 @@ a:hover {
     .alumno-actions.niveles-actions {
         justify-content: flex-end;
         padding-right: calc(0.5rem - 1px);
+    }
+}
+
+/* A58: Clases en móvil (≤640px) no desborda horizontalmente y apila su información (Carlos, 10/10/2026) */
+@media (max-width: 640px) {
+    .alumno-card .alumno-info {
+        grid-template-columns: 1fr !important;
+    }
+    #clases-hoy-container {
+        overflow-x: hidden !important;
     }
 }

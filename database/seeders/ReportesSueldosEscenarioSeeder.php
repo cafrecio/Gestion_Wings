@@ -14,8 +14,8 @@ class ReportesSueldosEscenarioSeeder extends Seeder
 {
     public function run(): void
     {
-        if (DB::connection()->getDatabaseName() !== 'wings_testing_codex' || Alumno::exists()) {
-            throw new RuntimeException('Requiere wings_testing_codex sin alumnos.');
+        if (!str_starts_with(DB::connection()->getDatabaseName(), 'wings_testing') || Alumno::exists()) {
+            throw new RuntimeException('Requiere una base wings_testing sin alumnos.');
         }
         $reloj = Carbon::getTestNow();
         try {

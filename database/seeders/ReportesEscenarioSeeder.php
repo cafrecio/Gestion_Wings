@@ -14,8 +14,8 @@ class ReportesEscenarioSeeder extends Seeder
 {
     public function run(): void
     {
-        if (DB::connection()->getDatabaseName() !== 'wings_testing_codex' || Alumno::exists()) {
-            throw new RuntimeException('El escenario requiere wings_testing_codex sin alumnos.');
+        if (!str_starts_with(DB::connection()->getDatabaseName(), 'wings_testing') || Alumno::exists()) {
+            throw new RuntimeException('El escenario requiere una base wings_testing sin alumnos.');
         }
         $reloj = Carbon::getTestNow();
         try {

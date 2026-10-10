@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 575 pruebas (acceso a Reportes, 09/10 Codex CyE: 573 aprobadas/2 omitidas,4616 aserciones,885,32s en wings_testing_codex; sin deploy; acceso aprobado por Carlos el 10/10; aspecto del ajuste aprobado por Carlos el10/10 («Sí, así»); prueba manual pendiente)
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 583 pruebas (581 aprobadas, 2 omitidas; A57 y A58 cerrados, suite verde en wings_testing_gemini; acceso y aspecto aprobados por Carlos el 10/10)
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

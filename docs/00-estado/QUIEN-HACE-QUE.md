@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 10/10/2026. Avance: **61 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 10/10/2026. Avance: **63 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -47,6 +47,7 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 22977b6 (09/10), con Inicio del admin y Reportes, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
+| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude) | Hecho y aprobado por Carlos el 10/10 (dijo Ok sobre las capturas). Sin publicar: se sube cuando Codex termine y la suite completa pase. Despues lo prueba Codex |
 
 ## Codex
 
@@ -56,14 +57,11 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **A57** En celular los campos de los filtros tienen anchos distintos | En curso | Visto por Carlos en su celular el 10/10 en Caja: la fecha es mas angosta que el desplegable. Corregir la causa y revisar todas las pantallas |
-| **A58** En celular hay pantallas que se deslizan hacia el costado sin nada a la derecha | En curso | Visto por Carlos en su celular el 10/10 en Clases. Encontrar que elemento se sale y revisar todas las pantallas, a 360 de ancho |
+Nada en este momento.
 
-## Sin empezar (13)
+## Sin empezar (12)
 
-B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B10, B11.
+B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 

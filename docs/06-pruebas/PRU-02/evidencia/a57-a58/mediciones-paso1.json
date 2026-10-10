@@ -1,0 +1,2124 @@
+[
+  {
+    "rol": "ADMIN",
+    "nombre": "Login (Público)",
+    "ruta": "/login",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 336,
+      "innerWidth": 336,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Dashboard Admin",
+    "ruta": "/admin/dashboard",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Cashflow",
+    "ruta": "/cashflow",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Cashflow Movimiento",
+    "ruta": "/cashflow/movimiento",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Índice",
+    "ruta": "/caja",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "admin-caja-ndice-360.png"
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Configuración Mostrador",
+    "ruta": "/caja/configuracion",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Apertura",
+    "ruta": "/caja/apertura",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Historial",
+    "ruta": "/caja/historial",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "search-input-group",
+              "type": "div",
+              "width": 278
+            },
+            {
+              "name": "search",
+              "type": "text",
+              "width": 278
+            },
+            {
+              "name": "subrubro_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "tipo",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "desde",
+              "type": "date",
+              "width": 160
+            },
+            {
+              "name": "hasta",
+              "type": "date",
+              "width": 160
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Movimiento",
+    "ruta": "/caja/movimiento",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Cobrar Selector",
+    "ruta": "/caja/cobrar",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Cobrar Alumno",
+    "ruta": "/caja/cobrar/908",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Resumen",
+    "ruta": "/caja/42/resumen",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Detalle",
+    "ruta": "/caja/42/detalle",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Editar Turno",
+    "ruta": "/caja/42/editar",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Caja Cierre",
+    "ruta": "/caja/42/cerrar",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Alumnos Índice",
+    "ruta": "/alumnos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "search-input-group",
+              "type": "div",
+              "width": 278
+            },
+            {
+              "name": "search",
+              "type": "text",
+              "width": 278
+            },
+            {
+              "name": "deporte_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "grupo_id",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Alumnos Alta",
+    "ruta": "/alumnos/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Alumnos Edición",
+    "ruta": "/alumnos/908/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Alumnos Ficha",
+    "ruta": "/alumnos/908",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Cobranza",
+    "ruta": "/cobranza",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "estado",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "deporte_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "grupo_id",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Revisión Cobranza",
+    "ruta": "/revision-cobranza",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": false,
+          "diferencia": 91,
+          "campos": [
+            {
+              "name": "estado",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "periodo",
+              "type": "select-one",
+              "width": 187
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "admin-revisi-n-cobranza-360.png"
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Movimientos",
+    "ruta": "/movimientos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": false,
+          "diferencia": 99,
+          "campos": [
+            {
+              "name": "desde",
+              "type": "date",
+              "width": 179
+            },
+            {
+              "name": "hasta",
+              "type": "date",
+              "width": 179
+            },
+            {
+              "name": "tipo",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "tipo_caja_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "rubro_id",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "admin-movimientos-360.png"
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Clases Índice",
+    "ruta": "/clases",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "deporte_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "grupo_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "profesor_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "estado",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "fecha",
+              "type": "date",
+              "width": 278
+            },
+            {
+              "name": "orden",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "admin-clases-ndice-360.png"
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Clases Alta",
+    "ruta": "/clases/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Clases Edición",
+    "ruta": "/clases/120/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Clases Asistencia / Detalle",
+    "ruta": "/clases/120",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Deportes Índice",
+    "ruta": "/deportes",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Deportes Alta",
+    "ruta": "/deportes/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Deportes Edición",
+    "ruta": "/deportes/226/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Niveles Índice",
+    "ruta": "/niveles",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Niveles Alta",
+    "ruta": "/niveles/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Niveles Edición",
+    "ruta": "/niveles/291/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Grupos Índice",
+    "ruta": "/grupos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "deporte_id",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Grupos Alta",
+    "ruta": "/grupos/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Grupos Ficha",
+    "ruta": "/grupos/272",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Grupos Edición",
+    "ruta": "/grupos/272/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Profesores Índice",
+    "ruta": "/profesores",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Profesores Alta",
+    "ruta": "/profesores/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Profesores Ficha",
+    "ruta": "/profesores/111",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Profesores Edición",
+    "ruta": "/profesores/111/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Rubros Índice",
+    "ruta": "/rubros",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Rubros Alta",
+    "ruta": "/rubros/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Rubros Edición",
+    "ruta": "/rubros/1/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Subrubros Alta",
+    "ruta": "/rubros/1/subrubros/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Subrubros Edición",
+    "ruta": "/rubros/1/subrubros/1/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Tipos de Caja Índice",
+    "ruta": "/tipos-caja",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Tipos de Caja Alta",
+    "ruta": "/tipos-caja/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Tipos de Caja Edición",
+    "ruta": "/tipos-caja/323/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Usuarios Índice",
+    "ruta": "/usuarios",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Usuarios Alta",
+    "ruta": "/usuarios/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Usuarios Edición",
+    "ruta": "/usuarios/315/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Configuraciones",
+    "ruta": "/configuraciones",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Liquidaciones Índice",
+    "ruta": "/liquidaciones",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Liquidaciones Alta",
+    "ruta": "/liquidaciones/crear",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Liquidaciones Detalle",
+    "ruta": "/liquidaciones/27",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Primera Carga",
+    "ruta": "/sistema/primera-carga",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Reportes Índice",
+    "ruta": "/reportes",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Reportes Alumnos",
+    "ruta": "/reportes/alumnos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "ADMIN",
+    "nombre": "Reportes Sueldos",
+    "ruta": "/reportes/sueldos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Inicio Operativo",
+    "ruta": "/operativo",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Índice",
+    "ruta": "/caja",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "operativo-caja-ndice-360.png"
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Apertura",
+    "ruta": "/caja/apertura",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Historial",
+    "ruta": "/caja/historial",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Movimiento",
+    "ruta": "/caja/movimiento",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Cobrar Selector",
+    "ruta": "/caja/cobrar",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Cobrar Alumno",
+    "ruta": "/caja/cobrar/908",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Resumen",
+    "ruta": "/caja/42/resumen",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Detalle",
+    "ruta": "/caja/42/detalle",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Caja Cierre",
+    "ruta": "/caja/42/cerrar",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Alumnos Índice",
+    "ruta": "/alumnos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Alumnos Alta",
+    "ruta": "/alumnos/create",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Alumnos Edición",
+    "ruta": "/alumnos/908/edit",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Alumnos Ficha",
+    "ruta": "/alumnos/908",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Cobranza",
+    "ruta": "/cobranza",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Revisión Cobranza",
+    "ruta": "/revision-cobranza",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Movimientos",
+    "ruta": "/movimientos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Clases Índice",
+    "ruta": "/clases",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "operativo-clases-ndice-360.png"
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Clases Asistencia / Detalle",
+    "ruta": "/clases/120",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Grupos Índice",
+    "ruta": "/grupos",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "OPERATIVO",
+    "nombre": "Grupos Ficha",
+    "ruta": "/grupos/272",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  },
+  {
+    "rol": "PROFESOR",
+    "nombre": "Clases Índice",
+    "ruta": "/clases",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": [
+        {
+          "index": 0,
+          "parejos": true,
+          "diferencia": 0,
+          "campos": [
+            {
+              "name": "deporte_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "grupo_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "profesor_id",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "estado",
+              "type": "select-one",
+              "width": 278
+            },
+            {
+              "name": "fecha",
+              "type": "date",
+              "width": 278
+            },
+            {
+              "name": "orden",
+              "type": "select-one",
+              "width": 278
+            }
+          ]
+        }
+      ]
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": "profesor-clases-ndice-360.png"
+  },
+  {
+    "rol": "PROFESOR",
+    "nombre": "Clases Asistencia / Ficha",
+    "ruta": "/clases/120",
+    "med360": {
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "seDesliza": false,
+      "elementosSalidos": [],
+      "filtros": []
+    },
+    "med375": {
+      "scrollWidth": 375,
+      "innerWidth": 375,
+      "seDesliza": false
+    },
+    "med320": {
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "seDesliza": false
+    },
+    "captura": null
+  }
+]

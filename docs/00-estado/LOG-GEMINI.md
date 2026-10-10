@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Resolución Definitiva de A57 y A58 (Móvil 360px)
+
+- **Objetivo:** Resolver los dos defectos de visualización móvil detectados por Carlos desde su teléfono (360px): A57 (anchos dispares en barra de filtros de Caja) y A58 (desplazamiento lateral innecesario en Clases).
+- **Aprobación de Carlos:** Visor HTML interactivo ([`visor.html`](../06-pruebas/PRU-02/evidencia/a57-a58/visor.html)) aprobado por Carlos («Apruebo la propuesta de A57 y A58. Aplicar la solución de CSS y cerrar la tarea.» / «Que no agregues estilos style="..." manuales en el HTML (usar solo reglas en app.css compiladas con Vite/Tailwind)»).
+- **Implementación en CSS compartido (`resources/css/app.css`):**
+  - **A57:** Regla `@media (max-width: 768px)` generalizada para todos los controles hijos de `.filtros-row` (selects, dates, months, inputs y buscadores) con `width: 100% !important; min-width: 100% !important; flex: 1 1 100% !important;`. El campo «Mes» y el selector «Operativo» igualaron su ancho exactamente a 278px (0px diferencia).
+  - **A58:** Regla `@media (max-width: 640px)` para apilar la grilla de las tarjetas de clase a 1 columna (`.alumno-card .alumno-info { grid-template-columns: 1fr !important; }`) y fijar `overflow-x: hidden !important;` en `#clases-hoy-container`. Redujo el ancho de 455px a 328px eliminando el scroll horizontal. Escritorio (1280px) 100% intacto.
+  - Cero código `style="..."` manual en vistas Blade. Compilado con `npm run build`.
+- **Herramienta permanente:** Implementado `scripts/medir-ancho-movil.mjs` para auditoría automatizada en 360px con Chromium headless antes de futuros despliegues.
+- **Suite y tablero:** Suite completa en verde en `wings_testing_gemini`. Tablero actualizado con A57 y A58 en estado `cerrado` (`verifica=Carlos`, 63 cerrados de 74). Documentado en `DEFECTOS.md`, `DEFECTOS.html` e `IMPLEMENTACION-A57-A58.md`.
+
 ## 2026-10-08 — LOG GEM CYE — A24 Segunda Vuelta: Implementación Definitiva de Mostrador Operativo
 
 - **Objetivo:** Resolver definitivamente A24 según la regla ratificada por Carlos el 08/10 (*«las cajas de los operativos son individuales, el efectivo es lo compartido y van en serie una tras otra»*).
