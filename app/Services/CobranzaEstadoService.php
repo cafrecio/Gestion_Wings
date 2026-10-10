@@ -444,8 +444,11 @@ class CobranzaEstadoService
      */
     private function estaImpaga(DeudaCuota $deuda): bool
     {
+        // T18 (devolución de Gemini): un mes que todavía no empezó no es deuda. Puede quedar
+        // guardado y pendiente si se anula un cobro adelantado; recién cuenta cuando empieza.
         return (float) $deuda->monto_pagado < (float) $deuda->monto_original
-            && !in_array($deuda->estado, [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA]);
+            && !in_array($deuda->estado, [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
+            && $deuda->periodo <= now()->format('Y-m');
     }
 
     /**

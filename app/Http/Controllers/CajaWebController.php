@@ -880,7 +880,7 @@ class CajaWebController extends Controller
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
             'periodos'       => 'nullable|array',
-            'periodos.*'     => 'required|string|regex:/^\d{4}-\d{2}$/',
+            'periodos.*'     => ['required', 'string', 'regex:/^\d{4}-(0[1-9]|1[0-2])$/'],
             'observaciones'  => 'nullable|string|max:500',
             'montos_cuota'   => 'array',
             'montos_cuota.*' => 'nullable|numeric|min:0.01',

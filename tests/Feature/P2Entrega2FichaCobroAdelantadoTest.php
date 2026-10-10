@@ -335,8 +335,25 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id),
             $base + ['periodos' => ['2026-11']])->assertStatus(422);
 
+        // Devolución de Gemini: un mes inexistente se rechaza en vez de romper la pantalla.
+        foreach (['2026-13', '2026-00'] as $inventado) {
+            $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id),
+                $base + ['periodos' => [$inventado], 'montos_cuota' => [$inventado => 35000]])->assertStatus(422);
+        }
+
         $this->assertSame(1, DeudaCuota::where('alumno_id', $this->alumno->id)->count());
         $this->assertSame(0, Pago::count());
+
+        // Devolución de Gemini: un mes futuro que quedó guardado y pendiente —por ejemplo
+        // al anular un cobro adelantado— no cuenta como deuda en Cobranza ni en el buscador.
+        DeudaCuota::create(['alumno_id' => $this->alumno->id, 'periodo' => '2026-11', 'monto_original' => 35000,
+            'monto_pagado' => 0, 'estado' => DeudaCuota::ESTADO_PENDIENTE]);
+        $cobranza = app(\App\Services\CobranzaEstadoService::class);
+        $this->assertEquals(0.0, $cobranza->saldoDeAlumnos(Alumno::whereKey($this->alumno->id)->get())[$this->alumno->id]['total']);
+        $this->assertEquals(0.0, $cobranza->resumenDashboard()['total_adeudado']);
+        // Cuando el mes empieza, sí es deuda.
+        Carbon::setTestNow('2026-11-02 10:00:00');
+        $this->assertEquals(35000.0, $cobranza->saldoDeAlumnos(Alumno::whereKey($this->alumno->id)->get())[$this->alumno->id]['total']);
     }
 
     public function test_a3_generacion_mensual_en_dia_1_no_duplica_el_mes_cobrado_adelantado(): void
