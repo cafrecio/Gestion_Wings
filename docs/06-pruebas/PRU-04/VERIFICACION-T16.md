@@ -58,3 +58,32 @@ Suite completa en `wings_testing_codex`; últimas líneas tal como salieron ([sa
 Reproducir por separado, sin otra corrida en la misma base: `DB_DATABASE=wings_testing_codex`, `php vendor/bin/phpunit --configuration phpunit.xml docs/06-pruebas/PRU-04/evidencia-t16/VerificacionT16ConcurrenciaTest.php`. Para los otros controles, usar sus respectivas rutas; cada agente conserva su base propia.
 
 **Tablero:** devuelto, tiene Claude, verifica Codex. Sigue corregir el cruce y volver a verificar. Ningún despliegue, visita o modificación del sitio de prueba en esta segunda vuelta; base del club y producción fuera del ensayo. El aspecto conserva la aprobación de Carlos.
+
+## Tercera vuelta — APROBADO por Codex CyE, 10/10/2026
+
+Corrección `b8ede87` comprobada sobre copia fija `aa33399`; los tres archivos de lógica de T16 siguen iguales. **28 controles aprobados:** los 12 originales (225 aserciones), los ocho adicionales (269) y ocho cruces independientes nuevos (220). Solo `wings_testing_codex`.
+
+**Concurrencia:** APORTE y RETIRO, edición y alta de subrubro, en ambos órdenes. Dos procesos despachan pedidos por el núcleo HTTP de Wings. El primero pausa después de tomar el candado del rubro dentro de la transacción; el coordinador comprueba al segundo esperando ese mismo candado en `INNODB_TRX` e `INNODB_LOCK_WAITS` y libera al primero sin esperar a que termine el segundo. Los 16 pedidos terminan con HTTP302: el primero guarda; el segundo recibe «Esa opción no corresponde a este rubro» o «Cambiá primero qué es ese subrubro». Ninguna fila final combina APORTE con EGRESO ni RETIRO con INGRESO. Tiempos observados: 0,263–0,943 s por pedido, límite comprobado de 15 s. Ocho guardados posteriores también pasan y no queda transacción abierta.
+
+**Caminos desde Wings:** cambio de tipo del rubro, alta y edición del subrubro toman el mismo candado antes de validar. El alta de rubro crea una fila nueva, no modifica el ID ni importa hijos enviados; toggle solo cambia activo. La API continúa sin rutas registradas. Las altas automáticas de profesor/operativo escriben NEGOCIO bajo Sueldos reservado; ese servicio no toma este candado, pero tampoco ofrece una clasificación incompatible ni permite cambiar el tipo reservado desde Wings. Carlos delimitó el alcance: «No, verificar los guardados desde Wings»; quedan fuera los cruces con migraciones/seeders de consola. Barrido y cuerpos leídos en fuentes reales; el índice MCP no respondió.
+
+Suite completa; últimas líneas tal como salieron ([salida](evidencia-t16/suite-v3.txt)):
+
+```text
+  Tests:    2 skipped, 611 passed (5087 assertions)
+  Duration: 637.19s
+```
+
+[12 controles](evidencia-t16/controles-v3-originales.txt) · [8 adicionales](evidencia-t16/controles-v3-adicionales.txt) · [8 cruces](evidencia-t16/concurrencia-v3.txt) · [filas/respuestas/esperas](evidencia-t16/casos-v3-concurrencia.jsonl) · [casos originales](evidencia-t16/casos-v3-originales.jsonl) · [casos adicionales](evidencia-t16/casos-v3-adicionales.jsonl) · [verificador propio](evidencia-t16/VerificacionT16TerceraVueltaTest.php) · [auxiliar propio](evidencia-t16/pedido-v3.php).
+
+Preparación corregida antes del resultado válido: el rollback de migraciones fallaba por un índice antiguo y la observación con consultas cada 20 ms no capturaba algunas esperas. El verificador ahora rehace su base antes de cada caso, consulta las tablas de diagnóstico por separado cada 250 ms y exige comprobar cada espera; conserva el límite de 15 s. La aplicación no se cambió. No se leyó ni reutilizó el ensayo de Claude.
+
+Repetir por separado, sin otra suite en la misma base:
+
+```powershell
+$env:DB_DATABASE='wings_testing_codex'
+$env:T16_V3_EVIDENCIA=Join-Path $PWD 'casos-t16-concurrencia.jsonl'
+php vendor/phpunit/phpunit/phpunit --configuration phpunit.xml --testdox docs/06-pruebas/PRU-04/evidencia-t16/VerificacionT16TerceraVueltaTest.php
+```
+
+**Tablero:** cerrado, hizo Claude, verifica Codex, tiene nadie. Aspecto ya aprobado por Carlos. Informe, estado y bitácora actualizados; sin arreglos de Wings, visita al sitio de prueba ni despliegue en esta vuelta. Base del club y producción intactas por Codex. La observación anterior sobre DemoSeeder conserva su alcance separado.

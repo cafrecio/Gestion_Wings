@@ -1,0 +1,3 @@
+{"caso":"tipo_bloqueado_con_hijos_inactivos","subrubro":"Patines","tipo_actual":"INGRESO","tipo_rechazado":"EGRESO"}
+{"caso":"tipo_bloqueado_con_hijos_inactivos","subrubro":"Retiro de dueños","tipo_actual":"EGRESO","tipo_rechazado":"INGRESO"}
+{"caso":"nombres_nuevos_en_ingreso","filas":[{"nombre":"Retiro de dueños","rubro_id":53,"clasificacion_resultado":null},{"nombre":"Pago al organizador","rubro_id":53,"clasificacion_resultado":null}]}

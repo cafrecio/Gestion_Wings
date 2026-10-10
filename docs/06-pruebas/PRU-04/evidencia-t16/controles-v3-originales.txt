@@ -1,0 +1,24 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-v3-aa33399\phpunit.xml
+
+............                                                      12 / 12 (100%)
+
+Time: 00:16.452, Memory: 58.00 MB
+
+Verificacion T16 (Tests\Feature\VerificacionT16)
+ ✔ Catalogo existente completo segun decision de carlos
+ ✔ Migracion preserva clasificacion desconocidos y no duplica
+ ✔ Migracion completa ambas tablas y conserva filas clasificadas
+ ✔ Post y put rechazan ausencia incompatibles y arrays
+ ✔ Put valido completa ambas tablas sin reescribir historia
+ ✔ Post y put aceptan las dos opciones validas por tipo
+ ✔ Reservados no cambian por put patch padre cruzado ni api
+ ✔ Altas automaticas de profesor y operativo clasificadas
+ ✔ Observacion creador legacy de demo deja sueldos sin clasificar
+ ✔ Cambiar tipo del padre no debe convertir aporte en egreso
+ ✔ Cambiar tipo del padre no debe convertir retiro en ingreso
+ ✔ Migracion clasifica nuevos si el nombre ya existia sin clasificar
+
+OK (12 tests, 225 assertions)

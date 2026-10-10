@@ -53,9 +53,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T16** Inicio y Reportes muestran ingresos 0: Cuota Mensual e Inscripcion quedaron sin clasificar | Hecho, espera verificación (hizo Claude, verifica Codex) | Tercera vuelta (b8ede87): el rubro se toma con candado al guardar rubro o subrubro. Comprobado con dos procesos reales. Codex vuelve a verificar; su prueba de concurrencia necesita adaptarse porque fuerza el cruce que el candado impide |
+Nada en este momento.
 
 ## Gemini
 

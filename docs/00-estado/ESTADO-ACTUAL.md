@@ -1,17 +1,17 @@
 # Wings — Estado actual
 
-## T16 — segunda vuelta devuelta a Claude por Codex, 10/10/2026
+## T16 — tercera vuelta aprobada por Codex, 10/10/2026
 
-Corrección `fcdc8f2` comprobada sobre copia fija de `d4f18d6`: los 12 controles originales
-pasan (225 aserciones); las dos fallas originales están corregidas. Ocho controles adicionales
-pasan (269 aserciones): altas, padres falsificados/cruzados, toggle, inactivos y migración.
-Nueva causa de devolución: dos pedidos simultáneos aceptados dejan EGRESO + APORTE;
-el tipo y la clasificación se comprueban y guardan sin impedir ese cruce. Ensayo real de
-dos procesos contra las rutas HTTP en la base propia; 1 fallo/10 aserciones.
-Suite completa 611 aprobadas/2 omitidas, 5.087 aserciones, 785,65 s en wings_testing_codex.
-Nombres nuevos en INGRESO quedan pendientes para el admin; DemoSeeder sigue creando seis
-sueldos NULL, observación separada. Sin cambios de Wings, sitio ni despliegue en esta vuelta.
-Claude corrige concurrencia; aspecto aprobado por Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
+Corrección `b8ede87` comprobada sobre copia fija `aa33399`: 12 controles originales/225
+aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados. APORTE y RETIRO,
+edición/alta, ambos órdenes: espera real comprobada; uno guarda y otro rechaza claramente.
+Los 16 pedidos terminan en 0,263–0,943 s; ocho guardados posteriores pasan; sin pares inválidos.
+Suite completa 611 aprobadas/2 omitidas, 5.087 aserciones, 637,19 s en wings_testing_codex.
+Carlos acotó a guardados desde Wings; cruces con comandos de consola fuera del alcance.
+Altas automáticas de sueldo escriben NEGOCIO bajo rubro reservado; API sin rutas registradas.
+Nombres nuevos en INGRESO quedan para el admin; DemoSeeder NULL, observación separada.
+Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos.
+Sin cambios de Wings, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 
 ## T14 — Día 1 recorrido en test, a verificar por Claude, 10/10/2026
 

@@ -1,0 +1,20 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-v3-aa33399\phpunit.xml
+
+........                                                            8 / 8 (100%)
+
+Time: 01:01.982, Memory: 52.00 MB
+
+Verificacion T16Tercera Vuelta (Tests\Feature\VerificacionT16TerceraVuelta)
+ ✔ Aporte edicion tipo primero
+ ✔ Aporte edicion clasificacion primero
+ ✔ Retiro edicion tipo primero
+ ✔ Retiro edicion clasificacion primero
+ ✔ Aporte alta tipo primero
+ ✔ Aporte alta clasificacion primero
+ ✔ Retiro alta tipo primero
+ ✔ Retiro alta clasificacion primero
+
+OK (8 tests, 220 assertions)

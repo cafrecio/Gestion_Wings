@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T16 tercera vuelta aprobada
-
-Objetivo: verificar b8ede87 sobre copia fija aa33399; solo wings_testing_codex.
-12 controles originales/225 aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados.
-APORTE/RETIRO, alta/edicion, ambos ordenes: espera InnoDB comprobada; uno guarda y otro rechaza.
-16 pedidos HTTP terminan en 0,263–0,943 s; ocho posteriores pasan; sin pares invalidos ni transacciones abiertas.
-Suite completa 611 aprobadas/2 omitidas, 5087 aserciones, 637,19 s; preparacion del verificador corregida.
-Carlos: «No, verificar los guardados desde Wings»; consola excluida. Sueldos NEGOCIO reservado; API deshabilitada.
-Sin arreglos de Wings, visita al sitio ni deploy; MCP caido, fuentes reales leidas. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos; no queda paso de T16.
-Archivo anterior integro preservado; publicacion solo de archivos propios.
-
 ## 2026-10-10 — Codex CyE — T16 segunda vuelta devuelta por concurrencia
 
 Objetivo: verificar fcdc8f2; copia publicada fija d4f18d6, solo wings_testing_codex.
@@ -114,6 +102,16 @@ Ubicación recomendada debajo de Liquidaciones, sin elección expresa; tres opci
 Suite propia573/2,4616aserciones,885,32s; vistas/sintaxis correctas. Control independiente de fuente y12PNG aprobado; sin club/deploy.
 B12/A23 abiertos: revisión del acceso, ajuste final, prueba manual y antecedentes pendientes.
 
+## 2026-10-09 — Codex CyE — Sueldos y monto final implementados y verificados, aspecto por revisar
+
+Créditos restablecidos; Alumnos aprobado («Esta OK») e integrado a ruta habitual ADMIN.
+Sueldos: cuota real proporcional a asistencias, comisión cobrada, costos por docente/deporte/presencia.
+ADMIN ajusta final de comisión abierta/cerrada sin pagar; cálculo/detalles conservados, auditoría y bloqueo con pago.
+Suite573/2,4615aserciones,997,45s; módulos/guardianes30/185 tras fixture portable; independiente26/166 correcto.
+Horarios/asistencias actuales pueden cambiar estimados/reparto; importes monetarios al corte y cierres conservados.
+[Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). 14HTTP200,30 capturas web y2páginas de recibo; revisor miró15PNG, PDF completo con margen previo al borde. Publicación autorizada en esta entrega.
+B12/A23 abiertos; Carlos revisará Sueldos/ajuste, después manual integral y antecedentes. Sin deploy ni base del club.
+
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
@@ -122,5 +120,3 @@ B12/A23 abiertos: revisión del acceso, ajuste final, prueba manual y antecedent
 
 
 [Archivo íntegro anterior a T16 segunda vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V2.txt).
-
-[Archivo íntegro anterior a T16 tercera vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V3.txt).
