@@ -255,6 +255,9 @@ class PrimeraCargaExcelTest extends TestCase
     public function test_entrada_automatica_y_alta_directa_no_saltean_estado_pendiente(): void
     {
         $this->actingAs($this->admin)->get('/admin/dashboard')->assertRedirect('/sistema/primera-carga');
+        // Reportes está en el menú; al tocarlo con la carga pendiente tiene que decir por qué vuelve acá.
+        $this->get('/reportes')->assertRedirect('/sistema/primera-carga')->assertSessionHas('error');
+        $this->followingRedirects()->get('/reportes')->assertOk()->assertSee('Primero terminá la primera carga de alumnos');
         $this->get('/alumnos/create')->assertRedirect('/sistema/primera-carga');
         $this->post('/alumnos', [])->assertRedirect('/sistema/primera-carga');
         $this->get('/grupos')->assertOk();
