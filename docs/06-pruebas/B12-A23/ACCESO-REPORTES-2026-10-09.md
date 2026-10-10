@@ -35,7 +35,14 @@ en cualquiera de las tres pantallas. Sin cambios de reglas de negocio o permisos
 Reproducible con scripts/reportes/capturar-menu.php y capturar-menu.mjs, sobre el
 escenario ficticio Sueldos de la entrega anterior; el generador también tiene --principales.
 
+## Aprobación — 10/10/2026
+
+Carlos: **«Esta OK el acceso»**. Acceso **Plata → Reportes**, debajo de Liquidaciones,
+y navegación entre los tres reportes aprobados. Verificador visual: **Carlos**
+(AGENTS.md §6a). Las capturas aprobadas se conservan en [el visor del menú](menu/visor.html).
+
 ## Pendiente
 
-Revisión visual del acceso por Carlos. Ajuste final todavía
-por revisar; prueba manual/antecedentes B12/A23 pendientes.
+Aspecto del ajuste final, prueba manual y clasificación de antecedentes de B12.
+B12 sigue abierto. A23 ya fue cerrado por Claude el 10/10;
+[verificación de Inicio](VERIFICACION-A23-INICIO.md). Esta aprobación no cierra B12.

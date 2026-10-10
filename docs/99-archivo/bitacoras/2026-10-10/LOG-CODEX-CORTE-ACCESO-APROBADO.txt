@@ -1,16 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — Acceso a Reportes aprobado por Carlos
-
-Carlos: «Esta OK el acceso». Verifica Carlos el aspecto de Plata → Reportes y sus tres opciones.
-Aprobación registrada en entrega, acuerdos, visores, estado, resumen y tablero; sin cambios de aplicación.
-Menú actual leído; conserva Reportes debajo de Liquidaciones y navegación entre tres reportes.
-A23 ya cerrado por Claude en 59f01a0; su verificación no cubre Alumnos/Sueldos de B12.
-B12 en_curso: aspecto del ajuste final, prueba manual y clasificación de antecedentes pendientes.
-Archivo anterior íntegro preservado; enlaces, integridad y tablero comprobados. Sin repetir suite ni tocar base/servidor.
-Publicación autorizada a GitHub; el commit y sincronización se comprueban al publicar.
-[Entrega y aprobación](../06-pruebas/B12-A23/ACCESO-REPORTES-2026-10-09.md).
-
 ## 2026-10-09 — Codex CyE — Sueldos aprobado; acceso Plata → Reportes aplicado
 
 Carlos: «Esta OK, solo deberiamos ver desde donde accede en el menu», sobre Sueldos.
@@ -117,4 +106,17 @@ Cinco capturas reales desde Laravel: Inicio/Reportes escritorio y marco375; cont
 Siguiente: Carlos elige primero Inicio; falta integración/clasificación de antecedentes. B12/A23 abiertos, sin deploy.
 Esquema anterior físico y migración probados; escenario restaurado. Archivo íntegro; diez entradas activas.
 
-[Archivo íntegro anterior a la aprobación del acceso](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-ACCESO-APROBADO.txt).
+## 2026-10-08 — Codex CyE — Continuidad de Desarrollo II a Desarrollo III
+
+Leído completo GestionWings - Desarrollo II (20 turnos); pedido actual: conservar pendientes y subir todo el avance.
+Últimas decisiones: A6–A9 aprobados visualmente; A10 aprobado y revisado por Claude tras corregir Limpiar.
+A32: «A-32 OK» y después «Ok, APROBADO A32»; nombres de personas y roles alineados, sin decisión pendiente.
+Comprobados tablero cerrado y commits 655eb63, 6f8a754 y cb4190c incluidos en main; no repetí pruebas funcionales.
+Sin respuesta de Carlos: revisar el [plan conjunto B12/A23](../07-evaluacion/PLAN-REPORTES-TABLERO-v2026-10-08.md); primero plan, después desarrollo.
+Antes de código dependiente: decidir retiros del dueño y puerta de prueba humana; historia disponible requiere comprobación del agente.
+B12/A23 siguen en_curso, tiene Carlos; no autorizados a desarrollar ni cerrados por esta publicación.
+GitHub main comprobado en 91e2650 antes de publicar; faltaban el plan y continuidad. Publicación final comprobable en Git.
+Control documental independiente aprobado: 20 turnos, 62 enlaces y cortes íntegros; sin cambios de aplicación, base o servidor.
+Siguiente: Carlos revisa el plan; entrada antigua archivada intacta en el corte Desarrollo II.
+
+[Archivo íntegro anterior a la aprobación de Sueldos](../99-archivo/bitacoras/2026-10-09/LOG-CODEX-CORTE-SUELDOS-APROBADO.txt).

@@ -243,7 +243,7 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 **Antecedente del relevamiento:** más de la mitad de la pantalla principal del administrador era espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 
-**Actualización09/10:** Inicio aprobado por Carlos («Ok, aprobado»), aplicado y verificado; cifras mensuales, cajas por tipo, cuatro avisos y acceso a Reportes. [Entrega](../B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md). Abierto para prueba manual integral junto a B12; el texto anterior describe el defecto original.
+**Actualización09/10:** Inicio aprobado por Carlos («Ok, aprobado»), aplicado y verificado; cifras mensuales, cajas por tipo, cuatro avisos y acceso a Reportes. [Entrega](../B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md). En ese corte seguía abierto para prueba manual integral junto a B12. A23 cerrado por Claude el 10/10; [verificación](../B12-A23/VERIFICACION-A23-INICIO.md). El texto anterior describe el defecto original.
 
 ### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · CERRADO 08/10, verificado Claude
 
@@ -696,7 +696,7 @@ calcula (FIN-14).
 
 Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
-mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados, aspecto por revisar. [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Faltan revisión visual, manual integral y clasificación de antecedentes; no cierre ni despliegue.
+mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados; Sueldos y acceso Plata → Reportes aprobados por Carlos («Esta OK el acceso», 10/10). [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Faltan aspecto del ajuste final, manual integral y clasificación de antecedentes; B12 sigue abierto.
 
 ### B13. Los datos de prueba no representan al club · Molesta · verificado
 

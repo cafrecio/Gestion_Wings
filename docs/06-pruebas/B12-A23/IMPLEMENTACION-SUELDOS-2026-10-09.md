@@ -81,6 +81,7 @@ Motor/servicio solo lectura; pruebas y escenario no exportan users ni dump.
 
 Acceso anterior: Inicio → Ver → enlace Sueldos al pie de Ingresos y egresos.
 Tras «Continuar», acceso **Plata → Reportes** aplicado y tres opciones arriba;
-[capturas y alcance](ACCESO-REPORTES-2026-10-09.md). Menú por revisar visualmente.
+[capturas y alcance](ACCESO-REPORTES-2026-10-09.md). Acceso aprobado por Carlos el 10/10: «Esta OK el acceso».
 Después, revisión visual del ajuste final, prueba manual integral de B12/A23 y
-clasificación de antecedentes. Tablero abierto; esta entrega no cierra esos IDs.
+clasificación de antecedentes. B12 sigue abierto; A23 cerrado por Claude el 10/10
+([verificación](VERIFICACION-A23-INICIO.md)). La aprobación del acceso no incluye el ajuste final.

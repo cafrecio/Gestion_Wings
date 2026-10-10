@@ -35,7 +35,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos miro desde su celular el 10/10: Caja y Clases con dos defectos nuevos (A57, A58), Grupos bien, botones bien. Falta Cobrar a un alumno, cuando haya alumnos cargados |
-| **B12** No hay reportes | En curso (hizo Codex) | Sueldos aprobado; acceso Plata a Reportes implementado, revisar capturas del acceso y ajuste final; manual y antecedentes pendientes |
+| **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Sueldos y acceso aprobados por Carlos; revisar aspecto del ajuste final y completar prueba manual y antecedentes |
 
 ## Hecho y sin nadie que lo verifique
 

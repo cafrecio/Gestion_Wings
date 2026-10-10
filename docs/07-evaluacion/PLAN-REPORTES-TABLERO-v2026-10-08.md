@@ -15,13 +15,14 @@ asistencia presente. Atribución proporcional aprobada, historia desde ahora y c
 sobre cuotas cobradas; ADMIN edita monto final de liquidación, también cerrado sin pagar.
 Historial analítico, ajuste final y motor Sueldos implementados y probados en base descartable.
 Sin activar en el club; aspecto Sueldos aprobado por Carlos («Esta OK»), ubicación
-de Reportes en el acceso Plata → Reportes aplicado, aspecto por revisar y ajuste final por revisar. Estimados/reparto usan horarios
+de Reportes en Plata → Reportes aprobada por Carlos el 10/10 («Esta OK el acceso»); ajuste final por revisar. Estimados/reparto usan horarios
 y asistencias actuales; liquidaciones cerradas conservan importe. Carlos pidió
 más visual y menos lectura, con tres referencias: [V3](../06-pruebas/B12-A23/PROPUESTA-VISUAL-2026-10-09.md)
 con tarjetas, gráficos y detalle plegado aprobada: «Si, mucho mejor». Aplicación financiera con filtros y detalle histórico en [esta entrega](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md). No aplicar
 Reportes original. [Entrega y capturas vigentes](../06-pruebas/B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md).
 Ruta financiera conectada a Ver/indicadores de Inicio; clasificación de antecedentes pendiente.
 Alumnos aprobado («Esta OK»), integración habitual comprobada; [entrega](../06-pruebas/B12-A23/IMPLEMENTACION-ALUMNOS-2026-10-09.md).
+A23 cerrado el 10/10 por Claude ([verificación](../06-pruebas/B12-A23/VERIFICACION-A23-INICIO.md)); B12 sigue abierto.
 Este agregado amplía entrega 4; no cambia reglas de pago ni las fechas reales del cashflow.
 
 ## 1. Una implementación, dos usos
