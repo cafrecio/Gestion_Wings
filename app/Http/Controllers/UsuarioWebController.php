@@ -70,7 +70,7 @@ class UsuarioWebController extends Controller
         // B10: a dónde transferirle el sueldo. Solo aplica al operativo; el profesor
         // lo tiene en su ficha.
         if ($request->input('rol') === User::ROL_OPERATIVO) {
-            $rules['cbu_alias'] = ['nullable', 'string', 'max:60', new CbuOAlias];
+            $rules['cbu_alias'] = ['nullable', new CbuOAlias];
         }
 
         $request->validate($rules, [
@@ -162,7 +162,7 @@ class UsuarioWebController extends Controller
             $rules['profesor_id'] = 'required|exists:profesores,id';
         }
         if ($request->input('rol') === User::ROL_OPERATIVO) {
-            $rules['cbu_alias'] = ['nullable', 'string', 'max:60', new CbuOAlias];
+            $rules['cbu_alias'] = ['nullable', new CbuOAlias];
         }
 
         $request->validate($rules, [

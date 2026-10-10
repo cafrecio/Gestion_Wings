@@ -10,6 +10,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
  *
  * No verifica que la cuenta exista ni el digito verificador: solo evita guardar algo que
  * a simple vista no es ninguna de las dos cosas, que es el error tipico al copiar a mano.
+ *
+ * Es la unica regla del campo, a proposito: todo rechazo sale con el mismo mensaje en
+ * castellano. Con `max` o `string` al lado, un texto largo se rechazaba en ingles.
  */
 class CbuOAlias implements ValidationRule
 {
@@ -17,7 +20,17 @@ class CbuOAlias implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $limpio = self::normalizar(is_scalar($value) ? (string) $value : null);
+        if ($value === null || $value === '') {
+            return;
+        }
+        // Un arreglo mandado por POST directo no es un valor: se rechaza, no se ignora.
+        if (! is_scalar($value)) {
+            $fail(self::MENSAJE);
+
+            return;
+        }
+
+        $limpio = self::normalizar((string) $value);
         if ($limpio === null) {
             return;
         }
@@ -30,11 +43,21 @@ class CbuOAlias implements ValidationRule
         }
     }
 
-    /** Como se guarda: sin espacios, que es como suele venir pegado un CBU. */
-    public static function normalizar(?string $valor): ?string
+    /**
+     * Como se guarda. Los espacios de adentro se sacan SOLO si lo demas son numeros, que
+     * es como suele venir pegado un CBU («0170 0992 ...»). A un alias no se le toca nada:
+     * «mi alias» no es «mialias», es un dato mal escrito y tiene que rechazarse.
+     */
+    public static function normalizar(mixed $valor): ?string
     {
-        $limpio = preg_replace('/\s+/u', '', (string) $valor);
+        if (! is_scalar($valor)) {
+            return null;
+        }
+        $texto = trim((string) $valor);
+        if ($texto !== '' && preg_match('/^[\d\s]+$/', $texto)) {
+            $texto = preg_replace('/\s+/', '', $texto);
+        }
 
-        return $limpio === '' ? null : $limpio;
+        return $texto === '' ? null : $texto;
     }
 }

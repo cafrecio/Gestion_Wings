@@ -77,7 +77,12 @@ class CbuAliasB10Test extends TestCase
 
     public function test_lo_que_no_es_ni_cbu_ni_alias_se_rechaza(): void
     {
-        foreach (['abc', '12345678', '017009922000006779791', 'alias con espacios!', str_repeat('a', 21)] as $malo) {
+        // Los tres ultimos los encontro Codex al verificar: un alias con espacio, tabulacion o
+        // salto de linea se guardaba "arreglado" («alias con espacio» → «aliasconespacio»),
+        // y un texto largo se rechazaba con un mensaje en ingles.
+        $malos = ['abc', '12345678', '017009922000006779791', 'alias con espacios!', str_repeat('a', 21),
+            'alias con espacio', "alias\tprueba", "alias\nprueba", str_repeat('a', 200), ['un', 'arreglo']];
+        foreach ($malos as $malo) {
             $this->actingAs($this->admin)->post(route('web.profesores.store'), $this->profesor(['cbu_alias' => $malo]))
                 ->assertSessionHasErrors('cbu_alias');
         }

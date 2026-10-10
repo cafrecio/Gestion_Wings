@@ -42,3 +42,23 @@ rol de un usuario borre el dato.
 
 No verificado por el autor: sesión de navegador a mano; el campo en celular; que el panel del
 operativo aparezca y desaparezca al cambiar el rol en vivo (se capturó ya cargado).
+
+---
+
+## Segunda vuelta — 10/10/2026
+
+Codex lo devolvió por dos fallas ([verificación](VERIFICACION-B10.md)). Corregidas:
+
+- **Aceptaba y transformaba un alias con espacios.** `alias con espacio` se guardaba como
+  `aliasconespacio`. La limpieza de espacios era para el CBU pegado y se aplicaba también al
+  alias. Ahora los espacios de adentro se sacan solo si todo lo demás son números; un alias
+  con espacio, tabulación o salto de línea se rechaza.
+- **Un texto largo se rechazaba en inglés.** Lo rechazaba la regla genérica de largo, que no
+  tiene traducción. Ahora la regla propia es el único control del campo y todo rechazo sale
+  con el mismo mensaje en castellano. También rechaza un arreglo mandado por POST directo.
+
+Los cinco casos quedaron en `CbuAliasB10Test` (8 pruebas, 43 aserciones).
+
+No cambiado, a propósito: un alias formado solo por números sigue rechazándose. Codex señala
+que el formato del BCRA lo admitiría. Lo dejé así porque un número suelto es, casi siempre, un
+CBU mal copiado. Queda para que lo decida Carlos.

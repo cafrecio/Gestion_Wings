@@ -133,7 +133,7 @@ class ProfesorWebController extends Controller
             'localidad'           => 'required|string|max:255',
             'email'               => 'nullable|email|max:255',
             'telefono'            => 'required|string|max:50',
-            'cbu_alias'           => ['nullable', 'string', 'max:60', new CbuOAlias],
+            'cbu_alias'           => ['nullable', new CbuOAlias],
             'valor_hora'          => 'nullable|numeric|min:0',
             'porcentaje_comision' => 'nullable|numeric|min:0|max:100',
         ];
