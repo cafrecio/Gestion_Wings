@@ -56,7 +56,7 @@ class WebController extends Controller
         return redirect('/login');
     }
 
-    public function adminDashboard(ReporteMensualService $reportes, \App\Services\CobranzaEstadoService $cobranzaService)
+    public function adminDashboard(ReporteMensualService $reportes)
     {
         $mes = today()->format('Y-m');
         // Inicio siempre muestra el mes en curso. No admite filtros que cambien
@@ -68,13 +68,8 @@ class WebController extends Controller
             'disponible' => null, 'cajas' => null, 'avisos' => $reportes->avisos(),
         ];
 
-        if ($reporte['deuda']['total'] !== null) {
-            $inscripcionesCentavos = (int) round($cobranzaService->totalInscripcionesPendientes() * 100);
-            $reporte['deuda']['cuotas'] = $reporte['deuda']['total'];
-            $reporte['deuda']['inscripciones'] = $inscripcionesCentavos;
-            $reporte['deuda']['total'] += $inscripcionesCentavos;
-        }
-
+        // T19: la deuda ya llega completa del reporte —cuotas más inscripciones, de alumnos
+        // activos—. Inicio no hace su propia suma: así no puede decir otro número que Reportes.
         return view('admin.dashboard', compact('reporte'));
     }
 

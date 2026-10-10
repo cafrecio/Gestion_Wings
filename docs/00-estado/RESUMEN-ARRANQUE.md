@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **604 pruebas**: 602 aprobadas/2 omitidas; Claude CyE, 10/10, wings_testing_claude. T15 verificado; T16 y T18 suman 4 cada una. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md). Sin deploy |
+| Suite | **613 pruebas**: 611 aprobadas/2 omitidas; Claude CyE, 10/10, wings_testing_claude. T15 y T17 cerrados; T16, T18 y T19 hechos. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md). Sin deploy |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |

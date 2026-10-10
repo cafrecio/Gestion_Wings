@@ -281,4 +281,55 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
         $this->assertSame(0.0, $totalCobranza);
         $this->assertSame(0.0, $totalInicioPesos);
     }
+
+    // ── T19 (Carlos, 10/10/2026): «Deuda real de los alumnos activos (cuotas +
+    //    inscripciones)», la misma en Inicio, Reportes y Cobranza ─────────────────
+
+    private function deudaEnLasTresPantallas(): array
+    {
+        return [
+            'cobranza' => (int) round(app(CobranzaEstadoService::class)->resumenDashboard()['total_adeudado'] * 100),
+            'inicio' => $this->actingAs($this->admin)->get(route('admin.dashboard'))->assertOk()->viewData('reporte')['deuda']['total'],
+            'reportes' => $this->actingAs($this->admin)->get(route('web.reportes.index'))->assertOk()->viewData('reporte')['deuda']['total'],
+        ];
+    }
+
+    public function test_t19_reportes_cuenta_las_inscripciones_igual_que_inicio_y_cobranza(): void
+    {
+        $ana = $this->crearAlumno('Ana', 'Sosa', '40000101', $this->patin, $this->grupoPatin);
+        $this->crearDeudaCuota($ana, '2026-10', 30000);
+        $this->crearDeudaCuota($ana, '2026-09', 30000);
+        $this->registrarPagoCargo($this->crearCargoInscripcion($ana), 2000);
+        $beto = $this->crearAlumno('Beto', 'Luna', '40000102', $this->futbol, $this->grupoFutbol);
+        $this->crearCargoInscripcion($beto);
+
+        // 60.000 de cuotas + 3.000 que le faltan a Ana + 5.000 de Beto.
+        $this->assertSame(['cobranza' => 6800000, 'inicio' => 6800000, 'reportes' => 6800000], $this->deudaEnLasTresPantallas());
+
+        $respuesta = $this->actingAs($this->admin)->get(route('web.reportes.index'))->assertOk()->assertSee('Inscripción');
+        $deuda = $respuesta->viewData('reporte')['deuda'];
+        $this->assertSame(6000000, $deuda['cuotas']);
+        $this->assertSame(800000, $deuda['inscripciones']);
+        // Mirando un solo deporte, cada inscripción va con el deporte de su alumno.
+        $soloFutbol = $this->actingAs($this->admin)->get(route('web.reportes.index', ['deporte_id' => $this->futbol->id]))->viewData('reporte')['deuda'];
+        $this->assertSame(500000, $soloFutbol['total']);
+    }
+
+    public function test_t19_quien_se_dio_de_baja_no_cuenta_en_ninguna_de_las_tres(): void
+    {
+        $ana = $this->crearAlumno('Ana', 'Sosa', '40000101', $this->patin, $this->grupoPatin);
+        $this->crearDeudaCuota($ana, '2026-10', 30000);
+        $seFue = $this->crearAlumno('Carla', 'Rey', '40000103', $this->patin, $this->grupoPatin);
+        $this->crearDeudaCuota($seFue, '2026-09', 30000);
+        $this->crearDeudaCuota($seFue, '2026-10', 30000);
+        $this->crearCargoInscripcion($seFue);
+        $this->assertSame(['cobranza' => 9500000, 'inicio' => 9500000, 'reportes' => 9500000], $this->deudaEnLasTresPantallas());
+
+        $seFue->update(['activo' => false]);
+        $this->assertSame(['cobranza' => 3000000, 'inicio' => 3000000, 'reportes' => 3000000], $this->deudaEnLasTresPantallas());
+
+        // Si vuelve, su deuda vuelve a contar: no se perdió nada.
+        $seFue->update(['activo' => true]);
+        $this->assertSame(['cobranza' => 9500000, 'inicio' => 9500000, 'reportes' => 9500000], $this->deudaEnLasTresPantallas());
+    }
 }

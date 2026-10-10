@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\{Alumno, AlumnoRevisionCobranza, CajaOperativa, CashflowMovimiento, Clase, Liquidacion, MovimientoOperativo, TipoCaja};
+use App\Models\{Alumno, AlumnoRevisionCobranza, CajaOperativa, CargoAlumno, CashflowMovimiento, Clase, Liquidacion, MovimientoOperativo, TipoCaja};
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +24,7 @@ class ReporteMensualService
         $ingresos = $economicos->where('tipo', 'INGRESO')->sum('centavos');
         $egresos = -$economicos->where('tipo', 'EGRESO')->sum('centavos');
         $desconocidos = $delMes->filter(fn ($f) => $f['clasificacion'] === null);
-        $deuda = $this->saldoHistorico('CUOTA', $fin, $mes, $deporteId);
+        $deuda = $this->deudaDeAlumnos($fin, $mes, $deporteId);
         $porPagar = $this->saldoHistorico('LIQUIDACION', $fin, $mes, $deporteId);
         $iniciales = DB::table('reporte_eventos')->where('tipo', 'CAJA_INICIAL')->whereDate('fecha', '<=', $fin)
             ->selectRaw('origen_id, SUM(delta_centavos) AS centavos')->groupBy('origen_id')->pluck('centavos', 'origen_id');
@@ -68,12 +68,59 @@ class ReporteMensualService
         return $meses->map(fn ($p) => $this->obtener($p, $deporteId))->values()->all();
     }
 
+    /**
+     * Lo que deben los alumnos: cuotas más inscripciones, solo de alumnos activos.
+     *
+     * T19 (Carlos, 10/10/2026): «Deuda real de los alumnos activos (cuotas + inscripciones)»,
+     * la misma en Inicio, Reportes y Cobranza. Antes Reportes contaba solo cuotas y sumaba
+     * también las de quienes ya se habían dado de baja.
+     */
+    private function deudaDeAlumnos(string $fecha, string $mes, ?int $deporteId): array
+    {
+        $cuotas = $this->saldoHistorico('CUOTA', $fecha, $mes, $deporteId);
+        if (!$cuotas['disponible']) return $cuotas + ['cuotas' => null, 'inscripciones' => null];
+
+        $inscripciones = $this->inscripcionesPendientes($fecha, $deporteId);
+        $filas = collect($cuotas['filas'])->concat($inscripciones);
+
+        return ['disponible' => true, 'total' => $filas->sum('centavos'), 'mes' => $filas->where('periodo', $mes)->sum('centavos'),
+            'anteriores' => $filas->where('periodo', '<', $mes)->sum('centavos'), 'filas' => $filas->all(),
+            'cuotas' => $cuotas['total'], 'inscripciones' => $inscripciones->sum('centavos')];
+    }
+
+    /**
+     * Inscripciones sin pagar a una fecha. Mismo criterio que Cobranza: cargo vigente de
+     * una persona que tiene al menos un alumno activo. La inscripción es una por persona;
+     * para filtrar por deporte se toma el del alumno con el que se generó.
+     */
+    private function inscripcionesPendientes(string $fecha, ?int $deporteId): Collection
+    {
+        $dnis = Alumno::where('activo', true)->pluck('dni')
+            ->map(fn ($dni) => InscripcionService::dni($dni ?? ''))->filter()->unique();
+        if ($dnis->isEmpty()) return collect();
+
+        $cargos = CargoAlumno::where('tipo', 'INSCRIPCION')->where('estado', 'VIGENTE')
+            ->whereIn('dni', $dnis)->whereDate('created_at', '<=', $fecha)->get();
+        $pagado = DB::table('pago_cargo_alumno as pc')->join('pagos', 'pagos.id', '=', 'pc.pago_id')
+            ->whereIn('pc.cargo_alumno_id', $cargos->pluck('id'))->whereDate('pagos.fecha_pago', '<=', $fecha)
+            ->selectRaw('pc.cargo_alumno_id AS id, SUM(pc.monto_aplicado) AS pagado')->groupBy('pc.cargo_alumno_id')->pluck('pagado', 'id');
+        $deportes = Alumno::whereIn('id', $cargos->pluck('alumno_id'))->pluck('deporte_id', 'id');
+
+        return $cargos->map(fn ($cargo) => ['id' => $cargo->id, 'persona_id' => $cargo->alumno_id,
+            'periodo' => $cargo->created_at->format('Y-m'), 'deporte_id' => isset($deportes[$cargo->alumno_id]) ? (int) $deportes[$cargo->alumno_id] : null,
+            'centavos' => max(0, (int) round(((float) $cargo->monto_original - (float) $cargo->monto_condonado - (float) ($pagado[$cargo->id] ?? 0)) * 100)),
+            'concepto' => 'Inscripción'])
+            ->filter(fn ($fila) => $fila['centavos'] > 0 && ($deporteId === null || $fila['deporte_id'] === $deporteId))->values();
+    }
+
     public function saldoHistorico(string $tipo, string $fecha, string $mes, ?int $deporteId = null): array
     {
         $desde = DB::table('reporte_cobertura')->where('id', 1)->value('desde');
         if (!$desde || $fecha < $desde) return ['disponible' => false, 'total' => null, 'mes' => null, 'anteriores' => null, 'filas' => []];
         $filas = DB::table('reporte_eventos')->where('tipo', $tipo)->whereDate('fecha', '<=', $fecha)
             ->where('periodo', '<=', $mes)->when($deporteId, fn ($q) => $q->where('deporte_id', $deporteId))
+            // T19: quien se dio de baja no cuenta como «por cobrar».
+            ->when($tipo === 'CUOTA', fn ($q) => $q->whereIn('persona_id', Alumno::where('activo', true)->select('id')))
             ->selectRaw('origen_id, persona_id, periodo, deporte_id, SUM(delta_centavos) AS centavos')
             ->groupBy('origen_id', 'persona_id', 'periodo', 'deporte_id')->havingRaw('SUM(delta_centavos) > 0')
             ->orderBy('periodo')->get()->map(fn ($f) => ['id' => $f->origen_id, 'persona_id' => $f->persona_id,

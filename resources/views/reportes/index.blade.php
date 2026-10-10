@@ -87,7 +87,7 @@
 @foreach(['mes' => 'Del mes', 'anteriores' => 'Meses anteriores'] as $clave => $label)
 <details style="margin-top:12px"><summary>{{ $label }} · {{ $dinero($reporte['deuda'][$clave]) }}</summary>
 @foreach(collect($reporte['deuda']['filas'])->filter(fn ($f) => $clave === 'mes' ? $f['periodo'] === $reporte['mes'] : $f['periodo'] < $reporte['mes']) as $fila)
-<div class="rv-detail-row"><span>{{ isset($alumnos[$fila['persona_id']]) ? $alumnos[$fila['persona_id']]->apellido.', '.$alumnos[$fila['persona_id']]->nombre : 'Alumno #'.$fila['persona_id'] }}<small>{{ ucfirst($fecha($fila['periodo'])->translatedFormat('F Y')) }}</small></span><strong>{{ $dinero($fila['centavos']) }}</strong></div>
+<div class="rv-detail-row"><span>{{ isset($alumnos[$fila['persona_id']]) ? $alumnos[$fila['persona_id']]->apellido.', '.$alumnos[$fila['persona_id']]->nombre : 'Alumno #'.$fila['persona_id'] }}<small>{{ $fila['concepto'] ?? ucfirst($fecha($fila['periodo'])->translatedFormat('F Y')) }}</small></span><strong>{{ $dinero($fila['centavos']) }}</strong></div>
 @endforeach
 </details>
 @endforeach
