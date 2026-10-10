@@ -48,7 +48,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T19** Reportes muestra la deuda sin inscripciones; Inicio y Cobranza ya las cuentan | En curso | Decidido por Carlos el 10/10: «Todo tiene que ser igual, las inscripciones son parte de la deuda». Lo hace Claude: Reportes debe contar inscripciones igual que Inicio y Cobranza |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
 | **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Devuelto (hizo Claude, verifica Gemini) | Corregir que meses futuros pendientes no sumen deuda en CobranzaEstadoService/buscador, y ajustar regex de periodos a meses 01-12 |
@@ -61,7 +60,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T19** Reportes muestra la deuda sin inscripciones; Inicio y Cobranza ya las cuentan | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude (ddd6343) y desplegado en el sitio de prueba: Inicio, Reportes y Cobranza muestran 2.010.000. Gemini verifica la logica |
 
 ## Sin empezar (14)
 
