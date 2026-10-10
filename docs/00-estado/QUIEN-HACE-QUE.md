@@ -58,9 +58,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T19** Reportes muestra la deuda sin inscripciones; Inicio y Cobranza ya las cuentan | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude (ddd6343) y desplegado en el sitio de prueba: Inicio, Reportes y Cobranza muestran 2.010.000. Gemini verifica la logica |
+Nada en este momento.
 
 ## Sin empezar (14)
 

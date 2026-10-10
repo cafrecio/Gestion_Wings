@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Verificación y Cierre de T19: La misma deuda en Inicio, Reportes y Cobranza
+
+- **Objetivo y resultado:** Verificar la lógica de unificación de deuda de alumnos activos (cuotas + inscripciones) en Inicio, Reportes y Cobranza (commit `ddd6343` de Claude, complementado por commit `567f030`). Tarea APROBADA y cerrada en el tablero (`php scripts/tablero/tablero.php cambiar T19 estado=cerrado verifica=Gemini`).
+- **Qué se probó:**
+  - Suite de comprobaciones independientes en `docs/06-pruebas/PRU-04/evidencia-t19/VerificacionT19Test.php` (14 tests, 77 aserciones, 100% PASS).
+  - Verificados los 7 puntos solicitados:
+    1. Igualdad al peso en los 8 casos de prueba (inscripción totalmente pagada, pago parcial, condonada parcialmente, cuota parcial, cuota condonada, alumna en 2 deportes con 1 sola inscripción, hermanos activo/inactivo, baja y reactivación inmediata).
+    2. Mes futuro pendiente no cuenta como deuda en ninguna pantalla ($0,00).
+    3. Filtro por deporte en Reportes: suma de deportes individuales da exactamente el total general ($70.000).
+    4. Meses pasados en Reportes y comportamiento temporal ante pagos posteriores y bajas analizado y documentado.
+    5. «Del mes» y «Meses anteriores» en Reportes: cada cargo/cuota cae en exactamente un balde y su suma es idéntica al total.
+    6. Relevamiento exhaustivo de todas las pantallas con deuda (Ficha, Buscador de Cobrar, Revisión, Reporte Alumnos, Dashboard Operativo).
+    7. «Profesores por pagar» y balance general de Reportes intactos sin regresiones.
+- **Stash y repositorio:** Stash local `stash@{0}` («dashboard local changes») preservado intacto.
+- **Suite completa:** 613 tests ejecutados, 5087 aserciones, 2 omitidos (100% OK) en `wings_testing_gemini`.
+- **Informe entregado:** `docs/06-pruebas/PRU-04/VERIFICACION-T19.md`.
+
 ## 2026-10-10 — LOG GEM CYE — Verificación T18: Cobro Adelantado devuelto a Claude
 
 - **Objetivo y resultado:** Verificar la lógica de cobro adelantado implementada por Claude en commit `3a3849a`. Tarea DEVUELTA a Claude por divergencia de saldos entre la ficha de cobro y el buscador/Cobranza ante cuotas futuras pendientes (ej. tras anulación), y por validación incompleta de meses en el regex de períodos.
