@@ -1,5 +1,18 @@
 # Wings — Estado actual
 
+## T15 — implementada, pendiente de verificación por Claude, 10/10/2026
+
+La orden pedía la nueva404 también para `/alumnos/999999` en los cuatro perfiles.
+Las rutas actuales exigen sesión y permiso: PROFESOR recibe403 y anónimo ingresa.
+Carlos aclaró «Sí, conservar permisos y login»: nueva404 solo cuando corresponde.
+Para500/503, Volver usa el acceso existente: al recuperarse el sistema reconoce
+la sesión y redirige al inicio del rol; renderizar el error no consulta sesión ni base.
+Aspecto solicitado: mismo sistema visual que403; no desplegar, Claude verifica.
+Cuatro pantallas nuevas, Inicio en el menú y JSON preservado. Suite594/2,
+4966 aserciones; 32 capturas de errores por rol, 134 del menú y cuatro con base
+inaccesible/mantenimiento; control de login a360 y primera carga pendiente.
+[Entrega y visor](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md). Base del club intacta.
+
 ## B10 — verificado y devuelto a Claude, 10/10/2026
 
 Contradicción comprobada por HTTP y filas: la orden pide rechazar alias con espacios;
@@ -394,7 +407,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **583 pruebas** (581 aprobadas, 2 omitidas; A57 y A58 cerrados, suite verde en wings_testing_gemini; acceso y aspecto aprobados por Carlos el 10/10). [Entrega y verificaciones](../06-pruebas/PRU-02/IMPLEMENTACION-A57-A58.md) |
+| **Tests** | **596 pruebas** (594 aprobadas, 2 omitidas; 4966 aserciones, 695,25s, wings_testing_codex, 10/10. T15 suma 13 pruebas; pendiente control de Claude, sin deploy). [Entrega T15](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

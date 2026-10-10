@@ -6,7 +6,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -79,10 +82,19 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        // También registrar abort(500); los demás errores HTTP siguen sin llenar el log.
+        $exceptions->stopIgnoring(HttpException::class);
+        $exceptions->dontReportWhen(fn (Throwable $e): bool =>
+            $e instanceof HttpException && $e->getStatusCode() !== 500);
+
+        $exceptions->shouldRenderJsonWhen(function (Request $request, Throwable $e): bool {
+            return $request->is('api/*') || $request->expectsJson();
+        });
+
         // 419 CSRF expirado → login. TokenMismatchException es convertida a
         // HttpException(419) por prepareException() antes de llegar aquí.
         $exceptions->render(function (HttpException $e, Request $request) {
-            if ($e->getStatusCode() === 419 && !$request->expectsJson()) {
+            if ($e->getStatusCode() === 419 && !$request->is('api/*') && !$request->expectsJson()) {
                 return redirect()->route('login')
                     ->with('error', 'Tu sesión expiró. Iniciá sesión nuevamente.');
             }
@@ -111,5 +123,26 @@ return Application::configure(basePath: dirname(__DIR__))
                     ],
                 ], 403);
             }
+        });
+
+        // Estas pantallas también deben salir si fallaron la base o la sesión.
+        // Las validaciones y los rechazos de acceso conservan su respuesta habitual.
+        $exceptions->render(function (Throwable $e, Request $request) {
+            if ($request->is('api/*') || $request->expectsJson()
+                || $e instanceof AuthenticationException
+                || $e instanceof ValidationException
+                || $e instanceof HttpResponseException) {
+                return;
+            }
+
+            $status = $e instanceof HttpExceptionInterface ? $e->getStatusCode() : 500;
+            if (!in_array($status, [500, 503], true)) {
+                return;
+            }
+
+            $request->attributes->set('wings.error_sin_contexto', true);
+
+            return response()->view('errors.'.$status, [], $status,
+                $e instanceof HttpExceptionInterface ? $e->getHeaders() : []);
         });
     })->create();

@@ -283,3 +283,9 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/recibos/liquidacion/{liquidacionId}', [ReciboController::class, 'liquidacion'])->name('web.recibos.liquidacion');
     });
 });
+
+// La ruta inexistente conserva el contexto web para Volver al inicio del rol.
+// No lleva auth: una dirección inventada también muestra el aviso sin sesión.
+Route::fallback(function () {
+    abort(404);
+});

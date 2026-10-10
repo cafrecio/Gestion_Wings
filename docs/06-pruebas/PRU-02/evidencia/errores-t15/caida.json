@@ -1,0 +1,53 @@
+{
+  "fecha": "2026-10-10T16:16:30.988Z",
+  "database": "wings_testing_codex",
+  "completo": true,
+  "errores": [],
+  "menu": [],
+  "caida": [
+    {
+      "url": "/login",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "base-caida-500-1366.png"
+    },
+    {
+      "url": "/login",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "base-caida-500-360.png"
+    },
+    {
+      "url": "/login",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "base-caida-mantenimiento-503-1366.png"
+    },
+    {
+      "url": "/login",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "base-caida-mantenimiento-503-360.png"
+    }
+  ],
+  "controles": [],
+  "avisos_js": [],
+  "entorno_caida": {
+    "app_env": "testing",
+    "database": "wings_testing_codex",
+    "db_host": "127.0.0.1",
+    "db_port": "1",
+    "session_driver": "database",
+    "maintenance_driver": "file",
+    "storage": "storage\\app\\errores-t15-caida"
+  },
+  "fallo_de_base_registrado": true
+}

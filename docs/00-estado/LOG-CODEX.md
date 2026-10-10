@@ -1,5 +1,18 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-10 — Codex CyE — T15 implementada, a verificar por Claude
+
+Cuatro errores en castellano (404/500/503/429), con el sistema visual de403; menú ADMIN dice Inicio.
+Carlos confirmó «Sí, conservar permisos y login»: alumno inexistente no salta login/permiso.
+500/503 sin consultas de sesión/auth/base; Volver pasa por el ingreso y recupera el inicio del rol.
+JSON, validaciones, sesión expirada y Retry-After conservados;500 interno/HTTP registrado.
+13 pruebas nuevas/301 aserciones; suite594 aprobadas/2 omitidas,4966 aserciones,695,25s; build46,84s.
+173PNG reales:32 errores/roles,134 menú,4 caída/mantenimiento,2 primera carga,1 login360; ancho1366/marco360.
+Fuente/resultado y cuatro PNG controlados por otro agente; sin ejecución ni cierre por ese control.
+Solo wings_testing_codex y storage propios; base del club intacta, sin deploy, JS externo.
+Tablero T15 a_verificar, tiene/verificaClaude;65/74 cerrados. [Entrega y visor](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md).
+Siguiente: Claude verifica en fuente/pantalla y, si aprueba, actualiza el sitio de prueba.
+
 ## 2026-10-10 — Codex CyE — B10 verificado y devuelto a Claude
 
 Objetivo: verificar438ee55 sobre main63ed840; aspecto aprobado por Carlos, fuera del juicio.
@@ -100,20 +113,5 @@ Suite propia543/2,4401aserciones,556,59s; módulo6/29 inicial y aserción histó
 Sueldos: pregunta de cuota por profesor sin respuesta; historia de cuotas/tarifas y comisión devengada pendientes.
 B12 tiene Carlos para elegir atribución; A23 continúa Codex. No cerrar B12/A23 por esta fase.
 
-## 2026-10-09 — Codex CyE — Finanzas V3 aprobado, aplicado y conectado
 
-Carlos eligió las capturas V3: «Si, mucho mejor». Aspecto aplicado solo a Ingresos/egresos.
-Ruta ADMIN mensual con mes/deporte; Inicio conserva corte/anclas. Deuda/pagar históricas plegadas.
-P1 enumera ruta nueva; mes cerrado sin movimientos entra en tarjetas. Ambos hallados y corregidos en revisión.
-Motor de negocio, app.css/layouts y base del club intactos. B12/A23 siguen abiertos, sin despliegue.
-Suite propia537/2,4369 aserciones,476,20s; módulo21/191 y control posterior de estado vacío2/34 verdes.
-PHP/JS/vistas correctos; build13,07s. CuatroHTTP200, ocho capturas1440/marco375; Chrome abre las dos anclas.
-[Entrega y límites](../06-pruebas/B12-A23/IMPLEMENTACION-REPORTES-2026-10-09.md) · [visor](../06-pruebas/B12-A23/visor.html).
-Siguiente: Alumnos y Sueldos, atribución por profesor/historia y clasificación; revisión independiente de fuentes/capturas/HTTP aprobada.
-Corte anterior preservado íntegro antes de retirar la entrada más antigua; diez entradas activas.
-
-[Archivo íntegro anterior al retoque del ajuste](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-AJUSTE-LABELS.txt).
-
-[Archivo íntegro anterior a A42](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-A42.txt).
-
-[Archivo íntegro anterior a verificar B10](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-VERIFICACION-B10.txt).
+[Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).

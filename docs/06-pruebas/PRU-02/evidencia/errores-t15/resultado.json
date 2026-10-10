@@ -1,0 +1,1970 @@
+{
+  "fecha": "2026-10-10T16:22:30.256Z",
+  "database": "wings_testing_codex",
+  "completo": true,
+  "errores": [
+    {
+      "rol": "ADMIN",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "admin-404-1366.png",
+      "volver": "/admin/dashboard",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "admin-404-360.png",
+      "volver": "/admin/dashboard",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "admin-429-1366.png",
+      "volver": "/admin/dashboard",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "admin-429-360.png",
+      "volver": "/admin/dashboard",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "admin-500-1366.png",
+      "volver": "/login",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "admin-500-360.png",
+      "volver": "/login",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "admin-503-1366.png",
+      "volver": "/login",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "ADMIN",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "admin-503-360.png",
+      "volver": "/login",
+      "destino_final": "/admin/dashboard"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "operativo-404-1366.png",
+      "volver": "/operativo",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "operativo-404-360.png",
+      "volver": "/operativo",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "operativo-429-1366.png",
+      "volver": "/operativo",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "operativo-429-360.png",
+      "volver": "/operativo",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "operativo-500-1366.png",
+      "volver": "/login",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "operativo-500-360.png",
+      "volver": "/login",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "operativo-503-1366.png",
+      "volver": "/login",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "OPERATIVO",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "operativo-503-360.png",
+      "volver": "/login",
+      "destino_final": "/operativo"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "profesor-404-1366.png",
+      "volver": "/clases",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "profesor-404-360.png",
+      "volver": "/clases",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "profesor-429-1366.png",
+      "volver": "/clases",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "profesor-429-360.png",
+      "volver": "/clases",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "profesor-500-1366.png",
+      "volver": "/login",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "profesor-500-360.png",
+      "volver": "/login",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "profesor-503-1366.png",
+      "volver": "/login",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "PROFESOR",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "profesor-503-360.png",
+      "volver": "/login",
+      "destino_final": "/clases"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "anonimo-404-1366.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/direccion-inventada-t15",
+      "status": 404,
+      "titulo": "Página no disponible",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "anonimo-404-360.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "anonimo-429-1366.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/429",
+      "status": 429,
+      "titulo": "Esperá un momento",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "anonimo-429-360.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "anonimo-500-1366.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/500",
+      "status": 500,
+      "titulo": "Algo falló",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "anonimo-500-360.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "anonimo-503-1366.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    },
+    {
+      "rol": "ANONIMO",
+      "url": "/__t15/error/503",
+      "status": 503,
+      "titulo": "Estamos actualizando Wings",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "anonimo-503-360.png",
+      "volver": "/login",
+      "destino_final": "/login"
+    }
+  ],
+  "menu": [
+    {
+      "nombre": "sanctum.csrf-cookie",
+      "url": "/sanctum/csrf-cookie",
+      "status": 204,
+      "capturas": [],
+      "motivo": "Respuesta sin menú compartido"
+    },
+    {
+      "nombre": "/",
+      "url": "/",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-001---1366.png"
+        },
+        {
+          "url": "/",
+          "status": 302,
+          "titulo": "Inicio",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-002---360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "login",
+      "url": "/login",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/login",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-003-login-1366.png"
+        },
+        {
+          "url": "/login",
+          "status": 302,
+          "titulo": "Inicio",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-004-login-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "logout",
+      "url": "/logout",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/logout",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-005-logout-1366.png"
+        },
+        {
+          "url": "/logout",
+          "status": 302,
+          "titulo": "Inicio",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-006-logout-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.primera-carga.index",
+      "url": "/sistema/primera-carga",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/sistema/primera-carga",
+          "status": 200,
+          "titulo": "Primera carga",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-007-web-primera-carga-index-1366.png"
+        },
+        {
+          "url": "/sistema/primera-carga",
+          "status": 200,
+          "titulo": "Primera carga",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-008-web-primera-carga-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.index",
+      "url": "/caja",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja",
+          "status": 200,
+          "titulo": "Caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-009-web-caja-index-1366.png"
+        },
+        {
+          "url": "/caja",
+          "status": 200,
+          "titulo": "Caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-010-web-caja-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.apertura",
+      "url": "/caja/apertura",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/apertura",
+          "status": 200,
+          "titulo": "Apertura de caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-011-web-caja-apertura-1366.png"
+        },
+        {
+          "url": "/caja/apertura",
+          "status": 200,
+          "titulo": "Apertura de caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-012-web-caja-apertura-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.configuracion",
+      "url": "/caja/configuracion",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/configuracion",
+          "status": 200,
+          "titulo": "Efectivo del mostrador",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-013-web-caja-configuracion-1366.png"
+        },
+        {
+          "url": "/caja/configuracion",
+          "status": 200,
+          "titulo": "Efectivo del mostrador",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-014-web-caja-configuracion-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.movimiento",
+      "url": "/caja/movimiento",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/movimiento",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-015-web-caja-movimiento-1366.png"
+        },
+        {
+          "url": "/caja/movimiento",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-016-web-caja-movimiento-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.historial",
+      "url": "/caja/historial",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/historial",
+          "status": 200,
+          "titulo": "Historial",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-017-web-caja-historial-1366.png"
+        },
+        {
+          "url": "/caja/historial",
+          "status": 200,
+          "titulo": "Historial",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-018-web-caja-historial-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.cobrar-cuota",
+      "url": "/caja/cobrar",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/cobrar",
+          "status": 200,
+          "titulo": "Cobrar cuota",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-019-web-caja-cobrar-cuota-1366.png"
+        },
+        {
+          "url": "/caja/cobrar",
+          "status": 200,
+          "titulo": "Cobrar cuota",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-020-web-caja-cobrar-cuota-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.cobrar",
+      "url": "/caja/cobrar/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/cobrar/1",
+          "status": 200,
+          "titulo": "Cobrar: Prueba, Alumno FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-021-web-caja-cobrar-1366.png"
+        },
+        {
+          "url": "/caja/cobrar/1",
+          "status": 200,
+          "titulo": "Cobrar: Prueba, Alumno FICTICIO T15",
+          "ancho": 360,
+          "contenido": 372,
+          "captura": "menu-022-web-caja-cobrar-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.resumen",
+      "url": "/caja/1/resumen",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/resumen",
+          "status": 200,
+          "titulo": "Resumen de caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-023-web-caja-resumen-1366.png"
+        },
+        {
+          "url": "/caja/1/resumen",
+          "status": 200,
+          "titulo": "Resumen de caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-024-web-caja-resumen-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.detalle",
+      "url": "/caja/1/detalle",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/detalle",
+          "status": 200,
+          "titulo": "Detalle de caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-025-web-caja-detalle-1366.png"
+        },
+        {
+          "url": "/caja/1/detalle",
+          "status": 200,
+          "titulo": "Detalle de caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-026-web-caja-detalle-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.editar",
+      "url": "/caja/1/editar",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/editar",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-027-web-caja-editar-1366.png"
+        },
+        {
+          "url": "/caja/1/editar",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-028-web-caja-editar-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.cierre",
+      "url": "/caja/1/cerrar",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/cerrar",
+          "status": 200,
+          "titulo": "Cierre de caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-029-web-caja-cierre-1366.png"
+        },
+        {
+          "url": "/caja/1/cerrar",
+          "status": 200,
+          "titulo": "Cierre de caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-030-web-caja-cierre-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.movimientos.editar",
+      "url": "/caja/1/movimientos/1/editar",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/movimientos/1/editar",
+          "status": 200,
+          "titulo": "Editar movimiento",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-031-web-caja-movimientos-editar-1366.png"
+        },
+        {
+          "url": "/caja/1/movimientos/1/editar",
+          "status": 200,
+          "titulo": "Editar movimiento",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-032-web-caja-movimientos-editar-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.caja.movimientos.cancelar",
+      "url": "/caja/1/movimientos/1/cancelar",
+      "status": 403,
+      "capturas": [
+        {
+          "url": "/caja/1/movimientos/1/cancelar",
+          "status": 403,
+          "titulo": "Sin permiso",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-033-web-caja-movimientos-cancelar-1366.png"
+        },
+        {
+          "url": "/caja/1/movimientos/1/cancelar",
+          "status": 403,
+          "titulo": "Sin permiso",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-034-web-caja-movimientos-cancelar-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.cajas.index",
+      "url": "/cajas",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/cajas",
+          "status": 200,
+          "titulo": "Caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-035-web-cajas-index-1366.png"
+        },
+        {
+          "url": "/cajas",
+          "status": 302,
+          "titulo": "Caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-036-web-cajas-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.cajas.show",
+      "url": "/cajas/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/cajas/1",
+          "status": 200,
+          "titulo": "Detalle de caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-037-web-cajas-show-1366.png"
+        },
+        {
+          "url": "/cajas/1",
+          "status": 302,
+          "titulo": "Detalle de caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-038-web-cajas-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "caja/{id}/cobrar",
+      "url": "/caja/1/cobrar",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/caja/1/cobrar",
+          "status": 200,
+          "titulo": "Cobrar: Prueba, Alumno FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-039-caja--id--cobrar-1366.png"
+        },
+        {
+          "url": "/caja/1/cobrar",
+          "status": 302,
+          "titulo": "Cobrar: Prueba, Alumno FICTICIO T15",
+          "ancho": 360,
+          "contenido": 372,
+          "captura": "menu-040-caja--id--cobrar-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.operativo.dashboard",
+      "url": "/operativo",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/operativo",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-041-web-operativo-dashboard-1366.png"
+        },
+        {
+          "url": "/operativo",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-042-web-operativo-dashboard-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.movimientos.index",
+      "url": "/movimientos",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/movimientos",
+          "status": 200,
+          "titulo": "Movimientos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-043-web-movimientos-index-1366.png"
+        },
+        {
+          "url": "/movimientos",
+          "status": 200,
+          "titulo": "Movimientos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-044-web-movimientos-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.cobranza.index",
+      "url": "/cobranza",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/cobranza",
+          "status": 200,
+          "titulo": "Cobranza",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-045-web-cobranza-index-1366.png"
+        },
+        {
+          "url": "/cobranza",
+          "status": 200,
+          "titulo": "Cobranza",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-046-web-cobranza-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.revision-cobranza.index",
+      "url": "/revision-cobranza",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/revision-cobranza",
+          "status": 200,
+          "titulo": "Revisión",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-047-web-revision-cobranza-index-1366.png"
+        },
+        {
+          "url": "/revision-cobranza",
+          "status": 200,
+          "titulo": "Revisión",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-048-web-revision-cobranza-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "admin.dashboard",
+      "url": "/admin/dashboard",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/admin/dashboard",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-049-admin-dashboard-1366.png"
+        },
+        {
+          "url": "/admin/dashboard",
+          "status": 200,
+          "titulo": "Inicio",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-050-admin-dashboard-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.reportes.index",
+      "url": "/reportes",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/reportes",
+          "status": 200,
+          "titulo": "Ingresos y egresos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-051-web-reportes-index-1366.png"
+        },
+        {
+          "url": "/reportes",
+          "status": 200,
+          "titulo": "Ingresos y egresos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-052-web-reportes-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.reportes.alumnos",
+      "url": "/reportes/alumnos",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/reportes/alumnos",
+          "status": 200,
+          "titulo": "Reporte de alumnos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-053-web-reportes-alumnos-1366.png"
+        },
+        {
+          "url": "/reportes/alumnos",
+          "status": 200,
+          "titulo": "Reporte de alumnos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-054-web-reportes-alumnos-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.reportes.sueldos",
+      "url": "/reportes/sueldos",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/reportes/sueldos",
+          "status": 200,
+          "titulo": "Reporte de sueldos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-055-web-reportes-sueldos-1366.png"
+        },
+        {
+          "url": "/reportes/sueldos",
+          "status": 200,
+          "titulo": "Reporte de sueldos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-056-web-reportes-sueldos-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.cashflow.index",
+      "url": "/cashflow",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/cashflow",
+          "status": 200,
+          "titulo": "Cashflow",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-057-web-cashflow-index-1366.png"
+        },
+        {
+          "url": "/cashflow",
+          "status": 200,
+          "titulo": "Cashflow",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-058-web-cashflow-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.cashflow.movimiento",
+      "url": "/cashflow/movimiento",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/cashflow/movimiento",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-059-web-cashflow-movimiento-1366.png"
+        },
+        {
+          "url": "/cashflow/movimiento",
+          "status": 200,
+          "titulo": "Nuevo movimiento",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-060-web-cashflow-movimiento-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.alumnos.index",
+      "url": "/alumnos",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/alumnos",
+          "status": 200,
+          "titulo": "Alumnos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-061-web-alumnos-index-1366.png"
+        },
+        {
+          "url": "/alumnos",
+          "status": 200,
+          "titulo": "Alumnos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-062-web-alumnos-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.alumnos.create",
+      "url": "/alumnos/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/alumnos/create",
+          "status": 200,
+          "titulo": "Nuevo Alumno",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-063-web-alumnos-create-1366.png"
+        },
+        {
+          "url": "/alumnos/create",
+          "status": 200,
+          "titulo": "Nuevo Alumno",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-064-web-alumnos-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.alumnos.show",
+      "url": "/alumnos/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/alumnos/1",
+          "status": 200,
+          "titulo": "Prueba, Alumno FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-065-web-alumnos-show-1366.png"
+        },
+        {
+          "url": "/alumnos/1",
+          "status": 200,
+          "titulo": "Prueba, Alumno FICTICIO T15",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-066-web-alumnos-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.alumnos.edit",
+      "url": "/alumnos/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/alumnos/1/edit",
+          "status": 200,
+          "titulo": "Editar: Prueba, Alumno FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-067-web-alumnos-edit-1366.png"
+        },
+        {
+          "url": "/alumnos/1/edit",
+          "status": 200,
+          "titulo": "Editar: Prueba, Alumno FICTICIO T15",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-068-web-alumnos-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.deportes.index",
+      "url": "/deportes",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/deportes",
+          "status": 200,
+          "titulo": "Deportes",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-069-web-deportes-index-1366.png"
+        },
+        {
+          "url": "/deportes",
+          "status": 200,
+          "titulo": "Deportes",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-070-web-deportes-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.deportes.create",
+      "url": "/deportes/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/deportes/create",
+          "status": 200,
+          "titulo": "Nuevo Deporte",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-071-web-deportes-create-1366.png"
+        },
+        {
+          "url": "/deportes/create",
+          "status": 200,
+          "titulo": "Nuevo Deporte",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-072-web-deportes-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.deportes.edit",
+      "url": "/deportes/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/deportes/1/edit",
+          "status": 200,
+          "titulo": "Editar: Patín",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-073-web-deportes-edit-1366.png"
+        },
+        {
+          "url": "/deportes/1/edit",
+          "status": 200,
+          "titulo": "Editar: Patín",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-074-web-deportes-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.rubros.index",
+      "url": "/rubros",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/rubros",
+          "status": 200,
+          "titulo": "Rubros",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-075-web-rubros-index-1366.png"
+        },
+        {
+          "url": "/rubros",
+          "status": 200,
+          "titulo": "Rubros",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-076-web-rubros-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.rubros.create",
+      "url": "/rubros/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/rubros/create",
+          "status": 200,
+          "titulo": "Nuevo Rubro",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-077-web-rubros-create-1366.png"
+        },
+        {
+          "url": "/rubros/create",
+          "status": 200,
+          "titulo": "Nuevo Rubro",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-078-web-rubros-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.rubros.edit",
+      "url": "/rubros/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/rubros/1/edit",
+          "status": 200,
+          "titulo": "Rubros",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-079-web-rubros-edit-1366.png"
+        },
+        {
+          "url": "/rubros/1/edit",
+          "status": 302,
+          "titulo": "Rubros",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-080-web-rubros-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.subrubros.create",
+      "url": "/rubros/1/subrubros/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/rubros/1/subrubros/create",
+          "status": 200,
+          "titulo": "Rubros",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-081-web-subrubros-create-1366.png"
+        },
+        {
+          "url": "/rubros/1/subrubros/create",
+          "status": 302,
+          "titulo": "Rubros",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-082-web-subrubros-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.subrubros.edit",
+      "url": "/rubros/1/subrubros/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/rubros/1/subrubros/1/edit",
+          "status": 200,
+          "titulo": "Rubros",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-083-web-subrubros-edit-1366.png"
+        },
+        {
+          "url": "/rubros/1/subrubros/1/edit",
+          "status": 302,
+          "titulo": "Rubros",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-084-web-subrubros-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.grupos.index",
+      "url": "/grupos",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/grupos",
+          "status": 200,
+          "titulo": "Grupos",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-085-web-grupos-index-1366.png"
+        },
+        {
+          "url": "/grupos",
+          "status": 200,
+          "titulo": "Grupos",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-086-web-grupos-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.grupos.create",
+      "url": "/grupos/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/grupos/create",
+          "status": 200,
+          "titulo": "Nuevo Grupo",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-087-web-grupos-create-1366.png"
+        },
+        {
+          "url": "/grupos/create",
+          "status": 200,
+          "titulo": "Nuevo Grupo",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-088-web-grupos-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.grupos.edit",
+      "url": "/grupos/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/grupos/1/edit",
+          "status": 200,
+          "titulo": "Editar: Patín — Principiantes",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-089-web-grupos-edit-1366.png"
+        },
+        {
+          "url": "/grupos/1/edit",
+          "status": 200,
+          "titulo": "Editar: Patín — Principiantes",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-090-web-grupos-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.grupos.show",
+      "url": "/grupos/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/grupos/1",
+          "status": 200,
+          "titulo": "Patín — Principiantes",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-091-web-grupos-show-1366.png"
+        },
+        {
+          "url": "/grupos/1",
+          "status": 200,
+          "titulo": "Patín — Principiantes",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-092-web-grupos-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.clases.create",
+      "url": "/clases/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/clases/create",
+          "status": 200,
+          "titulo": "Nueva Clase",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-093-web-clases-create-1366.png"
+        },
+        {
+          "url": "/clases/create",
+          "status": 200,
+          "titulo": "Nueva Clase",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-094-web-clases-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.clases.edit",
+      "url": "/clases/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/clases/1/edit",
+          "status": 200,
+          "titulo": "Editar Clase",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-095-web-clases-edit-1366.png"
+        },
+        {
+          "url": "/clases/1/edit",
+          "status": 200,
+          "titulo": "Editar Clase",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-096-web-clases-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.clases.index",
+      "url": "/clases",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/clases",
+          "status": 200,
+          "titulo": "Clases",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-097-web-clases-index-1366.png"
+        },
+        {
+          "url": "/clases",
+          "status": 200,
+          "titulo": "Clases",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-098-web-clases-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.clases.show",
+      "url": "/clases/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/clases/1",
+          "status": 200,
+          "titulo": "Clase — Patín — Principiantes",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-099-web-clases-show-1366.png"
+        },
+        {
+          "url": "/clases/1",
+          "status": 200,
+          "titulo": "Clase — Patín — Principiantes",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-100-web-clases-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.liquidaciones.index",
+      "url": "/liquidaciones",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/liquidaciones",
+          "status": 200,
+          "titulo": "Liquidaciones",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-101-web-liquidaciones-index-1366.png"
+        },
+        {
+          "url": "/liquidaciones",
+          "status": 200,
+          "titulo": "Liquidaciones",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-102-web-liquidaciones-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.liquidaciones.create",
+      "url": "/liquidaciones/crear",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/liquidaciones/crear",
+          "status": 200,
+          "titulo": "Nueva Liquidación",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-103-web-liquidaciones-create-1366.png"
+        },
+        {
+          "url": "/liquidaciones/crear",
+          "status": 200,
+          "titulo": "Nueva Liquidación",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-104-web-liquidaciones-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.liquidaciones.show",
+      "url": "/liquidaciones/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/liquidaciones/1",
+          "status": 200,
+          "titulo": "Liquidación — Prueba, Profesor FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-105-web-liquidaciones-show-1366.png"
+        },
+        {
+          "url": "/liquidaciones/1",
+          "status": 200,
+          "titulo": "Liquidación — Prueba, Profesor FICTICIO T15",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-106-web-liquidaciones-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.tipos-caja.index",
+      "url": "/tipos-caja",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/tipos-caja",
+          "status": 200,
+          "titulo": "Tipos de Caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-107-web-tipos-caja-index-1366.png"
+        },
+        {
+          "url": "/tipos-caja",
+          "status": 200,
+          "titulo": "Tipos de Caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-108-web-tipos-caja-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.tipos-caja.create",
+      "url": "/tipos-caja/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/tipos-caja/create",
+          "status": 200,
+          "titulo": "Nuevo Tipo de Caja",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-109-web-tipos-caja-create-1366.png"
+        },
+        {
+          "url": "/tipos-caja/create",
+          "status": 200,
+          "titulo": "Nuevo Tipo de Caja",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-110-web-tipos-caja-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.tipos-caja.edit",
+      "url": "/tipos-caja/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/tipos-caja/1/edit",
+          "status": 200,
+          "titulo": "Editar Tipo de Caja: Efectivo",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-111-web-tipos-caja-edit-1366.png"
+        },
+        {
+          "url": "/tipos-caja/1/edit",
+          "status": 200,
+          "titulo": "Editar Tipo de Caja: Efectivo",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-112-web-tipos-caja-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.niveles.index",
+      "url": "/niveles",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/niveles",
+          "status": 200,
+          "titulo": "Niveles",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-113-web-niveles-index-1366.png"
+        },
+        {
+          "url": "/niveles",
+          "status": 200,
+          "titulo": "Niveles",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-114-web-niveles-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.niveles.create",
+      "url": "/niveles/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/niveles/create",
+          "status": 200,
+          "titulo": "Nuevo Nivel",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-115-web-niveles-create-1366.png"
+        },
+        {
+          "url": "/niveles/create",
+          "status": 200,
+          "titulo": "Nuevo Nivel",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-116-web-niveles-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.niveles.edit",
+      "url": "/niveles/4/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/niveles/4/edit",
+          "status": 200,
+          "titulo": "Editar Nivel: Principiantes",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-117-web-niveles-edit-1366.png"
+        },
+        {
+          "url": "/niveles/4/edit",
+          "status": 200,
+          "titulo": "Editar Nivel: Principiantes",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-118-web-niveles-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.usuarios.index",
+      "url": "/usuarios",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/usuarios",
+          "status": 200,
+          "titulo": "Usuarios",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-119-web-usuarios-index-1366.png"
+        },
+        {
+          "url": "/usuarios",
+          "status": 200,
+          "titulo": "Usuarios",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-120-web-usuarios-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.usuarios.create",
+      "url": "/usuarios/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/usuarios/create",
+          "status": 200,
+          "titulo": "Nuevo Usuario",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-121-web-usuarios-create-1366.png"
+        },
+        {
+          "url": "/usuarios/create",
+          "status": 200,
+          "titulo": "Nuevo Usuario",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-122-web-usuarios-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.usuarios.edit",
+      "url": "/usuarios/2/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/usuarios/2/edit",
+          "status": 200,
+          "titulo": "Editar Usuario",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-123-web-usuarios-edit-1366.png"
+        },
+        {
+          "url": "/usuarios/2/edit",
+          "status": 200,
+          "titulo": "Editar Usuario",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-124-web-usuarios-edit-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.configuraciones.index",
+      "url": "/configuraciones",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/configuraciones",
+          "status": 200,
+          "titulo": "Configuración",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-125-web-configuraciones-index-1366.png"
+        },
+        {
+          "url": "/configuraciones",
+          "status": 200,
+          "titulo": "Configuración",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-126-web-configuraciones-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.profesores.index",
+      "url": "/profesores",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/profesores",
+          "status": 200,
+          "titulo": "Profesores",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-127-web-profesores-index-1366.png"
+        },
+        {
+          "url": "/profesores",
+          "status": 200,
+          "titulo": "Profesores",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-128-web-profesores-index-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.profesores.create",
+      "url": "/profesores/create",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/profesores/create",
+          "status": 200,
+          "titulo": "Nuevo Profesor",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-129-web-profesores-create-1366.png"
+        },
+        {
+          "url": "/profesores/create",
+          "status": 200,
+          "titulo": "Nuevo Profesor",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-130-web-profesores-create-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.profesores.show",
+      "url": "/profesores/1",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/profesores/1",
+          "status": 200,
+          "titulo": "Prueba, Profesor FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-131-web-profesores-show-1366.png"
+        },
+        {
+          "url": "/profesores/1",
+          "status": 200,
+          "titulo": "Prueba, Profesor FICTICIO T15",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-132-web-profesores-show-360.png"
+        }
+      ]
+    },
+    {
+      "nombre": "web.profesores.edit",
+      "url": "/profesores/1/edit",
+      "status": 200,
+      "capturas": [
+        {
+          "url": "/profesores/1/edit",
+          "status": 200,
+          "titulo": "Editar: Prueba, Profesor FICTICIO T15",
+          "ancho": 1366,
+          "contenido": 1366,
+          "captura": "menu-133-web-profesores-edit-1366.png"
+        },
+        {
+          "url": "/profesores/1/edit",
+          "status": 200,
+          "titulo": "Editar: Prueba, Profesor FICTICIO T15",
+          "ancho": 360,
+          "contenido": 360,
+          "captura": "menu-134-web-profesores-edit-360.png"
+        }
+      ]
+    }
+  ],
+  "caida": [],
+  "controles": [
+    {
+      "rol": "ADMIN",
+      "caso": "alumno-inexistente",
+      "status": 404,
+      "location": null
+    },
+    {
+      "rol": "ADMIN",
+      "caso": "alumno-inexistente",
+      "status": 404,
+      "location": null
+    },
+    {
+      "caso": "primera-carga-pendiente",
+      "url": "/admin/dashboard",
+      "status": 200,
+      "titulo": "Primera carga",
+      "ancho": 1366,
+      "contenido": 1366,
+      "captura": "primera-carga-pendiente-1366.png"
+    },
+    {
+      "caso": "primera-carga-pendiente",
+      "url": "/admin/dashboard",
+      "status": 302,
+      "titulo": "Primera carga",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "primera-carga-pendiente-360.png"
+    },
+    {
+      "rol": "OPERATIVO",
+      "caso": "alumno-inexistente",
+      "status": 404,
+      "location": null
+    },
+    {
+      "rol": "PROFESOR",
+      "caso": "alumno-inexistente",
+      "status": 403,
+      "location": null
+    },
+    {
+      "url": "/login",
+      "status": 200,
+      "titulo": "Iniciar sesión",
+      "ancho": 360,
+      "contenido": 360,
+      "captura": "control-login-360.png"
+    },
+    {
+      "rol": "ANONIMO",
+      "caso": "alumno-inexistente",
+      "status": 302,
+      "location": "http://127.0.0.1:8011/login"
+    }
+  ],
+  "avisos_js": [],
+  "log_500_registrado": true
+}

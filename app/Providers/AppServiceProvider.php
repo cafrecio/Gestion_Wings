@@ -30,6 +30,16 @@ class AppServiceProvider extends ServiceProvider
         }
 
         View::composer('*', function ($view) {
+            // Incluye renderizados directos, como artisan down --render=errors.503.
+            // Sus layouts/componentes tampoco deben intentar resolver la sesión.
+            if (in_array($view->name(), ['errors.500', 'errors.503', 'errors::500', 'errors::503'], true)) {
+                request()->attributes->set('wings.error_sin_contexto', true);
+            }
+            if (request()->attributes->get('wings.error_sin_contexto')) {
+                $view->with('badgeClasesPendientes', 0);
+                return;
+            }
+
             $badge = 0;
             if (Auth::check()) {
                 // Clases pasadas que NO se van a poder liquidar hasta que
