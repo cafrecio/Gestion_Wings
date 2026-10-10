@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Implementación T20: Pantalla de Cobrar en el celular (360px)
+
+- **Objetivo y resultado:** Implementar los 3 ajustes visuales pedidos por Carlos para la pantalla de cobro (`resources/views/caja/cobrar.blade.php`) observada desde el teléfono (360px), sin alterar la lógica de negocio ni scripts. Estado en tablero pasado a `a_verificar` con `verifica=Carlos`.
+- **Cambios realizados:**
+  1. *Planes del mismo tamaño:* Configurado en `grid grid-cols-1 sm:grid-cols-2 gap-2` con labels a todo el ancho y `justify-between`. En 360px miden exactamente lo mismo una debajo de la otra; en escritorio dos columnas simétricas idénticas.
+  2. *Íconos en los rótulos:* Incorporados SVGs acordes al design system (`subrubros/_form.blade.php`) en los rótulos de Mes (calendario), Importe (moneda), Medio de pago (tarjeta), Fecha del pago (calendario) y Observaciones (nota).
+  3. *Medio de pago, Fecha y Observaciones en 3 filas:* Contenedor migrado a `grid grid-cols-1 md:grid-cols-3 gap-4`. En 360px cada control ocupa su propia fila a todo el ancho, dando amplitud y legibilidad al selector de caja.
+- **Comprobaciones y evidencia:**
+  - Capturas antes y después (zonas y pantalla completa a 360px y 1366px) guardadas en `docs/06-pruebas/PRU-04/evidencia-t20/`.
+  - Verificado que `scrollWidth <= clientWidth` (360px exactos, 0 scroll horizontal ni desbordes).
+  - Prueba interactiva en 360px: tildar cuota, elegir medio de pago, agregar mes adelantado con importe editado, suma correcta a $63.000 y botón Cobrar habilitado.
+- **Suite completa:** 613 tests ejecutados, 5087 aserciones, 2 omitidos (100% OK) en `wings_testing_gemini`.
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T20.md`.
+
 ## 2026-10-10 — LOG GEM CYE — Verificación y Cierre de T19: La misma deuda en Inicio, Reportes y Cobranza
 
 - **Objetivo y resultado:** Verificar la lógica de unificación de deuda de alumnos activos (cuotas + inscripciones) en Inicio, Reportes y Cobranza (commit `ddd6343` de Claude, complementado por commit `567f030`). Tarea APROBADA y cerrada en el tablero (`php scripts/tablero/tablero.php cambiar T19 estado=cerrado verifica=Gemini`).

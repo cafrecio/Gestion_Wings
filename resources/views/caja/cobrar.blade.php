@@ -14,6 +14,8 @@
     $dep   = mb_strtolower($alumno->deporte->nombre ?? '');
     $dep   = strtr($dep, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n']);
     $sport = str_contains($dep, 'pat') ? 'patin' : (str_contains($dep, 'fut') ? 'futbol' : 'otro');
+    $iconAttr = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"';
+    $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
 @endphp
 
 {{-- Info del alumno --}}
@@ -54,7 +56,7 @@
     <p style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:0.75rem;">
         Plan — frecuencia semanal
     </p>
-    <div style="display:flex; gap:8px; flex-wrap:wrap;" id="plan-options">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="plan-options">
         @foreach($planesDisponibles as $plan)
         @php $veces = $plan->clases_por_semana === 1 ? '1 vez/semana' : $plan->clases_por_semana . ' veces/semana'; @endphp
         <label style="
@@ -62,15 +64,17 @@
             border:1px solid var(--color-border); border-radius:8px;
             background:var(--color-surface); cursor:pointer;
             transition:border-color 0.15s, background 0.15s;
-        " class="plan-label {{ $alumno->planActivo?->plan_id == $plan->id ? 'plan-label--active' : '' }}">
-            <input type="radio"
-                   name="nuevo_plan_id"
-                   value="{{ $plan->id }}"
-                   data-precio="{{ (int) $plan->precio_mensual }}"
-                   data-precio-mes="{{ $plan->precio_mes }}"
-                   {{ $alumno->planActivo?->plan_id == $plan->id ? 'checked' : '' }}
-                   style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
-            <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
+        " class="plan-label w-full justify-between {{ $alumno->planActivo?->plan_id == $plan->id ? 'plan-label--active' : '' }}">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <input type="radio"
+                       name="nuevo_plan_id"
+                       value="{{ $plan->id }}"
+                       data-precio="{{ (int) $plan->precio_mensual }}"
+                       data-precio-mes="{{ $plan->precio_mes }}"
+                       {{ $alumno->planActivo?->plan_id == $plan->id ? 'checked' : '' }}
+                       style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
+                <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
+            </div>
             <span style="font-size:0.78rem; color:var(--color-text-muted);">${{ number_format($plan->precio_mensual, 0, ',', '.') }}/mes</span>
         </label>
         @endforeach
@@ -168,7 +172,10 @@
         <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
         <div style="display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
             <div style="flex:1; min-width:180px;">
-                <label for="adelanto-periodo" style="display:block; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">Mes</label>
+                <label for="adelanto-periodo" class="{{ $labelClass }}">
+                    <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Mes
+                </label>
                 <select id="adelanto-periodo" class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
                     @foreach($mesesAdelantables as $mes)
@@ -177,7 +184,10 @@
                 </select>
             </div>
             <div style="width:150px;">
-                <label for="adelanto-monto" style="display:block; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">Importe</label>
+                <label for="adelanto-monto" class="{{ $labelClass }}">
+                    <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+                    Importe
+                </label>
                 <input type="text" id="adelanto-monto" inputmode="numeric" class="w-full px-4 py-2.5 text-sm wings-input" style="text-align:right;" placeholder="0">
             </div>
             <button type="button" id="adelanto-agregar" class="ds-btn" disabled
@@ -191,10 +201,10 @@
 
     {{-- Medio de pago + fecha + observaciones --}}
     <div class="filtros-card mb-4">
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem;">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-                <label for="tipo_caja_id"
-                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
+                <label for="tipo_caja_id" class="{{ $labelClass }}">
+                    <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
                     Medio de pago <span class="form-required">*</span>
                 </label>
                 <select id="tipo_caja_id" name="tipo_caja_id" required
@@ -211,8 +221,8 @@
                 @enderror
             </div>
             <div>
-                <label for="fecha_pago"
-                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
+                <label for="fecha_pago" class="{{ $labelClass }}">
+                    <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     Fecha del pago
                 </label>
                 <input type="date" id="fecha_pago" name="fecha_pago"
@@ -221,8 +231,8 @@
                        class="w-full px-4 py-2.5 text-sm wings-input">
             </div>
             <div>
-                <label for="observaciones"
-                       style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:600; color:var(--color-text-muted); margin-bottom:6px;">
+                <label for="observaciones" class="{{ $labelClass }}">
+                    <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
                     Observaciones
                 </label>
                 <input type="text" id="observaciones" name="observaciones"

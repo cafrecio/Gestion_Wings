@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 10/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 11/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -37,6 +37,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude, verifica Gemini) | Corregidas las dos fallas que devolvio Gemini (567f030), desplegado en test. Decision de Carlos 10/10: si se anula un cobro adelantado, el mes queda pendiente con el importe pactado; no se borra y no es falla. Carlos dice cuando vuelve a Gemini |
+| **T20** Pantalla de Cobrar en el celular: planes del mismo tamanio, iconos en los rotulos y medio de pago, fecha y observaciones en tres filas | Hecho, espera verificación (hizo Gemini, verifica Carlos) | Verificación visual por Carlos en celular (360px). Informe y capturas en docs/06-pruebas/PRU-04/IMPLEMENTACION-T20.md |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -60,9 +61,9 @@ Nada.
 
 Nada en este momento.
 
-## Sin empezar (15)
+## Sin empezar (14)
 
-B13, T2, T6, T7, T9, T10, T12, T20, B3, B5, B6, B7, B8, B9, B11.
+B13, T2, T6, T7, T9, T10, T12, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
