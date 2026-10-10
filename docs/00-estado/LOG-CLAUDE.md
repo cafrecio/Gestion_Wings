@@ -31,6 +31,8 @@ Carlos dio OK a las vistas del celular; falta Cobrar, que necesita alumnos. Repo
 Reportes «no lleva a ningun lado»: era la redireccion muda a Primera carga; ahora avisa
 (`3cb0264`, desplegado en test). Pendiente: B11 al final y solo, prueba manual de la primera
 carga, T9 metodo comun en `Gestion_CAB`, T10 borradores de privacidad.
+**PRU-03:** Gemini hizo la primera carga en test (90 alumnos). Verifique las 90 filas contra
+la base: 0 diferencias. Lo practico no se probo de verdad (`PRU-03/VERIFICACION-CLAUDE.md`).
 
 ## 2026-10-09 — Claude CyE — sitio de prueba en 22977b6, con Inicio del admin y Reportes
 
