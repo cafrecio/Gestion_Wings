@@ -35,6 +35,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Desplegado el arreglo de A57 y A58 (10/10). Carlos confirma en su celular Caja y Clases, y mira Alumnos, Grupos y Profesores: los datos de las tarjetas ahora van en una sola columna. Falta Cobrar, cuando haya alumnos |
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -56,9 +57,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (12)
+## Sin empezar (13)
 
-B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B11.
+B13, T2, T6, T7, T9, T10, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
