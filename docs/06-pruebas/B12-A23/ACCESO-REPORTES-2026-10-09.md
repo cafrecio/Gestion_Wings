@@ -43,6 +43,7 @@ y navegación entre los tres reportes aprobados. Verificador visual: **Carlos**
 
 ## Pendiente
 
-Aspecto del ajuste final, prueba manual y clasificación de antecedentes de B12.
+Aspecto del ajuste final aprobado después el10/10 («Sí, así»); [entrega](ETIQUETAS-AJUSTE-2026-10-10.md).
+Pendientes: prueba manual y clasificación de antecedentes de B12.
 B12 sigue abierto. A23 ya fue cerrado por Claude el 10/10;
 [verificación de Inicio](VERIFICACION-A23-INICIO.md). Esta aprobación no cierra B12.

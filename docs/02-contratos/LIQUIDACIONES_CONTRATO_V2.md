@@ -22,6 +22,13 @@ cambia la comisión completa vigente para cada profesor.
 [Acuerdos literales](../07-evaluacion/ACUERDOS-B12-A23-2026-10-09.md) ·
 [Historia probada, sin activar en el club](../06-pruebas/B12-A23/HISTORIAL-SUELDOS-2026-10-09.md).
 
+## Aclaración visual — 10/10/2026
+
+Campo **Monto ajustado**: se ingresa el total a pagar, cero o positivo; no la diferencia.
+La diferencia entre ese total y el cálculo original puede ser negativa y se muestra automáticamente.
+Carlos aprobó texto, ayuda e íconos: «Sí, así». No cambia la regla monetaria ni la auditoría.
+[Capturas y control](../06-pruebas/B12-A23/ETIQUETAS-AJUSTE-2026-10-10.md).
+
 ## 1. Modelo de Dominio
 
 ### 1.1 Entidad Central: Deporte

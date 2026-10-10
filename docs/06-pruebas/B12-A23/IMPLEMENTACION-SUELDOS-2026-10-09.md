@@ -2,7 +2,7 @@
 
 Codex CyE. Implementación solicitada por Carlos; **sin despliegue ni cambios en base del club**.
 Alumnos aprobado («Esta OK») e integrado. Sueldos aprobado por Carlos:
-«Esta OK, solo deberiamos ver desde donde accede en el menu». Ajuste final por revisar.
+«Esta OK, solo deberiamos ver desde donde accede en el menu». Aspecto del ajuste final aprobado el10/10 («Sí, así»); [etiquetas e íconos](ETIQUETAS-AJUSTE-2026-10-10.md).
 
 ## Resultado
 
@@ -58,7 +58,7 @@ repartir cuota y analizar su costo. Cambio de deporte no mueve clases anteriores
 - Control visual independiente de15 PNG: gráficos y contenidos completos; formularios
   solo donde corresponde. Septiembre302000/720000=41,9%; Patín224000/360000=62,2%.
   El PDF conserva su presentación previa al borde: no hay caracteres fuera de página.
-  No se modificaron sus márgenes. Sueldos aprobado por Carlos; ajuste final por revisar.
+  No se modificaron sus márgenes. Sueldos aprobado por Carlos; aspecto del ajuste aprobado el10/10 («Sí, así»).
 - Publicación GitHub comprobada: main remoto a132bfd6975dcff88ac728388addfab73623940d.
 
 ## Capturas reproducibles
@@ -82,6 +82,6 @@ Motor/servicio solo lectura; pruebas y escenario no exportan users ni dump.
 Acceso anterior: Inicio → Ver → enlace Sueldos al pie de Ingresos y egresos.
 Tras «Continuar», acceso **Plata → Reportes** aplicado y tres opciones arriba;
 [capturas y alcance](ACCESO-REPORTES-2026-10-09.md). Acceso aprobado por Carlos el 10/10: «Esta OK el acceso».
-Después, revisión visual del ajuste final, prueba manual integral de B12/A23 y
+Aspecto del ajuste aprobado el10/10 («Sí, así»). Continúan prueba manual integral de B12 y
 clasificación de antecedentes. B12 sigue abierto; A23 cerrado por Claude el 10/10
-([verificación](VERIFICACION-A23-INICIO.md)). La aprobación del acceso no incluye el ajuste final.
+([verificación](VERIFICACION-A23-INICIO.md)). Acceso y aspecto del ajuste aprobados por separado.

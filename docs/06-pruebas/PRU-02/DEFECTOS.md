@@ -696,7 +696,7 @@ calcula (FIN-14).
 
 Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
-mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados; Sueldos y acceso Plata → Reportes aprobados por Carlos («Esta OK el acceso», 10/10). [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Faltan aspecto del ajuste final, manual integral y clasificación de antecedentes; B12 sigue abierto.
+mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados; Sueldos y acceso Plata → Reportes aprobados por Carlos («Esta OK el acceso», 10/10). [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Aspecto del ajuste aprobado por Carlos («Sí, así»,10/10); Monto ajustado e íconos. Faltan manual integral y clasificación de antecedentes; B12 sigue abierto.
 
 ### B13. Los datos de prueba no representan al club · Molesta · verificado
 

@@ -284,9 +284,9 @@
 {{-- Stats COMISION --}}
 <div class="filtros-card mb-3">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div><span class="info-label">Cálculo original</span><p class="info-value">${{ number_format((float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
-        <div><span class="info-label">Ajuste del admin</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
-        <div><span class="info-label">Monto final</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar, 2, ',', '.') }}</p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Cálculo original</span><p class="info-value">${{ number_format((float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>Ajuste del admin</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado, 2, ',', '.') }}</p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value">${{ number_format((float)$liquidacion->monto_a_pagar, 2, ',', '.') }}</p></div>
     </div>
     @if(!$esPagada && !$esCancelada && \App\Models\Liquidacion::ajustesDisponibles())
     <details class="mt-3">
@@ -295,11 +295,12 @@
             @csrf
             <input type="hidden" name="monto_anterior" value="{{ $liquidacion->monto_a_pagar }}">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div><label for="monto_final" class="info-label">Monto final</label>
-                    <input id="monto_final" name="monto_final" type="number" min="0" max="9999999999.99" step="0.01" required value="{{ old('monto_final', $liquidacion->monto_a_pagar) }}" class="w-full px-3 py-2 text-sm wings-input">
+                <div><label for="monto_final" class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto ajustado</label>
+                    <input id="monto_final" name="monto_final" aria-describedby="monto_final_ayuda" type="number" min="0" max="9999999999.99" step="0.01" required value="{{ old('monto_final', $liquidacion->monto_a_pagar) }}" class="w-full px-3 py-2 text-sm wings-input">
+                    <p id="monto_final_ayuda" class="text-xs mt-1" style="color:var(--color-text-muted);">Total a pagar, desde $0. La diferencia se calcula automáticamente.</p>
                     @error('monto_final')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
                 </div>
-                <div><label for="motivo_ajuste" class="info-label">Motivo del ajuste</label>
+                <div><label for="motivo_ajuste" class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Motivo del ajuste</label>
                     <input id="motivo_ajuste" name="motivo" required minlength="5" maxlength="255" value="{{ old('motivo') }}" class="w-full px-3 py-2 text-sm wings-input">
                     @error('motivo')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
                 </div>
@@ -419,7 +420,7 @@
             <div>
                 <label for="tipo_caja_id"
                        style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">
-                    Tipo de caja <span class="form-required">*</span>
+                    <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Tipo de caja <span class="form-required">*</span>
                 </label>
                 <select id="tipo_caja_id" name="tipo_caja_id" required
                         class="w-full px-3 py-2.5 text-sm wings-input">
@@ -444,7 +445,7 @@
             <div>
                 <label for="fecha_pago"
                        style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">
-                    Fecha de pago <span class="form-required">*</span>
+                    <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Fecha de pago <span class="form-required">*</span>
                 </label>
                 <input type="date" id="fecha_pago" name="fecha_pago" required
                        value="{{ old('fecha_pago', now()->format('Y-m-d')) }}"
@@ -457,7 +458,7 @@
             <div>
                 <label for="observaciones"
                        style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">
-                    Observaciones
+                    <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Observaciones
                 </label>
                 <input type="text" id="observaciones" name="observaciones"
                        value="{{ old('observaciones') }}" maxlength="500"
@@ -511,7 +512,7 @@
         @csrf
         <div style="margin-bottom:12px;">
             <label for="motivo_cancelacion" style="display:block; font-size:0.72rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">
-                Motivo de cancelación <span class="form-required">*</span>
+                <svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Motivo de cancelación <span class="form-required">*</span>
             </label>
             <input type="text" id="motivo_cancelacion" name="motivo" required minlength="5" maxlength="255"
                    placeholder="Ej: Corrección de asistencias clase 15/08"
