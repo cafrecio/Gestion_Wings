@@ -26,8 +26,11 @@ Gemini y Carlos aprobo en el chat de Gemini. El arreglo de A58 apila en una colu
 de TODAS las tarjetas en celular (16 vistas), no solo Clases: avisado a Carlos para que lo mire.
 **Suite completa en `wings_testing_claude`: 581 aprobadas, 2 omitidas.** Las pruebas de
 Reportes ya corren en cualquier base de pruebas.
-Pendiente: A42 (Codex), verificar B10 (Codex), B11 punitorios al final y solo, la prueba
-manual de la primera carga, T9 metodo comun en `Gestion_CAB`.
+**Tarde:** A42 y B10 cerrados (B10 lo devolvio Codex y la segunda vuelta la verifico Gemini).
+Carlos dio OK a las vistas del celular; falta Cobrar, que necesita alumnos. Reporto que
+Reportes «no lleva a ningun lado»: era la redireccion muda a Primera carga; ahora avisa
+(`3cb0264`, desplegado en test). Pendiente: B11 al final y solo, prueba manual de la primera
+carga, T9 metodo comun en `Gestion_CAB`, T10 borradores de privacidad.
 
 ## 2026-10-09 — Claude CyE — sitio de prueba en 22977b6, con Inicio del admin y Reportes
 
