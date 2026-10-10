@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — T17: Inicio cuenta cuotas + inscripciones en la deuda
+
+- **Objetivo y cambios realizados:**
+  - En Inicio (`WebController::adminDashboard`), «Alumnos por cobrar» suma las cuotas pendientes calculadas por `ReporteMensualService::obtener` más las inscripciones pendientes de alumnos activos.
+  - Se extrajo el método `totalInscripcionesPendientes()` en `CobranzaEstadoService`, reutilizado tanto en `resumenDashboard()` como en `adminDashboard()` garantizando idéntico criterio al peso.
+  - La suite específica `InicioDeudaCuotasEInscripcionesTest` (7 tests, 27 aserciones) comprueba: solo cuotas, cuotas + inscripción, inscripción pagada, inscripción con pago parcial, alumna en dos deportes con 1 sola inscripción, inscripción condonada y exclusión de alumno inactivo.
+  - Documentos sincronizados a 611 pruebas (`ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md`).
+  - Suite completa: 609 aprobadas, 2 omitidas (5053 aserciones) en `wings_testing_gemini`. Sin modificaciones visuales ni de CSS. Informe: `docs/06-pruebas/PRU-04/IMPLEMENTACION-T17.md`.
+
 ## 2026-10-10 — LOG GEM CYE — PRU-03 Segunda Vuelta: Primera Carga en Excel Real y Flujo Orgánico
 
 - **Objetivo:** Responder a las observaciones de Claude (`VERIFICACION-CLAUDE.md`) completando lo pendiente de la primera carga: manipulación directa en Microsoft Excel 2016 desktop, carga manual de 10 alumnos adicionales con cronómetro, prueba del error de fila repetida (12 errores en total), navegación orgánica tocando el menú sin escribir URLs directas, capturas completas de la planilla para el manual de usuario, y depuración de la carpeta `capturas/fichas/`.

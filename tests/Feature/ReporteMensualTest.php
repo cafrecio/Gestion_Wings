@@ -304,7 +304,10 @@ class ReporteMensualTest extends TestCase
         $inicio = $this->get(route('admin.dashboard'))->assertOk();
         $respuesta = $this->get(route('web.reportes.index', ['mes' => $inicio->viewData('reporte')['mes']]))->assertOk();
         $r = $respuesta->viewData('reporte');
-        $this->assertSame($inicio->viewData('reporte'), $r);
+        $reporteEsperadoInicio = $r;
+        $reporteEsperadoInicio['deuda']['cuotas'] = $r['deuda']['total'];
+        $reporteEsperadoInicio['deuda']['inscripciones'] = 0;
+        $this->assertSame($reporteEsperadoInicio, $inicio->viewData('reporte'));
         foreach (['ingresos', 'egresos', 'deuda', 'profesores'] as $ancla) $respuesta->assertSee('id="'.$ancla.'"', false);
         foreach (['deuda', 'por_pagar'] as $clave) $this->assertSame($r[$clave]['total'], array_sum(array_column($r[$clave]['filas'], 'centavos')));
         $respuesta->assertSee('Del mes')->assertSee('Meses anteriores');
@@ -329,7 +332,10 @@ class ReporteMensualTest extends TestCase
         $this->actingAs(User::where('rol', 'ADMIN')->first());
         $respuesta = $this->get(route('admin.dashboard', ['mes' => '2026-08', 'deporte_id' => 999]));
         $respuesta->assertOk()->assertViewIs('admin.dashboard');
-        $this->assertSame(app(ReporteMensualService::class)->obtener('2026-10'), $respuesta->viewData('reporte'));
+        $reporteEsperado = app(ReporteMensualService::class)->obtener('2026-10');
+        $reporteEsperado['deuda']['cuotas'] = $reporteEsperado['deuda']['total'];
+        $reporteEsperado['deuda']['inscripciones'] = 0;
+        $this->assertSame($reporteEsperado, $respuesta->viewData('reporte'));
         $respuesta->assertSee('$660.000')->assertSee('$75.000')->assertSee('$585.000')
             ->assertSee('$4.360.000')->assertSee('$690.000')->assertSee('$90.000')->assertDontSee('Datos ficticios');
         // Reportes aprobado: todos los indicadores conservan el mes y su detalle.

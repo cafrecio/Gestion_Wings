@@ -394,21 +394,7 @@ class CobranzaEstadoService
         }
 
         // Inscripciones pendientes para alumnos activos
-        $dnis = $alumnos->map(fn($a) => \App\Services\InscripcionService::dni($a->dni))->filter()->unique();
-        $totalAdeudadoInscripciones = 0.0;
-        if ($dnis->isNotEmpty()) {
-            $cargosInscripcion = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
-                ->where('estado', 'VIGENTE')
-                ->whereIn('dni', $dnis)
-                ->with('pagos')
-                ->get();
-            foreach ($cargosInscripcion as $cargo) {
-                $pagado = (float)$cargo->pagos->sum('pivot.monto_aplicado');
-                $condonado = (float)$cargo->monto_condonado;
-                $orig = (float)$cargo->monto_original;
-                $totalAdeudadoInscripciones += max(0, $orig - $pagado - $condonado);
-            }
-        }
+        $totalAdeudadoInscripciones = $this->totalInscripcionesPendientes($alumnos);
 
         $totalAdeudado = round($totalAdeudadoCuotas + $totalAdeudadoInscripciones, 2);
 
@@ -419,6 +405,38 @@ class CobranzaEstadoService
             'por_deporte' => array_values($porDeporte),
             'por_grupo' => array_values($porGrupo),
         ];
+    }
+
+    /**
+     * Total en pesos de inscripciones pendientes de alumnos activos.
+     * Criterio canónico compartido con Cobranza (resumenDashboard) e Inicio (adminDashboard).
+     *
+     * @param Collection<int, Alumno>|null $alumnos
+     * @return float
+     */
+    public function totalInscripcionesPendientes(?Collection $alumnos = null): float
+    {
+        $alumnos = $alumnos ?? Alumno::where('activo', true)->get(['id', 'dni']);
+        $dnis = $alumnos->map(fn($a) => \App\Services\InscripcionService::dni($a->dni ?? ''))->filter()->unique();
+        if ($dnis->isEmpty()) {
+            return 0.0;
+        }
+
+        $cargosInscripcion = \App\Models\CargoAlumno::where('tipo', 'INSCRIPCION')
+            ->where('estado', 'VIGENTE')
+            ->whereIn('dni', $dnis)
+            ->with('pagos')
+            ->get();
+
+        $total = 0.0;
+        foreach ($cargosInscripcion as $cargo) {
+            $pagado = (float) $cargo->pagos->sum('pivot.monto_aplicado');
+            $condonado = (float) $cargo->monto_condonado;
+            $orig = (float) $cargo->monto_original;
+            $total += max(0, $orig - $pagado - $condonado);
+        }
+
+        return round($total, 2);
     }
 
     /**
