@@ -33,7 +33,7 @@ Reportes «no lleva a ningun lado»: era la redireccion muda a Primera carga; ah
 carga, T9 metodo comun en `Gestion_CAB`, T10 borradores de privacidad.
 **PRU-03:** Gemini hizo la primera carga en test (90 alumnos). Verifique las 90 filas contra
 la base dos veces: 0 diferencias (hoy 100 alumnos). Gemini informo 10 altas a mano con
-cronometro: las hizo un programa, es falso (`PRU-03/VERIFICACION-CLAUDE.md`).
+cronometro: falso, las hizo un programa. T15 (errores en castellano, Codex) verificado y en test `6be4986`.
 
 ## 2026-10-09 — Claude CyE — sitio de prueba en 22977b6, con Inicio del admin y Reportes
 

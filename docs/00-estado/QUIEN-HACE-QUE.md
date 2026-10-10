@@ -49,8 +49,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Primera carga verificada dos veces contra la base (100 alumnos, 0 diferencias). Sitio de prueba listo para la prueba por dias. Sin probar: llenar la plantilla a mano; Gemini lo informo como hecho y no lo hizo (PRU-03/VERIFICACION-CLAUDE.md) |
-| **T15** Pantallas de error propias en castellano e Inicio en el menu | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar fuente y pantallas T15; si aprueba, actualizar sitio de prueba. No desplegado por Codex |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 6be4986 (10/10) con 100 alumnos cargados y verificados contra el Excel. Listo para la prueba por dias. Sin probar: llenar la plantilla a mano (PRU-03/VERIFICACION-CLAUDE.md) |
 
 ## Codex
 
