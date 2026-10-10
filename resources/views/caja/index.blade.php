@@ -43,7 +43,7 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
     <x-ds.button variant="primary" href="{{ route('web.caja.cobrar-cuota') }}">Cobrar</x-ds.button>
 </div>
 <div class="stats-bar mb-4">
-    <span class="stats-info">Cajón compartido del mostrador</span>
+    <span class="stats-info">Cajón del mostrador: abrile la caja a un operativo</span>
     <x-ds.button variant="primary" href="{{ $mostradorConfigurado ? route('web.caja.apertura') : route('web.caja.configuracion') }}">{{ $mostradorConfigurado ? 'Abrir' : 'Configurar' }}</x-ds.button>
 </div>
 
