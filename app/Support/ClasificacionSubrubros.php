@@ -68,7 +68,14 @@ class ClasificacionSubrubros
         }
 
         foreach (self::NUEVOS as $nuevo) {
-            if (DB::table('subrubros')->where('nombre', $nuevo['subrubro'])->exists()) continue;
+            if (DB::table('subrubros')->where('nombre', $nuevo['subrubro'])->exists()) {
+                // Ya lo había creado alguien a mano: no se duplica, pero si quedó sin
+                // clasificar y está en un rubro de egreso, se completa (devolución de Codex).
+                DB::table('subrubros')->where('nombre', $nuevo['subrubro'])->whereNull('clasificacion_resultado')
+                    ->whereIn('rubro_id', DB::table('rubros')->where('tipo', 'EGRESO')->select('id'))
+                    ->update(['clasificacion_resultado' => $nuevo['clasificacion']]);
+                continue;
+            }
             $rubroId = DB::table('rubros')->where('nombre', $nuevo['rubro'])->where('tipo', 'EGRESO')->value('id')
                 ?? DB::table('rubros')->insertGetId(['nombre' => $nuevo['rubro'], 'tipo' => 'EGRESO',
                     'observacion' => $nuevo['observacion'], 'created_at' => now(), 'updated_at' => now()]);

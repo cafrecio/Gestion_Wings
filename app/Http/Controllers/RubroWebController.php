@@ -68,6 +68,18 @@ class RubroWebController extends Controller
             'tipo.in'         => 'El tipo debe ser INGRESO o EGRESO.',
         ]);
 
+        // T16 (devolución de Codex): un aporte solo entra y un retiro solo sale. Cambiar el
+        // tipo del rubro no puede dejar adentro un subrubro con la clasificación opuesta.
+        if ($validated['tipo'] !== $rubro->tipo) {
+            $noCorresponden = $rubro->subrubros()->whereNotNull('clasificacion_resultado')
+                ->whereNotIn('clasificacion_resultado', \App\Support\ClasificacionSubrubros::permitidas($validated['tipo']))
+                ->pluck('nombre');
+            if ($noCorresponden->isNotEmpty()) {
+                return back()->withInput()->with('error', 'No se puede cambiar el tipo: '.$noCorresponden->join(', ', ' y ')
+                    .' está clasificado como plata de los dueños. Cambiá primero qué es ese subrubro.');
+            }
+        }
+
         $rubro->update($validated);
 
         return redirect()->route('web.rubros.index')->with('success', 'Rubro actualizado correctamente.');

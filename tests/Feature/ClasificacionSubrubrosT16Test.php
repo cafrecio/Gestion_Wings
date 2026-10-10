@@ -69,6 +69,13 @@ class ClasificacionSubrubrosT16Test extends TestCase
         ClasificacionSubrubros::aplicarCatalogo();
         $this->assertSame('APORTE', $cuota->fresh()->clasificacion_resultado);
         $this->assertSame(1, Subrubro::where('nombre', 'Retiro de dueños')->count());
+
+        // Devolución de Codex: si el admin ya había creado a mano los dos subrubros nuevos
+        // y quedaron sin clasificar, se completan sin duplicarlos.
+        DB::table('subrubros')->whereIn('nombre', ['Retiro de dueños', 'Pago al organizador'])->update(['clasificacion_resultado' => null]);
+        ClasificacionSubrubros::aplicarCatalogo();
+        $this->assertSame('RETIRO', Subrubro::where('nombre', 'Retiro de dueños')->sole()->clasificacion_resultado);
+        $this->assertSame('NEGOCIO', Subrubro::where('nombre', 'Pago al organizador')->sole()->clasificacion_resultado);
     }
 
     public function test_el_formulario_pide_la_clasificacion_y_un_subrubro_nuevo_nace_del_club(): void
@@ -89,6 +96,18 @@ class ClasificacionSubrubrosT16Test extends TestCase
         $this->actingAs($this->admin)->post(route('web.subrubros.store', $servicios->id), $datos + ['clasificacion_resultado' => 'NEGOCIO'])
             ->assertSessionHasNoErrors();
         $this->assertSame('NEGOCIO', Subrubro::where('nombre', 'Gas')->value('clasificacion_resultado'));
+
+        // Devolución de Codex: tampoco se llega a la combinación inválida cambiando el
+        // tipo del rubro. Indumentaria (aportes) no puede pasar a egreso ni Retiros a ingreso.
+        foreach (['Indumentaria' => 'EGRESO', 'Retiros' => 'INGRESO'] as $nombre => $tipoNuevo) {
+            $rubro = Rubro::where('nombre', $nombre)->firstOrFail();
+            $this->actingAs($this->admin)->put(route('web.rubros.update', $rubro->id), ['nombre' => $nombre, 'tipo' => $tipoNuevo])
+                ->assertSessionHas('error');
+            $this->assertNotSame($tipoNuevo, $rubro->fresh()->tipo);
+        }
+        // Un rubro sin plata de los dueños sí puede cambiar de tipo.
+        $this->actingAs($this->admin)->put(route('web.rubros.update', $servicios->id), ['nombre' => 'Servicios', 'tipo' => 'INGRESO'])
+            ->assertSessionHas('success');
     }
 
     public function test_clasificar_un_subrubro_viejo_desde_el_formulario_hace_contar_sus_movimientos(): void
