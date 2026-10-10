@@ -28,14 +28,14 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 09/10/2026. Avance: **60 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 10/10/2026. Avance: **60 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Inicio y Sueldos aprobados; acceso Plata a Reportes aplicado, revisar capturas y completar prueba manual integral |
-| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos mira Caja, Cobrar, Clases y el detalle de un grupo desde el celular cuando este desplegado en el servidor |
+| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos miro desde su celular el 10/10: Caja y Clases con dos defectos nuevos (A57, A58), Grupos bien, botones bien. Falta Cobrar a un alumno, cuando haya alumnos cargados |
 | **B12** No hay reportes | En curso (hizo Codex) | Sueldos aprobado; acceso Plata a Reportes implementado, revisar capturas del acceso y ajuste final; manual y antecedentes pendientes |
 
 ## Hecho y sin nadie que lo verifique
@@ -55,7 +55,10 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A57** En celular los campos de los filtros tienen anchos distintos | En curso | Visto por Carlos en su celular el 10/10 en Caja: la fecha es mas angosta que el desplegable. Corregir la causa y revisar todas las pantallas |
+| **A58** En celular hay pantallas que se deslizan hacia el costado sin nada a la derecha | En curso | Visto por Carlos en su celular el 10/10 en Clases. Encontrar que elemento se sale y revisar todas las pantallas, a 360 de ancho |
 
 ## Sin empezar (14)
 
