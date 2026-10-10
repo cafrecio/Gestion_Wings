@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 1 hecho y verificado. Dia 2 = domingo 11/10, sin actividad: si hay clases se cancelan. Dia 3 = lunes 12/10, feriado, sin actividad. La prueba avanza con el calendario real (Carlos, 10/10) |
+| **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude) | Hecho por Claude y desplegado en el sitio de prueba (3a3849a). Probado en Chrome sin cobrar: Total pendiente 38.000, selector de 12 meses, importe editable, total a cobrar correcto. Carlos mira la pantalla; la logica de cobro la tiene que verificar otro agente |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -49,7 +50,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 462e8b1 (10/10) con 100 alumnos, el dia 1 de PRU-04 hecho y T16 aplicado |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 3a3849a (10/10) con 100 alumnos, el dia 1 de PRU-04, T16 y T18 |
 
 ## Codex
 
@@ -63,9 +64,9 @@ Nada.
 |---|---|---|
 | **T17** Inicio tiene que contar cuotas mas inscripciones en la deuda | En curso | Gemini implementando suma de inscripciones en Inicio (WebController y ReporteMensualService) |
 
-## Sin empezar (15)
+## Sin empezar (14)
 
-B13, T2, T6, T7, T9, T10, T12, T18, B3, B5, B6, B7, B8, B9, B11.
+B13, T2, T6, T7, T9, T10, T12, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
