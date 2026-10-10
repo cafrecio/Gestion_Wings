@@ -34,7 +34,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | En curso (hizo Codex) | Inicio y Sueldos aprobados; acceso Plata a Reportes aplicado, revisar capturas y completar prueba manual integral |
 | **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos miro desde su celular el 10/10: Caja y Clases con dos defectos nuevos (A57, A58), Grupos bien, botones bien. Falta Cobrar a un alumno, cuando haya alumnos cargados |
 | **B12** No hay reportes | En curso (hizo Codex) | Sueldos aprobado; acceso Plata a Reportes implementado, revisar capturas del acceso y ajuste final; manual y antecedentes pendientes |
 
@@ -46,12 +45,15 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **A23** El dashboard de administración está casi vacío y no tiene acciones rápidas | Hecho, espera verificación (hizo Codex, verifica Claude) | Lo visual lo aprobo Carlos el 09/10. Claude verifica que los numeros y los avisos del inicio sean correctos |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 22977b6 (09/10), con Inicio del admin y Reportes, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **A42** Aviso de inscripción al editar alumno | En curso | Que el aviso de inscripcion consulte al abrir la edicion, con el DNI y la fecha ya cargados |
 
 ## Gemini
 
@@ -60,9 +62,9 @@ Nada en este momento.
 | **A57** En celular los campos de los filtros tienen anchos distintos | En curso | Visto por Carlos en su celular el 10/10 en Caja: la fecha es mas angosta que el desplegable. Corregir la causa y revisar todas las pantallas |
 | **A58** En celular hay pantallas que se deslizan hacia el costado sin nada a la derecha | En curso | Visto por Carlos en su celular el 10/10 en Clases. Encontrar que elemento se sale y revisar todas las pantallas, a 360 de ancho |
 
-## Sin empezar (14)
+## Sin empezar (13)
 
-A42, B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B10, B11.
+B13, T2, T6, T7, T9, B3, B5, B6, B7, B8, B9, B10, B11.
 
 <!-- TABLERO:FIN -->
 
