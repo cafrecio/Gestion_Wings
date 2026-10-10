@@ -165,3 +165,49 @@ Fuente leída: `AlumnoWebController::autocomplete` selecciona y mapea campos (no
 ## Devolución
 
 B10 vuelve a Claude: rechazar blancos internos en alias sin transformar el identificador; conservar limpieza de espacios para CBU; traducir el rechazo de longitud. No se propone implementación ni se toca el aspecto aprobado. El criterio para alias numéricos queda como observación para Carlos. Tras la corrección deberá verificarse el nuevo commit.
+
+---
+
+## 7. Segunda vuelta — Gemini (commit a33cd44)
+
+Verificación realizada el 10/10/2026 sobre la rama `main` (commit base `2d4936b` que incluye `a33cd44`).
+Base de datos: `wings_testing_gemini`.
+Suite de comprobación específica: `docs/06-pruebas/PRU-02/evidencia/verificacion-b10/segunda-vuelta/SegundaVueltaB10RunnerTest.php` (19 pruebas, 114 aserciones, 100% aprobado).
+Evidencia estructurada: `docs/06-pruebas/PRU-02/evidencia/verificacion-b10/segunda-vuelta/resultado.json`.
+
+### Tabla de casos verificados
+
+| Grupo | Caso | Entidad | Qué se mandó | Qué respondió | Qué quedó en la base | Resultado |
+|---|---|---|---|---|---|---|
+| A | Alias con espacio interno | Profesor | `alias con espacio` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios (mantiene valor anterior) | APROBADO |
+| A | Alias con espacio interno | Operativo | `alias con espacio` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios (mantiene valor anterior) | APROBADO |
+| A | Alias con tabulación interna | Profesor | `alias\tcon\ttab` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios | APROBADO |
+| A | Alias con tabulación interna | Operativo | `alias\tcon\ttab` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios | APROBADO |
+| A | Alias con salto de línea interno | Profesor | `alias\ncon\nsalto` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios | APROBADO |
+| A | Alias con salto de línea interno | Operativo | `alias\ncon\nsalto` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*; old input conservado | Sin cambios | APROBADO |
+| A | Texto de 200 caracteres | Profesor | `str_repeat('a', 200)` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."* (en castellano); old input conservado | Sin cambios | APROBADO |
+| A | Texto de 200 caracteres | Operativo | `str_repeat('a', 200)` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."* (en castellano); old input conservado | Sin cambios | APROBADO |
+| B | CBU pegado con espacios internos | Profesor | ` 0170 0992 2000 0067 7979 12 ` | HTTP 302 a index con éxito | Guardado como `0170099220000067797912` (22 números sin espacios) | APROBADO |
+| B | CBU con tabulaciones entre números | Profesor | `0170\t0992\t2000\t0067\t7979\t12` | HTTP 302 a index con éxito | Guardado como `0170099220000067797912` (se limpian las tabulaciones y espacios) | APROBADO |
+| B | Alias con espacios de borde | Profesor | ` mi.alias ` | HTTP 302 a index con éxito | Guardado como `mi.alias` (trim en bordes sin tocar interior) | APROBADO |
+| B | Alias válido | Profesor | `juan.perez.wings` | HTTP 302 a index con éxito | Guardado exactamente como `juan.perez.wings` | APROBADO |
+| B | CBU válido (22 dígitos) | Operativo | `0170099220000067797912` | HTTP 302 a index con éxito | Guardado como `0170099220000067797912` | APROBADO |
+| B | Campo vacío | Profesor | `""` (string vacío) | HTTP 302 a index con éxito | Guardado como `NULL` en base de datos | APROBADO |
+| C | Arreglo enviado por POST | Profesor | `cbu_alias[] = 'inyeccion'` | HTTP 302 a edit; validación rechaza con mensaje estándar en castellano; sin error 500 (TypeError) | Sin cambios en base de datos | APROBADO |
+| C | Mandar solo espacios en blanco | Operativo | `    ` (4 espacios) | HTTP 302 a index con éxito | Guardado como `NULL` en base de datos | APROBADO |
+| D | Preservación de mayúsculas/minúsculas | Profesor | `Mi.Alias.Banco` | HTTP 302 a index con éxito | Guardado como `Mi.Alias.Banco` (casing exacto respetado) | APROBADO |
+| D | Alias totalmente numérico (ej. 8 dígitos) | Profesor | `12345678` | HTTP 302 a edit; error en sesión: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."* | Rechazado (evita confusión con DNI o cuenta bancaria) | APROBADO |
+| D | Cambio de rol OPERATIVO a ADMIN limpia CBU | Usuario | Cambio de rol a `ADMIN` | HTTP 302 a index con éxito | `cbu_alias` pasa a `NULL` automáticamente | APROBADO |
+
+### Pruebas automatizadas y suite completa
+- `tests/Feature/CbuAliasB10Test.php`: 8 tests, 43 aserciones -> **PASS**.
+- `docs/06-pruebas/PRU-02/evidencia/verificacion-b10/segunda-vuelta/SegundaVueltaB10RunnerTest.php`: 19 tests, 114 aserciones -> **PASS**.
+- Suite completa en `wings_testing_gemini` (`php artisan test`): **581 passed, 2 skipped, 4660 assertions** -> **PASS**.
+
+### Conclusión de la segunda vuelta
+Las dos fallas señaladas por Codex quedaron completamente resueltas por Claude:
+1. Ningún alias con espacios, tabulaciones o saltos de línea internos es aceptado ni deformado; todos se rechazan con mensaje en castellano claro.
+2. Los textos largos (ej. 200 caracteres) se rechazan de inmediato con el mensaje en castellano del validador `CbuOAlias`.
+3. Se conservan todas las funcionalidades previas (limpieza de CBU con espacios/tabs, trimming de alias, soporte de NULL, preservación de casing).
+4. **B10 queda verificado y aprobado para cierre.**
+

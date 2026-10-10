@@ -1,0 +1,496 @@
+[
+    {
+        "id": "A1_alias_con_espacio",
+        "grupo": "A. Rechazos",
+        "descripcion": "«alias con espacio»",
+        "valor": "alias con espacio",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "A2_alias_con_tab",
+        "grupo": "A. Rechazos",
+        "descripcion": "Alias con tabulación en el medio",
+        "valor": "alias\tcon\ttab",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "A3_alias_con_salto",
+        "grupo": "A. Rechazos",
+        "descripcion": "Alias con salto de línea en el medio",
+        "valor": "alias\ncon\nsalto",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "A4_texto_200_chars",
+        "grupo": "A. Rechazos",
+        "descripcion": "Texto de 200 caracteres",
+        "valor": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B1_cbu_espacios_internos",
+        "grupo": "B. Sigue andando",
+        "descripcion": "CBU pegado con espacios internos y de borde",
+        "valor": " 0170 0992 2000 0067 7979 12 ",
+        "espera_rechazo": false,
+        "espera_bd": "0170099220000067797912",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B2_cbu_con_tabs",
+        "grupo": "B. Sigue andando",
+        "descripcion": "CBU con tabulaciones entre los números",
+        "valor": "0170\t0992\t2000\t0067\t7979\t12",
+        "espera_rechazo": false,
+        "espera_bd": "0170099220000067797912",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B3_alias_espacio_bordes",
+        "grupo": "B. Sigue andando",
+        "descripcion": "Alias con espacio al principio y al final",
+        "valor": " mi.alias ",
+        "espera_rechazo": false,
+        "espera_bd": "mi.alias",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B4_alias_valido",
+        "grupo": "B. Sigue andando",
+        "descripcion": "Alias válido estándar",
+        "valor": "mi.alias.valido",
+        "espera_rechazo": false,
+        "espera_bd": "mi.alias.valido",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B5_cbu_valido",
+        "grupo": "B. Sigue andando",
+        "descripcion": "CBU válido de 22 dígitos",
+        "valor": "0170099220000067797912",
+        "espera_rechazo": false,
+        "espera_bd": "0170099220000067797912",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "B6_campo_vacio",
+        "grupo": "B. Sigue andando",
+        "descripcion": "Campo vacío",
+        "valor": "",
+        "espera_rechazo": false,
+        "espera_bd": null,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        }
+    },
+    {
+        "id": "C1_arreglo_post",
+        "grupo": "C. Nuevos",
+        "descripcion": "Mandar el campo como arreglo por POST directo",
+        "valor": [
+            "x"
+        ],
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "C2_solo_espacios",
+        "grupo": "C. Nuevos",
+        "descripcion": "Mandar solo espacios en blanco",
+        "valor": "     ",
+        "espera_rechazo": false,
+        "espera_bd": null,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        }
+    },
+    {
+        "id": "D1_alias_mayusculas_minusculas",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "Alias con mayúsculas y minúsculas (conserva casing exacto)",
+        "valor": "Mi.Alias.Banco",
+        "espera_rechazo": false,
+        "espera_bd": "Mi.Alias.Banco",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D2_alias_guiones_puntos",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "Alias con guiones y puntos",
+        "valor": "alias-valido.b10",
+        "espera_rechazo": false,
+        "espera_bd": "alias-valido.b10",
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D3_alias_demasiado_corto",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "Alias de 5 caracteres (mínimo es 6)",
+        "valor": "abcde",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D4_alias_demasiado_largo",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "Alias de 21 caracteres (máximo es 20)",
+        "valor": "abcdefghijklmnopqrstu",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D5_cbu_21_digitos",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "CBU de 21 dígitos (incompleto)",
+        "valor": "123456789012345678901",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D6_cbu_23_digitos",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "CBU de 23 dígitos (excede 22)",
+        "valor": "12345678901234567890123",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D7_alias_solo_numeros",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "8 dígitos numéricos (alias puramente numérico se rechaza por regla)",
+        "valor": "12345678",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D8_cbu_con_letra",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "22 caracteres numéricos con una letra en el medio",
+        "valor": "1111111111a11111111111",
+        "espera_rechazo": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": false
+        }
+    },
+    {
+        "id": "D9_cbu_con_espacio_no_rompible",
+        "grupo": "D. Casos adicionales",
+        "descripcion": "CBU con non-breaking spaces (\\u{00A0})",
+        "valor": "0170 0992 2000 0067 7979 12",
+        "evaluar_comportamiento": true,
+        "profesor": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        },
+        "operativo": {
+            "http_status": 302,
+            "error_mensaje": null,
+            "old_conservado": false,
+            "bd_fila_existe": false,
+            "bd_cbu_alias": null,
+            "ok": true
+        }
+    }
+]

@@ -7,10 +7,12 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 10/10/2026: 64 cerrados de 74.** Quedan 10 abiertos, de los
+> **Avance al 10/10/2026: 65 cerrados de 74.** Quedan 9 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
+>
+> B10: **CERRADO 10/10, verificado Codex y Gemini**. CBU y alias bancario del profesor y operativo. Segunda vuelta aprobada (19 pruebas, 100% OK); alias con espacios rechazados, mensajes en castellano y compatibilidad total. [Informe](VERIFICACION-B10.md).
 >
 > A57 y A58: **CERRADOS 10/10, aprobados por Carlos** sobre visor interactivo y capturas reales a 360px. Filtros parejos en todo el sistema y eliminación del desplazamiento lateral en Clases. [Implementación](IMPLEMENTACION-A57-A58.md).
 >
@@ -699,11 +701,11 @@ una cuenta por casa.
 Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes.
 **Si nadie se acuerda, el club le paga dos veces.**
 
-### B10. No hay dónde guardar el CBU del profesor · Falta · DEVUELTO a Claude 10/10, verificado Codex
+### B10. No hay dónde guardar el CBU del profesor · Falta · CERRADO 10/10, verificado Codex y Gemini
 
 Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de Vanina.
 
-**Verificación independiente 10/10:** acepta y transforma alias con espacios, tabulación o salto; el rechazo de 200 caracteres aparece en inglés. Guardado, roles, pago completo, privacidad, Excel y seeders comprobados; suite581/2. Vuelve a Claude para esos dos ajustes. [Informe y evidencia](VERIFICACION-B10.md). B10 sigue abierto: avance64/74.
+**Verificación independiente (Codex y Gemini):** Primera vuelta por Codex aprobó 69/73 puntos y devolvió por 2 fallas (espacios internos y mensaje en inglés). Segunda vuelta por Gemini (10/10) sobre commit `a33cd44` comprobó las correcciones con 19 pruebas dedicadas (114 aserciones): rechazo de espacios/tabs/newlines internos con mensaje en castellano, rechazo de texto de 200 caracteres en castellano, CBU con espacios/tabs limpiados a 22 dígitos, preservación de casing y NULLs, compatibilidad con roles y suite completa (581 pasadas). [Informe y evidencia](VERIFICACION-B10.md).
 
 ### B11. Los punitorios están definidos y sin motor · Falta
 

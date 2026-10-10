@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-10 — LOG GEM CYE — Verificación Segunda Vuelta y Cierre de B10 (CBU o Alias)
+
+- **Objetivo:** Verificar en segunda vuelta la corrección de Claude (commit `a33cd44`) para el defecto B10 (campo «CBU o alias» de profesor y operativo), tras devolución de Codex por alias con espacios internos y mensaje de longitud en inglés.
+- **Entorno y base:** Commit base `2d4936b` sobre rama `main` en base aislada `wings_testing_gemini`.
+- **Resultados de las comprobaciones (19/19 aprobadas):**
+  - **Grupo A (Rechazos en castellano sin persistir):** Alias con espacio interno, tabulación interna, salto de línea interno y textos de 200 caracteres son rechazados con HTTP 302, 0 escrituras en base de datos, repoblamiento de formulario y mensaje exacto: *"Tiene que ser un CBU o CVU de 22 números, o un alias de 6 a 20 letras, números, puntos o guiones."*.
+  - **Grupo B (Compatibilidad y normalización):** CBU con espacios internos o tabulaciones se normaliza y guarda con sus 22 dígitos; alias con espacios en bordes hace trim limpio; strings vacíos persisten como `NULL`.
+  - **Grupo C (Casos adicionales):** Envío por array POST (`cbu_alias[]`) no arroja error 500 y se rechaza con mensaje estándar; whitespace puro se guarda como `NULL`.
+  - **Grupo D (Casos de borde):** Casing exacto respetado (`Mi.Alias.Banco`); alias totalmente numérico (8 dígitos) rechazado; cambio de rol de OPERATIVO a ADMIN limpia el CBU a `NULL`.
+- **Pruebas y suite:**
+  - Suite específica creada en evidencia: `SegundaVueltaB10RunnerTest.php` (19 tests, 114 aserciones, 100% PASS).
+  - Suite completa: 581 tests pasados, 2 omitidos (4660 aserciones) en `wings_testing_gemini`.
+- **Tablero y estado:** B10 marcado como `cerrado` con `verifica=Gemini` en `tareas.json` (65 cerrados de 74). Actualizados `DEFECTOS.md`, `DEFECTOS.html` e informe `VERIFICACION-B10.md`.
+- **Próximo paso:** Claude realiza el despliegue cuando corresponda.
+
 ## 2026-10-10 — LOG GEM CYE — Resolución Definitiva de A57 y A58 (Móvil 360px)
 
 - **Objetivo:** Resolver los dos defectos de visualización móvil detectados por Carlos desde su teléfono (360px): A57 (anchos dispares en barra de filtros de Caja) y A58 (desplazamiento lateral innecesario en Clases).

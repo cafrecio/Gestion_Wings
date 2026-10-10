@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 10/10/2026. Avance: **64 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 10/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -54,9 +54,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Segunda vuelta: Gemini confirma que un alias con espacios se rechaza y que todo rechazo sale en castellano, y cierra. Codex ya aprobo el resto |
+Nada en este momento.
 
 ## Sin empezar (12)
 
