@@ -34,7 +34,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Carlos miro desde su celular el 10/10: Caja y Clases con dos defectos nuevos (A57, A58), Grupos bien, botones bien. Falta Cobrar a un alumno, cuando haya alumnos cargados |
+| **T1** Completar las capturas del cambio en app.css | Devuelto (hizo Gemini, verifica Codex) | Desplegado el arreglo de A57 y A58 (10/10). Carlos confirma en su celular Caja y Clases, y mira Alumnos, Grupos y Profesores: los datos de las tarjetas ahora van en una sola columna. Falta Cobrar, cuando haya alumnos |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -48,7 +48,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 22977b6 (09/10), con Inicio del admin y Reportes, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 438ee55 (10/10), con el arreglo de celular y B10, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
 
 ## Codex
 

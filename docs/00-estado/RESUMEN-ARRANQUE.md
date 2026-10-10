@@ -30,7 +30,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
 | SEG-01 | Retiro de Axios y audit/build verificados al 11/09; no afirma estado actual de dependencias locales |
 | FDS-02 / alertas | Cierre documentado 09/09 con recepción de email y Telegram; no revalidado hoy |
-| Servidor | **Sitio de prueba:** `22977b6` desplegado el 09/10 (incluye A24, Inicio del admin y Reportes), sin alumnos ni deudas, listo para la primera carga. **Producción:** `314e485` (22/09), leído por consola el 06/10, con 7 migraciones sin correr; no se tocó. Nada posterior está en producción |
+| Servidor | **Sitio de prueba:** `438ee55` desplegado el 10/10 (incluye Inicio del admin, Reportes, el arreglo de celular A57-A58 y B10), sin alumnos ni deudas, listo para la primera carga. **Producción:** `314e485` (22/09), leído por consola el 06/10, con 7 migraciones sin correr; no se tocó. Nada posterior está en producción |
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa

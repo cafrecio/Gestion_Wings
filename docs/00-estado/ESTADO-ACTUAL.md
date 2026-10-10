@@ -340,7 +340,7 @@ fue inspeccionado.
 
 | Que | Estado |
 |---|---|
-| Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `22977b6` desde el 09/10 |
+| Commit desplegado | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `438ee55` desde el 10/10 |
 | Diferencia con `main` al corte | El servidor incorporo documentos y scripts hasta `81f27ef`; los commits posteriores requieren sincronizacion |
 | Plataforma | AlmaLinux 9, PHP 8.2.33, Laravel 12.68.0 |
 | HTTPS | Activo |
