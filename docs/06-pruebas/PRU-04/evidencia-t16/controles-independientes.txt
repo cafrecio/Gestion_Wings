@@ -1,0 +1,50 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-1972b48\phpunit.xml
+
+.........FFF                                                      12 / 12 (100%)
+
+Time: 00:26.387, Memory: 58.00 MB
+
+Verificacion T16 (Tests\Feature\VerificacionT16)
+ ✔ Catalogo existente completo segun decision de carlos
+ ✔ Migracion preserva clasificacion desconocidos y no duplica
+ ✔ Migracion completa ambas tablas y conserva filas clasificadas
+ ✔ Post y put rechazan ausencia incompatibles y arrays
+ ✔ Put valido completa ambas tablas sin reescribir historia
+ ✔ Post y put aceptan las dos opciones validas por tipo
+ ✔ Reservados no cambian por put patch padre cruzado ni api
+ ✔ Altas automaticas de profesor y operativo clasificadas
+ ✔ Observacion creador legacy de demo deja sueldos sin clasificar
+ ✘ Cambiar tipo del padre no debe convertir aporte en egreso
+   │
+   │ Failed asserting that two strings are identical.
+   │ --- Expected
+   │ +++ Actual
+   │ @@ @@
+   │ -'INGRESO'
+   │ +'EGRESO'
+   │
+   │ C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-1972b48\docs\06-pruebas\PRU-04\evidencia-t16\VerificacionT16Test.php:257
+   │
+ ✘ Cambiar tipo del padre no debe convertir retiro en ingreso
+   │
+   │ Failed asserting that two strings are identical.
+   │ --- Expected
+   │ +++ Actual
+   │ @@ @@
+   │ -'EGRESO'
+   │ +'INGRESO'
+   │
+   │ C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-1972b48\docs\06-pruebas\PRU-04\evidencia-t16\VerificacionT16Test.php:272
+   │
+ ✘ Migracion clasifica nuevos si el nombre ya existia sin clasificar
+   │
+   │ Failed asserting that null is identical to 'RETIRO'.
+   │
+   │ C:\xampp\htdocs\Gestion_Wings\.codebase-memory\t16-1972b48\docs\06-pruebas\PRU-04\evidencia-t16\VerificacionT16Test.php:281
+   │
+
+FAILURES!
+Tests: 12, Assertions: 224, Failures: 3.

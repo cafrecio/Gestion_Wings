@@ -1,0 +1,118 @@
+{
+    "base": "wings_testing_codex",
+    "sin_clasificar": 0,
+    "retiro_de_duenos": 1,
+    "pago_al_organizador": 1,
+    "rubro_retiros": 1,
+    "rubro_gastos_de_torneos": 1,
+    "filas": [
+        {
+            "rubro": "Alquileres",
+            "tipo": "EGRESO",
+            "nombre": "Centenera",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Alquileres",
+            "tipo": "EGRESO",
+            "nombre": "Eventos",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Alquileres",
+            "tipo": "EGRESO",
+            "nombre": "San Carlos",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Cuotas",
+            "tipo": "INGRESO",
+            "nombre": "Cuota Mensual",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Gastos de torneos",
+            "tipo": "EGRESO",
+            "nombre": "Pago al organizador",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Gastos Operativos",
+            "tipo": "EGRESO",
+            "nombre": "Insumos Varios",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Gastos Operativos",
+            "tipo": "EGRESO",
+            "nombre": "Librería",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Gastos Operativos",
+            "tipo": "EGRESO",
+            "nombre": "Limpieza",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Indumentaria",
+            "tipo": "INGRESO",
+            "nombre": "Indumentaria institucional",
+            "clasificacion_resultado": "APORTE"
+        },
+        {
+            "rubro": "Indumentaria",
+            "tipo": "INGRESO",
+            "nombre": "Patines",
+            "clasificacion_resultado": "APORTE"
+        },
+        {
+            "rubro": "Indumentaria",
+            "tipo": "INGRESO",
+            "nombre": "VG Indumentaria",
+            "clasificacion_resultado": "APORTE"
+        },
+        {
+            "rubro": "Inscripciones",
+            "tipo": "INGRESO",
+            "nombre": "Inscripción al club",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Intereses",
+            "tipo": "INGRESO",
+            "nombre": "Intereses Banco",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Intereses",
+            "tipo": "INGRESO",
+            "nombre": "Intereses Mercado Pago",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Retiros",
+            "tipo": "EGRESO",
+            "nombre": "Retiro de dueños",
+            "clasificacion_resultado": "RETIRO"
+        },
+        {
+            "rubro": "Servicios",
+            "tipo": "EGRESO",
+            "nombre": "Internet",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Servicios",
+            "tipo": "EGRESO",
+            "nombre": "Luz",
+            "clasificacion_resultado": "NEGOCIO"
+        },
+        {
+            "rubro": "Torneos",
+            "tipo": "INGRESO",
+            "nombre": "Inscripciones",
+            "clasificacion_resultado": "NEGOCIO"
+        }
+    ]
+}

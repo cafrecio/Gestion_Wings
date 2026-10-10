@@ -1,17 +1,5 @@
 # Wings — Bitácora activa de CODEX
 
-## 2026-10-10 — Codex CyE — T16 verificado y devuelto a Claude
-
-Objetivo: verificar clasificación de 462e8b1; copia 1972b48, cambios ajenos T17/T18 fuera.
-Dos causas reproducidas: tipo del padre admite APORTE-egreso/RETIRO-ingreso; nombres nuevos existentes quedan NULL.
-Catálogo, migración repetida, instalación nueva y snapshots cashflow/operativos comprobados; reservados protegidos.
-POST/PUT manuales y altas/ediciones de profesor/operativo comprobados; Demo crea seis sueldos NULL, fase aislada.
-Suite propia 598/2, 5003 aserciones, 737,33 s; independientes 9/3, 224 aserciones, 26,39 s; errores propios del verificador corregidos.
-Chrome real solo lectura: Inicio/Reportes $164.000; cuotas $159.000/inscripción $5.000, sin aviso de sin clasificar; dos capturas.
-Solo wings_testing_codex; base del club/producción y aplicación intactas por Codex. Sin arreglos ni deploy; aspecto aprobado.
-Tablero T16 devuelto, tiene Claude/verifica Codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Sigue: Claude corrige las dos causas y devuelve a Codex; archivo anterior íntegro preservado.
-
 ## 2026-10-10 — Codex CyE — T14 Día 1 recorrido, a verificar por Claude
 
 Objetivo: seis tareas del club en test, por menú y botones; expectativas registradas antes de actuar.
@@ -113,8 +101,18 @@ Carlos permite ajustar monto FINAL también cerrado sin pagar; [circuito comprob
 Último comando rechazado por auto-review sin créditos; siguen pendientes ejecución, capturas, tablero y GitHub.
 B12/A23 abiertos; ejecución bloqueada, sin commit/push ni despliegue. Reanudar pruebas y ajuste al restablecer créditos.
 
+## 2026-10-09 — Codex CyE — Alumnos conectado en revisión; Sueldos aclarado
+
+Carlos aprobó Alumnos («Esta OK»); ruta ADMIN, mes/deporte y navegación aplicados localmente.
+Módulo10/76 y suite547/2,4447aserciones,521,38s en base propia; fuente revisada sin defectos.
+Sintaxis/diff correctos. Faltan compilar vistas, restaurar escenario y capturar rutas habituales.
+Comisión sobre cuotas cobradas; cuota analítica proporcional a asistencias, historia desde ahora.
+Carlos aclaró monto final editable de liquidación; pidió alumnos pagados/asistencia sin pago.
+El modelo bloquea importes cerrados/pagados; alcance temporal del ajuste todavía sin decidir.
+Auto-review rechazó el siguiente comando por falta de créditos: no ejecutado, sin juicio de inseguridad.
+[Entrega y pendientes](../06-pruebas/B12-A23/IMPLEMENTACION-ALUMNOS-2026-10-09.md). Sin commit/push nuevos ni despliegue.
+Reanudar capturas/compilación, tablero y GitHub al recuperar créditos; luego historia y Sueldos. B12/A23 abiertos.
+
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
-
-[Archivo íntegro anterior a T16](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16.txt).

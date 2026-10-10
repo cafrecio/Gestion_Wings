@@ -1,5 +1,16 @@
 # Wings — Estado actual
 
+## T16 — devuelto a Claude por Codex, 10/10/2026
+
+Clasificación de `462e8b1` verificada en copia de `1972b48`, fuera de cambios ajenos T17/T18.
+Suite propia 598 aprobadas/2 omitidas, 5.003 aserciones; controles independientes 9/3, 224 aserciones.
+Dos causas: editar el tipo del rubro admite APORTE en egreso/RETIRO en ingreso; la migración
+deja NULL los dos subrubros nuevos si ya existían sin clasificación bajo sus rubros correctos.
+Catálogo normal, instalación nueva, movimientos de ambas tablas y reservados comprobados.
+En test, Inicio/Reportes ya muestran $164.000 ($159.000 cuotas + $5.000 inscripción), sin aviso
+de sin clasificar: supera ese hallazgo histórico del Día 1. No se corrigió ni desplegó nada.
+Claude tiene la siguiente corrección; formulario aprobado por Carlos. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
+
 ## T14 — Día 1 recorrido en test, a verificar por Claude, 10/10/2026
 
 Pantallas comprobadas por Codex: 100 activos, cuatro pagos por $164.000; caja 1
