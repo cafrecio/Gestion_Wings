@@ -113,6 +113,19 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         @error('email') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
     </div>
 
+    {{-- CBU o alias (B10): a dónde se le transfiere. Opcional. --}}
+    <div>
+        <label for="cbu_alias" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            CBU o alias
+        </label>
+        <input type="text" id="cbu_alias" name="cbu_alias"
+               value="{{ old('cbu_alias', $profesor->cbu_alias ?? '') }}"
+               maxlength="60" autocomplete="off"
+               class="w-full px-4 py-2.5 text-sm wings-input" placeholder="mi.alias.mp">
+        @error('cbu_alias') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+    </div>
+
     {{-- Deporte --}}
     <div>
         <label for="deporte_id" class="{{ $labelClass }}">

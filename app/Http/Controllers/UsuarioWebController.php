@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profesor;
 use App\Models\User;
+use App\Rules\CbuOAlias;
 use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +67,11 @@ class UsuarioWebController extends Controller
         if ($request->input('rol') === User::ROL_PROFESOR) {
             $rules['profesor_id'] = 'required|exists:profesores,id';
         }
+        // B10: a dónde transferirle el sueldo. Solo aplica al operativo; el profesor
+        // lo tiene en su ficha.
+        if ($request->input('rol') === User::ROL_OPERATIVO) {
+            $rules['cbu_alias'] = ['nullable', 'string', 'max:60', new CbuOAlias];
+        }
 
         $request->validate($rules, [
             'name.required'         => 'El nombre es obligatorio.',
@@ -97,6 +103,7 @@ class UsuarioWebController extends Controller
             'profesor_id' => $profesorId,
         ]);
         $user->rol    = $request->rol;
+        $user->cbu_alias = $this->cbuAliasSegunRol($request);
         $user->activo = true;
         $user->save();
 
@@ -128,6 +135,14 @@ class UsuarioWebController extends Controller
         return view('usuarios.edit', compact('usuario', 'roles', 'profesoresSinUsuario', 'minimoContrasena'));
     }
 
+    /** El dato solo se guarda para el operativo; al cambiar de rol se borra. */
+    private function cbuAliasSegunRol(Request $request): ?string
+    {
+        return $request->input('rol') === User::ROL_OPERATIVO
+            ? CbuOAlias::normalizar($request->input('cbu_alias'))
+            : null;
+    }
+
     public function update(Request $request, int $id)
     {
         $usuario = User::findOrFail($id);
@@ -145,6 +160,9 @@ class UsuarioWebController extends Controller
 
         if ($request->input('rol') === User::ROL_PROFESOR) {
             $rules['profesor_id'] = 'required|exists:profesores,id';
+        }
+        if ($request->input('rol') === User::ROL_OPERATIVO) {
+            $rules['cbu_alias'] = ['nullable', 'string', 'max:60', new CbuOAlias];
         }
 
         $request->validate($rules, [
@@ -172,6 +190,7 @@ class UsuarioWebController extends Controller
         $usuario->email       = $request->email;
         $usuario->rol         = $request->rol;
         $usuario->profesor_id = $profesorId;
+        $usuario->cbu_alias   = $this->cbuAliasSegunRol($request);
 
         $cambioLaClave = $request->filled('password');
 

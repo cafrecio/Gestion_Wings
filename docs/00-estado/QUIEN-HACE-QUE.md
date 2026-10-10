@@ -49,11 +49,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 22977b6 (09/10), con Inicio del admin y Reportes, y base sin alumnos. Falta la prueba manual de la primera carga, que dirige Carlos |
-| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude) | Hecho y aprobado por Carlos el 10/10 (dijo Ok sobre las capturas). Sin publicar: se sube cuando Codex termine y la suite completa pase. Despues lo prueba Codex |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude, verifica Codex) | Publicado. El aspecto lo aprobo Carlos. Codex verifica la regla: guardar, borrar, rechazar lo invalido, que aparezca al pagar y que solo lo vea el admin |
 
 ## Gemini
 

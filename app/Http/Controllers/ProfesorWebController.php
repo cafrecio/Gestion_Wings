@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Deporte;
 use App\Models\Profesor;
+use App\Rules\CbuOAlias;
 use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -60,6 +61,7 @@ class ProfesorWebController extends Controller
 
         $validated['activo'] = true;
 
+        $validated['cbu_alias'] = CbuOAlias::normalizar($validated['cbu_alias'] ?? null);
         $profesor = Profesor::create($validated);
 
         $this->crearSubrubroProfesor($profesor);
@@ -83,6 +85,7 @@ class ProfesorWebController extends Controller
             $this->validationMessages()
         );
 
+        $validated['cbu_alias'] = CbuOAlias::normalizar($validated['cbu_alias'] ?? null);
         $profesor->update($validated);
 
         // Asegura el subrubro de sueldos y su vínculo por FK (D3). Cubre a
@@ -130,6 +133,7 @@ class ProfesorWebController extends Controller
             'localidad'           => 'required|string|max:255',
             'email'               => 'nullable|email|max:255',
             'telefono'            => 'required|string|max:50',
+            'cbu_alias'           => ['nullable', 'string', 'max:60', new CbuOAlias],
             'valor_hora'          => 'nullable|numeric|min:0',
             'porcentaje_comision' => 'nullable|numeric|min:0|max:100',
         ];

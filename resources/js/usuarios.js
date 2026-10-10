@@ -94,12 +94,17 @@
 
         /* ── Mostrar/ocultar panel profesor según rol ────────────────── */
         const panelProfesor = document.getElementById('panel-profesor');
+        // Panel del operativo (B10): el CBU o alias para transferirle el sueldo.
+        const panelOperativo = document.getElementById('panel-operativo');
 
         function actualizarPanelProfesor() {
             const rolSeleccionado = document.querySelector('.rol-label input[type=radio]:checked');
             if (panelProfesor) {
                 panelProfesor.style.display =
                     (rolSeleccionado && rolSeleccionado.value === 'PROFESOR') ? 'block' : 'none';
+            }
+            if (panelOperativo) {
+                panelOperativo.hidden = !(rolSeleccionado && rolSeleccionado.value === 'OPERATIVO');
             }
         }
 

@@ -11,6 +11,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-10 — Claude CyE — A23 cerrado, B10 hecho y publicado, sitio de prueba actualizado
+
+**A23 cerrado:** opere el sistema por pedidos reales y compare el inicio del admin contra la
+cuenta a mano en cuatro momentos; 52 de 52 valores coinciden y no hay doble conteo al validar
+la caja (`B12-A23/VERIFICACION-A23-INICIO.md`). Mi primera comparacion dio mal por armar mal
+los importes de mi propia prueba, no por el inicio.
+**B10 hecho por mi**, a pedido de Carlos: campo «CBU o alias» en profesor, ficha, pago de
+liquidacion y usuario operativo; control al guardar. Carlos aprobo las capturas («Ok»). Falta
+que Codex verifique la regla. En el camino vacie dos controladores con un comando mal
+escrito; restaurados desde git en el momento. No editar archivos con php en linea: usar Edit.
+**Carlos miro desde su celular** (mide 360 de ancho, no 375): salieron A57 y A58, que hizo
+Gemini y Carlos aprobo en el chat de Gemini. El arreglo de A58 apila en una columna los datos
+de TODAS las tarjetas en celular (16 vistas), no solo Clases: avisado a Carlos para que lo mire.
+**Suite completa en `wings_testing_claude`: 581 aprobadas, 2 omitidas.** Las pruebas de
+Reportes ya corren en cualquier base de pruebas.
+Pendiente: A42 (Codex), verificar B10 (Codex), B11 punitorios al final y solo, la prueba
+manual de la primera carga, T9 metodo comun en `Gestion_CAB`.
+
 ## 2026-10-09 — Claude CyE — sitio de prueba en 22977b6, con Inicio del admin y Reportes
 
 Codex publico A23 y B12 (Inicio del admin, Reportes, ajuste de liquidaciones). Desplegado en

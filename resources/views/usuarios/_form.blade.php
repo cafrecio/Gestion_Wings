@@ -143,6 +143,20 @@ $esSelf     = isset($usuario) && auth()->id() === $usuario->id;
         @endif
         @error('rol') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
 
+        {{-- Panel operativo (B10): a dónde se le transfiere el sueldo. Opcional.
+             Visible solo con rol OPERATIVO; lo muestra usuarios.js. --}}
+        <div id="panel-operativo" hidden class="mt-3">
+            <label for="cbu_alias" class="{{ $labelClass }}">
+                <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                CBU o alias
+            </label>
+            <input type="text" id="cbu_alias" name="cbu_alias"
+                   value="{{ old('cbu_alias', $usuario->cbu_alias ?? '') }}"
+                   maxlength="60" autocomplete="off"
+                   class="w-full px-4 py-2.5 text-sm wings-input" placeholder="mi.alias.mp">
+            @error('cbu_alias') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
+        </div>
+
         {{-- Panel profesor: visible solo cuando se selecciona rol PROFESOR --}}
         <div id="panel-profesor" style="display:none; margin-top:12px;">
             <label class="{{ $labelClass }}">

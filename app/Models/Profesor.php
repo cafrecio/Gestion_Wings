@@ -24,6 +24,7 @@ class Profesor extends Model
         'localidad',
         'email',
         'telefono',
+        'cbu_alias',
         'valor_hora',
         'porcentaje_comision',
         'subrubro_id',

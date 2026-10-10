@@ -699,7 +699,7 @@ una cuenta por casa.
 Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes.
 **Si nadie se acuerda, el club le paga dos veces.**
 
-### B10. No hay dónde guardar el CBU del profesor · Falta
+### B10. No hay dónde guardar el CBU del profesor · Falta · HECHO (Claude), a revisar 10/10
 
 Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de Vanina.
 

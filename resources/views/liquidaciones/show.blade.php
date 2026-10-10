@@ -411,6 +411,17 @@
         Registrar pago de liquidación
     </p>
 
+    {{-- B10: a dónde transferirle, a la vista en el momento de pagar. --}}
+    <p style="font-size:0.82rem; color:var(--color-text-muted); margin:0 0 12px;">
+        @if($liquidacion->profesor?->cbu_alias)
+            CBU o alias de {{ $liquidacion->profesor->nombre }}:
+            <strong style="color:var(--color-text); overflow-wrap:anywhere;">{{ $liquidacion->profesor->cbu_alias }}</strong>
+        @else
+            {{ $liquidacion->profesor?->nombre }} no tiene CBU ni alias cargado.
+            <a href="{{ route('web.profesores.edit', $liquidacion->profesor_id) }}" style="color:var(--color-brand); font-weight:600;">Editar</a>
+        @endif
+    </p>
+
     <form method="POST" action="{{ route('web.liquidaciones.pagar', $liquidacion->id) }}">
         @csrf
         <input type="hidden" name="monto_esperado" value="{{ $liquidacion->monto_a_pagar }}">
