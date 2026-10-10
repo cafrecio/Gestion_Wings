@@ -50,13 +50,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude, verifica Codex) | Claude corrigio las dos fallas que devolvio Codex: un alias con espacios ya no se acepta ni se transforma, y todo rechazo sale en castellano. Codex vuelve a verificar esos casos y cierra |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **B10** No hay dónde guardar el CBU del profesor | Hecho, espera verificación (hizo Claude, verifica Gemini) | Segunda vuelta: Gemini confirma que un alias con espacios se rechaza y que todo rechazo sale en castellano, y cierra. Codex ya aprobo el resto |
 
 ## Sin empezar (12)
 
