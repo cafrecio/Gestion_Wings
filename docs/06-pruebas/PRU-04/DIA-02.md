@@ -26,3 +26,21 @@ No se probó enviar un pago ni guardar asistencia ajena: el pedido prohíbe cobr
 Para mañana, lunes 12 feriado: quedan tres clases Programada, ya previstas para cancelar en el paso de T14: Patín Principiantes 16–17, Fútbol Principiantes 16–17 y Patín Intermedias 17–18. No se cancelaron hoy. Caja, importes y asistencia se dejaron como estaban; T14 sigue abierta. El Día 1 conserva sus hallazgos históricos.
 
 Tiempo: unos 21 minutos, incluido preparar y publicar el informe. Lo más caro fue resolver el control del navegador y esperar/reintentar accesos; no dispongo del costo monetario.
+
+---
+
+## Verificación de Claude y decisiones de Carlos — 10/10/2026
+
+Comprobado contra la base del sitio de prueba: el día no escribió nada (4 pagos, 1 caja,
+5 movimientos, 8 asistencias, igual que al cierre del día 1) y los estados de cobranza
+coinciden con el informe: 65 al día, 0 en plazo, 22 morosos, 13 deudores; $2.010.000.
+
+Los tres hallazgos:
+
+- **La profesora abre clases ajenas — no es defecto.** `PERMISOS-ROLES.md:113` lo permite
+  para cubrir suplencias. No volver a informarlo.
+- **«Demasiados intentos seguidos» — corregido.** Lo causaba el reloj simulado clavado;
+  desde `2e059ff` el reloj avanza solo.
+- **Un domingo ofrece abrir caja — queda así, por decisión de Carlos:** «a fin de año, que
+  hay eventos, los domingos ensayan, y si son locales en algún torneo también. Los
+  domingos podrían ser activos». No volver a informarlo.
