@@ -48,13 +48,13 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d0c85c1 (10/10) con 100 alumnos, el dia 1 de PRU-04, T16, T18 y el boton Cobrar del admin en Caja |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10). Reloj simulado en el domingo 11/10/2026 y ahora avanza solo (se detiene a la medianoche simulada). Dia 2 de PRU-04 en curso |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 1 hecho y verificado. Reloj del sitio de prueba movido por Claude al domingo 11/10/2026 10:00 (simulado). Sigue el dia 2 con Codex: domingo sin actividad. Dia 3 = lunes 12, feriado, con 3 clases para cancelar |
+| **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dia 2 recorrido parcial (DIA-02.md): ingresos 164.000/deuda 2.010.000 concilian; 22 pasaron a moroso; hoy 0 clases. Sandra no ingresa y Mariela abre clases ajenas; Claude verifica. Dia 3 lunes 12 feriado: cancelar las 3 clases previstas, sin repetir cobros |
 
 ## Gemini
 
