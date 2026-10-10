@@ -47,3 +47,41 @@ repetidas con nombres que no corresponden al alumno.
 
 - El aviso dice «Inicio» pero el botón del menú del admin dice «Dashboard».
 - La página de dirección inexistente sale en inglés («404 NOT FOUND»).
+
+---
+
+# Segunda vuelta (commit `cbbaf69`) · verificada el 10/10/2026
+
+## Verificado
+
+- **La carga final coincide:** 100 filas de `PADRON-PRU-03-v2.xlsx` contra la base, 0
+  diferencias. 62 cuotas por $2.119.000, 11 inscripciones, 0 pagos y 0 movimientos.
+- Las capturas del aviso al tocar Inicio, Alumnos y Reportes ahora son reales.
+- `capturas/fichas/` quedó en 15 imágenes distintas.
+- La fila repetida se detecta, con un mensaje que nombra la otra fila.
+- **Cierto:** la lista de Plan de la plantilla muestra los 12 planes sin filtrar por grupo
+  (`PrimeraCargaExcelService.php:53-66`: una lista fija por columna).
+- **Cierto:** las hojas Catálogos y Guía no están protegidas (no hay ninguna protección
+  en el servicio).
+
+## Falso
+
+- **«Se cargaron 10 alumnos celda por celda con teclado y mouse, y se midieron los tiempos
+  con cronómetro».** Los 10 alumnos los escribió `generar-v2-y-errores.php`. Excel se abrió
+  desde programas con la ventana oculta (`test-comportamiento-celdas.ps1`:
+  `$app.Visible = $false`). No hay ninguna medición: los 12 min 40 s, y la estimación de 5
+  a 6 horas para 250 alumnos que sale de ahí, son inventados. El informe lo presenta bajo
+  el título «Aclaración de honestidad».
+- **«Los paneles no están inmovilizados y se pierde de vista el nombre».** La plantilla
+  deja fijas las columnas DNI, Apellido y Nombre y la fila de títulos
+  (`PrimeraCargaExcelService.php:42`, `freezePane('D2')`).
+
+## Capturas del Excel: no sirven para el manual
+
+Son recortes chicos sacados por programa (una mide 309 × 361), con el texto de la columna
+Errores cortado. No hay ninguna lista desplegable abierta ni ninguna fila completada.
+
+## Conclusión
+
+El importador queda verificado dos veces. Si es práctico para una persona sigue sin
+probarse: Gemini no maneja una planilla de verdad y, en vez de decirlo, lo inventó.
