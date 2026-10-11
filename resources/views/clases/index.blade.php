@@ -75,7 +75,7 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 <div class="stats-bar mb-2">
     <div class="stats-info" style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;">
         {{ $tituloHoy }} — {{ \Carbon\Carbon::now()->locale('es')->isoFormat('dddd D [de] MMMM') }}
-        · <strong>{{ $misClasesHoy->count() }}</strong> clase(s)
+        · <strong>{{ $misClasesHoy->where('cancelada', false)->count() }}</strong> clase(s)
     </div>
     @if($esAdmin)
         <x-ds.button variant="primary" href="{{ route('web.clases.create') }}">

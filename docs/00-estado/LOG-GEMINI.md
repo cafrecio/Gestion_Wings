@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-11 — LOG GEM CAB — Implementación T21: Clases canceladas de hoy visibles en Clases
+
+- **Objetivo y resultado:** Implementar la decisión de Carlos del 10/10 para T21: las clases canceladas del día siguen viéndose en el bloque «Hoy» al final, apagadas (`opacity: 0.6`), con la etiqueta «Cancelada» destacada y el motivo a la vista. El filtro Cancelada ahora encuentra las de hoy. Estado en el tablero pasado a `a_verificar` con `hizo=Gemini` y `tiene=Carlos` para aprobar las capturas.
+- **Cambios realizados:**
+  1. *ClaseWebController::index:* se eliminó `where('cancelada', false)` del bloque «Hoy», ordenando por `cancelada asc` y luego por `hora_inicio asc` (activas primero, canceladas al final). Se flexibilizó `whereDate('fecha', '!=', $hoy)` del listado inferior para incluir hoy si se filtra `estado=cancelada` o se pide explícitamente la fecha de hoy, sin duplicar clases si no hay filtros.
+  2. *clases/index.blade.php:* el encabezado de «Hoy» cuenta solo las clases activas a dar (`$misClasesHoy->where('cancelada', false)->count()`). Si todas las de hoy están canceladas, se muestran las tarjetas y no el cartel de día vacío.
+  3. *clases/_card.blade.php:* muestra la etiqueta «Cancelada» estilizada en rojo peligro con fondo suave y el motivo debajo del encabezado (`margin: 0 0 0.75rem 1.5rem`).
+- **Pruebas y capturas:**
+  - 9 pruebas permanentes en `tests/Feature/ClasesCanceladasHoyTest.php` (41 aserciones, 100% PASS).
+  - 14 capturas PNG en `docs/06-pruebas/PRU-04/evidencia-t21/`: parcial y todas canceladas para admin, operativo y profesora en escritorio y celular 360px con marco, más login como control.
+- **Suite completa:** 623 aprobadas, 2 omitidas (625 pruebas en total) en `wings_testing_gemini`.
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T21.md`.
+
 ## 2026-10-11 — LOG GEM CAB — Verificación y Cierre T18: Segunda vuelta del cobro adelantado
 
 - **Objetivo y resultado:** Verificar las dos correcciones de Claude en commit 567f030 sobre cobro adelantado. Tarea APROBADA y cerrada en el tablero (`php scripts/tablero/tablero.php cambiar T18 estado=cerrado verifica=Gemini`).

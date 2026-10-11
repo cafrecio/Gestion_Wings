@@ -31,12 +31,26 @@
                 a
                 {{ $clase->hora_fin->format('H:i') }}
             @endif
-            <span style="font-weight:400; color:var(--color-text-muted);
-                         font-size:0.82rem; margin-left:6px;">
-                {{ $label }}
-            </span>
+            @if($clase->cancelada)
+                <span style="font-weight:600; color:var(--color-danger);
+                             font-size:0.75rem; margin-left:6px; padding:2px 8px; border-radius:999px;
+                             background:color-mix(in srgb, var(--color-danger) 15%, transparent);">
+                    Cancelada
+                </span>
+            @else
+                <span style="font-weight:400; color:var(--color-text-muted);
+                             font-size:0.82rem; margin-left:6px;">
+                    {{ $label }}
+                </span>
+            @endif
         </h3>
     </div>
+
+    @if($clase->cancelada && $clase->motivo_cancelacion)
+        <p style="font-size:0.75rem; color:var(--color-text-muted); margin:0 0 0.75rem 1.5rem;">
+            <strong>Motivo:</strong> {{ $clase->motivo_cancelacion }}
+        </p>
+    @endif
 
     <div class="alumno-info" style="grid-template-columns: repeat(3, 1fr);">
         <div class="info-item">

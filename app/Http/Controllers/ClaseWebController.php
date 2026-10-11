@@ -31,10 +31,10 @@ class ClaseWebController extends Controller
         $esAdmin    = Auth::user()->isAdmin();
         $esProfesor = Auth::user()->isProfesor();
 
-        // 1. Clases de HOY — siempre todas, sin filtro
+        // 1. Clases de HOY — siempre todas, sin filtro (activas primero, canceladas al final)
         $clasesHoy = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
             ->whereDate('fecha', $hoy)
-            ->where('cancelada', false)
+            ->orderBy('cancelada')
             ->orderBy('hora_inicio')
             ->get();
 
@@ -60,8 +60,17 @@ class ClaseWebController extends Controller
                     in_array($request->input('estado'), ['finalizada', 'cerrada']);
         $dir = $esPasado ? 'desc' : 'asc';
 
-        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias'])
-            ->whereDate('fecha', '!=', $hoy);
+        $query = Clase::with(['grupo.deporte', 'grupo.nivel', 'profesores', 'asistencias']);
+
+        // El listado general excluye las clases de hoy para no duplicar lo que
+        // ya se muestra arriba, EXCEPTO cuando se filtra por "cancelada" o se pide
+        // explícitamente la fecha de hoy.
+        $filtraCancelada = $request->input('estado') === 'cancelada';
+        $filtraFechaHoy  = $request->filled('fecha') && $request->input('fecha') === $hoy;
+
+        if (!$filtraCancelada && !$filtraFechaHoy) {
+            $query->whereDate('fecha', '!=', $hoy);
+        }
 
         match ($request->input('orden')) {
             'fecha_desc' => $query->orderBy('fecha', 'desc')->orderBy('hora_inicio', 'desc'),
