@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-11 — LOG GEM CAB — Verificación y Cierre T18: Segunda vuelta del cobro adelantado
+
+- **Objetivo y resultado:** Verificar las dos correcciones de Claude en commit 567f030 sobre cobro adelantado. Tarea APROBADA y cerrada en el tablero (`php scripts/tablero/tablero.php cambiar T18 estado=cerrado verifica=Gemini`).
+- **Qué se comprobó:**
+  1. *Hallazgo 1:* Mes futuro pendiente (importe pactado $42.000 tras anulación) muestra el mismo saldo ($0,00) en las 5 pantallas (Ficha `/caja/cobrar/{id}`, Buscador `/caja/cobrar-cuota`, Cobranza, Inicio y Reportes). El alumno no es moroso ni deudor (`AL_DIA`). Al empezar noviembre (2026-11-02), la cuota cuenta como deuda por los $42.000 pactados y no por los $55.000 del nuevo plan, sin duplicarse. Tras anular, se puede volver a cobrar por adelantado sin duplicar registro.
+  2. *Hallazgo 2:* Períodos `2026-13` y `2026-00` se rechazan con HTTP 422 de validación, sin crear deuda ni pago. Período válido (`2026-11`) sigue funcionando.
+  3. Revalidados puntos 1, 2, 3, 6 (6a–6e) y 8 de la primera verificación (100% OK).
+- **Stash y entorno:** `stash@{0}` conservado intacto sin aplicar ni borrar. No se tocó el sitio de prueba ni su reloj.
+- **Suites:** `VerificacionT18Test` 14/14 pasando (157 aserciones, 15.23s); suite completa 614 aprobadas, 2 omitidas (5096 aserciones, 432.39s) en `wings_testing_gemini`.
+- **Informe:** `docs/06-pruebas/PRU-04/VERIFICACION-T18.md` (segunda vuelta agregada al final).
+
 ## 2026-10-10 — LOG GEM CYE — Implementación T20: Pantalla de Cobrar en el celular (360px)
 
 - **Objetivo y resultado:** Implementar los 3 ajustes visuales pedidos por Carlos para la pantalla de cobro (`resources/views/caja/cobrar.blade.php`) observada desde el teléfono (360px), sin alterar la lógica de negocio ni scripts. Estado en tablero pasado a `a_verificar` con `verifica=Carlos`.

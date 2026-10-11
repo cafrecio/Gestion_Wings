@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Alumno;
 use App\Models\AlumnoPlan;
+use App\Models\CajaOperativa;
 use App\Models\CargoAlumno;
 use App\Models\CashflowMovimiento;
 use App\Models\Deporte;
@@ -12,6 +13,7 @@ use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\MovimientoOperativo;
 use App\Models\Nivel;
+use App\Models\Configuracion;
 use App\Models\Pago;
 use App\Models\ReglaPrimerPago;
 use App\Models\Rubro;
@@ -23,6 +25,7 @@ use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Tests\Support\CajaDeclarada;
 use Tests\TestCase;
@@ -46,6 +49,10 @@ class VerificacionT18Test extends TestCase
 
         Carbon::setTestNow('2026-10-05 10:00:00');
         Storage::fake();
+        Configuracion::set('dias_gracia_cobranza', 10);
+        if (DB::getSchemaBuilder()->hasTable('reporte_cobertura')) {
+            DB::table('reporte_cobertura')->updateOrInsert(['id' => 1], ['desde' => '2026-01-01']);
+        }
 
         $rubro = Rubro::create(['nombre' => 'Cuotas', 'tipo' => 'INGRESO', 'observacion' => '']);
         $this->subrubroCuota = Subrubro::create([
@@ -292,13 +299,16 @@ class VerificacionT18Test extends TestCase
         $resPasado->assertSessionHas('error');
         $this->assertSame(0, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-09')->count());
 
-        // 4e. Períodos mal escritos o inválidos
-        foreach (['2026-9', 'abc', '2026/11'] as $invalido) {
+        // 4e. Períodos mal escritos o inválidos (incluye meses inexistentes 2026-13 y 2026-00)
+        foreach (['2026-9', 'abc', '2026/11', '2026-13', '2026-00'] as $invalido) {
             $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => [$invalido],
+                'montos_cuota' => [$invalido => 35000],
             ])->assertStatus(422);
         }
+        $this->assertSame(0, DeudaCuota::where('alumno_id', $this->alumno->id)->whereIn('periodo', ['2026-13', '2026-00'])->count());
+        $this->assertSame(2, DeudaCuota::where('alumno_id', $this->alumno->id)->count()); // solo 2026-10 y 2027-10 de los subtests anteriores
     }
 
     // =========================================================================
@@ -645,49 +655,214 @@ class VerificacionT18Test extends TestCase
     }
 
     // =========================================================================
-    // 9. 'Total pendiente' y el buscador de Cobrar
+    // 9. Hallazgo 1: Mes futuro pendiente no cuenta como deuda en ninguna pantalla
     // =========================================================================
 
-    public function test_09_total_pendiente_no_cuenta_meses_futuros(): void
+    public function test_09_hallazgo_1_mes_futuro_pendiente_mismo_saldo_en_cinco_pantallas(): void
     {
         $this->pagarOctubre();
 
-        // 9a. En /caja/cobrar (pantalla de cobro del alumno)
-        // Alumno con octubre pagado: Total pendiente muestra $0,00
-        $res = $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id));
-        $res->assertOk();
-        $res->assertSee('$0,00');
+        // Admin cobra noviembre adelantado con importe pactado de $42.000 (plan era $35.000)
+        $this->actingAs($this->admin)->post(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-11'],
+            'montos_cuota' => ['2026-11' => 42000],
+            'confirmar_pago_adelantado' => 1,
+        ])->assertSessionHas('success');
 
-        // 9b. En /caja/cobrar (buscador de cobrar cuota)
+        $pago = Pago::latest('id')->firstOrFail();
+        $this->assertSame(Pago::ESTADO_COMPLETADO, $pago->estado);
+
+        // Admin anula el cobro adelantado (caso real de la decisión de Carlos del 10/10)
+        app(PagoCuotaService::class)->anularCobroAdmin($pago->id, 'Error de tipeo', $this->admin->id);
+
+        // Verificar que en la base el mes queda guardado y PENDIENTE con el importe pactado $42.000 (no se borra)
+        $deudaNov = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->sole();
+        $this->assertSame(DeudaCuota::ESTADO_PENDIENTE, $deudaNov->estado);
+        $this->assertEquals(42000.0, (float) $deudaNov->monto_original);
+        $this->assertEquals(0.0, (float) $deudaNov->monto_pagado);
+        $this->assertEquals(42000.0, (float) $deudaNov->saldo_pendiente);
+
+        // ---------------------------------------------------------------------
+        // Verificación 1: Mismo saldo en las 5 pantallas (ninguna incluye noviembre)
+        // ---------------------------------------------------------------------
+
+        // 1. Pantalla de cobro del alumno («Total pendiente» en /caja/cobrar/{id})
+        $resFicha = $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id));
+        $resFicha->assertOk();
+        $resFicha->assertSee('Total pendiente');
+        $resFicha->assertSee('$0,00');
+
+        // 2. Buscador de Cobrar (/caja/cobrar-cuota)
         $resBuscador = $this->actingAs($this->operativo)->get(route('web.caja.cobrar-cuota', ['search' => 'Stoessel']));
         $resBuscador->assertOk();
-        $saldos = $resBuscador->viewData('saldos');
-        $this->assertEquals(0.0, $saldos[$this->alumno->id]['total']);
+        $saldosBuscador = $resBuscador->viewData('saldos');
+        $this->assertEquals(0.0, $saldosBuscador[$this->alumno->id]['total']);
+        $this->assertEquals(0, $saldosBuscador[$this->alumno->id]['cuotas_impagas']);
+        $resBuscador->assertSee('$0');
+        $resBuscador->assertDontSee('42.000');
 
-        // 9c. Si en la base de datos existiera una DeudaCuota futura PENDIENTE (por ej. cobro anulado):
-        // En la ficha /caja/cobrar: Total pendiente sigue mostrando $0,00 porque filtra periodo <= mes actual.
-        DeudaCuota::create([
-            'alumno_id' => $this->alumno->id,
-            'periodo' => '2026-11',
-            'monto_original' => 35000,
-            'monto_pagado' => 0,
-            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        // 3. Cobranza (/cobranza)
+        $resCobranza = $this->actingAs($this->operativo)->get(route('web.cobranza.index'));
+        $resCobranza->assertOk();
+        $cobranzaService = app(CobranzaEstadoService::class);
+        $resumenCobranza = $cobranzaService->resumenDashboard();
+        $this->assertEquals(0.0, $resumenCobranza['total_adeudado']);
+        // En el listado unificado, su deuda_total es 0.0 y no tiene cuotas impagas exigibles
+        $listadoCobranza = $cobranzaService->listadoCobranza('TODOS');
+        $alumnoEnCobranza = $listadoCobranza->firstWhere('id', $this->alumno->id);
+        $this->assertEquals(0.0, (float) $alumnoEnCobranza->deuda_total);
+        $this->assertEquals(0, (int) $alumnoEnCobranza->cantidad_cuotas_impagas);
+
+        // 4. Inicio (/admin/dashboard)
+        $resInicio = $this->actingAs($this->admin)->get(route('admin.dashboard'));
+        $resInicio->assertOk();
+        $reporteInicio = $resInicio->viewData('reporte');
+        $this->assertEquals(0, $reporteInicio['deuda']['total']);
+
+        // 5. Reportes (/reportes)
+        $resReportes = $this->actingAs($this->admin)->get(route('web.reportes.index'));
+        $resReportes->assertOk();
+        $reporteGeneral = $resReportes->viewData('reporte');
+        $this->assertEquals(0, $reporteGeneral['deuda']['total']);
+        $this->assertEquals(0, $reporteGeneral['deuda']['cuotas']);
+
+        // ---------------------------------------------------------------------
+        // Verificación 2: El estado del alumno NO es moroso ni deudor
+        // ---------------------------------------------------------------------
+        $estadoAlumnoInfo = $cobranzaService->estadoAlumno($this->alumno->id);
+        $this->assertSame(CobranzaEstadoService::ESTADO_AL_DIA, $estadoAlumnoInfo['estado']);
+        $this->assertCount(0, $estadoAlumnoInfo['deudas_pendientes']);
+        $this->assertNotSame(CobranzaEstadoService::ESTADO_MOROSO, $estadoAlumnoInfo['estado']);
+        $this->assertNotSame(CobranzaEstadoService::ESTADO_DEUDOR, $estadoAlumnoInfo['estado']);
+
+        // ---------------------------------------------------------------------
+        // Verificación 3: Cuando el mes empieza, la cuota sí cuenta como deuda
+        // por el importe pactado ($42.000) y NO por el precio nuevo del plan ($55.000)
+        // ---------------------------------------------------------------------
+        // Aumentamos el plan a $55.000 antes de que empiece el mes
+        $this->plan->update(['precio_mensual' => 55000.0]);
+
+        // Simular que llega el 02 de noviembre de 2026 (mes ya empezó)
+        Carbon::setTestNow('2026-11-02 10:00:00');
+        CajaOperativa::query()->update(['estado' => CajaOperativa::ESTADO_VALIDADA]);
+        CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
+        Artisan::call('cobranza:generar-deudas');
+
+        // La deuda no se duplicó: sigue siendo 1 sola cuota para 2026-11
+        $deudasNovPostGeneracion = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->get();
+        $this->assertCount(1, $deudasNovPostGeneracion);
+        $novPost = $deudasNovPostGeneracion->first();
+        // El monto original se mantiene en el pactado ($42.000), no en el del nuevo plan ($55.000)
+        $this->assertEquals(42000.0, (float) $novPost->monto_original);
+
+        // Ahora en las 5 pantallas sí cuenta como deuda por $42.000:
+        // 1. Ficha
+        $resFichaNov = $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id));
+        $resFichaNov->assertOk()->assertSee('$42.000,00');
+
+        // 2. Buscador
+        $resBuscadorNov = $this->actingAs($this->operativo)->get(route('web.caja.cobrar-cuota', ['search' => 'Stoessel']));
+        $resBuscadorNov->assertOk();
+        $saldosNov = $resBuscadorNov->viewData('saldos');
+        $this->assertEquals(42000.0, $saldosNov[$this->alumno->id]['total']);
+        $this->assertEquals(1, $saldosNov[$this->alumno->id]['cuotas_impagas']);
+
+        // 3. Cobranza
+        $resumenNov = $cobranzaService->resumenDashboard();
+        $this->assertEquals(42000.0, $resumenNov['total_adeudado']);
+
+        // 4. Inicio
+        $resInicioNov = $this->actingAs($this->admin)->get(route('admin.dashboard'));
+        $this->assertEquals(4200000, $resInicioNov->viewData('reporte')['deuda']['total']); // en centavos
+
+        // 5. Reportes
+        $resReportesNov = $this->actingAs($this->admin)->get(route('web.reportes.index'));
+        $this->assertEquals(4200000, $resReportesNov->viewData('reporte')['deuda']['total']);
+
+        // Estado del alumno: dentro de días de gracia (día 2 <= 10) es EN_PLAZO con 1 deuda pendiente
+        $estadoNov = $cobranzaService->estadoAlumno($this->alumno->id);
+        $this->assertSame(CobranzaEstadoService::ESTADO_EN_PLAZO, $estadoNov['estado']);
+        $this->assertCount(1, $estadoNov['deudas_pendientes']);
+
+        // Si avanza más allá de días de gracia (día 15): pasa a MOROSO
+        Carbon::setTestNow('2026-11-15 10:00:00');
+        $estadoNovMoroso = $cobranzaService->estadoAlumno($this->alumno->id);
+        $this->assertSame(CobranzaEstadoService::ESTADO_MOROSO, $estadoNovMoroso['estado']);
+
+        // ---------------------------------------------------------------------
+        // Verificación 4: Volver a cobrar tras anular (no se duplica)
+        // ---------------------------------------------------------------------
+        // Volvemos la fecha a octubre (cuando todavía era adelantado) para probar el cobro adelantado tras anular
+        Carbon::setTestNow('2026-10-06 10:00:00');
+        CajaOperativa::query()->update(['estado' => CajaOperativa::ESTADO_VALIDADA]);
+        CajaDeclarada::crear($this->operativo->id, $this->tipoCaja->id);
+        $this->actingAs($this->operativo)->post(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-11'],
+            'montos_cuota' => ['2026-11' => 42000],
+            'confirmar_pago_adelantado' => 1,
+        ])->assertSessionHas('success');
+
+        // La cuota pasa a PAGADA
+        $novReCobrado = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->get();
+        $this->assertCount(1, $novReCobrado);
+        $this->assertSame(DeudaCuota::ESTADO_PAGADA, $novReCobrado->first()->estado);
+        $this->assertEquals(42000.0, (float) $novReCobrado->first()->monto_pagado);
+        $this->assertEquals(0.0, (float) $novReCobrado->first()->saldo_pendiente);
+    }
+
+    // =========================================================================
+    // 10. Hallazgo 2: Períodos con mes inexistente (2026-13 y 2026-00)
+    // =========================================================================
+
+    public function test_10_hallazgo_2_periodos_invalidos_mes_13_y_00(): void
+    {
+        $this->pagarOctubre();
+
+        // 10a. Mes 13: se rechaza con HTTP 422 de validación
+        $res13 = $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-13'],
+            'montos_cuota' => ['2026-13' => 35000],
+            'confirmar_pago_adelantado' => 1,
         ]);
+        $res13->assertStatus(422)
+              ->assertJsonValidationErrors(['periodos.0']);
 
-        $resFichaConFuturaPendiente = $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id));
-        $resFichaConFuturaPendiente->assertOk();
-        // El encabezado Total pendiente en la ficha ignora noviembre:
-        $resFichaConFuturaPendiente->assertSee('$0,00');
+        // 10b. Mes 00: se rechaza con HTTP 422 de validación
+        $res00 = $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-00'],
+            'montos_cuota' => ['2026-00' => 35000],
+            'confirmar_pago_adelantado' => 1,
+        ]);
+        $res00->assertStatus(422)
+              ->assertJsonValidationErrors(['periodos.0']);
 
-        // En CobranzaEstadoService::saldoDeAlumnos se demuestra la divergencia:
-        // saldoDeAlumnos suma 35000 porque no excluye periodos futuros.
-        $saldoAlumnos = app(CobranzaEstadoService::class)->saldoDeAlumnos(collect([$this->alumno]));
-        $this->assertEquals(35000.0, $saldoAlumnos[$this->alumno->id]['total']);
+        // 10c. Ni deuda ni pago creados en la base
+        $this->assertSame(0, DeudaCuota::where('alumno_id', $this->alumno->id)->whereIn('periodo', ['2026-13', '2026-00'])->count());
+        $this->assertSame(0, Pago::count());
 
-        // Y en el buscador de /caja/cobrar, el saldo mostrado al operador para ese alumno es 35.000:
-        $resBuscadorConFutura = $this->actingAs($this->operativo)->get(route('web.caja.cobrar-cuota', ['search' => 'Stoessel']));
-        $resBuscadorConFutura->assertOk();
-        $resBuscadorConFutura->assertSee('35.000');
+        // 10d. Un período válido (2026-11) sigue funcionando
+        // Sin confirmar: 409
+        $this->actingAs($this->operativo)->postJson(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-11'],
+            'montos_cuota' => ['2026-11' => 35000],
+        ])->assertStatus(409)->assertJson(['requiere_confirmacion_adelantado' => true]);
+
+        // Con confirmar: cobra exitosamente
+        $this->actingAs($this->operativo)->post(route('web.caja.pagar', $this->alumno->id), [
+            'tipo_caja_id' => $this->tipoCaja->id,
+            'periodos' => ['2026-11'],
+            'montos_cuota' => ['2026-11' => 35000],
+            'confirmar_pago_adelantado' => 1,
+        ])->assertSessionHas('success');
+
+        $this->assertSame(1, DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', '2026-11')->count());
+        $this->assertSame(1, Pago::count());
     }
 }
+
 

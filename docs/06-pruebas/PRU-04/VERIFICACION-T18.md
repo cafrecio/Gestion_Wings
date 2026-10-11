@@ -110,3 +110,114 @@ Suite de verificación propia `VerificacionT18Test.php`:
 ```text
 OK (13 tests, 104 assertions)
 ```
+
+---
+
+# SEGUNDA VUELTA — VERIFICACIÓN Y CIERRE (11/10/2026)
+
+**Resultado: APROBADO**
+
+Segunda verificación de T18 tras las correcciones de Claude en el commit `567f030` (`app/Services/CobranzaEstadoService.php`, `app/Http/Controllers/CajaWebController.php`).
+Verificación ejecutada por Gemini en base descartable propia `wings_testing_gemini` sin tocar el sitio de prueba ni su reloj simulado.
+Suite de comprobaciones independientes ejecutada desde `docs/06-pruebas/PRU-04/evidencia-t18/VerificacionT18Test.php`.
+
+---
+
+## 1. Comprobaciones de las dos fallas devueltas
+
+### Hallazgo 1: Mes futuro guardado y pendiente en la base
+Carlos decidió el 10/10/2026:
+> *«Si se anula un cobro adelantado, el mes queda guardado y pendiente con el importe pactado. No se borra. Lo que tiene que cumplirse es que ese mes no cuente como deuda en ninguna pantalla hasta que empiece.»*
+
+Claude corrigió `CobranzaEstadoService::estaImpaga()` agregando la condición `&& $deuda->periodo <= now()->format('Y-m')`.
+
+**Comprobaciones realizadas en `VerificacionT18Test::test_09`:**
+1. **Mismo saldo en las 5 pantallas ante cuota futura pendiente (importe pactado $42.000 tras anulación):**
+   - **Pantalla de cobro del alumno (`/caja/cobrar/{id}`):** Cabecera «Total pendiente» muestra `$0,00`. La fila de cuotas pendientes lista noviembre con badge «Adelantado» e importe $42.000, pero el total no la suma.
+   - **Buscador de Cobrar (`/caja/cobrar-cuota`):** El alumno muestra `Saldo: $0` y `0 pendientes`. No muestra $42.000. `saldoDeAlumnos` retorna `total: 0.0` y `cuotas_impagas: 0`.
+   - **Cobranza (`/cobranza`):** `resumenDashboard` retorna `total_adeudado: 0.0`. En `listadoCobranza('TODOS')`, el alumno tiene `deuda_total: 0.0` y `cantidad_cuotas_impagas: 0`. Con el filtro por defecto (`DEUDORES`), el alumno no figura en el listado.
+   - **Inicio (`/admin/dashboard`):** La tarjeta «Alumnos por cobrar» toma `reporte['deuda']['total'] = 0` (0 centavos). Coincide exactamente con Cobranza.
+   - **Reportes (`/reportes`):** «Por cobrar» toma `reporte['deuda']['total'] = 0` y `reporte['deuda']['cuotas'] = 0`.
+2. **Estado del alumno:**
+   - `CobranzaEstadoService::estadoAlumno()` devuelve `estado: AL_DIA`, con 0 deudas pendientes computables. No es `MOROSO` ni `DEUDOR`.
+3. **Cuando el mes empieza (inicio del período):**
+   - Se simuló el avance de fecha a `2026-11-02` y un aumento previo del plan a $55.000 (de $35.000).
+   - Se ejecutó `cobranza:generar-deudas`. El registro no se duplicó (permanece exactamente 1 cuota para 2026-11).
+   - La cuota pasa a computarse como deuda por el **importe pactado de $42.000** y **NO por el nuevo precio del plan ($55.000)** en las 5 pantallas:
+     * Ficha `/caja/cobrar`: Total pendiente muestra `$42.000,00`.
+     * Buscador `/caja/cobrar-cuota`: `Saldo: $42.000` y `1 pendiente`.
+     * Cobranza: `total_adeudado = 42000.0`.
+     * Inicio: `deuda['total'] = 4200000` ($42.000).
+     * Reportes: `deuda['total'] = 4200000` ($42.000).
+   - El estado del alumno pasa a `EN_PLAZO` durante los días de gracia (día 2 <= 10) y a `MOROSO` pasado el plazo (día 15 > 10).
+4. **Volver a cobrar tras anulación:**
+   - Estando en octubre, ese mismo mes noviembre pendiente se cobra nuevamente como adelantado (`confirmar_pago_adelantado = 1`).
+   - El cobro se procesa exitosamente, la cuota pasa a `PAGADA` por $42.000 y **no se duplica** (se mantiene exactamente 1 fila en `deuda_cuotas`).
+
+**Resultado: APROBADO.**
+
+---
+
+### Hallazgo 2: Períodos fuera de 01–12 (`2026-13` y `2026-00`)
+Claude ajustó la regla de validación en `CajaWebController::pagar()` a:
+`'periodos.*' => ['required', 'string', 'regex:/^\d{4}-(0[1-9]|1[0-2])$/']`.
+
+**Comprobaciones realizadas en `VerificacionT18Test::test_10` y `test_04`:**
+- POST con `periodos = ['2026-13']` responde **HTTP 422** con error de validación en `periodos.0`. No lanza error 500.
+- POST con `periodos = ['2026-00']` responde **HTTP 422** con error de validación en `periodos.0`. No lanza error 500.
+- No se inserta ninguna cuota ni pago en la base de datos (0 deudas y 0 pagos creados).
+- Período válido (`2026-11`) sigue funcionando: sin confirmación exige confirmación (HTTP 409 con `requiere_confirmacion_adelantado => true`); con confirmación procesa exitosamente (HTTP 302 / éxito en sesión y cuota `PAGADA`).
+
+**Resultado: APROBADO.**
+
+---
+
+## 2. Revalidación de puntos previamente aprobados
+
+Se volvieron a ejecutar todos los casos de la suite de verificación propia (`VerificacionT18Test.php`):
+
+| # | Punto | Resultado |
+|---|---|---|
+| **1** | Sin confirmación de adelantado rechaza por todos los caminos (Operativo JSON, Admin JSON, POST HTML tradicional, `confirmar_pago_adelantado=0`). | **REVALIDADO / APROBADO** (HTTP 409, 0 escrituras). |
+| **2** | Importe adelantado cambiado (más alto $42.000 y más bajo $25.000) fija `monto_original` = `monto_pagado` = lo cobrado con estado `PAGADA`. | **REVALIDADO / APROBADO**. |
+| **3** | Precio congelado frente a aumentos y ejecución de `cobranza:generar-deudas` en día 1. | **REVALIDADO / APROBADO** (no se duplica ni reliquida). |
+| **6a** | Cruce adelantado + deuda vieja impaga: exige confirmación de adelantado (409), de deuda anterior (409) y motivo obligatorio (422). Con motivo registra observación en pago. | **REVALIDADO / APROBADO**. |
+| **6b** | Cruce adelantado + inscripción pendiente: imputa inscripción ($5.000) y cuota adelantada ($35.000). | **REVALIDADO / APROBADO**. |
+| **6c** | Cruce adelantado + descuento primer pago: aplica 50% al mes de alta ($17.500) y 100% al adelantado ($35.000). | **REVALIDADO / APROBADO**. |
+| **6d** | Cruce adelantado + cambio de plan en el mismo cobro: fija cuota adelantada al precio del nuevo plan ($45.000). | **REVALIDADO / APROBADO**. |
+| **6e** | Dos meses adelantados juntos: mensaje en plural y cobro de ambos dejándolos `PAGADOS`. | **REVALIDADO / APROBADO**. |
+| **8** | Caja, Cashflow, Recibo y Cobranza reflejan el cobro una sola vez (1 movimiento operativo, 1 recibo PDF válido, 1 CashflowMovimiento admin, Cobranza en 0). | **REVALIDADO / APROBADO**. |
+
+---
+
+## 3. Lo que expresamente NO se probó
+
+- Cobro adelantado desde la API REST (se encuentra deshabilitada deliberadamente en `bootstrap/app.php` según AGENTS.md §7). Específicamente escrito: **no lo probé**.
+- Cobro en moneda extranjera o cajas no activas: **no lo probé**.
+- Impresión física de recibos en papel con impresora: **no lo probé** (se verificó generación en memoria y respuesta HTTP 200 con `Content-Type: application/pdf`).
+
+---
+
+## 4. Estado de Stash en el repositorio
+
+El stash local preexistente:
+`stash@{0}: WIP on main: dfd6d48 Caso 3 TO-BE: auto-creación deuda, FIFO fuerte, subrubro unique, DB dump`
+**Se conservó intacto: no se aplicó ni se borró**, respetando la regla estricta de Carlos.
+
+---
+
+## 5. Corridas de suites
+
+- **Suite de verificación T18 (`docs/06-pruebas/PRU-04/evidencia-t18/VerificacionT18Test.php`):**
+  ```text
+  PASS  Tests\Feature\VerificacionT18Test
+  Tests:    14 passed (157 assertions)
+  Duration: 15.23s
+  ```
+
+- **Suite completa de la aplicación (`DB_DATABASE=wings_testing_gemini php artisan test`):**
+  ```text
+  Tests:    2 skipped, 614 passed (5096 assertions)
+  Duration: 432.39s
+  ```
+  100% verde sin errores ni advertencias.

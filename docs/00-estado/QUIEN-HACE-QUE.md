@@ -56,9 +56,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T18** Cobro adelantado: selector de mes y anio, importe editable y aviso antes de confirmar | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica la segunda vuelta (567f030): mes futuro pendiente no cuenta como deuda y periodo con mes inexistente se rechaza. Anular un adelantado deja el mes pendiente con el importe pactado: decidido por Carlos, no es falla |
+Nada en este momento.
 
 ## Sin empezar (15)
 
