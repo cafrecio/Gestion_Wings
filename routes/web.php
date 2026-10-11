@@ -72,6 +72,8 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     Route::get('/caja/{id}/detalle', [CajaWebController::class, 'detalle'])->name('web.caja.detalle');
     Route::get('/caja/{id}/editar', [CajaWebController::class, 'editarForm'])->name('web.caja.editar');
     Route::post('/caja/{id}/editar', [CajaWebController::class, 'editarStore'])->name('web.caja.editar.store');
+    Route::get('/caja/{id}/rectificar', [CajaWebController::class, 'rectificar'])->name('web.caja.rectificar');
+    Route::post('/caja/{id}/rectificar', [CajaWebController::class, 'guardarRectificacion'])->name('web.caja.rectificar.guardar');
     Route::post('/caja/{id}/cerrar', [CajaWebController::class, 'cerrar'])->name('web.caja.cerrar');
     Route::get('/caja/{id}/cerrar', [CajaWebController::class, 'cierre'])->name('web.caja.cierre');
 

@@ -18,7 +18,7 @@ use App\Models\TipoCaja;
 use App\Models\User;
 use App\Notifications\CobroConDeudaAnteriorNotification;
 use App\Services\CajaService;
-use App\Services\FormatoExcelCargaService;
+use App\Rules\ImportePesos;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -91,15 +91,36 @@ class CajaWebController extends Controller
         return view('caja.cierre', compact('caja', 'arqueo'));
     }
 
+    public function rectificar(int $id)
+    {
+        $caja = CajaOperativa::with('usuarioOperativo')->findOrFail($id);
+        abort_unless(Auth::user()->isAdmin() || $caja->usuario_operativo_id === Auth::id(), 403);
+        if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA) {
+            return redirect()->route('web.caja.resumen', $id)->with('error', 'Solo se puede rectificar una caja en estado ABIERTA.');
+        }
+        $propuesta = $this->cajaService->propuestaApertura();
+        return view('caja.rectificar', compact('caja', 'propuesta'));
+    }
+
+    public function guardarRectificacion(Request $request, int $id)
+    {
+        $caja = CajaOperativa::findOrFail($id);
+        abort_unless(Auth::user()->isAdmin() || $caja->usuario_operativo_id === Auth::id(), 403);
+        if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA) {
+            return redirect()->route('web.caja.resumen', $id)->with('error', 'Solo se puede rectificar una caja en estado ABIERTA.');
+        }
+
+        $this->normalizarImportesArqueo($request, ['efectivo_inicial']);
+
+        $this->cajaService->rectificarApertura($id, $request->all(), Auth::id());
+
+        return redirect()->route('web.caja.resumen', $id)->with('success', 'Apertura rectificada correctamente.');
+    }
+
     private function normalizarImportesArqueo(Request $request, array $campos): void
     {
-        foreach ($campos as $campo) {
-            $crudo = $request->input($campo);
-            $normalizado = FormatoExcelCargaService::monto($crudo);
-            if ($normalizado !== null) {
-                $request->merge([$campo => $normalizado]);
-            }
-        }
+        ImportePesos::preparar($request, $campos);
+        $request->validate(array_fill_keys($campos, ['nullable', new ImportePesos]));
     }
 
     private function aperturaNecesaria(): bool
@@ -299,6 +320,7 @@ class CajaWebController extends Controller
         $user = Auth::user();
         $caja = CajaOperativa::with([
             'usuarioOperativo',
+            'usuarioRectificacion',
             'movimientos.tipoCaja',
             'movimientos.subrubro.rubro',
             'movimientos.alumno',
@@ -386,6 +408,7 @@ class CajaWebController extends Controller
 
     public function editarStore(Request $request, int $id)
     {
+        ImportePesos::preparar($request, ['monto']);
         $user = Auth::user();
         $caja = CajaOperativa::findOrFail($id);
 
@@ -396,7 +419,7 @@ class CajaWebController extends Controller
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
-            'monto'         => 'required|numeric|min:0.01',
+            'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);
@@ -459,6 +482,7 @@ class CajaWebController extends Controller
 
     public function updateMovimiento(Request $request, int $cajaId, int $movId)
     {
+        ImportePesos::preparar($request, ['monto']);
         $user = Auth::user();
         $caja = CajaOperativa::findOrFail($cajaId);
 
@@ -473,7 +497,7 @@ class CajaWebController extends Controller
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
-            'monto'         => 'required|numeric|min:0.01',
+            'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);
@@ -865,17 +889,7 @@ class CajaWebController extends Controller
         }
         $alumno = Alumno::findOrFail($alumnoId);
 
-        // El formulario arma su FormData antes de que el script de moneda limpie los
-        // campos, asi que los montos pueden llegar formateados ("28.000"). Sin esto
-        // `numeric` los acepta como 28 y el cobro queda silenciosamente mal.
-        $montosCuota = $request->input('montos_cuota');
-        if (is_array($montosCuota)) {
-            $request->merge([
-                'montos_cuota' => collect($montosCuota)
-                    ->map(fn ($monto) => is_string($monto) ? str_replace(['.', ','], '', $monto) : $monto)
-                    ->all(),
-            ]);
-        }
+        ImportePesos::preparar($request, ['montos_cuota.*', 'monto_entregado']);
 
         $request->validate([
             'tipo_caja_id'   => 'required|exists:tipos_caja,id',
@@ -883,14 +897,14 @@ class CajaWebController extends Controller
             'periodos.*'     => ['required', 'string', 'regex:/^\d{4}-(0[1-9]|1[0-2])$/'],
             'observaciones'  => 'nullable|string|max:500',
             'montos_cuota'   => 'array',
-            'montos_cuota.*' => 'nullable|numeric|min:0.01',
+            'montos_cuota.*' => ['nullable', 'numeric', 'min:0.01', new ImportePesos],
             'fecha_pago'     => 'nullable|date|before_or_equal:today',
             'nuevo_plan_id'  => ['nullable', Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)],
             'confirmar_deuda_anterior' => 'nullable|boolean',
             'confirmar_fecha_vieja'    => 'nullable|boolean',
             'confirmar_pago_adelantado' => 'nullable|boolean',
             'motivo' => 'nullable|string|max:500',
-            'monto_entregado' => 'nullable|numeric|min:0.01|max:99999999.99',
+            'monto_entregado' => ['nullable', 'numeric', 'min:0.01', 'max:99999999.99', new ImportePesos],
         ]);
 
         $fechaPagoStr = $request->input('fecha_pago') ?: today()->toDateString();
@@ -1131,12 +1145,13 @@ class CajaWebController extends Controller
 
     public function movimientoStore(Request $request)
     {
+        ImportePesos::preparar($request, ['monto']);
         $user = Auth::user();
 
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
-            'monto'         => 'required|numeric|min:0.01',
+            'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'observaciones' => 'nullable|string|max:500',
         ]);
 

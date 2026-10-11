@@ -61,6 +61,9 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         @if(($esPropietario || Auth::user()->isAdmin()) && (in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) || ($caja->estado === 'CERRADA' && $caja->efectivo_contado === null)))
             <x-ds.button variant="primary" href="{{ route('web.caja.cierre', $caja->id) }}">Cerrar</x-ds.button>
         @endif
+        @if($caja->estado === 'ABIERTA' && ($esPropietario || Auth::user()->isAdmin()))
+            <x-ds.button variant="secondary" href="{{ route('web.caja.rectificar', $caja->id) }}">Rectificar</x-ds.button>
+        @endif
         @if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA' && $caja->efectivo_contado !== null)
             <button type="button" data-abrir-rechazar
                     class="ds-btn" style="background:var(--color-danger); color:#fff;">Rechazar</button>
@@ -83,6 +86,16 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         @foreach(['Inicial' => $caja->efectivo_inicial, 'Esperado' => $efectivoEsperado, 'Contado' => $caja->efectivo_contado, 'Diferencia' => $diferenciaEfectivo, 'Cambio que queda' => $caja->cambio_retenido, 'Retiro / entrega' => $caja->efectivo_retirado] as $rotulo => $importe)
         <div><span class="info-label">{{ $rotulo }}</span><p class="info-value">{{ $importe === null ? 'Sin declarar' : '$'.number_format($importe, 2, ',', '.') }}</p></div>
         @endforeach
+        @if($caja->rectificado_at)
+        <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--color-border);" class="col-span-full">
+            <p style="font-size:0.72rem; font-weight:600; color:var(--color-warning); text-transform:uppercase; letter-spacing:0.05em;">Apertura rectificada</p>
+            <p style="font-size:0.85rem; color:var(--color-text); margin-top:2px;">
+                Rectificado el {{ $caja->rectificado_at->format('d/m/Y H:i') }}
+                @if($caja->usuarioRectificacion) por {{ $caja->usuarioRectificacion->name }} @endif
+                (inicial anterior: ${{ number_format($caja->efectivo_inicial_anterior, 2, ',', '.') }}). Motivo: {{ $caja->motivo_rectificacion }}
+            </p>
+        </div>
+        @endif
     </div>
     <p class="text-xs text-wings-muted mt-3">Solo el efectivo de este turno. No incluye transferencias ni los cobros que ADMIN guarda aparte. El inicial y el retiro no son ingresos ni gastos.</p>
 </div>

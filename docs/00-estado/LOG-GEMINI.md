@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-11 — LOG GEM CAB — Implementación T23: Apertura con aviso > 50% y rectificación de efectivo inicial
+
+- **Objetivo y resultado:** Implementar las decisiones de Carlos del 11/10 para T23: aviso enfático en pantalla si el efectivo recibido al abrir difiere más de 50% del cierre anterior (si dejó > $0), requiriendo confirmación explícita para abrir; y rectificación del efectivo inicial mientras la caja esté ABIERTA por el operativo del turno o ADMIN, con motivo obligatorio, auditoría completa y recálculo inmediato del esperado. Estado en el tablero pasado a `a_verificar` con `hizo=Gemini` y `tiene=Carlos` para que Carlos apruebe las capturas y luego otro agente verifique la regla.
+- **Cambios realizados:**
+  1. *database/migrations/2026_10_11_120000_add_rectificacion_to_cajas_operativas.php:* agrega `efectivo_inicial_anterior`, `motivo_rectificacion`, `rectificado_at` y `usuario_rectificacion_id`.
+  2. *CajaOperativa:* fillable, casts y relación `usuarioRectificacion(): BelongsTo`.
+  3. *CajaService:* `abrirCajaOperativa` detecta diferencia > 50% (cuando `efectivo_heredado > 0`) y exige confirmación explícita `confirmar_diferencia_grande`. Nuevo método transaccional `rectificarApertura()` que valida estado ABIERTA, permisos, motivo obligatorio y recalcula `efectivo_esperado`.
+  4. *CajaWebController y routes/web.php:* rutas GET y POST `/caja/{id}/rectificar`, vistas `caja/rectificar.blade.php`, aviso enfático en `caja/apertura.blade.php`, botón `Rectificar` y bloque de auditoría en `caja/resumen.blade.php`.
+  5. *Contrato V5:* actualizado con las nuevas reglas.
+- **Pruebas y capturas:**
+  - 8 pruebas permanentes en `tests/Feature/CajaAperturaDiferenciaYRectificacionTest.php` (41 aserciones, 100% PASS).
+  - 10 capturas PNG en `docs/06-pruebas/PRU-04/evidencia-t23/`: apertura con aviso y rectificación para operativo y admin en escritorio y celular 360px con marco, más login de control.
+- **Suite completa:** 633 pruebas registradas, suite completa ejecutada en `wings_testing_gemini`.
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T23.md`.
+
 ## 2026-10-11 — LOG GEM CAB — Implementación T21: Clases canceladas de hoy visibles en Clases
 
 - **Objetivo y resultado:** Implementar la decisión de Carlos del 10/10 para T21: las clases canceladas del día siguen viéndose en el bloque «Hoy» al final, apagadas (`opacity: 0.6`), con la etiqueta «Cancelada» destacada y el motivo a la vista. El filtro Cancelada ahora encuentra las de hoy. Estado en el tablero pasado a `a_verificar` con `hizo=Gemini` y `tiene=Carlos` para aprobar las capturas.

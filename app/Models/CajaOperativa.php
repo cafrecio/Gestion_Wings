@@ -30,7 +30,9 @@ class CajaOperativa extends Model
         'caja_origen_id',
         'efectivo_heredado',
         'efectivo_inicial',
+        'efectivo_inicial_anterior',
         'motivo_apertura',
+        'motivo_rectificacion',
         'efectivo_esperado',
         'efectivo_contado',
         'diferencia_efectivo',
@@ -38,15 +40,19 @@ class CajaOperativa extends Model
         'efectivo_retirado',
         'usuario_cierre_id',
         'usuario_apertura_id',
+        'usuario_rectificacion_id',
+        'rectificado_at',
     ];
 
     protected $casts = [
         'apertura_at' => 'datetime',
         'cierre_at' => 'datetime',
         'validada_at' => 'datetime',
+        'rectificado_at' => 'datetime',
         'cerrada_por_admin' => 'boolean',
         'efectivo_heredado' => 'decimal:2',
         'efectivo_inicial' => 'decimal:2',
+        'efectivo_inicial_anterior' => 'decimal:2',
         'efectivo_esperado' => 'decimal:2',
         'efectivo_contado' => 'decimal:2',
         'diferencia_efectivo' => 'decimal:2',
@@ -76,6 +82,14 @@ class CajaOperativa extends Model
     public function usuarioAdminValidacion(): BelongsTo
     {
         return $this->belongsTo(User::class, 'usuario_admin_validacion_id');
+    }
+
+    /**
+     * Relación con Usuario que rectificó la apertura
+     */
+    public function usuarioRectificacion(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'usuario_rectificacion_id');
     }
 
     /**

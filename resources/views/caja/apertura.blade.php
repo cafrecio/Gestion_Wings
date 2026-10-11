@@ -62,6 +62,20 @@
                 <input id="motivo_apertura" name="motivo_apertura" value="{{ old('motivo_apertura') }}" maxlength="500" class="w-full px-4 py-2.5 text-sm wings-input">
             </div>
         </div>
+        @if($errors->has('confirmar_diferencia_grande'))
+        <div class="mt-4 p-3 rounded" style="background:var(--color-surface-alt); border-left:4px solid var(--color-warning);">
+            <p class="text-sm font-semibold mb-1" style="color:var(--color-warning);">
+                Diferencia importante con el cierre anterior
+            </p>
+            <p class="text-sm text-wings-muted mb-2">
+                El importe declarado difiere en más de un 50% de lo dejado en el último cierre (${{ number_format($propuesta['efectivo_heredado'], 2, ',', '.') }}). Si confirmás que el importe ingresado es correcto, tildá la casilla para continuar:
+            </p>
+            <label class="flex items-start gap-2 text-sm font-semibold" style="color:var(--color-text);">
+                <input type="checkbox" name="confirmar_diferencia_grande" value="1" required class="mt-0.5">
+                <span>Confirmo que el efectivo recibido difiere más del 50% del cierre anterior.</span>
+            </label>
+        </div>
+        @endif
         <label class="flex items-start gap-2 text-sm mt-4">
             <input type="checkbox" name="confirmacion" value="1" required @checked(old('confirmacion')) class="mt-1">
             <span>Confirmo que conté y recibí este efectivo.</span>

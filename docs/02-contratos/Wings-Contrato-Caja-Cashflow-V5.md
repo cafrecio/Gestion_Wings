@@ -27,6 +27,8 @@ V4 queda como antecedente, no como instrucción para abrir o cerrar el cajón.
 | Cobros del ADMIN | Vanina guarda su efectivo aparte: no aumenta el esperado del turno operativo. |
 | Validación ADMIN | Debe contar y cerrar primero, incluso el turno de otra persona. Validar no sustituye el conteo. |
 | Rechazo posterior | Corregir movimientos conserva lo contado y entregado; no cambia lo recibido por el turno siguiente. Respuesta de Carlos: «Sí, conservar lo que se contó y entregó». |
+| Aviso por diferencia grande (T23) | Si lo declarado difiere > 50% (arriba o abajo) del cierre anterior (si dejó > $0), aviso enfático en pantalla; exige confirmación explícita para abrir. Decisión de Carlos 11/10/2026. |
+| Rectificación de apertura (T23) | Con caja ABIERTA, el operativo o ADMIN pueden rectificar el inicial. Motivo obligatorio, conserva valor anterior y recalcula el esperado del turno. Bloqueado si la caja está CERRADA o VALIDADA. Decisión de Carlos 11/10/2026. |
 
 El cambio para vuelto es custodia física, no un ingreso nuevo ni el `saldo_inicial`
 contable del TipoCaja. Tampoco se crea automáticamente un ajuste por la diferencia.
@@ -47,6 +49,16 @@ a revisar por otro agente, sin despliegue. El detalle normativo sigue a continua
   volver a cerrar una rechazado antiguo no lo convierte en el último turno.
 - Recibido distinto de lo heredado exige motivo; se guardan ambos valores. Un formulario
   cuyo cierre de origen quedó desactualizado se rechaza y debe volver a confirmarse.
+- Si lo declarado difiere más del 50% de lo que dejó el último cierre (si dejó > $0),
+  el sistema emite un aviso enfático en pantalla. La persona puede continuar únicamente
+  confirmando la diferencia en pantalla. En la primera apertura o si el cierre previo
+  dejó $0 no aplica el aviso del 50% (en $0 solo rige el motivo habitual si difiere de cero).
+- Mientras la caja permanezca ABIERTA, el efectivo inicial recibido puede rectificarse
+  tanto por el operativo responsable del turno como por ADMIN. La rectificación exige
+  motivo obligatorio, registra fecha, usuario y conserva el efectivo inicial previo
+  (auditoría). Al rectificar, el efectivo esperado del turno se recalcula de inmediato
+  con el nuevo importe inicial. Una caja CERRADA, VALIDADA o RECHAZADA no admite
+  rectificación (tampoco por POST directo).
 - ADMIN puede abrir para un OPERATIVO activo, nunca una caja propia. Se registra quién
   declaró la apertura y quién es el operativo del turno.
 - Continúa el bloqueo de operación con turno abierto de un día anterior.

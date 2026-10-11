@@ -72,6 +72,7 @@ class CajaService
             'confirmacion' => 'required|accepted',
             'caja_origen_id' => 'nullable|integer',
             'motivo_apertura' => 'nullable|string|max:500',
+            'confirmar_diferencia_grande' => 'nullable|boolean',
         ])->validate();
 
         return DB::transaction(function () use ($operativoId, $datos, $actorId) {
@@ -92,9 +93,29 @@ class CajaService
             }
             $inicial = $this->centavos($datos['efectivo_inicial']);
             $motivo = trim($datos['motivo_apertura'] ?? '');
+
+            $errores = [];
             if ($propuesta['efectivo_heredado'] !== null && $inicial !== $this->centavos($propuesta['efectivo_heredado']) && $motivo === '') {
-                throw ValidationException::withMessages(['motivo_apertura' => 'Indicá por qué recibiste un importe distinto del último cierre.']);
+                $errores['motivo_apertura'] = 'Indicá por qué recibiste un importe distinto del último cierre.';
             }
+
+            // Regla T23: Aviso por diferencia grande (> 50%) respecto del cierre anterior (si dejó > $0)
+            if ($propuesta['efectivo_heredado'] !== null) {
+                $heredado = $this->centavos($propuesta['efectivo_heredado']);
+                if ($heredado > 0) {
+                    $diferencia = abs($inicial - $heredado);
+                    $supera50 = $diferencia > ($heredado / 2);
+                    $confirmado = filter_var($datos['confirmar_diferencia_grande'] ?? false, FILTER_VALIDATE_BOOLEAN);
+                    if ($supera50 && !$confirmado) {
+                        $errores['confirmar_diferencia_grande'] = 'El efectivo recibido difiere en más de un 50% del cierre anterior ($' . number_format($propuesta['efectivo_heredado'], 2, ',', '.') . '). Revisá si tipeaste un importe incorrecto. Si el monto es correcto, confirmá la diferencia para abrir.';
+                    }
+                }
+            }
+
+            if (!empty($errores)) {
+                throw ValidationException::withMessages($errores);
+            }
+
             return CajaOperativa::create([
                 'usuario_operativo_id' => $operativoId, 'apertura_at' => now(), 'estado' => 'ABIERTA',
                 'tipo_caja_efectivo_id' => $configuracion->tipo_caja_id,
@@ -103,6 +124,57 @@ class CajaService
                 'efectivo_inicial' => $this->importe($inicial), 'motivo_apertura' => $motivo ?: null,
                 'usuario_apertura_id' => $actor->id,
             ]);
+        });
+    }
+
+    /**
+     * Rectificar el efectivo inicial de una caja ABIERTA (T23).
+     *
+     * Solo permitido mientras la caja esté ABIERTA.
+     * Puede realizarlo el operativo del turno o ADMIN.
+     * Exige motivo obligatorio y recalcula el efectivo esperado del turno.
+     *
+     * @param int $cajaId
+     * @param array $datos
+     * @param int $actorId
+     * @return CajaOperativa
+     */
+    public function rectificarApertura(int $cajaId, array $datos, int $actorId): CajaOperativa
+    {
+        Validator::make($datos, [
+            'efectivo_inicial' => 'required|numeric|min:0|max:9999999999.99|decimal:0,2',
+            'motivo_rectificacion' => 'required|string|min:3|max:500',
+        ])->validate();
+
+        return DB::transaction(function () use ($cajaId, $datos, $actorId) {
+            $this->bloquearMostrador();
+            $caja = CajaOperativa::whereKey($cajaId)->lockForUpdate()->firstOrFail();
+
+            if ($caja->estado !== CajaOperativa::ESTADO_ABIERTA) {
+                throw ValidationException::withMessages([
+                    'caja' => 'Solo se puede rectificar una caja en estado ABIERTA.',
+                ]);
+            }
+
+            $actor = User::findOrFail($actorId);
+            abort_unless($actor->activo && ($actor->isAdmin() || $caja->usuario_operativo_id === $actor->id), 403);
+
+            $nuevoInicialCentavos = $this->centavos($datos['efectivo_inicial']);
+            $motivo = trim($datos['motivo_rectificacion']);
+
+            $caja->efectivo_inicial_anterior = $caja->efectivo_inicial;
+            $caja->efectivo_inicial = $this->importe($nuevoInicialCentavos);
+            $caja->motivo_rectificacion = $motivo;
+            $caja->rectificado_at = now();
+            $caja->usuario_rectificacion_id = $actor->id;
+            $caja->save();
+
+            // Recalcular el efectivo esperado del turno con el nuevo valor inicial
+            $esperado = $this->arqueoCaja($caja->id)['efectivo_esperado'];
+            $caja->efectivo_esperado = $esperado;
+            $caja->save();
+
+            return $caja;
         });
     }
 
