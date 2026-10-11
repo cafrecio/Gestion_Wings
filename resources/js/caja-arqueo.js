@@ -6,14 +6,12 @@ if (form) {
     const retiro = form.querySelector('[data-retiro]');
     const esperado = form.dataset.esperadoCentavos === '' ? null : Number(form.dataset.esperadoCentavos);
     const money = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' });
-    // data-money muestra pesos enteros con separador de miles; los ocultos son DECIMAL canónico.
-    const centavos = (input) => input.value === '' ? null : Math.round(Number(
-        input.hasAttribute('data-importe-canonico') ? input.value : input.value.replaceAll('.', '')
-    ) * 100);
+    // El componente y los ocultos usan el mismo punto decimal; se conserva el cálculo en centavos.
+    const centavos = (input) => input.value === '' ? null : Math.round(window.WingsMoney.numero(input) * 100);
     function actualizar() {
         const real = centavos(contado);
         const retenido = centavos(cambio);
-        cambio.setCustomValidity('');
+        if (cambio.hasAttribute('data-money')) window.WingsMoney.validar(cambio);
         diferencia.textContent = real === null ? 'Ingresá el efectivo contado'
             : esperado === null ? 'No calculable sin declaración inicial'
             : (real < esperado ? 'Faltante ' : real > esperado ? 'Sobrante ' : 'Sin diferencia ')

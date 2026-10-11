@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## T24 — importes unificados, a verificar, 11/10/2026
+
+Codex CAB implementó el componente y el tratamiento común para 16 pantallas/modos,
+incluyendo Rectificar de T23. Carlos decidió aceptar coma decimal, mostrar
+`48,000.50` y recortar el tercer decimal con texto rojo y aviso de 4 segundos
+sin bloquear el valor corregido. Pedidos directos de precisión inválida rechazados
+sin escribir; límites, cero, campos protegidos y cálculos conservados.
+Suite propia 641 aprobadas/2 omitidas, 6075 aserciones, 428,69 s; 643 pruebas.
+Navegador 1292 controles/90 PNG y assets fijos; 18/18 campos previos detectan
+regresión sobre dd62c64. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md).
+Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni deploy.
+Trabajo ajeno de Historial/permisos fuera del commit propio; el controlador
+compartido incorporó las líneas de T24 en 03aaf11 de T23.
+
 ## T16 — tercera vuelta aprobada por Codex, 10/10/2026
 
 Corrección `b8ede87` comprobada sobre copia fija `aa33399`: 12 controles originales/225
@@ -439,7 +453,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **633 pruebas** (631 aprobadas, 2 omitidas; wings_testing_gemini, 11/10. T23 suma 8 pruebas de apertura con aviso >50% y rectificación. T21 suma 9 pruebas de clases canceladas visibles. T19 suma 2. T17 suma 7). [Entrega T23](../06-pruebas/PRU-04/IMPLEMENTACION-T23.md) |
+| **Tests** | **643 pruebas** (641 aprobadas, 2 omitidas; 6075 aserciones, 428,69 s; wings_testing_codex, 11/10. T24 suma 6 y el trabajo paralelo de Historial suma 4). [T24](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

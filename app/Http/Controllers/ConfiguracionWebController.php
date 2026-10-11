@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Configuracion;
 use App\Models\ReglaPrimerPago;
+use App\Rules\ImportePesos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,10 +48,11 @@ class ConfiguracionWebController extends Controller
 
     public function update(Request $request, string $clave)
     {
+        if ($clave === 'inscripcion_importe') ImportePesos::preparar($request, ['valor']);
         $config = Configuracion::where('clave', $clave)->firstOrFail();
 
         $rules = match ($clave) {
-            'inscripcion_importe' => 'required|numeric|min:0.01|max:99999999.99|decimal:0,2',
+            'inscripcion_importe' => ['required', 'numeric', 'min:0.01', 'max:99999999.99', new ImportePesos],
             'dias_gracia_cobranza' => 'required|integer|min:1|max:28',
             'avisos_email' => 'nullable|string|email|max:255',
             'avisos_telegram_chat_id' => 'nullable|string|regex:/^-?[1-9][0-9]*$/|max:255',

@@ -1,32 +1,39 @@
 @props([
     'id'          => null,
-    'name',
+    'name'        => '',
     'value'       => '',
     'placeholder' => '0',
     'required'    => false,
     'disabled'    => false,
+    'readonly'    => false,
+    'min'         => '0',
+    'max'         => null,
+    'prefix'      => true,
+    'wrapperClass'=> '',
 ])
 
 @php
-    // Mostrar el valor formateado con separador de miles (punto)
-    $display = $value !== '' && $value !== null
-        ? number_format((float) $value, 0, ',', '.')
-        : '';
+    $display = \App\Rules\ImportePesos::mostrar($value);
 @endphp
 
-<div {{ $attributes->class(['money-input-wrap']) }}>
+<div class="money-input-wrap {{ $wrapperClass }}">
+    @if($prefix)
     <span class="money-prefix" aria-hidden="true">$</span>
+    @endif
     <input
         type="text"
         @if($id) id="{{ $id }}" @endif
-        name="{{ $name }}"
+        @if($name !== '') name="{{ $name }}" @endif
         value="{{ $display }}"
         placeholder="{{ $placeholder }}"
-        inputmode="numeric"
+        inputmode="decimal"
         autocomplete="off"
         data-money="true"
         {{ $required ? 'required' : '' }}
         {{ $disabled ? 'disabled' : '' }}
-        class="w-full py-2.5 text-sm wings-input money-input"
+        {{ $readonly ? 'readonly' : '' }}
+        min="{{ $min }}"
+        @if($max !== null) max="{{ $max }}" @endif
+        {{ $attributes->class(['w-full py-2.5 text-sm wings-input', 'px-4' => !$prefix, 'money-input' => $prefix]) }}
     >
 </div>

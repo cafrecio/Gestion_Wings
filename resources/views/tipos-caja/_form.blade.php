@@ -71,13 +71,8 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
         />
         @error('saldo_inicial') <p class="text-xs mt-1" style="color: var(--color-danger);">{{ $message }}</p> @enderror
         @else
-        <div class="money-input-wrap">
-            <span class="money-prefix" aria-hidden="true">$</span>
-            <input type="text" id="saldo_inicial" readonly
-                   value="{{ number_format((float) $tipoCaja->saldo_inicial, 2, ',', '.') }}"
-                   aria-describedby="saldo-inicial-ayuda"
-                   class="w-full py-2.5 text-sm wings-input money-input">
-        </div>
+        <x-ds.money-input id="saldo_inicial" :value="$tipoCaja->saldo_inicial"
+                          readonly aria-describedby="saldo-inicial-ayuda" />
         <p id="saldo-inicial-ayuda" class="text-xs mt-1 text-wings-muted">Se ajusta con un movimiento, no editando el saldo inicial.</p>
         @endif
     </div>

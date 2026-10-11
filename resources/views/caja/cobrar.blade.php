@@ -144,15 +144,11 @@
                             @endif
                         </div>
                         <div style="display:flex; align-items:center; gap:8px;">
-                            <input type="text"
-                                   name="montos_cuota[{{ $deuda->periodo }}]"
-                                   class="monto-cuota wings-input"
-                                   data-periodo="{{ $deuda->periodo }}"
-                                   data-saldo="{{ $deuda->saldo_pendiente }}"
-                                   value="{{ number_format((float)$deuda->saldo_pendiente, 0, ',', '.') }}"
-                                   disabled
-                                   data-money="true"
-                                   style="width:110px; padding:4px 10px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-danger);">
+                            <x-ds.money-input name="montos_cuota[{{ $deuda->periodo }}]"
+                                              class="monto-cuota" data-periodo="{{ $deuda->periodo }}"
+                                              data-saldo="{{ $deuda->saldo_pendiente }}"
+                                              :value="old('montos_cuota.'.$deuda->periodo, $deuda->saldo_pendiente)"
+                                              min="0.01" :prefix="false" wrapper-class="money-input-wrap--cuota" required disabled />
                         </div>
                     </div>
                 @endforeach
@@ -170,6 +166,11 @@
             Cobro adelantado — un mes que todavía no empezó
         </p>
         <div id="adelantos-lista" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <template id="adelanto-importe-template">
+            <x-ds.money-input name="montos_cuota[__PERIODO__]" class="monto-cuota"
+                              data-periodo="__PERIODO__" min="0.01" :prefix="false"
+                              wrapper-class="money-input-wrap--cuota" required />
+        </template>
         <div style="display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin-top:8px;">
             <div style="flex:1; min-width:180px;">
                 <label for="adelanto-periodo" class="{{ $labelClass }}">
@@ -188,7 +189,7 @@
                     <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
                     Importe
                 </label>
-                <input type="text" id="adelanto-monto" inputmode="numeric" class="w-full px-4 py-2.5 text-sm wings-input" style="text-align:right;" placeholder="0">
+                <x-ds.money-input id="adelanto-monto" min="0.01" :prefix="false" class="text-right" />
             </div>
             <button type="button" id="adelanto-agregar" class="ds-btn" disabled
                     style="background:var(--color-btn-secondary); color:var(--color-surface); opacity:0.4; cursor:not-allowed;">Agregar</button>
@@ -257,7 +258,7 @@
         <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
         <p>Pendiente por única vez: ${{ number_format($saldoInscripcion, 2, ',', '.') }}. Se cubre antes que la cuota, en cualquiera de los deportes.</p>
         <label for="monto-entregado">Importe que entrega (dejar vacío para cobrar el total)</label>
-        <input type="number" id="monto-entregado" name="monto_entregado" min="0.01" step="0.01" class="wings-input">
+        <x-ds.money-input id="monto-entregado" name="monto_entregado" min="0.01" max="99999999.99" :prefix="false" />
         <p id="inscripcion-distribucion" aria-live="polite"></p>
     </div>
     @endif

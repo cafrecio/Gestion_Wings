@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **633 pruebas**: 631 aprobadas/2 omitidas; Gemini CAB, 11/10, wings_testing_gemini. T15, T16, T17, T18, T19 y T21 cerrados/implementados; T23 implementado por Gemini. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T23.md). Sin deploy |
+| Suite | **643 pruebas**: 641 aprobadas/2 omitidas, 6075 aserciones, 428,69 s; Codex CAB, 11/10, wings_testing_codex. T24 suma 6 permanentes y el trabajo paralelo de Historial 4. [T24](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Sin deploy |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -34,6 +34,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **T24, 11/10, implementada por Codex CAB:** 16 pantallas/modos, componente y código comunes. Carlos decidió coma decimal aceptada, mostrar `48,000.50` y recortar el tercer decimal con texto rojo/aviso de 4 s sin bloquear. Pedidos directos inválidos rechazados sin escribir; cero/reglas/cálculos conservados. 1292 controles de navegador y 90 PNG en marco360/escritorio; 18/18 campos anteriores detectan regresión sobre dd62c64. Suite 641/2 verde. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni despliegue, sitio de prueba/reloj intactos por Codex. La integración de T24 en el controlador compartido entró en `03aaf11` de T23; trabajo ajeno de Historial/permisos fuera del commit propio.
 
 - **T16, tercera vuelta cerrada por Codex CyE, 10/10:** `b8ede87` comprobado sobre copia fija `aa33399`: 12 controles/225 aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados. APORTE/RETIRO, edición/alta, ambos órdenes: espera real comprobada, uno guarda/otro rechaza; 16 pedidos en 0,263–0,943 s y ocho posteriores pasan. Suite 614 aprobadas/2 omitidas, 5.087 aserciones, 637,19 s, base propia. Carlos acotó a guardados desde Wings; comandos de consola fuera. Nombres nuevos en INGRESO para admin; DemoSeeder NULL, observación separada. Hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos. Sin arreglo, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 

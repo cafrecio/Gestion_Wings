@@ -1,0 +1,480 @@
+{
+    "revision": "dd62c64",
+    "casos": [
+        {
+            "caso": "apertura",
+            "ruta": "/caja/apertura",
+            "selector": "#efectivo_inicial",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                }
+            ]
+        },
+        {
+            "caso": "cierre-contado",
+            "ruta": "/caja/3/cerrar",
+            "selector": "#efectivo_contado",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                }
+            ]
+        },
+        {
+            "caso": "cierre-cambio",
+            "ruta": "/caja/4/cerrar",
+            "selector": "#cambio_retenido",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                }
+            ]
+        },
+        {
+            "caso": "cuota",
+            "ruta": "/caja/cobrar/4",
+            "selector": "[name=\"montos_cuota[2026-10]\"]",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "adelantado",
+            "ruta": "/caja/cobrar/5",
+            "selector": "#adelanto-monto",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "entregado",
+            "ruta": "/caja/cobrar/6",
+            "selector": "#monto-entregado",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "caja-agregar",
+            "ruta": "/caja/8/editar",
+            "selector": "#monto",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "caja-editar",
+            "ruta": "/caja/9/movimientos/4/editar",
+            "selector": "#monto",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "caja-movimiento",
+            "ruta": "/caja/movimiento",
+            "selector": "#monto",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "cashflow",
+            "ruta": "/cashflow/movimiento",
+            "selector": "#monto",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "grupo-alta",
+            "ruta": "/grupos/create",
+            "selector": "[name=\"planes[0][precio_mensual]\"]",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "grupo-editar",
+            "ruta": "/grupos/15/edit",
+            "selector": "[name=\"planes[0][precio_mensual]\"]",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "plan-directo",
+            "ruta": null,
+            "selector": null,
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "profesor-alta",
+            "ruta": "/profesores/create",
+            "selector": "#valor_hora",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "profesor-editar",
+            "ruta": "/profesores/18/edit",
+            "selector": "#valor_hora",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "medio-alta",
+            "ruta": "/tipos-caja/create",
+            "selector": "#saldo_inicial",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "medio-editar",
+            "ruta": "/tipos-caja/20/edit",
+            "selector": "#saldo_inicial",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 302,
+                    "rechazado": false,
+                    "escribio": true
+                }
+            ]
+        },
+        {
+            "caso": "configuracion",
+            "ruta": "/configuraciones",
+            "selector": "#cfg-inscripcion_importe",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                }
+            ]
+        },
+        {
+            "caso": "liquidacion",
+            "ruta": "/liquidaciones/19",
+            "selector": "#monto_final",
+            "pedidos": [
+                {
+                    "entrada": "48.505",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                },
+                {
+                    "entrada": "48.000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                },
+                {
+                    "entrada": "48.0000",
+                    "estadoHTTP": 422,
+                    "rechazado": true,
+                    "escribio": false
+                }
+            ]
+        }
+    ]
+}

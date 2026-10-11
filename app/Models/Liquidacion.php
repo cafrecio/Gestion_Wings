@@ -163,7 +163,7 @@ class Liquidacion extends Model
         }
         $monto = trim($monto);
         $motivo = trim($motivo);
-        if (!preg_match('/^\d{1,10}(?:\.\d{1,2})?$/D', $monto)
+        if (!\App\Rules\ImportePesos::esCanonico($monto) || strlen(explode('.', $monto, 2)[0]) > 10
             || mb_strlen($motivo) < 5 || mb_strlen($motivo) > 255) {
             throw new \InvalidArgumentException('Ingresá un importe válido y un motivo de 5 a 255 caracteres.');
         }

@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-11 — Codex CAB — T24 implementada, a verificar por Carlos y después otro agente
+
+16 pantallas/modos con Rectificar T23, filas nuevas de Grupos/adelantados y alta de plan por pedido directo.
+Fuentes reales y rutas leídas tras pull actualizado; lector Excel ejecutado aislado, sin base.
+Carlos: coma decimal aceptada; mostrar 48,000.50; tercer decimal recortado a dos, rojo y aviso de 4 s sin bloquear.
+Componente/parser comunes y regla PHP; guardados directos sin redondear inválidos. Excel, porcentajes y cálculos conservados.
+Coordinación T23: campo de rectificación incluido; cambios T24 del controlador compartido entraron en 03aaf11 de Gemini.
+Suite completa propia 641/2, 6075 aserciones, 428,69 s; 643 pruebas. Navegador 1292 controles/90 PNG, assets fijados.
+18/18 campos anteriores detectan regresión sobre dd62c64; 57 pedidos previos registrados. Sintaxis/build/vistas correctos.
+[Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). T24 a_verificar, Carlos aprueba imágenes y después otro agente regla; sin cierre ni deploy.
+Publicar solo archivos propios; trabajo ajeno de Historial/permisos preservado. Sin sitio de prueba ni reloj por Codex.
+
 ## 2026-10-10 — Codex CyE — T14 Día 3 recorrido, a verificar por Claude
 
 Objetivo: feriado simulado lunes 12/10; seis tareas por menú/botones, expectativas antes de actuar.
@@ -109,17 +121,6 @@ Build1,63s correcto; suite completa573/2,4616aserciones,559,63s correcta. Primer
 [Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A42.md). Tablero a_verificar, hizoCodex, tiene nadie.
 Siguiente: asignar verificador; no autocierre. Archivo anterior íntegro preservado.
 
-## 2026-10-10 — Codex CyE — Monto ajustado e íconos aprobados por Carlos
-
-Carlos preguntó importe/diferencia/negativos y pidió íconos; label Monto ajustado y ayuda sobre total≥0.
-Diferencia automática con signo; nueve SVG en labels/importes, seis campos con accesibilidad conservada.
-Capturas Laravel reales renovadas; Carlos: «Sí, así», verifica Carlos para el aspecto.
-Control independiente aprobado: fuente/cuatroPNG; lógica/nombres/min/max/step intactos. No app.css ni componentes.
-Chrome: seislabels/íconos/ayuda; −1rechazado,0/18000admitidos. Selector caja382 en marco375, igual al HTML anterior.
-Suite572/2omitidas/1falla documental por583 vs575;4612aserciones,733,56s. Guardián aislado1/7 aprobado; excluye CBU ajeno.
-[Entrega y límites](../06-pruebas/B12-A23/ETIQUETAS-AJUSTE-2026-10-10.md). B12 en_curso: manual/antecedentes; A23 cerrado/Claude.
-Archivo anterior íntegro; publicación autorizada. Sin desplegar el retoque ni tocar la base del club.
-
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 
 [Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
@@ -134,3 +135,5 @@ Archivo anterior íntegro; publicación autorizada. Sin desplegar el retoque ni 
 [Archivo íntegro anterior al Día 2](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-02.txt).
 
 [Archivo íntegro anterior al Día 3](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-03.txt).
+
+[Archivo íntegro anterior al inventario T24](../99-archivo/bitacoras/2026-10-11/LOG-CODEX-ANTES-T24.txt).

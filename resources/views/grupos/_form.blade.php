@@ -91,15 +91,9 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
                         </option>
                     @endfor
                 </select>
-                <div class="money-input-wrap" style="flex:1;">
-                    <span class="money-prefix" aria-hidden="true">$</span>
-                    <input type="text"
-                           name="planes[{{ $i }}][precio_mensual]"
-                           value="{{ number_format((float)$plan->precio_mensual, 0, ',', '.') }}"
-                           placeholder="0" inputmode="numeric" autocomplete="off"
-                           data-money="true"
-                           class="w-full py-2.5 text-sm wings-input money-input">
-                </div>
+                <x-ds.money-input name="planes[{{ $i }}][precio_mensual]"
+                                  :value="old('planes.'.$i.'.precio_mensual', $plan->precio_mensual)"
+                                  min="0.01" wrapper-class="flex-1" required />
                 <button type="button" class="btn-remove-plan ds-btn ds-btn--secondary"
                         style="flex-shrink:0; min-width:0; padding:0.5rem 0.65rem; width:auto;">✕</button>
             </div>
@@ -127,14 +121,8 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
                 <option value="4">4 veces/semana</option>
                 <option value="5">5 veces/semana</option>
             </select>
-            <div class="money-input-wrap" style="flex:1;">
-                <span class="money-prefix" aria-hidden="true">$</span>
-                <input type="text"
-                       name="planes[__IDX__][precio_mensual]"
-                       value="" placeholder="0" inputmode="numeric" autocomplete="off"
-                       data-money="true"
-                       class="w-full py-2.5 text-sm wings-input money-input">
-            </div>
+            <x-ds.money-input name="planes[__IDX__][precio_mensual]"
+                              min="0.01" wrapper-class="flex-1" required />
             <button type="button" class="btn-remove-plan ds-btn ds-btn--secondary"
                     style="flex-shrink:0; min-width:0; padding:0.5rem 0.65rem; width:auto;">✕</button>
         </div>

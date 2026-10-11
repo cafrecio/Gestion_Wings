@@ -170,7 +170,7 @@ class SaldoInicialTipoCajaTest extends TestCase
         $this->withSession(['_old_input' => ['saldo_inicial' => 999999]])
             ->get(route('web.tipos-caja.edit', $tipoCaja->id))
             ->assertOk()->assertDontSee('name="saldo_inicial"', false)
-            ->assertSee('200.000')->assertDontSee('999.999')
+            ->assertSee('200,000.00')->assertDontSee('999,999.00')
             ->assertSee('Se ajusta con un movimiento, no editando el saldo inicial.');
     }
 

@@ -1,8 +1,3 @@
-{{-- Datos del deporte como JSON para el JS --}}
-<script>
-const deportesData = @json($deportes->keyBy('id'));
-</script>
-
 @php
 $iconAttr   = 'class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-btn-primary)"';
 $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
@@ -172,47 +167,6 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 
 </div>
 
-<script>
-(function () {
-    const deporteSelect      = document.getElementById('deporte_id');
-    const fieldValorHora     = document.getElementById('field-valor-hora');
-    const fieldComision      = document.getElementById('field-porcentaje-comision');
-    const inputValorHora     = document.getElementById('valor_hora');
-    const inputComision      = document.getElementById('porcentaje_comision');
-
-    function actualizarCamposLiquidacion(deporteId) {
-        if (!deporteId) {
-            fieldValorHora.style.display = 'none';
-            fieldComision.style.display  = 'none';
-            return;
-        }
-
-        const deporte = deportesData[deporteId];
-        if (!deporte) {
-            fieldValorHora.style.display = 'none';
-            fieldComision.style.display  = 'none';
-            return;
-        }
-
-        if (deporte.tipo_liquidacion === 'HORA') {
-            fieldValorHora.style.display = '';
-            fieldComision.style.display  = 'none';
-            inputComision.value          = '';
-        } else if (deporte.tipo_liquidacion === 'COMISION') {
-            fieldValorHora.style.display = 'none';
-            fieldComision.style.display  = '';
-            inputValorHora.value         = '';
-        } else {
-            fieldValorHora.style.display = 'none';
-            fieldComision.style.display  = 'none';
-        }
-    }
-
-    deporteSelect.addEventListener('change', function () {
-        actualizarCamposLiquidacion(this.value);
-    });
-
-    // Inicializar al cargar la página
-    actualizarCamposLiquidacion(deporteSelect.value);
-})();
-</script>
+@push('scripts')
+    @vite('resources/js/profesores-form.js')
+@endpush

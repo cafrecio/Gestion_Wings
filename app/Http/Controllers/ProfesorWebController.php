@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Deporte;
 use App\Models\Profesor;
 use App\Rules\CbuOAlias;
+use App\Rules\ImportePesos;
 use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -54,6 +55,7 @@ class ProfesorWebController extends Controller
 
     public function store(Request $request)
     {
+        ImportePesos::preparar($request, ['valor_hora']);
         $validated = $request->validate(
             $this->validationRules(),
             $this->validationMessages()
@@ -79,6 +81,7 @@ class ProfesorWebController extends Controller
 
     public function update(Request $request, int $id)
     {
+        ImportePesos::preparar($request, ['valor_hora']);
         $profesor  = Profesor::findOrFail($id);
         $validated = $request->validate(
             $this->validationRules($profesor->id),
@@ -134,7 +137,7 @@ class ProfesorWebController extends Controller
             'email'               => 'nullable|email|max:255',
             'telefono'            => 'required|string|max:50',
             'cbu_alias'           => ['nullable', new CbuOAlias],
-            'valor_hora'          => 'nullable|numeric|min:0',
+            'valor_hora'          => ['nullable', 'numeric', 'min:0', new ImportePesos],
             'porcentaje_comision' => 'nullable|numeric|min:0|max:100',
         ];
     }

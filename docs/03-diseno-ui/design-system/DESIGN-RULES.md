@@ -181,3 +181,29 @@ Antes de aprobar cualquier vista, verificar:
 - [ ] ¿El borde derecho de los botones de tabla y del pie del card están alineados?
 - [ ] ¿Los datos de tipos distintos están en secciones separadas?
 - [ ] ¿Hay un único `stats-bar` por sección con un único botón primario a la derecha?
+
+## 10. CAMPOS DE IMPORTES EN PESOS — T24, decisión de Carlos 11/10/2026
+
+- Todos usan `x-ds.money-input` y el comportamiento común de `resources/js/money-input.js`,
+  cargado por `ds-app.js`. También las filas agregadas desde templates; no generar otro input o parser.
+- El punto es decimal, hasta dos decimales. `48000` es cuarenta y ocho mil;
+  `48.50` es cuarenta y ocho con cincuenta. La coma tipeada se convierte en punto: `48,50` → `48.50`.
+- Al entrar al campo se edita sin separador de miles. Al salir o mostrar lo guardado,
+  se presenta con coma de miles, punto decimal y dos decimales: `48,000.50`.
+- Si se tipea `48.505`, queda `48.50`, el texto/borde se pone rojo y aparece
+  «No se pueden colocar más de dos decimales.» durante 4 segundos. **El valor corregido
+  no bloquea continuar ni guardar.** Se recorta, no se redondea. Otro tipeo válido limpia el rojo.
+- Negativos, letras y cero donde el flujo no lo admite son inválidos. Se mantienen
+  los mínimos, máximos, obligatoriedad y campos de solo lectura de cada operación.
+- El aviso se crea desde JavaScript externo; no scripts/eventos incrustados en Blade
+  ni colores escritos a mano. Usar `var(--color-danger)` para el error.
+- Formularios normales, FormData y guardados por JSON mandan el mismo valor canónico,
+  sin separador de miles. En el servidor, `App\Rules\ImportePesos` valida/normaliza
+  todos los campos de escritura: un pedido directo con tres decimales **se rechaza
+  sin escribir**, no se recorta silenciosamente.
+- Porcentajes, días y comisión quedan fuera. Los textos de saldos, recibos e importes
+  calculados conservan su presentación; esta regla define los campos de carga/edición.
+- Los lectores de Excel mantienen su formato propio. No aplicar el parser del padrón
+  a los importes escritos en una pantalla.
+
+[Inventario, pruebas y capturas de T24](../../06-pruebas/PRU-04/IMPLEMENTACION-T24.md).

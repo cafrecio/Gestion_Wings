@@ -260,7 +260,7 @@ class CajaCambioInicialA25Test extends TestCase
     {
         $this->service->configurarMostrador($this->efectivo->id, $this->admin->id);
         $this->actingAs($this->admin)->post(route('web.caja.abrir'), [
-            'operativo_id' => $this->operativo->id, 'efectivo_inicial' => '10.000', 'confirmacion' => 1,
+            'operativo_id' => $this->operativo->id, 'efectivo_inicial' => '10,000.00', 'confirmacion' => 1,
         ])->assertSessionHasNoErrors()->assertRedirect();
         $caja = CajaOperativa::sole();
         $this->assertSame($this->operativo->id, $caja->usuario_operativo_id);
@@ -284,7 +284,7 @@ class CajaCambioInicialA25Test extends TestCase
     {
         $caja = $this->abrir();
         $this->actingAs($this->admin)->post(route('web.caja.cerrar', $caja->id), [
-            'efectivo_contado' => '34.000', 'cambio_retenido' => '10.000',
+            'efectivo_contado' => '34,000.00', 'cambio_retenido' => '10,000.00',
         ])->assertSessionHasNoErrors()->assertRedirect();
         $this->assertSame('34000.00', $caja->fresh()->efectivo_contado);
         $this->assertSame('24000.00', $caja->fresh()->efectivo_retirado);

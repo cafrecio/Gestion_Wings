@@ -147,12 +147,12 @@ class CobrarPrimeraCuotaWebTest extends TestCase
 
     public function test_el_cobro_web_interpreta_el_monto_con_separador_de_miles(): void
     {
-        // El navegador envia el campo tal como se ve en pantalla: "28.000".
+        // T24: punto decimal y coma de miles. El pedido directo también interpreta la presentación.
         $this->actingAs($this->operativo)
             ->post(route('web.caja.pagar', $this->alumno->id), [
                 'tipo_caja_id' => $this->tipoCaja->id,
                 'periodos' => ['2026-08'],
-                'montos_cuota' => ['2026-08' => '28.000'],
+                'montos_cuota' => ['2026-08' => '28,000.00'],
                 'fecha_pago' => '2026-08-15',
             ])
             ->assertRedirect(route('web.caja.index'))

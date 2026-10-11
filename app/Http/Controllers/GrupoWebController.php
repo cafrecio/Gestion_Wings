@@ -7,6 +7,7 @@ use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
 use App\Models\Nivel;
+use App\Rules\ImportePesos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -43,6 +44,7 @@ class GrupoWebController extends Controller
 
     public function store(Request $request)
     {
+        ImportePesos::preparar($request, ['planes.*.precio_mensual']);
         $validator = Validator::make($request->all(), [
             'deporte_id'                     => 'required|exists:deportes,id',
             'nivel_id'                       => [
@@ -54,7 +56,7 @@ class GrupoWebController extends Controller
             ],
             'planes'                         => 'required|array|min:1',
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
-            'planes.*.precio_mensual'        => 'required|numeric|gt:0',
+            'planes.*.precio_mensual'        => ['required', 'numeric', 'gt:0', new ImportePesos],
         ], [
             'planes.required'                       => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
             'planes.array'                          => 'Las frecuencias deben enviarse como una lista.',
@@ -124,13 +126,14 @@ class GrupoWebController extends Controller
 
     public function update(Request $request, int $id)
     {
+        ImportePesos::preparar($request, ['planes.*.precio_mensual']);
         $grupo = Grupo::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
             'planes'                         => 'required|array|min:1',
             'planes.*.id'                    => ['nullable', 'integer', Rule::exists('grupo_planes', 'id')->where('grupo_id', $id)],
             'planes.*.clases_por_semana'     => 'required|integer|min:1|max:7',
-            'planes.*.precio_mensual'        => 'required|numeric|gt:0',
+            'planes.*.precio_mensual'        => ['required', 'numeric', 'gt:0', new ImportePesos],
         ], [
             'planes.required'                       => 'El grupo debe tener al menos una frecuencia para poder cargar alumnos.',
             'planes.array'                          => 'Las frecuencias deben enviarse como una lista.',
@@ -236,11 +239,12 @@ class GrupoWebController extends Controller
 
     public function storePlan(Request $request, int $id)
     {
+        ImportePesos::preparar($request, ['precio_mensual']);
         $grupo = Grupo::findOrFail($id);
 
         $validated = $request->validate([
             'clases_por_semana' => 'required|integer|min:1|max:7',
-            'precio_mensual'    => 'required|numeric|gt:0',
+            'precio_mensual'    => ['required', 'numeric', 'gt:0', new ImportePesos],
         ], [
             'precio_mensual.required' => 'Ingresá el precio.',
             'precio_mensual.numeric' => 'El precio debe ser un número.',

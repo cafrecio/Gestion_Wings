@@ -1,0 +1,149 @@
+{
+  "revision": "dd62c64",
+  "resultados": [
+    {
+      "caso": "apertura",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "cierre-contado",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "cierre-cambio",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "cuota",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "adelantado",
+      "dosDecimales": "48.50",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "entregado",
+      "dosDecimales": "48.50",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "caja-agregar",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "caja-editar",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "caja-movimiento",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "cashflow",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "grupo-alta",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "grupo-editar",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "profesor-alta",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "profesor-editar",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "medio-alta",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "medio-editar",
+      "dosDecimales": "4.850",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "configuracion",
+      "dosDecimales": "48.50",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    },
+    {
+      "caso": "liquidacion",
+      "dosDecimales": "48.50",
+      "tresDecimales": "48.505",
+      "rojo": false,
+      "aviso": false,
+      "detectaRegresion": true
+    }
+  ]
+}

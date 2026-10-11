@@ -296,7 +296,9 @@
             <input type="hidden" name="monto_anterior" value="{{ $liquidacion->monto_a_pagar }}">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div><label for="monto_final" class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto ajustado</label>
-                    <input id="monto_final" name="monto_final" aria-describedby="monto_final_ayuda" type="number" min="0" max="9999999999.99" step="0.01" required value="{{ old('monto_final', $liquidacion->monto_a_pagar) }}" class="w-full px-3 py-2 text-sm wings-input">
+                    <x-ds.money-input id="monto_final" name="monto_final" aria-describedby="monto_final_ayuda"
+                                      min="0" max="9999999999.99" :prefix="false" required
+                                      :value="old('monto_final', $liquidacion->monto_a_pagar)" />
                     <p id="monto_final_ayuda" class="text-xs mt-1" style="color:var(--color-text-muted);">Total a pagar, desde $0. La diferencia se calcula automáticamente.</p>
                     @error('monto_final')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
                 </div>

@@ -13,6 +13,12 @@
         @csrf
         @method('PATCH')
         <label class="form-label" for="cfg-{{ $clave }}">{{ $campo['etiqueta'] }}</label>
+        @if($clave === 'inscripcion_importe')
+        <x-ds.money-input id="cfg-{{ $clave }}" name="valor" :value="$valor"
+                          min="0.01" max="99999999.99" :prefix="false" required class="p-3 mb-3"
+                          aria-describedby="ayuda-{{ $clave }} error-{{ $clave }}"
+                          aria-invalid="{{ $errorCampo ? 'true' : 'false' }}" />
+        @else
         <input id="cfg-{{ $clave }}" name="valor" value="{{ $valor }}" type="{{ $campo['tipo'] }}"
                class="wings-input w-full p-3 mb-3" maxlength="255"
                @if(isset($campo['min'])) min="{{ $campo['min'] }}" @endif
@@ -22,6 +28,7 @@
                @if($campo['obligatorio'] ?? false) required @endif
                aria-describedby="ayuda-{{ $clave }} error-{{ $clave }}"
                aria-invalid="{{ $errorCampo ? 'true' : 'false' }}">
+        @endif
         <p id="ayuda-{{ $clave }}" class="text-wings-muted mb-3">{{ $campo['ayuda'] }}</p>
         <p id="error-{{ $clave }}" class="ds-flash ds-flash--error" @if(!$errorCampo) hidden @endif>
             <a href="#cfg-{{ $clave }}">{{ $errorCampo }}</a>

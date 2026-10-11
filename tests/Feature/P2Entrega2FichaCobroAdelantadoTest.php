@@ -242,7 +242,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $postData = [
             'tipo_caja_id' => $this->tipoCaja->id,
             'periodos' => ['2026-11'],
-            'montos_cuota' => ['2026-11' => '35.000'],
+            'montos_cuota' => ['2026-11' => '35,000.00'],
             'fecha_pago' => '2026-10-05',
             'confirmar_pago_adelantado' => 1,
         ];
@@ -306,7 +306,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         // Se anunció un 10% de aumento para noviembre: se cobra 38.500 en vez de 35.000.
         foreach ([[$this->operativo, '2026-11'], [$this->admin, '2026-12']] as [$quien, $periodo]) {
             $this->actingAs($quien)->post(route('web.caja.pagar', $this->alumno->id), [
-                'tipo_caja_id' => $this->tipoCaja->id, 'periodos' => [$periodo], 'montos_cuota' => [$periodo => '38.500'],
+                'tipo_caja_id' => $this->tipoCaja->id, 'periodos' => [$periodo], 'montos_cuota' => [$periodo => '38,500.00'],
                 'confirmar_pago_adelantado' => 1,
             ])->assertSessionHas('success');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TipoCaja;
 use App\Rules\NombreUnico;
+use App\Rules\ImportePesos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -26,11 +27,12 @@ class TipoCajaWebController extends Controller
 
     public function store(Request $request)
     {
+        ImportePesos::preparar($request, ['saldo_inicial']);
         $request->validate([
             'nombre'      => ['required', 'string', 'max:100', new NombreUnico(TipoCaja::class, mensaje: 'Ya existe un tipo de caja con ese nombre.')],
             'abreviatura' => 'required|string|max:5',
             'descripcion' => 'nullable|string|max:255',
-            'saldo_inicial' => 'required|numeric|min:0',
+            'saldo_inicial' => ['required', 'numeric', 'min:0', new ImportePesos],
         ], [
             'nombre.required'      => 'El nombre es obligatorio.',
             'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',
@@ -62,6 +64,7 @@ class TipoCajaWebController extends Controller
 
     public function update(Request $request, int $id)
     {
+        ImportePesos::preparar($request, ['saldo_inicial']);
         DB::transaction(function () use ($request, $id) {
             $tipoCaja = TipoCaja::lockForUpdate()->findOrFail($id);
             $saldoInicialEditable = $this->saldoInicialEditable($tipoCaja);
@@ -71,7 +74,7 @@ class TipoCajaWebController extends Controller
                 'abreviatura' => 'required|string|max:5',
                 'descripcion' => 'nullable|string|max:255',
                 // Con historial se excluye antes de validar, incluso en pedidos armados a mano.
-                'saldo_inicial' => [Rule::excludeIf(!$saldoInicialEditable), 'required', 'numeric', 'min:0'],
+                'saldo_inicial' => [Rule::excludeIf(!$saldoInicialEditable), 'required', 'numeric', 'min:0', new ImportePesos],
             ], [
                 'nombre.required'      => 'El nombre es obligatorio.',
                 'nombre.max'           => 'El nombre no puede tener más de 100 caracteres.',

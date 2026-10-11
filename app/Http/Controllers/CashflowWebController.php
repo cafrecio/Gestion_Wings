@@ -6,6 +6,7 @@ use App\Models\CashflowMovimiento;
 use App\Models\Rubro;
 use App\Models\TipoCaja;
 use App\Services\CashflowService;
+use App\Rules\ImportePesos;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -105,10 +106,11 @@ class CashflowWebController extends Controller
 
     public function store(Request $request)
     {
+        ImportePesos::preparar($request, ['monto']);
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
             'subrubro_id'   => 'required|exists:subrubros,id',
-            'monto'         => 'required|numeric|min:0.01',
+            'monto'         => ['required', 'numeric', 'min:0.01', new ImportePesos],
             'fecha'         => 'required|date|before_or_equal:today',
             'observaciones' => 'required|string|max:500',
         ]);

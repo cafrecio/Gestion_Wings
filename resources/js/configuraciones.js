@@ -53,7 +53,8 @@ document.querySelectorAll('.configuracion-form').forEach(form => {
     const errorCampo = document.getElementById('error-' + clave);
     const guardado = document.getElementById('guardado-' + clave);
     const boton = form.querySelector('button[type="submit"]');
-    pendientes.set(clave, { campo, original: form.dataset.valorGuardado });
+    pendientes.set(clave, { campo, original: campo.hasAttribute('data-money')
+        ? window.WingsMoney.mostrar(form.dataset.valorGuardado) : form.dataset.valorGuardado });
     if (!errorCampo.hidden) errores.set(clave, { titulo: form.dataset.titulo, mensaje: errorCampo.textContent, destino: campo.id });
     campo.addEventListener('input', () => { guardado.hidden = true; });
     form.addEventListener('submit', async event => {
@@ -64,8 +65,9 @@ document.querySelectorAll('.configuracion-form').forEach(form => {
         try {
             const data = await solicitar(form.action, 'PATCH', { valor: campo.value });
             if (data.ok !== true || typeof data.valor !== 'string') throw { mensaje: 'No se pudo confirmar el guardado. Volvé a intentar.', incierto: true };
-            campo.value = data.valor;
-            pendientes.get(clave).original = data.valor;
+            if (campo.hasAttribute('data-money')) window.WingsMoney.asignar(campo, data.valor);
+            else campo.value = data.valor;
+            pendientes.get(clave).original = campo.value;
             errorCampo.hidden = true;
             errorCampo.querySelector('a').textContent = '';
             campo.setAttribute('aria-invalid', 'false');

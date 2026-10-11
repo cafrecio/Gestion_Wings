@@ -32,7 +32,9 @@
                 <p class="text-sm font-semibold">${{ number_format($caja->$campo, 2, ',', '.') }}</p>
                 <input type="hidden" id="{{ $campo }}" name="{{ $campo }}" value="{{ $caja->$campo }}" data-importe-canonico>
                 @else
-                <x-ds.money-input :id="$campo" :name="$campo" :value="old($campo, '')" required />
+                <x-ds.money-input :id="$campo" :name="$campo" :value="old($campo, '')" required
+                                  :max="$campo === 'efectivo_contado' ? '9999999999.99' : null"
+                                  :data-money-lte="$campo === 'cambio_retenido' ? 'efectivo_contado' : ''" />
                 @endif
             </div>
             @endforeach

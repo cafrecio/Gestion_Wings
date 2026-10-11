@@ -13,11 +13,6 @@
     var cerrarDeuda = document.getElementById('cerrar-deuda-anterior');
     var datosCobroPendientes = null;
 
-    function parseMonto(str) {
-        // Remove thousand separators (dots) and replace comma decimal with dot
-        return parseFloat(String(str).replace(/\./g, '').replace(',', '.')) || 0;
-    }
-
     // El mes de alta llega ya descontado desde el servidor, así que el tope de cada
     // período es el que se ve en pantalla. No hay que volver a aplicar el porcentaje
     // acá: hacerlo descontaba también las señas y anunciaba menos de lo que se cobra.
@@ -29,7 +24,7 @@
             if (chk.checked) {
                 var periodo = chk.dataset.periodo;
                 var inp = document.querySelector('.monto-cuota[data-periodo="' + periodo + '"]');
-                var val = inp ? parseMonto(inp.value) : 0;
+                var val = inp ? window.WingsMoney.numero(inp) : 0;
                 // Un mes adelantado no tiene saldo que lo tope: vale lo que se cobre.
                 if (chk.dataset.adelantado) { total += Math.max(val, 0); return; }
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
@@ -45,13 +40,13 @@
         var algunaCuota = document.querySelectorAll('.cuota-check:checked').length > 0;
         var tipoCaja    = selectTipo.value !== '';
         var maximo = calcularTotal() + saldoInscripcion;
-        var total = entregado && entregado.value !== '' ? Number(entregado.value) : maximo;
+        var total = entregado && entregado.value !== '' ? window.WingsMoney.numero(entregado) : maximo;
         var detalle = document.getElementById('inscripcion-distribucion');
         if (detalle) detalle.textContent = 'Inscripción: $' + Math.min(total, saldoInscripcion).toLocaleString('es-AR') + ' · Cuotas: $' + Math.max(0, total - saldoInscripcion).toLocaleString('es-AR');
 
         if ((algunaCuota || saldoInscripcion > 0) && tipoCaja && total > 0 && total <= maximo) {
             resumen.style.display = '';
-            totalLabel.textContent = '$' + total.toLocaleString('es-AR', { maximumFractionDigits: 0 });
+            totalLabel.textContent = '$' + total.toLocaleString('es-AR', { maximumFractionDigits: 2 });
             btnCobrar.disabled = false;
             btnCobrar.style.opacity = '1';
             btnCobrar.style.cursor = 'pointer';
@@ -152,7 +147,7 @@
 
     cobrarForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        enviarCobro(new FormData(cobrarForm));
+        enviarCobro(window.WingsMoney.prepararDatos(cobrarForm, new FormData(cobrarForm)));
     });
 
     formConfirmarDeuda.addEventListener('submit', function (event) {
@@ -218,7 +213,7 @@
                 // el precio viejo, calcularTotal() topea ahi y la pantalla anuncia
                 // menos de lo que se registra.
                 chk.dataset.saldo = sugerido;
-                inp.value = sugerido.toLocaleString('es-AR', { maximumFractionDigits: 0 });
+                window.WingsMoney.asignar(inp, sugerido);
             });
 
             actualizar();
@@ -233,12 +228,8 @@
     var adelantoAgregar = document.getElementById('adelanto-agregar');
     var adelantosLista  = document.getElementById('adelantos-lista');
 
-    function formatoMonto(numero) {
-        return Number(numero).toLocaleString('es-AR', { maximumFractionDigits: 0 });
-    }
-
     function actualizarAdelanto() {
-        var listo = adelantoPeriodo.value !== '' && parseMonto(adelantoMonto.value) > 0;
+        var listo = adelantoPeriodo.value !== '' && window.WingsMoney.validar(adelantoMonto) && window.WingsMoney.numero(adelantoMonto) > 0;
         adelantoAgregar.disabled = !listo;
         adelantoAgregar.style.opacity = listo ? '1' : '0.4';
         adelantoAgregar.style.cursor = listo ? 'pointer' : 'not-allowed';
@@ -246,7 +237,8 @@
 
     function agregarAdelanto() {
         var opcion = adelantoPeriodo.options[adelantoPeriodo.selectedIndex];
-        var monto = parseMonto(adelantoMonto.value);
+        if (!window.WingsMoney.validar(adelantoMonto)) return;
+        var monto = window.WingsMoney.numero(adelantoMonto);
         if (!opcion || !opcion.value || monto <= 0) return;
 
         var fila = document.createElement('div');
@@ -274,18 +266,15 @@
         nombre.appendChild(etiqueta);
         nombre.appendChild(marca);
 
-        var inp = document.createElement('input');
-        inp.type = 'text';
-        inp.inputMode = 'numeric';
+        var importeWrap = document.getElementById('adelanto-importe-template').content.firstElementChild.cloneNode(true);
+        var inp = importeWrap.querySelector('[data-money="true"]');
         inp.name = 'montos_cuota[' + opcion.value + ']';
-        inp.className = 'monto-cuota wings-input';
         inp.dataset.periodo = opcion.value;
-        inp.value = formatoMonto(monto);
-        inp.style.cssText = 'width:110px; padding:4px 10px; font-size:0.85rem; font-weight:700; text-align:right; color:var(--color-text);';
+        window.WingsMoney.asignar(inp, monto);
 
         fila.appendChild(chk);
         fila.appendChild(nombre);
-        fila.appendChild(inp);
+        fila.appendChild(importeWrap);
         adelantosLista.appendChild(fila);
 
         // Un mes no se agrega dos veces.
@@ -299,7 +288,7 @@
     if (adelantoPeriodo && adelantoMonto && adelantoAgregar && adelantosLista) {
         adelantoPeriodo.addEventListener('change', function () {
             var opcion = this.options[this.selectedIndex];
-            adelantoMonto.value = opcion && opcion.dataset.precio ? formatoMonto(opcion.dataset.precio) : '';
+            window.WingsMoney.asignar(adelantoMonto, opcion && opcion.dataset.precio ? opcion.dataset.precio : '');
             actualizarAdelanto();
         });
         adelantoMonto.addEventListener('input', actualizarAdelanto);

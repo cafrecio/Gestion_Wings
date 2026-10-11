@@ -1,3 +1,5 @@
+import './money-input';
+
 /* Comportamientos globales del sistema.
  *
  * Vivian dentro de layouts/ds-app.blade.php, incrustados en la pagina.
@@ -109,63 +111,6 @@
             setTimeout(function () { el.remove(); }, 500);
         });
     }, 3000);
-})();
-
-/* ── money-input: formato numérico con separador de miles (punto) ── */
-(function () {
-    function toDisplay(raw) {
-        // Eliminar todo excepto dígitos
-        const digits = raw.replace(/\D/g, '');
-        if (!digits) return '';
-        return Number(digits).toLocaleString('es-AR', { maximumFractionDigits: 0 });
-    }
-
-    function toRaw(display) {
-        return display.replace(/\./g, '').replace(/,/g, '');
-    }
-
-    function initMoneyInput(input) {
-        // Formatear al mostrar la página
-        if (input.value) {
-            input.value = toDisplay(input.value);
-        }
-
-        input.addEventListener('input', function () {
-            const pos = this.selectionStart;
-            const before = this.value.slice(0, pos).replace(/\./g, '').length;
-            const raw = toRaw(this.value);
-            this.value = raw ? toDisplay(raw) : '';
-            // Reposicionar cursor aproximadamente
-            let count = 0, newPos = 0;
-            for (let i = 0; i < this.value.length; i++) {
-                if (this.value[i] !== '.') count++;
-                if (count === before) { newPos = i + 1; break; }
-            }
-            this.setSelectionRange(newPos, newPos);
-        });
-    }
-
-    function stripMoneyInputs(form) {
-        form.querySelectorAll('[data-money="true"]').forEach(function (input) {
-            input.value = toRaw(input.value);
-        });
-    }
-
-    function init() {
-        document.querySelectorAll('[data-money="true"]').forEach(initMoneyInput);
-        document.querySelectorAll('form').forEach(function (form) {
-            form.addEventListener('submit', function () { stripMoneyInputs(form); });
-        });
-    }
-
-    // Exponer para uso externo (filas dinámicas)
-    window.initMoneyInput = initMoneyInput;
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
 })();
 
 /* ── filtros que se envían solos al elegir una opción ──────────────────

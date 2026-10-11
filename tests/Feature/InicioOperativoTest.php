@@ -59,7 +59,7 @@ class InicioOperativoTest extends TestCase
         parent::tearDown();
     }
 
-    private function abrirCaja(User $operativo, string $fechaHora, string $monto = '10.000,00'): CajaOperativa
+    private function abrirCaja(User $operativo, string $fechaHora, string $monto = '10,000.00'): CajaOperativa
     {
         $dt = Carbon::parse($fechaHora, self::TZ);
         Carbon::setTestNow($dt);
@@ -70,6 +70,7 @@ class InicioOperativoTest extends TestCase
             'caja_origen_id' => null,
             'motivo_apertura' => 'Test apertura',
         ]);
+        $r->assertSessionHasNoErrors();
         $this->assertSame(302, $r->getStatusCode());
 
         return CajaOperativa::where('usuario_operativo_id', $operativo->id)
@@ -91,7 +92,7 @@ class InicioOperativoTest extends TestCase
         $this->actingAs($operativo)->post('/caja/movimiento', [
             'tipo' => 'INGRESO',
             'subrubro_id' => $sub->id,
-            'monto' => number_format($monto, 2, ',', '.'),
+            'monto' => number_format($monto, 2, '.', ','),
             'tipo_caja_id' => $this->tipoEfectivo->id,
             'concepto' => 'Cobro prueba',
         ]);
@@ -191,9 +192,10 @@ class InicioOperativoTest extends TestCase
     {
         $caja = $this->abrirCaja($this->sandra, '2026-10-08 10:00:00');
         $rCierre = $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $caja->id), [
-            'efectivo_contado' => '10.000,00',
-            'cambio_retenido' => '10.000,00',
+            'efectivo_contado' => '10,000.00',
+            'cambio_retenido' => '10,000.00',
         ]);
+        $rCierre->assertSessionHasNoErrors();
         $this->assertSame(302, $rCierre->getStatusCode());
 
         // 4. Sandra entra después de cerrar
@@ -218,9 +220,9 @@ class InicioOperativoTest extends TestCase
     {
         $caja = $this->abrirCaja($this->sandra, '2026-10-08 10:00:00');
         $this->actingAs($this->sandra)->post(route('web.caja.cerrar', $caja->id), [
-            'efectivo_contado' => '10.000,00',
-            'cambio_retenido' => '10.000,00',
-        ]);
+            'efectivo_contado' => '10,000.00',
+            'cambio_retenido' => '10,000.00',
+        ])->assertSessionHasNoErrors();
         $this->actingAs($this->admin)->post(route('web.cajas.rechazar', $caja->id), [
             'motivo' => 'Revisar arqueo',
             'motivo_rechazo' => 'Revisar arqueo',

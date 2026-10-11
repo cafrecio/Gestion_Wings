@@ -1,0 +1,199 @@
+
+  ....................................................................................................................
+  ..................................ss................................................................................
+  ......................................................................⨯.............................................
+  ....................⨯⨯⨯⨯⨯⨯⨯.........................................................⨯..⨯............................
+  ....................................................................................................................
+  ...........................................................
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\DocumentacionNoMienteTest > los documentos declaran la cantidad real de pruebas                
+  docs/00-estado/ESTADO-ACTUAL.md MIENTE.
+  Declara: 639 pruebas
+  Reales:  643 pruebas
+
+Actualizar el documento en el mismo commit que agrego o quito la prueba.
+Un documento desactualizado hace que la proxima orden de trabajo se escriba
+sobre informacion falsa. Ya paso.
+
+Failed asserting that 639 is identical to 643.
+
+  at tests\Feature\DocumentacionNoMienteTest.php:64
+     60▕             }
+     61▕ 
+     62▕             $declarado = (int) $coincidencia[1];
+     63▕ 
+  ➜  64▕             $this->assertSame(
+     65▕                 $real,
+     66▕                 $declarado,
+     67▕                 "\n".
+     68▕                 "{$ruta} MIENTE.\n".
+
+  1   tests\Feature\DocumentacionNoMienteTest.php:64
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 2 turno propio abierto hoy            ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 3 companero abrio hoy                 ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 4 sandra cerro y espera validacion    ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 5 caja rechazada                      ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 6 companero dejo abierta ayer         ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 7 propia abierta ayer                 ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\InicioOperativoTest > situacion 8 de noche                            ModelNotFoundException   
+  No query results for model [App\Models\CajaOperativa].
+
+  at vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+    776▕         if (! is_null($model = $this->first($columns))) {
+    777▕             return $model;
+    778▕         }
+    779▕ 
+  ➜ 780▕         throw (new ModelNotFoundException)->setModel(get_class($this->model));
+    781▕     }
+    782▕ 
+    783▕     /**
+    784▕      * Execute the query and get the first result or call a callback.
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php:780
+  2   tests\Feature\InicioOperativoTest.php:78
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\P2Entrega2FichaCobroAdelantadoTest > a3 cobro adelantado registra pago y deuda al precio de…   
+  Failed asserting that null is not null.
+
+  at tests\Feature\P2Entrega2FichaCobroAdelantadoTest.php:260
+    256▕         $deudaNov = DeudaCuota::where('alumno_id', $this->alumno->id)
+    257▕             ->where('periodo', '2026-11')
+    258▕             ->first();
+    259▕ 
+  ➜ 260▕         $this->assertNotNull($deudaNov);
+    261▕         $this->assertEquals(35000.0, (float)$deudaNov->monto_original);
+    262▕         $this->assertEquals(35000.0, (float)$deudaNov->monto_pagado);
+    263▕         $this->assertEquals(DeudaCuota::ESTADO_PAGADA, $deudaNov->estado);
+    264▕
+
+  1   tests\Feature\P2Entrega2FichaCobroAdelantadoTest.php:260
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\P2Entrega2FichaCobroAdelantadoTest > t18 el importe adelantado se puede cambiar y queda fij…   
+  Session is missing expected key [success].
+Failed asserting that false is true.
+
+The following errors occurred during the last request:
+
+Ingresá un importe válido, con hasta dos decimales.
+
+  at tests\Feature\P2Entrega2FichaCobroAdelantadoTest.php:311
+    307▕         foreach ([[$this->operativo, '2026-11'], [$this->admin, '2026-12']] as [$quien, $periodo]) {
+    308▕             $this->actingAs($quien)->post(route('web.caja.pagar', $this->alumno->id), [
+    309▕                 'tipo_caja_id' => $this->tipoCaja->id, 'periodos' => [$periodo], 'montos_cuota' => [$periodo => '38.500'],
+    310▕                 'confirmar_pago_adelantado' => 1,
+  ➜ 311▕             ])->assertSessionHas('success');
+    312▕ 
+    313▕             $deuda = DeudaCuota::where('alumno_id', $this->alumno->id)->where('periodo', $periodo)->sole();
+    314▕             $this->assertEquals(38500.0, (float) $deuda->monto_original);
+    315▕             $this->assertEquals(38500.0, (float) $deuda->monto_pagado);
+
+
+  Tests:    10 failed, 2 skipped, 627 passed (5936 assertions)
+  Duration: 469.12s
+

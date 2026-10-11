@@ -834,6 +834,42 @@ a:hover {
     padding-left: 1.75rem;
 }
 
+/* T24: el aviso de precisión no bloquea el valor corregido. */
+.wings-input.money-input--invalid,
+.wings-input.money-input--warning {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+.money-notice {
+    position: fixed;
+    z-index: 1100;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 540px;
+    margin: 0;
+    background: var(--color-surface);
+    border: 2px solid var(--color-danger);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--color-text) 15%, transparent);
+}
+.money-notice[hidden] { display: none; }
+.money-input-wrap--cuota { flex-shrink: 0; width: 110px; }
+.money-input-wrap--cuota .wings-input {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: right;
+}
+@media (max-width: 640px) {
+    /* La precisión nueva necesita que el precio se pueda leer completo en Grupos. */
+    .plan-row { flex-wrap: wrap; }
+    .plan-row > select { flex-basis: 100%; }
+    .plan-row > .money-input-wrap { flex-basis: calc(100% - 48px); min-width: 0; }
+}
+
 /* Form label helpers */
 .form-label {
     display: flex;

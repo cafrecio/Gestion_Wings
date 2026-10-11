@@ -131,11 +131,8 @@ if ($rubroActual) {
                     </svg>
                     Monto <span class="form-required">*</span>
                 </label>
-                <input type="text" id="monto" name="monto"
-                       value="{{ old('monto') }}"
-                       required data-money="true"
-                       class="w-full px-4 py-2.5 text-sm wings-input"
-                       placeholder="0">
+                <x-ds.money-input id="monto" name="monto" :value="old('monto')"
+                                  min="0.01" :prefix="false" required />
                 @error('monto') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
             </div>
 

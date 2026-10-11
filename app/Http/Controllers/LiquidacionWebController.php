@@ -10,6 +10,7 @@ use App\Models\Profesor;
 use App\Models\Rubro;
 use App\Models\Subrubro;
 use App\Models\TipoCaja;
+use App\Rules\ImportePesos;
 use App\Services\LiquidacionPagoService;
 use App\Services\LiquidacionService;
 use Illuminate\Http\RedirectResponse;
@@ -328,9 +329,10 @@ class LiquidacionWebController extends Controller
 
     public function ajustar(Request $request, int $id): RedirectResponse
     {
+        ImportePesos::preparar($request, ['monto_final']);
         abort_unless(Liquidacion::ajustesDisponibles(), 503, 'El ajuste final requiere preparar su registro antes de usarlo.');
         $datos = $request->validate([
-            'monto_final'=>['required', 'regex:/^\d{1,10}(?:\.\d{1,2})?$/D'],
+            'monto_final'=>['required', 'numeric', 'min:0', 'max:9999999999.99', new ImportePesos],
             'monto_anterior'=>['required', 'numeric', 'min:0'],
             'motivo'=>['required', 'string', 'min:5', 'max:255'],
         ], ['monto_final.required'=>'Ingresá el monto final.', 'monto_final.regex'=>'Ingresá un importe válido, con hasta dos decimales.',
