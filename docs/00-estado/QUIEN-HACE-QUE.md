@@ -62,9 +62,9 @@ Nada.
 |---|---|---|
 | **T23** Apertura de caja: aviso enfatico si lo declarado difiere mas de 50% del cierre anterior, y poder rectificarlo mientras la caja este abierta | En curso | Lo hace Gemini por decision de Carlos (11/10), despues de T21. Aviso enfatico si lo declarado difiere mas de 50% del cierre anterior y rectificacion mientras la caja este abierta. Entrega con capturas para que Carlos apruebe |
 
-## Sin empezar (17)
+## Sin empezar (18)
 
-B13, MF1, MF2, T2, T6, T7, T9, T10, T12, T22, B3, B5, B6, B7, B8, B9, B11.
+B13, MF1, MF2, T2, T6, T7, T9, T10, T12, T22, T25, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
