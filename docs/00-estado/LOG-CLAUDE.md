@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-11 — Claude CAB — T26: en el Historial de caja los limites son del operativo, no del duenio
+
+Carlos: «El dueño debe ver todo, los limites no son para el». El Historial aplicaba a todos
+los 90 dias, los rubros del operativo y el ocultar cancelados. Ahora el ADMIN ve cualquier
+fecha, todos los rubros y lo cancelado, marcado y sin sumar; el operativo queda igual.
+Decision mia, aprobada por Carlos: sin fecha pedida arranca en los ultimos 90 dias, para no
+traer toda la historia cada vez. **Defecto encontrado leyendo el codigo:** la anulacion de un
+cobro del duenio (asiento en contra, importe negativo) se mostraba y se sumaba como otro
+ingreso; mismo error que A56 en Cashflow. Corregido: resta.
+`HistorialDuenioSinLimitesTest`, 4 pruebas, las 4 fallan con el codigo anterior. Capturas en
+`docs/06-pruebas/PRU-04/evidencia-historial/`; Carlos aprobo el diseno («Diseños OK»).
+Limite visto: en celular la palabra «Cancelado» queda cortada. Contrato de permisos
+actualizado. Falta que otro agente verifique la regla. Sin desplegar.
+**Fuera del repositorio, a proposito:** Carlos y yo llevamos la tabla de casos de prueba por
+pantalla y rol; los otros agentes no la reciben. De ahi salieron T23 a T27, MF1 y MF2.
+
 ## 2026-10-11 — Claude CAB — T21 cerrado; T22 a T24 y dos mejoras futuras al tablero
 
 **T21 cerrado.** Gemini lo hizo en `a62867b`. Verificado por mi: el cambio toca el controlador

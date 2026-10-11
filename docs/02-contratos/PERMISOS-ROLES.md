@@ -94,7 +94,14 @@ La liquidación es un pago a un profesor, dominio exclusivo del admin.
 - ADMIN: sí. OPERATIVO y PROFESOR: no (`ensure.admin.web`).
 
 ### Historial de movimientos (`web.caja.historial`)
-El operativo ve todos los movimientos de subrubros `OPERATIVO` de los últimos 90 días, de cualquier operativo y del admin. No se filtra por "usuario que lo registró".
+El operativo ve todos los movimientos de subrubros `OPERATIVO` de los últimos 90 días, de cualquier operativo y del admin. No se filtra por "usuario que lo registró". No ve los movimientos cancelados.
+
+**Los límites son del operativo, no del dueño** (Carlos, 11/10/2026: «El dueño debe ver todo, los límites no son para él»). El ADMIN ve en el Historial:
+- cualquier fecha, sin tope de 90 días. Sin fecha pedida la pantalla arranca en los últimos 90 días y con «Desde» va tan atrás como quiera;
+- todos los rubros, también los que son solo suyos;
+- los movimientos cancelados, marcados y sin sumar en los totales.
+
+La anulación de un cobro del dueño es un asiento en contra con importe negativo: resta del total, no se muestra como otro ingreso.
 
 ### Cobranza y revisión de cobranza (`web.cobranza.index`, `web.revision-cobranza.*`)
 Decidir si a un alumno que no vino se le genera la cuota del mes es trabajo del mostrador (Carlos, 17/09/2026).

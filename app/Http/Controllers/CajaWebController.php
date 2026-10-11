@@ -194,20 +194,27 @@ class CajaWebController extends Controller
 
     public function historial(Request $request)
     {
-        $tz          = 'America/Argentina/Buenos_Aires';
-        $desdeLimite = now($tz)->subDays(90)->startOfDay();
+        $tz      = 'America/Argentina/Buenos_Aires';
+        $esAdmin = Auth::user()->isAdmin();
 
-        $desde = $desdeLimite;
+        // Los 90 días, los rubros permitidos y el ocultar cancelados son límites del
+        // operativo. El dueño ve su negocio completo (Carlos, 11/10/2026): cualquier
+        // fecha, todos los rubros y también lo cancelado. Sin fecha pedida arranca en
+        // los últimos 90 días para no traer toda la historia de entrada.
+        $ventana     = now($tz)->subDays(90)->startOfDay();
+        $desdeLimite = $esAdmin ? null : $ventana;
+
+        $desde = $ventana;
         if ($request->filled('desde')) {
             $desdePedida = Carbon::parse($request->input('desde'), $tz)->startOfDay();
-            $desde = $desdePedida->greaterThan($desdeLimite) ? $desdePedida : $desdeLimite;
+            $desde = ($desdeLimite === null || $desdePedida->greaterThan($desdeLimite)) ? $desdePedida : $desdeLimite;
         }
         $hasta = $request->filled('hasta')
             ? Carbon::parse($request->input('hasta'), $tz)->endOfDay()
             : now($tz)->endOfDay();
 
         $subrubrosVisibles = Subrubro::with('rubro')
-            ->where('permitido_para', 'OPERATIVO')
+            ->when(!$esAdmin, fn($q) => $q->where('permitido_para', 'OPERATIVO'))
             ->orderBy('nombre')
             ->get();
         $idsVisibles = $subrubrosVisibles->pluck('id');
@@ -215,9 +222,10 @@ class CajaWebController extends Controller
         $subrubroFiltro = $request->input('subrubro_id');
         $tipoFiltro     = $request->input('tipo'); // INGRESO | EGRESO
 
-        // Fuente 1: movimientos de cajas operativas (activos, cualquier operativo)
+        // Fuente 1: movimientos de cajas operativas, de cualquier operativo.
+        // El operativo ve solo los activos; el dueño también los cancelados.
         $movsCaja = MovimientoOperativo::with(['subrubro.rubro', 'alumno', 'usuario', 'tipoCaja'])
-            ->activos()
+            ->when(!$esAdmin, fn($q) => $q->activos())
             ->whereIn('subrubro_id', $idsVisibles)
             ->when($subrubroFiltro, fn($q) => $q->where('subrubro_id', $subrubroFiltro))
             ->whereBetween('fecha', [$desde->toDateString(), $hasta->toDateString()])
@@ -253,6 +261,8 @@ class CajaWebController extends Controller
                 'obs'      => $m->observaciones,
                 'usuario'  => $m->usuario?->name ?? '–',
                 'monto'    => abs((float) $m->monto),
+                'neto'     => abs((float) $m->monto),
+                'cancelado' => $m->estado === MovimientoOperativo::ESTADO_CANCELADO,
                 'orden'    => $m->created_at,
             ]);
         }
@@ -272,6 +282,10 @@ class CajaWebController extends Controller
                 'obs'      => $m->observaciones,
                 'usuario'  => $m->usuarioAdmin?->name ?? '–',
                 'monto'    => abs((float) $m->monto),
+                // La anulación de un cobro del dueño es un asiento en contra, con
+                // importe negativo en el mismo rubro: resta, no es otro ingreso.
+                'neto'     => (float) $m->monto,
+                'cancelado' => false,
                 'orden'    => $m->created_at,
             ]);
         }
@@ -291,8 +305,10 @@ class CajaWebController extends Controller
 
         $filas = $filas->sortBy([['fecha', 'desc'], ['orden', 'desc']])->values();
 
-        $totalIngresos = $filas->where('tipo', 'INGRESO')->sum('monto');
-        $totalEgresos  = $filas->where('tipo', 'EGRESO')->sum('monto');
+        // Lo cancelado se muestra pero no suma.
+        $vigentes      = $filas->where('cancelado', false);
+        $totalIngresos = $vigentes->where('tipo', 'INGRESO')->sum('neto');
+        $totalEgresos  = $vigentes->where('tipo', 'EGRESO')->sum('neto');
 
         $porPagina  = 30;
         $pagina     = LengthAwarePaginator::resolveCurrentPage();
@@ -310,6 +326,7 @@ class CajaWebController extends Controller
             'totalIngresos'  => $totalIngresos,
             'totalEgresos'   => $totalEgresos,
             'desdeLimite'    => $desdeLimite,
+            'esAdmin'        => $esAdmin,
         ]);
     }
 

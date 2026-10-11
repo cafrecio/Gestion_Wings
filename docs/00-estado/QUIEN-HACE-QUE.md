@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 11/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 12/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -39,7 +39,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T23** Apertura de caja: aviso enfatico si lo declarado difiere mas de 50% del cierre anterior, y poder rectificarlo mientras la caja este abierta | Hecho, espera verificación (hizo Gemini) | Carlos aprueba las capturas; despues verifica otro agente |
 | **T24** Un solo modo de cargar importes en todo Wings: punto como separador decimal, hasta dos decimales | Hecho, espera verificación (hizo Codex) | Carlos aprueba las capturas; despues verifica otro agente |
-| **T26** Historial de caja: el duenio sin limites de fecha ni de rubros, y viendo lo cancelado | Hecho, espera verificación (hizo Claude) | Hecho por Claude el 11/10, sin publicar todavia. Carlos aprueba las capturas de docs/06-pruebas/PRU-04/evidencia-historial; despues verifica otro agente. Corrige de paso que la anulacion de un cobro del duenio se sumaba como otro ingreso |
+| **T26** Historial de caja: el duenio sin limites de fecha ni de rubros, y viendo lo cancelado | Hecho, espera verificación (hizo Claude) | Diseno aprobado por Carlos sobre las capturas (11/10) y publicado. Falta que otro agente verifique la regla: Carlos dice quien |
 | **T27** Una sola pantalla desde donde el duenio edita o elimina sus propios movimientos | Sin empezar | Pedido por Carlos el 11/10. Hoy un movimiento cargado directo en Cashflow no se puede editar ni eliminar. Falta definir cual es esa pantalla unica; puede llevar al historial del alumno cuando el movimiento es un cobro |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 

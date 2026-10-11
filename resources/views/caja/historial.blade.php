@@ -59,14 +59,14 @@
             <label style="display:flex; align-items:center; gap:8px;">
                 <span style="{{ $lbl }}">Desde</span>
                 <input type="date" name="desde" value="{{ request('desde') }}"
-                       min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
+                       @if($desdeLimite) min="{{ $desdeLimite->toDateString() }}" @endif max="{{ now()->toDateString() }}"
                        class="filtros-control" style="width:160px;">
             </label>
 
             <label style="display:flex; align-items:center; gap:8px;">
                 <span style="{{ $lbl }}">Hasta</span>
                 <input type="date" name="hasta" value="{{ request('hasta') }}"
-                       min="{{ $desdeLimite->toDateString() }}" max="{{ now()->toDateString() }}"
+                       @if($desdeLimite) min="{{ $desdeLimite->toDateString() }}" @endif max="{{ now()->toDateString() }}"
                        class="filtros-control" style="width:160px;">
             </label>
 
@@ -122,7 +122,12 @@
             </thead>
             <tbody>
                 @foreach($filas as $f)
-                @php $esIngreso = $f->tipo === 'INGRESO'; @endphp
+                @php
+                    $esIngreso = $f->tipo === 'INGRESO';
+                    // Un importe negativo es un asiento en contra: va al revés que su rubro.
+                    $entra = $f->neto < 0 ? !$esIngreso : $esIngreso;
+                    $montoColor = $f->cancelado ? 'var(--color-text-muted)' : ($entra ? 'var(--color-success)' : 'var(--color-danger)');
+                @endphp
                 <tr @unless($loop->last) style="{{ $rowBorder }}" @endunless>
                     <td style="padding:10px 14px; font-size:0.8rem; color:var(--color-text-muted); white-space:nowrap;">
                         {{ $f->fecha->format('d/m/Y') }}
@@ -130,6 +135,9 @@
                     <td style="padding:10px 14px; overflow:hidden;">
                         <p class="ds-truncate" style="font-size:0.85rem; font-weight:600; color:var(--color-text);">
                             {{ $f->subrubro }}
+                            @if($f->cancelado)
+                            <span style="font-size:0.65rem; font-weight:600; color:var(--color-danger);"> · Cancelado</span>
+                            @endif
                         </p>
                         @if($f->alumno || $f->obs)
                         <p class="ds-truncate" style="font-size:0.75rem; color:var(--color-text-muted);">
@@ -144,8 +152,8 @@
                         <span class="ds-truncate" style="display:block;">{{ $f->usuario }}</span>
                     </td>
                     <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap;
-                               color:{{ $esIngreso ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                        {{ $esIngreso ? '+' : '−' }}${{ number_format($f->monto, 0, ',', '.') }}
+                               color:{{ $montoColor }}; {{ $f->cancelado ? 'text-decoration:line-through;' : '' }}">
+                        {{ $entra ? '+' : '−' }}${{ number_format($f->monto, 0, ',', '.') }}
                     </td>
                 </tr>
                 @endforeach
@@ -163,7 +171,11 @@
 @endif
 
 <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:12px;">
-    Se muestran los movimientos de los últimos 90 días.
+    @if($esAdmin)
+        Sin fechas se muestran los últimos 90 días. Con «Desde» se ve cualquier fecha anterior.
+    @else
+        Se muestran los movimientos de los últimos 90 días.
+    @endif
 </p>
 
 </div>{{-- /columna de lectura --}}
