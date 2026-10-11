@@ -38,8 +38,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T21** Una clase cancelada el mismo dia desaparece de Clases: no se ve ni con el filtro Cancelada | Hecho, espera verificación (hizo Gemini) | Carlos aprueba las capturas de docs/06-pruebas/PRU-04/evidencia-t21; despues verifica otro agente |
-| **T23** Apertura de caja: aviso enfatico si lo declarado difiere mas de 50% del cierre anterior, y poder rectificarlo mientras la caja este abierta | Sin empezar | Decidido por Carlos el 11/10. Hoy solo se pide un motivo y no hay forma de rectificar la apertura. Toca la pantalla de Apertura: falta que Carlos diga quien lo programa |
-| **T24** Un solo modo de cargar importes en todo Wings: punto como separador decimal, hasta dos decimales | Sin empezar | Decidido por Carlos el 11/10. En TODA pantalla donde se carga un valor (configuracion, profesores, grupos, cobranza, caja, movimientos, cashflow, liquidaciones): el punto es decimal, 48000 es 48000, mas de dos decimales pone el campo en rojo y no se acepta. Hoy cinco campos solo aceptan enteros y ponen punto de miles solos, y otros son campos numericos comunes. Primero inventariar todos los campos; dejar la regla en DESIGN-RULES. Falta que Carlos diga quien lo programa |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -55,11 +53,15 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T24** Un solo modo de cargar importes en todo Wings: punto como separador decimal, hasta dos decimales | En curso | Lo hace Codex por decision de Carlos (11/10). Inventariar todos los campos de importe, unificar en un solo modo (punto decimal, hasta dos decimales, rojo si hay mas) y entregar con capturas para que Carlos apruebe |
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T23** Apertura de caja: aviso enfatico si lo declarado difiere mas de 50% del cierre anterior, y poder rectificarlo mientras la caja este abierta | En curso | Lo hace Gemini por decision de Carlos (11/10), despues de T21. Aviso enfatico si lo declarado difiere mas de 50% del cierre anterior y rectificacion mientras la caja este abierta. Entrega con capturas para que Carlos apruebe |
 
 ## Sin empezar (17)
 
