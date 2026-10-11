@@ -60,9 +60,9 @@ Nada en este momento.
 |---|---|---|
 | **T21** Una clase cancelada el mismo dia desaparece de Clases: no se ve ni con el filtro Cancelada | En curso | Lo hace Gemini por decision de Carlos (11/10): las canceladas de hoy siguen en el bloque Hoy, al final, apagadas, con la etiqueta Cancelada y el motivo; el filtro Cancelada tambien encuentra las de hoy. Entrega con capturas para que Carlos apruebe la pantalla |
 
-## Sin empezar (14)
+## Sin empezar (15)
 
-B13, T2, T6, T7, T9, T10, T12, B3, B5, B6, B7, B8, B9, B11.
+B13, T2, T6, T7, T9, T10, T12, T22, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
