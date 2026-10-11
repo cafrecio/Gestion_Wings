@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-11 — Claude CAB — T18 cerrado por Gemini, contrastado; T21 pasa a Gemini
+
+Gemini verifico la segunda vuelta de T18 y lo cerro (`68c7a1b`). Contrastado contra el
+repositorio: su commit solo toca documentos y su prueba de evidencia; las 14 pruebas existen
+y afirman lo que el informe dice (mes futuro pendiente fuera de la deuda en cobro, buscador,
+Cobranza, Inicio y Reportes; cuenta al empezar el mes por el importe pactado; mes 13 y 00
+rechazados). Las corri en `wings_testing_claude`: 14 aprobadas, 157 aserciones. No corri la
+suite completa. Limite: es una prueba por pedidos a la aplicacion, no un recorrido en pantalla.
+Por decision de Carlos, T21 lo hace Gemini y no yo; pasado en el tablero con el plan acordado.
+T14: se deja de ir dia por dia sin plan. Carlos y Claude llevan aparte, fuera del
+repositorio, la lista de lo que se prueba por pantalla y rol; Codex sigue recibiendo el cuento.
+Corregido el resumen comun, que daba T16, T18 y T19 por «hechos» cuando estan cerrados.
+
 ## 2026-10-10 — Claude CyE — DONDE QUEDE al cierre del 10/10
 
 **Sitio de prueba** (`test.gestionar-te.com.ar`) en `2e059ff` + docs: 100 alumnos de la primera
