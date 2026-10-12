@@ -4,7 +4,7 @@
 **Autor:** Gemini (CAB) — Firma: **LOG GEM CAB**  
 **Tarea:** T28 — «Cashflow tiene que decir a quién se le cobró y quién cobró»  
 **Origen:** Día 1 de la prueba por días (08/10/2026). Decisión de Carlos del 12/10/2026.  
-**Estado:** Implementada. A verificar: Carlos primero aprueba las capturas; luego otro agente verifica la regla.
+**Estado:** Implementada y con diseño visual aprobado por Carlos (12/10/2026: «Para Escritorio. Opcion 1 OK; Para celular. Opcion 2 OK»). Listo para verificación de regla de negocio por otro agente.
 
 ---
 
@@ -42,17 +42,16 @@ La resolución se diseñó de manera dinámica en `CashflowWebController::index`
 
 ---
 
-## 4. Cambios de código
+## 4. Cambios de código y diseño visual aprobado
 
 1. **`app/Services/CashflowIntegracionCajaService.php`:**  
    En `reflejarCajaEnCashflow`, al persistir cada `CashflowMovimiento` a partir del `MovimientoOperativo`, se almacena `'usuario_admin_id' => $movimiento->usuario_id ?? $adminId`.
 2. **`app/Http/Controllers/CashflowWebController.php`:**  
    En `index()`, para la página paginada actual, se cargan en batch los `Pago` correspondientes a movimientos con `REF_PAGO_CUOTA` y los `MovimientoOperativo` activos de las cajas con `REF_CAJA`. Se mapea cada movimiento para asignar `$mov->alumnoNombre` (o `null` si no tiene alumno) y `$mov->quienRegistro`.
 3. **`resources/views/cashflow/index.blade.php`:**  
-   - Encabezados actualizados a términos concisos del design system: columna 5 `Detalle` y columna 7 `Registró`.
-   - Columna 5 renderiza: `{{ $mov->alumnoNombre ?? $mov->observaciones ?? '–' }}`.
-   - Columna 7 renderiza: `{{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–' }}`.
-   - Preserva clases visuales, anchos de columna (`colgroup`), truncamiento y colores.
+   Implementación responsive aprobada por Carlos el 12/10/2026:
+   - **Escritorio (Opción 1):** Tabla de 7 columnas rebalanceada (`<colgroup>`: 95px, 35px, 95px, 230px, `<col>` flexible para Detalle, 110px, 160px para Registró completo). Sin espacios blancos sobrantes y sin cortes de nombres.
+   - **Celular (Opción 2):** Vista en tarjetas verticales compactas en `< 768px` (sin scroll horizontal). Cabecera con fecha, chip de caja, tipo `I`/`E` y monto resaltado a la derecha; cuerpo con `Rubro — Subrubro`, alumno destacado o detalle de gasto; pie con `Registró: <nombre>`.
 
 ---
 
@@ -69,14 +68,14 @@ Resultado: **5/5 tests aprobados (32 aserciones)** en `wings_testing_gemini`.
 
 ---
 
-## 6. Capturas de pantalla reglamentarias
+## 6. Capturas de pantalla reglamentarias finales
 
 Guardadas en `docs/06-pruebas/PRU-04/evidencia-t28/` generadas desde la aplicación real (`CapturaT28Test.php`) y capturadas con Google Chrome headless (`tomar-capturas.mjs`):
 
 | Vista | Dispositivo | Archivo |
 |---|---|---|
-| Cashflow con cobros de caja, cobro directo del dueño y gastos | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-escritorio.png` |
-| Cashflow con cobros de caja, cobro directo del dueño y gastos | Celular (marco 360 px) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-celular-360.png` |
+| Cashflow con cobros de caja, cobro directo del dueño y gastos (Opción 1) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-escritorio.png` |
+| Cashflow con cobros de caja, cobro directo del dueño y gastos (Opción 2 tarjetas) | Celular (marco 360 px) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-celular-360.png` |
 | Control de método (Login) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-escritorio.png` |
 | Control de método (Login) | Celular (marco 360 px) | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-celular-360.png` |
 
@@ -92,4 +91,4 @@ Guardadas en `docs/06-pruebas/PRU-04/evidencia-t28/` generadas desde la aplicaci
 
 ## 8. Próximo paso
 
-Carlos aprueba las capturas de pantalla de Cashflow. Tras su visto bueno visual, otro agente (Claude o Codex) verifica la regla en código y base de datos para el cierre definitivo de T28.
+El aspecto visual ya fue evaluado y aprobado por Carlos el 12/10/2026. Según §6a de AGENTS.md, otro agente (Claude o Codex) debe verificar la regla de negocio y datos en el código y en la base de datos para cerrar definitivamente la tarea en el tablero.

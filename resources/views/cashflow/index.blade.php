@@ -129,16 +129,16 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
     <p style="color:var(--color-text-muted); font-size:0.9rem;">Sin movimientos para los filtros seleccionados.</p>
 </div>
 @else
-<div class="alumno-card" style="padding:0; overflow:hidden; overflow-x:auto;">
+<div class="alumno-card cashflow-desktop-table" style="padding:0; overflow:hidden; overflow-x:auto;">
     <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:700px;">
         <colgroup>
-            <col style="width:90px">
-            <col style="width:30px">
-            <col style="width:110px">
+            <col style="width:95px">
+            <col style="width:35px">
+            <col style="width:95px">
+            <col style="width:230px">
             <col>
-            <col style="width:20%">
-            <col style="width:100px">
             <col style="width:110px">
+            <col style="width:160px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -201,6 +201,59 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
     </table>
 </div>
 
+{{-- Vista móvil: tarjetas verticales compactas (sin scroll horizontal) --}}
+<div class="alumno-card cashflow-mobile-cards" style="padding:0; overflow:hidden;">
+    @foreach($movimientos as $mov)
+    @php
+        $tipoRubro = $mov->subrubro?->rubro?->tipo;
+        $ieLabel   = $tipoRubro === 'INGRESO' ? 'I' : ($tipoRubro === 'EGRESO' ? 'E' : '–');
+        $ieColor   = $tipoRubro === 'EGRESO' ? 'var(--color-danger)' : 'var(--color-text)';
+        $rubroNom  = $mov->subrubro?->rubro?->nombre ?? '';
+        $subNom    = $mov->subrubro?->nombre ?? '–';
+        $saleDeLaCaja = $tipoRubro === 'EGRESO' || (float) $mov->monto < 0;
+        $montoColor = $saleDeLaCaja ? 'var(--color-danger)' : 'var(--color-success)';
+        if ($saleDeLaCaja && $tipoRubro !== null) {
+            $ieLabel = 'E';
+            $ieColor = 'var(--color-danger)';
+        }
+        $tieneAlumno = !empty($mov->alumnoNombre);
+        $quienReg = $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–';
+        $cajaAbrev = $mov->tipoCaja?->abreviatura ?? $mov->tipoCaja?->nombre ?? '–';
+    @endphp
+    <div style="padding:12px 14px; {{ !$loop->last ? 'border-bottom:1px solid var(--color-border);' : '' }}">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $mov->fecha?->format('d/m/Y') ?? '–' }}</span>
+                <span style="font-size:0.7rem; font-weight:700; padding:1px 6px; border-radius:4px; background:var(--color-surface-alt); border:1px solid var(--color-border); color:var(--color-text);">{{ $cajaAbrev }}</span>
+                <span style="font-size:0.7rem; font-weight:700; color:{{ $ieColor }};">{{ $ieLabel }}</span>
+            </div>
+            <span style="font-size:1rem; font-weight:800; color:{{ $montoColor }};">
+                {{ $saleDeLaCaja ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
+            </span>
+        </div>
+        <div style="font-size:0.85rem; font-weight:600; color:var(--color-text); margin-bottom:2px;">
+            @if($rubroNom)
+                <span style="color:var(--color-text-muted);">{{ $rubroNom }}</span> — {{ $subNom }}
+            @else
+                {{ $subNom }}
+            @endif
+        </div>
+        @if($tieneAlumno)
+        <div style="font-size:0.8rem; font-weight:600; color:var(--color-brand); margin-bottom:4px;">
+            {{ $mov->alumnoNombre }}
+        </div>
+        @elseif(!empty($mov->observaciones))
+        <div style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:4px;">
+            {{ $mov->observaciones }}
+        </div>
+        @endif
+        <div style="font-size:0.7rem; color:var(--color-text-muted);">
+            Registró: {{ $quienReg }}
+        </div>
+    </div>
+    @endforeach
+</div>
+
 {{-- Paginación --}}
 @if($movimientos->hasPages())
 <div style="margin-top:1rem;">
@@ -213,5 +266,12 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 .cashflow-periodos-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:end;}
 .cashflow-periodos-grid > div {min-width:0;}
 @media(min-width:1024px) {.cashflow-periodos-grid {grid-template-columns:repeat({{ $modo === 'mes' ? 5 : 4 }},minmax(0,1fr));}}
+
+.cashflow-desktop-table { display: block; }
+.cashflow-mobile-cards { display: none; }
+@media(max-width: 767px) {
+    .cashflow-desktop-table { display: none !important; }
+    .cashflow-mobile-cards { display: block !important; }
+}
 </style>
 @endsection
