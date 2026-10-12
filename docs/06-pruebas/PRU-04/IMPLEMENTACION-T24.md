@@ -2,7 +2,9 @@
 
 ## Revisión solicitada por Carlos, 12/10/2026
 
-**Nueva propuesta visual; pendiente de aprobación.** Carlos devolvió las primeras
+**Aspecto aprobado por Carlos el 12/10: «Ahora OK».** La aprobación corresponde
+a la revisión publicada en `be5ad9a`; falta la verificación independiente de la
+regla de importes. Carlos devolvió las primeras
 capturas: desborde del mes adelantado, íconos faltantes, desglose de inscripción
 y botones a la izquierda en celular. [Visor revisado](evidencia-t24-revision-12-10/visor.html).
 El visor del 11/10 se conserva para comparar; sus capturas no acreditan esta revisión.
@@ -49,12 +51,14 @@ No se probó teléfono físico ni teclado Android/iOS, ni navegación autenticad
 el navegador al sitio real: la autenticación del HTML fue mediante Laravel de pruebas.
 Chrome no envió formularios. No se usó ni modificó el sitio de prueba, su reloj,
 la base del club o producción. La suite prueba las reglas del servidor; la revisión
-independiente y la aprobación visual de Carlos siguen pendientes. **T24 no se cierra.**
+independiente sigue pendiente; Carlos aprobó el aspecto con «Ahora OK» el 12/10.
+**T24 no se cierra: Claude verifica la regla.**
 
 ## Entrega en desarrollo, 11/10/2026
 
 **Implementada; suite completa verde. No cerrada ni desplegada.**
-La pantalla queda pendiente de aprobación de Carlos y la regla de otro agente.
+Al corte del 11/10, la pantalla y la regla estaban pendientes de aprobación.
+El aspecto de la revisión del 12/10 fue aprobado después, como se registra arriba.
 [Visor de las 90 capturas](evidencia-t24/visor.html): escritorio, marco real de 360 px,
 importe válido, tercer decimal en rojo, dos variantes protegidas y login de control.
 
@@ -334,16 +338,17 @@ permiten tipear: se capturan sin fabricar un estado rojo. Total: **90 PNG**.
   [Generador de esa evidencia](evidencia-t24/antes/T24AntesRunner.php).
   Rectificar se agregó después por T23 y no existía en esa versión; está cubierto
   por las comprobaciones finales del componente/regla que comparte con apertura.
-- No se modificaron el sitio de prueba, su reloj ni producción por Codex. No hay
-  despliegue ni aprobación visual de Carlos ni verificación independiente de la regla.
+- No se modificaron el sitio de prueba, su reloj ni producción por Codex. Al corte
+  del 11/10 no había aprobación visual; Carlos aprobó la revisión del 12/10 con
+  «Ahora OK». No hay despliegue ni verificación independiente de la regla.
 - No se incluye en el commit de T24 el trabajo ajeno de Historial/permisos. Se
   preservan sus archivos y su estado; el controlador compartido ya incorporó
   las líneas de T24 en `03aaf11` como se explicó arriba.
 
 ## Entrega y paso siguiente
 
-Tablero entregado en `a_verificar`, hizo Codex, tiene Carlos,
-paso «Carlos aprueba las capturas; despues verifica otro agente».
-Publicar solo los archivos propios, con el motivo real `Diseno-autorizado`.
-Carlos aprueba las pantallas con este visor; después otro agente verifica la
-regla. **Codex no cierra T24.**
+Aspecto aprobado por Carlos el 12/10: «Ahora OK», tras la revisión `be5ad9a`.
+Tablero en `a_verificar`, hizo Codex, tiene Claude: verificar el componente común,
+la validación del servidor, los importes guardados y las pruebas permanentes.
+No repetir la aprobación visual ni dar por verificada la regla por esta aprobación.
+**Codex no cierra T24. Sin despliegue.**

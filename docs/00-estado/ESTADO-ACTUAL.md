@@ -1,6 +1,6 @@
 # Wings — Estado actual
 
-## T24 — importes unificados, propuesta visual revisada, a verificar, 12/10/2026
+## T24 — aspecto aprobado por Carlos, regla a verificar, 12/10/2026
 
 Codex CAB implementó el componente y el tratamiento común para 16 pantallas/modos,
 incluyendo Rectificar de T23. Carlos decidió aceptar coma decimal, mostrar
@@ -13,7 +13,8 @@ desglose en dos líneas y acciones de Configuración/Liquidación. Aviso de impo
 excluido del cierre general para conservar sus cuatro segundos y su reaparición.
 Navegador revisado 1351 controles/100 PNG y assets fijos; 18/18 campos previos detectan
 regresión sobre dd62c64. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md).
-Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni deploy.
+Carlos aprobó la revisión `be5ad9a`: «Ahora OK» (12/10). Claude tiene la
+verificación de la regla; T24 sigue a_verificar. Sin cierre ni deploy.
 Trabajo ajeno de Historial/permisos fuera del commit propio; el controlador
 compartido incorporó las líneas de T24 en 03aaf11 de T23.
 
