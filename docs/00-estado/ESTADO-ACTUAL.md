@@ -13,9 +13,9 @@ porcentaje junto al rubro e importe debajo en celular. Nueva medición de la ley
 563 controles/0 fallas en la revisión, sin cambiar fórmulas. Capturas nuevas en
 `evidencia-t30/revision-porcentajes-ultima/`; suite propia 669 aprobadas/2 omitidas,
 6395 aserciones, 530,97 s.
-Carlos aprobó el resto: «El resto de las vistas OK». Solo la leyenda está pendiente
-de aprobación visual; después otro agente verifica la regla.
-No cerrar ni desplegar: Carlos aprueba las capturas, después otro agente verifica la regla.
+Carlos aprobó todas las vistas: «El resto de las vistas OK» y «Esta OK» para la
+leyenda corregida (12/10). Solo falta que Claude verifique la regla.
+T30 sigue a verificar, sin cierre ni despliegue; no pedir otra aprobación visual.
 
 ## T28 — Cashflow: vínculo directo por movimiento y columna Val. (segunda vuelta), 12/10/2026
 

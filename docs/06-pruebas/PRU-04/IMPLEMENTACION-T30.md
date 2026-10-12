@@ -219,8 +219,8 @@ Cashflow y el texto del aviso de su controlador. No se incluyen modelos, integra
 migración, pruebas ni capturas de Gemini. Su commit incorporó el conteo local de 671
 pruebas que estaba pendiente; T30 actualizó ese corte con el resultado comprobado.
 
-**T30 no se cierra.** Carlos aprueba las capturas; después otro agente verifica la regla.
-Tablero: `a_verificar`, `hizo=Codex`, `tiene=Carlos`. La publicación incluye solo
+**T30 no se cierra.** Carlos aprobó todas las pantallas el 12/10; falta la verificación independiente de la regla.
+Tablero: `a_verificar`, `hizo=Codex`, `tiene=Claude`. La publicación incluye solo
 archivos propios de T30, después de T28. Sin cierre ni despliegue.
 
 ## Revisión visual pedida por Carlos: porcentaje junto al rubro en celular, 12/10/2026
@@ -247,9 +247,10 @@ en la base propia. Los recibos abiertos no se sobrescribieron.
 Suite completa de revisión: **669 aprobadas, 2 omitidas, 6395 aserciones, 530,97 s**
 en `wings_testing_codex`. Salidas en `revision-porcentajes-ultima/resultado-suite.{txt,xml}`. No se añadieron métodos de
 PHPUnit; el total sigue siendo 671. Sin teléfono físico, sin sitio de prueba ni reloj
-y sin despliegue. T30 sigue a verificar: Carlos aprueba la pantalla y después otro
-agente verifica la regla.
+y sin despliegue. La pantalla fue aprobada por Carlos; T30 sigue a verificar por
+la regla, asignada a Claude según AGENTS.md.
 
-**Aprobación parcial de Carlos, 12/10:** «El resto de las vistas OK». Quedan aprobadas
-las otras pantallas; solo falta aprobar la corrección de la leyenda de Reportes.
-La regla sigue pendiente de otro agente. No repetir la aprobación de las demás vistas.
+**Aprobación visual completa de Carlos, 12/10:** primero «El resto de las vistas OK»,
+después «Esta OK» sobre la leyenda corregida. Todas las pantallas de T30 quedan
+aprobadas. No repetir esa aprobación. La regla sigue pendiente de verificación
+independiente por Claude; no se cierra la tarea ni se despliega.
