@@ -10,7 +10,11 @@ Maqueta Blade aislada, controlador/datos de Laravel reales; no rutas ni correcci
 Ensayo propio: 1/19, financieros iguales tras GET; 403 de otros roles. Chrome: 20 visitas/0 fallas, 32 PNG.
 Escritorio/marco360 y login. Sin base del club, sitio de prueba/reloj/despliegue.
 [Propuesta, preguntas y capturas](../06-pruebas/PRU-04/PROPUESTA-T27.md). Etapa 2 no empezada.
-T27 en_curso, tiene Carlos: aprueba la pantalla y responde las cinco decisiones antes de implementar.
+Carlos aprobó la propuesta visual (12/10): «Sí, apruebo la propuesta visual».
+Edición: «Modificar el registro y conservar historial», anterior/nuevo.
+Eliminación: «Conservarlo y crear un asiento en contra». Motivo opcional en ambos casos.
+Pendientes fechas, caja validada, liquidación pagada y mes cerrado.
+T27 en_curso, tiene Carlos: responde las decisiones restantes antes de implementar.
 
 ## 2026-10-12 — Codex CAB — T30, porcentaje junto al rubro en celular
 

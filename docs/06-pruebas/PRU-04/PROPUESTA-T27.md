@@ -1,8 +1,9 @@
 # T27 — Una sola entrada para corregir movimientos del dueño
 
 Etapa 1, 12/10/2026. **Propuesta, no implementación de correcciones.**
-Obligatoria antes de producción por decisión de Carlos. El diseño y las cinco
-decisiones de abajo requieren su respuesta antes de empezar la etapa 2.
+Obligatoria antes de producción por decisión de Carlos. **Propuesta visual aprobada
+el 12/10:** «Sí, apruebo la propuesta visual». Las reglas pendientes de abajo
+requieren su respuesta antes de empezar la etapa 2.
 
 ## Propuesta para mirar
 
@@ -86,28 +87,34 @@ La pantalla única debe respetar esa diferencia, no unificarla borrando registro
 La recomendación es de **interfaz**, no decide borrar, reabrir cajas, modificar
 liquidaciones pagadas ni rehacer cierres. Las reglas dependen de las respuestas.
 
+## Decisiones confirmadas por Carlos
+
+- **Pantalla, 12/10:** «Sí, apruebo la propuesta visual». Cashflow como entrada
+  única, con íconos por movimiento y acceso a cajas sin validar.
+- **Edición de directos, 12/10:** «Modificar el registro y conservar historial».
+  Se modifica el mismo movimiento, conservando el valor anterior y el nuevo.
+- **Eliminación de directos, 12/10:** «Conservarlo y crear un asiento en contra».
+  El original se conserva. Todavía no se decidió la fecha del contraasiento.
+- **Motivo, 12/10:** «No, opcional en ambos casos». No se exige motivo al editar
+  ni al eliminar un directo; puede cargarse voluntariamente.
+
 ## Decisiones pendientes de Carlos
 
-Primero: **¿aprobás Cashflow como entrada única y esta propuesta visual?**
-
-1. **Rastro y motivo.** Para un directo mal cargado, ¿modificar el renglón guardando
-   antes/después, o anular y cargar uno nuevo? Al eliminar, ¿borrado o asiento en
-   contra? ¿Motivo obligatorio para ambas operaciones?
-2. **Hasta cuándo.** ¿Se permite cualquier fecha o solo un período determinado?
+1. **Hasta cuándo.** ¿Se permite cualquier fecha o solo un período determinado?
    Poder ver cualquier fecha, ya aprobado para el dueño, no decide este permiso
    para modificarla.
-3. **Caja validada.** ¿Queda solo para consulta o se define un nuevo camino de
+2. **Caja validada.** ¿Queda solo para consulta o se define un nuevo camino de
    corrección? El supuesto de «seguir por rechazar» no existe hoy para VALIDADA:
    el servicio solo acepta CERRADA. No se habilita ese regreso sin tu decisión.
-4. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
+3. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
    El contrato vigente impide tocar una pagada; no lo saltamos por corregir Cashflow.
-5. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
+4. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
    se registra un ajuste en el período actual conservando aquel cierre? No se
    decide automáticamente al agregar Editar/Eliminar.
 
 ## Hallazgos que no se arreglaron en esta etapa
 
-- VALIDADA no se puede rechazar hoy. Se deja visible en la pregunta 3 para no
+- VALIDADA no se puede rechazar hoy. Se deja visible en la pregunta 2 para no
   presentar ese camino como disponible.
 - La edición/cancelación de caja del controlador limita al operativo a su caja;
   el contrato de permisos dice dominio compartido y solo reserva por propietario
