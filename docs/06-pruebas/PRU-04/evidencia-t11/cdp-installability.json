@@ -1,0 +1,44 @@
+{
+  "manifest": {
+    "url": "http://127.0.0.1:8765/site.webmanifest",
+    "errors": [],
+    "data": "{\n    \"name\": \"Wings — Gestión\",\n    \"short_name\": \"Wings\",\n    \"id\": \"/login\",\n    \"start_url\": \"/login\",\n    \"scope\": \"/\",\n    \"display\": \"standalone\",\n    \"theme_color\": \"#0F172A\",\n    \"background_color\": \"#080C14\",\n    \"icons\": [\n        {\n            \"src\": \"/android-chrome-192x192.png\",\n            \"sizes\": \"192x192\",\n            \"type\": \"image/png\",\n            \"purpose\": \"any\"\n        },\n        {\n            \"src\": \"/android-chrome-192x192.png\",\n            \"sizes\": \"192x192\",\n            \"type\": \"image/png\",\n            \"purpose\": \"maskable\"\n        },\n        {\n            \"src\": \"/android-chrome-512x512.png\",\n            \"sizes\": \"512x512\",\n            \"type\": \"image/png\",\n            \"purpose\": \"any\"\n        },\n        {\n            \"src\": \"/android-chrome-512x512.png\",\n            \"sizes\": \"512x512\",\n            \"type\": \"image/png\",\n            \"purpose\": \"maskable\"\n        }\n    ]\n}\n",
+    "parsed": {
+      "scope": "http://127.0.0.1:8765/"
+    },
+    "manifest": {
+      "backgroundColor": "rgba(8,12,20,1)",
+      "display": "kStandalone",
+      "icons": [
+        {
+          "url": "http://127.0.0.1:8765/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:8765/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:8765/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:8765/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "id": "http://127.0.0.1:8765/login",
+      "name": "Wings — Gestión",
+      "orientation": "DEFAULT",
+      "preferRelatedApplications": false,
+      "scope": "http://127.0.0.1:8765/",
+      "startUrl": "http://127.0.0.1:8765/login",
+      "themeColor": "rgba(15,23,42,1)"
+    }
+  },
+  "installabilityErrors": []
+}

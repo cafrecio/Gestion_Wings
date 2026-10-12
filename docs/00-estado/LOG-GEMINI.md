@@ -11,6 +11,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-12 — LOG GEM CAB — Implementación T11: Wings instalable en el teléfono como app
+
+- **Objetivo y resultado:** Resolver la instalabilidad de Wings como aplicación en Android con Chrome (Carlos lo probó el 12/10 en su teléfono y solo creaba acceso directo con sello de Chrome y abría en el navegador). Decisión de Carlos del 12/10: la app instalada abre en `/login` a pantalla completa sin barra del navegador (`standalone`), y al tener sesión iniciada lleva de inmediato al inicio del rol sin pedir credenciales nuevamente. Estado en el tablero pasado a `a_verificar` con `tiene=Carlos` para despliegue y prueba en su teléfono.
+- **Diagnóstico y solución:**
+  1. *Qué faltaba:* En `public/site.webmanifest` faltaba `start_url` (Chromium arrojaba `start-url-not-valid` en `Page.getInstallabilityErrors`), además de `scope`, `id` y `purpose: "any maskable"` en los íconos.
+  2. *Service Worker:* Se comprobó con Chrome DevTools Protocol (`Page.getInstallabilityErrors`) y la especificación de Chromium que Chrome moderno no exige Service Worker para habilitar la instalación. Siguiendo la orden de Carlos (*«Si no lo exige, no lo agregues»*), no se agregó Service Worker para evitar riesgos de caché obsoleto en datos de plata. Al corregir el manifest, `installabilityErrors` quedó en `[]` (cero errores).
+  3. *public/site.webmanifest:* agregado `start_url: "/login"`, `scope: "/"`, `id: "/login"`, `display: "standalone"`, y separación limpia de íconos 192 y 512 con `purpose: "any"` y `purpose: "maskable"`.
+  4. *public/.htaccess:* agregada directiva Apache `AddType application/manifest+json .webmanifest`.
+  5. *Vistas Blade:* no se modificó ninguna vista. `resources/views/layouts/ds-app.blade.php` ya contenía el `<link rel="manifest">` y `<meta name="theme-color">`.
+- **Pruebas y capturas:**
+  - 3 pruebas permanentes en `tests/Feature/PwaInstalacionTest.php` (29 aserciones, 100% PASS en `wings_testing_gemini`).
+  - Evidencia generada en `docs/06-pruebas/PRU-04/evidencia-t11/`: `chrome-devtools-manifest.png` (panel Application > Manifest con Identity, Presentation, Icons y cero errores), `login-escritorio.png`, `login-celular-360.png` y telemetría `cdp-installability.json`.
+- **Qué no se probó:** No se probó en un teléfono físico real (pendiente de que Carlos despliegue al VPS y lo pruebe en su Android).
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T11.md`.
+
 ## 2026-10-12 — LOG GEM CAB — Implementación T28: Cashflow muestra a quién se le cobró y quién cobró
 
 - **Objetivo y resultado:** Implementar la decisión de Carlos del 12/10 para T28 (originada en el día 1 de la prueba por días): en Cashflow, un cobro de cuota o inscripción muestra en la columna «Detalle» el `Apellido, Nombre` del alumno, y en la columna «Registró» a quien cargó el movimiento (la operativa si provino de una caja validada, o el dueño si cobró directo sin caja). Un gasto o movimiento sin alumno conserva sus observaciones.

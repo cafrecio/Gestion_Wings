@@ -34,6 +34,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini) | Desplegar al sitio de prueba y que Carlos lo instale en su telefono |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T28** Cashflow: mostrar el nombre del alumno y quien cobro, no la observacion y quien valido | Hecho, espera verificación (hizo Gemini) | Verificado por Claude (12/10): funciona, tambien con 40 cobros iguales en dos paginas y con filtros. Carlos decide dos observaciones: Cashflow deduce el alumno comparando importe, rubro y observacion, con un segundo intento que podria mostrar un alumno equivocado; y las copias nuevas guardan a la operativa en el campo del administrador |
@@ -59,9 +60,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | En curso | Probado por Carlos en su telefono (12/10): Chrome solo crea un acceso directo que abre en el navegador. Lo hace Gemini despues de T28: la app instalada abre en el login, sin barra del navegador |
+Nada en este momento.
 
 ## Sin empezar (20)
 
