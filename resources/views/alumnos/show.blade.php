@@ -18,7 +18,7 @@
 <div class="alumno-card mb-3">
     <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
     @if($inscripcionEsDeEsteRegistro)
-        <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: $'.number_format($inscripcion->saldo_pendiente, 2, ',', '.') }}</p>
+        <p>Por única vez por persona. {{ $inscripcion->estado === 'ANULADO' ? 'Anulada por corrección de ingreso.' : 'Saldo pendiente: ' . \App\Support\FormatoImporte::pesos($inscripcion->saldo_pendiente) }}</p>
     @else
         <p>La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}.</p>
     @endif
@@ -120,7 +120,7 @@
                 </p>
                 <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">
                     @if($alumno->planActivo && $alumno->planActivo->plan)
-                        {{ $alumno->planActivo->plan->clases_por_semana }}x sem. — ${{ number_format($alumno->planActivo->plan->precio_mensual, 0, ',', '.') }}/mes
+                        {{ $alumno->planActivo->plan->clases_por_semana }}x sem. — {{ \App\Support\FormatoImporte::pesos($alumno->planActivo->plan->precio_mensual) }}/mes
                     @else
                         <span class="text-wings-muted">Sin plan asignado</span>
                     @endif
@@ -184,12 +184,12 @@
                     <div class="flex justify-between items-center w-full sm:w-auto gap-2">
                         <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
                         <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
-                            ${{ number_format($saldo, 0, ',', '.') }}
+                            {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
                     </div>
                     <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
                         <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
-                            ${{ number_format($saldo, 0, ',', '.') }}
+                            {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
                         @if(!auth()->user()?->isProfesor())
                         <a href="{{ route('web.caja.cobrar', $alumno->id) }}"
@@ -278,12 +278,12 @@
                             @endif
                         </div>
                         <span class="sm:hidden" style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
-                            ${{ number_format($pago->monto_final, 0, ',', '.') }}
+                            {{ \App\Support\FormatoImporte::pesos($pago->monto_final) }}
                         </span>
                     </div>
                     <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
                         <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
-                            ${{ number_format($pago->monto_final, 0, ',', '.') }}
+                            {{ \App\Support\FormatoImporte::pesos($pago->monto_final) }}
                         </span>
                         @if(!auth()->user()?->isProfesor())
                         <a href="{{ route('web.recibos.cuota', $pago->id) }}?inline=1"

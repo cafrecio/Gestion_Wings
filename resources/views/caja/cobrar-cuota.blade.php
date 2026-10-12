@@ -60,7 +60,7 @@
             <div class="info-item">
                 <span class="info-label">Saldo:</span>
                 <span class="info-value" style="font-weight:700; color:{{ $saldo > 0 ? 'var(--color-danger)' : 'var(--color-text)' }};">
-                    ${{ number_format($saldo, 0, ',', '.') }}
+                    {{ \App\Support\FormatoImporte::pesos($saldo) }}
                 </span>
             </div>
             <div class="info-item">

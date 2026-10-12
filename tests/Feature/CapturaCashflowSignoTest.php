@@ -67,7 +67,7 @@ class CapturaCashflowSignoTest extends TestCase
         }
         file_put_contents($destino, $html);
 
-        $this->assertStringContainsString('−$48.000', $html);
+        $this->assertStringContainsString('−$48,000.00', $html);
         Carbon::setTestNow();
     }
 }

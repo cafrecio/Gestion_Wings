@@ -138,7 +138,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
 
         $this->assertSame(30000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$30.000');
+        $respInicio->assertSee('$30,000.00');
     }
 
     /**
@@ -160,7 +160,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
 
         $this->assertSame(35000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$35.000');
+        $respInicio->assertSee('$35,000.00');
     }
 
     /**
@@ -183,7 +183,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
 
         $this->assertSame(30000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$30.000');
+        $respInicio->assertSee('$30,000.00');
     }
 
     /**
@@ -207,7 +207,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
         // 30.000 cuota + 3.000 resto de inscripción = 33.000
         $this->assertSame(33000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$33.000');
+        $respInicio->assertSee('$33,000.00');
     }
 
     /**
@@ -235,7 +235,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
         // 30.000 + 25.000 + 5.000 = 60.000
         $this->assertSame(60000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$60.000');
+        $respInicio->assertSee('$60,000.00');
     }
 
     /**
@@ -258,7 +258,7 @@ class InicioDeudaCuotasEInscripcionesTest extends TestCase
 
         $this->assertSame(30000.0, $totalCobranza);
         $this->assertSame($totalCobranza, $totalInicioPesos);
-        $respInicio->assertSee('$30.000');
+        $respInicio->assertSee('$30,000.00');
     }
 
     /**

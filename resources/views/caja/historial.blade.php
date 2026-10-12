@@ -84,8 +84,8 @@
     <div class="stats-info">
         <strong>{{ $filas->total() }}</strong>
         {{ $filas->total() === 1 ? 'movimiento' : 'movimientos' }}
-        · Ingresos <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
-        · Egresos <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
+        · Ingresos <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($totalIngresos) }}</strong>
+        · Egresos <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($totalEgresos) }}</strong>
     </div>
     <x-ds.button variant="secondary" href="{{ route('web.caja.index') }}">Volver</x-ds.button>
 </div>
@@ -153,7 +153,7 @@
                     </td>
                     <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap;
                                color:{{ $montoColor }}; {{ $f->cancelado ? 'text-decoration:line-through;' : '' }}">
-                        {{ $entra ? '+' : '−' }}${{ number_format($f->monto, 0, ',', '.') }}
+                        {{ $entra ? '+' : '−' }}{{ \App\Support\FormatoImporte::pesos($f->monto) }}
                     </td>
                 </tr>
                 @endforeach

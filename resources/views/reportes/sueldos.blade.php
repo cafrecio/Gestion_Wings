@@ -5,7 +5,7 @@
 @vite(['resources/css/reportes-visual.css', 'resources/css/reportes-analiticos.css'])
 @php
     $title = 'Reporte de sueldos';
-    $plata = fn ($n) => $n === null ? 'Sin historial' : '$'.number_format($n/100,2,',','.');
+    $plata = fn ($n) => $n === null ? 'Sin historial' : \App\Support\FormatoImporte::pesos($n/100);
     $numero = fn ($n) => $n === null ? 'Sin historial' : number_format($n,0,',','.');
     $fecha = fn ($m) => \Carbon\CarbonImmutable::createFromFormat('!Y-m',$m)->locale('es');
     $contexto = array_filter(['mes'=>$reporte['mes'],'deporte_id'=>$reporte['deporte_id']],fn ($v) => $v !== null);

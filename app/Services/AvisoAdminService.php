@@ -118,7 +118,7 @@ class AvisoAdminService
             return false;
         }
 
-        $formatoMonto = fn (float|int $monto): string => '$' . number_format($monto, fmod($monto, 1.0) == 0.0 ? 0 : 2, ',', '.');
+        $formatoMonto = fn (float|int $monto): string => \App\Support\FormatoImporte::pesos($monto);
 
         $datos = [];
 

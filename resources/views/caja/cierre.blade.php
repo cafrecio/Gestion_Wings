@@ -16,8 +16,8 @@
     <p class="text-sm mb-4" style="color:var(--color-warning)">Corrección de un cierre rechazado: se conserva lo que se contó y entregó. Solo se recalculan el esperado y la diferencia con los movimientos corregidos.</p>
     @endif
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <div><span class="info-label">Efectivo inicial</span><p class="info-value">{{ $caja->efectivo_inicial === null ? 'Sin declaración inicial' : '$'.number_format($caja->efectivo_inicial, 2, ',', '.') }}</p></div>
-        <div><span class="info-label">Efectivo esperado</span><p class="info-value">{{ $arqueo['efectivo_esperado'] === null ? 'No calculable: caja anterior sin declaración' : '$'.number_format($arqueo['efectivo_esperado'], 2, ',', '.') }}</p></div>
+        <div><span class="info-label">Efectivo inicial</span><p class="info-value">{{ $caja->efectivo_inicial === null ? 'Sin declaración inicial' : \App\Support\FormatoImporte::pesos($caja->efectivo_inicial) }}</p></div>
+        <div><span class="info-label">Efectivo esperado</span><p class="info-value">{{ $arqueo['efectivo_esperado'] === null ? 'No calculable: caja anterior sin declaración' : \App\Support\FormatoImporte::pesos($arqueo['efectivo_esperado']) }}</p></div>
     </div>
     <form method="POST" action="{{ route('web.caja.cerrar', $caja->id) }}" data-caja-arqueo data-esperado-centavos="{{ $arqueo['efectivo_esperado'] === null ? '' : (int) round($arqueo['efectivo_esperado'] * 100) }}">
         @csrf
@@ -29,7 +29,7 @@
                     {{ $rotulo }} <span class="form-required">*</span>
                 </label>
                 @if($caja->efectivo_contado !== null)
-                <p class="text-sm font-semibold">${{ number_format($caja->$campo, 2, ',', '.') }}</p>
+                <p class="text-sm font-semibold">{{ \App\Support\FormatoImporte::pesos($caja->$campo) }}</p>
                 <input type="hidden" id="{{ $campo }}" name="{{ $campo }}" value="{{ $caja->$campo }}" data-importe-canonico>
                 @else
                 <x-ds.money-input :id="$campo" :name="$campo" :value="old($campo, '')" required

@@ -336,8 +336,8 @@ class ReporteMensualTest extends TestCase
         $reporteEsperado['deuda']['cuotas'] = $reporteEsperado['deuda']['total'];
         $reporteEsperado['deuda']['inscripciones'] = 0;
         $this->assertSame($reporteEsperado, $respuesta->viewData('reporte'));
-        $respuesta->assertSee('$660.000')->assertSee('$75.000')->assertSee('$585.000')
-            ->assertSee('$4.360.000')->assertSee('$690.000')->assertSee('$90.000')->assertDontSee('Datos ficticios');
+        $respuesta->assertSee('$660,000.00')->assertSee('$75,000.00')->assertSee('$585,000.00')
+            ->assertSee('$4,360,000.00')->assertSee('$690,000.00')->assertSee('$90,000.00')->assertDontSee('Datos ficticios');
         // Reportes aprobado: todos los indicadores conservan el mes y su detalle.
         $respuesta->assertDontSee('aria-disabled="true"', false)->assertDontSee('reportes.html');
         foreach (['ingresos', 'egresos', 'deuda', 'profesores'] as $ancla) {
@@ -388,7 +388,7 @@ class ReporteMensualTest extends TestCase
     {
         foreach (['OPERATIVO', 'PROFESOR'] as $rol) {
             $usuario = User::factory()->create(['rol' => $rol, 'activo' => true]);
-            $this->actingAs($usuario)->get(route('admin.dashboard'))->assertForbidden()->assertDontSee('$4.360.000');
+            $this->actingAs($usuario)->get(route('admin.dashboard'))->assertForbidden()->assertDontSee('$4,360,000.00');
             $this->get(route('web.liquidaciones.index', ['pendientes' => 1]))->assertForbidden();
         }
         $this->post(route('logout'));

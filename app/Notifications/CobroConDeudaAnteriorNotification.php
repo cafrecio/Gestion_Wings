@@ -33,7 +33,7 @@ class CobroConDeudaAnteriorNotification extends Notification
             ->greeting('Aviso de excepción de cobranza')
             ->line("Se registró el pago #{$this->pagoId} de {$this->alumno->apellido}, {$this->alumno->nombre}.")
             ->line('Quedaron pendientes los períodos: ' . implode(', ', $this->periodos) . '.')
-            ->line('Monto anterior pendiente: $' . number_format($this->montoPendiente, 0, ',', '.'))
+            ->line('Monto anterior pendiente: ' . \App\Support\FormatoImporte::pesos($this->montoPendiente))
             ->line("Motivo: {$this->motivo}")
             ->line("Registrado por: {$this->operativo->name}.");
     }

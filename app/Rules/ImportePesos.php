@@ -55,9 +55,7 @@ final class ImportePesos implements ValidationRule
         if ($valor === null || $valor === '') return '';
         $normalizado = self::normalizar($valor);
         if ($normalizado === null) return is_scalar($valor) ? (string) $valor : '';
-        [$entero, $decimales] = array_pad(explode('.', $normalizado, 2), 2, '');
-        $entero = ltrim($entero, '0') ?: '0';
-        return preg_replace('/\B(?=(?:[0-9]{3})+(?![0-9]))/', ',', $entero).'.'.str_pad($decimales, 2, '0');
+        return \App\Support\FormatoImporte::numero($normalizado);
     }
 
     public function validate(string $attribute, mixed $value, Closure $fail): void

@@ -1,0 +1,6 @@
+cuota/centavos: detalle y total $1,250.50 correctos
+hora/centavos: detalle y total $1,875.75 correctos
+comision/centavos: detalle y total $250.10 correctos
+cuota/millones: detalle y total $1,250,000.50 correctos
+hora/millones: detalle y total $1,875,000.75 correctos
+comision/millones: detalle y total $250,000.10 correctos

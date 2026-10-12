@@ -71,9 +71,9 @@
         <strong>{{ $movimientos->total() }}</strong> movimiento{{ $movimientos->total() !== 1 ? 's' : '' }}
         @if($movimientos->total() > 0)
             @php $netoMovs = $totalIngresos - $totalEgresos; @endphp
-            &nbsp;·&nbsp; Ingresos <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
-            &nbsp;·&nbsp; Egresos <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
-            &nbsp;·&nbsp; Neto <strong style="color:{{ $netoMovs >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">{{ $netoMovs < 0 ? '−' : '' }}${{ number_format(abs($netoMovs), 0, ',', '.') }}</strong>
+            &nbsp;·&nbsp; Ingresos <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($totalIngresos) }}</strong>
+            &nbsp;·&nbsp; Egresos <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($totalEgresos) }}</strong>
+            &nbsp;·&nbsp; Neto <strong style="color:{{ $netoMovs >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">{{ $netoMovs < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($netoMovs)) }}</strong>
         @endif
     </div>
 </div>
@@ -141,7 +141,7 @@
                         {{ $alumnoObs }}
                     </td>
                     <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right;">
-                        ${{ number_format($mov->monto, 0, ',', '.') }}
+                        {{ \App\Support\FormatoImporte::pesos($mov->monto) }}
                     </td>
                     <td style="padding:8px 12px; font-size:0.78rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                         @if($caja)

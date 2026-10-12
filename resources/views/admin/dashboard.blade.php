@@ -3,7 +3,7 @@
 @section('module-title', 'Inicio')
 @section('content')
 @php
-    $dinero = fn ($centavos) => $centavos === null ? 'Sin historial' : '$'.number_format($centavos / 100, 0, ',', '.');
+    $dinero = fn ($centavos) => $centavos === null ? 'Sin historial' : \App\Support\FormatoImporte::pesos($centavos / 100);
     $title = 'Inicio';
     $mes = \Carbon\CarbonImmutable::createFromFormat('!Y-m', $reporte['mes'])->locale('es');
     $corte = \Carbon\CarbonImmutable::parse($reporte['fecha_corte'])->locale('es');
@@ -21,7 +21,7 @@
 @foreach([['Ingresos del mes',$reporte['ingresos'],'success','ingresos'],['Egresos del mes',$reporte['egresos'],'danger','egresos'],['Alumnos por cobrar',$reporte['deuda']['total'],'warning','deuda'],['Profesores por pagar',$reporte['por_pagar']['total'],'info','profesores']] as [$nombre,$valor,$color,$ancla])
     <a @if($enlaceReportes) href="{{ $enlaceReportes }}#{{ $ancla }}" @else role="link" aria-disabled="true" @endif class="filtros-card" style="text-decoration:none;display:block;min-width:0">
         <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">{{ $nombre }}</p>
-        <p style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-{{ $color }});overflow-wrap:anywhere">{{ $dinero($valor) }}</p>
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-{{ $color }});overflow-wrap:anywhere">{{ $dinero($valor) }}</p>
     </a>
 @endforeach
 </div>

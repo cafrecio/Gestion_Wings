@@ -1,4 +1,5 @@
 /* T24: único tratamiento de pesos, también para campos y filas agregados después de cargar. */
+import {numero as mostrarNumero} from './formato-importe';
 export function normalizar(valor) {
     let texto = String(valor ?? '');
     if (/^[0-9]{1,3}(?:,[0-9]{3})+\.[0-9]{1,2}$/.test(texto)) texto = texto.replaceAll(',', '');
@@ -9,9 +10,7 @@ export function normalizar(valor) {
 export function mostrar(valor) {
     const crudo = normalizar(valor);
     if (crudo === null) return String(valor ?? '');
-    const [entero, decimales = ''] = crudo.split('.');
-    return (entero.replace(/^0+(?=[0-9])/, '').replace(/\B(?=(?:[0-9]{3})+(?![0-9]))/g, ','))
-        + '.' + decimales.padEnd(2, '0');
+    return mostrarNumero(crudo);
 }
 
 export function numero(input) {

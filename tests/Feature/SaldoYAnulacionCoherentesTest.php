@@ -115,7 +115,7 @@ class SaldoYAnulacionCoherentesTest extends TestCase
             ->assertOk();
 
         $respuesta->assertSee('Patín', false);
-        $respuesta->assertDontSee('Saldo pendiente: $5.000,00', false);
+        $respuesta->assertDontSee('Saldo pendiente: $5,000.00', false);
     }
 
     /** A13/B1: el historial anulado tiene que decir qué meses cubría ese cobro. */

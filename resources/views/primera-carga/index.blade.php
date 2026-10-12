@@ -40,7 +40,7 @@
         <div style="overflow-x:auto"><table style="width:100%;min-width:560px;table-layout:fixed">
             <colgroup><col style="width:100px"><col style="width:120px"><col><col style="width:115px"></colgroup>
             <thead><tr><th>Deporte</th><th>Grupo</th><th>Plan</th><th>Precio mensual</th></tr></thead>
-            <tbody>@foreach($catalogos as $opcion)<tr><td>{{ $opcion['deporte'] }}</td><td>{{ $opcion['grupo'] }}</td><td>{{ $opcion['plan'] }}</td><td>${{ number_format((float) $opcion['precio'], 0, ',', '.') }}</td></tr>@endforeach</tbody>
+            <tbody>@foreach($catalogos as $opcion)<tr><td>{{ $opcion['deporte'] }}</td><td>{{ $opcion['grupo'] }}</td><td>{{ $opcion['plan'] }}</td><td>{{ \App\Support\FormatoImporte::pesos((float) $opcion['precio']) }}</td></tr>@endforeach</tbody>
         </table></div>
     </details>
     @if($paso === 1 && !$terminada)
@@ -62,7 +62,7 @@
         <li><strong>Escribí los datos del alumno.</strong><p>DNI, apellido, nombre, nacimiento, fecha real de ingreso al club y contacto. Para un menor, también el nombre y teléfono de su tutor.</p><p class="text-wings-muted">DNI: <code>50300001</code>. Ingreso: <code>20/01/2020</code>. Se aceptan puntos y espacios en el DNI. Las fechas llevan día/mes/año. El ingreso es cuando empezó a asistir, aunque cargues el archivo hoy. Si hace dos deportes, usá una fila para cada deporte.</p></li>
         <li><strong>Elegí deporte, grupo y plan.</strong><p>Usá la flechita de cada lista: primero Deporte, después su Grupo y después el Plan de ese grupo.</p><p class="text-wings-muted">Ejemplo: Fútbol → Juveniles → Fútbol / Juveniles / 2 clases. ¿Falta una opción? Preparala en Wings y descargá otra plantilla. No escribas en Catálogos.</p></li>
         <li><strong>Marcá las dos respuestas.</strong><p><strong>Debe inscripción:</strong> No si no tiene que pagar inscripción en esta carga. Sí genera esa deuda al importe vigente de Configuración, una sola vez por DNI.</p><p><strong>Tiene deuda:</strong> son cuotas mensuales. No exige todos los pares vacíos. Sí exige un par por cada mes que debe. Son respuestas independientes: puede deber inscripción y no deber cuotas.</p></li>
-        <li><strong>Por cada mes que debe, completá un par.</strong><p>Período 1: <code>102026</code> = octubre de 2026. Monto 1: <code>48000</code> = debe $48.000. Otro mes va en Período 2 / Monto 2, en la misma fila. Hay 12 pares; los que no usás quedan vacíos.</p><p><strong>Escribí solamente lo que falta pagar.</strong> Si la cuota era $48.000 y ya pagó $20.000, poné <code>28000</code>. No cargues meses pagados ni repitas meses.</p><p class="text-wings-muted">Agosto: <code>082026</code>; septiembre: <code>092026</code>. Si Excel quita el cero y deja <code>92026</code>, también se acepta. Para $52.000 escribí <code>52000</code> o <code>52.000</code>, sin signo $. Los meses pueden estar desordenados, desde 2025.</p></li>
+        <li><strong>Por cada mes que debe, completá un par.</strong><p>Período 1: <code>102026</code> = octubre de 2026. Monto 1: <code>48000</code> = debe {{ \App\Support\FormatoImporte::pesos(48000) }}. Otro mes va en Período 2 / Monto 2, en la misma fila. Hay 12 pares; los que no usás quedan vacíos.</p><p><strong>Escribí solamente lo que falta pagar.</strong> Si la cuota era {{ \App\Support\FormatoImporte::pesos(48000) }} y ya pagó {{ \App\Support\FormatoImporte::pesos(20000) }}, poné <code>28000</code>. No cargues meses pagados ni repitas meses.</p><p class="text-wings-muted">Agosto: <code>082026</code>; septiembre: <code>092026</code>. Si Excel quita el cero y deja <code>92026</code>, también se acepta. Para {{ \App\Support\FormatoImporte::pesos(52000) }} escribí <code>52000</code> o <code>52.000</code>, sin signo $. Los meses pueden estar desordenados, desde 2025.</p></li>
     </ol>
     <h3 class="alumno-nombre mb-2">Así quedan cuatro casos distintos</h3>
     <p class="text-wings-muted mb-2">Son ejemplos para mirar en Guía, no alumnos de la plantilla. En celular, deslizá la tabla hacia los costados.</p>
@@ -116,7 +116,7 @@
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--{{ $terminada ? 'success' : 'neutral' }}"></span><h2 id="carga-titulo" class="alumno-nombre">4. Cargar en Wings</h2></div>
     @if($resumen && !$erroresRevision)
         <p class="mb-3">{{ $resumen['alumnos'] }} alumnos, {{ $resumen['cuotas'] }} cuotas pendientes y {{ $resumen['inscripciones'] }} inscripción.</p>
-        <p class="mb-3">Cuotas: ${{ number_format((float) $resumen['cuotas_monto'], 0, ',', '.') }} + inscripción: ${{ number_format((float) $resumen['inscripcion_monto'], 0, ',', '.') }} = <strong>${{ number_format((float) $resumen['total'], 0, ',', '.') }} de deuda.</strong> No entra dinero a caja.</p>
+        <p class="mb-3">Cuotas: {{ \App\Support\FormatoImporte::pesos((float) $resumen['cuotas_monto']) }} + inscripción: {{ \App\Support\FormatoImporte::pesos((float) $resumen['inscripcion_monto']) }} = <strong>{{ \App\Support\FormatoImporte::pesos((float) $resumen['total']) }} de deuda.</strong> No entra dinero a caja.</p>
     @endif
     @if($terminada)
         <p class="mb-3" style="color:var(--color-success)"><strong>Carga terminada.</strong> Los alumnos están en Alumnos y las deudas en Cobranza. Quien no debía arranca al día. Ya no se ofrece una nueva importación en el menú.</p>

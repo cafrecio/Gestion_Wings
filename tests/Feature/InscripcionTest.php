@@ -193,7 +193,7 @@ class InscripcionTest extends TestCase
         $this->patch('/configuraciones/inscripcion_importe', ['valor' => ''])->assertSessionHasErrors();
         $this->get(route('web.configuraciones.index'))->assertOk()->assertDontSee('inscripcion_fecha_corte');
         $this->getJson(route('web.alumnos.inscripcion-preview', ['dni' => '41000111', 'fecha_alta' => '2020-01-20']))
-            ->assertOk()->assertJsonPath('importe', 5000)->assertJsonPath('mensaje', 'Corresponde inscripción por única vez: $5.000,00');
+            ->assertOk()->assertJsonPath('importe', 5000)->assertJsonPath('mensaje', 'Corresponde inscripción por única vez: $5,000.00');
     }
 
     public function test_retirar_parametro_legacy_no_altera_cargos_ni_importe(): void

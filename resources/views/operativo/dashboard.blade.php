@@ -261,7 +261,7 @@
         <div class="filtros-card" style="text-align:center; padding:0.85rem 1rem;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:2px;">Cobrado hoy</p>
             <p style="font-size:1.5rem; font-weight:800; color:var(--color-success);">
-                ${{ number_format($totalCobradoHoy, 0, ',', '.') }}
+                {{ \App\Support\FormatoImporte::pesos($totalCobradoHoy) }}
             </p>
         </div>
         <div class="filtros-card" style="text-align:center; padding:0.85rem 1rem;">

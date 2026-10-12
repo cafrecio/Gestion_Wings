@@ -23,7 +23,7 @@ $alumnoNombre = $movimiento->alumno
         </div>
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Monto</p>
-            <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">${{ number_format($movimiento->monto, 0, ',', '.') }}</p>
+            <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($movimiento->monto) }}</p>
         </div>
     </div>
 </div>

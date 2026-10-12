@@ -159,7 +159,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                     {{ $alumnoObs }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right; {{ $textStyle }}">
-                    ${{ number_format($mov->monto, 0, ',', '.') }}
+                    {{ \App\Support\FormatoImporte::pesos($mov->monto) }}
                 </td>
                 @if($hasEditar)
                 <td style="padding:8px 12px; text-align:center;">
@@ -220,14 +220,14 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
         <tfoot>
             <tr style="background:var(--color-surface-alt); border-top:2px solid var(--color-border);">
                 <td colspan="5" style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
-                    Ingresos: <strong style="color:var(--color-success);">${{ number_format($ingresos, 0, ',', '.') }}</strong>
+                    Ingresos: <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</strong>
                     &nbsp;·&nbsp;
-                    Egresos: <strong style="color:var(--color-danger);">${{ number_format($egresos, 0, ',', '.') }}</strong>
+                    Egresos: <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($egresos) }}</strong>
                 </td>
                 @php $netoDetalle = $ingresos - $egresos; @endphp
                 <td style="padding:8px 12px; font-size:0.9rem; font-weight:700; text-align:right;
                            color:{{ $netoDetalle >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                    {{ $netoDetalle < 0 ? '−' : '' }}${{ number_format(abs($netoDetalle), 0, ',', '.') }}
+                    {{ $netoDetalle < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($netoDetalle)) }}
                 </td>
                 @if($hasEditar || $hasCheckbox || $hasRecibo)
                 <td></td>

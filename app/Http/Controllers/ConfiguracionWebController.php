@@ -71,7 +71,7 @@ class ConfiguracionWebController extends Controller
             'valor.min' => $clave === 'inscripcion_importe'
                 ? 'El importe de la inscripción debe ser mayor que cero.' : 'Elegí un día del 1 al 28.',
             'valor.max' => match ($clave) {
-                'inscripcion_importe' => 'El importe no puede superar $99.999.999,99.',
+                'inscripcion_importe' => 'El importe no puede superar '.\App\Support\FormatoImporte::pesos('99999999.99').'.',
                 'dias_gracia_cobranza' => 'Elegí un día del 1 al 28.',
                 default => 'Este valor no puede tener más de 255 caracteres.',
             },

@@ -1,0 +1,129 @@
+
+  ⨯
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\MostrarImportesT30Test > cada pantalla muestra centavos e importes largos sin cambiar lo gu…   
+  admin/centavos: falta $4,252.50
+operativo/centavos: falta $2,751.50
+alumno-alta/centavos: falta 1250.50
+alumno-editar/centavos: falta 1250.50
+alumno-ficha/centavos: falta $1,250.50
+caja/centavos: falta $2,751.50
+caja-rectificar/centavos: falta $1,250.50
+caja-cerrar/centavos: falta $1,250.50
+caja-resumen/centavos: falta $2,751.50
+caja-detalle/centavos: falta $1,250.50
+caja-historial/centavos: falta $1,250.50
+cobrar-buscador/centavos: falta $1,250.50
+cobrar/centavos: falta $1,250.50
+caja-cancelar/centavos: falta $1,250.50
+cashflow/centavos: falta $1,501.00
+cobranza/centavos: falta $1,250.50
+grupos/centavos: falta $1,250.50
+grupo-ficha/centavos: falta $1,250.50
+profesores/centavos: falta $1,250.50
+profesor-ficha/centavos: falta $1,250.50
+liquidaciones/centavos: falta $1,875.75
+liquidacion-hora/centavos: falta $1,250.50
+liquidacion-comision/centavos: falta $1,250.50
+reportes/centavos: falta $4,252.50
+sueldos/centavos: falta $1,875.75
+admin/millones: falta $3,750,502.50
+operativo/millones: falta $2,500,251.50
+alumno-alta/millones: falta 1250000.50
+alumno-editar/millones: falta 1250000.50
+alumno-ficha/millones: falta $1,250,000.50
+caja/millones: falta $2,500,251.50
+caja-rectificar/millones: falta $1,250,000.50
+caja-cerrar/millones: falta $1,250,000.50
+caja-resumen/millones: falta $2,500,251.50
+caja-detalle/millones: falta $1,250,000.50
+caja-historial/millones: falta $1,250,000.50
+cobrar-buscador/millones: falta $1,250,000.50
+cobrar/millones: falta $1,250,000.50
+caja-cancelar/millones: falta $1,250,000.50
+cashflow/millones: falta $1,250,251.00
+cobranza/millones: falta $1,250,000.50
+grupos/millones: falta $1,250,000.50
+grupo-ficha/millones: falta $1,250,000.50
+profesores/millones: falta $1,250,000.50
+profesor-ficha/millones: falta $1,250,000.50
+liquidaciones/millones: falta $1,875,000.75
+liquidacion-hora/millones: falta $1,250,000.50
+liquidacion-comision/millones: falta $1,250,000.50
+reportes/millones: falta $3,750,502.50
+sueldos/millones: falta $1,875,000.75
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &0 []
++Array &0 [
++    0 => 'admin/centavos: falta $4,252.50',
++    1 => 'operativo/centavos: falta $2,751.50',
++    2 => 'alumno-alta/centavos: falta 1250.50',
++    3 => 'alumno-editar/centavos: falta 1250.50',
++    4 => 'alumno-ficha/centavos: falta $1,250.50',
++    5 => 'caja/centavos: falta $2,751.50',
++    6 => 'caja-rectificar/centavos: falta $1,250.50',
++    7 => 'caja-cerrar/centavos: falta $1,250.50',
++    8 => 'caja-resumen/centavos: falta $2,751.50',
++    9 => 'caja-detalle/centavos: falta $1,250.50',
++    10 => 'caja-historial/centavos: falta $1,250.50',
++    11 => 'cobrar-buscador/centavos: falta $1,250.50',
++    12 => 'cobrar/centavos: falta $1,250.50',
++    13 => 'caja-cancelar/centavos: falta $1,250.50',
++    14 => 'cashflow/centavos: falta $1,501.00',
++    15 => 'cobranza/centavos: falta $1,250.50',
++    16 => 'grupos/centavos: falta $1,250.50',
++    17 => 'grupo-ficha/centavos: falta $1,250.50',
++    18 => 'profesores/centavos: falta $1,250.50',
++    19 => 'profesor-ficha/centavos: falta $1,250.50',
++    20 => 'liquidaciones/centavos: falta $1,875.75',
++    21 => 'liquidacion-hora/centavos: falta $1,250.50',
++    22 => 'liquidacion-comision/centavos: falta $1,250.50',
++    23 => 'reportes/centavos: falta $4,252.50',
++    24 => 'sueldos/centavos: falta $1,875.75',
++    25 => 'admin/millones: falta $3,750,502.50',
++    26 => 'operativo/millones: falta $2,500,251.50',
++    27 => 'alumno-alta/millones: falta 1250000.50',
++    28 => 'alumno-editar/millones: falta 1250000.50',
++    29 => 'alumno-ficha/millones: falta $1,250,000.50',
++    30 => 'caja/millones: falta $2,500,251.50',
++    31 => 'caja-rectificar/millones: falta $1,250,000.50',
++    32 => 'caja-cerrar/millones: falta $1,250,000.50',
++    33 => 'caja-resumen/millones: falta $2,500,251.50',
++    34 => 'caja-detalle/millones: falta $1,250,000.50',
++    35 => 'caja-historial/millones: falta $1,250,000.50',
++    36 => 'cobrar-buscador/millones: falta $1,250,000.50',
++    37 => 'cobrar/millones: falta $1,250,000.50',
++    38 => 'caja-cancelar/millones: falta $1,250,000.50',
++    39 => 'cashflow/millones: falta $1,250,251.00',
++    40 => 'cobranza/millones: falta $1,250,000.50',
++    41 => 'grupos/millones: falta $1,250,000.50',
++    42 => 'grupo-ficha/millones: falta $1,250,000.50',
++    43 => 'profesores/millones: falta $1,250,000.50',
++    44 => 'profesor-ficha/millones: falta $1,250,000.50',
++    45 => 'liquidaciones/millones: falta $1,875,000.75',
++    46 => 'liquidacion-hora/millones: falta $1,250,000.50',
++    47 => 'liquidacion-comision/millones: falta $1,250,000.50',
++    48 => 'reportes/millones: falta $3,750,502.50',
++    49 => 'sueldos/millones: falta $1,875,000.75',
++]
+
+  at tests\Feature\MostrarImportesT30Test.php:81
+     77▕         if ($exportar) {
+     78▕             file_put_contents($destino.'/pantallas.json', json_encode($rutas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+     79▕             file_put_contents($destino.'/resultado-servidor.json', json_encode(compact('resultados', 'fallas'), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+     80▕         }
+  ➜  81▕         $this->assertSame([], $fallas, implode("\n", $fallas));
+     82▕     }
+     83▕ 
+     84▕     private function guardarHtml(string $destino, string $id, string $html): void
+     85▕     {
+
+  1   tests\Feature\MostrarImportesT30Test.php:81
+
+
+  Tests:    1 failed (73 assertions)
+  Duration: 13.10s
+

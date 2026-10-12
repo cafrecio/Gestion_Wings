@@ -16,7 +16,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div><span class="info-label">Responsable</span><p class="info-value">{{ $caja->usuarioOperativo->name ?? '–' }}</p></div>
         <div><span class="info-label">Apertura</span><p class="info-value">{{ $caja->apertura_at->format('d/m/Y H:i') }}</p></div>
-        <div><span class="info-label">Efectivo declarado actual</span><p class="info-value">${{ number_format($caja->efectivo_inicial, 2, ',', '.') }}</p></div>
+        <div><span class="info-label">Efectivo declarado actual</span><p class="info-value">{{ \App\Support\FormatoImporte::pesos($caja->efectivo_inicial) }}</p></div>
     </div>
 
     <form method="POST" action="{{ route('web.caja.rectificar.guardar', $caja->id) }}">

@@ -362,7 +362,7 @@
                 <td style="width: 58%;">
                     <div class="recibo-monto-box">
                         <div class="recibo-monto-label">Total Neto Liquidado</div>
-                        <div class="recibo-monto-value">$ {{ number_format($monto_total, 2, ',', '.') }}</div>
+                        <div class="recibo-monto-value">{{ \App\Support\FormatoImporte::pesos($monto_total) }}</div>
                     </div>
                 </td>
             </tr>
@@ -455,14 +455,14 @@
                         <td>{{ $det['grupo'] }}</td>
                         <td style="text-align: center;">{{ \App\Services\ReciboService::formatearDuracion($det['minutos'] ?? null) }}</td>
                         <td style="text-align: center;">{{ $det['estado'] }}</td>
-                        <td class="monto">$ {{ number_format($det['subtotal'], 2, ',', '.') }}</td>
+                        <td class="monto">{{ \App\Support\FormatoImporte::pesos($det['subtotal']) }}</td>
                     </tr>
                 @empty
                     <tr><td colspan="5" style="text-align: center; color: #94a3b8;">Sin clases registradas en el período.</td></tr>
                 @endforelse
                 <tr class="recibo-total-row">
                     <td colspan="4" class="recibo-total-label">Total Clases Computadas</td>
-                    <td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td>
+                    <td class="recibo-total-monto">{{ \App\Support\FormatoImporte::pesos($monto_total) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -484,20 +484,20 @@
                 @forelse($detalles as $det)
                     <tr>
                         <td>{{ $det['alumno'] }}</td>
-                        <td>$ {{ number_format($det['cuota_base'], 2, ',', '.') }}</td>
+                        <td>{{ \App\Support\FormatoImporte::pesos($det['cuota_base']) }}</td>
                         <td style="text-align: center;">{{ $det['porcentaje'] }}%</td>
-                        <td class="monto">$ {{ number_format($det['subtotal'], 2, ',', '.') }}</td>
+                        <td class="monto">{{ \App\Support\FormatoImporte::pesos($det['subtotal']) }}</td>
                     </tr>
                 @empty
                     <tr><td colspan="4" style="text-align: center; color: #94a3b8;">Sin alumnos comisionados en el período.</td></tr>
                 @endforelse
                 <tr class="recibo-total-row">
                     <td colspan="3" class="recibo-total-label">Cálculo original</td>
-                    <td class="recibo-total-monto">$ {{ number_format($total_calculado ?? $monto_total, 2, ',', '.') }}</td>
+                    <td class="recibo-total-monto">{{ \App\Support\FormatoImporte::pesos($total_calculado ?? $monto_total) }}</td>
                 </tr>
                 @if(($ajuste_final ?? 0) != 0)
-                <tr><td colspan="3">Ajuste de Administración</td><td class="monto">$ {{ number_format($ajuste_final, 2, ',', '.') }}</td></tr>
-                <tr class="recibo-total-row"><td colspan="3" class="recibo-total-label">Monto final pagado</td><td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td></tr>
+                <tr><td colspan="3">Ajuste de Administración</td><td class="monto">{{ \App\Support\FormatoImporte::pesos($ajuste_final) }}</td></tr>
+                <tr class="recibo-total-row"><td colspan="3" class="recibo-total-label">Monto final pagado</td><td class="recibo-total-monto">{{ \App\Support\FormatoImporte::pesos($monto_total) }}</td></tr>
                 @endif
             </tbody>
         </table>

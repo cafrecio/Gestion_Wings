@@ -856,7 +856,7 @@ a:hover {
     box-shadow: 0 4px 16px color-mix(in srgb, var(--color-text) 15%, transparent);
 }
 .money-notice[hidden] { display: none; }
-.money-input-wrap--cuota { flex-shrink: 0; width: 110px; }
+.money-input-wrap--cuota { flex-shrink: 0; width: 114px; }
 .money-input-wrap--cuota .wings-input {
     padding: 4px 10px;
     font-size: 0.85rem;
@@ -1318,6 +1318,26 @@ a:hover {
 }
 
 /* A58: Clases en móvil (≤640px) no desborda horizontalmente y apila su información (Carlos, 10/10/2026) */
+/* T30: los centavos y millones entran completos en los resúmenes existentes. */
+@media (max-width: 640px) {
+    .ds-money-summary,
+    .reporte-visual .rv-kpi:not(:has(.rv-ring-mini)) .rv-amount {
+        font-size: 0.85rem !important;
+        white-space: nowrap;
+        overflow-wrap: normal;
+    }
+    .liquidacion-importes > div > div:nth-child(odd) {
+        padding-inline: 0.35rem !important;
+    }
+    .liquidacion-importes .ds-money-summary {
+        font-size: 0.75rem !important;
+    }
+    .reporte-visual .rv-current-item strong {
+        font-size: 0.68rem !important;
+        white-space: nowrap;
+    }
+}
+
 @media (max-width: 640px) {
     .alumno-card .alumno-info {
         grid-template-columns: 1fr !important;

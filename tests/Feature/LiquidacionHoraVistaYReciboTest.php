@@ -100,8 +100,8 @@ class LiquidacionHoraVistaYReciboTest extends TestCase
         $response->assertSee('1 h');
         $response->assertSee('1 h 20 min');
         $response->assertSee('1 h 30 min');
-        $response->assertSee('6.666,67');
-        $response->assertSee('19.166,67');
+        $response->assertSee('6,666.67');
+        $response->assertSee('19,166.67');
 
         // 2. Verificacion del recibo PDF (cerrada y pagada)
         $this->service->cerrarLiquidacion($liquidacion->id);
@@ -133,7 +133,7 @@ class LiquidacionHoraVistaYReciboTest extends TestCase
         $this->assertStringContainsString('1 h', $htmlRecibo);
         $this->assertStringContainsString('1 h 20 min', $htmlRecibo);
         $this->assertStringContainsString('1 h 30 min', $htmlRecibo);
-        $this->assertStringContainsString('6.666,67', $htmlRecibo);
+        $this->assertStringContainsString('6,666.67', $htmlRecibo);
         $this->assertStringContainsString('3 clases dictadas · 3 h 50 min', $htmlRecibo);
     }
 
@@ -159,7 +159,7 @@ class LiquidacionHoraVistaYReciboTest extends TestCase
         $response->assertOk();
         $response->assertSee('1 h 20 min');
         $response->assertDontSee('60 min');
-        $response->assertSee('6.666,67');
+        $response->assertSee('6,666.67');
 
         // El recibo debe seguir mostrando la duracion y monto guardados
         $capturado = null;
@@ -180,7 +180,7 @@ class LiquidacionHoraVistaYReciboTest extends TestCase
 
         $this->assertStringContainsString('1 h 20 min', $htmlRecibo);
         $this->assertStringContainsString('1 clases dictadas · 1 h 20 min', $htmlRecibo);
-        $this->assertStringContainsString('6.666,67', $htmlRecibo);
+        $this->assertStringContainsString('6,666.67', $htmlRecibo);
     }
 
     public function test_liquidacion_antigua_con_minutos_null_muestra_guion(): void

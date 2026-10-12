@@ -5,7 +5,9 @@
 @vite(['resources/css/reportes-visual.css', 'resources/css/reportes-analiticos.css'])
 @php
     $title = 'Ingresos y egresos';
-    $dinero = fn ($n) => $n === null ? 'Sin datos' : '$'.number_format($n / 100, 0, ',', '.');
+    $dinero = fn ($n) => $n === null ? 'Sin datos' : \App\Support\FormatoImporte::pesos($n / 100);
+    // Gráficos excluidos de T30 por Carlos: conservar su presentación anterior.
+    $dineroGrafico = fn ($n) => $n === null ? 'Sin datos' : '$'.number_format($n / 100, 0, ',', '.');
     $fecha = fn ($m) => \Carbon\CarbonImmutable::createFromFormat('!Y-m', $m)->locale('es');
     $ultimo = collect($evolucion)->last();
     $anterior = count($evolucion) > 1 ? $evolucion[count($evolucion)-2] : null;
@@ -68,7 +70,7 @@
 @if($rubros->isEmpty())
 <div class="rv-chart" style="display:flex;align-items:center;justify-content:center"><p class="rv-note">{{ $tipo === 'INGRESO' ? 'Sin ingresos registrados' : 'Sin egresos registrados' }}</p></div>
 @elseif($tipo === 'INGRESO' && $reporte['ingresos'] > 0 && $rubros->every(fn ($r) => $r['importe'] >= 0))
-<div class="rv-donut-grid"><div class="rv-donut"><canvas data-rv-income="{{ json_encode($rubros->map(fn ($r) => ['nombre'=>$r['nombre'],'importe'=>$r['importe']])) }}" role="img" aria-label="Distribución de ingresos por rubro"></canvas><div class="rv-donut-center"><strong>{{ $dinero($reporte['ingresos']) }}</strong><span class="rv-note">Ingresos</span></div></div><div class="rv-breakdown">@foreach($rubros as $rubro)<div class="rv-breakdown-row"><i class="rv-swatch" style="background:var(--color-{{ $paleta[$loop->index % count($paleta)] }})"></i><div>{{ $rubro['nombre'] }}<strong>{{ $dinero($rubro['importe']) }}<span class="rv-row-share">{{ number_format($rubro['importe']*100/$reporte['ingresos'],1,',','.') }}%</span></strong></div></div>@endforeach</div></div>
+<div class="rv-donut-grid"><div class="rv-donut"><canvas data-rv-income="{{ json_encode($rubros->map(fn ($r) => ['nombre'=>$r['nombre'],'importe'=>$r['importe']])) }}" role="img" aria-label="Distribución de ingresos por rubro"></canvas><div class="rv-donut-center"><strong>{{ $dineroGrafico($reporte['ingresos']) }}</strong><span class="rv-note">Ingresos</span></div></div><div class="rv-breakdown">@foreach($rubros as $rubro)<div class="rv-breakdown-row"><i class="rv-swatch" style="background:var(--color-{{ $paleta[$loop->index % count($paleta)] }})"></i><div>{{ $rubro['nombre'] }}<strong>{{ $dinero($rubro['importe']) }}<span class="rv-row-share">{{ number_format($rubro['importe']*100/$reporte['ingresos'],1,',','.') }}%</span></strong></div></div>@endforeach</div></div>
 @else
 <div class="rv-chart"><canvas data-rv-bars="{{ json_encode($rubros->map(fn ($r) => ['nombre'=>$r['nombre'],'importe'=>$r['importe']])) }}" data-tone="{{ $tono }}" role="img" aria-label="Importes netos por rubro"></canvas></div>
 @endif

@@ -329,7 +329,7 @@
                 @forelse($periodos as $periodo)
                     <tr>
                         <td>{{ $periodo['periodo_texto'] ?? $periodo['periodo'] }}</td>
-                        <td class="monto">$ {{ number_format($periodo['monto_aplicado'], 2, ',', '.') }}</td>
+                        <td class="monto">{{ \App\Support\FormatoImporte::pesos($periodo['monto_aplicado']) }}</td>
                     </tr>
                 @empty
                     <tr>
@@ -342,7 +342,7 @@
                     <td class="recibo-total-label">
                         {{ ($anulado ?? false) ? 'Total Cobrado (Revertido)' : 'Total Cobrado' }}
                     </td>
-                    <td class="recibo-total-monto">$ {{ number_format($monto_total, 2, ',', '.') }}</td>
+                    <td class="recibo-total-monto">{{ \App\Support\FormatoImporte::pesos($monto_total) }}</td>
                 </tr>
             </tbody>
         </table>

@@ -80,8 +80,8 @@ class MovimientosVisibilidadPorRubroTest extends TestCase
         $respuesta = $this->actingAs($sandra)->get(route('web.movimientos.index'));
 
         $respuesta->assertOk();
-        $respuesta->assertSee('31.500', false);
-        $respuesta->assertDontSee('87.000', false);
+        $respuesta->assertSee('31,500.00', false);
+        $respuesta->assertDontSee('87,000.00', false);
     }
 
     public function test_el_admin_sigue_viendo_todo(): void
@@ -115,6 +115,6 @@ class MovimientosVisibilidadPorRubroTest extends TestCase
         $this->actingAs($admin)
             ->get(route('web.movimientos.index'))
             ->assertOk()
-            ->assertSee('87.000', false);
+            ->assertSee('87,000.00', false);
     }
 }

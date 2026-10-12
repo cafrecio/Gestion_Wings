@@ -161,14 +161,14 @@ class SaldoUnicoPorAlumnoTest extends TestCase
         $this->actingAs($this->operativo)
             ->get(route('web.caja.cobrar-cuota'))
             ->assertOk()
-            ->assertSee('53.000');
+            ->assertSee('53,000.00');
 
         // La ficha muestra las dos partes, cada una con el mismo criterio.
         $this->actingAs($this->operativo)
             ->get(route('web.alumnos.show', $alumno->id))
             ->assertOk()
-            ->assertSee('48.000')
-            ->assertSee('5.000');
+            ->assertSee('48,000.00')
+            ->assertSee('5,000.00');
     }
 
     /** Un cobro parcial baja el saldo en los tres lugares a la vez. */
@@ -191,7 +191,7 @@ class SaldoUnicoPorAlumnoTest extends TestCase
         $this->actingAs($this->operativo)
             ->get(route('web.caja.cobrar-cuota'))
             ->assertOk()
-            ->assertSee('30.000');
+            ->assertSee('30,000.00');
     }
 
     private function crearAlumno(string $apellido, string $nombre): Alumno

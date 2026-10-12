@@ -29,7 +29,7 @@
     <p class="text-sm text-wings-muted mb-4">Contá el efectivo recibido en el cajón. No es un ingreso del club.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div><span class="info-label">Medio</span><p class="info-value">{{ $tipoEfectivo->nombre }}</p></div>
-        <div><span class="info-label">Último cierre</span><p class="info-value">{{ $propuesta['caja_origen_id'] ? 'Caja #'.$propuesta['caja_origen_id'].' · $'.number_format($propuesta['efectivo_heredado'], 2, ',', '.') : 'Primera apertura: declarar el efectivo recibido' }}</p></div>
+        <div><span class="info-label">Último cierre</span><p class="info-value">{{ $propuesta['caja_origen_id'] ? 'Caja #'.$propuesta['caja_origen_id'].' · ' . \App\Support\FormatoImporte::pesos($propuesta['efectivo_heredado']) : 'Primera apertura: declarar el efectivo recibido' }}</p></div>
     </div>
     <form method="POST" action="{{ route('web.caja.abrir') }}">
         @csrf
@@ -68,7 +68,7 @@
                 Diferencia importante con el cierre anterior
             </p>
             <p class="text-sm text-wings-muted mb-2">
-                El importe declarado difiere en más de un 50% de lo dejado en el último cierre (${{ number_format($propuesta['efectivo_heredado'], 2, ',', '.') }}). Si confirmás que el importe ingresado es correcto, tildá la casilla para continuar:
+                El importe declarado difiere en más de un 50% de lo dejado en el último cierre ({{ \App\Support\FormatoImporte::pesos($propuesta['efectivo_heredado']) }}). Si confirmás que el importe ingresado es correcto, tildá la casilla para continuar:
             </p>
             <label class="flex items-start gap-2 text-sm font-semibold" style="color:var(--color-text);">
                 <input type="checkbox" name="confirmar_diferencia_grande" value="1" required class="mt-0.5">

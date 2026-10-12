@@ -287,7 +287,7 @@ class LiquidacionWebController extends Controller
         if ($saldoResultante < 0 && !$tipoCaja->permite_descubierto) {
             return back()->with('error',
                 "Saldo insuficiente en {$tipoCaja->nombre}. " .
-                'Saldo disponible: $' . number_format($saldoActual, 0, ',', '.')
+                'Saldo disponible: ' . \App\Support\FormatoImporte::pesos($saldoActual)
             );
         }
 
@@ -315,7 +315,7 @@ class LiquidacionWebController extends Controller
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: 'Pago de liquidación',
                     fechaDelMovimiento: $request->fecha_pago,
-                    monto: '$' . number_format((float) $resultado['liquidacion']->monto_a_pagar, 2, ',', '.'),
+                    monto: \App\Support\FormatoImporte::pesos((float) $resultado['liquidacion']->monto_a_pagar),
                     quienLoCargo: auth()->user()?->name,
                 );
             }

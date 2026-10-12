@@ -130,7 +130,7 @@
                                 {{ $plan->clases_por_semana }}x / semana
                             </td>
                             <td style="padding: 0.5rem 0.5rem; color: var(--color-text);">
-                                ${{ number_format($plan->precio_mensual, 0, ',', '.') }}
+                                {{ \App\Support\FormatoImporte::pesos($plan->precio_mensual) }}
                             </td>
                             @if($isAdmin)
                                 <td style="padding: 0.5rem 0.5rem; text-align: right;">

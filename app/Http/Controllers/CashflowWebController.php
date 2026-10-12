@@ -249,7 +249,7 @@ class CashflowWebController extends Controller
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: "Movimiento de cashflow",
                     fechaDelMovimiento: $request->input("fecha"),
-                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    monto: \App\Support\FormatoImporte::pesos((float) $request->input("monto")),
                     quienLoCargo: Auth::user()?->name,
                 );
             }

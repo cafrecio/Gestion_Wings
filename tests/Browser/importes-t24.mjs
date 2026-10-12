@@ -121,8 +121,8 @@ async function comprobarRevisionVisual(frame, caso, pagina, modo) {
         await input.focus(); await input.fill('48000.50'); await input.blur();
         const inscripcion = frame.locator('[data-distribucion-inscripcion]');
         const cuotas = frame.locator('[data-distribucion-cuotas]');
-        verificar(await inscripcion.textContent() === 'Inscripción $5.000', 'Inscripción: desglose incorrecto');
-        verificar(await cuotas.textContent() === 'Cuotas $43.000,50', 'Cuotas: faltan los dos decimales');
+        verificar(await inscripcion.textContent() === 'Inscripción $5,000.00', 'Inscripción: desglose incorrecto');
+        verificar(await cuotas.textContent() === 'Cuotas $43,000.50', 'Cuotas: faltan los dos decimales');
         const a = await inscripcion.boundingBox(); const b = await cuotas.boundingBox();
         verificar(b.y >= a.y + a.height - 1, 'El desglose no ocupa dos líneas');
         verificar(await frame.locator('label[for="monto-entregado"] svg').count() === 1, 'Importe entregado: falta icono');

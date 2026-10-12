@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T29** Buscador de Cobrar: la lista sin buscar muestra solo a los que deben, igual que el numero del encabezado | Hecho, espera verificación (hizo Claude) | Hecho y publicado; capturas aprobadas por Carlos (12/10). Falta que otro agente verifique la regla: Carlos dice quien. Sin desplegar |
+| **T30** Mostrar los centavos: las pantallas redondean importes que ahora se cargan con decimales | Hecho, espera verificación (hizo Codex) | Carlos aprueba las capturas; despues verifica otro agente |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -54,9 +55,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T30** Mostrar los centavos: las pantallas redondean importes que ahora se cargan con decimales | En curso | Lo hace Codex por decision de Carlos (12/10). Desde T24 se cargan centavos, pero 45 lugares en 21 vistas los muestran sin decimales. Entrega con capturas para que Carlos apruebe |
+Nada en este momento.
 
 ## Gemini
 

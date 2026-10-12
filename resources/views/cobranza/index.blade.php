@@ -18,7 +18,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap:12px; margin-bottom:1rem;">
     <div class="filtros-card" style="text-align:center; padding:1rem 0.5rem; border-top:3px solid var(--color-danger);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--color-danger); margin-bottom:4px;">Total adeudado</p>
-        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;">$ {{ number_format($totalAdeudado, 2, ',', '.') }}</p>
+        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;">{{ \App\Support\FormatoImporte::pesos($totalAdeudado) }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-text-muted);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Total activos</p>
@@ -207,7 +207,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 
                 {{-- Deuda --}}
                 <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap; color:{{ ($alumno->deuda_total ?? 0) > 0 ? 'var(--color-danger)' : 'var(--color-text-muted)' }};">
-                    $ {{ number_format($alumno->deuda_total ?? 0, 2, ',', '.') }}
+                    {{ \App\Support\FormatoImporte::pesos($alumno->deuda_total ?? 0) }}
                 </td>
 
                 {{-- Estado --}}

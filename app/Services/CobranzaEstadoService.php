@@ -279,7 +279,7 @@ class CobranzaEstadoService
                 foreach ($otros as $otro) {
                     if (($otro->deuda_total ?? 0) > 0) {
                         $depNombre = $otro->deporte->nombre ?? 'otro deporte';
-                        $montoFmt = '$ ' . number_format($otro->deuda_total, 2, ',', '.');
+                        $montoFmt = \App\Support\FormatoImporte::pesos($otro->deuda_total);
                         $mensajes[] = "{$montoFmt} en {$depNombre}";
                     }
                 }

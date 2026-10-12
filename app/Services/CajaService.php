@@ -107,7 +107,7 @@ class CajaService
                     $supera50 = $diferencia > ($heredado / 2);
                     $confirmado = filter_var($datos['confirmar_diferencia_grande'] ?? false, FILTER_VALIDATE_BOOLEAN);
                     if ($supera50 && !$confirmado) {
-                        $errores['confirmar_diferencia_grande'] = 'El efectivo recibido difiere en más de un 50% del cierre anterior ($' . number_format($propuesta['efectivo_heredado'], 2, ',', '.') . '). Revisá si tipeaste un importe incorrecto. Si el monto es correcto, confirmá la diferencia para abrir.';
+                        $errores['confirmar_diferencia_grande'] = 'El efectivo recibido difiere en más de un 50% del cierre anterior (' . \App\Support\FormatoImporte::pesos($propuesta['efectivo_heredado']) . '). Revisá si tipeaste un importe incorrecto. Si el monto es correcto, confirmá la diferencia para abrir.';
                     }
                 }
             }

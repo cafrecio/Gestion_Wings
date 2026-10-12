@@ -201,9 +201,30 @@ Antes de aprobar cualquier vista, verificar:
   sin separador de miles. En el servidor, `App\Rules\ImportePesos` valida/normaliza
   todos los campos de escritura: un pedido directo con tres decimales **se rechaza
   sin escribir**, no se recorta silenciosamente.
-- Porcentajes, días y comisión quedan fuera. Los textos de saldos, recibos e importes
-  calculados conservan su presentación; esta regla define los campos de carga/edición.
+- Porcentajes, días y comisión quedan fuera. Esta regla define los campos de
+  carga/edición; los textos de importes siguen ahora la regla T30 siguiente.
 - Los lectores de Excel mantienen su formato propio. No aplicar el parser del padrón
   a los importes escritos en una pantalla.
 
 [Inventario, pruebas y capturas de T24](../../06-pruebas/PRU-04/IMPLEMENTACION-T24.md).
+
+## 11. PRESENTACIÓN DE IMPORTES — T30, decisión de Carlos 12/10/2026
+
+- En listados, fichas, saldos, totales, avisos y textos calculados, mostrar pesos
+  con coma de miles, punto decimal y **siempre dos decimales**: `$48,000.50`,
+  `$48,000.00`. Conservar los centavos guardados, también al sumar filas visibles.
+- Una sola política en `App\Support\FormatoImporte`: PHP usa `pesos`/`numero`;
+  el navegador recibe su configuración como datos y usa `formato-importe.js`.
+  Los campos T24 comparten esa presentación, conservando su parser y validación.
+- Los nuevos recibos PDF, mails y mensajes de Telegram usan la misma regla.
+  Los PDF ya emitidos se conservan, sin regeneración masiva ni cambio de caché.
+- **Gráficos excluidos**, por la última decisión de Carlos: «Los graficos no,
+  el resto si». Sus ejes, tooltips y número central del gráfico circular conservan
+  el formato anterior. Las tarjetas y los detalles de Reportes sí usan T30.
+- Excel conserva celdas numéricas. El catálogo nuevo usa máscara de dos decimales;
+  sus separadores dependen de Excel. El informe de errores conserva el formato
+  del archivo original.
+- No cambiar importes guardados, cálculos ni redondeos de negocio. DNI, porcentajes,
+  comisión, días y cantidades no son pesos.
+
+[Inventario, pruebas y capturas de T30](../../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).

@@ -30,13 +30,13 @@ class AlumnoWebController extends Controller
         $importe = $service->importe();
         $cargo = $service->cargo($data['dni']);
         $mensaje = $cargo
-            ? 'Esta persona ya tiene una inscripción registrada. Saldo: $'.number_format($cargo->saldo_pendiente, 2, ',', '.')
-            : 'Corresponde inscripción por única vez: $'.number_format($importe, 2, ',', '.');
+            ? 'Esta persona ya tiene una inscripción registrada. Saldo: ' . \App\Support\FormatoImporte::pesos($cargo->saldo_pendiente)
+            : 'Corresponde inscripción por única vez: ' . \App\Support\FormatoImporte::pesos($importe);
         if ($request->filled('alumno_id')) {
             $editado = Alumno::findOrFail($request->integer('alumno_id'));
             if ($editado->fecha_alta->format('Y-m-d') !== Carbon::parse($data['fecha_alta'])->format('Y-m-d') && $cargo) {
                 $mensaje = $cargo->monto_cobrado > 0 ? 'No se puede modificar el ingreso: la inscripción tiene pagos registrados.'
-                    : 'Se conservará una única inscripción de $'.number_format($cargo->monto_original, 2, ',', '.');
+                    : 'Se conservará una única inscripción de ' . \App\Support\FormatoImporte::pesos($cargo->monto_original);
             }
             if (!$cargo) $mensaje = 'Editar el ingreso no genera inscripción retroactiva.';
         }

@@ -152,7 +152,7 @@ class ReciboService
 
             $conteoTexto = count($liquidacion->detalles) . ' clases dictadas · ' . self::formatearDuracion($totalMinutos);
             $valorHora = $liquidacion->valor_hora_aplicado ?? $liquidacion->profesor->valor_hora ?? 0;
-            $modalidadTexto = 'Por Hora ($' . number_format((float) $valorHora, 0, ',', '.') . ' / hora)';
+            $modalidadTexto = 'Por Hora (' . \App\Support\FormatoImporte::pesos((float) $valorHora) . ' / hora)';
         } else {
             $alumnosMap = \App\Models\Alumno::whereIn('id', $ids)->get()->keyBy('id');
             $porcentajeGeneral = (float) ($liquidacion->porcentaje_comision_aplicado ?? $liquidacion->profesor->porcentaje_comision ?? 0);

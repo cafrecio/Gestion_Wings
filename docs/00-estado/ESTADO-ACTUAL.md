@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T30 — Centavos y formato compartido, 12/10/2026
+
+Codex CAB implementó la presentación `$48,000.50`, siempre dos decimales, en pantallas,
+avisos, PDF nuevos y comunicaciones. Excel sigue numérico; gráficos y recibos emitidos
+se conservan. Regla común PHP/JS, sin cambiar cálculos ni validaciones de T24.
+T28 se publicó independiente primero (`e1e73d8`), T30 se aplica después.
+Suite propia: 669 aprobadas/2 omitidas, 6395 aserciones; 671 pruebas.
+[Inventario, capturas y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).
+No cerrar ni desplegar: Carlos aprueba las capturas, después otro agente verifica la regla.
+
 ## T28 — Cashflow: vínculo directo por movimiento y columna Val. (segunda vuelta), 12/10/2026
 
 Gemini CAB implementó la segunda vuelta de T28 tras la revisión de Claude y las decisiones de Carlos del 12/10/2026:
@@ -485,7 +495,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **671 pruebas** en el árbol local (658 publicadas + 5 de T28 segunda vuelta + 8 de T30). Suite completa de Codex pendiente; no heredar como verde el resultado anterior de T11. |
+| **Tests** | **671 pruebas**: 669 aprobadas, 2 omitidas; 6395 aserciones, 585,49 s. Suite completa en wings_testing_codex, 12/10, T30 sobre T28 publicado. [Entrega T30](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

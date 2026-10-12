@@ -1,3 +1,5 @@
+import {pesos} from './formato-importe';
+
 (function () {
     const grupoPlanes = JSON.parse(document.getElementById('plan-section').dataset.planes);
 
@@ -15,7 +17,7 @@
                 const opt     = document.createElement('option');
                 opt.value     = p.id;
                 const veces   = p.clases === 1 ? '1 vez/semana' : p.clases + ' veces/semana';
-                const precio  = parseFloat(p.precio).toLocaleString('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 });
+                const precio  = pesos(p.precio);
                 opt.textContent = veces + ' — ' + precio;
                 if (String(document.getElementById('plan-section').dataset.planActual) === String(p.id)) opt.selected = true;
                 select.appendChild(opt);

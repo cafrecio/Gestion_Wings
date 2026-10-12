@@ -84,7 +84,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
     <div class="alumno-card-header"><h3 class="alumno-nombre">Efectivo del mostrador</h3></div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
         @foreach(['Inicial' => $caja->efectivo_inicial, 'Esperado' => $efectivoEsperado, 'Contado' => $caja->efectivo_contado, 'Diferencia' => $diferenciaEfectivo, 'Cambio que queda' => $caja->cambio_retenido, 'Retiro / entrega' => $caja->efectivo_retirado] as $rotulo => $importe)
-        <div><span class="info-label">{{ $rotulo }}</span><p class="info-value">{{ $importe === null ? 'Sin declarar' : '$'.number_format($importe, 2, ',', '.') }}</p></div>
+        <div><span class="info-label">{{ $rotulo }}</span><p class="info-value">{{ $importe === null ? 'Sin declarar' : \App\Support\FormatoImporte::pesos($importe) }}</p></div>
         @endforeach
         @if($caja->rectificado_at)
         <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--color-border);" class="col-span-full">
@@ -92,7 +92,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             <p style="font-size:0.85rem; color:var(--color-text); margin-top:2px;">
                 Rectificado el {{ $caja->rectificado_at->format('d/m/Y H:i') }}
                 @if($caja->usuarioRectificacion) por {{ $caja->usuarioRectificacion->name }} @endif
-                (inicial anterior: ${{ number_format($caja->efectivo_inicial_anterior, 2, ',', '.') }}). Motivo: {{ $caja->motivo_rectificacion }}
+                (inicial anterior: {{ \App\Support\FormatoImporte::pesos($caja->efectivo_inicial_anterior) }}). Motivo: {{ $caja->motivo_rectificacion }}
             </p>
         </div>
         @endif
@@ -140,7 +140,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right;
                            color:{{ $fila['total'] >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                    {{ $fila['total'] < 0 ? '−' : '' }}${{ number_format(abs($fila['total']), 0, ',', '.') }}
+                    {{ $fila['total'] < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($fila['total'])) }}
                 </td>
             </tr>
             @endforeach
@@ -180,7 +180,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                     {{ $fila['rubro']?->tipo ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:{{ $totalColor }}; text-align:right;">
-                    ${{ number_format($fila['total'], 0, ',', '.') }}
+                    {{ \App\Support\FormatoImporte::pesos($fila['total']) }}
                 </td>
             </tr>
             @endforeach
@@ -193,16 +193,16 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
     <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem;">
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Ingresos</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);">${{ number_format($ingresos, 0, ',', '.') }}</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</p>
         </div>
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Egresos</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-danger);">${{ number_format($egresos, 0, ',', '.') }}</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($egresos) }}</p>
         </div>
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Neto</p>
             <p style="font-size:1.1rem; font-weight:700; color:{{ $neto >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                {{ $neto < 0 ? '–' : '' }}${{ number_format(abs($neto), 0, ',', '.') }}
+                {{ $neto < 0 ? '–' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($neto)) }}
             </p>
         </div>
     </div>

@@ -137,9 +137,9 @@ class CobranzaEntrega1Test extends TestCase
         $this->assertSame(2, substr_count($html, 'Morales, Sofía'), 'Deben existir dos filas para la misma persona anotada en dos deportes.');
 
         // En la fila de Patín debe verse el monto propio (15.000) y renglón de ayuda indicando que también debe en Fútbol (12.000)
-        $response->assertSee('también debe $ 12.000,00 en Fútbol', false);
+        $response->assertSee('también debe $12,000.00 en Fútbol', false);
         // En la fila de Fútbol debe verse el monto propio (12.000) y renglón de ayuda indicando que también debe en Patín (15.000)
-        $response->assertSee('también debe $ 15.000,00 en Patín', false);
+        $response->assertSee('también debe $15,000.00 en Patín', false);
 
         // La columna se llama "Deuda", no "Total deuda"
         $response->assertSee('Deuda');
@@ -177,9 +177,9 @@ class CobranzaEntrega1Test extends TestCase
 
         $response->assertOk();
         // Debe mostrar exactamente la fila de Fútbol con sus $12.000,00
-        $response->assertSee('$ 12.000,00', false);
+        $response->assertSee('$12,000.00', false);
         // Debe mantener el renglón de ayuda informando la deuda en el otro deporte
-        $response->assertSee('también debe $ 15.000,00 en Patín', false);
+        $response->assertSee('también debe $15,000.00 en Patín', false);
     }
 
     public function test_inscripcion_impaga_no_convierte_en_deudor_en_listado_ficha_ni_resumen(): void
@@ -239,7 +239,7 @@ class CobranzaEntrega1Test extends TestCase
 
         // Tarjeta de Total adeudado (15.000 + 20.000 = 35.000)
         $response->assertSee('Total adeudado');
-        $response->assertSee('$ 35.000,00', false);
+        $response->assertSee('$35,000.00', false);
     }
 
     public function test_cada_fila_tiene_botones_cobrar_y_ver(): void

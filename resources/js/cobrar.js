@@ -1,3 +1,5 @@
+import {pesos} from './formato-importe';
+
 (function () {
     // Las filas de cobro adelantado se agregan después de cargar la página (T18), así
     // que las cuotas se buscan cada vez en lugar de guardarlas al inicio.
@@ -43,13 +45,13 @@
         var total = entregado && entregado.value !== '' ? window.WingsMoney.numero(entregado) : maximo;
         var detalle = document.getElementById('inscripcion-distribucion');
         if (detalle) {
-            detalle.querySelector('[data-distribucion-inscripcion]').textContent = 'Inscripción $' + Math.min(total, saldoInscripcion).toLocaleString('es-AR', { maximumFractionDigits: 2 });
-            detalle.querySelector('[data-distribucion-cuotas]').textContent = 'Cuotas $' + Math.max(0, total - saldoInscripcion).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            detalle.querySelector('[data-distribucion-inscripcion]').textContent = 'Inscripción ' + pesos(Math.min(total, saldoInscripcion));
+            detalle.querySelector('[data-distribucion-cuotas]').textContent = 'Cuotas ' + pesos(Math.max(0, total - saldoInscripcion));
         }
 
         if ((algunaCuota || saldoInscripcion > 0) && tipoCaja && total > 0 && total <= maximo) {
             resumen.style.display = '';
-            totalLabel.textContent = '$' + total.toLocaleString('es-AR', { maximumFractionDigits: 2 });
+            totalLabel.textContent = pesos(total);
             btnCobrar.disabled = false;
             btnCobrar.style.opacity = '1';
             btnCobrar.style.cursor = 'pointer';

@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T30, centavos y formato compartido, a verificar
+
+Inventario completo; $48,000.50 y siempre dos decimales por decisión de Carlos.
+Formato común PHP/JS conectado a pantallas, avisos, PDF nuevos, mail/Telegram y Excel numérico.
+Gráficos y PDF ya emitidos conservados; cálculos/datos/validación T24 sin cambios.
+T28 independiente publicado primero en e1e73d8; T30 después, solo formatos de Cashflow.
+Suite propia 669 aprobadas/2 omitidas, 6395 aserciones, 585,49 s; 671 pruebas.
+Matriz 39 pantallas, 162 PNG: 563 controles/0 fallas; T24: 1351/0, 100 PNG. Marco360/login y adelantados.
+[Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). No se cierra ni despliega.
+Carlos aprueba capturas; después otro agente verifica regla. Sin sitio de prueba ni reloj.
+
 ## 2026-10-12 — Codex CAB — T24, revisión visual aprobada por Carlos
 
 Carlos pidió corregir adelantado desbordado, íconos, desglose y botones móviles a la derecha.
@@ -110,30 +121,4 @@ Solo wings_testing_codex y storage propios; base del club intacta, sin deploy, J
 Tablero T15 a_verificar, tiene/verificaClaude;65/74 cerrados. [Entrega y visor](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md).
 Siguiente: Claude verifica en fuente/pantalla y, si aprueba, actualiza el sitio de prueba.
 
-## 2026-10-10 — Codex CyE — B10 verificado y devuelto a Claude
-
-Objetivo: verificar438ee55 sobre main63ed840; aspecto aprobado por Carlos, fuera del juicio.
-Chrome real73casos/150GET; filas ficticias y sesiones ADMIN/OPERATIVO/PROFESOR.
-Devuelto: alias con blancos se transforma y guarda; rechazo de200 caracteres en inglés.
-Guardado, roles y privacidad comprobados; pago $7.500 con un solo egreso; PDF sin dato bancario.
-Excel real y siete seeders comprobados con prerrequisitos; suite581/2,4650aserciones,700,07s; build44,01s.
-Solo wings_testing_codex/storage aislado; código/vistas/CSS/tests y base del club intactos; sin deploy.
-Tablero devuelto, tieneClaude;64/74 cerrados. [Informe](../06-pruebas/PRU-02/VERIFICACION-B10.md).
-Siguiente: Claude corrige ambos rechazos; alias numérico es observación para Carlos. Corte anterior íntegro.
-
-[Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
-
-[Archivo íntegro anterior al Día 1](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-01.txt).
-
-[Archivo íntegro anterior a T16](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16.txt).
-
-
-[Archivo íntegro anterior a T16 segunda vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V2.txt).
-
-[Archivo íntegro anterior a T16 tercera vuelta](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-T16-V3.txt).
-
-[Archivo íntegro anterior al Día 2](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-02.txt).
-
-[Archivo íntegro anterior al Día 3](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-ANTES-DIA-03.txt).
-
-[Archivo íntegro anterior al inventario T24](../99-archivo/bitacoras/2026-10-11/LOG-CODEX-ANTES-T24.txt).
+[Archivo íntegro anterior a T30](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T30.txt).

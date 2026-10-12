@@ -96,9 +96,9 @@ class MenuYMovimientosA38A39Test extends TestCase
         $respuesta = $this->actingAs($sandra)->get(route('web.movimientos.index'))->assertOk();
 
         // Ve lo del compañero: el criterio es el rubro, no quien lo cargo.
-        $respuesta->assertSee('48.123');
+        $respuesta->assertSee('48,123.00');
         // No ve el importe ni lo suma a los totales.
-        $respuesta->assertDontSee('99.777');
+        $respuesta->assertDontSee('99,777.00');
         $this->assertEqualsWithDelta(48123.0, (float) $respuesta->viewData('totalIngresos') - (float) $respuesta->viewData('totalEgresos'), 0.01);
         // Tampoco ve los nombres en los filtros.
         $this->assertSame([], $respuesta->viewData('subrubros')->where('permitido_para', 'ADMIN')->pluck('nombre')->all());
@@ -106,10 +106,10 @@ class MenuYMovimientosA38A39Test extends TestCase
 
         // Pedirlo por la direccion tampoco lo muestra.
         $this->actingAs($sandra)->get(route('web.movimientos.index', ['subrubro_id' => $soloAdmin->id]))
-            ->assertOk()->assertDontSee('99.777');
+            ->assertOk()->assertDontSee('99,777.00');
 
         // El admin si ve todo.
         $admin = $this->usuario(User::ROL_ADMIN);
-        $this->actingAs($admin)->get(route('web.movimientos.index'))->assertOk()->assertSee('99.777')->assertSee('48.123');
+        $this->actingAs($admin)->get(route('web.movimientos.index'))->assertOk()->assertSee('99,777.00')->assertSee('48,123.00');
     }
 }

@@ -45,11 +45,12 @@ class PrimeraCargaExcelService
         $h->getStyle('D2:E201')->getNumberFormat()->setFormatCode('dd/mm/yyyy');
         for ($c = 15; $c <= 38; $c += 2) {
             $h->getStyle(Coordinate::stringFromColumnIndex($c).'2:'.Coordinate::stringFromColumnIndex($c).'201')->getNumberFormat()->setFormatCode('@');
-            $h->getStyle(Coordinate::stringFromColumnIndex($c + 1).'2:'.Coordinate::stringFromColumnIndex($c + 1).'201')->getNumberFormat()->setFormatCode('#,##0.00');
+            $h->getStyle(Coordinate::stringFromColumnIndex($c + 1).'2:'.Coordinate::stringFromColumnIndex($c + 1).'201')->getNumberFormat()->setFormatCode(\App\Support\FormatoImporte::excel());
         }
         $cat = $libro->createSheet()->setTitle('Catálogos');
         $cat->fromArray(['Deporte', 'Grupo', 'Plan', 'Precio mensual', 'No completar', 'Deportes', 'Grupos', 'Planes', 'Sí/No']);
         foreach ($this->catalogos() as $i => $opcion) $cat->fromArray(array_values(array_intersect_key($opcion, array_flip(['deporte', 'grupo', 'plan', 'precio']))), null, 'A'.($i + 2));
+        $cat->getStyle('D2:D'.max(2, count($this->catalogos()) + 1))->getNumberFormat()->setFormatCode(\App\Support\FormatoImporte::excel());
         $listas = [6 => array_values(array_unique(array_column($this->catalogos(), 'deporte'))),
             7 => array_values(array_unique(array_column($this->catalogos(), 'grupo'))), 8 => array_column($this->catalogos(), 'plan'), 9 => ['Sí', 'No']];
         foreach ($listas as $col => $lista) {

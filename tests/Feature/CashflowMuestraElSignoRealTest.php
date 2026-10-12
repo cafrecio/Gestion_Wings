@@ -59,12 +59,12 @@ class CashflowMuestraElSignoRealTest extends TestCase
         $html = $this->actingAs($admin)->get(route('web.cashflow.index'))->assertOk()->getContent();
 
         // La devolución se lee como lo que es: plata que sale.
-        $this->assertStringContainsString('−$48.000', $html,
+        $this->assertStringContainsString('−$48,000.00', $html,
             'La devolución tiene que mostrarse con el signo en contra, no como un ingreso más.');
 
         // Una sola va en contra: el cobro original sigue siendo un ingreso (2 apariciones: tabla escritorio y tarjeta móvil).
-        $this->assertSame(2, substr_count($html, '−$48.000'), 'Solo la devolución va en contra (en escritorio y móvil).');
-        $this->assertSame(4, substr_count($html, '$48.000'), 'Tienen que verse los dos movimientos en ambas vistas.');
+        $this->assertSame(2, substr_count($html, '−$48,000.00'), 'Solo la devolución va en contra (en escritorio y móvil).');
+        $this->assertSame(4, substr_count($html, '$48,000.00'), 'Tienen que verse los dos movimientos en ambas vistas.');
 
         // Y la letra del tipo acompaña: la devolución no es un ingreso.
         $this->assertSame(2, preg_match_all('/>\s*E\s*</', $html), 'La devolución tiene que figurar como salida en ambas vistas.');

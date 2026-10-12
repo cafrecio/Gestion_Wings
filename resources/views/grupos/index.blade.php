@@ -60,7 +60,7 @@
 
             $planesLabel = $grupo->planesActivos
                 ->sortBy('clases_por_semana')
-                ->map(fn($p) => $p->clases_por_semana . 'x/sem — $' . number_format($p->precio_mensual, 0, ',', '.'))
+                ->map(fn($p) => $p->clases_por_semana . 'x/sem — ' . \App\Support\FormatoImporte::pesos($p->precio_mensual))
                 ->join(' · ');
         @endphp
 

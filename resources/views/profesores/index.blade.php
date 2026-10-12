@@ -128,7 +128,7 @@
                     </span>
                     <span class="info-value">
                         @if($profesor->liquidaPorHora())
-                            {{ $profesor->valor_hora ? '$' . number_format($profesor->valor_hora, 0, ',', '.') : '–' }}
+                            {{ $profesor->valor_hora ? \App\Support\FormatoImporte::pesos($profesor->valor_hora) : '–' }}
                         @elseif($profesor->liquidaPorComision())
                             {{ $profesor->porcentaje_comision ? $profesor->porcentaje_comision . '%' : '–' }}
                         @else

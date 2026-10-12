@@ -93,14 +93,14 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
             </svg>
-            <strong style="color:var(--color-success);">${{ number_format($totalIngresos, 0, ',', '.') }}</strong>
+            <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($totalIngresos) }}</strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">ingresos</span>
         </span>
         <span class="inline-flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-danger);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
             </svg>
-            <strong style="color:var(--color-danger);">${{ number_format($totalEgresos, 0, ',', '.') }}</strong>
+            <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($totalEgresos) }}</strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
         </span>
 
@@ -108,7 +108,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:{{ $balanceColor }};">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
             </svg>
-            <strong style="color:{{ $balanceColor }};">${{ number_format($balance, 0, ',', '.') }}</strong>
+            <strong style="color:{{ $balanceColor }};">{{ \App\Support\FormatoImporte::pesos($balance) }}</strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">resultado del período</span>
         </span>
 
@@ -192,7 +192,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                     {{ $mov->alumnoNombre ?? $mov->observaciones ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
-                    {{ $saleDeLaCaja ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
+                    {{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '' }}">
                     {{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–' }}
@@ -233,7 +233,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <span style="font-size:0.7rem; font-weight:700; color:{{ $ieColor }};">{{ $ieLabel }}</span>
             </div>
             <span style="font-size:1rem; font-weight:800; color:{{ $montoColor }};">
-                {{ $saleDeLaCaja ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
+                {{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}
             </span>
         </div>
         <div style="font-size:0.85rem; font-weight:600; color:var(--color-text); margin-bottom:2px;">

@@ -202,8 +202,8 @@ class DescuentoPrimerPagoMatrizTest extends TestCase
         $this->actingAs($this->operativo)
             ->get(route('web.caja.cobrar', $alumno->id))
             ->assertOk()
-            ->assertSee('42.000')
-            ->assertDontSee('29.400');
+            ->assertSee('42,000.00')
+            ->assertDontSee('29,400.00');
     }
 
     private function cancelarUltimoCobro(Alumno $alumno): void

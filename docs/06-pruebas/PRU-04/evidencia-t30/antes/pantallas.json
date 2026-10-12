@@ -1,0 +1,578 @@
+[
+    {
+        "id": "admin-centavos",
+        "caso": "admin",
+        "perfil": "centavos",
+        "ruta": "/admin/dashboard",
+        "esperado": "$4,252.50",
+        "campo": false
+    },
+    {
+        "id": "operativo-centavos",
+        "caso": "operativo",
+        "perfil": "centavos",
+        "ruta": "/operativo",
+        "esperado": "$2,751.50",
+        "campo": false
+    },
+    {
+        "id": "alumno-alta-centavos",
+        "caso": "alumno-alta",
+        "perfil": "centavos",
+        "ruta": "/alumnos/create",
+        "esperado": "1250.50",
+        "campo": true
+    },
+    {
+        "id": "alumno-editar-centavos",
+        "caso": "alumno-editar",
+        "perfil": "centavos",
+        "ruta": "/alumnos/1/edit",
+        "esperado": "1250.50",
+        "campo": true
+    },
+    {
+        "id": "alumno-ficha-centavos",
+        "caso": "alumno-ficha",
+        "perfil": "centavos",
+        "ruta": "/alumnos/1",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "caja-centavos",
+        "caso": "caja",
+        "perfil": "centavos",
+        "ruta": "/caja",
+        "esperado": "$2,751.50",
+        "campo": false
+    },
+    {
+        "id": "caja-rectificar-centavos",
+        "caso": "caja-rectificar",
+        "perfil": "centavos",
+        "ruta": "/caja/1/rectificar",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "caja-cerrar-centavos",
+        "caso": "caja-cerrar",
+        "perfil": "centavos",
+        "ruta": "/caja/1/cerrar",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "caja-resumen-centavos",
+        "caso": "caja-resumen",
+        "perfil": "centavos",
+        "ruta": "/caja/1/resumen",
+        "esperado": "$2,751.50",
+        "campo": false
+    },
+    {
+        "id": "caja-detalle-centavos",
+        "caso": "caja-detalle",
+        "perfil": "centavos",
+        "ruta": "/caja/1/detalle",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "caja-historial-centavos",
+        "caso": "caja-historial",
+        "perfil": "centavos",
+        "ruta": "/caja/historial",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "cobrar-buscador-centavos",
+        "caso": "cobrar-buscador",
+        "perfil": "centavos",
+        "ruta": "/caja/cobrar",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "cobrar-centavos",
+        "caso": "cobrar",
+        "perfil": "centavos",
+        "ruta": "/caja/cobrar/1",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "caja-agregar-centavos",
+        "caso": "caja-agregar",
+        "perfil": "centavos",
+        "ruta": "/caja/1/editar",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "caja-editar-centavos",
+        "caso": "caja-editar",
+        "perfil": "centavos",
+        "ruta": "/caja/1/movimientos/1/editar",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "caja-movimiento-centavos",
+        "caso": "caja-movimiento",
+        "perfil": "centavos",
+        "ruta": "/caja/movimiento",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "caja-cancelar-centavos",
+        "caso": "caja-cancelar",
+        "perfil": "centavos",
+        "ruta": "/caja/1/movimientos/3/cancelar",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "cashflow-centavos",
+        "caso": "cashflow",
+        "perfil": "centavos",
+        "ruta": "/cashflow",
+        "esperado": "$1,501.00",
+        "campo": false
+    },
+    {
+        "id": "cashflow-movimiento-centavos",
+        "caso": "cashflow-movimiento",
+        "perfil": "centavos",
+        "ruta": "/cashflow/movimiento",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "cobranza-centavos",
+        "caso": "cobranza",
+        "perfil": "centavos",
+        "ruta": "/cobranza",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "grupos-centavos",
+        "caso": "grupos",
+        "perfil": "centavos",
+        "ruta": "/grupos",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "grupo-ficha-centavos",
+        "caso": "grupo-ficha",
+        "perfil": "centavos",
+        "ruta": "/grupos/1",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "grupo-alta-centavos",
+        "caso": "grupo-alta",
+        "perfil": "centavos",
+        "ruta": "/grupos/create",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "grupo-editar-centavos",
+        "caso": "grupo-editar",
+        "perfil": "centavos",
+        "ruta": "/grupos/1/edit",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "profesores-centavos",
+        "caso": "profesores",
+        "perfil": "centavos",
+        "ruta": "/profesores",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "profesor-ficha-centavos",
+        "caso": "profesor-ficha",
+        "perfil": "centavos",
+        "ruta": "/profesores/1",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "profesor-alta-centavos",
+        "caso": "profesor-alta",
+        "perfil": "centavos",
+        "ruta": "/profesores/create",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "profesor-editar-centavos",
+        "caso": "profesor-editar",
+        "perfil": "centavos",
+        "ruta": "/profesores/1/edit",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "medio-alta-centavos",
+        "caso": "medio-alta",
+        "perfil": "centavos",
+        "ruta": "/tipos-caja/create",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "medio-editar-centavos",
+        "caso": "medio-editar",
+        "perfil": "centavos",
+        "ruta": "/tipos-caja/1/edit",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "configuracion-centavos",
+        "caso": "configuracion",
+        "perfil": "centavos",
+        "ruta": "/configuraciones",
+        "esperado": "1,250.50",
+        "campo": true
+    },
+    {
+        "id": "liquidaciones-centavos",
+        "caso": "liquidaciones",
+        "perfil": "centavos",
+        "ruta": "/liquidaciones",
+        "esperado": "$1,875.75",
+        "campo": false
+    },
+    {
+        "id": "liquidacion-hora-centavos",
+        "caso": "liquidacion-hora",
+        "perfil": "centavos",
+        "ruta": "/liquidaciones/2",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "liquidacion-comision-centavos",
+        "caso": "liquidacion-comision",
+        "perfil": "centavos",
+        "ruta": "/liquidaciones/1",
+        "esperado": "$1,250.50",
+        "campo": false
+    },
+    {
+        "id": "reportes-centavos",
+        "caso": "reportes",
+        "perfil": "centavos",
+        "ruta": "/reportes",
+        "esperado": "$4,252.50",
+        "campo": false
+    },
+    {
+        "id": "sueldos-centavos",
+        "caso": "sueldos",
+        "perfil": "centavos",
+        "ruta": "/reportes/sueldos",
+        "esperado": "$1,875.75",
+        "campo": false
+    },
+    {
+        "id": "admin-millones",
+        "caso": "admin",
+        "perfil": "millones",
+        "ruta": "/admin/dashboard",
+        "esperado": "$3,750,502.50",
+        "campo": false
+    },
+    {
+        "id": "operativo-millones",
+        "caso": "operativo",
+        "perfil": "millones",
+        "ruta": "/operativo",
+        "esperado": "$2,500,251.50",
+        "campo": false
+    },
+    {
+        "id": "alumno-alta-millones",
+        "caso": "alumno-alta",
+        "perfil": "millones",
+        "ruta": "/alumnos/create",
+        "esperado": "1250000.50",
+        "campo": true
+    },
+    {
+        "id": "alumno-editar-millones",
+        "caso": "alumno-editar",
+        "perfil": "millones",
+        "ruta": "/alumnos/2/edit",
+        "esperado": "1250000.50",
+        "campo": true
+    },
+    {
+        "id": "alumno-ficha-millones",
+        "caso": "alumno-ficha",
+        "perfil": "millones",
+        "ruta": "/alumnos/2",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "caja-millones",
+        "caso": "caja",
+        "perfil": "millones",
+        "ruta": "/caja",
+        "esperado": "$2,500,251.50",
+        "campo": false
+    },
+    {
+        "id": "caja-rectificar-millones",
+        "caso": "caja-rectificar",
+        "perfil": "millones",
+        "ruta": "/caja/2/rectificar",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "caja-cerrar-millones",
+        "caso": "caja-cerrar",
+        "perfil": "millones",
+        "ruta": "/caja/2/cerrar",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "caja-resumen-millones",
+        "caso": "caja-resumen",
+        "perfil": "millones",
+        "ruta": "/caja/2/resumen",
+        "esperado": "$2,500,251.50",
+        "campo": false
+    },
+    {
+        "id": "caja-detalle-millones",
+        "caso": "caja-detalle",
+        "perfil": "millones",
+        "ruta": "/caja/2/detalle",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "caja-historial-millones",
+        "caso": "caja-historial",
+        "perfil": "millones",
+        "ruta": "/caja/historial",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "cobrar-buscador-millones",
+        "caso": "cobrar-buscador",
+        "perfil": "millones",
+        "ruta": "/caja/cobrar",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "cobrar-millones",
+        "caso": "cobrar",
+        "perfil": "millones",
+        "ruta": "/caja/cobrar/2",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "caja-agregar-millones",
+        "caso": "caja-agregar",
+        "perfil": "millones",
+        "ruta": "/caja/2/editar",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "caja-editar-millones",
+        "caso": "caja-editar",
+        "perfil": "millones",
+        "ruta": "/caja/2/movimientos/4/editar",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "caja-movimiento-millones",
+        "caso": "caja-movimiento",
+        "perfil": "millones",
+        "ruta": "/caja/movimiento",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "caja-cancelar-millones",
+        "caso": "caja-cancelar",
+        "perfil": "millones",
+        "ruta": "/caja/2/movimientos/6/cancelar",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "cashflow-millones",
+        "caso": "cashflow",
+        "perfil": "millones",
+        "ruta": "/cashflow",
+        "esperado": "$1,250,251.00",
+        "campo": false
+    },
+    {
+        "id": "cashflow-movimiento-millones",
+        "caso": "cashflow-movimiento",
+        "perfil": "millones",
+        "ruta": "/cashflow/movimiento",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "cobranza-millones",
+        "caso": "cobranza",
+        "perfil": "millones",
+        "ruta": "/cobranza",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "grupos-millones",
+        "caso": "grupos",
+        "perfil": "millones",
+        "ruta": "/grupos",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "grupo-ficha-millones",
+        "caso": "grupo-ficha",
+        "perfil": "millones",
+        "ruta": "/grupos/2",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "grupo-alta-millones",
+        "caso": "grupo-alta",
+        "perfil": "millones",
+        "ruta": "/grupos/create",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "grupo-editar-millones",
+        "caso": "grupo-editar",
+        "perfil": "millones",
+        "ruta": "/grupos/2/edit",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "profesores-millones",
+        "caso": "profesores",
+        "perfil": "millones",
+        "ruta": "/profesores",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "profesor-ficha-millones",
+        "caso": "profesor-ficha",
+        "perfil": "millones",
+        "ruta": "/profesores/2",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "profesor-alta-millones",
+        "caso": "profesor-alta",
+        "perfil": "millones",
+        "ruta": "/profesores/create",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "profesor-editar-millones",
+        "caso": "profesor-editar",
+        "perfil": "millones",
+        "ruta": "/profesores/2/edit",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "medio-alta-millones",
+        "caso": "medio-alta",
+        "perfil": "millones",
+        "ruta": "/tipos-caja/create",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "medio-editar-millones",
+        "caso": "medio-editar",
+        "perfil": "millones",
+        "ruta": "/tipos-caja/2/edit",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "configuracion-millones",
+        "caso": "configuracion",
+        "perfil": "millones",
+        "ruta": "/configuraciones",
+        "esperado": "1,250,000.50",
+        "campo": true
+    },
+    {
+        "id": "liquidaciones-millones",
+        "caso": "liquidaciones",
+        "perfil": "millones",
+        "ruta": "/liquidaciones",
+        "esperado": "$1,875,000.75",
+        "campo": false
+    },
+    {
+        "id": "liquidacion-hora-millones",
+        "caso": "liquidacion-hora",
+        "perfil": "millones",
+        "ruta": "/liquidaciones/4",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "liquidacion-comision-millones",
+        "caso": "liquidacion-comision",
+        "perfil": "millones",
+        "ruta": "/liquidaciones/3",
+        "esperado": "$1,250,000.50",
+        "campo": false
+    },
+    {
+        "id": "reportes-millones",
+        "caso": "reportes",
+        "perfil": "millones",
+        "ruta": "/reportes",
+        "esperado": "$3,750,502.50",
+        "campo": false
+    },
+    {
+        "id": "sueldos-millones",
+        "caso": "sueldos",
+        "perfil": "millones",
+        "ruta": "/reportes/sueldos",
+        "esperado": "$1,875,000.75",
+        "campo": false
+    }
+]

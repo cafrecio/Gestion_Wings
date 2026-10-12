@@ -241,7 +241,7 @@ class AvisoAdminResumenDiarioTest extends TestCase
                 && str_contains($texto, 'Wings: resumen diario de pendientes')
                 // Cajas
                 && str_contains($texto, 'Cajas cerradas sin validar')
-                && str_contains($texto, '8.000')
+                && str_contains($texto, '$8,000.00')
                 && str_contains($texto, 'Sandra Vidal')
                 && str_contains($texto, '15/09/2026')
                 && str_contains($texto, route('web.caja.index'))
@@ -252,7 +252,7 @@ class AvisoAdminResumenDiarioTest extends TestCase
                 && str_contains($texto, route('web.revision-cobranza.index'))
                 // Liquidaciones
                 && str_contains($texto, 'Liquidaciones cerradas sin pagar')
-                && str_contains($texto, '50.000')
+                && str_contains($texto, '$50,000.00')
                 && str_contains($texto, 'Liquidaciones abiertas')
                 && str_contains($texto, route('web.liquidaciones.index'));
         });
@@ -310,8 +310,8 @@ class AvisoAdminResumenDiarioTest extends TestCase
             $texto = $peticion->data()['text'];
 
             // El total a pagar debe ser exactamente 100.000 y no 180.000
-            return str_contains($texto, '100.000')
-                && ! str_contains($texto, '180.000')
+            return str_contains($texto, '$100,000.00')
+                && ! str_contains($texto, '$180,000.00')
                 && str_contains($texto, 'Liquidaciones abiertas');
         });
     }

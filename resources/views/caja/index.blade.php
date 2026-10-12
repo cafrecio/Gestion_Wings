@@ -140,16 +140,16 @@ $dias  = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
         </div>
         <div class="info-item">
             <span class="info-label">Ingresos</span>
-            <span class="info-value" style="color:var(--color-success);">${{ number_format($ingCaja, 0, ',', '.') }}</span>
+            <span class="info-value" style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($ingCaja) }}</span>
         </div>
         <div class="info-item">
             <span class="info-label">Egresos</span>
-            <span class="info-value" style="color:var(--color-danger);">${{ number_format($egrCaja, 0, ',', '.') }}</span>
+            <span class="info-value" style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($egrCaja) }}</span>
         </div>
         <div class="info-item">
             <span class="info-label">Neto</span>
             <span class="info-value" style="font-weight:700; color:{{ $netoCaja >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                {{ $netoCaja < 0 ? '−' : '' }}${{ number_format(abs($netoCaja), 0, ',', '.') }}
+                {{ $netoCaja < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($netoCaja)) }}
             </span>
         </div>
     </div>

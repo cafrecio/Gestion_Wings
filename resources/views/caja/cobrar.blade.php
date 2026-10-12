@@ -38,7 +38,7 @@
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Total pendiente</p>
             <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">
                 {{-- Un mes que todavía no empezó no es deuda (T18). --}}
-                ${{ number_format($alumno->deudaCuotas->where('periodo', '<=', now()->format('Y-m'))->sum('saldo_pendiente') + $saldoInscripcion, 2, ',', '.') }}
+                {{ \App\Support\FormatoImporte::pesos($alumno->deudaCuotas->where('periodo', '<=', now()->format('Y-m'))->sum('saldo_pendiente') + $saldoInscripcion) }}
             </p>
         </div>
     </div>
@@ -75,7 +75,7 @@
                        style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
                 <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
             </div>
-            <span style="font-size:0.78rem; color:var(--color-text-muted);">${{ number_format($plan->precio_mensual, 0, ',', '.') }}/mes</span>
+            <span style="font-size:0.78rem; color:var(--color-text-muted);">{{ \App\Support\FormatoImporte::pesos($plan->precio_mensual) }}/mes</span>
         </label>
         @endforeach
     </div>
@@ -139,7 +139,7 @@
                             @endif
                             @if((float)$deuda->monto_pagado > 0)
                                 <span style="font-size:0.72rem; color:var(--color-text-muted); margin-left:8px;">
-                                    Orig: ${{ number_format($deuda->monto_original, 0, ',', '.') }} · Pagado: ${{ number_format($deuda->monto_pagado, 0, ',', '.') }}
+                                    Orig: {{ \App\Support\FormatoImporte::pesos($deuda->monto_original) }} · Pagado: {{ \App\Support\FormatoImporte::pesos($deuda->monto_pagado) }}
                                 </span>
                             @endif
                         </div>
@@ -247,7 +247,7 @@
         <div id="resumen-total" class="mt-4 pt-4" style="border-top:1px solid var(--color-border); display:none;">
             <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px;">
                 <span style="font-size:0.85rem; color:var(--color-text-muted);">Total a cobrar:</span>
-                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">$0</span>
+                <span id="total-label" style="font-size:1.1rem; font-weight:700; color:var(--color-btn-primary);">{{ \App\Support\FormatoImporte::pesos(0) }}</span>
             </div>
         </div>
     </div>
@@ -256,7 +256,7 @@
     @if($saldoInscripcion > 0)
     <div class="alumno-card mb-3">
         <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
-        <p>Pendiente por única vez: ${{ number_format($saldoInscripcion, 2, ',', '.') }}. Se cubre antes que la cuota, en cualquiera de los deportes.</p>
+        <p>Pendiente por única vez: {{ \App\Support\FormatoImporte::pesos($saldoInscripcion) }}. Se cubre antes que la cuota, en cualquiera de los deportes.</p>
         <label for="monto-entregado" class="{{ $labelClass }}">
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
             Importe que entrega (dejar vacío para cobrar el total)

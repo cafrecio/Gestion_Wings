@@ -464,7 +464,7 @@ class CajaWebController extends Controller
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: "Movimiento de caja",
                     fechaDelMovimiento: $request->input("fecha"),
-                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    monto: \App\Support\FormatoImporte::pesos((float) $request->input("monto")),
                     quienLoCargo: Auth::user()?->name,
                     dondeEntra: "Caja #" . $caja->id,
                 );
@@ -542,7 +542,7 @@ class CajaWebController extends Controller
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: "Movimiento de caja editado",
                     fechaDelMovimiento: $request->input("fecha"),
-                    monto: "$" . number_format((float) $request->input("monto"), 2, ",", "."),
+                    monto: \App\Support\FormatoImporte::pesos((float) $request->input("monto")),
                     quienLoCargo: Auth::user()?->name,
                     dondeEntra: "Caja #" . $cajaId,
                 );
@@ -978,7 +978,7 @@ class CajaWebController extends Controller
                 'message' => sprintf(
                     'Quedan %d meses anteriores impagos por $%s (%s).',
                     $deudasAnteriores->count(),
-                    number_format((float) $deudasAnteriores->sum('saldo_pendiente'), 0, ',', '.'),
+                    \App\Support\FormatoImporte::numero((float) $deudasAnteriores->sum('saldo_pendiente')),
                     $deudasAnteriores->pluck('periodo')->implode(', ')
                 ),
             ], 409);
@@ -1118,7 +1118,7 @@ class CajaWebController extends Controller
                 app(\App\Services\AvisoAdminService::class)->fechaVieja(
                     que: "Cobro de cuota de {$alumno->apellido}, {$alumno->nombre}",
                     fechaDelMovimiento: $request->input("fecha_pago"),
-                    monto: "$" . number_format((float) ($resultadoPago["pago"]->monto_final ?? 0), 2, ",", "."),
+                    monto: \App\Support\FormatoImporte::pesos((float) ($resultadoPago["pago"]->monto_final ?? 0)),
                     quienLoCargo: Auth::user()?->name,
                     dondeEntra: "la caja abierta de hoy",
                 );

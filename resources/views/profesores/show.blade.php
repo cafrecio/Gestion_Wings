@@ -62,7 +62,7 @@
                     Valor por hora
                 </p>
                 <p class="text-sm font-medium text-wings">
-                    {{ $profesor->valor_hora ? '$' . number_format($profesor->valor_hora, 2, ',', '.') : '–' }}
+                    {{ $profesor->valor_hora ? \App\Support\FormatoImporte::pesos($profesor->valor_hora) : '–' }}
                 </p>
             </div>
             @elseif($profesor->liquidaPorComision())

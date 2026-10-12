@@ -192,7 +192,7 @@ class SaldoInicialTipoCajaTest extends TestCase
 
         $sinMovimientos->assertOk()
             ->assertSeeInOrder(['$0', 'ingresos', '$0', 'egresos', '$0', 'resultado del período'])
-            ->assertDontSee('$200.000');
+            ->assertDontSee('$200,000.00');
 
         [, $subrubro] = $this->crearSubrubroEgreso();
         CashflowMovimiento::create([
@@ -207,8 +207,8 @@ class SaldoInicialTipoCajaTest extends TestCase
         $this->actingAs($admin)->get(route('web.cashflow.index', [
             'tipo_caja_id' => $tipoCaja->id,
         ]))->assertOk()
-            ->assertSeeInOrder(['$50.000', 'egresos', '$-50.000', 'resultado del período'])
-            ->assertDontSee('$200.000')->assertDontSee('$150.000');
+            ->assertSeeInOrder(['$50,000.00', 'egresos', '$-50,000.00', 'resultado del período'])
+            ->assertDontSee('$200,000.00')->assertDontSee('$150,000.00');
     }
 
     public function test_saldo_inicial_permite_pagar_liquidacion_sin_movimientos_previos(): void
@@ -251,7 +251,7 @@ class SaldoInicialTipoCajaTest extends TestCase
 
         $this->actingAs($admin)->get(route('web.liquidaciones.show', $liquidacion->id))
             ->assertOk()
-            ->assertSee('$500.000');
+            ->assertSee('$500,000.00');
 
         $this->actingAs($admin)->post(route('web.liquidaciones.pagar', $liquidacion->id), [
             'fecha_pago' => today()->toDateString(),

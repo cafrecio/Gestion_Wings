@@ -241,7 +241,7 @@ class ReciboMedioDePagoTest extends TestCase
         $html = view('pdfs.recibo-cuota', $datos)->render();
         $this->assertStringContainsString('RECIBO ANULADO', $html);
         $this->assertStringContainsString('Septiembre 2026', $html);
-        $this->assertStringContainsString('60.000,00', $html);
+        $this->assertStringContainsString('60,000.00', $html);
         $this->assertStringContainsString('Medio equivocado', $html);
         // Conservar el PDF real en el disco fake para inspeccion visual local.
         Storage::put($ruta, $anulado);

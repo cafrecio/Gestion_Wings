@@ -1,3 +1,5 @@
+import {pesos as mostrarPesos} from './formato-importe';
+
 const aviso = document.getElementById('inscripcion-aviso');
 if (aviso) {
     const dni = document.getElementById('dni');
@@ -38,7 +40,7 @@ if (cuotaAlta) {
     const periodoVisto = document.getElementById('cuota-periodo-visto');
     const importeVisto = document.getElementById('cuota-importe-visto');
     const opciones = [...cuotaAlta.querySelectorAll('input[type="radio"]')];
-    const pesos = new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS', maximumFractionDigits: 2});
+    const pesos = {format: mostrarPesos};
     let secuencia = 0;
 
     async function actualizarCuota(limpiarDecision = false) {

@@ -1,3 +1,5 @@
+import {pesos} from './formato-importe';
+
 const form = document.querySelector('[data-caja-arqueo]');
 if (form) {
     const contado = form.querySelector('[name="efectivo_contado"]');
@@ -5,7 +7,7 @@ if (form) {
     const diferencia = form.querySelector('[data-diferencia]');
     const retiro = form.querySelector('[data-retiro]');
     const esperado = form.dataset.esperadoCentavos === '' ? null : Number(form.dataset.esperadoCentavos);
-    const money = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' });
+    const money = {format: pesos};
     // El componente y los ocultos usan el mismo punto decimal; se conserva el cálculo en centavos.
     const centavos = (input) => input.value === '' ? null : Math.round(window.WingsMoney.numero(input) * 100);
     function actualizar() {

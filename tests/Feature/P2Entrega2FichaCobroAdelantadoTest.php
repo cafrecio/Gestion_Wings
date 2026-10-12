@@ -152,7 +152,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
         $urlCobrar = route('web.caja.cobrar', $this->alumno->id);
         $response->assertSee($urlCobrar);
         $response->assertSee('Sep 2026');
-        $response->assertSee('35.000');
+        $response->assertSee('35,000.00');
     }
 
     // ── A34: Historial y acceso a recibos ────────────────────────────────────
@@ -286,7 +286,7 @@ class P2Entrega2FichaCobroAdelantadoTest extends TestCase
     {
         // Debe solo octubre. Antes el cartel sumaba noviembre y diciembre: 105.000.
         $this->actingAs($this->operativo)->get(route('web.caja.cobrar', $this->alumno->id))
-            ->assertOk()->assertSee('$35.000,00')->assertDontSee('105.000');
+            ->assertOk()->assertSee('$35,000.00')->assertDontSee('105,000.00');
     }
 
     public function test_t18_sin_confirmar_no_se_cobra_un_mes_futuro(): void
