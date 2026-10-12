@@ -34,10 +34,10 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Sin empezar | Carlos lo instala desde Chrome en su telefono y dice que le ofrece y donde abre. Al archivo de instalacion le falta indicar la pantalla de arranque |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T27** Una sola pantalla desde donde el duenio edita o elimina sus propios movimientos | Sin empezar | Pedido por Carlos el 11/10. Hoy un movimiento cargado directo en Cashflow no se puede editar ni eliminar. Falta definir cual es esa pantalla unica; puede llevar al historial del alumno cuando el movimiento es un cobro |
+| **T28** Cashflow: mostrar el nombre del alumno y quien cobro, no la observacion y quien valido | Hecho, espera verificación (hizo Gemini) | Carlos aprueba las capturas; despues verifica otro agente |
 | **T29** Buscador de Cobrar: la lista sin buscar muestra solo a los que deben, igual que el numero del encabezado | Hecho, espera verificación (hizo Claude) | Hecho y publicado; capturas aprobadas por Carlos (12/10). Falta que otro agente verifique la regla: Carlos dice quien. Sin desplegar |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
@@ -62,7 +62,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T28** Cashflow: mostrar el nombre del alumno y quien cobro, no la observacion y quien valido | En curso | Salio del dia 1 de la prueba. Lo hace Gemini por decision de Carlos (12/10). Entrega con capturas para que Carlos apruebe |
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | En curso | Probado por Carlos en su telefono (12/10): Chrome solo crea un acceso directo que abre en el navegador. Lo hace Gemini despues de T28: la app instalada abre en el login, sin barra del navegador |
 
 ## Sin empezar (19)
 
