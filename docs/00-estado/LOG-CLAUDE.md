@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
 
+## 2026-10-12 — Claude CAB — T30 devuelto por sus pruebas; reloj del sitio de prueba en hora real
+
+**Sitio de prueba:** nadie podia entrar. El reloj simulado, fijado el 10/10, se freno en la
+medianoche del lunes 12 y el limite de 5 ingresos por minuto dejo de vencer; habia bloqueos
+con 19 y 14 intentos acumulados. Por orden de Carlos volvi el reloj a la hora real
+(`wings:fecha-simulada --real`) y limpie la cache del sitio de prueba. Sigue en `2e059ff`:
+**no se desplego nada**. Defecto de la herramienta, sin tarea todavia: con el reloj frenado
+el limite de intentos deja a todos afuera.
+**T30 (Codex), vistas aprobadas por Carlos:** lei el formateador unico `FormatoImporte` y
+busque restos: lo que queda sin centavos son porcentajes, DNI, cantidades y los graficos,
+que Carlos dejo afuera. Sus 5 pruebas pasan, pero **solo en `wings_testing_codex`**: tienen
+una condicion que las hace fallar en cualquier otra base. Las corri una vez en esa base para
+verlas pasar; en la mia la suite completa da 664 aprobadas, 2 omitidas y esas 5 en rojo.
+Devuelto a Codex solo por eso. T24 ya permite las cuatro bases descartables.
+**T29** lo verifica Gemini. Carlos instalo Wings en su telefono y abre como aplicacion.
+
 ## 2026-10-12 — Claude CAB — T28 cerrado en segunda vuelta; T11 verificado en codigo
 
 **T28:** Carlos decidio que el cobro es de quien lo hizo y que quien valido se muestra aparte.
