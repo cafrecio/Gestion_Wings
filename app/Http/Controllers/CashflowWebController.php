@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CashflowMovimiento;
+use App\Models\MovimientoOperativo;
+use App\Models\Pago;
 use App\Models\Rubro;
 use App\Models\TipoCaja;
 use App\Services\CashflowService;
@@ -65,6 +67,89 @@ class CashflowWebController extends Controller
             ->orderBy('fecha', 'desc')
             ->paginate(30)
             ->withQueryString();
+
+        // T28: Resolver alumno y usuario que registró para cada movimiento de la página actual
+        $pagosIds = $movimientos->getCollection()
+            ->where('referencia_tipo', CashflowMovimiento::REF_PAGO_CUOTA)
+            ->pluck('referencia_id')
+            ->filter()
+            ->unique();
+        $pagos = $pagosIds->isEmpty()
+            ? collect()
+            : Pago::with('alumno')->whereIn('id', $pagosIds)->get()->keyBy('id');
+
+        $cajaIds = $movimientos->getCollection()
+            ->where('referencia_tipo', CashflowMovimiento::REF_CAJA)
+            ->pluck('referencia_id')
+            ->filter()
+            ->unique();
+        $movsOperativosPorCaja = $cajaIds->isEmpty()
+            ? []
+            : MovimientoOperativo::with(['alumno', 'usuario'])
+                ->whereIn('caja_operativa_id', $cajaIds)
+                ->activos()
+                ->get()
+                ->groupBy('caja_operativa_id')
+                ->map(fn($g) => $g->values()->all())
+                ->all();
+
+        foreach ($movimientos->getCollection() as $mov) {
+            $alumnoNombre = null;
+            $quienRegistro = null;
+
+            if ($mov->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA) {
+                $pago = $pagos->get($mov->referencia_id);
+                if ($pago && $pago->alumno) {
+                    $alumnoNombre = $pago->alumno->apellido . ', ' . $pago->alumno->nombre;
+                }
+                $quienRegistro = $mov->usuarioAdmin?->name;
+            } elseif ($mov->referencia_tipo === CashflowMovimiento::REF_CAJA) {
+                $cajaId = $mov->referencia_id;
+                if (isset($movsOperativosPorCaja[$cajaId])) {
+                    $pool = &$movsOperativosPorCaja[$cajaId];
+                    $matchKey = null;
+
+                    // Match preferido: monto, subrubro y observaciones
+                    foreach ($pool as $k => $mo) {
+                        $montoMatch = abs((float) $mo->monto) == abs((float) $mov->monto);
+                        $subrubroMatch = (int) $mo->subrubro_id === (int) $mov->subrubro_id;
+                        $obsMatch = (string) $mo->observaciones === (string) $mov->observaciones;
+
+                        if ($montoMatch && $subrubroMatch && $obsMatch) {
+                            $matchKey = $k;
+                            break;
+                        }
+                    }
+
+                    // Fallback: monto y subrubro
+                    if ($matchKey === null) {
+                        foreach ($pool as $k => $mo) {
+                            $montoMatch = abs((float) $mo->monto) == abs((float) $mov->monto);
+                            $subrubroMatch = (int) $mo->subrubro_id === (int) $mov->subrubro_id;
+
+                            if ($montoMatch && $subrubroMatch) {
+                                $matchKey = $k;
+                                break;
+                            }
+                        }
+                    }
+
+                    if ($matchKey !== null) {
+                        $mo = $pool[$matchKey];
+                        unset($pool[$matchKey]);
+                        if ($mo->alumno) {
+                            $alumnoNombre = $mo->alumno->apellido . ', ' . $mo->alumno->nombre;
+                        }
+                        $quienRegistro = $mo->usuario?->name;
+                    }
+                    unset($pool);
+                }
+            }
+
+            $quienRegistro ??= $mov->usuarioAdmin?->name;
+            $mov->alumnoNombre = $alumnoNombre;
+            $mov->quienRegistro = $quienRegistro;
+        }
 
         $totalIngresos = (clone $base)
             ->whereHas('subrubro.rubro', fn($q) => $q->where('tipo', 'INGRESO'))

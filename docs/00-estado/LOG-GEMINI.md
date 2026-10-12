@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-12 — LOG GEM CAB — Implementación T28: Cashflow muestra a quién se le cobró y quién cobró
+
+- **Objetivo y resultado:** Implementar la decisión de Carlos del 12/10 para T28 (originada en el día 1 de la prueba por días): en Cashflow, un cobro de cuota o inscripción muestra en la columna «Detalle» el `Apellido, Nombre` del alumno, y en la columna «Registró» a quien cargó el movimiento (la operativa si provino de una caja validada, o el dueño si cobró directo sin caja). Un gasto o movimiento sin alumno conserva sus observaciones. Estado en el tablero pasado a `a_verificar` con `hizo=Gemini` y `tiene=Carlos` para aprobar las capturas.
+- **Cambios realizados:**
+  1. *app/Services/CashflowIntegracionCajaService.php:* al reflejar los movimientos de una caja validada en Cashflow, se guarda `'usuario_admin_id' => $movimiento->usuario_id ?? $adminId`, asegurando consistencia en la persistencia.
+  2. *app/Http/Controllers/CashflowWebController.php:* en `index()`, para los movimientos de la página actual, se resuelve de forma dinámica el `Apellido, Nombre` del alumno y el usuario original que registró el movimiento (eager loading de `Pago` para `REF_PAGO_CUOTA` y `MovimientoOperativo` para `REF_CAJA`), resolviendo automáticamente tanto asientos futuros como históricos ya existentes en Cashflow sin migraciones ni backfills.
+  3. *resources/views/cashflow/index.blade.php:* encabezados concisos «Detalle» y «Registró». Renders: `$mov->alumnoNombre ?? $mov->observaciones ?? '–'` y `$mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–'`. Preserva layout, colgroups, CSS variables y truncamiento.
+  4. *docs/02-contratos/Wings-Contrato-Caja-Cashflow-V5.md:* actualizada tabla de decisiones con la regla de T28.
+- **Pruebas y capturas:**
+  - 5 pruebas permanentes en `tests/Feature/CashflowDetalleAlumnoYUsuarioTest.php` (32 aserciones, 100% PASS).
+  - 4 capturas reglamentarias en `docs/06-pruebas/PRU-04/evidencia-t28/`: Cashflow con cuotas de caja validada, cuota directa de dueño y gastos en escritorio (1366x950) y celular (marco 360 px), más login de control.
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T28.md`.
+
 ## 2026-10-12 — LOG GEM CAB — Verificación y Cierre T26: Historial de caja del dueño sin límites
 
 - **Objetivo y resultado:** Verificar la implementación de Claude (commit `f4a030e`) para T26 («El dueño debe ver todo, los límites no son para él», Carlos 11/10/2026). Regla verificada y APROBADA. Estado en el tablero pasado a `cerrado` con `verifica=Gemini`.

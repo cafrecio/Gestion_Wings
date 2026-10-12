@@ -146,9 +146,9 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">I/E</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Tipo caja</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Rubro — Subrubro</th>
-                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Observaciones</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Detalle</th>
                 <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
-                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registrado</th>
+                <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
             </tr>
         </thead>
         <tbody>
@@ -186,14 +186,14 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                         {{ $subNom }}
                     @endif
                 </td>
-                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                    {{ $mov->observaciones ?? '–' }}
+                <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->alumnoNombre ?? $mov->observaciones ?? '' }}">
+                    {{ $mov->alumnoNombre ?? $mov->observaciones ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
                     {{ $saleDeLaCaja ? '−' : '' }}${{ number_format(abs((float)$mov->monto), 0, ',', '.') }}
                 </td>
-                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                    {{ $mov->usuarioAdmin?->name ?? '–' }}
+                <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '' }}">
+                    {{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–' }}
                 </td>
             </tr>
             @endforeach

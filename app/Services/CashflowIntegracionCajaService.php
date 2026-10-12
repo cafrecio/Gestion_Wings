@@ -73,7 +73,7 @@ class CashflowIntegracionCajaService
                 'tipo_caja_id' => $movimiento->tipo_caja_id,
                 'monto' => $montoConSigno,
                 'observaciones' => $movimiento->observaciones,
-                'usuario_admin_id' => $adminId,
+                'usuario_admin_id' => $movimiento->usuario_id ?? $adminId,
                 'referencia_tipo' => CashflowMovimiento::REF_CAJA,
                 'referencia_id' => $cajaId,
                 'reporte_deporte_id' => $movimiento->reporte_deporte_id,

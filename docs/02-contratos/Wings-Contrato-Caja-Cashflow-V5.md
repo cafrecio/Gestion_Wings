@@ -29,6 +29,7 @@ V4 queda como antecedente, no como instrucción para abrir o cerrar el cajón.
 | Rechazo posterior | Corregir movimientos conserva lo contado y entregado; no cambia lo recibido por el turno siguiente. Respuesta de Carlos: «Sí, conservar lo que se contó y entregó». |
 | Aviso por diferencia grande (T23) | Si lo declarado difiere > 50% (arriba o abajo) del cierre anterior (si dejó > $0), aviso enfático en pantalla; exige confirmación explícita para abrir. Decisión de Carlos 11/10/2026. |
 | Rectificación de apertura (T23) | Con caja ABIERTA, el operativo o ADMIN pueden rectificar el inicial. Motivo obligatorio, conserva valor anterior y recalcula el esperado del turno. Bloqueado si la caja está CERRADA o VALIDADA. Decisión de Carlos 11/10/2026. |
+| Detalle y registrador en Cashflow (T28) | Un cobro de cuota o inscripción muestra en «Detalle» el `Apellido, Nombre` del alumno. «Registró» muestra quién cargó el movimiento: la operativa si provino de una caja validada, el dueño si cobró directo sin caja. Un gasto o movimiento sin alumno conserva sus observaciones. Se resuelve de forma dinámica e idempotente sobre movimientos operativos, sin alterar totales, importes ni requerir migraciones. Decisión de Carlos 12/10/2026. |
 
 El cambio para vuelto es custodia física, no un ingreso nuevo ni el `saldo_inicial`
 contable del TipoCaja. Tampoco se crea automáticamente un ajuste por la diferencia.
