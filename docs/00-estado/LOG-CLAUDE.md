@@ -11,6 +11,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-12 — Claude CAB — T23 verificado y cerrado
+
+Gemini lo entrego en `03aaf11`; Carlos aprobo las capturas. Verificado por mi leyendo el
+codigo y corriendo sus 8 pruebas en `wings_testing_claude` (41 aserciones, verdes): aviso
+solo por encima del 50% y con cierre anterior mayor a cero, confirmacion para seguir,
+rectificacion con motivo solo en caja ABIERTA, por el operativo del turno o el ADMIN, y
+esperado recalculado. No corri la suite completa hoy; ayer dio 641/2 con T23 adentro.
+**Observaciones, no bloquean:** una segunda rectificacion pisa el valor anterior, el motivo y
+el autor de la primera, asi que el importe declarado al abrir se pierde; rectificar no avisa
+si el nuevo valor es disparatado. Las cuatro cosas que Carlos no habia decidido quedaron
+escritas en el contrato V5 como «acordadas» con Gemini: no tengo como comprobar ese acuerdo.
+**Regla 10:** ese commit se llevo cambios sin publicar de Codex (T24) en
+`CajaWebController.php`, que usan una clase (`ImportePesos`) que recien entro en `f62f1f2`.
+Entre los dos commits lo publicado estaba incompleto; no probe que fallaba en ese estado.
+Sin desplegar.
+
 ## 2026-10-11 — Claude CAB — T26: en el Historial de caja los limites son del operativo, no del duenio
 
 Carlos: «El dueño debe ver todo, los limites no son para el». El Historial aplicaba a todos
