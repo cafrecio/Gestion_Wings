@@ -51,7 +51,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10), con el reloj simulado fijado ese dia en el lunes 12/10. Falta desplegar lo publicado despues: T18, T21, T23, T24 y T26. No desplegar mientras Codex recorre un dia de la prueba |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10), con el reloj simulado fijado ese dia en el lunes 12/10. Falta desplegar lo publicado despues: T21, T23, T24 y T26. No desplegar mientras Codex recorre un dia de la prueba |
 
 ## Codex
 
