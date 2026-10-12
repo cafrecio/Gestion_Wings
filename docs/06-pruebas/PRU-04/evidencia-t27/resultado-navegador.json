@@ -1,0 +1,145 @@
+{
+  "resultados": [
+    {
+      "id": "propuesta",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "cashflow-actual",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "movimientos-actual",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "historial-actual",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "ficha-alumno",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "caja-validada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-pagada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "caja-abierta",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "editar-en-caja",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "propuesta",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "cashflow-actual",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "movimientos-actual",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "historial-actual",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "ficha-alumno",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "caja-validada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-pagada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "caja-abierta",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "editar-en-caja",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    }
+  ],
+  "fallos": []
+}

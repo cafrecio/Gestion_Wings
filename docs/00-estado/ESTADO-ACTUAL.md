@@ -1,5 +1,16 @@
 # Wings — Estado actual
 
+## T27 — Etapa 1, propuesta a Carlos, 12/10/2026
+
+[Propuesta e inventario](../06-pruebas/PRU-04/PROPUESTA-T27.md): Cashflow como entrada
+única, con origen/acciones por fila y acceso separado a cajas sin validar. Maqueta
+renderizada por Laravel con datos ficticios: 32 PNG, marco360/login, 20 visitas sin fallos.
+Sin nuevas correcciones, permisos ni rutas de producción. Carlos decide antes de etapa 2.
+Hallazgos que requieren definición: rechazarCaja acepta solo CERRADA, no VALIDADA;
+liquidación pagada no se corrige. Además, el controlador limita edición de operativos
+a su caja mientras el contrato limita por propietario solo el cierre; no se cambió.
+T27 queda en_curso con Carlos; no se cierra ni se despliega.
+
 ## T30 — Centavos y formato compartido, 12/10/2026
 
 Codex CAB implementó la presentación `$48,000.50`, siempre dos decimales, en pantallas,
@@ -14,8 +25,9 @@ porcentaje junto al rubro e importe debajo en celular. Nueva medición de la ley
 `evidencia-t30/revision-porcentajes-ultima/`; suite propia 669 aprobadas/2 omitidas,
 6395 aserciones, 530,97 s.
 Carlos aprobó todas las vistas: «El resto de las vistas OK» y «Esta OK» para la
-leyenda corregida (12/10). Solo falta que Claude verifique la regla.
-T30 sigue a verificar, sin cierre ni despliegue; no pedir otra aprobación visual.
+leyenda corregida (12/10). Claude verificó la regla, corrigió con autorización
+la portabilidad de las pruebas y cerró T30 en `b4fdd6e`; no pedir otra aprobación visual.
+Sin despliegue por Codex.
 
 ## T29 — Buscador de Cobrar lista solo a deudores verificado y cerrado, 12/10/2026
 

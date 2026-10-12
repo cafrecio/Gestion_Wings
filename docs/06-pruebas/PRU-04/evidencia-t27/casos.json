@@ -1,0 +1,70 @@
+{
+    "1": {
+        "origen": "Directo",
+        "acciones": [
+            "Editar",
+            "Eliminar"
+        ],
+        "ruta": null,
+        "ayuda": "Este movimiento directo todavía no tiene edición ni eliminación. La forma de corregirlo se define con Carlos antes de habilitarla."
+    },
+    "2": {
+        "origen": "Directo",
+        "acciones": [
+            "Editar",
+            "Eliminar"
+        ],
+        "ruta": null,
+        "ayuda": "Este movimiento directo todavía no tiene edición ni eliminación. La forma de corregirlo se define con Carlos antes de habilitarla."
+    },
+    "3": {
+        "origen": "Aporte",
+        "acciones": [
+            "Editar",
+            "Eliminar"
+        ],
+        "ruta": null,
+        "ayuda": "Este movimiento directo todavía no tiene edición ni eliminación. La forma de corregirlo se define con Carlos antes de habilitarla."
+    },
+    "4": {
+        "origen": "Retiro",
+        "acciones": [
+            "Editar",
+            "Eliminar"
+        ],
+        "ruta": null,
+        "ayuda": "Este movimiento directo todavía no tiene edición ni eliminación. La forma de corregirlo se define con Carlos antes de habilitarla."
+    },
+    "5": {
+        "origen": "Cobro del dueño",
+        "acciones": [
+            "Anular"
+        ],
+        "ruta": "http:\/\/gestion-wings\/alumnos\/1",
+        "ayuda": "La anulación se hace desde el historial del alumno, con motivo. Si cuota e inscripción se cobraron juntas, se anula el pago completo."
+    },
+    "6": {
+        "origen": "Inscripción",
+        "acciones": [
+            "Anular"
+        ],
+        "ruta": "http:\/\/gestion-wings\/alumnos\/1",
+        "ayuda": "La anulación se hace desde el historial del alumno, con motivo. Si cuota e inscripción se cobraron juntas, se anula el pago completo."
+    },
+    "7": {
+        "origen": "Liquidación pagada",
+        "acciones": [
+            "Ver"
+        ],
+        "ruta": "http:\/\/gestion-wings\/liquidaciones\/1",
+        "ayuda": "Hoy una liquidación pagada no se cancela ni se modifica. Su inclusión en esta pantalla de correcciones requiere una decisión de Carlos."
+    },
+    "8": {
+        "origen": "Caja validada",
+        "acciones": [
+            "Ver"
+        ],
+        "ruta": "http:\/\/gestion-wings\/caja\/1\/detalle",
+        "ayuda": "Hoy no se corrige un movimiento de caja validada. Rechazar también exige caja cerrada, no validada. Este camino queda pendiente de definición."
+    }
+}

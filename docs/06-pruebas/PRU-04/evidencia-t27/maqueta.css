@@ -1,0 +1,19 @@
+/* Propuesta aislada: no se carga desde ninguna pantalla de producción. */
+.t27-aviso { border-left:3px solid var(--color-info); font-size:.8rem; }
+.t27-aviso p { margin:6px 0 0; color:var(--color-text-muted); }
+.t27-th { padding:8px; text-align:right; font-size:.7rem; color:var(--color-text-muted); text-transform:uppercase; }
+.t27-td { padding:8px; text-align:right; }
+.t27-iconos { display:inline-flex; gap:4px; align-items:center; }
+.t27-icono { display:inline-flex; width:28px; height:28px; padding:0; align-items:center; justify-content:center; border:1px solid currentColor; border-radius:var(--radius-btn); color:var(--color-btn-secondary); background:none; }
+.t27-icono:hover, .t27-icono:focus-visible { color:var(--color-text); }
+.t27-icono--danger, .t27-icono--danger:hover, .t27-icono--danger:focus-visible { color:var(--color-danger); }
+.t27-origen { display:block; margin-top:3px; font-size:.7rem; color:var(--color-text-muted); }
+.t27-acciones { justify-content:flex-end; gap:8px; }
+.t27-acciones .t27-origen { margin-right:auto; margin-top:0; }
+.t27-panel { display:none; margin-top:16px; scroll-margin-top:75px; }
+.t27-panel:target { display:block; }
+.t27-panel-body { padding:0 24px 16px; font-size:.85rem; }
+.t27-panel-body p { margin:10px 0; }
+.t27-panel button:disabled { opacity:.55; cursor:not-allowed; }
+.t27-panel .ds-btn--danger { background:transparent; border:1px solid var(--color-danger); color:var(--color-danger); }
+.t27-caja-fila { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; }

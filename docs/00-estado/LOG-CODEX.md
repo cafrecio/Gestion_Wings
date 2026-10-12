@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T27, etapa 1: propuesta de entrada única
+
+Relevados directos, cobros/inscripción, aportes/retiros, liquidación y cajas.
+Propongo Cashflow: acceso por fila y cajas todavía editables en sección separada.
+Carlos pidió íconos de acciones en la tabla, sin botón Corregir; aplicados también a las tarjetas móviles.
+VALIDADA no admite rechazar hoy; liquidación pagada protegida. Decisiones pendientes en la propuesta.
+Maqueta Blade aislada, controlador/datos de Laravel reales; no rutas ni correcciones nuevas en producción.
+Ensayo propio: 1/19, financieros iguales tras GET; 403 de otros roles. Chrome: 20 visitas/0 fallas, 32 PNG.
+Escritorio/marco360 y login. Sin base del club, sitio de prueba/reloj/despliegue.
+[Propuesta, preguntas y capturas](../06-pruebas/PRU-04/PROPUESTA-T27.md). Etapa 2 no empezada.
+T27 en_curso, tiene Carlos: aprueba la pantalla y responde las cinco decisiones antes de implementar.
+
 ## 2026-10-12 — Codex CAB — T30, porcentaje junto al rubro en celular
 
 Carlos marcó el desborde de la leyenda y pidió porcentaje junto al título.
@@ -107,16 +119,4 @@ Solo wings_testing_codex; base del club/producción y aplicación intactas por C
 Tablero T16 devuelto, tiene Claude/verifica Codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 Sigue: Claude corrige las dos causas y devuelve a Codex; archivo anterior íntegro preservado.
 
-## 2026-10-10 — Codex CyE — T14 Día 1 recorrido, a verificar por Claude
-
-Objetivo: seis tareas del club en test, por menú y botones; expectativas registradas antes de actuar.
-Chrome real con clics automatizados; integrado falló por sandbox. Sin consultas a base, arreglos ni deshacer carga.
-Cuatro pagos 1–4, $164.000 ($126.000 efectivo/$38.000 MP); fichas y pedidos de recibo comprobados; PDF no leído.
-Mariela: clase 47, seis presentes/dos ausentes conservados al reabrir; también pudo abrir clase 5 de Lucía.
-Sandra: caja 1 cerrada y validada, contado $136.000, diferencia $0, cambio $10.000, entrega $126.000.
-Cobranza $2.010.000; Cashflow $164.000 en cinco filas sin duplicar; Inicio $1.960.000/ingresos $0, por clasificar.
-Capturas solo de hallazgos/contrastes; ningún archivo de aplicación cambiado. Solo verificación documental, sin suite.
-[Informe único](../06-pruebas/PRU-04/DIA-01.md). T14 a_verificar, tiene/verifica Claude; sin autocierre.
-Sigue: Claude verifica los hallazgos; mañana continúa desde estos pagos/asistencias, sin repetir cobros ni limpiar.
-
-[Archivo íntegro antes de esta revisión](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T30-PORCENTAJE.txt).
+[Archivo íntegro antes de T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27.txt).
