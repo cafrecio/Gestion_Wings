@@ -702,15 +702,11 @@ class CajaWebController extends Controller
         $saldos = app(\App\Services\CobranzaEstadoService::class)
             ->saldoDeAlumnos(Alumno::where('activo', true)->get(['id', 'dni']));
 
-        // Se ofrece a quien tiene algo por cobrar: saldo pendiente, o el mes en curso
-        // todavia sin generar, que es el cobro adelantado o la primera cuota (A3).
-        $periodoVigente = now()->format('Y-m');
-        $conDeudaDelMes = DeudaCuota::where('periodo', $periodoVigente)->pluck('alumno_id')->all();
-        $porCobrar = array_keys(array_filter(
-            $saldos,
-            fn (array $saldo, int $id) => $saldo['total'] > 0 || !in_array($id, $conDeudaDelMes, true),
-            ARRAY_FILTER_USE_BOTH
-        ));
+        // T29: sin buscar, la lista es la de los que deben, la misma cuenta que anuncia el
+        // encabezado. Antes sumaba a todo alumno sin la cuota del mes generada y, despues
+        // de una primera carga, eso era el padron entero: decia 40 y listaba 100.
+        // A quien no debe se llega buscandolo; asi se le cobra adelantado o la primera cuota.
+        $conDeudaIds = array_keys(array_filter($saldos, fn (array $saldo) => $saldo['total'] > 0));
 
         $query = Alumno::with(['deporte', 'grupo'])
             ->where('activo', true);
@@ -723,14 +719,12 @@ class CajaWebController extends Controller
                 ->orWhere('dni', 'like', "%{$s}%")
             );
         } else {
-            $query->whereIn('id', $porCobrar);
+            $query->whereIn('id', $conDeudaIds);
         }
 
         $alumnos = $query->orderBy('apellido')->orderBy('nombre')->paginate(12)->withQueryString();
 
-        // El encabezado cuenta a los que deben, no a los que la lista ofrece: la lista
-        // incluye además a quien se le puede cobrar el mes en curso por adelantado.
-        $conDeuda = count(array_filter($saldos, fn (array $saldo) => $saldo['total'] > 0));
+        $conDeuda = count($conDeudaIds);
 
         return view('caja.cobrar-cuota', compact('alumnos', 'saldos', 'conDeuda'));
     }

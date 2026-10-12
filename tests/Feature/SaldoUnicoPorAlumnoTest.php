@@ -99,14 +99,21 @@ class SaldoUnicoPorAlumnoTest extends TestCase
             'El saldo del modelo y el del servicio tienen que coincidir.'
         );
 
-        // El selector lo sigue ofreciendo, porque se le puede cobrar el mes en curso por
-        // adelantado, pero no lo cuenta como deudor: eso es lo que decía mal (A54).
+        // No lo cuenta como deudor: eso es lo que decía mal (A54). Y desde T29 tampoco
+        // lo lista sin buscar, porque la lista y el encabezado son los mismos alumnos;
+        // buscándolo se lo encuentra para cobrarle el mes por adelantado.
         $this->actingAs($this->operativo)
             ->get(route('web.caja.cobrar-cuota'))
             ->assertOk()
-            ->assertSee('Pérez, Ana')
+            ->assertDontSee('Pérez, Ana')
             ->assertSee('Sin deudas pendientes')
             ->assertDontSee('1 alumno con deuda pendiente', false);
+
+        $this->actingAs($this->operativo)
+            ->get(route('web.caja.cobrar-cuota', ['search' => 'Pérez']))
+            ->assertOk()
+            ->assertSee('Pérez, Ana')
+            ->assertSee('Sin deudas pendientes');
     }
 
     /** A55: la inscripción impaga es parte de lo que la persona debe. */

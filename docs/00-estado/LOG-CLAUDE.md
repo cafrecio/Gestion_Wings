@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md)
 
+## 2026-10-12 — Claude CAB — T29 hecho; T24 y T26 cerrados; T28 y T30 repartidos
+
+**T29, mio:** el buscador de Cobrar anunciaba 40 con deuda y listaba 100 (dia 1 de la
+prueba). Sin buscar ahora trae solo a los que deben, los mismos del encabezado; a cualquier
+otro se llega buscandolo. El que no debe sale con punto verde. `BuscadorCobrarSoloDeudoresTest`,
+7 pruebas: 5 fallan con el codigo anterior, 2 son de resguardo. Cambie 3 pruebas viejas que
+exigian el comportamiento anterior; una cubria al alumno sin la cuota del mes generada, que
+ahora se encuentra buscando. Carlos aprobo las capturas («Ok las imagenes»).
+Suite completa en `wings_testing_claude`: 647 aprobadas, 2 omitidas y en rojo solo el
+guardian de documentacion, que pedia 650; el numero se corrigio en este commit y la cuenta
+da 650. No volvi a correr el guardian: en la carpeta hay 5 pruebas de Gemini sin publicar.
+**T24 cerrado:** regla de importes verificada en servidor y navegador, 6 pruebas verdes.
+Tres avisos a Carlos: `48.000` termina guardado como 48.00 (decision suya); 45 lugares
+muestran importes sin centavos (pasa a T30, Codex); dos formatos en pantalla.
+**T26 cerrado por Gemini**, sus 8 pruebas corren verdes en mi base.
+**T28** Cashflow con alumno y quien cobro: Gemini. Sin desplegar nada de esto.
+
 ## 2026-10-12 — Claude CAB — T23 verificado y cerrado
 
 Gemini lo entrego en `03aaf11`; Carlos aprobo las capturas. Verificado por mi leyendo el

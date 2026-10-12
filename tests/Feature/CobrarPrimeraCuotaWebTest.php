@@ -94,8 +94,15 @@ class CobrarPrimeraCuotaWebTest extends TestCase
     {
         $this->assertDatabaseCount('deuda_cuotas', 0);
 
+        // T29: todavía no debe nada, así que sin buscar no figura entre los deudores;
+        // se llega a él buscándolo y la pantalla de cobro le ofrece el mes en curso.
         $this->actingAs($this->operativo)
             ->get(route('web.caja.cobrar-cuota'))
+            ->assertOk()
+            ->assertDontSee('Cuota, Primera');
+
+        $this->actingAs($this->operativo)
+            ->get(route('web.caja.cobrar-cuota', ['search' => 'Primera']))
             ->assertOk()
             ->assertSee('Cuota, Primera');
 

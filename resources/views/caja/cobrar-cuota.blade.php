@@ -34,6 +34,9 @@
         @else
             Sin deudas pendientes
         @endif
+        @if($conDeuda > 0 && !request('search'))
+            · Para cobrarle a otro alumno, buscalo por nombre o DNI
+        @endif
     </div>
     <a href="{{ route('web.caja.index') }}"
        class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Volver</a>
@@ -50,13 +53,13 @@
     @endphp
     <div class="alumno-card mobile-readable-card alumno-card--{{ $rail }}">
         <div class="alumno-card-header">
-            <span class="alumno-dot alumno-dot--danger"></span>
+            <span class="alumno-dot alumno-dot--{{ $saldo > 0 ? 'danger' : 'success' }}"></span>
             <h3 class="alumno-nombre">{{ $alumno->apellido }}, {{ $alumno->nombre }}</h3>
         </div>
         <div class="alumno-info grid grid-cols-1 sm:grid-cols-3 gap-2">
             <div class="info-item">
                 <span class="info-label">Saldo:</span>
-                <span class="info-value" style="font-weight:700; color:var(--color-danger);">
+                <span class="info-value" style="font-weight:700; color:{{ $saldo > 0 ? 'var(--color-danger)' : 'var(--color-text)' }};">
                     ${{ number_format($saldo, 0, ',', '.') }}
                 </span>
             </div>
@@ -80,14 +83,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        <h3>Sin deudas pendientes</h3>
-        <p>
-            @if(request('search'))
-                No se encontraron alumnos con deuda para "{{ request('search') }}"
-            @else
-                Todos los alumnos están al día
-            @endif
-        </p>
+        @if(request('search'))
+            <h3>Sin resultados</h3>
+            <p>Ningún alumno activo coincide con "{{ request('search') }}"</p>
+        @else
+            <h3>Sin deudas pendientes</h3>
+            <p>Todos los alumnos están al día. Para cobrar por adelantado, buscá al alumno por nombre o DNI.</p>
+        @endif
     </div>
 @endforelse
 
