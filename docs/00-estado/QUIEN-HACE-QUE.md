@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 12/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 13/10/2026. Avance: **65 defectos cerrados de 74**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -49,17 +49,16 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10), con el reloj simulado fijado ese dia en el lunes 12/10. Falta desplegar lo publicado despues: T21, T23, T24 y T26. No desplegar mientras Codex recorre un dia de la prueba |
-| **T30** Mostrar los centavos: las pantallas redondean importes que ahora se cargan con decimales | Hecho, espera verificación (hizo Codex) | Todas las vistas aprobadas por Carlos (El resto de las vistas OK y Esta OK, 12/10); Claude verifica solo la regla de importes. Sin cierre ni despliegue |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T30** Mostrar los centavos: las pantallas redondean importes que ahora se cargan con decimales | Devuelto (hizo Codex) | Regla verificada por Claude (12/10) y vistas aprobadas por Carlos. Devuelto por una sola cosa: las 5 pruebas de T30 solo corren en wings_testing_codex y dejan la suite en rojo en cualquier otra base de pruebas. Permitir las cuatro bases descartables, como ya hace T24 |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T29** Buscador de Cobrar: la lista sin buscar muestra solo a los que deben, igual que el numero del encabezado | Hecho, espera verificación (hizo Claude) | Gemini verifica la regla (8a8a6b8): sin buscar, la lista trae solo a los que deben y coincide con el encabezado; a quien no debe se llega buscando. Capturas ya aprobadas por Carlos |
+Nada en este momento.
 
 ## Sin empezar (20)
 

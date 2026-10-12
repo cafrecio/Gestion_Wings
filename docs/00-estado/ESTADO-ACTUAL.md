@@ -17,6 +17,19 @@ Carlos aprobó todas las vistas: «El resto de las vistas OK» y «Esta OK» par
 leyenda corregida (12/10). Solo falta que Claude verifique la regla.
 T30 sigue a verificar, sin cierre ni despliegue; no pedir otra aprobación visual.
 
+## T29 — Buscador de Cobrar lista solo a deudores verificado y cerrado, 12/10/2026
+
+Gemini CAB verificó la implementación de Claude (`8a8a6b8`) para T29 (D01-5 de la prueba por días, Carlos 12/10/2026).
+Comprobaciones aprobadas:
+1. Sin buscar: la lista trae únicamente a los alumnos con deuda y coincide exactamente con el encabezado («X alumnos con deuda pendiente» o «Sin deudas pendientes»).
+2. A cualquier alumno al día o sin cuota generada se llega buscándolo por nombre, apellido o DNI y se le puede cobrar normalmente. Se comprobó el flujo completo de cobro real (`POST web.caja.pagar`).
+3. El que debe solo inscripción aparece como deudor; cuota de mes futuro no aparece ni suma en el encabezado.
+4. Alumno inactivo con deuda no aparece ni suma en el encabezado.
+5. Permiso de profesor bloqueado (403). Dueño sin caja cobra directo.
+6. Comparación rigurosa con Cobranza explicada: Cobrar lista a todo alumno con saldo pendiente (`saldo['total'] > 0`); Cobranza pestaña DEUDORES filtra a morosos/deudores con plazo vencido para gestión de cobro punitoria. El total adeudado en pesos y la suma de estados coinciden al 100%.
+7. Pruebas: 11 pruebas pasando (113 aserciones) en `docs/06-pruebas/PRU-04/evidencia-t29/VerificacionT29GeminiTest.php`. Suite completa 664 tests aprobados.
+8. Tablero: `cerrado`, `hizo=Claude`, `verifica=Gemini`. Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T29.md`.
+
 ## T28 — Cashflow: vínculo directo por movimiento y columna Val. (segunda vuelta), 12/10/2026
 
 Gemini CAB implementó la segunda vuelta de T28 tras la revisión de Claude y las decisiones de Carlos del 12/10/2026:

@@ -9,6 +9,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
+## 2026-10-12 — LOG GEM CAB — Verificación T29: Buscador de Cobrar lista solo a quienes deben
+
+- **Objetivo y resultado:** Verificación independiente de la regla decidida por Carlos (12/10) implementada por Claude en commit `8a8a6b8` (D01-5 de la prueba). Comprobado que sin buscar la lista trae únicamente a los alumnos con deuda y coincide exactamente con el encabezado; a cualquier alumno al día o sin cuota generada se llega buscándolo por nombre, apellido o DNI y se le puede cobrar normalmente. T29 queda **APROBADO y CERRADO**.
+- **Comprobaciones efectuadas:**
+  1. *Deudores y encabezado:* Con 15 deudores y 5 al día, la lista sin buscar pagina (12 y 3) sin mostrar a ningún alumno al día y con encabezado idéntico (15 alumnos).
+  2. *Alumno al día cobrado por camino real:* No aparece sin buscar; buscándolo aparece con punto verde y botón Cobrar; se completó el flujo real de cobro (`POST web.caja.pagar`) registrando pago, movimiento y cuota pagada.
+  3. *Alumno recién dado de alta con cuota del mes:* Aparece sin buscar con punto rojo y se cuenta en el encabezado.
+  4. *Alumno sin cuota del mes generada:* No aparece sin buscar; buscándolo se le ofrece el mes en curso y se le puede cobrar.
+  5. *Deuda solo de inscripción vs mes futuro:* Debe solo inscripción aparece con punto rojo; cuota de mes futuro no aparece ni cuenta como deuda.
+  6. *Alumno inactivo:* Con deuda no aparece sin buscar ni buscándolo por DNI/nombre.
+  7. *Dueño sin caja:* Mismo comportamiento, pudiendo cobrar directo a Cashflow sin caja abierta.
+  8. *Profesor:* Acceso denegado (403 Forbidden).
+  9. *Enlaces de origen:* Funcionales desde Caja index, Inicio Operativo y navegación general.
+  10. *Comparación con Cobranza:* Verificada y explicada la diferencia de alcance entre Cobrar (gestión de cobro inmediato: cuotas + en plazo + inscripción) y Cobranza DEUDORES (gestión punitoria de plazos vencidos: deudores y morosos).
+  11. *Casos no cubiertos:* Búsqueda por DNI parcial, mayúsculas/minúsculas, deuda parcial, deuda condonada total, paginación con query string `search` y espacios en blanco.
+- **Pruebas:** 11 pruebas pasando (113 aserciones) en `docs/06-pruebas/PRU-04/evidencia-t29/VerificacionT29GeminiTest.php` en `wings_testing_gemini`. Suite completa: 664 tests pasando.
+- **Informe:** `docs/06-pruebas/PRU-04/VERIFICACION-T29.md`.
+
 ## 2026-10-12 — LOG GEM CAB — T28 segunda vuelta: vincular sin adivinar y columna de quién validó
 
 - **Objetivo y resultado:** Segunda vuelta de T28 solicitada tras la revisión de Claude y decisiones de Carlos del 12/10/2026. Se implementó la vinculación directa y persistida de cada asiento de Cashflow con su movimiento operativo de caja (`movimiento_operativo_id` mediante migración autorizada por Carlos), eliminando toda deducción por textos o heurísticas. Para renglones preexistentes sin ID guardado, se exige coincidencia exacta o conserva la observación original (eliminado el segundo intento por importe y rubro). Se agregó la columna «Val.» en escritorio (50px) y el badge «Val: <iniciales>» en tarjetas de celular con tooltip del nombre completo de quien validó la caja (queda vacía en movimientos directos sin caja). Desempate de iniciales en 2 letras distintivas (ej. CB y CZ).
