@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
 
+## 2026-10-12 — Claude CAB — T28 cerrado en segunda vuelta; T11 verificado en codigo
+
+**T28:** Carlos decidio que el cobro es de quien lo hizo y que quien valido se muestra aparte.
+Gemini lo rehizo en `e1e73d8`: cada renglon de Cashflow guarda de que movimiento viene
+(columna y migracion nuevas), se saco el segundo intento por importe y rubro, y hay una
+columna «Val.» con iniciales. Verificado por mi: sus 10 pruebas y mis 2 pasan en
+`wings_testing_claude`. Cerrado. Observacion que pasa a T22: `User::iniciales()` hace una
+consulta por renglon. Las capturas de celular estan a 375 y el telefono de Carlos mide 360.
+**T11:** el archivo de instalacion ahora declara el arranque en el login; 3 pruebas verdes.
+Gemini informo que el servidor es Nginx y que habia que tocarlo a mano: **es Apache**
+(comprobado con `ssh vps`, solo lectura), asi que su regla en `.htaccess` alcanza. La prueba
+real es de Carlos en su telefono, despues de desplegar.
+Sin suite completa en este paso. Nada de lo de ayer y hoy esta desplegado.
+
 ## 2026-10-12 — Claude CAB — T28 verificado, con dos observaciones para Carlos
 
 Gemini lo hizo en `2d215d2` y `1787dfd`; Carlos eligio el diseno sobre capturas (tabla
