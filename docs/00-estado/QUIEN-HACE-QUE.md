@@ -50,6 +50,7 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10), con el reloj simulado fijado ese dia en el lunes 12/10. Falta desplegar lo publicado despues: T21, T23, T24 y T26. No desplegar mientras Codex recorre un dia de la prueba |
+| **T28** Cashflow: mostrar el nombre del alumno y quien cobro, no la observacion y quien valido | Hecho, espera verificación (hizo Gemini) | Verificar vinculo directo por movimiento_operativo_id, eliminacion de heuristica y columna Val. |
 
 ## Codex
 
@@ -59,9 +60,7 @@ Nada.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T28** Cashflow: mostrar el nombre del alumno y quien cobro, no la observacion y quien valido | Devuelto (hizo Gemini) | Devuelto por decision de Carlos (12/10): que el renglon se vincule a su movimiento sin adivinar, y agregar una columna angosta con las iniciales de quien valido la caja. Se conserva que el cobro figura a nombre de quien lo hizo |
+Nada en este momento.
 
 ## Sin empezar (20)
 

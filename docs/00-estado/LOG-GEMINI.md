@@ -9,7 +9,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
-· [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
+## 2026-10-12 — LOG GEM CAB — T28 segunda vuelta: vincular sin adivinar y columna de quién validó
+
+- **Objetivo y resultado:** Segunda vuelta de T28 solicitada tras la revisión de Claude y decisiones de Carlos del 12/10/2026. Se implementó la vinculación directa y persistida de cada asiento de Cashflow con su movimiento operativo de caja (`movimiento_operativo_id` mediante migración autorizada por Carlos), eliminando toda deducción por textos o heurísticas. Para renglones preexistentes sin ID guardado, se exige coincidencia exacta o conserva la observación original (eliminado el segundo intento por importe y rubro). Se agregó la columna «Val.» en escritorio (50px) y el badge «Val: <iniciales>» en tarjetas de celular con tooltip del nombre completo de quien validó la caja (queda vacía en movimientos directos sin caja). Desempate de iniciales en 2 letras distintivas (ej. CB y CZ).
+- **Decisiones visuales de Carlos (12/10/2026):**
+  - Carlos respondió y aprobó: *«Sí, creá la migración con la columna movimiento_operativo_id (nullable) en cashflow_movimientos para vinculación directa y exacta»*.
+  - Diseño: *«Opcion 1 escritorio, opcion 2 celular. No achiques tanto el monto, sino cuando sean de mayor valor van a quedar desbordados. Ojo que se tienen que ver los decimales»*.
+  - Desempate: *«Que uno sea CB y el CZ o CO y CB»*.
+- **Cambios realizados:**
+  1. *database/migrations/2026_10_12_120000_add_movimiento_operativo_id_to_cashflow_movimientos.php:* agregada columna `movimiento_operativo_id` nullable con foreignId hacia `movimientos_operativos` (nullOnDelete).
+  2. *app/Models/CashflowMovimiento.php:* agregado a `$fillable` y relación `movimientoOperativo(): BelongsTo`.
+  3. *app/Models/User.php:* método `iniciales(): string` con desempate automático de iniciales en 2 letras (ej. Carlos Bonifacio `CB` vs Carlos Benítez `CZ`).
+  4. *app/Services/CashflowIntegracionCajaService.php:* en `reflejarCajaEnCashflow()`, guarda `'movimiento_operativo_id' => $movimiento->id`.
+  5. *app/Http/Controllers/CashflowWebController.php:* en `index()`, resuelve validador (`validadorNombre` y `validadorIniciales`), vincula directo por `movimiento_operativo_id` sin tocar observaciones; en renglones viejos aplica coincidencia exacta estricta o nada.
+  6. *resources/views/cashflow/index.blade.php:* tabla de escritorio con columna «Val.» (50px) y columna Monto (125px holgado para decimales); tarjetas móviles con `Registró: <nombre>` a la izquierda y badge `Val: <iniciales>` a la derecha. Montos conservan formato de partida a la espera de que Codex aplique T30.
+  7. *docs/02-contratos/Wings-Contrato-Caja-Cashflow-V5.md:* actualizada tabla de decisiones con el vínculo directo y la columna de validó.
+- **Pruebas y capturas:**
+  - 5 pruebas permanentes en `tests/Feature/CashflowVinculoDirectoYValidadorTest.php` (30 aserciones, 100% PASS).
+  - Verificación de Claude `VerificacionT28ClaudeTest` (2 pruebas, 159 aserciones, 100% PASS) y `CashflowDetalleAlumnoYUsuarioTest` (5/5 PASS).
+  - Capturas reglamentarias finales en `docs/06-pruebas/PRU-04/evidencia-t28/`: `cashflow-v2-escritorio.png`, `cashflow-v2-celular-375.png`, `login-control-v2-escritorio.png` y `login-control-v2-celular-375.png`.
+- **Estado y próximo paso:** Diseño aprobado por Carlos. Pasado a `a_verificar` en el tablero con `tiene=Claude` para verificación de código y base.
+- **Informe:** `docs/06-pruebas/PRU-04/IMPLEMENTACION-T28.md`.
 
 ## 2026-10-12 — LOG GEM CAB — Implementación T11: Wings instalable en el teléfono como app
 

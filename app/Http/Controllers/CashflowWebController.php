@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
 use App\Models\MovimientoOperativo;
 use App\Models\Pago;
@@ -62,13 +63,19 @@ class CashflowWebController extends Controller
         $base = CashflowMovimiento::query()
             ->whereBetween('fecha', [$inicio->toDateString(), $fin->toDateString()])
             ->when($tipoCajaId, fn($q) => $q->where('tipo_caja_id', $tipoCajaId));
-        $movimientos = (clone $base)->with(['subrubro.rubro', 'tipoCaja', 'usuarioAdmin'])
+        $movimientos = (clone $base)->with([
+            'subrubro.rubro',
+            'tipoCaja',
+            'usuarioAdmin',
+            'movimientoOperativo.alumno',
+            'movimientoOperativo.usuario',
+        ])
             ->when($tipo, fn($q) => $q->whereHas('subrubro.rubro', fn($r) => $r->where('tipo', $tipo)))
             ->orderBy('fecha', 'desc')
             ->paginate(30)
             ->withQueryString();
 
-        // T28: Resolver alumno y usuario que registró para cada movimiento de la página actual
+        // T28: Resolver alumno, usuario que registró y validador de caja para cada movimiento
         $pagosIds = $movimientos->getCollection()
             ->where('referencia_tipo', CashflowMovimiento::REF_PAGO_CUOTA)
             ->pluck('referencia_id')
@@ -83,10 +90,23 @@ class CashflowWebController extends Controller
             ->pluck('referencia_id')
             ->filter()
             ->unique();
-        $movsOperativosPorCaja = $cajaIds->isEmpty()
+
+        $cajas = $cajaIds->isEmpty()
+            ? collect()
+            : CajaOperativa::with('usuarioAdminValidacion')->whereIn('id', $cajaIds)->get()->keyBy('id');
+
+        // Pool de movimientos operativos únicamente para renglones viejos (sin movimiento_operativo_id)
+        $cajaIdsViejas = $movimientos->getCollection()
+            ->where('referencia_tipo', CashflowMovimiento::REF_CAJA)
+            ->whereNull('movimiento_operativo_id')
+            ->pluck('referencia_id')
+            ->filter()
+            ->unique();
+
+        $movsOperativosPorCaja = $cajaIdsViejas->isEmpty()
             ? []
             : MovimientoOperativo::with(['alumno', 'usuario'])
-                ->whereIn('caja_operativa_id', $cajaIds)
+                ->whereIn('caja_operativa_id', $cajaIdsViejas)
                 ->activos()
                 ->get()
                 ->groupBy('caja_operativa_id')
@@ -96,20 +116,29 @@ class CashflowWebController extends Controller
         foreach ($movimientos->getCollection() as $mov) {
             $alumnoNombre = null;
             $quienRegistro = null;
+            $validadorNombre = null;
+            $validadorIniciales = null;
 
-            if ($mov->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA) {
-                $pago = $pagos->get($mov->referencia_id);
-                if ($pago && $pago->alumno) {
-                    $alumnoNombre = $pago->alumno->apellido . ', ' . $pago->alumno->nombre;
+            if ($mov->referencia_tipo === CashflowMovimiento::REF_CAJA) {
+                // Datos de quién validó la caja
+                $caja = $cajas->get($mov->referencia_id);
+                if ($caja && $caja->usuarioAdminValidacion) {
+                    $validadorNombre = $caja->usuarioAdminValidacion->name;
+                    $validadorIniciales = $caja->usuarioAdminValidacion->iniciales();
                 }
-                $quienRegistro = $mov->usuarioAdmin?->name;
-            } elseif ($mov->referencia_tipo === CashflowMovimiento::REF_CAJA) {
-                $cajaId = $mov->referencia_id;
-                if (isset($movsOperativosPorCaja[$cajaId])) {
-                    $pool = &$movsOperativosPorCaja[$cajaId];
+
+                // 1. Vínculo directo guardado (certeza absoluta sin mirar texto ni heurística)
+                if ($mov->movimiento_operativo_id && $mov->movimientoOperativo) {
+                    $mo = $mov->movimientoOperativo;
+                    if ($mo->alumno) {
+                        $alumnoNombre = $mo->alumno->apellido . ', ' . $mo->alumno->nombre;
+                    }
+                    $quienRegistro = $mo->usuario?->name;
+                } elseif (isset($movsOperativosPorCaja[$mov->referencia_id])) {
+                    // 2. Renglón viejo de caja validada antes del cambio: coincidencia exacta o nada
+                    $pool = &$movsOperativosPorCaja[$mov->referencia_id];
                     $matchKey = null;
 
-                    // Match preferido: monto, subrubro y observaciones
                     foreach ($pool as $k => $mo) {
                         $montoMatch = abs((float) $mo->monto) == abs((float) $mov->monto);
                         $subrubroMatch = (int) $mo->subrubro_id === (int) $mov->subrubro_id;
@@ -121,19 +150,6 @@ class CashflowWebController extends Controller
                         }
                     }
 
-                    // Fallback: monto y subrubro
-                    if ($matchKey === null) {
-                        foreach ($pool as $k => $mo) {
-                            $montoMatch = abs((float) $mo->monto) == abs((float) $mov->monto);
-                            $subrubroMatch = (int) $mo->subrubro_id === (int) $mov->subrubro_id;
-
-                            if ($montoMatch && $subrubroMatch) {
-                                $matchKey = $k;
-                                break;
-                            }
-                        }
-                    }
-
                     if ($matchKey !== null) {
                         $mo = $pool[$matchKey];
                         unset($pool[$matchKey]);
@@ -142,13 +158,22 @@ class CashflowWebController extends Controller
                         }
                         $quienRegistro = $mo->usuario?->name;
                     }
+                    // Sin segundo intento por importe y rubro: si no hay certeza, no inventa un alumno.
                     unset($pool);
                 }
+            } elseif ($mov->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA) {
+                $pago = $pagos->get($mov->referencia_id);
+                if ($pago && $pago->alumno) {
+                    $alumnoNombre = $pago->alumno->apellido . ', ' . $pago->alumno->nombre;
+                }
+                $quienRegistro = $mov->usuarioAdmin?->name;
             }
 
             $quienRegistro ??= $mov->usuarioAdmin?->name;
             $mov->alumnoNombre = $alumnoNombre;
             $mov->quienRegistro = $quienRegistro;
+            $mov->validadorNombre = $validadorNombre;
+            $mov->validadorIniciales = $validadorIniciales;
         }
 
         $totalIngresos = (clone $base)

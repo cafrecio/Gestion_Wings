@@ -122,4 +122,51 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subrubro::class);
     }
+
+    /**
+     * Iniciales de 2 letras del usuario (para mostrar quién validó en cashflow).
+     * Desempata si dos administradores activos comparten iniciales (ej. CB y CZ o CO).
+     */
+    public function iniciales(): string
+    {
+        if (empty($this->name)) {
+            return '';
+        }
+
+        $palabras = array_values(array_filter(explode(' ', trim($this->name))));
+        if (count($palabras) === 0) {
+            return '';
+        }
+        if (count($palabras) === 1) {
+            return mb_strtoupper(mb_substr($palabras[0], 0, 2));
+        }
+
+        $primera = mb_strtoupper(mb_substr($palabras[0], 0, 1));
+        $apellido = end($palabras);
+        $inicialApellido = mb_strtoupper(mb_substr($apellido, 0, 1));
+
+        // Desempate si hay colisión con otro usuario activo con el mismo rol
+        $colision = static::where('id', '!=', $this->id)
+            ->where('rol', $this->rol)
+            ->where('activo', true)
+            ->get()
+            ->contains(function ($otro) use ($primera, $inicialApellido) {
+                $p = array_values(array_filter(explode(' ', trim($otro->name))));
+                if (count($p) < 2) return false;
+                $p1 = mb_strtoupper(mb_substr($p[0], 0, 1));
+                $pA = mb_strtoupper(mb_substr(end($p), 0, 1));
+                return $p1 === $primera && $pA === $inicialApellido && $otro->id < $this->id;
+            });
+
+        if ($colision) {
+            $ultima = mb_strtoupper(mb_substr($apellido, -1, 1));
+            if ($ultima !== $inicialApellido) {
+                return $primera . $ultima;
+            }
+            $segunda = mb_strtoupper(mb_substr($apellido, 1, 1));
+            return $primera . $segunda;
+        }
+
+        return $primera . $inicialApellido;
+    }
 }

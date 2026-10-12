@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## T28 — Cashflow: vínculo directo por movimiento y columna Val. (segunda vuelta), 12/10/2026
+
+Gemini CAB implementó la segunda vuelta de T28 tras la revisión de Claude y las decisiones de Carlos del 12/10/2026:
+1. Migración en base de datos: columna `movimiento_operativo_id` (nullable) en `cashflow_movimientos`. Cada movimiento nuevo generado al validar una caja se vincula de forma directa y unívoca con su movimiento operativo de origen, resolviendo el alumno y quién registró sin mirar la observación ni depender de comparaciones de texto.
+2. Tratamiento de movimientos preexistentes: renglones viejos sin ID guardado exigen coincidencia exacta de importe + subrubro + observación con un único movimiento de la caja. Se eliminó el segundo intento por importe y rubro; si no hay certeza exacta, se muestra la observación original y nunca se adivina un alumno.
+3. Columna de validación:
+   - Escritorio: columna «Val.» (50px) al final de la tabla con las 2 iniciales del administrador que validó (ej. `CB`, `VA`) y tooltip (`title`) con el nombre completo. En movimientos directos sin caja, la celda queda vacía (ni iniciales, ni guión, ni texto).
+   - Celular (375px): en la tarjeta, línea inferior con `Registró: <nombre>` a la izquierda y badge compacto `Val: <iniciales>` a la derecha. En directos, solo `Registró: <nombre>`.
+   - Cuidado de importes: ancho de Monto fijado en 125px holgados con soporte de decimales (`FormatoImporte::pesos`), evitando desbordes con importes grandes.
+   - Desempate de iniciales: si dos administradores activos comparten iniciales (ej. Carlos Bonifacio y Carlos Benítez), desempata la segunda letra con la última del apellido (ej. `CB` y `CZ` o `CO`), según decisión de Carlos.
+4. Pruebas: 5 pruebas permanentes en `tests/Feature/CashflowVinculoDirectoYValidadorTest.php` (100% PASS), más `CashflowDetalleAlumnoYUsuarioTest` (5/5 PASS) y `VerificacionT28ClaudeTest` (2/2 PASS con 40 cobros idénticos paginados).
+5. Capturas v2 guardadas en `docs/06-pruebas/PRU-04/evidencia-t28/`: `cashflow-v2-escritorio.png`, `cashflow-v2-celular-375.png`, `login-control-v2-escritorio.png`, `login-control-v2-celular-375.png`.
+6. Tablero: `a_verificar`, `hizo=Gemini`, `tiene=Claude` para verificación independiente de regla en código y base de datos. Informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T28.md`.
+
 ## T26 — Historial de caja del dueño cerrado, 12/10/2026
 
 Gemini CAB verificó la implementación de Claude (`f4a030e`) para T26 («El dueño debe ver todo, los límites no son para él», Carlos 11/10/2026).
@@ -471,7 +485,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **658 pruebas** (656 aprobadas, 2 omitidas; corrida de Gemini en wings_testing_gemini, 12/10. T11 suma 3). [T11](../06-pruebas/PRU-04/IMPLEMENTACION-T11.md) |
+| **Tests** | **671 pruebas** en el árbol local (658 publicadas + 5 de T28 segunda vuelta + 8 de T30). Suite completa de Codex pendiente; no heredar como verde el resultado anterior de T11. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

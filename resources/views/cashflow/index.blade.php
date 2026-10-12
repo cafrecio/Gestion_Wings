@@ -134,11 +134,12 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         <colgroup>
             <col style="width:95px">
             <col style="width:35px">
-            <col style="width:95px">
-            <col style="width:230px">
+            <col style="width:90px">
+            <col style="width:210px">
             <col>
-            <col style="width:110px">
-            <col style="width:160px">
+            <col style="width:125px">
+            <col style="width:145px">
+            <col style="width:50px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -149,6 +150,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Detalle</th>
                 <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
+                <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Val.</th>
             </tr>
         </thead>
         <tbody>
@@ -194,6 +196,9 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 </td>
                 <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '' }}">
                     {{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–' }}
+                </td>
+                <td style="padding:8px 12px; text-align:center; font-size:0.75rem; font-weight:700; color:var(--color-text-muted);" title="{{ $mov->validadorNombre ?? '' }}">
+                    {{ $mov->validadorIniciales ?? '' }}
                 </td>
             </tr>
             @endforeach
@@ -247,8 +252,11 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             {{ $mov->observaciones }}
         </div>
         @endif
-        <div style="font-size:0.7rem; color:var(--color-text-muted);">
-            Registró: {{ $quienReg }}
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.7rem; color:var(--color-text-muted);">
+            <span>Registró: {{ $quienReg }}</span>
+            @if(!empty($mov->validadorIniciales))
+            <span style="font-weight:600; padding:1px 6px; border-radius:4px; background:var(--color-surface-alt); border:1px solid var(--color-border);" title="{{ $mov->validadorNombre ?? '' }}">Val: {{ $mov->validadorIniciales }}</span>
+            @endif
         </div>
     </div>
     @endforeach

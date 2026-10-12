@@ -1,94 +1,81 @@
-# Informe de Implementación T28: Cashflow muestra a quién se le cobró y quién cobró
+# Informe de Implementación T28: Cashflow muestra a quién se le cobró, quién cobró y quién validó
 
-**Fecha:** 12/10/2026  
+**Fecha:** 12/10/2026 (Segunda vuelta)  
 **Autor:** Gemini (CAB) — Firma: **LOG GEM CAB**  
-**Tarea:** T28 — «Cashflow tiene que decir a quién se le cobró y quién cobró»  
-**Origen:** Día 1 de la prueba por días (08/10/2026). Decisión de Carlos del 12/10/2026.  
-**Estado:** Implementada y con diseño visual aprobado por Carlos (12/10/2026: «Para Escritorio. Opcion 1 OK; Para celular. Opcion 2 OK»). Listo para verificación de regla de negocio por otro agente.
+**Tarea:** T28 — «Cashflow: vincular sin adivinar y mostrar quién validó»  
+**Origen:** Día 1 de la prueba por días y revisión de Claude (12/10/2026). Decisiones de Carlos del 12/10/2026.  
+**Estado:** Implementada y con diseño visual aprobado por Carlos (12/10/2026: Opción 1 escritorio «Val.», Opción 2 celular badge «Val: CB», desempate CB/CZ). Listo para verificación de regla de negocio por otro agente.
 
 ---
 
-## 1. Problema que resuelve
+## 1. Problema que resuelve y evolución
 
-En Cashflow (`resources/views/cashflow/index.blade.php`), cuando una operativa cobraba cuotas o inscripciones en el mostrador y la caja se cerraba y validaba:
-1. En la columna 5 («Observaciones» / «Detalle»), se mostraba la observación técnica con el ID del alumno (ej: `Pago cuota alumno #14 - Períodos: 2026-10`) en lugar del apellido y nombre del alumno (`Gomez, Martina`).
-2. En la columna 7 («Registrado»), se mostraba al dueño que validó la caja (`Carlos Administrador`), y no a la operativa que cobró en el mostrador (`Sandra Mostrador`).
-3. El dueño mirando Cashflow no podía saber a quién correspondía cada cobro ni quién lo había realizado efectivamente.
+### Primera vuelta:
+- Al validar una caja, Cashflow mostraba la observación técnica en vez del nombre del alumno y a quien validó en vez de a quien cobró.
+- Se implementó la visualización del nombre del alumno y de la operativa que cobró en el mostrador.
+- Claude identificó en la verificación que el vínculo dependía de heurística de textos sobre la observación.
 
----
-
-## 2. Reglas implementadas
-
-1. **Identificación del alumno:** Todo cobro de cuota o de inscripción muestra en la columna **Detalle** el `Apellido, Nombre` del alumno.
-2. **Identificación de quién cobró:** La columna **Registró** muestra a quien cargó el movimiento: la operativa si provino de una caja validada, o el dueño si lo cobró o cargó directo sin caja.
-3. **Alcance:** Aplica a cobros de cuota y de inscripción, tanto para los que provienen de una caja validada como para los cobros directos del dueño sin caja.
-4. **Gastos y otros movimientos:** Cualquier gasto o movimiento sin alumno conserva en la columna **Detalle** sus observaciones tal cual venía funcionando.
-5. **Consistencia:** Cashflow y el Historial de Caja (`CajaWebController::historial`) dicen exactamente lo mismo para el mismo cobro (mismo alumno y mismo registrador).
-6. **Totales e importes intocados:** No se modifica ningún importe, ningún saldo, ningún total ni el orden cronológico descendente de la lista.
-7. **Idempotencia:** La validación de una caja continúa pasando sus movimientos a Cashflow exactamente una sola vez.
+### Segunda vuelta (decisiones de Carlos del 12/10/2026):
+1. **Vincular sin adivinar:** Cada renglón nuevo de Cashflow generado desde una caja validada sabe de qué movimiento viene mediante un dato guardado (`movimiento_operativo_id`), con su migración de base de datos autorizada explícitamente por Carlos.
+2. **Tratamiento de movimientos preexistentes:** Renglones anteriores al cambio sin ID guardado exigen coincidencia exacta de importe + subrubro + observación con un único movimiento de la caja. Se eliminó completamente el segundo intento por solo importe y subrubro: si no hay certeza exacta, se muestra la observación original y nunca se adivina un alumno.
+3. **Columna de quién validó la caja:**
+   - En escritorio: columna angosta «Val.» (50px) al final de la tabla con las 2 iniciales del administrador que validó (ej. `CB`, `VA`), y en el tooltip (`title`) el nombre completo. Si el movimiento no vino de caja (cobro directo o gasto manual del dueño), la celda queda completamente vacía (ni iniciales, ni guión, ni texto).
+   - En celular: la tarjeta muestra `Registró: <nombre>` a la izquierda y un badge compacto `Val: <iniciales>` a la derecha. Si es directo del dueño, solo muestra `Registró: <nombre>`.
+   - Cuidado de importes: el ancho de la columna Monto se reservó en 125px holgados para soportar montos grandes con decimales sin desbordar (`FormatoImporte::pesos(...)`), tal como Carlos indicó.
+   - Desempate de iniciales: si dos administradores activos comparten iniciales (ej. Carlos Bonifacio y Carlos Benítez), desempata la segunda letra con la última del apellido (ej. `CB` y `CZ` o `CO`), según decisión de Carlos.
 
 ---
 
-## 3. ¿Qué pasa con los movimientos históricos de cajas validadas previas al cambio?
+## 2. Cambios realizados en el código
 
-**Respuesta para Carlos:**  
-**No hace falta ninguna migración de base de datos ni scripts de relleno histórico.**  
-La resolución se diseñó de manera dinámica en `CashflowWebController::index`:
-- Cada asiento en `cashflow_movimientos` proveniente de una caja validada conserva su `referencia_tipo = 'CAJA_OPERATIVA'` y `referencia_id = $cajaId`.
-- Los movimientos operativos originales (`movimientos_operativos`) de esa caja nunca se borran y ya tienen el `alumno_id` y el `usuario_id` (la persona que atendió y cobró en el mostrador).
-- Al renderizar la página de Cashflow (30 movimientos por página), el controlador consulta en batch los `movimientos_operativos` de esas cajas y resuelve de forma inmediata el `Apellido, Nombre` del alumno y el usuario original que registró el movimiento.
-- Por lo tanto, **los movimientos viejos ya existentes en Cashflow se muestran ahora automáticamente con el nombre del alumno y con el nombre de la operativa**, sin tocar la base de datos ni alterar registros históricos.
-- Adicionalmente, para todas las cajas que se validen a futuro, `CashflowIntegracionCajaService::reflejarCajaEnCashflow` guarda `'usuario_admin_id' => $movimiento->usuario_id ?? $adminId`, asegurando consistencia a nivel de registro persistido.
-
----
-
-## 4. Cambios de código y diseño visual aprobado
-
-1. **`app/Services/CashflowIntegracionCajaService.php`:**  
-   En `reflejarCajaEnCashflow`, al persistir cada `CashflowMovimiento` a partir del `MovimientoOperativo`, se almacena `'usuario_admin_id' => $movimiento->usuario_id ?? $adminId`.
-2. **`app/Http/Controllers/CashflowWebController.php`:**  
-   En `index()`, para la página paginada actual, se cargan en batch los `Pago` correspondientes a movimientos con `REF_PAGO_CUOTA` y los `MovimientoOperativo` activos de las cajas con `REF_CAJA`. Se mapea cada movimiento para asignar `$mov->alumnoNombre` (o `null` si no tiene alumno) y `$mov->quienRegistro`.
-3. **`resources/views/cashflow/index.blade.php`:**  
-   Implementación responsive aprobada por Carlos el 12/10/2026:
-   - **Escritorio (Opción 1):** Tabla de 7 columnas rebalanceada (`<colgroup>`: 95px, 35px, 95px, 230px, `<col>` flexible para Detalle, 110px, 160px para Registró completo). Sin espacios blancos sobrantes y sin cortes de nombres.
-   - **Celular (Opción 2):** Vista en tarjetas verticales compactas en `< 768px` (sin scroll horizontal). Cabecera con fecha, chip de caja, tipo `I`/`E` y monto resaltado a la derecha; cuerpo con `Rubro — Subrubro`, alumno destacado o detalle de gasto; pie con `Registró: <nombre>`.
+1. **Migración de base de datos:**  
+   `database/migrations/2026_10_12_120000_add_movimiento_operativo_id_to_cashflow_movimientos.php`: agrega la columna `movimiento_operativo_id` (foreignId nullable hacia `movimientos_operativos` con `nullOnDelete`).
+2. **Modelo `App\Models\CashflowMovimiento`:**  
+   - Agregado `movimiento_operativo_id` a `$fillable`.  
+   - Relación `movimientoOperativo(): BelongsTo` hacia `MovimientoOperativo`.
+3. **Modelo `App\Models\User`:**  
+   - Método `iniciales(): string` con desempate automático de 2 letras en caso de colisión entre administradores activos (`CB` vs `CZ`).
+4. **Servicio `App\Services\CashflowIntegracionCajaService`:**  
+   - En `reflejarCajaEnCashflow()`, al crear cada `CashflowMovimiento` se persiste `'movimiento_operativo_id' => $movimiento->id`. Idempotencia intacta.
+5. **Controlador `App\Http\Controllers\CashflowWebController`:**  
+   - En `index()`:
+     - Eager loading de `movimientoOperativo.alumno`, `movimientoOperativo.usuario` y `CajaOperativa::with('usuarioAdminValidacion')`.
+     - Si `movimiento_operativo_id` está presente: resuelve alumno y quien registró directamente sin mirar observaciones ni heurística.
+     - Si es un renglón viejo sin ID: coincidencia exacta o nada (conserva la observación original).
+     - Si vino de caja: asigna `$mov->validadorNombre` y `$mov->validadorIniciales`. Si no vino de caja, quedan en `null`.
+6. **Vista `resources/views/cashflow/index.blade.php`:**  
+   - **Escritorio:** Encabezado con columna «Val.» (50px) y columna Monto (125px holgado para soportar decimales). Renglón directo muestra celda `<td></td>` vacía; renglón de caja muestra iniciales con `title` del nombre completo.
+   - **Celular (375px):** En la tarjeta, línea inferior con `Registró: <nombre>` a la izquierda y badge `Val: <iniciales>` a la derecha cuando vino de caja. Renglones sin scroll horizontal.
 
 ---
 
-## 5. Pruebas automatizadas
+## 3. Pruebas automatizadas permanentes
 
-Se incorporó una nueva suite permanente de 5 pruebas en `tests/Feature/CashflowDetalleAlumnoYUsuarioTest.php`:
-1. `test_cobro_de_operativa_validado_muestra_alumno_y_operativa_en_cashflow`: Cuota cobrada por Sandra Mostrador en mostrador y validada por Carlos Administrador -> Cashflow muestra `Perez, Juan` en Detalle y `Sandra Mostrador` en Registró.
-2. `test_cobro_del_duenio_sin_caja_muestra_alumno_y_duenio_en_cashflow`: Cuota cobrada directo por el dueño sin caja -> Cashflow muestra `Gomez, Martina` en Detalle y `Carlos Administrador` en Registró.
-3. `test_inscripcion_muestra_alumno_y_quien_cobro_en_caja_y_sin_caja`: Inscripción cobrada por operativa en caja validada muestra alumno y operativa; inscripción cobrada por dueño muestra alumno y dueño.
-4. `test_gasto_sin_alumno_conserva_su_observacion_y_muestra_quien_cargo`: Gasto de mostrador (Sandra) conserva `Compra de lavandina...` y muestra a Sandra; gasto directo de Carlos conserva `Abono mensual...` y muestra a Carlos.
-5. `test_validar_caja_dos_veces_no_duplica_movimientos_en_cashflow`: Idempotencia estricta en la integración de caja con Cashflow.
+En `tests/Feature/CashflowVinculoDirectoYValidadorTest.php` (5 pruebas, 30 aserciones):
+1. `test_validacion_de_caja_guarda_el_id_del_movimiento_operativo_en_cada_renglon_de_cashflow`: Verifica que cada fila creada en Cashflow tenga su `movimiento_operativo_id` apuntando a su movimiento operativo.
+2. `test_renglon_con_id_muestra_alumno_del_movimiento_y_quien_lo_cargo_sin_mirar_observacion`: Modificando la observación a un texto arbitrario sin números ni nombres, demuestra que el alumno y quien registró se resuelven de forma 100% certera por el ID.
+3. `test_renglon_viejo_sin_id_coincidencia_exacta_muestra_alumno_y_sin_coincidencia_exacta_muestra_observacion`: Coincidencia exacta muestra el alumno; si la observación no coincide exacto, muestra la observación original y nunca adivina.
+4. `test_columna_valido_muestra_iniciales_correctas_cuando_viene_de_caja_y_vacia_cuando_es_directo`: Caja validada por Vanina Attorresi muestra `VA` en escritorio y en celular, con tooltip completo; movimiento directo de Carlos Bonifacio deja la celda vacía y sin badge.
+5. `test_desempate_de_iniciales_cuando_dos_administradores_comparten_iniciales`: Carlos Bonifacio (`CB`) y Carlos Benítez (`CZ`) desempatan en 2 letras exactas.
 
-Resultado: **5/5 tests aprobados (32 aserciones)** en `wings_testing_gemini`.
+Resultado en `wings_testing_gemini`: **100% pasando (5/5 tests, 30 aserciones)**.  
+Adicionalmente, `CashflowDetalleAlumnoYUsuarioTest` (5/5) y `VerificacionT28ClaudeTest` (2/2 con 40 cobros idénticos paginados) pasan al 100%.
 
 ---
 
-## 6. Capturas de pantalla reglamentarias finales
+## 4. Capturas reglamentarias finales (v2)
 
 Guardadas en `docs/06-pruebas/PRU-04/evidencia-t28/` generadas desde la aplicación real (`CapturaT28Test.php`) y capturadas con Google Chrome headless (`tomar-capturas.mjs`):
 
 | Vista | Dispositivo | Archivo |
 |---|---|---|
-| Cashflow con cobros de caja, cobro directo del dueño y gastos (Opción 1) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-escritorio.png` |
-| Cashflow con cobros de caja, cobro directo del dueño y gastos (Opción 2 tarjetas) | Celular (marco 360 px) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-celular-360.png` |
-| Control de método (Login) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-escritorio.png` |
-| Control de método (Login) | Celular (marco 360 px) | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-celular-360.png` |
+| Cashflow escritorio con columna Val. y montos con decimales (Opción 1) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-v2-escritorio.png` |
+| Cashflow celular con badge Val: CB y montos con decimales (Opción 2) | Celular marco 375 px | `docs/06-pruebas/PRU-04/evidencia-t28/cashflow-v2-celular-375.png` |
+| Control de método (Login) | Escritorio (1366 × 950) | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-v2-escritorio.png` |
+| Control de método (Login) | Celular marco 375 px | `docs/06-pruebas/PRU-04/evidencia-t28/login-control-v2-celular-375.png` |
 
 ---
 
-## 7. Qué no se probó
+## 5. Próximo paso
 
-- **Navegación manual interactiva:** No se recorrió la pantalla con clicks humanos en vivo en un servidor web local; la totalidad de los flujos se validó mediante suite automatizada de Feature (`CashflowDetalleAlumnoYUsuarioTest`) y renderizado real de la aplicación a HTML para Chrome headless.
-- **Sitio de prueba (VPS):** No se desplegó al sitio de prueba ni a producción; el sitio de prueba y su reloj simulado permanecen intocados.
-- **Liquidaciones de profesores (`REF_LIQUIDACION`):** No corresponden a cobros de alumnos ni estaban en el alcance de T28. Se conservan sin alteraciones.
-
----
-
-## 8. Próximo paso
-
-El aspecto visual ya fue evaluado y aprobado por Carlos el 12/10/2026. Según §6a de AGENTS.md, otro agente (Claude o Codex) debe verificar la regla de negocio y datos en el código y en la base de datos para cerrar definitivamente la tarea en el tablero.
+El diseño visual (Opción 1 escritorio, Opción 2 celular, y desempate CB/CZ) fue definido y aprobado por Carlos el 12/10/2026. La tarea pasa a `a_verificar` en el tablero a cargo de Claude para verificar en código y base de datos.

@@ -41,7 +41,7 @@ class CapturaT28Test extends TestCase
         $admin = User::factory()->create([
             'rol' => User::ROL_ADMIN,
             'activo' => true,
-            'name' => 'Carlos Administrador',
+            'name' => 'Carlos Bonifacio',
         ]);
         $sandra = User::factory()->create([
             'rol' => User::ROL_OPERATIVO,
@@ -172,14 +172,14 @@ class CapturaT28Test extends TestCase
             'observaciones' => 'Abono mensual servicio de internet',
         ]);
 
-        // Guardar Cashflow
+        // Guardar Cashflow v2
         $htmlCashflow = $this->actingAs($admin)->get(route('web.cashflow.index'))->assertOk()->getContent();
-        $this->guardar('cashflow', $htmlCashflow);
+        $this->guardar('cashflow-v2', $htmlCashflow);
 
-        // Guardar Login control
+        // Guardar Login control v2
         auth()->logout();
         $htmlLogin = $this->get(route('login'))->assertOk()->getContent();
-        $this->guardar('login-control', $htmlLogin);
+        $this->guardar('login-control-v2', $htmlLogin);
 
         Carbon::setTestNow();
     }
@@ -190,14 +190,28 @@ class CapturaT28Test extends TestCase
         if (!is_dir($dir)) {
             mkdir($dir, 0775, true);
         }
-        $build = str_replace(chr(92), '/', public_path('build'));
-        $html = str_replace(['src="/build/', 'href="/build/'], ['src="'.$build.'/', 'href="'.$build.'/'], $html);
+        $manifestPath = public_path('build/manifest.json');
+        $cssContent = '';
+        if (file_exists($manifestPath)) {
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+            foreach (['resources/css/app.css', 'resources/css/sidebar.css'] as $entry) {
+                if (isset($manifest[$entry]['file'])) {
+                    $file = public_path('build/' . $manifest[$entry]['file']);
+                    if (file_exists($file)) {
+                        $cssContent .= "\n" . file_get_contents($file);
+                    }
+                }
+            }
+        }
+        if ($cssContent !== '') {
+            $html = str_replace('</head>', "<style>{$cssContent}</style></head>", $html);
+        }
         file_put_contents("{$dir}/{$nombre}.html", $html);
         file_put_contents(
-            "{$dir}/{$nombre}-marco-360.html",
-            '<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Wings · '.$nombre.' (360px)</title></head>'
+            "{$dir}/{$nombre}-marco-375.html",
+            '<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Wings · '.$nombre.' (375px)</title></head>'
             .'<body style="margin:0;background:#888;display:flex;justify-content:center;padding:24px 0;">'
-            .'<iframe src="'.$nombre.'.html" style="width:360px;height:1150px;border:0;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,0.35);border-radius:16px;"></iframe>'
+            .'<iframe src="'.$nombre.'.html" style="width:375px;height:1150px;border:0;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,0.35);border-radius:16px;"></iframe>'
             .'</body></html>'
         );
     }

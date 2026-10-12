@@ -31,6 +31,7 @@ class CashflowMovimiento extends Model
         'usuario_admin_id',
         'referencia_tipo',
         'referencia_id',
+        'movimiento_operativo_id',
     ];
 
     protected $casts = [
@@ -60,5 +61,13 @@ class CashflowMovimiento extends Model
     public function tipoCaja(): BelongsTo
     {
         return $this->belongsTo(TipoCaja::class);
+    }
+
+    /**
+     * Relación con MovimientoOperativo (origen cuando viene de caja validada)
+     */
+    public function movimientoOperativo(): BelongsTo
+    {
+        return $this->belongsTo(MovimientoOperativo::class, 'movimiento_operativo_id');
     }
 }
