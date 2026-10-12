@@ -82,6 +82,14 @@ Guardadas en `docs/06-pruebas/PRU-04/evidencia-t28/` generadas desde la aplicaci
 
 ---
 
-## 7. Próximo paso
+## 7. Qué no se probó
+
+- **Navegación manual interactiva:** No se recorrió la pantalla con clicks humanos en vivo en un servidor web local; la totalidad de los flujos se validó mediante suite automatizada de Feature (`CashflowDetalleAlumnoYUsuarioTest`) y renderizado real de la aplicación a HTML para Chrome headless.
+- **Sitio de prueba (VPS):** No se desplegó al sitio de prueba ni a producción; el sitio de prueba y su reloj simulado permanecen intocados.
+- **Liquidaciones de profesores (`REF_LIQUIDACION`):** No corresponden a cobros de alumnos ni estaban en el alcance de T28. Se conservan sin alteraciones.
+
+---
+
+## 8. Próximo paso
 
 Carlos aprueba las capturas de pantalla de Cashflow. Tras su visto bueno visual, otro agente (Claude o Codex) verifica la regla en código y base de datos para el cierre definitivo de T28.
