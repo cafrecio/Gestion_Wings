@@ -97,24 +97,23 @@ liquidaciones pagadas ni rehacer cierres. Las reglas dependen de las respuestas.
   El original se conserva. Todavía no se decidió la fecha del contraasiento.
 - **Motivo, 12/10:** «No, opcional en ambos casos». No se exige motivo al editar
   ni al eliminar un directo; puede cargarse voluntariamente.
+- **Plazo, 12/10:** «De cualquier mes anterior, sin límite». No se limita la
+  corrección al mes en curso. Esto no decide cómo reflejarla en reportes cerrados.
 
 ## Decisiones pendientes de Carlos
 
-1. **Hasta cuándo.** ¿Se permite cualquier fecha o solo un período determinado?
-   Poder ver cualquier fecha, ya aprobado para el dueño, no decide este permiso
-   para modificarla.
-2. **Caja validada.** ¿Queda solo para consulta o se define un nuevo camino de
+1. **Caja validada.** ¿Queda solo para consulta o se define un nuevo camino de
    corrección? El supuesto de «seguir por rechazar» no existe hoy para VALIDADA:
    el servicio solo acepta CERRADA. No se habilita ese regreso sin tu decisión.
-3. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
+2. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
    El contrato vigente impide tocar una pagada; no lo saltamos por corregir Cashflow.
-4. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
+3. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
    se registra un ajuste en el período actual conservando aquel cierre? No se
    decide automáticamente al agregar Editar/Eliminar.
 
 ## Hallazgos que no se arreglaron en esta etapa
 
-- VALIDADA no se puede rechazar hoy. Se deja visible en la pregunta 2 para no
+- VALIDADA no se puede rechazar hoy. Se deja visible en la pregunta sobre cajas para no
   presentar ese camino como disponible.
 - La edición/cancelación de caja del controlador limita al operativo a su caja;
   el contrato de permisos dice dominio compartido y solo reserva por propietario

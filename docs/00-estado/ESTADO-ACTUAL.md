@@ -10,7 +10,8 @@ Carlos aprobó la propuesta visual el 12/10: «Sí, apruebo la propuesta visual�
 Decidió editar el mismo registro conservando historial del valor anterior y el nuevo.
 Eliminar conserva el original y crea un asiento en contra.
 Motivo opcional para editar y eliminar, por decisión de Carlos.
-Pendientes: plazo, caja validada, liquidación pagada y mes cerrado/fecha del contraasiento.
+Se puede corregir cualquier mes anterior, sin límite.
+Pendientes: caja validada, liquidación pagada y mes cerrado/fecha del contraasiento.
 Hallazgos que requieren definición: rechazarCaja acepta solo CERRADA, no VALIDADA;
 liquidación pagada no se corrige. Además, el controlador limita edición de operativos
 a su caja mientras el contrato limita por propietario solo el cierre; no se cambió.
