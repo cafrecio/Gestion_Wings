@@ -58,9 +58,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T26** Historial de caja: el duenio sin limites de fecha ni de rubros, y viendo lo cancelado | Hecho, espera verificación (hizo Claude) | Gemini verifica la regla (f4a030e): duenio sin limite de fecha ni de rubros y viendo cancelados; operativa igual que antes; anulacion que resta. El diseno ya lo aprobo Carlos |
+Nada en este momento.
 
 ## Sin empezar (19)
 

@@ -11,6 +11,23 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 
+## 2026-10-12 — LOG GEM CAB — Verificación y Cierre T26: Historial de caja del dueño sin límites
+
+- **Objetivo y resultado:** Verificar la implementación de Claude (commit `f4a030e`) para T26 («El dueño debe ver todo, los límites no son para él», Carlos 11/10/2026). Regla verificada y APROBADA. Estado en el tablero pasado a `cerrado` con `verifica=Gemini`.
+- **Qué se comprobó:**
+  1. *Límite de fechas:* El dueño encuentra movimientos de más de 90 días pidiéndolo con `desde`. La operativa no, ni forzando parámetros antiguos en la URL (queda acotada a la ventana de 90 días). Sin fecha solicitada, el dueño arranca por defecto en los últimos 90 días para agilidad.
+  2. *Subrubros exclusivos de ADMIN:* El dueño ve movimientos con subrubros solo de admin y los ve en el select del filtro (`subrubros`). La operativa no ve los movimientos ni el subrubro en el filtro.
+  3. *Cancelados:* El dueño los ve identificados con `· Cancelado` y tachados (`line-through`). La operativa no los ve. En ambos roles `totalIngresos` y `totalEgresos` excluyen lo cancelado.
+  4. *Cobro del dueño sin caja y anulado por camino real:* Flujo real `POST /caja/cobrar/{id}` (`registrarPagoCuotaAdmin`) y `POST /pagos/{id}/anular` (`anularCobroAdmin`). Aparecen ambos renglones con la alumna identificada; la anulación resta (`neto < 0`, rojo en HTML) y los ingresos netos suman $0,00.
+  5. *Profesora:* `GET /caja/historial` devuelve HTTP 403 Forbidden (`reject.profesor.web`).
+  6. *Filtros y paginación:* Búsqueda por texto (alumno, obs, subrubro), selector de subrubro, tipo (INGRESO/EGRESO), fechas y paginación (30 por página).
+  7. *Casos borde agregados:* Una caja operativa cerrada y validada por admin (`reflejarCajaEnCashflow` con `REF_CAJA`) no duplica movimientos ni montos en el historial. Los totales recalculan con exactitud ante cualquier filtro aplicado.
+- **Entorno y pruebas:**
+  - Suite de verificación independiente: `docs/06-pruebas/PRU-04/evidencia-t26/VerificacionT26Test.php` (8 pruebas, 103 aserciones, 100% PASS en 12.8s).
+  - Suite completa: 641 pasando, 2 omitidas (6075 aserciones, 532s) en `wings_testing_gemini`.
+  - No se tocó el sitio de prueba ni su reloj.
+- **Informe:** `docs/06-pruebas/PRU-04/VERIFICACION-T26.md`.
+
 ## 2026-10-11 — LOG GEM CAB — Implementación T23: Apertura con aviso > 50% y rectificación de efectivo inicial
 
 - **Objetivo y resultado:** Implementar las decisiones de Carlos del 11/10 para T23: aviso enfático en pantalla si el efectivo recibido al abrir difiere más de 50% del cierre anterior (si dejó > $0), requiriendo confirmación explícita para abrir; y rectificación del efectivo inicial mientras la caja esté ABIERTA por el operativo del turno o ADMIN, con motivo obligatorio, auditoría completa y recálculo inmediato del esperado. Estado en el tablero pasado a `a_verificar` con `hizo=Gemini` y `tiene=Carlos` para que Carlos apruebe las capturas y luego otro agente verifique la regla.

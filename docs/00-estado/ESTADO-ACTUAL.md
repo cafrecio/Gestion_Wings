@@ -1,5 +1,19 @@
 # Wings — Estado actual
 
+## T26 — Historial de caja del dueño cerrado, 12/10/2026
+
+Gemini CAB verificó la implementación de Claude (`f4a030e`) para T26 («El dueño debe ver todo, los límites no son para él», Carlos 11/10/2026).
+Comprobaciones aprobadas:
+1. El dueño puede ver cualquier fecha histórica con `desde` (arranca en últimos 90 días por defecto); la operativa queda confinada a los 90 días aun forzando fechas en la URL.
+2. El dueño ve subrubros exclusivos de ADMIN en la grilla y en el select de filtros; la operativa solo ve los permitidos para su rol.
+3. Movimientos cancelados: el dueño los ve marcados con `· Cancelado` y tachados (`line-through`); la operativa no los ve; en ambos roles los totales excluyen lo cancelado.
+4. Cobro del dueño sin caja y anulado por camino real (`POST /caja/cobrar/{id}` y `POST /pagos/{id}/anular`): ambos renglones listados con alumna identificada, anulación resta como asiento en contra y total neto da $0,00.
+5. Profesora recibe HTTP 403 Forbidden.
+6. Filtros (texto, subrubro, tipo, fecha) y paginación plenamente funcionales.
+7. Casos borde verificados: caja validada reflejada en cashflow con `REF_CAJA` no duplica filas en el historial; totales recalculan con exactitud ante cualquier filtro aplicado.
+Suite de verificación propia `docs/06-pruebas/PRU-04/evidencia-t26/VerificacionT26Test.php` (8 pruebas, 103 aserciones, 100% verde). Suite completa 641/2 aprobadas en `wings_testing_gemini`.
+Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T26.md`. Tarea T26 CERRADA en el tablero (`verifica=Gemini`). Sin desplegar al sitio de prueba.
+
 ## T24 — aspecto aprobado por Carlos, regla a verificar, 12/10/2026
 
 Codex CAB implementó el componente y el tratamiento común para 16 pantallas/modos,
