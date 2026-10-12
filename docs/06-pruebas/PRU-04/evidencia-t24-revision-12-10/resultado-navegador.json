@@ -1,0 +1,232 @@
+{
+  "verificaciones": 1351,
+  "resultados": [
+    {
+      "caso": "apertura",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "rectificacion",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "cierre-contado",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "cierre-cambio",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "cuota",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "adelantado",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "entregado",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "caja-agregar",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "caja-editar",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "caja-movimiento",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "cashflow",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "grupo-alta",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "grupo-editar",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "profesor-alta",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "profesor-editar",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "medio-alta",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "medio-editar",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "configuracion",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "liquidacion",
+      "modo": "escritorio"
+    },
+    {
+      "caso": "medio-historial",
+      "modo": "escritorio",
+      "soloLectura": true
+    },
+    {
+      "caso": "cierre-con-conteo",
+      "modo": "escritorio",
+      "soloLectura": true
+    },
+    {
+      "caso": "duracion-aviso",
+      "modo": "escritorio",
+      "duracion": 4008.899999976158
+    },
+    {
+      "caso": "apertura",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "rectificacion",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "cierre-contado",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "cierre-cambio",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "cuota",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "adelantado",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "entregado",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "caja-agregar",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "caja-editar",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "caja-movimiento",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "cashflow",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "grupo-alta",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "grupo-editar",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "profesor-alta",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "profesor-editar",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "medio-alta",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "medio-editar",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "configuracion",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "liquidacion",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "medio-historial",
+      "modo": "marco-360",
+      "soloLectura": true
+    },
+    {
+      "caso": "cierre-con-conteo",
+      "modo": "marco-360",
+      "soloLectura": true
+    },
+    {
+      "caso": "login",
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360
+    },
+    {
+      "caso": "duracion-aviso",
+      "modo": "marco-360",
+      "duracion": 4015.600000023842
+    }
+  ],
+  "fallos": []
+}

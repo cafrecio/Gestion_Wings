@@ -128,7 +128,7 @@ class ImportesPesosT24Test extends TestCase
     public function test_las_pantallas_renderizan_el_componente_comun_y_conservan_centavos_al_editar(): void
     {
         $exportar = getenv('WINGS_CAPTURAS_T24') === '1';
-        $destino = base_path('docs/06-pruebas/PRU-04/evidencia-t24/html');
+        $destino = base_path((getenv('WINGS_T24_EVIDENCIA_DIR') ?: 'docs/06-pruebas/PRU-04/evidencia-t24').'/html');
         $pantallas = [];
         if ($exportar && !is_dir($destino)) mkdir($destino, 0775, true);
         foreach (ImportesT24::CASOS as $caso) {
@@ -136,6 +136,10 @@ class ImportesPesosT24Test extends TestCase
             DB::beginTransaction();
             try {
                 $f = new ImportesT24($caso);
+                if ($exportar && $caso === 'configuracion') {
+                    \App\Models\ReglaPrimerPago::create(['nombre' => 'Regla de prueba T24',
+                        'dia_desde' => 1, 'dia_hasta' => 31, 'porcentaje' => 100, 'activo' => true]);
+                }
                 [, , , , $ruta, $selector] = $f->pedido($caso, '48.50');
                 $html = $this->actingAs($caso === 'caja-movimiento' ? $f->operativo : $f->admin)->get($ruta)->assertOk()->getContent();
                 $this->assertStringContainsString('data-money="true"', $html, $caso);

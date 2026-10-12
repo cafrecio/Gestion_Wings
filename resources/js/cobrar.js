@@ -42,7 +42,10 @@
         var maximo = calcularTotal() + saldoInscripcion;
         var total = entregado && entregado.value !== '' ? window.WingsMoney.numero(entregado) : maximo;
         var detalle = document.getElementById('inscripcion-distribucion');
-        if (detalle) detalle.textContent = 'Inscripción: $' + Math.min(total, saldoInscripcion).toLocaleString('es-AR') + ' · Cuotas: $' + Math.max(0, total - saldoInscripcion).toLocaleString('es-AR');
+        if (detalle) {
+            detalle.querySelector('[data-distribucion-inscripcion]').textContent = 'Inscripción $' + Math.min(total, saldoInscripcion).toLocaleString('es-AR', { maximumFractionDigits: 2 });
+            detalle.querySelector('[data-distribucion-cuotas]').textContent = 'Cuotas $' + Math.max(0, total - saldoInscripcion).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
 
         if ((algunaCuota || saldoInscripcion > 0) && tipoCaja && total > 0 && total <= maximo) {
             resumen.style.display = '';
@@ -242,7 +245,7 @@
         if (!opcion || !opcion.value || monto <= 0) return;
 
         var fila = document.createElement('div');
-        fila.className = 'cuota-row';
+        fila.className = 'cuota-row cuota-row--adelantado';
         fila.style.cssText = 'display:flex; align-items:center; gap:12px; padding:10px 14px; border:1px solid var(--color-border); border-radius:8px; background:var(--color-surface);';
 
         var chk = document.createElement('input');
@@ -256,11 +259,14 @@
         chk.style.cssText = 'width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);';
 
         var nombre = document.createElement('div');
+        nombre.className = 'adelanto-nombre';
         nombre.style.cssText = 'flex:1; cursor:default;';
         var etiqueta = document.createElement('span');
+        etiqueta.className = 'adelanto-mes';
         etiqueta.style.cssText = 'font-size:0.85rem; font-weight:600; color:var(--color-text);';
         etiqueta.textContent = opcion.textContent;
         var marca = document.createElement('span');
+        marca.className = 'adelanto-marca';
         marca.style.cssText = 'font-size:0.7rem; font-weight:600; padding:2px 8px; border-radius:999px; margin-left:8px; background:color-mix(in srgb, var(--color-info) 15%, transparent); color:var(--color-info);';
         marca.textContent = 'Adelantado';
         nombre.appendChild(etiqueta);

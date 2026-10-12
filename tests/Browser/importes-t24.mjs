@@ -13,7 +13,7 @@ import assert from 'node:assert/strict';
 const require = createRequire(import.meta.url);
 const {chromium} = require('playwright');
 const raiz = path.resolve('.');
-const evidencia = path.join(raiz, 'docs/06-pruebas/PRU-04/evidencia-t24');
+const evidencia = path.resolve(process.env.WINGS_T24_EVIDENCIA_DIR ?? 'docs/06-pruebas/PRU-04/evidencia-t24');
 const html = path.join(evidencia, 'html');
 const build = process.env.WINGS_T24_BUILD_DIR ? path.resolve(process.env.WINGS_T24_BUILD_DIR) : path.join(raiz, 'public/build');
 const capturas = path.join(evidencia, 'capturas');
@@ -74,6 +74,7 @@ async function comprobarCampo(frame, input, etiqueta, pagina, modo) {
     await input.fill('48.50');
     await input.blur();
     await input.focus(); await input.fill('48000.50'); await input.blur();
+    await frame.locator('.money-notice').waitFor({state:'hidden', timeout:5000});
     await pagina.screenshot({path:path.join(capturas, `${etiqueta}-${modo}-valido.png`)});
 
     for (const texto of ['48.505', '48.000', '48.0000']) {
@@ -108,6 +109,70 @@ async function comprobarCampo(frame, input, etiqueta, pagina, modo) {
     }
 }
 
+async function comprobarRevisionVisual(frame, caso, pagina, modo) {
+    if (['caja-agregar', 'caja-editar'].includes(caso)) {
+        for (const id of ['fecha', 'tipo_caja_id', 'rubro_id', 'subrubro_id', 'monto', 'observaciones']) {
+            verificar(await frame.locator(`label[for="${id}"] svg`).count() === 1, `${caso}: falta icono ${id}`);
+        }
+    }
+    if (caso === 'entregado') {
+        await frame.locator('.cuota-check[data-periodo="2026-10"]').check();
+        const input = frame.locator('#monto-entregado');
+        await input.focus(); await input.fill('48000.50'); await input.blur();
+        const inscripcion = frame.locator('[data-distribucion-inscripcion]');
+        const cuotas = frame.locator('[data-distribucion-cuotas]');
+        verificar(await inscripcion.textContent() === 'Inscripción $5.000', 'Inscripción: desglose incorrecto');
+        verificar(await cuotas.textContent() === 'Cuotas $43.000,50', 'Cuotas: faltan los dos decimales');
+        const a = await inscripcion.boundingBox(); const b = await cuotas.boundingBox();
+        verificar(b.y >= a.y + a.height - 1, 'El desglose no ocupa dos líneas');
+        verificar(await frame.locator('label[for="monto-entregado"] svg').count() === 1, 'Importe entregado: falta icono');
+        await frame.locator('#inscripcion-distribucion').scrollIntoViewIfNeeded();
+        await frame.locator('.money-notice').waitFor({state:'hidden', timeout:5000});
+        await pagina.screenshot({path:path.join(capturas, `inscripcion-desglose-${modo}.png`)});
+    }
+    if (['configuracion', 'liquidacion'].includes(caso)) {
+        const acciones = frame.locator(caso === 'configuracion' ? '.configuracion-form .acciones-celular-derecha' : 'details .acciones-celular-derecha').first();
+        if (modo === 'marco-360') {
+            verificar(await acciones.evaluate(el => getComputedStyle(el).justifyContent === 'flex-end'), `${caso}: Guardar no está a la derecha`);
+        } else {
+            verificar(await acciones.evaluate(el => getComputedStyle(el).justifyContent === 'flex-start'), `${caso}: cambió la posición de escritorio`);
+        }
+        await acciones.scrollIntoViewIfNeeded();
+        await frame.locator('.money-notice').waitFor({state:'hidden', timeout:5000});
+        await pagina.screenshot({path:path.join(capturas, `${caso}-acciones-${modo}.png`)});
+        if (caso === 'configuracion') {
+            for (const grupo of await frame.locator('.acciones-celular-derecha:visible').all()) {
+                verificar(await grupo.evaluate(el => getComputedStyle(el).justifyContent === (innerWidth <= 640 ? 'flex-end' : 'flex-start')), 'Configuración: acciones visibles desalineadas');
+            }
+            await frame.locator('.btn-editar-regla').first().click();
+            const editar = frame.locator('[id^="panel-edit-"]:visible .acciones-celular-derecha');
+            verificar(await editar.evaluate(el => getComputedStyle(el).justifyContent === (innerWidth <= 640 ? 'flex-end' : 'normal')), 'Configuración: acciones al editar regla desalineadas');
+            await editar.scrollIntoViewIfNeeded();
+            await pagina.screenshot({path:path.join(capturas, `configuracion-editar-regla-${modo}.png`)});
+            await frame.locator('.btn-cancelar-edit:visible').click();
+            await frame.locator('#btn-agregar-regla').click();
+            const agregar = frame.locator('#panel-add-regla .acciones-celular-derecha');
+            verificar(await agregar.evaluate(el => getComputedStyle(el).justifyContent === (innerWidth <= 640 ? 'flex-end' : 'flex-start')), 'Configuración: acciones de nueva regla desalineadas');
+            await agregar.scrollIntoViewIfNeeded();
+            await pagina.screenshot({path:path.join(capturas, `configuracion-nueva-regla-${modo}.png`)});
+        }
+    }
+    if (caso === 'adelantado-fila-nueva') {
+        const fila = frame.locator('.cuota-row--adelantado');
+        await fila.scrollIntoViewIfNeeded();
+        const limites = await fila.boundingBox();
+        for (const selector of ['[data-money="true"]', '.adelanto-marca', '.adelanto-mes']) {
+            const caja = await fila.locator(selector).boundingBox();
+            verificar(caja.x >= limites.x && caja.x + caja.width <= limites.x + limites.width + 1, `Adelantado: ${selector} sale de la fila`);
+        }
+        if (modo === 'marco-360') {
+            const marca = await fila.locator('.adelanto-marca').boundingBox();
+            const mes = await fila.locator('.adelanto-mes').boundingBox();
+            verificar(marca.y + marca.height <= mes.y + 1, 'Adelantado no está arriba del mes');
+        }
+    }
+}
+
 try {
     for (const modo of ['escritorio', 'marco-360']) {
         const pagina = await browser.newPage({viewport:modo === 'escritorio' ? {width:1366,height:1000} : {width:700,height:860},deviceScaleFactor:1});
@@ -135,6 +200,7 @@ try {
                     continue;
                 }
                 await comprobarCampo(frame, input, caso.caso, pagina, modo);
+                await comprobarRevisionVisual(frame, caso.caso, pagina, modo);
                 if (modo === 'marco-360') {
                     const ancho = await frame.evaluate(() => ({viewport:innerWidth, pagina:document.documentElement.scrollWidth}));
                     verificar(ancho.viewport === 360 && ancho.pagina <= 360, `${caso.caso}: marco/desborde ${JSON.stringify(ancho)}`);
@@ -144,6 +210,7 @@ try {
                     await input.fill('48.50');
                     await frame.locator('#adelanto-agregar').click();
                     await comprobarCampo(frame, frame.locator('[name="montos_cuota[2026-11]"]'), 'adelantado-fila-nueva', pagina, modo);
+                    await comprobarRevisionVisual(frame, 'adelantado-fila-nueva', pagina, modo);
                 }
                 if (caso.caso === 'grupo-editar') {
                     await frame.locator('#btn-add-plan').click();
@@ -164,12 +231,19 @@ try {
         verificar(erroresJS.length === 0, 'Errores JavaScript: ' + erroresJS.join('; '));
         // Verificación real de duración: desde el aviso hasta su ocultación.
         await pagina.goto(base + 'cashflow.html', {waitUntil:'load'});
-        const input = pagina.locator('#monto');
-        await input.fill('48.505');
-        const comienzo = Date.now();
-        await pagina.locator('.money-notice').waitFor({state:'hidden', timeout:5000});
-        const duracion = Date.now() - comienzo;
+        const duracion = await pagina.evaluate(() => new Promise(resolve => {
+            const input = document.getElementById('monto');
+            const comienzo = performance.now();
+            input.value = '48.505'; input.dispatchEvent(new Event('input', {bubbles:true}));
+            const aviso = document.querySelector('.money-notice');
+            const observer = new MutationObserver(() => {
+                if (aviso.hidden) { observer.disconnect(); resolve(performance.now() - comienzo); }
+            });
+            observer.observe(aviso, {attributes:true, attributeFilter:['hidden']});
+        }));
         verificar(duracion >= 3700 && duracion <= 4400, `Duración del aviso: ${duracion}ms`);
+        await pagina.locator('#monto').fill('48.505');
+        verificar(await pagina.locator('.money-notice').isVisible(), 'El cartel no reaparece después de sus cuatro segundos');
         resultados.push({caso:'duracion-aviso', modo, duracion});
         await pagina.close();
     }

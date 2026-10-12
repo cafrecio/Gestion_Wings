@@ -89,7 +89,7 @@
         </div>
         <div id="add-error"
              style="display:none; color:var(--color-danger); font-size:0.75rem; padding:0 0 8px 1.5rem;"></div>
-        <div class="alumno-actions">
+        <div class="alumno-actions acciones-celular-derecha">
             <x-ds.button variant="primary"   id="btn-guardar-add">Guardar</x-ds.button>
             <x-ds.button variant="secondary" id="btn-cancelar-add">Cancelar</x-ds.button>
         </div>

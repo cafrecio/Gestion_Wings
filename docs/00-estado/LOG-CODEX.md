@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T24, propuesta visual revisada para Carlos
+
+Carlos pidió corregir adelantado desbordado, íconos, desglose y botones móviles a la derecha.
+Adelantado arriba del mes a 360; inscripción/cuotas en dos líneas, cuota con dos decimales.
+Íconos en movimientos/entregado/configuración; acciones de campos/reglas y liquidación a la derecha.
+Repetición real detectó que el cierre general retiraba el aviso T24; ahora respeta su temporizador.
+Suite propia 641/2, 6075 aserciones, 448,36 s; 643 sin cambio de cantidad. Navegador 1351/0 fallas, 100 PNG.
+Build/sintaxis/vistas correctos; respuestas reales de Laravel y assets fijos, marco360/login. Sin sitio de prueba/reloj/deploy.
+[Propuesta, evidencia y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprueba capturas; después otro agente regla; T24 sigue a_verificar.
+Archivo anterior íntegro: [corte antes de esta revisión](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T24-REVISION.txt).
+
 ## 2026-10-11 — Codex CAB — T24 implementada, a verificar por Carlos y después otro agente
 
 16 pantallas/modos con Rectificar T23, filas nuevas de Grupos/adelantados y alta de plan por pedido directo.
@@ -109,17 +120,6 @@ Excel real y siete seeders comprobados con prerrequisitos; suite581/2,4650aserci
 Solo wings_testing_codex/storage aislado; código/vistas/CSS/tests y base del club intactos; sin deploy.
 Tablero devuelto, tieneClaude;64/74 cerrados. [Informe](../06-pruebas/PRU-02/VERIFICACION-B10.md).
 Siguiente: Claude corrige ambos rechazos; alias numérico es observación para Carlos. Corte anterior íntegro.
-
-## 2026-10-10 — Codex CyE — A42 verificado sin duplicar la consulta inicial
-
-Carlos autorizó «Sí, verificar y registrar»; la llamada ya existía desde11623b6, confirmado en fuente/bundle.
-Ningún archivo de aplicación, vista/CSS o alumnos-form.js cambiado; Carlos exige JS siempre externo.
-Chrome real:13 controles aprobados; tres ediciones, alta vacía, error real, DNI/fecha y cuota cerrada.
-Filas ficticias/saldos conservados; alta inválida ausente. Solo wings_testing_codex; sin base del club/deploy.
-Otro agente leyó programas/resultados y ochoPNG: control acotado aprobado; no ejecutó suite ni navegador.
-Build1,63s correcto; suite completa573/2,4616aserciones,559,63s correcta. Primera corrida552/2/21 fallas por esquema; causa no demostrada.
-[Entrega y evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A42.md). Tablero a_verificar, hizoCodex, tiene nadie.
-Siguiente: asignar verificador; no autocierre. Archivo anterior íntegro preservado.
 
 [Archivo íntegro anterior a T15](../99-archivo/bitacoras/2026-10-10/LOG-CODEX-CORTE-T15.txt).
 

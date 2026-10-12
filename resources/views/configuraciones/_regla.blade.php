@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="alumno-actions">
+    <div class="alumno-actions acciones-celular-derecha">
         <x-ds.button variant="secondary" class="btn-editar-regla" data-id="{{ $id }}">Editar</x-ds.button>
         <x-ds.button variant="danger"    class="btn-eliminar-regla" data-id="{{ $id }}">Eliminar</x-ds.button>
     </div>
@@ -60,7 +60,7 @@
         </div>
         <div id="edit-error-{{ $id }}"
              style="display:none; color:var(--color-danger); font-size:0.75rem; padding:6px 0 0 1.5rem;"></div>
-        <div style="display:flex; gap:8px; margin-top:12px; padding-left:1.5rem;">
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; margin-top:12px; padding-left:1.5rem;">
             <x-ds.button variant="primary"   class="btn-guardar-regla"  data-id="{{ $id }}">Guardar</x-ds.button>
             <x-ds.button variant="secondary" class="btn-cancelar-edit"  data-id="{{ $id }}">Cancelar</x-ds.button>
         </div>

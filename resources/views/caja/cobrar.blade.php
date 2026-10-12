@@ -257,9 +257,15 @@
     <div class="alumno-card mb-3">
         <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
         <p>Pendiente por única vez: ${{ number_format($saldoInscripcion, 2, ',', '.') }}. Se cubre antes que la cuota, en cualquiera de los deportes.</p>
-        <label for="monto-entregado">Importe que entrega (dejar vacío para cobrar el total)</label>
+        <label for="monto-entregado" class="{{ $labelClass }}">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+            Importe que entrega (dejar vacío para cobrar el total)
+        </label>
         <x-ds.money-input id="monto-entregado" name="monto_entregado" min="0.01" max="99999999.99" :prefix="false" />
-        <p id="inscripcion-distribucion" aria-live="polite"></p>
+        <p id="inscripcion-distribucion" aria-live="polite">
+            <span class="block" data-distribucion-inscripcion></span>
+            <span class="block" data-distribucion-cuotas></span>
+        </p>
     </div>
     @endif
 

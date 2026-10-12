@@ -105,6 +105,8 @@ import './money-input';
 (function () {
     setTimeout(function () {
         document.querySelectorAll('.ds-flash').forEach(function (el) {
+            // T24 conserva este cartel y controla sus cuatro segundos y cada reaparición.
+            if (el.classList.contains('money-notice')) return;
             if (el.querySelector('a, button')) return;
             el.style.transition = 'opacity 0.5s ease';
             el.style.opacity = '0';

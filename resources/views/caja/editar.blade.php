@@ -12,6 +12,7 @@
 
 @php
 $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
+$iconAttr = 'class="w-3.5 h-3.5 flex-shrink-0" style="color:var(--color-btn-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"';
 
 $rubroActual    = old('rubro_id', $editando ? ($movimiento->subrubro?->rubro_id ?? '') : '');
 $subrubroActual = old('subrubro_id', $editando ? ($movimiento->subrubro_id ?? '') : '');
@@ -39,6 +40,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
     {{-- ── Tipo I/E ─────────────────────────────────────────────────────── --}}
     <div class="filtros-card mb-4" id="tipo-card" style="transition: border-left 0.2s;">
         <p class="{{ $labelClass }}" style="margin-bottom:0.75rem;">
+            <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>
             Tipo de movimiento <span class="form-required">*</span>
         </p>
         <div style="display:flex; gap:12px; margin-bottom:1.25rem;">
@@ -67,7 +69,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Fecha --}}
             <div>
-                <label for="fecha" class="{{ $labelClass }}">Fecha <span class="form-required">*</span></label>
+                <label for="fecha" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Fecha <span class="form-required">*</span></label>
                 <input type="date" id="fecha" name="fecha"
                        value="{{ $fechaActual }}" required
                        max="{{ today()->format('Y-m-d') }}"
@@ -77,7 +79,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Tipo de caja --}}
             <div>
-                <label for="tipo_caja_id" class="{{ $labelClass }}">Medio de pago <span class="form-required">*</span></label>
+                <label for="tipo_caja_id" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>Medio de pago <span class="form-required">*</span></label>
                 <select id="tipo_caja_id" name="tipo_caja_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
@@ -92,7 +94,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Rubro --}}
             <div>
-                <label for="rubro_id" class="{{ $labelClass }}">Rubro <span class="form-required">*</span></label>
+                <label for="rubro_id" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>Rubro <span class="form-required">*</span></label>
                 <select id="rubro_id" name="rubro_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar...</option>
@@ -108,7 +110,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Subrubro --}}
             <div>
-                <label for="subrubro_id" class="{{ $labelClass }}">Subrubro <span class="form-required">*</span></label>
+                <label for="subrubro_id" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>Subrubro <span class="form-required">*</span></label>
                 <select id="subrubro_id" name="subrubro_id" required
                         class="w-full px-4 py-2.5 text-sm wings-input cursor-pointer">
                     <option value="">Seleccionar rubro primero...</option>
@@ -127,7 +129,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Monto --}}
             <div>
-                <label for="monto" class="{{ $labelClass }}">Monto <span class="form-required">*</span></label>
+                <label for="monto" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>Monto <span class="form-required">*</span></label>
                 <x-ds.money-input id="monto" name="monto" :value="$montoActual"
                                   min="0.01" :prefix="false" required />
                 @error('monto') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
@@ -135,7 +137,7 @@ $formMethod = $editando ? 'PUT' : 'POST';
 
             {{-- Observaciones --}}
             <div>
-                <label for="observaciones" class="{{ $labelClass }}">Observaciones <span class="form-required">*</span></label>
+                <label for="observaciones" class="{{ $labelClass }}"><svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>Observaciones <span class="form-required">*</span></label>
                 <input type="text" id="observaciones" name="observaciones"
                        value="{{ $obsActual }}" required maxlength="500"
                        class="w-full px-4 py-2.5 text-sm wings-input"

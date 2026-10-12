@@ -1,5 +1,56 @@
 # T24 — Un solo modo de cargar importes en Wings
 
+## Revisión solicitada por Carlos, 12/10/2026
+
+**Nueva propuesta visual; pendiente de aprobación.** Carlos devolvió las primeras
+capturas: desborde del mes adelantado, íconos faltantes, desglose de inscripción
+y botones a la izquierda en celular. [Visor revisado](evidencia-t24-revision-12-10/visor.html).
+El visor del 11/10 se conserva para comparar; sus capturas no acreditan esta revisión.
+
+- Cobrar a 360 px: «Adelantado» arriba del mes y el importe dentro de la fila.
+  El escritorio conserva el distintivo junto al mes. Se mide el límite de la fila
+  y de sus tres elementos; medir solamente el ancho de la página no detectaba el defecto.
+- Íconos del mismo sistema en agregar/editar movimiento de Caja, importe entregado
+  e inscripción de Configuración. No se agrega JavaScript a las vistas ni colores propios.
+- Desglose en dos líneas: `Inscripción $5.000` y `Cuotas $43.000,50` al entregar
+  $48.000,50. Los cálculos de imputación siguen siendo los mismos; las cuotas muestran
+  siempre dos decimales y la inscripción conserva sus centavos cuando los tiene.
+- Acciones a la derecha en celular: campos, edición y alta de reglas de Configuración,
+  y Guardar del ajuste de Liquidación. Sus posiciones de escritorio se conservan.
+- La repetición del aviso detectó otra falla de T24: el cierre general de `.ds-flash`
+  retiraba el cartel de importes del documento. Se lo excluye de ese cierre para que
+  su temporizador propio controle los cuatro segundos y pueda reaparecer.
+  [Falla reproducida antes de corregir](evidencia-t24-revision-12-10/navegador-primera-revision.json).
+
+Suite completa propia: **641 aprobadas, 2 omitidas, 6075 aserciones, 448,36 s**.
+La cantidad sigue siendo 643: no se agregaron métodos de PHPUnit ni se cambió su guardián.
+Además, los cinco controles de T24 pasaron con 842 aserciones; la generación final
+de pantallas pasó con 67. Build, sintaxis y compilación/limpieza de vistas correctos.
+[Salida completa](evidencia-t24-revision-12-10/suite-completa.txt).
+Navegador final: **1351 comprobaciones sin fallas y 100 PNG**; validación de importes,
+límites de fila, desglose, íconos, acciones y repetición/duración del aviso.
+[Resultado del navegador](evidencia-t24-revision-12-10/resultado-navegador.json).
+
+Las respuestas finales de Laravel se generaron en `wings_testing_codex`, con personas
+y una regla ficticias, y se operaron en Chrome con assets congelados en la carpeta
+de esta revisión. La generación admite `WINGS_T24_EVIDENCIA_DIR` para conservar la
+primera entrega. El control del temporizador mide dentro del navegador, evitando
+incluir la demora de comunicación de la herramienta.
+
+Capturas de revisión, dentro de `evidencia-t24-revision-12-10/capturas/`:
+`adelantado-fila-nueva-marco-360-valido.png`, `adelantado-fila-nueva-marco-360-aviso.png`,
+`inscripcion-desglose-marco-360.png`, `caja-agregar-marco-360-valido.png`,
+`caja-editar-marco-360-valido.png`, `configuracion-acciones-marco-360.png`,
+`configuracion-editar-regla-marco-360.png`, `configuracion-nueva-regla-marco-360.png`,
+`liquidacion-acciones-marco-360.png` y `login-marco-360.png`.
+El mismo visor incluye escritorio y nuevamente todo el inventario de importes.
+
+No se probó teléfono físico ni teclado Android/iOS, ni navegación autenticada desde
+el navegador al sitio real: la autenticación del HTML fue mediante Laravel de pruebas.
+Chrome no envió formularios. No se usó ni modificó el sitio de prueba, su reloj,
+la base del club o producción. La suite prueba las reglas del servidor; la revisión
+independiente y la aprobación visual de Carlos siguen pendientes. **T24 no se cierra.**
+
 ## Entrega en desarrollo, 11/10/2026
 
 **Implementada; suite completa verde. No cerrada ni desplegada.**

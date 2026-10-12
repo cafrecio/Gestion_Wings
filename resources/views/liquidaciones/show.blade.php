@@ -307,7 +307,7 @@
                     @error('motivo')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
                 </div>
             </div>
-            <div class="alumno-actions mt-3"><x-ds.button variant="primary" type="submit">Guardar</x-ds.button></div>
+            <div class="alumno-actions acciones-celular-derecha mt-3"><x-ds.button variant="primary" type="submit">Guardar</x-ds.button></div>
         </form>
     </details>
     @endif

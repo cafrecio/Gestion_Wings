@@ -130,7 +130,7 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 
 - En celular, los botones y el interruptor del pie de tarjeta se alinean a la derecha, también cuando ocupan más de una fila.
 - Carlos: «Dijimos que los botones en el celular se alinean todos a la derecha».
-- Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. Ajuste local actual: Alumnos, Grupos y Profesores. No se cambia el tamaño ni el funcionamiento del interruptor.
+- Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. Ajustes locales: Alumnos, Grupos, Profesores, Configuración (campos y reglas) y Guardar del ajuste de Liquidación. No se cambia el tamaño ni el funcionamiento del interruptor.
 
 ## 8. DÓNDE VIVE EL JAVASCRIPT
 
