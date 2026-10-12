@@ -50,7 +50,6 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 2e059ff (10/10), con el reloj simulado fijado ese dia en el lunes 12/10. Falta desplegar lo publicado despues: T21, T23, T24 y T26. No desplegar mientras Codex recorre un dia de la prueba |
-| **T24** Un solo modo de cargar importes en todo Wings: punto como separador decimal, hasta dos decimales | Hecho, espera verificación (hizo Codex) | Carlos aprobo las pantallas: Ahora OK (12/10); Claude verifica la regla de importes y las pruebas. Sin desplegar |
 | **T29** Buscador de Cobrar: la lista sin buscar muestra solo a los que deben, igual que el numero del encabezado | En curso | Salio del dia 1 de la prueba: anunciaba 40 con deuda y listaba 100. Lo hace Claude por decision de Carlos (12/10); a cualquier otro alumno se llega buscando |
 
 ## Codex
