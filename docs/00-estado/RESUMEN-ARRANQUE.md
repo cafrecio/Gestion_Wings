@@ -119,6 +119,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Decisiones pendientes que deben viajar entre sesiones
 
+- **Obligatorio antes de desplegar a producción (Carlos, 12/10):** T27, una sola pantalla desde donde el dueño edita o elimina sus movimientos; y clasificar los subrubros de producción uno por uno con Carlos (T16).
+
 - Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
