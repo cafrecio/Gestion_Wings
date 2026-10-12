@@ -52,9 +52,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T30** Mostrar los centavos: las pantallas redondean importes que ahora se cargan con decimales | Devuelto (hizo Codex) | Regla verificada por Claude (12/10) y vistas aprobadas por Carlos. Devuelto por una sola cosa: las 5 pruebas de T30 solo corren en wings_testing_codex y dejan la suite en rojo en cualquier otra base de pruebas. Permitir las cuatro bases descartables, como ya hace T24 |
+Nada en este momento.
 
 ## Gemini
 

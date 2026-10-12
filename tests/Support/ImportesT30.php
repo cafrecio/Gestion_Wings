@@ -19,8 +19,8 @@ final class ImportesT30
 
     public function __construct(string $importe = '1250.50', bool $sinCaja = false)
     {
-        if (config('database.connections.mysql.database') !== 'wings_testing_codex') {
-            throw new \RuntimeException('T30 exige wings_testing_codex, nunca la base del club.');
+        if (!in_array(config('database.connections.mysql.database'), ['wings_testing', 'wings_testing_codex', 'wings_testing_claude', 'wings_testing_gemini'], true)) {
+            throw new \RuntimeException('T30 solo permite bases descartables de pruebas, nunca la base del club.');
         }
         // Las migraciones pueden haberse ejecutado antes bajo otro reloj de test.
         // Este escenario conoce octubre completo; no depende del orden de la suite.
