@@ -11,8 +11,9 @@ Decidió editar el mismo registro conservando historial del valor anterior y el 
 Eliminar conserva el original y crea un asiento en contra.
 Motivo opcional para editar y eliminar, por decisión de Carlos.
 Se puede corregir cualquier mes anterior, sin límite.
-Pendientes: caja validada, liquidación pagada y mes cerrado/fecha del contraasiento.
-Hallazgos que requieren definición: rechazarCaja acepta solo CERRADA, no VALIDADA;
+Caja validada: solo consulta, sin edición ni eliminación desde T27.
+Pendientes: liquidación pagada y mes cerrado/fecha del contraasiento.
+Hallazgos del relevamiento: rechazarCaja acepta solo CERRADA, no VALIDADA;
 liquidación pagada no se corrige. Además, el controlador limita edición de operativos
 a su caja mientras el contrato limita por propietario solo el cierre; no se cambió.
 T27 queda en_curso con Carlos; no se cierra ni se despliega.

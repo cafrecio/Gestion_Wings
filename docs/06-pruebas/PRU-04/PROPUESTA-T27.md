@@ -23,8 +23,8 @@ pantalla financiera con los mismos movimientos y totales.
   validar**, hacia el detalle y la edición actuales. No sumarlas de nuevo a los
   totales confirmados de Cashflow.
 - Caja validada y liquidación pagada: se muestran y se puede **Ver** su origen.
-  Las correcciones de esos dos tipos están pendientes de decisión; la maqueta
-  no decide que queden fuera definitivamente ni habilita una excepción.
+  Carlos decidió que la caja validada quede **solo para consulta**.
+  La corrección de liquidaciones pagadas sigue pendiente de decisión.
 
 [Visor de propuesta y pantallas actuales](evidencia-t27/visor.html).
 
@@ -99,22 +99,21 @@ liquidaciones pagadas ni rehacer cierres. Las reglas dependen de las respuestas.
   ni al eliminar un directo; puede cargarse voluntariamente.
 - **Plazo, 12/10:** «De cualquier mes anterior, sin límite». No se limita la
   corrección al mes en curso. Esto no decide cómo reflejarla en reportes cerrados.
+- **Caja validada, 12/10:** «Solo consulta». Sus movimientos muestran acceso al
+  origen, sin edición ni eliminación desde T27.
 
 ## Decisiones pendientes de Carlos
 
-1. **Caja validada.** ¿Queda solo para consulta o se define un nuevo camino de
-   corrección? El supuesto de «seguir por rechazar» no existe hoy para VALIDADA:
-   el servicio solo acepta CERRADA. No se habilita ese regreso sin tu decisión.
-2. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
+1. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
    El contrato vigente impide tocar una pagada; no lo saltamos por corregir Cashflow.
-3. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
+2. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
    se registra un ajuste en el período actual conservando aquel cierre? No se
    decide automáticamente al agregar Editar/Eliminar.
 
 ## Hallazgos que no se arreglaron en esta etapa
 
-- VALIDADA no se puede rechazar hoy. Se deja visible en la pregunta sobre cajas para no
-  presentar ese camino como disponible.
+- VALIDADA no se puede rechazar hoy. Carlos decidió consulta únicamente en T27;
+  no se presenta el rechazo de una validada como camino disponible.
 - La edición/cancelación de caja del controlador limita al operativo a su caja;
   el contrato de permisos dice dominio compartido y solo reserva por propietario
   el cierre. Es una diferencia previa: T27 propone acceso ADMIN y no cambia esos

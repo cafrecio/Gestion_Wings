@@ -120,7 +120,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 ## Decisiones pendientes que deben viajar entre sesiones
 
 - **Obligatorio antes de desplegar a producción (Carlos, 12/10):** T27, una sola pantalla desde donde el dueño edita o elimina sus movimientos; y clasificar los subrubros de producción uno por uno con Carlos (T16).
-- **T27 propuesta visual aprobada (Carlos, 12/10):** [propuesta y capturas](../06-pruebas/PRU-04/PROPUESTA-T27.md). Edición del mismo registro con historial anterior/nuevo; eliminación conserva el original y crea contraasiento; motivo opcional; cualquier mes anterior sin límite. Tiene Carlos: decide caja validada, liquidación pagada y reportes cerrados. No empezar etapa 2 sin esas respuestas.
+- **T27 propuesta visual aprobada (Carlos, 12/10):** [propuesta y capturas](../06-pruebas/PRU-04/PROPUESTA-T27.md). Edición del mismo registro con historial anterior/nuevo; eliminación conserva el original y crea contraasiento; motivo opcional; cualquier mes anterior sin límite; caja validada solo consulta. Tiene Carlos: decide liquidación pagada y reportes cerrados. No empezar etapa 2 sin esas respuestas.
 
 - Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
