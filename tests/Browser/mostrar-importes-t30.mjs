@@ -7,12 +7,14 @@ const require = createRequire(import.meta.url);
 const {chromium} = require('playwright');
 const raiz = path.resolve('.');
 const fase = process.env.WINGS_T30_FASE ?? 'despues';
-const evidencia = path.join(raiz, 'docs/06-pruebas/PRU-04/evidencia-t30', fase === 'antes' ? 'antes' : '');
+const evidencia = path.join(raiz, process.env.WINGS_T30_EVIDENCIA_DIR ?? 'docs/06-pruebas/PRU-04/evidencia-t30', fase === 'antes' ? 'antes' : '');
 const carpetaHtml = path.join(evidencia, 'html');
 const build = path.join(evidencia, 'build');
 const capturas = path.join(evidencia, 'capturas');
 fs.mkdirSync(capturas, {recursive:true});
-const pantallas = JSON.parse(fs.readFileSync(path.join(evidencia, 'pantallas.json'), 'utf8'));
+const seleccion = process.env.WINGS_T30_CASOS?.split(',');
+const pantallas = JSON.parse(fs.readFileSync(path.join(evidencia, 'pantallas.json'), 'utf8'))
+    .filter(p => !seleccion || seleccion.includes(p.caso));
 const tipos = {'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css',
     '.json':'application/json','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.ico':'image/x-icon'};
 const server = http.createServer((req, res) => {
@@ -45,6 +47,7 @@ async function preparar(frame, caso) {
     if (caso === 'profesor-alta') await frame.locator('#deporte_id').selectOption({index:1});
     if (caso === 'liquidacion-comision') await frame.getByText('Editar monto final', {exact:true}).click();
     if (caso === 'primera-carga') await frame.locator('#paso-4').scrollIntoViewIfNeeded();
+    if (caso === 'reportes') await frame.locator('.rv-breakdown').first().scrollIntoViewIfNeeded();
 }
 
 async function medir(frame) {
@@ -80,6 +83,25 @@ async function medir(frame) {
                 }
             }
         }
+        for (const fila of document.querySelectorAll('.rv-breakdown-row')) {
+            const limite = fila.getBoundingClientRect();
+            if (innerWidth <= 700) {
+                const titulo = fila.querySelector('.rv-breakdown-title');
+                const porcentaje = fila.querySelector('.rv-row-share');
+                const importe = fila.querySelector('strong');
+                if (titulo && porcentaje && importe) {
+                    const t = titulo.getBoundingClientRect(), p = porcentaje.getBoundingClientRect(), m = importe.getBoundingClientRect();
+                    if (p.top >= t.bottom || p.right > limite.right + 1 || m.top < t.bottom - 1) {
+                        problemas.push({tipo:'porcentaje-no-esta-junto-al-titulo',texto:titulo.textContent.trim()});
+                    }
+                }
+            }
+            for (const el of fila.querySelectorAll('strong, .rv-row-share, .rv-breakdown-title')) {
+                const range = document.createRange(); range.selectNodeContents(el);
+                const rect = range.getBoundingClientRect();
+                if (rect.right > limite.right + 1) problemas.push({tipo:'leyenda-fuera-de-tarjeta',texto:el.textContent.trim(),ancho:rect.width,disponible:limite.right-rect.left});
+            }
+        }
         return {viewport:innerWidth,pagina:document.documentElement.scrollWidth,problemas};
     });
 }
@@ -106,6 +128,7 @@ try {
                 const frame = modo === 'marco-360' ? page.frames().find(f => f !== page.mainFrame()) : page.mainFrame();
                 await frame.waitForFunction(() => Boolean(window.WingsMoney));
                 await preparar(frame, pantalla.caso);
+                await frame.evaluate(() => document.fonts.ready.then(() => undefined));
                 // En el teléfono, el importe probado debe estar dentro de la captura,
                 // también cuando el resumen aparece debajo de gráficos o formularios largos.
                 await frame.evaluate(esperado => {
@@ -169,7 +192,8 @@ try {
 } catch (error) {
     fallos.push({id:'control-general',error:error.message});
 } finally {
-    fs.writeFileSync(path.join(evidencia,'resultado-navegador.json'), JSON.stringify({fase,controles,resultados,fallos},null,2));
+    const archivoResultado = seleccion ? 'resultado-navegador-seleccion.json' : 'resultado-navegador.json';
+    fs.writeFileSync(path.join(evidencia,archivoResultado), JSON.stringify({fase,controles,resultados,fallos},null,2));
     await browser.close(); await new Promise(resolve => server.close(resolve));
 }
 console.log(JSON.stringify({fase,controles,capturas:resultados.length,fallos},null,2));

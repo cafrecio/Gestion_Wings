@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T30, porcentaje junto al rubro en celular
+
+Carlos marcó el desborde de la leyenda y pidió porcentaje junto al título.
+Nombre/porcentaje arriba, importe debajo a 360; escritorio conserva porcentaje junto al monto.
+Misma fórmula y formato; texto del importe móvil a 0,85 rem para que entre completo.
+Control nuevo de límites de la leyenda y fuentes cargadas: detectó dos fallos anteriores.
+Revisión: 563 controles/0 fallas, 162 PNG y login; respuestas reales en base propia.
+Suite propia: 669/2, 6395 aserciones, 530,97 s; 671. Sin sitio de prueba/reloj/despliegue ni cierre.
+[Captura de celular](../06-pruebas/PRU-04/evidencia-t30/revision-porcentajes-ultima/capturas/reportes-millones-marco-360.png).
+Carlos: «El resto de las vistas OK»; solo falta la leyenda de Reportes, después otro agente verifica la regla. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).
+
 ## 2026-10-12 — Codex CAB — T30, centavos y formato compartido, a verificar
 
 Inventario completo; $48,000.50 y siempre dos decimales por decisión de Carlos.
@@ -108,17 +119,4 @@ Capturas solo de hallazgos/contrastes; ningún archivo de aplicación cambiado. 
 [Informe único](../06-pruebas/PRU-04/DIA-01.md). T14 a_verificar, tiene/verifica Claude; sin autocierre.
 Sigue: Claude verifica los hallazgos; mañana continúa desde estos pagos/asistencias, sin repetir cobros ni limpiar.
 
-## 2026-10-10 — Codex CyE — T15 implementada, a verificar por Claude
-
-Cuatro errores en castellano (404/500/503/429), con el sistema visual de403; menú ADMIN dice Inicio.
-Carlos confirmó «Sí, conservar permisos y login»: alumno inexistente no salta login/permiso.
-500/503 sin consultas de sesión/auth/base; Volver pasa por el ingreso y recupera el inicio del rol.
-JSON, validaciones, sesión expirada y Retry-After conservados;500 interno/HTTP registrado.
-13 pruebas nuevas/301 aserciones; suite594 aprobadas/2 omitidas,4966 aserciones,695,25s; build46,84s.
-173PNG reales:32 errores/roles,134 menú,4 caída/mantenimiento,2 primera carga,1 login360; ancho1366/marco360.
-Fuente/resultado y cuatro PNG controlados por otro agente; sin ejecución ni cierre por ese control.
-Solo wings_testing_codex y storage propios; base del club intacta, sin deploy, JS externo.
-Tablero T15 a_verificar, tiene/verificaClaude;65/74 cerrados. [Entrega y visor](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md).
-Siguiente: Claude verifica en fuente/pantalla y, si aprueba, actualiza el sitio de prueba.
-
-[Archivo íntegro anterior a T30](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T30.txt).
+[Archivo íntegro antes de esta revisión](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T30-PORCENTAJE.txt).

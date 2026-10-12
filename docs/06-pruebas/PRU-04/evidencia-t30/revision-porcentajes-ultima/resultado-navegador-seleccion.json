@@ -1,0 +1,55 @@
+{
+  "fase": "despues",
+  "controles": 15,
+  "resultados": [
+    {
+      "id": "reportes-centavos",
+      "caso": "reportes",
+      "perfil": "centavos",
+      "ruta": "/reportes",
+      "esperado": "$4,252.50",
+      "campo": false,
+      "modo": "escritorio",
+      "viewport": 1366,
+      "pagina": 1366,
+      "problemas": []
+    },
+    {
+      "id": "reportes-millones",
+      "caso": "reportes",
+      "perfil": "millones",
+      "ruta": "/reportes",
+      "esperado": "$3,750,502.50",
+      "campo": false,
+      "modo": "escritorio",
+      "viewport": 1366,
+      "pagina": 1366,
+      "problemas": []
+    },
+    {
+      "id": "reportes-centavos",
+      "caso": "reportes",
+      "perfil": "centavos",
+      "ruta": "/reportes",
+      "esperado": "$4,252.50",
+      "campo": false,
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360,
+      "problemas": []
+    },
+    {
+      "id": "reportes-millones",
+      "caso": "reportes",
+      "perfil": "millones",
+      "ruta": "/reportes",
+      "esperado": "$3,750,502.50",
+      "campo": false,
+      "modo": "marco-360",
+      "viewport": 360,
+      "pagina": 360,
+      "problemas": []
+    }
+  ],
+  "fallos": []
+}

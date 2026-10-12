@@ -8,6 +8,13 @@ se conservan. Regla común PHP/JS, sin cambiar cálculos ni validaciones de T24.
 T28 se publicó independiente primero (`e1e73d8`), T30 se aplica después.
 Suite propia: 669 aprobadas/2 omitidas, 6395 aserciones; 671 pruebas.
 [Inventario, capturas y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).
+Revisión visual 12/10: Carlos señaló porcentaje desbordado en la leyenda de Reportes;
+porcentaje junto al rubro e importe debajo en celular. Nueva medición de la leyenda,
+563 controles/0 fallas en la revisión, sin cambiar fórmulas. Capturas nuevas en
+`evidencia-t30/revision-porcentajes-ultima/`; suite propia 669 aprobadas/2 omitidas,
+6395 aserciones, 530,97 s.
+Carlos aprobó el resto: «El resto de las vistas OK». Solo la leyenda está pendiente
+de aprobación visual; después otro agente verifica la regla.
 No cerrar ni desplegar: Carlos aprueba las capturas, después otro agente verifica la regla.
 
 ## T28 — Cashflow: vínculo directo por movimiento y columna Val. (segunda vuelta), 12/10/2026
@@ -495,7 +502,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **671 pruebas**: 669 aprobadas, 2 omitidas; 6395 aserciones, 585,49 s. Suite completa en wings_testing_codex, 12/10, T30 sobre T28 publicado. [Entrega T30](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). |
+| **Tests** | **671 pruebas**: 669 aprobadas, 2 omitidas; 6395 aserciones, 530,97 s. Suite completa en wings_testing_codex, 12/10, revisión visual T30. [Entrega T30](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

@@ -1,0 +1,17 @@
+{
+  "fase": "despues",
+  "controles": 15,
+  "capturas": 2,
+  "fallos": [
+    {
+      "id": "reportes-centavos",
+      "modo": "marco-360",
+      "error": "reportes-centavos: importe recortado [{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"$3,002.0070,6%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"70,6%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"$1,250.5029,4%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"29,4%\"}]"
+    },
+    {
+      "id": "reportes-millones",
+      "modo": "marco-360",
+      "error": "reportes-millones: importe recortado [{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"$2,500,502.0066,7%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"66,7%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"$1,250,000.5033,3%\"},{\"tipo\":\"leyenda-fuera-de-tarjeta\",\"texto\":\"33,3%\"}]"
+    }
+  ]
+}

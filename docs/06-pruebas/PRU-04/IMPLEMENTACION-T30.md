@@ -222,3 +222,34 @@ pruebas que estaba pendiente; T30 actualizó ese corte con el resultado comproba
 **T30 no se cierra.** Carlos aprueba las capturas; después otro agente verifica la regla.
 Tablero: `a_verificar`, `hizo=Codex`, `tiene=Carlos`. La publicación incluye solo
 archivos propios de T30, después de T28. Sin cierre ni despliegue.
+
+## Revisión visual pedida por Carlos: porcentaje junto al rubro en celular, 12/10/2026
+
+Carlos señaló el porcentaje desbordado en Origen de ingresos y pidió: «poner en celular,
+el porcentaje junta al titulo. Cuota mensual». Se cambió solo la presentación de esa
+leyenda: nombre y porcentaje arriba; importe completo abajo. En escritorio, porcentaje
+junto al importe. Fórmulas, valores, colores y formato monetario se conservan.
+El importe móvil usa 0,85 rem para entrar completo.
+
+La comprobación anterior no medía los hijos de la leyenda; por eso sus 563 controles
+no detectaron este desborde. El control permanente ahora comprueba sus límites reales,
+la ubicación del porcentaje y espera las fuentes antes de medir. Reproducción anterior:
+dos fallos a 360 (centavos y millones); escritorio correcto. Resultado en
+`evidencia-t30/recortes-detectados/reportes-porcentajes-antes.txt`.
+
+Revisión guardada aparte, conservando la evidencia inicial:
+`evidencia-t30/revision-porcentajes-ultima/`. Matriz repetida: **563 controles, cero
+fallas, 162 PNG** incluyendo login y adelantos. El visor principal usa esa última tanda.
+Capturas de Reportes: `capturas/reportes-{centavos,millones}-{escritorio,marco-360}.png`
+dentro de esa carpeta. Respuestas originales de Laravel en `html/`, datos ficticios
+en la base propia. Los recibos abiertos no se sobrescribieron.
+
+Suite completa de revisión: **669 aprobadas, 2 omitidas, 6395 aserciones, 530,97 s**
+en `wings_testing_codex`. Salidas en `revision-porcentajes-ultima/resultado-suite.{txt,xml}`. No se añadieron métodos de
+PHPUnit; el total sigue siendo 671. Sin teléfono físico, sin sitio de prueba ni reloj
+y sin despliegue. T30 sigue a verificar: Carlos aprueba la pantalla y después otro
+agente verifica la regla.
+
+**Aprobación parcial de Carlos, 12/10:** «El resto de las vistas OK». Quedan aprobadas
+las otras pantallas; solo falta aprobar la corrección de la leyenda de Reportes.
+La regla sigue pendiente de otro agente. No repetir la aprobación de las demás vistas.

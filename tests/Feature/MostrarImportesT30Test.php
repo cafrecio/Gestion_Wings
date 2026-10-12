@@ -33,7 +33,8 @@ class MostrarImportesT30Test extends TestCase
     {
         $fase = getenv('WINGS_T30_EXPORTAR');
         $exportar = in_array($fase, ['antes', 'despues'], true);
-        $destino = base_path('docs/06-pruebas/PRU-04/evidencia-t30'.($fase === 'antes' ? '/antes' : ''));
+        $carpeta = getenv('WINGS_T30_EVIDENCIA_DIR') ?: 'docs/06-pruebas/PRU-04/evidencia-t30';
+        $destino = base_path($carpeta.($fase === 'antes' ? '/antes' : ''));
         if ($exportar && !is_dir($destino.'/html')) mkdir($destino.'/html', 0775, true);
         $resultados = []; $fallas = []; $rutas = [];
         foreach (['centavos' => '1250.50', 'millones' => '1250000.50'] as $perfil => $importe) {
