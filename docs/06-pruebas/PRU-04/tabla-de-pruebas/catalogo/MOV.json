@@ -254,7 +254,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T59",
       "tipo": "mal_uso",
       "titulo": "El dueño quiere cargar un movimiento de caja"
     },
@@ -302,7 +302,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T51",
       "tipo": "normal",
       "titulo": "Corregir un movimiento manual del turno"
     },
@@ -344,7 +344,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T51",
       "tipo": "normal",
       "titulo": "Eliminar un movimiento manual del turno"
     },

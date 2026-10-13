@@ -405,7 +405,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T50",
       "tipo": "mal_uso",
       "titulo": "Alta con fecha de ingreso futura"
     },
@@ -693,7 +693,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T52",
       "tipo": "normal",
       "titulo": "Cambiar a un alumno de grupo dentro del mismo deporte"
     },
@@ -834,7 +834,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T53",
       "tipo": "error",
       "titulo": "Corregir el DNI de un alumno"
     },
@@ -901,7 +901,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T71",
       "tipo": "normal",
       "titulo": "Dar de baja a un alumno que debe"
     },
@@ -950,7 +950,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T38",
       "tipo": "normal",
       "titulo": "Reactivar a un alumno dado de baja"
     },
@@ -1036,7 +1036,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T54",
       "tipo": "normal",
       "titulo": "Buscar y filtrar en el listado de alumnos"
     },
@@ -1116,7 +1116,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T55",
       "tipo": "romper",
       "titulo": "Dos personas editan al mismo alumno a la vez"
     },
@@ -1153,7 +1153,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T56",
       "tipo": "mal_uso",
       "titulo": "Alumno que quedó sin plan"
     },
@@ -1196,7 +1196,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T65",
       "tipo": "mal_uso",
       "titulo": "Alumno cargado por error"
     },
@@ -1245,7 +1245,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T71",
       "tipo": "mal_uso",
       "titulo": "Dar de baja con un toque desde el listado"
     },

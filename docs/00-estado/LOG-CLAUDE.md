@@ -28,6 +28,9 @@ clases»), toca el mismo calculo de estado y no esta en el prompt ni tiene tarea
 En la tabla, D03-01 a 03 figuran «arreglado, falta desplegar»: T21 ya esta en el sitio de
 prueba desde el 12/10; falta repetir el caso alli para marcarlo resuelto (T4).
 El indice `codebase-memory-mcp` no conecto en esta sesion: busque leyendo archivos.
+**Tarde:** Carlos respondio las 58 dudas. De ahi salieron **T32 a T72** (41 tareas) y MF4,
+cada una con su duda y sus casos. Orden y motivos en `PRU-04/DUDAS-RESPONDIDAS-2026-10-13.md`.
+Copia de la tabla para Codex y Gemini en `PRU-04/tabla-de-pruebas/` (ellos no abren el artifact).
 
 ## 2026-10-12 — Claude CAB — T27 verificado y cerrado; sitio de prueba desplegado en b2efc2e
 

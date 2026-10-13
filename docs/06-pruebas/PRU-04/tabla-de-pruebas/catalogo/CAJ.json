@@ -80,7 +80,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T57",
       "tipo": "mal_uso",
       "titulo": "Querer cambiar el medio del cajón después de elegido"
     },
@@ -843,7 +843,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T69",
       "tipo": "normal",
       "titulo": "Cierre con faltante"
     },
@@ -879,7 +879,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T69",
       "tipo": "normal",
       "titulo": "Cierre con sobrante"
     },
@@ -1221,7 +1221,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T37",
       "tipo": "normal",
       "titulo": "Rechazar una caja"
     },
@@ -1636,7 +1636,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T36",
       "tipo": "mal_uso",
       "titulo": "Los tildes de verificación al validar una caja"
     },

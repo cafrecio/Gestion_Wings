@@ -559,7 +559,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T62",
       "tipo": "mal_uso",
       "titulo": "Cancelar una clase que ya tiene la lista tomada"
     },
@@ -595,7 +595,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T62",
       "tipo": "mal_uso",
       "titulo": "Cancelar una clase que ya está en una liquidación"
     },
@@ -679,7 +679,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T62",
       "tipo": "normal",
       "titulo": "Volver a activar una clase cancelada"
     },
@@ -920,7 +920,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T65",
       "tipo": "mal_uso",
       "titulo": "Clase o serie creada por error"
     },
@@ -1030,7 +1030,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T66",
       "tipo": "mal_uso",
       "titulo": "Clase sin profesora asignada"
     },
@@ -1078,7 +1078,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T35",
       "tipo": "mal_uso",
       "titulo": "Validar una clase por error"
     },

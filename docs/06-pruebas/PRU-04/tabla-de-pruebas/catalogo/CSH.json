@@ -717,7 +717,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T60",
       "tipo": "mal_uso",
       "titulo": "Gasto mayor que el saldo del medio"
     },
@@ -783,7 +783,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T61",
       "tipo": "mal_uso",
       "titulo": "Llevar el efectivo del cajón al banco"
     },

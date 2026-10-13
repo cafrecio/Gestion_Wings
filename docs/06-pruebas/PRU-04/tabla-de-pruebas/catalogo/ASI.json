@@ -160,7 +160,7 @@
       "roles": [
         "PROFESOR"
       ],
-      "tarea": "",
+      "tarea": "T34",
       "tipo": "mal_uso",
       "titulo": "No vino nadie"
     },
@@ -414,7 +414,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T52",
       "tipo": "normal",
       "titulo": "Quién aparece en la lista después de un cambio"
     },
@@ -493,7 +493,7 @@
         "PROFESOR",
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T35",
       "tipo": "mal_uso",
       "titulo": "Tomar asistencia de una clase que todavía no ocurrió"
     },
@@ -524,7 +524,7 @@
         "PROFESOR",
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T55",
       "tipo": "recurrencia",
       "titulo": "Dos personas guardan la misma lista"
     },
@@ -662,7 +662,7 @@
       "roles": [
         "PROFESOR"
       ],
-      "tarea": "",
+      "tarea": "T67",
       "tipo": "seguridad",
       "titulo": "Qué ve la profesora de cada alumno en la lista"
     }

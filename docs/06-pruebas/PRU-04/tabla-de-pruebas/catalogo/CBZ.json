@@ -446,7 +446,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T33",
       "tipo": "mal_uso",
       "titulo": "Perdonar la inscripción"
     },
@@ -890,7 +890,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T40",
       "tipo": "error",
       "titulo": "El proceso del día 1 no corrió"
     },

@@ -80,7 +80,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T45",
       "tipo": "mal_uso",
       "titulo": "Cambiar cómo liquida un deporte que ya tiene liquidaciones"
     },
@@ -122,7 +122,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T63",
       "tipo": "mal_uso",
       "titulo": "Desactivar un deporte o borrar un nivel en uso"
     },
@@ -242,7 +242,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T57",
       "tipo": "mal_uso",
       "titulo": "Desactivar un medio de pago"
     },

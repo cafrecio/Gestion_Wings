@@ -152,7 +152,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T44",
       "tipo": "normal",
       "titulo": "Aumentar el precio de un plan"
     },
@@ -272,7 +272,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T63",
       "tipo": "mal_uso",
       "titulo": "Desactivar un grupo con alumnos y clases"
     },

@@ -188,7 +188,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T48",
       "tipo": "normal",
       "titulo": "Cambiar el nombre de un usuario que ya trabajó"
     },
@@ -320,7 +320,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T49",
       "tipo": "mal_uso",
       "titulo": "Desactivar a una operativa que tiene la caja abierta"
     },
@@ -368,7 +368,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T49",
       "tipo": "mal_uso",
       "titulo": "Cambiarle el rol a alguien que ya trabajó"
     },
@@ -514,7 +514,7 @@
         "PROFESOR",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "MF4",
       "tipo": "mal_uso",
       "titulo": "Cambiar la propia clave u olvidarla"
     }

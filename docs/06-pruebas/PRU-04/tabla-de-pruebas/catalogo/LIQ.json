@@ -152,7 +152,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T43",
       "tipo": "normal",
       "titulo": "Liquidación de un profesor que cobra por comisión"
     },
@@ -266,7 +266,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T41",
       "tipo": "mal_uso",
       "titulo": "Liquidar un mes que todavía no terminó"
     },

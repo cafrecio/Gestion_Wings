@@ -308,7 +308,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T70",
       "tipo": "normal",
       "titulo": "Reporte de Alumnos"
     },
@@ -646,7 +646,7 @@
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T72",
       "tipo": "normal",
       "titulo": "Alumnos que dejaron de venir"
     },

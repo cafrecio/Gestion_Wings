@@ -688,7 +688,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T42",
       "tipo": "normal",
       "titulo": "Cobro adelantado del mes que viene"
     },
@@ -1169,7 +1169,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T39",
       "tipo": "normal",
       "titulo": "El dueño anula un cobro propio hecho sin caja"
     },
@@ -1459,7 +1459,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T38",
       "tipo": "normal",
       "titulo": "El mes en curso todavía no tiene cuota generada"
     },
@@ -1489,7 +1489,7 @@
       "roles": [
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T58",
       "tipo": "mal_uso",
       "titulo": "Cobrar un mes pasado que nunca se generó"
     },

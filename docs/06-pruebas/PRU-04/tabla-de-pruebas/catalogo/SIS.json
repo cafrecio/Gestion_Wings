@@ -343,7 +343,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T32",
       "tipo": "error",
       "titulo": "El reloj simulado del sitio de prueba"
     },
@@ -441,7 +441,7 @@
         "ADMIN",
         "OPERATIVO"
       ],
-      "tarea": "",
+      "tarea": "T68",
       "tipo": "mal_uso",
       "titulo": "Carteles de «Próximamente»"
     },
@@ -539,7 +539,7 @@
       "roles": [
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "T63",
       "tipo": "mal_uso",
       "titulo": "Los interruptores Activo de los listados"
     }
