@@ -17,6 +17,10 @@ de Cashflow/Movimientos/Historial y las respuestas de Carlos.
 - Liquidaciones: las pagadas no se tocan; Editar de una no pagada lleva a su flujo existente.
 - Mes anterior: «Actualizar el reporte del mes original, con historial».
 
+Revisión de capturas finales: Carlos señaló «Historial es celular, los valores
+quedan desalineados. Ver 1250000.50 esta desalineado respecto al resto OK».
+Queda aprobado el resto; la corrección de Historial se entrega para su revisión.
+
 ## Resultado y recorridos
 
 | Tipo | Acceso desde Cashflow | Escritura en T27 |
@@ -78,6 +82,29 @@ saldo inicial y fondos todavía sin validar.
 
 ## Pruebas y evidencia
 
+### Revisión de alineación de Historial
+
+La columna de Monto tenía 120 px y el texto `+$1,250,000.50` excedía su borde
+de alineación en **15,6875 px**, tanto en escritorio como en el marco de 360.
+Se amplió únicamente esa columna a 176 px, conservando alineación derecha,
+signos y dos decimales; no cambia ninguna regla ni cálculo.
+
+El control del navegador mide el borde del texto de cada importe contra el
+borde de la celda menos su relleno. Falló en las dos medidas antes del arreglo
+([evidencia anterior](evidencia-t27/final/resultado-historial-antes.json)) y
+pasó después: **4 visitas / 2 controles / 0 fallos**, diez importes en cada ancho
+([resultado corregido](evidencia-t27/final/resultado-navegador-historial.json)).
+Se regeneraron las respuestas reales de Historial y login con **1 prueba /
+33 aserciones**, exclusivamente en `wings_testing_codex`, y sus capturas.
+Las otras pantallas aprobadas conservan su evidencia.
+
+Suite completa repetida después de esta corrección: **687 aprobadas, 2 omitidas,
+6588 aserciones, 501,04 s**, exclusivamente en `wings_testing_codex`.
+Son las mismas **689 pruebas**; no cambió la cantidad.
+[Resultado completo de esta revisión](evidencia-t27/final/resultado-suite-historial.txt).
+
+### Implementación y suite
+
 - Antes de implementar: **13 pruebas, 13 fallas**, incluyendo rutas ausentes,
   otros roles por pedido directo y el signo/suma de egreso de Historial.
 - T27: **16 pruebas / 168 aserciones** de recorrido, datos, importes, permisos,
@@ -88,7 +115,7 @@ saldo inicial y fondos todavía sin validar.
 - Captura Laravel: **1 prueba / 33 aserciones**, fuera de la suite permanente.
   Solicitudes reales de edición/eliminación en `wings_testing_codex`; GET sin
   escrituras, referencias protegidas intactas y 403 de otros roles.
-- Suite completa: **687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s** en
+- Suite completa inicial de implementación: **687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s** en
   `wings_testing_codex`, 689 pruebas. Los tres números que controla
   `DocumentacionNoMienteTest` se actualizaron.
 - Primera corrida completa: 686 aprobadas/2 omitidas y una falla del guardián CSP,
@@ -124,6 +151,11 @@ $env:NODE_PATH='C:/Users/cafre/.cache/codex-runtimes/codex-primary-runtime/depen
 node docs/06-pruebas/PRU-04/evidencia-t27/final/tomar-capturas.mjs
 ```
 
+Para regenerar solo la revisión de Historial y el login de control, asignar
+`$env:T27_CAPTURAS='historial-anulado,login'` antes del exportador PHP y del
+corredor del navegador. Su resultado se guarda aparte, sin reemplazar el
+registro del recorrido completo.
+
 ## Límites y lo que no se probó
 
 - Sin teléfono físico, VPS, producción, sitio de prueba ni cambio de su reloj.
@@ -138,10 +170,10 @@ node docs/06-pruebas/PRU-04/evidencia-t27/final/tomar-capturas.mjs
   descartable y marca su preparación para el corredor siguiente.
 - La diferencia previa de permisos de edición de cajas por propietario permanece
   documentada en la propuesta. T27 no altera esos permisos.
-- No hubo verificación independiente de otro agente ni aprobación de Carlos a
-  estas capturas finales. La aprobación anterior corresponde a la propuesta.
+- No hubo verificación independiente de otro agente. Carlos aprobó las capturas
+  finales salvo la alineación de Historial en celular; su corrección sigue a revisión.
 
 ## Entrega
 
-Capturas finales a Carlos; después, verificación de reglas por otro agente.
+Corrección de Historial a Carlos; después, verificación de reglas por otro agente.
 T27 debe quedar **a_verificar**, sin autocierre ni despliegue.

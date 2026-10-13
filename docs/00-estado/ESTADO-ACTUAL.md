@@ -24,8 +24,10 @@ Se normaliza para cumplir la consistencia de Historial con Cashflow/Inicio/Repor
 Hallazgos del relevamiento: rechazarCaja acepta solo CERRADA, no VALIDADA;
 liquidación pagada no se corrige. Además, el controlador limita edición de operativos
 a su caja mientras el contrato limita por propietario solo el cierre; no se cambió.
-Suite propia: 687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s en wings_testing_codex.
-T27 se entrega a Carlos para capturas finales y luego a otro agente para reglas; no se cierra ni se despliega.
+Suite propia: 687 aprobadas, 2 omitidas; 6588 aserciones, 501,04 s en wings_testing_codex.
+Carlos aprobó el resto de las capturas finales y señaló el importe grande desalineado en Historial móvil.
+Se amplió solo la columna Monto: diez importes alineados en escritorio y marco360; cuatro visitas sin fallos.
+T27 se entrega a Carlos para revisar esta corrección y luego a otro agente para reglas; no se cierra ni se despliega.
 
 ## T30 — Centavos y formato compartido, 12/10/2026
 
@@ -543,7 +545,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **689 pruebas**: 687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s. Suite completa en wings_testing_codex, 12/10, T27. [Entrega T27](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). |
+| **Tests** | **689 pruebas**: 687 aprobadas, 2 omitidas; 6588 aserciones, 501,04 s. Suite completa en wings_testing_codex, 12/10, T27. [Entrega T27](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

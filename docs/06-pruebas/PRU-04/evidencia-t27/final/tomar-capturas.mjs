@@ -11,6 +11,8 @@ const casos = JSON.parse(fs.readFileSync(path.join(evidencia,'casos.json'),'utf8
 const pantallas = ['cashflow','crear-directo','editar-directo','eliminar-directo','detalle-editado','eliminar-editado',
     'detalle-anulado','cashflow-anulado','historial-anulado','inicio-anulado','reportes-anulado',
     'liquidacion-sin-pagar','liquidacion-pagada','ficha-alumno','caja-validada','caja-abierta','editar-en-caja','login'];
+const seleccion = process.env.T27_CAPTURAS?.split(',').filter(Boolean);
+const recorrer = seleccion ? pantallas.filter(id=>seleccion.includes(id)) : pantallas;
 const mime = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'application/javascript','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.woff':'font/woff','.json':'application/json'};
 function archivoPara(url) {
     const prefijo = url.pathname.startsWith('/t27/html/') ? '/t27/html/' : url.pathname.startsWith('/build/') ? '/build/' : '/';
@@ -30,7 +32,7 @@ const resultados = [], controles = [], fallos = [];
 async function foto(page,id,modo) {await page.screenshot({path:path.join(capturas,`${id}-${modo}.png`)});}
 async function centrar(frame,locator) {await locator.evaluate(el=>window.scrollTo({top:scrollY+el.getBoundingClientRect().top-innerHeight/2,behavior:'instant'}));}
 try {
- for (const modo of ['escritorio','marco-360']) for (const id of pantallas) {
+ for (const modo of ['escritorio','marco-360']) for (const id of recorrer) {
     const page = await browser.newPage({viewport:modo === 'escritorio' ? {width:1366,height:1000} : {width:700,height:860}});
     const errores = [];page.on('pageerror',e=>errores.push(e.message));
     await page.route('**/*',async route=>{
@@ -100,9 +102,20 @@ try {
             await foto(page,'liquidacion-editor',modo);
         }
         if(id==='liquidacion-pagada' && await frame.locator('#editar-liquidacion').count()) throw new Error('Pagada ofrece edición');
-        if(id==='historial-anulado' && modo==='marco-360') {
-            const tabla=frame.locator('table');await tabla.evaluate(el=>{window.scrollTo({top:scrollY+el.getBoundingClientRect().top-100,behavior:'instant'});el.parentElement.scrollLeft=el.parentElement.scrollWidth;});
-            await foto(page,'historial-importes',modo);
+        if(id==='historial-anulado') {
+            const tabla=frame.locator('table');
+            if(modo==='marco-360') {
+                await tabla.evaluate(el=>{window.scrollTo({top:scrollY+el.getBoundingClientRect().top-100,behavior:'instant'});el.parentElement.scrollLeft=el.parentElement.scrollWidth;});
+                await foto(page,'historial-importes',modo);
+            }
+            const importes=await tabla.locator('tbody tr td:last-child').evaluateAll(celdas=>celdas.map(el=>{
+                const rango=document.createRange();rango.selectNodeContents(el);
+                const texto=rango.getBoundingClientRect(), celda=el.getBoundingClientRect();
+                return {texto:el.textContent.trim(),derecha:texto.right,derechaEsperada:celda.right-parseFloat(getComputedStyle(el).paddingRight)};
+            }));
+            controles.push({id,modo,importes});
+            if(!importes.some(i=>i.texto.includes('1,250,000.50'))) throw new Error('Falta el importe grande de control');
+            if(importes.some(i=>Math.abs(i.derecha-i.derechaEsperada)>1)) throw new Error('Los importes no se alinean con el borde derecho de la columna');
         }
         if(id==='detalle-anulado') {
             await frame.locator('#cashflow-historial-correcciones').evaluate(el=>window.scrollTo({top:scrollY+el.getBoundingClientRect().top-100,behavior:'instant'}));
@@ -113,7 +126,7 @@ try {
  }
 } finally {
  await browser.close();await new Promise(resolve=>servidor.close(resolve));
- fs.writeFileSync(path.join(evidencia,'resultado-navegador.json'),JSON.stringify({resultados,controles,fallos},null,2));
+ fs.writeFileSync(path.join(evidencia,seleccion?'resultado-navegador-historial.json':'resultado-navegador.json'),JSON.stringify({resultados,controles,fallos},null,2));
 }
 console.log(JSON.stringify({pantallas:resultados.length,controles:controles.length,fallos},null,2));
 if(fallos.length) process.exitCode=1;

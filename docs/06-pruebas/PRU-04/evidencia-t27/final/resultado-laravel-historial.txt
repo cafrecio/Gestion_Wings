@@ -1,0 +1,8 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+Runtime: PHP 8.2.12
+Configuration: C:\xampp\htdocs\gestion-wings\phpunit.xml
+DB_DATABASE=wings_testing_codex
+T27_CAPTURAS=historial-anulado,login
+
+Time: 00:11.048, Memory: 54.00 MB
+OK (1 test, 33 assertions)

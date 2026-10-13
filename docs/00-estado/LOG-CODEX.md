@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T27, alineación de Historial solicitada por Carlos
+
+Carlos aprobó el resto de las vistas; señaló $1,250,000.50 desalineado en Historial celular.
+La columna de 120 px dejaba el texto 15,6875 px más a la derecha; pasó a 176 px.
+Sin reglas, cálculos ni otro cambio visual; se mantienen signos y dos decimales.
+Control de geometría rojo antes, verde después: diez importes, escritorio/marco360, login; 4 visitas/0 fallos.
+Respuestas reales recapturadas en base propia: 1 prueba/33 aserciones; vistas compilan, sintaxis correcta.
+Suite completa propia: 687 aprobadas/2 omitidas, 6588 aserciones, 501,04 s; siguen siendo 689 pruebas.
+[Informe y captura corregida](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Sin sitio de prueba/reloj/despliegue.
+Sigue: Carlos revisa Historial corregido; después otro agente verifica reglas. T27 a_verificar, sin autocierre.
+
 ## 2026-10-12 — Codex CAB — T27 etapa 2, implementación y comprobación
 
 Carlos aprobó visual y reglas: editar con historial, eliminar con contraasiento, motivo opcional y cualquier mes.
@@ -111,16 +122,5 @@ Sin arreglos de Wings, visita al sitio ni deploy; MCP caido, fuentes reales leid
 Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos; no queda paso de T16.
 Archivo anterior integro preservado; publicacion solo de archivos propios.
 
-## 2026-10-10 — Codex CyE — T16 segunda vuelta devuelta por concurrencia
-
-Objetivo: verificar fcdc8f2; copia publicada fija d4f18d6, solo wings_testing_codex.
-Dos fallas originales corregidas: 12 controles/225 aserciones aprobados; ocho adicionales/269 aprobados.
-Altas, campos falsificados, padre cruzado/toggle/inactivos y cambio valido tras reclasificar comprobados.
-Dos procesos con pedidos HTTP aceptados dejan EGRESO + APORTE; prueba fallida, 10 aserciones, evidencia concreta.
-Suite completa: 611 aprobadas/2 omitidas, 5087 aserciones, 785,65 s. Errores de preparacion del auxiliar corregidos.
-Nombres nuevos en INGRESO quedan NULL para revision del admin; migracion repetida no duplica ni pisa.
-Demo: seis sueldos NULL; rechazo production probado en base descartable. Recomiendo arreglo separado, no bloquea T16.
-Sin arreglos de Wings, visita al sitio ni deploy. [Informe actualizado](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Tablero devuelto, tiene Claude/verifica Codex. Sigue: proteger el cruce y volver a verificar; aspecto aprobado.
-
 [Archivo íntegro antes de etapa 2 T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-ETAPA2.txt).
+[Archivo íntegro antes de corregir Historial](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-HISTORIAL.txt).

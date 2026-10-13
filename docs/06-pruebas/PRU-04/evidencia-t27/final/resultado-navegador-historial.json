@@ -1,0 +1,147 @@
+{
+  "resultados": [
+    {
+      "id": "historial-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "historial-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    }
+  ],
+  "controles": [
+    {
+      "id": "historial-anulado",
+      "modo": "escritorio",
+      "importes": [
+        {
+          "texto": "+$1,250.50",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "+$875.75",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "+$75.25",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "−$23,500.75",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "+$1,250,000.50",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "−$35,000.25",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "+$48,000.50",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "+$5,000.00",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "−$48,000.50",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        },
+        {
+          "texto": "−$75.25",
+          "derecha": 1278,
+          "derechaEsperada": 1278
+        }
+      ]
+    },
+    {
+      "id": "historial-anulado",
+      "modo": "marco-360",
+      "importes": [
+        {
+          "texto": "+$1,250.50",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "+$875.75",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "+$75.25",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "−$23,500.75",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "+$1,250,000.50",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "−$35,000.25",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "+$48,000.50",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "+$5,000.00",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "−$48,000.50",
+          "derecha": 329,
+          "derechaEsperada": 329
+        },
+        {
+          "texto": "−$75.25",
+          "derecha": 329,
+          "derechaEsperada": 329
+        }
+      ]
+    }
+  ],
+  "fallos": []
+}

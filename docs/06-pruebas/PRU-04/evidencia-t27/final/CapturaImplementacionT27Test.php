@@ -111,9 +111,11 @@ class CapturaImplementacionT27Test extends TestCase
             $this->app['auth']->forgetGuards();
             $this->guardar('login', '/login');
             $dir = base_path('docs/06-pruebas/PRU-04/evidencia-t27/final');
-            file_put_contents($dir.'/rutas.json', json_encode($this->rutas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-            file_put_contents($dir.'/casos.json', json_encode(['directo' => $directo->id, 'pendiente' => $sinPagar->id,
-                'pagada' => $f->liquidacion->id, 'caja_validada' => $validada->id, 'alumno' => $f->alumno->id], JSON_PRETTY_PRINT));
+            if (!getenv('T27_CAPTURAS')) {
+                file_put_contents($dir.'/rutas.json', json_encode($this->rutas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                file_put_contents($dir.'/casos.json', json_encode(['directo' => $directo->id, 'pendiente' => $sinPagar->id,
+                    'pagada' => $f->liquidacion->id, 'caja_validada' => $validada->id, 'alumno' => $f->alumno->id], JSON_PRETTY_PRINT));
+            }
         } finally { Carbon::setTestNow(); }
     }
 
@@ -130,6 +132,8 @@ class CapturaImplementacionT27Test extends TestCase
         $html = preg_replace('~https?://[^/"\s]+(/(?:build|img|favicon|apple-touch|site\.webmanifest)[^"\s]*)~', '$1', $html);
         $html = preg_replace('/(<meta name="csrf-token" content=")[^"]*/', '$1captura-t27', $html);
         $html = preg_replace('/(<input[^>]*name="_token"[^>]*value=")[^"]*/', '$1captura-t27', $html);
+        $seleccion = getenv('T27_CAPTURAS');
+        if ($seleccion && !in_array($id, explode(',', $seleccion), true)) return;
         $dir = base_path('docs/06-pruebas/PRU-04/evidencia-t27/final/html');
         if (!is_dir($dir)) mkdir($dir, 0775, true);
         file_put_contents("$dir/$id.html", $html);

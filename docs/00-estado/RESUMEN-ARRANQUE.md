@@ -120,7 +120,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 ## Decisiones pendientes que deben viajar entre sesiones
 
 - **Obligatorio antes de desplegar a producción (Carlos, 12/10):** T27, una sola pantalla desde donde el dueño edita o elimina sus movimientos; y clasificar los subrubros de producción uno por uno con Carlos (T16).
-- **T27 etapa 2 entregada (Codex, 12/10):** [informe](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Carlos aprobó la propuesta y todas las reglas: edición con historial, eliminación con contraasiento, motivo opcional, cualquier mes y reporte original; cajas validadas/liquidaciones pagadas solo consulta; sin pagar, editor existente. 18 pruebas propias, 53 PNG finales; suite 687/2, 6588 aserciones, 536,25 s. Falta aprobar capturas finales y verificar reglas por otro agente. Sin despliegue ni cierre.
+- **T27 etapa 2 entregada (Codex, 12/10):** [informe](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Carlos aprobó propuesta y reglas: edición con historial, eliminación con contraasiento, motivo opcional, cualquier mes y reporte original; cajas validadas/liquidaciones pagadas solo consulta; sin pagar, editor existente. 18 pruebas propias, 53 PNG; suite 687/2, 6588 aserciones, 501,04 s. Aprobó las vistas salvo la alineación de Historial móvil; corregida y recapturada en ambos anchos. Falta su revisión de esta corrección y verificar reglas por otro agente. Sin despliegue ni cierre.
 
 - Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
