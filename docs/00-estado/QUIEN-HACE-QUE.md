@@ -49,6 +49,7 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en b2efc2e desde el 12/10 a las 23:02, con T11, T21, T23, T24, T26, T27, T28, T29 y T30. Reloj en hora real, sin fecha simulada. Respaldo previo en /root/respaldos-manuales. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
+| **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | En curso | Tabla: DU-46 · SIS-009 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] TOCA: app/Support/RelojSimulado.php, FechaSimuladaCommand y RelojSimuladoTest. Herramienta del sitio de prueba; nada del producto. POR QUE ANTES: sin esto no se puede avanzar de dia. ORDEN: no choca con ninguna otra, puede ir ya |
 
 ## Codex
 
@@ -58,9 +59,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (62)
+## Sin empezar (61)
 
-B13, MF1, MF2, MF3, MF4, T2, T6, T7, T9, T10, T12, T22, T25, T31, T32, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, B3, B5, B6, B7, B8, B9, B11.
+B13, MF1, MF2, MF3, MF4, T2, T6, T7, T9, T10, T12, T22, T25, T31, T33, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
