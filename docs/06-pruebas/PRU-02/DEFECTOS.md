@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 10/10/2026: 65 cerrados de 74.** Quedan 9 abiertos, de los
+> **Avance al 13/10/2026: 66 cerrados de 74.** Quedan 8 abiertos, de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -718,12 +718,17 @@ Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto 
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
 mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados; Sueldos y acceso Plata → Reportes aprobados por Carlos («Esta OK el acceso», 10/10). [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Aspecto del ajuste aprobado por Carlos («Sí, así»,10/10); Monto ajustado e íconos. Faltan manual integral y clasificación de antecedentes; B12 sigue abierto.
 
-### B13. Los datos de prueba no representan al club · Molesta · verificado
+### B13. Los datos de prueba no representan al club · CERRADO 13/10 por decisión de Carlos
 
 Los hizo Claude y están mal: **los 60 alumnos son adultos** —nacidos entre 1986 y 2005— en
 una escuela de patín y fútbol infantil; sin tutores ni celulares cargados. El catálogo trae
 **Servicios (Luz, Internet)** que este club no paga porque alquila las canchas. Y los saldos
 iniciales de caja son inventados: los $1.570.000 del cashflow salen de ahí, no de plata real.
+
+**Cerrado el 13/10/2026 por decisión de Carlos:** «si ya estamos probando, no me voy a poner a
+cambiar eso ahora». Los alumnos se arreglaron con la primera carga de PRU-03: en el sitio de
+prueba son 100, nacidos entre 2005 y 2021, todos con tutor y celular (mirado por Claude el
+13/10). Servicios (Luz, Internet) y los saldos iniciales de $1.570.000 siguen como estaban.
 
 ### B14. El despliegue no limpiaba la caché de rutas · Verificado y CERRADO 04/10
 
