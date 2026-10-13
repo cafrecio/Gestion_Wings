@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
+| **T33** Perdonar la inscripcion y reactivar una cuota o inscripcion perdonada por error | Hecho, espera verificación (hizo Codex, verifica Claude) | Tabla: DU-25, DU-58 · CBZ-010. Logica APROBADA por Claude el 13/10 (PRU-04/VERIFICACION-T33.md): 30 pruebas de Codex y 4 de mis 5 controles; probado en el sitio de prueba. Observacion que no frena: un pedido sobre una cuota o inscripcion inexistente responde en ingles (pasa a T47). Desplegado en el sitio de prueba. Falta solo el OK visual de Carlos a la version corregida |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -49,8 +50,8 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 602efcc desde el 13/10, reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
-| **T33** Perdonar la inscripcion y reactivar una cuota o inscripcion perdonada por error | Hecho, espera verificación (hizo Codex, verifica Claude) | Tabla: DU-25, DU-58 · CBZ-010. Carlos devolvio la visual el 13/10: boton pegado a la linea y Reactivar en lados distintos. Corregido: 12 px y derecha en escritorio/celular; capturas reales renovadas en IMPLEMENTACION-T33.md. T33: 31 pruebas verdes; suite general: 734 aprobadas, 2 omitidas, 2 fallos de disponible en Cashflow T27 confirmados por separado, causa sin atribuir. Carlos revisa capturas; Claude verifica logica. Sin despliegue |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en f403d36 desde el 13/10 (T32, limite de ingresos, excepcion de Cloudflare y T33), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
+| **T31** El que debe la inscripcion tambien es moroso o deudor: Cobranza y el buscador de Cobrar tienen que contar a los mismos | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar Inicio de operativa y números en base |
 
 ## Codex
 
@@ -58,9 +59,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T31** El que debe la inscripcion tambien es moroso o deudor: Cobranza y el buscador de Cobrar tienen que contar a los mismos | Devuelto (hizo Gemini, verifica Claude) | Tabla: DU-08 · CBZ-005, ALU-001, ALU-006, PCA-007. DEVUELTO por Claude el 13/10 (PRU-04/VERIFICACION-T31.md). La regla esta bien: 7 de mis 9 controles y sus 74 pruebas pasan, con los ejemplos de Carlos. Vuelve por: (1) el Inicio de la operativa cuenta Alumnos con deuda con una consulta propia (OperativoDashboardController:106): no ve al que debe solo la inscripcion y cuenta meses que no empezaron; en el sitio de prueba 35 contra 38; (2) el informe dice que cuatro lugares usan el estado y no es cierto; (3) no esta publicada |
+Nada en este momento.
 
 ## Sin empezar (60)
 
