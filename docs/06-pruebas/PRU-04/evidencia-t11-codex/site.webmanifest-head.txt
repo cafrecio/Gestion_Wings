@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Tue, 13 Oct 2026 18:47:55 GMT
+Content-Type: application/manifest+json
+Content-Length: 914
+Connection: keep-alive
+Server: cloudflare
+Last-Modified: Tue, 13 Oct 2026 02:02:07 GMT
+ETag: "392-65daf33a2df0a"
+Accept-Ranges: bytes
+Vary: User-Agent
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-cache-status: DYNAMIC
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=wsrkbm0v3gtHYWgAdK4jB3l%2F%2Bo%2B%2FtdN%2BgDe3Gg%2FuhMIl8uEBEORj0I1b4al1E22l5cWS%2BV8F1sxitBkuTuzk49Q%2Ben62GrIzN0YqGPc5IrH0%2B7v%2FliU5Jc1M%2BznTE28DIm9wuKXOkJeCYdU%3D"}]}
+CF-RAY: a4a083fa8d8dbc07-EZE
+alt-svc: h3=":443"; ma=86400

@@ -1,0 +1,45 @@
+{
+  "manifestIgualAlRepositorio": true,
+  "iconos": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "purpose": "any",
+      "tipo": "image/png",
+      "png": true,
+      "ancho": 192,
+      "alto": 192,
+      "igualAlRepositorio": true
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "purpose": "maskable",
+      "tipo": "image/png",
+      "png": true,
+      "ancho": 192,
+      "alto": 192,
+      "igualAlRepositorio": true
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "purpose": "any",
+      "tipo": "image/png",
+      "png": true,
+      "ancho": 512,
+      "alto": 512,
+      "igualAlRepositorio": true
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "purpose": "maskable",
+      "tipo": "image/png",
+      "png": true,
+      "ancho": 512,
+      "alto": 512,
+      "igualAlRepositorio": true
+    }
+  ]
+}

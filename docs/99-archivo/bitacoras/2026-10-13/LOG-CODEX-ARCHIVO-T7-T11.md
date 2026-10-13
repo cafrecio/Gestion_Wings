@@ -16,3 +16,18 @@ Archivo anterior íntegro: [corte antes de esta revisión](../99-archivo/bitacor
 
 [Archivo íntegro antes de T33](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ANTES-T33.md).
 ```
+```markdown
+## 2026-10-12 — Codex CAB — T30, centavos y formato compartido, a verificar
+
+Inventario completo; $48,000.50 y siempre dos decimales por decisión de Carlos.
+Formato común PHP/JS conectado a pantallas, avisos, PDF nuevos, mail/Telegram y Excel numérico.
+Gráficos y PDF ya emitidos conservados; cálculos/datos/validación T24 sin cambios.
+T28 independiente publicado primero en e1e73d8; T30 después, solo formatos de Cashflow.
+Suite propia 669 aprobadas/2 omitidas, 6395 aserciones, 585,49 s; 671 pruebas.
+Matriz 39 pantallas, 162 PNG: 563 controles/0 fallas; T24: 1351/0, 100 PNG. Marco360/login y adelantados.
+[Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). No se cierra ni despliega.
+Carlos aprueba capturas; después otro agente verifica regla. Sin sitio de prueba ni reloj.
+
+
+[Entrada archivada al verificar T7](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ARCHIVO-T7-T11.md).
+```

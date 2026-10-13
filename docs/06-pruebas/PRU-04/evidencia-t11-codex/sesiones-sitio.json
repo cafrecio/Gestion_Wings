@@ -1,0 +1,25 @@
+[
+  {
+    "caso": "sin-sesion",
+    "url": "https://test.gestionar-te.com.ar/login",
+    "resultado": "Formulario Iniciar sesión observado"
+  },
+  {
+    "caso": "sesion-activa-ADMIN",
+    "inicioSolicitado": "/login",
+    "url": "https://test.gestionar-te.com.ar/admin/dashboard",
+    "resultado": "Inicio ADMIN observado"
+  },
+  {
+    "caso": "sesion-activa-OPERATIVO",
+    "inicioSolicitado": "/login",
+    "url": "https://test.gestionar-te.com.ar/operativo",
+    "resultado": "Inicio operativo observado"
+  },
+  {
+    "caso": "sesion-activa-PROFESOR",
+    "inicioSolicitado": "/login",
+    "url": "https://test.gestionar-te.com.ar/clases",
+    "resultado": "Clases observado"
+  }
+]

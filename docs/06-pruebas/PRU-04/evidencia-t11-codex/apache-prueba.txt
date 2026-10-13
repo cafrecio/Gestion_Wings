@@ -1,0 +1,46 @@
+
+<VirtualHost 2.25.204.38:443>
+    ServerName test.gestionar-te.com.ar
+    DocumentRoot /home/wingstest/app/public
+
+    SSLEngine on
+    SSLCertificateFile    /etc/pki/tls/wingstest/fullchain.crt
+    SSLCertificateKeyFile /etc/pki/tls/wingstest/test.key
+    SSLProtocol -all +TLSv1.2 +TLSv1.3
+
+    <Directory /home/wingstest/app/public>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    <FilesMatch \.php$>
+        SetHandler "proxy:unix:/var/opt/remi/php82/run/php-fpm/wingstest.sock|fcgi://localhost"
+    </FilesMatch>
+
+    CustomLog /usr/local/apache/domlogs/test.gestionar-te.com.ar.ssl.log combined
+    ErrorLog  /usr/local/apache/domlogs/test.gestionar-te.com.ar.ssl.error.log
+</VirtualHost>
+ mime_module (shared)
+d4f02d4
+d1bc1b7c4d0184543904230dd302abea6e90a1cdfad3842961d13baccb5b8ed4  /home/wingstest/app/public/.htaccess
+374:    # TypesConfig points to the file containing the list of mappings from
+377:    TypesConfig conf/mime.types
+381:    # file specified in TypesConfig for specific file types.
+414:    # (You will also need to add "Includes" to the "Options" directive.)
+465:#Include conf/extra/httpd-mpm.conf
+468:#Include conf/extra/httpd-multilang-errordoc.conf
+471:#Include conf/extra/httpd-autoindex.conf
+474:#Include conf/extra/httpd-languages.conf
+477:Include conf/extra/httpd-userdir.conf
+480:#Include conf/extra/httpd-info.conf
+483:#Include conf/extra/httpd-vhosts.conf
+486:#Include conf/extra/httpd-manual.conf
+489:#Include conf/extra/httpd-dav.conf
+492:#Include conf/extra/httpd-default.conf
+496:Include conf/extra/proxy-html.conf
+500:#Include conf/extra/httpd-ssl.conf
+512:Include /usr/local/apache/conf/sharedip.conf
+513:Include /usr/local/apache/conf.d/*.conf
+ mime_module (shared)
+ rewrite_module (shared)

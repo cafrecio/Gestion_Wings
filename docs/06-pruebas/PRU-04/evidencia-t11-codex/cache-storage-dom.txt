@@ -1,0 +1,104 @@
+- navigation "Main toolbar":
+  - toolbar:
+    - generic "Select an element in the page to inspect it":
+      - button "Select an element in the page to inspect it - Ctrl + Shift + C"
+    - generic "Toggle screencast":
+      - button "Toggle screencast"
+  - tablist "Panels":
+    - tab "Elements":
+      - generic: Elements
+    - tab "Console":
+      - generic: Console
+    - tab "Sources":
+      - generic: Sources
+    - tab "Network":
+      - generic: Network
+    - tab "Performance":
+      - generic: Performance
+    - tab "Memory":
+      - generic: Memory
+    - tab "Application" [selected]:
+      - generic: Application
+    - tab "Security":
+      - generic: Security
+    - tab "Lighthouse":
+      - generic: Lighthouse
+    - tab "Recorder":
+      - generic: Recorder
+  - toolbar:
+    - 'generic "Open Issues to view 1 issue: 1 possible improvement"':
+      - 'button "Open Issues to view 1 issue: 1 possible improvement"':
+        - generic: "1"
+    - generic "Settings":
+      - button "Settings - F1 - Shift + ?"
+    - button "Customize and control DevTools":
+      - button "Customize and control DevTools"
+- tabpanel "Application panel":
+  - generic "resources":
+    - tree "Application panel sidebar":
+      - heading "Application" [level=3]:
+        - generic: Application
+      - group "Application":
+        - 'treeitem "Manifest: Invoke to scroll to the top of manifest"':
+          - generic: Manifest
+        - treeitem "Service workers":
+          - generic: Service workers
+        - treeitem "Storage":
+          - generic: Storage
+        - treeitem "WebMCP":
+          - generic: WebMCP
+          - generic: NEW
+      - heading "Storage" [level=3]:
+        - generic: Storage
+      - group "Storage":
+        - treeitem "Local storage":
+          - generic: Local storage
+        - treeitem "Session storage":
+          - generic: Session storage
+        - treeitem "Extension storage":
+          - generic: Extension storage
+        - treeitem "IndexedDB":
+          - generic: IndexedDB
+        - treeitem "Cookies":
+          - generic: Cookies
+        - treeitem "Private state tokens":
+          - generic: Private state tokens
+        - treeitem "Cache storage" [selected]:
+          - generic: Cache storage
+        - treeitem "Storage buckets":
+          - generic: Storage buckets
+      - heading "Background services" [level=3]:
+        - generic: Background services
+      - group "Background services":
+        - treeitem "Back/forward cache":
+          - generic: Back/forward cache
+        - treeitem "Background fetch":
+          - generic: Background fetch
+        - treeitem "Background sync":
+          - generic: Background sync
+        - treeitem "Bounce tracking mitigations":
+          - generic: Bounce tracking mitigations
+        - treeitem "Notifications":
+          - generic: Notifications
+        - treeitem "Payment handler":
+          - generic: Payment handler
+        - treeitem "Periodic background sync":
+          - generic: Periodic background sync
+        - treeitem "Speculative loads":
+          - generic: Speculative loads
+        - treeitem "Push messaging":
+          - generic: Push messaging
+        - treeitem "Reporting API":
+          - generic: Reporting API
+      - heading "Resources Section" [level=3]:
+        - generic: Frames
+      - group "Frames":
+        - treeitem "top":
+          - generic: top
+    - generic: No cache storage detected
+    - generic: On this page you can view and delete cache data
+    - link "Learn more":
+      - /url: https://developer.chrome.com/docs/devtools/storage/cache/
+      - generic: Learn more
+- alert: DevTools is undocked
+- status

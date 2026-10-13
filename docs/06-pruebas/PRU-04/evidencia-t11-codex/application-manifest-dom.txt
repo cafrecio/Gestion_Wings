@@ -1,0 +1,164 @@
+- navigation "Main toolbar":
+  - toolbar:
+    - generic "Select an element in the page to inspect it":
+      - button "Select an element in the page to inspect it - Ctrl + Shift + C"
+    - generic "Toggle screencast":
+      - button "Toggle screencast"
+  - tablist "Panels":
+    - tab "Elements":
+      - generic: Elements
+    - tab "Console":
+      - generic: Console
+    - tab "Sources":
+      - generic: Sources
+    - tab "Network":
+      - generic: Network
+    - tab "Performance":
+      - generic: Performance
+    - tab "Memory":
+      - generic: Memory
+    - tab "Application" [selected]:
+      - generic: Application
+    - tab "Security":
+      - generic: Security
+    - tab "Lighthouse":
+      - generic: Lighthouse
+    - tab "Recorder":
+      - generic: Recorder
+  - toolbar:
+    - 'generic "Open Issues to view 1 issue: 1 possible improvement"':
+      - 'button "Open Issues to view 1 issue: 1 possible improvement"':
+        - generic: "1"
+    - generic "Settings":
+      - button "Settings - F1 - Shift + ?"
+    - button "Customize and control DevTools":
+      - button "Customize and control DevTools"
+- tabpanel "Application panel":
+  - generic "resources":
+    - tree "Application panel sidebar":
+      - heading "Application" [level=3]:
+        - generic: Application
+      - group "Application":
+        - 'treeitem "Manifest: Invoke to scroll to the top of manifest" [selected]':
+          - generic: Manifest
+        - treeitem "Service workers":
+          - generic: Service workers
+        - treeitem "Storage":
+          - generic: Storage
+        - treeitem "WebMCP":
+          - generic: WebMCP
+          - generic: NEW
+      - heading "Storage" [level=3]:
+        - generic: Storage
+      - group "Storage":
+        - treeitem "Local storage":
+          - generic: Local storage
+        - treeitem "Session storage":
+          - generic: Session storage
+        - treeitem "Extension storage":
+          - generic: Extension storage
+        - treeitem "IndexedDB":
+          - generic: IndexedDB
+        - treeitem "Cookies":
+          - generic: Cookies
+        - treeitem "Private state tokens":
+          - generic: Private state tokens
+        - treeitem "Cache storage":
+          - generic: Cache storage
+        - treeitem "Storage buckets":
+          - generic: Storage buckets
+      - heading "Background services" [level=3]:
+        - generic: Background services
+      - group "Background services":
+        - treeitem "Back/forward cache":
+          - generic: Back/forward cache
+        - treeitem "Background fetch":
+          - generic: Background fetch
+        - treeitem "Background sync":
+          - generic: Background sync
+        - treeitem "Bounce tracking mitigations":
+          - generic: Bounce tracking mitigations
+        - treeitem "Notifications":
+          - generic: Notifications
+        - treeitem "Payment handler":
+          - generic: Payment handler
+        - treeitem "Periodic background sync":
+          - generic: Periodic background sync
+        - treeitem "Speculative loads":
+          - generic: Speculative loads
+        - treeitem "Push messaging":
+          - generic: Push messaging
+        - treeitem "Reporting API":
+          - generic: Reporting API
+      - heading "Resources Section" [level=3]:
+        - generic: Frames
+      - group "Frames":
+        - treeitem "top":
+          - generic: top
+    - heading "Manifest site.webmanifest" [level=1]:
+      - text: Manifest
+      - link "site.webmanifest"
+    - generic: Errors and warnings
+    - generic: Richer PWA Install UI won’t be available on desktop. Please add at least one screenshot with the form_factor set to wide.
+    - generic: Richer PWA Install UI won’t be available on mobile. Please add at least one screenshot for which form_factor is not set or set to a value other than wide.
+    - generic: Identity
+    - generic: Name
+    - generic: Wings — Gestión
+    - generic: Short name
+    - generic: Wings
+    - generic: Description
+    - generic "App Id":
+      - generic: Computed App ID
+    - text: https://test.gestionar-te.com.ar/login
+    - link "Learn more":
+      - /url: https://developer.chrome.com/blog/pwa-manifest-id/
+      - generic: Learn more
+    - generic: Presentation
+    - generic: Start URL
+    - link "/login"
+    - generic: Theme color
+    - generic "Shift-click to change color format"
+    - generic: Background color
+    - generic "Shift-click to change color format"
+    - generic: Orientation
+    - generic: Display
+    - generic: standalone
+    - generic: Protocol Handlers
+    - text: Define protocol handlers in the
+    - link "manifest":
+      - /url: https://test.gestionar-te.com.ar/site.webmanifest
+      - generic: manifest
+    - text: to register your app as a handler for custom protocols when your app is installed
+    - text: Need help? Read
+    - link "URL protocol handler registration for PWAs":
+      - /url: https://web.dev/url-protocol-handler/
+      - generic: URL protocol handler registration for PWAs
+    - text: .
+    - generic: Icons
+    - checkbox "Show only the minimum safe area for maskable icons"
+    - generic: Show only the minimum safe area for maskable icons
+    - text: Need help? Read the
+    - link "documentation on maskable icons":
+      - /url: https://web.dev/maskable-icon/
+      - generic: documentation on maskable icons
+    - text: .
+    - generic: 192×192px image/png
+    - img "Image from https://test.gestionar-te.com.ar/android-chrome-192x192.png"
+    - img "Image from https://test.gestionar-te.com.ar/android-chrome-192x192.png"
+    - generic: 512×512px image/png
+    - img "Image from https://test.gestionar-te.com.ar/android-chrome-512x512.png"
+    - img "Image from https://test.gestionar-te.com.ar/android-chrome-512x512.png"
+    - generic: Window Controls Overlay
+    - text: Define
+    - code:
+      - link "display-override":
+        - /url: https://developer.mozilla.org/en-US/docs/Web/Manifest/display_override
+        - generic: display-override
+    - text: in the manifest to use the Window Controls Overlay API and customize your app’s title bar
+    - text: Need help? Read
+    - link "Customize the window controls overlay of your PWA’s title bar":
+      - /url: https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay
+      - generic: Customize the window controls overlay of your PWA’s title bar
+    - text: .
+- alert: DevTools is undocked
+- status

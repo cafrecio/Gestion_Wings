@@ -1,0 +1,8 @@
+{
+  "metodo": "Chrome Application>Cookies: wings-session Expires/Max-Age=2000-01-01T00:00:00.000Z; desaparece; navegar /login",
+  "sesionPrevia": "ADMIN, Inicio visible",
+  "sesionCookiePresenteTrasExpirar": false,
+  "destino": "https://test.gestionar-te.com.ar/login",
+  "resultado": "Iniciar sesión, Email, Contraseña e Ingresar visibles",
+  "limite": "Prueba de expiración de cookie cliente; no espera del timeout del servidor, no instalación física"
+}
