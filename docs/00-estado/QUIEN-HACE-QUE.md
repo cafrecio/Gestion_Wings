@@ -47,7 +47,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T2** Retirar los dos importadores viejos de la primera carga | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar retiro de importadores viejos y suite en 724 |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
 
@@ -60,7 +59,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T2** Retirar los dos importadores viejos de la primera carga | Devuelto (hizo Gemini, verifica Claude) | El codigo esta bien. Vuelve por documentos que mandan a usar lo retirado: el paso de CHECKLIST-CARLOS y ENT-09 en los dos planes, la orden vieja de Codex y las piezas que quedaron en 06-pruebas. Detalle en VERIFICACION-T2.md |
 
 ## Sin empezar (52)
 

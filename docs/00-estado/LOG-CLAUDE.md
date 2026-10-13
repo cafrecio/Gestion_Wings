@@ -117,3 +117,6 @@ iguales. Suite en `wings_testing_claude`: 736 aprobadas, 2 omitidas. Falta el OK
 cuenta como pendiente de Wings (`tablero_es_de_otro_proyecto`). T2 la tiene Gemini.
 El cambio de estado de T7 quedo en la carpeta sin publicar: `tareas.json` tenia cambios de
 Gemini sin publicar y no los mezcle en mi commit.
+**T2 (Gemini), devuelta:** el retiro del codigo esta bien y la suite da 724 en mi base. Vuelve porque
+CHECKLIST-CARLOS y ENT-09 (los dos planes) siguen mandando a Carlos a importar el padron con el
+comando retirado. Detalle en `PRU-04/VERIFICACION-T2.md`. T7 y T11 las verifica Codex.
