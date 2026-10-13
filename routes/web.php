@@ -35,11 +35,15 @@ Route::get('/', function () {
 // dirección existe porque, al ser pública, cualquiera podría usarla para llenar
 // el disco; una pantalla rota genera muchos menos que eso.
 Route::post('/csp-reporte', CspReporteController::class)
-    ->middleware('throttle:60,1')
+    ->middleware('throttle:60,1,csp')
     ->name('csp.reporte');
 
 Route::get('/login', [WebController::class, 'loginForm'])->name('login');
-Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1');
+// Cada límite lleva su propio contador (el tercer dato). Sin eso los dos contaban
+// juntos por dirección: la pantalla de ingreso manda sola un aviso de seguridad cada vez
+// que se abre, y cada aviso gastaba un intento de ingreso. En el sitio de prueba, 7
+// ingresos seguidos sumaron 15 y el segundo ya quedaba afuera (13/10/2026).
+Route::post('/login', [WebController::class, 'login'])->middleware('throttle:5,1,ingreso');
 Route::post('/logout', [WebController::class, 'logout'])->name('logout');
 Route::get('/logout', fn() => redirect()->route('login'));
 
@@ -136,6 +140,9 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::put('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'update'])->name('web.cashflow.movimientos.update');
         Route::delete('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'destroy'])->name('web.cashflow.movimientos.destroy');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
+        Route::post('/deudas/{id}/reactivar', [AlumnoWebController::class, 'reactivarDeuda'])->name('web.deudas.reactivar');
+        Route::post('/inscripciones/{id}/condonar', [AlumnoWebController::class, 'condonarInscripcion'])->name('web.inscripciones.condonar');
+        Route::post('/inscripciones/{id}/reactivar', [AlumnoWebController::class, 'reactivarInscripcion'])->name('web.inscripciones.reactivar');
 
         // A13/B1: el cobro del dueño no pasa por ninguna caja, asi que tampoco se puede
         // anular desde el detalle de una caja. Se anula desde el historial de la ficha.
