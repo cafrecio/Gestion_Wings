@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 13/10/2026: 67 cerrados de 71.** Quedan 4 abiertos (B5, B6 y B8 pasaron a mejoras futuras: MF7, MF6 y MF8), de los
+> **Avance al 13/10/2026: 67 cerrados de 70.** Quedan 3 abiertos (B5, B6, B8 y B9 pasaron a mejoras futuras: MF7, MF6, MF8 y MF9), de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -699,7 +699,7 @@ con la ropa.
 Dos hermanos son dos alumnos sueltos que comparten apellido. No hay descuento por hermano ni
 una cuenta por casa.
 
-### B9. El adelanto al profesor no se descuenta solo · Falta
+### MF9 (era B9). El adelanto al profesor no se descuenta solo · Mejora futura, muy a futuro, desde el 13/10, decisión de Carlos
 
 Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes.
 **Si nadie se acuerda, el club le paga dos veces.**
