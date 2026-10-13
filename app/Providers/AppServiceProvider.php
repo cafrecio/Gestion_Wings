@@ -27,7 +27,16 @@ class AppServiceProvider extends ServiceProvider
         // ver App\Support\RelojSimulado.
         if (!$this->app->runningUnitTests()) {
             $desde = config('app.fecha_simulada_desde');
-            RelojSimulado::aplicar(config('app.fecha_simulada'), $this->app->environment(), is_numeric($desde) ? (int) $desde : null);
+            $aplicada = RelojSimulado::aplicar(config('app.fecha_simulada'), $this->app->environment(), is_numeric($desde) ? (int) $desde : null);
+
+            // T32: con el reloj simulado parado, el límite de intentos no vencía nunca
+            // y nadie podía entrar. Solo se cambia si hay una fecha simulada aplicada,
+            // cosa que en producción no pasa nunca.
+            if ($aplicada !== null) {
+                $this->app->extend(\Illuminate\Cache\RateLimiter::class, fn ($limite, $app) => new \App\Support\LimiteConRelojDetenido(
+                    $app->make('cache')->driver($app['config']->get('cache.limiter'))
+                ));
+            }
         }
 
         View::composer('*', function ($view) {

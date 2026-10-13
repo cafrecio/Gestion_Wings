@@ -27,8 +27,29 @@ class RelojSimulado
      *                              este dato el reloj avanza solo desde ahí; sin él queda clavado
      * @return string|null          la fecha aplicada, o null si no se aplicó ninguna
      */
+    /**
+     * Momento real (segundos Unix) a partir del cual el reloj simulado ya no avanza.
+     * null = no hay reloj simulado, o todavía corre. 0 = está clavado desde que se fijó.
+     */
+    private static ?int $detenidoDesde = null;
+
+    /**
+     * ¿El reloj simulado está parado?
+     *
+     * Con el reloj parado nada que dependa del paso del tiempo vuelve a vencer. T32: el
+     * 12/10 se frenó en la medianoche del día simulado y el límite de ingresos dejó a
+     * todos afuera, con bloqueos de 19 y 14 intentos acumulados. Quien necesite que el
+     * tiempo pase —ver LimiteConRelojDetenido— pregunta acá.
+     */
+    public static function detenido(): bool
+    {
+        return self::$detenidoDesde !== null && time() >= self::$detenidoDesde;
+    }
+
     public static function aplicar(?string $valor, string $entorno, ?int $desde = null): ?string
     {
+        self::$detenidoDesde = null;
+
         if ($valor === null || trim($valor) === '') {
             return null;
         }
@@ -54,6 +75,7 @@ class RelojSimulado
 
         if ($desde === null || $desde > time()) {
             Carbon::setTestNow($fecha);
+            self::$detenidoDesde = 0;
 
             return $fecha->toDateTimeString();
         }
@@ -64,6 +86,7 @@ class RelojSimulado
         // No pasa de la medianoche: el día del cuento lo cambia quien dirige la prueba,
         // no una noche real sin que nadie mire.
         $tope = $fecha->copy()->endOfDay();
+        self::$detenidoDesde = $desde + (int) ceil($fecha->diffInSeconds($tope, true));
         Carbon::setTestNow(static function () use ($fecha, $desde, $tope) {
             $ahora = $fecha->copy()->addSeconds(max(0, time() - $desde));
 

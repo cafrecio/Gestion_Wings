@@ -48,6 +48,9 @@ class FechaSimuladaCommand extends Command
             $this->line($vigente
                 ? "Fecha simulada fijada: {$vigente}. Para Wings ahora son las " . Carbon::now()->format('d/m/Y H:i')
                 : 'Sin fecha simulada: Wings usa la fecha real, ' . Carbon::now()->format('d/m/Y H:i'));
+            if ($vigente && \App\Support\RelojSimulado::detenido()) {
+                $this->warn('El reloj simulado está detenido: llegó a la medianoche de ese día. Para seguir, fijá el día siguiente.');
+            }
 
             return self::SUCCESS;
         }

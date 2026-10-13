@@ -19,6 +19,8 @@ class RelojSimuladoTest extends TestCase
     protected function tearDown(): void
     {
         Carbon::setTestNow();
+        // Deja el reloj como si nunca se hubiera simulado, para las pruebas que siguen.
+        RelojSimulado::aplicar(null, 'testing');
         parent::tearDown();
     }
 
@@ -58,6 +60,21 @@ class RelojSimuladoTest extends TestCase
         RelojSimulado::aplicar('2026-12-05 23:00:00', 'staging', time() - 3 * 3600);
 
         $this->assertSame('2026-12-05 23:59:59', Carbon::now()->toDateTimeString());
+        $this->assertTrue(RelojSimulado::detenido());
+
+        // T32: parado, el minuto del límite de ingresos no pasa nunca. El 12/10 hubo
+        // bloqueos con 19 y 14 intentos acumulados y nadie podía entrar al sitio de prueba.
+        $comun = app(\Illuminate\Cache\RateLimiter::class);
+        $deLaPrueba = new \App\Support\LimiteConRelojDetenido(app('cache')->driver());
+        for ($i = 0; $i < 19; $i++) $comun->hit('ingreso-t32', 60);
+        $this->assertTrue($comun->tooManyAttempts('ingreso-t32', 5), 'Sin el arreglo, el límite queda trabado.');
+        $this->assertFalse($deLaPrueba->tooManyAttempts('ingreso-t32', 5), 'Con el reloj parado el límite no se aplica.');
+
+        // Mientras el reloj avanza, el límite funciona como siempre.
+        RelojSimulado::aplicar('2026-12-06 10:00:00', 'staging', time() - 5);
+        $this->assertFalse(RelojSimulado::detenido());
+        for ($i = 0; $i < 5; $i++) $deLaPrueba->hit('ingreso-t32-b', 60);
+        $this->assertTrue($deLaPrueba->tooManyAttempts('ingreso-t32-b', 5));
     }
 
     public function test_sin_ese_momento_o_si_es_futuro_el_reloj_queda_clavado(): void
@@ -65,6 +82,7 @@ class RelojSimuladoTest extends TestCase
         foreach ([null, time() + 3600] as $desde) {
             RelojSimulado::aplicar('2026-12-05 09:30:00', 'staging', $desde);
             $this->assertSame('2026-12-05 09:30:00', Carbon::now()->toDateTimeString());
+            $this->assertTrue(RelojSimulado::detenido(), 'Un reloj clavado está parado desde que se fija.');
         }
     }
 
@@ -77,6 +95,12 @@ class RelojSimuladoTest extends TestCase
         $this->assertNull($aplicada);
         $this->assertSame($antes, Carbon::now()->toDateString(), 'En produccion la fecha tiene que seguir siendo la real.');
         $this->assertFalse(Carbon::hasTestNow());
+        $this->assertFalse(RelojSimulado::detenido(), 'En produccion nunca hay reloj parado: el limite de ingresos siempre rige.');
+
+        // Aunque antes hubiera habido uno aplicado en el mismo proceso.
+        RelojSimulado::aplicar('2026-12-05 09:30:00', 'staging');
+        RelojSimulado::aplicar('2026-12-05', 'production');
+        $this->assertFalse(RelojSimulado::detenido());
     }
 
     public function test_sin_valor_o_con_una_fecha_invalida_no_toca_el_reloj(): void
