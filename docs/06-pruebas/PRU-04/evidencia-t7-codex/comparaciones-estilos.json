@@ -1,0 +1,146 @@
+[
+  {
+    "caso": "admin-sin-asistencia-360",
+    "ancho": 360,
+    "elementosAntes": 67,
+    "elementosDespues": 67,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "admin-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementosAntes": 67,
+    "elementosDespues": 67,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "operativo-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementosAntes": 35,
+    "elementosDespues": 35,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "operativo-sin-asistencia-360",
+    "ancho": 360,
+    "elementosAntes": 35,
+    "elementosDespues": 35,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "profesor-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementosAntes": 11,
+    "elementosDespues": 11,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "profesor-sin-asistencia-360",
+    "ancho": 360,
+    "elementosAntes": 11,
+    "elementosDespues": 11,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "error-sin-contexto-1366",
+    "ancho": 1366,
+    "elementosAntes": 5,
+    "elementosDespues": 5,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "error-sin-contexto-360",
+    "ancho": 360,
+    "elementosAntes": 5,
+    "elementosDespues": 5,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  },
+  {
+    "caso": "login-control-360",
+    "ancho": 360,
+    "elementosAntes": 6,
+    "elementosDespues": 6,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ]
+  }
+]

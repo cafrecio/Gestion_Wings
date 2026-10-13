@@ -1,0 +1,19 @@
+{
+  "abierto": true,
+  "activo": [
+    "Inicio"
+  ],
+  "ancho": 360,
+  "contador": "33",
+  "pagina": 345,
+  "rect": {
+    "bottom": 900,
+    "height": 900,
+    "left": 0,
+    "right": 240,
+    "top": 0,
+    "width": 240,
+    "x": 0,
+    "y": 0
+  }
+}

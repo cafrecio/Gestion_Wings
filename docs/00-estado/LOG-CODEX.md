@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-13 — Codex CyE — T7 verificada, queda el OK visual de Carlos
+
+Verificación independiente de d4f02d4 (Claude): fuente y cascada del menú conservadas.
+Chrome del sitio: ADMIN/OPERATIVO/PROFESOR, 1366 y 360, activo Sin asistencia y contador 33.
+HTML real y CSS anterior/actual: ocho parejas menú/error idénticas; estilos iguales salvo fondo inexistente del logo.
+Renderer 500 del sitio comprobado con conexión a base bloqueada y cero consultas; sin provocar un fallo HTTP.
+Suite propia: 722 aprobadas, 2 omitidas, 6910 aserciones, 1106.41 s; carpeta compartida con cambios ajenos de T2.
+APROBADO en Chrome medido; navegador sin color-mix y teléfono físico no verificados. Sin arreglo, datos, reloj ni despliegue.
+[Informe y capturas](../06-pruebas/PRU-04/VERIFICACION-T7-CODEX.md). Tablero: tiene Carlos, espera OK visual; no cerrado.
+
 ## 2026-10-13 — Codex CyE — T33 implementada, entrega a Claude
 
 DU-25/DU-58: ADMIN perdona inscripción y reactiva cuota/inscripción desde ficha, con motivo 10–500.
@@ -116,15 +126,5 @@ Matriz 39 pantallas, 162 PNG: 563 controles/0 fallas; T24: 1351/0, 100 PNG. Marc
 [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). No se cierra ni despliega.
 Carlos aprueba capturas; después otro agente verifica regla. Sin sitio de prueba ni reloj.
 
-## 2026-10-12 — Codex CAB — T24, revisión visual aprobada por Carlos
 
-Carlos pidió corregir adelantado desbordado, íconos, desglose y botones móviles a la derecha.
-Adelantado arriba del mes a 360; inscripción/cuotas en dos líneas, cuota con dos decimales.
-Íconos en movimientos/entregado/configuración; acciones de campos/reglas y liquidación a la derecha.
-Repetición real detectó que el cierre general retiraba el aviso T24; ahora respeta su temporizador.
-Suite propia 641/2, 6075 aserciones, 448,36 s; 643 sin cambio de cantidad. Navegador 1351/0 fallas, 100 PNG.
-Build/sintaxis/vistas correctos; respuestas reales de Laravel y assets fijos, marco360/login. Sin sitio de prueba/reloj/deploy.
-[Propuesta, evidencia y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprobó `be5ad9a`: «Ahora OK» (12/10). Regla a verificar por Claude; T24 sigue a_verificar.
-Archivo anterior íntegro: [corte antes de esta revisión](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T24-REVISION.txt).
-
-[Archivo íntegro antes de T33](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ANTES-T33.md).
+[Entrada archivada al verificar T7](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ARCHIVO-T7-T11.md).

@@ -1,0 +1,197 @@
+[
+  {
+    "nombre": "admin-sin-asistencia-1366",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 1366,
+    "pagina": 1351,
+    "abierto": false,
+    "rect": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 67
+  },
+  {
+    "nombre": "admin-sin-asistencia-360",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 360,
+    "pagina": 345,
+    "abierto": true,
+    "rect": {
+      "bottom": 900,
+      "height": 900,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 67
+  },
+  {
+    "nombre": "operativo-inicio-1366",
+    "url": "https://test.gestionar-te.com.ar/operativo",
+    "ancho": 1366,
+    "pagina": 1366,
+    "abierto": false,
+    "rect": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Inicio"
+    ],
+    "contador": "33",
+    "elementos": 35
+  },
+  {
+    "nombre": "operativo-sin-asistencia-1366",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 1366,
+    "pagina": 1351,
+    "abierto": false,
+    "rect": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 35
+  },
+  {
+    "nombre": "operativo-sin-asistencia-360",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 360,
+    "pagina": 345,
+    "abierto": true,
+    "rect": {
+      "bottom": 900,
+      "height": 900,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 35
+  },
+  {
+    "nombre": "profesor-clases-1366",
+    "url": "https://test.gestionar-te.com.ar/clases",
+    "ancho": 1366,
+    "pagina": 1351,
+    "abierto": false,
+    "rect": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Clases"
+    ],
+    "contador": "33",
+    "elementos": 11
+  },
+  {
+    "nombre": "profesor-sin-asistencia-1366",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 1366,
+    "pagina": 1351,
+    "abierto": false,
+    "rect": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 11
+  },
+  {
+    "nombre": "profesor-sin-asistencia-360",
+    "url": "https://test.gestionar-te.com.ar/clases?estado=finalizada",
+    "ancho": 360,
+    "pagina": 345,
+    "abierto": true,
+    "rect": {
+      "bottom": 900,
+      "height": 900,
+      "left": 0,
+      "right": 240,
+      "top": 0,
+      "width": 240,
+      "x": 0,
+      "y": 0
+    },
+    "activo": [
+      "Sin asistencia\n                            33"
+    ],
+    "contador": "33",
+    "elementos": 11
+  },
+  {
+    "nombre": "login-origen-700",
+    "url": "https://test.gestionar-te.com.ar/login",
+    "ancho": 700,
+    "pagina": 685,
+    "abierto": false,
+    "rect": {
+      "bottom": 1100,
+      "height": 1100,
+      "left": -240,
+      "right": 0,
+      "top": 0,
+      "width": 240,
+      "x": -240,
+      "y": 0
+    },
+    "activo": [],
+    "elementos": 6
+  }
+]

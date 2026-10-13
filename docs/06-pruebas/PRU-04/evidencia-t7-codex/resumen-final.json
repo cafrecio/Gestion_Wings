@@ -1,0 +1,173 @@
+[
+  {
+    "caso": "admin-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementos": 67,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "d5ccf9b571ead14eae68200df722a85b6b956eba952094b8f0f0471c50ef0b02",
+    "shaDespues": "d5ccf9b571ead14eae68200df722a85b6b956eba952094b8f0f0471c50ef0b02"
+  },
+  {
+    "caso": "admin-sin-asistencia-360",
+    "ancho": 360,
+    "elementos": 67,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "3cad59f8f3540496026ec53a5201a490492d0957c4760fe44d4491dbaaf5c215",
+    "shaDespues": "3cad59f8f3540496026ec53a5201a490492d0957c4760fe44d4491dbaaf5c215"
+  },
+  {
+    "caso": "operativo-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementos": 35,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "5942c9fbd1c475e3ca9a8d8c0bee05c73bccd71977b3b87c991fc1a7d9aa9052",
+    "shaDespues": "5942c9fbd1c475e3ca9a8d8c0bee05c73bccd71977b3b87c991fc1a7d9aa9052"
+  },
+  {
+    "caso": "operativo-sin-asistencia-360",
+    "ancho": 360,
+    "elementos": 35,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "a78a763f307a3a3f1b6756f4b9f140e8c6d3d280ef3f1dcaebe9f5dcad4ff6a2",
+    "shaDespues": "a78a763f307a3a3f1b6756f4b9f140e8c6d3d280ef3f1dcaebe9f5dcad4ff6a2"
+  },
+  {
+    "caso": "profesor-sin-asistencia-1366",
+    "ancho": 1366,
+    "elementos": 11,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "b1eb9d52f8a5d6fa01139f0f2ea573bb910c26f0a81a78b3ce38e909ffdf23e2",
+    "shaDespues": "b1eb9d52f8a5d6fa01139f0f2ea573bb910c26f0a81a78b3ce38e909ffdf23e2"
+  },
+  {
+    "caso": "profesor-sin-asistencia-360",
+    "ancho": 360,
+    "elementos": 11,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "ba1b8e0db14813a96b53890bd540b0a123127b20f6dcef912a30edfdcef6ead2",
+    "shaDespues": "ba1b8e0db14813a96b53890bd540b0a123127b20f6dcef912a30edfdcef6ead2"
+  },
+  {
+    "caso": "error-sin-contexto-1366",
+    "ancho": 1366,
+    "elementos": 5,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "0dc9514e0ce12f57913ebd68621d91aafce47c72eec92bac3048740f46320f26",
+    "shaDespues": "0dc9514e0ce12f57913ebd68621d91aafce47c72eec92bac3048740f46320f26"
+  },
+  {
+    "caso": "error-sin-contexto-360",
+    "ancho": 360,
+    "elementos": 5,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": true,
+    "shaAntes": "6e5b6e320f6228e004a46f2a4021d7f20a6ca2d15f30696b0685184c00786d9c",
+    "shaDespues": "6e5b6e320f6228e004a46f2a4021d7f20a6ca2d15f30696b0685184c00786d9c"
+  },
+  {
+    "caso": "login-control-360",
+    "ancho": 360,
+    "elementos": 6,
+    "diferencias": [
+      {
+        "elemento": 3,
+        "clase": "ds-brand__logo",
+        "grupo": "estilos",
+        "propiedad": "background-position",
+        "antes": "0% 0%",
+        "despues": "0px 0px"
+      }
+    ],
+    "logoSinImagenDeFondo": true,
+    "capturasIdenticas": false,
+    "shaAntes": "d33a9204c18340ded05b8cfce617da0ce804d75c2a6dcc445f44b6bd771170e1",
+    "shaDespues": "fd18810e021bd72f7f1de9a8b1d666bc0013e9d7342a779680428950d8c12838"
+  }
+]

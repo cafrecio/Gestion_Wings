@@ -1,0 +1,4220 @@
+{
+  "anterior": "4d57a0cb6d52c1ea8772e247dc25cec756d8037d",
+  "actual": "c1e3a340fba9c70f2ce580c7d20adccad67ff59a",
+  "mismoContenidoSinComentarios": true,
+  "mismoBloqueLiteral": true,
+  "vistasConClasesMenu": [
+    "resources/views/errors/sin-contexto.blade.php",
+    "resources/views/layouts/ds-app.blade.php"
+  ],
+  "welcomeSinClases": true,
+  "menuFuenteAnterior": [
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-right",
+          "1px solid rgba(0, 0, 0, 0.25)",
+          false
+        ],
+        [
+          "padding",
+          "16px",
+          false
+        ],
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "height",
+          "100vh",
+          false
+        ],
+        [
+          "overflow-y",
+          "auto",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0 auto 0 0",
+          false
+        ],
+        [
+          "width",
+          "240px",
+          false
+        ],
+        [
+          "max-width",
+          "85vw",
+          false
+        ],
+        [
+          "z-index",
+          "50",
+          false
+        ],
+        [
+          "transform",
+          "translateX(-100%)",
+          false
+        ],
+        [
+          "transition",
+          "transform 0.25s ease",
+          false
+        ],
+        [
+          "box-shadow",
+          "4px 0 16px rgba(0, 0, 0, 0.25)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar.ds-sidebar--open",
+      "declaraciones": [
+        [
+          "transform",
+          "translateX(0)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0",
+          false
+        ],
+        [
+          "background",
+          "rgba(0, 0, 0, 0.5)",
+          false
+        ],
+        [
+          "z-index",
+          "40",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar-overlay.ds-sidebar-overlay--visible",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-logo-wrap",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "justify-content",
+          "center",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar img",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ],
+        [
+          "background",
+          "white",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px",
+          false
+        ],
+        [
+          "max-width",
+          "calc(100% - 16px)",
+          false
+        ],
+        [
+          "height",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "5rem",
+          false
+        ],
+        [
+          "image-rendering",
+          "-webkit-optimize-contrast",
+          false
+        ],
+        [
+          "image-rendering",
+          "crisp-edges",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "padding",
+          "16px 12px 4px",
+          false
+        ],
+        [
+          "font-size",
+          "0.68rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.08em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.38)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "8px 12px",
+          false
+        ],
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "font-size",
+          "0.875rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.65)",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.10)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "8px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px 6px 34px",
+          false
+        ],
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "font-size",
+          "0.8rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.55)",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.10)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink--active",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.14)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-count",
+      "declaraciones": [
+        [
+          "margin-left",
+          "auto",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ],
+        [
+          "min-width",
+          "18px",
+          false
+        ],
+        [
+          "padding",
+          "1px 6px",
+          false
+        ],
+        [
+          "border-radius",
+          "999px",
+          false
+        ],
+        [
+          "background",
+          "var(--color-danger)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-size",
+          "0.65rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "line-height",
+          "1.4",
+          false
+        ],
+        [
+          "text-align",
+          "center",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.18)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "linear-gradient(\n        180deg,\n        var(--color-chrome) 0%,\n        color-mix(in srgb, var(--color-chrome) 80%, black) 100%\n    )",
+          false
+        ],
+        [
+          "padding",
+          "0 12px 20px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand",
+      "declaraciones": [
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "z-index",
+          "1",
+          false
+        ],
+        [
+          "margin",
+          "0 -12px 8px",
+          false
+        ],
+        [
+          "padding",
+          "18px 20px 16px",
+          false
+        ],
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-bottom",
+          "1px solid rgba(255, 255, 255, 0.10)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__link",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-brand__logo",
+      "declaraciones": [
+        [
+          "width",
+          "auto",
+          false
+        ],
+        [
+          "height",
+          "52px",
+          false
+        ],
+        [
+          "image-rendering",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "none",
+          false
+        ],
+        [
+          "margin",
+          "0",
+          false
+        ],
+        [
+          "padding",
+          "0",
+          false
+        ],
+        [
+          "border-radius",
+          "0",
+          false
+        ],
+        [
+          "background",
+          "transparent",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__name",
+      "declaraciones": [
+        [
+          "font-size",
+          "1.35rem",
+          false
+        ],
+        [
+          "font-weight",
+          "800",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.14em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "line-height",
+          "1",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "20px 8px 8px",
+          false
+        ],
+        [
+          "font-size",
+          "0.66rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.12em",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.50)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group::after",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "flex",
+          "1",
+          false
+        ],
+        [
+          "height",
+          "1px",
+          false
+        ],
+        [
+          "background",
+          "rgba(255, 255, 255, 0.12)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "12px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "position",
+          "relative",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "padding",
+          "6px 10px 6px 8px",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "font-size",
+          "0.9rem",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.78)",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease, transform 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link > svg",
+      "declaraciones": [
+        [
+          "width",
+          "30px",
+          false
+        ],
+        [
+          "height",
+          "30px",
+          false
+        ],
+        [
+          "padding",
+          "7px",
+          false
+        ],
+        [
+          "border-radius",
+          "8px",
+          false
+        ],
+        [
+          "background",
+          "rgba(255, 255, 255, 0.07)",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.80)",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.07)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "transform",
+          "translateX(2px)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover > svg",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.16)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:focus-visible,\n.ds-nav-sublink:focus-visible",
+      "declaraciones": [
+        [
+          "outline",
+          "2px solid #fff",
+          false
+        ],
+        [
+          "outline-offset",
+          "2px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active,\n.ds-nav-link--active:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.12)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active::before",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "position",
+          "absolute",
+          false
+        ],
+        [
+          "left",
+          "-12px",
+          false
+        ],
+        [
+          "top",
+          "7px",
+          false
+        ],
+        [
+          "bottom",
+          "7px",
+          false
+        ],
+        [
+          "width",
+          "4px",
+          false
+        ],
+        [
+          "border-radius",
+          "0 4px 4px 0",
+          false
+        ],
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active > svg,\n.ds-nav-link--active:hover > svg",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "margin-left",
+          "23px",
+          false
+        ],
+        [
+          "padding",
+          "5px 10px 5px 26px",
+          false
+        ],
+        [
+          "border-left",
+          "1px solid rgba(255, 255, 255, 0.16)",
+          false
+        ],
+        [
+          "border-radius",
+          "0 8px 8px 0",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.68)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion: reduce)"
+      ],
+      "selector": ".ds-nav-link,\n    .ds-nav-link > svg",
+      "declaraciones": [
+        [
+          "transition",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion: reduce)"
+      ],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    }
+  ],
+  "menuFuenteActual": [
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-right",
+          "1px solid rgba(0, 0, 0, 0.25)",
+          false
+        ],
+        [
+          "padding",
+          "16px",
+          false
+        ],
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "height",
+          "100vh",
+          false
+        ],
+        [
+          "overflow-y",
+          "auto",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0 auto 0 0",
+          false
+        ],
+        [
+          "width",
+          "240px",
+          false
+        ],
+        [
+          "max-width",
+          "85vw",
+          false
+        ],
+        [
+          "z-index",
+          "50",
+          false
+        ],
+        [
+          "transform",
+          "translateX(-100%)",
+          false
+        ],
+        [
+          "transition",
+          "transform 0.25s ease",
+          false
+        ],
+        [
+          "box-shadow",
+          "4px 0 16px rgba(0, 0, 0, 0.25)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar.ds-sidebar--open",
+      "declaraciones": [
+        [
+          "transform",
+          "translateX(0)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0",
+          false
+        ],
+        [
+          "background",
+          "rgba(0, 0, 0, 0.5)",
+          false
+        ],
+        [
+          "z-index",
+          "40",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width: 768px)"
+      ],
+      "selector": ".ds-sidebar-overlay.ds-sidebar-overlay--visible",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-logo-wrap",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "justify-content",
+          "center",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar img",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ],
+        [
+          "background",
+          "white",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px",
+          false
+        ],
+        [
+          "max-width",
+          "calc(100% - 16px)",
+          false
+        ],
+        [
+          "height",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "5rem",
+          false
+        ],
+        [
+          "image-rendering",
+          "-webkit-optimize-contrast",
+          false
+        ],
+        [
+          "image-rendering",
+          "crisp-edges",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "padding",
+          "16px 12px 4px",
+          false
+        ],
+        [
+          "font-size",
+          "0.68rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.08em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.38)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "8px 12px",
+          false
+        ],
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "font-size",
+          "0.875rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.65)",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.10)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "8px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px 6px 34px",
+          false
+        ],
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "font-size",
+          "0.8rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.55)",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.10)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink--active",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.14)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-count",
+      "declaraciones": [
+        [
+          "margin-left",
+          "auto",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ],
+        [
+          "min-width",
+          "18px",
+          false
+        ],
+        [
+          "padding",
+          "1px 6px",
+          false
+        ],
+        [
+          "border-radius",
+          "999px",
+          false
+        ],
+        [
+          "background",
+          "var(--color-danger)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-size",
+          "0.65rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "line-height",
+          "1.4",
+          false
+        ],
+        [
+          "text-align",
+          "center",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.18)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "linear-gradient(\n        180deg,\n        var(--color-chrome) 0%,\n        color-mix(in srgb, var(--color-chrome) 80%, black) 100%\n    )",
+          false
+        ],
+        [
+          "padding",
+          "0 12px 20px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand",
+      "declaraciones": [
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "z-index",
+          "1",
+          false
+        ],
+        [
+          "margin",
+          "0 -12px 8px",
+          false
+        ],
+        [
+          "padding",
+          "18px 20px 16px",
+          false
+        ],
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-bottom",
+          "1px solid rgba(255, 255, 255, 0.10)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__link",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-brand__logo",
+      "declaraciones": [
+        [
+          "width",
+          "auto",
+          false
+        ],
+        [
+          "height",
+          "52px",
+          false
+        ],
+        [
+          "image-rendering",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "none",
+          false
+        ],
+        [
+          "margin",
+          "0",
+          false
+        ],
+        [
+          "padding",
+          "0",
+          false
+        ],
+        [
+          "border-radius",
+          "0",
+          false
+        ],
+        [
+          "background",
+          "transparent",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__name",
+      "declaraciones": [
+        [
+          "font-size",
+          "1.35rem",
+          false
+        ],
+        [
+          "font-weight",
+          "800",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.14em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "line-height",
+          "1",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "20px 8px 8px",
+          false
+        ],
+        [
+          "font-size",
+          "0.66rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "letter-spacing",
+          "0.12em",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.50)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group::after",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "flex",
+          "1",
+          false
+        ],
+        [
+          "height",
+          "1px",
+          false
+        ],
+        [
+          "background",
+          "rgba(255, 255, 255, 0.12)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "12px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "position",
+          "relative",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "padding",
+          "6px 10px 6px 8px",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "font-size",
+          "0.9rem",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.78)",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease, transform 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link > svg",
+      "declaraciones": [
+        [
+          "width",
+          "30px",
+          false
+        ],
+        [
+          "height",
+          "30px",
+          false
+        ],
+        [
+          "padding",
+          "7px",
+          false
+        ],
+        [
+          "border-radius",
+          "8px",
+          false
+        ],
+        [
+          "background",
+          "rgba(255, 255, 255, 0.07)",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.80)",
+          false
+        ],
+        [
+          "transition",
+          "background 150ms ease, color 150ms ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.07)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "transform",
+          "translateX(2px)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover > svg",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.16)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:focus-visible,\n.ds-nav-sublink:focus-visible",
+      "declaraciones": [
+        [
+          "outline",
+          "2px solid #fff",
+          false
+        ],
+        [
+          "outline-offset",
+          "2px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active,\n.ds-nav-link--active:hover",
+      "declaraciones": [
+        [
+          "background",
+          "rgba(255, 255, 255, 0.12)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active::before",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "position",
+          "absolute",
+          false
+        ],
+        [
+          "left",
+          "-12px",
+          false
+        ],
+        [
+          "top",
+          "7px",
+          false
+        ],
+        [
+          "bottom",
+          "7px",
+          false
+        ],
+        [
+          "width",
+          "4px",
+          false
+        ],
+        [
+          "border-radius",
+          "0 4px 4px 0",
+          false
+        ],
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active > svg,\n.ds-nav-link--active:hover > svg",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "margin-left",
+          "23px",
+          false
+        ],
+        [
+          "padding",
+          "5px 10px 5px 26px",
+          false
+        ],
+        [
+          "border-left",
+          "1px solid rgba(255, 255, 255, 0.16)",
+          false
+        ],
+        [
+          "border-radius",
+          "0 8px 8px 0",
+          false
+        ],
+        [
+          "color",
+          "rgba(255, 255, 255, 0.68)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion: reduce)"
+      ],
+      "selector": ".ds-nav-link,\n    .ds-nav-link > svg",
+      "declaraciones": [
+        [
+          "transition",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion: reduce)"
+      ],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    }
+  ],
+  "compiladoAnterior": [
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-right",
+          "1px solid #00000040",
+          false
+        ],
+        [
+          "height",
+          "100vh",
+          false
+        ],
+        [
+          "padding",
+          "16px",
+          false
+        ],
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "overflow-y",
+          "auto",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "z-index",
+          "50",
+          false
+        ],
+        [
+          "width",
+          "240px",
+          false
+        ],
+        [
+          "max-width",
+          "85vw",
+          false
+        ],
+        [
+          "transition",
+          "transform .25s",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0 auto 0 0",
+          false
+        ],
+        [
+          "transform",
+          "translate(-100%)",
+          false
+        ],
+        [
+          "box-shadow",
+          "4px 0 16px #00000040",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar.ds-sidebar--open",
+      "declaraciones": [
+        [
+          "transform",
+          "translate(0)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "z-index",
+          "40",
+          false
+        ],
+        [
+          "background",
+          "#00000080",
+          false
+        ],
+        [
+          "display",
+          "none",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar-overlay.ds-sidebar-overlay--visible",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-logo-wrap",
+      "declaraciones": [
+        [
+          "justify-content",
+          "center",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar img",
+      "declaraciones": [
+        [
+          "max-width",
+          "calc(100% - 16px)",
+          false
+        ],
+        [
+          "height",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "5rem",
+          false
+        ],
+        [
+          "image-rendering",
+          "-webkit-optimize-contrast",
+          false
+        ],
+        [
+          "image-rendering",
+          "crisp-edges",
+          false
+        ],
+        [
+          "background",
+          "#fff",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px",
+          false
+        ],
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "letter-spacing",
+          ".08em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#ffffff61",
+          false
+        ],
+        [
+          "padding",
+          "16px 12px 4px",
+          false
+        ],
+        [
+          "font-size",
+          ".68rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "color",
+          "#ffffffa6",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "8px 12px",
+          false
+        ],
+        [
+          "font-size",
+          ".875rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1a",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "color",
+          "#ffffff8c",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "8px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px 6px 34px",
+          false
+        ],
+        [
+          "font-size",
+          ".8rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1a",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink--active",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff24",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-count",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-danger)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "text-align",
+          "center",
+          false
+        ],
+        [
+          "border-radius",
+          "999px",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ],
+        [
+          "min-width",
+          "18px",
+          false
+        ],
+        [
+          "margin-left",
+          "auto",
+          false
+        ],
+        [
+          "padding",
+          "1px 6px",
+          false
+        ],
+        [
+          "font-size",
+          ".65rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "line-height",
+          "1.4",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff2e",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "linear-gradient(180deg,var(--color-chrome) 0%,color-mix(in srgb,var(--color-chrome) 80%,black) 100%)",
+          false
+        ],
+        [
+          "padding",
+          "0 12px 20px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand",
+      "declaraciones": [
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "z-index",
+          "1",
+          false
+        ],
+        [
+          "margin",
+          "0 -12px 8px",
+          false
+        ],
+        [
+          "padding",
+          "18px 20px 16px",
+          false
+        ],
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-bottom",
+          "1px solid rgba(255,255,255,.1)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__link",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-brand__logo",
+      "declaraciones": [
+        [
+          "width",
+          "auto",
+          false
+        ],
+        [
+          "height",
+          "52px",
+          false
+        ],
+        [
+          "image-rendering",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "none",
+          false
+        ],
+        [
+          "margin",
+          "0",
+          false
+        ],
+        [
+          "padding",
+          "0",
+          false
+        ],
+        [
+          "border-radius",
+          "0",
+          false
+        ],
+        [
+          "background",
+          "transparent",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__name",
+      "declaraciones": [
+        [
+          "font-size",
+          "1.35rem",
+          false
+        ],
+        [
+          "font-weight",
+          "800",
+          false
+        ],
+        [
+          "letter-spacing",
+          ".14em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "line-height",
+          "1",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "display",
+          "flex",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "20px 8px 8px",
+          false
+        ],
+        [
+          "font-size",
+          ".66rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "letter-spacing",
+          ".12em",
+          false
+        ],
+        [
+          "color",
+          "#ffffff80",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:after",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "flex",
+          "1",
+          false
+        ],
+        [
+          "height",
+          "1px",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1f",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "12px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "position",
+          "relative",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "padding",
+          "6px 10px 6px 8px",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "font-size",
+          ".9rem",
+          false
+        ],
+        [
+          "color",
+          "#ffffffc7",
+          false
+        ],
+        [
+          "transition",
+          "background .15s ease,color .15s ease,transform .15s ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link>svg",
+      "declaraciones": [
+        [
+          "width",
+          "30px",
+          false
+        ],
+        [
+          "height",
+          "30px",
+          false
+        ],
+        [
+          "padding",
+          "7px",
+          false
+        ],
+        [
+          "border-radius",
+          "8px",
+          false
+        ],
+        [
+          "background",
+          "#ffffff12",
+          false
+        ],
+        [
+          "color",
+          "#fffc",
+          false
+        ],
+        [
+          "transition",
+          "background .15s ease,color .15s ease",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "background",
+          "#ffffff12",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "transform",
+          "translate(2px)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover>svg",
+      "declaraciones": [
+        [
+          "background",
+          "#ffffff29",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:focus-visible,.ds-nav-sublink:focus-visible",
+      "declaraciones": [
+        [
+          "outline",
+          "2px solid #fff",
+          false
+        ],
+        [
+          "outline-offset",
+          "2px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active,.ds-nav-link--active:hover",
+      "declaraciones": [
+        [
+          "background",
+          "#ffffff1f",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active:before",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "position",
+          "absolute",
+          false
+        ],
+        [
+          "left",
+          "-12px",
+          false
+        ],
+        [
+          "top",
+          "7px",
+          false
+        ],
+        [
+          "bottom",
+          "7px",
+          false
+        ],
+        [
+          "width",
+          "4px",
+          false
+        ],
+        [
+          "border-radius",
+          "0 4px 4px 0",
+          false
+        ],
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active>svg,.ds-nav-link--active:hover>svg",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "margin-left",
+          "23px",
+          false
+        ],
+        [
+          "padding",
+          "5px 10px 5px 26px",
+          false
+        ],
+        [
+          "border-left",
+          "1px solid rgba(255,255,255,.16)",
+          false
+        ],
+        [
+          "border-radius",
+          "0 8px 8px 0",
+          false
+        ],
+        [
+          "color",
+          "#ffffffad",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion:reduce)"
+      ],
+      "selector": ".ds-nav-link,.ds-nav-link>svg",
+      "declaraciones": [
+        [
+          "transition",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion:reduce)"
+      ],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    }
+  ],
+  "compiladoActual": [
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-right",
+          "1px solid #00000040",
+          false
+        ],
+        [
+          "height",
+          "100vh",
+          false
+        ],
+        [
+          "padding",
+          "16px",
+          false
+        ],
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ],
+        [
+          "overflow-y",
+          "auto",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "display",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "z-index",
+          "50",
+          false
+        ],
+        [
+          "width",
+          "240px",
+          false
+        ],
+        [
+          "max-width",
+          "85vw",
+          false
+        ],
+        [
+          "transition",
+          "transform .25s",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0 auto 0 0",
+          false
+        ],
+        [
+          "transform",
+          "translate(-100%)",
+          false
+        ],
+        [
+          "box-shadow",
+          "4px 0 16px #00000040",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar.ds-sidebar--open",
+      "declaraciones": [
+        [
+          "transform",
+          "translate(0)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar-overlay",
+      "declaraciones": [
+        [
+          "z-index",
+          "40",
+          false
+        ],
+        [
+          "background",
+          "#00000080",
+          false
+        ],
+        [
+          "display",
+          "none",
+          false
+        ],
+        [
+          "position",
+          "fixed",
+          false
+        ],
+        [
+          "inset",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (max-width:768px)"
+      ],
+      "selector": ".ds-sidebar-overlay.ds-sidebar-overlay--visible",
+      "declaraciones": [
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-logo-wrap",
+      "declaraciones": [
+        [
+          "justify-content",
+          "center",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar img",
+      "declaraciones": [
+        [
+          "max-width",
+          "calc(100% - 16px)",
+          false
+        ],
+        [
+          "height",
+          "auto",
+          false
+        ],
+        [
+          "max-height",
+          "5rem",
+          false
+        ],
+        [
+          "image-rendering",
+          "-webkit-optimize-contrast",
+          false
+        ],
+        [
+          "image-rendering",
+          "crisp-edges",
+          false
+        ],
+        [
+          "background",
+          "#fff",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px",
+          false
+        ],
+        [
+          "display",
+          "block",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "letter-spacing",
+          ".08em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#ffffff61",
+          false
+        ],
+        [
+          "padding",
+          "16px 12px 4px",
+          false
+        ],
+        [
+          "font-size",
+          ".68rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "color",
+          "#ffffffa6",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "8px 12px",
+          false
+        ],
+        [
+          "font-size",
+          ".875rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1a",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "border-radius",
+          "var(--radius-btn)",
+          false
+        ],
+        [
+          "color",
+          "#ffffff8c",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "8px",
+          false
+        ],
+        [
+          "padding",
+          "6px 12px 6px 34px",
+          false
+        ],
+        [
+          "font-size",
+          ".8rem",
+          false
+        ],
+        [
+          "font-weight",
+          "500",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1a",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink--active",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff24",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-count",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-danger)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "text-align",
+          "center",
+          false
+        ],
+        [
+          "border-radius",
+          "999px",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ],
+        [
+          "min-width",
+          "18px",
+          false
+        ],
+        [
+          "margin-left",
+          "auto",
+          false
+        ],
+        [
+          "padding",
+          "1px 6px",
+          false
+        ],
+        [
+          "font-size",
+          ".65rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "line-height",
+          "1.4",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff2e",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "linear-gradient(180deg,var(--color-chrome)0%,#3b3b3b 100%)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@supports (color:color-mix(in lab,red,red))"
+      ],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "background",
+          "linear-gradient(180deg,var(--color-chrome)0%,color-mix(in srgb,var(--color-chrome)80%,black)100%)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar",
+      "declaraciones": [
+        [
+          "padding",
+          "0 12px 20px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand",
+      "declaraciones": [
+        [
+          "z-index",
+          "1",
+          false
+        ],
+        [
+          "background",
+          "var(--color-chrome)",
+          false
+        ],
+        [
+          "border-bottom",
+          "1px solid #ffffff1a",
+          false
+        ],
+        [
+          "margin",
+          "0 -12px 8px",
+          false
+        ],
+        [
+          "padding",
+          "18px 20px 16px",
+          false
+        ],
+        [
+          "position",
+          "sticky",
+          false
+        ],
+        [
+          "top",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__link",
+      "declaraciones": [
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "text-decoration",
+          "none",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-sidebar .ds-brand__logo",
+      "declaraciones": [
+        [
+          "image-rendering",
+          "auto",
+          false
+        ],
+        [
+          "background",
+          "0 0",
+          false
+        ],
+        [
+          "border-radius",
+          "0",
+          false
+        ],
+        [
+          "flex-shrink",
+          "0",
+          false
+        ],
+        [
+          "width",
+          "auto",
+          false
+        ],
+        [
+          "height",
+          "52px",
+          false
+        ],
+        [
+          "max-height",
+          "none",
+          false
+        ],
+        [
+          "margin",
+          "0",
+          false
+        ],
+        [
+          "padding",
+          "0",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-brand__name",
+      "declaraciones": [
+        [
+          "letter-spacing",
+          ".14em",
+          false
+        ],
+        [
+          "text-transform",
+          "uppercase",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "font-size",
+          "1.35rem",
+          false
+        ],
+        [
+          "font-weight",
+          "800",
+          false
+        ],
+        [
+          "line-height",
+          "1",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group",
+      "declaraciones": [
+        [
+          "letter-spacing",
+          ".12em",
+          false
+        ],
+        [
+          "color",
+          "#ffffff80",
+          false
+        ],
+        [
+          "align-items",
+          "center",
+          false
+        ],
+        [
+          "gap",
+          "10px",
+          false
+        ],
+        [
+          "padding",
+          "20px 8px 8px",
+          false
+        ],
+        [
+          "font-size",
+          ".66rem",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "display",
+          "flex",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:after",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1f",
+          false
+        ],
+        [
+          "flex",
+          "1",
+          false
+        ],
+        [
+          "height",
+          "1px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-group:first-child",
+      "declaraciones": [
+        [
+          "padding-top",
+          "12px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link",
+      "declaraciones": [
+        [
+          "color",
+          "#ffffffc7",
+          false
+        ],
+        [
+          "border-radius",
+          "10px",
+          false
+        ],
+        [
+          "gap",
+          "12px",
+          false
+        ],
+        [
+          "padding",
+          "6px 10px 6px 8px",
+          false
+        ],
+        [
+          "font-size",
+          ".9rem",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s,transform .15s",
+          false
+        ],
+        [
+          "position",
+          "relative",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link>svg",
+      "declaraciones": [
+        [
+          "color",
+          "#fffc",
+          false
+        ],
+        [
+          "background",
+          "#ffffff12",
+          false
+        ],
+        [
+          "border-radius",
+          "8px",
+          false
+        ],
+        [
+          "width",
+          "30px",
+          false
+        ],
+        [
+          "height",
+          "30px",
+          false
+        ],
+        [
+          "padding",
+          "7px",
+          false
+        ],
+        [
+          "transition",
+          "background .15s,color .15s",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff12",
+          false
+        ],
+        [
+          "transform",
+          "translate(2px)",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:hover>svg",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff29",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link:focus-visible,.ds-nav-sublink:focus-visible",
+      "declaraciones": [
+        [
+          "outline-offset",
+          "2px",
+          false
+        ],
+        [
+          "outline",
+          "2px solid #fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active,.ds-nav-link--active:hover",
+      "declaraciones": [
+        [
+          "color",
+          "#fff",
+          false
+        ],
+        [
+          "background",
+          "#ffffff1f",
+          false
+        ],
+        [
+          "font-weight",
+          "700",
+          false
+        ],
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active:before",
+      "declaraciones": [
+        [
+          "content",
+          "\"\"",
+          false
+        ],
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ],
+        [
+          "border-radius",
+          "0 4px 4px 0",
+          false
+        ],
+        [
+          "width",
+          "4px",
+          false
+        ],
+        [
+          "position",
+          "absolute",
+          false
+        ],
+        [
+          "top",
+          "7px",
+          false
+        ],
+        [
+          "bottom",
+          "7px",
+          false
+        ],
+        [
+          "left",
+          "-12px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-link--active>svg,.ds-nav-link--active:hover>svg",
+      "declaraciones": [
+        [
+          "background",
+          "var(--color-brand)",
+          false
+        ],
+        [
+          "color",
+          "#fff",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [],
+      "selector": ".ds-nav-sublink",
+      "declaraciones": [
+        [
+          "color",
+          "#ffffffad",
+          false
+        ],
+        [
+          "border-left",
+          "1px solid #ffffff29",
+          false
+        ],
+        [
+          "border-radius",
+          "0 8px 8px 0",
+          false
+        ],
+        [
+          "margin-left",
+          "23px",
+          false
+        ],
+        [
+          "padding",
+          "5px 10px 5px 26px",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion:reduce)"
+      ],
+      "selector": ".ds-nav-link,.ds-nav-link>svg",
+      "declaraciones": [
+        [
+          "transition",
+          "none",
+          false
+        ]
+      ]
+    },
+    {
+      "contexto": [
+        "@media (prefers-reduced-motion:reduce)"
+      ],
+      "selector": ".ds-nav-link:hover",
+      "declaraciones": [
+        [
+          "transform",
+          "none",
+          false
+        ]
+      ]
+    }
+  ],
+  "mismoOrdenReglasFuente": true
+}
