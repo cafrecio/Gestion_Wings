@@ -22,6 +22,17 @@
     @else
         <p>La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}.</p>
     @endif
+    @if($inscripcionEsDeEsteRegistro && Auth::user()->isAdmin() && $inscripcion->estado === 'VIGENTE')
+    <div class="alumno-actions acciones-celular-derecha mt-2 pt-2" style="border-top: 1px solid var(--color-border);">
+        @if((float) $inscripcion->monto_condonado > 0)
+        <button type="button" class="ds-btn-row ds-btn-row--sec"
+                data-abrir-reactivar="{{ route('web.inscripciones.reactivar', $inscripcion->id) }}">Reactivar</button>
+        @elseif($inscripcion->saldo_pendiente > 0)
+        <button type="button" class="ds-btn-row ds-btn-row--dang"
+                data-abrir-condonar="{{ route('web.inscripciones.condonar', $inscripcion->id) }}">Condonar</button>
+        @endif
+    </div>
+    @endif
 </div>
 @endif
 
@@ -213,6 +224,23 @@
         </div>
 
         {{-- Tutor --}}
+        @if($cuotasCondonadas->isNotEmpty())
+        <div id="cuotas-condonadas" class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">
+            <p class="text-xs mb-2" style="color:var(--color-text-muted);">Cuotas condonadas</p>
+            @foreach($cuotasCondonadas as $deuda)
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded mb-1"
+                 style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
+                <span class="text-xs" style="color:var(--color-text-muted);">{{ $deuda->periodo }} · Condonada</span>
+                @if(Auth::user()->isAdmin())
+                <div class="flex justify-end">
+                    <button type="button" class="ds-btn-row ds-btn-row--sec"
+                            data-abrir-reactivar="{{ route('web.deudas.reactivar', $deuda->id) }}">Reactivar</button>
+                </div>
+                @endif
+            </div>
+            @endforeach
+        </div>
+        @endif
         @if($alumno->nombre_tutor)
         <div class="pt-3" style="border-top: 1px solid var(--color-border);">
             <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
@@ -364,8 +392,8 @@
 {{-- Modal condonar deuda: replica el patrón de cancelar cobro. --}}
 <div id="modal-condonar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
-        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Condonar deuda</p>
-        <p style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">Esta acción no genera un ingreso de caja y no se puede deshacer.</p>
+        <p id="perdon-titulo" style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:0.25rem;">Condonar deuda</p>
+        <p id="perdon-aviso" style="font-size:0.78rem; color:var(--color-text-muted); margin-bottom:1rem;">Se perdona el saldo pendiente. No mueve plata. Podés reactivarlo con motivo desde esta ficha.</p>
         <form id="form-condonar" method="POST" action="">
             @csrf
             <textarea name="motivo" required minlength="10" maxlength="500" rows="3"
@@ -375,7 +403,7 @@
             <div style="display:flex; gap:8px; justify-content:flex-end;">
                 <button type="button" data-cerrar-condonar
                         class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cerrar</button>
-                <button type="submit"
+                <button id="perdon-confirmar" type="submit"
                         class="ds-btn" style="background:var(--color-danger); color:var(--color-surface);">Condonar</button>
             </div>
         </form>
@@ -390,21 +418,7 @@
 
 @push('scripts')
 @if(Auth::user()->isAdmin())
-<script>
-function abrirCondonar(actionUrl) {
-    var form = document.getElementById('form-condonar');
-    if (form) form.action = actionUrl;
-    var modal = document.getElementById('modal-condonar');
-    if (modal) modal.style.display = 'flex';
-}
-function cerrarCondonar() {
-    var modal = document.getElementById('modal-condonar');
-    if (modal) modal.style.display = 'none';
-}
-document.getElementById('modal-condonar')?.addEventListener('click', function (event) {
-    if (event.target === this) cerrarCondonar();
-});
-</script>
+@vite('resources/js/alumnos-show.js')
 @endif
 @endpush
 

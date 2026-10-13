@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T33 — Perdón de inscripción y reactivación, 13/10/2026
+
+Codex CyE implementa DU-25/DU-58: ADMIN condona inscripción pendiente y reactiva
+cuotas/inscripción perdonadas desde ficha, con motivo 10–500 y ambas decisiones conservadas.
+Pagos parciales y original intactos; sin caja/cashflow/recibos ni matrícula reactivada.
+31 pruebas nuevas, capturas reales 1366/marco360 y login. Suite local 736/2 verde, 7001 aserciones.
+Reporte anterior conserva cuota histórica, pero usa perdón actual de inscripción;
+se informa sin modificar esa regla. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md).
+Sin despliegue. Claude verifica código y pantalla antes de cerrar.
+
 ## T27 — Implementación local y comprobación, 12/10/2026
 
 [Propuesta e inventario](../06-pruebas/PRU-04/PROPUESTA-T27.md): Cashflow como entrada
@@ -546,7 +556,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **689 pruebas**: 687 aprobadas, 2 omitidas; 6588 aserciones, 501,04 s. Suite completa en wings_testing_codex, 12/10, T27. [Entrega T27](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). |
+| **Tests** | **720 pruebas** versionadas. Corrida completa local: 738 pruebas (incluye 18 de T31 sin publicar), 736 aprobadas/2 omitidas; wings_testing_codex, 13/10. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -559,7 +569,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only con endpoint /csp-reporte; quedan 19 bloques script en 17 vistas y 10 manejadores inline |
+| CSP | Report-only con endpoint /csp-reporte; corte T33 13/10: 11 bloques script en 10 vistas y 9 manejadores inline, contados en fuente. |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre

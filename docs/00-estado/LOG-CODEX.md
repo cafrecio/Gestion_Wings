@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-13 — Codex CyE — T33 implementada, entrega a Claude
+
+DU-25/DU-58: ADMIN perdona inscripción y reactiva cuota/inscripción desde ficha, con motivo 10–500.
+Original y parciales intactos; historial de las dos decisiones; bloqueos persona, alumno, deuda/cargo.
+31 pruebas propias verdes; suite completa local 736 aprobadas/2 omitidas, 7001 aserciones, 895.64 s.
+Incluye 18 pruebas T31 sin publicar; primer intento con 3 fallos propios, corregidos solo en los controles.
+Capturas reales 1366/marco360 y login: ocho visitas sin fallos; sin CSS compartido ni archivos de Gemini.
+Contrato, contadores y evidencia actualizados; 720 pruebas versionadas al publicar solo T33.
+Las tres rutas propias entraron en 602efcc de Claude; comprobadas en HEAD, sin repetir el archivo.
+[Informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). Tablero a_verificar, hizo Codex, verifica/tiene Claude.
+Sin sitio de prueba, reloj ni despliegue. Claude verifica código y pantalla; no se autocierra.
+
 ## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
 
 Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
@@ -111,33 +123,4 @@ Build/sintaxis/vistas correctos; respuestas reales de Laravel y assets fijos, ma
 [Propuesta, evidencia y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprobó `be5ad9a`: «Ahora OK» (12/10). Regla a verificar por Claude; T24 sigue a_verificar.
 Archivo anterior íntegro: [corte antes de esta revisión](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T24-REVISION.txt).
 
-## 2026-10-11 — Codex CAB — T24 implementada, a verificar por Carlos y después otro agente
-
-16 pantallas/modos con Rectificar T23, filas nuevas de Grupos/adelantados y alta de plan por pedido directo.
-Fuentes reales y rutas leídas tras pull actualizado; lector Excel ejecutado aislado, sin base.
-Carlos: coma decimal aceptada; mostrar 48,000.50; tercer decimal recortado a dos, rojo y aviso de 4 s sin bloquear.
-Componente/parser comunes y regla PHP; guardados directos sin redondear inválidos. Excel, porcentajes y cálculos conservados.
-Coordinación T23: campo de rectificación incluido; cambios T24 del controlador compartido entraron en 03aaf11 de Gemini.
-Suite completa propia 641/2, 6075 aserciones, 428,69 s; 643 pruebas. Navegador 1292 controles/90 PNG, assets fijados.
-18/18 campos anteriores detectan regresión sobre dd62c64; 57 pedidos previos registrados. Sintaxis/build/vistas correctos.
-[Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). T24 a_verificar, Carlos aprueba imágenes y después otro agente regla; sin cierre ni deploy.
-Publicar solo archivos propios; trabajo ajeno de Historial/permisos preservado. Sin sitio de prueba ni reloj por Codex.
-
-## 2026-10-10 — Codex CyE — T14 Día 3 recorrido, a verificar por Claude
-
-Objetivo: feriado simulado lunes 12/10; seis tareas por menú/botones, expectativas antes de actuar.
-Sandra cancela las dos de las 16; admin Patín Intermedias 17–18; motivo y Cancelar esta, sin serie.
-Agenda 3 → 1 → 0; Sin asistencia 33 antes/después, dos páginas sin fechas del 12.
-Frena: canceladas de hoy ocultas en Clases aun con Cancelada + fecha, Sandra/admin/Lucía.
-Guardar deshabilitado en fichas canceladas vistas; ADMIN ve Activar, no se pulsó; Sandra sin comprobar.
-Inicio/Reportes ingresos $164.000/deuda $2.010.000/por pagar $0; Cobranza $2.010.000, 65/0/22/13.
-Sueldos Gaitán/Salinas/Quintana $0; Mariela $18.000/6 asistencias. Bloqueos de ingreso, luego pudieron entrar.
-Carlos decidió suplencias y Abrir en feriado correctos; fuera de hallazgos. Sin código/base, arreglos, cobros ni reloj.
-Chrome real por clics, integrado falló; cinco capturas de fallas. [Informe único](../06-pruebas/PRU-04/DIA-03.md).
-T14 abierta, solo paso actualizado; Claude verifica. Conservar tres cancelaciones; cuenta/navegador propios cerrados.
-
-[Archivo íntegro antes de etapa 2 T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-ETAPA2.txt).
-[Archivo íntegro antes de corregir Historial](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-HISTORIAL.txt).
-
-[Archivo íntegro antes de la aprobación final](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-APROBACION.txt).
-[Archivo íntegro antes de la limpieza](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ANTES-LIMPIEZA.txt).
+[Archivo íntegro antes de T33](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ANTES-T33.md).

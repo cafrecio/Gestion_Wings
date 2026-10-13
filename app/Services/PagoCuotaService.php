@@ -280,9 +280,7 @@ class PagoCuotaService
         }
 
         return DB::transaction(function () use ($deudaId, $observaciones, $adminId) {
-            // Comparte la fila bloqueada por obtenerOcrearDeuda al cobrar.
-            // El estado y el saldo se leen después de esperar al otro movimiento.
-            $deuda = DeudaCuota::whereKey($deudaId)->lockForUpdate()->firstOrFail();
+            $deuda = $this->bloquearDeudaParaDecision($deudaId);
 
             if ($deuda->estado !== DeudaCuota::ESTADO_PENDIENTE) {
                 throw new \Exception("Solo se pueden condonar deudas con estado PENDIENTE. Estado actual: {$deuda->estado}");
@@ -299,6 +297,36 @@ class PagoCuotaService
 
             return $deuda;
         });
+    }
+
+    public function reactivarDeuda(int $deudaId, string $motivo, int $adminId): DeudaCuota
+    {
+        $motivo = trim($motivo);
+        if (mb_strlen($motivo) < 10 || mb_strlen($motivo) > 500) {
+            throw new \InvalidArgumentException('El motivo de la reactivación debe tener entre 10 y 500 caracteres.');
+        }
+
+        return DB::transaction(function () use ($deudaId, $motivo, $adminId) {
+            $deuda = $this->bloquearDeudaParaDecision($deudaId);
+            if ($deuda->estado !== DeudaCuota::ESTADO_CONDONADA) {
+                throw new \RuntimeException('Solo se pueden reactivar cuotas CONDONADAS.');
+            }
+            $deuda->estado = DeudaCuota::ESTADO_PENDIENTE;
+            $deuda->observaciones = $this->agregarObservacion($deuda->observaciones,
+                "REACTIVADA por admin ID:{$adminId} - Saldo reactivado: "
+                . number_format($deuda->saldo_pendiente, 2, '.', '') . " - {$motivo}");
+            $deuda->save();
+            return $deuda;
+        });
+    }
+
+    private function bloquearDeudaParaDecision(int $deudaId): DeudaCuota
+    {
+        // La primera lectura solo localiza la persona; estado y saldo se releen bajo bloqueo.
+        $alumno = Alumno::findOrFail(DeudaCuota::findOrFail($deudaId)->alumno_id);
+        app(InscripcionService::class)->bloquear($alumno->dni, false);
+        $this->bloquearAlumnoParaPago($alumno->id);
+        return DeudaCuota::whereKey($deudaId)->lockForUpdate()->firstOrFail();
     }
 
     /**

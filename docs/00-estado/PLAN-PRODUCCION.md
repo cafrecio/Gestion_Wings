@@ -16,8 +16,9 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **689 pruebas**: 687 aprobadas, 2 omitidas; 6588 aserciones, 501,04 s, wings_testing_codex, 12/10, T27. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md) |
+| Suite | **720 pruebas** versionadas. Corrida completa local: 738 pruebas (incluye 18 de T31 sin publicar), 736 aprobadas/2 omitidas; wings_testing_codex, 13/10. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
+| T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |
 | Cobranza | ADMIN y OPERATIVO habilitados; PROFESOR rechazado. Entrega 1 abc346a aprobada por Codex 05/10. A54 conserva su cierre; A13/B1/A55 CERRADOS por Codex CyE 06/10 sobre main integrado: cobro sin caja, anulación con motivo, historial y contraasientos comprobados en pantalla; inscripción única coherente. A48/A49 CERRADOS, verificado Claude. A53 DEVUELTO a Gemini por Codex CyE 06/10; [control de celular](../06-pruebas/PRU-02/VERIFICACION-CELULAR-COMPARTIDO.md). [Informe independiente](../06-pruebas/PRU-02/VERIFICACION-A13-B1-A55-CIERRE.md). Sin despliegue |
 | Caja A25 | CERRADO (Codex/Gemini) 06/10. Apertura confirmada, cajón compartido, herencia/motivo, arqueo y separación cambio/entrega. ADMIN configura una vez, guarda sus cobros aparte y cuenta antes de validar/rechazar. Correcciones conservan conteo/entrega y siguiente turno. 26 pruebas permanentes; diseño aprobado. Verificado por Gemini de forma independiente ([informe](../06-pruebas/PRU-02/VERIFICACION-A25.md)). Sin deploy |
@@ -27,7 +28,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
 | Permisos A29/A30/A31 | Entregados: rechazo explícito y Volver al inicio propio, sin ampliar accesos. Suite 380/2242, tres roles normal/375 px. Pendiente Gemini; sin deploy |
-| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Quedan 19 bloques script y 10 manejadores inline |
+| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Corte T33 13/10: 11 bloques script en 10 vistas y 9 manejadores inline, contados en fuente. |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 

@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\PerdonReactivacionT33Test
+  ✓ evidencia ficha real opcional sin sumar una prueba omitida                                                   8.75s  
+
+  Tests:    1 passed (7 assertions)
+  Duration: 9.07s
+

@@ -65,6 +65,51 @@ class InscripcionService
         }
     }
 
+    public function condonar(int $cargoId, string $motivo, int $usuarioId): CargoAlumno
+    {
+        return $this->decidirPerdon($cargoId, $motivo, $usuarioId, false);
+    }
+
+    public function reactivar(int $cargoId, string $motivo, int $usuarioId): CargoAlumno
+    {
+        return $this->decidirPerdon($cargoId, $motivo, $usuarioId, true);
+    }
+
+    private function decidirPerdon(int $cargoId, string $motivo, int $usuarioId, bool $reactivar): CargoAlumno
+    {
+        $motivo = trim($motivo);
+        if (mb_strlen($motivo) < 10 || mb_strlen($motivo) > 500) {
+            throw new \InvalidArgumentException('El motivo debe tener entre 10 y 500 caracteres.');
+        }
+        return DB::transaction(function () use ($cargoId, $motivo, $usuarioId, $reactivar) {
+            $referencia = CargoAlumno::findOrFail($cargoId);
+            $this->bloquear($referencia->dni, false);
+            Alumno::whereKey($referencia->alumno_id)->lockForUpdate()->firstOrFail();
+            $cargo = CargoAlumno::whereKey($cargoId)->lockForUpdate()->firstOrFail();
+            if ($cargo->tipo !== 'INSCRIPCION' || $cargo->estado !== 'VIGENTE') {
+                throw new \RuntimeException('Solo se puede modificar el perdón de una inscripción VIGENTE.');
+            }
+            $anterior = (float) $cargo->monto_condonado;
+            if ($reactivar) {
+                if ($anterior <= 0) throw new \RuntimeException('La inscripción no tiene ningún importe condonado para reactivar.');
+                $importe = $anterior;
+                $cargo->monto_condonado = 0;
+            } else {
+                if ($anterior > 0) throw new \RuntimeException('La inscripción ya tiene un perdón. Reactivala antes de condonar nuevamente.');
+                $importe = $cargo->saldo_pendiente;
+                if ($importe <= 0) throw new \RuntimeException('La inscripción no tiene saldo pendiente para condonar.');
+                $cargo->monto_condonado = $importe;
+            }
+            $cargo->save();
+            $this->evento($cargo, $usuarioId, $reactivar ? 'REACTIVAR' : 'CONDONAR', $motivo, [
+                'importe' => $importe, 'monto_condonado_anterior' => $anterior,
+                'monto_condonado_nuevo' => (float) $cargo->monto_condonado,
+                'saldo_pendiente' => $cargo->saldo_pendiente,
+            ]);
+            return $cargo;
+        });
+    }
+
     private function evento(CargoAlumno $cargo, ?int $usuario, string $accion, ?string $motivo, array $detalle): void
     {
         DB::table('cargo_alumno_eventos')->insert(['cargo_alumno_id' => $cargo->id, 'usuario_id' => $usuario,

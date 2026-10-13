@@ -46,7 +46,8 @@ class CspSinCodigoIncrustadoTest extends TestCase
     // A27 (06/10): caja/movimiento extrae su script a resources/js/caja-movimiento.js.
     // T24 (11/10): Profesores usa opciones data-tipo y profesores-form.js; salen dos scripts.
     // T27 (12/10): Cashflow comparte su módulo externo entre alta y edición; sale un script.
-    private const BLOQUES_SCRIPT_PERMITIDOS = 12;
+    // T33 (13/10): la ficha usa alumnos-show.js para condonar/reactivar con el mismo modal.
+    private const BLOQUES_SCRIPT_PERMITIDOS = 11;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.

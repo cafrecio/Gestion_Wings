@@ -1,0 +1,77 @@
+{
+  "resultados": [
+    {
+      "caso": "inscripcion-pendiente",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "inscripcion-condonada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "cuota-condonada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "login",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": false
+    },
+    {
+      "caso": "inscripcion-pendiente",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "inscripcion-condonada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "cuota-condonada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": true
+    },
+    {
+      "caso": "login",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "imagenesCargadas": true,
+      "errores": [],
+      "modal": false
+    }
+  ],
+  "fallos": []
+}

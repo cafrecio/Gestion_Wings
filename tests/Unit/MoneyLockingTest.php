@@ -30,7 +30,8 @@ class MoneyLockingTest extends TestCase
             dirname(__DIR__, 2) . '/app/Services/PagoCuotaService.php'
         );
 
-        $this->assertSame(3, substr_count($source, 'bloquearAlumnoParaPago'));
+        // Dos cobros, decisiones de perdón/reactivación T33 y la declaración del helper.
+        $this->assertSame(4, substr_count($source, 'bloquearAlumnoParaPago'));
         $this->assertMatchesRegularExpression(
             '/function bloquearAlumnoParaPago\(.*?lockForUpdate\(\)/s',
             $source

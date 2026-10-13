@@ -134,7 +134,8 @@ class AlumnoWebController extends Controller
             ->get()
             ->sortBy(fn($as) => $as->clase?->fecha);
 
-        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes'));
+        $cuotasCondonadas = $alumno->deudaCuotas()->where('estado', 'CONDONADA')->orderBy('periodo')->get();
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas'));
     }
 
     public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)
@@ -165,6 +166,36 @@ class AlumnoWebController extends Controller
         return redirect()
             ->route('web.alumnos.show', $deuda->alumno_id)
             ->with('success', 'Deuda condonada correctamente.');
+    }
+
+    public function reactivarDeuda(Request $request, int $id, PagoCuotaService $service)
+    {
+        return $this->decidirPerdon($request, fn ($motivo, $usuario) => $service->reactivarDeuda($id, $motivo, $usuario), 'Cuota reactivada.');
+    }
+
+    public function condonarInscripcion(Request $request, int $id, \App\Services\InscripcionService $service)
+    {
+        return $this->decidirPerdon($request, fn ($motivo, $usuario) => $service->condonar($id, $motivo, $usuario), 'Inscripción condonada.');
+    }
+
+    public function reactivarInscripcion(Request $request, int $id, \App\Services\InscripcionService $service)
+    {
+        return $this->decidirPerdon($request, fn ($motivo, $usuario) => $service->reactivar($id, $motivo, $usuario), 'Inscripción reactivada.');
+    }
+
+    private function decidirPerdon(Request $request, callable $accion, string $mensaje)
+    {
+        $validator = Validator::make(['motivo' => is_string($request->input('motivo')) ? trim($request->input('motivo')) : $request->input('motivo')], [
+            'motivo' => 'required|string|min:10|max:500',
+        ], ['motivo.required' => 'El motivo es obligatorio.', 'motivo.min' => 'El motivo debe tener al menos 10 caracteres.',
+            'motivo.max' => 'El motivo no puede superar los 500 caracteres.']);
+        if ($validator->fails()) return back()->with('error', $validator->errors()->first());
+        try {
+            $registro = $accion($validator->validated()['motivo'], (int) $request->user()->id);
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+        return redirect()->route('web.alumnos.show', $registro->alumno_id)->with('success', $mensaje);
     }
 
     /**

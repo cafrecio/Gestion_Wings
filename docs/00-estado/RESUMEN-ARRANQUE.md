@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **671 pruebas**: 669 aprobadas/2 omitidas; 6395 aserciones, 530,97 s; Codex CAB, 12/10, wings_testing_codex. T28 publicado independiente en `e1e73d8`; después T30. [Entrega T30](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). Carlos aprobó todas las vistas: «El resto de las vistas OK» y «Esta OK». Solo falta verificar la regla, asignada a Claude. T30 no se cierra ni se despliega |
+| Suite | **720 pruebas** versionadas. Corrida completa local: 738 pruebas (incluye 18 de T31 sin publicar), 736 aprobadas/2 omitidas; wings_testing_codex, 13/10. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -34,6 +34,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **T33, 13/10, Codex CyE:** perdonar inscripción y reactivar cuotas/inscripción desde ficha,
+  solo ADMIN, motivo 10–500 e historial conservado. 31 pruebas propias y capturas 1366/marco360.
+  Suite local 736/2 verde, 7001 aserciones, incluye T31 sin publicar; archivos de Gemini preservados.
+  [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). Claude verifica; sin despliegue.
 
 - **T24, 11/10, implementada por Codex CAB:** 16 pantallas/modos, componente y código comunes. Carlos decidió coma decimal aceptada, mostrar `48,000.50` y recortar el tercer decimal con texto rojo/aviso de 4 s sin bloquear. Pedidos directos inválidos rechazados sin escribir; cero/reglas/cálculos conservados. 1292 controles de navegador y 90 PNG en marco360/escritorio; 18/18 campos anteriores detectan regresión sobre dd62c64. Suite 641/2 verde. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni despliegue, sitio de prueba/reloj intactos por Codex. La integración de T24 en el controlador compartido entró en `03aaf11` de T23; trabajo ajeno de Historial/permisos fuera del commit propio.
 
@@ -68,18 +73,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Ficha del alumno con botón principal Cobrar y botón de fila en cuotas pendientes hacia `/caja/cobrar/{id}`;
   historial con enlace directo a Recibo (PDF con descarga e impresión); cobro adelantado de períodos futuros
   al precio vigente del plan con badge «Adelantado», omitido sin duplicar por `cobranza:generar-deudas` el día 1;
-  búsqueda en caja para cualquier alumno activo. 8 pruebas / 40 aserciones verdes en `wings_testing_gemini`.
-  Pendiente de control cruzado (§6a). Sin despliegue.
-- **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a`
-  corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados.
-  Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron
-  fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 DEVUELTO a Gemini por Codex CyE 06/10. Sin despliegue; Gemini puede
-  continuar Entrega 2.
-  [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md).
-  **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas
-  por Carlos. Nombres humanos, grupos, validación y errores persistentes;
-  generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md).
-  Gemini registró A11 aprobada el 04/10 en [su informe](../06-pruebas/PRU-02/VERIFICACION-A11.md); sin despliegue.
+  búsqueda en caja para cualquier alumno activo. 8 pruebas / 40 aserciones verdes en `wings_testing_gemini`. Pendiente de control cruzado (§6a). Sin despliegue.
+- **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a` corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados. Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 DEVUELTO a Gemini por Codex CyE 06/10. Sin despliegue; Gemini puede continuar Entrega 2. [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md). **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas por Carlos. Nombres humanos, grupos, validación y errores persistentes; generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md). Gemini registró A11 aprobada el 04/10 en [su informe](../06-pruebas/PRU-02/VERIFICACION-A11.md); sin despliegue.
 
 - **P0 del 04/10 implementado en `ad24769`:** cuota del mes real de ingreso; A43 verificada por Gemini añade elección para mes cerrado. Inscripción manual por DNI, sin corte; cargos/pagos preservados. **P1 aprobada e implementada el 05/10:** Alumnos con 12 pares, plantilla vacía y catálogos reales, revisión sin escritura con informe Excel, carga transaccional y Deshacer protegido. Estado persistente, entrada ADMIN y bloqueo servidor. [Entrega y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). Gemini verifica; no cerrar ni desplegar. Importadores antiguos conservados hasta aceptar P1; retirar en commit aparte. No limpiar el sitio de prueba ni producción en esta entrega.
 
@@ -90,17 +85,13 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
 
 - POS-06: [contrato de particulares](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado el 13/09; implementación PENDIENTE. [Ficha y siguiente paso: Reportes](../05-pendientes/CLASES-PARTICULARES.md).
-- FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable;
-  error de motivo y guardado comprobados. Sin deploy.
+- FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable; error de motivo y guardado comprobados. Sin deploy.
 
-- FIN-10 implementada y probada 13/09: edición atómica y motivo de horario pasado;
-  sin deploy. Falta aplicar migración motivo_cambio_horario y revisión cruzada.
+- FIN-10 implementada y probada 13/09: edición atómica y motivo de horario pasado; sin deploy. Falta aplicar migración motivo_cambio_horario y revisión cruzada.
 
-- FIN-11: pausa levantada el 13/09; seis cruces corregidos y probados, suite completa
-  verde (187/1206). Sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado.
+- FIN-11: pausa levantada el 13/09; seis cruces corregidos y probados, suite completa verde (187/1206). Sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado.
 
-- FIN-07 implementada y probada 12/09: solo ADMIN condona saldo pendiente, sin borrar
-  pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.
+- FIN-07 implementada y probada 12/09: solo ADMIN condona saldo pendiente, sin borrar pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.
 
 - FIN-03: verificar trabajo y criterio cruzado; no rehacer la implementación.
 - FIN-04: definición cerrada 22/09 en el contrato de Reportes. Saldo, resultado y proyecciones separados; gastos del club fuera de cada deporte, dentro del total. Implementación POS-01 pendiente.
@@ -108,9 +99,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - SEG: sesiones, política de clave, preflight, errores, restore integral, CI y CSP según plan.
 - PRU: recorrido integral, cambio de mes y gate aún requieren aceptación.
 - FDS-03 está PAUSADA por Carlos: el estado mínimo de entrega es histórico.
-- ENT-02: Gemini dejó diseño de recibos; Claude registra aprobación visual de Vanina.
-  [Instructivo](../03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md).
-  La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
+- ENT-02: Gemini dejó diseño de recibos; Claude registra aprobación visual de Vanina. [Instructivo](../03-diseno-ui/INSTRUCTIVO-IMPLEMENTACION-RECIBOS.md). La aprobación visual no resuelve reglas de liquidación ni autoriza cambios contables.
 - ENT-03: CERRADO 12/09. Recurso de patín artístico con alas zoom 95% aprobado por Carlos e implementado en public/ y ds-app.blade.php.
 - ENT-05: CERRADO 13/09. Recibo accesible a un clic en confirmación de cobro (ds-flash) y en cada fila del historial de pagos en la ficha del alumno.
 - SEG-11: 14 onclick migrados a ds-app.js (MANEJADORES_PERMITIDOS bajó a 10). Validador en vivo unificado para niveles y tipos-caja. Scripts de grupos y usuarios migrados a archivos dedicados (resources/js/grupos.js y usuarios.js) compilados por Vite y cargados vía @vite conforme a DESIGN-RULES.md §8 (BLOQUES_SCRIPT_PERMITIDOS bajó a 22). Formateo de precios vía window.initMoneyInput probado; suite verde en 222/1347; diseño intacto.
@@ -126,8 +115,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.
 - Balance filtrado definido 22/09 (FIN-04); implementación de Reportes pendiente. Revisiones y límites de fechas: consultar estados individuales del plan.
-- A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta. Implementado localmente con importe congelado, pendiente de verificación independiente
-  y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
+- A2/B2: Carlos define DEUDOR solo por deuda de mes cerrado y cuota creada en el alta. Implementado localmente con importe congelado, pendiente de verificación independiente y despliegue. Descuento sobre deudas históricas importadas conserva su pendiente separado.
 - A25: CERRADO 06/10 (verificado por Gemini); decisiones en [Contrato V5.v2](../02-contratos/Wings-Contrato-Caja-Cashflow-V5.md); diseño aprobado. No desplegado.
 - Inscripción: tratamiento aprobado e implementado.
 
@@ -144,12 +132,9 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Diferencias documentales que no se resuelven por inferencia
 
-- El cierre de Claude conserva COB-09/FIN-02 pendientes, pero hay verificación posterior
-  en el reporte COB-05 del 11/09 y el estado. Leer ese reporte, no repetir la pausa.
-- ESTADO-ACTUAL conserva un párrafo histórico de COB-03 “no mergeada” que contradice
-  su resumen de integración. No usar ese párrafo para ordenar una corrección nueva.
-- El plan ENT-02 menciona logo/paleta por recibir; el pase de Gemini y Claude registra
-  diseño aprobado. Hora/clase quedó decidida el 17/09 (FIN-13).
+- El cierre de Claude conserva COB-09/FIN-02 pendientes, pero hay verificación posterior en el reporte COB-05 del 11/09 y el estado. Leer ese reporte, no repetir la pausa.
+- ESTADO-ACTUAL conserva un párrafo histórico de COB-03 “no mergeada” que contradice su resumen de integración. No usar ese párrafo para ordenar una corrección nueva.
+- El plan ENT-02 menciona logo/paleta por recibir; el pase de Gemini y Claude registra diseño aprobado. Hora/clase quedó decidida el 17/09 (FIN-13).
 - Estas diferencias se señalan para no perderlas; esta tarea no decide reglas de negocio.
 
 ## Al terminar

@@ -1,0 +1,992 @@
+
+   PASS  Tests\Unit\AlumnoAutocompleteViewSecurityTest
+  ✓ autocomplete inserta textos de base sin interpretarlos como html                                             0.01s  
+
+   PASS  Tests\Unit\DatabaseExportSafetyTest
+  ✓ database no contiene exportadores y el dump esta ignorado                                                    0.05s  
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true
+
+   PASS  Tests\Unit\FormatoImporteTest
+  ✓ muestra centavos y enteros sin perder precision de la base
+  ✓ suma visible conserva los centavos de cada renglon
+  ✓ publica la misma politica para browser y excel
+
+   PASS  Tests\Unit\ImportePesosTest
+  ✓ formato y preparacion no redondean pedidos invalidos                                                         0.03s  
+
+   PASS  Tests\Unit\MoneyLockingTest
+  ✓ validacion de caja bloquea la fila antes de cambiar estado
+  ✓ ambos flujos de pago serializan al alumno y bloquean la deuda
+
+   PASS  Tests\Unit\ProgramacionClasesTest
+  ✓ media hora cuenta dos bloques y exige confirmar                                                              0.45s  
+  ✓ fin en punto no ocupa el bloque siguiente                                                                    0.06s  
+  ✓ horarios en punto no piden confirmacion                                                                      0.08s  
+  ✓ confirmacion no sirve para otra carga                                                                        0.08s  
+  ✓ seis programaciones generan 76 clases con el horario correcto                                                0.12s  
+  ✓ serie con horario comun sigue siendo valida                                                                  0.05s  
+  ✓ no acepta fin anterior o faltante en un dia elegido                                                          0.07s  
+  ✓ rechaza fechas pasadas y dias inexistentes                                                                   0.07s  
+  ✓ aviso de serie identifica el dia y renueva la firma si cambia                                                0.05s  
+
+   PASS  Tests\Feature\AccesoSinPermisoTest
+  ✓ profesor sin permiso en alumnos                                                                              9.89s  
+  ✓ profesor sin permiso en caja                                                                                 0.16s  
+  ✓ profesor sin permiso en grupos                                                                               0.11s  
+  ✓ profesor sin permiso en cashflow                                                                             0.10s  
+  ✓ profesor sin permiso en liquidaciones                                                                        0.13s  
+  ✓ profesor sin permiso en usuarios                                                                             0.09s  
+  ✓ profesor sin permiso en configuraciones                                                                      0.12s  
+  ✓ operativo sin permiso en cashflow                                                                            0.28s  
+  ✓ operativo sin permiso en liquidaciones                                                                       0.10s  
+  ✓ operativo sin permiso en usuarios                                                                            0.10s  
+  ✓ operativo sin permiso en configuraciones                                                                     0.09s  
+  ✓ admin rechazado en cuenta protegida vuelve a su tablero                                                      0.13s  
+  ✓ sin sesion se sigue pidiendo ingresar                                                                        0.08s  
+  ✓ cuenta inactiva no conserva acceso                                                                           0.06s  
+
+   PASS  Tests\Feature\AdminCobraSinCajaTest
+  ✓ el admin cobra y no se le abre ninguna caja                                                                  0.34s  
+  ✓ el operativo sigue cobrando por su caja                                                                      0.29s  
+  ✓ el cobro del dueno emite recibo con su medio                                                                 0.40s  
+  ✓ el dueno anula su cobro y la deuda vuelve                                                                    0.36s  
+  ✓ el mismo cobro no se anula dos veces                                                                         0.32s  
+  ✓ el operativo no anula el cobro del dueno                                                                     0.31s  
+  ✓ anular sin motivo no hace nada                                                                               0.28s  
+  ✓ el boton de anular esta en la ficha y es solo del dueno                                                      0.69s  
+
+   PASS  Tests\Feature\AjusteFinalLiquidacionTest
+  ✓ admin ajusta abierta y cerrada sin cambiar calculo o detalle                                                 0.27s  
+  ✓ operativo profesor inactivo y anonimo no ajustan                                                             0.20s  
+  ✓ pagada cancelada y por hora rechazan ajustes                                                                 0.28s  
+  ✓ pago usa final una sola vez y rechaza formulario viejo                                                       0.19s  
+  ✓ ajuste conserva cortes anteriores y saldo pendiente coherente                                                0.23s  
+  ✓ falla historial revierte importe y auditoria                                                                 0.24s  
+  ✓ guardado directo sin auditoria y edicion vieja rechazados                                                    0.31s  
+
+   PASS  Tests\Feature\AltaMesCerradoTest
+  ✓ mes cerrado exige decision y no deja alta parcial                                                            0.66s  
+  ✓ si genera cuota corriente completa y registra quien decidio                                                  0.35s  
+  ✓ no evita solo cuota y conserva inscripcion y decision                                                        0.48s  
+  ✓ un no enviado para ingreso corriente no suprime cuota automatica                                             0.46s  
+  ✓ ultimo dia del mes anterior genera corriente al cien por ciento                                              1.07s  
+  ✓ reintento conserva decision y rechaza cambiarla                                                              0.51s  
+  ✓ preview informa mes cerrado y precio sin escribir                                                            0.46s  
+  ✓ fallo al guardar decision revierte alumno plan cargo y cuota                                                 0.52s  
+  ✓ mes cambio desde el aviso rechaza sin escribir                                                               0.36s  
+  ✓ precio cambio desde el aviso rechaza sin escribir                                                            0.41s  
+
+   PASS  Tests\Feature\AlumnoGrupoDelDeporteTest
+  ✓ rechaza un alumno con grupo de otro deporte                                                                  0.15s  
+  ✓ acepta un alumno con grupo de su deporte                                                                     0.18s  
+  ✓ tampoco se puede mover a un grupo de otro deporte editando                                                   0.16s  
+
+   PASS  Tests\Feature\AsistenciasAtomicidadTest
+  ✓ un fallo intermedio no deja asistencias parciales                                                            0.20s  
+  ✓ rechaza alumno que no pertenece al grupo de la clase                                                         0.12s  
+
+   PASS  Tests\Feature\AvisoAdminResumenDiarioTest
+  ✓ sin nada pendiente no se envia nada                                                                          0.13s  
+  ✓ con caja revision y liquidaciones sale un solo aviso con numeros correctos                                   0.85s  
+  ✓ una liquidacion abierta no se suma al total a pagar                                                          0.22s  
+  ✓ las cajas validadas revisiones resueltas y liquidaciones pagadas no aparecen                                 0.12s  
+  ✓ el correo no sale firmado por laravel                                                                        0.08s  
+  ✓ el resumen avisa de las clases sin lista tomada                                                              0.16s  
+  ✓ el comando queda programado a las 08 00                                                                      0.10s  
+
+   PASS  Tests\Feature\AvisoAdminTest
+  ✓ avisa por telegram cuando se carga una fecha vieja                                                           0.07s  
+  ✓ el aviso explica que el mes viejo cambia                                                                     0.08s  
+  ✓ si telegram falla no explota y queda en el log                                                               0.09s  
+  ✓ si telegram no responde tampoco explota                                                                      0.09s  
+  ✓ sin token configurado no intenta enviar ni falla                                                             0.09s  
+  ✓ telegram sale una sola vez aunque haya varios admins                                                         0.16s  
+  ✓ el correo va a cada admin activo y no a los demas                                                            0.12s  
+  ✓ un aviso dirigido solo a telegram no intenta el correo                                                       0.10s  
+  ✓ un administrador recibe por correo y no por telegram                                                         0.10s  
+  ✓ cargar un movimiento viejo en cashflow dispara el aviso                                                      0.17s  
+  ✓ el destino se cambia desde configuracion sin tocar el servidor                                               0.09s  
+  ✓ la casilla del club reemplaza a los correos de los admin                                                     0.07s  
+
+   PASS  Tests\Feature\BuscadorCobrarSoloDeudoresTest
+  ✓ sin buscar la lista trae solo a los que deben y coincide con el encabezado                                   1.62s  
+  ✓ a quien no debe se llega buscandolo y se le puede cobrar                                                     2.99s  
+  ✓ quien debe solo la inscripcion aparece sin buscar                                                            0.98s  
+  ✓ un mes que todavia no empezo no hace aparecer al alumno                                                      0.47s  
+  ✓ un alumno inactivo con deuda no aparece ni se cuenta                                                         1.07s  
+  ✓ cuando nadie debe la pantalla lo dice y explica como cobrar igual                                            0.48s  
+  ✓ la lista de deudores pagina sin perder ni repetir a nadie                                                    1.21s  
+
+   PASS  Tests\Feature\CajaAperturaDiferenciaYRectificacionTest
+  ✓ aviso por diferencia mayor al 50 por ciento hacia arriba                                                     0.62s  
+  ✓ aviso por diferencia mayor al 50 por ciento hacia abajo                                                      0.14s  
+  ✓ sin aviso cuando la diferencia no supera el 50 por ciento                                                    0.16s  
+  ✓ sin aviso del 50 por ciento en primera apertura o cuando cierre dejo cero                                    0.15s  
+  ✓ rectificacion con caja abierta por operativo y por admin                                                     0.14s  
+  ✓ rectificacion exige motivo obligatorio                                                                       0.16s  
+  ✓ rechazo de rectificacion cuando caja esta cerrada o validada                                                 0.67s  
+  ✓ efectivo esperado se recalcula al rectificar                                                                 0.21s  
+
+   PASS  Tests\Feature\CajaArqueoConcurrenteA25Test
+  ✓ dos aperturas no crean dos turnos                                                                           20.58s  
+  ✓ cerrar primero rechaza movimiento tardio                                                                    19.21s  
+  ✓ movimiento primero se incluye en el arqueo                                                                  14.74s  
+  ✓ dos cierres no reescriben el conteo                                                                         14.86s  
+
+   PASS  Tests\Feature\CajaCambioInicialA25Test
+  ✓ no se abre automaticamente sin declarar el efectivo                                                          0.08s  
+  ✓ primera apertura conserva importe sin crear ingresos                                                         0.06s  
+  ✓ esperado excluye transferencias cancelados y cobros admin                                                    0.06s  
+  ✓ cierra con faltante y separa el cambio del retiro                                                            0.07s  
+  ✓ puede dejar mas cambio que en la apertura                                                                    0.08s  
+  ✓ siguiente operativa hereda ultimo cierre del club sin esperar validacion                                     0.07s  
+  ✓ corregir lo heredado requiere motivo                                                                         0.06s  
+  ✓ corregir lo heredado con motivo conserva ambos importes                                                      0.08s  
+  ✓ otro operativo no puede abrir un turno simultaneo                                                            0.06s  
+  ✓ admin no valida una caja abierta sin conteo                                                                  0.05s  
+  ✓ cerrar sin conteo no cambia el estado                                                                        0.05s  
+  ✓ no puede dejar mas cambio que efectivo contado                                                               0.05s  
+  ✓ corregir rechazada conserva la entrega y el turno siguiente                                                  0.38s  
+  ✓ rechazada no permite reescribir el conteo fisico                                                             0.06s  
+  ✓ rechazar no cierra una caja sin conteo                                                                       0.05s  
+  ✓ admin abre para la operativa sin crearse caja propia                                                         0.06s  
+  ✓ formulario no permite inicial negativo ni sin confirmacion                                                   0.06s  
+  ✓ cierre web normaliza miles y admin puede contar turno ajeno                                                  0.06s  
+  ✓ operativo no configura y profesor no accede al arqueo                                                        0.08s  
+  ✓ segundo operativo no cierra turno ajeno por url                                                              0.07s  
+  ✓ pantalla vieja no abre con cierre origen desactualizado                                                      0.06s  
+  ✓ caja historica no inventa inicial ni diferencia                                                              0.05s  
+
+   PASS  Tests\Feature\CambioDeContrasenaRevocaAccesosTest
+  ✓ cambiar la contrasena cierra las sesiones abiertas                                                           0.08s  
+  ✓ cambiar la contrasena invalida la cookie de recordarme                                                       0.05s  
+  ✓ editar sin tocar la contrasena no cierra la sesion                                                           0.05s  
+  ✓ cambiarse la propia contrasena no lo echa a uno mismo                                                        0.03s  
+  ✓ el alta web exige el mismo minimo que la consola                                                             0.03s  
+  ✓ el cambio de contrasena exige el mismo minimo                                                                0.04s  
+  ✓ el minimo no baja de doce                                                                                    0.05s  
+  ✓ la consola usa la misma constante que la pantalla                                                            0.04s  
+
+   PASS  Tests\Feature\CambioPlanCobroTest
+  ✓ el selector de plan viaja dentro del formulario de cobro                                                     0.18s  
+  ✓ al cambiar de plan el tope del total se mueve con el precio                                                  0.15s  
+  ✓ baja con asistencia aplica desde el mes siguiente                                                            0.12s  
+  ✓ baja sin asistencia aplica al mes en curso                                                                   0.10s  
+  ✓ subida con asistencia aplica al mes en curso                                                                 0.09s  
+  ✓ fallo del pago revierte cambio de plan y deuda                                                               0.08s  
+  ✓ cobrar un mes dejando anteriores devuelve aviso sin escribir                                                 0.06s  
+  ✓ confirmar cobro con deuda anterior exige motivo                                                              0.08s  
+  ✓ confirmar con motivo registra cobro y notifica admin                                                         0.10s  
+  ✓ cobrar todos los periodos no dispara aviso                                                                   0.19s  
+
+   PASS  Tests\Feature\CambioPlanConDescuentoMatrizTest
+  ✓ subida en el mes de alta con descuento                                                                       0.16s  
+  ✓ subida sin descuento                                                                                         0.15s  
+  ✓ bajada sin asistencia en el mes de alta con descuento                                                        0.15s  
+  ✓ bajada con asistencia se difiere y el mes conserva el precio con descuento                                   0.16s  
+  ✓ bajada con asistencia sin descuento conserva el precio del plan actual                                       0.15s  
+  ✓ sin cambio de plan con descuento                                                                             0.15s  
+  ✓ el script del cambio de plan lee el precio que calcula el servidor                                           0.10s  
+
+   PASS  Tests\Feature\CancelarCobroOperativoTest
+  ✓ cancelacion elimina imputaciones y restablece el invariante de la deuda                                      0.13s  
+
+   PASS  Tests\Feature\CancelarLiquidacionCerradaTest
+  ✓ admin cancela liquidacion cerrada no pagada                                                                  0.14s  
+  ✓ liquidacion pagada es intocable y rechaza cancelacion                                                        0.12s  
+  ✓ operativo profesor y anonimo son rechazados al cancelar                                                      0.08s  
+  ✓ liquidacion cerrada bloquea asistencias y cancelada las desbloquea                                           0.08s  
+  ✓ bloqueo de asistencia en liquidacion comision cerrada                                                        0.09s  
+  ✓ regenerar liquidacion tras cancelacion vincula reemplazada por                                               0.09s  
+  ✓ idempotencia cancelacion                                                                                     0.12s  
+  ✓ modelo impide modificar o eliminar liquidacion cancelada                                                     0.04s  
+  ✓ modelo impide editar campos de liquidacion cancelada salvo reemplazo                                         0.05s  
+
+   PASS  Tests\Feature\CancelarLiquidacionConcurrenteTest
+  ✓ pago en curso bloquea cancelacion y tras pagar la cancelacion se rechaza                                     2.05s  
+  ✓ cancelacion en curso bloquea pago y tras cancelar el pago se rechaza                                         2.05s  
+
+   PASS  Tests\Feature\CancelarMovimientoScopeTest
+  ✓ no puede cancelar un movimiento que no pertenece a la caja indicada                                          0.05s  
+
+   WARN  Tests\Feature\CapturaCashflowSignoTest
+  - guarda el html de cashflow con una devolucion → Solo se corre a pedido, con WINGS_CAPTURAS=1.                0.03s  
+
+   WARN  Tests\Feature\CapturaFichaAnularTest
+  - guarda el html de la ficha con el boton anular → Solo se corre a pedido, con WINGS_CAPTURAS=1.               0.03s  
+
+   PASS  Tests\Feature\CargaPadronFormatosExcelTest
+  ✓ montos que se aceptan y el importe que queda                                                                 0.22s  
+  ✓ montos ambiguos o invalidos se rechazan sin adivinar                                                         0.15s  
+  ✓ periodos que excel escribe como numero                                                                       0.16s  
+  ✓ el periodo invalido explica el formato con un ejemplo                                                        0.13s  
+  ✓ el padron exportado trae los periodos como texto                                                             0.07s  
+  ✓ el periodo sin cero entra y la fecha mal escrita se explica                                                  0.08s  
+
+   PASS  Tests\Feature\CargaSaldoInicialPadronTest
+  ✓ el que debe queda pendiente y el que no queda con el mes cerrado                                             0.12s  
+  ✓ el mes cerrado no se ofrece en la pantalla de cobro                                                          0.23s  
+  ✓ rechaza la fila que no declara si o no                                                                       0.10s  
+  ✓ rechaza al que dice no pero informa montos                                                                   0.09s  
+  ✓ una sola fila mala no escribe ninguna                                                                        0.08s  
+
+   PASS  Tests\Feature\CashflowCorreccionesConcurrentesT27Test
+  ✓ dos conexiones no duplican una edicion                                                                      10.50s  
+  ✓ dos conexiones no duplican un contraasiento                                                                 11.14s  
+
+   PASS  Tests\Feature\CashflowCorreccionesT27Test
+  ✓ editar conserva id creador y antes despues con centavos y motivo opcional                                    8.82s  
+  ✓ pedido directo rechaza tres decimales cero negativos letras y fuera de capacidad                             1.03s  
+  ✓ cualquier mes anterior se corrige y no admite fecha futura                                                   0.33s  
+  ✓ eliminar conserva original y contraasiento mismo mes medio y clasificacion                                   0.89s  
+  ✓ doble envio editar y eliminar es idempotente y no reutiliza clave con otros datos                            0.45s  
+  ✓ formulario viejo no pisa edicion ni elimina valor que no se vio                                              0.43s  
+  ✓ otros roles no ven ni escriben forzando rutas                                                                0.89s  
+  ✓ referencias de pago caja y liquidacion no se corrigen como directos                                          0.97s  
+  ✓ subrubro reservado no recibe ediciones directas                                                              0.30s  
+  ✓ cashflow inicio reportes historial y saldo coinciden tras editar y eliminar                                  2.47s  
+  ✓ historial muestra egreso directo como salida y total positivo                                                0.28s  
+  ✓ reporte original se actualiza y contraasiento respeta clasificacion congelada                                0.94s  
+  ✓ liquidacion pendiente usa editor existente y pagada permanece intacta                                        1.33s  
+  ✓ cambiar medio y subrubro actualiza ambos saldos y clasificacion con historial                                0.55s  
+  ✓ falla al guardar historial revierte original contraasiento y version                                         0.26s  
+  ✓ servicio rechaza actor no admin o inactivo sin escribir                                                      0.25s  
+
+   PASS  Tests\Feature\CashflowDetalleAlumnoYUsuarioTest
+  ✓ cobro de operativa validado muestra alumno y operativa en cashflow                                           0.43s  
+  ✓ cobro del duenio sin caja muestra alumno y duenio en cashflow                                                0.36s  
+  ✓ inscripcion muestra alumno y quien cobro en caja y sin caja                                                  0.45s  
+  ✓ gasto sin alumno conserva su observacion y muestra quien cargo                                               0.26s  
+  ✓ validar caja dos veces no duplica movimientos en cashflow                                                    0.41s  
+
+   PASS  Tests\Feature\CashflowEntraEnElCelularTest
+  ✓ los filtros no tienen una grilla de ancho fijo                                                               0.10s  
+  ✓ los filtros y los totales se apilan en pantalla angosta                                                      0.06s  
+  ✓ la pantalla sigue funcionando para el admin                                                                  0.15s  
+
+   PASS  Tests\Feature\CashflowIntegracionCajaServiceTest
+  ✓ caja validada refleja solo movimientos activos                                                               0.17s  
+
+   PASS  Tests\Feature\CashflowMuestraElSignoRealTest
+  ✓ un importe negativo de un rubro de ingresos se muestra en contra                                             0.18s  
+
+   PASS  Tests\Feature\CashflowPeriodosA10Test
+  ✓ limpiar escribe un enlace valido y conserva el periodo en los cuatro modos                                   0.72s  
+  ✓ dia excluye ambos dias vecinos y no suma saldo inicial                                                       0.20s  
+  ✓ semana incluye lunes y domingo aunque cruce de mes                                                           0.16s  
+  ✓ semana cruza de anio sin recortarse al anio del selector                                                     0.11s  
+  ✓ mes bisiesto incluye febrero 29 y excluye marzo 1                                                            0.12s  
+  ✓ enlaces anteriores de anio y mes conservan su intervalo                                                      0.30s  
+  ✓ caja filtra filas y totales mientras tipo filtra solo filas                                                  0.16s  
+  ✓ cambio de mes a dia conserva fecha y limita el dia al mes elegido                                            0.15s  
+  ✓ rechaza periodo y fechas invalidos sin error 500                                                             0.07s  
+  ✓ paginacion conserva el periodo y sus totales                                                                 0.42s  
+
+   PASS  Tests\Feature\CashflowVinculoDirectoYValidadorTest
+  ✓ validacion de caja guarda el id del movimiento operativo en cada renglon de cashflow                         0.19s  
+  ✓ renglon con id muestra alumno del movimiento y quien lo cargo sin mirar observacion                          0.18s  
+  ✓ renglon viejo sin id coincidencia exacta muestra alumno y sin coincidencia exacta muestra observacion        0.26s  
+  ✓ columna valido muestra iniciales correctas cuando viene de caja y vacia cuando es directo                    0.23s  
+  ✓ desempate de iniciales cuando dos administradores comparten iniciales                                        0.05s  
+
+   PASS  Tests\Feature\CatalogosSeederTest
+  ✓ database seeder deja solo los catalogos base                                                                 0.13s  
+  ✓ es idempotente y la segunda ejecucion no modifica filas                                                      0.23s  
+
+   PASS  Tests\Feature\CbuAliasB10Test
+  ✓ un profesor se guarda con su alias y la ficha lo muestra                                                     0.36s  
+  ✓ un cbu pegado con espacios se guarda sin ellos                                                               0.17s  
+  ✓ el dato es opcional y se puede borrar al editar                                                              0.20s  
+  ✓ lo que no es ni cbu ni alias se rechaza                                                                      0.24s  
+  ✓ al pagar una liquidacion se ve a donde transferir                                                            0.29s  
+  ✓ el operativo guarda su cbu o alias                                                                           0.18s  
+  ✓ para otros roles el dato no se guarda y se borra al cambiar de rol                                           0.15s  
+  ✓ solo el admin llega a esos datos                                                                             0.18s  
+
+   PASS  Tests\Feature\ClasesCanceladasHoyTest
+  ✓ admin y operativo ven clase cancelada de hoy en bloque hoy                                                   0.13s  
+  ✓ profesora ve su clase cancelada en tus clases y otra en otras clases                                         0.08s  
+  ✓ clase cancelada de hoy aparece al final despues de las clases en pie                                         0.11s  
+  ✓ encabezado de hoy no cuenta las canceladas como clases a dar                                                 0.13s  
+  ✓ si todas las de hoy estan canceladas se ven y no muestra cartel vacio                                        0.32s  
+  ✓ filtro cancelada encuentra la clase cancelada de hoy                                                         0.89s  
+  ✓ sin filtros no repite clases de hoy en listado inferior                                                      0.49s  
+  ✓ asistencia sigue bloqueada en clase cancelada de hoy                                                         0.93s  
+  ✓ contador sin asistencia no cuenta clases canceladas de hoy                                                   0.40s  
+
+   PASS  Tests\Feature\ClasificacionSubrubrosT16Test
+  ✓ el catalogo de una instalacion nueva no deja ningun subrubro sin clasificar                                  0.56s  
+  ✓ una instalacion existente queda clasificada y lo ya cobrado empieza a contar                                 0.68s  
+  ✓ el formulario pide la clasificacion y un subrubro nuevo nace del club                                        0.76s  
+  ✓ clasificar un subrubro viejo desde el formulario hace contar sus movimientos                                 0.44s  
+
+   PASS  Tests\Feature\CobranzaEntrega1Test
+  ✓ por defecto abre mostrando solo deudores ordenados por antiguedad                                            0.39s  
+  ✓ filtro todos permite ver a los que estan al dia                                                              0.11s  
+  ✓ una fila por registro y renglon de ayuda si repite dni con deuda                                             0.12s  
+  ✓ si el otro registro no debe nada no muestra renglon de ayuda                                                 0.15s  
+  ✓ deuda por fila no cambia al filtrar por deporte                                                              0.43s  
+  ✓ inscripcion impaga convierte en deudor en listado ficha y resumen con mes cerrado                            0.38s  
+  ✓ muestra total adeudado en tarjetas superiores                                                                0.16s  
+  ✓ cada fila tiene botones cobrar y ver                                                                         0.11s  
+
+   PASS  Tests\Feature\CobranzaEstadoServiceTest
+  ✓ aplica los cuatro estados en el orden contractual                                                            0.31s  
+  ✓ usa los dias de gracia configurados                                                                          0.11s  
+
+   PASS  Tests\Feature\CobranzaInscripcionEstadoTest
+  ✓ configuracion dias plazo alta existe y vale 7 por defecto                                                    0.08s  
+  ✓ servicio lanza logic exception si falta dias plazo alta o es menor o igual a cero                            0.14s  
+  ✓ servicio lanza logic exception si dias plazo alta es cero o negativo                                         0.09s  
+  ✓ jerarquia de estados el peor gana                                                                            0.37s  
+  ✓ inscripcion pagada entera o condonada no altera estado                                                       0.11s  
+  ✓ inscripcion pagada en parte sigue contando por saldo pendiente                                               0.08s  
+  ✓ persona en dos deportes inscripcion afecta solo al registro imputado                                         0.09s  
+  ✓ registro que carga inscripcion dado de baja con otro deporte activo hereda la deuda                          0.07s  
+  ✓ cobranza y buscador de cobrar listan exactamente a los mismos                                                0.10s  
+  ✓ en cobranza quien debe solo inscripcion se ordena por antiguedad de esa deuda                                0.11s  
+  ✓ borde alumno ingresa un lunes con 7 dias en plazo hasta domingo moroso el lunes siguiente                    0.06s  
+  ✓ borde alumno ingresa dia 3 con gracia general 10 y plazo 7 rige el general hasta dia 10                      0.05s  
+  ✓ borde alta 28 septiembre 7 dias en plazo hasta 4 octubre deudor el 5                                         0.06s  
+  ✓ borde alumno con fecha alta a futuro queda en plazo                                                          0.07s  
+  ✓ borde alumno reactivado conserva fecha alta original                                                         0.07s  
+  ✓ borde correccion de fecha alta recalcula plazo contra nueva fecha                                            0.05s  
+  ✓ borde cambio de mes la misma inscripcion pasa de morosa a deudora al cerrar el mes de ingreso                0.07s  
+  ✓ dias gracia restantes devuelve el mas largo cuando esta en plazo                                             0.08s  
+
+   PASS  Tests\Feature\CobranzaOperativoTest
+  ✓ el operativo entra a cobranza                                                                                0.12s  
+  ✓ el admin entra a cobranza                                                                                    0.06s  
+  ✓ el profesor no entra a cobranza                                                                              0.06s  
+  ✓ el operativo no puede condonar                                                                               0.04s  
+  ✓ el menu del operativo tiene el link a cobranza                                                               0.99s  
+  ✓ el menu del admin tiene los dos links separados                                                              0.08s  
+  ✓ el menu del profesor no tiene cobranza                                                                       0.05s  
+
+   PASS  Tests\Feature\CobranzaWebControllerTest
+  ✓ admin puede abrir cobranza sin columna nombre en grupos                                                      0.09s  
+
+   PASS  Tests\Feature\CobrarCancelarValidarConcurrenteTest
+  ✓ cobrar primero cancelar despues                                                                              2.60s  
+  ✓ cancelar primero cobrar despues                                                                              2.15s  
+  ✓ cobrar primero validar despues                                                                               3.03s  
+  ✓ validar primero cobrar despues                                                                               3.12s  
+  ✓ cancelar primero validar despues                                                                             2.86s  
+  ✓ validar primero cancelar despues                                                                             1.99s  
+
+   PASS  Tests\Feature\CobrarCondonarConcurrenteTest
+  ✓ parcial en curso bloquea condonacion y solo se perdona saldo actual                                          2.00s  
+  ✓ condonacion en curso bloquea cobro y despues lo rechaza sin escrituras                                       2.12s  
+  ✓ pago completo en curso impide condonar una vez confirmado                                                    2.94s  
+
+   PASS  Tests\Feature\CobrarPrimeraCuotaWebTest
+  ✓ la pantalla ofrece el periodo vigente sin crear la deuda                                                     0.30s  
+  ✓ el cobro web autocrea y paga la primera deuda                                                                0.63s  
+  ✓ el cobro web interpreta el monto con separador de miles                                                      0.32s  
+  ✓ la primera cuota autocreada con descuento deja al alumno al dia                                              0.30s  
+
+   PASS  Tests\Feature\CobroReciboAccesoTest
+  ✓ despues de cobrar la confirmacion incluye enlace al recibo                                                   0.76s  
+  ✓ ficha del alumno muestra enlace al recibo en cada fila del historial                                         0.94s  
+  ✓ profesor no puede acceder al recibo                                                                          0.16s  
+
+   PASS  Tests\Feature\CondonarDeudaWebTest
+  ✓ admin condona desde web sin generar movimientos y sale de deudores                                           0.19s  
+  ✓ operativo no puede condonar aunque arme el pedido                                                            0.15s  
+  ✓ deuda pagada muestra error y no se modifica                                                                  0.09s  
+  ✓ servicio rechaza motivos fuera del rango antes de tocar la deuda                                             0.10s  
+  ✓ alumno sin pagos queda al dia al condonar toda su deuda                                                      0.09s  
+
+   PASS  Tests\Feature\ConfianzaEnCloudflareTest
+  ✓ viniendo de cloudflare se ve al visitante real y el cifrado                                                  0.08s  
+  ✓ viniendo de cualquier otro lado no se le cree                                                                0.05s  
+
+   PASS  Tests\Feature\ConfiguracionA11Test
+  ✓ configuracion explica los valores y los agrupa por trabajo del club                                          1.48s  
+  ✓ inscripcion rechaza importes invalidos sin cambiar el precio vigente                                         0.13s  
+  ✓ dias de gracia rechazan valores fuera del mes y no se guardan                                                0.11s  
+  ✓ un correo invalido no reemplaza el destino de los avisos                                                     0.05s  
+  ✓ destinos vacios conservan el comportamiento del club y no se rechazan                                        0.09s  
+  ✓ los valores validos se guardan y el servidor confirma el resultado                                           0.14s  
+  ✓ el dia fijo de generacion no se presenta editable y rechaza escrituras                                       0.25s  
+  ✓ un error sin javascript se ve arriba y junto al campo con el valor ingresado                                 0.81s  
+
+   PASS  Tests\Feature\CrearAdminCommandTest
+  ✓ crea un admin que puede iniciar sesion y no lo duplica                                                       1.14s  
+  ✓ rechaza contrasena de menos de doce caracteres                                                               0.06s  
+  ✓ opcion superadmin crea una cuenta protegida                                                                  0.11s  
+
+   PASS  Tests\Feature\CspReporteTest
+  ✓ la politica declara a donde mandar los avisos                                                                0.05s  
+  ✓ un aviso del navegador queda registrado                                                                      0.09s  
+  ✓ no exige sesion ni token                                                                                     0.07s  
+  ✓ descarta los avisos que generan las extensiones del navegador                                                0.10s  
+  ✓ descarta un cuerpo desmedido                                                                                 0.09s  
+  ✓ descarta lo que no es un aviso de csp                                                                        0.20s  
+  ✓ no guarda el recorte de la pagina                                                                            0.41s  
+  ✓ recorta los valores demasiado largos                                                                         0.12s  
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.10s  
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.07s  
+
+   PASS  Tests\Feature\CuotaAltaEstadoTest
+  ✓ alta crea cuota con los tres porcentajes configurados                                                        2.29s  
+  ✓ cobro y preview respetan importe del alta aunque cambien reglas y precio                                     1.55s  
+  ✓ alta el 30 y generacion el 1 no duplican periodos                                                            0.82s  
+  ✓ padron conciliado sin pagos y contadores coinciden                                                           8.69s  
+  ✓ nuevo sin pagos pasa de en plazo a moroso y deudor                                                           0.88s  
+  ✓ mes cerrado impago gana sobre corriente pagado                                                               1.00s  
+  ✓ fallo despues de insertar cuota revierte toda el alta                                                        0.52s  
+  ✓ reintento no duplica y alumnos existentes no reciben cuotas                                                  0.26s  
+  ✓ ingreso antiguo con si crea mes corriente completo                                                           0.30s  
+  ✓ no para ingreso antiguo no genera cuota                                                                      0.14s  
+  ✓ cobrar cuota corriente de ingreso antiguo no reaplica porcentaje                                             0.35s  
+  ✓ ingreso antiguo fin de mes no descuenta cuota corriente                                                      0.23s  
+  ✓ ingreso del mes proximo genera la cuota de ese mes                                                           0.23s  
+  ✓ fecha de ingreso define mes aunque no sea el proximo                                                         0.23s  
+  ✓ parcial anulacion y recobro conservan la cuota del alta                                                      0.33s  
+
+   PASS  Tests\Feature\DefectosMenoresA26A44Test
+  ✓ a26 un menor sin celular se guarda con el telefono del tutor                                                 0.41s  
+  ✓ a26 un menor con celular propio lo conserva                                                                  0.57s  
+  ✓ a26 a un mayor se le sigue exigiendo el celular                                                              0.46s  
+  ✓ a26 al editar un menor y vaciar el celular queda el del tutor                                                0.69s  
+  ✓ a44 el correo de avisos no lleva la firma de laravel                                                         0.50s  
+
+   PASS  Tests\Feature\DefectosNoDivergenTest
+  ✓ los dos archivos listan los mismos defectos                                                                  0.01s  
+  ✓ lo cerrado esta cerrado en los dos
+  ✓ el avance figura arriba de los dos
+
+   PASS  Tests\Feature\DescuentoNoAlteraOtroPeriodoTest
+  ✓ un parcial de otro periodo conserva su monto original                                                        0.54s  
+
+   PASS  Tests\Feature\DescuentoPrimerPagoMatrizTest
+  ✓ pago completo con deuda existente deja el mes en el precio con descuento                                     0.32s  
+  ✓ pago completo sin deuda previa crea el mes con descuento                                                     0.27s  
+  ✓ un parcial con deuda existente no cierra el mes                                                              0.42s  
+  ✓ un parcial sin deuda previa no cierra el mes                                                                 0.33s  
+  ✓ el saldo que queda despues del parcial se puede terminar de cobrar                                           0.79s  
+  ✓ el tramo de fin de mes tambien descuenta el precio y no la sena                                              0.51s  
+  ✓ sin descuento el parcial se imputa contra el precio entero                                                   0.65s  
+  ✓ un cobro cancelado no le saca el descuento al mes de alta                                                    1.12s  
+  ✓ cancelar y volver a cobrar el mes de alta no descuenta dos veces                                             1.75s  
+  ✓ despues de cancelar la pantalla muestra el mismo precio que va a cobrar                                      1.15s  
+
+   PASS  Tests\Feature\DescuentoPrimerPagoSoloDelMesDeAltaTest
+  ✓ el alumno que entra este mes despues del dia 15 paga menos                                                   0.20s  
+  ✓ el alumno traido de una carga inicial paga la cuota entera                                                   0.44s  
+  ✓ en un pago de varios meses el descuento alcanza solo al mes de entrada                                       0.24s  
+  ✓ el alumno que entra en la primera quincena no tiene descuento                                                0.42s  
+  ✓ la pantalla anuncia el descuento del mes de alta aunque se cobre despues                                     0.33s  
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.02s  
+
+   PASS  Tests\Feature\EditarClaseTest
+  ✓ fecha pasada no se mueve                                                                                     0.06s  
+  ✓ futura no se mueve al pasado                                                                                 0.06s  
+  ✓ horario pasado exige y guarda motivo sin asistencia                                                          0.14s  
+  ✓ profesor existente bloquea solape y revierte fecha y lista                                                   0.10s  
+  ✓ presentes se validan hoy y pasado con rollback completo                                                      0.14s  
+  ✓ liquidacion cerrada bloquea abierta permite                                                                  0.20s  
+  ✓ pasada ignora profesores y guardar sin cambios no pide motivo                                                0.19s  
+  ✓ hoy permite contiguas sin autosolape y quitar todos                                                          0.28s  
+  ✓ profesor agregado se valida sin mover horario                                                                0.11s  
+  ✓ hoy permite fecha futura y nuevo profesor sin motivo                                                         0.08s  
+  ✓ presente propio no bloquea y ausente en otra no cuenta                                                       0.23s  
+  ✓ pantalla pasada muestra motivo y controles protegidos                                                        0.38s  
+
+   PASS  Tests\Feature\EditarMovimientoSubrubroTest
+  ✓ edicion rechaza subrubros reservados admin o que no afectan caja                                             0.19s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                                                                0.02s  
+
+   PASS  Tests\Feature\ExportarPadronCargaInicialTest
+  ✓ el padron incluye a todos los alumnos activos con la columna debe vacia                                      0.10s  
+  ✓ el archivo trae instrucciones y el padron se lee aunque quede activa esa hoja                                0.18s  
+
+   PASS  Tests\Feature\FichaAlumnoResponsiveA37Test
+  ✓ ficha alumno posee estructura responsive en acciones deudas e historial                                      0.21s  
+
+   PASS  Tests\Feature\FormulariosA4A5Test
+  ✓ a4 alta presenta resumen accesible antes de los campos                                                       0.30s  
+  ✓ a4 edicion presenta el mismo resumen                                                                         0.09s  
+  ✓ a4 rechazo conserva datos y no modifica alumno                                                               0.06s  
+  ✓ a5 alta rechaza profesor de otro deporte sin crear clase                                                     0.10s  
+  ✓ a5 serie rechazada no deja clases parciales                                                                  0.06s  
+  ✓ a5 edicion rechaza profesor ajeno sin cambiar horario                                                        0.06s  
+  ✓ a5 reasignacion rechaza profesor ajeno y conserva asignacion                                                 0.06s  
+  ✓ a5 edicion no ofrece casilla de otro deporte                                                                 0.04s  
+  ✓ a5 profesor correcto sigue pudiendo asignarse                                                                0.03s  
+  ✓ a5 rechaza profesor inactivo del mismo deporte                                                               0.04s  
+  ✓ a5 ficha y edicion solo ofrecen profesores activos del deporte                                               0.08s  
+
+   PASS  Tests\Feature\GenerarDeudasMensualesCommandTest
+  ✓ genera el mes que empieza segun asistencia o alta y pago recientes                                           0.08s  
+
+   PASS  Tests\Feature\GrupoFrecuenciaObligatoriaTest
+  ✓ alta sin frecuencias se rechaza sin crear grupo ni planes                                                    0.03s  
+  ✓ editar quitando todas las frecuencias no escribe nada                                                        0.06s  
+  ✓ borrar la ultima frecuencia se rechaza con motivo sin escribir                                               0.03s  
+  ✓ permite crear editar y borrar si el grupo conserva una frecuencia                                            0.04s  
+  ✓ un id de frecuencia inexistente no permite vaciar el grupo                                                   0.05s  
+
+   PASS  Tests\Feature\GrupoNombreLiquidacionTest
+  ✓ nombre completo carga las relaciones si no estaban cargadas                                                  0.06s  
+  ✓ detalle de liquidacion por hora incluye el nombre del grupo                                                  0.05s  
+
+   PASS  Tests\Feature\GrupoPlanPrecioPositivoTest
+  ✓ rechaza precio cero con mensaje y sin escribir                                                               0.05s  
+  ✓ rechaza precio negativo armado a mano y sin escribir                                                         0.06s  
+
+   PASS  Tests\Feature\HistorialAnaliticoReportesTest
+  ✓ cobrar no reduce cuota neta y perdonar solo descuenta el saldo                                               0.07s  
+  ✓ tarifa y modalidad nuevas no reescriben el dia anterior                                                      0.10s  
+  ✓ anulacion posterior no borra el cobro conocido en el corte anterior                                          0.06s  
+  ✓ pagar liquidacion conserva el costo y el estado anterior                                                     0.08s  
+  ✓ baja no borra historia y mes anterior a cobertura es indisponible                                            0.08s  
+  ✓ si falla historial se revierten tanto edicion como baja                                                      0.19s  
+  ✓ activacion con datos existentes no retrofecha su historia                                                    0.22s  
+  ✓ ficha vieja y reloj retrocedido no falsean el estado conocido                                                0.17s  
+  ✓ formato json distinto no duplica estados economicos identicos                                                0.24s  
+
+   PASS  Tests\Feature\HistorialDuenioSinLimitesTest
+  ✓ el duenio ve mas alla de 90 dias y el operativo no                                                           0.40s  
+  ✓ el duenio ve los rubros que son solo suyos y el operativo no                                                 0.13s  
+  ✓ el duenio ve lo cancelado marcado y sin sumarlo                                                              0.24s  
+  ✓ la anulacion de un cobro del duenio resta en vez de sumar                                                    0.23s  
+
+   PASS  Tests\Feature\ImportarDeudaInicialExcelCommandTest
+  ✓ importa toda la planilla y la segunda corrida se rechaza sin duplicar                                        0.18s  
+  ✓ lista todos los errores y no escribe nada                                                                    0.22s  
+  ✓ reversion solo borra deudas pendientes e intactas del mismo excel                                            0.25s  
+
+   PASS  Tests\Feature\ImportesPesosT24Test
+  ✓ cada pedido directo rechaza tres decimales sin escribir                                                     14.20s  
+  ✓ cada pantalla guarda dos decimales sin perder centavos                                                      18.77s  
+  ✓ el cero conserva la regla de cada flujo                                                                      6.26s  
+  ✓ el saldo con historial sigue siendo de solo lectura                                                          0.43s  
+  ✓ las pantallas renderizan el componente comun y conservan centavos al editar                                  4.71s  
+
+   PASS  Tests\Feature\InicioDeudaCuotasEInscripcionesTest
+  ✓ inicio y cobranza concilian con solo cuotas                                                                  0.12s  
+  ✓ inicio y cobranza concilian con cuotas mas inscripcion                                                       0.14s  
+  ✓ inicio y cobranza concilian con inscripcion pagada                                                           0.16s  
+  ✓ inicio y cobranza concilian con inscripcion pagada parcial                                                   0.22s  
+  ✓ inicio y cobranza concilian con alumna en dos deportes una sola inscripcion                                  0.75s  
+  ✓ inicio y cobranza concilian con inscripcion condonada                                                        0.88s  
+  ✓ inicio y cobranza excluyen inscripcion de alumno inactivo                                                    0.91s  
+  ✓ t19 reportes cuenta las inscripciones igual que inicio y cobranza                                            1.35s  
+  ✓ t19 quien se dio de baja no cuenta en ninguna de las tres                                                    1.84s  
+
+   PASS  Tests\Feature\InicioOperativoTest
+  ✓ situacion 1 recien llega nadie abrio                                                                         0.46s  
+  ✓ situacion 2 turno propio abierto hoy                                                                         0.57s  
+  ✓ situacion 3 companero abrio hoy                                                                              0.48s  
+  ✓ situacion 4 sandra cerro y espera validacion                                                                 0.62s  
+  ✓ situacion 5 caja rechazada                                                                                   0.35s  
+  ✓ situacion 6 companero dejo abierta ayer                                                                      1.11s  
+  ✓ situacion 7 propia abierta ayer                                                                              0.67s  
+  ✓ situacion 8 de noche                                                                                         0.74s  
+
+   PASS  Tests\Feature\InscripcionConcurrenteTest
+  ✓ dos altas del mismo dni en deportes distintos se serializan                                                 11.85s  
+  ✓ segundo cobro relee saldo despues de esperar                                                                12.47s  
+
+   PASS  Tests\Feature\InscripcionTest
+  ✓ alta manual genera inscripcion sin corte incluso con ingreso antiguo                                         0.25s  
+  ✓ dos deportes no duplican inscripcion                                                                         0.17s  
+  ✓ configuracion invalida no deja alta parcial                                                                  0.07s  
+  ✓ reintento no duplica y precio queda congelado                                                                0.10s  
+  ✓ fallo durante el cargo revierte alumno y plan                                                                0.08s  
+  ✓ cobro completo separa conceptos y caja                                                                       0.17s  
+  ✓ pago insuficiente cubre inscripcion primero y no cambia estado mensual                                       0.20s  
+  ✓ editar fecha conserva inscripcion e importe con auditoria                                                    0.11s  
+  ✓ no se edita fecha con inscripcion parcialmente pagada                                                        0.09s  
+  ✓ cancelar restituye cuota inscripcion y todos los movimientos                                                 0.42s  
+  ✓ importe inscripcion obligatorio sin parametro corte                                                          0.53s  
+  ✓ retirar parametro legacy no altera cargos ni importe                                                         0.55s  
+  ✓ editar alumno existente sin cargo no crea inscripcion                                                        0.51s  
+  ✓ recibo pdf contiene cuota e inscripcion y conserva detalle anulado                                          17.75s  
+  ✓ el descuento solo alcanza la cuota                                                                           0.95s  
+  ✓ pagos historicos conservan su importe de cuota                                                               0.49s  
+  ✓ configuracion cambiada no cobra otro importe sin avisar                                                      0.74s  
+
+   PASS  Tests\Feature\LimiteFechasMovimientosTest
+  ✓ fecha manana es rechazada en alta y edicion de caja                                                          0.19s  
+  ✓ fecha manana es rechazada en cashflow                                                                        0.09s  
+  ✓ fecha de hoy y primer dia del mes se cargan sin aviso                                                        0.21s  
+  ✓ ultimo dia del mes anterior pide confirmacion y segundo envio guarda                                         0.26s  
+  ✓ fecha tres meses atras guarda en caja abierta sin tocar caja cerrada                                         0.40s  
+  ✓ editar movimiento con fecha vieja pide confirmacion                                                          0.45s  
+  ✓ cashflow store con fecha vieja pide confirmacion y luego guarda                                              0.46s  
+  ✓ cobro cuota fecha pago mes anterior requiere confirmacion 409                                                1.06s  
+
+   PASS  Tests\Feature\LiquidacionComisionHistoricaTest
+  ✓ comision excluye inscripcion del pago mixto                                                                  0.65s  
+  ✓ alumno dado de baja posteriormente aparece en liquidacion del mes que pago y asistio                         0.60s  
+  ✓ alumno que cambia de deporte posteriormente aparece en liquidacion del mes que pago y asistio                0.39s  
+  ✓ cambio posterior en porcentaje del profesor no altera liquidacion recalculada                                0.48s  
+  ✓ liquidacion legacy con porcentaje nulo calcula con porcentaje actual del profesor                            0.16s  
+  ✓ anulacion de pago hace que recalculo remueva la comision                                                     0.31s  
+  ✓ alumno con pago pero sin asistencia a clase del profesor no genera comision                                  0.36s  
+  ✓ vista show muestra porcentaje congelado de la liquidacion                                                    0.49s  
+
+   PASS  Tests\Feature\LiquidacionHoraPorDuracionTest
+  ✓ cada clase se paga por su duracion                                                                           0.31s  
+  ✓ vista previa y liquidacion calculan lo mismo                                                                 0.25s  
+  ✓ cambiar la tarifa despues no altera la liquidacion recalculada                                               0.45s  
+  ✓ cambiar el horario despues de cerrar no altera minutos ni monto                                              0.22s  
+  ✓ clase sin duracion valida frena la liquidacion                                                               0.12s  
+  ✓ la migracion no recalcula lo ya liquidado                                                                    0.07s  
+
+   PASS  Tests\Feature\LiquidacionHoraVistaYReciboTest
+  ✓ pantalla y recibo muestran duracion en horas minutos y subtotales con centavos                               0.61s  
+  ✓ cambiar horario despues de cerrar no cambia duracion en pantalla ni recibo                                   0.32s  
+  ✓ liquidacion antigua con minutos null muestra guion                                                           0.24s  
+
+   PASS  Tests\Feature\LoginThrottleTest
+  ✓ sexto intento fallido en un minuto responde 429                                                              1.16s  
+
+   PASS  Tests\Feature\MenuYMovimientosA38A39Test
+  ✓ a38 la paginacion habla en castellano                                                                        0.18s  
+  ✓ a39 el menu del operativo ofrece movimientos y la pantalla abre                                              0.75s  
+  ✓ a39 el profesor no ve movimientos en su menu                                                                 0.42s  
+  ✓ el operativo ve los movimientos de un companero pero nada de los rubros del admin                            0.49s  
+
+   PASS  Tests\Feature\MostrarImportesT30Test
+  ✓ cada pantalla muestra centavos e importes largos sin cambiar lo guardado                                    36.21s  
+  ✓ avisos del servidor mail y telegram conservan centavos sin enviar mensajes reales                            0.30s  
+  ✓ excel mantiene celdas numericas y el informe conserva el original                                            1.67s  
+  ✓ totales visibles coinciden con la suma de renglones visibles                                                 0.40s  
+  ✓ un recibo ya emitido se conserva sin regenerarlo                                                             4.42s  
+
+   PASS  Tests\Feature\MovimientosVisibilidadPorRubroTest
+  ✓ el operativo ve el cobro que registro otro y no ve lo que no puede cargar                                    0.07s  
+  ✓ el admin sigue viendo todo                                                                                   0.06s  
+
+   PASS  Tests\Feature\NormalizarNivelesCatalogosTest
+  ✓ borra solo niveles legacy sin grupos                                                                         0.02s  
+
+   PASS  Tests\Feature\P2Entrega2FichaCobroAdelantadoTest
+  ✓ a17 admin y operativo ven boton cobrar en cabecera de ficha                                                  0.21s  
+  ✓ a17 profesor no puede acceder a ficha ni a cobrar                                                            0.10s  
+  ✓ a17 fila de deuda en ficha muestra boton cobrar                                                              0.09s  
+  ✓ a34 ficha permite acceder a recibo de pago completado y anulado                                             12.27s  
+  ✓ a3 alumno al dia ofrece periodos futuros para cobro adelantado                                               0.16s  
+  ✓ a3 cobro adelantado registra pago y deuda al precio del plan                                                 0.20s  
+  ✓ t18 total pendiente no suma meses que no empezaron                                                           0.14s  
+  ✓ t18 sin confirmar no se cobra un mes futuro                                                                  0.11s  
+  ✓ t18 el importe adelantado se puede cambiar y queda fijo                                                      0.24s  
+  ✓ t18 no se cobra mas alla de doce meses ni sin importe                                                        0.17s  
+  ✓ a3 generacion mensual en dia 1 no duplica el mes cobrado adelantado                                          0.10s  
+  ✓ a3 busqueda en caja cobrar encuentra alumno al dia para cobro adelantado                                     0.12s  
+
+   PASS  Tests\Feature\PagoCuotaServiceTest
+  ✓ autocrea deuda futura con monto del plan                                                                     0.23s  
+  ✓ autocrea deuda periodo vigente                                                                               0.15s  
+  ✓ admin y fifo autocrean deudas con monto descontado                                                           0.23s  
+  ✓ idempotencia no duplica deuda existente                                                                      0.15s  
+  ✓ rechaza item que supera el saldo pendiente                                                                   0.13s  
+  ✓ bloquea periodo pasado sin deuda previa                                                                      0.08s  
+  ✓ permite periodo pasado si deuda ya existe                                                                    0.15s  
+  ✓ error alumno sin plan activo                                                                                 0.09s  
+  ✓ fifo rechaza deuda vieja parcial                                                                             0.12s  
+  ✓ fifo permite ultima deuda parcial                                                                            0.33s  
+  ✓ fifo item unico sin restriccion                                                                              0.35s  
+  ✓ fifo ordena items automaticamente                                                                            0.53s  
+  ✓ cambio plan programado usa plan del periodo                                                                  0.13s  
+  ✓ cambio plan cobra febrero con plan viejo                                                                     0.13s  
+
+   PASS  Tests\Feature\PagoLiquidacionConcurrenteTest
+  ✓ no registra un egreso mientras otro pago tiene la liquidacion                                                2.93s  
+  ✓ cuando el otro pago termina este no vuelve a pagar                                                           0.15s  
+
+   PASS  Tests\Feature\PagoLiquidacionFechaTest
+  ✓ fecha futura se rechaza                                                                                      0.11s  
+  ✓ fecha del mes en curso paga sin preguntar ni avisar                                                          0.24s  
+  ✓ fecha de un mes anterior sin confirmar no paga y pregunta                                                    0.18s  
+  ✓ fecha de un mes anterior confirmada paga con su fecha y avisa                                                0.16s  
+
+   PASS  Tests\Feature\PantallasErrorTest
+  ✓ las cuatro pantallas en castellano para cada perfil                                                          0.82s  
+  ✓ una direccion inventada conserva el inicio del rol                                                           0.18s  
+  ✓ registro inexistente conserva permisos y login                                                               0.17s  
+  ✓ volver desde un error grave recupera el inicio de cada rol                                                   0.16s  
+  ✓ las respuestas json no reciben html para ningun perfil                                                       0.20s  
+  ✓ api sigue en json incluso si se pide html                                                                    0.09s  
+  ✓ 500 y 503 no consultan base autenticacion ni sesion                                                          0.11s  
+  ✓ render directo de mantenimiento no consulta sesion ni base                                                   0.09s  
+  ✓ conserva retry after en 429 y 503                                                                            0.07s  
+  ✓ error grave no filtra detalles aun con debug activo                                                          0.08s  
+  ✓ conserva respuestas de validacion y sesion expirada                                                          0.10s  
+  ✓ inicio coincide con el aviso de primera carga                                                                0.11s  
+  ✓ fallos 500 se registran y los otros http no llenan el log                                                    0.05s  
+
+   PASS  Tests\Feature\PerdonConcurrenteT33Test
+  ✓ pedido inscripcion espera commit y continua sin reintento ni timeout                                        25.63s  
+  ✓ pedido cuota espera commit y continua sin reintento ni timeout                                              15.55s  
+  ✓ cobro parcial inscripcion primero perdona solo tres mil                                                     14.45s  
+  ✓ cobro completo inscripcion primero rechaza perdon                                                           13.85s  
+  ✓ perdon inscripcion primero rechaza cobro sin escribir                                                       16.90s  
+  ✓ dos perdones de inscripcion se serializan y segundo rechaza                                                 18.95s  
+  ✓ cobro parcial cuota primero perdona saldo conservando imputacion                                            14.76s  
+  ✓ cobro completo cuota primero rechaza perdon                                                                 14.21s  
+  ✓ perdon cuota primero rechaza cobro sin escribir                                                             13.02s  
+  ✓ dos perdones de cuota se serializan y segundo rechaza                                                       13.01s  
+
+   PASS  Tests\Feature\PerdonReactivacionT33Test
+  ✓ admin ve condonar inscripcion y reutiliza el modal                                                           1.50s  
+  ✓ condonar inscripcion guarda solo saldo y evento con autor fecha motivo importe                               0.13s  
+  ✓ inscripcion parcial perdona resto y anular pago deja debiendo el parcial                                     0.15s  
+  ✓ reactivar inscripcion conserva parcial original y ambos eventos                                              0.22s  
+  ✓ reactivar cuota conserva parciales imputaciones y historial                                                  0.16s  
+  ✓ ficha lista cuotas condonadas y reactivar solo para admin                                                    0.14s  
+  ✓ motivos invalidos rechazados en las tres acciones sin escribir                                               0.10s  
+  ✓ motivos limite diez y quinientos caracteres se aceptan                                                       0.23s  
+  ✓ operativo y profesor rechazados por post directo                                                             0.26s  
+  ✓ inscripcion ya perdonada no admite segundo perdon                                                            0.17s  
+  ✓ inscripcion pagada entera no admite perdon                                                                   0.18s  
+  ✓ inscripcion anulada rechaza condonar y reactivar                                                             0.24s  
+  ✓ cuota no condonada no admite reactivacion                                                                    0.12s  
+  ✓ inscripcion sin perdon no admite reactivacion                                                                0.10s  
+  ✓ perdonada no se cobra sin crear pago movimiento o recibo                                                     0.17s  
+  ✓ tres pantallas y buscador coinciden antes perdon despues y reactivacion                                      2.03s  
+  ✓ cuota futura reactivada no suma hasta el primer dia del mes                                                  0.43s  
+  ✓ alumno de baja admite ambas decisiones sin reactivar al alumno                                               0.52s  
+  ✓ dos deportes un cargo solo ficha duena ofrece decidir                                                        0.69s  
+  ✓ mes anterior conserva cuota historica pero usa perdon actual de inscripcion                                  0.75s  
+  ✓ evidencia ficha real opcional sin sumar una prueba omitida                                                   0.35s  
+
+   PASS  Tests\Feature\PreflightCommandTest
+  ✓ aprueba una configuracion de produccion completa                                                             0.15s  
+  ✓ falla con codigo distinto de cero si un valor es inseguro                                                    0.08s  
+  ✓ superadmin protegido cuenta como administrador activo                                                        0.11s  
+
+   PASS  Tests\Feature\PrimeraCargaAlumnosSeederTest
+  ✓ completa la primera carga sin duplicar ni tocar deudas                                                       0.76s  
+
+   PASS  Tests\Feature\PrimeraCargaCompletaSeederTest
+  ✓ deja los sesenta alumnos repartidos como la carga manual                                                     1.07s  
+  ✓ los tramos de fecha de alta son los verificados                                                              0.40s  
+  ✓ sofia morales queda inscripta en los dos deportes con el mismo dni                                           0.45s  
+  ✓ todos los alumnos tienen plan activo del grupo al que pertenecen                                             0.32s  
+  ✓ el grupo de cada alumno es de su propio deporte                                                              0.30s  
+  ✓ deja los catalogos de la primera carga                                                                       0.38s  
+  ✓ los dos tipos de caja activos conservan su saldo inicial                                                     0.34s  
+  ✓ cada profesor queda con su subrubro de sueldo                                                                0.39s  
+  ✓ las cuentas de profesor apuntan a una ficha real                                                             0.43s  
+  ✓ la clave de prueba permite entrar y cumple el minimo                                                         0.29s  
+  ✓ no deja operacion cargada                                                                                    0.39s  
+  ✓ se niega a correr sobre una base que ya tiene alumnos                                                        0.37s  
+
+   PASS  Tests\Feature\PrimeraCargaExcelTest
+  ✓ revision devuelve los seis errores juntos y no escribe                                                       0.42s  
+  ✓ excel marcado conserva celdas y agrega errores en am                                                         1.56s  
+  ✓ plantilla vacia tres hojas listas reales y 38 columnas                                                       0.61s  
+  ✓ carga correcta exactamente lo declarado sin descuentos ni caja                                               0.79s  
+  ✓ grupo y plan inexistentes o de otro deporte rechazan                                                         2.89s  
+  ✓ error ultima fila no deja filas anteriores                                                                   0.88s  
+  ✓ respuestas independientes y pares completos sin repetidos                                                    8.62s  
+  ✓ mismo dni en dos deportes inscripcion unica y duplicado rechazado                                            1.76s  
+  ✓ deshacer sin cobros conserva usuarios catalogos y rehabilita carga                                           0.91s  
+  ✓ deshacer rechaza cobro incluso anulado y conserva todo                                                       0.41s  
+  ✓ carga duplicada rechazada y rollback por fallo durante escritura                                             1.23s  
+  ✓ encabezados y formulas invalidos no se ignoran                                                               1.40s  
+  ✓ entrada automatica y alta directa no saltean estado pendiente                                                2.34s  
+  ✓ primera carga admin exclusivo en todas las acciones                                                          0.12s  
+  ✓ carga web exige revision previa y no admite payload inventado                                                1.22s  
+  ✓ revision con errores no habilita carga y descarga informe privado                                            1.03s  
+  ✓ formatos de excel y duodecimo par se importan sin perder importe                                             1.07s  
+  ✓ plan inactivo o sin precio no entra y cambio tras revision rechaza                                           2.16s  
+  ✓ revision no habilita carga si otro admin o archivo modificado                                                0.72s  
+  ✓ deshacer no borra deudas nuevas creadas despues de importar                                                  0.84s  
+
+   PASS  Tests\Feature\ProgramarClasesA15A16Test
+  ✓ a15 avisa sin guardar y confirmar guarda una vez                                                             0.52s  
+  ✓ a15 horario en punto se guarda directamente                                                                  0.21s  
+  ✓ a15 firma falsa o de horario anterior no permite guardar                                                     0.13s  
+  ✓ a16 seis cargas guardan las 76 clases y seis series                                                          0.77s  
+  ✓ serie con media hora avisa toda la carga y admite domingo                                                    0.16s  
+  ✓ horario invalido de un dia conserva el formulario sin guardar                                                0.18s  
+  ✓ conflicto en segundo dia revierte la serie entera                                                            0.26s  
+  ✓ horarios por dia no eluden el deporte del profesor                                                           0.13s  
+  ✓ horario comun anterior sigue creando series                                                                  0.15s  
+
+   PASS  Tests\Feature\PwaInstalacionTest
+  ✓ manifest es valido y declara arranque en login                                                               0.03s  
+  ✓ login y plantillas enlazan el manifest                                                                       0.03s  
+  ✓ usuario autenticado al abrir la app en login es redirigido al inicio de su rol                               0.06s  
+
+   PASS  Tests\Feature\ReciboErrorSanitizadoTest
+  ✓ error en recibo cuota devuelve mensaje amigable sin detalles tecnicos                                        0.07s  
+  ✓ error en recibo liquidacion devuelve mensaje amigable sin detalles tecnicos                                  0.04s  
+
+   PASS  Tests\Feature\ReciboMedioDePagoTest
+  ✓ el recibo muestra el medio con el que se cobro                                                               0.09s  
+  ✓ dos cobros iguales el mismo dia con medios distintos tienen cada uno su medio                                0.12s  
+  ✓ cancelar y volver a cobrar por otro medio no hereda el medio del cancelado                                   0.15s  
+  ✓ anular conserva periodos importes y motivo sin imputaciones activas                                          0.23s  
+  ✓ anulacion antigua sin detalle no inventa periodos                                                            0.11s  
+  ✓ pdf anulado se regenera con detalle y motivo                                                                 8.54s  
+
+   PASS  Tests\Feature\ReglaPrimerPagoSinSuperposicionTest
+  ✓ no se puede crear un tramo que pisa a otro                                                                   0.06s  
+  ✓ un tramo que no pisa a ninguno se crea                                                                       0.04s  
+  ✓ tampoco se puede editar un tramo hasta pisar a otro                                                          0.05s  
+  ✓ editar un tramo sin pisar a nadie funciona                                                                   0.04s  
+  ✓ con los tres tramos cargados cada dia del mes tiene una sola regla                                           0.07s  
+
+   PASS  Tests\Feature\RelojSimuladoTest
+  ✓ en el servidor de prueba wings cree que es el dia indicado                                                   0.06s  
+  ✓ con el momento en que se fijo el reloj avanza solo                                                           0.03s  
+  ✓ el reloj que avanza no cruza la medianoche por su cuenta                                                     0.05s  
+  ✓ sin ese momento o si es futuro el reloj queda clavado                                                        0.07s  
+  ✓ en produccion se ignora aunque este escrita                                                                  0.05s  
+  ✓ sin valor o con una fecha invalida no toca el reloj                                                          0.04s  
+  ✓ el comando no cambia nada en produccion                                                                      0.03s  
+
+   PASS  Tests\Feature\ReporteAlumnosTest
+  ✓ repeticiones cuentan como asistencias y no como alumnos unicos                                              11.89s  
+  ✓ canceladas y futuras no sumaron asistencias                                                                  6.14s  
+  ✓ baja actual no reescribe asistencias del mes anterior                                                        5.47s  
+  ✓ deporte de la clase define la asistencia aunque cambie la ficha                                              5.58s  
+  ✓ huecos de registro no se dibujan como cero y mes cerrado elegido participa                                   5.76s  
+  ✓ consultas no generan deudas revision o mensajes                                                              5.62s  
+  ✓ ruta de alumnos conserva mes y deporte entre reportes                                                        6.23s  
+  ✓ alumnos rechaza filtros invalidos y permite todos los deportes                                               5.67s  
+  ✓ alumnos solo admin y primera carga conserva el bloqueo                                                       6.05s  
+  ✓ mes sin clases sigue seleccionado y no inventa matricula historica                                           5.23s  
+
+   PASS  Tests\Feature\ReporteMensualTest
+  ✓ seis meses y mes actual concilian sin arrastre en el resultado                                               4.61s  
+  ✓ cobro posterior no borra deuda del cierre anterior                                                           4.41s  
+  ✓ validar caja solo traslada pendiente a confirmado sin duplicar                                               4.79s  
+  ✓ gastos comunes se restaron una vez y afecta caja no es clasificacion                                         6.12s  
+  ✓ historia insuficiente y clasificacion desconocida no simulan cero                                            8.37s  
+  ✓ fecha real anterior corrige su mes y ajuste actual conserva el anterior                                      5.81s  
+  ✓ creacion y pago del mismo objeto no suman dos veces y deshacer limpia                                        4.16s  
+  ✓ cierre y pago de liquidacion conservan el saldo del cierre anterior                                          5.17s  
+  ✓ evento y deuda se desatan juntos si falla guardar la historia                                                4.35s  
+  ✓ descuento retroactivo no deja deuda artificial en su mes                                                     4.32s  
+  ✓ sueldo generado conserva deporte al pagar y anular no borra historia                                         4.59s  
+  ✓ reportes reales filtran mes y deporte con historia del corte                                                 4.96s  
+  ✓ reportes rechazan filtros invalidos sin error del servidor                                                  10.30s  
+  ✓ reportes solo admin y primera carga conserva su bloqueo                                                     11.19s  
+  ✓ reportes detalles y enlaces concilian inicio y saldos historicos                                            11.07s  
+  ✓ reportes no inventan comparacion con movimientos sin clasificar                                             11.85s  
+  ✓ inicio admin usa el motor mensual y no cambia por parametros                                                10.88s  
+  ✓ avisos abren exactamente los pendientes incluidos meses antiguos                                            13.94s  
+  ✓ inicio y enlaces admin no exponen importes a otros roles                                                    11.43s  
+  ✓ inicio sin migracion muestra indisponible sin consultar historia                                            11.36s  
+  ✓ modificar saldo inicial no reescribe disponible anterior                                                    11.74s  
+
+   PASS  Tests\Feature\ReporteSueldosTest
+  ✓ reparte cuota real por asistencias sin dividir la comision                                                   0.22s  
+  ✓ pago parcial es cobro y sin pago cuenta cada asistencia                                                      0.21s  
+  ✓ falta historia o cuota no se convierte en cero                                                               0.22s  
+  ✓ canceladas y futuras no reparten cuota                                                                       0.33s  
+  ✓ mes cerrado conserva tarifa y cobro antes de la anulacion                                                    0.14s  
+  ✓ liquidacion ajustada prevalece sin duplicar abierta y cerrada                                                0.34s  
+  ✓ ruta filtros roles y consulta sin escrituras                                                                 0.84s  
+  ✓ cambiar deporte del profesor no mueve su actividad anterior                                                  0.25s  
+  ✓ clase con dos profesores no duplica asistencia global                                                        0.18s  
+  ✓ hora usa duracion real y no inventa clases previas al historial                                              0.30s  
+
+   PASS  Tests\Feature\RestaurarConsultasContraEsquemaRealTest
+  ✓ cada consulta del ensayo corre contra el esquema real                                                        0.10s  
+  ✓ la deuda pendiente se calcula igual que el modelo                                                            0.07s  
+
+   PASS  Tests\Feature\RevisionCobranzaNoTocaElPasadoTest
+  ✓ marcar inactivo no condona la deuda del mes anterior                                                         0.12s  
+  ✓ marcar inactivo da de baja y no genera la deuda del periodo                                                  0.10s  
+  ✓ marcar continua genera la deuda del periodo                                                                  0.10s  
+  ✓ continuar tampoco toca lo ya generado                                                                        0.11s  
+  ✓ una revision ya resuelta no se vuelve a resolver                                                             0.08s  
+
+   PASS  Tests\Feature\RevisionCobranzaOperativoTest
+  ✓ el operativo entra a la revision                                                                             0.15s  
+  ✓ el operativo resuelve continua y se genera la cuota                                                          0.12s  
+  ✓ el operativo resuelve inactivo sin condonar nada                                                             0.06s  
+  ✓ el profesor no entra ni resuelve                                                                             0.07s  
+  ✓ el menu del operativo tiene el link a revision                                                               0.09s  
+  ✓ el menu del profesor no tiene revision                                                                       0.08s  
+
+   PASS  Tests\Feature\RubroReservadoTest
+  ✓ no se puede renombrar un rubro reservado                                                                     0.09s  
+  ✓ no se puede cambiar el tipo de un rubro reservado                                                            0.06s  
+  ✓ no se puede eliminar un rubro reservado                                                                      0.06s  
+  ✓ la observacion de un rubro reservado no se edita                                                             0.07s  
+  ✓ un rubro comun se sigue renombrando                                                                          0.06s  
+  ✓ un rubro reservado vacio no acepta subrubros a mano                                                          0.07s  
+  ✓ un rubro comun sigue aceptando subrubros                                                                     0.07s  
+  ✓ el alta de un operativo le crea su subrubro de sueldo                                                        0.10s  
+  ✓ el alta de un admin no crea subrubro                                                                         0.09s  
+  ✓ editar un operativo no le duplica el subrubro                                                                0.09s  
+  ✓ catalogos del sistema rechazan toda edicion incluso espacios                                                 1.23s  
+
+   PASS  Tests\Feature\SaldoInicialTipoCajaTest
+  ✓ alta guarda saldo inicial y rechaza valores negativos                                                        1.09s  
+  ✓ nombre duplicado por mayusculas se rechaza sin crear otro tipo                                               0.16s  
+  ✓ saldo inicial se corrige por web solo mientras no haya movimientos                                           0.22s  
+  ✓ un movimiento cashflow impide reescribir el saldo inicial                                                    0.29s  
+  ✓ un movimiento operativo incluso cancelado bloquea el saldo inicial                                           0.24s  
+  ✓ cashflow muestra resultado del periodo sin sumar saldo inicial                                               1.25s  
+  ✓ saldo inicial permite pagar liquidacion sin movimientos previos                                              1.34s  
+  ✓ servicios de saldo incluyen tipos sin movimientos                                                            0.08s  
+
+   PASS  Tests\Feature\SaldoUnicoPorAlumnoTest
+  ✓ la cuota pendiente sin saldo no cuenta como deuda                                                            0.31s  
+  ✓ el saldo incluye la inscripcion impaga                                                                       0.21s  
+  ✓ cobranza la ficha y el selector dicen el mismo saldo                                                         0.59s  
+  ✓ un pago parcial baja el saldo en todas las pantallas                                                         0.17s  
+
+   PASS  Tests\Feature\SaldoYAnulacionCoherentesTest
+  ✓ la inscripcion de quien hace dos deportes figura en un solo registro                                         0.24s  
+  ✓ la ficha del otro deporte no duplica el saldo y dice donde esta                                              0.35s  
+  ✓ el historial de un cobro anulado muestra los meses cobrados                                                  0.39s  
+
+   PASS  Tests\Feature\SecurityHeadersTest
+  ✓ toda respuesta web incluye headers y csp solo en modo reporte                                                0.09s  
+
+   PASS  Tests\Feature\SeedersProduccionTest
+  ✓ demo seeder aborta en produccion                                                                             0.06s  
+  ✓ test seeder aborta en produccion                                                                             0.06s  
+
+   PASS  Tests\Feature\SeguridadRutasProfesorTest
+  ✓ profesor no puede entrar a dominios operativos o de dinero                                                   0.18s  
+  ✓ profesor conserva acceso a clases                                                                            0.09s  
+
+   PASS  Tests\Feature\SuperadminProtegidoTest
+  ✓ admin comun no ve al superadmin en el listado                                                                0.41s  
+  ✓ superadmin se ve a si mismo y al resto en el listado                                                         0.12s  
+  ✓ admin comun no puede abrir la edicion del superadmin                                                         0.09s  
+  ✓ admin comun no puede editar los datos del superadmin                                                         0.08s  
+  ✓ admin comun no puede cambiar la contrasena del superadmin                                                    0.10s  
+  ✓ admin comun no puede cambiar el rol del superadmin                                                           0.12s  
+  ✓ admin comun no puede desactivar al superadmin                                                                0.12s  
+  ✓ superadmin puede administrar a otro admin                                                                    0.08s  
+  ✓ pantalla web no puede crear una cuenta protegida                                                             0.07s  
+  ✓ pantalla web no puede marcar una cuenta existente como protegida                                             0.08s  
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas                                                                    0.03s  
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+   PASS  Tests\Feature\UsuarioActivoWebTest
+  ✓ usuario desactivado no puede iniciar sesion                                                                  0.09s  
+  ✓ sesion emitida se cierra si el usuario fue desactivado                                                       0.08s  
+
+   PASS  Tests\Feature\VerificacionEntrega2Test
+  ✓ cobrar adelantado a quien debe meses viejos pide confirmacion                                                0.20s  
+  ✓ confirmado el aviso el cobro adelantado entra sin tocar la deuda vieja                                       0.43s  
+  ✓ buscar a un alumno al dia no lo cuenta como deudor                                                           0.20s  
+
+  Tests:    2 skipped, 736 passed (7001 assertions)
+  Duration: 895.64s
+
