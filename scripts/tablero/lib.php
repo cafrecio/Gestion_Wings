@@ -212,6 +212,8 @@ function tablero_grupos(array $tareas): array
     // Las mejoras futuras (MF) no son trabajo de ahora: van aparte y no cuentan como
     // «sin empezar». Carlos, 13/10/2026: «ensucian la situación del proyecto».
     $mejoras = array_values(array_filter($abiertas, 'tablero_es_mejora_futura'));
+    // La que Carlos marco como prioritaria va primera (su paso empieza con PRIORITARIA).
+    usort($mejoras, fn ($a, $b) => str_starts_with($b['paso'], 'PRIORITARIA') <=> str_starts_with($a['paso'], 'PRIORITARIA'));
     // Lo que es de otro proyecto (CAB) se anota para no perderlo, pero no es pendiente de Wings.
     $otros = array_values(array_filter($abiertas, 'tablero_es_de_otro_proyecto'));
     $abiertas = array_filter($abiertas, fn ($t) => ! tablero_es_mejora_futura($t) && ! tablero_es_de_otro_proyecto($t));

@@ -69,7 +69,7 @@ T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, 
 
 ## Mejoras futuras, no se empiezan ahora (7)
 
-B5, B6, MF1, MF2, MF3, MF4, MF5.
+B6, B5, MF1, MF2, MF3, MF4, MF5.
 
 ## De otros proyectos, no es pendiente de Wings (1)
 
