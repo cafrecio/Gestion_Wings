@@ -2,8 +2,8 @@
 
 Etapa 1, 12/10/2026. **Propuesta, no implementación de correcciones.**
 Obligatoria antes de producción por decisión de Carlos. **Propuesta visual aprobada
-el 12/10:** «Sí, apruebo la propuesta visual». Las reglas pendientes de abajo
-requieren su respuesta antes de empezar la etapa 2.
+el 12/10:** «Sí, apruebo la propuesta visual». Carlos respondió las reglas de abajo
+y autorizó la etapa 2. Resultados en [IMPLEMENTACION-T27.md](IMPLEMENTACION-T27.md).
 
 ## Propuesta para mirar
 
@@ -24,7 +24,9 @@ pantalla financiera con los mismos movimientos y totales.
   totales confirmados de Cashflow.
 - Caja validada y liquidación pagada: se muestran y se puede **Ver** su origen.
   Carlos decidió que la caja validada quede **solo para consulta**.
-  La corrección de liquidaciones pagadas sigue pendiente de decisión.
+  También decidió que **las liquidaciones pagadas no se tocan**.
+- Liquidaciones sin pagar: Editar lleva a la edición existente de liquidación,
+  conservando sus reglas y sin convertirla en una edición de asiento de Cashflow.
 
 [Visor de propuesta y pantallas actuales](evidencia-t27/visor.html).
 
@@ -94,21 +96,26 @@ liquidaciones pagadas ni rehacer cierres. Las reglas dependen de las respuestas.
 - **Edición de directos, 12/10:** «Modificar el registro y conservar historial».
   Se modifica el mismo movimiento, conservando el valor anterior y el nuevo.
 - **Eliminación de directos, 12/10:** «Conservarlo y crear un asiento en contra».
-  El original se conserva. Todavía no se decidió la fecha del contraasiento.
+  El original se conserva. La fecha del contraasiento será la del movimiento
+  original para actualizar el reporte de ese mes, según la decisión de abajo.
 - **Motivo, 12/10:** «No, opcional en ambos casos». No se exige motivo al editar
   ni al eliminar un directo; puede cargarse voluntariamente.
 - **Plazo, 12/10:** «De cualquier mes anterior, sin límite». No se limita la
   corrección al mes en curso. Esto no decide cómo reflejarla en reportes cerrados.
 - **Caja validada, 12/10:** «Solo consulta». Sus movimientos muestran acceso al
   origen, sin edición ni eliminación desde T27.
+- **Liquidaciones, 12/10:** «Las liquidaciones pagadas, no se tocan. Pero si no se
+  pagaron pueden modificarse tal y como se hacía hasta hoy, editar debe llevar a
+  editar liquidación». Se conserva el flujo existente y sus restricciones.
+- **Mes original, 12/10:** «Actualizar el reporte del mes original, con historial».
+  La corrección afecta el período original y queda registrada; no se lleva el
+  ajuste al mes actual para conservar artificialmente el reporte anterior.
 
-## Decisiones pendientes de Carlos
+## Paso siguiente
 
-1. **Liquidación pagada.** ¿Queda solo para consulta, o entra con una regla nueva?
-   El contrato vigente impide tocar una pagada; no lo saltamos por corregir Cashflow.
-2. **Mes cerrado.** ¿La corrección modifica el resultado histórico con rastro, o
-   se registra un ajuste en el período actual conservando aquel cierre? No se
-   decide automáticamente al agregar Editar/Eliminar.
+Propuesta visual y reglas principales aprobadas. La etapa 2 implementa recorridos
+y correcciones de directos, conservando los flujos existentes de alumno, caja
+editable y liquidación sin pagar. T27 no se cierra con esta aprobación.
 
 ## Hallazgos que no se arreglaron en esta etapa
 
@@ -149,5 +156,6 @@ node docs/06-pruebas/PRU-04/evidencia-t27/tomar-capturas.mjs
 - No se ejecutaron correcciones nuevas, ni doble clic, ni nuevas reglas de saldo,
   fechas/cierres o permisos de escritura. No hubo teléfono físico, sitio de prueba,
   cambio de su reloj, despliegue ni envíos de mensajes reales.
-- Las reglas nuevas y su contrato/pruebas/capturas finales quedan para etapa 2,
-  **solo después de aprobación y decisiones de Carlos**. T27 no se cierra.
+- Estas cifras corresponden a la etapa 1 y no reemplazan las pruebas y capturas
+  finales de la [implementación de etapa 2](IMPLEMENTACION-T27.md). La aprobación
+  visual de la propuesta y las respuestas no cierran T27.

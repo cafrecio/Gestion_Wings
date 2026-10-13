@@ -130,6 +130,11 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/cashflow', [CashflowWebController::class, 'index'])->name('web.cashflow.index');
         Route::get('/cashflow/movimiento', [CashflowWebController::class, 'create'])->name('web.cashflow.movimiento');
         Route::post('/cashflow/movimiento', [CashflowWebController::class, 'store'])->name('web.cashflow.movimiento.store');
+        Route::get('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'show'])->name('web.cashflow.movimientos.show');
+        Route::get('/cashflow/movimientos/{id}/editar', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'edit'])->name('web.cashflow.movimientos.editar');
+        Route::get('/cashflow/movimientos/{id}/eliminar', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'eliminarForm'])->name('web.cashflow.movimientos.eliminar');
+        Route::put('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'update'])->name('web.cashflow.movimientos.update');
+        Route::delete('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'destroy'])->name('web.cashflow.movimientos.destroy');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
 
         // A13/B1: el cobro del dueño no pasa por ninguna caja, asi que tampoco se puede

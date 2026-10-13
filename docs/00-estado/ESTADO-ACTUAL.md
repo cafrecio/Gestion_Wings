@@ -1,22 +1,31 @@
 # Wings — Estado actual
 
-## T27 — Etapa 1, propuesta a Carlos, 12/10/2026
+## T27 — Implementación local y comprobación, 12/10/2026
 
 [Propuesta e inventario](../06-pruebas/PRU-04/PROPUESTA-T27.md): Cashflow como entrada
 única, con origen/acciones por fila y acceso separado a cajas sin validar. Maqueta
-renderizada por Laravel con datos ficticios: 32 PNG, marco360/login, 20 visitas sin fallos.
-Sin nuevas correcciones, permisos ni rutas de producción. Carlos decide antes de etapa 2.
+renderizada por Laravel con datos ficticios: 32 PNG, marco360/login, 20 visitas sin fallos en etapa 1.
 Carlos aprobó la propuesta visual el 12/10: «Sí, apruebo la propuesta visual».
 Decidió editar el mismo registro conservando historial del valor anterior y el nuevo.
 Eliminar conserva el original y crea un asiento en contra.
 Motivo opcional para editar y eliminar, por decisión de Carlos.
 Se puede corregir cualquier mes anterior, sin límite.
-Caja validada: solo consulta, sin edición ni eliminación desde T27.
-Pendientes: liquidación pagada y mes cerrado/fecha del contraasiento.
+Caja validada y liquidación pagada: solo consulta, sin edición ni eliminación desde T27.
+Liquidación sin pagar: Editar lleva al flujo existente, conservando sus restricciones.
+Carlos decidió actualizar el reporte del mes original, con historial. Contraasiento con fecha original.
+Reglas respondidas; etapa 2 implementada localmente, suite completa verde.
+Editor de directos, contraasiento único, historial antes/después y control de versión/reenvío.
+18 pruebas propias pasan: 16 de recorrido y 2 con conexiones MariaDB reales.
+53 capturas finales, marco360/login, 36 visitas sin fallos. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md).
+Contradicción corregida: Historial mezclaba egresos operativos positivos
+con egresos directos negativos y pintaba estos últimos como ingresos. La captura publicada
+`evidencia-t27/capturas/historial-actual-escritorio.png` muestra internet +$23,500.75 en verde.
+Se normaliza para cumplir la consistencia de Historial con Cashflow/Inicio/Reportes en T27.
 Hallazgos del relevamiento: rechazarCaja acepta solo CERRADA, no VALIDADA;
 liquidación pagada no se corrige. Además, el controlador limita edición de operativos
 a su caja mientras el contrato limita por propietario solo el cierre; no se cambió.
-T27 queda en_curso con Carlos; no se cierra ni se despliega.
+Suite propia: 687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s en wings_testing_codex.
+T27 se entrega a Carlos para capturas finales y luego a otro agente para reglas; no se cierra ni se despliega.
 
 ## T30 — Centavos y formato compartido, 12/10/2026
 
@@ -534,7 +543,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **671 pruebas**: 669 aprobadas, 2 omitidas; 6395 aserciones, 530,97 s. Suite completa en wings_testing_codex, 12/10, revisión visual T30. [Entrega T30](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md). |
+| **Tests** | **689 pruebas**: 687 aprobadas, 2 omitidas; 6588 aserciones, 536,25 s. Suite completa en wings_testing_codex, 12/10, T27. [Entrega T27](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

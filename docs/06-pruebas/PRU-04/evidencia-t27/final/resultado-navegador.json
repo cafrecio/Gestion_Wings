@@ -1,0 +1,391 @@
+{
+  "resultados": [
+    {
+      "id": "cashflow",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "crear-directo",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "editar-directo",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "eliminar-directo",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "detalle-editado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "eliminar-editado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "detalle-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "cashflow-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "historial-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "inicio-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "reportes-anulado",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-sin-pagar",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-pagada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "ficha-alumno",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "caja-validada",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "caja-abierta",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "editar-en-caja",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "escritorio",
+      "ancho": 1366,
+      "pagina": 1366,
+      "errores": []
+    },
+    {
+      "id": "cashflow",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "crear-directo",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "editar-directo",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "eliminar-directo",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "detalle-editado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "eliminar-editado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "detalle-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "cashflow-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "historial-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "inicio-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "reportes-anulado",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-sin-pagar",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "liquidacion-pagada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "ficha-alumno",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "caja-validada",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "caja-abierta",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "editar-en-caja",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    },
+    {
+      "id": "login",
+      "modo": "marco-360",
+      "ancho": 360,
+      "pagina": 360,
+      "errores": []
+    }
+  ],
+  "controles": [
+    {
+      "id": "cashflow",
+      "modo": "escritorio",
+      "iconos": 12,
+      "dimensiones": [
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        }
+      ]
+    },
+    {
+      "id": "cashflow",
+      "modo": "escritorio",
+      "editarLlevaAFormulario": true
+    },
+    {
+      "id": "editar-directo",
+      "modo": "escritorio",
+      "dosDecimales": true,
+      "advertenciaTres": true
+    },
+    {
+      "id": "cashflow",
+      "modo": "marco-360",
+      "iconos": 12,
+      "dimensiones": [
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "ancho": 28,
+          "alto": 28
+        }
+      ]
+    },
+    {
+      "id": "cashflow",
+      "modo": "marco-360",
+      "editarLlevaAFormulario": true
+    },
+    {
+      "id": "editar-directo",
+      "modo": "marco-360",
+      "dosDecimales": true,
+      "advertenciaTres": true
+    }
+  ],
+  "fallos": []
+}

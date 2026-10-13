@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CajaOperativa;
 use App\Models\CashflowMovimiento;
+use App\Models\Liquidacion;
 use App\Models\MovimientoOperativo;
 use App\Models\Pago;
 use App\Models\Rubro;
@@ -189,10 +190,46 @@ class CashflowWebController extends Controller
         $aniosDisponibles = CashflowMovimiento::selectRaw('YEAR(fecha) as anio')
             ->distinct()->pluck('anio')->push($anio)->push(now()->year)->unique()->sortDesc()->values();
 
+        $correccionesDisponibles = \App\Services\CashflowCorreccionService::disponible();
+        $enCajasEditables = MovimientoOperativo::activos()->with(['cajaOperativa', 'subrubro', 'usuario'])
+            ->whereHas('cajaOperativa', fn ($q) => $q->whereIn('estado', ['ABIERTA', 'RECHAZADA']))
+            ->orderByDesc('fecha')->paginate(10, ['*'], 'cajas_page')->withQueryString();
+        $liquidacionesPendientes = Liquidacion::with('profesor')->where('estado_pago', 'PENDIENTE')
+            ->whereIn('estado', ['ABIERTA', 'CERRADA'])->orderByDesc('anio')->orderByDesc('mes')
+            ->paginate(10, ['*'], 'liquidaciones_page')->withQueryString();
+        foreach ($movimientos as $mov) {
+            $origen = match ($mov->referencia_tipo) {
+                CashflowMovimiento::REF_CAJA => 'Caja validada',
+                CashflowMovimiento::REF_PAGO_CUOTA => 'Cobro del dueño',
+                CashflowMovimiento::REF_LIQUIDACION => 'Liquidación pagada',
+                CashflowMovimiento::REF_CORRECCION => 'Anulación de directo',
+                default => match ($mov->reporte_clasificacion) {'APORTE' => 'Aporte', 'RETIRO' => 'Retiro', default => 'Directo'},
+            };
+            $acciones = [];
+            if ($correccionesDisponibles && $mov->puedeCorregirse()) {
+                $acciones = [
+                    ['nombre' => 'Editar', 'url' => route('web.cashflow.movimientos.editar', $mov->id)],
+                    ['nombre' => 'Eliminar', 'url' => route('web.cashflow.movimientos.eliminar', $mov->id)],
+                ];
+            } else {
+                $pago = $mov->referencia_tipo === CashflowMovimiento::REF_PAGO_CUOTA ? $pagos->get($mov->referencia_id) : null;
+                $url = match ($mov->referencia_tipo) {
+                    CashflowMovimiento::REF_CAJA => route('web.caja.detalle', $mov->referencia_id),
+                    CashflowMovimiento::REF_LIQUIDACION => route('web.liquidaciones.show', $mov->referencia_id),
+                    default => $pago ? route('web.alumnos.show', $pago->alumno_id)
+                        : ($correccionesDisponibles ? route('web.cashflow.movimientos.show', $mov->id) : null),
+                };
+                if ($url) $acciones[] = ['nombre' => $pago && $pago->estado !== 'ANULADO' ? 'Anular' : 'Ver', 'url' => $url];
+            }
+            $mov->origenCorreccion = $origen.($mov->anulado_at ? ' · Anulado' : '');
+            $mov->accionesCorreccion = $acciones;
+        }
+
         return view('cashflow.index', compact(
             'movimientos', 'tiposCaja', 'aniosDisponibles',
             'anio', 'mes', 'tipoCajaId', 'tipo',
-            'totalIngresos', 'totalEgresos', 'modo', 'fechaReferencia', 'periodoTexto'
+            'totalIngresos', 'totalEgresos', 'modo', 'fechaReferencia', 'periodoTexto',
+            'correccionesDisponibles', 'enCajasEditables', 'liquidacionesPendientes'
         ));
     }
 

@@ -1,19 +1,20 @@
 @extends('layouts.ds-app')
 
-@section('title', 'Nuevo movimiento – Cashflow – Wings')
-@section('module-title', 'Nuevo movimiento')
+@section('title', isset($movimiento) ? 'Editar movimiento – Cashflow – Wings' : 'Nuevo movimiento – Cashflow – Wings')
+@section('module-title', isset($movimiento) ? 'Editar movimiento' : 'Nuevo movimiento')
 
 @section('content')
 
 @php
 $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-muted';
+$movimiento = $movimiento ?? null;
 
-$rubroActual    = old('rubro_id', '');
-$subrubroActual = old('subrubro_id', '');
-$tipoCajaActual = old('tipo_caja_id', '');
-$montoActual    = old('monto', '');
-$fechaActual    = old('fecha', today()->format('Y-m-d'));
-$obsActual      = old('observaciones', '');
+$rubroActual    = old('rubro_id', $movimiento?->subrubro?->rubro_id ?? '');
+$subrubroActual = old('subrubro_id', $movimiento?->subrubro_id ?? '');
+$tipoCajaActual = old('tipo_caja_id', $movimiento?->tipo_caja_id ?? '');
+$montoActual    = old('monto', $movimiento ? ltrim($movimiento->monto, '-') : '');
+$fechaActual    = old('fecha', $movimiento?->fecha?->toDateString() ?? today()->format('Y-m-d'));
+$obsActual      = old('observaciones', $movimiento?->observaciones ?? '');
 
 $rubroTipoActual = '';
 if ($rubroActual) {
@@ -22,8 +23,17 @@ if ($rubroActual) {
 }
 @endphp
 
-<form method="POST" action="{{ route('web.cashflow.movimiento.store') }}" id="mov-form">
+<form method="POST" action="{{ $movimiento ? route('web.cashflow.movimientos.update', $movimiento->id) : route('web.cashflow.movimiento.store') }}" id="mov-form" data-rubro-inicial="{{ $rubroActual }}" data-subrubro-inicial="{{ $subrubroActual }}">
     @csrf
+    @if($movimiento)
+        @method('PUT')
+        <input type="hidden" name="clave" value="{{ old('clave', $clave) }}">
+        <input type="hidden" name="version" value="{{ old('version', $movimiento->version_correccion) }}">
+        <p class="text-sm mb-3" style="color:var(--color-text-muted);">La corrección actualiza el reporte del período del movimiento y conserva su historial.</p>
+        @foreach(['version', 'clave'] as $campo)
+            @error($campo)<p class="text-sm mb-3" style="color:var(--color-danger);">{{ $message }}</p>@enderror
+        @endforeach
+    @endif
 
     {{-- ── Tipo I/E ─────────────────────────────────────────────────────── --}}
     <div class="filtros-card mb-4" id="tipo-card" style="transition: border-left 0.2s;">
@@ -141,7 +151,7 @@ if ($rubroActual) {
                     </svg>
                     Monto <span class="form-required">*</span></label>
                 <x-ds.money-input id="monto" name="monto" :value="$montoActual"
-                                  min="0.01" :prefix="false" required />
+                                  min="0.01" :max="$movimiento ? '9999999999.99' : null" :prefix="false" required />
                 @error('monto') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
             </div>
 
@@ -159,6 +169,13 @@ if ($rubroActual) {
                 @error('observaciones') <p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p> @enderror
             </div>
 
+            @if($movimiento)
+            <div class="md:col-span-2">
+                <label for="motivo" class="{{ $labelClass }}"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 002 2z"/></svg>Motivo (opcional)</label>
+                <input id="motivo" name="motivo" value="{{ old('motivo') }}" maxlength="500" class="w-full px-4 py-2.5 text-sm wings-input">
+                @error('motivo')<p class="text-xs mt-1" style="color:var(--color-danger);">{{ $message }}</p>@enderror
+            </div>
+            @endif
         </div>
     </div>
 
@@ -182,91 +199,17 @@ if ($rubroActual) {
     @endif
 
     <div class="filtros-actions" style="justify-content:flex-end;">
-        <x-ds.button variant="secondary" href="{{ route('web.caja.index') }}">Cancelar</x-ds.button>
-        <x-ds.button variant="primary" type="submit">{{ session('aviso_fecha_vieja') ? 'Confirmar' : 'Registrar' }}</x-ds.button>
+        <x-ds.button variant="secondary" href="{{ $movimiento ? route('web.cashflow.index') : route('web.caja.index') }}">Cancelar</x-ds.button>
+        <x-ds.button variant="primary" type="submit">{{ $movimiento ? 'Guardar' : (session('aviso_fecha_vieja') ? 'Confirmar' : 'Registrar') }}</x-ds.button>
     </div>
 
 </form>
+@if($movimiento && $historial->isNotEmpty())
+    @include('cashflow._historial')
+@endif
 
 @endsection
 
 @push('scripts')
-<script>
-(function () {
-    var tipoIngreso = document.getElementById('tipo-ingreso');
-    var tipoEgreso  = document.getElementById('tipo-egreso');
-    var btnIngreso  = document.getElementById('btn-ingreso');
-    var btnEgreso   = document.getElementById('btn-egreso');
-    var card        = document.getElementById('tipo-card');
-    var selectRubro = document.getElementById('rubro_id');
-    var selectSub   = document.getElementById('subrubro_id');
-
-    var rubroActual    = '{{ $rubroActual }}';
-    var subrubroActual = '{{ $subrubroActual }}';
-
-    function actualizarBotonesTipo(tipo) {
-        if (tipo === 'INGRESO') {
-            btnIngreso.style.borderColor = 'var(--color-success)';
-            btnIngreso.style.color       = 'var(--color-success)';
-            btnIngreso.style.background  = 'color-mix(in srgb, var(--color-success) 8%, transparent)';
-            btnEgreso.style.borderColor  = 'var(--color-border)';
-            btnEgreso.style.color        = 'var(--color-text-muted)';
-            btnEgreso.style.background   = 'transparent';
-            card.style.borderLeft        = '4px solid var(--color-success)';
-        } else {
-            btnEgreso.style.borderColor  = 'var(--color-danger)';
-            btnEgreso.style.color        = 'var(--color-danger)';
-            btnEgreso.style.background   = 'color-mix(in srgb, var(--color-danger) 8%, transparent)';
-            btnIngreso.style.borderColor = 'var(--color-border)';
-            btnIngreso.style.color       = 'var(--color-text-muted)';
-            btnIngreso.style.background  = 'transparent';
-            card.style.borderLeft        = '4px solid var(--color-danger)';
-        }
-        filtrarRubros(tipo);
-    }
-
-    function filtrarRubros(tipo) {
-        var opts = selectRubro.querySelectorAll('option[data-tipo]');
-        opts.forEach(function (opt) {
-            opt.style.display = (!tipo || opt.dataset.tipo === tipo) ? '' : 'none';
-        });
-        if (selectRubro.value) {
-            var selected = selectRubro.querySelector('option[value="' + selectRubro.value + '"]');
-            if (selected && selected.style.display === 'none') {
-                selectRubro.value = '';
-                filtrarSubrubros('');
-            } else {
-                filtrarSubrubros(selectRubro.value);
-            }
-        }
-    }
-
-    function filtrarSubrubros(rubroId) {
-        var opts = selectSub.querySelectorAll('option[data-rubro]');
-        opts.forEach(function (opt) {
-            opt.style.display = (!rubroId || opt.dataset.rubro === String(rubroId)) ? '' : 'none';
-        });
-        if (selectSub.value) {
-            var sel = selectSub.querySelector('option[value="' + selectSub.value + '"]:not([style*="display: none"])');
-            if (!sel) selectSub.value = '';
-        }
-        if (!rubroId) {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar rubro primero...';
-        } else {
-            selectSub.querySelector('option[value=""]').textContent = 'Seleccionar...';
-        }
-    }
-
-    tipoIngreso.addEventListener('change', function () { if (this.checked) actualizarBotonesTipo('INGRESO'); });
-    tipoEgreso.addEventListener('change',  function () { if (this.checked) actualizarBotonesTipo('EGRESO'); });
-
-    selectRubro.addEventListener('change', function () { filtrarSubrubros(this.value); });
-
-    // Init
-    var tipoInicial = tipoIngreso.checked ? 'INGRESO' : 'EGRESO';
-    actualizarBotonesTipo(tipoInicial);
-    filtrarSubrubros(rubroActual);
-    if (subrubroActual) selectSub.value = subrubroActual;
-})();
-</script>
+    @vite('resources/js/cashflow-movimiento.js')
 @endpush

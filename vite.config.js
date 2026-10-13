@@ -20,6 +20,7 @@ export default defineConfig({
                 'resources/js/primera-carga.js',
                 'resources/js/caja-arqueo.js',
                 'resources/js/caja-movimiento.js',
+                'resources/js/cashflow-movimiento.js',
                 'resources/js/reportes.js',
                 'resources/js/reportes-visual.js',
                 'resources/css/reportes-visual.css',

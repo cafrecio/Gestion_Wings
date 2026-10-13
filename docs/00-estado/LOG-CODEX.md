@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T27 etapa 2, implementación y comprobación
+
+Carlos aprobó visual y reglas: editar con historial, eliminar con contraasiento, motivo opcional y cualquier mes.
+Reporte del mes original; cajas validadas/liquidaciones pagadas solo consulta; sin pagar, edición existente.
+Original, contraasiento e historial atómicos; versión/clave impiden sobrescritura y reenvío duplicado.
+Historial corregido: egreso directo ya no aparece como entrada; 13 pruebas rojas antes del cambio.
+Propias 16/168 y dos conexiones 2/24 verdes; captura Laravel 1/33; 53 PNG, marco360/login, 36 visitas sin fallos.
+Script de Cashflow fuera de Blade; guardián CSP de 13 a 12. Suite propia 687/2, 6588 aserciones, 536,25 s; 689.
+[Informe y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Solo wings_testing_codex; sin sitio de prueba/reloj/despliegue.
+Sigue: Carlos aprueba capturas finales; después otro agente verifica las reglas. No se autocierra.
+
 ## 2026-10-12 — Codex CAB — T27, etapa 1: propuesta de entrada única
 
 Relevados directos, cobros/inscripción, aportes/retiros, liquidación y cajas.
@@ -112,16 +123,4 @@ Demo: seis sueldos NULL; rechazo production probado en base descartable. Recomie
 Sin arreglos de Wings, visita al sitio ni deploy. [Informe actualizado](../06-pruebas/PRU-04/VERIFICACION-T16.md).
 Tablero devuelto, tiene Claude/verifica Codex. Sigue: proteger el cruce y volver a verificar; aspecto aprobado.
 
-## 2026-10-10 — Codex CyE — T16 verificado y devuelto a Claude
-
-Objetivo: verificar clasificación de 462e8b1; copia 1972b48, cambios ajenos T17/T18 fuera.
-Dos causas reproducidas: tipo del padre admite APORTE-egreso/RETIRO-ingreso; nombres nuevos existentes quedan NULL.
-Catálogo, migración repetida, instalación nueva y snapshots cashflow/operativos comprobados; reservados protegidos.
-POST/PUT manuales y altas/ediciones de profesor/operativo comprobados; Demo crea seis sueldos NULL, fase aislada.
-Suite propia 598/2, 5003 aserciones, 737,33 s; independientes 9/3, 224 aserciones, 26,39 s; errores propios del verificador corregidos.
-Chrome real solo lectura: Inicio/Reportes $164.000; cuotas $159.000/inscripción $5.000, sin aviso de sin clasificar; dos capturas.
-Solo wings_testing_codex; base del club/producción y aplicación intactas por Codex. Sin arreglos ni deploy; aspecto aprobado.
-Tablero T16 devuelto, tiene Claude/verifica Codex. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Sigue: Claude corrige las dos causas y devuelve a Codex; archivo anterior íntegro preservado.
-
-[Archivo íntegro antes de T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27.txt).
+[Archivo íntegro antes de etapa 2 T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-ETAPA2.txt).

@@ -140,6 +140,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <col style="width:125px">
             <col style="width:145px">
             <col style="width:50px">
+            <col style="width:86px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -151,6 +152,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <th style="padding:8px 12px; text-align:right; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Monto</th>
                 <th style="padding:8px 12px; text-align:left; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Registró</th>
                 <th style="padding:8px 12px; text-align:center; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-muted);">Val.</th>
+                <th style="padding:8px; text-align:right; font-size:0.7rem; color:var(--color-text-muted); text-transform:uppercase;">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -164,11 +166,14 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 // El signo sale del importe, no del rubro: la devolución de un cobro
                 // anulado vive en un subrubro de ingresos con importe negativo, y pintarla
                 // por rubro la mostraba como si hubiera entrado plata otra vez.
-                $saleDeLaCaja = $tipoRubro === 'EGRESO' || (float) $mov->monto < 0;
+                $saleDeLaCaja = (float) $mov->monto < 0;
                 $montoColor = $saleDeLaCaja ? 'var(--color-danger)' : 'var(--color-success)';
                 if ($saleDeLaCaja && $tipoRubro !== null) {
                     $ieLabel = 'E';
                     $ieColor = 'var(--color-danger)';
+                } elseif ($tipoRubro !== null) {
+                    $ieLabel = 'I';
+                    $ieColor = 'var(--color-text)';
                 }
             @endphp
             <tr style="border-bottom:1px solid var(--color-border);">
@@ -190,6 +195,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 </td>
                 <td style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->alumnoNombre ?? $mov->observaciones ?? '' }}">
                     {{ $mov->alumnoNombre ?? $mov->observaciones ?? '–' }}
+                    <small style="display:block; margin-top:3px; font-size:0.7rem;">{{ $mov->origenCorreccion }}</small>
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
                     {{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}
@@ -200,6 +206,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <td style="padding:8px 12px; text-align:center; font-size:0.75rem; font-weight:700; color:var(--color-text-muted);" title="{{ $mov->validadorNombre ?? '' }}">
                     {{ $mov->validadorIniciales ?? '' }}
                 </td>
+                <td style="padding:8px; text-align:right;">@include('cashflow._acciones', ['acciones' => $mov->accionesCorreccion])</td>
             </tr>
             @endforeach
         </tbody>
@@ -215,11 +222,14 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         $ieColor   = $tipoRubro === 'EGRESO' ? 'var(--color-danger)' : 'var(--color-text)';
         $rubroNom  = $mov->subrubro?->rubro?->nombre ?? '';
         $subNom    = $mov->subrubro?->nombre ?? '–';
-        $saleDeLaCaja = $tipoRubro === 'EGRESO' || (float) $mov->monto < 0;
+        $saleDeLaCaja = (float) $mov->monto < 0;
         $montoColor = $saleDeLaCaja ? 'var(--color-danger)' : 'var(--color-success)';
         if ($saleDeLaCaja && $tipoRubro !== null) {
             $ieLabel = 'E';
             $ieColor = 'var(--color-danger)';
+        } elseif ($tipoRubro !== null) {
+            $ieLabel = 'I';
+            $ieColor = 'var(--color-text)';
         }
         $tieneAlumno = !empty($mov->alumnoNombre);
         $quienReg = $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–';
@@ -258,6 +268,10 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <span style="font-weight:600; padding:1px 6px; border-radius:4px; background:var(--color-surface-alt); border:1px solid var(--color-border);" title="{{ $mov->validadorNombre ?? '' }}">Val: {{ $mov->validadorIniciales }}</span>
             @endif
         </div>
+        <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end; gap:8px;">
+            <small style="margin-right:auto; font-size:0.7rem; color:var(--color-text-muted);">{{ $mov->origenCorreccion }}</small>
+            @include('cashflow._acciones', ['acciones' => $mov->accionesCorreccion])
+        </div>
     </div>
     @endforeach
 </div>
@@ -268,6 +282,51 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
     {{ $movimientos->links() }}
 </div>
 @endif
+@endif
+
+@if($enCajasEditables->isNotEmpty())
+<section class="alumno-card mt-4" id="cashflow-cajas-editables">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Mostrador · sin validar</h3></div>
+    <div style="padding:0 24px 16px; font-size:0.85rem;">
+        <p class="mb-3" style="color:var(--color-text-muted);">Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.</p>
+        @foreach($enCajasEditables as $movCaja)
+        <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
+            <p>{{ $movCaja->observaciones ?? $movCaja->subrubro?->nombre }}</p>
+            <small style="color:var(--color-text-muted);">Caja {{ strtolower($movCaja->cajaOperativa->estado) }} · {{ $movCaja->usuario?->name }}</small>
+            <p><strong>{{ \App\Support\FormatoImporte::pesos($movCaja->monto) }}</strong></p>
+            <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end;">
+                @php
+                    $accionesCaja = [['nombre' => 'Ver', 'url' => route('web.caja.detalle', $movCaja->caja_operativa_id)]];
+                    if (!$movCaja->subrubro?->es_reservado_sistema && !$movCaja->alumno_id) {
+                        $accionesCaja[] = ['nombre' => 'Editar', 'url' => route('web.caja.movimientos.editar', [$movCaja->caja_operativa_id, $movCaja->id])];
+                    }
+                @endphp
+                @include('cashflow._acciones', ['acciones' => $accionesCaja])
+            </div>
+        </div>
+        @endforeach
+        {{ $enCajasEditables->links() }}
+    </div>
+</section>
+@endif
+
+@if($liquidacionesPendientes->isNotEmpty())
+<section class="alumno-card mt-4" id="cashflow-liquidaciones-pendientes">
+    <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Liquidaciones · sin pagar</h3></div>
+    <div style="padding:0 24px 16px; font-size:0.85rem;">
+        <p class="mb-3" style="color:var(--color-text-muted);">No son egresos pagados. Editar lleva a la liquidación y conserva sus reglas.</p>
+        @foreach($liquidacionesPendientes as $liqPendiente)
+        <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
+            <p>{{ $liqPendiente->profesor?->apellido }}, {{ $liqPendiente->profesor?->nombre }} · {{ $mesesNombres[$liqPendiente->mes] }} {{ $liqPendiente->anio }}</p>
+            <p><strong>{{ \App\Support\FormatoImporte::pesos($liqPendiente->monto_a_pagar) }}</strong></p>
+            <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end;">
+                @include('cashflow._acciones', ['acciones' => [['nombre' => 'Editar', 'url' => route('web.liquidaciones.show', [$liqPendiente->id, 'editar' => 1])]]])
+            </div>
+        </div>
+        @endforeach
+        {{ $liquidacionesPendientes->links() }}
+    </div>
+</section>
 @endif
 
 <style>

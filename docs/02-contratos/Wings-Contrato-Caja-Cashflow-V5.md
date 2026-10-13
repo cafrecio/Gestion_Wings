@@ -117,3 +117,44 @@ Pruebas de apertura, diferencias, transferencia/admin excluidos, herencia, corre
 roles, POST directo y dos conexiones están en `CajaCambioInicialA25Test` (22) y
 `CajaArqueoConcurrenteA25Test` (4). Suite propia y capturas en la [entrega A25](../06-pruebas/PRU-02/IMPLEMENTACION-A25.md).
 La autorización de diseño no equivale a verificación independiente ni despliegue.
+
+## T27 — Correcciones del dueño desde Cashflow (Carlos, 12/10/2026)
+
+- Cashflow es la entrada única. Acciones de fila con íconos, sin botón «Corregir».
+- Solo ADMIN activo puede entrar o corregir, también ante pedidos directos. No se
+  limita a quién creó un directo: el rol ADMIN trabaja sobre el negocio completo.
+- Directo manual, aporte y retiro: Editar modifica el mismo registro y conserva
+  historial completo de antes/después, actor, fecha y motivo opcional. El creador
+  original no se reemplaza por quien corrige. Los reservados usan su propio flujo.
+- Eliminar conserva el original y crea un único asiento de signo contrario en el
+  mismo medio, subrubro, fecha y clasificación histórica. Original anulado y
+  contraasiento no permiten nuevas correcciones directas. Ambos quedan visibles.
+- Sin límite de antigüedad; no se admiten fechas futuras. La corrección actualiza
+  los reportes del período original con historial; no se desplaza al mes actual.
+- Un formulario viejo no puede pisar otro cambio. El doble envío de una operación
+  no crea otra edición ni otro contraasiento. Escritura e historial son atómicos:
+  fallo de cualquiera revierte toda la operación. Dos conexiones se serializan
+  bloqueando el movimiento original antes de escribir.
+- Importes de edición: componente y validación T24, positivos y hasta dos
+  decimales. El signo contable lo determina el subrubro, no el texto ingresado.
+- Cobro/inscripción del dueño lleva a la ficha y a su anulación actual. Si un Pago
+  reúne ambos, se anula ese Pago completo. Su motivo y reglas existentes siguen.
+- Caja ABIERTA/RECHAZADA lleva a su detalle o editor existentes. La caja VALIDADA
+  queda solo para consulta; no se habilita rechazarla ni corregir su reflejo.
+- Liquidaciones pagadas no se tocan. Las no pagadas llevan a su edición/detalle
+  existente y conservan las restricciones de estado, tipo, motivo y monto vigente.
+  No se inventa un egreso antes de pagarlas ni se edita su pago como un directo.
+- Mostrador sin validar y liquidaciones sin pagar se muestran separados de los
+  movimientos confirmados y no se agregan a los totales de Cashflow.
+- Cashflow, Inicio, Reportes e Historial utilizan los mismos signos y valores.
+  Historial presenta egresos como salidas y contraasientos al revés de su original;
+  los egresos operativos positivos y directos negativos se normalizan para sumar.
+- API REST sigue deshabilitada. La aprobación visual de la propuesta no equivale
+  a verificación de estas reglas ni a despliegue.
+
+### Aceptación de T27
+
+`CashflowCorreccionesT27Test` y `CashflowCorreccionesConcurrentesT27Test` cubren
+pedidos directos, permisos, importes, historial, atomicidad, reenvío y dos conexiones.
+La entrega final requiere suite propia, capturas reales con marco 360 y login,
+aprobación de Carlos y verificación por otro agente. T27 no se autocierra.

@@ -284,7 +284,7 @@ class CajaWebController extends Controller
                 'monto'    => abs((float) $m->monto),
                 // La anulación de un cobro del dueño es un asiento en contra, con
                 // importe negativo en el mismo rubro: resta, no es otro ingreso.
-                'neto'     => (float) $m->monto,
+                'neto'     => $m->subrubro?->rubro?->tipo === 'EGRESO' ? -(float) $m->monto : (float) $m->monto,
                 'cancelado' => false,
                 'orden'    => $m->created_at,
             ]);

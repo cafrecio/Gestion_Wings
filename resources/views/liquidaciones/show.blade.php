@@ -289,7 +289,7 @@
         <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</p></div>
     </div>
     @if(!$esPagada && !$esCancelada && \App\Models\Liquidacion::ajustesDisponibles())
-    <details class="mt-3">
+    <details class="mt-3" id="editar-liquidacion" {{ request()->boolean('editar') ? 'open' : '' }}>
         <summary class="info-label" style="cursor:pointer;">Editar monto final</summary>
         <form method="POST" action="{{ route('web.liquidaciones.ajustar', $liquidacion->id) }}" class="mt-3">
             @csrf

@@ -1,0 +1,17 @@
+{
+    "\/cashflow?periodo=mes&anio=2026&mes=10": "cashflow-anulado",
+    "\/cashflow\/movimiento": "crear-directo",
+    "\/cashflow\/movimientos\/1\/editar": "editar-directo",
+    "\/cashflow\/movimientos\/1\/eliminar": "eliminar-editado",
+    "\/liquidaciones\/2?editar=1": "liquidacion-sin-pagar",
+    "\/liquidaciones\/1": "liquidacion-pagada",
+    "\/alumnos\/1": "ficha-alumno",
+    "\/caja\/1\/detalle": "caja-validada",
+    "\/caja\/2\/detalle": "caja-abierta",
+    "\/caja\/2\/movimientos\/2\/editar": "editar-en-caja",
+    "\/cashflow\/movimientos\/1": "detalle-anulado",
+    "\/caja\/historial?desde=2026-10-01&hasta=2026-10-12": "historial-anulado",
+    "\/admin\/dashboard": "inicio-anulado",
+    "\/reportes?mes=2026-10": "reportes-anulado",
+    "\/login": "login"
+}
