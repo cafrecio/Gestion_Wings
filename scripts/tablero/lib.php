@@ -253,60 +253,200 @@ function tablero_e(string $texto): string
     return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
 }
 
+/** Dias sin moverse a partir de los cuales una tarea empezada figura como atrasada. */
+const TABLERO_DIAS_ATRASO = 3;
+
+/** Lo primero que dice el paso, para leerlo de un vistazo; el resto queda en «Detalle». */
+function tablero_resumen(string $paso): string
+{
+    $corto = preg_split('/(?<=\.)\s/u', $paso, 2)[0];
+
+    return mb_strlen($corto) > 150 ? mb_substr($corto, 0, 147) . '…' : $corto;
+}
+
+/** Lo que Carlos tiene que hacer con una tarea que espera por el, en pocas palabras. */
+function tablero_accion_de_carlos(array $t): string
+{
+    return match ($t['estado']) {
+        'a_verificar' => $t['verifica'] === '' || $t['verifica'] === 'Carlos' ? 'Revisar y dar el OK' : 'Dar el OK final',
+        'sin_empezar' => 'Decidir quién la hace',
+        'devuelto' => 'Volvió: decidir cómo sigue',
+        default => 'Te toca el próximo paso',
+    };
+}
+
+/**
+ * El tablero que abre Carlos. Tiene que entenderse con solo mirarlo (Carlos, 13/10/2026):
+ * que le toca, que esta en marcha, que esta atrasado y cuanto esta hecho. El texto largo
+ * queda plegado en «Detalle»; arriba van numeros, colores y una accion por tarjeta.
+ */
 function tablero_html(array $tareas): string
 {
     $g = tablero_grupos($tareas);
-    $av = tablero_avance($tareas);
-    $porciento = $av['total'] ? round($av['cerrados'] * 100 / $av['total']) : 0;
-    $frenan = $av['frenan'] ? implode(', ', $av['frenan']) : 'ninguno';
     $cambio = tablero_ultimo_cambio($tareas);
+    $hoy = date('Y-m-d');
+    $dias = fn (array $t): int => max(0, (int) floor((strtotime($hoy) - strtotime($t['fecha'])) / 86400));
+    $empezada = fn (array $t): bool => in_array($t['estado'], ['en_curso', 'a_verificar', 'devuelto'], true);
+    $atrasada = fn (array $t): bool => $empezada($t) && $dias($t) >= TABLERO_DIAS_ATRASO;
 
-    $fila = function (array $t): string {
-        $grav = $t['gravedad'] !== '' ? '<span class="g g-' . strtolower($t['gravedad']) . '">' . $t['gravedad'] . '</span>' : '';
-        if ($t['prioridad'] !== '' && $t['estado'] !== 'cerrado') {
-            $grav .= '<span class="p p-' . $t['prioridad'] . '">' . TABLERO_PRIORIDADES[$t['prioridad']] . '</span>';
+    $deAgentes = array_merge(...array_values(array_map(fn ($a) => $g[$a], TABLERO_AGENTES)));
+    $enMarcha = array_merge($deAgentes, $g['sin_verificador']);
+    $atrasadas = array_values(array_filter(array_merge($g['carlos'], $enMarcha), $atrasada));
+    $total = count($g['carlos']) + count($enMarcha) + count($g['sin_empezar']) + count($g['cerradas']);
+    $pc = fn (int $n): string => $total ? rtrim(rtrim(number_format($n * 100 / $total, 2, '.', ''), '0'), '.') : '0';
+
+    $tarjeta = function (array $t, bool $deCarlos = false) use ($dias, $atrasada, $empezada): string {
+        $clases = 't e-' . $t['estado'] . ($atrasada($t) ? ' atrasada' : '');
+        $n = $dias($t);
+        $edad = $n === 0 ? 'hoy' : ($n === 1 ? 'ayer' : "hace {$n} días");
+        $chips = '<span class="chip estado">' . tablero_e(TABLERO_ESTADOS[$t['estado']]) . '</span>';
+        if ($t['gravedad'] === 'Frena') {
+            $chips .= '<span class="chip frena">Frena</span>';
         }
-        $estado = '<span class="e e-' . $t['estado'] . '">' . tablero_e(TABLERO_ESTADOS[$t['estado']]) . '</span>';
-        $quien = [];
+        if ($t['prioridad'] !== '') {
+            $chips .= '<span class="chip p-' . $t['prioridad'] . '">' . TABLERO_PRIORIDADES[$t['prioridad']] . '</span>';
+        }
+        $chips .= '<span class="chip edad" data-edad>' . ($atrasada($t) ? 'Atrasada · ' : '') . $edad . '</span>';
+
+        $camino = [];
         if ($t['hizo'] !== '') {
-            $quien[] = 'lo hizo ' . $t['hizo'];
+            $camino[] = 'hizo ' . $t['hizo'];
         }
         if ($t['verifica'] !== '') {
-            $quien[] = ($t['estado'] === 'cerrado' ? 'verificó ' : 'verifica ') . $t['verifica'];
+            $camino[] = 'verifica ' . $t['verifica'];
         }
-        if ($t['estado'] === 'sin_empezar' && $t['tiene'] !== 'nadie') {
-            $quien[] = 'asignado a ' . $t['tiene'];
-        }
-        $pie = $quien ? '<span class="q">' . tablero_e(implode(' · ', $quien)) . '</span>' : '';
-        $paso = $t['paso'] !== '' ? '<p class="paso">' . tablero_e($t['paso']) . '</p>' : '';
+        $quien = $camino ? '<div class="quien">' . tablero_e(implode(' → ', $camino)) . '</div>' : '';
 
-        return '<li><div class="cab"><b class="id">' . tablero_e($t['id']) . '</b>'
-            . '<span class="tit">' . tablero_e($t['titulo']) . '</span></div>'
-            . '<div class="meta">' . $grav . $estado . $pie . '</div>' . $paso . '</li>';
+        $accion = $deCarlos ? '<div class="accion">' . tablero_e(tablero_accion_de_carlos($t)) . '</div>' : '';
+        $resumen = $t['paso'] !== '' ? tablero_resumen($t['paso']) : '';
+        $corto = $resumen !== '' ? '<p class="corto">' . tablero_e($resumen) . '</p>' : '';
+        $detalle = $t['paso'] !== '' && $resumen !== $t['paso']
+            ? '<details><summary>Detalle</summary><p>' . tablero_e($t['paso']) . '</p></details>' : '';
+
+        return '<article class="' . $clases . '" data-fecha="' . $t['fecha'] . '" data-empezada="' . ($empezada($t) ? 1 : 0) . '">'
+            . '<div class="cab"><b class="id">' . tablero_e($t['id']) . '</b><span class="tit">' . tablero_e($t['titulo']) . '</span></div>'
+            . $accion . '<div class="chips">' . $chips . '</div>' . $quien . $corto . $detalle . '</article>';
     };
 
-    $bloque = function (string $titulo, array $lista, string $vacio, string $clase = '') use ($fila): string {
-        $cuerpo = $lista
-            ? '<ul>' . implode("\n", array_map($fila, $lista)) . '</ul>'
-            : '<p class="vacio">' . tablero_e($vacio) . '</p>';
+    $renglon = function (array $t): string {
+        $chip = $t['prioridad'] !== '' ? '<span class="chip p-' . $t['prioridad'] . '">' . TABLERO_PRIORIDADES[$t['prioridad']] . '</span>' : '';
+        $de = $t['estado'] !== 'cerrado' && $t['tiene'] !== 'nadie' ? '<span class="chip de">' . tablero_e($t['tiene']) . '</span>' : '';
+        $paso = $t['paso'] !== '' ? ' title="' . tablero_e($t['paso']) . '"' : '';
 
-        return '<section class="' . $clase . '"><h2>' . tablero_e($titulo)
-            . ' <span class="n">' . count($lista) . '</span></h2>' . $cuerpo . '</section>';
+        return '<li' . $paso . '><b class="id">' . tablero_e($t['id']) . '</b><span class="tit">' . tablero_e($t['titulo']) . '</span>' . $chip . $de . '</li>';
     };
 
-    $plegado = function (string $titulo, array $lista) use ($fila): string {
-        return '<details><summary>' . tablero_e($titulo) . ' <span class="n">' . count($lista) . '</span></summary><ul>'
-            . implode("\n", array_map($fila, $lista)) . '</ul></details>';
-    };
+    $vos = $g['carlos']
+        ? implode("\n", array_map(fn ($t) => $tarjeta($t, true), $g['carlos']))
+        : '<p class="vacio">Nada espera por vos.</p>';
 
-    $secciones = $bloque('Esperan por vos', $g['carlos'], 'Nada espera por vos.', 'vos')
-        . $bloque('Hecho y sin nadie que lo verifique', $g['sin_verificador'], 'Todo lo hecho tiene quien lo verifique.', 'alerta');
+    $carriles = '';
     foreach (TABLERO_AGENTES as $agente) {
-        $secciones .= $bloque($agente, $g[$agente], 'No tiene nada en este momento.');
+        $lista = $g[$agente];
+        $carriles .= '<div class="carril"><h3>' . $agente . ' <span class="n">' . count($lista) . '</span></h3>'
+            . ($lista ? implode("\n", array_map($tarjeta, $lista)) : '<p class="libre">Libre</p>') . '</div>';
     }
-    $secciones .= $plegado('Sin empezar', $g['sin_empezar']) . $plegado('Cerradas', $g['cerradas'])
-        . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras'])
-        . $plegado('De otros proyectos, no es pendiente de Wings', $g['otros_proyectos']);
+    $huerfanas = $g['sin_verificador']
+        ? '<div class="huerfanas"><h3>Hecho y sin nadie que lo verifique <span class="n">' . count($g['sin_verificador']) . '</span></h3>'
+            . implode("\n", array_map($tarjeta, $g['sin_verificador'])) . '</div>'
+        : '';
+
+    $orden = ['alta' => 0, '' => 1, 'baja' => 2];
+    $sinEmpezar = $g['sin_empezar'];
+    usort($sinEmpezar, fn ($a, $b) => $orden[$a['prioridad']] <=> $orden[$b['prioridad']] ?: strnatcmp($a['id'], $b['id']));
+    $cerradas = $g['cerradas'];
+    usort($cerradas, fn ($a, $b) => strcmp($b['fecha'], $a['fecha']) ?: strnatcmp($a['id'], $b['id']));
+    $plegado = fn (string $titulo, array $lista, string $clase): string => '<details class="lista ' . $clase . '"><summary><i class="punto"></i>'
+        . tablero_e($titulo) . ' <span class="n">' . count($lista) . '</span></summary><ul>' . implode("\n", array_map($renglon, $lista)) . '</ul></details>';
+
+    $nVos = count($g['carlos']);
+    $nMarcha = count($enMarcha);
+    $nAtraso = count($atrasadas);
+    $nHecho = count($g['cerradas']);
+    $nResto = count($g['sin_empezar']);
+    $limite = TABLERO_DIAS_ATRASO;
+    $barra = '<i class="s-hecho" style="width:' . $pc($nHecho) . '%"></i><i class="s-marcha" style="width:' . $pc($nMarcha) . '%"></i>'
+        . '<i class="s-vos" style="width:' . $pc($nVos) . '%"></i><i class="s-resto" style="width:' . $pc($nResto) . '%"></i>';
+    $listas = $plegado('Sin empezar', $sinEmpezar, 'l-resto') . $plegado('Hecho', $cerradas, 'l-hecho')
+        . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras'], 'l-futuro')
+        . $plegado('De otros proyectos, no es pendiente de Wings', $g['otros_proyectos'], 'l-futuro');
+
+    $css = <<<'CSS'
+  :root { --fondo:#f3f4f6; --carta:#fff; --texto:#111827; --suave:#6b7280; --borde:#e5e7eb;
+    --vos:#f59e0b; --vos-f:#fffbeb; --marcha:#2563eb; --marcha-f:#eff6ff; --verif:#7c3aed; --atraso:#dc2626; --atraso-f:#fef2f2;
+    --hecho:#16a34a; --hecho-f:#f0fdf4; --resto:#9ca3af; }
+  @media (prefers-color-scheme: dark) { :root { --fondo:#111113; --carta:#1c1c20; --texto:#ececea; --suave:#a1a1aa; --borde:#2e2e33;
+    --vos-f:#2e2410; --marcha-f:#131d33; --atraso-f:#331616; --hecho-f:#12261a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.4 system-ui, "Segoe UI", sans-serif; }
+  main { max-width:none; margin:0; padding:18px 24px 60px; }
+  header { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  h1 { font-size:1.4rem; margin:0; }
+  .sub { color:var(--suave); font-size:.85rem; }
+  .fichas { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-bottom:12px; }
+  .ficha { display:block; text-decoration:none; color:inherit; background:var(--carta); border:1px solid var(--borde); border-top:6px solid var(--c); border-radius:14px; padding:12px 16px; }
+  .ficha b { display:block; font-size:2.6rem; line-height:1; color:var(--c); }
+  .ficha span { font-weight:700; }
+  .ficha small { display:block; color:var(--suave); }
+  .f-vos { --c:var(--vos); } .f-marcha { --c:var(--marcha); } .f-atraso { --c:var(--atraso); } .f-hecho { --c:var(--hecho); }
+  .f-atraso.cero { --c:var(--resto); }
+  .barra { display:flex; height:16px; border-radius:8px; overflow:hidden; background:var(--borde); }
+  .barra i { display:block; height:100%; }
+  .s-hecho { background:var(--hecho); } .s-marcha { background:var(--marcha); } .s-vos { background:var(--vos); } .s-resto { background:var(--resto); }
+  .leyenda { display:flex; flex-wrap:wrap; gap:4px 16px; font-size:.82rem; color:var(--suave); margin:6px 0 20px; }
+  .leyenda i, .punto { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+  h2 { font-size:1.05rem; text-transform:uppercase; letter-spacing:.06em; margin:22px 0 10px; display:flex; align-items:center; gap:8px; }
+  h2 i { width:14px; height:14px; border-radius:4px; }
+  h3 { font-size:1rem; margin:0 0 8px; }
+  .n { color:var(--suave); font-weight:400; }
+  .grilla { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; }
+  .carriles { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; align-items:start; }
+  .carril, .huerfanas { background:var(--marcha-f); border:1px solid var(--borde); border-radius:14px; padding:12px; }
+  .huerfanas { background:var(--atraso-f); margin-top:12px; }
+  .carril .t, .huerfanas .t { margin-bottom:10px; } .carril .t:last-child, .huerfanas .t:last-child { margin-bottom:0; }
+  .libre { margin:0; padding:18px 0; text-align:center; color:var(--suave); font-weight:700; border:2px dashed var(--borde); border-radius:10px; }
+  .t { background:var(--carta); border:1px solid var(--borde); border-left:6px solid var(--c, var(--resto)); border-radius:12px; padding:10px 12px; }
+  .e-en_curso { --c:var(--marcha); } .e-a_verificar { --c:var(--verif); } .e-devuelto { --c:var(--atraso); } .e-sin_empezar { --c:var(--resto); }
+  #vos .t { --c:var(--vos); background:var(--vos-f); }
+  .t.atrasada { --c:var(--atraso) !important; background:var(--atraso-f) !important; }
+  .cab { display:flex; gap:8px; align-items:baseline; }
+  .id { font-size:.95rem; white-space:nowrap; }
+  .tit { font-weight:600; }
+  .accion { margin:6px 0 2px; font-weight:800; font-size:1.05rem; }
+  .accion::before { content:"→ "; color:var(--vos); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; font-size:.76rem; }
+  .chip { border-radius:999px; padding:1px 9px; background:var(--borde); white-space:nowrap; font-weight:600; }
+  .chip.estado { background:var(--c, var(--resto)); color:#fff; }
+  .chip.frena, .t.atrasada .chip.edad { background:var(--atraso); color:#fff; }
+  .chip.p-alta { background:#be123c; color:#fff; } .chip.p-baja { color:var(--suave); } .chip.de { background:var(--marcha-f); }
+  .quien { color:var(--suave); font-size:.8rem; margin-top:4px; }
+  .corto { margin:6px 0 0; font-size:.88rem; }
+  .t details { margin-top:4px; font-size:.85rem; } .t summary { cursor:pointer; color:var(--suave); } .t details p { margin:4px 0 0; }
+  .vacio { color:var(--suave); margin:0; }
+  .lista { background:var(--carta); border:1px solid var(--borde); border-radius:12px; padding:10px 14px; margin-bottom:10px; }
+  .lista > summary { cursor:pointer; font-weight:700; }
+  .lista ul { list-style:none; margin:8px 0 0; padding:0; }
+  .lista li { display:flex; gap:8px; align-items:baseline; padding:5px 0; border-top:1px solid var(--borde); font-size:.92rem; }
+  .lista li .id { min-width:3.2em; } .lista li .tit { font-weight:400; flex:1; } .lista li .chip { font-size:.72rem; }
+  .l-resto .punto { background:var(--resto); } .l-hecho .punto { background:var(--hecho); } .l-futuro .punto { background:var(--borde); border:1px solid var(--resto); }
+  @media (max-width:760px) { .fichas { grid-template-columns:repeat(2, 1fr); } .carriles { grid-template-columns:1fr; } .ficha b { font-size:2.1rem; } }
+CSS;
+
+    // La antiguedad se recalcula al abrir: la pagina se genera cuando cambia una tarea, no cada dia.
+    $js = <<<'JS'
+  (function () {
+    var limite = Number(document.body.dataset.limite), hoy = new Date(); hoy.setHours(0, 0, 0, 0); var atrasadas = 0;
+    document.querySelectorAll('article.t').forEach(function (t) {
+      var p = t.dataset.fecha.split('-'), n = Math.max(0, Math.round((hoy - new Date(p[0], p[1] - 1, p[2])) / 86400000));
+      var tarde = t.dataset.empezada === '1' && n >= limite;
+      t.classList.toggle('atrasada', tarde); if (tarde) { atrasadas++; }
+      t.querySelector('[data-edad]').textContent = (tarde ? 'Atrasada · ' : '') + (n === 0 ? 'hoy' : n === 1 ? 'ayer' : 'hace ' + n + ' días');
+    });
+    var f = document.querySelector('.f-atraso'); f.querySelector('b').textContent = atrasadas; f.classList.toggle('cero', atrasadas === 0);
+  })();
+JS;
+
+    $cero = $nAtraso === 0 ? ' cero' : '';
 
     return <<<HTML
 <!doctype html>
@@ -317,50 +457,44 @@ function tablero_html(array $tareas): string
 <title>Wings · Tablero</title>
 <!-- Generado por scripts/tablero desde docs/00-estado/tareas.json. No editar a mano. -->
 <style>
-  :root { --fondo:#f6f5f1; --carta:#fff; --texto:#1d1d1b; --suave:#6b6a65; --borde:#e2e0d8; --ok:#2f7d4f; --frena:#b3261e; --molesta:#9a6700; --falta:#5b5fc7; --vos:#fff4d6; --alerta:#fdeceb; }
-  @media (prefers-color-scheme: dark) { :root { --fondo:#18181a; --carta:#222225; --texto:#ececea; --suave:#a09f9a; --borde:#35353a; --ok:#6fcf97; --frena:#ff8a80; --molesta:#f2c94c; --falta:#a5a8ff; --vos:#3a3115; --alerta:#3d1f1d; } }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.45 system-ui, "Segoe UI", sans-serif; }
-  main { max-width:860px; margin:0 auto; padding:20px 16px 60px; }
-  h1 { font-size:1.5rem; margin:0 0 4px; }
-  .sub { color:var(--suave); margin:0 0 14px; font-size:.9rem; }
-  .avance { background:var(--carta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin-bottom:18px; }
-  .avance b { font-size:1.6rem; }
-  .barra { height:10px; background:var(--borde); border-radius:6px; overflow:hidden; margin:8px 0; }
-  .barra i { display:block; height:100%; width:{$porciento}%; background:var(--ok); }
-  section, details { background:var(--carta); border:1px solid var(--borde); border-radius:12px; padding:12px 16px; margin-bottom:14px; }
-  section.vos { background:var(--vos); }
-  section.alerta { background:var(--alerta); }
-  h2, summary { font-size:1.1rem; margin:0 0 8px; font-weight:700; }
-  summary { cursor:pointer; margin:0; }
-  details[open] summary { margin-bottom:8px; }
-  .n { color:var(--suave); font-weight:400; font-size:.9rem; }
-  ul { list-style:none; margin:0; padding:0; }
-  li { padding:9px 0; border-top:1px solid var(--borde); }
-  li:first-child { border-top:0; }
-  .cab { display:flex; gap:8px; align-items:baseline; }
-  .id { min-width:2.6em; }
-  .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:4px 0 0 calc(2.6em + 8px); font-size:.8rem; }
-  .g, .e { border:1px solid currentColor; border-radius:999px; padding:0 8px; white-space:nowrap; }
-  .p { font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; } .p-alta { background:#be123c; color:#fff; } .p-baja { background:#e5e7eb; color:#4b5563; }
-  .g-frena { color:var(--frena); font-weight:700; } .g-molesta { color:var(--molesta); } .g-falta { color:var(--falta); }
-  .e { color:var(--suave); } .e-cerrado { color:var(--ok); } .e-devuelto { color:var(--frena); }
-  .q { color:var(--suave); }
-  .paso { margin:4px 0 0 calc(2.6em + 8px); font-size:.92rem; }
-  .vacio { color:var(--suave); margin:0; }
+{$css}
 </style>
 </head>
-<body>
+<body data-limite="{$limite}">
 <main>
-  <h1>Wings · Tablero</h1>
-  <p class="sub">Último cambio: {$cambio}. Esta pantalla se arma sola; el estado se cambia en un solo lugar.</p>
-  <div class="avance">
-    <b>{$av['cerrados']}</b> defectos cerrados de {$av['total']}
-    <div class="barra"><i></i></div>
-    Frenan: <b style="font-size:1rem">{$frenan}</b>
+  <header><h1>Wings · Tablero</h1><span class="sub">Último cambio: {$cambio}</span></header>
+
+  <div class="fichas">
+    <a class="ficha f-vos" href="#vos"><b>{$nVos}</b><span>Te toca a vos</span><small>esperan una decisión o tu OK</small></a>
+    <a class="ficha f-marcha" href="#marcha"><b>{$nMarcha}</b><span>En marcha</span><small>las tienen los agentes</small></a>
+    <a class="ficha f-atraso{$cero}" href="#marcha"><b>{$nAtraso}</b><span>Atrasadas</span><small>{$limite} días o más sin moverse</small></a>
+    <a class="ficha f-hecho" href="#listas"><b>{$nHecho}</b><span>Hechas</span><small>de {$total} tareas de Wings</small></a>
   </div>
-  {$secciones}
+  <div class="barra">{$barra}</div>
+  <div class="leyenda">
+    <span><i class="s-hecho"></i>Hecho {$nHecho}</span><span><i class="s-marcha"></i>En marcha {$nMarcha}</span>
+    <span><i class="s-vos"></i>Te toca a vos {$nVos}</span><span><i class="s-resto"></i>Sin empezar {$nResto}</span>
+  </div>
+
+  <section id="vos">
+    <h2><i class="s-vos"></i>Te toca a vos <span class="n">{$nVos}</span></h2>
+    <div class="grilla">{$vos}</div>
+  </section>
+
+  <section id="marcha">
+    <h2><i class="s-marcha"></i>En marcha <span class="n">{$nMarcha}</span></h2>
+    <div class="carriles">{$carriles}</div>
+    {$huerfanas}
+  </section>
+
+  <section id="listas">
+    <h2><i class="s-resto"></i>Lo demás</h2>
+    {$listas}
+  </section>
 </main>
+<script>
+{$js}
+</script>
 </body>
 </html>
 
