@@ -37,7 +37,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini) | Desplegado en el sitio de prueba el 12/10: el archivo de instalacion ya declara el arranque en el login y sale con su tipo correcto. Carlos lo reinstala en su telefono y confirma |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
-| **T31** El que debe la inscripcion tambien es moroso o deudor: Cobranza y el buscador de Cobrar tienen que contar a los mismos | Sin empezar | Decidido por Carlos el 12/10: todo el que debe plata es deudor o moroso, segun hace cuanto lo debe. La inscripcion impaga cuenta desde la fecha de ingreso: en plazo dentro de los dias de gracia de ese mes, morosa despues, deudora cuando ese mes cierra. Reemplaza la regla del 04/10 (el estado salia solo de las cuotas). Deber inscripcion sin deber cuota solo puede venir de la primera carga, donde se acepta suponiendo que la cuota se pago afuera; despues es imposible. Falta que Carlos diga quien lo programa |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -59,9 +58,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (19)
+## Sin empezar (20)
 
-B13, MF1, MF2, MF3, T2, T6, T7, T9, T10, T12, T22, T25, B3, B5, B6, B7, B8, B9, B11.
+B13, MF1, MF2, MF3, T2, T6, T7, T9, T10, T12, T22, T25, T31, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
