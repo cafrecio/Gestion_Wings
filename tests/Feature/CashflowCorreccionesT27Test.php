@@ -28,6 +28,10 @@ class CashflowCorreccionesT27Test extends TestCase
     {
         parent::setUp();
         Carbon::setTestNow('2026-10-12 12:00:00');
+        // La base se arma con la fecha real, y ahí nace la cobertura de Reportes. Desde el
+        // 13/10 esa fecha es posterior al 12/10 que fija esta prueba: el saldo «disponible»
+        // salía en 0 y dos pruebas fallaban según el día en que se corrieran.
+        DB::table('reporte_cobertura')->where('id', 1)->update(['desde' => '2026-10-01']);
         Notification::fake(); Storage::fake();
         $this->f = new ImportesT24('apertura');
         $this->actingAs($this->f->admin);
