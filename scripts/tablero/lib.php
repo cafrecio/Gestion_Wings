@@ -33,7 +33,7 @@ const TABLERO_ESTADOS = [
 ];
 
 const TABLERO_AGENTES = ['Claude', 'Codex', 'Gemini'];
-const TABLERO_GRAVEDADES = ['Frena', 'Molesta', 'Falta', ''];
+const TABLERO_GRAVEDADES = ['Frena', 'Molesta', 'Falta', 'Futura', ''];
 const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha'];
 
 function tablero_ruta(string $relativa): string
@@ -104,7 +104,7 @@ function tablero_validar(array $tareas): array
             continue;
         }
         if (! in_array($t['gravedad'], TABLERO_GRAVEDADES, true)) {
-            $errores[] = "{$id}: gravedad '{$t['gravedad']}' no existe. Son: Frena, Molesta, Falta o vacia.";
+            $errores[] = "{$id}: gravedad '{$t['gravedad']}' no existe. Son: Frena, Molesta, Falta, Futura o vacia.";
         }
         if (! in_array($t['tiene'], $duenios, true)) {
             $errores[] = "{$id}: tiene='{$t['tiene']}' no existe. Son: " . implode(', ', $duenios) . '.';
@@ -167,7 +167,8 @@ function tablero_es_de_otro_proyecto(array $t): bool
 
 function tablero_es_mejora_futura(array $t): bool
 {
-    return (bool) preg_match('/^MF\d+$/', $t['id']);
+    // Tambien un defecto que Carlos mando a futuro: conserva su id y sigue contando como abierto.
+    return (bool) preg_match('/^MF\d+$/', $t['id']) || $t['gravedad'] === 'Futura';
 }
 
 /** @return array{cerrados:int,total:int,frenan:list<string>} solo defectos, que es el avance que se informa */
