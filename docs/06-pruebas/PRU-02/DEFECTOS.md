@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 13/10/2026: 66 cerrados de 72.** Quedan 6 abiertos (B5 y B6 pasaron a mejoras futuras: MF7 y MF6), de los
+> **Avance al 13/10/2026: 67 cerrados de 72.** Quedan 5 abiertos (B5 y B6 pasaron a mejoras futuras: MF7 y MF6), de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -685,7 +685,10 @@ rentabilidad. Contrato escrito en `Wings-Contrato-Clases-Particulares-V1.md` (PO
 Hoy se resuelven a mano: una clase del grupo de la alumna con ella sola presente, y el cobro
 cargado como movimiento suelto.
 
-### B7. Se vende ropa pero no hay stock ni compra · Falta
+### B7. Se vende ropa pero no hay stock ni compra · CERRADO 13/10, fuera del alcance por decisión de Carlos
+
+**Cerrado el 13/10/2026 sin programar nada:** Carlos lo dejó fuera del alcance. La indumentaria
+es un negocio aparte de los dueños (decisión del 10/10); Wings solo registra su paso por la caja.
 
 Existe el rubro de ingreso por indumentaria. No existe el egreso por **comprar** la
 mercadería, ni nada que diga cuántas remeras quedan. El club nunca va a saber si gana plata

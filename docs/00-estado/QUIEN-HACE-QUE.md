@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 13/10/2026. Avance: **66 defectos cerrados de 72**. Frenan: ninguno.
+Último cambio: 13/10/2026. Avance: **67 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -63,9 +63,9 @@ Nada.
 |---|---|---|
 | **T2** Retirar los dos importadores viejos de la primera carga | Devuelto (hizo Gemini, verifica Claude) | Segunda vuelta: corregir los documentos de VERIFICACION-T2.md y retirar tambien wings:exportar-padron (Carlos, 13/10: si no sirve, no aporta nada) |
 
-## Sin empezar (49)
+## Sin empezar (48)
 
-T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B7, B8, B9, B11.
+T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B8, B9, B11.
 
 ## Mejoras futuras, no se empiezan ahora (7)
 
