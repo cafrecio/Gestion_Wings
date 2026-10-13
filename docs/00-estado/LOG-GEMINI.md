@@ -9,6 +9,53 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
+## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
+
+Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
+bitácoras como algo que no puede pasar»). Regla completa en `AGENTS.md` §5-bis.
+
+**1. Prohibido escribir JavaScript dentro de una vista.** Ni `<script>` sin `src`, ni
+`onclick` u otro atributo de evento. Va en un archivo de `resources/js/`. Antes de
+escribir, buscar en `ds-app.js` si ya existe. El botón de mostrar la contraseña del
+ingreso se escribió adentro de la pantalla el 21/07 y ahí sigue, aunque `ds-app.js` ya lo
+resuelve para el formulario de usuarios. Cada pantalla así rompe la política de seguridad
+y manda un aviso al servidor en cada carga. Quedan 11 bloques en 10 vistas: los saca T73.
+
+**2. Una limpieza no queda «en avance» sin dueño ni fecha.** Sacar el código de las
+vistas empezó el 13/09 y quedó a medias un mes, sin tarea en el tablero. Si un trabajo se
+corta, queda una tarea T con lo que falta.
+
+**3. Un número en un documento se corrige cuando cambia.** `ESTADO-ACTUAL` y
+`PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
+Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
+
+
+## 2026-10-13 — LOG GEM CYE — Implementación T31: El que debe la inscripción también es moroso o deudor
+
+- **Objetivo y resultado:** Implementación de T31 bajo las decisiones de Carlos del 12/10/2026 y agregado del 13/10/2026 (plazo propio del alumno nuevo de 7 días, `dias_plazo_alta`). Cobranza, el buscador de Cobrar y el Inicio de la Operativa ahora listan y cuentan exactamente a los mismos alumnos (38 alumnos con deuda en el dataset de prueba).
+- **Resolución técnica implementada:**
+  1. *Migración y configuración:* Migración `database/migrations/2026_10_13_080000_add_dias_plazo_alta_to_configuraciones.php` con clave `dias_plazo_alta = 7`. `CobranzaEstadoService::diasPlazoAlta()` no tiene fallback silencioso: si la clave no existe en la base, lanza `\LogicException`.
+  2. *Regla de vencimiento de alta:* `limiteVencimientoAlta(Carbon $fechaAlta)` calcula el vencimiento tomando el mayor entre `fechaAlta + dias_plazo_alta` y el día de gracia general del mes (`dias_gracia_cobranza`). Si el alta cruza de mes (ej. 28/09 con 7 días), queda `EN_PLAZO` hasta el día 4 del mes siguiente; al expirar el día 5 pasa directo a `DEUDOR` (no moroso) por pertenecer a un mes calendario ya cerrado.
+  3. *Jerarquía y estado:* El estado del alumno es el peor entre cuotas e inscripción: `DEUDOR > MOROSO > EN_PLAZO > AL_DIA`. Si la inscripción está saldada o condonada no altera el estado; si está pagada en parte sigue contando por el saldo pendiente.
+  4. *Dos deportes y sin N+1:* La inscripción se imputa a un solo registro del alumno según la regla histórica de `inscripcionPendientePorAlumno()`. Si el registro imputado se da de baja y el otro continúa activo, la inscripción se imputa al activo. Pre-carga en bloque de saldos de inscripción por alumno para evitar consultas N+1 en listados masivos.
+  5. *Orden en Cobranza:* Quien debe solo la inscripción se ordena por la antigüedad de esa deuda (`fecha_alta` Y-m) en lugar de caer al fondo sin fecha.
+  6. *Inicio de la Operativa:* En `OperativoDashboardController.php:109`, «Alumnos con deuda» ahora sale de `$this->cobranzaService->listadoCobranza()->count()`, eliminando la divergencia con Cobranza (incluye a deudores de solo inscripción y excluye meses futuros).
+- **Bordes verificados e informados:**
+  - Alumno nuevo con ingreso posterior al día de gracia general: rige su plazo propio (`dias_plazo_alta`).
+  - Cruce de mes en alta tardía (28/09): `EN_PLAZO` hasta el 04/10; al expirar el 05/10 pasa directo a `DEUDOR`.
+  - Corrección de `fecha_alta`: recalcula el plazo contra la nueva fecha.
+  - Alumno reactivado: conserva su `fecha_alta` original.
+  - Cambio de mes: inscripción impaga en curso pasa de morosa a deudora al cerrar el mes.
+- **Pruebas y verificación:**
+  - 18 pruebas nuevas en `tests/Feature/CobranzaInscripcionEstadoTest.php` (42 aserciones).
+  - 9 pruebas de verificación de Claude en `docs/06-pruebas/PRU-04/evidencia-t31/VerificacionT31ClaudeTest.php` (9/9 pasan).
+  - Corridas complementarias adaptadas y en verde: `CobranzaEntrega1Test` (8/8), `CuotaAltaEstadoTest` (15/15), `InscripcionTest` (7/7), `DocumentacionNoMienteTest` (7 aserciones, sincronizado en 738).
+- **Documentación y entrega:**
+  - Contrato actualizado: `docs/02-contratos/Wings-contrato-estadosAlum-cobranza-asistencia-V1.md` (§3 y §11).
+  - Informe de implementación: `docs/06-pruebas/PRU-04/IMPLEMENTACION-T31.md`.
+  - Tablero: `T31` movido a `a_verificar` (hizo=Gemini, verifica=Claude, tiene=Claude).
+  - Diseño: `git diff --stat -- resources/views resources/css` no contiene ningún cambio de T31. Sin deploy al VPS.
+
 ## 2026-10-12 — LOG GEM CAB — Verificación T29: Buscador de Cobrar lista solo a quienes deben
 
 - **Objetivo y resultado:** Verificación independiente de la regla decidida por Carlos (12/10) implementada por Claude en commit `8a8a6b8` (D01-5 de la prueba). Comprobado que sin buscar la lista trae únicamente a los alumnos con deuda y coincide exactamente con el encabezado; a cualquier alumno al día o sin cuota generada se llega buscándolo por nombre, apellido o DNI y se le puede cobrar normalmente. T29 queda **APROBADO y CERRADO**.

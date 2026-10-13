@@ -144,13 +144,13 @@ class InscripcionTest extends TestCase
 
     public function test_pago_insuficiente_cubre_inscripcion_primero_y_no_cambia_estado_mensual(): void
     {
-        $alumno = $this->alta();
+        $alumno = $this->alta('2026-09-10');
         $pago = $this->cobrar($alumno, 3000)['pago'];
         $this->assertEquals(3000, $pago->monto_final);
         $this->assertEquals(0, $pago->monto_cuota);
         $this->assertEquals(0, DeudaCuota::first()->monto_pagado);
         $this->assertEquals(2000, CargoAlumno::first()->saldo_pendiente);
-        // Enmienda 23/09: solo debe el mes vigente, pasada la gracia.
+        // Vencido el plazo de alta y la gracia general en el mes en curso, queda MOROSO.
         $this->assertSame('MOROSO', app(CobranzaEstadoService::class)->estadoAlumno($alumno->id)['estado']);
         $this->cobrar($alumno, 7000);
         $this->assertEquals(5000, DeudaCuota::first()->monto_pagado);

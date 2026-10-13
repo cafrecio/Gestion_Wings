@@ -203,7 +203,51 @@ sobre todos los demás estados.
 
 **El paso de MOROSO a DEUDOR es automático:** un moroso de agosto se convierte en deudor el 1 de septiembre, sin que nadie haga nada, porque agosto pasa a ser un mes cerrado.
 
-> El día de gracia es **configuración**, nunca un número fijo en el código. Los ejemplos usan 10 porque es el valor actual; si mañana pasa a 15, los estados tienen que acompañar solos.
+### Enmienda del 12/10/2026 — el que debe la inscripción también es moroso o deudor (T31)
+
+Decisión de Carlos (12/10/2026):
+«Todo el que debe plata es deudor o moroso, según hace cuánto lo debe.»
+
+La inscripción impaga cuenta desde la fecha de ingreso del alumno (`fecha_alta` del registro al que se le imputa):
+- **EN PLAZO:** dentro de los días de gracia del mes de ingreso;
+- **MOROSO:** pasados esos días, mientras ese mes siga en curso;
+- **DEUDOR:** cuando ese mes ya cerró.
+
+Reemplaza la regla anterior, donde el estado salía solo de las cuotas. Deber inscripción sin deber cuota solo puede venir de la primera carga; se acepta suponiendo que esa cuota se pagó afuera.
+
+Reglas operativas de la enmienda:
+1. **El estado del alumno es el peor** entre el de sus cuotas y el de su inscripción: `DEUDOR > MOROSO > EN_PLAZO > AL_DIA`.
+2. **Días de gracia compartidos:** la inscripción usa la misma configuración `dias_gracia_cobranza` que las cuotas.
+3. **Pagos y condonaciones:** inscripción pagada entera o condonada no cambia el estado. Pagada en parte sigue contando por lo que falta.
+4. **Persona en dos deportes:** la inscripción afecta a un solo registro, el mismo que hoy carga ese saldo (`inscripcionPendientePorAlumno`). El otro no se vuelve deudor por la inscripción.
+5. **Conciliación de listados:** Cobranza y el buscador de Cobrar listan exactamente a los mismos alumnos con deuda.
+6. **Antigüedad en Cobranza:** quien debe solo la inscripción se ordena por la antigüedad de esa deuda (`fecha_alta` en formato `Y-m`), no al final con `9999-99`.
+
+### Enmienda del 13/10/2026 — plazo propio del alumno nuevo (`dias_plazo_alta`) (T31 Agregado)
+
+Decisión de Carlos (13/10/2026):
+«El alumno nuevo no arranca moroso nunca: tiene sus propios días de gracia desde el alta para pagar lo que debe (inscripción y cuota del mes de ingreso). No corre con el calendario general hasta el mes siguiente.»
+
+Cómo funciona:
+1. **Deudas nacidas con el alta:** para la inscripción y la cuota del mes de ingreso, corre un plazo en días corridos desde la fecha de ingreso (`fecha_alta`):
+   - dentro de ese plazo: **EN PLAZO**;
+   - si el vencimiento general del mes (`dias_gracia_cobranza`) cae después del plazo propio, rige el más favorable al alumno (el más largo);
+   - vencido ese plazo:
+     - si el mes de ingreso sigue en curso: **MOROSO**;
+     - si el mes de ingreso ya cerró: **DEUDOR** (aplica la regla del 12/10).
+2. **Plazo que cruza de mes:**
+   - Ejemplo: alta el 28 de septiembre, 7 días de plazo propio.
+   - 28/09 al 04/10: **EN PLAZO** (el plazo se respeta aunque el mes haya cerrado).
+   - A partir del 05/10: **DEUDOR** (el mes de septiembre ya cerró y el plazo venció).
+   - Nunca queda moroso en octubre por una deuda de septiembre: una vez vencido el plazo, la deuda de un mes cerrado es DEUDOR.
+3. **Cuotas de meses posteriores al de ingreso:**
+   - Rigen por el calendario general (`dias_gracia_cobranza` del mes en curso). El plazo propio solo aplica a la cuota del mes de ingreso y a la inscripción.
+4. **Configuración:**
+   - Clave nueva: `dias_plazo_alta` (entero, días corridos, valor inicial 7).
+   - Tipada a int en el servicio, falla con `\LogicException` si no está o es `<= 0`.
+   - `dias_gracia_restantes`: cuando está EN PLAZO por plazo propio, devuelve los días que le quedan de ese plazo (o del general, el que venza más tarde).
+
+> El día de gracia y el plazo de alta son **configuraciones**, nunca números fijos en el código. Los ejemplos usan 10 y 7 porque son los valores por defecto; si mañana cambian, los estados acompañan solos.
 
 ---
 
@@ -466,6 +510,7 @@ Son dos cosas distintas y no deben confundirse:
 | Orden de evaluación con DEUDOR primero | ✅ **Implementado y verificado** con los casos contractuales, incluido mes cerrado impago aunque el corriente esté pagado |
 | Días de gracia configurables | ✅ **Implementado y verificado.** Se lee `dias_gracia_cobranza`; una prueba confirma el cambio de umbral de 10 a 15 |
 | DEUDOR solo por mes cerrado impago | Enmienda del 23/09 implementada localmente; retirado el criterio de falta de pagos en cálculo individual y masivo. Pendiente de verificación independiente |
+| Deudor o moroso por inscripción impaga y plazo propio de alta | ✅ **Implementado y verificado (13/10/2026, T31).** Enmiendas del 12/10 y 13/10: la inscripción impaga y la cuota del mes de ingreso cuentan desde la fecha de ingreso (`fecha_alta`) con plazo propio (`dias_plazo_alta`, default 7) y días de gracia general; el estado del alumno es el peor entre cuotas e inscripción. |
 | El estado se usa para algo | ⚠️ **Pendiente para el flujo de asistencia.** Ya se consume y muestra en Cobranza, listado y ficha de alumno; todavía no advierte ni exige justificación al tomar asistencia (fuera de alcance de esta etapa) |
 | Quien toma asistencia ve la condición del alumno | ❌ La pantalla muestra el plan semanal, no la deuda |
 | Concepto de alumno nuevo | ⚠️ Derivable (`tienePagos()`), pero no se usa para esto |

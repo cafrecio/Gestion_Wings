@@ -25,15 +25,48 @@ class CobranzaEstadoService
     public function estadoAlumno(int $alumnoId, ?Carbon $fecha = null): array
     {
         $fecha = $fecha ?? Carbon::now();
+        $alumno = Alumno::find($alumnoId);
         $deudas = DeudaCuota::where('alumno_id', $alumnoId)->get();
+        $diasGracia = $this->diasGracia();
+        $diasPlazoAlta = $this->diasPlazoAlta();
 
-        return array_merge([
-            'alumno_id' => $alumnoId,
-        ], $this->calcularEstadoDesdeDeudas(
+        $fechaAlta = !empty($alumno?->fecha_alta)
+            ? Carbon::parse($alumno->fecha_alta)
+            : null;
+
+        $infoCuotas = $this->calcularEstadoDesdeDeudas(
             $deudas,
             $fecha,
-            $this->diasGracia()
-        ));
+            $diasGracia,
+            $diasPlazoAlta,
+            $fechaAlta
+        );
+
+        $estadoFinal = $infoCuotas['estado'];
+        $diasGraciaRestantes = $infoCuotas['dias_gracia_restantes'];
+
+        if ($alumno) {
+            $inscripciones = $this->inscripcionPendientePorAlumno(collect([$alumno]));
+            $montoInscripcion = (float) ($inscripciones[$alumno->id] ?? 0.0);
+
+            if ($montoInscripcion > 0) {
+                $infoInscripcion = $this->calcularEstadoInscripcion($alumno, $fecha, $diasGracia, $diasPlazoAlta);
+                $estadoFinal = $this->peorEstado($infoCuotas['estado'], $infoInscripcion['estado']);
+                if ($estadoFinal === self::ESTADO_EN_PLAZO) {
+                    $diasGraciaRestantes = max($infoCuotas['dias_gracia_restantes'], $infoInscripcion['dias_gracia_restantes']);
+                } else {
+                    $diasGraciaRestantes = 0;
+                }
+            }
+        }
+
+        return [
+            'alumno_id' => $alumnoId,
+            'estado' => $estadoFinal,
+            'deudas_pendientes' => $infoCuotas['deudas_pendientes'],
+            'deuda_mes_vigente' => $infoCuotas['deuda_mes_vigente'],
+            'dias_gracia_restantes' => $diasGraciaRestantes,
+        ];
     }
 
     /**
@@ -54,15 +87,31 @@ class CobranzaEstadoService
             ->get()
             ->groupBy('alumno_id');
         $diasGracia = $this->diasGracia();
+        $diasPlazoAlta = $this->diasPlazoAlta();
+        $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
 
-        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $fecha, $diasGracia) {
+        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $inscripcionesPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
+            $fechaAlta = !empty($alumno->fecha_alta)
+                ? Carbon::parse($alumno->fecha_alta)
+                : null;
+
             $info = $this->calcularEstadoDesdeDeudas(
                 $deudasPorAlumno->get($alumno->id, collect()),
                 $fecha,
-                $diasGracia
+                $diasGracia,
+                $diasPlazoAlta,
+                $fechaAlta
             );
 
-            return [$alumno->id => $info['estado']];
+            $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
+            if ($montoInscripcion > 0) {
+                $infoInscripcion = $this->calcularEstadoInscripcion($alumno, $fecha, $diasGracia, $diasPlazoAlta);
+                $estadoFinal = $this->peorEstado($info['estado'], $infoInscripcion['estado']);
+            } else {
+                $estadoFinal = $info['estado'];
+            }
+
+            return [$alumno->id => $estadoFinal];
         })->all();
     }
 
@@ -94,6 +143,11 @@ class CobranzaEstadoService
 
         $inscripcionPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
 
+        $necesitaFechas = $alumnos->contains(fn($a) => !array_key_exists('fecha_alta', $a->getAttributes()));
+        $fechasAlta = $necesitaFechas
+            ? Alumno::whereIn('id', $alumnoIds)->pluck('fecha_alta', 'id')
+            : collect();
+
         $saldos = [];
         foreach ($alumnos as $alumno) {
             $cuotas = 0.0;
@@ -116,6 +170,17 @@ class CobranzaEstadoService
             }
 
             $inscripcion = (float) ($inscripcionPorAlumno[$alumno->id] ?? 0.0);
+
+            // T31: Si debe inscripción, ordenar por antigüedad de esa deuda (fecha_alta Y-m)
+            if ($inscripcion > 0) {
+                $fechaAlta = $alumno->fecha_alta ?? $fechasAlta->get($alumno->id);
+                if (!empty($fechaAlta)) {
+                    $periodoInscripcion = Carbon::parse($fechaAlta)->format('Y-m');
+                    if ($masAntigua === null || $periodoInscripcion < $masAntigua) {
+                        $masAntigua = $periodoInscripcion;
+                    }
+                }
+            }
 
             $saldos[$alumno->id] = [
                 'cuotas' => round($cuotas, 2),
@@ -146,6 +211,16 @@ class CobranzaEstadoService
             ->with('pagos')
             ->get();
 
+        if ($cargos->isEmpty()) {
+            return [];
+        }
+
+        $alumnoIdsCargos = $cargos->pluck('alumno_id')->filter()->unique();
+        $alumnoIdsActivos = Alumno::whereIn('id', $alumnoIdsCargos)
+            ->where('activo', true)
+            ->pluck('id')
+            ->flip();
+
         $pendientes = [];
         foreach ($cargos as $cargo) {
             $pendiente = max(0, (float) $cargo->monto_original
@@ -158,7 +233,7 @@ class CobranzaEstadoService
 
             $destino = $alumnos->firstWhere('id', $cargo->alumno_id);
 
-            if ($destino === null) {
+            if ($destino === null && !isset($alumnoIdsActivos[$cargo->alumno_id])) {
                 $dniNorm = \App\Services\InscripcionService::dni($cargo->dni ?? '');
                 $destino = $alumnos->first(
                     fn (Alumno $a) => \App\Services\InscripcionService::dni($a->dni ?? '') === $dniNorm
@@ -200,14 +275,31 @@ class CobranzaEstadoService
         $alumnos = $query->get();
         $fecha = Carbon::now();
         $diasGracia = $this->diasGracia();
+        $diasPlazoAlta = $this->diasPlazoAlta();
+        $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
 
-        $resultado = $alumnos->map(function (Alumno $alumno) use ($fecha, $diasGracia) {
+        $resultado = $alumnos->map(function (Alumno $alumno) use ($inscripcionesPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
+            $fechaAlta = !empty($alumno->fecha_alta)
+                ? Carbon::parse($alumno->fecha_alta)
+                : null;
+
             $info = $this->calcularEstadoDesdeDeudas(
                 $alumno->deudaCuotas,
                 $fecha,
-                $diasGracia
+                $diasGracia,
+                $diasPlazoAlta,
+                $fechaAlta
             );
-            $alumno->setAttribute('estado_cobranza', $info['estado']);
+
+            $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
+            if ($montoInscripcion > 0) {
+                $infoInscripcion = $this->calcularEstadoInscripcion($alumno, $fecha, $diasGracia, $diasPlazoAlta);
+                $estadoFinal = $this->peorEstado($info['estado'], $infoInscripcion['estado']);
+            } else {
+                $estadoFinal = $info['estado'];
+            }
+
+            $alumno->setAttribute('estado_cobranza', $estadoFinal);
             return $alumno;
         });
 
@@ -233,6 +325,7 @@ class CobranzaEstadoService
     ): Collection {
         $fecha = $fecha ?? Carbon::now();
         $diasGracia = $this->diasGracia();
+        $diasPlazoAlta = $this->diasPlazoAlta();
 
         $todosAlumnos = Alumno::where('activo', true)
             ->with([
@@ -248,14 +341,28 @@ class CobranzaEstadoService
 
         // Calcular estado y deuda para cada registro individual
         foreach ($todosAlumnos as $alumno) {
+            $fechaAlta = !empty($alumno->fecha_alta)
+                ? Carbon::parse($alumno->fecha_alta)
+                : null;
+
             $info = $this->calcularEstadoDesdeDeudas(
                 $alumno->deudaCuotas,
                 $fecha,
-                $diasGracia
+                $diasGracia,
+                $diasPlazoAlta,
+                $fechaAlta
             );
             $saldo = $saldos[$alumno->id];
 
-            $alumno->setAttribute('estado_cobranza', $info['estado']);
+            $montoInscripcion = (float) $saldo['inscripcion'];
+            if ($montoInscripcion > 0) {
+                $infoInscripcion = $this->calcularEstadoInscripcion($alumno, $fecha, $diasGracia, $diasPlazoAlta);
+                $estadoFinal = $this->peorEstado($info['estado'], $infoInscripcion['estado']);
+            } else {
+                $estadoFinal = $info['estado'];
+            }
+
+            $alumno->setAttribute('estado_cobranza', $estadoFinal);
             $alumno->setAttribute('deuda_total', $saldo['total']);
             $alumno->setAttribute('deuda_cuotas', $saldo['cuotas']);
             $alumno->setAttribute('inscripcion_pendiente', $saldo['inscripcion']);
@@ -347,15 +454,31 @@ class CobranzaEstadoService
         $porDeporte = [];
         $porGrupo = [];
         $diasGracia = $this->diasGracia();
+        $diasPlazoAlta = $this->diasPlazoAlta();
         $totalAdeudadoCuotas = 0.0;
+        $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
 
         foreach ($alumnos as $alumno) {
+            $fechaAlta = !empty($alumno->fecha_alta)
+                ? Carbon::parse($alumno->fecha_alta)
+                : null;
+
             $info = $this->calcularEstadoDesdeDeudas(
                 $alumno->deudaCuotas,
                 $fecha,
-                $diasGracia
+                $diasGracia,
+                $diasPlazoAlta,
+                $fechaAlta
             );
-            $estado = $info['estado'];
+
+            $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
+            if ($montoInscripcion > 0) {
+                $infoInscripcion = $this->calcularEstadoInscripcion($alumno, $fecha, $diasGracia, $diasPlazoAlta);
+                $estado = $this->peorEstado($info['estado'], $infoInscripcion['estado']);
+            } else {
+                $estado = $info['estado'];
+            }
+
             $conteos[$estado]++;
 
             foreach ($alumno->deudaCuotas as $deuda) {
@@ -457,38 +580,87 @@ class CobranzaEstadoService
     private function calcularEstadoDesdeDeudas(
         Collection $deudas,
         Carbon $fecha,
-        int $diasGracia
-    ): array
-    {
+        int $diasGracia,
+        int $diasPlazoAlta,
+        ?Carbon $fechaAlta = null
+    ): array {
         $periodoVigente = $fecha->format('Y-m');
         $diaActual = (int) $fecha->format('d');
+        $mesIngreso = $fechaAlta ? $fechaAlta->format('Y-m') : null;
 
-        $impagasAnteriores = $deudas->filter(function (DeudaCuota $d) use ($periodoVigente) {
-            return $d->periodo < $periodoVigente && $this->estaImpaga($d);
-        });
+        $limiteVencimientoAlta = $fechaAlta
+            ? $this->limiteVencimientoAlta($fechaAlta, $diasGracia, $diasPlazoAlta)
+            : null;
 
-        $deudaVigente = $deudas->firstWhere('periodo', $periodoVigente);
-        $vigenteImpaga = $deudaVigente && $this->estaImpaga($deudaVigente);
+        $peorEstado = self::ESTADO_AL_DIA;
+        $diasGraciaRestantes = 0;
+        $deudaVigente = null;
 
-        if ($impagasAnteriores->isNotEmpty()) {
-            $estado = self::ESTADO_DEUDOR;
-        } elseif ($vigenteImpaga && $diaActual > $diasGracia) {
-            $estado = self::ESTADO_MOROSO;
-        } elseif ($vigenteImpaga) {
-            $estado = self::ESTADO_EN_PLAZO;
-        } else {
-            $estado = self::ESTADO_AL_DIA;
+        foreach ($deudas as $deuda) {
+            if (!$this->estaImpaga($deuda)) {
+                continue;
+            }
+
+            if ($deuda->periodo === $periodoVigente) {
+                $deudaVigente = $deuda;
+            }
+
+            $estadoDeuda = self::ESTADO_AL_DIA;
+            $diasDeuda = 0;
+
+            if ($deuda->periodo < $periodoVigente) {
+                // Mes anterior/cerrado
+                if ($mesIngreso && $deuda->periodo === $mesIngreso && $limiteVencimientoAlta) {
+                    // Es la cuota del mes de ingreso y cruza de mes dentro del plazo de alta
+                    if ($fecha->copy()->startOfDay()->lt($limiteVencimientoAlta)) {
+                        $estadoDeuda = self::ESTADO_EN_PLAZO;
+                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteVencimientoAlta, false) - 1);
+                    } else {
+                        // Vencido el plazo con mes de ingreso cerrado: DEUDOR
+                        $estadoDeuda = self::ESTADO_DEUDOR;
+                    }
+                } else {
+                    $estadoDeuda = self::ESTADO_DEUDOR;
+                }
+            } elseif ($deuda->periodo === $periodoVigente) {
+                // Mes corriente
+                if ($mesIngreso && $deuda->periodo === $mesIngreso && $limiteVencimientoAlta) {
+                    // Es la cuota del mes de ingreso dentro del mes corriente
+                    if ($fecha->copy()->startOfDay()->lt($limiteVencimientoAlta)) {
+                        $estadoDeuda = self::ESTADO_EN_PLAZO;
+                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteVencimientoAlta, false) - 1);
+                    } else {
+                        // Vencido el plazo mientras el mes sigue en curso: MOROSO
+                        $estadoDeuda = self::ESTADO_MOROSO;
+                    }
+                } else {
+                    // Cuota corriente estándar (mes posterior al alta o alta no especificada)
+                    if ($diaActual > $diasGracia) {
+                        $estadoDeuda = self::ESTADO_MOROSO;
+                    } else {
+                        $estadoDeuda = self::ESTADO_EN_PLAZO;
+                        $diasDeuda = max(0, $diasGracia - $diaActual);
+                    }
+                }
+            }
+
+            $peorEstado = $this->peorEstado($peorEstado, $estadoDeuda);
+            if ($estadoDeuda === self::ESTADO_EN_PLAZO) {
+                $diasGraciaRestantes = max($diasGraciaRestantes, $diasDeuda);
+            }
+        }
+
+        if ($peorEstado !== self::ESTADO_EN_PLAZO) {
+            $diasGraciaRestantes = 0;
         }
 
         return [
-            'estado' => $estado,
+            'estado' => $peorEstado,
             'deudas_pendientes' => $deudas
                 ->filter(fn(DeudaCuota $deuda) => $this->estaImpaga($deuda))
                 ->values(),
             'deuda_mes_vigente' => $deudaVigente,
-            'dias_gracia_restantes' => $estado === self::ESTADO_EN_PLAZO
-                ? max(0, $diasGracia - $diaActual)
-                : 0,
+            'dias_gracia_restantes' => $diasGraciaRestantes,
         ];
     }
 
@@ -501,5 +673,99 @@ class CobranzaEstadoService
         }
 
         return $diasGracia;
+    }
+
+    private function diasPlazoAlta(): int
+    {
+        $diasPlazo = Configuracion::get('dias_plazo_alta');
+
+        if (!is_int($diasPlazo) || $diasPlazo < 1) {
+            throw new \LogicException('La configuración dias_plazo_alta no está definida correctamente.');
+        }
+
+        return $diasPlazo;
+    }
+
+    /**
+     * Límite de vencimiento para deudas nacidas con el alta (inscripción y cuota del mes de ingreso).
+     *
+     * Rige el plazo propio del alumno nuevo (dias_plazo_alta) o el vencimiento general del mes de ingreso
+     * (dias_gracia_cobranza), el que venza más tarde (el más favorable al alumno).
+     */
+    private function limiteVencimientoAlta(Carbon $fechaAlta, int $diasGracia, int $diasPlazoAlta): Carbon
+    {
+        $limitePlazoPropio = $fechaAlta->copy()->startOfDay()->addDays($diasPlazoAlta);
+        $limiteGraciaMes = Carbon::create($fechaAlta->year, $fechaAlta->month, 1)->startOfDay()->addDays($diasGracia);
+
+        return $limitePlazoPropio->gt($limiteGraciaMes) ? $limitePlazoPropio : $limiteGraciaMes;
+    }
+
+    /**
+     * Calcular el estado de cobranza correspondiente a una inscripción impaga.
+     *
+     * Reglas de Carlos (12/10/2026 y 13/10/2026):
+     * La inscripción impaga cuenta desde la fecha de ingreso del alumno (fecha_alta
+     * del registro al que se le imputa):
+     * - Dentro del plazo de alta (el más largo entre dias_plazo_alta y días de gracia general): EN_PLAZO.
+     * - Vencido el plazo:
+     *   - si el mes de ingreso sigue en curso: MOROSO;
+     *   - si el mes de ingreso ya cerró: DEUDOR.
+     *
+     * @param Alumno $alumno
+     * @param Carbon $fecha
+     * @param int $diasGracia
+     * @param int $diasPlazoAlta
+     * @return array{estado: string, dias_gracia_restantes: int}
+     */
+    private function calcularEstadoInscripcion(
+        Alumno $alumno,
+        Carbon $fecha,
+        int $diasGracia,
+        int $diasPlazoAlta
+    ): array {
+        $fechaAlta = !empty($alumno->fecha_alta)
+            ? Carbon::parse($alumno->fecha_alta)
+            : $fecha;
+
+        $mesIngreso = $fechaAlta->format('Y-m');
+        $mesActual = $fecha->format('Y-m');
+
+        $limiteVencimiento = $this->limiteVencimientoAlta($fechaAlta, $diasGracia, $diasPlazoAlta);
+
+        if ($fecha->copy()->startOfDay()->lt($limiteVencimiento)) {
+            $diasRestantes = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteVencimiento, false) - 1);
+            return [
+                'estado' => self::ESTADO_EN_PLAZO,
+                'dias_gracia_restantes' => $diasRestantes,
+            ];
+        }
+
+        $estado = ($mesIngreso < $mesActual)
+            ? self::ESTADO_DEUDOR
+            : self::ESTADO_MOROSO;
+
+        return [
+            'estado' => $estado,
+            'dias_gracia_restantes' => 0,
+        ];
+    }
+
+    /**
+     * Determinar el peor estado entre dos según la jerarquía:
+     * DEUDOR > MOROSO > EN_PLAZO > AL_DIA.
+     */
+    private function peorEstado(string $estadoA, string $estadoB): string
+    {
+        $jerarquia = [
+            self::ESTADO_AL_DIA => 1,
+            self::ESTADO_EN_PLAZO => 2,
+            self::ESTADO_MOROSO => 3,
+            self::ESTADO_DEUDOR => 4,
+        ];
+
+        $nivelA = $jerarquia[$estadoA] ?? 1;
+        $nivelB = $jerarquia[$estadoB] ?? 1;
+
+        return $nivelA >= $nivelB ? $estadoA : $estadoB;
     }
 }

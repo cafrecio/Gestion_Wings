@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\AlumnoRevisionCobranza;
 use App\Models\CajaOperativa;
 use App\Models\Clase;
-use App\Models\DeudaCuota;
 use App\Models\MovimientoOperativo;
+use App\Services\CobranzaEstadoService;
 use App\Services\OperativoEstadoService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,10 @@ class OperativoDashboardController extends Controller
 {
     private const TZ = 'America/Argentina/Buenos_Aires';
 
-    public function __construct(private OperativoEstadoService $estadoService) {}
+    public function __construct(
+        private OperativoEstadoService $estadoService,
+        private CobranzaEstadoService $cobranzaService
+    ) {}
 
     public function index()
     {
@@ -102,12 +105,8 @@ class OperativoDashboardController extends Controller
             ->orderBy('hora_inicio')
             ->get();
 
-        // Cantidad de alumnos activos con deuda
-        $alumnosConDeuda = DeudaCuota::whereNotIn('estado', [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])
-            ->whereRaw('monto_pagado < monto_original')
-            ->whereHas('alumno', fn($q) => $q->where('activo', true))
-            ->distinct('alumno_id')
-            ->count('alumno_id');
+        // Cantidad de alumnos activos con deuda (mismo cálculo y total que Cobranza)
+        $alumnosConDeuda = $this->cobranzaService->listadoCobranza()->count();
 
         // Cantidad de alumnos en revisión (posibles inactivos)
         $posiblesInactivos = AlumnoRevisionCobranza::where('estado_revision', AlumnoRevisionCobranza::ESTADO_PENDIENTE)

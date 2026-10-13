@@ -182,9 +182,10 @@ class CobranzaEntrega1Test extends TestCase
         $response->assertSee('también debe $15,000.00 en Patín', false);
     }
 
-    public function test_inscripcion_impaga_no_convierte_en_deudor_en_listado_ficha_ni_resumen(): void
+    public function test_inscripcion_impaga_convierte_en_deudor_en_listado_ficha_y_resumen_con_mes_cerrado(): void
     {
         $alumno = $this->crearAlumno('Gaitán', 'Lucía', '30000099', $this->patin, $this->grupoPatin);
+        $alumno->update(['fecha_alta' => '2026-08-01']);
         $rubro = Rubro::firstOrCreate(['nombre' => 'Ingresos'], ['tipo' => 'INGRESO', 'activo' => true]);
         $subrubro = Subrubro::firstOrCreate(['nombre' => 'Inscripción'], ['rubro_id' => $rubro->id, 'activo' => true]);
 
@@ -200,28 +201,29 @@ class CobranzaEntrega1Test extends TestCase
             'calculo' => ['tipo' => 'fijo'],
         ]);
 
-        // 1. En Cobranza con filtro TODOS: su estado debe ser AL_DIA (no DEUDOR)
+        // T31 (Regla de Carlos 12/10/2026): el que debe inscripción con mes de ingreso cerrado es DEUDOR
+        // 1. En Cobranza con filtro TODOS: su estado debe ser DEUDOR
         $respCobranza = $this->actingAs($this->operativo)
             ->get(route('web.cobranza.index', ['estado' => 'TODOS']));
         $respCobranza->assertOk();
-        $respCobranza->assertSee('Al día');
+        $respCobranza->assertSee('Deudor');
 
-        // Y no debe aparecer en el filtro por defecto de DEUDORES porque no tiene cuotas vencidas
+        // Y debe aparecer en el filtro por defecto de DEUDORES
         $respDefecto = $this->actingAs($this->operativo)
             ->get(route('web.cobranza.index'));
-        $respDefecto->assertDontSee('Gaitán, Lucía');
+        $respDefecto->assertSee('Gaitán, Lucía');
 
-        // 2. En Ficha del alumno: estado de cobranza sigue siendo Al día
+        // 2. En Ficha del alumno: estado de cobranza es Deudor
         $respFicha = $this->actingAs($this->operativo)
             ->get(route('web.alumnos.show', $alumno->id));
         $respFicha->assertOk();
-        $respFicha->assertSee('Al día');
+        $respFicha->assertSee('Deudor');
 
-        // 3. En Resumen superior / servicio: se cuenta como AL_DIA
+        // 3. En Resumen superior / servicio: se cuenta como DEUDOR
         $servicio = app(\App\Services\CobranzaEstadoService::class);
         $resumen = $servicio->resumenDashboard();
-        $this->assertEquals(1, $resumen['por_estado']['AL_DIA'] ?? 0);
-        $this->assertEquals(0, $resumen['por_estado']['DEUDOR'] ?? 0);
+        $this->assertEquals(0, $resumen['por_estado']['AL_DIA'] ?? 0);
+        $this->assertEquals(1, $resumen['por_estado']['DEUDOR'] ?? 0);
     }
 
     public function test_muestra_total_adeudado_en_tarjetas_superiores(): void

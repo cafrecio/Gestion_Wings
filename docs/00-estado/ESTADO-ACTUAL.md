@@ -10,6 +10,16 @@ Reporte anterior conserva cuota histórica, pero usa perdón actual de inscripci
 se informa sin modificar esa regla. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md).
 Sin despliegue. Claude verifica código y pantalla antes de cerrar.
 
+## T31 — El que debe la inscripción también es moroso o deudor, 13/10/2026
+
+Gemini CyE implementó la regla de Carlos (12/10 y 13/10/2026):
+- La inscripción impaga convierte al alumno en MOROSO o DEUDOR según su fecha de ingreso (`fecha_alta`).
+- Plazo propio del alumno nuevo (`dias_plazo_alta`, 7 días por defecto) o gracia general (`dias_gracia_cobranza`, 10 días): lo que venza más tarde.
+- Jerarquía de cobranza: `DEUDOR > MOROSO > EN_PLAZO > AL_DIA`.
+- Sincronización exacta entre Cobranza y el buscador de Cobrar caja.
+- 18 pruebas nuevas en `CobranzaInscripcionEstadoTest`. Suite en 738 pruebas (incluyendo T33).
+- [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T31.md).
+
 ## T27 — Implementación local y comprobación, 12/10/2026
 
 [Propuesta e inventario](../06-pruebas/PRU-04/PROPUESTA-T27.md): Cashflow como entrada
@@ -556,9 +566,9 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **720 pruebas** versionadas. Corrida completa local: 738 pruebas (incluye 18 de T31 sin publicar), 736 aprobadas/2 omitidas; wings_testing_codex, 13/10. [Entrega T33](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). |
+| **Tests** | **738 pruebas** presentes en la carpeta (incluye T31 sin publicar y 31 nuevas T33); 736 aprobadas/2 omitidas; 7001 aserciones, 895.64 s. Suite completa Codex 13/10, solo wings_testing_codex. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
-| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; Entrega 1 aprobada por Codex 05/10 sobre `abc346a`: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, inscripción sin alterar estado, filtros 375 y botones Cobrar/Ver de 64px |
+| Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
 | Cobros | COB-05 y COB-09 verificadas en main e921e5d: 15 cobros por navegador. FIN-02 verificada: medios correctos en recibos. Evidencia COB-05-CIERRE-2026-09-11.md |
 | Caja | A25 CERRADA: apertura declarada, cajón compartido, arqueo/conteo y separación cambio/entrega. Verificado por Gemini 06/10, contrastado por Claude. No desplegada |

@@ -119,7 +119,8 @@ class CuotaAltaEstadoTest extends TestCase
     {
         $alumno = $this->alta('2026-09-05');
         $service = app(CobranzaEstadoService::class);
-        foreach (['2026-09-05' => 'EN_PLAZO', '2026-09-11' => 'MOROSO', '2026-10-01' => 'DEUDOR'] as $fecha => $estado) {
+        // Con alta 05/09 y 7 días de plazo propio (13/10/2026), el plazo vence el 12/09
+        foreach (['2026-09-05' => 'EN_PLAZO', '2026-09-12' => 'MOROSO', '2026-10-01' => 'DEUDOR'] as $fecha => $estado) {
             Carbon::setTestNow($fecha.' 12:00:00');
             $this->assertSame($estado, $service->estadoAlumno($alumno->id)['estado']);
             $this->assertSame($estado, $service->estadosParaAlumnos(collect([$alumno]))[$alumno->id]);
