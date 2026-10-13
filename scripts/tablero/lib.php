@@ -159,6 +159,12 @@ function tablero_es_defecto(array $t): bool
 }
 
 /** Mejora futura: anotada para no perderla, sin intención de empezarla ahora. */
+/** De otro proyecto (CAB01…): importante, pero fuera de lo pendiente de Wings. Carlos, 13/10/2026. */
+function tablero_es_de_otro_proyecto(array $t): bool
+{
+    return (bool) preg_match('/^CAB\d+$/', $t['id']);
+}
+
 function tablero_es_mejora_futura(array $t): bool
 {
     return (bool) preg_match('/^MF\d+$/', $t['id']);
@@ -205,7 +211,9 @@ function tablero_grupos(array $tareas): array
     // Las mejoras futuras (MF) no son trabajo de ahora: van aparte y no cuentan como
     // «sin empezar». Carlos, 13/10/2026: «ensucian la situación del proyecto».
     $mejoras = array_values(array_filter($abiertas, 'tablero_es_mejora_futura'));
-    $abiertas = array_filter($abiertas, fn ($t) => ! tablero_es_mejora_futura($t));
+    // Lo que es de otro proyecto (CAB) se anota para no perderlo, pero no es pendiente de Wings.
+    $otros = array_values(array_filter($abiertas, 'tablero_es_de_otro_proyecto'));
+    $abiertas = array_filter($abiertas, fn ($t) => ! tablero_es_mejora_futura($t) && ! tablero_es_de_otro_proyecto($t));
     $de = fn (string $quien) => array_values(array_filter(
         $abiertas,
         fn ($t) => $t['tiene'] === $quien && $t['estado'] !== 'sin_empezar'
@@ -227,6 +235,7 @@ function tablero_grupos(array $tareas): array
     ));
     $grupos['cerradas'] = array_values(array_filter($tareas, fn ($t) => $t['estado'] === 'cerrado'));
     $grupos['mejoras_futuras'] = $mejoras;
+    $grupos['otros_proyectos'] = $otros;
 
     return $grupos;
 }
@@ -285,7 +294,8 @@ function tablero_html(array $tareas): string
         $secciones .= $bloque($agente, $g[$agente], 'No tiene nada en este momento.');
     }
     $secciones .= $plegado('Sin empezar', $g['sin_empezar']) . $plegado('Cerradas', $g['cerradas'])
-        . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras']);
+        . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras'])
+        . $plegado('De otros proyectos, no es pendiente de Wings', $g['otros_proyectos']);
 
     return <<<HTML
 <!doctype html>
@@ -379,6 +389,8 @@ function tablero_bloque_hoja(array $tareas): string
     $mejoras = array_map(fn ($t) => $t['id'], $g['mejoras_futuras']);
     $md .= '## Sin empezar (' . count($sinEmpezar) . ")\n\n" . ($sinEmpezar ? implode(', ', $sinEmpezar) : 'Nada') . ".\n\n"
         . '## Mejoras futuras, no se empiezan ahora (' . count($mejoras) . ")\n\n" . ($mejoras ? implode(', ', $mejoras) : 'Nada') . ".\n\n"
+        . '## De otros proyectos, no es pendiente de Wings (' . count($g['otros_proyectos']) . ")\n\n"
+        . ($g['otros_proyectos'] ? implode(', ', array_map(fn ($t) => $t['id'] . ' ' . $t['titulo'], $g['otros_proyectos'])) : 'Nada') . ".\n\n"
         . TABLERO_MARCA_FIN;
 
     return $md;
