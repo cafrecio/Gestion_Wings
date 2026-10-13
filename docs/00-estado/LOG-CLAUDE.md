@@ -31,6 +31,8 @@ El indice `codebase-memory-mcp` no conecto en esta sesion: busque leyendo archiv
 **Tarde:** Carlos respondio las 58 dudas. De ahi salieron **T32 a T72** (41 tareas) y MF4,
 cada una con su duda y sus casos. Orden y motivos en `PRU-04/DUDAS-RESPONDIDAS-2026-10-13.md`.
 Copia de la tabla para Codex y Gemini en `PRU-04/tabla-de-pruebas/` (ellos no abren el artifact).
+**T32 hecho** (`c699bc1`) y hallazgo del sistema (`602efcc`): el limite de ingresos compartia
+contador con los avisos de seguridad; esa era la causa real de los Demasiados intentos.
 
 ## 2026-10-12 — Claude CAB — T27 verificado y cerrado; sitio de prueba desplegado en b2efc2e
 
