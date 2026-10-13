@@ -20,8 +20,14 @@ class SecurityHeaders
      * encabezado `Reporting-Endpoints` y todavía no lo soportan todos los
      * navegadores. `report-uri` está marcado como obsoleto en la norma pero es
      * el que funciona hoy en todos lados.
+     *
+     * `static.cloudflareinsights.com` es el medidor de visitas que Cloudflare agrega
+     * solo a todas las páginas; no está en nuestro código. Sin permitirlo generaba un
+     * aviso por cada pantalla abierta: el 13/10/2026, 41 de los 66 avisos del día en
+     * el sitio de prueba eran ese script, y tapaban cualquier aviso de verdad.
+     * Sus mediciones las manda a `/cdn-cgi/rum`, en el mismo dominio.
      */
-    private const CSP_REPORT_ONLY = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte";
+    private const CSP_REPORT_ONLY = "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; report-uri /csp-reporte";
 
     public function handle(Request $request, Closure $next): Response
     {

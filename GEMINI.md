@@ -12,6 +12,10 @@ Claude y Codex: resumen de arranque, los tres logs activos e índice compacto.
 Después leer solo documentos y criterios de la tarea. Históricos bajo consulta
 dirigida, nunca completos de rutina. La guía extendida CLAUDE.md aplica también.
 
+**Prohibido escribir JavaScript dentro de una vista** (orden de Carlos, 13/10/2026):
+ni `<script>` sin `src`, ni `onclick` u otro atributo de evento. Va en un archivo de
+`resources/js/`. Regla completa y motivo en AGENTS.md §5-bis.
+
 ---
 
 ## 2. IDENTIDAD Y FIRMAS EN LA BITÁCORA

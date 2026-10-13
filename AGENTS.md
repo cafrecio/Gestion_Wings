@@ -177,7 +177,7 @@ colores y los rails de deporte quedan sin pintar.
 |---|---|
 | Atributos `style="..."` escritos a mano en las vistas | **1.054** |
 | Archivos de vista que los contienen | **66** |
-| Archivos con `<script>` incrustado | **24** |
+| Archivos con `<script>` incrustado | **24** (al 13/10/2026 quedan 11 bloques en 10 vistas; ver §5-bis) |
 
 Una CSP de manual bloquea las 1.054 de una sola vez. La aplicación queda sin
 colores, sin layout y sin los rieles de color por deporte.
@@ -267,6 +267,41 @@ if (!function_exists('miFuncion')) {
 
 Ya aplicado en `clases/index.blade.php` y `liquidaciones/index.blade.php`.
 Preferible: mover la lógica a un helper o a un componente.
+
+---
+
+## 5-bis. PROHIBIDO escribir JavaScript dentro de una vista — orden de Carlos, 13/10/2026
+
+**Ningún agente escribe JavaScript adentro de una vista Blade.** Ni un bloque
+`<script>` sin `src`, ni un `onclick`, `onsubmit`, `onchange` u otro atributo de evento.
+No hay excepción por «es cortito» ni por «es solo para esta pantalla».
+
+- El JavaScript de una pantalla va en su archivo bajo `resources/js/`, cargado con
+  `@vite`. Lo que comparten varias pantallas va en `ds-app.js`. Detalle en
+  `docs/03-diseno-ui/design-system/DESIGN-RULES.md` §8.
+- **Antes de escribir, buscar si ya existe.** `ds-app.js` ya resuelve mostrar/ocultar
+  contraseña (`.btn-toggle-password`), enviar al cambiar, confirmar, abrir y cerrar
+  modales. Volver a escribirlo adentro de una vista es el error que originó esta regla.
+- `CspSinCodigoIncrustadoTest` cuenta los bloques y los manejadores que quedan y pone la
+  suite en rojo si el número sube. **Ese número solo baja.** Nadie lo sube para que la
+  suite pase.
+
+**Por qué.** Wings declara una política de seguridad que solo admite código de archivos
+propios. Cada pantalla con código adentro la rompe, y el navegador manda un aviso al
+servidor en cada carga. El 13/10/2026 se comprobó en el sitio de prueba que esos avisos
+gastaban los intentos de ingreso y dejaban a la gente afuera, y que tapan en el registro
+cualquier aviso de verdad. El día que la política pase a bloquear, toda pantalla con
+código adentro deja de funcionar.
+
+**Cómo pasó.** El botón de mostrar la contraseña del ingreso lo escribió una sesión de
+Claude el 21/07/2026 adentro de `auth/login.blade.php`. Para el formulario de usuarios
+después se hizo bien, en `ds-app.js`, y nadie volvió a arreglar el del ingreso. El 06/09
+se midieron 26 bloques en 24 vistas, todos escritos entre febrero y julio, antes de que
+hubiera regla. Desde ese día la prueba no deja agregar ninguno y bajaron a 11, en 10
+vistas. Lo que falló fue otra cosa: la limpieza quedó «en avance» desde el 13/09 y los
+documentos de estado siguieron diciendo «19 bloques en 17 vistas» cuando ya eran 11.
+
+**Pendiente:** T73 saca los 11 que quedan, empezando por el ingreso.
 
 ---
 

@@ -9,7 +9,27 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
-· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
+· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
+
+## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
+
+Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
+bitácoras como algo que no puede pasar»). Regla completa en `AGENTS.md` §5-bis.
+
+**1. Prohibido escribir JavaScript dentro de una vista.** Ni `<script>` sin `src`, ni
+`onclick` u otro atributo de evento. Va en un archivo de `resources/js/`. Antes de
+escribir, buscar en `ds-app.js` si ya existe. El botón de mostrar la contraseña del
+ingreso se escribió adentro de la pantalla el 21/07 y ahí sigue, aunque `ds-app.js` ya lo
+resuelve para el formulario de usuarios. Cada pantalla así rompe la política de seguridad
+y manda un aviso al servidor en cada carga. Quedan 11 bloques en 10 vistas: los saca T73.
+
+**2. Una limpieza no queda «en avance» sin dueño ni fecha.** Sacar el código de las
+vistas empezó el 13/09 y quedó a medias un mes, sin tarea en el tablero. Si un trabajo se
+corta, queda una tarea T con lo que falta.
+
+**3. Un número en un documento se corrige cuando cambia.** `ESTADO-ACTUAL` y
+`PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
+Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
 
 ## 2026-10-13 — Claude CyE — Tabla de pruebas: donde vive y que hay que leer antes de actuar
 
@@ -85,64 +105,3 @@ verlas pasar; en la mia la suite completa da 664 aprobadas, 2 omitidas y esas 5 
 Devuelto a Codex solo por eso. T24 ya permite las cuatro bases descartables.
 **T29** lo verifica Gemini. Carlos instalo Wings en su telefono y abre como aplicacion.
 
-## 2026-10-12 — Claude CAB — T28 cerrado en segunda vuelta; T11 verificado en codigo
-
-**T28:** Carlos decidio que el cobro es de quien lo hizo y que quien valido se muestra aparte.
-Gemini lo rehizo en `e1e73d8`: cada renglon de Cashflow guarda de que movimiento viene
-(columna y migracion nuevas), se saco el segundo intento por importe y rubro, y hay una
-columna «Val.» con iniciales. Verificado por mi: sus 10 pruebas y mis 2 pasan en
-`wings_testing_claude`. Cerrado. Observacion que pasa a T22: `User::iniciales()` hace una
-consulta por renglon. Las capturas de celular estan a 375 y el telefono de Carlos mide 360.
-**T11:** el archivo de instalacion ahora declara el arranque en el login; 3 pruebas verdes.
-Gemini informo que el servidor es Nginx y que habia que tocarlo a mano: **es Apache**
-(comprobado con `ssh vps`, solo lectura), asi que su regla en `.htaccess` alcanza. La prueba
-real es de Carlos en su telefono, despues de desplegar.
-Sin suite completa en este paso. Nada de lo de ayer y hoy esta desplegado.
-
-## 2026-10-12 — Claude CAB — T28 verificado, con dos observaciones para Carlos
-
-Gemini lo hizo en `2d215d2` y `1787dfd`; Carlos eligio el diseno sobre capturas (tabla
-rebalanceada en escritorio, tarjetas en celular). Verificado por mi: sus 5 pruebas pasan y
-agregue dos propias en `evidencia-t28/VerificacionT28ClaudeTest.php` (40 cobros del mismo
-importe en una caja, dos paginas y filtro por medio de pago): cada renglon muestra a su alumno.
-No lo cerre. **Observaciones:** (1) Cashflow no guarda de que movimiento viene cada renglon;
-lo deduce comparando importe, rubro y observacion. Anda porque la observacion del cobro trae
-el numero de alumno. Si no coincide hace un segundo intento solo por importe y rubro, que
-puede mostrar a otro alumno. (2) `reflejarCajaEnCashflow` ahora guarda a la operativa en
-`usuario_admin_id` en las copias nuevas; las viejas tienen al admin que valido. La pantalla
-no lo necesita, porque resuelve el nombre al mostrar. Ojo en T27, si «movimientos del dueño»
-se decide por ese campo. Sin suite completa: Codex tiene T30 a medio hacer en la carpeta.
-**T27** obligatoria antes de produccion (Carlos); **T11** instalar en el telefono, a Gemini.
-
-## 2026-10-12 — Claude CAB — T29 hecho; T24 y T26 cerrados; T28 y T30 repartidos
-
-**T29, mio:** el buscador de Cobrar anunciaba 40 con deuda y listaba 100 (dia 1 de la
-prueba). Sin buscar ahora trae solo a los que deben, los mismos del encabezado; a cualquier
-otro se llega buscandolo. El que no debe sale con punto verde. `BuscadorCobrarSoloDeudoresTest`,
-7 pruebas: 5 fallan con el codigo anterior, 2 son de resguardo. Cambie 3 pruebas viejas que
-exigian el comportamiento anterior; una cubria al alumno sin la cuota del mes generada, que
-ahora se encuentra buscando. Carlos aprobo las capturas («Ok las imagenes»).
-Suite completa en `wings_testing_claude`: 647 aprobadas, 2 omitidas y en rojo solo el
-guardian de documentacion, que pedia 650; el numero se corrigio en este commit y la cuenta
-da 650. No volvi a correr el guardian: en la carpeta hay 5 pruebas de Gemini sin publicar.
-**T24 cerrado:** regla de importes verificada en servidor y navegador, 6 pruebas verdes.
-Tres avisos a Carlos: `48.000` termina guardado como 48.00 (decision suya); 45 lugares
-muestran importes sin centavos (pasa a T30, Codex); dos formatos en pantalla.
-**T26 cerrado por Gemini**, sus 8 pruebas corren verdes en mi base.
-**T28** Cashflow con alumno y quien cobro: Gemini. Sin desplegar nada de esto.
-
-## 2026-10-12 — Claude CAB — T23 verificado y cerrado
-
-Gemini lo entrego en `03aaf11`; Carlos aprobo las capturas. Verificado por mi leyendo el
-codigo y corriendo sus 8 pruebas en `wings_testing_claude` (41 aserciones, verdes): aviso
-solo por encima del 50% y con cierre anterior mayor a cero, confirmacion para seguir,
-rectificacion con motivo solo en caja ABIERTA, por el operativo del turno o el ADMIN, y
-esperado recalculado. No corri la suite completa hoy; ayer dio 641/2 con T23 adentro.
-**Observaciones, no bloquean:** una segunda rectificacion pisa el valor anterior, el motivo y
-el autor de la primera, asi que el importe declarado al abrir se pierde; rectificar no avisa
-si el nuevo valor es disparatado. Las cuatro cosas que Carlos no habia decidido quedaron
-escritas en el contrato V5 como «acordadas» con Gemini: no tengo como comprobar ese acuerdo.
-**Regla 10:** ese commit se llevo cambios sin publicar de Codex (T24) en
-`CajaWebController.php`, que usan una clase (`ImportePesos`) que recien entro en `f62f1f2`.
-Entre los dos commits lo publicado estaba incompleto; no probe que fallaba en ese estado.
-Sin desplegar.

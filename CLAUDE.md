@@ -153,6 +153,7 @@ Reglas criticas:
 - No usar frases como `Cobrar cuota`, `Guardar cambios`, `Nueva clase`, `Registrar movimiento`.
 - Mantener `ds-btn`, `x-ds.*`, cards tipo `alumno-card` y estructura visual existente.
 - No introducir Alpine.js ni Livewire.
+- **Prohibido escribir JavaScript dentro de una vista** (orden de Carlos, 13/10/2026): ni `<script>` sin `src`, ni `onclick` u otro atributo de evento. Va en un archivo de `resources/js/`; antes de escribir, buscar en `ds-app.js` si ya existe. Detalle y motivo en `AGENTS.md` §5-bis.
 
 ## Base de datos - fuera del repositorio
 
