@@ -120,3 +120,6 @@ Gemini sin publicar y no los mezcle en mi commit.
 **T2 (Gemini), devuelta:** el retiro del codigo esta bien y la suite da 724 en mi base. Vuelve porque
 CHECKLIST-CARLOS y ENT-09 (los dos planes) siguen mandando a Carlos a importar el padron con el
 comando retirado. Detalle en `PRU-04/VERIFICACION-T2.md`. T7 y T11 las verifica Codex.
+**T2 cerrada en segunda vuelta** (`0847b37`): documentos corregidos y `wings:exportar-padron` retirado.
+Suite en mi base: 722. B13 y B7 cerradas por decision de Carlos; B5, B6, B8 y B9 pasaron a MF7, MF6,
+MF8 y MF9. El tablero tiene campo `prioridad` y el HTML se rehizo visual (Carlos: falta pulirlo, va en CAB01).

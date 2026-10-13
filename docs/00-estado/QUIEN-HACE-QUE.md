@@ -48,7 +48,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T2** Retirar los dos importadores viejos de la primera carga | Hecho, espera verificación (hizo Gemini, verifica Claude) | Segunda vuelta: documentos corregidos y exportar-padron retirado. Suite en 722 |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
 
