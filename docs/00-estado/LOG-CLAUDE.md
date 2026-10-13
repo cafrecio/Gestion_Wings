@@ -11,6 +11,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
 
+## 2026-10-12 — Claude CAB — T27 verificado y cerrado; sitio de prueba desplegado en b2efc2e
+
+**T27 (Codex), requisito de produccion:** el duenio edita o anula sus movimientos directos
+desde Cashflow, con historial y asiento en contra. Lei servicio, rutas y migracion; sus 18
+pruebas pasan en `wings_testing_claude`. Cerrado. Codex encontro y corrigio un error mio de
+T26: un gasto directo del duenio salia como ingreso en el Historial. Observacion: cualquier
+ADMIN corrige el directo de otro ADMIN; queda registrado quien.
+**Suite completa sobre `b2efc2e`: 687 aprobadas, 2 omitidas.**
+**Despliegue al sitio de prueba, por orden de Carlos:** `2e059ff` -> `b2efc2e`, a mano con el
+usuario `wingstest` siguiendo los pasos de `scripts/deploy.sh`. Respaldo previo comprobado:
+`/root/respaldos-manuales/wingstest_antes-del-despliegue_2026-10-12_2301.sql.gz` (46 tablas).
+Tres migraciones, sin errores; composer y npm sin cambios, solo recompilar el diseno.
+**Comprobado despues:** sin migraciones pendientes, fuera de mantenimiento, mismos datos
+(100 alumnos, 4 pagos, 1 caja, 5 de cashflow, 7 usuarios), login 200, archivos de diseno
+200, archivo de instalacion con arranque en el login y tipo correcto, cero errores en el log.
+**No comprobado:** ninguna pantalla con sesion iniciada; no tengo claves del sitio de prueba.
+Produccion no se toco.
+
 ## 2026-10-12 — Claude CAB — ERROR MIO: borre una base local; T30 y T29 cerrados, suite verde
 
 **El error.** Para comprobar que las pruebas de T30 rechazaban la base del club, corri una
@@ -105,46 +123,3 @@ escritas en el contrato V5 como «acordadas» con Gemini: no tengo como comproba
 `CajaWebController.php`, que usan una clase (`ImportePesos`) que recien entro en `f62f1f2`.
 Entre los dos commits lo publicado estaba incompleto; no probe que fallaba en ese estado.
 Sin desplegar.
-
-## 2026-10-11 — Claude CAB — T26: en el Historial de caja los limites son del operativo, no del duenio
-
-Carlos: «El dueño debe ver todo, los limites no son para el». El Historial aplicaba a todos
-los 90 dias, los rubros del operativo y el ocultar cancelados. Ahora el ADMIN ve cualquier
-fecha, todos los rubros y lo cancelado, marcado y sin sumar; el operativo queda igual.
-Decision mia, aprobada por Carlos: sin fecha pedida arranca en los ultimos 90 dias, para no
-traer toda la historia cada vez. **Defecto encontrado leyendo el codigo:** la anulacion de un
-cobro del duenio (asiento en contra, importe negativo) se mostraba y se sumaba como otro
-ingreso; mismo error que A56 en Cashflow. Corregido: resta.
-`HistorialDuenioSinLimitesTest`, 4 pruebas, las 4 fallan con el codigo anterior. Capturas en
-`docs/06-pruebas/PRU-04/evidencia-historial/`; Carlos aprobo el diseno («Diseños OK»).
-Limite visto: en celular la palabra «Cancelado» queda cortada. Contrato de permisos
-actualizado. Falta que otro agente verifique la regla. Sin desplegar.
-**Fuera del repositorio, a proposito:** Carlos y yo llevamos la tabla de casos de prueba por
-pantalla y rol; los otros agentes no la reciben. De ahi salieron T23 a T27, MF1 y MF2.
-
-## 2026-10-11 — Claude CAB — T21 cerrado; T22 a T24 y dos mejoras futuras al tablero
-
-**T21 cerrado.** Gemini lo hizo en `a62867b`. Verificado por mi: el cambio toca el controlador
-y las dos vistas de Clases, no el CSS compartido; sus 9 pruebas pasan en `wings_testing_claude`
-y el guardian de documentacion tambien. No corri la suite completa. Carlos aprobo las capturas
-(«Los png estan OK») sabiendo cuatro cosas que le marque y acepto: la tarjeta cancelada queda
-cortada por la altura fija del bloque Hoy, dice «Asistencia: Pendiente», «Otras clases de hoy»
-cuenta la cancelada, y la etiqueta Cancelada cambio en todos los listados. Las dos capturas
-de la profesora son la misma imagen. **Sin desplegar** al sitio de prueba.
-**Tareas nuevas, decididas por Carlos:** T22 rendimiento con dos anios de datos (mio, espera
-la carga de volumen); T23 aviso si la apertura difiere mas de 50% y rectificacion con caja
-abierta (Gemini); T24 un solo modo de cargar importes, punto decimal y dos decimales, en todo
-el sistema (Codex); MF1 y MF2 son mejoras futuras, solo evaluar.
-
-## 2026-10-11 — Claude CAB — T18 cerrado por Gemini, contrastado; T21 pasa a Gemini
-
-Gemini verifico la segunda vuelta de T18 y lo cerro (`68c7a1b`). Contrastado contra el
-repositorio: su commit solo toca documentos y su prueba de evidencia; las 14 pruebas existen
-y afirman lo que el informe dice (mes futuro pendiente fuera de la deuda en cobro, buscador,
-Cobranza, Inicio y Reportes; cuenta al empezar el mes por el importe pactado; mes 13 y 00
-rechazados). Las corri en `wings_testing_claude`: 14 aprobadas, 157 aserciones. No corri la
-suite completa. Limite: es una prueba por pedidos a la aplicacion, no un recorrido en pantalla.
-Por decision de Carlos, T21 lo hace Gemini y no yo; pasado en el tablero con el plan acordado.
-T14: se deja de ir dia por dia sin plan. Carlos y Claude llevan aparte, fuera del
-repositorio, la lista de lo que se prueba por pantalla y rol; Codex sigue recibiendo el cuento.
-Corregido el resumen comun, que daba T16, T18 y T19 por «hechos» cuando estan cerrados.
