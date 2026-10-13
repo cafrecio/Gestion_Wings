@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-13 — Codex CAB — Limpieza de temporales propios y evidencia portable
+
+Carlos pidió subir lo útil y eliminar lo descartable, solo propio y sin afectar el producto.
+Comprobados los commits publicados en origin/main; sin cambios de producto pendientes.
+Preservados 118 recursos históricos de T24 en su evidencia, con igualdad SHA256 comprobada.
+Comparador de 18 casos usa esos recursos; pasa sin la copia temporal ni base de datos.
+Eliminados 77 borradores/listas/salidas propios, 7 montajes duplicados y copia aislada T24.
+Retirado solo el enlace temporal a node_modules; paquete real comprobado intacto. Archivos ajenos excluidos.
+[Recursos y reproducción](../06-pruebas/PRU-04/evidencia-t24/antes/RECURSOS-HISTORICOS.md). Sin producto, sitio, reloj ni suite.
+Publicar evidencia y registro; T27 ya figura cerrada por Claude, esta limpieza no altera su estado.
+
 ## 2026-10-12 — Codex CAB — T27, aprobación visual final de Carlos
 
 Carlos aprobó Historial corregido: «Esta OK ahora» y «Sí, aprobado»; el resto ya estaba aprobado.
@@ -105,20 +116,8 @@ Carlos decidió suplencias y Abrir en feriado correctos; fuera de hallazgos. Sin
 Chrome real por clics, integrado falló; cinco capturas de fallas. [Informe único](../06-pruebas/PRU-04/DIA-03.md).
 T14 abierta, solo paso actualizado; Claude verifica. Conservar tres cancelaciones; cuenta/navegador propios cerrados.
 
-## 2026-10-10 — Codex CyE — T14 Día 2 recorrido, a verificar por Claude
-
-Objetivo: domingo simulado 11/10; seis tareas por menú/botones, expectativas antes de actuar.
-Inicio/Cobranza/Reportes: ingresos $164.000, deuda $2.010.000; cuotas $159.000/inscripción $5.000.
-65 al día/0 en plazo/22 morosos/13 deudores; ayer 65/22/0/13, captura contrastada; dos fichas solo octubre Moroso.
-Hoy 0 clases; 33 históricas sin asistencia, antes 32. Mariela conserva sábado 6 presentes/2 ausentes.
-Frena: Mariela abre clase de Lucía con 26 alumnos/Guardar; no guardó. Molesta: domingo pide Abrir.
-Sandra entró tras unos diez minutos de bloqueo; sábado VALIDADA, domingo $0/0 cajas; Cobrar desvía a Apertura.
-Chrome real con clics automatizados; integrado falló. Sin código/base de Wings, cobros, aperturas, arreglos ni reloj.
-[Informe único y cuatro capturas de fallas](../06-pruebas/PRU-04/DIA-02.md). Solo documentación, sin suite ni deploy.
-T14 sigue en_curso: solo paso actualizado; Claude verifica. Día 3 lunes 12 feriado, tres clases previstas para cancelar.
-Archivo anterior íntegro preservado; publicar únicamente archivos propios. Se salió de la cuenta y cerró el navegador propio.
-
 [Archivo íntegro antes de etapa 2 T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-ETAPA2.txt).
 [Archivo íntegro antes de corregir Historial](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-HISTORIAL.txt).
 
 [Archivo íntegro antes de la aprobación final](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-APROBACION.txt).
+[Archivo íntegro antes de la limpieza](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ANTES-LIMPIEZA.txt).

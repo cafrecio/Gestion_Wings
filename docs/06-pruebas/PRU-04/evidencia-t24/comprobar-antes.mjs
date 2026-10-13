@@ -7,13 +7,14 @@ import {createRequire} from 'node:module';
 const {chromium} = createRequire(import.meta.url)('playwright');
 const raiz = path.resolve('.');
 const salida = path.join(raiz, 'docs/06-pruebas/PRU-04/evidencia-t24/antes');
-const publico = path.join(raiz, 'storage/app/t24-antes/app/public');
+const publico = path.join(raiz, 'public');
 const datos = JSON.parse(fs.readFileSync(path.join(salida, 'pedidos.json'), 'utf8'));
 const tipos = {'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.png':'image/png','.woff2':'font/woff2','.svg':'image/svg+xml'};
 const server = http.createServer((req,res) => {
     const url = new URL(req.url,'http://localhost');
-    const carpeta = url.pathname.startsWith('/antes/') ? path.join(salida,'html') : publico;
-    const archivo = path.resolve(carpeta, url.pathname.replace(/^\/(?:antes\/)?/,''));
+    const carpeta = url.pathname.startsWith('/antes/') ? path.join(salida,'html')
+        : url.pathname.startsWith('/build/') ? path.join(salida,'build') : publico;
+    const archivo = path.resolve(carpeta, url.pathname.replace(/^\/(?:antes\/|build\/)?/,''));
     if (req.method !== 'GET' || !archivo.startsWith(carpeta+path.sep) || !fs.existsSync(archivo) || !fs.statSync(archivo).isFile()) {res.writeHead(404);res.end();return;}
     res.writeHead(200,{'Content-Type':tipos[path.extname(archivo)]??'application/octet-stream'}); fs.createReadStream(archivo).pipe(res);
 });
