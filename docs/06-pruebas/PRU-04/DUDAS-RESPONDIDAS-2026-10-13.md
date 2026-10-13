@@ -104,15 +104,15 @@ Entran en el grupo 3 (sin apuro):
 | DU-11 | La deuda de quien se dio de baja va aparte, con aviso y motivo al dar de baja, y el dueño puede darla por perdida. | Total y lista «Deuda de alumnos dados de baja» en Cobranza y Reportes, que no suma al «por cobrar»; aviso de cuánto debe y motivo al dar de baja; acción del dueño para darla por perdida. | Grande |
 | DU-49 | Lista nueva, para dueño y operativa. «El operativo tiene la tarea de cobrar, ¿cómo no va a ver ese dato?» | Alumnos que faltaron a todas sus clases de las últimas dos semanas, primero los que deben. Va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes. Que hoy la lista de quienes no vinieron la vea solo el dueño es un **defecto**: quedó adentro de Reportes, que es solo del dueño. | Medio |
 | DU-59 | Sí, solo sin caja abierta. | El dueño puede cambiar el medio «efectivo del cajón» cuando no hay ninguna caja abierta. | Chico |
-| DU-58 | No se deshace: si se equivocó, crea la cuota de nuevo a mano (DU-23). | **Tiene un problema, ver abajo.** | — |
+| DU-58 | Reactivar la perdonada (segunda respuesta, ver abajo). | En la ficha, la cuota o la inscripción perdonada se puede volver a cobrar, con motivo; queda el historial de las dos decisiones. Va junto con DU-25. | Chico |
 
 DU-51 quedó respondida por DU-27, DU-38, DU-48, DU-10, DU-58 y DU-59.
 
-**El problema de DU-58 (comprobado en la base).** La base admite una sola cuota por alumno
+**Por qué DU-58 cambió (comprobado en la base).** Primero eligió crear la cuota de nuevo a mano. La base admite una sola cuota por alumno
 y por mes (`deuda_cuotas_alumno_periodo_unique`) y una sola inscripción por persona
 (`cargos_alumno_clave_origen_unique`). La cuota perdonada sigue ocupando ese lugar, así que
 no se puede «crear de nuevo» otra del mismo mes. Y para la inscripción no existe ninguna
-pantalla de alta a mano. Falta que Carlos decida cómo se resuelve.
+pantalla de alta a mano. Carlos eligió entonces reactivar la perdonada (13/10).
 ## 6. La contradicción entre DU-19 y DU-36, resuelta por Carlos el 13/10
 
 «No son el mismo caso, por eso las respuestas son distintas.»
