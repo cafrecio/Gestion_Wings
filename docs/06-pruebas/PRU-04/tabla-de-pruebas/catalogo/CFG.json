@@ -1,0 +1,271 @@
+{
+  "casos": [
+    {
+      "accion": "Cambia los días de gracia a 20.",
+      "codigo": "CFG-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Queda en 20.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Morosos",
+          "l": "b",
+          "texto": "Los que deben solo el mes en curso vuelven a En plazo hasta el día 20, en Cobranza, fichas y listado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deudores",
+          "l": "c",
+          "texto": "Los que deben meses anteriores siguen Deudores.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deuda",
+          "l": "d",
+          "texto": "El total adeudado no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Volver",
+          "l": "e",
+          "texto": "Al volver a 10, pasan otra vez a Morosos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; ConfiguracionWebController (código leído); A11; SI-03.",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Días de gracia en 10. Hoy es día 13. Alumnos morosos por el mes en curso y deudores de meses anteriores.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar los días de gracia"
+    },
+    {
+      "accion": "Pone días de gracia en 0, 29, 45, con decimales y con letras. Pone el importe de inscripción en 0, negativo, con tres decimales y vacío.",
+      "codigo": "CFG-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Todos se rechazan y el error queda a la vista junto al campo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Valor anterior",
+          "l": "b",
+          "texto": "Se conserva el valor que había.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Efectos",
+          "l": "c",
+          "texto": "Los estados de cobranza y las altas no cambian.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ConfiguracionWebController (días 1 a 28; inscripción desde 0,01) (código leído); A11.",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Pantalla de Configuración.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Valores imposibles en Configuración"
+    },
+    {
+      "accion": "La sube a $8.000. Da de alta a una persona nueva.",
+      "codigo": "CFG-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Queda en $8.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pendientes",
+          "l": "b",
+          "texto": "Las inscripciones ya generadas y pendientes siguen valiendo $5.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas nuevas",
+          "l": "c",
+          "texto": "La persona nueva nace con inscripción de $8.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Total adeudado",
+          "l": "d",
+          "texto": "No cambia por el cambio de importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alta en curso",
+          "l": "e",
+          "texto": "Una operativa que tenía un alta abierta con el aviso de $5.000 recibe «El importe de inscripción cambió» al guardar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "InscripcionService (importe guardado al generar el cargo) (código leído).",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Inscripción en $5.000. Alumnos con la inscripción pendiente y otros con la inscripción paga.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar el importe de la inscripción"
+    },
+    {
+      "accion": "Cambia la segunda al 60%. Agrega una regla que se superpone (del 15 al 25, 40%). Intenta borrar todas. Carga una con día hasta menor que día desde y con porcentaje 0 y 101.",
+      "codigo": "CFG-004",
+      "duda": "DU-45",
+      "esperado": [
+        {
+          "donde": "Edición",
+          "l": "a",
+          "texto": "La regla queda en 60%.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inválidas",
+          "l": "b",
+          "texto": "Día hasta menor que desde, y porcentaje fuera de 1 a 100, se rechazan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Última",
+          "l": "c",
+          "texto": "No se puede borrar la última regla: tiene que quedar al menos una.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Altas nuevas",
+          "l": "d",
+          "texto": "Un alta del día 12 calcula su cuota al 60%.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas anteriores",
+          "l": "e",
+          "texto": "Las cuotas ya generadas con 70% no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Superposición",
+          "l": "f",
+          "texto": "Con dos reglas para el mismo día, el alta de ese día se cobra al 100%, sin avisar por qué.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReglaPrimerPagoWebController; PagoCuotaService::calcularReglaPrimerPago (código leído); Contrato de estados §2.",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Reglas cargadas: del 1 al 10, 100%; del 11 al 20, 70%; del 21 al 31, 50%.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reglas del primer pago según el día de ingreso"
+    },
+    {
+      "accion": "Provoca un aviso (un cobro con fecha de un mes anterior). Mira el resumen diario de la mañana siguiente.",
+      "codigo": "CFG-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Llega a la casilla de avisos y a los dueños, y por Telegram, con qué pasó, quién, cuánto y la fecha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resumen diario",
+          "l": "b",
+          "texto": "Llega una vez por día con cajas sin validar, liquidaciones pendientes, clases sin asistencia y revisiones.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin configurar",
+          "l": "c",
+          "texto": "Con la casilla vacía, el sistema sigue funcionando y no da error al cobrar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AvisoAdminService (código leído); programación diaria 08:00. En el sitio de prueba no poner el reloj simulado exactamente a las 08:00.",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Casilla de avisos y chat de Telegram configurados.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Avisos por mail y por Telegram"
+    },
+    {
+      "accion": "Recorre la pantalla y guarda un campo por vez.",
+      "codigo": "CFG-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Bloques",
+          "l": "a",
+          "texto": "La plata (inscripción), la cobranza (días de gracia), generación de cuotas, importe de la primera cuota (reglas) y avisos (mail y Telegram).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "b",
+          "texto": "Cada campo se guarda solo y confirma «Guardado» sin recargar; un error en uno no afecta a los otros.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Generación",
+          "l": "c",
+          "texto": "Informa que las cuotas se generan el día 1 a las 6, hora argentina, y que no se cambia desde ahí.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "d",
+          "texto": "Enviar a mano un valor para una clave fija se rechaza: «Este valor es fijo y no se cambia desde Configuración.»",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "configuraciones/index (vista leída el 13/10); ConfiguracionWebController.",
+      "modulo": "Configuración",
+      "pantalla": "sis-configuracion",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "La pantalla de Configuración"
+    }
+  ],
+  "modulo": "Configuración",
+  "orden": 6,
+  "prefijo": "CFG"
+}

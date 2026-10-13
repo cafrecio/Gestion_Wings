@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CSH-018"
+  ],
+  "codigo": "DU-29",
+  "contexto": "No existe un movimiento entre medios. Sin registrarlo, el saldo de Efectivo queda más alto que la plata real.",
+  "modulo": "Cashflow",
+  "opciones": [
+    "Agregar un traspaso entre medios que no cuente en el resultado",
+    "Usar un egreso y un ingreso con subrubros que no cuenten",
+    "No hace falta"
+  ],
+  "orden": 27,
+  "pregunta": "¿Cómo se registra llevar efectivo al banco (o pasar plata entre medios)?",
+  "recomendacion": "Traspaso entre medios: es la única forma de que los saldos sirvan para controlar.",
+  "respondida_en": "2026-10-13T11:20:03.958Z",
+  "respuesta": "Usar un egreso y un ingreso con subrubros que no cuenten\nPonerlo en ayuda como caso puntual"
+}

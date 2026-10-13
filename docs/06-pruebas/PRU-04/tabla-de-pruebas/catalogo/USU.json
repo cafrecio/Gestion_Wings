@@ -1,0 +1,525 @@
+{
+  "casos": [
+    {
+      "accion": "Usuarios → Nuevo. Carga nombre, mail, clave de 12 o más caracteres repetida igual, rol Operativo y alias de transferencia. Guarda.",
+      "codigo": "USU-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Listado",
+          "l": "a",
+          "texto": "La nueva operativa aparece en Usuarios, activa.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ingreso",
+          "l": "b",
+          "texto": "Puede entrar con ese mail y clave y llega al Inicio operativo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubros",
+          "l": "c",
+          "texto": "Se crea solo un subrubro de sueldo «Op-<nombre>» dentro de Sueldos, solo del dueño, que no afecta la caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "Ese subrubro nace clasificado como gasto del negocio: no aparece como «sin clasificar» en Inicio ni en Reportes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "e",
+          "texto": "Aparece como operativa elegible cuando el dueño abre una caja a nombre de alguien.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "f",
+          "texto": "El dueño puede elegir ese subrubro al cargar el pago de su sueldo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::store y SubrubroSueldoService (código leído); T16.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alta de una operativa nueva"
+    },
+    {
+      "accion": "Intenta guardar con: mail repetido, mail sin arroba, clave de 8 caracteres, las dos claves distintas, nombre vacío, rol Profesor sin elegir profesor, y alias con espacios.",
+      "codigo": "USU-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguno se guarda. Cada error se explica en castellano junto al campo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formulario",
+          "l": "b",
+          "texto": "Conserva nombre, mail y rol; no conserva las claves.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clave",
+          "l": "c",
+          "texto": "La clave mínima es de 12 caracteres.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "d",
+          "texto": "No aparece ningún usuario a medias.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Rubros",
+          "l": "e",
+          "texto": "No se crea ningún subrubro de sueldo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::store (código leído); B10 alias.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Un usuario existente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Alta de usuario con datos mal cargados"
+    },
+    {
+      "accion": "Usuarios → Nuevo, rol Profesor, elige a la profesora. Guarda. La profesora ingresa.",
+      "codigo": "USU-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Vínculo",
+          "l": "a",
+          "texto": "Solo se ofrecen profesoras activas que todavía no tienen usuario.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ingreso",
+          "l": "b",
+          "texto": "Entra y llega a Clases; su menú es solo Clases.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "En «Tus clases de hoy» ve las clases donde ella está asignada; las de otras quedan en «Otras clases de hoy».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Repetición",
+          "l": "d",
+          "texto": "Esa profesora deja de ofrecerse para vincular a otro usuario; forzándolo dice que ya tiene uno.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController (código leído); ClaseWebController::index.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una profesora cargada en Profesores, activa y sin usuario.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alta de un usuario para una profesora"
+    },
+    {
+      "accion": "Usuarios → Editar, cambia el nombre y guarda.",
+      "codigo": "USU-004",
+      "duda": "DU-04",
+      "esperado": [
+        {
+          "donde": "Listado",
+          "l": "a",
+          "texto": "Figura con el nombre nuevo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Historia",
+          "l": "b",
+          "texto": "Sus cobros, cajas y movimientos anteriores pasan a mostrar el nombre nuevo en Caja, Historial, Movimientos y Cashflow («Registró»).",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Iniciales",
+          "l": "c",
+          "texto": "Si es un dueño que validó cajas, la columna «Val.» de Cashflow muestra las iniciales nuevas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibos",
+          "l": "d",
+          "texto": "Los recibos PDF ya emitidos no cambian: conservan lo que decían.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Rubro de sueldo",
+          "l": "e",
+          "texto": "El subrubro «Op-<nombre anterior>» conserva su nombre viejo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Los listados leen el nombre actual del usuario (código leído); recibos emitidos se conservan (T30).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una operativa con cobros, cajas y movimientos hechos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar el nombre de un usuario que ya trabajó"
+    },
+    {
+      "accion": "El dueño le pone una clave nueva desde Usuarios → Editar.",
+      "codigo": "USU-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Clave",
+          "l": "a",
+          "texto": "La operativa entra con la clave nueva; con la vieja no.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sesiones",
+          "l": "b",
+          "texto": "Sus sesiones abiertas se cierran: en su próximo clic va al ingreso. Recordarme deja de valer.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Trabajo en curso",
+          "l": "c",
+          "texto": "Lo que estaba por guardar no se guarda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Dueño",
+          "l": "d",
+          "texto": "La sesión del dueño que hizo el cambio sigue abierta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clave propia",
+          "l": "e",
+          "texto": "Si el dueño cambia su propia clave, sus otras sesiones se cierran y la actual sigue.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::update y revocarAccesosAnteriores (código leído).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una operativa con la sesión abierta en un equipo y Recordarme en otro.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Cambiarle la clave a otro usuario"
+    },
+    {
+      "accion": "Edita su propio usuario y cambia el rol a Operativo. Después intenta desactivarse.",
+      "codigo": "USU-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rol",
+          "l": "a",
+          "texto": "«No podés cambiar tu propio rol.» No cambia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Desactivar",
+          "l": "b",
+          "texto": "«No podés inactivarte a vos mismo.» Sigue activo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acceso",
+          "l": "c",
+          "texto": "Sigue siendo dueño y siempre queda al menos un dueño activo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::update y toggleActivo (código leído).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "El dueño intenta cambiarse el rol o desactivarse"
+    },
+    {
+      "accion": "El dueño la desactiva desde Usuarios.",
+      "codigo": "USU-007",
+      "duda": "DU-05",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Queda inactiva de inmediato; no puede volver a entrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Su caja",
+          "l": "b",
+          "texto": "La caja sigue abierta a su nombre. Nadie más puede abrir otro turno hasta que se cierre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cierre",
+          "l": "c",
+          "texto": "El dueño cuenta y cierra esa caja; queda registrado que la cerró él.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobros",
+          "l": "d",
+          "texto": "Los cobros del turno se conservan y pasan a Cashflow al validar, a nombre de ella.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "e",
+          "texto": "El sistema no avisa al desactivar que esa persona tiene una caja abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "UsuarioWebController::toggleActivo no mira cajas (código leído); Contrato Caja V5.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Operativa con turno abierto y cobros hechos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Desactivar a una operativa que tiene la caja abierta"
+    },
+    {
+      "accion": "Cambia a la operativa a rol Profesor (eligiéndole una profesora) y a una profesora a rol Operativo.",
+      "codigo": "USU-008",
+      "duda": "DU-05",
+      "esperado": [
+        {
+          "donde": "Cambio",
+          "l": "a",
+          "texto": "El sistema lo permite y lo guarda.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Menú",
+          "l": "b",
+          "texto": "En su próximo ingreso cada una ve el menú del rol nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja de la ex operativa",
+          "l": "c",
+          "texto": "Su caja abierta queda sin nadie que la pueda operar salvo el dueño.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historia",
+          "l": "d",
+          "texto": "Lo que hicieron con el rol anterior se conserva a su nombre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Vínculo",
+          "l": "e",
+          "texto": "La ex profesora queda sin profesora vinculada y esa profesora vuelve a estar libre para otro usuario.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "UsuarioWebController::update (código leído).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una operativa con caja abierta e historial; una profesora con clases.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cambiarle el rol a alguien que ya trabajó"
+    },
+    {
+      "accion": "El dueño común abre Usuarios y después fuerza la dirección de edición y de activar o desactivar de la cuenta protegida.",
+      "codigo": "USU-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Listado",
+          "l": "a",
+          "texto": "La cuenta protegida no aparece en el listado del otro dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "Editarla, cambiarle la clave o el rol y desactivarla responden «No podés entrar a esta sección».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ella misma",
+          "l": "c",
+          "texto": "La cuenta protegida sí se ve y se edita a sí misma, y administra a los demás.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "La cuenta protegida no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles (cuenta ADMIN protegida); UsuarioWebController::autorizarCuentaProtegida.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una cuenta de dueño marcada como protegida y otro dueño común.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La cuenta de dueño protegida"
+    },
+    {
+      "accion": "Lo reactiva desde el listado.",
+      "codigo": "USU-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Vuelve a estar activo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ingreso",
+          "l": "b",
+          "texto": "Entra con la misma clave que tenía.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historia",
+          "l": "c",
+          "texto": "Todo lo que había hecho sigue a su nombre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::toggleActivo (código leído).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Un usuario inactivo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reactivar un usuario desactivado"
+    },
+    {
+      "accion": "Hace doble clic en Guardar; después vuelve atrás con el navegador y reenvía el formulario.",
+      "codigo": "USU-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda un solo usuario; el segundo intento informa que el mail ya existe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubros",
+          "l": "b",
+          "texto": "Queda un solo subrubro de sueldo para esa persona.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Regla de mail único y firstOrCreate del subrubro (código leído).",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Formulario de alta completo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Crear dos veces el mismo usuario o guardar dos veces"
+    },
+    {
+      "accion": "Buscan en su menú cómo cambiar la clave. La profesora busca «olvidé mi clave» en el ingreso.",
+      "codigo": "USU-012",
+      "duda": "DU-47",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "No existe ninguna de las dos cosas: solo el dueño cambia claves, desde Usuarios.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "b",
+          "texto": "Si el único dueño olvida su clave, no hay recuperación desde el sistema.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Consecuencia",
+          "l": "c",
+          "texto": "La clave que conoce cada persona la conoce también el dueño que se la puso.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "routes/web.php: no hay ruta de perfil ni de recuperación de clave.",
+      "modulo": "Usuarios",
+      "pantalla": "sis-usuarios",
+      "requiere": "Una operativa que quiere cambiar su clave y una profesora que la olvidó.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cambiar la propia clave u olvidarla"
+    }
+  ],
+  "modulo": "Usuarios",
+  "orden": 1,
+  "prefijo": "USU"
+}

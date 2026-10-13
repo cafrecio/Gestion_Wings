@@ -1,0 +1,757 @@
+{
+  "casos": [
+    {
+      "accion": "Caja → Nuevo movimiento. Elige el subrubro de gasto, efectivo, importe y una observación. Guarda.",
+      "codigo": "MOV-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "El movimiento aparece en la caja del día como egreso, a su nombre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado baja por ese importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio del dueño y Reportes",
+          "l": "c",
+          "texto": "Figura como gasto del mes, pendiente hasta que se valide la caja; el resultado del mes baja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "d",
+          "texto": "Aparece en la sección de cajas sin validar; al validar pasa como egreso y baja el saldo de Efectivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial y Movimientos",
+          "l": "e",
+          "texto": "Aparece una vez.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "f",
+          "texto": "No cambia nada de alumnos ni de deuda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte por deporte",
+          "l": "g",
+          "texto": "Si el subrubro no es de un deporte, va a gastos del club, sin repartirse.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController::storeMovimiento; ReporteMensualService (código leído); CJ-27.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta con efectivo. Un subrubro de gasto permitido al operativo y clasificado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Pagar un gasto chico con efectivo del cajón"
+    },
+    {
+      "accion": "Carga un ingreso en efectivo y otro por Mercado Pago.",
+      "codigo": "MOV-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Los dos aparecen como ingresos en la caja del día.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "Solo el de efectivo sube el efectivo esperado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "Suman como ingresos del negocio en su rubro, separados de cuotas e inscripción.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "d",
+          "texto": "No afecta la deuda de ningún alumno.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "e",
+          "texto": "No entra en la base de comisión de ningún profesor.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::storeMovimiento; ReporteMensualService (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta. Un subrubro de ingreso permitido al operativo (por ejemplo venta de indumentaria).",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Registrar un ingreso que no es una cuota"
+    },
+    {
+      "accion": "Mira la lista para elegir. Después envía a mano el formulario con un subrubro solo del dueño, uno reservado y uno que no afecta caja.",
+      "codigo": "MOV-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Lista",
+          "l": "a",
+          "texto": "Solo ve los permitidos al operativo. No aparecen los del dueño ni los reservados.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "Los tres se rechazan con aviso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No se crea ningún movimiento.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Visibilidad",
+          "l": "d",
+          "texto": "Lo que no puede cargar tampoco lo ve en Movimientos ni en Historial.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; CajaWebController::storeMovimiento (código leído); CJ-28.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Subrubros solo del dueño, subrubros compartidos, subrubros reservados (cuota, inscripción, sueldos) y uno que no afecta la caja.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Rubros que puede usar la operativa"
+    },
+    {
+      "accion": "Carga un gasto en efectivo de $25.000.",
+      "codigo": "MOV-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Se rechaza, y el rechazo explica cómo salvarlo: cargar primero un ingreso de aporte que cubra el pago y después el gasto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado nunca queda negativo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Salida",
+          "l": "c",
+          "texto": "Cargado el aporte, el gasto se acepta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 11/10 (CJ-29). Hoy no hay ningún control: lo acepta y el esperado queda negativo. La versión completa es la mejora futura MF2. Comprobado por Claude el 13/10 en la base descartable: con el cajón en $0 acepta un gasto en efectivo de $25.000.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Cajón con $10.000 de efectivo esperado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "T25",
+      "tipo": "mal_uso",
+      "titulo": "Gasto en efectivo mayor que la plata del cajón"
+    },
+    {
+      "accion": "Intenta guardar sin subrubro, sin medio de pago, con importe vacío, cero, negativo, con letras y con tres decimales.",
+      "codigo": "MOV-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguno se guarda; cada error se explica en castellano y se conserva lo demás.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Decimales",
+          "l": "b",
+          "texto": "Misma regla de importes que en todo el sistema.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "El efectivo esperado no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::storeMovimiento (código leído); T24.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Movimiento con datos mal cargados"
+    },
+    {
+      "accion": "Entra a Nuevo movimiento de caja e intenta guardar un gasto.",
+      "codigo": "MOV-006",
+      "duda": "DU-24",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "No lo carga en la caja de la operativa: el dueño no tiene caja. Lo manda a abrir caja o le avisa.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Camino",
+          "l": "b",
+          "texto": "Sus gastos se cargan desde Cashflow.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja operativa",
+          "l": "c",
+          "texto": "El turno abierto no recibe ningún movimiento del dueño.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "CajaWebController::storeMovimiento (código leído). El mensaje que recibe el dueño («Debés abrir la caja») no le sirve: él no abre caja.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Dueño ingresado, con un turno operativo abierto.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "El dueño quiere cargar un movimiento de caja"
+    },
+    {
+      "accion": "Edita el movimiento y pone $5.000.",
+      "codigo": "MOV-007",
+      "duda": "DU-07",
+      "esperado": [
+        {
+          "donde": "Edición",
+          "l": "a",
+          "texto": "Queda con el importe nuevo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado se recalcula.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "El gasto pendiente del mes pasa al importe nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Rastro",
+          "l": "d",
+          "texto": "No queda registro del valor anterior.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Automáticos",
+          "l": "e",
+          "texto": "Los cobros de cuota e inscripción no ofrecen Editar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::updateMovimiento (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta con un gasto de $5.000 cargado por $50.000 por error.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Corregir un movimiento manual del turno"
+    },
+    {
+      "accion": "Lo elimina.",
+      "codigo": "MOV-008",
+      "duda": "DU-07",
+      "esperado": [
+        {
+          "donde": "Eliminación",
+          "l": "a",
+          "texto": "Desaparece de la caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado se recalcula.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Rastro",
+          "l": "c",
+          "texto": "No queda ningún rastro de que existió, ni para el dueño.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobros",
+          "l": "d",
+          "texto": "Un cobro de cuota no se puede eliminar: se cancela con motivo y queda a la vista.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "CajaWebController::destroyMovimiento (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta con un movimiento manual cargado por error.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Eliminar un movimiento manual del turno"
+    },
+    {
+      "accion": "Intenta editar y eliminar un movimiento manual y agregar uno nuevo en cada una, por botón y forzando la dirección.",
+      "codigo": "MOV-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Abierta y rechazada",
+          "l": "a",
+          "texto": "Puede.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cerrada y validada",
+          "l": "b",
+          "texto": "No puede, tampoco forzando.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Las cajas cerrada y validada no cambian.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 (CJ-49); CajaWebController (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-editar-turno",
+      "requiere": "Cajas propias en los cuatro estados: abierta, rechazada, cerrada y validada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Modificar movimientos según el estado de la caja"
+    },
+    {
+      "accion": "Corrección de turno: agrega un gasto. Prueba sin observación, con fecha de mañana, con fecha de un mes cerrado y con la fecha del turno.",
+      "codigo": "MOV-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Observación",
+          "l": "a",
+          "texto": "Es obligatoria.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha futura",
+          "l": "b",
+          "texto": "No se acepta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes cerrado",
+          "l": "c",
+          "texto": "Pide confirmar y avisa al dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "d",
+          "texto": "El gasto queda en esa caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recierre",
+          "l": "e",
+          "texto": "Al volver a cerrar se recalculan esperado y diferencia; contado, cambio y entrega originales no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Validación",
+          "l": "f",
+          "texto": "El dueño la ve otra vez como pendiente y, al validar, el gasto agregado pasa a Cashflow.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController::editarTurno (código leído); CJ-53.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-editar-turno",
+      "requiere": "Caja rechazada por el dueño.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Agregar a una caja rechazada un gasto que se había olvidado"
+    },
+    {
+      "accion": "Abre Movimientos y busca los tres.",
+      "codigo": "MOV-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cobro de la compañera",
+          "l": "a",
+          "texto": "Lo ve, con quién lo hizo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro del dueño",
+          "l": "b",
+          "texto": "Lo ve: el criterio es el rubro, no quién lo registró.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Gasto del dueño",
+          "l": "c",
+          "texto": "No lo ve.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recibo",
+          "l": "d",
+          "texto": "Puede abrir el recibo de cualquiera de los cobros.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; decisión de Carlos (cuotas las ven todos); CJ-40.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "movimientos",
+      "requiere": "Un cobro de cuota hecho por otra operativa en otro turno; un cobro del dueño sin caja; un gasto de un rubro solo del dueño.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Los cobros de cuota los ven todas las operativas"
+    },
+    {
+      "accion": "Abre Historial y busca cada uno, con y sin filtros de fecha.",
+      "codigo": "MOV-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Dos semanas",
+          "l": "a",
+          "texto": "Encuentra el cobro de la compañera.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuatro meses",
+          "l": "b",
+          "texto": "No lo ve: su límite son 90 días, aunque ponga una fecha anterior.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelado",
+          "l": "c",
+          "texto": "No lo ve.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubro del dueño",
+          "l": "d",
+          "texto": "No lo ve.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "e",
+          "texto": "Los totales que ve suman solo lo que ve.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10; T26 (verificado por Gemini); CJ-42, CJ-45, CJ-46.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-historial",
+      "requiere": "Cobros de otra operativa de hace dos semanas; movimientos de hace cuatro meses; un cobro cancelado; un gasto de rubro del dueño.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Historial de la operativa"
+    },
+    {
+      "accion": "Abre Historial; después pone un «Desde» de hace seis meses.",
+      "codigo": "MOV-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Arranque",
+          "l": "a",
+          "texto": "Sin elegir fecha muestra los últimos 90 días.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con Desde",
+          "l": "b",
+          "texto": "Va tan atrás como quiera.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubros",
+          "l": "c",
+          "texto": "Ve todos los rubros.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelados",
+          "l": "d",
+          "texto": "Los ve marcados Cancelado y sin sumar en los totales.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Anulado",
+          "l": "e",
+          "texto": "El cobro anulado aparece con su anulación en rojo y restando: entre los dos suman cero.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Egreso directo",
+          "l": "f",
+          "texto": "Un gasto directo del dueño figura como egreso, no como ingreso.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10; T26 (código propio); T27 (corrección de signo de Codex); CJ-43, CJ-44, CJ-47.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-historial",
+      "requiere": "Movimientos de más de 90 días, gastos de rubros solo del dueño, un cobro cancelado, un cobro del dueño anulado y un egreso directo del dueño.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Historial del dueño: sin límites"
+    },
+    {
+      "accion": "Compara los totales del Historial para un período con la suma de las cajas y con Cashflow del mismo período.",
+      "codigo": "MOV-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Totales",
+          "l": "a",
+          "texto": "Coinciden.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Unicidad",
+          "l": "b",
+          "texto": "Cada cobro aparece una sola vez: el de una caja validada no figura dos veces (como movimiento de caja y como Cashflow).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin validar",
+          "l": "c",
+          "texto": "Lo de la caja sin validar aparece en Historial aunque todavía no esté confirmado en Cashflow.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 (CJ-48); T26.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-historial",
+      "requiere": "Un mes con cajas validadas, una caja sin validar, cobros del dueño y anulaciones.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "El Historial dice lo mismo que Caja y Cashflow"
+    },
+    {
+      "accion": "Doble clic en Guardar un gasto; después vuelve atrás con el navegador y reenvía.",
+      "codigo": "MOV-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda un solo movimiento.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado bajó una sola vez.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Comportamiento esperado de todo formulario del sistema. No vi una clave de idempotencia en este formulario al leer el código: es probable que se dupliquen. Comprobado por Claude el 13/10 en la base descartable: dos envíos iguales crean dos movimientos.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Guardar dos veces el mismo movimiento"
+    },
+    {
+      "accion": "Envía a mano la edición y la eliminación de ese movimiento y un agregado a esa caja.",
+      "codigo": "MOV-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en las tres.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "La caja ajena no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Dueño",
+          "l": "c",
+          "texto": "El dueño sí puede corregir cualquier caja abierta o rechazada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §10 y §13; CajaWebController (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-editar-turno",
+      "requiere": "Caja abierta o rechazada de otra operativa con un movimiento manual.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Tocar movimientos de una caja ajena"
+    },
+    {
+      "accion": "Envía a mano la edición y la eliminación de esos movimientos.",
+      "codigo": "MOV-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No se editan ni se eliminan: los cobros solo se cancelan, con motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "El pago, la cuota y el movimiento siguen iguales.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::updateMovimiento y destroyMovimiento (código leído).",
+      "modulo": "Movimientos de caja",
+      "pantalla": "caja-movimiento",
+      "requiere": "Caja abierta con un cobro de cuota y uno de inscripción.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Editar o eliminar un cobro de cuota como si fuera un movimiento manual"
+    },
+    {
+      "accion": "En Movimientos toca la fecha de caja de un movimiento propio y la de un movimiento de la compañera.",
+      "codigo": "MOV-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Propia",
+          "l": "a",
+          "texto": "Abre el detalle de su caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ajena",
+          "l": "b",
+          "texto": "La pantalla no debería ofrecerle un enlace que no puede abrir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Hoy",
+          "l": "c",
+          "texto": "El enlace aparece en todos los renglones y el de la compañera termina en «No podés entrar a esta sección».",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "movimientos/index (vista leída el 13/10); Contrato de estados §10.",
+      "modulo": "Movimientos de caja",
+      "pantalla": "movimientos",
+      "requiere": "Movimientos de la caja propia y de la caja de una compañera.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "El enlace a la caja desde Movimientos"
+    }
+  ],
+  "modulo": "Movimientos de caja",
+  "orden": 9,
+  "prefijo": "MOV"
+}

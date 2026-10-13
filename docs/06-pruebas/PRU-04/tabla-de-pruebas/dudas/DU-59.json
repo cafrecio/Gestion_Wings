@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CAJ-002"
+  ],
+  "codigo": "DU-59",
+  "contexto": "Se elige una sola vez y hoy no se puede cambiar nunca. En DU-16 elegiste solo impedir que se desactive. Queda este caso: si se eligió mal (por ejemplo «Banco» en vez de «Efectivo»), no hay forma de corregirlo desde el sistema.",
+  "modulo": "Caja",
+  "opciones": [
+    "Sí, pero solo cuando no hay ninguna caja abierta",
+    "No: se elige una sola vez; si se eligió mal lo corrige un técnico"
+  ],
+  "orden": 3,
+  "pregunta": "Si al configurar la caja se eligió mal cuál es el medio de pago «efectivo del cajón», ¿el dueño tiene que poder cambiarlo?",
+  "recomendacion": "La primera: es un error fácil de cometer el primer día y no debería necesitar a un técnico.",
+  "respondida_en": "2026-10-13T11:48:36.078Z",
+  "respuesta": "Sí, pero solo cuando no hay ninguna caja abierta"
+}

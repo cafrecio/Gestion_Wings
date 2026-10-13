@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ALU-022",
+    "ASI-012"
+  ],
+  "codigo": "DU-14",
+  "contexto": "En todo lo que mueve plata el sistema rechaza al segundo. En datos del alumno y asistencia, pisa.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Aceptarlo",
+    "Avisar al segundo que el dato cambió"
+  ],
+  "orden": 12,
+  "pregunta": "Si dos personas editan al mismo alumno (o guardan la misma lista de asistencia) a la vez, gana la última sin avisar. ¿Alcanza?",
+  "recomendacion": "Aceptarlo por ahora: el riesgo es bajo y no hay plata en juego.",
+  "respondida_en": "2026-10-13T11:03:04.408Z",
+  "respuesta": "Avisar al segundo que el dato cambió"
+}

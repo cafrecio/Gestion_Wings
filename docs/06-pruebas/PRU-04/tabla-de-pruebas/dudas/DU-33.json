@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ASI-003"
+  ],
+  "codigo": "DU-33",
+  "contexto": "Hoy una clase sin ningún presente no se paga salvo que el dueño la valide a mano, y sigue en el contador aunque la lista esté tomada.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "Con lista tomada sale del contador y queda para que el dueño decida si la paga",
+    "Se paga sola: la profesora estuvo",
+    "Dejarlo como está"
+  ],
+  "orden": 31,
+  "pregunta": "Si la profesora toma lista y no vino nadie, ¿la clase se le paga? ¿Sigue contando como «Sin asistencia»?",
+  "recomendacion": "La primera: distingue «nadie tomó lista» de «no vino nadie».",
+  "respondida_en": "2026-10-13T11:22:05.498Z",
+  "respuesta": "Con lista tomada sale del contador y queda para que el dueño decida si la paga"
+}

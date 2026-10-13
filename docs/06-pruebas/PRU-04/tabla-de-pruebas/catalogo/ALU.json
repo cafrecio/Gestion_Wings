@@ -1,0 +1,1305 @@
+{
+  "casos": [
+    {
+      "accion": "Alumnos → Nuevo. Carga nombre, apellido, DNI, fecha de nacimiento de mayor de edad, celular, deporte, grupo y plan; fecha de ingreso de hoy. Guarda.",
+      "codigo": "ALU-001",
+      "duda": "DU-08",
+      "esperado": [
+        {
+          "donde": "Formulario",
+          "l": "a",
+          "texto": "Al elegir el deporte solo ofrece sus grupos, y al elegir el grupo solo sus planes con precio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso previo",
+          "l": "b",
+          "texto": "Antes de guardar muestra el mes de la cuota, el porcentaje que corresponde por el día de ingreso y el importe, y la inscripción por única vez con su importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "c",
+          "texto": "«Alumno creado correctamente.» Aparece en Alumnos, activo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "d",
+          "texto": "Plan asignado desde la fecha de ingreso; una cuota pendiente del mes de ingreso por el importe anunciado; inscripción pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "e",
+          "texto": "El alumno nace En plazo y tiene 7 días propios contados desde su fecha de ingreso, para la primera cuota y para la inscripción. Recién al octavo día pasa a Moroso (o a Deudor si el mes de ingreso ya cerró). Si los días de gracia del mes vencen más tarde que esos 7 días, vale el plazo más largo. Hoy, sin T31, nace Moroso si el día es posterior a los días de gracia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "f",
+          "texto": "Total de activos +1; total adeudado sube por la cuota más la inscripción; el contador de su estado +1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador de Cobrar",
+          "l": "g",
+          "texto": "Aparece sin buscar, con saldo = cuota + inscripción. El número del encabezado +1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "h",
+          "texto": "El «por cobrar» sube el mismo importe que Cobranza. Ingresos no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Alumnos",
+          "l": "i",
+          "texto": "Activos +1 en su deporte y su nivel. Figura entre los que no tienen presentes este mes hasta su primera asistencia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "j",
+          "texto": "Aparece en la lista de asistencia de las clases de su grupo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Grupo",
+          "l": "k",
+          "texto": "La ficha del grupo cuenta un alumno más.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja y Cashflow",
+          "l": "l",
+          "texto": "No se crea ningún movimiento de plata: dar de alta no cobra.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "m",
+          "texto": "«Alumnos con deuda» +1.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::store, PagoCuotaService::crearCuotaAlta, InscripcionService (código leído); Contrato de estados §2 (enmienda 23/09); ENT-01. Plazo propio de 7 días: decisión de Carlos del 13/10 (DU-08).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Grupo activo con planes y precio. Importe de inscripción configurado. Persona que no existe en el sistema.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "normal",
+      "titulo": "Alta de un adulto con ingreso de hoy"
+    },
+    {
+      "accion": "Carga un alumno con fecha de nacimiento de menor de 18. Primero sin tutor; después con nombre y teléfono del tutor y sin celular propio.",
+      "codigo": "ALU-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin tutor",
+          "l": "a",
+          "texto": "No guarda: «El nombre del tutor es obligatorio para menores de edad» y lo mismo para el teléfono. El aviso aparece arriba y conserva lo cargado, incluido el plan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con tutor",
+          "l": "b",
+          "texto": "Guarda aunque el celular del alumno esté vacío.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "c",
+          "texto": "Muestra al tutor; como celular queda el teléfono del tutor.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuota e inscripción",
+          "l": "d",
+          "texto": "Nacen igual que en ALU-001.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Resto del sistema",
+          "l": "e",
+          "texto": "Mismos efectos que ALU-001 en Cobranza, buscador, Inicio, Reportes, Clases y Grupo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::validationRules y completarCelular (código leído); A4, A26.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Mismo que ALU-001.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alta de un menor de edad"
+    },
+    {
+      "accion": "Intenta guardar, de a uno: nombre vacío; apellido vacío; DNI vacío; fecha de nacimiento de hoy o futura; mail sin arroba; sin deporte; sin grupo; sin plan; celular vacío en un adulto; DNI de 25 caracteres.",
+      "codigo": "ALU-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguno se guarda. Cada campo explica su error en castellano y hay un resumen arriba, visible sin desplazarse.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formulario",
+          "l": "b",
+          "texto": "Conserva todo lo demás que ya estaba cargado, incluidos grupo y plan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plan",
+          "l": "c",
+          "texto": "Sin plan dice «Debe seleccionar la frecuencia semanal.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "d",
+          "texto": "No aparece ningún alumno a medias.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deuda",
+          "l": "e",
+          "texto": "No se crea ninguna cuota ni inscripción.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::validationRules y validationMessages (código leído); A4.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Formulario de alta.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Alta con datos mal cargados"
+    },
+    {
+      "accion": "Intenta dar de alta otra vez a esa persona en Patín, escribiendo el DNI igual, con puntos (32.123.456), con espacios y con guiones.",
+      "codigo": "ALU-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«Ya existe un alumno con ese DNI en el mismo deporte.» En las cuatro formas de escribirlo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "b",
+          "texto": "Si el registro anterior está inactivo también lo rechaza: hay que reactivarlo, no crear otro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No se crea alumno, cuota ni inscripción.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Regla de DNI único por deporte e InscripcionService::dni (código leído); Contrato alumno-grupo-deporte V4 §2.d.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Un alumno existente en Patín.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "La misma persona dos veces en el mismo deporte"
+    },
+    {
+      "accion": "La da de alta en Fútbol con el mismo DNI.",
+      "codigo": "ALU-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alta",
+          "l": "a",
+          "texto": "Se permite. El aviso previo dice que esa persona ya tiene una inscripción y no anuncia otra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha nueva",
+          "l": "b",
+          "texto": "Tiene su propia cuota del mes. En Inscripción dice que se cobra una sola vez y remite a la ficha del otro deporte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción",
+          "l": "c",
+          "texto": "Sigue habiendo una sola inscripción para esa persona; no se suma una segunda en ningún total.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "d",
+          "texto": "Figuran dos renglones, uno por deporte. Si debe en los dos, cada uno muestra la ayuda «también debe $X en <otro deporte>».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Totales",
+          "l": "e",
+          "texto": "La deuda total sube solo por la cuota nueva.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobro",
+          "l": "f",
+          "texto": "Al cobrarle en cualquiera de los dos deportes, la inscripción pendiente se cobra primero y deja de figurar en los dos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Alumnos",
+          "l": "g",
+          "texto": "Activos +1 en Fútbol; la persona cuenta en los dos deportes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "InscripcionService::sincronizar y CobranzaEstadoService (código leído); ENT-01; A55.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Una persona que ya es alumna de Patín. Probar con su inscripción paga y con su inscripción pendiente.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "La misma persona se anota en un segundo deporte"
+    },
+    {
+      "accion": "Carga un alumno con fecha de ingreso de agosto. Lo prueba tres veces: sin elegir nada, eligiendo Sí y eligiendo No.",
+      "codigo": "ALU-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Antes de guardar avisa que el mes de ingreso está cerrado y obliga a elegir si se genera la cuota de este mes. No viene nada marcado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin elegir",
+          "l": "b",
+          "texto": "No guarda: «Elegí si se genera la cuota de este mes antes de guardar.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sí",
+          "l": "c",
+          "texto": "Crea solo la cuota del mes en curso, completa, al 100% del plan. Ninguna cuota de agosto ni de septiembre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No",
+          "l": "d",
+          "texto": "No crea ninguna cuota.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción",
+          "l": "e",
+          "texto": "En los dos casos la inscripción se genera por su propia regla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha",
+          "l": "f",
+          "texto": "La fecha de ingreso guardada es la real, la de agosto.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado con Sí",
+          "l": "g",
+          "texto": "Entra a Cobranza por la cuota del mes: En plazo o Moroso según el día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado con No",
+          "l": "h",
+          "texto": "Hoy figura Al día aunque deba la inscripción. Con la regla nueva de Carlos (12/10) tiene que figurar deudor, porque debe la inscripción desde agosto.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro",
+          "l": "i",
+          "texto": "Queda guardado quién eligió, cuándo, el mes y el importe.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §2 (enmienda A43); AlumnoWebController::store (código leído); T31.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Mismo que ALU-001.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "normal",
+      "titulo": "Alta con fecha de ingreso de un mes ya cerrado"
+    },
+    {
+      "accion": "Carga un alumno con fecha de ingreso del mes que viene.",
+      "codigo": "ALU-007",
+      "duda": "DU-06",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Hoy el sistema lo acepta y crea la cuota del mes futuro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "b",
+          "texto": "Esa cuota no cuenta como deuda hasta que empiece el mes: el alumno figura Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Aparece desde hoy en las listas de asistencia de su grupo aunque todavía no ingresó.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Plan",
+          "l": "d",
+          "texto": "El plan rige desde la fecha futura: si se le quiere cobrar este mes, no tiene plan aplicable.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "AlumnoWebController::store no limita la fecha de ingreso (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Mismo que ALU-001.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Alta con fecha de ingreso futura"
+    },
+    {
+      "accion": "Hace doble clic en Guardar. Después vuelve atrás con el navegador y reenvía. Después vuelve atrás, cambia el apellido y reenvía.",
+      "codigo": "ALU-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Doble clic",
+          "l": "a",
+          "texto": "Queda un solo alumno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reenvío igual",
+          "l": "b",
+          "texto": "No crea otro: «El alumno ya fue creado.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reenvío cambiado",
+          "l": "c",
+          "texto": "Se rechaza: «Este formulario ya fue guardado con otros datos. Abra un alta nueva.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda",
+          "l": "d",
+          "texto": "Hay una sola cuota y una sola inscripción.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Totales",
+          "l": "e",
+          "texto": "Cobranza, Inicio y Reportes cuentan un solo alumno más.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::store, alta_token y alta_fingerprint (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Formulario de alta completo.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Guardar dos veces la misma alta"
+    },
+    {
+      "accion": "La operativa guarda.",
+      "codigo": "ALU-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No guarda con un importe distinto del que vio: «Cambió el mes o el importe de la cuota. Revisá el aviso antes de guardar» o «El importe de inscripción cambió».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reintento",
+          "l": "b",
+          "texto": "Al revisar el aviso nuevo y guardar otra vez, se crea con el importe actualizado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No queda un alumno con una cuota distinta de la anunciada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::store, cuota_importe_visto e inscripcion_importe_visto (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "La operativa tiene el alta cargada con el aviso de cuota a la vista. El dueño cambia el precio del plan o el importe de inscripción en ese momento.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Cambia el precio mientras el alta está abierta"
+    },
+    {
+      "accion": "Intenta dar de alta a una persona nueva.",
+      "codigo": "ALU-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No guarda y dice que la configuración de inscripción está incompleta y que el dueño debe corregirla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se crea alumno ni cuota.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "InscripcionService::importe (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Importe de inscripción vacío o en cero en Configuración.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Alta sin importe de inscripción configurado"
+    },
+    {
+      "accion": "Toca otra opción del menú, toca Volver, cierra la pestaña y recarga la página.",
+      "codigo": "ALU-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pregunta",
+          "l": "a",
+          "texto": "Pregunta si quiere salir y perder lo cargado. Si cancela, se queda con los datos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formulario vacío",
+          "l": "b",
+          "texto": "Si no cargó nada sale sin preguntar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Si sale, no queda nada guardado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A4 (verificado por Gemini 06/10).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-alta",
+      "requiere": "Formulario de alta o de edición con datos cargados.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Salir del formulario con datos sin guardar"
+    },
+    {
+      "accion": "Alumnos → ficha → Editar. Cambia apellido y celular. Guarda.",
+      "codigo": "ALU-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ficha",
+          "l": "a",
+          "texto": "Muestra los datos nuevos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listados",
+          "l": "b",
+          "texto": "El apellido nuevo aparece en Alumnos, Cobranza, buscador de Cobrar, listas de asistencia, Caja, Historial y Cashflow.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibos",
+          "l": "c",
+          "texto": "Los recibos PDF ya emitidos conservan el nombre que tenían.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deuda y pagos",
+          "l": "d",
+          "texto": "No cambia ningún importe, cuota ni pago.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidaciones",
+          "l": "e",
+          "texto": "Las descripciones de liquidaciones ya generadas conservan el nombre anterior.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Los listados leen el nombre actual; el PDF emitido se conserva (código leído; T30).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Alumno con cobros, deuda y asistencias.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Corregir nombre, teléfono o tutor de un alumno con historia"
+    },
+    {
+      "accion": "Editar → elige el grupo Intermedias y un plan de ese grupo. Guarda.",
+      "codigo": "ALU-013",
+      "duda": "DU-09",
+      "esperado": [
+        {
+          "donde": "Formulario",
+          "l": "a",
+          "texto": "Al cambiar el grupo, la lista de planes pasa a ser la del grupo nuevo; no deja guardado el plan del grupo anterior.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "b",
+          "texto": "Figura en el grupo nuevo con el plan nuevo. Es el mismo alumno: no se crea otro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plan",
+          "l": "c",
+          "texto": "El plan anterior queda cerrado con fecha de hoy y el nuevo rige desde hoy.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cuota del mes",
+          "l": "d",
+          "texto": "Si el plan nuevo es más caro, la cuota pendiente del mes pasa al precio nuevo. Si es más barato y ya asistió este mes, la de este mes no cambia y el precio nuevo rige desde el mes que viene.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cuotas anteriores",
+          "l": "e",
+          "texto": "Las deudas de meses anteriores no cambian nunca.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases del grupo nuevo",
+          "l": "f",
+          "texto": "Aparece en las listas de asistencia del grupo nuevo desde hoy.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases del grupo anterior",
+          "l": "g",
+          "texto": "Deja de aparecer en las listas del grupo anterior. Sus presentes ya guardados en ese grupo se conservan y siguen contando.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza y Reportes",
+          "l": "h",
+          "texto": "El alumno figura en el grupo y nivel nuevos; los filtros por grupo lo encuentran en el nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación por comisión",
+          "l": "i",
+          "texto": "Para la comisión del mes cuentan las clases a las que asistió con cada profesor, sean del grupo viejo o del nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación por hora",
+          "l": "j",
+          "texto": "Las clases del grupo anterior a las que asistió se siguen pagando a su profesora.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Alumnos",
+          "l": "k",
+          "texto": "Cantidad por nivel: uno menos en Principiantes y uno más en Intermedias.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::update, AlumnoPlan (código leído); Contrato de estados §2 (cambio de plan); Contrato alumno-grupo-deporte V4 §2.d; Contrato de liquidaciones §2.1 y §3.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Alumno de Patín Principiantes con cuota de octubre pendiente, asistencias este mes y un pago. El grupo Patín Intermedias tiene otros planes y otros precios.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar a un alumno de grupo dentro del mismo deporte"
+    },
+    {
+      "accion": "A A le sube el plan. A B le baja el plan. A C le sube el plan.",
+      "codigo": "ALU-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ficha",
+          "l": "a",
+          "texto": "Los tres muestran el plan nuevo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "A, sube",
+          "l": "b",
+          "texto": "La cuota pendiente de octubre pasa al precio del plan nuevo, en la ficha, Cobranza, buscador e Inicio.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "B, baja con asistencias",
+          "l": "c",
+          "texto": "La cuota de octubre conserva el precio anterior; el plan nuevo rige desde noviembre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "C, ya pagó",
+          "l": "d",
+          "texto": "La cuota pagada no se toca ni se genera diferencia a cobrar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Meses anteriores",
+          "l": "e",
+          "texto": "Ninguna deuda de meses anteriores cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cupo semanal",
+          "l": "f",
+          "texto": "El aviso de exceso de clases por semana usa el plan nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "g",
+          "texto": "La cuota de noviembre se genera con el plan vigente ese mes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §2 (cambio de plan, confirmado por Vanina 28/08). Por lectura del código, la edición solo cambia el plan y la cuota del mes recién se ajusta al cobrar: es probable que la línea de A no se cumpla desde la ficha. Comprobado por Claude el 13/10 en la base descartable: el plan cambia y la cuota pendiente del mes queda en el precio anterior.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Tres alumnos con cuota de octubre pendiente: A sin asistencias este mes; B con asistencias este mes; C con la cuota de octubre ya pagada.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar el plan de un alumno desde la ficha"
+    },
+    {
+      "accion": "Cambia la fecha de ingreso de cada uno: primero sin motivo, después con motivo.",
+      "codigo": "ALU-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin motivo",
+          "l": "a",
+          "texto": "Pide el motivo del cambio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción paga",
+          "l": "b",
+          "texto": "Rechaza: «No se puede modificar el ingreso: la inscripción tiene pagos registrados.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción pendiente",
+          "l": "c",
+          "texto": "Guarda la fecha nueva y conserva una única inscripción, sin generar otra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuotas",
+          "l": "d",
+          "texto": "No se crean ni se borran cuotas por cambiar la fecha.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro",
+          "l": "e",
+          "texto": "Queda anotada la corrección con fecha anterior, fecha nueva, motivo y usuario.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::update e InscripcionService::sincronizar (código leído); ENT-01.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Un alumno con la inscripción paga y otro con la inscripción pendiente.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Corregir la fecha de ingreso"
+    },
+    {
+      "accion": "Le cambia el DNI.",
+      "codigo": "ALU-016",
+      "duda": "DU-10",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«El DNI está vinculado a una inscripción. Su corrección requiere revisar ese cargo.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "El alumno conserva el DNI anterior.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "AlumnoWebController::update (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Un alumno con inscripción registrada (paga o pendiente).",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Corregir el DNI de un alumno"
+    },
+    {
+      "accion": "En el listado de Alumnos apaga su interruptor Activo.",
+      "codigo": "ALU-017",
+      "duda": "DU-11",
+      "esperado": [
+        {
+          "donde": "Ficha",
+          "l": "a",
+          "texto": "Queda Inactivo. Sus cuotas pendientes siguen a la vista en la ficha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "b",
+          "texto": "Deja de figurar; activos −1; el total adeudado baja por toda su deuda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador de Cobrar",
+          "l": "c",
+          "texto": "No aparece, ni buscándolo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "d",
+          "texto": "El «por cobrar» baja el mismo importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "e",
+          "texto": "Deja de aparecer en las listas de asistencia de su grupo. Sus presentes anteriores se conservan.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Alumnos",
+          "l": "f",
+          "texto": "Activos −1, inactivos +1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "g",
+          "texto": "No se le genera la cuota del mes que viene ni entra en Revisión.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "h",
+          "texto": "El sistema no pide motivo ni avisa que tiene deuda.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::toggleActivo y CobranzaEstadoService (código leído); decisión de Carlos 10/10 (la deuda cuenta alumnos activos).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Alumno deudor de dos meses, con clases futuras en su grupo.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Dar de baja a un alumno que debe"
+    },
+    {
+      "accion": "En la ficha toca Reactivar y confirma.",
+      "codigo": "ALU-018",
+      "duda": "DU-12",
+      "esperado": [
+        {
+          "donde": "Ficha",
+          "l": "a",
+          "texto": "Queda Activo con su mismo grupo y plan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "b",
+          "texto": "Vuelve a figurar con su deuda vieja, como deudor. Total adeudado sube por esa deuda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes en curso",
+          "l": "c",
+          "texto": "No se le crea sola la cuota del mes en curso; se ofrece al cobrarle.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "d",
+          "texto": "Vuelve a las listas de asistencia de su grupo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Descuento",
+          "l": "e",
+          "texto": "Si tiene pagos anteriores, al cobrarle el mes en que vuelve se aplica el porcentaje de reingreso según el día.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "AlumnoWebController::toggleActivo y PagoCuotaService::calcularReglaPrimerPago (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Alumno inactivo con deuda vieja, dado de baja el mes pasado.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reactivar a un alumno dado de baja"
+    },
+    {
+      "accion": "Envía la edición con: un grupo de otro deporte; un plan que pertenece a otro grupo; un deporte distinto del que tiene.",
+      "codigo": "ALU-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Grupo de otro deporte",
+          "l": "a",
+          "texto": "Se rechaza: «El grupo seleccionado no pertenece al deporte elegido.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plan de otro grupo",
+          "l": "b",
+          "texto": "Se rechaza: el plan tiene que ser del grupo del alumno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otro deporte",
+          "l": "c",
+          "texto": "No se puede cambiar el deporte de un alumno: cambiar de deporte es crear otro alumno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "El alumno queda con el grupo y el plan que tenía.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato alumno-grupo-deporte V4. Por lectura del código, en la edición el plan solo se valida contra el grupo cuando el alumno no tiene plan: es probable que acepte un plan de otro grupo. Comprobado por Claude el 13/10 en la base descartable: la edición acepta el plan de otro grupo y lo deja como plan activo.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "Herramienta para enviar el formulario adulterado.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Forzar un plan o un grupo que no corresponde"
+    },
+    {
+      "accion": "Busca por apellido, por nombre, por parte del DNI, con mayúsculas y minúsculas. Filtra por deporte y por grupo. Combina filtros y pasa de página.",
+      "codigo": "ALU-020",
+      "duda": "DU-13",
+      "esperado": [
+        {
+          "donde": "Resultados",
+          "l": "a",
+          "texto": "Cada filtro trae solo lo que corresponde; combinados se suman. La página siguiente conserva los filtros.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Homónimos",
+          "l": "b",
+          "texto": "Los dos aparecen y se distinguen por DNI y grupo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "c",
+          "texto": "El estado de cobranza de cada renglón coincide con el de su ficha y con Cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin resultados",
+          "l": "d",
+          "texto": "Una búsqueda sin coincidencias lo dice, no muestra error.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AlumnoWebController::index (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-listado",
+      "requiere": "Más de 12 alumnos, activos e inactivos, en varios deportes y grupos, dos con el mismo apellido.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Buscar y filtrar en el listado de alumnos"
+    },
+    {
+      "accion": "La abre una operativa y después el dueño.",
+      "codigo": "ALU-021",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Los dos",
+          "l": "a",
+          "texto": "Ven estado, deudas, inscripción, los últimos 12 pagos y las asistencias del mes. Pueden Cobrar, Editar, activar o desactivar y abrir cualquier recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "b",
+          "texto": "No ve Condonar ni Anular.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "c",
+          "texto": "Ve Condonar en cada cuota pendiente y Anular solo en sus cobros sin caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelado",
+          "l": "d",
+          "texto": "El cobro cancelado figura como anulado con el importe tachado; su recibo se puede abrir y sale con el sello.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "e",
+          "texto": "La operativa que envía a mano condonar o anular recibe acceso restringido y nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "alumnos/show (vista leída); Permisos y roles; A13.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Alumno con una cuota pendiente, un cobro hecho por otra operativa, un cobro del dueño sin caja y un cobro cancelado.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Qué ve y qué puede hacer cada rol en la ficha"
+    },
+    {
+      "accion": "Una cambia el celular y guarda; la otra, con la pantalla vieja, cambia el plan y guarda.",
+      "codigo": "ALU-022",
+      "duda": "DU-14",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Los dos guardados terminan sin error.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resultado",
+          "l": "b",
+          "texto": "Queda un solo plan activo. Los datos que guardó la segunda persona pisan los de la primera sin aviso.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "AlumnoWebController::update bloquea la fila pero no detecta el formulario viejo (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-edicion",
+      "requiere": "La misma ficha abierta en dos equipos.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Dos personas editan al mismo alumno a la vez"
+    },
+    {
+      "accion": "Abre su ficha y toca Cobrar. Después lo edita.",
+      "codigo": "ALU-023",
+      "duda": "DU-15",
+      "esperado": [
+        {
+          "donde": "Cobrar",
+          "l": "a",
+          "texto": "No deja cobrar: lo manda a Editar con «El alumno no tiene un plan activo. Asigná un plan antes de cobrar.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Editar",
+          "l": "b",
+          "texto": "El plan pasa a ser obligatorio para guardar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Generación mensual",
+          "l": "c",
+          "texto": "Mientras no tenga plan, el día 1 no se le genera cuota ni entra en Revisión: queda fuera de la cobranza sin que nadie se entere.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::cobrar y GenerarDeudasMensualesCommand (código leído).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Un alumno activo sin plan vigente (dato viejo o plan eliminado).",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Alumno que quedó sin plan"
+    },
+    {
+      "accion": "Busca cómo eliminarlo.",
+      "codigo": "ALU-024",
+      "duda": "DU-48",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "No se puede eliminar: solo se puede dar de baja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda",
+          "l": "b",
+          "texto": "Su cuota y su inscripción quedan generadas; dado de baja dejan de sumar, pero siguen en su ficha.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inscripción",
+          "l": "c",
+          "texto": "Si la persona ya existía en otro deporte, la inscripción es compartida y no se toca.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "DNI",
+          "l": "d",
+          "texto": "El DNI queda ocupado en ese deporte: para cargarlo bien hay que reactivarlo y editarlo, y el DNI no se puede corregir si tiene inscripción.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "routes/web.php: no hay eliminación de alumnos; Contrato ABM Admin §9.b permite borrado real solo si está vacío.",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Un alumno recién dado de alta por error (persona equivocada o duplicada en otro deporte por error), sin cobros ni asistencias.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Alumno cargado por error"
+    },
+    {
+      "accion": "Toca el interruptor Activo del alumno en el listado, sin entrar a la ficha. Después lo reactiva desde la ficha.",
+      "codigo": "ALU-025",
+      "duda": "DU-11",
+      "esperado": [
+        {
+          "donde": "Baja",
+          "l": "a",
+          "texto": "Queda Inactivo al instante, sin confirmación, sin motivo y sin recargar la pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reactivar",
+          "l": "b",
+          "texto": "En la ficha, Reactivar pide confirmación con el nombre del alumno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Efectos",
+          "l": "c",
+          "texto": "Los de una baja: sale de Cobranza, del buscador y de las listas de asistencia; su deuda deja de sumar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Error de dedo",
+          "l": "d",
+          "texto": "Un toque equivocado en el teléfono da de baja a un alumno y nada lo avisa.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin conexión",
+          "l": "e",
+          "texto": "Si el cambio no llega al servidor, el interruptor vuelve a su posición.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "alumnos/index, alumnos/show y resources/js/ds-app.js (leídos el 13/10).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-listado",
+      "requiere": "Listado de alumnos con un alumno deudor.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Dar de baja con un toque desde el listado"
+    },
+    {
+      "accion": "Abre Alumnos y escribe en el buscador.",
+      "codigo": "ALU-026",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Tarjeta",
+          "l": "a",
+          "texto": "Apellido y nombre, estado de cobranza, deporte, grupo, plan (o «Sin plan»), DNI, celular, edad, tutor y teléfono del tutor, con Cobrar, Ver, Editar y el interruptor.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cumpleaños",
+          "l": "b",
+          "texto": "Quien cumple años este mes lleva la marca de cumpleaños.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Buscador",
+          "l": "c",
+          "texto": "Mientras escribe ofrece coincidencias; elegir una va a la ficha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivos",
+          "l": "d",
+          "texto": "Aparecen mezclados con los activos, marcados Inactivo y sin estado de cobranza. No hay filtro para verlos solos ni para ocultarlos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cantidad",
+          "l": "e",
+          "texto": "El total del listado cuenta activos e inactivos: no es comparable con «Total activos» de Cobranza.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "alumnos/index (vista leída el 13/10).",
+      "modulo": "Alumnos",
+      "pantalla": "alumnos-listado",
+      "requiere": "Activos e inactivos; un alumno que cumple años este mes; un menor con tutor.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Lo que muestra el listado de alumnos"
+    }
+  ],
+  "modulo": "Alumnos",
+  "orden": 2,
+  "prefijo": "ALU"
+}

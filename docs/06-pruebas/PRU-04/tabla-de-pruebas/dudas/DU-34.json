@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ASI-007"
+  ],
+  "codigo": "DU-34",
+  "contexto": "No genera cargo ni aviso al dueño.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "Solo anotarlo (como hoy)",
+    "Mostrarlo en un listado para el dueño",
+    "Generar un cargo"
+  ],
+  "orden": 32,
+  "pregunta": "Cuando un alumno viene más veces de las que paga, el sistema solo lo anota como extra o recuperación. ¿Tiene que generar algo más?",
+  "recomendacion": "Solo anotarlo y mostrarlo en un listado.",
+  "respondida_en": "2026-10-13T11:22:17.305Z",
+  "respuesta": "Solo anotarlo (como hoy)"
+}

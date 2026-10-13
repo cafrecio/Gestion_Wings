@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "SIS-010"
+  ],
+  "codigo": "DU-51",
+  "contexto": "Sin camino hoy: caja validada con un movimiento mal (DU-27), liquidación pagada de más (DU-38), alumno o clase creados por error (DU-48), medio del cajón mal elegido (DU-16), DNI mal tipeado con inscripción (DU-10) y condonación hecha por error.",
+  "modulo": "Transversales",
+  "opciones": [
+    "Definir un camino para cada una",
+    "Aceptar que no lo hay y documentarlo"
+  ],
+  "orden": 49,
+  "pregunta": "Para cada cosa que hoy no tiene vuelta atrás, ¿se define un camino de corrección o se acepta que no lo hay?",
+  "recomendacion": "Definir al menos las que mueven plata: caja validada y liquidación pagada.",
+  "respondida_en": "2026-10-13T11:35:03.430Z",
+  "respuesta": "Definir un camino para cada una. Resueltas por otras respuestas: caja validada con un movimiento mal (DU-27, ajuste directo en Cashflow), liquidación pagada de más (DU-38, se compensa en la siguiente), alumno o clase creados por error (DU-48, el dueño los elimina si están vacíos) y DNI mal cargado (DU-10, lo corrige el dueño con motivo). Las dos que quedaban van como preguntas puntuales: DU-58 y DU-59."
+}

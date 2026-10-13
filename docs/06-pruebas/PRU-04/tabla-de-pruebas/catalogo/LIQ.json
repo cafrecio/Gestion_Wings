@@ -1,0 +1,938 @@
+{
+  "casos": [
+    {
+      "accion": "Liquidaciones → Nuevo. Elige a la profesora y el mes. Genera.",
+      "codigo": "LIQ-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Incluye",
+          "l": "a",
+          "texto": "Las clases con al menos un presente, la validada a mano y la compartida.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No incluye",
+          "l": "b",
+          "texto": "La cancelada, la que no tiene asistencia y la de todos ausentes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cálculo",
+          "l": "c",
+          "texto": "Cada clase paga valor hora × minutos ÷ 60, con centavos: la de 1 h 20 min vale más que la de 1 h. El total coincide con la cuenta a mano.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Detalle",
+          "l": "d",
+          "texto": "Lista cada clase con fecha, grupo, duración e importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "e",
+          "texto": "Nace Abierta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Valor hora",
+          "l": "f",
+          "texto": "Queda congelado el valor hora usado: si después cambia el de la profesora, esta liquidación no cambia sola.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Sueldos",
+          "l": "g",
+          "texto": "El importe figura como liquidado sin cerrar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio del dueño",
+          "l": "h",
+          "texto": "Aparece el aviso de liquidación abierta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "i",
+          "texto": "Todavía no hay ningún movimiento.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Compartida",
+          "l": "j",
+          "texto": "La otra profesora también cobra esa clase completa en su liquidación.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones §2.3 y §3.1; LiquidacionService (código leído); FIN-13; LQ-01.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Mes terminado. Profesora por hora con: clases con al menos un presente, una clase de 1 h 20 min, una cancelada, una sin asistencia, una validada a mano, una con todos ausentes y una compartida con otra profesora.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Liquidación de una profesora que cobra por hora"
+    },
+    {
+      "accion": "Genera la liquidación de octubre.",
+      "codigo": "LIQ-002",
+      "duda": "DU-36",
+      "esperado": [
+        {
+          "donde": "Base",
+          "l": "a",
+          "texto": "Suma las cuotas cobradas en octubre de los alumnos que tuvieron al menos un presente en octubre en una clase suya no cancelada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pagó y no vino",
+          "l": "b",
+          "texto": "No entra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Vino y no pagó",
+          "l": "c",
+          "texto": "No entra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inscripción",
+          "l": "d",
+          "texto": "La inscripción no paga comisión; la cuota de ese mismo cobro sí.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda vieja y adelantado",
+          "l": "e",
+          "texto": "Entran: cuenta el mes en que se cobró, no el mes de la cuota.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelado",
+          "l": "f",
+          "texto": "El cobro cancelado no entra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio de grupo",
+          "l": "g",
+          "texto": "Entra para cada profesor con el que tuvo al menos un presente en el mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total",
+          "l": "h",
+          "texto": "Base × porcentaje, igual a la cuenta a mano. El detalle lista alumno por alumno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Porcentaje",
+          "l": "i",
+          "texto": "Queda congelado el porcentaje usado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Validación de caja",
+          "l": "j",
+          "texto": "Cuentan los cobros aunque su caja todavía no esté validada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones §3.2; LiquidacionService (código leído); ENT-01; FIN-06; LQ-06.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Mes terminado. Profesor por comisión, con porcentaje cargado. Alumnos suyos: uno que pagó la cuota y vino a clase; uno que pagó y no vino nunca; uno que vino y no pagó; uno que pagó inscripción más cuota; uno que pagó en octubre una deuda de agosto; uno que pagó noviembre por adelantado en octubre; uno con un cobro cancelado; uno que cambió de grupo a mitad de mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Liquidación de un profesor que cobra por comisión"
+    },
+    {
+      "accion": "Entra a generar su liquidación.",
+      "codigo": "LIQ-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Al elegirla, la pantalla avisa cuántas clases tiene sin asistencia antes de generar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Generando igual",
+          "l": "b",
+          "texto": "Esas clases quedan afuera.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Después",
+          "l": "c",
+          "texto": "Si después se carga la asistencia, con la liquidación abierta alcanza con Recalcular; si ya está cerrada, hay que cancelarla y rehacerla.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionWebController::create (código leído); LQ-02.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Profesora con tres clases pasadas del mes sin lista tomada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Liquidar con clases del mes todavía sin asistencia"
+    },
+    {
+      "accion": "Genera otra vez octubre para la misma profesora. Doble clic en Generar.",
+      "codigo": "LIQ-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«Ya existe una liquidación…» No se crea otra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases",
+          "l": "b",
+          "texto": "Ninguna clase se paga dos veces.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cancelada",
+          "l": "c",
+          "texto": "Si la anterior está cancelada, sí deja generar una nueva.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService::generarLiquidacionMensual (código leído); LQ-03.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Una liquidación de octubre ya generada para la profesora (probar abierta, cerrada y pagada).",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Generar dos veces la liquidación del mismo mes"
+    },
+    {
+      "accion": "Genera la liquidación del mes en curso y la cierra. Después intenta generar la de un mes futuro.",
+      "codigo": "LIQ-005",
+      "duda": "DU-37",
+      "esperado": [
+        {
+          "donde": "Mes en curso",
+          "l": "a",
+          "texto": "Hoy el sistema lo permite: incluye las clases dictadas hasta hoy.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes futuro",
+          "l": "b",
+          "texto": "Lo permite y sale vacía o en cero.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resto del mes",
+          "l": "c",
+          "texto": "Cerrada y pagada, las clases de la segunda mitad del mes ya no se pueden liquidar: no se puede generar otra del mismo mes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Último día",
+          "l": "d",
+          "texto": "El último día del mes ofrece incluir las clases de hoy aunque todavía no tengan asistencia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "LiquidacionWebController::store no controla que el mes haya terminado (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Estamos a mitad de mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Liquidar un mes que todavía no terminó"
+    },
+    {
+      "accion": "Intenta generar para cada uno; también sin elegir profesor y sin mes.",
+      "codigo": "LIQ-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Inactiva",
+          "l": "a",
+          "texto": "No aparece para elegir; forzando se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin tarifa",
+          "l": "b",
+          "texto": "Se rechaza explicando qué dato falta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin datos",
+          "l": "c",
+          "texto": "«Seleccioná un profesor.» «Seleccioná el mes.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ninguna liquidación.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Una profesora inactiva, una sin valor hora cargado y un profesor por comisión sin porcentaje.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Liquidación que no se puede generar"
+    },
+    {
+      "accion": "Toca Recalcular.",
+      "codigo": "LIQ-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Recalculo",
+          "l": "a",
+          "texto": "El detalle y el total incorporan los cambios.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tarifa",
+          "l": "b",
+          "texto": "Usa el valor hora o porcentaje vigente al recalcular.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cerrada",
+          "l": "c",
+          "texto": "En una liquidación cerrada, Recalcular no está disponible.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService::recalcularLiquidacion (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación abierta. Después de generarla se cargó una asistencia que faltaba, se canceló una clase y se cobró una cuota más.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recalcular una liquidación abierta"
+    },
+    {
+      "accion": "La cierra.",
+      "codigo": "LIQ-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Pasa a Cerrada. Ya no se recalcula.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Asistencias",
+          "l": "b",
+          "texto": "Las asistencias de sus clases quedan bloqueadas para todos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Sus clases ya no se pueden editar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Sueldos e Inicio",
+          "l": "d",
+          "texto": "El importe pasa a «por pagar». El aviso cambia de abierta a cerrada sin pagar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "e",
+          "texto": "Figura entre las liquidaciones pendientes de pago, sin movimiento todavía.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones (enmienda 13/09); LiquidacionService::cerrarLiquidacion (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación abierta revisada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cerrar una liquidación"
+    },
+    {
+      "accion": "Elige medio de pago y fecha de hoy. Paga.",
+      "codigo": "LIQ-009",
+      "duda": "DU-20",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Pasa a Pagada, con fecha, medio y quién la pagó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Aparece un solo egreso, en el subrubro de sueldo de esa profesora, por el total.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldo",
+          "l": "c",
+          "texto": "El saldo del medio baja por el total.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "d",
+          "texto": "El gasto de sueldos del mes sube; el «por pagar» baja; desaparece el aviso.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "e",
+          "texto": "Queda disponible el recibo de liquidación.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Sueldos",
+          "l": "f",
+          "texto": "Figura como pagado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja operativa",
+          "l": "g",
+          "texto": "No pasa por la caja de la operativa aunque se pague en efectivo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionPagoService (código leído); LQ-04.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación cerrada. Saldo suficiente en el medio elegido.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Pagar una liquidación"
+    },
+    {
+      "accion": "Intenta pagar la abierta. Paga la cerrada con fecha de mañana; con fecha del mes pasado; y con el medio sin saldo.",
+      "codigo": "LIQ-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Abierta",
+          "l": "a",
+          "texto": "No se puede pagar sin cerrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha futura",
+          "l": "b",
+          "texto": "«La fecha de pago no puede ser futura.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes pasado",
+          "l": "c",
+          "texto": "Avisa que modificará el reporte de ese mes y pide confirmar; confirmando paga y sale el aviso de fecha vieja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin saldo",
+          "l": "d",
+          "texto": "«Saldo insuficiente en <medio>» con el saldo disponible, salvo que el medio permita descubierto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "e",
+          "texto": "En los rechazos no se crea movimiento.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionWebController::pagar (código leído); Contrato Caja V4 §3.6; LQ-04.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Una liquidación abierta, una cerrada, y un medio de pago con saldo menor al total.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Pagos que no corresponden"
+    },
+    {
+      "accion": "Doble clic en Pagar; después paga de nuevo desde la otra pestaña.",
+      "codigo": "LIQ-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda pagada una vez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Hay un solo egreso.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldo",
+          "l": "c",
+          "texto": "El saldo bajó una sola vez.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionPagoService::marcarComoPagada idempotente (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación cerrada, abierta en dos pestañas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Pagar dos veces"
+    },
+    {
+      "accion": "La cancela: sin motivo, con un motivo de tres letras y con motivo válido. Corrige la asistencia y genera de nuevo.",
+      "codigo": "LIQ-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Obligatorio, de cinco letras o más.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelación",
+          "l": "b",
+          "texto": "Queda Cancelada y se conserva como documento, con motivo, fecha y quién.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Asistencias",
+          "l": "c",
+          "texto": "Las asistencias de sus clases vuelven a poder corregirse.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Nueva",
+          "l": "d",
+          "texto": "Se puede generar otra del mismo mes; la cancelada muestra cuál la reemplazó.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "e",
+          "texto": "La cancelada no suma en «por pagar» ni en Sueldos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones (enmienda 13/09); LiquidacionService::cancelarLiquidacion (código leído); LQ-05.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación cerrada sin pagar con una asistencia mal cargada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar una liquidación cerrada sin pagar"
+    },
+    {
+      "accion": "Intenta cancelarla, eliminarla, recalcularla, ajustarla y pagarla de nuevo, por botón y forzando.",
+      "codigo": "LIQ-013",
+      "duda": "DU-38",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguna acción está disponible ni se acepta forzada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "La liquidación y su egreso no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Error de pago",
+          "l": "c",
+          "texto": "Si se pagó de más o por error, hoy no hay forma de revertirlo desde el sistema.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService (código leído); T27 (el egreso de liquidación no se corrige desde Cashflow).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación pagada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Tocar una liquidación pagada"
+    },
+    {
+      "accion": "La elimina. Después intenta eliminar una cerrada y una cancelada.",
+      "codigo": "LIQ-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Abierta",
+          "l": "a",
+          "texto": "Se elimina.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cerrada y cancelada",
+          "l": "b",
+          "texto": "No se pueden eliminar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Las clases de la eliminada vuelven a estar libres para liquidar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Avisos",
+          "l": "d",
+          "texto": "Desaparece el aviso de liquidación abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService::eliminarLiquidacion (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación abierta generada por error.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Eliminar una liquidación abierta"
+    },
+    {
+      "accion": "Cambia el monto final con motivo. Prueba sin motivo, con monto negativo, con tres decimales y con la pantalla vieja.",
+      "codigo": "LIQ-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ajuste",
+          "l": "a",
+          "texto": "Guarda el monto final nuevo; el cálculo original se conserva a la vista.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Motivo",
+          "l": "b",
+          "texto": "Obligatorio, de cinco letras o más.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inválidos",
+          "l": "c",
+          "texto": "Negativo y tres decimales se rechazan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pantalla vieja",
+          "l": "d",
+          "texto": "Si el importe cambió desde que abrió la pantalla, se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pago",
+          "l": "e",
+          "texto": "Al pagar, el egreso es por el monto ajustado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro",
+          "l": "f",
+          "texto": "Queda quién ajustó, cuándo, de cuánto a cuánto y por qué.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Liquidacion::ajustarMontoFinal (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Una liquidación por comisión y una por hora, abiertas o cerradas sin pagar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Ajustar el importe final de una comisión"
+    },
+    {
+      "accion": "Escriben a mano la dirección del listado, de una liquidación, de su recibo y de las acciones de pagar y cancelar.",
+      "codigo": "LIQ-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en castellano, con Volver al inicio de su rol, sin mostrar importes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "b",
+          "texto": "Tampoco puede ver su propia liquidación ni su recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; rutas con ensure.admin.web; LQ-07.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-listado",
+      "requiere": "Operativa y profesora ingresadas. Una liquidación pagada de esa profesora.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Entrar a Liquidaciones sin ser dueño"
+    },
+    {
+      "accion": "Abre la liquidación de octubre y después genera la de noviembre.",
+      "codigo": "LIQ-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Octubre",
+          "l": "a",
+          "texto": "Sigue mostrando y pagando $9.000 por hora.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "b",
+          "texto": "Se calcula con $10.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Abierta",
+          "l": "c",
+          "texto": "Una liquidación abierta toma el valor nuevo recién al recalcular.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionService (valor congelado) (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Liquidación de octubre cerrada con valor hora $9.000. El dueño sube el valor hora a $10.000.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambia la tarifa después de liquidar"
+    },
+    {
+      "accion": "Abre el listado y filtra por estado, profesor y mes.",
+      "codigo": "LIQ-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Listado",
+          "l": "a",
+          "texto": "Cada una muestra profesor, mes, tipo, importe y estado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Filtros",
+          "l": "b",
+          "texto": "Cada filtro trae lo que corresponde.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "c",
+          "texto": "Las cerradas sin pagar suman lo mismo que el «por pagar» de Inicio y Reportes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "LiquidacionWebController::index (código leído).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-listado",
+      "requiere": "Liquidaciones en los cuatro estados, de varios profesores y meses.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Listado de liquidaciones"
+    },
+    {
+      "accion": "Abre Nueva liquidación y recorre la lista de profesores.",
+      "codigo": "LIQ-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Lista",
+          "l": "a",
+          "texto": "Cada profesor muestra deporte, forma de liquidar y cuántas clases liquidables tiene.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin clases",
+          "l": "b",
+          "texto": "El que no tiene clases liquidables aparece apagado y no se puede elegir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "c",
+          "texto": "Al elegir uno con clases sin asistencia avisa cuántas son, que no se liquidarán, y ofrece ir a cargarlas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Último día",
+          "l": "d",
+          "texto": "Pregunta si se incluyen las clases de hoy que todavía no tienen lista.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contador",
+          "l": "e",
+          "texto": "El número de clases liquidables no cambia al elegir otro mes: cuenta todas las pendientes, no las del período.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "f",
+          "texto": "Un profesor por comisión cuyos alumnos pagaron pero que no tiene ninguna clase con presentes no se puede elegir.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "liquidaciones/create (vista leída el 13/10) y LiquidacionWebController::create.",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-crear",
+      "requiere": "Profesores con y sin clases dictadas; uno con clases sin asistencia; hoy es el último día del mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "La pantalla de Nueva liquidación"
+    },
+    {
+      "accion": "Abre cada una para pagarla.",
+      "codigo": "LIQ-020",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alias",
+          "l": "a",
+          "texto": "Muestra el CBU o alias del profesor; si no tiene, lo avisa y ofrece ir a editarlo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Medios",
+          "l": "b",
+          "texto": "Cada medio de pago muestra su saldo, y aclara cuando permite descubierto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Importes",
+          "l": "c",
+          "texto": "Muestra cálculo original, ajuste del dueño y monto final.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Confirmaciones",
+          "l": "d",
+          "texto": "Cerrar, recalcular y eliminar preguntan antes con una ventana del navegador.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha",
+          "l": "e",
+          "texto": "La fecha de pago viene en hoy.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "liquidaciones/show (vista leída el 13/10).",
+      "modulo": "Liquidaciones",
+      "pantalla": "liquidaciones-detalle",
+      "requiere": "Liquidación cerrada de una profesora con alias cargado y otra de un profesor sin alias.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Lo que muestra la liquidación al pagar"
+    }
+  ],
+  "modulo": "Liquidaciones",
+  "orden": 14,
+  "prefijo": "LIQ"
+}

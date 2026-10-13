@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CBZ-010"
+  ],
+  "codigo": "DU-25",
+  "contexto": "Hoy solo se condonan cuotas. Con la regla nueva, quien debe la inscripción queda moroso o deudor hasta pagarla.",
+  "modulo": "Cobranza",
+  "opciones": [
+    "Sí, con motivo, igual que una cuota",
+    "No"
+  ],
+  "orden": 23,
+  "pregunta": "¿El dueño puede perdonar la inscripción?",
+  "recomendacion": "Sí: si no, un alumno becado queda deudor para siempre.",
+  "respondida_en": "2026-10-13T11:16:58.946Z",
+  "respuesta": "Sí, con motivo, igual que una cuota"
+}

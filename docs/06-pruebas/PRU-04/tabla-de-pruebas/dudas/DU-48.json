@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ALU-024",
+    "CLA-021"
+  ],
+  "codigo": "DU-48",
+  "contexto": "Hoy no: el alumno solo se da de baja y la clase solo se cancela. El contrato de ABM permite el borrado real cuando el registro está vacío.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Permitir eliminar al dueño si no tiene cobros ni asistencias",
+    "Dejarlo como está"
+  ],
+  "orden": 46,
+  "pregunta": "Un alumno o una clase creados por error, sin ningún movimiento, ¿se pueden eliminar?",
+  "recomendacion": "Permitirlo cuando está vacío.",
+  "respondida_en": "2026-10-13T11:31:31.316Z",
+  "respuesta": "Permitir eliminar al dueño si no tiene cobros ni asistencias"
+}

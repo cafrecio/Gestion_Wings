@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CBZ-010"
+  ],
+  "codigo": "DU-58",
+  "contexto": "Hoy una cuota perdonada no vuelve atrás: no admite pagos y no hay forma de reactivarla. Con tu respuesta a DU-25, lo mismo va a pasar con la inscripción perdonada.",
+  "modulo": "Cobranza",
+  "opciones": [
+    "Sí: el dueño deshace el perdón, con motivo, y la deuda vuelve a estar pendiente",
+    "No: si se equivocó, crea la cuota de nuevo a mano desde la ficha (DU-23)",
+    "No se corrige"
+  ],
+  "orden": 2,
+  "pregunta": "Si el dueño perdona una cuota por error, ¿tiene que poder deshacerlo?",
+  "recomendacion": "La primera: es el único camino que deja escrito qué pasó y no duplica la cuota.",
+  "respondida_en": "2026-10-13T11:48:18.716Z",
+  "respuesta": "Reactivar la perdonada: en la ficha, la cuota perdonada se puede volver a cobrar, con motivo, y queda el historial (perdonada tal día, reactivada tal día). Vale igual para la inscripción. Carlos, 13/10. Primero había elegido crearla de nuevo a mano; no se puede porque la base admite una sola cuota por alumno y por mes y una sola inscripción por persona."
+}

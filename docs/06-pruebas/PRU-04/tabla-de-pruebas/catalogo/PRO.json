@@ -1,0 +1,217 @@
+{
+  "casos": [
+    {
+      "accion": "Profesores → Nuevo. Carga datos personales, DNI, deporte, valor hora (o porcentaje de comisión) y alias de transferencia. Guarda.",
+      "codigo": "PRO-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alta",
+          "l": "a",
+          "texto": "Aparece en Profesores, activa.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubro de sueldo",
+          "l": "b",
+          "texto": "Se crea solo su subrubro de sueldo «<Deporte>-<Nombre Apellido>», reservado, solo del dueño.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Se ofrece al crear clases de su deporte.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Usuarios",
+          "l": "d",
+          "texto": "Se ofrece para vincular a un usuario con rol Profesor.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidaciones",
+          "l": "e",
+          "texto": "Se ofrece para generar liquidación.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ProfesorWebController y SubrubroSueldoService (código leído); B10.",
+      "modulo": "Profesores",
+      "pantalla": "cat-profesores",
+      "requiere": "Un deporte por hora y uno por comisión.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alta de una profesora"
+    },
+    {
+      "accion": "Intenta guardar con DNI repetido, sin nombre, con comisión de 101, con valor hora negativo, con alias con espacios y con mail inválido.",
+      "codigo": "PRO-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguno se guarda; cada error se explica en castellano junto al campo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se crea profesora ni subrubro de sueldo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ProfesorWebController (código leído); B10; SI-08.",
+      "modulo": "Profesores",
+      "pantalla": "cat-profesores",
+      "requiere": "Una profesora existente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Profesora mal cargada"
+    },
+    {
+      "accion": "Le cambia el valor hora y el apellido.",
+      "codigo": "PRO-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "La ficha muestra los valores nuevos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidación cerrada",
+          "l": "b",
+          "texto": "Conserva la tarifa con la que se calculó.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Nuevas",
+          "l": "c",
+          "texto": "Las liquidaciones nuevas y las abiertas al recalcular usan la tarifa nueva.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Nombre",
+          "l": "d",
+          "texto": "Clases, liquidaciones y Reporte de Sueldos muestran el apellido nuevo; su subrubro de sueldo se actualiza al guardar la ficha.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibos",
+          "l": "e",
+          "texto": "Los recibos de liquidación ya emitidos no cambian.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ProfesorWebController::update y LiquidacionService (código leído).",
+      "modulo": "Profesores",
+      "pantalla": "cat-profesores",
+      "requiere": "Profesora con una liquidación cerrada y clases este mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar la tarifa o el nombre de una profesora"
+    },
+    {
+      "accion": "El dueño la desactiva.",
+      "codigo": "PRO-004",
+      "duda": "DU-44",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "Se desactiva sin avisar ni controlar nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases futuras",
+          "l": "b",
+          "texto": "Siguen programadas a su nombre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación",
+          "l": "c",
+          "texto": "No se le puede generar liquidación por las clases ya dictadas: el sistema exige profesor activo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Usuario",
+          "l": "d",
+          "texto": "Su usuario sigue activo y puede seguir entrando a tomar asistencia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases nuevas",
+          "l": "e",
+          "texto": "Deja de ofrecerse para clases nuevas.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "ProfesorWebController::toggleActivo no controla nada; LiquidacionService exige profesor activo (código leído); SI-08.",
+      "modulo": "Profesores",
+      "pantalla": "cat-profesores",
+      "requiere": "Profesora con clases programadas, clases dictadas sin liquidar y un usuario para ingresar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Desactivar a una profesora con clases futuras"
+    },
+    {
+      "accion": "Abre su ficha desde Profesores.",
+      "codigo": "PRO-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Datos",
+          "l": "a",
+          "texto": "Muestra datos personales, deporte, tarifa, alias y estado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pendiente",
+          "l": "b",
+          "texto": "«Historial de liquidaciones» y «Clases asignadas» todavía dicen «Próximamente».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "c",
+          "texto": "La operativa y la profesora no pueden abrir la ficha, ni la propia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "profesores/show (vista leída el 13/10).",
+      "modulo": "Profesores",
+      "pantalla": "cat-profesores",
+      "requiere": "Profesora con clases, una liquidación pagada y usuario vinculado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Ficha de una profesora"
+    }
+  ],
+  "modulo": "Profesores",
+  "orden": 5,
+  "prefijo": "PRO"
+}

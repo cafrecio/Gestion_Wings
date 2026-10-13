@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CLA-015"
+  ],
+  "codigo": "DU-31",
+  "contexto": "Hoy se reactiva sin mirar si la profesora ya tiene otra clase a esa hora, y el motivo se borra.",
+  "modulo": "Clases",
+  "opciones": [
+    "Controlar el choque y conservar el rastro",
+    "Dejarlo como está"
+  ],
+  "orden": 29,
+  "pregunta": "Al reactivar una clase cancelada, ¿hay que controlar choques y conservar el motivo de la cancelación?",
+  "recomendacion": "Controlar el choque y conservar el rastro.",
+  "respondida_en": "2026-10-13T11:20:30.598Z",
+  "respuesta": "Controlar el choque y conservar el rastro"
+}

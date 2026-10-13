@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "REP-015"
+  ],
+  "codigo": "DU-50",
+  "contexto": "Era una de las tres preguntas del dueño: «qué grupo me conviene».",
+  "modulo": "Reportes e Inicio",
+  "opciones": [
+    "Sí, agregar la vista por grupo",
+    "Alcanza por profesor y deporte"
+  ],
+  "orden": 48,
+  "pregunta": "El contrato pide ver, por grupo, alumnos, facturación, costo del profesor y cuánto queda. Hoy se ve por profesor y por deporte. ¿Hace falta por grupo?",
+  "recomendacion": "Decidirlo mirando el Reporte de Sueldos con un mes de datos.",
+  "respondida_en": "2026-10-13T11:33:55.757Z",
+  "respuesta": "Alcanza por profesor y deporte"
+}

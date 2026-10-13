@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CAT-002"
+  ],
+  "codigo": "DU-42",
+  "contexto": "Hoy se permite siempre.",
+  "modulo": "Catálogos",
+  "opciones": [
+    "Solo si no hay liquidaciones abiertas; rige desde el mes siguiente",
+    "Dejarlo como está"
+  ],
+  "orden": 40,
+  "pregunta": "¿Se puede cambiar la forma de liquidar de un deporte (hora o comisión) cuando ya tiene liquidaciones?",
+  "recomendacion": "La primera.",
+  "respondida_en": "2026-10-13T11:29:28.544Z",
+  "respuesta": "Solo si no hay liquidaciones abiertas; rige desde el mes siguiente"
+}

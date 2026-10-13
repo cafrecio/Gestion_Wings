@@ -1,0 +1,848 @@
+{
+  "casos": [
+    {
+      "accion": "Abre Cashflow. Cambia el período entre día, semana, mes y año; filtra por medio de pago y por tipo.",
+      "codigo": "CSH-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Filas",
+          "l": "a",
+          "texto": "Cada movimiento confirmado aparece una vez, con fecha, concepto, alumno si corresponde, medio, importe y origen (caja validada, cobro del dueño, liquidación pagada, anulación, aporte, retiro o directo).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "b",
+          "texto": "Ingresos = suma de los ingresos menos las anulaciones. Egresos = suma de los gastos. Acompañan al filtro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin validar",
+          "l": "c",
+          "texto": "Lo de cajas sin validar se muestra aparte, sin sumarse a lo confirmado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por pagar",
+          "l": "d",
+          "texto": "Las liquidaciones cerradas sin pagar se muestran aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "e",
+          "texto": "Los ingresos del mes coinciden con los confirmados de Inicio y Reportes para el mismo mes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Rojo",
+          "l": "f",
+          "texto": "Las anulaciones salen en rojo y restan.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CashflowWebController::index (código leído); Contrato Caja V5; A56.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un mes con cajas validadas, una caja cerrada sin validar, cobros del dueño, un gasto directo, una liquidación pagada y una anulación.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cashflow: lo que muestra y cómo se filtra"
+    },
+    {
+      "accion": "Cashflow → Nuevo. Elige subrubro, medio, importe, fecha de hoy y observación. Guarda.",
+      "codigo": "CSH-002",
+      "duda": "DU-20",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Aparece en Cashflow como egreso directo, a nombre del dueño, con Editar y Eliminar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "b",
+          "texto": "El saldo de ese medio baja por el importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "c",
+          "texto": "El gasto del mes sube y el resultado baja, confirmado desde ya.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "d",
+          "texto": "El dueño lo ve como egreso; la operativa no lo ve si el rubro es solo del dueño.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja operativa",
+          "l": "e",
+          "texto": "El efectivo esperado del turno abierto no cambia, aunque el gasto sea en efectivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "f",
+          "texto": "No afecta deuda ni cobranza.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CashflowWebController::store y CashflowService::registrarMovimientoAdmin (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Un subrubro de gasto del negocio clasificado. Saldo disponible en el medio elegido.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El dueño carga un gasto directo"
+    },
+    {
+      "accion": "Carga los intereses que liquidó Mercado Pago: $1.250,50.",
+      "codigo": "CSH-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Acepta los centavos y los guarda exactos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pantallas",
+          "l": "b",
+          "texto": "Cashflow, Historial, Inicio y Reportes muestran $1.250,50, no un importe redondeado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldo",
+          "l": "c",
+          "texto": "El saldo de Mercado Pago sube $1.250,50.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T24 y T30 (centavos visibles); decisión de Carlos 11/10; CF-01.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Subrubro de ingreso para intereses.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Importes con centavos"
+    },
+    {
+      "accion": "El dueño pone $200.000 propios en el club y después retira $50.000.",
+      "codigo": "CSH-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Los dos quedan en Cashflow con su origen (Aporte, Retiro).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "b",
+          "texto": "El disponible del medio sube $200.000 y baja $50.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Resultado",
+          "l": "c",
+          "texto": "No cuentan como ingreso ni como gasto del negocio: el resultado del mes no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "Figuran aparte, como aportes y retiros.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "e",
+          "texto": "Aparecen para el dueño.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T16; ReporteMensualService (código leído); CF-02.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Subrubros clasificados como aporte y como retiro.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Aporte y retiro del dueño"
+    },
+    {
+      "accion": "Carga un gasto con fecha de mañana, y otro con fecha del mes pasado.",
+      "codigo": "CSH-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Futura",
+          "l": "a",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes anterior",
+          "l": "b",
+          "texto": "Pide confirmar que es un mes cerrado; al confirmar lo guarda con esa fecha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "El reporte del mes pasado cambia por ese gasto.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "d",
+          "texto": "Sale el aviso de fecha vieja al dueño.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V4 §3.6; CashflowWebController::store (código leído); CF-03.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Formulario de movimiento directo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Fechas del movimiento directo"
+    },
+    {
+      "accion": "Intenta guardar sin observación, sin subrubro, sin medio, con importe cero, negativo o con tres decimales. Después envía a mano un subrubro reservado (cuota, inscripción o sueldo de un profesor).",
+      "codigo": "CSH-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Ninguno se guarda; cada error se explica en castellano.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Observación",
+          "l": "b",
+          "texto": "Es obligatoria.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reservados",
+          "l": "c",
+          "texto": "Los subrubros reservados no se ofrecen y forzándolos se rechazan: las cuotas se cobran, los sueldos se pagan por liquidación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ningún movimiento.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CashflowWebController::store y CashflowService (código leído); T24.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Formulario de movimiento directo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Movimiento directo mal cargado"
+    },
+    {
+      "accion": "Desde Cashflow, Editar. Cambia el importe y escribe el motivo. Guarda. Abre el detalle.",
+      "codigo": "CSH-007",
+      "duda": "DU-53",
+      "esperado": [
+        {
+          "donde": "Edición",
+          "l": "a",
+          "texto": "Queda con el importe nuevo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Motivo",
+          "l": "b",
+          "texto": "Hoy el motivo de la corrección es opcional.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Historial",
+          "l": "c",
+          "texto": "El detalle muestra el valor anterior, el nuevo, el motivo, quién y cuándo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "d",
+          "texto": "El saldo del medio se corrige por la diferencia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "e",
+          "texto": "El gasto del mes y el resultado se corrigen.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial de caja",
+          "l": "f",
+          "texto": "El Historial muestra el importe nuevo, una sola vez.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Segunda corrección",
+          "l": "g",
+          "texto": "Una segunda corrección conserva también el rastro de la primera.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27 (Codex; pantallas aprobadas por Carlos 12/10); CashflowCorreccionService y cashflow/movimiento (leídos); decisión de Carlos 11/10 (CJ-50).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un gasto directo cargado por $80.000 que era de $8.000.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Corregir un movimiento directo"
+    },
+    {
+      "accion": "Desde Cashflow, Eliminar, en los dos: uno con motivo y otro sin motivo.",
+      "codigo": "CSH-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Eliminación",
+          "l": "a",
+          "texto": "El movimiento no se borra: queda marcado como anulado y aparece un asiento en contra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha",
+          "l": "b",
+          "texto": "El asiento en contra lleva la misma fecha y la misma clasificación que el original.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Suma",
+          "l": "c",
+          "texto": "Entre el original y el asiento en contra suman cero.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldo",
+          "l": "d",
+          "texto": "El saldo del medio vuelve a lo que era.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "e",
+          "texto": "El mes del movimiento queda como si no hubiera existido, también si es un mes anterior.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Acciones",
+          "l": "f",
+          "texto": "El anulado y su contra ya no ofrecen Editar ni Eliminar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "g",
+          "texto": "El dueño ve los dos renglones.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27; CashflowCorreccionService (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un gasto directo de este mes y otro de un mes anterior.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Eliminar un movimiento directo"
+    },
+    {
+      "accion": "Busca Editar y Eliminar en cada uno. Después envía a mano la edición y la eliminación de cada uno.",
+      "codigo": "CSH-009",
+      "duda": "DU-27",
+      "esperado": [
+        {
+          "donde": "Caja validada",
+          "l": "a",
+          "texto": "No ofrece corregir; lleva al detalle de la caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro del dueño",
+          "l": "b",
+          "texto": "No ofrece corregir; lleva a la ficha del alumno, donde se anula.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidación",
+          "l": "c",
+          "texto": "No ofrece corregir; lleva a la liquidación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Anulado",
+          "l": "d",
+          "texto": "No ofrece nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "e",
+          "texto": "Los cuatro se rechazan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "f",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27; CashflowMovimiento::puedeCorregirse (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un movimiento de una caja validada, un cobro del dueño sin caja, una liquidación pagada, un movimiento ya anulado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Lo que no se corrige desde Cashflow"
+    },
+    {
+      "accion": "Doble clic en guardar la edición. En la otra pestaña, con la pantalla vieja, guarda otro cambio. Después doble clic en Eliminar.",
+      "codigo": "CSH-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Doble clic",
+          "l": "a",
+          "texto": "La corrección se aplica una vez; hay una sola entrada en el historial.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pantalla vieja",
+          "l": "b",
+          "texto": "Se rechaza: el movimiento cambió; hay que volver a abrirlo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Eliminar dos veces",
+          "l": "c",
+          "texto": "Hay un solo asiento en contra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "d",
+          "texto": "El saldo queda corregido una sola vez.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27 (clave y versión); CashflowCorreccionService (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un gasto directo abierto para editar en dos pestañas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Corregir dos veces o con la pantalla vieja"
+    },
+    {
+      "accion": "La otra cuenta lo edita y después lo elimina.",
+      "codigo": "CSH-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Permiso",
+          "l": "a",
+          "texto": "Puede: cualquier dueño corrige un directo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "b",
+          "texto": "El historial dice quién lo cargó y quién lo corrigió.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "c",
+          "texto": "Un dueño desactivado no puede corregir nada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27; CashflowCorreccionService (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Dos cuentas de dueño. Un gasto directo cargado por una.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Un dueño corrige el movimiento de otro dueño"
+    },
+    {
+      "accion": "Escriben a mano la dirección de Cashflow, del alta, del detalle, de la edición y de la eliminación de un movimiento.",
+      "codigo": "CSH-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en castellano, con Volver al inicio de su rol, sin mostrar importes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Menú",
+          "l": "b",
+          "texto": "Ninguna de las dos tiene Cashflow en el menú.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; rutas con ensure.admin.web.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Operativa y profesora ingresadas.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Entrar a Cashflow sin ser dueño"
+    },
+    {
+      "accion": "Compara el saldo de cada medio de pago con la suma a mano de todo el mes.",
+      "codigo": "CSH-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Efectivo",
+          "l": "a",
+          "texto": "Saldo inicial + cobros en efectivo validados + cobros del dueño en efectivo + aportes − gastos − sueldos − retiros − anulaciones = saldo mostrado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros medios",
+          "l": "b",
+          "texto": "Mercado Pago y transferencia coinciden cada uno con su cuenta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Unicidad",
+          "l": "c",
+          "texto": "Ningún movimiento de caja validada aparece dos veces.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "El disponible por medio de Reportes es el mismo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A56; Contrato Caja V5; CF-04.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Mes completo con todas las cajas validadas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Fin de mes: saldos contra la cuenta a mano"
+    },
+    {
+      "accion": "Lee las columnas de Cashflow en computadora y en el teléfono.",
+      "codigo": "CSH-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alumno",
+          "l": "a",
+          "texto": "Cada cobro muestra el nombre del alumno, no su número.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registró",
+          "l": "b",
+          "texto": "Muestra a la operativa que cobró, no a quien validó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Val.",
+          "l": "c",
+          "texto": "Columna angosta con las iniciales de quien validó la caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro del dueño",
+          "l": "d",
+          "texto": "Muestra al dueño como quien registró y no tiene validador.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T28 (Gemini; verificado por Claude; comprobado por Carlos 12/10); D01-10.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Cajas de dos operativas validadas por dos dueños distintos. Un cobro del dueño.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Quién pagó, quién cobró y quién validó"
+    },
+    {
+      "accion": "El dueño carga un egreso directo en el subrubro de sueldo de esa operativa.",
+      "codigo": "CSH-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Queda como gasto en Sueldos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "b",
+          "texto": "Figura como gasto del negocio; el Reporte de Sueldos lo incluye entre lo pagado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "La operativa no ve ese movimiento en Movimientos ni en Historial.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "No pasa por la caja operativa.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T16; SubrubroSueldoService; ReporteSueldosService (lectura parcial).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Operativa con su subrubro de sueldo creado al darla de alta.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Pagar el sueldo de una operativa"
+    },
+    {
+      "accion": "Carga un gasto directo de $50.000 en ese medio.",
+      "codigo": "CSH-016",
+      "duda": "DU-28",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "Lo acepta: el saldo del medio queda negativo, sin aviso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contraste",
+          "l": "b",
+          "texto": "Pagar una liquidación con saldo insuficiente sí se rechaza.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "CashflowService::registrarMovimientoAdmin no controla saldo (código leído); LiquidacionWebController sí.",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow-movimiento",
+      "requiere": "Medio de pago con saldo $10.000.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Gasto mayor que el saldo del medio"
+    },
+    {
+      "accion": "Lo edita poniéndole fecha de mañana; después fecha del mes pasado.",
+      "codigo": "CSH-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Futura",
+          "l": "a",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes pasado",
+          "l": "b",
+          "texto": "Se acepta; queda en el historial la fecha anterior.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "El gasto sale de este mes y entra en el mes pasado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T27; CashflowCorreccionService (código leído).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Un gasto directo de este mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Corregir llevando el movimiento a otra fecha"
+    },
+    {
+      "accion": "El dueño deposita $300.000 del efectivo en la cuenta del banco y quiere dejarlo registrado.",
+      "codigo": "CSH-018",
+      "duda": "DU-29",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "No hay un movimiento entre medios: para reflejarlo tiene que cargar un egreso en Efectivo y un ingreso en Banco, que inflan gastos e ingresos salvo que use subrubros que no cuenten en el resultado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldos",
+          "l": "b",
+          "texto": "Sin registrarlo, el saldo de Efectivo queda más alto que la plata real y el de Banco más bajo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "No existe traspaso entre medios (búsqueda en el código 13/10).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Efectivo acumulado de las entregas de caja.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Llevar el efectivo del cajón al banco"
+    },
+    {
+      "accion": "Consulta por Día, Semana, Mes y Año; filtra por medio y por tipo; toca Limpiar.",
+      "codigo": "CSH-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Día",
+          "l": "a",
+          "texto": "Solo los movimientos de esa fecha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Semana",
+          "l": "b",
+          "texto": "La semana de lunes a domingo que contiene la fecha, aunque cruce de mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes y Año",
+          "l": "c",
+          "texto": "El intervalo completo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resultado",
+          "l": "d",
+          "texto": "Resultado del período = ingresos − egresos, sin sumar saldo inicial.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tipo",
+          "l": "e",
+          "texto": "El filtro de tipo cambia las filas y mantiene los dos totales; el de medio cambia filas y totales.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Limpiar",
+          "l": "f",
+          "texto": "Quita medio y tipo, y conserva período y fecha.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1 (consulta de Cashflow A10, verificada por Claude el 08/10).",
+      "modulo": "Cashflow",
+      "pantalla": "cashflow",
+      "requiere": "Movimientos repartidos en varias semanas y dos meses.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Períodos de Cashflow"
+    }
+  ],
+  "modulo": "Cashflow",
+  "orden": 11,
+  "prefijo": "CSH"
+}

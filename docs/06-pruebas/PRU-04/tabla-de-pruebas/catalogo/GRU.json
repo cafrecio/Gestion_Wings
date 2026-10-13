@@ -1,0 +1,320 @@
+{
+  "casos": [
+    {
+      "accion": "Grupos → Nuevo. Elige deporte y nivel y carga dos planes: 2 veces por semana a $38.000 y 3 veces a $48.000. Guarda.",
+      "codigo": "GRU-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "El grupo aparece en Grupos con sus dos planes y precios.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alta de alumnos",
+          "l": "b",
+          "texto": "Al dar de alta un alumno de ese deporte se ofrece el grupo y sus planes con precio.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Se pueden crear clases para ese grupo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Primera carga",
+          "l": "d",
+          "texto": "El grupo y sus planes aparecen en la plantilla de la primera carga.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "e",
+          "texto": "La operativa lo ve en Grupos, sin poder editarlo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GrupoWebController::store (código leído); Contrato alumno-grupo-deporte V4.",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos-form",
+      "requiere": "Un deporte y un nivel sin grupo todavía.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Crear un grupo con sus planes"
+    },
+    {
+      "accion": "Intenta crear: otro grupo con el mismo deporte y nivel; uno sin planes; uno con precio cero; con precio con tres decimales; con 0 y con 8 clases por semana; dos planes con la misma frecuencia.",
+      "codigo": "GRU-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Repetido",
+          "l": "a",
+          "texto": "«Ya existe un grupo con ese deporte y nivel.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin planes",
+          "l": "b",
+          "texto": "No guarda: necesita al menos un plan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Precio y frecuencia",
+          "l": "c",
+          "texto": "Precio mayor que cero con hasta dos decimales; frecuencia de 1 a 7.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ningún grupo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GrupoWebController::store (código leído); T24.",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos-form",
+      "requiere": "Un grupo existente de Patín Principiantes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Grupo mal cargado"
+    },
+    {
+      "accion": "El 26/10 el dueño sube el plan a $55.000.",
+      "codigo": "GRU-003",
+      "duda": "DU-40",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "El plan muestra $55.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Octubre pendiente",
+          "l": "b",
+          "texto": "Las cuotas de octubre ya generadas siguen valiendo $48.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Parcial",
+          "l": "c",
+          "texto": "La cuota con pago parcial conserva su original y su saldo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Adelantado",
+          "l": "d",
+          "texto": "El noviembre adelantado sigue pago por $48.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "e",
+          "texto": "Las cuotas que se generen el 1/11 salen a $55.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas nuevas",
+          "l": "f",
+          "texto": "Un alta de hoy en ese plan calcula su cuota sobre $55.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Total adeudado",
+          "l": "g",
+          "texto": "No cambia hoy en Cobranza, Inicio ni Reportes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobro del mes sin cuota",
+          "l": "h",
+          "texto": "A quien todavía no tiene generada la cuota del mes en curso se le ofrece al precio nuevo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Regla de cambio de plan y de precio; T18; GrupoWebController::update (código leído); SI-04.",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos-form",
+      "requiere": "Plan de $48.000 con: alumnos con octubre pendiente, uno con octubre pagado, uno con noviembre pagado por adelantado a $48.000, uno con un pago parcial de octubre.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Aumentar el precio de un plan"
+    },
+    {
+      "accion": "Intenta eliminar el plan con alumnos, el plan único, y un plan sin alumnos.",
+      "codigo": "GRU-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Con alumnos",
+          "l": "a",
+          "texto": "«No se puede eliminar: hay alumnos con este plan activo.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Único",
+          "l": "b",
+          "texto": "«No se puede eliminar: el grupo quedaría sin frecuencias y no se podrían cargar alumnos.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Libre",
+          "l": "c",
+          "texto": "Se elimina; deja de ofrecerse en altas y cobros.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Historia",
+          "l": "d",
+          "texto": "Los alumnos inactivos que tuvieron ese plan conservan sus cuotas y pagos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GrupoWebController::destroyPlan (código leído).",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos-form",
+      "requiere": "Un grupo con dos planes, uno con alumnos activos; otro grupo con un solo plan.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Quitar un plan en uso o el único plan"
+    },
+    {
+      "accion": "En una agrega un plan y guarda; en la otra, con la pantalla vieja, cambia precios y guarda.",
+      "codigo": "GRU-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Segunda",
+          "l": "a",
+          "texto": "«Las frecuencias del grupo cambiaron. Volvé a cargar el formulario.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "Quedan los planes de la primera pestaña, sin mezcla.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GrupoWebController::update (código leído).",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos-form",
+      "requiere": "El mismo grupo abierto para editar en dos pestañas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Editar un grupo con la pantalla vieja"
+    },
+    {
+      "accion": "El dueño lo desactiva.",
+      "codigo": "GRU-006",
+      "duda": "DU-41",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema lo desactiva sin avisar ni controlar nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "b",
+          "texto": "Sus alumnos siguen activos, en Cobranza y con deuda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas",
+          "l": "c",
+          "texto": "El grupo deja de ofrecerse para altas nuevas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "d",
+          "texto": "Sus clases futuras siguen programadas y se puede tomar asistencia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Generación",
+          "l": "e",
+          "texto": "El día 1 se les sigue generando la cuota.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "GrupoWebController::toggleActivo no controla nada (código leído); SI-05.",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos",
+      "requiere": "Grupo con alumnos activos, deuda y clases futuras.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Desactivar un grupo con alumnos y clases"
+    },
+    {
+      "accion": "La operativa abre Grupos y la ficha de un grupo; después fuerza crear, editar, cambiar un precio, eliminar un plan y desactivar. La profesora fuerza la dirección de Grupos.",
+      "codigo": "GRU-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Operativa",
+          "l": "a",
+          "texto": "Ve el listado y la ficha con planes y precios. No tiene Nuevo ni Editar; forzando recibe acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "b",
+          "texto": "Acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; rutas (routes/web.php).",
+      "modulo": "Grupos y planes",
+      "pantalla": "cat-grupos",
+      "requiere": "Operativa y profesora ingresadas.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Grupos para quien no es dueño"
+    }
+  ],
+  "modulo": "Grupos y planes",
+  "orden": 3,
+  "prefijo": "GRU"
+}

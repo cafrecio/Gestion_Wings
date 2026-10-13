@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ACC-014"
+  ],
+  "codigo": "DU-02",
+  "contexto": "Las páginas de acceso restringido, no encontrado, demasiados intentos y error interno ya están en castellano. Este caso puntual muestra la página técnica en inglés.",
+  "modulo": "Acceso y seguridad",
+  "opciones": [
+    "Agregar la página en castellano",
+    "Dejarlo: no es un camino de uso normal"
+  ],
+  "orden": 1,
+  "pregunta": "Cuando alguien abre a mano la dirección de una acción (por ejemplo la de cerrar caja), ¿hace falta una página en castellano?",
+  "recomendacion": "Agregarla: es un cambio chico y evita una pantalla en inglés.",
+  "respondida_en": "2026-10-13T10:46:01.339Z",
+  "respuesta": "Agregar la página en castellano"
+}

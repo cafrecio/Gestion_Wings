@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "USU-012"
+  ],
+  "codigo": "DU-47",
+  "contexto": "Hoy solo el dueño cambia claves, desde Usuarios. No hay «olvidé mi clave». Si el único dueño la olvida, no hay recuperación desde el sistema.",
+  "modulo": "Usuarios",
+  "opciones": [
+    "Agregar «cambiar mi clave» para todos",
+    "Además, recuperación por mail",
+    "Dejarlo como está"
+  ],
+  "orden": 45,
+  "pregunta": "¿Cada usuario tiene que poder cambiar su propia clave? ¿Y recuperar una clave olvidada?",
+  "recomendacion": "Agregar «cambiar mi clave»; la recuperación por mail como mejora futura.",
+  "respondida_en": "2026-10-13T11:31:13.810Z",
+  "respuesta": "Dejarlo como está\nPonerlo como MF"
+}

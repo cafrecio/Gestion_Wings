@@ -1,0 +1,246 @@
+{
+  "casos": [
+    {
+      "accion": "Abre el recibo desde la confirmación del cobro, desde la ficha del alumno y desde Movimientos.",
+      "codigo": "REC-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Contenido",
+          "l": "a",
+          "texto": "Número de recibo, fecha de pago, alumno, deporte y grupo, mes pagado, importe, medio de pago y quién cobró.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Importes",
+          "l": "b",
+          "texto": "Con centavos cuando los hay, igual que en pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mismo recibo",
+          "l": "c",
+          "texto": "Los tres caminos abren el mismo recibo, con el mismo número.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estable",
+          "l": "d",
+          "texto": "El recibo emitido no cambia si después cambian el nombre del alumno, el plan o el precio.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de recibos PDF V2; ReciboService (código leído); T30.",
+      "modulo": "Recibos",
+      "pantalla": "recibo-cuota",
+      "requiere": "Un cobro de una sola cuota en efectivo, hecho por una operativa.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recibo de un cobro de cuota"
+    },
+    {
+      "accion": "Abre cada recibo.",
+      "codigo": "REC-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Inscripción",
+          "l": "a",
+          "texto": "Desglosa inscripción y cuota, cada una con su importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Varios meses",
+          "l": "b",
+          "texto": "Detalla cada mes con su importe y el total.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Parcial",
+          "l": "c",
+          "texto": "Muestra lo cobrado y no dice que la cuota quedó saldada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Adelantado",
+          "l": "d",
+          "texto": "Dice el mes futuro que se pagó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total",
+          "l": "e",
+          "texto": "El total de cada recibo es igual al movimiento de caja de ese cobro.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de recibos PDF V2; ReciboService (código leído); CJ-41; D01-3 (quedó sin comprobar el contenido).",
+      "modulo": "Recibos",
+      "pantalla": "recibo-cuota",
+      "requiere": "Un cobro de inscripción más cuota; uno de dos meses juntos; uno parcial; uno adelantado.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recibo con inscripción, varios meses o pago parcial"
+    },
+    {
+      "accion": "Abre otra vez los dos recibos.",
+      "codigo": "REC-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sello",
+          "l": "a",
+          "texto": "Salen con el sello «RECIBO ANULADO».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contenido",
+          "l": "b",
+          "texto": "Conservan meses, importes y el motivo de la anulación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No queda el viejo",
+          "l": "c",
+          "texto": "No se puede obtener la versión sin sello del recibo ya anulado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de recibos PDF V2; ReciboService (código leído).",
+      "modulo": "Recibos",
+      "pantalla": "recibo-cuota",
+      "requiere": "Un cobro cancelado por la operativa y un cobro del dueño anulado. El recibo de cada uno ya se había abierto antes.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recibo de un cobro cancelado o anulado"
+    },
+    {
+      "accion": "La operativa abre los dos recibos. La profesora escribe a mano la dirección de un recibo. Alguien sin ingresar abre la dirección. Se prueba un número de recibo inexistente.",
+      "codigo": "REC-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Operativa",
+          "l": "a",
+          "texto": "Abre cualquiera: no se limita a sus cajas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "b",
+          "texto": "Acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin ingresar",
+          "l": "c",
+          "texto": "Va al ingreso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inexistente",
+          "l": "d",
+          "texto": "Página de no encontrado, sin error interno.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; Contrato de recibos PDF V2; ReciboController (código leído).",
+      "modulo": "Recibos",
+      "pantalla": "recibo-cuota",
+      "requiere": "Un cobro hecho por otra operativa, uno del dueño, y una profesora ingresada.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Quién puede abrir un recibo de cuota"
+    },
+    {
+      "accion": "Abre el recibo de cada una.",
+      "codigo": "REC-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pagadas",
+          "l": "a",
+          "texto": "Muestran profesor, mes, detalle, total pagado, fecha y medio. La ajustada muestra el monto final pagado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin pagar",
+          "l": "b",
+          "texto": "No tiene recibo: se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "c",
+          "texto": "Operativa y profesora reciben acceso restringido.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de recibos PDF V2; ReciboController::liquidacion (código leído).",
+      "modulo": "Recibos",
+      "pantalla": "recibo-liquidacion",
+      "requiere": "Una liquidación por hora pagada, una por comisión pagada con ajuste, una cerrada sin pagar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recibo de una liquidación pagada"
+    },
+    {
+      "accion": "Abre el recibo diez veces, desde dos equipos a la vez.",
+      "codigo": "REC-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Siempre el mismo recibo, con el mismo número.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "b",
+          "texto": "No se crea ningún pago ni movimiento por abrir el recibo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReciboService (se genera una vez y se guarda) (código leído).",
+      "modulo": "Recibos",
+      "pantalla": "recibo-cuota",
+      "requiere": "Un cobro con recibo.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Abrir muchas veces el mismo recibo"
+    }
+  ],
+  "modulo": "Recibos",
+  "orden": 15,
+  "prefijo": "REC"
+}

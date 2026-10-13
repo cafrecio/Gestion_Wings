@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "LIQ-005"
+  ],
+  "codigo": "DU-37",
+  "contexto": "Hoy sí. Cerrada y pagada, las clases del resto del mes ya no se pueden liquidar porque no se admite una segunda liquidación del mismo mes.",
+  "modulo": "Liquidaciones",
+  "opciones": [
+    "Avisar y pedir confirmación",
+    "Impedir cerrar antes de que termine el mes",
+    "Dejarlo como está"
+  ],
+  "orden": 35,
+  "pregunta": "¿Se puede liquidar y cerrar un mes que todavía no terminó?",
+  "recomendacion": "Impedir cerrar antes de fin de mes (el último día ya tiene su opción).",
+  "respondida_en": "2026-10-13T11:25:38.076Z",
+  "respuesta": "Impedir cerrar antes de que termine el mes"
+}

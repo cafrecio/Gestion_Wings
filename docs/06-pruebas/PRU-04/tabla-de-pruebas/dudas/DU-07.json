@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "MOV-007",
+    "MOV-008"
+  ],
+  "codigo": "DU-07",
+  "contexto": "Hoy la edición pisa el valor y la eliminación borra el movimiento sin dejar nada, ni para el dueño. En Cashflow, por tu decisión del 12/10, toda corrección deja historia.",
+  "modulo": "Movimientos de caja",
+  "opciones": [
+    "Dejar rastro igual que en Cashflow",
+    "Dejarlo como está mientras la caja no esté validada"
+  ],
+  "orden": 5,
+  "pregunta": "Cuando la operativa edita o elimina un movimiento manual de su caja abierta o rechazada, ¿tiene que quedar rastro?",
+  "recomendacion": "Dejar rastro (mejora futura si no querés ampliar alcance ahora): hoy un gasto puede desaparecer antes de que el dueño lo vea.",
+  "respondida_en": "2026-10-13T10:46:52.281Z",
+  "respuesta": "Dejar rastro igual que en Cashflow"
+}

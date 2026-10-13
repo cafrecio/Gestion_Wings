@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CBZ-020"
+  ],
+  "codigo": "DU-52",
+  "contexto": "Está programado solo para el día 1 a las 6. Si el servidor está caído en ese momento no se genera nada, nada lo avisa, y no hay un botón para lanzarlo: lo tiene que correr un técnico.",
+  "modulo": "Cobranza",
+  "opciones": [
+    "Que se reintente solo los días siguientes y avise si no corrió",
+    "Agregar un botón para el dueño",
+    "Dejarlo como está"
+  ],
+  "orden": 50,
+  "pregunta": "Si el proceso que genera las cuotas el día 1 no corre, ¿cómo se entera el dueño y cómo se recupera?",
+  "recomendacion": "Reintento automático más aviso: es el proceso del que depende toda la cobranza del mes.",
+  "respondida_en": "2026-10-13T11:35:18.867Z",
+  "respuesta": "Que se reintente solo los días siguientes y avise si no corrió"
+}

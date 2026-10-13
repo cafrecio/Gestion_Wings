@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ALU-016"
+  ],
+  "codigo": "DU-10",
+  "contexto": "Hoy el sistema lo rechaza siempre, tenga o no pagos, y no hay otro camino.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "El dueño puede corregirlo con motivo",
+    "Nadie puede: se da de baja y se carga de nuevo"
+  ],
+  "orden": 8,
+  "pregunta": "Si el DNI de un alumno se cargó mal y ya tiene la inscripción generada, ¿cómo se corrige?",
+  "recomendacion": "Que el dueño pueda corregirlo con motivo, dejando registro.",
+  "respondida_en": "2026-10-13T10:59:36.707Z",
+  "respuesta": "El dueño puede corregirlo con motivo"
+}

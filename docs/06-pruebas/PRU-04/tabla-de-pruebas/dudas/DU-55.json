@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CLA-023"
+  ],
+  "codigo": "DU-55",
+  "contexto": "Hoy la profesora es opcional. Una clase dictada sin profesora asignada no la cobra nadie, sus presentes no generan comisión, y nada lo avisa.",
+  "modulo": "Clases",
+  "opciones": [
+    "Exigir al menos una profesora",
+    "Permitirlo y avisar al dueño las clases dictadas sin profesora",
+    "Dejarlo como está"
+  ],
+  "orden": 53,
+  "pregunta": "¿Se puede crear una clase sin profesora?",
+  "recomendacion": "Permitirlo para programar por adelantado, pero avisar cuando una clase ya pasó y sigue sin profesora.",
+  "respondida_en": "2026-10-13T11:36:05.814Z",
+  "respuesta": "Exigir al menos una profesora"
+}

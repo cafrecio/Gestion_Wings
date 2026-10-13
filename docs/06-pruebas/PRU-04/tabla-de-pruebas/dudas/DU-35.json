@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ASI-011",
+    "CLA-024"
+  ],
+  "codigo": "DU-35",
+  "contexto": "Hoy sí. Esos presentes hacen que la clase cuente como dictada y valen para comisión y para la cuota del mes siguiente.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "No: solo desde el día de la clase",
+    "Sí"
+  ],
+  "orden": 33,
+  "pregunta": "¿Se puede tomar la asistencia de una clase que todavía no ocurrió?",
+  "recomendacion": "No.",
+  "respondida_en": "2026-10-13T11:22:26.079Z",
+  "respuesta": "No: solo desde el día de la clase"
+}

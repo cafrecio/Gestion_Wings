@@ -1,0 +1,119 @@
+{
+  "casos": [
+    {
+      "accion": "Le cobra la cuota después del día de mora.",
+      "codigo": "PEN-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Recargo",
+          "l": "a",
+          "texto": "Al importe de la cuota se suma el porcentaje configurado, en un renglón aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "En cero",
+          "l": "b",
+          "texto": "Con el porcentaje en cero el sistema se comporta como hoy.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "El recargo se ve separado de la cuota.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Contrato de punitorios por mora V1 (especificación, sin programar).",
+      "modulo": "Reglas definidas y todavía no programadas",
+      "pantalla": "cobranza",
+      "requiere": "Configuración con día de inicio de la mora y porcentaje mayor que cero. Alumno con la cuota del mes impaga pasado ese día.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Recargo por mora"
+    },
+    {
+      "accion": "Crea una clase particular, se toma asistencia, se cobra y se paga a la profesora.",
+      "codigo": "PEN-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Clase",
+          "l": "a",
+          "texto": "Clase por clase, sin serie; un solo profesor; con precio propio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "b",
+          "texto": "Genera su deuda y su cobro aparte de la cuota mensual, con recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pago",
+          "l": "c",
+          "texto": "El profesor cobra por duración o por comisión diferenciada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelación",
+          "l": "d",
+          "texto": "Cancelar una particular exige decidir qué pasa con lo cobrado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Contrato de clases particulares V1 (definición documentada; implementación pendiente, POS-06).",
+      "modulo": "Reglas definidas y todavía no programadas",
+      "pantalla": "clases-alta",
+      "requiere": "Una profesora y una o más alumnas activas del mismo deporte.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Clases particulares"
+    },
+    {
+      "accion": "Se le permite entrar dejando una justificación.",
+      "codigo": "PEN-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Excepción",
+          "l": "a",
+          "texto": "Un único mecanismo para justificar: quién, cuándo y por qué.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Lista",
+          "l": "b",
+          "texto": "Quien toma asistencia ve si puede entrar o no, sin ver importes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Contrato de estados §5 a §8. No está programado.",
+      "modulo": "Reglas definidas y todavía no programadas",
+      "pantalla": "clases-ficha",
+      "requiere": "Alumno con deuda que no debería entrar a clase.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Justificar una excepción de acceso a clase"
+    }
+  ],
+  "modulo": "Reglas definidas y todavía no programadas",
+  "orden": 19,
+  "prefijo": "PEN"
+}

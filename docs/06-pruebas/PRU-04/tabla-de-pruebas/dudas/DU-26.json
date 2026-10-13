@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CBZ-017"
+  ],
+  "codigo": "DU-26",
+  "contexto": "Sin esa regla iría a Revisión por no tener presentes.",
+  "modulo": "Cobranza",
+  "opciones": [
+    "Sí",
+    "No: todos necesitan un presente"
+  ],
+  "orden": 24,
+  "pregunta": "Al alumno que ingresó y pagó en los últimos 15 días se le genera la cuota del mes siguiente aunque no haya venido a ninguna clase. ¿Confirmás la regla?",
+  "recomendacion": "Confirmar.",
+  "respondida_en": "2026-10-13T11:17:15.456Z",
+  "respuesta": "Sí"
+}

@@ -1,0 +1,1774 @@
+{
+  "casos": [
+    {
+      "accion": "Abre Cobrar sin buscar. Después busca por apellido a uno que no debe nada, por DNI parcial, y a un inactivo.",
+      "codigo": "COB-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin buscar",
+          "l": "a",
+          "texto": "Lista solo alumnos activos con saldo mayor que cero. El número anunciado es igual a la cantidad listada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "b",
+          "texto": "El saldo de cada renglón es cuotas impagas más inscripción pendiente, igual al de su ficha y al de Cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ayuda",
+          "l": "c",
+          "texto": "Muestra la ayuda «Para cobrarle a otro alumno, buscalo por nombre o DNI».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Buscando",
+          "l": "d",
+          "texto": "Encuentra a cualquier alumno activo aunque no deba nada, con punto verde y saldo en cero.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "e",
+          "texto": "No aparece ni buscándolo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "f",
+          "texto": "La cantidad con deuda coincide con Morosos más Deudores de Cobranza. Hoy difiere por los que deben solo la inscripción.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T29 (verificado por Gemini 12/10); CajaWebController::cobrarCuotaSelect (código propio); CobranzaEstadoService::saldoDeAlumnos; T31.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-buscador",
+      "requiere": "Alumnos activos con deuda, sin deuda e inactivos con deuda. Caja abierta.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "normal",
+      "titulo": "El buscador de Cobrar muestra a quién hay que cobrarle"
+    },
+    {
+      "accion": "Entra a Cobrar desde el menú, desde la ficha de un alumno y desde Cobranza.",
+      "codigo": "COB-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "En los tres caminos la lleva a Apertura con el aviso de que debe abrir la caja. La caja no se abre sola.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se registra ningún cobro.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController::cobrar (código leído); D02-5.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-buscador",
+      "requiere": "Operativa sin turno abierto.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Cobrar sin caja abierta"
+    },
+    {
+      "accion": "Cobrar → elige al alumno → marca la cuota → efectivo → confirma.",
+      "codigo": "COB-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pantalla",
+          "l": "a",
+          "texto": "Muestra el total pendiente, la cuota del mes marcada y el importe a cobrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "b",
+          "texto": "Confirma el cobro y ofrece el recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "c",
+          "texto": "La cuota figura pagada; el pago aparece primero en los últimos pagos con su recibo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "d",
+          "texto": "El alumno pasa a Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "e",
+          "texto": "Sale del listado de deudores; el total adeudado baja por el importe; el contador de su estado −1 y Al día +1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador de Cobrar",
+          "l": "f",
+          "texto": "Deja de aparecer sin buscar; el número anunciado −1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "g",
+          "texto": "Un movimiento «Cuota Mensual» en efectivo con el nombre del alumno; el efectivo esperado sube por el importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "h",
+          "texto": "Total cobrado hoy sube por el importe y la cantidad +1; alumnos con deuda −1.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio del dueño y Reportes",
+          "l": "i",
+          "texto": "Los ingresos del mes suben por el importe, marcados como pendientes hasta validar; el «por cobrar» baja lo mismo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "j",
+          "texto": "No aparece como confirmado hasta que se valide la caja; figura en la sección de cajas sin validar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial y Movimientos",
+          "l": "k",
+          "texto": "El cobro aparece una vez, a nombre de quien cobró.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "l",
+          "texto": "El pago entra en la base de comisión de octubre del profesor con el que el alumno tuvo presentes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "m",
+          "texto": "No cambia nada de noviembre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService::registrarPago (código leído); Contrato Caja V5; Contrato de liquidaciones §3.2; D01-3.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. Alumno activo que debe solo la cuota del mes, con inscripción ya paga y al menos un presente este mes.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobro de la cuota del mes en efectivo"
+    },
+    {
+      "accion": "Cobra la cuota eligiendo Mercado Pago.",
+      "codigo": "COB-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cobro",
+          "l": "a",
+          "texto": "Se registra con ese medio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "b",
+          "texto": "El movimiento figura con Mercado Pago; el efectivo esperado del cajón no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cierre",
+          "l": "c",
+          "texto": "Al cerrar, Mercado Pago se informa aparte del arqueo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "d",
+          "texto": "Al validar, sube el saldo de Mercado Pago y no el de Efectivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "e",
+          "texto": "El recibo dice el medio usado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Resto",
+          "l": "f",
+          "texto": "Mismos efectos que COB-003 en ficha, Cobranza, buscador, Inicio y Reportes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; PagoCuotaService (código leído); D01-3.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. Alumno con la cuota del mes pendiente.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobro por Mercado Pago o transferencia"
+    },
+    {
+      "accion": "Cobra el total en efectivo. Después repite con otro alumno nuevo entregando solo el importe de la inscripción más la mitad de la cuota.",
+      "codigo": "COB-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Total",
+          "l": "a",
+          "texto": "Cobra inscripción y cuota en un solo cobro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Orden",
+          "l": "b",
+          "texto": "Con plata que no alcanza, se cubre primero la inscripción completa y el resto va a la cuota.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "c",
+          "texto": "Dos movimientos: «Cuota Mensual» y «Inscripción al club», cada uno con su importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha",
+          "l": "d",
+          "texto": "Inscripción paga; cuota paga (o con saldo en el segundo alumno).",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "e",
+          "texto": "Desglosa inscripción y cuota con los importes cobrados.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "Cuotas e inscripción suman en renglones separados.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "g",
+          "texto": "La inscripción no entra en la base de comisión; la cuota sí.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Persona con dos deportes",
+          "l": "h",
+          "texto": "La inscripción deja de figurar pendiente en sus dos fichas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Bloqueos",
+          "l": "i",
+          "texto": "Desde ese cobro ya no se puede cambiar su fecha de ingreso ni su DNI.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ENT-01; PagoCuotaService (código leído); Contrato de liquidaciones §3.2; D01-3.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno recién dado de alta: debe inscripción y la cuota del mes.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Primer cobro de un alumno nuevo: inscripción y cuota"
+    },
+    {
+      "accion": "Marca los dos meses y cobra el total.",
+      "codigo": "COB-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cobro",
+          "l": "a",
+          "texto": "Un solo pago que cubre los dos meses.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "b",
+          "texto": "Las dos cuotas quedan pagadas, con el mismo pago.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "c",
+          "texto": "Pasa de Deudor a Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "Un movimiento por el total, con los dos períodos en la observación.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "e",
+          "texto": "Un recibo que detalla los dos meses.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza y Reportes",
+          "l": "f",
+          "texto": "El «por cobrar» baja por la suma de los dos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno deudor: debe septiembre y octubre.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobro de dos meses adeudados juntos"
+    },
+    {
+      "accion": "Marca solo octubre e intenta cobrar. Primero sin motivo; después confirmando con motivo.",
+      "codigo": "COB-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Avisa que queda una deuda anterior impaga y pide confirmar y escribir el motivo. Sin motivo no cobra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "b",
+          "texto": "Con confirmación y motivo, cobra octubre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "c",
+          "texto": "El alumno sigue Deudor, porque debe agosto.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso al dueño",
+          "l": "d",
+          "texto": "Los dueños reciben el aviso de que se salteó una deuda, con alumno, operativa y motivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha",
+          "l": "e",
+          "texto": "Octubre pagado, agosto pendiente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "f",
+          "texto": "Sigue en el listado con el saldo de agosto.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Verificación de Claude 05/10; PagoCuotaService y CajaWebController::pagar (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno que debe agosto y octubre.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Pagar el mes nuevo dejando impago el viejo"
+    },
+    {
+      "accion": "Cobra $20.000.",
+      "codigo": "COB-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cobro",
+          "l": "a",
+          "texto": "Se acepta. La cuota queda pendiente con saldo $28.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "b",
+          "texto": "El alumno no cambia de estado: sigue debiendo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza y buscador",
+          "l": "c",
+          "texto": "Sigue figurando, ahora con saldo $28.000. El total adeudado baja $20.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha",
+          "l": "d",
+          "texto": "La cuota muestra original, pagado y saldo; el pago figura con su recibo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "e",
+          "texto": "Un movimiento de $20.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Segundo pago",
+          "l": "f",
+          "texto": "Otro día se cobran los $28.000 restantes: la cuota queda pagada con dos pagos y dos recibos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "g",
+          "texto": "Cada pago entra en la base de comisión del mes en que se cobró.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService (código leído); CJ-16.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno con una cuota de $48.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Pago parcial de una cuota"
+    },
+    {
+      "accion": "Cobra $20.000 sin escribir motivo.",
+      "codigo": "COB-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "El sistema pide el motivo del pago parcial antes de cobrar; sin motivo no cobra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "b",
+          "texto": "El motivo queda guardado y se ve en el pago.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 11/10 (CJ-16). Hoy el sistema no lo pide.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno con una cuota de $48.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "T25",
+      "tipo": "mal_uso",
+      "titulo": "El pago parcial tiene que pedir motivo"
+    },
+    {
+      "accion": "Escribe $84.000 para el primero. Prueba Cancelar y Continuar.",
+      "codigo": "COB-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Solo avisa, no impide: advierte que no se pueden incluir otros cargos como si fueran cuota, con Continuar y Cancelar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelar",
+          "l": "b",
+          "texto": "No cobra nada y vuelve al formulario con lo cargado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Continuar",
+          "l": "c",
+          "texto": "Cobra los $84.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con deuda",
+          "l": "d",
+          "texto": "Lo de más se imputa a la deuda más vieja primero.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin deuda",
+          "l": "e",
+          "texto": "Lo de más va a la cuota del mes siguiente, sin saltear meses; si sobra, al otro.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "f",
+          "texto": "Entra el total cobrado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Hoy en pantalla",
+          "l": "g",
+          "texto": "Con un importe entregado mayor al total, el botón Cobrar se apaga sin explicar por qué.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 11/10 (CJ-15); resources/js/cobrar.js (leído el 13/10). Hoy lo rechaza con «el monto supera el saldo pendiente».",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno que debe una cuota de $48.000. Otro que debe dos meses. Otro sin deuda.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "T25",
+      "tipo": "mal_uso",
+      "titulo": "Cobrar de más"
+    },
+    {
+      "accion": "Escribe el importe como: 48000, 48.5, 48.50, 48,50, 48.505, 48.000, cero, negativo y con letras.",
+      "codigo": "COB-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Decimales",
+          "l": "a",
+          "texto": "El punto es decimal, hasta dos decimales. La coma se convierte en punto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tercer decimal",
+          "l": "b",
+          "texto": "Lo corta a dos, pone el campo en rojo y avisa cuatro segundos «No se pueden colocar más de dos decimales»; después deja guardar el valor cortado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formato",
+          "l": "c",
+          "texto": "Al salir del campo muestra el importe con separador de miles.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rechazos",
+          "l": "d",
+          "texto": "Cero, negativo y letras no se aceptan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "e",
+          "texto": "Un pedido directo con tres decimales se rechaza sin guardar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Riesgo",
+          "l": "f",
+          "texto": "Quien escribe 48.000 queriendo decir cuarenta y ocho mil termina con 48.00: hay que mirar que el importe mostrado antes de confirmar sea evidente.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T24 (Codex; verificado por Claude 12/10); decisión de Carlos 11/10 (CJ-14).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Pantalla de cobro.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Importes mal escritos"
+    },
+    {
+      "accion": "Elige cobrar noviembre por adelantado, con un importe pactado de $45.000, y confirma.",
+      "codigo": "COB-012",
+      "duda": "DU-19",
+      "esperado": [
+        {
+          "donde": "Elección",
+          "l": "a",
+          "texto": "El mes futuro se elige aparte; no aparece sumado en el total pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "b",
+          "texto": "Antes de confirmar avisa que es un pago de un mes futuro y pide el importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "c",
+          "texto": "Noviembre queda pago por $45.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda",
+          "l": "d",
+          "texto": "El total adeudado no cambia: noviembre no era deuda.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja y Reportes",
+          "l": "e",
+          "texto": "Entra como ingreso de octubre, el mes en que se cobró.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Generación de noviembre",
+          "l": "f",
+          "texto": "El 1/11 no se le genera otra cuota ni se cambia el importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aumento",
+          "l": "g",
+          "texto": "Si después sube el precio del plan, su noviembre sigue valiendo $45.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "h",
+          "texto": "Entra en la base de comisión de octubre, no de noviembre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "i",
+          "texto": "Sigue Al día.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T18 (decisión de Carlos 10/10); PagoCuotaService (código leído); CJ-17.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno al día con octubre. Plan de $48.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobro adelantado del mes que viene"
+    },
+    {
+      "accion": "Intenta cobrar un mes a más de doce meses; un adelantado con importe cero; y diciembre sin haber pagado noviembre.",
+      "codigo": "COB-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Más de 12 meses",
+          "l": "a",
+          "texto": "No lo permite.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Importe cero",
+          "l": "b",
+          "texto": "No lo permite.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Salteando",
+          "l": "c",
+          "texto": "No se pueden saltear meses: primero noviembre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ninguna cuota futura.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T18; decisión de Carlos 11/10 (no saltear meses). El salto de meses por adelantado no lo vi controlado al leer el código. Comprobado por Claude el 13/10 en la base descartable: acepta cobrar diciembre por adelantado sin que exista noviembre.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno al día.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Adelantado fuera de lo permitido"
+    },
+    {
+      "accion": "Doble clic en Cobrar. Después vuelve atrás con el navegador y reenvía. Después lo intenta desde dos pestañas.",
+      "codigo": "COB-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Un solo pago, un solo movimiento de caja, un solo recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Segundo intento",
+          "l": "b",
+          "texto": "Avisa que la cuota ya está pagada; no cobra otra vez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "El efectivo esperado subió una sola vez.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "El ingreso figura una vez.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService (deuda pagada no admite pagos) (código leído); CJ-19.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno con una cuota pendiente.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Cobrar dos veces lo mismo"
+    },
+    {
+      "accion": "Lo busca en Cobrar. Entra por su ficha y cobra una cuota.",
+      "codigo": "COB-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Buscador",
+          "l": "a",
+          "texto": "Tiene que poder encontrarlo para cobrarle.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pregunta",
+          "l": "b",
+          "texto": "Antes de cobrar pregunta: «El alumno <nombre> estaba inactivo, ¿quiere cambiarlo a activo después de este pago?» con Sí, No y Cancelar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sí",
+          "l": "c",
+          "texto": "Cobra y lo deja activo: vuelve a Cobranza con su deuda restante y a las listas de asistencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No",
+          "l": "d",
+          "texto": "Cobra y sigue inactivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelar",
+          "l": "e",
+          "texto": "No cobra nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Hoy",
+          "l": "f",
+          "texto": "El buscador no lo trae; desde la ficha se le puede cobrar y el sistema lo reactiva sin preguntar ni avisar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 11/10 (CJ-20); PagoCuotaService (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno inactivo que quedó debiendo dos meses.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "T25",
+      "tipo": "mal_uso",
+      "titulo": "Viene a pagar un alumno dado de baja"
+    },
+    {
+      "accion": "El dueño cobra la cuota en efectivo desde la ficha.",
+      "codigo": "COB-016",
+      "duda": "DU-20",
+      "esperado": [
+        {
+          "donde": "Cobro",
+          "l": "a",
+          "texto": "No se le pide ni se le abre caja. El cobro queda hecho.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Aparece al instante como «Cobro del dueño», con el alumno y el importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja operativa",
+          "l": "c",
+          "texto": "El efectivo esperado del turno abierto no cambia; el cobro no figura en esa caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "d",
+          "texto": "Ingreso confirmado desde ya, no pendiente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha",
+          "l": "e",
+          "texto": "El pago figura con Recibo y, para el dueño, con Anular.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "f",
+          "texto": "Aparece una sola vez.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "g",
+          "texto": "La operativa lo ve en la ficha y abre su recibo, pero no puede anularlo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A13; Contrato Caja V5; PagoCuotaService (código leído); CJ-21.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Un turno operativo abierto con cobros. Alumno con cuota pendiente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El dueño cobra una cuota sin caja"
+    },
+    {
+      "accion": "Cancela el cobro. Primero sin motivo, después con motivo.",
+      "codigo": "COB-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Sin motivo no cancela.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelación",
+          "l": "b",
+          "texto": "El cobro queda cancelado, con motivo y usuario.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "c",
+          "texto": "La cuota vuelve a pendiente; el pago figura anulado con el importe tachado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "d",
+          "texto": "El alumno vuelve al estado que tenía.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza y buscador",
+          "l": "e",
+          "texto": "Vuelve a figurar con su deuda; totales como antes del cobro.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "f",
+          "texto": "El movimiento figura cancelado y el efectivo esperado baja por ese importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "g",
+          "texto": "El recibo sale con el sello de anulado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "h",
+          "texto": "El ingreso deja de contarse.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "i",
+          "texto": "La operativa deja de verlo; el dueño lo ve marcado Cancelado y sin sumar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Volver a cobrar",
+          "l": "j",
+          "texto": "Se puede cobrar de nuevo la misma cuota al alumno correcto o al mismo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; PagoCuotaService::cancelar (código leído); T26; CJ-23.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cancelar",
+      "requiere": "Cobro en efectivo hecho en el turno abierto, al alumno equivocado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar un cobro del turno"
+    },
+    {
+      "accion": "Intenta cancelar un cobro de cada una, por botón y forzando la dirección.",
+      "codigo": "COB-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cerrada y validada",
+          "l": "a",
+          "texto": "No se puede: un turno contado o validado no cambia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rechazada",
+          "l": "b",
+          "texto": "Sí se puede, con motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "En cerrada y validada nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; decisión de Carlos 11/10 (CJ-24, CJ-49).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cancelar",
+      "requiere": "Cobros en una caja cerrada, en una validada y en una rechazada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Cancelar un cobro de una caja cerrada o validada"
+    },
+    {
+      "accion": "Lo cancela con motivo.",
+      "codigo": "COB-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cancelación",
+          "l": "a",
+          "texto": "Queda cancelado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "b",
+          "texto": "La cuota de noviembre queda guardada y pendiente por el importe pactado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deuda",
+          "l": "c",
+          "texto": "No cuenta como deuda en ninguna pantalla hasta que empiece noviembre.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "El efectivo esperado baja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "1 de noviembre",
+          "l": "e",
+          "texto": "Ese día pasa a ser deuda por el importe pactado, no por el precio del plan.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 10/10 (CJ-26); CobranzaEstadoService::estaImpaga (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cancelar",
+      "requiere": "Cobro adelantado de noviembre hecho en octubre, en el turno abierto.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar un cobro adelantado"
+    },
+    {
+      "accion": "Lo cancela con motivo.",
+      "codigo": "COB-020",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cancelación",
+          "l": "a",
+          "texto": "Se cancelan los dos movimientos juntos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "b",
+          "texto": "Inscripción y cuota vuelven a pendientes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Bloqueos",
+          "l": "c",
+          "texto": "La fecha de ingreso vuelve a poder corregirse.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "El efectivo esperado baja por el total.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "e",
+          "texto": "Sale anulado, conservando el desglose.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService::cancelar (código leído); ENT-01.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cancelar",
+      "requiere": "Cobro de inscripción más cuota en el turno abierto.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar un cobro que incluía la inscripción"
+    },
+    {
+      "accion": "Desde la ficha, Anular. Primero con un motivo de tres letras, después con motivo válido.",
+      "codigo": "COB-021",
+      "duda": "DU-21",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Exige un motivo de diez letras o más.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Anulación",
+          "l": "b",
+          "texto": "El pago queda anulado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "c",
+          "texto": "La cuota vuelve a pendiente; si incluía inscripción, también.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "d",
+          "texto": "Aparece un asiento en contra, en rojo, sin borrar el original. Entre los dos suman cero.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Fecha",
+          "l": "e",
+          "texto": "El asiento en contra lleva la fecha de hoy, aunque el cobro sea de un mes anterior.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "El mes del cobro original conserva el ingreso y el mes en curso muestra la resta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "g",
+          "texto": "Sale con el sello de anulado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "h",
+          "texto": "El alumno vuelve a deber.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "i",
+          "texto": "No puede anular: no tiene el botón y forzándolo recibe acceso restringido.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A13; PagoCuotaService::anularPagoAdmin (código leído); CJ-25.",
+      "modulo": "Cobrar",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Cobro del dueño sin caja, de un mes anterior y otro de hoy.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El dueño anula un cobro propio hecho sin caja"
+    },
+    {
+      "accion": "Cobra poniendo como fecha de pago un día del mes pasado. También intenta una fecha futura.",
+      "codigo": "COB-022",
+      "duda": "DU-22",
+      "esperado": [
+        {
+          "donde": "Mes anterior",
+          "l": "a",
+          "texto": "Pide confirmar que la fecha es de un mes cerrado antes de cobrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Futura",
+          "l": "b",
+          "texto": "No se acepta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "El cobro entra en la caja de hoy y suma en el efectivo esperado de hoy; el movimiento lleva la fecha de pago cargada.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso al dueño",
+          "l": "d",
+          "texto": "El dueño recibe el aviso de fecha vieja, con quién, cuánto y qué fecha.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "e",
+          "texto": "El pago cuenta para la comisión del mes de la fecha de pago cargada: si esa liquidación ya estaba cerrada, no la cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "El ingreso figura en el mes de la fecha cargada: el reporte de ese mes ya cerrado cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V4 §3.6; CajaWebController::pagar (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. Un alumno pagó por transferencia el mes pasado y no se cargó.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cobro con fecha de pago de un mes anterior"
+    },
+    {
+      "accion": "Cobra en una pestaña; en la otra, con la pantalla vieja, cobra otra vez. Después fuerza el cobro de la cuota condonada.",
+      "codigo": "COB-023",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Segunda pestaña",
+          "l": "a",
+          "texto": "Se rechaza: la cuota ya está pagada. No hay segundo pago.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Condonada",
+          "l": "b",
+          "texto": "Se rechaza sin crear pago ni movimiento.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "Un solo movimiento.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService (código leído); Contrato de condonación.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Dos pestañas con la misma pantalla de cobro. Una cuota condonada.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Cobrar una cuota que ya no se puede cobrar"
+    },
+    {
+      "accion": "En la pantalla de cobro elige el plan nuevo de cada uno y cobra.",
+      "codigo": "COB-024",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "A",
+          "l": "a",
+          "texto": "El plan nuevo rige desde hoy y la cuota del mes pasa al precio nuevo antes de cobrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "B",
+          "l": "b",
+          "texto": "La cuota de este mes se cobra al precio anterior; el plan nuevo rige desde el mes que viene.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha",
+          "l": "c",
+          "texto": "Cada uno muestra su plan vigente y, B, el cambio programado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Meses anteriores",
+          "l": "d",
+          "texto": "Las deudas anteriores no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "e",
+          "texto": "La cuota de noviembre sale al precio del plan nuevo para los dos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §2 (cambio de plan); PagoCuotaService (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "A: sin asistencias este mes, quiere un plan más caro. B: con asistencias este mes, quiere uno más barato.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar el plan en el momento de cobrar"
+    },
+    {
+      "accion": "Le cobra el mismo día, y a otro igual recién el mes siguiente.",
+      "codigo": "COB-025",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Mismo mes",
+          "l": "a",
+          "texto": "Cobra el importe con descuento que anunció el alta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "b",
+          "texto": "La cuota del mes de ingreso sigue valiendo el importe con descuento: el porcentaje quedó congelado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Meses siguientes",
+          "l": "c",
+          "texto": "Las cuotas de los meses siguientes van al 100%.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio de reglas",
+          "l": "d",
+          "texto": "Si el dueño cambia las reglas después del alta, esa cuota no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §2 (enmienda 23/09); PagoCuotaService::calcularReglaPrimerPago (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Reglas de primer pago cargadas. Alumno dado de alta el día 20, con cuota al porcentaje de ese día.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Descuento del mes de ingreso"
+    },
+    {
+      "accion": "Envía el cobro con: una cuota de otro alumno; importe negativo; importe mayor al saldo; un medio de pago inactivo o inexistente; un alumno inexistente.",
+      "codigo": "COB-026",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Todos se rechazan con un aviso, sin error interno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se crea pago ni movimiento; ninguna cuota cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService y validaciones de CajaWebController::pagar (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. Herramienta para enviar el formulario adulterado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Forzar un cobro adulterado"
+    },
+    {
+      "accion": "Confirman los dos casi al mismo tiempo.",
+      "codigo": "COB-027",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Gana uno solo; el otro recibe que la cuota ya está pagada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plata",
+          "l": "b",
+          "texto": "Hay un solo ingreso: o en la caja de la operativa o directo en Cashflow, nunca en los dos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PagoCuotaService con bloqueo de la deuda (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. La misma cuota en pantalla de la operativa y del dueño.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "La operativa y el dueño cobran la misma cuota a la vez"
+    },
+    {
+      "accion": "Entra a cobrarle a cada uno.",
+      "codigo": "COB-028",
+      "duda": "DU-12",
+      "esperado": [
+        {
+          "donde": "Oferta",
+          "l": "a",
+          "texto": "Ofrece la cuota del mes al precio de su plan aunque todavía no exista.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "b",
+          "texto": "Al cobrar se crea y queda pagada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Revisión",
+          "l": "c",
+          "texto": "El que estaba en Revisión sale de la cola: pagar confirma que sigue.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "d",
+          "texto": "Ninguno figuraba como deudor antes; después siguen Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin cobrar",
+          "l": "e",
+          "texto": "Si entra y no cobra, no queda ninguna cuota creada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::cobrar y PagoCuotaService (código leído); Contrato de estados.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno activo sin cuota del mes: uno dado de alta con «No generar», uno reactivado, y uno que quedó en Revisión.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El mes en curso todavía no tiene cuota generada"
+    },
+    {
+      "accion": "Intenta cobrarle septiembre.",
+      "codigo": "COB-029",
+      "duda": "DU-23",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "No lo ofrece; forzándolo responde que la deuda debe crearla un administrador.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Salida",
+          "l": "b",
+          "texto": "El dueño no tiene una pantalla para crear esa cuota.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "PagoCuotaService (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno activo desde agosto al que nunca se le generó septiembre.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cobrar un mes pasado que nunca se generó"
+    },
+    {
+      "accion": "Cobra a los quince uno tras otro: efectivo, Mercado Pago y transferencia, algunos con inscripción y alguno parcial.",
+      "codigo": "COB-030",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cobros",
+          "l": "a",
+          "texto": "Los quince quedan registrados, cada uno con su recibo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "b",
+          "texto": "La suma de los movimientos por medio da el total de cada medio; el efectivo esperado = inicial + efectivo cobrado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "c",
+          "texto": "El total adeudado baja exactamente la suma cobrada de cuotas e inscripciones.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador",
+          "l": "d",
+          "texto": "El número anunciado baja por los que quedaron sin saldo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "e",
+          "texto": "Total y cantidad cobrados hoy coinciden con la caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "Ingresos pendientes del mes = suma del turno, con cuotas e inscripción separadas.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; PagoCuotaService; ReporteMensualService (código leído).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Caja abierta. Quince alumnos con deuda, medios mezclados.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Muchos cobros seguidos en un turno"
+    },
+    {
+      "accion": "Sin tildar ninguna cuota, escribe $5.000 en «Importe que entrega» y cobra. Con otro alumno igual escribe $3.000. Con un tercero tilda la cuota y escribe $48.000.",
+      "codigo": "COB-031",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Solo inscripción",
+          "l": "a",
+          "texto": "Se puede cobrar la inscripción sola: la cuota queda pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No alcanza",
+          "l": "b",
+          "texto": "Los $3.000 van enteros a la inscripción, que queda con saldo $2.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuota primero",
+          "l": "c",
+          "texto": "No se puede: de los $48.000, $5.000 cubren la inscripción y $43.000 la cuota, que queda con saldo $5.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reparto",
+          "l": "d",
+          "texto": "La pantalla muestra antes de cobrar cuánto va a inscripción y cuánto a cuotas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "e",
+          "texto": "Dos movimientos cuando hay de los dos conceptos; uno solo si fue solo inscripción.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "f",
+          "texto": "Quien pagó solo la inscripción sigue debiendo la cuota: En plazo, Moroso o Deudor.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "g",
+          "texto": "Detalla lo cobrado de cada concepto.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "resources/js/cobrar.js (leído entero el 13/10); PagoCuotaService; ENT-01.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno nuevo que debe inscripción de $5.000 y cuota de $48.000.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobrar solo la inscripción, o plata que no la alcanza"
+    },
+    {
+      "accion": "Escribe $20.000 y hace doble clic rápido en Cobrar. Repite con una conexión lenta, tocando otra vez mientras espera.",
+      "codigo": "COB-032",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda un solo pago de $20.000 y la cuota con saldo $28.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "b",
+          "texto": "Un solo movimiento de $20.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recibo",
+          "l": "c",
+          "texto": "Un solo recibo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "resources/js/cobrar.js (leído el 13/10): el botón se vuelve a habilitar al terminar el envío, antes de cambiar de pantalla, y el cobro no lleva clave de repetición. Un segundo pago de $20.000 todavía cabe en el saldo: es probable que se dupliquen. Con pago total no pasa, porque la cuota ya figura pagada. Comprobado por Claude el 13/10 en la base descartable: dos envíos iguales de $10.000 crean dos pagos y dejan $20.000 pagados.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno con una cuota de $48.000.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Doble clic en un pago parcial"
+    },
+    {
+      "accion": "Provoca cada aviso: cobro adelantado, fecha de pago de un mes anterior, deuda anterior sin pagar y un error (importe mayor al saldo enviado a mano). En cada confirmación prueba aceptar y cancelar.",
+      "codigo": "COB-033",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Adelantado y fecha vieja",
+          "l": "a",
+          "texto": "Preguntan con una ventana del navegador. Cancelar no cobra nada y deja la pantalla como estaba.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda anterior",
+          "l": "b",
+          "texto": "Pregunta con una ventana propia del sistema que pide el motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Errores",
+          "l": "c",
+          "texto": "Se muestran en una ventana del navegador con el texto en castellano.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin conexión",
+          "l": "d",
+          "texto": "Si se corta la conexión avisa «No se pudo registrar el cobro» y no queda nada a medias.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aplicación instalada",
+          "l": "e",
+          "texto": "Las ventanas del navegador también aparecen en la aplicación instalada en el teléfono.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Bloqueo",
+          "l": "f",
+          "texto": "Si el navegador tiene bloqueadas las ventanas repetidas, el cobro adelantado no se puede confirmar y no hay explicación.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "resources/js/cobrar.js (leído el 13/10): usa confirmaciones y alertas del navegador.",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Pantalla de cobro en computadora, en teléfono y en la aplicación instalada.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Avisos y confirmaciones dentro del cobro"
+    },
+    {
+      "accion": "Entra a la pantalla y, sin cobrar, tilda y destilda cuotas, cambia importes, cambia el plan, elige el medio y escribe un importe entregado mayor al total.",
+      "codigo": "COB-034",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Total pendiente",
+          "l": "a",
+          "texto": "Suma cuotas hasta el mes en curso más la inscripción; no suma meses futuros.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cuotas",
+          "l": "b",
+          "texto": "El importe de cada mes se puede escribir solo si está tildado y nunca supera su saldo. La cuota con pago parcial muestra original y pagado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Botón",
+          "l": "c",
+          "texto": "Cobrar está apagado hasta que haya algo para cobrar y un medio de pago elegido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total a cobrar",
+          "l": "d",
+          "texto": "Se actualiza con cada cambio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plan",
+          "l": "e",
+          "texto": "Al elegir otro plan cambia solo el importe del mes en curso; los meses anteriores no.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "De más",
+          "l": "f",
+          "texto": "Con un importe entregado mayor al total, el botón se apaga sin explicar por qué.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha",
+          "l": "g",
+          "texto": "No deja elegir una fecha de pago futura.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin cobrar",
+          "l": "h",
+          "texto": "Salir sin cobrar no cambia el plan ni crea nada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "caja/cobrar (vista) y resources/js/cobrar.js (leídos el 13/10).",
+      "modulo": "Cobrar",
+      "pantalla": "caja-cobrar",
+      "requiere": "Alumno con dos cuotas pendientes, una con pago parcial, y más de un plan en su grupo.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cómo se comporta la pantalla de cobro"
+    }
+  ],
+  "modulo": "Cobrar",
+  "orden": 8,
+  "prefijo": "COB"
+}

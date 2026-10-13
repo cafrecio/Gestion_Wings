@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "MOV-006"
+  ],
+  "codigo": "DU-24",
+  "contexto": "Sus movimientos van por Cashflow.",
+  "modulo": "Movimientos de caja",
+  "opciones": [
+    "Llevarlo directo a Cashflow",
+    "Mostrarle un aviso que diga que use Cashflow"
+  ],
+  "orden": 22,
+  "pregunta": "El dueño que entra a «Nuevo movimiento de caja» recibe un mensaje que le pide abrir la caja, cosa que él no hace. ¿Qué tiene que ver?",
+  "recomendacion": "Llevarlo directo a Cashflow.",
+  "respondida_en": "2026-10-13T11:16:52.390Z",
+  "respuesta": "Llevarlo directo a Cashflow"
+}

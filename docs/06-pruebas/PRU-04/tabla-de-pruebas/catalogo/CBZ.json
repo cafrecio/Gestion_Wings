@@ -1,0 +1,944 @@
+{
+  "casos": [
+    {
+      "accion": "Abre Cobranza. Filtra por cada estado, por «todos», por deporte y por grupo. Compara con Inicio, Reportes y tres fichas.",
+      "codigo": "CBZ-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Por defecto",
+          "l": "a",
+          "texto": "Lista Deudores y Morosos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contadores",
+          "l": "b",
+          "texto": "Al día + En plazo + Morosos + Deudores = total de alumnos activos, igual a los que no figuran Inactivo en Alumnos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Filtros",
+          "l": "c",
+          "texto": "Cada filtro trae solo lo que corresponde y los totales acompañan al filtro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Renglón",
+          "l": "d",
+          "texto": "Cada alumno muestra su estado y su saldo, iguales a los de su ficha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda total",
+          "l": "e",
+          "texto": "El total adeudado es igual al «por cobrar» de Inicio del dueño y de Reportes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inactivos",
+          "l": "f",
+          "texto": "Los inactivos no figuran ni suman, aunque deban.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Meses futuros",
+          "l": "g",
+          "texto": "Una cuota de un mes que no empezó no suma.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa y dueño",
+          "l": "h",
+          "texto": "Los dos ven la misma lista y los mismos números.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CobranzaEstadoService (código leído); T19; decisión de Carlos 10/10; CO-04.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Alumnos en los cuatro estados, en varios deportes, y algunos inactivos con deuda.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobranza: listado, filtros y totales"
+    },
+    {
+      "accion": "Abre Cobranza los dos días sin que nadie haga nada entre medio.",
+      "codigo": "CBZ-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Día 10",
+          "l": "a",
+          "texto": "Figuran En plazo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Día 11",
+          "l": "b",
+          "texto": "Pasan solos a Moroso. En plazo queda en cero, salvo altas nuevas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda",
+          "l": "c",
+          "texto": "El total adeudado no cambia por el cambio de estado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Fichas y listado",
+          "l": "d",
+          "texto": "La ficha y el listado de Alumnos muestran el mismo estado nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador",
+          "l": "e",
+          "texto": "El número del buscador de Cobrar no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; CobranzaEstadoService (código leído); D02-2.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Días de gracia en 10. Alumnos que deben solo el mes en curso. Mirar el día 10 y el día 11.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Vence el plazo: de En plazo a Moroso"
+    },
+    {
+      "accion": "Abre Cobranza al empezar noviembre.",
+      "codigo": "CBZ-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Los que debían octubre pasan solos a Deudor.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "b",
+          "texto": "La cuota de noviembre recién generada los deja además con el mes nuevo pendiente; siguen Deudores.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total",
+          "l": "c",
+          "texto": "El total adeudado sube por las cuotas de noviembre generadas, no por el cambio de estado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de octubre",
+          "l": "d",
+          "texto": "Octubre conserva su «por cobrar» de fin de mes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; CobranzaEstadoService (código leído); CO-05.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Alumnos morosos por octubre al 31/10. Mirar el 1 y el 2 de noviembre.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Cambia el mes: de Moroso a Deudor"
+    },
+    {
+      "accion": "Mira su estado en Cobranza, ficha y listado.",
+      "codigo": "CBZ-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "Sigue Deudor.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo",
+          "l": "b",
+          "texto": "Su saldo es solo septiembre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contadores",
+          "l": "c",
+          "texto": "Los contadores no cambian; el total adeudado baja por octubre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; CobranzaEstadoService (código leído); CO-04.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Alumno que debe septiembre y octubre; paga octubre dejando septiembre, con motivo.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Paga el mes nuevo y sigue debiendo el viejo"
+    },
+    {
+      "accion": "Mira su estado en Cobranza, ficha, listado y buscador de Cobrar.",
+      "codigo": "CBZ-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estados",
+          "l": "a",
+          "texto": "El primero En plazo, el segundo Moroso, el tercero Deudor. Ninguno Al día.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "b",
+          "texto": "La cantidad de Morosos más Deudores de Cobranza es igual al número que anuncia el buscador de Cobrar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Origen",
+          "l": "c",
+          "texto": "Fuera de la primera carga esta situación no puede existir: la inscripción se cobra primero.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 12/10; CO-07. Hoy figuran Al día: Cobranza dice 35 y el buscador 38.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Tres alumnos que deben solo la inscripción, venidos de la primera carga: uno que ingresó este mes dentro de la gracia, uno que ingresó este mes y ya pasó la gracia, y uno que ingresó hace meses.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "normal",
+      "titulo": "El que debe solo la inscripción también es moroso o deudor"
+    },
+    {
+      "accion": "La busca en Cobranza y abre cada ficha.",
+      "codigo": "CBZ-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Renglones",
+          "l": "a",
+          "texto": "Figura dos veces, una por deporte, cada una con su saldo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ayuda",
+          "l": "b",
+          "texto": "Cada renglón indica que también debe en el otro deporte y cuánto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total",
+          "l": "c",
+          "texto": "El total adeudado suma las dos cuotas y una sola inscripción.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Contadores",
+          "l": "d",
+          "texto": "Cuenta como dos alumnos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A55; CobranzaEstadoService (código leído).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Persona con dos fichas (dos deportes) y deuda en las dos.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "La misma persona debe en dos deportes"
+    },
+    {
+      "accion": "El dueño toca Condonar en esa cuota, con un motivo válido.",
+      "codigo": "CBZ-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Pide un motivo de 10 a 500 letras.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Condonación",
+          "l": "b",
+          "texto": "Se perdonan los $50.000 restantes; la cuota queda Condonada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deuda",
+          "l": "c",
+          "texto": "Deja de ser deuda: el total adeudado baja $50.000 en Cobranza, Inicio y Reportes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "d",
+          "texto": "Si no debe otra cosa, el alumno pasa a Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Pago anterior",
+          "l": "e",
+          "texto": "El pago de $10.000, su recibo y su movimiento no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Plata",
+          "l": "f",
+          "texto": "No se crea ningún ingreso ni gasto en Caja ni en Cashflow.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha",
+          "l": "g",
+          "texto": "La cuota figura condonada con motivo, fecha y quién.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "h",
+          "texto": "La base de comisión del profesor conserva solo los $10.000 cobrados.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de condonación; AlumnoWebController::condonar (código leído); CO-01.",
+      "modulo": "Cobranza",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Cuota original $60.000 con un pago parcial de $10.000, de una caja validada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Condonar el saldo de una cuota"
+    },
+    {
+      "accion": "Busca el botón en la ficha y después envía la condonación a mano.",
+      "codigo": "CBZ-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Botón",
+          "l": "a",
+          "texto": "No lo tiene.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "Acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "La cuota sigue pendiente.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de condonación; Permisos y roles; CO-02.",
+      "modulo": "Cobranza",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Alumno con una cuota pendiente.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Una operativa intenta condonar"
+    },
+    {
+      "accion": "Condona la pendiente con un motivo de tres letras. Fuerza condonar la pagada y la ya condonada. Después intenta cobrar la condonada.",
+      "codigo": "CBZ-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo corto",
+          "l": "a",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pagada o ya condonada",
+          "l": "b",
+          "texto": "Se rechazan: solo se condona lo pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobrar condonada",
+          "l": "c",
+          "texto": "Se rechaza sin crear pago ni movimiento.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de condonación; AlumnoWebController::condonar (código leído); CO-03.",
+      "modulo": "Cobranza",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Una cuota pendiente, una pagada, una ya condonada y una de un mes que todavía no empezó.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Condonaciones que no corresponden"
+    },
+    {
+      "accion": "El dueño busca cómo condonar la inscripción.",
+      "codigo": "CBZ-010",
+      "duda": "DU-25",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "La ficha ofrece Condonar solo en las cuotas; la inscripción no se puede perdonar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Consecuencia",
+          "l": "b",
+          "texto": "Con la regla nueva ese alumno queda moroso o deudor hasta que pague.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "alumnos/show (vista leída); AlumnoWebController::condonar actúa solo sobre cuotas.",
+      "modulo": "Cobranza",
+      "pantalla": "alumnos-ficha",
+      "requiere": "Alumno que debe solo la inscripción.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Perdonar la inscripción"
+    },
+    {
+      "accion": "Empieza noviembre. El dueño mira Cobranza y varias fichas.",
+      "codigo": "CBZ-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cuotas",
+          "l": "a",
+          "texto": "Cada alumno activo con al menos un presente en octubre tiene su cuota de noviembre: una sola.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Precio",
+          "l": "b",
+          "texto": "Las cuotas nuevas salen con el precio vigente del plan vigente de cada alumno. Las de octubre no cambian.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Adelantado",
+          "l": "c",
+          "texto": "El que pagó noviembre por adelantado no recibe otra cuota ni cambia de importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Adelantado cancelado",
+          "l": "d",
+          "texto": "Conserva su cuota de noviembre por el importe pactado; no se le genera otra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivos",
+          "l": "e",
+          "texto": "No reciben cuota.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estados",
+          "l": "f",
+          "texto": "Todos los que recibieron cuota quedan En plazo, o siguen Deudores si debían de antes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Total adeudado",
+          "l": "g",
+          "texto": "Sube exactamente la suma de las cuotas generadas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "h",
+          "texto": "El «por cobrar» de noviembre refleja lo mismo; el reporte de octubre no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Buscador de Cobrar",
+          "l": "i",
+          "texto": "El número anunciado sube a todos los que ahora deben.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cuota porcentual",
+          "l": "j",
+          "texto": "Ninguna cuota de noviembre sale con el descuento del mes de ingreso.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; GenerarDeudasMensualesCommand (código leído); T18; CO-05; SI-04.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Octubre cerrado con: alumnos con presentes en octubre; uno con noviembre pagado por adelantado; uno con noviembre adelantado y cancelado; un plan con el precio aumentado el 26/10; un alumno que cambió de plan en octubre; inactivos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "El día 1 se generan las cuotas del mes"
+    },
+    {
+      "accion": "La generación vuelve a correr (el proceso automático se repite o se lanza otra vez).",
+      "codigo": "CBZ-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "No se crea ninguna cuota de más: sigue habiendo una por alumno y mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "b",
+          "texto": "El total adeudado no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Revisión",
+          "l": "c",
+          "texto": "No se duplican los alumnos en Revisión.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GenerarDeudasMensualesCommand (solo crea si no existe) (código leído).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Noviembre ya generado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "La generación mensual corre dos veces"
+    },
+    {
+      "accion": "Empieza noviembre. Abre Revisión de cobranza.",
+      "codigo": "CBZ-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Revisión",
+          "l": "a",
+          "texto": "El alumno aparece con la pregunta de si sigue. No se le generó la cuota de noviembre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "b",
+          "texto": "No figura con deuda de noviembre; si no debía nada, está Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Avisos",
+          "l": "c",
+          "texto": "Inicio del dueño, Inicio operativo y Reporte de Alumnos muestran la cantidad de revisiones pendientes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Clases",
+          "l": "d",
+          "texto": "Sigue en las listas de asistencia de su grupo mientras no se resuelva.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; GenerarDeudasMensualesCommand (código leído); CO-06.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza-revision",
+      "requiere": "Alumno activo sin ningún presente en octubre, que no es un ingreso reciente.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Sin asistencias el mes pasado: va a Revisión"
+    },
+    {
+      "accion": "Al primero lo resuelve como Continúa y al segundo como Inactivo. Prueba primero sin nota y con una nota de tres letras.",
+      "codigo": "CBZ-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Nota",
+          "l": "a",
+          "texto": "La nota es obligatoria, de 5 a 500 letras.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Continúa",
+          "l": "b",
+          "texto": "Se le genera la cuota del mes al precio de su plan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "c",
+          "texto": "Queda dado de baja; no se genera cuota ni se condona nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Continúa",
+          "l": "d",
+          "texto": "Entra a Cobranza En plazo o Moroso según el día; el total adeudado sube por su cuota.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "e",
+          "texto": "Sale de Cobranza, del buscador y de las listas de asistencia; su deuda vieja queda en la ficha y deja de sumar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cola",
+          "l": "f",
+          "texto": "Los dos salen de Revisión; los contadores de pendientes bajan.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro",
+          "l": "g",
+          "texto": "Queda quién resolvió, cuándo y la nota.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados; RevisionCobranzaController (código leído); Permisos y roles; CO-06.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza-revision",
+      "requiere": "Dos alumnos en Revisión; uno de ellos con deuda vieja.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Resolver una revisión"
+    },
+    {
+      "accion": "Una persona lo resuelve como Continúa; la otra, con la pantalla vieja, como Inactivo.",
+      "codigo": "CBZ-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Segunda",
+          "l": "a",
+          "texto": "Se rechaza: ya fue resuelta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "Vale la primera: el alumno queda activo con su cuota, una sola.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "RevisionCobranzaController (código leído).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza-revision",
+      "requiere": "Un alumno en Revisión, abierto en dos equipos.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Resolver dos veces la misma revisión"
+    },
+    {
+      "accion": "A uno le marcan presente en una clase de noviembre. El otro paga la cuota de noviembre.",
+      "codigo": "CBZ-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Asistencia",
+          "l": "a",
+          "texto": "El que tuvo un presente sale de Revisión y se le genera la cuota del mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pago",
+          "l": "b",
+          "texto": "El que pagó sale de Revisión con su cuota paga.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contadores",
+          "l": "c",
+          "texto": "Las revisiones pendientes bajan en Inicio y Reportes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados (la asistencia o el pago confirman que sigue). Por lectura del código, el pago sí cierra la revisión; la asistencia tomada desde la pantalla no: es probable que esa línea no se cumpla. Comprobado por Claude el 13/10 en la base descartable: el presente se guarda y la revisión sigue pendiente.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza-revision",
+      "requiere": "Dos alumnos en Revisión.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El alumno en Revisión vuelve a clase o paga"
+    },
+    {
+      "accion": "Empieza noviembre.",
+      "codigo": "CBZ-017",
+      "duda": "DU-26",
+      "esperado": [
+        {
+          "donde": "Cuota",
+          "l": "a",
+          "texto": "Se le genera noviembre igual, sin mandarlo a Revisión: ingresó y pagó dentro de los últimos 15 días.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "b",
+          "texto": "Queda En plazo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Contraste",
+          "l": "c",
+          "texto": "Un ingreso del 25/10 que no pagó nada y no vino va a Revisión.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "GenerarDeudasMensualesCommand (código leído).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Alumno dado de alta el 25/10 que pagó ese día y todavía no tuvo ninguna clase.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Ingreso reciente sin asistencias todavía"
+    },
+    {
+      "accion": "Al cerrar el día compara Cobranza, buscador de Cobrar, Inicio operativo, Inicio del dueño, Reportes y el listado de Alumnos.",
+      "codigo": "CBZ-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alumnos",
+          "l": "a",
+          "texto": "Total activos de Cobranza = suma de sus cuatro estados = activos del Reporte de Alumnos = alumnos del listado que no figuran Inactivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con deuda",
+          "l": "b",
+          "texto": "Morosos + Deudores de Cobranza = número del buscador = «alumnos con deuda» de Inicio operativo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plata por cobrar",
+          "l": "c",
+          "texto": "Total adeudado de Cobranza = «por cobrar» de Inicio del dueño = Reportes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Variación",
+          "l": "d",
+          "texto": "La variación del total contra ayer es igual a cuotas e inscripciones nuevas, menos lo cobrado, menos lo condonado, menos la deuda de los dados de baja, más la de los reactivados y los cobros cancelados.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T19; T29; CobranzaEstadoService (un único cálculo) (código leído). Inicio operativo calcula «alumnos con deuda» por separado: es probable que no coincida. Comprobado por Claude el 13/10 en la base descartable: el Inicio de la operativa cuenta como alumno con deuda al que solo tiene pendiente un mes futuro (2 contra 1 del buscador).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Un día con altas, bajas, cobros, cancelaciones y una condonación.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "recurrencia",
+      "titulo": "Cuadre de fin de día: todos los números dicen lo mismo"
+    },
+    {
+      "accion": "La operativa abre Cobranza para reclamar deudas.",
+      "codigo": "CBZ-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Fila",
+          "l": "a",
+          "texto": "Cada alumno muestra deporte y grupo, cuánto debe, desde qué mes y el teléfono para llamarlo (el del tutor si es menor).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Antigüedad",
+          "l": "b",
+          "texto": "Se distingue lo que es del mes en curso, del mes anterior y más antiguo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acción",
+          "l": "c",
+          "texto": "Desde la fila se llega a la ficha y a Cobrar.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1 §2 («sin el teléfono el reporte no sirve»). Vista leída el 13/10: muestra el mes más antiguo adeudado; no muestra teléfono.",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "Deudores del mes en curso, del mes anterior y de más antigüedad.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cobranza como lista para llamar"
+    },
+    {
+      "accion": "El dueño abre Cobranza el día 2.",
+      "codigo": "CBZ-020",
+      "duda": "DU-52",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "No hay cuotas del mes nuevo para nadie y nada lo avisa: todos los que estaban al día siguen Al día.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recuperación",
+          "l": "b",
+          "texto": "El proceso solo está programado para el día 1; no hay un botón para lanzarlo. Lanzado a mano por un técnico, genera lo que falta sin duplicar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro",
+          "l": "c",
+          "texto": "Mientras tanto, al cobrarle a un alumno se le ofrece la cuota del mes igual.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "El «por cobrar» del mes queda muy por debajo de lo real.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "routes/console.php (programado solo el día 1 a las 06:00) y GenerarDeudasMensualesCommand (código leído).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza",
+      "requiere": "El servidor estuvo apagado o en mantenimiento el día 1 a las 6 de la mañana.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "El proceso del día 1 no corrió"
+    },
+    {
+      "accion": "Abre Revisión. Filtra por Pendientes, Resueltos y Todos, y por período.",
+      "codigo": "CBZ-021",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pendientes",
+          "l": "a",
+          "texto": "Cada una muestra alumno, período, deporte, grupo y motivo, con Continúa e Inactivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resueltas",
+          "l": "b",
+          "texto": "Muestran cómo se resolvió, la nota, quién y cuándo. La que se cerró por un pago dice «Reactivado automáticamente».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contacto",
+          "l": "c",
+          "texto": "Para llamar al tutor hay que entrar a la ficha: la fila no muestra el teléfono.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contador",
+          "l": "d",
+          "texto": "El total de pendientes coincide con Inicio operativo, Inicio del dueño y Reporte de Alumnos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "revision-cobranza/index (vista leída el 13/10).",
+      "modulo": "Cobranza",
+      "pantalla": "cobranza-revision",
+      "requiere": "Revisiones pendientes y resueltas de dos meses, una cerrada sola por un pago.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Revisión: filtros e historia"
+    }
+  ],
+  "modulo": "Cobranza",
+  "orden": 10,
+  "prefijo": "CBZ"
+}

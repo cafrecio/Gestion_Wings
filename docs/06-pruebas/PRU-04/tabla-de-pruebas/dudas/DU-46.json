@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "SIS-009"
+  ],
+  "codigo": "DU-46",
+  "contexto": "Es un defecto de la herramienta de prueba, no del sistema en producción. Ya frenó dos veces la prueba.",
+  "modulo": "Transversales",
+  "opciones": [
+    "Crear la tarea",
+    "Seguir poniendo el reloj en hora real"
+  ],
+  "orden": 44,
+  "pregunta": "En el sitio de prueba, con el reloj simulado detenido, el límite de intentos de ingreso no se libera. ¿Creo la tarea?",
+  "recomendacion": "Crear la tarea: es chica y evita frenos en las próximas pruebas.",
+  "respondida_en": "2026-10-13T11:30:41.325Z",
+  "respuesta": "Crear la tarea"
+}

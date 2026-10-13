@@ -1,0 +1,1750 @@
+{
+  "casos": [
+    {
+      "accion": "El dueño entra a la configuración del mostrador, elige Efectivo y guarda. Después le cambia el nombre a ese medio en Medios de pago.",
+      "codigo": "CAJ-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Queda guardado el medio elegido, quién lo eligió y cuándo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Renombre",
+          "l": "b",
+          "texto": "Cambiar el nombre del medio no cambia cuál es el medio del cajón.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "c",
+          "texto": "A partir de ahí las operativas pueden abrir caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "d",
+          "texto": "El efectivo esperado de cada turno cuenta solo los movimientos de ese medio.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "e",
+          "texto": "La operativa y la profesora no entran a esta pantalla.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController (mostrador) (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-configuracion",
+      "requiere": "Medios de pago cargados. Mostrador todavía sin configurar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Elegir cuál medio de pago es el efectivo del cajón"
+    },
+    {
+      "accion": "El dueño intenta elegir otro medio.",
+      "codigo": "CAJ-002",
+      "duda": "DU-16",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«El medio del cajón ya está configurado.» No cambia, con o sin turno abierto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Turno abierto",
+          "l": "b",
+          "texto": "El turno abierto sigue contando con el medio con el que abrió.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Salida",
+          "l": "c",
+          "texto": "El sistema no ofrece ningún camino para corregir una elección equivocada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "CajaWebController (mostrador) (código leído); Contrato Caja V5 (el medio queda guardado en el turno).",
+      "modulo": "Caja",
+      "pantalla": "caja-configuracion",
+      "requiere": "Mostrador ya configurado. Probar sin turno abierto y con un turno abierto.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Querer cambiar el medio del cajón después de elegido"
+    },
+    {
+      "accion": "La operativa intenta abrir la caja.",
+      "codigo": "CAJ-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No abre: avisa que el dueño debe configurar el medio de efectivo antes de abrir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobrar",
+          "l": "b",
+          "texto": "Tampoco puede cobrar: la manda a Apertura.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Sistema nuevo, sin medio del cajón elegido.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Abrir caja sin mostrador configurado"
+    },
+    {
+      "accion": "Abre la caja.",
+      "codigo": "CAJ-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Propuesta",
+          "l": "a",
+          "texto": "No propone ningún importe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Obligación",
+          "l": "b",
+          "texto": "Obliga a declarar cuánto recibió y a tildar que lo contó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "Queda abierta a su nombre con ese inicial; puede cobrar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5. Decisión de Carlos 11/10: se prueba antes del despliegue a producción.",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Mostrador configurado. Ningún turno cerrado en la historia. Solo se puede probar en una base nueva, antes de producción.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Primera apertura del club"
+    },
+    {
+      "accion": "Abre la caja aceptando lo propuesto y tildando que lo contó.",
+      "codigo": "CAJ-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Propuesta",
+          "l": "a",
+          "texto": "Propone $10.000. Sirve aunque el cierre anterior no esté validado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "b",
+          "texto": "Caja abierta a su nombre, inicial $10.000, sin pedir motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja del día",
+          "l": "c",
+          "texto": "Efectivo esperado = $10.000, sin movimientos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "d",
+          "texto": "Muestra la caja abierta con la hora de apertura; para la compañera, que hay un turno abierto de otra persona.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobrar y Movimientos",
+          "l": "e",
+          "texto": "Quedan habilitados para ella.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Listado de cajas",
+          "l": "f",
+          "texto": "El dueño ve el turno nuevo como Abierta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes y Cashflow",
+          "l": "g",
+          "texto": "No cambian: abrir no mueve plata.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::abrir (código leído); D01-2.",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Último turno cerrado dejando $10.000 de cambio. Probar con ese cierre sin validar y validado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Apertura que hereda el cambio del cierre anterior"
+    },
+    {
+      "accion": "Declara $8.000. Primero sin motivo, después con motivo.",
+      "codigo": "CAJ-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin motivo",
+          "l": "a",
+          "texto": "No abre: el motivo es obligatorio cuando lo recibido difiere de lo heredado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con motivo",
+          "l": "b",
+          "texto": "Abre con inicial $8.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "c",
+          "texto": "Quedan guardados los dos valores (heredado $10.000 y recibido $8.000) y el motivo; se ven en el detalle de la caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "d",
+          "texto": "El efectivo esperado parte de $8.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Turno anterior",
+          "l": "e",
+          "texto": "El cierre anterior no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Turno anterior con $10.000 de cambio.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Lo recibido no coincide con lo que dejó el turno anterior"
+    },
+    {
+      "accion": "Declara $100.000 con un motivo cualquiera. Prueba también $4.000, $15.000 exacto, $5.000 exacto y $15.001.",
+      "codigo": "CAJ-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Más de 50%",
+          "l": "a",
+          "texto": "Con $100.000, $4.000 y $15.001 avisa de forma enfática que difiere mucho del cierre anterior y exige confirmarlo aparte para seguir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Exactamente 50%",
+          "l": "b",
+          "texto": "$15.000 y $5.000 no disparan el aviso; solo piden motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin base",
+          "l": "c",
+          "texto": "Si no hubo cierre anterior, o dejó $0, no avisa.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Confirmando",
+          "l": "d",
+          "texto": "Si confirma, abre con lo declarado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "e",
+          "texto": "Queda guardado que se confirmó la diferencia grande.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 (CJ-05); T23 (verificado por Claude 12/10).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Turno anterior con $10.000 de cambio.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Un cero de más en la apertura"
+    },
+    {
+      "accion": "Intenta abrir con: importe vacío, negativo, con letras, con tres decimales, y con un importe correcto pero sin tildar que lo contó.",
+      "codigo": "CAJ-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No abre en ningún caso; avisa en castellano qué está mal y conserva lo demás.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Decimales",
+          "l": "b",
+          "texto": "El tercer decimal se corta a dos, el campo se pone rojo y avisa «No se pueden colocar más de dos decimales».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tilde",
+          "l": "c",
+          "texto": "Sin la confirmación de que contó el efectivo no abre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "d",
+          "texto": "No queda ninguna caja abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; T24; CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Pantalla de apertura.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Apertura con el importe mal escrito o sin confirmar"
+    },
+    {
+      "accion": "Otra operativa intenta abrir el suyo.",
+      "codigo": "CAJ-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«Hay un turno abierto. Cerralo antes de abrir otro.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "b",
+          "texto": "A la segunda le muestra que hay una caja abierta de su compañera.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobrar",
+          "l": "c",
+          "texto": "La segunda no puede cobrar ni cargar movimientos: no tiene caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Pendientes",
+          "l": "d",
+          "texto": "Una caja cerrada sin validar o rechazada no impide abrir; solo una abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Turno de una operativa abierto hoy.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Abrir con otro turno todavía abierto"
+    },
+    {
+      "accion": "Doble clic en abrir. Después, dos operativas abren a la vez desde dos equipos.",
+      "codigo": "CAJ-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda una sola caja abierta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Segunda",
+          "l": "b",
+          "texto": "La segunda persona recibe el aviso de turno abierto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "c",
+          "texto": "El listado de cajas muestra un solo turno nuevo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::abrir con bloqueo (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Sin turno abierto.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Dos aperturas al mismo tiempo"
+    },
+    {
+      "accion": "Envía la apertura que tenía abierta.",
+      "codigo": "CAJ-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«Cambió el último cierre. Volvé a abrir la pantalla.» No abre con el dato viejo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reintento",
+          "l": "b",
+          "texto": "Al recargar propone $12.000.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "La operativa tiene la apertura abierta proponiendo $10.000. Mientras tanto se cierra otro turno dejando $12.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Abrir con una pantalla vieja"
+    },
+    {
+      "accion": "El dueño abre la caja eligiendo a la operativa activa. Después intenta abrir una a su propio nombre y otra para la inactiva.",
+      "codigo": "CAJ-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Para la operativa",
+          "l": "a",
+          "texto": "Se abre; el turno es de ella y queda guardado que lo declaró el dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Para sí mismo",
+          "l": "b",
+          "texto": "No puede: el dueño no tiene caja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactiva",
+          "l": "c",
+          "texto": "No se ofrece, y forzándolo se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "d",
+          "texto": "Al entrar encuentra su caja abierta y puede cobrar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Detalle",
+          "l": "e",
+          "texto": "El detalle muestra de quién es el turno y quién lo abrió.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController::apertura (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Una operativa activa, una inactiva y sin turno abierto.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El dueño abre la caja a nombre de una operativa"
+    },
+    {
+      "accion": "Quien abrió rectifica a $10.000 con motivo. Después lo rectifica otra vez a $12.000.",
+      "codigo": "CAJ-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rectificación",
+          "l": "a",
+          "texto": "Guarda el valor nuevo y el motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "b",
+          "texto": "El efectivo esperado se recalcula con el inicial nuevo más los cobros.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Detalle",
+          "l": "c",
+          "texto": "El detalle muestra el valor anterior, el nuevo y el motivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Segunda vez",
+          "l": "d",
+          "texto": "La segunda rectificación guarda como «anterior» el de la primera: el valor original se pierde.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Turno anterior",
+          "l": "e",
+          "texto": "El cierre anterior no cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T23 (Gemini, verificado por Claude 12/10). La pérdida del rastro en la segunda rectificación quedó como mejora futura por decisión de Carlos 11/10.",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Caja abierta con $100.000 declarados por error y dos cobros en efectivo ya hechos.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Rectificar lo declarado en la apertura"
+    },
+    {
+      "accion": "Intenta rectificar: la caja abierta ajena; la propia ya cerrada; una validada; y la propia abierta con un motivo de dos letras.",
+      "codigo": "CAJ-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ajena",
+          "l": "a",
+          "texto": "Rechazado: solo quien abrió o el dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cerrada o validada",
+          "l": "b",
+          "texto": "No se rectifica.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Motivo corto",
+          "l": "c",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "Ninguna caja cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T23; CajaService::rectificarApertura (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Una caja abierta de otra operativa, una caja cerrada y una validada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Rectificar cuando no corresponde"
+    },
+    {
+      "accion": "Hoy entra e intenta cobrar, cargar un movimiento y abrir otra caja.",
+      "codigo": "CAJ-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Bloqueo",
+          "l": "a",
+          "texto": "No deja cobrar ni cargar movimientos hasta cerrar el turno viejo contando lo real.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "b",
+          "texto": "Explica en castellano que hay una caja de un día anterior sin cerrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cierre",
+          "l": "c",
+          "texto": "Puede cerrarla; después puede abrir la de hoy.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "d",
+          "texto": "El dueño ve ese turno abierto y también puede cerrarlo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Otras operativas",
+          "l": "e",
+          "texto": "Tampoco pueden abrir hasta que se cierre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; middleware de caja vieja (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-dia",
+      "requiere": "La operativa se fue ayer sin cerrar.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Turno abierto de un día anterior"
+    },
+    {
+      "accion": "El dueño cuenta el efectivo y cierra ese turno.",
+      "codigo": "CAJ-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cierre",
+          "l": "a",
+          "texto": "Se cierra con lo contado; queda guardado que lo cerró el dueño y cuándo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "b",
+          "texto": "Ya puede abrir la caja de hoy; la propuesta es el cambio que dejó el dueño.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Validación",
+          "l": "c",
+          "texto": "Esa caja queda cerrada pendiente de validar, como cualquier otra.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobros",
+          "l": "d",
+          "texto": "Los cobros del turno siguen a nombre de la operativa.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::cerrar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Turno abierto de ayer con cobros.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El dueño cierra el turno que una operativa dejó abierto"
+    },
+    {
+      "accion": "Abre Caja.",
+      "codigo": "CAJ-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Movimientos",
+          "l": "a",
+          "texto": "Lista cada movimiento con hora, concepto, alumno, medio e importe. El cancelado figura como cancelado y no suma.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "b",
+          "texto": "Efectivo esperado = inicial + cobros en efectivo − gasto. Mercado Pago aparte, sin sumarse al cajón.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acciones",
+          "l": "c",
+          "texto": "Ofrece cobrar, cargar movimiento y cerrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "d",
+          "texto": "El total y la cantidad cobrados hoy coinciden con esta pantalla.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "e",
+          "texto": "Los mismos movimientos aparecen en el Historial.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaWebController::index (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-dia",
+      "requiere": "Caja abierta con inicial, dos cobros en efectivo, uno por Mercado Pago, un gasto en efectivo y un cobro cancelado.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Qué muestra la caja del día"
+    },
+    {
+      "accion": "Cuenta $136.000, deja $10.000 de cambio y cierra.",
+      "codigo": "CAJ-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Arqueo",
+          "l": "a",
+          "texto": "Esperado $136.000, contado $136.000, diferencia $0. Mercado Pago $38.000 aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cierre",
+          "l": "b",
+          "texto": "Caja cerrada; entrega $126.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "Ya no puede cobrar ni cargar movimientos hasta abrir otro turno.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Próxima apertura",
+          "l": "d",
+          "texto": "Propone $10.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio del dueño",
+          "l": "e",
+          "texto": "Aparece el aviso de una caja cerrada pendiente de validar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "Los cobros del turno figuran como pendientes, no como confirmados.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "g",
+          "texto": "Todavía no aparecen como movimientos confirmados; figuran en la sección de cajas sin validar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Listado de cajas",
+          "l": "h",
+          "texto": "La caja figura Cerrada y el filtro de pendientes la trae.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; D01-8; ReporteMensualService (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Inicial $10.000, cobros en efectivo $126.000, un cobro de $38.000 por Mercado Pago.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cierre sin diferencia"
+    },
+    {
+      "accion": "Cuenta $34.000 y cierra.",
+      "codigo": "CAJ-019",
+      "duda": "DU-17",
+      "esperado": [
+        {
+          "donde": "Arqueo",
+          "l": "a",
+          "texto": "Esperado $35.000, contado $34.000, faltante $1.000, a la vista antes de confirmar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cierre",
+          "l": "b",
+          "texto": "Deja cerrar igual.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ajustes",
+          "l": "c",
+          "texto": "No se crea ningún gasto ni movimiento por la diferencia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Detalle",
+          "l": "d",
+          "texto": "El dueño ve el faltante en el detalle y en el listado de cajas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "e",
+          "texto": "El faltante no figura como gasto en Reportes ni en Cashflow.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (CJ-30).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Inicial $10.000, cobros en efectivo $30.000, gasto en efectivo $5.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cierre con faltante"
+    },
+    {
+      "accion": "Cuenta $36.000 y cierra.",
+      "codigo": "CAJ-020",
+      "duda": "DU-17",
+      "esperado": [
+        {
+          "donde": "Arqueo",
+          "l": "a",
+          "texto": "Esperado $35.000, contado $36.000, sobrante $1.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cierre",
+          "l": "b",
+          "texto": "Deja cerrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ajustes",
+          "l": "c",
+          "texto": "No se crea ningún ingreso por la diferencia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (CJ-31).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Mismo turno, contando de más.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cierre con sobrante"
+    },
+    {
+      "accion": "Intenta cerrar con: contado vacío, contado negativo, cambio negativo, y cambio mayor que lo contado.",
+      "codigo": "CAJ-021",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No cierra y avisa: el cambio no puede superar lo contado; ninguno puede ser negativo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "b",
+          "texto": "Sigue abierta y operable.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::cerrar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Caja abierta.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Cierre con datos imposibles"
+    },
+    {
+      "accion": "Deja $15.000 de cambio.",
+      "codigo": "CAJ-022",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cierre",
+          "l": "a",
+          "texto": "Se permite: entrega $20.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Próxima apertura",
+          "l": "b",
+          "texto": "El turno siguiente recibe la propuesta de $15.000.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (CJ-33).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Recibió $10.000 y contó $35.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Dejar más cambio del que se recibió"
+    },
+    {
+      "accion": "En una pestaña tiene el cierre con el arqueo a la vista; en la otra cobra una cuota en efectivo; vuelve y confirma el cierre.",
+      "codigo": "CAJ-023",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "El cobro entra completo antes del cierre y el arqueo se recalcula con él, o se rechaza después del cierre. Nunca queda un cobro dentro de un turno ya contado sin estar en el esperado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Después",
+          "l": "b",
+          "texto": "Con la caja ya cerrada, cobrar desde la otra pestaña manda a Apertura.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (CJ-34).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Caja abierta en dos pestañas.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Entra un cobro mientras se cierra"
+    },
+    {
+      "accion": "Doble clic en cerrar; después reenvía el cierre volviendo atrás con el navegador.",
+      "codigo": "CAJ-024",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "La caja se cierra una sola vez con los primeros valores; el segundo intento avisa que ya está cerrada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "b",
+          "texto": "La propuesta de cambio para el turno siguiente es la del primer cierre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaService::cerrar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Caja abierta.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Cerrar dos veces"
+    },
+    {
+      "accion": "El dueño revisa el detalle y valida.",
+      "codigo": "CAJ-025",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "La caja pasa a Validada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Aparece cada movimiento activo una sola vez, con el alumno, quién lo registró (la operativa) y en «Val.» las iniciales de quien validó. El cancelado no pasa.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldos",
+          "l": "c",
+          "texto": "El saldo de cada medio de pago sube o baja por sus movimientos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio y Reportes",
+          "l": "d",
+          "texto": "Los importes dejan de figurar como pendientes y pasan a confirmados; el total del mes no cambia por validar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Historial",
+          "l": "e",
+          "texto": "Cada cobro sigue apareciendo una sola vez.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "f",
+          "texto": "Ya no puede modificar nada de esa caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "g",
+          "texto": "Desaparece el aviso de caja pendiente de validar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisiones",
+          "l": "h",
+          "texto": "No cambia la liquidación: las comisiones salen de los pagos, estén o no validados.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CashflowIntegracionCajaService (código leído); T28; D01-9.",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Caja cerrada con cobros de cuota, una inscripción, un gasto y un cobro cancelado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Validar una caja cerrada"
+    },
+    {
+      "accion": "El dueño intenta validarla y rechazarla forzando la acción.",
+      "codigo": "CAJ-026",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«Contá el efectivo y cerrá la caja antes de validarla.» Validar no reemplaza contar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "No pasa ningún movimiento.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::validar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Turno abierto.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Validar o rechazar una caja que sigue abierta"
+    },
+    {
+      "accion": "Doble clic en Validar; después reenvía la validación.",
+      "codigo": "CAJ-027",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda validada una vez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Los movimientos pasaron una sola vez; ninguno está duplicado.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldos",
+          "l": "c",
+          "texto": "Los saldos por medio no se duplican.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CashflowIntegracionCajaService idempotente (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Caja cerrada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Validar dos veces"
+    },
+    {
+      "accion": "Busca el botón y después envía la acción a mano.",
+      "codigo": "CAJ-028",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Botón",
+          "l": "a",
+          "texto": "No tiene Validar ni Rechazar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "Recibe acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "c",
+          "texto": "Sigue Cerrada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Rutas: solo el dueño (routes/web.php).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Caja propia cerrada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Una operativa intenta validar o rechazar"
+    },
+    {
+      "accion": "El dueño la rechaza, primero sin motivo y después con motivo.",
+      "codigo": "CAJ-029",
+      "duda": "DU-18",
+      "esperado": [
+        {
+          "donde": "Estado",
+          "l": "a",
+          "texto": "La caja pasa a Rechazada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Motivo",
+          "l": "b",
+          "texto": "Hoy el motivo es opcional.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "En su Inicio aparece una caja rechazada. Puede corregir sus movimientos y volver a cerrarla.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Turno siguiente",
+          "l": "d",
+          "texto": "La apertura del día siguiente no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "e",
+          "texto": "No pasa ningún movimiento.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "Los movimientos siguen como pendientes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Contrato Caja V5; CajaService::rechazar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Caja cerrada con un ingreso mal cargado. La operativa ya abrió el turno del día siguiente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Rechazar una caja"
+    },
+    {
+      "accion": "Corrige un ingreso de $25.000 a $20.000 y vuelve a cerrar.",
+      "codigo": "CAJ-030",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Arqueo",
+          "l": "a",
+          "texto": "El esperado pasa a $30.000 y muestra sobrante $5.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fijos",
+          "l": "b",
+          "texto": "Contado $35.000, cambio $10.000 y entrega $25.000 no cambian.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Martes",
+          "l": "c",
+          "texto": "La apertura del martes no cambia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estado",
+          "l": "d",
+          "texto": "Vuelve a Cerrada, pendiente de validar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (ejemplo aprobado, CJ-37).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Caja del lunes rechazada: contó $35.000 y dejó $10.000. El martes ya abrió con $10.000.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Corregir una caja rechazada y volver a cerrarla"
+    },
+    {
+      "accion": "Al volver a cerrar envía otro contado u otro cambio.",
+      "codigo": "CAJ-031",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«La corrección no puede cambiar el efectivo que ya se contó y entregó.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja",
+          "l": "b",
+          "texto": "Sigue Rechazada con sus valores originales.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaService::cerrar (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Caja rechazada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Cambiar lo contado al volver a cerrar una rechazada"
+    },
+    {
+      "accion": "El dueño valida primero la del miércoles, después la del lunes y rechaza la del martes.",
+      "codigo": "CAJ-032",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Validación",
+          "l": "a",
+          "texto": "Cada una se valida o rechaza sin depender de las otras.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "b",
+          "texto": "Los movimientos aparecen con la fecha de su día, no con la del día en que se validó.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldos",
+          "l": "c",
+          "texto": "El saldo por medio al final es el mismo que si se hubieran validado en orden.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "Lo del martes sigue pendiente hasta que se corrija y valide.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CashflowIntegracionCajaService (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Tres cajas cerradas sin validar: lunes, martes y miércoles.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Varias cajas pendientes validadas fuera de orden"
+    },
+    {
+      "accion": "El dueño abre el detalle.",
+      "codigo": "CAJ-033",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Apertura",
+          "l": "a",
+          "texto": "Ve lo heredado, lo recibido y el motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Movimientos",
+          "l": "b",
+          "texto": "Ve todos los movimientos, incluidos los cancelados con su motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "c",
+          "texto": "Ve esperado, contado y diferencia; cuánto se dejó de cambio y cuánto se entregó; quién cerró y cuándo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acciones",
+          "l": "d",
+          "texto": "Ofrece Validar y Rechazar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5 (CJ-52).",
+      "modulo": "Caja",
+      "pantalla": "caja-detalle",
+      "requiere": "Caja cerrada con faltante, abierta con un importe distinto del heredado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Detalle de una caja cerrada con diferencia"
+    },
+    {
+      "accion": "Escribe a mano la dirección del detalle, del resumen, de la corrección y del cierre de esa caja.",
+      "codigo": "CAJ-034",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en las cuatro. Ver la caja ajena no está permitido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Movimientos",
+          "l": "b",
+          "texto": "Los cobros de esa caja sí los ve en Movimientos e Historial: ver movimientos ajenos es legítimo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §10 y §13; CajaWebController (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-detalle",
+      "requiere": "Caja cerrada ayer por otra operativa.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Abrir la caja de otra operativa"
+    },
+    {
+      "accion": "Abre el listado una operativa y después el dueño, que filtra por mes, por operativa y por pendientes.",
+      "codigo": "CAJ-035",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Operativa",
+          "l": "a",
+          "texto": "Ve solo sus cajas de los últimos 30 días.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "b",
+          "texto": "Ve todas; cada filtro trae lo que corresponde; «pendientes» trae las cerradas sin validar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estados",
+          "l": "c",
+          "texto": "Cada caja muestra su estado, esperado, contado y diferencia.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "CajaWebController::cajas (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-validacion",
+      "requiere": "Cajas de dos operativas en varios estados, algunas de hace más de 30 días.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Listado de cajas según quién mira"
+    },
+    {
+      "accion": "Cierra la caja.",
+      "codigo": "CAJ-036",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Arqueo",
+          "l": "a",
+          "texto": "El esperado cuenta solo el efectivo del turno. Mercado Pago y transferencia se informan aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobro del dueño",
+          "l": "b",
+          "texto": "No aumenta el efectivo esperado del turno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "c",
+          "texto": "Al validar, los cobros por Mercado Pago suben el saldo de Mercado Pago, no el de Efectivo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; A13; CajaService::calcularEsperado (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Turno con cobros por Mercado Pago y por transferencia, y un cobro del dueño en efectivo hecho sin caja ese mismo día.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Lo que no es efectivo no entra al arqueo"
+    },
+    {
+      "accion": "Abre con $10.000, no hace nada, cierra con $10.000 dejando $10.000. El dueño la valida.",
+      "codigo": "CAJ-037",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cierre",
+          "l": "a",
+          "texto": "Diferencia $0, entrega $0.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Validación",
+          "l": "b",
+          "texto": "Se valida sin pasar movimientos a Cashflow.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reportes",
+          "l": "c",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5.",
+      "modulo": "Caja",
+      "pantalla": "caja-dia",
+      "requiere": "Sin turno abierto.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Abrir y cerrar sin ningún movimiento"
+    },
+    {
+      "accion": "Otra operativa abre a la tarde.",
+      "codigo": "CAJ-038",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Propuesta",
+          "l": "a",
+          "texto": "Le propone $12.000.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "b",
+          "texto": "Abre su propio turno; hay dos cajas con fecha de hoy.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "c",
+          "texto": "Cada una ve lo cobrado en sus propias cajas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "d",
+          "texto": "Los cobros de la mañana ya figuran como pagos para todos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Dueño",
+          "l": "e",
+          "texto": "Ve las dos cajas del día por separado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato Caja V5; CajaService::abrir (código leído).",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Una operativa abrió a la mañana y cerró dejando $12.000. Su caja no está validada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Dos turnos en el mismo día"
+    },
+    {
+      "accion": "Entra a Caja e intenta cobrar; después abre.",
+      "codigo": "CAJ-039",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin caja",
+          "l": "a",
+          "texto": "Cobrar la lleva a Apertura; la caja no se abre sola.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "b",
+          "texto": "El sistema deja abrir: los domingos y feriados pueden ser activos.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 10/10 (D02-5). El bloqueo en vacaciones es la mejora futura MF1.",
+      "modulo": "Caja",
+      "pantalla": "caja-apertura",
+      "requiere": "Día no laborable, sin clases.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Abrir caja un domingo o un feriado"
+    },
+    {
+      "accion": "El dueño abre el detalle, tilda tres movimientos y toca Validar. Repite en otra caja validando desde el Resumen, sin abrir el detalle.",
+      "codigo": "CAJ-040",
+      "duda": "DU-54",
+      "esperado": [
+        {
+          "donde": "Contador",
+          "l": "a",
+          "texto": "El detalle muestra «3 de 8 verificados» y cambia el color del botón recién cuando están todos tildados.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Hoy",
+          "l": "b",
+          "texto": "Validar funciona igual con tres tildes, con ninguno, o desde el Resumen sin tildar nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tildes",
+          "l": "c",
+          "texto": "Los tildes no se guardan: al recargar la pantalla se pierden y no queda registro de qué se verificó.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "d",
+          "texto": "Pasan todos los movimientos activos, estén o no tildados.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "caja/detalle (vista y script leídos el 13/10): los tildes solo cambian el color del botón.",
+      "modulo": "Caja",
+      "pantalla": "caja-detalle",
+      "requiere": "Caja cerrada con ocho movimientos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Los tildes de verificación al validar una caja"
+    },
+    {
+      "accion": "El dueño abre Caja. En la tarjeta de ese turno toca Cobrar y cobra una cuota. Después toca Agregar y carga un gasto. Después abre el Detalle para corregir el gasto mal cargado.",
+      "codigo": "CAJ-041",
+      "duda": "DU-20",
+      "esperado": [
+        {
+          "donde": "Cobrar",
+          "l": "a",
+          "texto": "El cobro del dueño no entra en esa caja: va directo a Cashflow, aunque el botón esté en la tarjeta del turno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Agregar",
+          "l": "b",
+          "texto": "El gasto que agrega sí entra en la caja de la operativa y cambia su efectivo esperado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Detalle",
+          "l": "c",
+          "texto": "El detalle no le ofrece Editar, Eliminar ni Cancelar al dueño, aunque el sistema se lo permite entrando por la dirección o desde Cashflow.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "d",
+          "texto": "La operativa ve en su caja un gasto que no cargó ella; figura a nombre de quien lo cargó.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Arqueo",
+          "l": "e",
+          "texto": "Al cerrar, el esperado incluye el gasto del dueño.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "caja/index, caja/detalle y cashflow/index (vistas leídas el 13/10); CajaWebController::editarStore.",
+      "modulo": "Caja",
+      "pantalla": "caja-dia",
+      "requiere": "Turno abierto de una operativa, con un cobro y un gasto manual mal cargado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "El dueño opera sobre la caja abierta de una operativa"
+    },
+    {
+      "accion": "Abre el resumen y el cierre de una caja vieja cerrada sin conteo y de una abierta sin efectivo inicial. Intenta validarlas y abrir un turno nuevo.",
+      "codigo": "CAJ-042",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resumen",
+          "l": "a",
+          "texto": "Muestra «Sin declarar» donde falta el dato, sin error.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cierre",
+          "l": "b",
+          "texto": "El efectivo esperado dice «No calculable: caja anterior sin declaración» y ofrece cerrar contando.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Validar",
+          "l": "c",
+          "texto": "Una caja sin conteo no se valida hasta contarla y cerrarla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Apertura",
+          "l": "d",
+          "texto": "La primera apertura posterior no propone importe si la anterior no tiene conteo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "e",
+          "texto": "Las cajas viejas ya validadas no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "f",
+          "texto": "Los meses anteriores conservan sus totales.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "caja/cierre y caja/resumen (vistas leídas el 13/10); Contrato Caja V5 (históricos). Producción está varias migraciones atrás.",
+      "modulo": "Caja",
+      "pantalla": "caja-cierre",
+      "requiere": "Base de producción con cajas viejas: abiertas o cerradas antes de que existiera el efectivo declarado y contado. Se prueba sobre una copia de producción antes de desplegar.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Cajas anteriores al sistema de conteo"
+    }
+  ],
+  "modulo": "Caja",
+  "orden": 7,
+  "prefijo": "CAJ"
+}

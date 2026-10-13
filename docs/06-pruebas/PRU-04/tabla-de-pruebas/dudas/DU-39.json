@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "REP-006"
+  ],
+  "codigo": "DU-39",
+  "contexto": "Hoy muestra la cantidad de activos e inactivos a hoy, por deporte y nivel, y la asistencia del mes. No lista quién entró ni quién se fue.",
+  "modulo": "Reportes e Inicio",
+  "opciones": [
+    "Sí, con nombres",
+    "Solo las cantidades",
+    "No hace falta"
+  ],
+  "orden": 37,
+  "pregunta": "¿El Reporte de Alumnos tiene que mostrar las altas y las bajas del mes?",
+  "recomendacion": "Sí, con nombres: es lo que explica por qué cambió la matrícula.",
+  "respondida_en": "2026-10-13T11:26:16.860Z",
+  "respuesta": "Solo las cantidades"
+}

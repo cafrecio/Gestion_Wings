@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ACC-006"
+  ],
+  "codigo": "DU-01",
+  "contexto": "Hoy lo cargado se pierde y lo manda al ingreso. Nada queda guardado a medias.",
+  "modulo": "Acceso y seguridad",
+  "opciones": [
+    "Aceptar que se pierde",
+    "Guardar un borrador y recuperarlo"
+  ],
+  "orden": 0,
+  "pregunta": "Si a alguien se le vence la sesión con un formulario a medio cargar, ¿tiene que encontrar lo que estaba cargando al volver a entrar?",
+  "recomendacion": "Aceptar que se pierde: no se cobra nada a medias y recuperar borradores es alcance nuevo.",
+  "respondida_en": "2026-10-13T10:45:08.780Z",
+  "respuesta": "Aceptar que se pierde"
+}

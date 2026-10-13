@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "USU-004"
+  ],
+  "codigo": "DU-04",
+  "contexto": "El historial pasa a mostrar el nombre nuevo, pero el subrubro «Op-<nombre anterior>» no cambia. En profesores el subrubro sí se actualiza al guardar la ficha.",
+  "modulo": "Usuarios",
+  "opciones": [
+    "Renombrarlo solo al guardar",
+    "Dejarlo como está"
+  ],
+  "orden": 2,
+  "pregunta": "Al cambiarle el nombre a una operativa, su rubro de sueldo sigue llamándose con el nombre viejo. ¿Se renombra solo?",
+  "recomendacion": "Renombrarlo solo, igual que con los profesores.",
+  "respondida_en": "2026-10-13T10:45:23.556Z",
+  "respuesta": "Renombrarlo solo al guardar"
+}

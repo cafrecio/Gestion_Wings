@@ -1,0 +1,350 @@
+{
+  "casos": [
+    {
+      "accion": "El dueño entra por primera vez: el sistema lo lleva a la primera carga. Descarga la plantilla, la completa con 100 alumnos (algunos con cuotas adeudadas, algunos con inscripción pendiente) y la sube. Revisa el resumen, confirma y carga.",
+      "codigo": "PCA-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guía",
+          "l": "a",
+          "texto": "Los pasos van en orden: catálogos, plantilla, revisión y carga.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Plantilla",
+          "l": "b",
+          "texto": "Trae las listas de deportes, grupos y planes vigentes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resumen",
+          "l": "c",
+          "texto": "Antes de cargar muestra cantidad de alumnos, de cuotas, de inscripciones y los importes totales.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Carga",
+          "l": "d",
+          "texto": "Crea todos los alumnos de una vez, o ninguno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "e",
+          "texto": "Cada alumno queda activo, con su plan desde su fecha de ingreso.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Deuda",
+          "l": "f",
+          "texto": "Cada cuota declarada nace pendiente por el importe declarado, sin descuento. La inscripción marcada Sí nace pendiente, una por persona.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza e Inicio",
+          "l": "g",
+          "texto": "El total adeudado es igual al total del resumen.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Estados",
+          "l": "h",
+          "texto": "El que debe meses anteriores nace Deudor; el que debe solo el mes en curso, En plazo o Moroso según el día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ingreso",
+          "l": "i",
+          "texto": "Desde ahí el dueño entra directo a su Inicio.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaWebController y PrimeraCargaExcelService (código leído 13/10); P1.",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Base nueva, sin alumnos ni cobros, con deportes, niveles, grupos con planes y precio, e importe de inscripción. Solo se puede probar en una base nueva, antes de producción.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Primera carga completa desde el Excel"
+    },
+    {
+      "accion": "Sube un Excel con: DNI con letras; un menor sin tutor; fecha de nacimiento futura; ingreso anterior al nacimiento; un grupo que no es del deporte; un plan que no es del grupo; «Debe cuotas: Sí» sin ningún mes; «No» con meses cargados; un mes repetido; un importe en cero; una fórmula; el mismo DNI y deporte dos veces; un título de columna cambiado; una columna de más.",
+      "codigo": "PCA-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Revisión",
+          "l": "a",
+          "texto": "No carga nada. Lista cada error con fila, celda, columna, qué está mal y qué se espera.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Informe",
+          "l": "b",
+          "texto": "Ofrece descargar el mismo Excel con los errores marcados.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Corrección",
+          "l": "c",
+          "texto": "Corregido y vuelto a subir, pasa al resumen.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ningún alumno mientras haya un solo error.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaExcelService::revisar (código leído 13/10).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Primera carga pendiente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Excel con errores"
+    },
+    {
+      "accion": "Sube un PDF, un Excel viejo .xls, un Excel con contraseña, uno sin la hoja Alumnos, uno vacío y uno de más de 10 MB.",
+      "codigo": "PCA-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Cada uno se rechaza con un aviso claro: tipo de archivo, tamaño, hoja faltante o archivo sin alumnos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se crea nada y se puede volver a intentar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaWebController::revisar y PrimeraCargaExcelService::revisar (código leído 13/10).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Primera carga pendiente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Archivo que no corresponde"
+    },
+    {
+      "accion": "Antes de confirmar, el dueño cambia el precio de la inscripción o desactiva un grupo usado en el Excel; después confirma. Prueba también confirmar sin tildar el resumen, y desde otra sesión.",
+      "codigo": "PCA-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cambio",
+          "l": "a",
+          "texto": "No carga: avisa que el archivo ya no está listo o que el resumen cambió, y pide revisar otra vez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin tilde",
+          "l": "b",
+          "texto": "«Confirmá el resumen antes de cargar.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otra sesión",
+          "l": "c",
+          "texto": "«Primero revisá el Excel en esta sesión.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se crea ningún alumno.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaExcelService::cargar (revalida al confirmar) (código leído 13/10).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Excel revisado sin errores, con el resumen a la vista.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Cambia algo entre la revisión y la carga"
+    },
+    {
+      "accion": "Vuelve atrás y reenvía la carga; hace doble clic en Cargar; intenta subir otro Excel.",
+      "codigo": "PCA-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "«La primera carga ya está terminada.» No se duplican alumnos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "b",
+          "texto": "Alumnos y deuda siguen iguales.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaExcelService::cargar (código leído 13/10).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Primera carga recién terminada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Cargar dos veces"
+    },
+    {
+      "accion": "El dueño toca Deshacer.",
+      "codigo": "PCA-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin actividad",
+          "l": "a",
+          "texto": "Borra solo los alumnos, cuotas, inscripciones y planes de la carga. Conserva catálogos y usuarios. La primera carga vuelve a estar pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con un cobro",
+          "l": "b",
+          "texto": "«No se puede deshacer: ya hay un cobro registrado.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con asistencias o movimientos",
+          "l": "c",
+          "texto": "«No se puede deshacer: los alumnos ya tienen actividad posterior a la carga.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "d",
+          "texto": "Tras deshacer, Alumnos, Cobranza e Inicio quedan en cero.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alta manual",
+          "l": "e",
+          "texto": "Un alumno dado de alta a mano después de la carga no se borra.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "PrimeraCargaExcelService::deshacer (código leído 13/10).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Primera carga terminada. Probar antes de cualquier actividad, y después de un cobro, de una asistencia y de un alta manual con deuda.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Deshacer la primera carga"
+    },
+    {
+      "accion": "Lo carga y mira su estado.",
+      "codigo": "PCA-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Carga",
+          "l": "a",
+          "texto": "Se acepta: son dos respuestas independientes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Estado",
+          "l": "b",
+          "texto": "Con la regla nueva, debe figurar En plazo, Moroso o Deudor según cuánto hace que ingresó; nunca Al día.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cuota del mes",
+          "l": "c",
+          "texto": "No tiene cuota del mes en curso: se le ofrece al cobrarle.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Después de la primera carga",
+          "l": "d",
+          "texto": "Esta situación no puede volver a darse: la inscripción se cobra primero.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decisión de Carlos 12/10; PrimeraCargaExcelService (código leído 13/10). En el sitio de prueba hay 3 alumnos así.",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Excel con un alumno con «Inscripción: Sí» y «Debe cuotas: No».",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "T31",
+      "tipo": "mal_uso",
+      "titulo": "Alumno cargado con inscripción pendiente y sin cuotas"
+    },
+    {
+      "accion": "Escriben a mano la dirección de la primera carga, de la plantilla y de deshacer.",
+      "codigo": "PCA-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pendiente",
+          "l": "b",
+          "texto": "Con la primera carga pendiente, la operativa y la profesora igual pueden entrar a su Inicio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Nada cambia.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "rutas con ensure.admin.web; PrepararPrimeraCarga (código leído).",
+      "modulo": "Primera carga",
+      "pantalla": "sis-primera-carga",
+      "requiere": "Operativa y profesora ingresadas, con la primera carga pendiente y terminada.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La primera carga es solo del dueño"
+    }
+  ],
+  "modulo": "Primera carga",
+  "orden": 17,
+  "prefijo": "PCA"
+}

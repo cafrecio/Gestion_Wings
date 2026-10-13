@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ALU-020"
+  ],
+  "codigo": "DU-13",
+  "contexto": "Depende de cómo compara la base; hay que probarlo y decidir qué se espera.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Sí, con y sin acento es lo mismo",
+    "No hace falta"
+  ],
+  "orden": 11,
+  "pregunta": "Al buscar un alumno, ¿«Gomez» tiene que encontrar a «Gómez»?",
+  "recomendacion": "Sí: nadie escribe los acentos al buscar.",
+  "respondida_en": "2026-10-13T11:02:48.169Z",
+  "respuesta": "Sí, con y sin acento es lo mismo\nYa con G, el sistema debe ofrecer las opciones disponibles, buscando la g en cualquier parte del nombre"
+}

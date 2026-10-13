@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ALU-018",
+    "COB-028"
+  ],
+  "codigo": "DU-12",
+  "contexto": "Hoy no se genera: se ofrece recién al cobrarle. Mientras tanto figura Al día y no aparece en Cobranza como alguien a quien cobrarle este mes.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Generarla al reactivar, con el porcentaje de reingreso del día",
+    "Dejarlo como está: se crea al cobrar"
+  ],
+  "orden": 10,
+  "pregunta": "Al reactivar a un alumno (o darlo de alta sin cuota), ¿se le genera la cuota del mes en curso?",
+  "recomendacion": "Generarla al reactivar, para que aparezca en Cobranza.",
+  "respondida_en": "2026-10-13T11:01:53.410Z",
+  "respuesta": "Generarla al reactivar, con el porcentaje de reingreso del día\nSiempre que no tenga ya generada la cuota del mes\nLa deuda que pudiese tener se mantiene"
+}

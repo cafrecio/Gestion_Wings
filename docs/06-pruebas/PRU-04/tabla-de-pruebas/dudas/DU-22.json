@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "COB-022"
+  ],
+  "codigo": "DU-22",
+  "contexto": "El sistema pide confirmar y avisa al dueño. El movimiento queda con la fecha vieja dentro de la caja de hoy.",
+  "modulo": "Cobrar",
+  "opciones": [
+    "Sí",
+    "No: que entre con fecha de hoy y la fecha real quede como dato"
+  ],
+  "orden": 20,
+  "pregunta": "Un cobro cargado con fecha de un mes anterior cambia el reporte de ese mes ya cerrado y entra en el arqueo de hoy. ¿Confirmás que es lo querido?",
+  "recomendacion": "Confirmar: es lo que dice el contrato de Reportes (la fecha real determina el período).",
+  "respondida_en": "2026-10-13T11:16:00.871Z",
+  "respuesta": "Sí"
+}

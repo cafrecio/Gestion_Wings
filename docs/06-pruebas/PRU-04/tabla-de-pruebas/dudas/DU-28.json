@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CSH-016"
+  ],
+  "codigo": "DU-28",
+  "contexto": "Pagar una liquidación sin saldo sí se rechaza; un gasto directo no.",
+  "modulo": "Cashflow",
+  "opciones": [
+    "Avisar y dejar seguir",
+    "Impedir, igual que en liquidaciones",
+    "Dejarlo como está"
+  ],
+  "orden": 26,
+  "pregunta": "Un gasto directo puede dejar el saldo de un medio de pago en negativo sin avisar. ¿Se avisa o se impide?",
+  "recomendacion": "Avisar y dejar seguir.",
+  "respondida_en": "2026-10-13T11:19:15.801Z",
+  "respuesta": "Avisar y dejar seguir\nEl tipo de caja dice si admite o no admite negativos. Podria tener descubiertos"
+}

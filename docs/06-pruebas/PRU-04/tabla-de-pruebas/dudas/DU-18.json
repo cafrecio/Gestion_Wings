@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CAJ-029"
+  ],
+  "codigo": "DU-18",
+  "contexto": "Hoy es opcional: la operativa puede recibir una caja rechazada sin saber qué corregir.",
+  "modulo": "Caja",
+  "opciones": [
+    "Obligatorio",
+    "Opcional"
+  ],
+  "orden": 16,
+  "pregunta": "Al rechazar una caja, ¿el motivo es obligatorio?",
+  "recomendacion": "Obligatorio.",
+  "respondida_en": "2026-10-13T11:04:47.361Z",
+  "respuesta": "Obligatorio"
+}

@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "LIQ-013"
+  ],
+  "codigo": "DU-38",
+  "contexto": "Una liquidación pagada no se puede cancelar ni ajustar y su egreso no se corrige desde Cashflow.",
+  "modulo": "Liquidaciones",
+  "opciones": [
+    "Anular el pago con un asiento en contra y volver a cerrada",
+    "No se revierte: se compensa en la siguiente"
+  ],
+  "orden": 36,
+  "pregunta": "Si una liquidación se pagó por error o de más, ¿cómo se revierte?",
+  "recomendacion": "Anular el pago con asiento en contra, con motivo.",
+  "respondida_en": "2026-10-13T11:26:05.543Z",
+  "respuesta": "No se revierte: se compensa en la siguiente"
+}

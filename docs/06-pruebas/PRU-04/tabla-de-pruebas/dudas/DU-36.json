@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "LIQ-002"
+  ],
+  "codigo": "DU-36",
+  "contexto": "Si en octubre un alumno paga agosto, septiembre y octubre, las tres cuotas pagan comisión al profesor con el que tuvo un presente en octubre, aunque en agosto haya tenido otro profesor.",
+  "modulo": "Liquidaciones",
+  "opciones": [
+    "Sí (como hoy)",
+    "La comisión va al profesor del mes de la cuota"
+  ],
+  "orden": 34,
+  "pregunta": "La comisión del mes se calcula sobre todo lo cobrado ese mes a los alumnos que asistieron ese mes: incluye deudas viejas y adelantados. ¿Confirmás?",
+  "recomendacion": "Confirmar el criterio actual, que es el del contrato.",
+  "respondida_en": "2026-10-13T11:24:11.966Z",
+  "respuesta": "Sí (como hoy) para las cuotas atrasadas: se avisa en la liquidación al dueño, sin que aparezca en el recibo; el dueño valida o no y se pone en el recibo según su decisión. Precisado por Carlos el 13/10: los adelantados NO entran acá, van a la liquidación del mes que pagan (DU-19). «No son el mismo caso.»"
+}

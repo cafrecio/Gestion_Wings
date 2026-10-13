@@ -1,0 +1,21 @@
+{
+  "casos": [
+    "ALU-017",
+    "ALU-025"
+  ],
+  "codigo": "DU-11",
+  "contexto": "Dijiste que debería entrar en una categoría distinta y que lo pensemos juntos; acá van las opciones. Hoy la deuda queda en su ficha y deja de sumar en Cobranza, Inicio y Reportes (tu decisión del 10/10: quien se fue no va a venir a pagar). No aparece en ningún total: para encontrarla hay que abrir la ficha de cada uno. Además la baja es un clic, sin aviso ni motivo.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Mostrarla aparte: un total «Deuda de alumnos dados de baja» en Cobranza y Reportes, con su lista. No suma al «por cobrar»",
+    "Lo anterior, y además al dar de baja avisar cuánto debe y pedir motivo",
+    "Lo anterior, y además que el dueño pueda darla por perdida para sacarla de la lista",
+    "Dejarlo como está"
+  ],
+  "orden": 0,
+  "pregunta": "Un alumno se da de baja debiendo plata. ¿Dónde tiene que quedar esa deuda?",
+  "recomendacion": "La segunda: tu «por cobrar» no cambia, pero la plata deja de desaparecer de la vista y queda escrito por qué se fue. Darla por perdida se puede agregar después.",
+  "respondida_en": "2026-10-13T11:47:28.098Z",
+  "respuesta": "Lo anterior, y además que el dueño pueda darla por perdida para sacarla de la lista",
+  "respuesta_anterior": "Esa deuda debería entrar en una categoría distinta. Pensémoslo juntos (13/10)."
+}

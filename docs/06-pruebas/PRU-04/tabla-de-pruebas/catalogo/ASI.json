@@ -1,0 +1,673 @@
+{
+  "casos": [
+    {
+      "accion": "Abre su clase, marca seis presentes y dos ausentes, guarda. Vuelve a abrirla.",
+      "codigo": "ASI-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "«Asistencias guardadas.» Al reabrir conserva las ocho marcas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Lista",
+          "l": "b",
+          "texto": "La lista trae a los alumnos activos que hoy pertenecen al grupo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado de clases",
+          "l": "c",
+          "texto": "La clase muestra 6 presentes y no entra a «Sin asistencia».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "d",
+          "texto": "La clase de hoy figura con 6 presentes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ficha del alumno",
+          "l": "e",
+          "texto": "Cada alumno muestra la asistencia en «asistencias del mes».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Alumnos",
+          "l": "f",
+          "texto": "Presentes del mes +6, ausentes +2; los seis salen de «activos sin presentes».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldo por hora",
+          "l": "g",
+          "texto": "La clase pasa a ser pagable para su profesora.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "h",
+          "texto": "Los seis presentes habilitan la comisión de sus cuotas cobradas este mes para ese profesor.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "i",
+          "texto": "Los seis tienen asegurada la generación de la cuota del mes que viene; los dos ausentes dependen de otro presente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Plata",
+          "l": "j",
+          "texto": "No cambia ningún importe de Caja, Cobranza ni Cashflow.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::storeAsistencias (código leído); Contrato de liquidaciones §2.3 y §3; GenerarDeudasMensualesCommand; D01-6.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase de hoy de la profesora, con ocho alumnos activos en el grupo.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Tomar la asistencia de una clase de hoy"
+    },
+    {
+      "accion": "Una profesora abre la clase de su compañera, toma la asistencia y guarda.",
+      "codigo": "ASI-002",
+      "duda": "DU-32",
+      "esperado": [
+        {
+          "donde": "Permiso",
+          "l": "a",
+          "texto": "Puede abrirla y guardarla: está permitido para cubrir suplencias.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pago",
+          "l": "b",
+          "texto": "La clase se le paga a la profesora asignada, no a la que tomó la lista.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "c",
+          "texto": "Los presentes cuentan para la profesora asignada.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro",
+          "l": "d",
+          "texto": "No queda guardado quién tomó la lista.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Permisos y roles (decisión de Carlos 10/10, D01-7); LiquidacionService (código leído); CL-07.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase de hoy asignada a otra profesora.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Suplencia sin cambiar la profesora asignada"
+    },
+    {
+      "accion": "La profesora guarda la lista con todos ausentes.",
+      "codigo": "ASI-003",
+      "duda": "DU-33",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Se guarda.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "b",
+          "texto": "La clase sigue contando en «Sin asistencia» porque no tiene ningún presente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldo",
+          "l": "c",
+          "texto": "No se paga, salvo que el dueño la valide a mano.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "d",
+          "texto": "Suma ausentes en el Reporte de Alumnos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Contrato de liquidaciones §2.3; ClaseWebController::index (código leído); CL-08.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase de hoy.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "No vino nadie"
+    },
+    {
+      "accion": "En la de hoy cambia un ausente a presente. En la de ayer hace lo mismo: sin motivo y con motivo.",
+      "codigo": "ASI-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "Se corrige sin pedir motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ayer",
+          "l": "b",
+          "texto": "Pide el motivo de la corrección; sin motivo no guarda.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "c",
+          "texto": "El motivo queda guardado en la asistencia corregida.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Contadores",
+          "l": "d",
+          "texto": "Presentes y ausentes del mes se actualizan en el listado, la ficha y el Reporte de Alumnos.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "e",
+          "texto": "Un presente agregado puede sumar comisión al recalcular una liquidación abierta; uno quitado puede restarla.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::storeAsistencias (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Una clase de hoy con lista guardada y una de ayer con lista guardada.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Corregir una asistencia ya guardada"
+    },
+    {
+      "accion": "La abre e intenta guardar la lista, por pantalla y enviándola a mano.",
+      "codigo": "ASI-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pantalla",
+          "l": "a",
+          "texto": "Aviso de bloqueo y Guardar deshabilitado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "«La clase está cancelada. No se pueden registrar asistencias.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No se guarda ninguna marca.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::storeAsistencias (código leído); D03-4.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase cancelada.",
+      "roles": [
+        "PROFESOR",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Asistencia en una clase cancelada"
+    },
+    {
+      "accion": "Intenta cambiar la lista.",
+      "codigo": "ASI-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "«No se pueden modificar asistencias: la clase integra una liquidación cerrada.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Salida",
+          "l": "b",
+          "texto": "El dueño puede cancelar la liquidación cerrada sin pagar, corregir y volver a generarla.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Abierta",
+          "l": "c",
+          "texto": "Si la liquidación está abierta, la asistencia sí se puede cambiar y se refleja al recalcular.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "FIN-12; Contrato de liquidaciones (enmienda 13/09); ClaseWebController::storeAsistencias (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase incluida en una liquidación cerrada.",
+      "roles": [
+        "PROFESOR",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Asistencia de una clase ya liquidada"
+    },
+    {
+      "accion": "Le marcan presente en una tercera clase de la semana.",
+      "codigo": "ASI-007",
+      "duda": "DU-34",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "La pantalla avisa que excede su plan y hace elegir si es una clase extra o una recuperación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "b",
+          "texto": "Se guarda el presente con el motivo elegido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "c",
+          "texto": "Queda el exceso anotado con alumno, fecha y motivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobro",
+          "l": "d",
+          "texto": "No genera ningún cargo ni cambia su cuota.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cambio de plan",
+          "l": "e",
+          "texto": "Si le suben el plan, el exceso deja de dispararse.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseService::contarAsistenciasSemana y AsistenciaExceso (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Alumno con plan de 2 veces por semana que ya tuvo 2 presentes esta semana.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alumno que viene más veces de las que paga"
+    },
+    {
+      "accion": "La marcan presente en la otra.",
+      "codigo": "ASI-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No guarda nada de esa lista y explica el choque: todo o nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "La lista queda como estaba.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2; ClaseService::verificarDisponibilidadAlumno (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Persona anotada en dos deportes con clases superpuestas, ya marcada presente en una.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "El mismo alumno presente en dos clases a la misma hora"
+    },
+    {
+      "accion": "Abre la clase de hoy del grupo viejo, la del grupo nuevo y una clase de la semana pasada del grupo viejo.",
+      "codigo": "ASI-009",
+      "duda": "DU-09",
+      "esperado": [
+        {
+          "donde": "Alta de hoy",
+          "l": "a",
+          "texto": "Aparece en la clase de hoy de su grupo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio de grupo",
+          "l": "b",
+          "texto": "Aparece en el grupo nuevo y ya no en el viejo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Baja",
+          "l": "c",
+          "texto": "No aparece en ninguna.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clase vieja",
+          "l": "d",
+          "texto": "En la clase de la semana pasada ya no aparecen el que cambió ni el dado de baja, aunque habían estado presentes; la clase conserva su cantidad de presentes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Corrección",
+          "l": "e",
+          "texto": "Si se corrige esa lista vieja, las marcas de los que ya no figuran no se pierden.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::show arma la lista con los alumnos activos que hoy están en el grupo (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Un alumno que cambió de grupo ayer, uno dado de baja ayer y uno dado de alta hoy.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Quién aparece en la lista después de un cambio"
+    },
+    {
+      "accion": "Envía la lista con un alumno de otro grupo, un alumno inexistente, un alumno inactivo del mismo grupo y una clase inexistente.",
+      "codigo": "ASI-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Otro grupo e inexistente",
+          "l": "a",
+          "texto": "Se rechaza: «El alumno indicado no pertenece al grupo de la clase.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inactivo",
+          "l": "b",
+          "texto": "Se rechaza: un alumno dado de baja no puede tener presente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clase inexistente",
+          "l": "c",
+          "texto": "Página de no encontrado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "No se guarda nada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::storeAsistencias (código leído). El control mira solo el grupo, no si el alumno está activo: es probable que al inactivo lo acepte. Comprobado por Claude el 13/10 en la base descartable: acepta el presente de un alumno dado de baja.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Herramienta para enviar la lista adulterada.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Forzar una asistencia adulterada"
+    },
+    {
+      "accion": "La abre, marca presentes y guarda.",
+      "codigo": "ASI-011",
+      "duda": "DU-35",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema lo acepta: no controla que la clase ya haya ocurrido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sueldo",
+          "l": "b",
+          "texto": "Esa clase futura pasa a contar como dictada.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión y mes siguiente",
+          "l": "c",
+          "texto": "Esos presentes cuentan para comisión y para la generación del mes siguiente.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "ClaseWebController::storeAsistencias no controla la fecha (código leído). Comprobado por Claude el 13/10 en la base descartable: guarda el presente de una clase de la semana que viene.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase de mañana.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Tomar asistencia de una clase que todavía no ocurrió"
+    },
+    {
+      "accion": "La profesora guarda 6 presentes; la operativa, con la pantalla vieja, guarda 4.",
+      "codigo": "ASI-012",
+      "duda": "DU-14",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Queda la última lista guardada, sin aviso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "Hay una sola marca por alumno; no se duplican.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::storeAsistencias (una marca por clase y alumno) (código leído).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "La misma clase abierta por la profesora y por la operativa.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Dos personas guardan la misma lista"
+    },
+    {
+      "accion": "La profesora abre la lista.",
+      "codigo": "ASI-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "La lista indica quién no puede entrar por deuda; el alumno nuevo tiene dos clases de margen.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "b",
+          "texto": "La profesora no ve importes, solo si puede o no entrar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Contrato de estados §5 a §8 (acceso a clase, justificaciones, margen del alumno nuevo). No está programado: hoy la lista no dice nada de la deuda.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Alumno deudor de dos meses en la lista de hoy; alumno nuevo en su segunda clase sin haber pagado.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "El deudor que viene a clase"
+    },
+    {
+      "accion": "Marca toda la lista y guarda.",
+      "codigo": "ASI-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pantalla",
+          "l": "a",
+          "texto": "Todos los nombres y marcas entran sin desplazarse de costado; Guardar está siempre alcanzable.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "b",
+          "texto": "Guarda los 26 en un solo paso.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AC-04; D01-6.",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase con 26 alumnos. Teléfono de 360 de ancho.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Tomar asistencia desde el teléfono"
+    },
+    {
+      "accion": "Marca la lista, pierde la conexión y toca Guardar. Recupera la conexión y vuelve a tocar Guardar.",
+      "codigo": "ASI-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Sin conexión",
+          "l": "a",
+          "texto": "Avisa «Error de conexión». Las marcas siguen en pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con conexión",
+          "l": "b",
+          "texto": "Guarda y avisa «Lista guardada».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No queda una lista guardada a medias.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Recarga",
+          "l": "d",
+          "texto": "Si recarga la página sin haber guardado, las marcas se pierden y nada lo avisa.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "clases/show (script leído el 13/10).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Teléfono en la cancha con mala señal.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Guardar la lista sin conexión"
+    },
+    {
+      "accion": "La profesora abre la lista.",
+      "codigo": "ASI-016",
+      "duda": "DU-56",
+      "esperado": [
+        {
+          "donde": "Ve",
+          "l": "a",
+          "texto": "Apellido y nombre, DNI, y el contador de la semana (por ejemplo 1/2, con «Completo» o «Excede»). «Sin plan» en quien no lo tiene.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "No ve",
+          "l": "b",
+          "texto": "Teléfono, tutor, deuda, importes ni estado de cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Enlaces",
+          "l": "c",
+          "texto": "No hay enlace a la ficha del alumno; forzando la dirección recibe acceso restringido.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "clases/show (vista leída el 13/10); Permisos y roles (la profesora no participa de alumnos ni de plata).",
+      "modulo": "Asistencia",
+      "pantalla": "clases-ficha",
+      "requiere": "Lista con alumnos con plan, uno sin plan, uno deudor.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Qué ve la profesora de cada alumno en la lista"
+    }
+  ],
+  "modulo": "Asistencia",
+  "orden": 13,
+  "prefijo": "ASI"
+}

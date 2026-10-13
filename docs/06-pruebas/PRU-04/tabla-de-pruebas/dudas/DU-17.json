@@ -1,0 +1,19 @@
+{
+  "casos": [
+    "CAJ-019",
+    "CAJ-020"
+  ],
+  "codigo": "DU-17",
+  "contexto": "Hoy la diferencia se ve en el detalle y el listado de cajas, y nada más: no genera movimiento ni aparece en Reportes. Un faltante repetido de la misma persona no se ve en ningún resumen.",
+  "modulo": "Caja",
+  "opciones": [
+    "Un resumen de diferencias por operativa y por mes",
+    "Registrarlo como gasto o ingreso al validar",
+    "Dejarlo como está"
+  ],
+  "orden": 15,
+  "pregunta": "¿Dónde tiene que verse el faltante o sobrante de una caja después de validada?",
+  "recomendacion": "Resumen por operativa (mejora futura). No registrarlo como gasto automático.",
+  "respondida_en": "2026-10-13T11:04:40.348Z",
+  "respuesta": "Un resumen de diferencias por operativa y por mes"
+}

@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "COB-012"
+  ],
+  "codigo": "DU-19",
+  "contexto": "Hoy noviembre cobrado en octubre es ingreso de octubre y entra en la comisión de octubre, no de noviembre.",
+  "modulo": "Cobrar",
+  "opciones": [
+    "Del mes en que se cobró (como hoy)",
+    "Del mes que paga"
+  ],
+  "orden": 17,
+  "pregunta": "Un mes cobrado por adelantado, ¿es ingreso (y comisión del profesor) del mes en que se cobró o del mes que paga?",
+  "recomendacion": "Confirmar el criterio actual: es plata que entró en octubre.",
+  "respondida_en": "2026-10-13T11:04:58.431Z",
+  "respuesta": "Del mes que paga. Precisado por Carlos el 13/10: noviembre cobrado en octubre se le paga a la profesora en la liquidación de noviembre."
+}

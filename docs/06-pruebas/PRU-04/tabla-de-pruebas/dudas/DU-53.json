@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CSH-007"
+  ],
+  "codigo": "DU-53",
+  "contexto": "Para anular un cobro o cancelar un cobro de caja el motivo es obligatorio. En las correcciones de Cashflow se puede dejar vacío: queda el antes y el después, pero no el porqué.",
+  "modulo": "Cashflow",
+  "opciones": [
+    "Obligatorio, como en las anulaciones",
+    "Opcional, como está"
+  ],
+  "orden": 51,
+  "pregunta": "Al corregir o eliminar un movimiento directo del dueño el motivo es opcional. ¿Tiene que ser obligatorio?",
+  "recomendacion": "Obligatorio: es lo único que explica el cambio a quien lo mire después.",
+  "respondida_en": "2026-10-13T11:35:29.541Z",
+  "respuesta": "Opcional, como está"
+}

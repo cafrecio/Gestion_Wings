@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ALU-007"
+  ],
+  "codigo": "DU-06",
+  "contexto": "Hoy se acepta cualquier fecha futura: crea la cuota de ese mes futuro, el alumno aparece ya en las listas de asistencia y no tiene plan aplicable hasta esa fecha.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "No aceptar fechas futuras",
+    "Aceptar solo hasta el mes siguiente",
+    "Dejarlo como está"
+  ],
+  "orden": 4,
+  "pregunta": "¿Se puede dar de alta a un alumno con fecha de ingreso futura?",
+  "recomendacion": "No aceptar fechas futuras.",
+  "respondida_en": "2026-10-13T10:46:36.117Z",
+  "respuesta": "Aceptar solo hasta el mes siguiente"
+}

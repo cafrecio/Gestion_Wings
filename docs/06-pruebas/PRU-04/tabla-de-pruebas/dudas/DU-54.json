@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CAJ-040"
+  ],
+  "codigo": "DU-54",
+  "contexto": "El dueño puede tildar cada movimiento que revisó, pero Validar funciona igual sin tildar nada y también desde el Resumen. Al recargar se pierden.",
+  "modulo": "Caja",
+  "opciones": [
+    "Dejarlos como ayuda visual",
+    "Exigir todos tildados para validar",
+    "Guardarlos"
+  ],
+  "orden": 52,
+  "pregunta": "Los tildes de verificación del detalle de caja no se guardan ni son obligatorios para validar. ¿Qué tienen que hacer?",
+  "recomendacion": "Dejarlos como ayuda visual, salvo que quieras obligar a revisar uno por uno.",
+  "respondida_en": "2026-10-13T11:35:57.419Z",
+  "respuesta": "Exigir todos tildados para validar"
+}

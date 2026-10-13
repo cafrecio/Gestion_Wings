@@ -1,0 +1,20 @@
+{
+  "casos": [
+    "GRU-006",
+    "CAT-003",
+    "SIS-014"
+  ],
+  "codigo": "DU-41",
+  "contexto": "Hoy se desactiva sin avisar y todo lo demás sigue funcionando: alumnos, deuda, clases y generación de cuotas. Además deja de aparecer en los filtros de Cobranza.",
+  "modulo": "Catálogos",
+  "opciones": [
+    "Impedirlo mientras tenga alumnos activos o clases futuras",
+    "Avisar y dejar seguir",
+    "Dejarlo como está"
+  ],
+  "orden": 39,
+  "pregunta": "¿Se puede desactivar un deporte o un grupo que tiene alumnos activos y clases programadas?",
+  "recomendacion": "Impedirlo.",
+  "respondida_en": "2026-10-13T11:29:12.909Z",
+  "respuesta": "Impedirlo mientras tenga alumnos activos o clases futuras"
+}

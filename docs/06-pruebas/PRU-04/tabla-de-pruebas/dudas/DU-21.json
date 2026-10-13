@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "COB-021"
+  ],
+  "codigo": "DU-21",
+  "contexto": "Son dos criterios distintos para lo mismo. Con fecha de hoy, el mes del cobro conserva el ingreso y el mes actual muestra la resta. Con la fecha original, el mes queda como si no hubiera existido.",
+  "modulo": "Cobrar",
+  "opciones": [
+    "Los dos con la fecha del original (como definiste para Cashflow)",
+    "Los dos con la fecha de hoy",
+    "Dejar cada uno como está"
+  ],
+  "orden": 19,
+  "pregunta": "Al anular un cobro del dueño, el asiento en contra lleva la fecha de hoy. Al eliminar un movimiento directo, lleva la fecha del original. ¿Cuál vale?",
+  "recomendacion": "Unificar con la fecha del original, que es lo que aprobaste el 12/10.",
+  "respondida_en": "2026-10-13T11:11:08.641Z",
+  "respuesta": "Los dos con la fecha del original (como definiste para Cashflow)"
+}

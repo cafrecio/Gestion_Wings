@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ALU-013",
+    "ASI-009"
+  ],
+  "codigo": "DU-09",
+  "contexto": "La lista se arma con los alumnos que hoy están activos en el grupo. Las marcas viejas no se pierden y la clase conserva su cantidad de presentes, pero al abrirla no se ve quién fue.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "En clases pasadas mostrar también a quien tiene una marca guardada",
+    "Dejarlo como está"
+  ],
+  "orden": 7,
+  "pregunta": "Cuando un alumno cambia de grupo o se da de baja, deja de aparecer en las listas de las clases viejas donde estuvo presente. ¿Tiene que seguir viéndose ahí?",
+  "recomendacion": "Mostrar a quien tiene marca guardada: si no, no se puede revisar ni corregir quién asistió.",
+  "respondida_en": "2026-10-13T10:58:59.663Z",
+  "respuesta": "Si, los cambios son hacia adelante"
+}

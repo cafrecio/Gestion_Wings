@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CSH-009"
+  ],
+  "codigo": "DU-27",
+  "contexto": "Una caja validada no se toca y sus movimientos no se corrigen desde Cashflow. Hoy no hay camino.",
+  "modulo": "Cashflow",
+  "opciones": [
+    "El dueño carga un ajuste directo en Cashflow con motivo",
+    "Permitir al dueño reabrir una caja validada",
+    "No se corrige"
+  ],
+  "orden": 25,
+  "pregunta": "Si después de validar una caja se descubre un movimiento mal cargado, ¿cómo se corrige?",
+  "recomendacion": "Ajuste directo con motivo: no rompe la regla de que lo validado no cambia.",
+  "respondida_en": "2026-10-13T11:17:57.520Z",
+  "respuesta": "El dueño carga un ajuste directo en Cashflow con motivo\nPonerlo entre los casos de ayuda"
+}

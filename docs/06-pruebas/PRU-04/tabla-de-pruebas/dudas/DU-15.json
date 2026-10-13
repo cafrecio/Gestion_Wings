@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ALU-023"
+  ],
+  "codigo": "DU-15",
+  "contexto": "La generación mensual lo saltea y solo deja un aviso técnico que nadie ve. Queda fuera de la cobranza indefinidamente.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Avisarlo en Inicio y en Revisión",
+    "Impedir que un alumno activo quede sin plan"
+  ],
+  "orden": 13,
+  "pregunta": "Un alumno activo que quedó sin plan no recibe cuota el día 1 ni entra en Revisión. ¿Cómo se entera alguien?",
+  "recomendacion": "Las dos: impedirlo y, por si pasa, avisarlo.",
+  "respondida_en": "2026-10-13T11:03:20.684Z",
+  "respuesta": "Impedir que un alumno activo quede sin plan"
+}

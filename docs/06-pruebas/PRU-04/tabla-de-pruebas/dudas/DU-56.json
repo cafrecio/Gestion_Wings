@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ASI-016"
+  ],
+  "codigo": "DU-56",
+  "contexto": "Ve apellido, nombre, DNI y el contador de clases de la semana. No ve teléfono, deuda ni importes.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "Está bien: sirve para distinguir homónimos",
+    "Quitar el DNI de la lista"
+  ],
+  "orden": 54,
+  "pregunta": "La profesora ve el DNI de cada alumno en la lista de asistencia. ¿Está bien?",
+  "recomendacion": "Confirmarlo; si no hace falta, quitarlo.",
+  "respondida_en": "2026-10-13T11:36:47.908Z",
+  "respuesta": "Quitar el DNI de la lista, dejar solo ultimos 3 numeros del DNI para homonimos"
+}

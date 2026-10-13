@@ -1,0 +1,807 @@
+{
+  "casos": [
+    {
+      "accion": "El dueño abre Inicio.",
+      "codigo": "REP-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingresos",
+          "l": "a",
+          "texto": "Ingresos del mes = cobros de cajas validadas + cobros del dueño − anulaciones, más lo pendiente de cajas sin validar mostrado como pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Gastos y resultado",
+          "l": "b",
+          "texto": "Gastos del mes y resultado. Aportes y retiros no entran en el resultado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por cobrar",
+          "l": "c",
+          "texto": "Igual al total adeudado de Cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por pagar",
+          "l": "d",
+          "texto": "Suma de las liquidaciones cerradas sin pagar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Avisos",
+          "l": "e",
+          "texto": "Cajas cerradas sin validar, liquidaciones abiertas y cerradas sin pagar, clases sin asistencia, revisiones pendientes: cada número coincide con su pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin clasificar",
+          "l": "f",
+          "texto": "Si hay un movimiento en un subrubro sin clasificar, lo avisa y no muestra un resultado engañoso.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mismo cálculo",
+          "l": "g",
+          "texto": "Son los mismos números que Reportes para el mes en curso.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "WebController::adminDashboard y ReporteMensualService (código leído); T16, T17, T19; D01-1, D01-9, D02-1.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "inicio-admin",
+      "requiere": "Mes en curso con cajas validadas, una caja cerrada sin validar, cobros del dueño, gastos, una liquidación cerrada sin pagar y clases sin asistencia.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Inicio del dueño: los números del mes"
+    },
+    {
+      "accion": "Cada una abre su Inicio.",
+      "codigo": "REP-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Caja",
+          "l": "a",
+          "texto": "La que tiene caja ve su turno con la hora de apertura, el total y la cantidad cobrados hoy. La otra ve que hay un turno abierto de su compañera.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rechazadas",
+          "l": "b",
+          "texto": "Muestra la cantidad de cajas propias rechazadas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases",
+          "l": "c",
+          "texto": "Las clases de hoy no canceladas con sus presentes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alumnos con deuda",
+          "l": "d",
+          "texto": "El mismo número que anuncia el buscador de Cobrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Posibles inactivos",
+          "l": "e",
+          "texto": "La cantidad de revisiones pendientes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin plata del dueño",
+          "l": "f",
+          "texto": "No muestra ingresos del mes, gastos, resultado ni sueldos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "OperativoDashboardController (código leído). «Alumnos con deuda» se calcula aparte y no excluye meses futuros: es probable que no coincida cuando haya adelantados cancelados. Comprobado por Claude el 13/10 en la base descartable: con un alumno que debe el mes y otro que solo tiene pendiente un mes futuro, el Inicio de la operativa dice 2 y el buscador de Cobrar dice 1.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "inicio-operativo",
+      "requiere": "Operativa con caja abierta y cobros hechos; otra operativa sin caja; una caja rechazada; clases de hoy; revisiones pendientes.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Inicio de la operativa"
+    },
+    {
+      "accion": "Abre Reportes del mes y lo compara con la cuenta a mano.",
+      "codigo": "REP-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingresos",
+          "l": "a",
+          "texto": "Cobros validados más cobros directos del dueño, menos anulaciones. Cuotas e inscripción en renglones separados; otros ingresos por rubro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Gastos",
+          "l": "b",
+          "texto": "Gastos por deporte y, aparte, gastos del club sin repartir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fuera del resultado",
+          "l": "c",
+          "texto": "Aportes y retiros aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resultado",
+          "l": "d",
+          "texto": "Ingresos − gastos del negocio.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por cobrar y por pagar",
+          "l": "e",
+          "texto": "Deuda de alumnos activos (cuotas + inscripciones) y liquidaciones cerradas sin pagar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Disponible",
+          "l": "f",
+          "texto": "Saldo por medio de pago, confirmado y pendiente por separado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Nada sin clasificar",
+          "l": "g",
+          "texto": "No hay aviso de movimientos sin clasificar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "h",
+          "texto": "Los totales coinciden con Cashflow del mismo mes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1; ReporteMensualService (código leído); T16; RP-01; D02-6.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Mes completo cargado, todas las cajas validadas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reporte de Finanzas del mes"
+    },
+    {
+      "accion": "Abre Reportes.",
+      "codigo": "REP-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pendiente",
+          "l": "a",
+          "texto": "Los movimientos de esas cajas figuran marcados como pendientes, separados de lo confirmado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelados",
+          "l": "b",
+          "texto": "Los cobros cancelados no figuran.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Al validar",
+          "l": "c",
+          "texto": "Lo pendiente pasa a confirmado sin que cambie el total.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Al rechazar",
+          "l": "d",
+          "texto": "Sigue pendiente.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReporteMensualService (código leído).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Mes en curso con una caja abierta y una cerrada sin validar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reporte con cajas todavía sin validar"
+    },
+    {
+      "accion": "En noviembre, después de cobros, altas, bajas y generación de cuotas, abre otra vez el reporte de octubre.",
+      "codigo": "REP-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingresos y gastos",
+          "l": "a",
+          "texto": "Iguales a los del 31/10.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por cobrar",
+          "l": "b",
+          "texto": "El «por cobrar» de octubre sigue siendo el de fin de octubre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Excepciones",
+          "l": "c",
+          "texto": "Solo lo cambian los movimientos cargados después con fecha de octubre, que el sistema hace confirmar y avisa.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes futuro",
+          "l": "d",
+          "texto": "No se puede pedir el reporte de un mes futuro.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1; ReporteMensualService (eventos con fecha) (código leído); RP-04.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Reporte de octubre anotado el 31/10 con todo validado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "El mes cerrado no cambia"
+    },
+    {
+      "accion": "Abre el Reporte de Alumnos.",
+      "codigo": "REP-006",
+      "duda": "DU-39",
+      "esperado": [
+        {
+          "donde": "Totales",
+          "l": "a",
+          "texto": "Activos e inactivos a hoy; por deporte y por nivel. Los activos coinciden con Alumnos y con la suma de estados de Cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Asistencia",
+          "l": "b",
+          "texto": "Presentes y ausentes del mes; clases sin registro; activos sin ningún presente en el mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Revisiones",
+          "l": "c",
+          "texto": "Cantidad de revisiones pendientes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio de grupo",
+          "l": "d",
+          "texto": "El alumno que cambió de grupo cuenta en su nivel nuevo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Dos deportes",
+          "l": "e",
+          "texto": "La persona con dos deportes cuenta en cada uno.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReporteAlumnosService (código leído); RP-02.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-alumnos",
+      "requiere": "Mes con altas, bajas, cambios de grupo y asistencias.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reporte de Alumnos"
+    },
+    {
+      "accion": "Abre el Reporte de Sueldos y filtra por deporte.",
+      "codigo": "REP-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Por profesor",
+          "l": "a",
+          "texto": "Asistencias del mes, alumnos con pago, asistencias sin pago, ingreso que generaron sus alumnos, costo y porcentaje del costo sobre el ingreso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Costo",
+          "l": "b",
+          "texto": "Con liquidación cerrada usa su importe final; con abierta, el de la abierta; sin liquidación, una estimación por las clases o cuotas del mes, indicándolo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Canceladas",
+          "l": "c",
+          "texto": "Las clases canceladas no suman asistencias ni costo. La liquidación cancelada no cuenta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "d",
+          "texto": "El total por deporte es la suma de sus profesores.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "e",
+          "texto": "El costo de un profesor con liquidación pagada es igual a su egreso en Cashflow.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin cuota",
+          "l": "f",
+          "texto": "Un presente de un alumno sin cuota del mes se avisa y deja el ingreso de ese profesor sin calcular.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReporteSueldosService (código leído 13/10); RP-03; D03-5.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-sueldos",
+      "requiere": "Mes con clases dictadas, canceladas, liquidaciones abierta, cerrada, pagada y cancelada; un profesor sin liquidar.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Reporte de Sueldos"
+    },
+    {
+      "accion": "Escriben a mano las direcciones de Reportes, Reporte de Alumnos, Reporte de Sueldos y del Inicio del dueño.",
+      "codigo": "REP-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en castellano, sin importes a la vista, con Volver al inicio de su rol.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; rutas con ensure.admin.web.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Operativa y profesora ingresadas.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Entrar a Reportes o al Inicio del dueño sin serlo"
+    },
+    {
+      "accion": "Abre Inicio y Reportes.",
+      "codigo": "REP-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Avisan que hay movimientos sin clasificar y cuáles.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resultado",
+          "l": "b",
+          "texto": "No muestran el resultado del mes como si estuviera completo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Arreglo",
+          "l": "c",
+          "texto": "Al clasificar el subrubro, el aviso desaparece y el resultado aparece.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T16; ReporteMensualService (resultado nulo con sin clasificar) (código leído); D01-9.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Un subrubro viejo sin clasificación con un movimiento este mes.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Movimiento en un subrubro sin clasificar"
+    },
+    {
+      "accion": "Al final del día compara Reportes, Inicio, Cashflow, Historial y las cajas.",
+      "codigo": "REP-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingresos del día",
+          "l": "a",
+          "texto": "Suma de cobros activos de las cajas + cobros del dueño = variación de ingresos (confirmados más pendientes) del mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Gastos del día",
+          "l": "b",
+          "texto": "Gastos de caja + gastos directos = variación de gastos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Por cobrar",
+          "l": "c",
+          "texto": "Baja exactamente lo cobrado de cuotas e inscripciones (más condonaciones y bajas, menos altas).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Disponible",
+          "l": "d",
+          "texto": "El disponible por medio cambia por lo validado hoy y los directos.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ReporteMensualService; CashflowIntegracionCajaService (código leído); T19.",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Un día con cobros en caja, un cobro del dueño, un gasto de caja, un gasto directo y una validación.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Cuadre diario de plata"
+    },
+    {
+      "accion": "Filtra el reporte por un deporte.",
+      "codigo": "REP-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingresos",
+          "l": "a",
+          "texto": "Solo las cuotas de alumnos de ese deporte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Egresos",
+          "l": "b",
+          "texto": "Solo los sueldos y gastos atribuidos a ese deporte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Gastos del club",
+          "l": "c",
+          "texto": "Los gastos generales se muestran aparte y no se descuentan del resultado del deporte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Total",
+          "l": "d",
+          "texto": "Sin filtro, los gastos generales se descuentan una sola vez del resultado del negocio. La suma de los resultados por deporte menos los gastos del club da el resultado total.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Disponible",
+          "l": "e",
+          "texto": "Con filtro, el disponible se aclara como de todo el negocio.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1 (enmienda FIN-04); reportes/index (vista leída).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Mes con cuotas de dos deportes, sueldos de profesores de cada uno y gastos generales (alquiler, servicios).",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Finanzas filtrado por deporte"
+    },
+    {
+      "accion": "Abre Finanzas, Alumnos y Sueldos de noviembre y de un mes anterior al arranque.",
+      "codigo": "REP-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Comparación",
+          "l": "a",
+          "texto": "Cada número del mes se muestra junto al del mes anterior con la diferencia, bien calculada y con el sentido correcto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Evolución",
+          "l": "b",
+          "texto": "Los gráficos muestran hasta seis meses cerrados con datos y el mes actual aparte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin historial",
+          "l": "c",
+          "texto": "Un mes sin datos dice «Sin historial» o «Sin comparación»; nunca muestra cero como si fuera un dato.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin clasificar",
+          "l": "d",
+          "texto": "Si el mes anterior tiene movimientos sin clasificar, no compara contra él.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1 §5b y §5c; reportes/index (vista leída).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Dos meses con datos (octubre y noviembre) y meses anteriores sin historial.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Comparación con el mes anterior y evolución"
+    },
+    {
+      "accion": "El 2/11 el dueño la valida. Abre los reportes de octubre y noviembre.",
+      "codigo": "REP-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Octubre",
+          "l": "a",
+          "texto": "Lo de esa caja pasa de pendiente a confirmado en octubre: el total de octubre no cambia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Noviembre",
+          "l": "b",
+          "texto": "No suma nada en noviembre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cashflow",
+          "l": "c",
+          "texto": "Los movimientos figuran con fecha de octubre.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Comisión",
+          "l": "d",
+          "texto": "La liquidación de octubre ya contaba esos cobros.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de reportes V1 (la fecha real del movimiento determina el período; no contar otra vez al validar).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-finanzas",
+      "requiere": "Caja del 31/10 cerrada sin validar. Reporte de octubre anotado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Una caja de octubre validada en noviembre"
+    },
+    {
+      "accion": "El dueño y la operativa buscan la lista de alumnos que dejaron de venir.",
+      "codigo": "REP-014",
+      "duda": "DU-49",
+      "esperado": [
+        {
+          "donde": "Definición",
+          "l": "a",
+          "texto": "Dejó de venir quien faltó a la cantidad de clases que su plan cubre en un mes, contadas en clases dictadas, no en días.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Orden",
+          "l": "b",
+          "texto": "Primero los que además deben plata.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "La operativa también la ve: es trabajo de seguimiento.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin clases",
+          "l": "d",
+          "texto": "En un mes sin clases nadie acumula faltas.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Hoy",
+          "l": "e",
+          "texto": "El Reporte de Alumnos muestra «activos sin presentes en el mes» y es solo del dueño; la operativa solo ve las revisiones pendientes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Contrato de reportes V1 §5d y §1; ReporteAlumnosService (código leído).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-alumnos",
+      "requiere": "Alumno de 2 veces por semana que faltó a 8 clases seguidas dictadas; otro que faltó a 3; un mes sin clases dictadas.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Alumnos que dejaron de venir"
+    },
+    {
+      "accion": "El dueño busca, por grupo, cuántos alumnos tiene, cuánto factura, cuánto cuesta el profesor y cuánto queda.",
+      "codigo": "REP-015",
+      "duda": "DU-50",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El Reporte de Sueldos lo muestra por profesor y por deporte, no por grupo.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Contrato de reportes V1 §4 («qué grupo me conviene»); ReporteSueldosService (código leído 13/10).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "reportes-sueldos",
+      "requiere": "Mes cerrado con grupos de distinto tamaño.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cómo le va a cada grupo"
+    },
+    {
+      "accion": "Abre Inicio en cada momento.",
+      "codigo": "REP-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Antes de abrir",
+          "l": "a",
+          "texto": "«No hay turno abierto hoy», con Abrir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja propia",
+          "l": "b",
+          "texto": "«Caja abierta», la hora en que la abrió, con Cobrar y Registrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja de la compañera",
+          "l": "c",
+          "texto": "«Turno en curso» con el nombre de la compañera y que ella debe cerrar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cerrada",
+          "l": "d",
+          "texto": "«Turno cerrado», el estado de la última caja y la hora de cierre, con Abrir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja de ayer",
+          "l": "e",
+          "texto": "«Tu caja sigue abierta», con Cerrar; no ofrece Abrir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rechazada",
+          "l": "f",
+          "texto": "Aviso de caja rechazada pendiente de corrección, con Ver.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases",
+          "l": "g",
+          "texto": "Cada clase de hoy muestra «Sin lista» o la cantidad de presentes, con acceso a la lista.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recaudación",
+          "l": "h",
+          "texto": "Cobrado hoy, cobros registrados y cajas del turno coinciden con Caja.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "operativo/dashboard (vista leída el 13/10).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "inicio-operativo",
+      "requiere": "Recorrer un día: antes de abrir, con la caja abierta, con la caja de la compañera abierta, con la caja cerrada, con una caja de ayer sin cerrar y con una caja rechazada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "El Inicio de la operativa a lo largo del día"
+    },
+    {
+      "accion": "En Inicio toca cada aviso de «Para revisar» y cada número del mes.",
+      "codigo": "REP-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cajas por validar",
+          "l": "a",
+          "texto": "Lleva al listado de cajas ya filtrado en pendientes: 2.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidaciones pendientes",
+          "l": "b",
+          "texto": "Lleva a Liquidaciones filtrado en pendientes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clases sin asistencia",
+          "l": "c",
+          "texto": "Lleva a Clases filtrado en Finalizada: 3.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Revisión de alumnos",
+          "l": "d",
+          "texto": "Lleva a Revisión: 2.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Números del mes",
+          "l": "e",
+          "texto": "Ingresos, egresos, alumnos por cobrar y profesores por pagar llevan a la parte de Reportes que los explica.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Disponible",
+          "l": "f",
+          "texto": "Muestra el total por medio y cuánto está todavía por validar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coincidencia",
+          "l": "g",
+          "texto": "El número de cada aviso es igual a la cantidad de filas de la lista a la que lleva.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "admin/dashboard (vista leída el 13/10).",
+      "modulo": "Reportes e Inicio",
+      "pantalla": "inicio-admin",
+      "requiere": "Dos cajas por validar, una liquidación cerrada sin pagar y una abierta, tres clases sin asistencia y dos revisiones.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Los avisos del Inicio del dueño llevan a su lista"
+    }
+  ],
+  "modulo": "Reportes e Inicio",
+  "orden": 16,
+  "prefijo": "REP"
+}

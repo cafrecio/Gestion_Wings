@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "CFG-004"
+  ],
+  "codigo": "DU-45",
+  "contexto": "Lo mismo pasa si un día no queda cubierto por ninguna regla.",
+  "modulo": "Configuración",
+  "opciones": [
+    "Impedir reglas superpuestas y días sin cubrir",
+    "Dejarlo como está"
+  ],
+  "orden": 43,
+  "pregunta": "Si dos reglas de primer pago se superponen para el mismo día, el alta de ese día se cobra al 100% sin avisar. ¿Se impide la superposición?",
+  "recomendacion": "Impedirlo.",
+  "respondida_en": "2026-10-13T11:30:27.513Z",
+  "respuesta": "Impedir reglas superpuestas y días sin cubrir"
+}

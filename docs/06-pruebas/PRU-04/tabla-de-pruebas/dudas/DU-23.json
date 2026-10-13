@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "COB-029"
+  ],
+  "codigo": "DU-23",
+  "contexto": "El sistema responde que la deuda «debe crearla un administrador», pero no existe una pantalla para crearla.",
+  "modulo": "Cobrar",
+  "opciones": [
+    "Que el dueño pueda crear la cuota de un mes pasado desde la ficha",
+    "No se cobra: lo pasado sin generar no se reclama"
+  ],
+  "orden": 21,
+  "pregunta": "Si a un alumno nunca se le generó la cuota de un mes pasado, ¿cómo se le cobra?",
+  "recomendacion": "Que el dueño pueda crearla.",
+  "respondida_en": "2026-10-13T11:16:34.544Z",
+  "respuesta": "Que el dueño pueda crear la cuota de un mes pasado desde la ficha"
+}

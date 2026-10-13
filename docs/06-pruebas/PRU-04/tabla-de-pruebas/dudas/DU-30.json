@@ -1,0 +1,19 @@
+{
+  "casos": [
+    "CLA-012",
+    "CLA-013"
+  ],
+  "codigo": "DU-30",
+  "contexto": "Hoy se cancela sin avisar. La profesora deja de cobrarla, los presentes dejan de contar para la comisión y para la cuota del mes siguiente, y una liquidación cerrada o pagada queda con una clase cancelada adentro.",
+  "modulo": "Clases",
+  "opciones": [
+    "Avisar y pedir confirmación si tiene lista; impedir si está en una liquidación cerrada o pagada",
+    "Impedir siempre que tenga lista",
+    "Dejarlo como está"
+  ],
+  "orden": 28,
+  "pregunta": "¿Se puede cancelar una clase que ya tiene la lista tomada, o que ya está en una liquidación?",
+  "recomendacion": "La primera.",
+  "respondida_en": "2026-10-13T11:20:19.112Z",
+  "respuesta": "Avisar y pedir confirmación si tiene lista; impedir si está en una liquidación cerrada o pagada"
+}

@@ -1,0 +1,19 @@
+{
+  "casos": [
+    "USU-007",
+    "USU-008"
+  ],
+  "codigo": "DU-05",
+  "contexto": "Hoy el sistema lo hace sin avisar. La caja queda abierta a su nombre y nadie más puede abrir hasta que el dueño la cuente y la cierre.",
+  "modulo": "Usuarios",
+  "opciones": [
+    "Avisar y pedir que primero se cierre la caja",
+    "Permitirlo avisando que la caja queda para que la cierre el dueño",
+    "Dejarlo como está"
+  ],
+  "orden": 3,
+  "pregunta": "¿Qué tiene que pasar al desactivar o cambiar de rol a una operativa que tiene la caja abierta?",
+  "recomendacion": "Avisar y no dejar seguir hasta cerrar la caja: evita un turno huérfano.",
+  "respondida_en": "2026-10-13T10:46:19.618Z",
+  "respuesta": "Avisar y pedir que primero se cierre la caja"
+}

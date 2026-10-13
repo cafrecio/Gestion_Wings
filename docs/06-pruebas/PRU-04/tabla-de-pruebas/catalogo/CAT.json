@@ -1,0 +1,410 @@
+{
+  "casos": [
+    {
+      "accion": "Crea un deporte que liquida por hora y otro por comisión. Intenta crear uno con un nombre repetido (con otras mayúsculas y con espacios).",
+      "codigo": "CAT-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alta",
+          "l": "a",
+          "texto": "Los dos aparecen en Deportes con su tipo de liquidación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Repetido",
+          "l": "b",
+          "texto": "«Ya existe un deporte con ese nombre.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Uso",
+          "l": "c",
+          "texto": "Se pueden crear grupos y profesores de esos deportes; aparecen en los filtros de Alumnos, Cobranza y Reportes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "d",
+          "texto": "El tipo define cómo se liquidan sus profesores.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "DeporteWebController (código leído); Contrato ABM Admin V1.",
+      "modulo": "Catálogos",
+      "pantalla": "cat-deportes",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Deportes: alta y edición"
+    },
+    {
+      "accion": "El dueño lo cambia a comisión.",
+      "codigo": "CAT-002",
+      "duda": "DU-42",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema lo permite.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pagada",
+          "l": "b",
+          "texto": "La liquidación pagada conserva su tipo e importe.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Abierta",
+          "l": "c",
+          "texto": "Al recalcular la abierta, ¿con qué tipo se calcula?",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "d",
+          "texto": "Las nuevas liquidaciones salen por comisión; los profesores necesitan porcentaje cargado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "DeporteWebController::update no controla liquidaciones (código leído).",
+      "modulo": "Catálogos",
+      "pantalla": "cat-deportes",
+      "requiere": "Deporte por hora con una liquidación pagada y otra abierta.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cambiar cómo liquida un deporte que ya tiene liquidaciones"
+    },
+    {
+      "accion": "Desactiva el deporte. Intenta borrar el nivel.",
+      "codigo": "CAT-003",
+      "duda": "DU-41",
+      "esperado": [
+        {
+          "donde": "Nivel",
+          "l": "a",
+          "texto": "No se borra: está en uso por un grupo; lo explica.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Deporte hoy",
+          "l": "b",
+          "texto": "Se desactiva sin avisar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alumnos y clases",
+          "l": "c",
+          "texto": "Los alumnos, grupos y clases de ese deporte siguen funcionando.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Altas",
+          "l": "d",
+          "texto": "El deporte deja de ofrecerse en altas, grupos nuevos y primera carga.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "DeporteWebController::toggleActivo y NivelWebController::destroy (código leído); SI-05.",
+      "modulo": "Catálogos",
+      "pantalla": "cat-deportes",
+      "requiere": "Deporte con grupos, alumnos activos, profesores y clases. Nivel usado por un grupo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Desactivar un deporte o borrar un nivel en uso"
+    },
+    {
+      "accion": "Crea un nivel, le cambia el nombre e intenta crear otro con un nombre repetido.",
+      "codigo": "CAT-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alta y edición",
+          "l": "a",
+          "texto": "El nivel aparece con su nombre nuevo en Grupos, Alumnos y Reportes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Repetido",
+          "l": "b",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Historia",
+          "l": "c",
+          "texto": "Los grupos que usan ese nivel muestran el nombre nuevo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "NivelWebController (código leído).",
+      "modulo": "Catálogos",
+      "pantalla": "cat-niveles",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Niveles: alta, edición y nombre repetido"
+    },
+    {
+      "accion": "Crea el medio «Banco» con abreviatura y saldo inicial $50.000. Intenta un nombre repetido, una abreviatura de seis letras y un saldo inicial negativo. Después de usarlo en un cobro, intenta cambiarle el saldo inicial.",
+      "codigo": "CAT-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alta",
+          "l": "a",
+          "texto": "El medio aparece y se ofrece al cobrar, al cargar movimientos y al pagar liquidaciones.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Inválidos",
+          "l": "b",
+          "texto": "Nombre repetido, abreviatura larga y saldo negativo se rechazan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Saldo inicial",
+          "l": "c",
+          "texto": "Con movimientos ya cargados, el saldo inicial no se puede cambiar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Disponible",
+          "l": "d",
+          "texto": "Cashflow y Reportes muestran su saldo partiendo de $50.000.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "TipoCajaWebController (código leído).",
+      "modulo": "Catálogos",
+      "pantalla": "cat-tipos-caja",
+      "requiere": "Dueño ingresado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Medios de pago: alta y saldo inicial"
+    },
+    {
+      "accion": "Desactiva el medio con cobros. Después desactiva el efectivo del cajón.",
+      "codigo": "CAT-006",
+      "duda": "DU-16",
+      "esperado": [
+        {
+          "donde": "Con cobros",
+          "l": "a",
+          "texto": "Deja de ofrecerse al cobrar; sus cobros anteriores se siguen viendo y su saldo sigue en Cashflow.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Efectivo del cajón hoy",
+          "l": "b",
+          "texto": "El sistema deja desactivarlo sin avisar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Consecuencia",
+          "l": "c",
+          "texto": "No se puede abrir la caja, y el medio del cajón no se puede volver a elegir: la operación queda trabada hasta reactivarlo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Turno abierto",
+          "l": "d",
+          "texto": "Con un turno abierto, el cierre y el arqueo de ese turno siguen usando ese medio.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "TipoCajaWebController::toggleActivo no controla nada (código leído); SI-07. Comprobado por Claude el 13/10 en la base descartable: el medio queda inactivo, la apertura queda trabada y reconfigurar el cajón responde «Elegí un medio de pago activo».",
+      "modulo": "Catálogos",
+      "pantalla": "cat-tipos-caja",
+      "requiere": "Un medio con cobros hechos; el medio que es el efectivo del cajón, con y sin turno abierto.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Desactivar un medio de pago"
+    },
+    {
+      "accion": "Crea un subrubro «Librería», permitido al operativo, que afecta la caja. Prueba guardarlo sin clasificación.",
+      "codigo": "CAT-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Clasificación",
+          "l": "a",
+          "texto": "Es obligatoria: sin ella no guarda.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Alta",
+          "l": "b",
+          "texto": "El subrubro aparece en su rubro.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "Lo ve al cargar un movimiento de caja.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reportes",
+          "l": "d",
+          "texto": "Sus movimientos suman como gasto del negocio; no generan aviso de sin clasificar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Solo dueño",
+          "l": "e",
+          "texto": "Si se lo crea solo para el dueño, la operativa no lo ve ni al cargar ni en Movimientos o Historial.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T16; SubrubroWebController (código leído); Contrato de catálogos contables V1; SI-06.",
+      "modulo": "Catálogos",
+      "pantalla": "cat-rubros",
+      "requiere": "Un rubro de egresos.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Crear un subrubro y dejarlo listo para usar"
+    },
+    {
+      "accion": "Lo pasa a solo del dueño. Le cambia la clasificación de gasto del negocio a retiro. Intenta cambiar el tipo de su rubro de egreso a ingreso.",
+      "codigo": "CAT-008",
+      "duda": "DU-43",
+      "esperado": [
+        {
+          "donde": "Solo dueño",
+          "l": "a",
+          "texto": "Deja de ofrecerse a la operativa; ella deja de ver esos movimientos en Movimientos e Historial.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clasificación",
+          "l": "b",
+          "texto": "Los reportes de los meses anteriores cambian: esos gastos salen del resultado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tipo de rubro",
+          "l": "c",
+          "texto": "Se rechaza si deja un aporte dentro de un egreso o descuadra las clasificaciones.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja abierta",
+          "l": "d",
+          "texto": "El movimiento ya cargado en la caja abierta se conserva y pasa a Cashflow al validar.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T16; RubroWebController y SubrubroWebController (código leído); SI-06.",
+      "modulo": "Catálogos",
+      "pantalla": "cat-rubros",
+      "requiere": "Subrubro permitido al operativo con movimientos en cajas validadas y en una caja abierta.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cambiar un subrubro que ya tiene movimientos"
+    },
+    {
+      "accion": "Intenta editarlos, desactivarlos y borrarlos, por pantalla y forzando. Intenta borrar un rubro que tiene subrubros.",
+      "codigo": "CAT-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Reservados",
+          "l": "a",
+          "texto": "No se editan, no se desactivan ni se borran.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rubro con subrubros",
+          "l": "b",
+          "texto": "No se borra; lo explica.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cobros",
+          "l": "c",
+          "texto": "Los cobros y las liquidaciones siguen funcionando.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "RubroWebController y SubrubroWebController (código leído).",
+      "modulo": "Catálogos",
+      "pantalla": "cat-rubros",
+      "requiere": "Los subrubros del sistema: Cuota Mensual, Inscripción, sueldos de profesores y de operativas.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Rubros y subrubros reservados"
+    },
+    {
+      "accion": "Escriben a mano las direcciones de Deportes, Niveles, Profesores, Rubros, Medios de pago, Configuración, Usuarios y del mostrador, y envían a mano un alta en cada una.",
+      "codigo": "CAT-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Acceso restringido en todas, en castellano, con Volver al inicio de su rol.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se crea ni cambia nada.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; rutas con ensure.admin.web.",
+      "modulo": "Catálogos",
+      "pantalla": "cat-rubros",
+      "requiere": "Operativa y profesora ingresadas.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Catálogos y configuración para quien no es dueño"
+    }
+  ],
+  "modulo": "Catálogos",
+  "orden": 4,
+  "prefijo": "CAT"
+}

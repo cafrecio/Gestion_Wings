@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "PRO-004"
+  ],
+  "codigo": "DU-44",
+  "contexto": "Hoy se desactiva sin avisar: las clases futuras siguen a su nombre, su usuario sigue pudiendo entrar, y no se le puede generar la liquidación de lo ya dictado porque el sistema exige profesor activo.",
+  "modulo": "Profesores",
+  "opciones": [
+    "Avisar, pedir reasignar las clases futuras, permitir liquidarle lo dictado y desactivar su usuario",
+    "Dejarlo como está"
+  ],
+  "orden": 42,
+  "pregunta": "¿Qué tiene que pasar al desactivar a una profesora con clases futuras o con clases dictadas sin liquidar?",
+  "recomendacion": "La primera; lo más urgente es poder liquidarle lo ya dictado.",
+  "respondida_en": "2026-10-13T11:29:56.185Z",
+  "respuesta": "Avisar, pedir reasignar las clases futuras, permitir liquidarle lo dictado y desactivar su usuario"
+}

@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CAT-008"
+  ],
+  "codigo": "DU-43",
+  "contexto": "La clasificación se lee al armar el reporte, no queda guardada en cada movimiento.",
+  "modulo": "Catálogos",
+  "opciones": [
+    "Avisar antes de guardar",
+    "Que rija solo hacia adelante",
+    "Dejarlo como está"
+  ],
+  "orden": 41,
+  "pregunta": "Cambiar la clasificación de un subrubro que ya tiene movimientos modifica los reportes de meses anteriores. ¿Está bien?",
+  "recomendacion": "Avisar antes de guardar.",
+  "respondida_en": "2026-10-13T11:29:39.475Z",
+  "respuesta": "Que rija solo hacia adelante"
+}

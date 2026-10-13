@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "SIS-012"
+  ],
+  "codigo": "DU-57",
+  "contexto": "Grupo: «Próximamente: horario de clases del grupo». Profesor: «Historial de liquidaciones» y «Clases asignadas».",
+  "modulo": "Transversales",
+  "opciones": [
+    "Quitarlos",
+    "Dejarlos"
+  ],
+  "orden": 55,
+  "pregunta": "La ficha del grupo y la del profesor muestran carteles de «Próximamente». ¿Se quitan antes de salir a producción?",
+  "recomendacion": "Quitarlos: prometen algo que no está.",
+  "respondida_en": "2026-10-13T11:37:14.356Z",
+  "respuesta": "Quitarlos"
+}

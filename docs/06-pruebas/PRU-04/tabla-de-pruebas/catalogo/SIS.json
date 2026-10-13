@@ -1,0 +1,550 @@
+{
+  "casos": [
+    {
+      "accion": "En cada una escribe 1250.5, 1250,50, 1250.505 y 48.000.",
+      "codigo": "SIS-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Misma regla",
+          "l": "a",
+          "texto": "En todas: punto decimal, hasta dos decimales, la coma se convierte en punto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Tercer decimal",
+          "l": "b",
+          "texto": "En todas: corta a dos, campo en rojo y aviso de cuatro segundos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formato",
+          "l": "c",
+          "texto": "En todas: al salir del campo muestra miles y decimales del mismo modo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "d",
+          "texto": "El valor guardado es el que se ve.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 11/10 («siempre igual»); T24 (Codex).",
+      "modulo": "Transversales",
+      "pantalla": "caja-cobrar",
+      "requiere": "Las pantallas con importes: apertura, rectificación, cierre, cobro, movimiento de caja, corrección de turno, movimiento de Cashflow y su edición, planes de grupo, inscripción, valor hora, ajuste de liquidación, saldo inicial de un medio.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Los importes se escriben igual en todas las pantallas"
+    },
+    {
+      "accion": "Recorre Caja, Historial, Movimientos, Cashflow, Cobranza, fichas, Inicio, Reportes, Liquidaciones y recibos.",
+      "codigo": "SIS-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Centavos",
+          "l": "a",
+          "texto": "Donde hay centavos se ven; ningún importe aparece redondeado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formato",
+          "l": "b",
+          "texto": "Mismo formato en todas: signo de pesos, punto de miles y coma decimal.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Negativos",
+          "l": "c",
+          "texto": "Egresos y anulaciones se distinguen de los ingresos de la misma forma en todas.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T30 (vistas aprobadas por Carlos 12/10); DESIGN-RULES §11.",
+      "modulo": "Transversales",
+      "pantalla": "cashflow",
+      "requiere": "Movimientos con centavos ($1.250,50) y sin centavos.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Los importes se muestran igual en todas las pantallas"
+    },
+    {
+      "accion": "La operativa abre caja, cobra, carga un gasto, cancela un cobro y cierra. La profesora toma asistencia. El dueño valida la caja y mira Inicio.",
+      "codigo": "SIS-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Uso",
+          "l": "a",
+          "texto": "Todo se hace sin desplazarse de costado para alcanzar un botón.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contenido",
+          "l": "b",
+          "texto": "No hay datos cortados ni botones fuera de la pantalla; las tablas anchas se desplazan dentro de su marco.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Menú",
+          "l": "c",
+          "texto": "El menú se abre y cierra; cada rol ve solo lo suyo.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "AC-04; reglas de diseño.",
+      "modulo": "Transversales",
+      "pantalla": "caja-cobrar",
+      "requiere": "Teléfono de 360 de ancho.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Un día entero desde el teléfono"
+    },
+    {
+      "accion": "Hace un cobro a las 23:50 y otro a las 00:10. Mira fechas y horas en Caja, Cashflow, recibos y avisos.",
+      "codigo": "SIS-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Fecha",
+          "l": "a",
+          "texto": "Cada movimiento lleva la fecha de Buenos Aires, no la del servidor ni la universal.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Corte del día",
+          "l": "b",
+          "texto": "El de las 00:10 es del día siguiente: con la caja de ayer abierta, el sistema la trata como caja vieja.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formato",
+          "l": "c",
+          "texto": "Las fechas se muestran día/mes/año.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Zona horaria America/Argentina/Buenos_Aires (CLAUDE.md); Contrato Caja V5 (caja vieja).",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "Operar cerca de la medianoche.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Fechas y horas en hora de Argentina"
+    },
+    {
+      "accion": "En cada uno hace doble clic en guardar y, después, vuelve atrás con el navegador y reenvía.",
+      "codigo": "SIS-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "En todos queda una sola cosa creada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "b",
+          "texto": "El segundo intento informa que ya estaba hecho, sin error interno.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Cada formulario tiene su caso propio; este los recorre juntos. Sin clave de repetición vista en el código: movimiento manual de caja.",
+      "modulo": "Transversales",
+      "pantalla": "alumnos-alta",
+      "requiere": "Los formularios que crean algo: alumno, cobro, movimiento de caja, apertura, cierre, validación, clase, liquidación, pago de liquidación, movimiento de Cashflow, usuario, grupo.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Doble clic y botón atrás en todos los formularios"
+    },
+    {
+      "accion": "Lee todos los títulos, botones, avisos de error y de éxito, incluidos los que aparecen al forzar errores.",
+      "codigo": "SIS-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Idioma",
+          "l": "a",
+          "texto": "Todo en castellano; ningún mensaje en inglés ni técnico («validation.required», «SQLSTATE», nombres de campos internos).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Botones",
+          "l": "b",
+          "texto": "Cada botón es un solo verbo corto.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ortografía",
+          "l": "c",
+          "texto": "Sin errores de tipeo ni acentos faltantes en lo que lee el usuario.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Errores",
+          "l": "d",
+          "texto": "Un error nunca muestra rutas de archivos, consultas ni datos internos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Reglas de diseño (botones de un verbo); T15 (páginas de error); A29–A31.",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "Recorrido completo de pantallas.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Textos, idioma y mensajes"
+    },
+    {
+      "accion": "Abre Alumnos, Cobranza, Clases, Historial, Movimientos, Cashflow y Reportes; pagina, filtra y busca.",
+      "codigo": "SIS-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Tiempo",
+          "l": "a",
+          "texto": "Cada pantalla responde en un tiempo razonable, sin quedar en blanco.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Paginación",
+          "l": "b",
+          "texto": "Las listas largas se paginan o se acotan por período; los filtros se conservan al cambiar de página.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "c",
+          "texto": "Los totales consideran todos los registros, no solo la página visible.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Preocupación de Carlos 11/10 (rendimiento sostenible); T22.",
+      "modulo": "Transversales",
+      "pantalla": "alumnos-listado",
+      "requiere": "Un mes completo de datos: más de 100 alumnos, cientos de cobros, clases y asistencias.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "T22",
+      "tipo": "recurrencia",
+      "titulo": "El sistema con mucho volumen"
+    },
+    {
+      "accion": "Repite a la vez, sobre el mismo registro: cobrar, cancelar un cobro, cerrar la caja, validar, tomar asistencia, resolver una revisión, pagar una liquidación, editar un alumno.",
+      "codigo": "SIS-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Plata",
+          "l": "a",
+          "texto": "En todo lo que mueve plata gana uno solo y el otro recibe un aviso; nunca hay un cobro, un egreso o un asiento duplicado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "En alumno y asistencia queda lo último guardado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Totales",
+          "l": "c",
+          "texto": "Después de la prueba, Caja, Cashflow, Cobranza y Reportes siguen cuadrando.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Cada acción tiene su caso propio; este es el recorrido conjunto. PagoCuotaService, CajaService, LiquidacionPagoService con bloqueo (código leído).",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "La misma persona con dos pestañas y dos personas sobre el mismo dato.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Dos pestañas, dos equipos, dos personas"
+    },
+    {
+      "accion": "Cambia la fecha simulada a un día, entra con cada usuario y opera. Vuelve a hora real.",
+      "codigo": "SIS-009",
+      "duda": "DU-46",
+      "esperado": [
+        {
+          "donde": "Fecha",
+          "l": "a",
+          "texto": "Todas las pantallas usan la fecha simulada: caja del día, estados de cobranza, clases de hoy.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ingreso",
+          "l": "b",
+          "texto": "El límite de intentos de ingreso se libera al minuto real aunque el reloj simulado esté detenido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Procesos",
+          "l": "c",
+          "texto": "Al pasar al día 1 del mes siguiente, la generación de cuotas corre para ese mes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Producción",
+          "l": "d",
+          "texto": "En producción no existe el reloj simulado.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "wings:fecha-simulada (herramienta de prueba); D02-4. Con el reloj detenido el límite de intentos no vence: defecto de la herramienta, sin tarea todavía.",
+      "modulo": "Transversales",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Solo en el sitio de prueba: el reloj se adelanta día por día para el cuento.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "El reloj simulado del sitio de prueba"
+    },
+    {
+      "accion": "Intenta revertir: una caja ya validada con un movimiento mal cargado; una liquidación pagada de más; un alumno o una clase creados por error; el medio del cajón mal elegido; un DNI mal tipeado con inscripción; una condonación hecha por error.",
+      "codigo": "SIS-010",
+      "duda": "DU-51",
+      "esperado": [
+        {
+          "donde": "Cada una",
+          "l": "a",
+          "texto": "El sistema dice con claridad que no se puede y por qué; no deja la pantalla trabada ni da error interno.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Salida",
+          "l": "b",
+          "texto": "Para cada una hay un camino documentado para compensarla (un asiento en contra, una corrección con motivo) o se define que no lo hay.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "Recorrido del código 13/10: ninguna de estas tiene hoy un camino de corrección.",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "Recorrido de las acciones que no se pueden deshacer desde el sistema.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Lo que no tiene vuelta atrás"
+    },
+    {
+      "accion": "Se toma el respaldo del día, se restaura en una base aparte y se compara.",
+      "codigo": "SIS-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Respaldo",
+          "l": "a",
+          "texto": "Existe un respaldo automático diario de la base y de los recibos guardados, fuera del servidor.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Restauración",
+          "l": "b",
+          "texto": "Restaurado, tiene los mismos alumnos, deudas, pagos, cajas y movimientos que el original.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "c",
+          "texto": "Si un respaldo falla, alguien se entera el mismo día.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Fuera de la aplicación: docs/04-tecnico/SERVIDOR.md y scripts del servidor. No verificado en esta pasada.",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "Servidor de producción con datos reales. Se prueba antes de salir a producción.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Respaldo y vuelta atrás de los datos"
+    },
+    {
+      "accion": "Abre las dos fichas.",
+      "codigo": "SIS-012",
+      "duda": "DU-57",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "La ficha del grupo dice «Próximamente: horario de clases del grupo». La del profesor dice «Historial de liquidaciones: Próximamente» y «Clases asignadas: Próximamente».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Club",
+          "l": "b",
+          "texto": "Son promesas visibles para la gente del club sobre cosas que no existen.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "grupos/show y profesores/show (vistas leídas el 13/10).",
+      "modulo": "Transversales",
+      "pantalla": "acceso-errores",
+      "requiere": "Recorrido de la ficha de un grupo y de la ficha de un profesor.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Carteles de «Próximamente»"
+    },
+    {
+      "accion": "Cada uno abre el menú, en computadora y en teléfono.",
+      "codigo": "SIS-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Profesora",
+          "l": "a",
+          "texto": "Clases y Sin asistencia. Nada más.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "b",
+          "texto": "Inicio, Alumnos, Clases, Sin asistencia, Cobranza, Caja, Movimientos, Revisión y Grupos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "c",
+          "texto": "Todo lo de la operativa más Cashflow, Liquidaciones, Reportes, Deportes, Niveles, Profesores, Rubros, Medios de pago, Configuración y Usuarios.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Primera carga",
+          "l": "d",
+          "texto": "Solo aparece en el menú del dueño mientras está pendiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Activo",
+          "l": "e",
+          "texto": "La opción de la pantalla en la que está queda resaltada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "f",
+          "texto": "Ninguna opción visible lleva a «No podés entrar a esta sección».",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "layouts/ds-app (menú leído el 13/10); Permisos y roles.",
+      "modulo": "Transversales",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un usuario de cada rol. Primera carga terminada.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "El menú de cada rol"
+    },
+    {
+      "accion": "Toca el interruptor de un registro en cada listado. Corta la conexión y toca otro.",
+      "codigo": "SIS-014",
+      "duda": "DU-41",
+      "esperado": [
+        {
+          "donde": "Cambio",
+          "l": "a",
+          "texto": "Cambia al instante, sin confirmación y sin recargar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin conexión",
+          "l": "b",
+          "texto": "Si el cambio no se guardó, el interruptor vuelve a su posición y avisa.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Propio usuario",
+          "l": "c",
+          "texto": "El interruptor de la cuenta propia no se puede usar: dice «Tu cuenta».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Riesgo",
+          "l": "d",
+          "texto": "Un toque equivocado desactiva un grupo con alumnos, una profesora con clases o el medio de pago del cajón.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "resources/js/ds-app.js y listados (leídos el 13/10).",
+      "modulo": "Transversales",
+      "pantalla": "cat-grupos",
+      "requiere": "Listados de Alumnos, Grupos, Profesores, Usuarios, Deportes, Medios de pago y subrubros.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Los interruptores Activo de los listados"
+    }
+  ],
+  "modulo": "Transversales",
+  "orden": 18,
+  "prefijo": "SIS"
+}

@@ -1,0 +1,894 @@
+{
+  "casos": [
+    {
+      "accion": "Cada uno escribe su mail y su clave y toca Ingresar.",
+      "codigo": "ACC-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Ingreso",
+          "l": "a",
+          "texto": "Entra sin mensajes de error.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Destino",
+          "l": "b",
+          "texto": "El dueño llega a Inicio; la operativa a su Inicio operativo; la profesora a Clases.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Menú",
+          "l": "c",
+          "texto": "Cada rol ve solo sus opciones: el dueño todo; la operativa Inicio, Alumnos, Clases, Cobranza, Caja, Movimientos, Revisión y Grupos; la profesora solo Clases.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Encabezado",
+          "l": "d",
+          "texto": "Arriba figura el nombre de quien entró, no el de la sesión anterior del mismo navegador.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Otros usuarios",
+          "l": "e",
+          "texto": "Entrar no cierra ni modifica la sesión de nadie más.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "WebController::login y redirectByRole (código leído); Permisos y roles.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un usuario activo de cada rol. Primera carga ya completada.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Ingresar con usuario y clave correctos"
+    },
+    {
+      "accion": "Prueba el mail correcto con clave mala, y un mail inexistente con cualquier clave. También: mail sin arroba y campos vacíos.",
+      "codigo": "ACC-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Mensaje",
+          "l": "a",
+          "texto": "En los dos primeros casos dice lo mismo: «Las credenciales ingresadas no son válidas». No revela cuál de los dos datos falló ni si el mail existe.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formulario",
+          "l": "b",
+          "texto": "Conserva el mail escrito y borra la clave.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Formato",
+          "l": "c",
+          "texto": "El mail sin arroba y los campos vacíos se rechazan con aviso, sin llegar a probar la clave.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sesión",
+          "l": "d",
+          "texto": "No queda nadie ingresado: abrir una dirección interna después manda otra vez al ingreso.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Límite",
+          "l": "e",
+          "texto": "Cada intento cuenta para el límite de 5 por minuto de esa conexión (ver ACC-003).",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "WebController::login (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un mail que existe y uno que no.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Clave equivocada o mail que no existe"
+    },
+    {
+      "accion": "Se hacen seis ingresos seguidos en menos de un minuto, sean con clave buena o mala, del mismo usuario o de distintos.",
+      "codigo": "ACC-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "El sexto muestra la pantalla «Esperá un momento · Demasiados intentos seguidos», en castellano y con Volver.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liberación",
+          "l": "b",
+          "texto": "Pasado un minuto real se puede volver a entrar sin que nadie intervenga.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros usuarios",
+          "l": "c",
+          "texto": "El límite es por conexión, no por persona: mientras dura, tampoco puede entrar otra persona desde el mismo lugar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sesiones abiertas",
+          "l": "d",
+          "texto": "Quien ya estaba adentro sigue trabajando normalmente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reloj simulado",
+          "l": "e",
+          "texto": "Con el reloj de prueba fijado y frenado, el minuto no pasa nunca y el bloqueo no se libera (defecto conocido, día 2 y 12/10).",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "f",
+          "texto": "El aviso no dice cuánto falta esperar (mejora anotada).",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Ruta POST /login con throttle 5 por minuto (código leído); hallazgos de los días 2 y 3.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Varias personas entrando desde la misma conexión (el club comparte una sola salida a internet).",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Más de cinco intentos de ingreso en un minuto"
+    },
+    {
+      "accion": "Escribe su mail y su clave correcta.",
+      "codigo": "ACC-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Mensaje",
+          "l": "a",
+          "texto": "«Tu cuenta fue desactivada.» No entra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sesión",
+          "l": "b",
+          "texto": "No queda ingresado aunque la clave sea correcta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reactivación",
+          "l": "c",
+          "texto": "Si el dueño lo reactiva, entra con la misma clave de antes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "WebController::login (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un usuario desactivado desde Usuarios.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Intenta entrar una cuenta desactivada"
+    },
+    {
+      "accion": "La operativa toca cualquier opción o intenta guardar algo que tenía en pantalla (por ejemplo un cobro).",
+      "codigo": "ACC-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Salida",
+          "l": "a",
+          "texto": "La manda al ingreso con «Tu cuenta fue desactivada.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acción pendiente",
+          "l": "b",
+          "texto": "Lo que intentaba guardar NO se guarda: no hay cobro, ni movimiento, ni asistencia nueva.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Su caja",
+          "l": "c",
+          "texto": "Si tenía una caja abierta, queda abierta a su nombre; el dueño puede contarla y cerrarla (ver CAJ, cierre por el dueño).",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Lo ya hecho",
+          "l": "d",
+          "texto": "Sus cobros, movimientos y asistencias anteriores siguen figurando a su nombre.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Middleware EnsureActiveUserWeb (código leído); Contrato Caja V5.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "La operativa está trabajando con la sesión abierta; el dueño la desactiva desde Usuarios.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Desactivan a un usuario mientras tiene la sesión abierta"
+    },
+    {
+      "accion": "Toca Guardar o Cobrar después del vencimiento.",
+      "codigo": "ACC-006",
+      "duda": "DU-01",
+      "esperado": [
+        {
+          "donde": "Destino",
+          "l": "a",
+          "texto": "Va al ingreso con el aviso «Tu sesión expiró. Iniciá sesión nuevamente.»",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No se guarda nada a medias: ni pago, ni deuda, ni alumno, ni asistencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Al volver",
+          "l": "c",
+          "texto": "Después de ingresar llega al inicio de su rol; lo que estaba escribiendo se perdió y hay que cargarlo de nuevo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "bootstrap/app.php, respuesta 419 (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un formulario cargado (cobro, alta de alumno, asistencia) y la sesión vencida por tiempo.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Se vence la sesión con un formulario a medio llenar"
+    },
+    {
+      "accion": "Escribe a mano direcciones internas: /alumnos, /caja, /cashflow, /reportes, /clases, un recibo, una ficha.",
+      "codigo": "ACC-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Destino",
+          "l": "a",
+          "texto": "Todas mandan al ingreso; ninguna muestra datos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Después de ingresar",
+          "l": "b",
+          "texto": "Lleva al inicio del rol, no a la dirección que se había pedido.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Archivos",
+          "l": "c",
+          "texto": "El recibo PDF tampoco se descarga sin sesión.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Grupo de rutas con auth (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Navegador sin sesión.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Abrir una dirección interna sin haber ingresado"
+    },
+    {
+      "accion": "Toca Salir. Después aprieta la flecha Atrás del navegador y trata de usar la pantalla anterior.",
+      "codigo": "ACC-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Salir",
+          "l": "a",
+          "texto": "Vuelve al ingreso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Atrás",
+          "l": "b",
+          "texto": "Si el navegador muestra la pantalla vieja, cualquier clic o guardado manda al ingreso y no ejecuta nada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otro dispositivo",
+          "l": "c",
+          "texto": "Salir en un equipo no cierra la sesión del mismo usuario en otro.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Dirección /logout",
+          "l": "d",
+          "texto": "Escribir /logout a mano no cierra la sesión: vuelve al inicio del rol. Solo cierra el botón Salir.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "WebController::logout y ruta GET /logout (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Usuario ingresado con una pantalla con datos abierta.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Salir y volver atrás con el navegador"
+    },
+    {
+      "accion": "Escribe a mano: /admin/dashboard, /cashflow, /cashflow/movimiento, /liquidaciones, /liquidaciones/crear, /reportes, /reportes/alumnos, /reportes/sueldos, /configuraciones, /usuarios, /usuarios/create, /profesores, /deportes, /niveles, /rubros, /tipos-caja, /caja/configuracion, /clases/create, /clases/1/edit, /grupos/create, /grupos/1/edit, /sistema/primera-carga, /recibos/liquidacion/1.",
+      "codigo": "ACC-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Cada una muestra «No podés entrar a esta sección», en castellano, con Volver.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Volver",
+          "l": "b",
+          "texto": "Volver lleva al Inicio operativo y la sesión sigue abierta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Ninguna muestra importes, nombres ni formularios del dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Menú",
+          "l": "d",
+          "texto": "Ninguna de esas opciones aparece en su menú.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin redirección",
+          "l": "e",
+          "texto": "No la manda al ingreso ni a otra pantalla en silencio.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles (rechazo de acceso, 04/10); rutas con ensure.admin.web (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Operativa ingresada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La operativa fuerza direcciones que son solo del dueño"
+    },
+    {
+      "accion": "Escribe a mano: /alumnos, /alumnos/1, /alumnos/create, /caja, /caja/cobrar, /caja/historial, /cobranza, /revision-cobranza, /movimientos, /grupos, /operativo, /recibos/cuota/1, y todas las del dueño de ACC-009.",
+      "codigo": "ACC-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Cada una muestra «No podés entrar a esta sección» con Volver.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Volver",
+          "l": "b",
+          "texto": "Volver lleva a Clases.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No ve alumnos, deudas, cobros ni recibos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Lo que sí puede",
+          "l": "d",
+          "texto": "/clases y la ficha de cualquier clase siguen abriendo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; RejectProfesorWeb y ReciboController::cuota (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Profesora ingresada.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La profesora fuerza direcciones que no le corresponden"
+    },
+    {
+      "accion": "Envía directamente los pedidos de: validar y rechazar una caja, condonar una deuda, anular un pago, cargar o corregir un movimiento de Cashflow, crear, cerrar, pagar o cancelar una liquidación, crear o editar usuarios, cambiar la configuración, crear o editar clases, validar una clase, tocar catálogos.",
+      "codigo": "ACC-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Todos se rechazan con acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "Ninguno cambia nada: se compara la base antes y después.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "c",
+          "texto": "No queda ningún movimiento, pago ni asiento creado a medias.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Rutas con ensure.admin.web (código leído); Permisos y roles.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Sesión de operativa o profesora y una herramienta para enviar pedidos a mano.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Forzar una acción del dueño sin pasar por la pantalla"
+    },
+    {
+      "accion": "Envía a mano los pedidos de cancelar una clase, cambiarle los profesores y reactivarla.",
+      "codigo": "ACC-012",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Se rechazan los tres: la profesora nunca cancela, reactiva ni reasigna.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Asistencia",
+          "l": "b",
+          "texto": "Lo único que puede guardar es la asistencia, de su clase o de una ajena.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Clase",
+          "l": "c",
+          "texto": "La clase queda igual: mismo estado, mismos profesores, mismo horario.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles (Clases y Asistencias).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Profesora ingresada; una clase propia y una ajena.",
+      "roles": [
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La profesora intenta cancelar, reasignar o editar clases por pedido directo"
+    },
+    {
+      "accion": "Escribe una dirección inventada, una ficha con número inexistente (/alumnos/999999), una con letras (/alumnos/abc) y una caja inexistente.",
+      "codigo": "ACC-013",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Página de «no encontrado» en castellano, con Volver al inicio del rol.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "No muestra texto técnico, ni nombres de archivos, ni consultas a la base.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sesión",
+          "l": "c",
+          "texto": "La sesión sigue abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T15 errores en castellano.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Usuario ingresado.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Dirección que no existe o registro que no existe"
+    },
+    {
+      "accion": "Escribe en la barra una dirección que solo acepta envíos de formulario: /cajas/1/validar, /caja/1/cerrar por GET con una caja ajena, /pagos/1/anular, /deudas/1/condonar, /logout.",
+      "codigo": "ACC-014",
+      "duda": "DU-02",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "No ejecuta la acción. Muestra un aviso en castellano, no una página técnica en inglés.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "La caja, el pago y la deuda quedan como estaban.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "T15 errores en castellano; rutas (código leído). El aviso para «método no permitido» no tiene pantalla propia.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Usuario ingresado.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "romper",
+      "titulo": "Usar una dirección de acción como si fuera una pantalla"
+    },
+    {
+      "accion": "En nombre y apellido de un alumno, observaciones de un cobro, motivo de cancelación, descripción de un gasto y en los buscadores escribe: <script>alert(1)</script>, comillas simples y dobles, %, _, barra invertida y un texto de 600 letras.",
+      "codigo": "ACC-015",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Guardado",
+          "l": "a",
+          "texto": "Lo permitido se guarda como texto tal cual; lo que supera el largo máximo se rechaza con aviso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pantalla",
+          "l": "b",
+          "texto": "Donde se muestra ese texto (listados, ficha, Cashflow, Historial, recibo PDF) aparece escrito literalmente; nunca se ejecuta ni abre una ventana.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Buscadores",
+          "l": "c",
+          "texto": "Buscar %, _ o una comilla no devuelve todos los registros ni da error.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recibo",
+          "l": "d",
+          "texto": "El recibo PDF se genera igual y muestra el texto sin romperse.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Otros usuarios",
+          "l": "e",
+          "texto": "Quien abre después esa ficha o ese listado ve el texto, no un comportamiento extraño.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Blade escapa por defecto; buscadores con addcslashes (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Usuario ingresado.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Escribir código o símbolos raros en los campos de texto"
+    },
+    {
+      "accion": "Cambia el número en la dirección de: una ficha de alumno, un recibo de cuota, el detalle, el resumen y el cierre de una caja de otra operativa, y la edición de un movimiento de caja ajena.",
+      "codigo": "ACC-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alumno y recibo",
+          "l": "a",
+          "texto": "Abre cualquier ficha y cualquier recibo de cuota: no se restringen por quién cobró.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Caja ajena",
+          "l": "b",
+          "texto": "El detalle, el resumen y el cierre de la caja de otra operativa se rechazan con acceso restringido: los movimientos ajenos se ven (Historial y Movimientos), la caja ajena no.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Movimiento ajeno",
+          "l": "c",
+          "texto": "No puede editar ni cancelar movimientos de una caja que no es la suya.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "d",
+          "texto": "Nada cambia en la caja ajena.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de estados §10 y §13 («ver movimientos ajenos es legítimo; ver la caja ajena no»); Permisos y roles; CajaWebController (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Operativa ingresada; cajas de otra operativa, recibos de cobros ajenos.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Cambiar a mano el número de la dirección para ver lo de otro"
+    },
+    {
+      "accion": "Entra en los dos. En uno tilda Recordarme, cierra el navegador y lo vuelve a abrir.",
+      "codigo": "ACC-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Dos sesiones",
+          "l": "a",
+          "texto": "Las dos funcionan a la vez.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Recordarme",
+          "l": "b",
+          "texto": "Al reabrir el navegador sigue ingresado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio de clave",
+          "l": "c",
+          "texto": "Si el dueño le cambia la clave, las dos sesiones se cierran y Recordarme deja de valer (ver USU-005).",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "UsuarioWebController::revocarAccesosAnteriores (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Un usuario y dos navegadores.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "El mismo usuario en dos dispositivos y la opción Recordarme"
+    },
+    {
+      "accion": "Toca el ícono de Wings.",
+      "codigo": "ACC-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Apertura",
+          "l": "a",
+          "texto": "Abre a pantalla completa, sin barra de direcciones, con el ícono de Wings sin sello de Chrome.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Destino",
+          "l": "b",
+          "texto": "Con sesión iniciada va directo al inicio del rol, sin pedir la clave.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin sesión",
+          "l": "c",
+          "texto": "Muestra el ingreso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Enlaces",
+          "l": "d",
+          "texto": "Los enlaces internos quedan dentro de la aplicación; un recibo PDF se abre y se puede volver.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T11; site.webmanifest con arranque en /login (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Wings instalado en el teléfono desde Chrome, con la sesión iniciada.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Abrir el ingreso estando ya adentro (aplicación instalada en el teléfono)"
+    },
+    {
+      "accion": "Se anota cada vez que aparezca durante la prueba; no se provoca a propósito.",
+      "codigo": "ACC-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Pantalla en castellano que dice que algo falló, sin texto técnico, sin claves ni nombres de tablas.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "b",
+          "texto": "La operación que falló no queda guardada a medias.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Registro",
+          "l": "c",
+          "texto": "El error queda escrito en el registro del servidor para poder investigarlo.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T15; bootstrap/app.php (código leído).",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Cualquier pantalla que falle por un error no previsto.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Aparece un error interno del sistema"
+    },
+    {
+      "accion": "Se piden el ingreso y una pantalla interna y se leen las cabeceras de la respuesta.",
+      "codigo": "ACC-020",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cabeceras",
+          "l": "a",
+          "texto": "Están presentes: no se puede incrustar en otra página, tipo de contenido estricto, política de referencia, permisos de cámara y micrófono cerrados, y conexión segura obligatoria.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Política de contenido",
+          "l": "b",
+          "texto": "Está en modo aviso: informa lo que bloquearía pero no bloquea nada; ninguna pantalla pierde estilos ni botones.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Avisos",
+          "l": "c",
+          "texto": "Lo que la política informa llega al registro del servidor sin frenar a nadie.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Middleware SecurityHeaders (código leído); AGENTS.md §2.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-ingreso",
+      "requiere": "Acceso al servidor para leer las cabeceras (lo hace Claude, no Codex).",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Cabeceras de seguridad y política de contenido"
+    },
+    {
+      "accion": "Escriben a mano las direcciones que las pantallas usan por detrás: el autocompletar de alumnos, la vista previa de cuota e inscripción del alta, la consulta de nombre disponible de grupos, niveles, medios de pago y mails de usuarios. También las direcciones viejas de cajas (/cajas y /cajas/número).",
+      "codigo": "ACC-021",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Profesora",
+          "l": "a",
+          "texto": "Ninguna le devuelve datos de alumnos ni de plata: acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Operativa",
+          "l": "b",
+          "texto": "Las de alumnos y grupos le responden; las de niveles, medios de pago y usuarios, no.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin ingresar",
+          "l": "c",
+          "texto": "Todas mandan al ingreso; ninguna devuelve datos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Direcciones viejas",
+          "l": "d",
+          "texto": "Llevan a la pantalla actual de cajas, respetando el permiso de quien entra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Mails",
+          "l": "e",
+          "texto": "La consulta de mail disponible no permite a quien no es dueño averiguar qué mails existen.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "routes/web.php (158 rutas listadas el 13/10); Permisos y roles.",
+      "modulo": "Acceso y seguridad",
+      "pantalla": "acceso-errores",
+      "requiere": "Operativa y profesora ingresadas; alguien sin ingresar.",
+      "roles": [
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Consultas internas y direcciones viejas"
+    }
+  ],
+  "modulo": "Acceso y seguridad",
+  "orden": 0,
+  "prefijo": "ACC"
+}

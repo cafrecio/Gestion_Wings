@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "ASI-002"
+  ],
+  "codigo": "DU-32",
+  "contexto": "Cualquier profesora puede tomar la lista de la clase de otra (tu decisión del 10/10). No queda guardado quién tomó la lista.",
+  "modulo": "Asistencia",
+  "opciones": [
+    "Avisar al tomar lista de una clase ajena y ofrecer pedir el cambio de profesora",
+    "Se paga a quien tomó la lista",
+    "Dejarlo: lo corrige la operativa cambiando la profesora"
+  ],
+  "orden": 30,
+  "pregunta": "En una suplencia, si nadie cambia la profesora asignada, la clase se le paga a la titular. ¿Qué tiene que pasar?",
+  "recomendacion": "Avisar y guardar quién tomó la lista; el pago sigue a la profesora asignada.",
+  "respondida_en": "2026-10-13T11:21:42.250Z",
+  "respuesta": "Dejarlo: lo corrige la operativa cambiando la profesora\nAdmin lo puede corregir al momento de liquidar. Que tome asistencia no es señal de que esta dando la clase\nPuede haber mas de un profesor por clase"
+}

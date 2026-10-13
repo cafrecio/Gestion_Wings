@@ -1,0 +1,19 @@
+{
+  "casos": [
+    "CAJ-002",
+    "CAT-006"
+  ],
+  "codigo": "DU-16",
+  "contexto": "Si se eligió mal no hay camino para corregirlo. Y si alguien lo desactiva en Medios de pago, no se puede abrir la caja y tampoco reconfigurarla: la operación queda trabada hasta reactivarlo.",
+  "modulo": "Caja",
+  "opciones": [
+    "Impedir desactivar el medio del cajón y dejar que el dueño lo cambie sin turno abierto",
+    "Solo impedir desactivarlo",
+    "Dejarlo como está"
+  ],
+  "orden": 14,
+  "pregunta": "El medio de pago elegido como efectivo del cajón no se puede cambiar nunca, y sí se puede desactivar. ¿Cómo debe ser?",
+  "recomendacion": "La primera: evita la traba y permite corregir un error.",
+  "respondida_en": "2026-10-13T11:04:13.172Z",
+  "respuesta": "Solo impedir desactivarlo"
+}

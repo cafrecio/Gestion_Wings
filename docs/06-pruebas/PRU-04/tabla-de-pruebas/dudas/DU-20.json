@@ -1,0 +1,20 @@
+{
+  "casos": [
+    "COB-016",
+    "CSH-002",
+    "LIQ-009",
+    "CAJ-041"
+  ],
+  "codigo": "DU-20",
+  "contexto": "Un cobro del dueño en efectivo, un gasto directo en efectivo o el pago de un sueldo en efectivo cambian el saldo de Efectivo de Cashflow pero no el arqueo del turno. Si la plata física salió del cajón, el arqueo va a dar diferencia.",
+  "modulo": "Cashflow",
+  "opciones": [
+    "Está bien: el dueño nunca usa la plata del cajón",
+    "Hay que poder indicar que salió o entró al cajón"
+  ],
+  "orden": 18,
+  "pregunta": "El efectivo que el dueño cobra o paga por su cuenta no pasa por el cajón de la operativa. ¿Está bien así?",
+  "recomendacion": "Confirmarlo; si el dueño a veces usa el cajón, hace falta la segunda.",
+  "respondida_en": "2026-10-13T11:10:33.842Z",
+  "respuesta": "Está bien: el dueño nunca usa la plata del cajón\nSi usa plata del cajon, que lo registre la operativa en su caja.\nPonelo como situaciones que debe cubrir la ayuda o manual del usuario"
+}

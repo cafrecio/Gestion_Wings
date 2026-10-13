@@ -1,0 +1,19 @@
+{
+  "casos": [
+    "REP-014"
+  ],
+  "codigo": "DU-49",
+  "contexto": "Hoy hay dos cosas parecidas. (1) En Reportes, solo el dueño ve los alumnos activos que no vinieron ni una vez en el mes. (2) El día 1, a quien no vino en todo el mes anterior no se le genera la cuota y pasa a «Revisión», donde alguien decide si sigue o se da de baja. Lo que no existe: un aviso antes de fin de mes, y una lista que pueda ver la operativa, que es quien los llamaría.",
+  "modulo": "Reportes e Inicio",
+  "opciones": [
+    "Alcanza con lo que hay",
+    "Que la operativa también vea la lista de los que no vinieron en el mes",
+    "Lista nueva para dueño y operativa: los que faltaron a todas sus clases de las últimas dos semanas, primero los que deben"
+  ],
+  "orden": 1,
+  "pregunta": "¿Querés una lista de alumnos que están faltando, para llamarlos antes de que dejen el club?",
+  "recomendacion": "La segunda: es un cambio chico y le da la lista a quien hace los llamados. La tercera, si después de la prueba ves que hace falta enterarse antes.",
+  "respondida_en": "2026-10-13T11:47:52.356Z",
+  "respuesta": "Lista nueva para dueño y operativa: los que faltaron a todas sus clases de las últimas dos semanas, primero los que deben. Carlos, 13/10: «el operativo tiene la tarea de cobrar, ¿cómo no va a ver ese dato?». Que hoy la vea solo el dueño es un defecto: la lista quedó adentro de Reportes, que es solo del dueño. La lista nueva va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes.",
+  "respuesta_anterior": "No entiendo la pregunta ni qué implica. Volver a preguntar de otra forma (13/10)."
+}

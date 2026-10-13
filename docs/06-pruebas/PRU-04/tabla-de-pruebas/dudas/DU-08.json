@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "ALU-001"
+  ],
+  "codigo": "DU-08",
+  "contexto": "Con gracia en 10, un alta del día 20 que no paga en el momento figura Morosa desde ese instante.",
+  "modulo": "Alumnos",
+  "opciones": [
+    "Está bien: la primera cuota se cobra en el alta",
+    "Darle un plazo propio contado desde el alta"
+  ],
+  "orden": 6,
+  "pregunta": "Un alumno que ingresa después del día de gracia nace Moroso el mismo día del alta. ¿Está bien?",
+  "recomendacion": "Confirmar que está bien; si no, definir cuántos días de plazo desde el alta.",
+  "respondida_en": "2026-10-13T10:47:38.714Z",
+  "respuesta": "Darle un plazo propio contado desde el alta: 7 días. (Carlos, 13/10: primero dijo «2 clases posibles a las que pueda asistir, vaya o no»; para hacerlo más simple, 7 días.) Lo programa T31."
+}

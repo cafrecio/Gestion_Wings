@@ -1,0 +1,17 @@
+{
+  "casos": [
+    "GRU-003"
+  ],
+  "codigo": "DU-40",
+  "contexto": "Pasa con reactivados, altas sin cuota y los que quedaron en Revisión. Las cuotas ya generadas no cambian.",
+  "modulo": "Grupos y planes",
+  "opciones": [
+    "Sí",
+    "No: el aumento rige desde el mes siguiente para todos"
+  ],
+  "orden": 38,
+  "pregunta": "Si el precio de un plan sube a mitad de mes, al alumno que todavía no tiene generada la cuota de ese mes se le ofrece al precio nuevo. ¿Está bien?",
+  "recomendacion": "Definirlo: lo más simple es que el aumento rija desde el mes siguiente.",
+  "respondida_en": "2026-10-13T11:28:53.800Z",
+  "respuesta": "No: el aumento rige desde el mes siguiente para todos\nSe aplica la nueva tarifa a los nuevos alumnos desde que cambia en el sistema."
+}

@@ -1,0 +1,1125 @@
+{
+  "casos": [
+    {
+      "accion": "Abren Clases el dueño, la operativa y una profesora. Usan los filtros de fecha, grupo, profesora y estado.",
+      "codigo": "CLA-001",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "Muestra las clases de hoy con hora, grupo, profesora y cantidad de presentes.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "b",
+          "texto": "Ve primero «Tus clases de hoy» y aparte «Otras clases de hoy». Su menú es solo Clases.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelada",
+          "l": "c",
+          "texto": "La cancelada de hoy sigue en Hoy, al final, apagada, con el motivo. El encabezado no la cuenta.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "d",
+          "texto": "El contador cuenta todas las clases pasadas no canceladas, no validadas y sin ningún presente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Acciones",
+          "l": "e",
+          "texto": "El dueño ve Nuevo, Editar, Cancelar, Activar y Validar. La operativa ve Cancelar y cambiar profesora. La profesora, solo tomar asistencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Límite",
+          "l": "f",
+          "texto": "Operativa y profesora no ven clases de más de 35 días atrás, salvo por el acceso «Sin asistencia».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "g",
+          "texto": "Las clases de hoy no canceladas coinciden con las del Inicio operativo, con sus presentes.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::index (código leído); Contrato de clases V1 y V2; T21; D02-3.",
+      "modulo": "Clases",
+      "pantalla": "clases-listado",
+      "requiere": "Clases de hoy de dos profesoras, clases pasadas con y sin asistencia, una cancelada hoy y clases futuras.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Listado de clases según quién mira"
+    },
+    {
+      "accion": "Clases → Nuevo. Elige grupo, profesora, fecha futura y horario. Guarda.",
+      "codigo": "CLA-002",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Formulario",
+          "l": "a",
+          "texto": "No ofrece profesoras hasta elegir el grupo; después, solo las activas de ese deporte.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Guardado",
+          "l": "b",
+          "texto": "La clase aparece en el listado en su fecha.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "c",
+          "texto": "La ve en sus clases del día que corresponde.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Asistencia",
+          "l": "d",
+          "texto": "La lista de asistencia trae a los alumnos activos del grupo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "e",
+          "texto": "Todavía no suma nada: una clase se paga cuando tiene al menos un presente o el dueño la valida.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "f",
+          "texto": "Pasada su fecha sin lista, entra al contador «Sin asistencia».",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "ClaseWebController::store; ProgramacionClasesService (código leído); Contrato de liquidaciones §2.3; A5.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Grupo activo con alumnos y una profesora activa del mismo deporte.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Crear una clase única"
+    },
+    {
+      "accion": "Crea una serie hasta fin de mes: lunes 17 a 18 y viernes 16 a 17.",
+      "codigo": "CLA-003",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Carga",
+          "l": "a",
+          "texto": "Grupo, profesora y período se cargan una sola vez; cada día lleva su horario.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Resultado",
+          "l": "b",
+          "texto": "Se crean todas las clases de los lunes y viernes del período, dentro de una misma serie.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "c",
+          "texto": "Cada clase aparece en su fecha con su horario.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Feriados",
+          "l": "d",
+          "texto": "La serie crea también las clases que caen en feriado: hay que cancelarlas a mano.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cancelar serie",
+          "l": "e",
+          "texto": "Desde cualquiera de ellas se puede cancelar la serie de hoy en adelante.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2 (A16); ProgramacionClasesService (código leído); CL-01.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Grupo y profesora del mismo deporte.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Crear una serie con horarios distintos por día"
+    },
+    {
+      "accion": "Crea una clase de 17:30 a 18:30. Después de ver el aviso cambia el horario y vuelve a guardar.",
+      "codigo": "CLA-004",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Aviso",
+          "l": "a",
+          "texto": "Avisa que ocupa dos bloques (17 a 18 y 18 a 19) y no crea nada hasta confirmar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambio",
+          "l": "b",
+          "texto": "Si cambia la carga después del aviso, vuelve a avisar: la confirmación anterior no alcanza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Confirmando",
+          "l": "c",
+          "texto": "Confirmado el aviso de esa misma carga, la crea.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2 (A15); CL-02.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Formulario de clase.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Clase que ocupa dos bloques de cancha"
+    },
+    {
+      "accion": "Carga una clase con hora de fin anterior a la de inicio; otra con fecha de ayer; otra de hoy con un horario que ya pasó; otra sin profesora; una serie con fecha de fin anterior a la de inicio.",
+      "codigo": "CLA-005",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "Todas se rechazan con un aviso claro y el formulario conserva lo cargado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Pasado",
+          "l": "b",
+          "texto": "No se crean clases en el pasado.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "No se crea ninguna clase.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2; ClaseWebController::store (código leído); CL-03.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Formulario de clase.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Clase con datos imposibles"
+    },
+    {
+      "accion": "Crea una serie de ocho clases donde una fecha choca con esa clase.",
+      "codigo": "CLA-006",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Rechazo",
+          "l": "a",
+          "texto": "No se crea ninguna de las ocho.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "b",
+          "texto": "Dice en qué fecha y con qué clase está el choque.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "El listado no tiene clases nuevas.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2 (todo o nada); CL-04.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Una clase existente de esa profesora un viernes a las 16.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "error",
+      "titulo": "Serie con un choque de horario"
+    },
+    {
+      "accion": "Intenta asignarlas a una clase de Patín, por el formulario y enviándolo a mano.",
+      "codigo": "CLA-007",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Formulario",
+          "l": "a",
+          "texto": "No aparecen para elegir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "Se rechaza.",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "A5; ClaseWebController::store (código leído); CL-05.",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Una profesora de Fútbol, una inactiva de Patín.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Profesora de otro deporte o inactiva"
+    },
+    {
+      "accion": "Intenta crear una clase, editar el horario de una, cambiarle la profesora a la de mañana y a la de la semana pasada, cancelar una y reactivar una cancelada.",
+      "codigo": "CLA-008",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Crear y editar",
+          "l": "a",
+          "texto": "No puede: es del dueño. Forzando, acceso restringido.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambiar profesora hoy o futura",
+          "l": "b",
+          "texto": "Puede.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cambiar profesora pasada",
+          "l": "c",
+          "texto": "No puede.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelar",
+          "l": "d",
+          "texto": "Puede, con motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Reactivar",
+          "l": "e",
+          "texto": "No puede: «Sin permisos para reactivar la clase.»",
+          "tipo": "directo"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Permisos y roles; Contrato de clases V2; ClaseWebController (código leído); CL-06, CL-09.",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una clase de mañana, una de hoy y una de la semana pasada.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "Lo que la operativa puede y no puede con las clases"
+    },
+    {
+      "accion": "Cambia la profesora asignada antes de la clase. La suplente toma la asistencia.",
+      "codigo": "CLA-009",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Cambio",
+          "l": "a",
+          "texto": "La clase queda a nombre de la suplente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Suplente",
+          "l": "b",
+          "texto": "La ve entre «Tus clases de hoy».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Titular",
+          "l": "c",
+          "texto": "Deja de verla como propia.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación por hora",
+          "l": "d",
+          "texto": "Esa clase se le paga a la suplente, con el valor hora de la suplente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación por comisión",
+          "l": "e",
+          "texto": "Los presentes de esa clase cuentan para la comisión de la suplente, no de la titular.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Choque",
+          "l": "f",
+          "texto": "Si la suplente ya tiene otra clase a esa hora, el cambio se rechaza.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2; Contrato de liquidaciones §3; ClaseWebController::actualizarProfesores (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Clase de hoy de una profesora que avisó que no viene. Otra profesora activa del mismo deporte, libre a esa hora.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cambiar la profesora de una clase de hoy"
+    },
+    {
+      "accion": "El dueño cambia la profesora de cada una: sin motivo y con motivo.",
+      "codigo": "CLA-010",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Si la clase ya tenía profesora, pide el motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ya pagada",
+          "l": "b",
+          "texto": "Avisa que esa clase ya se pagó en una liquidación y pide confirmación antes de cambiar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidación abierta",
+          "l": "c",
+          "texto": "Al recalcular una liquidación abierta, la clase pasa de una profesora a la otra.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Liquidación pagada",
+          "l": "d",
+          "texto": "La liquidación pagada no cambia de importe.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2; ClaseWebController::actualizarProfesores (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una clase de la semana pasada con asistencia; otra de un mes ya liquidado y pagado.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cambiar la profesora de una clase pasada"
+    },
+    {
+      "accion": "La cancela: primero sin motivo, después con motivo. La busca en Clases; después la busca su profesora.",
+      "codigo": "CLA-011",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Motivo",
+          "l": "a",
+          "texto": "Sin motivo no cancela.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "b",
+          "texto": "Sigue en Hoy, al final, apagada, con Cancelada y el motivo. El filtro Cancelada la encuentra.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Profesora",
+          "l": "c",
+          "texto": "La ve cancelada y no puede tomar asistencia: Guardar deshabilitado y aviso de bloqueo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Encabezado",
+          "l": "d",
+          "texto": "El encabezado de clases de hoy no la cuenta.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "e",
+          "texto": "No entra al contador «Sin asistencia».",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "f",
+          "texto": "No genera sueldo para su profesora.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "g",
+          "texto": "No cuenta como ausente para nadie; no afecta la generación del mes siguiente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Inicio operativo",
+          "l": "h",
+          "texto": "Deja de figurar entre las clases de hoy.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "T21 (Gemini; pantalla aprobada por Carlos); ClaseWebController::toggleCancelada (código leído); D03-1 a D03-5; CL-12.",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Clase de hoy sin asistencia tomada.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar una clase de hoy"
+    },
+    {
+      "accion": "La cancela con motivo.",
+      "codigo": "CLA-012",
+      "duda": "DU-30",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema la cancela sin avisar que ya tenía asistencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Presentes",
+          "l": "b",
+          "texto": "Las marcas quedan guardadas pero la clase deja de contar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "c",
+          "texto": "La profesora deja de cobrar esa clase aunque la dio.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "d",
+          "texto": "Esos presentes dejan de contar para la comisión del profesor.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Mes siguiente",
+          "l": "e",
+          "texto": "Un alumno cuyo único presente del mes fue en esa clase puede terminar en Revisión.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "ClaseWebController::toggleCancelada no mira asistencias (código leído). Comprobado por Claude el 13/10 en la base descartable: la cancela sin aviso y el presente queda guardado.",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Clase de ayer con ocho presentes.",
+      "roles": [
+        "OPERATIVO",
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cancelar una clase que ya tiene la lista tomada"
+    },
+    {
+      "accion": "Cancela cada una con motivo.",
+      "codigo": "CLA-013",
+      "duda": "DU-30",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema las cancela sin avisar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidación",
+          "l": "b",
+          "texto": "La liquidación cerrada o pagada conserva su importe, con una clase que ahora figura cancelada.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Reporte de Sueldos",
+          "l": "c",
+          "texto": "Lo pagado y las clases dictadas dejan de coincidir.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "ClaseWebController::toggleCancelada no mira liquidaciones (código leído); Contrato de liquidaciones (una cerrada no se modifica).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una clase incluida en una liquidación cerrada y otra en una liquidación pagada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Cancelar una clase que ya está en una liquidación"
+    },
+    {
+      "accion": "Desde la clase de hoy cancela la serie con motivo.",
+      "codigo": "CLA-014",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Alcance",
+          "l": "a",
+          "texto": "Se cancelan la de hoy y las futuras de la serie. Las pasadas no se tocan.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Aviso",
+          "l": "b",
+          "texto": "Dice cuántas clases canceló.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "c",
+          "texto": "Todas las futuras figuran canceladas con el mismo motivo.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "d",
+          "texto": "Las pasadas con asistencia se siguen pagando.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2 (A16); ClaseWebController::toggleCancelada (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Serie de lunes y viernes hasta fin de mes, con clases pasadas con asistencia, la de hoy y futuras.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cancelar una serie"
+    },
+    {
+      "accion": "El dueño la activa.",
+      "codigo": "CLA-015",
+      "duda": "DU-31",
+      "esperado": [
+        {
+          "donde": "Activación",
+          "l": "a",
+          "texto": "Vuelve a estar programada; se puede tomar asistencia.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Motivo",
+          "l": "b",
+          "texto": "El motivo de la cancelación se borra: no queda rastro de que estuvo cancelada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Choque",
+          "l": "c",
+          "texto": "Hoy el sistema la reactiva sin controlar el choque: la profesora queda con dos clases a la misma hora.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Listado",
+          "l": "d",
+          "texto": "Vuelve a contar en el encabezado y, si ya pasó, en «Sin asistencia».",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "ClaseWebController::toggleCancelada (código leído); D03-4 (no se probó Activar).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Clase futura cancelada por error. Mientras estuvo cancelada, a su profesora se le cargó otra clase en ese horario.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Volver a activar una clase cancelada"
+    },
+    {
+      "accion": "Cambia el horario de cada una.",
+      "codigo": "CLA-016",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Futura",
+          "l": "a",
+          "texto": "Se cambia; controla choques y el aviso de bloques.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fecha pasada",
+          "l": "b",
+          "texto": "La fecha de una clase pasada no se puede cambiar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Hora pasada",
+          "l": "c",
+          "texto": "Cambiar la hora de una clase pasada pide motivo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Liquidación cerrada",
+          "l": "d",
+          "texto": "No se puede modificar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sueldo",
+          "l": "e",
+          "texto": "Cambiar la duración cambia lo que paga esa clase al recalcular una liquidación abierta.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2; ClaseWebController::update (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una clase futura, una de hoy que ya pasó de hora, una de ayer y una incluida en una liquidación cerrada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Editar el horario de una clase"
+    },
+    {
+      "accion": "El dueño la valida. Después lo intentan la operativa y la profesora.",
+      "codigo": "CLA-017",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Validación",
+          "l": "a",
+          "texto": "Queda validada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Otros roles",
+          "l": "b",
+          "texto": "No pueden validar.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "c",
+          "texto": "Sale del contador.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "d",
+          "texto": "Pasa a poder liquidarse por hora aunque no tenga presentes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "e",
+          "texto": "No genera comisión: no hay alumnos presentes.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "f",
+          "texto": "No le cuenta presente a ningún alumno.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones §2.3; ClaseWebController::toggleValidada (código leído); CL-10.",
+      "modulo": "Clases",
+      "pantalla": "clases-ficha",
+      "requiere": "Clase pasada sin ningún presente.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Validar a mano una clase sin asistencia"
+    },
+    {
+      "accion": "La busca por fecha; después entra por «Sin asistencia».",
+      "codigo": "CLA-018",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Por fecha",
+          "l": "a",
+          "texto": "No aparece: está fuera de los 35 días.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sin asistencia",
+          "l": "b",
+          "texto": "La encuentra y puede cargarla sin que le pida motivo: es la primera carga.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Contador",
+          "l": "c",
+          "texto": "Baja en uno al guardarla con al menos un presente.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V1; ClaseWebController::index (código leído); CL-11.",
+      "modulo": "Clases",
+      "pantalla": "clases-listado",
+      "requiere": "Clase de hace 40 días sin asistencia.",
+      "roles": [
+        "PROFESOR",
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Cargar la asistencia de una clase muy vieja"
+    },
+    {
+      "accion": "Doble clic en Guardar; después vuelve atrás y reenvía.",
+      "codigo": "CLA-019",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Resultado",
+          "l": "a",
+          "texto": "Las clases quedan una sola vez: el segundo intento se rechaza por choque de horario de la profesora.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "b",
+          "texto": "No hay clases duplicadas.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de clases V2 (choques); ProgramacionClasesService (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Formulario de serie completo.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "Crear dos veces la misma clase o serie"
+    },
+    {
+      "accion": "Crea una clase con las dos y se toma asistencia.",
+      "codigo": "CLA-020",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Clase",
+          "l": "a",
+          "texto": "Figura con las dos.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "b",
+          "texto": "Cada una cobra la clase completa, con su propio valor hora.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Las dos",
+          "l": "c",
+          "texto": "Cada una la ve entre sus clases.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "Contrato de liquidaciones §3.1; LiquidacionService (código leído).",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Dos profesoras activas del mismo deporte, que cobran por hora.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "normal",
+      "titulo": "Clase con dos profesoras"
+    },
+    {
+      "accion": "Busca cómo eliminarla.",
+      "codigo": "CLA-021",
+      "duda": "DU-48",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "No se puede eliminar: solo cancelar, con motivo, y solo de hoy en adelante.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Listado",
+          "l": "b",
+          "texto": "Las 16 quedan para siempre como canceladas en los listados y filtros.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Grupo",
+          "l": "c",
+          "texto": "El grupo de una clase ya creada no se puede cambiar al editarla: hay que cancelarla y crear otra.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "routes/web.php: no hay eliminación de clases; clases/edit (vista leída el 13/10).",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una serie de 16 clases creada con el grupo equivocado, sin asistencias.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Clase o serie creada por error"
+    },
+    {
+      "accion": "Abre Clases en cada momento. Después filtra por Programada, Finalizada, Cerrada y Cancelada, y ordena por más recientes, más antiguas y grupo.",
+      "codigo": "CLA-022",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "15:00",
+          "l": "a",
+          "texto": "Programada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "16:30",
+          "l": "b",
+          "texto": "Por comenzar (falta menos de una hora).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "17:30",
+          "l": "c",
+          "texto": "En curso.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "18:30 sin lista",
+          "l": "d",
+          "texto": "Finalizada: pasó y sigue trabando el pago.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con lista",
+          "l": "e",
+          "texto": "Cerrada, con «Asistencia: Cargada».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Filtros",
+          "l": "f",
+          "texto": "Cada estado trae solo las suyas; «Finalizada» es la misma lista que el acceso «Sin asistencia» del menú.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Dueño",
+          "l": "g",
+          "texto": "El aviso «Clases sin asistencia» de Inicio lleva a esa misma lista con el mismo número.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "clases/index y clases/_card (vistas leídas el 13/10).",
+      "modulo": "Clases",
+      "pantalla": "clases-listado",
+      "requiere": "Una clase de hoy de 17 a 18. Mirar a las 15:00, 16:30, 17:30, 18:30 sin lista, y otra vez después de tomar lista.",
+      "roles": [
+        "ADMIN",
+        "OPERATIVO",
+        "PROFESOR"
+      ],
+      "tarea": "",
+      "tipo": "recurrencia",
+      "titulo": "El estado de una clase a lo largo del día"
+    },
+    {
+      "accion": "Crea una clase sin elegir profesora. Se le toma asistencia.",
+      "codigo": "CLA-023",
+      "duda": "DU-55",
+      "esperado": [
+        {
+          "donde": "Hoy",
+          "l": "a",
+          "texto": "El sistema la crea: la profesora es opcional. La ficha dice «Sin profesor asignado».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "b",
+          "texto": "Nadie cobra esa clase y no aparece en ninguna liquidación.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Comisión",
+          "l": "c",
+          "texto": "Sus presentes no generan comisión para nadie.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Alumnos",
+          "l": "d",
+          "texto": "Los presentes sí cuentan para la cuota del mes siguiente.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Aviso",
+          "l": "e",
+          "texto": "Nada avisa al dueño que hay clases dictadas sin profesora.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "a_definir",
+      "fuente": "clases/create («Profesores (opcional)») y clases/show (vistas leídas el 13/10).",
+      "modulo": "Clases",
+      "pantalla": "clases-alta",
+      "requiere": "Formulario de clase.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Clase sin profesora asignada"
+    },
+    {
+      "accion": "El dueño valida la clase pasada y quiere deshacerlo. Después valida la de mañana. Fuerza validar la cancelada.",
+      "codigo": "CLA-024",
+      "duda": "DU-35",
+      "esperado": [
+        {
+          "donde": "Deshacer",
+          "l": "a",
+          "texto": "El dueño tiene que poder deshacer una validación.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Hoy",
+          "l": "b",
+          "texto": "Una vez validada, el botón desaparece: no se puede deshacer desde la pantalla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Futura",
+          "l": "c",
+          "texto": "El sistema deja validar una clase que todavía no ocurrió: pasa a contar como dictada y a pagarse.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cancelada",
+          "l": "d",
+          "texto": "Forzando, la marca como validada.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Sueldos",
+          "l": "e",
+          "texto": "La clase validada por error entra en la próxima liquidación.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "clases/show (el botón solo se muestra si no está validada) y ClaseWebController::toggleValidada sin controles (leídos el 13/10). Comprobado por Claude el 13/10 en la base descartable: valida una clase futura y también una cancelada.",
+      "modulo": "Clases",
+      "pantalla": "clases-ficha",
+      "requiere": "Una clase pasada sin presentes, una clase de mañana y una cancelada.",
+      "roles": [
+        "ADMIN"
+      ],
+      "tarea": "",
+      "tipo": "mal_uso",
+      "titulo": "Validar una clase por error"
+    },
+    {
+      "accion": "La operativa abre una clase de la serie y cancela. Después envía a mano la cancelación de toda la serie.",
+      "codigo": "CLA-025",
+      "duda": "",
+      "esperado": [
+        {
+          "donde": "Pantalla",
+          "l": "a",
+          "texto": "Solo le ofrece «Cancelar esta». «Cancelar serie» es del dueño.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Forzado",
+          "l": "b",
+          "texto": "La cancelación de la serie se rechaza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Datos",
+          "l": "c",
+          "texto": "Solo queda cancelada la clase que canceló.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "vigente",
+      "fuente": "clases/show (vista leída el 13/10). ClaseWebController::toggleCancelada no distingue rol para la serie: es probable que forzándolo la cancele entera. Comprobado por Claude el 13/10 en la base descartable: la operativa, enviándolo a mano, cancela las tres clases de la serie.",
+      "modulo": "Clases",
+      "pantalla": "clases-edicion",
+      "requiere": "Una serie con clases futuras.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "",
+      "tipo": "seguridad",
+      "titulo": "La operativa y la cancelación de series"
+    }
+  ],
+  "modulo": "Clases",
+  "orden": 12,
+  "prefijo": "CLA"
+}
