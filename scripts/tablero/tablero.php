@@ -71,7 +71,7 @@ switch ($orden) {
         $pedido = $args[0] ?? null;
         echo resumen($tareas) . "\n";
         foreach ($g as $clave => $lista) {
-            if (in_array($clave, ['sin_empezar', 'cerradas'], true)) {
+            if (in_array($clave, ['sin_empezar', 'cerradas', 'mejoras_futuras'], true)) {
                 continue;
             }
             if ($pedido !== null && strcasecmp($pedido, $clave) !== 0) {
@@ -86,7 +86,8 @@ switch ($orden) {
             }
         }
         if ($pedido === null) {
-            echo "\nSin empezar: " . count($g['sin_empezar']) . '. Cerradas: ' . count($g['cerradas']) . ".\n";
+            echo "\nSin empezar: " . count($g['sin_empezar']) . '. Cerradas: ' . count($g['cerradas'])
+                . '. Mejoras futuras, aparte: ' . count($g['mejoras_futuras']) . ".\n";
         }
         break;
 

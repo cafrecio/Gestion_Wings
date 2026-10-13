@@ -158,6 +158,12 @@ function tablero_es_defecto(array $t): bool
     return (bool) preg_match('/^[AB]\d+$/', $t['id']);
 }
 
+/** Mejora futura: anotada para no perderla, sin intención de empezarla ahora. */
+function tablero_es_mejora_futura(array $t): bool
+{
+    return (bool) preg_match('/^MF\d+$/', $t['id']);
+}
+
 /** @return array{cerrados:int,total:int,frenan:list<string>} solo defectos, que es el avance que se informa */
 function tablero_avance(array $tareas): array
 {
@@ -196,6 +202,10 @@ function tablero_grupos(array $tareas): array
     });
 
     $abiertas = array_filter($tareas, fn ($t) => $t['estado'] !== 'cerrado');
+    // Las mejoras futuras (MF) no son trabajo de ahora: van aparte y no cuentan como
+    // «sin empezar». Carlos, 13/10/2026: «ensucian la situación del proyecto».
+    $mejoras = array_values(array_filter($abiertas, 'tablero_es_mejora_futura'));
+    $abiertas = array_filter($abiertas, fn ($t) => ! tablero_es_mejora_futura($t));
     $de = fn (string $quien) => array_values(array_filter(
         $abiertas,
         fn ($t) => $t['tiene'] === $quien && $t['estado'] !== 'sin_empezar'
@@ -216,6 +226,7 @@ function tablero_grupos(array $tareas): array
         fn ($t) => $t['estado'] === 'sin_empezar' && $t['tiene'] !== 'Carlos'
     ));
     $grupos['cerradas'] = array_values(array_filter($tareas, fn ($t) => $t['estado'] === 'cerrado'));
+    $grupos['mejoras_futuras'] = $mejoras;
 
     return $grupos;
 }
@@ -273,7 +284,8 @@ function tablero_html(array $tareas): string
     foreach (TABLERO_AGENTES as $agente) {
         $secciones .= $bloque($agente, $g[$agente], 'No tiene nada en este momento.');
     }
-    $secciones .= $plegado('Sin empezar', $g['sin_empezar']) . $plegado('Cerradas', $g['cerradas']);
+    $secciones .= $plegado('Sin empezar', $g['sin_empezar']) . $plegado('Cerradas', $g['cerradas'])
+        . $plegado('Mejoras futuras, no se empiezan ahora', $g['mejoras_futuras']);
 
     return <<<HTML
 <!doctype html>
@@ -364,7 +376,9 @@ function tablero_bloque_hoja(array $tareas): string
         $md .= "## {$agente}\n\n" . $tabla($g[$agente], 'Nada en este momento.') . "\n";
     }
     $sinEmpezar = array_map(fn ($t) => $t['id'], $g['sin_empezar']);
+    $mejoras = array_map(fn ($t) => $t['id'], $g['mejoras_futuras']);
     $md .= '## Sin empezar (' . count($sinEmpezar) . ")\n\n" . ($sinEmpezar ? implode(', ', $sinEmpezar) : 'Nada') . ".\n\n"
+        . '## Mejoras futuras, no se empiezan ahora (' . count($mejoras) . ")\n\n" . ($mejoras ? implode(', ', $mejoras) : 'Nada') . ".\n\n"
         . TABLERO_MARCA_FIN;
 
     return $md;
