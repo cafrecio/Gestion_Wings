@@ -1,5 +1,7 @@
-# Carga inicial de deuda desde Excel
+# Carga inicial de deuda desde Excel (ARCHIVADO)
 
+> **DOCUMENTO ARCHIVADO (13/10/2026 - T2):** Este procedimiento y el comando `wings:importar-deuda-inicial` fueron retirados tras la entrada en vigencia del importador único por interfaz web de Primera Carga (P1, `/primera-carga`). Se conserva como registro histórico.
+>
 > **Desde el 10/09/2026 hay un segundo procedimiento, y para el arranque del club se
 > usa ese: `CARGA-PADRON-SALDO-INICIAL.md`.**
 >

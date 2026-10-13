@@ -114,17 +114,10 @@ class ExportarPadronCargaInicialTest extends TestCase
         $this->assertStringContainsString('092026 = septiembre de 2026', $texto, 'El formato de periodo tiene que estar con un ejemplo.');
         $this->assertStringContainsString('52.000', $texto, 'Los formatos de monto aceptados tienen que estar.');
 
-        // Con las instrucciones como hoja activa, la carga tiene que encontrar el padron igual.
+        // La hoja Padron coexiste con Instrucciones y conserva los datos del alumno.
         $padron = $libro->getSheetByName('Padron');
-        $padron->setCellValue('D2', 'SI');
-        $padron->setCellValue('E2', '092026');
-        $padron->setCellValue('F2', '52000');
-        (new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($libro))->save($this->archivo);
-
-        $this->artisan('wings:importar-padron', ['archivo' => $this->archivo, '--corte' => '2026-09'])
-            ->assertSuccessful();
-
-        $this->assertSame(1, \App\Models\DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', '2026-09')->count());
+        $this->assertNotNull($padron, 'El archivo tiene que conservar la hoja Padron junto a las Instrucciones.');
+        $this->assertSame('30222222', $padron->getCell('A2')->getValue());
     }
 
     private function crearAlumno(

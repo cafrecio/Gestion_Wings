@@ -30,6 +30,19 @@ corta, queda una tarea T con lo que falta.
 Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
 
 
+## 2026-10-13 — LOG GEM CYE — Implementación T2: Retiro de los dos importadores viejos de la primera carga
+
+- **Objetivo y resultado:** Cumplimiento de la decisión P0/P1 de `docs/06-pruebas/PRU-02/DEFECTOS.md` tras confirmarse el funcionamiento íntegro de la primera carga web unificada (`/primera-carga`). Se retiraron los dos importadores antiguos de consola y sus dependencias.
+- **Cambios realizados:**
+  1. *Comandos y servicios eliminados:* `ImportarSaldoInicialPadronCommand` (`wings:importar-padron`), `ImportarDeudaInicialExcelCommand` (`wings:importar-deuda-inicial`), `CargaSaldoInicialPadronService` y `CargaDeudaInicialExcelService`.
+  2. *Pruebas obsoletas retiradas:* `CargaPadronFormatosExcelTest` (6), `CargaSaldoInicialPadronTest` (5) e `ImportarDeudaInicialExcelCommandTest` (3). Total 14 pruebas retiradas; suite pasa a 724 pruebas.
+  3. *Componentes preservados:* `FormatoExcelCargaService` (utilizado por `PrimeraCargaExcelService`), `PrimeraCargaWebController`, seeders y `ExportarPadronCargaInicialCommand` (`wings:exportar-padron`).
+  4. *Ajuste en prueba desacoplada:* En `ExportarPadronCargaInicialTest`, se reemplazó la llamada al comando eliminado por una aserción directa sobre la estructura de la hoja exportada `Padron`.
+  5. *Documentación archivada:* `CARGA-DEUDA-INICIAL-EXCEL.md`, `CARGA-PADRON-SALDO-INICIAL.md` y 7 planillas `.xlsx` históricas trasladadas a `docs/99-archivo/`. Estado actualizado en `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md` y `RESUMEN-ARRANQUE.md`.
+- **Análisis de `wings:exportar-padron`:** Se documentó en `IMPLEMENTACION-T2.md` que servía exclusivamente para generar la planilla del comando retirado `wings:importar-padron`, no tiene invocadores web y se recomienda su retiro futuro cuando Carlos lo confirme.
+- **Pruebas y verificación:** `PrimeraCargaExcelTest` (20/20), `ExportarPadronCargaInicialTest` (2/2), `DocumentacionNoMienteTest` (7 aserciones, sincronizado en 724).
+- **Próximo paso:** Claude verifica código, archivos retirados y suite en 724.
+
 ## 2026-10-13 — LOG GEM CYE — Implementación T31: El que debe la inscripción también es moroso o deudor
 
 - **Objetivo y resultado:** Implementación de T31 bajo las decisiones de Carlos del 12/10/2026 y agregado del 13/10/2026 (plazo propio del alumno nuevo de 7 días, `dias_plazo_alta`). Cobranza, el buscador de Cobrar y el Inicio de la Operativa ahora listan y cuentan exactamente a los mismos alumnos (38 alumnos con deuda en el dataset de prueba).

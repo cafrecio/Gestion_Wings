@@ -1,7 +1,9 @@
-# Carga del saldo inicial de todo el padrón
+# Carga del saldo inicial de todo el padrón (ARCHIVADO)
 
-> Reemplaza a `CARGA-DEUDA-INICIAL-EXCEL.md` para el arranque del club.
-> Aquel carga **solo deudores**; este declara el saldo inicial de **todos** y cierra
+> **DOCUMENTO ARCHIVADO (13/10/2026 - T2):** Este procedimiento y el comando `wings:importar-padron` fueron retirados tras la entrada en vigencia del importador único por interfaz web de Primera Carga (P1, `/primera-carga`). Se conserva como registro histórico.
+>
+> Reemplazó a `CARGA-DEUDA-INICIAL-EXCEL.md` para el arranque del club.
+> Aquel cargaba **solo deudores**; este declaraba el saldo inicial de **todos** y cerraba
 > el mes de corte. Corre una sola vez, cuando el club termina de cargar sus alumnos.
 
 ## Para la prueba grande: el padrón ya exportado

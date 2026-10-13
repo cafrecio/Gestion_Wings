@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
+
+Gemini CyE retiró los dos importadores de consola antiguos (`wings:importar-padron` y `wings:importar-deuda-inicial`), sus servicios (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 14 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/primera-carga`). Documentación histórica y plantillas archivadas en `docs/99-archivo/`. Suite en 724 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
+
 ## T33 — Perdón de inscripción y reactivación, 13/10/2026
 
 Codex CyE implementa DU-25/DU-58: ADMIN condona inscripción pendiente y reactiva
@@ -407,7 +411,7 @@ P1 implementada por Codex CAB (`d530c85`) y **verificada de forma independiente 
 - **Permisos y flujo:** Redirección automática de ADMIN mientras esté `PENDIENTE`, bloqueo de alta manual por URL vía middleware `PrepararPrimeraCarga`, y respuesta HTTP 403 para roles Operativo y Profesor.
 - **Diseño responsive:** Recorrido en 4 pasos apilados conforme a tokens del Design System, validado en escritorio y móvil (375 px).
 - [Informe de verificación independiente](../06-pruebas/PRU-02/VERIFICACION-P1.md). P1 APROBADA.
-- **Pendiente de despliegue:** Migración `2026_10_05_180000_create_primera_carga.php`, build de Vite y retiro posterior de importadores antiguos (`wings:importar-padron` y `wings:importar-deuda-inicial`).
+- **Pendiente de despliegue:** Migración `2026_10_05_180000_create_primera_carga.php` y build de Vite. Importadores antiguos (`wings:importar-padron` y `wings:importar-deuda-inicial`) retirados el 13/10/2026 (T2).
 
 ## P0 — primera carga, 04/10/2026
 
@@ -566,7 +570,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **738 pruebas** presentes en la carpeta (incluye T31 sin publicar y 31 nuevas T33); 736 aprobadas/2 omitidas; 7001 aserciones, 895.64 s. Suite completa Codex 13/10, solo wings_testing_codex. |
+| **Tests** | **724 pruebas** presentes en la carpeta (T2 retira 14 pruebas de importadores obsoletos); 722 aprobadas/2 omitidas. Suite completa en wings_testing_gemini, 13/10. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -575,7 +579,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | P1 implementada el 05/10, pendiente Gemini: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Inscripción solo por indicación del archivo. Estado persistente y control servidor; sin deploy ni limpieza de bases. Los dos importadores antiguos se conservan hasta la aceptación independiente; retiro en commit aparte |
+| Carga inicial | P1 implementada el 05/10: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Importadores de consola antiguos retirados el 13/10/2026 (T2). Rige el importador web único (`/primera-carga`). |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |

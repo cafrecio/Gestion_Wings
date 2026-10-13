@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **738 pruebas** presentes (incluye T31 sin publicar y 31 nuevas T33); 736 aprobadas/2 omitidas, 7001 aserciones, 895.64 s; wings_testing_codex, 13/10. |
+| Suite | **724 pruebas** presentes (T2 retira 14 pruebas de importadores obsoletos); 722 aprobadas/2 omitidas; wings_testing_gemini, 13/10. |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |

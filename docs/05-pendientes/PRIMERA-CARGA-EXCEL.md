@@ -58,10 +58,10 @@ inscripción. Carlos cortó: *"estamos pensando e implementando todo mal"*.
 ## La decisión
 
 1. **La primera carga es un Excel único** con los alumnos completos **y su deuda**. Un solo
-   script lo importa. Hoy los dos importadores que existen —`wings:importar-padron` y
-   `wings:importar-deuda-inicial`— cargan deuda de alumnos que ya tienen que estar cargados
-   a mano: **los dos se retiran cuando el nuevo funcione**, para no dejar tres caminos
-   de carga inicial. Mientras tanto se conservan.
+   script lo importa. Los dos importadores antiguos que existían —`wings:importar-padron` y
+   `wings:importar-deuda-inicial`— cargaban deuda de alumnos que ya tenían que estar cargados
+   a mano: **ambos fueron retirados el 13/10/2026 (T2)** tras validarse el importador único
+   web (`/primera-carga`). La documentación y plantillas históricas se archivaron en `docs/99-archivo/`.
 2. **Lo que se carga a mano después sigue las reglas del sistema:** para ingreso del
    mes corriente o futuro, cuota de ese mes con porcentaje del día, más inscripción.
    Para mes cerrado aplica la decisión posterior A43 del 04/10 explicada arriba.

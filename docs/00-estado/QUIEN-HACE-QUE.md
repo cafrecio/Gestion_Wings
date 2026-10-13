@@ -34,6 +34,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T7** Pasar los estilos del menu de sidebar.css a app.css | Hecho, espera verificación (hizo Claude) | Mirar el menu en el sitio de prueba: tiene que verse igual que antes. Con su OK se cierra |
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini) | Desplegado en el sitio de prueba el 12/10: el archivo de instalacion ya declara el arranque en el login y sale con su tipo correcto. Carlos lo reinstala en su telefono y confirma |
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
@@ -48,9 +49,9 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T2** Retirar los dos importadores viejos de la primera carga | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar retiro de importadores viejos y suite en 724 |
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
-| **T7** Pasar los estilos del menu de sidebar.css a app.css | En curso | Cuando Codex publique A6 a A10 y suelte app.css |
 
 ## Codex
 
@@ -60,9 +61,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (53)
+## Sin empezar (52)
 
-B13, T2, T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B5, B6, B7, B8, B9, B11.
+B13, T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B5, B6, B7, B8, B9, B11.
 
 ## Mejoras futuras, no se empiezan ahora (5)
 

@@ -404,10 +404,9 @@ La reversión no borra alumnos, planes, pagos, movimientos de caja ni imputacion
 pagos. Si hay una imputación, la operación se rechaza y debe revisarse antes de decidir
 cualquier corrección.
 
-La guía operativa y los comandos están en
-[`CARGA-DEUDA-INICIAL-EXCEL.md`](CARGA-DEUDA-INICIAL-EXCEL.md). Se entrega además
-la plantilla vacía `PLANTILLA-CARGA-DEUDA-INICIAL.xlsx` y el caso documentado
-`EJEMPLO-CARGA-DEUDA-INICIAL.xlsx` en esta misma carpeta.
+La guía operativa histórica y los comandos retirados están en
+[`../99-archivo/CARGA-DEUDA-INICIAL-EXCEL.md`](../99-archivo/CARGA-DEUDA-INICIAL-EXCEL.md) (archivados el 13/10/2026, T2).
+La primera carga oficial vigente es P1 mediante la interfaz web (`/primera-carga`).
 
 ## Lo que ya no queda abierto
 

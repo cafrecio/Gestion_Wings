@@ -780,7 +780,7 @@ Manda la decisión más nueva. Entonces:
 - Se quita `inscripcion_fecha_corte`: el parámetro, su lugar en Configuración y la prueba
   que lo cuida.
 - Se retiran los dos importadores viejos (`wings:importar-padron`, `wings:importar-deuda-inicial`)
-  **cuando el nuevo esté andando**, no antes.
+  **cuando el nuevo esté andando**, no antes — retirados el 13/10/2026 (T2).
 
 **P0 CERRADO el 05/10:** implementado por Codex (`ad24769`) y verificado por Gemini, que aprobó A43 y los permisos.
 Evidencia y pruebas en [P0-CARGA-INICIAL-2026-10-04.md](P0-CARGA-INICIAL-2026-10-04.md).
