@@ -105,3 +105,15 @@ verlas pasar; en la mia la suite completa da 664 aprobadas, 2 omitidas y esas 5 
 Devuelto a Codex solo por eso. T24 ya permite las cuatro bases descartables.
 **T29** lo verifica Gemini. Carlos instalo Wings en su telefono y abre como aplicacion.
 
+
+## 13/10/2026 — T7 y tablero
+
+**T7 hecha por mi, `d4f02d4`, desplegada en el sitio de prueba.** Las reglas del menu pasaron
+de `sidebar.css` al final de `app.css` sin cambios; `sidebar.css` ya no existe. Verificado:
+el CSS compilado de antes y el de despues tienen las mismas reglas en el mismo orden, y en el
+sitio de prueba compare los estilos calculados de los 67 elementos del menu a 1366 y 360:
+iguales. Suite en `wings_testing_claude`: 736 aprobadas, 2 omitidas. Falta el OK de Carlos.
+**Tablero:** T6 paso a MF5 y T9 a CAB01, en un grupo aparte «De otros proyectos» que no
+cuenta como pendiente de Wings (`tablero_es_de_otro_proyecto`). T2 la tiene Gemini.
+El cambio de estado de T7 quedo en la carpeta sin publicar: `tareas.json` tenia cambios de
+Gemini sin publicar y no los mezcle en mi commit.
