@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 13/10/2026: 66 cerrados de 74.** Quedan 8 abiertos, de los
+> **Avance al 13/10/2026: 66 cerrados de 72.** Quedan 6 abiertos (B5 y B6 pasaron a mejoras futuras: MF7 y MF6), de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -671,13 +671,13 @@ enterarse nunca.
 grupo, y dice por qué importa: hasta que se carguen no se le puede pagar al profesor. Usa la
 misma consulta que el contador del menú, para que los dos digan siempre lo mismo. Las clases
 validadas a mano para liquidar no aparecen. Cubierto por `AvisoAdminResumenDiarioTest`.
-### B5. Las canchas no existen · Falta
+### MF7 (era B5). Las canchas no existen · Mejora futura desde el 13/10, decisión de Carlos
 
 No hay dónde decir en qué cancha se juega, cuál es la tarifa de esa hora ni cuánto se paga
 este mes. **Es el gasto más grande del club y vive afuera del sistema.** Está planificado al
 detalle en `docs/07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md` (POS-07).
 
-### B6. Las clases particulares no existen · Falta
+### MF6 (era B6). Las clases particulares no existen · Mejora futura PRIORITARIA desde el 13/10, decisión de Carlos
 
 Son habituales en el club. No hay precio por clase, ni deuda de esa clase, ni recibo, ni
 rentabilidad. Contrato escrito en `Wings-Contrato-Clases-Particulares-V1.md` (POS-06).
@@ -872,8 +872,8 @@ Después de la prueba, salvo que Carlos adelante algo.
 
 | Orden | Qué | Defectos |
 |---|---|---|
-| 6.1 | Canchas y su alquiler por hora | B5, A15 |
-| 6.2 | Clases particulares | B6 |
+| 6.1 | Canchas y su alquiler por hora | MF7, A15 |
+| 6.2 | Clases particulares | MF6 |
 | 6.3 | Motivos y avisos de las excepciones del contrato | B3 |
 | 6.4 | Reportes: las cuatro preguntas del cierre del día | B12 |
 | 6.5 | Adelanto del profesor atado a su liquidación, y dónde pagarle | B9, B10 |

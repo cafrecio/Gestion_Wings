@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 13/10/2026. Avance: **66 defectos cerrados de 74**. Frenan: ninguno.
+Último cambio: 13/10/2026. Avance: **66 defectos cerrados de 72**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -69,7 +69,7 @@ T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, 
 
 ## Mejoras futuras, no se empiezan ahora (7)
 
-B6, B5, MF1, MF2, MF3, MF4, MF5.
+MF6, MF1, MF2, MF3, MF4, MF5, MF7.
 
 ## De otros proyectos, no es pendiente de Wings (1)
 
