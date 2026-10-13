@@ -1,8 +1,10 @@
-# Orden de trabajo — Codex — Carga de deuda inicial y los cuatro estados
+# Orden de trabajo — Codex — Carga de deuda inicial y los cuatro estados (ARCHIVADO)
 
+> **DOCUMENTO ARCHIVADO (13/10/2026 - T2):** Esta orden de trabajo y los comandos asociados (`wings:importar-deuda-inicial`, `wings:importar-padron`) fueron retirados tras la entrada en vigencia del importador único por interfaz web de Primera Carga (P1, `/primera-carga`). Se conserva como registro histórico.
+>
 > Emitida el 06/09/2026 por Claude CAB, autorizada por Carlos.
 > **Leer `AGENTS.md` completo antes de tocar un archivo.** No se repite acá.
-> Diseño y justificación de la carga: `docs/06-pruebas/DISENO-DEUDA-INICIAL-V1.md`.
+> Diseño y justificación de la carga: `docs/99-archivo/DISENO-DEUDA-INICIAL-V1.md`.
 
 ---
 

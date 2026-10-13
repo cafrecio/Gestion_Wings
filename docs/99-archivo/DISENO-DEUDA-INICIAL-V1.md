@@ -1,5 +1,7 @@
-# Diseño de la deuda inicial — qué se quiere demostrar
+# Diseño de la deuda inicial — qué se quiere demostrar (ARCHIVADO)
 
+> **DOCUMENTO ARCHIVADO (13/10/2026 - T2):** Este diseño y las planillas de prueba asociadas a `wings:importar-deuda-inicial` fueron retirados tras la entrada en vigencia del importador único por interfaz web de Primera Carga (P1, `/primera-carga`). Se conserva como registro histórico.
+>
 > **REEMPLAZADO el 06/09 por la V2.** Lo de abajo describe el primer reparto, que
 > se cargó, se revirtió y se rehizo. Se conserva porque el análisis de los estados
 > sigue valiendo. **El reparto vigente es el de esta sección.**

@@ -30,6 +30,22 @@ corta, queda una tarea T con lo que falta.
 Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
 
 
+## 2026-10-13 — LOG GEM CYE — Segunda vuelta T2: Documentos corregidos y wings:exportar-padron retirado
+
+- **Objetivo y resultado:** Resolución de la devolución de Claude (`VERIFICACION-T2.md`) y cumplimiento de la decisión de Carlos del 13/10 («si no sirve, no aporta nada»). Se retiró `wings:exportar-padron` y se corrigió toda la documentación que aún referenciaba los procedimientos antiguos.
+- **Cambios realizados:**
+  1. *Paso pendiente de Carlos:* En `CHECKLIST-CARLOS.md:196-199`, se reescribió para indicar la primera carga por pantalla vía `/primera-carga` (se mantiene pendiente de Carlos sin marcarlo hecho).
+  2. *Plan de trabajo:* En `PLAN-TRABAJO-IA-v2026-09-08.md:146, 209` y `PLAN-TRABAJO-CARLOS-v2026-09-08.html:153` (ENT-09), se actualizaron las referencias hacia `/primera-carga` eliminando nombres de comandos viejos y rutas obsoletas.
+  3. *Órdenes y herramientas archivadas:* `ORDEN-CODEX-DEUDA-INICIAL.md`, `DISENO-DEUDA-INICIAL-V1.md`, `generar-deuda-inicial.php` y `preparar-base-cobranza.php` trasladados a `docs/99-archivo/` con cabecera de archivo.
+  4. *Retiro de `wings:exportar-padron`:* Eliminados `ExportarPadronCargaInicialCommand.php` y `ExportarPadronCargaInicialTest.php` (2 pruebas retiradas). Suite pasa de 724 a 722 pruebas.
+  5. *Sincronización de estado:* `ESTADO-ACTUAL.md`, `CHECKLIST-CARLOS.md`, `PLAN-PRODUCCION.md` y `RESUMEN-ARRANQUE.md` actualizados a 722 pruebas.
+- **Pruebas y verificación:**
+  - `php artisan list wings`: confirmada la ausencia de comandos viejos.
+  - Guardianes: `DocumentacionNoMienteTest`, `DefectosNoDivergenTest` y `TablerosNoDivergenTest` en verde.
+  - `PrimeraCargaExcelTest`: 20/20 verde (553 aserciones).
+  - Suite completa en `wings_testing_gemini`: 720 aprobadas, 2 omitidas (722 pruebas, 6892 aserciones).
+- **Próximo paso:** Claude verifica segunda vuelta de T2.
+
 ## 2026-10-13 — LOG GEM CYE — Implementación T2: Retiro de los dos importadores viejos de la primera carga
 
 - **Objetivo y resultado:** Cumplimiento de la decisión P0/P1 de `docs/06-pruebas/PRU-02/DEFECTOS.md` tras confirmarse el funcionamiento íntegro de la primera carga web unificada (`/primera-carga`). Se retiraron los dos importadores antiguos de consola y sus dependencias.

@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * ARCHIVADO (13/10/2026 - T2): Script histórico de preparación de base para wings:importar-deuda-inicial.
+ * Se conserva únicamente como registro histórico en docs/99-archivo/.
+ *
  * SCRIPT DE UN SOLO USO — preparar la base de prueba de cobranza.
  *
  * No es parte del sistema ni del importador de deuda. Resuelve algo que Wings

@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 724 pruebas presentes: 722 aprobadas, 2 omitidas (T2, 13/10)
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 722 pruebas presentes: 720 aprobadas, 2 omitidas (T2, 13/10)
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
@@ -193,10 +193,9 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 - [ ] Confirmar si habra otros usuarios reales y sus roles.
 - [ ] Cargar deportes, niveles, grupos, planes, tipos de caja y demas datos reales por
   las pantallas acordadas.
-- [ ] **Cuando Vanina termine de cargar los alumnos:** exportar el padron, hacerselo
-  completar con DEBE por alumno, e importarlo. Cierra el mes de corte y Wings arranca
-  a facturar el mes siguiente. Procedimiento en
-  `docs/06-pruebas/CARGA-PADRON-SALDO-INICIAL.md`.
+- [ ] **Primera carga de alumnos y deuda inicial:** descargar la plantilla desde
+  `/primera-carga`, completarla con los alumnos y la deuda inicial por período, y
+  realizar la carga inicial unificada por pantalla.
 - [x] **Ensayo de restauracion hecho el 22/09** por Claude, contra el respaldo real del
   dia: se restaura completo. El respaldo del servidor sirve.
 - [ ] Reservar dos o tres horas para el recorrido humano completo, despues de cerrar

@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * ARCHIVADO (13/10/2026 - T2): Este script generaba los archivos Excel para wings:importar-deuda-inicial.
+ * Se conserva únicamente como registro histórico en docs/99-archivo/.
+ *
  * Genera los dos Excel de deuda inicial para la prueba funcional.
  *
  *  - DEUDA-INICIAL-PRUEBA-V1.xlsx    : el caso valido, 48 alumnos con deuda.

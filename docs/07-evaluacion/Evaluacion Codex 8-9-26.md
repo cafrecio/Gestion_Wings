@@ -444,7 +444,7 @@ Portal de familias, pagos online, WhatsApp y conciliación bancaria automática 
 
 Hace falta cerrar el recorrido humano completo: cargar catálogos, alumnos y planes; cobrar, cancelar, comprobar recibos, cerrar caja, registrar asistencia y liquidar; comparar pantalla con servicio y base. No se afirma que ningún paso haya sido probado: falta una certificación actual conjunta de esta versión.
 
-[docs/00-estado/ORDEN-CODEX-DEUDA-INICIAL.md:1](<C:/xampp/htdocs/gestion-wings/docs/00-estado/ORDEN-CODEX-DEUDA-INICIAL.md:1>) · [docs/00-estado/PLAN-PRODUCCION.md:1](<C:/xampp/htdocs/gestion-wings/docs/00-estado/PLAN-PRODUCCION.md:1>)
+[docs/99-archivo/ORDEN-CODEX-DEUDA-INICIAL.md:1](<C:/xampp/htdocs/gestion-wings/docs/99-archivo/ORDEN-CODEX-DEUDA-INICIAL.md:1>) · [docs/00-estado/PLAN-PRODUCCION.md:1](<C:/xampp/htdocs/gestion-wings/docs/00-estado/PLAN-PRODUCCION.md:1>)
 
 ## Límites y siguiente decisión
 

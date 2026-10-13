@@ -129,3 +129,69 @@ Se recomienda planificar su retiro en una tarea posterior de limpieza una vez qu
    - 2 pruebas aprobadas (18 aserciones).
 4. **Guardián de documentación (`tests/Feature/DocumentacionNoMienteTest.php`):**
    - 1 prueba aprobada (7 aserciones), verificando conteo exacto de 724 pruebas en los documentos de estado.
+
+---
+
+## 7. Segunda vuelta — Corrección documental y retiro de `wings:exportar-padron`
+
+**Fecha:** 13/10/2026  
+**Motivo:** Devolución por Claude (`docs/06-pruebas/PRU-04/VERIFICACION-T2.md`) y decisión de Carlos del 13/10 («si no sirve, no aporta nada»).
+
+### A. Documentación corregida y archivada
+
+1. **`docs/00-estado/CHECKLIST-CARLOS.md` (líneas 196-199):**
+   - Se reescribió el ítem pendiente de Carlos para indicar la descarga de la plantilla desde `/primera-carga` y la carga por pantalla, eliminando la mención a exportar/importar padrón por consola y el enlace al documento retirado. Sigue siendo un paso pendiente de Carlos.
+2. **`docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md` (líneas 146 y 209):**
+   - Línea 146: Se reemplazó la mención de `wings:exportar-padron` / `wings:importar-padron` por la primera carga unificada web (`/primera-carga`, P1).
+   - Línea 209 (ENT-09): Se actualizó la descripción para referenciar el importador web unificado y la plantilla por pantalla.
+3. **`docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html` (línea 153, ENT-09):**
+   - Se reescribió en lenguaje llano de usuario («Primera carga de alumnos y deuda inicial»), sin referencias a nombres de comandos de consola ni rutas de archivos.
+4. **`docs/00-estado/ORDEN-CODEX-DEUDA-INICIAL.md` trasladada a `docs/99-archivo/`:**
+   - Movida a `docs/99-archivo/ORDEN-CODEX-DEUDA-INICIAL.md` con cabecera de documento archivado.
+   - Enlaces corregidos en `docs/07-evaluacion/Evaluacion Codex 8-9-26.HTML` y `.md`.
+5. **Herramientas y guías históricas archivadas:**
+   - Se investigó con `git grep` el uso vigente de:
+     - `docs/06-pruebas/DISENO-DEUDA-INICIAL-V1.md`: solo referenciado en la orden histórica y notas de Claude. Sin uso activo en el sistema. Movido a `docs/99-archivo/DISENO-DEUDA-INICIAL-V1.md` con cabecera de archivo.
+     - `docs/06-pruebas/generar-deuda-inicial.php`: generador de planillas de prueba de la herramienta vieja. Sin uso en el código. Movido a `docs/99-archivo/generar-deuda-inicial.php` con cabecera de archivo.
+     - `docs/06-pruebas/preparar-base-cobranza.php`: script manual de preparación para el importador viejo. Sin uso en el código. Movido a `docs/99-archivo/preparar-base-cobranza.php` con cabecera de archivo.
+   - Actualizado el índice en `docs/README.md`.
+
+### B. Retiro de `wings:exportar-padron` (Decisión de Carlos)
+
+1. **Barrido de dependencias previo:**
+   - Búsqueda: `git grep -n -E "exportar-padron|ExportarPadronCargaInicial"`.
+   - Resultado: Únicamente referenciado por el propio comando, su prueba unitaria `ExportarPadronCargaInicialTest` y documentos de evaluación/históricos. Cero invocaciones en `app/`, `routes/`, `resources/` o flujos de usuario.
+2. **Archivos eliminados:**
+   - `app/Console/Commands/ExportarPadronCargaInicialCommand.php`
+   - `tests/Feature/ExportarPadronCargaInicialTest.php` (2 pruebas retiradas)
+3. **Independencia de la plantilla de primera carga:**
+   - Se verificó `PrimeraCargaExcelService::plantilla()`: construye la planilla de 38 columnas de forma completamente autónoma con PhpSpreadsheet y `App\Support\FormatoImporte`, sin requerir ningún componente retirado.
+4. **Sincronización del conteo de suite (722 pruebas):**
+   - La suite desciende de 724 a 722 pruebas (720 aprobadas, 2 omitidas).
+   - Se actualizó el conteo en los cuatro documentos vigilados: `docs/00-estado/ESTADO-ACTUAL.md`, `docs/00-estado/CHECKLIST-CARLOS.md`, `docs/00-estado/PLAN-PRODUCCION.md` y `docs/00-estado/RESUMEN-ARRANQUE.md`.
+   - `DocumentacionNoMienteTest` verificado en verde (7 aserciones).
+
+### C. Clasificación del barrido final obligatorio
+
+Comando ejecutado:
+`git grep -n -E "importar-padron|importar-deuda-inicial|exportar-padron|CARGA-PADRON-SALDO-INICIAL|CARGA-DEUDA-INICIAL-EXCEL|DEUDA-INICIAL-PRUEBA|DEUDA-INICIAL-RECHAZOS|PADRON-PRUEBA" -- docs AGENTS.md CLAUDE.md GEMINI.md ':!docs/99-archivo'`
+
+Clasificación de cada coincidencia:
+- `docs/00-estado/ESTADO-ACTUAL.md:5`: **Corregido** (declara el retiro de los importadores y exportador en T2).
+- `docs/00-estado/ESTADO-ACTUAL.md:414`: **Corregido** (indica importadores antiguos retirados en T2).
+- `docs/00-estado/ESTADO-ACTUAL.md:582`: **Corregido** (indica importadores antiguos y exportador retirados en T2).
+- `docs/00-estado/LOG-GEMINI.md`: **Corregido** (registro de trabajo de la tarea T2).
+- `docs/00-estado/tareas.json`: **Corregido** (descripción y estado de T2 en tablero).
+- `docs/05-pendientes/PRIMERA-CARGA-EXCEL.md:61-62`: **Corregido** (declara el retiro efectivo de los comandos viejos).
+- `docs/06-pruebas/PRIMERA-CARGA-V1.md:408`: **Corregido** (apunta al documento histórico en `docs/99-archivo/`).
+- `docs/06-pruebas/PRU-02/DEFECTOS.md:787`: **Corregido** (anotación de retiro en T2 al lado de la decisión).
+- `docs/06-pruebas/PRU-02/DIAGNOSTICO-A2.md:20`: **Registro histórico, no se toca** (hallazgo fechado del 23/09/2026).
+- `docs/06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md:90-91`: **Registro histórico, no se toca** (nota de implementación de P1 del 05/10/2026).
+- `docs/06-pruebas/PRU-02/VERIFICACION-P1.md:119, 146`: **Registro histórico, no se toca** (informe de verificación de P1 del 05/10/2026).
+- `docs/06-pruebas/PRU-02/evidencia/a6-a10/suite-a32-nombres-2026-10-08.txt:1501`: **Registro histórico, no se toca** (volcado de salida de suite del 08/10/2026).
+- `docs/06-pruebas/PRU-04/IMPLEMENTACION-T2.md`: **Corregido** (informe de la tarea actual).
+- `docs/06-pruebas/PRU-04/VERIFICACION-T2.md:12, 20, 29, 45`: **Registro de devolución** (informe de Claude del 13/10/2026).
+- `docs/README.md:55`: **Corregido** (índice declarando documentos archivados en `docs/99-archivo/`).
+
+**Conclusión:** No subsiste ninguna instrucción ni referencia activa que ordene utilizar herramientas retiradas.
+

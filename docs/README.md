@@ -52,7 +52,7 @@ El mapa visual de trabajo esta en:
 | `04-tecnico/` | Setup, entorno, base de datos, despliegue y notas tecnicas. |
 | `05-pendientes/` | Pendientes crudos o listas de trabajo que todavia no fueron normalizadas. |
 | `06-pruebas/` | Plan de pruebas funcionales, guia para colaboradores y resultados de ciclos de prueba. |
-| `99-archivo/` | Historico, documentos viejos, respaldos y referencias no vigentes (incluye importadores CLI archivados CARGA-DEUDA-INICIAL-EXCEL y CARGA-PADRON-SALDO-INICIAL). |
+| `99-archivo/` | Historico, documentos viejos, respaldos y referencias no vigentes (incluye importadores CLI archivados CARGA-DEUDA-INICIAL-EXCEL, CARGA-PADRON-SALDO-INICIAL, ORDEN-CODEX-DEUDA-INICIAL y DISENO-DEUDA-INICIAL-V1). |
 
 ## Reglas de uso
 

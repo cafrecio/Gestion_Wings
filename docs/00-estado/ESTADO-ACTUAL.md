@@ -2,7 +2,7 @@
 
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 
-Gemini CyE retiró los dos importadores de consola antiguos (`wings:importar-padron` y `wings:importar-deuda-inicial`), sus servicios (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 14 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/primera-carga`). Documentación histórica y plantillas archivadas en `docs/99-archivo/`. Suite en 724 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
+Gemini CyE retiró los importadores de consola antiguos (`wings:importar-padron`, `wings:importar-deuda-inicial` y `wings:exportar-padron`), sus servicios asociados (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 16 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/primera-carga`). Documentación histórica, órdenes y planillas archivadas en `docs/99-archivo/`. Suite en 722 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
 
 ## T33 — Perdón de inscripción y reactivación, 13/10/2026
 
@@ -570,7 +570,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **724 pruebas** presentes en la carpeta (T2 retira 14 pruebas de importadores obsoletos); 722 aprobadas/2 omitidas. Suite completa en wings_testing_gemini, 13/10. |
+| **Tests** | **722 pruebas** presentes en la carpeta (T2 retira 16 pruebas de comandos obsoletos); 720 aprobadas/2 omitidas. Suite completa en wings_testing_gemini, 13/10. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -579,7 +579,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | P1 implementada el 05/10: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Importadores de consola antiguos retirados el 13/10/2026 (T2). Rige el importador web único (`/primera-carga`). |
+| Carga inicial | P1 implementada el 05/10: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Importadores de consola antiguos y exportador retirados el 13/10/2026 (T2). Rige el importador web único (`/primera-carga`). |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
