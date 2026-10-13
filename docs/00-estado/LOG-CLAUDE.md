@@ -11,6 +11,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
 
+## 2026-10-13 — Claude CyE — Tabla de pruebas: donde vive y que hay que leer antes de actuar
+
+Carlos y otra sesion mia armaron hoy la **Tabla de pruebas Wings**, que no estaba registrada
+en el repositorio: https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46 (privada). La pagina es
+solo la vista; los datos se leen con la herramienta `ArtifactData` (colecciones `catalogo`,
+`pruebas`, `dias`, `dudas`). Al 13/10: 330 casos y 1.435 lineas en 20 modulos; 21 pruebas de
+los dias 1 a 3; 56 dudas para Carlos, 7 respondidas (DU-01, 02, 04 a 08).
+**Regla que me llevo:** ponerse al dia es leer el repositorio Y esa tabla. Una respuesta de
+Carlos en `dudas` es una decision suya. Hoy le di a Carlos un prompt de T18 ya cerrada por
+contestar de memoria; me lo marco.
+**T31** pasada a Gemini con prompt; medido en el sitio de prueba: buscador 38, Cobranza 35,
+los 3 de diferencia deben solo la inscripcion. Coincide con los casos CBZ-005, ALU-006 y
+PCA-007 de la tabla. **Ojo:** DU-08, respondida hoy («plazo propio contado desde el alta, 2
+clases»), toca el mismo calculo de estado y no esta en el prompt ni tiene tarea.
+En la tabla, D03-01 a 03 figuran «arreglado, falta desplegar»: T21 ya esta en el sitio de
+prueba desde el 12/10; falta repetir el caso alli para marcarlo resuelto (T4).
+El indice `codebase-memory-mcp` no conecto en esta sesion: busque leyendo archivos.
+
 ## 2026-10-12 — Claude CAB — T27 verificado y cerrado; sitio de prueba desplegado en b2efc2e
 
 **T27 (Codex), requisito de produccion:** el duenio edita o anula sus movimientos directos
