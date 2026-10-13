@@ -50,11 +50,12 @@ Nada.
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en 602efcc desde el 13/10, reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
-| **T33** Perdonar la inscripcion y reactivar una cuota o inscripcion perdonada por error | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar DU-25/DU-58 en código y ficha; 31 pruebas T33 y suite local 736/2 verdes; capturas reales 1366/marco360 en IMPLEMENTACION-T33.md. Sin desplegar |
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T33** Perdonar la inscripcion y reactivar una cuota o inscripcion perdonada por error | Devuelto (hizo Codex, verifica Claude) | Tabla: DU-25, DU-58 · CBZ-010. DEVUELTO por Carlos el 13/10: no paso su revision visual. Falta anotar que es lo que vio mal. La logica todavia no la verifico Claude |
 
 ## Gemini
 
