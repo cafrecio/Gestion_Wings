@@ -199,7 +199,7 @@
     {
       "accion": "Mira su estado en Cobranza, ficha, listado y buscador de Cobrar.",
       "codigo": "CBZ-005",
-      "duda": "",
+      "duda": "DU-60",
       "esperado": [
         {
           "donde": "Estados",
@@ -210,7 +210,7 @@
         {
           "donde": "Coherencia",
           "l": "b",
-          "texto": "La cantidad de Morosos más Deudores de Cobranza es igual al número que anuncia el buscador de Cobrar.",
+          "texto": "Cuando no hay nadie en plazo, la cantidad de Morosos más Deudores de Cobranza es igual al número que anuncia el buscador de Cobrar y al «Con deuda» del Inicio de la operativa. Quien está en plazo figura en el buscador y no en los otros dos (ver DU-60).",
           "tipo": "indirecto"
         },
         {
@@ -220,8 +220,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 12/10; CO-07. Hoy figuran Al día: Cobranza dice 35 y el buscador 38.",
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 12/10; CO-07. Programado en T31 (d8bf91f), verificado por Claude el 13/10: en el sitio de prueba las tres pantallas dan 38.",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Tres alumnos que deben solo la inscripción, venidos de la primera carga: uno que ingresó este mes dentro de la gracia, uno que ingresó este mes y ya pasó la gracia, y uno que ingresó hace meses.",

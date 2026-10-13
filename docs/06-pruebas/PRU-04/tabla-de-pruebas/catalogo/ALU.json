@@ -32,7 +32,7 @@
         {
           "donde": "Estado",
           "l": "e",
-          "texto": "El alumno nace En plazo y tiene 7 días propios contados desde su fecha de ingreso, para la primera cuota y para la inscripción. Recién al octavo día pasa a Moroso (o a Deudor si el mes de ingreso ya cerró). Si los días de gracia del mes vencen más tarde que esos 7 días, vale el plazo más largo. Hoy, sin T31, nace Moroso si el día es posterior a los días de gracia.",
+          "texto": "El alumno nace En plazo y tiene 7 días propios contados desde su fecha de ingreso, para la primera cuota y para la inscripción. Recién al octavo día pasa a Moroso (o a Deudor si el mes de ingreso ya cerró). Si los días de gracia del mes vencen más tarde que esos 7 días, vale el plazo más largo.",
           "tipo": "indirecto"
         },
         {
@@ -343,7 +343,7 @@
         {
           "donde": "Estado con No",
           "l": "h",
-          "texto": "Hoy figura Al día aunque deba la inscripción. Con la regla nueva de Carlos (12/10) tiene que figurar deudor, porque debe la inscripción desde agosto.",
+          "texto": "Figura Deudor, porque debe la inscripción desde agosto, un mes ya cerrado (regla de Carlos del 12/10, T31).",
           "tipo": "indirecto"
         },
         {

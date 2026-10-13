@@ -294,8 +294,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decisión de Carlos 12/10; PrimeraCargaExcelService (código leído 13/10). En el sitio de prueba hay 3 alumnos así.",
+      "estado": "vigente",
+      "fuente": "Decisión de Carlos 12/10; PrimeraCargaExcelService (código leído 13/10). En el sitio de prueba hay 3 alumnos así. T31 publicada el 13/10: los 3 alumnos del sitio de prueba figuran Deudores.",
       "modulo": "Primera carga",
       "pantalla": "sis-primera-carga",
       "requiere": "Excel con un alumno con «Inscripción: Sí» y «Debe cuotas: No».",

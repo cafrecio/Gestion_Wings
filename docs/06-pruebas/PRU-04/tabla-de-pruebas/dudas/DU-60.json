@@ -1,0 +1,18 @@
+{
+  "casos": [
+    "CBZ-005",
+    "COB-001"
+  ],
+  "codigo": "DU-60",
+  "contexto": "Hoy hay dos números distintos, y los dos tienen sentido. El buscador de Cobrar muestra a todo el que debe algo, aunque esté en plazo: es «a quién le puedo cobrar». Cobranza y el recuadro «Con deuda» del Inicio de la operativa muestran solo morosos y deudores: es «quién está vencido». Hoy coinciden (38 en los tres) porque pasó el día 10 y no hay nadie en plazo. El 3 de noviembre el buscador va a mostrar a casi los 100 y Cobranza a los vencidos. Ya era así antes de T31.",
+  "modulo": "Cobranza",
+  "opciones": [
+    "Dejarlo así: Cobranza y el Inicio muestran los vencidos; el buscador, a todo el que debe",
+    "Que el Inicio de la operativa muestre los dos números: vencidos, y aparte los que están en plazo",
+    "Que Cobranza también liste por defecto a los que están en plazo"
+  ],
+  "orden": 0,
+  "pregunta": "Del 1 al 10 de cada mes casi todos deben la cuota pero están en plazo. ¿La operativa los tiene que ver como «con deuda»?",
+  "recomendacion": "La segunda: no cambia Cobranza, y la operativa ve de un vistazo cuántos vencidos tiene que perseguir y cuántos todavía van a venir a pagar.",
+  "respuesta": ""
+}
