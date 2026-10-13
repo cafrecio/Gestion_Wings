@@ -7,7 +7,7 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 13/10/2026: 67 cerrados de 72.** Quedan 5 abiertos (B5 y B6 pasaron a mejoras futuras: MF7 y MF6), de los
+> **Avance al 13/10/2026: 67 cerrados de 71.** Quedan 4 abiertos (B5, B6 y B8 pasaron a mejoras futuras: MF7, MF6 y MF8), de los
 > cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
 > otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
 > mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
@@ -694,7 +694,7 @@ Existe el rubro de ingreso por indumentaria. No existe el egreso por **comprar**
 mercadería, ni nada que diga cuántas remeras quedan. El club nunca va a saber si gana plata
 con la ropa.
 
-### B8. No existe la familia · Falta
+### MF8 (era B8). No existe la familia · Mejora futura, muy a futuro, desde el 13/10, decisión de Carlos
 
 Dos hermanos son dos alumnos sueltos que comparten apellido. No hay descuento por hermano ni
 una cuenta por casa.
@@ -880,7 +880,7 @@ Después de la prueba, salvo que Carlos adelante algo.
 | 6.3 | Motivos y avisos de las excepciones del contrato | B3 |
 | 6.4 | Reportes: las cuatro preguntas del cierre del día | B12 |
 | 6.5 | Adelanto del profesor atado a su liquidación, y dónde pagarle | B9, B10 |
-| 6.6 | Familia y hermanos | B8 |
+| 6.6 | Familia y hermanos | MF8 |
 | 6.7 | Stock y compra de mercadería | B7 |
 | 6.8 | Punitorios por mora | B11 |
 | 6.9 | Clases sin asistencia en el resumen diario | B4 |
