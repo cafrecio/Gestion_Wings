@@ -102,7 +102,7 @@ Entran en el grupo 3 (sin apuro):
 | Duda | Qué respondió | Qué se modifica | Tamaño |
 |---|---|---|---|
 | DU-11 | La deuda de quien se dio de baja va aparte, con aviso y motivo al dar de baja, y el dueño puede darla por perdida. | Total y lista «Deuda de alumnos dados de baja» en Cobranza y Reportes, que no suma al «por cobrar»; aviso de cuánto debe y motivo al dar de baja; acción del dueño para darla por perdida. | Grande |
-| DU-49 | Lista nueva, para dueño y operativa. | Alumnos que faltaron a todas sus clases de las últimas dos semanas, primero los que deben. | Medio |
+| DU-49 | Lista nueva, para dueño y operativa. «El operativo tiene la tarea de cobrar, ¿cómo no va a ver ese dato?» | Alumnos que faltaron a todas sus clases de las últimas dos semanas, primero los que deben. Va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes. Que hoy la lista de quienes no vinieron la vea solo el dueño es un **defecto**: quedó adentro de Reportes, que es solo del dueño. | Medio |
 | DU-59 | Sí, solo sin caja abierta. | El dueño puede cambiar el medio «efectivo del cajón» cuando no hay ninguna caja abierta. | Chico |
 | DU-58 | No se deshace: si se equivocó, crea la cuota de nuevo a mano (DU-23). | **Tiene un problema, ver abajo.** | — |
 
