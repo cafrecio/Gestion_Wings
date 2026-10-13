@@ -27,7 +27,8 @@ a su caja mientras el contrato limita por propietario solo el cierre; no se camb
 Suite propia: 687 aprobadas, 2 omitidas; 6588 aserciones, 501,04 s en wings_testing_codex.
 Carlos aprobó el resto de las capturas finales y señaló el importe grande desalineado en Historial móvil.
 Se amplió solo la columna Monto: diez importes alineados en escritorio y marco360; cuatro visitas sin fallos.
-T27 se entrega a Carlos para revisar esta corrección y luego a otro agente para reglas; no se cierra ni se despliega.
+Carlos aprobó Historial corregido: «Esta OK ahora» y «Sí, aprobado»; todas las capturas finales aprobadas.
+T27 queda a verificar por Claude para reglas; no se cierra ni se despliega.
 
 ## T30 — Centavos y formato compartido, 12/10/2026
 

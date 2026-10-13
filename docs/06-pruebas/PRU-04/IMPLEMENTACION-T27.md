@@ -19,7 +19,8 @@ de Cashflow/Movimientos/Historial y las respuestas de Carlos.
 
 Revisión de capturas finales: Carlos señaló «Historial es celular, los valores
 quedan desalineados. Ver 1250000.50 esta desalineado respecto al resto OK».
-Queda aprobado el resto; la corrección de Historial se entrega para su revisión.
+Carlos aprobó después Historial corregido: «Esta OK ahora» y «Sí, aprobado».
+Quedan aprobadas todas las capturas finales; falta la verificación independiente de las reglas.
 
 ## Resultado y recorridos
 
@@ -170,10 +171,10 @@ registro del recorrido completo.
   descartable y marca su preparación para el corredor siguiente.
 - La diferencia previa de permisos de edición de cajas por propietario permanece
   documentada en la propuesta. T27 no altera esos permisos.
-- No hubo verificación independiente de otro agente. Carlos aprobó las capturas
-  finales salvo la alineación de Historial en celular; su corrección sigue a revisión.
+- No hubo verificación independiente de otro agente. Todas las capturas finales,
+  incluida la alineación corregida de Historial, están aprobadas por Carlos.
 
 ## Entrega
 
-Corrección de Historial a Carlos; después, verificación de reglas por otro agente.
+Aspecto aprobado por Carlos. Sigue Claude para verificar las reglas en código y pruebas.
 T27 debe quedar **a_verificar**, sin autocierre ni despliegue.

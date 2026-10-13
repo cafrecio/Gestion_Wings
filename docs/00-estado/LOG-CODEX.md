@@ -1,5 +1,13 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-12 — Codex CAB — T27, aprobación visual final de Carlos
+
+Carlos aprobó Historial corregido: «Esta OK ahora» y «Sí, aprobado»; el resto ya estaba aprobado.
+Registrado en informe, visor, estado y resumen; tablero a_verificar, tiene Claude para las reglas.
+No se cierra T27: falta revisión independiente de validaciones, permisos, historial y contraasientos.
+Solo documentación; enlaces y diff comprobados, sin suite ni cambios de aplicación.
+[Informe y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Sin sitio de prueba/reloj/despliegue.
+
 ## 2026-10-12 — Codex CAB — T27, alineación de Historial solicitada por Carlos
 
 Carlos aprobó el resto de las vistas; señaló $1,250,000.50 desalineado en Historial celular.
@@ -110,17 +118,7 @@ Chrome real con clics automatizados; integrado falló. Sin código/base de Wings
 T14 sigue en_curso: solo paso actualizado; Claude verifica. Día 3 lunes 12 feriado, tres clases previstas para cancelar.
 Archivo anterior íntegro preservado; publicar únicamente archivos propios. Se salió de la cuenta y cerró el navegador propio.
 
-## 2026-10-10 — Codex CyE — T16 tercera vuelta aprobada
-
-Objetivo: verificar b8ede87 sobre copia fija aa33399; solo wings_testing_codex.
-12 controles originales/225 aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados.
-APORTE/RETIRO, alta/edicion, ambos ordenes: espera InnoDB comprobada; uno guarda y otro rechaza.
-16 pedidos HTTP terminan en 0,263–0,943 s; ocho posteriores pasan; sin pares invalidos ni transacciones abiertas.
-Suite completa 611 aprobadas/2 omitidas, 5087 aserciones, 637,19 s; preparacion del verificador corregida.
-Carlos: «No, verificar los guardados desde Wings»; consola excluida. Sueldos NEGOCIO reservado; API deshabilitada.
-Sin arreglos de Wings, visita al sitio ni deploy; MCP caido, fuentes reales leidas. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-Tablero cerrado, hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos; no queda paso de T16.
-Archivo anterior integro preservado; publicacion solo de archivos propios.
-
 [Archivo íntegro antes de etapa 2 T27](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-ETAPA2.txt).
 [Archivo íntegro antes de corregir Historial](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-HISTORIAL.txt).
+
+[Archivo íntegro antes de la aprobación final](../99-archivo/bitacoras/2026-10-12/LOG-CODEX-ANTES-T27-APROBACION.txt).
