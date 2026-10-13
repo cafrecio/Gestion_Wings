@@ -123,3 +123,19 @@ comando retirado. Detalle en `PRU-04/VERIFICACION-T2.md`. T7 y T11 las verifica 
 **T2 cerrada en segunda vuelta** (`0847b37`): documentos corregidos y `wings:exportar-padron` retirado.
 Suite en mi base: 722. B13 y B7 cerradas por decision de Carlos; B5, B6, B8 y B9 pasaron a MF7, MF6,
 MF8 y MF9. El tablero tiene campo `prioridad` y el HTML se rehizo visual (Carlos: falta pulirlo, va en CAB01).
+
+## 13/10/2026 — Corte para seguir en CAB
+
+**Repaso de las tareas sin empezar, con Carlos, DE A UNA** (nunca en tandas: «De a 10 no»). Un
+mensaje = una tarea: que es en palabras de usuario, que comprobe hoy en el codigo, mi
+recomendacion y la pregunta «ahora, mejora futura o se cierra». Lo que decide se carga en el
+tablero en el momento. Lo que pasa a mejora futura se renombra a MF; su prioridad va en el campo
+`prioridad` (alta = Prioritaria, baja = Muy a futuro).
+**Decidido hasta aca:** B3 la hace Codex, las cuatro excepciones, cuando termine lo que tiene
+(el prompt se le pasa en ese momento, no antes) · B5 → MF7 · B6 → MF6 prioritaria · B7 cerrada,
+fuera del alcance · B8 → MF8 muy a futuro · B9 → MF9 muy a futuro · B11 punitorios URGENTE, va
+en esta entrega, sin quien la programe todavia.
+**Sigue por:** T10 (privacidad). Ya se la presente y recomende hacerla en esta entrega; falta
+su respuesta. Despues T12, T13, T22, T25 y T34 en adelante, en el orden del tablero.
+**Otros:** T7 aprobada por Codex, falta el OK visual de Carlos. T11 devuelta por Codex a Gemini.
+El tablero visual hay que pulirlo cuando se haga CAB01.
