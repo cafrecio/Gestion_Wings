@@ -58,11 +58,13 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T31** El que debe la inscripcion tambien es moroso o deudor: Cobranza y el buscador de Cobrar tienen que contar a los mismos | Devuelto (hizo Gemini, verifica Claude) | Tabla: DU-08 · CBZ-005, ALU-001, ALU-006, PCA-007. DEVUELTO por Claude el 13/10 (PRU-04/VERIFICACION-T31.md). La regla esta bien: 7 de mis 9 controles y sus 74 pruebas pasan, con los ejemplos de Carlos. Vuelve por: (1) el Inicio de la operativa cuenta Alumnos con deuda con una consulta propia (OperativoDashboardController:106): no ve al que debe solo la inscripcion y cuenta meses que no empezaron; en el sitio de prueba 35 contra 38; (2) el informe dice que cuatro lugares usan el estado y no es cierto; (3) no esta publicada |
 
-## Sin empezar (61)
+## Sin empezar (60)
 
-B13, MF1, MF2, MF3, MF4, T2, T6, T7, T9, T10, T12, T22, T25, T31, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B5, B6, B7, B8, B9, B11.
+B13, MF1, MF2, MF3, MF4, T2, T6, T7, T9, T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B5, B6, B7, B8, B9, B11.
 
 <!-- TABLERO:FIN -->
 
