@@ -95,16 +95,21 @@ Van al manual o la ayuda (T12), sin tocar el sistema:
 
 Mejora futura: DU-47 (que cada usuario cambie su clave y recuperarla por mail).
 
-## 5. Para volver a hablar con Carlos
+## 5. Preguntas rehechas, esperan respuesta en la tabla
 
-- **DU-11** — la deuda de un alumno dado de baja «debería entrar en una categoría distinta». Carlos pidió pensarlo juntos.
-- **DU-49** — no se entendió la pregunta sobre «alumnos que dejaron de venir». Hay que rehacerla.
-- **DU-51** — caminos de corrección: Carlos pidió preguntas puntuales. Ya quedaron resueltos por otras respuestas la caja validada (DU-27), la liquidación pagada de más (DU-38), el alumno o la clase creados por error (DU-48) y el DNI mal cargado (DU-10). Quedan dos sin camino: una condonación hecha por error, y el medio del cajón mal elegido (en DU-16 eligió solo impedir desactivarlo).
+Carlos no pudo contestar tres; se volvieron a redactar el 13/10 con opciones concretas:
 
-## 6. Dos respuestas que se contradicen
+- **DU-11** — un alumno se da de baja debiendo plata: dónde tiene que quedar esa deuda.
+- **DU-49** — si quiere una lista de alumnos que están faltando, para llamarlos.
+- **DU-51** quedó respondida por otras (DU-27, DU-38, DU-48, DU-10). Las dos que faltaban
+  son preguntas nuevas: **DU-58** (deshacer una cuota perdonada por error) y **DU-59**
+  (cambiar el medio del cajón si se eligió mal).
 
-- **DU-19** dice que un mes cobrado por adelantado es ingreso **y comisión** del mes que paga.
-- **DU-36** confirma «como hoy» que la comisión del mes se calcula sobre todo lo cobrado ese mes, **incluidos los adelantados**, con aviso al dueño para que valide.
+## 6. La contradicción entre DU-19 y DU-36, resuelta por Carlos el 13/10
 
-Las dos no pueden valer a la vez para los adelantados. Hay que elegir una antes de programar
-cualquiera de las dos.
+«No son el mismo caso, por eso las respuestas son distintas.»
+
+- **Adelantado (DU-19):** noviembre cobrado en octubre es ingreso y comisión de noviembre.
+  Se le paga a la profesora en la liquidación de noviembre.
+- **Cuotas atrasadas (DU-36):** se cobran en el mes y entran en la liquidación de ese mes,
+  pero se le avisa al dueño, que valida o no; el recibo sale según lo que decida.
