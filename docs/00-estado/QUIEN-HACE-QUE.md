@@ -54,13 +54,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica el codigo y lo desplegado en el sitio de prueba. Queda aparte la prueba de Carlos en su telefono |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Devuelto (hizo Gemini, verifica Codex) | Chrome muestra dos avisos por screenshots wide/narrow ausentes: resolver o pedir excepcion explicita a Carlos. Corregir informe: Apache, limite de cache sin SW y despliegue ya realizado. Volver a Codex; telefono pendiente de Carlos |
 
 ## Sin empezar (46)
 
