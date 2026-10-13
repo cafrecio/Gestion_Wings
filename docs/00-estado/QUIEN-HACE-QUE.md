@@ -49,8 +49,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en f403d36 desde el 13/10 (T32, limite de ingresos, excepcion de Cloudflare y T33), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
-| **T31** El que debe la inscripcion tambien es moroso o deudor: Cobranza y el buscador de Cobrar tienen que contar a los mismos | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar Inicio de operativa y números en base |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
 
 ## Codex
 

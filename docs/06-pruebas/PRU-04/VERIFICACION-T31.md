@@ -63,3 +63,51 @@ contra lo que hay hoy en `main`.
   qué relación tiene con T31. Que lo explique o lo saque.
 - La suite completa: Gemini informa 735 aprobadas y 1 fallo en una prueba de T33 que dice
   que pasa sola. No la repetí.
+
+---
+
+# Segunda vuelta · 13/10/2026 · APROBADO
+
+Verificado sobre `d8bf91f`, publicado y desplegado en el sitio de prueba.
+
+## Lo devuelto, punto por punto
+
+| Qué se había devuelto | Cómo quedó |
+|---|---|
+| El Inicio de la operativa contaba por su cuenta | Ahora sale de `CobranzaEstadoService::listadoCobranza()` (`OperativoDashboardController.php`). Mis dos controles que fallaban pasan: 9 de 9 |
+| El informe afirmaba lugares que no usan el estado | Corregido: cada lugar con archivo y línea; los tres que no muestran estado ni deuda figuran como «no cambia» |
+| No estaba publicada | Publicada en `d8bf91f`, solo con sus archivos |
+| El cambio en `CashflowCorreccionesT27Test` sin explicar | Lo sacó y explicó que era de T27. Era el arreglo de una prueba atada a la fecha; lo publiqué yo aparte (`test(t27)`) |
+
+Pruebas de Gemini y del área en `wings_testing_claude`: 83 aprobadas.
+
+## En el sitio de prueba, con datos reales
+
+| Pantalla | Número |
+|---|---|
+| Buscador de Cobrar | 38 |
+| Cobranza, lista por defecto | 38 |
+| Inicio de la operativa, «Con deuda» | 38 |
+| Cobranza por estado | 62 al día · 0 en plazo · 15 morosos · 23 deudores |
+
+Sofía Gómez, Carla Morales y Martina Castro, que debían solo la inscripción y figuraban al
+día, ahora son deudoras. El total adeudado no cambió: $2.010.000.
+
+**Mi número esperado estaba mal.** Anoté 22 morosos y 16 deudores. Son 15 y 23: hay 7
+alumnos que deben octubre (morosos) y además la inscripción de un mes ya cerrado, y por la
+regla del peor estado pasan a deudores. Es lo correcto; no lo había contado.
+
+## Una diferencia que queda, y no es de T31
+
+Quien debe pero todavía está **en plazo** figura en el buscador de Cobrar y no en la lista
+por defecto de Cobranza ni en el «Con deuda» del Inicio de la operativa, que cuentan solo
+morosos y deudores. Control: día 3 del mes, un alumno en plazo y uno vencido → buscador 2,
+Cobranza 1, Inicio 1. Hoy no se nota porque pasó el día 10 y no hay nadie en plazo. Del 1
+al 10 de cada mes el buscador va a mostrar a casi todos y Cobranza a los vencidos.
+Ya era así antes de T31; el recuadro del Inicio lleva a Cobranza y coincide con lo que se
+ve al llegar. Queda preguntado a Carlos en la tabla (DU-60).
+
+## Sin verificar
+
+- La pantalla de Cobranza y el Inicio de la operativa abiertos en el navegador después del
+  despliegue: leí los números por consola, con las mismas funciones que usan las pantallas.

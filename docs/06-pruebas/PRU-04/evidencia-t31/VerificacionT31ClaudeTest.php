@@ -209,4 +209,29 @@ class VerificacionT31ClaudeTest extends TestCase
         $this->assertSame(0, $this->actingAs($operativo)->get(route('web.operativo.dashboard'))->assertOk()->viewData('alumnosConDeuda'),
             'El Inicio de la operativa cuenta como deuda un mes que todavía no empezó.');
     }
+
+    /**
+     * Segunda vuelta: qué cuenta cada pantalla cuando alguien debe pero todavía está en plazo.
+     * No afirma cuál es la correcta; deja escrito el número de cada una para que lo decida Carlos.
+     */
+    public function test_segunda_vuelta_quien_esta_en_plazo_figura_en_el_buscador_y_no_en_cobranza(): void
+    {
+        Carbon::setTestNow('2026-11-03 10:00:00'); // día 3: todos dentro de los días de gracia
+        $enPlazo = $this->alumno('40000030', '2026-01-10');
+        $this->cuota($enPlazo, '2026-11');
+        $vencido = $this->alumno('40000031', '2026-01-10');
+        $this->cuota($vencido, '2026-10');
+
+        $servicio = app(CobranzaEstadoService::class);
+        $this->assertSame('EN_PLAZO', $servicio->estadoAlumno($enPlazo->id)['estado']);
+        $enBuscador = count(array_filter($servicio->saldoDeAlumnos(Alumno::where('activo', true)->get(['id', 'dni'])), fn ($s) => $s['total'] > 0));
+        $enCobranza = $servicio->listadoCobranza()->count();
+
+        $operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+        \Illuminate\Support\Facades\DB::table('caja_mostrador')->updateOrInsert(['id' => 1], ['tipo_caja_id' => TipoCaja::firstOrFail()->id]);
+        $enInicio = $this->actingAs($operativo)->get(route('web.operativo.dashboard'))->assertOk()->viewData('alumnosConDeuda');
+
+        $this->assertSame(['buscador' => 2, 'cobranza' => 1, 'inicio de la operativa' => 1],
+            ['buscador' => $enBuscador, 'cobranza' => $enCobranza, 'inicio de la operativa' => $enInicio]);
+    }
 }
