@@ -50,18 +50,23 @@ try {
             if(!imagenesCargadas) throw new Error('Falta cargar una imagen de Wings');
             const medidas=await frame.evaluate(()=>({ancho:innerWidth,pagina:document.documentElement.scrollWidth}));
             if(medidas.ancho !== (modo==='escritorio'?1366:360) || medidas.pagina > medidas.ancho) throw new Error('Ancho incorrecto o desborde');
+            let medidasBoton;
             if(caso !== 'login') {
                 const zona = frame.locator(caso==='cuota-condonada'?'#cuotas-condonadas':'.alumno-card').first();
                 await zona.screenshot({path:path.join(evidencia,'capturas',`${caso}-${modo}.png`)});
                 const selector = caso==='inscripcion-pendiente'?'[data-abrir-condonar]':'[data-abrir-reactivar]';
                 const boton=zona.locator(selector).first();
-                const medidasBoton=await boton.evaluate(el=>({ancho:el.getBoundingClientRect().width,alto:el.getBoundingClientRect().height,
-                    alineado:Math.abs(el.getBoundingClientRect().right-el.parentElement.getBoundingClientRect().right)<1}));
+                medidasBoton=await boton.evaluate(el=>({ancho:el.getBoundingClientRect().width,alto:el.getBoundingClientRect().height,
+                    alineado:Math.abs(el.getBoundingClientRect().right-el.parentElement.getBoundingClientRect().right)<1,
+                    separacionLinea:el.getBoundingClientRect().top-el.parentElement.getBoundingClientRect().top
+                        -parseFloat(getComputedStyle(el.parentElement).borderTopWidth)}));
                 if(caso==='inscripcion-pendiente') referenciaFila[modo]=await frame.locator('a.ds-btn-row').first().evaluate(el=>({
                     ancho:el.getBoundingClientRect().width,alto:el.getBoundingClientRect().height}));
                 const referencia=referenciaFila[modo];
                 if(Math.abs(medidasBoton.ancho-referencia.ancho)>1 || Math.abs(medidasBoton.alto-referencia.alto)>1
-                    || (modo==='marco-360' && !medidasBoton.alineado)) throw new Error('Botón distinto del Cobrar de fila existente o no alineado a la derecha: '+JSON.stringify(medidasBoton));
+                    || !medidasBoton.alineado) throw new Error('Botón distinto del Cobrar de fila existente o no alineado a la derecha: '+JSON.stringify(medidasBoton));
+                if(caso.startsWith('inscripcion-') && Math.abs(medidasBoton.separacionLinea-12)>0.5)
+                    throw new Error('La separación entre línea y botón no es 12 px: '+JSON.stringify(medidasBoton));
                 const action=await boton.getAttribute(caso==='inscripcion-pendiente'?'data-abrir-condonar':'data-abrir-reactivar');
                 await boton.click();
                 const modal=frame.locator('#modal-condonar');
@@ -90,7 +95,7 @@ try {
                 await contenido.screenshot({path:path.join(evidencia,'capturas',`login-${modo}.png`)});
             }
             if(errores.length) throw new Error(errores.join('; '));
-            resultados.push({caso,modo,...medidas,imagenesCargadas,errores,modal:caso!=='login'});
+            resultados.push({caso,modo,...medidas,imagenesCargadas,errores,modal:caso!=='login',medidasBoton});
         } catch(e) {fallos.push({caso,modo,error:e.message});}
         finally {await page.close();}
     }

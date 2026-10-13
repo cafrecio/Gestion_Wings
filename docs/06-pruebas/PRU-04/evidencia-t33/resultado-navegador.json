@@ -7,7 +7,13 @@
       "pagina": 1366,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 12
+      }
     },
     {
       "caso": "inscripcion-condonada",
@@ -16,7 +22,13 @@
       "pagina": 1366,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 12
+      }
     },
     {
       "caso": "cuota-condonada",
@@ -25,7 +37,13 @@
       "pagina": 1366,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 0
+      }
     },
     {
       "caso": "login",
@@ -43,7 +61,13 @@
       "pagina": 360,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 12
+      }
     },
     {
       "caso": "inscripcion-condonada",
@@ -52,7 +76,13 @@
       "pagina": 360,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 12
+      }
     },
     {
       "caso": "cuota-condonada",
@@ -61,7 +91,13 @@
       "pagina": 360,
       "imagenesCargadas": true,
       "errores": [],
-      "modal": true
+      "modal": true,
+      "medidasBoton": {
+        "ancho": 72,
+        "alto": 28,
+        "alineado": true,
+        "separacionLinea": 0
+      }
     },
     {
       "caso": "login",

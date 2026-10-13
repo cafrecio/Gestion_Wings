@@ -172,3 +172,5 @@ tests/Feature/PerdonReactivacionT33Test.php
 tests/Support/perdon-t33-worker.php
 tests/Unit/MoneyLockingTest.php
 vite.config.js
+docs/06-pruebas/PRU-04/evidencia-t33/suite-revision-botones.txt
+docs/06-pruebas/PRU-04/evidencia-t33/cashflow-recontrol-revision-botones.txt

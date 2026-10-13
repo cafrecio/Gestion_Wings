@@ -61,6 +61,29 @@ antes/perdón/reactivación. Buscador sin búsqueda: 1 → 0 → 1 alumnos con d
 
 ## Pruebas y evidencia
 
+### Corrección visual pedida por Carlos — 13/10/2026
+
+Carlos devolvió la pantalla: «Separa el boton de la linea, queda feo» y preguntó
+por qué Reactivar estaba a la izquierda en inscripción y a la derecha en cuota.
+La inscripción usaba `alumno-actions`, que alinea a la izquierda en escritorio;
+`acciones-celular-derecha` cambiaba solo el celular. La cuota ya alineaba a la derecha.
+Se ajustó únicamente el contenedor de acciones de inscripción: derecha en ambos
+anchos y 12 px debajo de la línea. Se conservaron tamaño, colores y funcionamiento.
+El control del navegador ahora exige ambas condiciones y registra las medidas reales:
+ocho visitas sin fallos, cuatro botones de inscripción con separación de 12 px y los
+seis botones de inscripción/cuota a la derecha. Capturas regeneradas desde Laravel.
+La prueba que produce el HTML pasó: 1 aprobada, 7 aserciones, 10.34 s.
+Sintaxis PHP/JavaScript correcta; vistas compiladas y limpiadas. La revisión visual
+de Carlos y la verificación de lógica por Claude siguen pendientes.
+
+Suite completa de esta revisión, en `wings_testing_codex`: 734 aprobadas, 2 omitidas,
+2 fallidas, 6981 aserciones, 1186.19 s. Las 31 de T33 pasaron. Los dos fallos están
+en `CashflowCorreccionesT27Test`, líneas 210 y 259: `disponible` devuelve 0 frente a
+47925.25 y 48124.25 esperados. Repetidos por separado, siguen fallando; no se atribuye
+una causa ni se cambia lógica de Cashflow en esta corrección visual.
+[Suite de la revisión](evidencia-t33/suite-revision-botones.txt) ·
+[Repetición de los dos fallos](evidencia-t33/cashflow-recontrol-revision-botones.txt).
+
 31 pruebas nuevas: 21 en `PerdonReactivacionT33Test` y 10 en `PerdonConcurrenteT33Test`.
 Propias iniciales: 21 aprobadas / 194 aserciones; ocho cruces 8 / 102.
 Los dos procesos reales se incluyen también en la suite final.
@@ -74,7 +97,8 @@ y comprueba el saldo real al terminar el mismo pedido. Control posterior: 4 apro
 22 aserciones, 32.13 s. No se cambió código de negocio por estos fallos.
 [Primera corrida completa, conservada](evidencia-t33/suite-primer-intento.txt).
 
-Suite completa final, únicamente `DB_DATABASE=wings_testing_codex`:
+Suite completa de la primera entrega, antes de esta corrección visual,
+únicamente `DB_DATABASE=wings_testing_codex`:
 
 ```text
 Tests:    2 skipped, 736 passed (7001 assertions)
@@ -122,6 +146,6 @@ node docs/06-pruebas/PRU-04/evidencia-t33/tomar-capturas.mjs
 ```
 
 Tablero de entrega: T33 `a_verificar`, hizo Codex, verifica Claude, tiene Claude.
-Claude verifica código y pantalla antes de cerrar/desplegar; Carlos puede abrir las capturas.
+Carlos revisa las capturas; Claude verifica la lógica antes de cerrar/desplegar.
 Los archivos propios preparados para publicación se nombran uno por uno en
 [este inventario](evidencia-t33/archivos-publicados.txt).

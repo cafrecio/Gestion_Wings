@@ -23,7 +23,7 @@
         <p>La inscripción se cobra una sola vez, aunque el alumno practique varios deportes. Podés consultar el estado de ese cargo en su ficha de {{ $registroDeLaInscripcion?->deporte?->nombre ?? 'otro deporte' }}.</p>
     @endif
     @if($inscripcionEsDeEsteRegistro && Auth::user()->isAdmin() && $inscripcion->estado === 'VIGENTE')
-    <div class="alumno-actions acciones-celular-derecha mt-2 pt-2" style="border-top: 1px solid var(--color-border);">
+    <div class="alumno-actions mt-2" style="border-top: 1px solid var(--color-border); padding-top: 0.75rem; justify-content: flex-end;">
         @if((float) $inscripcion->monto_condonado > 0)
         <button type="button" class="ds-btn-row ds-btn-row--sec"
                 data-abrir-reactivar="{{ route('web.inscripciones.reactivar', $inscripcion->id) }}">Reactivar</button>

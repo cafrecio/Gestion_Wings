@@ -10,7 +10,11 @@ Capturas reales 1366/marco360 y login: ocho visitas sin fallos; sin CSS comparti
 Contrato, contadores y evidencia actualizados; 720 pruebas versionadas al publicar solo T33.
 Las tres rutas propias entraron en 602efcc de Claude; comprobadas en HEAD, sin repetir el archivo.
 [Informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). Tablero a_verificar, hizo Codex, verifica/tiene Claude.
-Sin sitio de prueba, reloj ni despliegue. Claude verifica código y pantalla; no se autocierra.
+Sin sitio de prueba, reloj ni despliegue. Carlos revisa capturas; Claude verifica lógica; no se autocierra.
+Corrección pedida por Carlos: inscripción ahora a derecha en ambos anchos, 12 px bajo la línea.
+Capturas reales renovadas: ocho visitas sin fallos; seis botones a derecha, cuatro separaciones de 12 px.
+Suite de revisión: 734 aprobadas/2 omitidas/2 fallidas, 6981 aserciones, 1186.19 s; T33 31 verdes.
+Dos fallos de disponible en CashflowCorreccionesT27Test confirmados por separado; causa sin atribuir.
 
 ## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
 

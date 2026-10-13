@@ -1,0 +1,42 @@
+
+   FAIL  Tests\Feature\CashflowCorreccionesT27Test
+  ⨯ cashflow inicio reportes historial y saldo coinciden tras editar y eliminar                                  7.18s
+  ⨯ cambiar medio y subrubro actualiza ambos saldos y clasificacion con historial                                0.32s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\CashflowCorreccionesT27Test > cashflow inicio reportes historial y saldo coinciden tras edi…
+  Failed asserting that 0 matches expected 47925.25.
+
+  at tests\Feature\CashflowCorreccionesT27Test.php:210
+    206▕         $this->get('/caja/historial?desde=2026-10-01&hasta=2026-10-12')->assertOk()->assertViewHas('totalEgresos', $egresos / 100);
+    207▕         $reporte = app(ReporteMensualService::class)->obtener('2026-10');
+    208▕         $this->assertSame($egresos, $reporte['egresos']);
+    209▕         $this->get('/admin/dashboard')->assertOk()->assertViewHas('reporte', fn ($r) => $r['egresos'] === $egresos && $r['resultado'] === -$egresos);
+  ➜ 210▕         $this->assertEquals(48000.50 - $egresos / 100, $reporte['disponible'] / 100);
+    211▕         $this->assertEquals(-$egresos / 100, CashflowMovimiento::sum('monto'));
+    212▕     }
+    213▕
+    214▕     public function test_reporte_original_se_actualiza_y_contraasiento_respeta_clasificacion_congelada(): void
+
+  1   tests\Feature\CashflowCorreccionesT27Test.php:210
+  2   tests\Feature\CashflowCorreccionesT27Test.php:191
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\CashflowCorreccionesT27Test > cambiar medio y subrubro actualiza ambos saldos y clasificaci…
+  Failed asserting that 0 matches expected 48124.25.
+
+  at tests\Feature\CashflowCorreccionesT27Test.php:259
+    255▕         $this->assertSame($nuevoMedio->id, json_decode($historia->despues, true)['tipo_caja_id']);
+    256▕         $reporte = app(ReporteMensualService::class)->obtener('2026-10');
+    257▕         $this->assertSame(12375, $reporte['aportes']);
+    258▕         $this->assertSame(0, $reporte['resultado']);
+  ➜ 259▕         $this->assertEquals(48124.25, $reporte['disponible'] / 100);
+    260▕         $this->get('/cashflow')->assertViewHas('totalIngresos', 123.75)->assertViewHas('totalEgresos', 0);
+    261▕         $this->get('/caja/historial')->assertViewHas('totalIngresos', 123.75)->assertViewHas('totalEgresos', 0);
+    262▕         // Cambio de tipo permitido para un rubro NEGOCIO: el editor y el reporte
+    263▕         // deben coincidir con el tipo que se está eligiendo, no conservar el viejo.
+
+  1   tests\Feature\CashflowCorreccionesT27Test.php:259
+
+
+  Tests:    2 failed (19 assertions)
+  Duration: 7.80s
