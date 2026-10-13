@@ -11,7 +11,8 @@
  *   php scripts/tablero/tablero.php traer      (transicion: trae cierres anotados en DEFECTOS.md)
  *
  * Estados: sin_empezar, en_curso, a_verificar, devuelto, cerrado.
- * Campos: titulo, gravedad, estado, tiene, hizo, verifica, paso, ref.
+ * Campos: titulo, gravedad, prioridad, estado, tiene, hizo, verifica, paso, ref.
+ * prioridad la decide Carlos: alta (Prioritaria), baja (Muy a futuro) o vacia.
  * "tiene" es quien tiene la pelota ahora: Carlos, Claude, Codex, Gemini o nadie.
  *
  * cambiar y nueva validan antes de escribir y regeneran TABLERO.html y QUIEN-HACE-QUE.md.
@@ -32,7 +33,7 @@ function pares(array $args): array
         }
         [$campo, $valor] = explode('=', $arg, 2);
         if (! in_array($campo, TABLERO_CAMPOS, true) || in_array($campo, ['id', 'fecha'], true)) {
-            salir("El campo '{$campo}' no se puede cambiar. Son: titulo, gravedad, estado, tiene, hizo, verifica, paso, ref.");
+            salir("El campo '{$campo}' no se puede cambiar. Son: titulo, gravedad, prioridad, estado, tiene, hizo, verifica, paso, ref.");
         }
         $pares[$campo] = $valor;
     }

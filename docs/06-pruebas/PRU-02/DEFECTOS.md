@@ -879,7 +879,7 @@ Después de la prueba, salvo que Carlos adelante algo.
 | 6.2 | Clases particulares | MF6 |
 | 6.3 | Motivos y avisos de las excepciones del contrato | B3 |
 | 6.4 | Reportes: las cuatro preguntas del cierre del día | B12 |
-| 6.5 | Adelanto del profesor atado a su liquidación, y dónde pagarle | B9, B10 |
+| 6.5 | Adelanto del profesor atado a su liquidación, y dónde pagarle | MF9, B10 |
 | 6.6 | Familia y hermanos | MF8 |
 | 6.7 | Stock y compra de mercadería | B7 |
 | 6.8 | Punitorios por mora | B11 |

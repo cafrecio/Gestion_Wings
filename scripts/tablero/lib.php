@@ -34,7 +34,9 @@ const TABLERO_ESTADOS = [
 
 const TABLERO_AGENTES = ['Claude', 'Codex', 'Gemini'];
 const TABLERO_GRAVEDADES = ['Frena', 'Molesta', 'Falta', ''];
-const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha'];
+// Prioridad que le da Carlos a una tarea que todavia no se empieza. Vacia = sin marcar.
+const TABLERO_PRIORIDADES = ['alta' => 'Prioritaria', '' => '', 'baja' => 'Muy a futuro'];
+const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'prioridad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha'];
 
 function tablero_ruta(string $relativa): string
 {
@@ -105,6 +107,9 @@ function tablero_validar(array $tareas): array
         }
         if (! in_array($t['gravedad'], TABLERO_GRAVEDADES, true)) {
             $errores[] = "{$id}: gravedad '{$t['gravedad']}' no existe. Son: Frena, Molesta, Falta o vacia.";
+        }
+        if (! isset(TABLERO_PRIORIDADES[$t['prioridad']])) {
+            $errores[] = "{$id}: prioridad '{$t['prioridad']}' no existe. Son: alta, baja o vacia.";
         }
         if (! in_array($t['tiene'], $duenios, true)) {
             $errores[] = "{$id}: tiene='{$t['tiene']}' no existe. Son: " . implode(', ', $duenios) . '.';
@@ -211,8 +216,9 @@ function tablero_grupos(array $tareas): array
     // Las mejoras futuras (MF) no son trabajo de ahora: van aparte y no cuentan como
     // «sin empezar». Carlos, 13/10/2026: «ensucian la situación del proyecto».
     $mejoras = array_values(array_filter($abiertas, 'tablero_es_mejora_futura'));
-    // La que Carlos marco como prioritaria va primera (su paso empieza con PRIORITARIA).
-    usort($mejoras, fn ($a, $b) => str_starts_with($b['paso'], 'PRIORITARIA') <=> str_starts_with($a['paso'], 'PRIORITARIA'));
+    // En el orden que les dio Carlos: prioritarias, sin marcar, muy a futuro.
+    $orden = ['alta' => 0, '' => 1, 'baja' => 2];
+    usort($mejoras, fn ($a, $b) => $orden[$a['prioridad']] <=> $orden[$b['prioridad']] ?: strnatcmp($a['id'], $b['id']));
     // Lo que es de otro proyecto (CAB) se anota para no perderlo, pero no es pendiente de Wings.
     $otros = array_values(array_filter($abiertas, 'tablero_es_de_otro_proyecto'));
     $abiertas = array_filter($abiertas, fn ($t) => ! tablero_es_mejora_futura($t) && ! tablero_es_de_otro_proyecto($t));
@@ -257,6 +263,9 @@ function tablero_html(array $tareas): string
 
     $fila = function (array $t): string {
         $grav = $t['gravedad'] !== '' ? '<span class="g g-' . strtolower($t['gravedad']) . '">' . $t['gravedad'] . '</span>' : '';
+        if ($t['prioridad'] !== '' && $t['estado'] !== 'cerrado') {
+            $grav .= '<span class="p p-' . $t['prioridad'] . '">' . TABLERO_PRIORIDADES[$t['prioridad']] . '</span>';
+        }
         $estado = '<span class="e e-' . $t['estado'] . '">' . tablero_e(TABLERO_ESTADOS[$t['estado']]) . '</span>';
         $quien = [];
         if ($t['hizo'] !== '') {
@@ -333,6 +342,7 @@ function tablero_html(array $tareas): string
   .id { min-width:2.6em; }
   .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:4px 0 0 calc(2.6em + 8px); font-size:.8rem; }
   .g, .e { border:1px solid currentColor; border-radius:999px; padding:0 8px; white-space:nowrap; }
+  .p { font-weight:700; padding:1px 8px; border-radius:999px; margin-right:6px; } .p-alta { background:#be123c; color:#fff; } .p-baja { background:#e5e7eb; color:#4b5563; }
   .g-frena { color:var(--frena); font-weight:700; } .g-molesta { color:var(--molesta); } .g-falta { color:var(--falta); }
   .e { color:var(--suave); } .e-cerrado { color:var(--ok); } .e-devuelto { color:var(--frena); }
   .q { color:var(--suave); }
@@ -388,7 +398,7 @@ function tablero_bloque_hoja(array $tareas): string
         $md .= "## {$agente}\n\n" . $tabla($g[$agente], 'Nada en este momento.') . "\n";
     }
     $sinEmpezar = array_map(fn ($t) => $t['id'], $g['sin_empezar']);
-    $mejoras = array_map(fn ($t) => $t['id'], $g['mejoras_futuras']);
+    $mejoras = array_map(fn ($t) => $t['id'] . ($t['prioridad'] !== '' ? ' (' . mb_strtolower(TABLERO_PRIORIDADES[$t['prioridad']]) . ')' : ''), $g['mejoras_futuras']);
     $md .= '## Sin empezar (' . count($sinEmpezar) . ")\n\n" . ($sinEmpezar ? implode(', ', $sinEmpezar) : 'Nada') . ".\n\n"
         . '## Mejoras futuras, no se empiezan ahora (' . count($mejoras) . ")\n\n" . ($mejoras ? implode(', ', $mejoras) : 'Nada') . ".\n\n"
         . '## De otros proyectos, no es pendiente de Wings (' . count($g['otros_proyectos']) . ")\n\n"
