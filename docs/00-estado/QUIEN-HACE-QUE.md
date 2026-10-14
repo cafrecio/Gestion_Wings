@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 13/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 14/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -53,13 +53,13 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Segunda vuelta: avisos de screenshots resueltos e informe corregido. Verifica Codex; telefono pendiente de Carlos |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Devuelto (hizo Gemini, verifica Codex) | Chrome muestra dos avisos por screenshots wide/narrow ausentes: resolver o pedir excepcion explicita a Carlos. Corregir informe: Apache, limite de cache sin SW y despliegue ya realizado. Volver a Codex; telefono pendiente de Carlos |
+Nada en este momento.
 
 ## Sin empezar (46)
 

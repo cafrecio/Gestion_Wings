@@ -51,6 +51,35 @@ class PwaInstalacionTest extends TestCase
         $this->assertContains('512x512', $tamanios, 'Debe incluir ícono de 512x512');
         $this->assertContains('maskable', $purposes, 'Debe incluir ícono maskable para Android');
         $this->assertContains('any', $purposes, 'Debe incluir ícono any');
+
+        // Requisitos de Richer PWA Install UI (evita avisos en DevTools)
+        $this->assertNotEmpty($manifest['description'] ?? null, 'Debe declarar una descripción para Richer PWA Install UI');
+        $this->assertNotEmpty($manifest['screenshots'] ?? [], 'Debe declarar capturas para Richer PWA Install UI');
+
+        $formFactors = [];
+        foreach ($manifest['screenshots'] as $shot) {
+            $rutaFisica = public_path(ltrim($shot['src'], '/'));
+            $this->assertFileExists($rutaFisica, "El archivo de captura {$shot['src']} debe existir en public/");
+            $this->assertNotEmpty($shot['sizes'] ?? null, 'Debe indicar sizes');
+            $this->assertSame('image/png', $shot['type'] ?? null, 'El tipo de captura debe ser image/png');
+            $this->assertNotEmpty($shot['label'] ?? null, 'Debe incluir label descriptivo');
+            $formFactors[] = $shot['form_factor'] ?? 'narrow';
+
+            // Comprobar dimensiones de Chrome (320px a 3840px) y archivo PNG real
+            [$w, $h] = explode('x', $shot['sizes']);
+            $this->assertGreaterThanOrEqual(320, (int) $w);
+            $this->assertLessThanOrEqual(3840, (int) $w);
+            $this->assertGreaterThanOrEqual(320, (int) $h);
+            $this->assertLessThanOrEqual(3840, (int) $h);
+
+            $info = getimagesize($rutaFisica);
+            $this->assertNotFalse($info, "El archivo {$rutaFisica} debe ser una imagen válida");
+            $this->assertSame((int) $w, $info[0], 'El ancho físico de la imagen debe coincidir con sizes');
+            $this->assertSame((int) $h, $info[1], 'El alto físico de la imagen debe coincidir con sizes');
+        }
+
+        $this->assertContains('wide', $formFactors, 'Debe incluir al menos una captura wide para escritorio');
+        $this->assertContains('narrow', $formFactors, 'Debe incluir al menos una captura narrow para móvil');
     }
 
     public function test_login_y_plantillas_enlazan_el_manifest(): void

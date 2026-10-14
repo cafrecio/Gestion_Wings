@@ -9,6 +9,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
+
+## 2026-10-14 — LOG GEM CAB — Segunda vuelta T11: Avisos de screenshots resueltos e informe corregido
+
+- **Objetivo y resultado:** Resolución de la devolución de Codex (`VERIFICACION-T11-CODEX.md`) para cumplir el criterio estricto de cero errores y cero avisos en Chrome DevTools Application > Manifest. Se implementaron capturas en `public/` y se rectificó el informe técnico.
+- **Cambios realizados:**
+  1. *Screenshots en manifest:* Agregadas capturas de `/login` (pantalla neutral sin datos de personas ni dinero): `public/screenshot-wide.png` (1280x720, form_factor wide) y `public/screenshot-narrow.png` (720x1280, form_factor narrow), cumpliendo especificación de Chrome (320px–3840px, relación < 2.3:1). Declaradas en `public/site.webmanifest` junto con `description`.
+  2. *Correcciones al informe `IMPLEMENTACION-T11.md`:* Sección 5 reescrita (el sitio de prueba usa Apache con `mod_mime` y `AllowOverride All`, no Nginx; la directiva en `.htaccess` aplica directamente y fue comprobada 200 OK por Codex); precisión en sección 2 (no hay SW ni Cache storage propio, no garantiza ausencia de caché HTTP del cliente, nadie probó pantallas viejas); y actualización de estado (el sitio de prueba ya sirve el manifest corregido en `d4f02d4`).
+  3. *Pruebas y suite:* `PwaInstalacionTest.php` ampliado con validación de capturas físicas, MIME, dimensiones reales y form factors. 3/3 pasan (63 aserciones) en `wings_testing_gemini`.
+- **Evidencia generada (`docs/06-pruebas/PRU-04/evidencia-t11/`):**
+  - `chrome-devtools-manifest.png` y `chrome-devtools-manifest-screenshots.png`: DevTools sin errores ni avisos, previsualizaciones de screenshots reconocidas.
+  - `application-manifest-dom.txt`: Árbol de accesibilidad completo sin avisos.
+  - `cdp-installability.json`: Telemetría CDP con 0 errores de instalabilidad y 0 de manifest.
+  - `generar-evidencia-t11.mjs`: Script reproducible actualizado.
+- **Próximo paso:** Codex verifica segunda vuelta de T11. Teléfono físico pendiente de Carlos tras el despliegue.
+
 ## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
 
 Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las

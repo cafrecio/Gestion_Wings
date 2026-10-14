@@ -1,208 +1,233 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import net from 'node:net';
 
 const baseDir = path.resolve('docs/06-pruebas/PRU-04/evidencia-t11');
 if (!fs.existsSync(baseDir)) {
     fs.mkdirSync(baseDir, { recursive: true });
 }
 
-console.log('Iniciando generador de evidencia T11...');
+console.log('Iniciando generador de evidencia T11 (Segunda Vuelta)...');
+
+async function getFreePort() {
+    return new Promise((resolve) => {
+        const s = net.createServer();
+        s.listen(0, '127.0.0.1', () => {
+            const port = s.address().port;
+            s.close(() => resolve(port));
+        });
+    });
+}
+
+const phpPort = await getFreePort();
+const chromePort = await getFreePort();
+const viewerPort = await getFreePort();
 
 // 1. Iniciar servidor PHP local apuntando a public/ de Wings
-const php = 'php';
-const phpServer = spawn(php, ['-S', '127.0.0.1:8765', '-t', 'public'], { windowsHide: true });
+const phpServer = spawn('php', ['-S', `127.0.0.1:${phpPort}`, '-t', 'public'], { windowsHide: true });
+await new Promise(r => setTimeout(r, 1200));
 
-// Esperar a que el servidor PHP esté listo
-await new Promise(r => setTimeout(r, 1500));
+const chromeExe = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const targetProfile = path.resolve(`storage/app/chrome-t11-target-${Date.now()}`);
+const viewerProfile = path.resolve(`storage/app/chrome-t11-viewer-${Date.now()}`);
 
-const chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const perfilTarget = path.resolve('storage/app/chrome-t11-target');
-const perfilViewer = path.resolve('storage/app/chrome-t11-viewer');
+fs.mkdirSync(targetProfile, { recursive: true });
+fs.mkdirSync(viewerProfile, { recursive: true });
 
-// 2. Lanzar Chrome Target inspeccionando http://127.0.0.1:8765/login
-const pTarget = spawn(chrome, [
+// 2. Lanzar Chrome Target inspeccionando http://127.0.0.1:phpPort/login
+const targetChrome = spawn(chromeExe, [
     '--headless=new',
-    '--remote-debugging-port=9222',
+    '--no-first-run',
+    '--no-default-browser-check',
+    `--remote-debugging-port=${chromePort}`,
     '--remote-allow-origins=*',
-    `--user-data-dir=${perfilTarget}`,
-    'http://127.0.0.1:8765/login'
+    `--user-data-dir=${targetProfile}`,
+    `http://127.0.0.1:${phpPort}/login`
 ], { windowsHide: true });
 
-await new Promise(r => setTimeout(r, 2500));
+await new Promise(r => setTimeout(r, 2000));
 
 try {
-    // 3. Consultar CDP para verificar que no haya errores
-    const res = await fetch('http://127.0.0.1:9222/json');
-    const list = await res.json();
-    const page = list.find(t => t.type === 'page');
+    // 3. Consultar CDP para verificar que no haya errores de instalabilidad ni de manifest
+    const listRes = await fetch(`http://127.0.0.1:${chromePort}/json`);
+    const list = await listRes.json();
+    const targetPage = list.find(t => t.type === 'page');
 
-    if (!page) {
-        throw new Error('No se encontró página en Chrome');
-    }
+    if (!targetPage) throw new Error('No se encontró página destino en Chrome target');
 
-    const ws = new WebSocket(page.webSocketDebuggerUrl);
-    await new Promise((resolve) => ws.onopen = resolve);
+    const wsTarget = new WebSocket(targetPage.webSocketDebuggerUrl);
+    await new Promise(r => wsTarget.onopen = r);
 
-    let id = 1;
-    function send(method, params = {}) {
-        return new Promise((resolve) => {
-            const reqId = id++;
-            const handler = (event) => {
-                const msg = JSON.parse(event.data);
-                if (msg.id === reqId) {
-                    ws.removeEventListener('message', handler);
-                    resolve(msg.result);
+    let tId = 1;
+    function sendTarget(method, params = {}) {
+        return new Promise(resolve => {
+            const reqId = tId++;
+            const handler = (e) => {
+                const m = JSON.parse(e.data);
+                if (m.id === reqId) {
+                    wsTarget.removeEventListener('message', handler);
+                    resolve(m.result);
                 }
             };
-            ws.addEventListener('message', handler);
-            ws.send(JSON.stringify({ id: reqId, method, params }));
+            wsTarget.addEventListener('message', handler);
+            wsTarget.send(JSON.stringify({ id: reqId, method, params }));
         });
     }
 
-    await send('Page.enable');
-    const manifestCdp = await send('Page.getAppManifest');
-    const errorsCdp = await send('Page.getInstallabilityErrors');
+    await sendTarget('Page.enable');
+    const manifestCdp = await sendTarget('Page.getAppManifest');
+    const errorsCdp = await sendTarget('Page.getInstallabilityErrors');
 
-    console.log('Manifest CDP:', manifestCdp.url);
-    console.log('Errores de instalabilidad CDP:', JSON.stringify(errorsCdp.installabilityErrors));
+    console.log('Manifest CDP URL:', manifestCdp.url);
+    console.log('Manifest CDP Errors:', manifestCdp.errors);
+    console.log('Installability CDP Errors:', errorsCdp.installabilityErrors);
 
     fs.writeFileSync(
         path.join(baseDir, 'cdp-installability.json'),
-        JSON.stringify({ manifest: manifestCdp, installabilityErrors: errorsCdp.installabilityErrors }, null, 2)
+        JSON.stringify({
+            manifest: manifestCdp,
+            installabilityErrors: errorsCdp.installabilityErrors
+        }, null, 2)
     );
 
-    ws.close();
+    wsTarget.close();
 
-    // 4. Capturar DevTools Frontend mostrando Application > Manifest
-    const devtoolsUrl = page.devtoolsFrontendUrl + '&panel=resources';
-    const destinoDevtools = path.join(baseDir, 'chrome-devtools-manifest.png');
+    // 4. Abrir DevTools frontend (devtools_app.html para panel limpio)
+    const devtoolsUrl = `http://127.0.0.1:${chromePort}/devtools/devtools_app.html?panel=resources&ws=127.0.0.1:${chromePort}/devtools/page/${targetPage.id}`;
 
-    const pViewer = spawn(chrome, [
+    const viewerChrome = spawn(chromeExe, [
         '--headless=new',
-        '--remote-debugging-port=9223',
+        '--no-first-run',
+        '--no-default-browser-check',
+        `--remote-debugging-port=${viewerPort}`,
         '--remote-allow-origins=*',
-        '--disable-gpu',
-        '--hide-scrollbars',
-        '--disable-web-security',
-        '--allow-running-insecure-content',
-        `--user-data-dir=${perfilViewer}`,
-        '--window-size=1600,1000',
+        '--window-size=1600,1050',
+        `--user-data-dir=${viewerProfile}`,
         devtoolsUrl
     ], { windowsHide: true });
 
     await new Promise(r => setTimeout(r, 3500));
 
     try {
-        const resViewer = await fetch('http://127.0.0.1:9223/json');
-        const listViewer = await resViewer.json();
-        const devtoolsPage = listViewer.find(t => t.type === 'page');
+        const viewerList = await (await fetch(`http://127.0.0.1:${viewerPort}/json`)).json();
+        const devtoolsPage = viewerList.find(t => t.type === 'page');
 
-        if (devtoolsPage) {
-            const wsViewer = new WebSocket(devtoolsPage.webSocketDebuggerUrl);
-            await new Promise((resolve) => wsViewer.onopen = resolve);
+        if (!devtoolsPage) throw new Error('No se encontró la página del inspector DevTools');
 
-            let vId = 1;
-            function sendV(method, params = {}) {
-                return new Promise((resolve) => {
-                    const reqId = vId++;
-                    const handler = (event) => {
-                        const msg = JSON.parse(event.data);
-                        if (msg.id === reqId) {
-                            wsViewer.removeEventListener('message', handler);
-                            resolve(msg.result);
-                        }
-                    };
-                    wsViewer.addEventListener('message', handler);
-                    wsViewer.send(JSON.stringify({ id: reqId, method, params }));
-                });
-            }
+        const wsViewer = new WebSocket(devtoolsPage.webSocketDebuggerUrl);
+        await new Promise(r => wsViewer.onopen = r);
 
-            // Click en el botón para apagar screencast y clic en Manifest
-            await sendV('Runtime.evaluate', {
-                expression: `
-                    function findInShadow(root, selector) {
-                        let res = root.querySelector(selector);
-                        if (res) return res;
+        let vId = 1;
+        function sendViewer(method, params = {}) {
+            return new Promise(resolve => {
+                const reqId = vId++;
+                const handler = (e) => {
+                    const m = JSON.parse(e.data);
+                    if (m.id === reqId) {
+                        wsViewer.removeEventListener('message', handler);
+                        resolve(m.result);
+                    }
+                };
+                wsViewer.addEventListener('message', handler);
+                wsViewer.send(JSON.stringify({ id: reqId, method, params }));
+            });
+        }
+
+        await sendViewer('Accessibility.enable');
+
+        // Esperar renderizado y cerrar avisos de idioma si aparecen
+        await sendViewer('Runtime.evaluate', {
+            expression: `
+                (() => {
+                    function findInTree(root, selector) {
+                        let el = root.querySelector(selector);
+                        if (el) return el;
                         for (const child of root.querySelectorAll('*')) {
                             if (child.shadowRoot) {
-                                const found = findInShadow(child.shadowRoot, selector);
+                                const found = findInTree(child.shadowRoot, selector);
                                 if (found) return found;
                             }
                         }
                         return null;
                     }
-                    // Apagar screencast
-                    const scBtn = findInShadow(document.body, '[aria-label*="screencast" i], [aria-label*="pantalla" i]');
-                    if (scBtn) scBtn.click();
-                `
-            });
+                    const closeBtn = findInTree(document.body, '[aria-label*="Close" i], [aria-label*="Don’t show" i], [aria-label*="Cerrar" i]');
+                    if (closeBtn) closeBtn.click();
+                })()
+            `
+        });
 
-            await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 2500));
 
-            const screenshot = await sendV('Page.captureScreenshot', { format: 'png' });
-            fs.writeFileSync(destinoDevtools, Buffer.from(screenshot.data, 'base64'));
-            wsViewer.close();
+        // 1. Captura superior del panel (sin errores ni avisos)
+        const screenshotTop = await sendViewer('Page.captureScreenshot', { format: 'png' });
+        fs.writeFileSync(path.join(baseDir, 'chrome-devtools-manifest.png'), Buffer.from(screenshotTop.data, 'base64'));
+        console.log('Captura DevTools superior guardada en chrome-devtools-manifest.png');
+
+        // 2. Scroll a screenshots
+        await sendViewer('Runtime.evaluate', {
+            expression: `
+                (() => {
+                    function findScrollable(node) {
+                        let res = [];
+                        if (node.nodeType === 1) {
+                            if (node.scrollHeight > node.clientHeight + 50 && node.clientHeight > 200) {
+                                res.push(node);
+                            }
+                        }
+                        if (node.shadowRoot) {
+                            res.push(...findScrollable(node.shadowRoot));
+                        }
+                        for (const child of (node.childNodes || [])) {
+                            res.push(...findScrollable(child));
+                        }
+                        return res;
+                    }
+                    const scrollables = findScrollable(document.body);
+                    for (const s of scrollables) {
+                        s.scrollTop = 800;
+                    }
+                })()
+            `
+        });
+
+        await new Promise(r => setTimeout(r, 1500));
+
+        const screenshotBottom = await sendViewer('Page.captureScreenshot', { format: 'png' });
+        fs.writeFileSync(path.join(baseDir, 'chrome-devtools-manifest-screenshots.png'), Buffer.from(screenshotBottom.data, 'base64'));
+        console.log('Captura DevTools screenshots guardada en chrome-devtools-manifest-screenshots.png');
+
+        // Extraer árbol de accesibilidad de DevTools
+        const axTree = await sendViewer('Accessibility.getFullAXTree');
+
+        let axText = '';
+        if (axTree && axTree.nodes) {
+            for (const node of axTree.nodes) {
+                const role = node.role?.value || 'generic';
+                const name = node.name?.value;
+                const value = node.value?.value;
+                if (name) {
+                    axText += `- ${role} "${name}"\n`;
+                } else if (value) {
+                    axText += `- ${role}: ${value}\n`;
+                }
+            }
         }
+
+        fs.writeFileSync(path.join(baseDir, 'application-manifest-dom.txt'), axText);
+        console.log('DOM/AX tree guardado en application-manifest-dom.txt (longitud:', axText.length, 'caracteres)');
+
+        wsViewer.close();
     } finally {
-        pViewer.kill();
+        viewerChrome.kill();
     }
-
-    console.log('Captura DevTools guardada:', destinoDevtools);
-
-    // 5. Capturar Login en escritorio y marco 360px
-    const loginHtml = await (await fetch('http://127.0.0.1:8765/login')).text();
-    const loginPath = path.join(baseDir, 'login.html');
-    fs.writeFileSync(loginPath, loginHtml);
-
-    const destinoLoginEscritorio = path.join(baseDir, 'login-escritorio.png');
-    await new Promise((resolve, reject) => {
-        const pLogin = spawn(chrome, [
-            '--headless=new',
-            '--disable-gpu',
-            '--hide-scrollbars',
-            '--virtual-time-budget=2000',
-            `--user-data-dir=${perfilViewer}`,
-            '--window-size=1366,768',
-            `--screenshot=${destinoLoginEscritorio}`,
-            pathToFileURL(loginPath).href
-        ], { windowsHide: true });
-        pLogin.on('error', reject);
-        pLogin.on('exit', (c) => (c === 0 ? resolve() : reject(new Error('Exit ' + c))));
-    });
-
-    // Marco 360px para celular
-    const marcoHtml = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Wings · Login (360px)</title></head>
-<body style="margin:0;background:#888;display:flex;justify-content:center;padding:24px 0;">
-<iframe src="login.html" style="width:360px;height:740px;border:0;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,0.35);border-radius:16px;"></iframe>
-</body></html>`;
-    const marcoPath = path.join(baseDir, 'login-marco-360.html');
-    fs.writeFileSync(marcoPath, marcoHtml);
-
-    const destinoLoginCelular = path.join(baseDir, 'login-celular-360.png');
-    await new Promise((resolve, reject) => {
-        const pMarco = spawn(chrome, [
-            '--headless=new',
-            '--disable-gpu',
-            '--hide-scrollbars',
-            '--allow-file-access-from-files',
-            '--virtual-time-budget=2000',
-            `--user-data-dir=${perfilViewer}`,
-            '--window-size=700,850',
-            `--screenshot=${destinoLoginCelular}`,
-            pathToFileURL(marcoPath).href
-        ], { windowsHide: true });
-        pMarco.on('error', reject);
-        pMarco.on('exit', (c) => (c === 0 ? resolve() : reject(new Error('Exit ' + c))));
-    });
-
-    console.log('Capturas de login guardadas con éxito.');
 } finally {
-    pTarget.kill();
+    targetChrome.kill();
     phpServer.kill();
-    try { fs.rmSync(perfilTarget, { recursive: true, force: true }); } catch (_) {}
-    try { fs.rmSync(perfilViewer, { recursive: true, force: true }); } catch (_) {}
+    setTimeout(() => {
+        try { fs.rmSync(targetProfile, { recursive: true, force: true }); } catch (_) {}
+        try { fs.rmSync(viewerProfile, { recursive: true, force: true }); } catch (_) {}
+    }, 1500);
 }
 
 console.log('Evidencia T11 generada exitosamente.');

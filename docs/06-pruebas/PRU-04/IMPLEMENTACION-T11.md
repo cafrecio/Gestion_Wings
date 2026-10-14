@@ -1,23 +1,23 @@
-# Informe de Implementación T11: Instalación de Wings como aplicación en el teléfono
+# Informe de Implementación T11: Instalación de Wings como aplicación en el teléfono (Segunda Vuelta)
 
-**Fecha:** 12/10/2026  
+**Fecha:** 12/10/2026 (primera entrega) · **Actualizado:** 14/10/2026 (segunda vuelta tras devolución de Codex)  
 **Autor:** Gemini (CAB) — Firma: **LOG GEM CAB**  
 **Tarea:** T11 — «Que Wings se instale en el teléfono como aplicación»  
 **Origen:** Prueba de Carlos del 12/10/2026 en su Android con Chrome sobre `test.gestionar-te.com.ar`.  
-**Estado:** Implementada en el repositorio. Pendiente de despliegue al sitio de prueba para verificación final de Carlos en su teléfono físico.
+**Estado:** Segunda vuelta implementada en el repositorio. El sitio de prueba ya sirve el manifest e íconos de la primera entrega (commit `d4f02d4`). Las correcciones de la segunda vuelta (arreglo `screenshots` y capturas de login en `public/`) quedan listas para verificación independiente de Codex antes del despliegue y de la prueba física de Carlos en su teléfono.
 
 ---
 
 ## 1. Problema detectado y qué faltaba
 
-### Lo que pasaba
+### Lo que pasaba inicialmente
 Al entrar a `test.gestionar-te.com.ar` desde Chrome en Android:
 1. Chrome no ofrecía «Instalar aplicación» en el menú, sino únicamente «Agregar a la pantalla principal».
 2. El ícono creado en la pantalla de inicio quedaba con el sello pequeño de Chrome sobre el logo de Wings.
 3. Al tocar el ícono, se abría una pestaña estándar dentro del navegador Chrome, con la barra de direcciones visible, en lugar de una ventana de aplicación a pantalla completa.
 
 ### Diagnóstico técnico con Chrome DevTools Protocol (CDP)
-Se levantó Wings localmente y se inspeccionó mediante Chrome Headless y el método nativo de Chromium `Page.getInstallabilityErrors`:
+Se levantó Wings e inspeccionó mediante Chrome Headless y el método nativo de Chromium `Page.getInstallabilityErrors`:
 - **Resultado inicial:**
   ```json
   {
@@ -29,7 +29,7 @@ Se levantó Wings localmente y se inspeccionó mediante Chrome Headless y el mé
     ]
   }
   ```
-- **Causa raíz:** En `public/site.webmanifest` **no existía el campo `start_url`**. Sin `start_url`, Chromium no puede determinar el punto de arranque de la aplicación y rechaza la instalación como PWA, degradando la acción a un simple marcador/acceso directo web.
+- **Causa raíz:** En `public/site.webmanifest` no existía el campo `start_url`. Sin `start_url`, Chromium no puede determinar el punto de arranque de la aplicación y rechaza la instalación como PWA, degradando la acción a un simple marcador/acceso directo web.
 - **Faltantes adicionales:**
   - No tenía `scope`: no delimitaba qué rutas pertenecen a la app instalada.
   - No tenía `id`: identificador unívoco de la app según el estándar moderno de Web App Manifest.
@@ -37,118 +37,167 @@ Se levantó Wings localmente y se inspeccionó mediante Chrome Headless y el mé
 
 ---
 
-## 2. Decisión sobre el Service Worker
+## 2. Decisión sobre el Service Worker y caché
 
 Carlos instruyó: *«Hacé lo mínimo que haga falta. Si Chrome exige un service worker, que sea uno que no guarde nada en caché: Wings maneja plata y no puede mostrar una pantalla vieja. Si no lo exige, no lo agregues.»*
 
 ### Comprobación empírica
 - Desde Chrome 108+ (móvil) y 112+ (escritorio), Chromium **desacopló el requisito estricto de Service Worker para habilitar la opción "Instalar app"** desde el menú del navegador.
-- Al corregir `public/site.webmanifest` con `start_url: "/login"`, `scope: "/"`, `id: "/login"` e íconos adaptativos, se volvió a consultar `Page.getInstallabilityErrors` vía CDP:
+- Al corregir `public/site.webmanifest` con `start_url: "/login"`, `scope: "/"`, `id: "/login"` e íconos adaptativos, `Page.getInstallabilityErrors` vía CDP devolvió:
   ```json
   {
     "installabilityErrors": []
   }
   ```
-- **Conclusión:** Chrome DevTools confirma **cero errores de instalabilidad** sin necesidad de Service Worker.
-- **Decisión adoptada:** **No se agregó ningún Service Worker**. De esta forma, Wings no almacena ninguna respuesta en memoria caché de cliente, garantizando que todos los datos de caja, cuotas, cobros y clases sean siempre 100% frescos y en tiempo real desde el servidor.
+- **Conclusión:** Chrome confirma **cero errores de instalabilidad** sin necesidad de Service Worker.
+
+### Comportamiento real de caché (alcance verificado vs. no verificado)
+- **Verificado:** No se agregó ningún Service Worker. La aplicación no registra ningún Service Worker ni utiliza almacenamiento propio en `Cache storage` del cliente.
+- **Límites comprobados:** No tener Service Worker no garantiza la ausencia de toda caché del cliente. Los archivos de imagen PNG tienen cabeceras HTTP con `max-age=14400` y la ruta `/login` declara `Cache-Control: no-cache, private`.
+- **No probado:** Nadie ha probado empíricamente si una pantalla de dinero o liquidaciones podría quedar vieja por efectos de caché HTTP estándar o BFCache en escenarios de pérdida de conexión.
 
 ---
 
-## 3. Cambios realizados en el repositorio
+## 3. Resolución de la devolución de Codex (Segunda Vuelta)
+
+Codex verificó T11 el 13/10/2026 (`VERIFICACION-T11-CODEX.md`) confirmando cero errores de instalabilidad, manifest válido, tipo MIME correcto y CSP adecuada. Sin embargo, el panel **Application > Manifest** exhibía dos avisos:
+```text
+Richer PWA Install UI won’t be available on desktop. Please add at least one screenshot with the form_factor set to wide.
+Richer PWA Install UI won’t be available on mobile. Please add at least one screenshot for which form_factor is not set or set to a value other than wide.
+```
+
+### Requisitos oficiales de Chrome para capturas (Screenshots)
+Conforme a la documentación oficial de [Chrome Developers: Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation-ui) y la especificación W3C Web App Manifest:
+1. **Form Factor (`form_factor`):**
+   - `"wide"`: Requerido para habilitar la interfaz enriquecida de instalación en escritorio (Chrome 108+).
+   - `"narrow"` (o sin declarar): Requerido para la interfaz en dispositivos móviles / Android (Chrome 94+).
+2. **Dimensiones de imagen:**
+   - Tanto el ancho como el alto deben estar comprendidos entre **320px y 3840px**.
+   - La dimensión máxima no puede superar 2.3 veces la dimensión mínima (relación de aspecto entre 1:2.3 y 2.3:1).
+3. **Formatos soportados:** PNG (`image/png`), WebP (`image/webp`) o JPEG (`image/jpeg`).
+4. **Consistencia de proporción:** Todas las capturas que comparten el mismo `form_factor` deben tener exactamente la misma relación de aspecto.
+
+### Implementación adoptada
+Se seleccionó la pantalla de inicio de sesión (`/login`) para generar las capturas públicas, dado que **no expone ningún dato personal, datos de alumnos ni movimientos de dinero**, siendo totalmente segura para distribución pública:
+1. `public/screenshot-wide.png`: Captura de `/login` en escritorio a **1280 × 720 px** (form factor `wide`, proporción 16:9 = 1.777 < 2.3, PNG de 23.5 KB).
+2. `public/screenshot-narrow.png`: Captura de `/login` en móvil a **720 × 1280 px** (form factor `narrow`, proporción 9:16 = 1.777 < 2.3, PNG de 40.6 KB).
+3. En `public/site.webmanifest` se incorporó el arreglo `screenshots` y el campo `description`:
+   ```json
+   "description": "Sistema de gestión integral para clubes y escuelas deportivas.",
+   "screenshots": [
+       {
+           "src": "/screenshot-wide.png",
+           "sizes": "1280x720",
+           "type": "image/png",
+           "form_factor": "wide",
+           "label": "Pantalla de acceso a Wings en escritorio"
+       },
+       {
+           "src": "/screenshot-narrow.png",
+           "sizes": "720x1280",
+           "type": "image/png",
+           "form_factor": "narrow",
+           "label": "Pantalla de acceso a Wings en teléfono móvil"
+       }
+   ]
+   ```
+
+---
+
+## 4. Cambios realizados en el repositorio
 
 1. **`public/site.webmanifest`:**
-   - Agregado `"start_url": "/login"` (abre directamente en el formulario de inicio de sesión, tal como decidió Carlos).
-   - Agregado `"scope": "/"` (todas las pantallas del sistema permanecen dentro de la ventana de la aplicación).
-   - Agregado `"id": "/login"`.
-   - Mantenido `"display": "standalone"` (abre a pantalla completa, sin la barra de direcciones del navegador).
-   - Íconos de 192x192 y 512x512 configurados con entradas dedicadas para `purpose: "any"` y `purpose: "maskable"` para soporte completo de íconos adaptativos en Android.
+   - `start_url: "/login"` (abre directamente en el formulario de ingreso).
+   - `scope: "/"` (la navegación permanece dentro de la aplicación).
+   - `id: "/login"`.
+   - `display: "standalone"` (abre a pantalla completa sin barra de navegación).
+   - Íconos adaptativos 192x192 y 512x512 con purposes `any` y `maskable`.
+   - `description` declarada.
+   - Arreglo `screenshots` con capturas `wide` y `narrow`.
 
-2. **`public/.htaccess`:**
-   - Agregada la directiva MIME para servidores Apache:
+2. **`public/screenshot-wide.png` y `public/screenshot-narrow.png`:**
+   - Archivos PNG físicos añadidos directamente en `public/`.
+
+3. **`public/.htaccess`:**
+   - Directiva MIME para servidores Apache:
      ```apache
      <IfModule mod_mime.c>
          AddType application/manifest+json .webmanifest
      </IfModule>
      ```
 
-3. **Plantillas Blade (`resources/views/**`):**
-   - **No se modificó ninguna vista.** `resources/views/layouts/ds-app.blade.php` ya contenía en su `<head>` el enlace canónico `<link rel="manifest" href="{{ asset('site.webmanifest') }}">` y `<meta name="theme-color" content="#0F172A">`. No se tocó la plantilla para evitar cualquier conflicto con el trabajo paralelo de otros agentes (T30).
+4. **Plantillas Blade (`resources/views/**`):**
+   - **No se modificó ninguna vista.** `resources/views/layouts/ds-app.blade.php` ya contiene el enlace canónico `<link rel="manifest" href="{{ asset('site.webmanifest') }}">` y `<meta name="theme-color" content="#0F172A">`. Se respeta estrictamente la regla de no tocar vistas.
 
 ---
 
-## 4. Comportamiento de sesión y navegación
+## 5. Configuración del servidor en el sitio de prueba (VPS)
+
+El sitio de prueba (`test.gestionar-te.com.ar`) está alojado sobre un servidor **Apache** (`/usr/local/apache/bin/httpd`), no Nginx.
+
+Tal como evidenció la inspección técnica de Codex (`evidencia-t11-codex/apache-prueba.txt`):
+- El VirtualHost de prueba tiene `DocumentRoot /home/wingstest/app/public` y directiva `AllowOverride All`.
+- El módulo `mod_mime` (`mime_module (shared)`) se encuentra cargado y activo.
+- La regla `AddType application/manifest+json .webmanifest` ubicada en `public/.htaccess:1-3` aplica directamente en Apache sin requerir modificaciones globales ni permisos de root.
+- Codex comprobó en el sitio de prueba que un pedido HEAD a `/site.webmanifest` entrega HTTP 200 con `Content-Type: application/manifest+json`.
+
+---
+
+## 6. Comportamiento de sesión y navegación
 
 1. **Pantalla de arranque (`/login`):**
-   - Si el usuario no ha iniciado sesión, la app abre en `/login` mostrando el formulario.
-   - Si el usuario ya tiene sesión iniciada (cookie de sesión activa), `WebController::loginForm` detecta `Auth::check()` y redirige de inmediato a la pantalla principal según su rol:
+   - Si no hay sesión: abre en `/login` mostrando el formulario.
+   - Si hay sesión activa: `WebController::loginForm` detecta `Auth::check()` y redirige de inmediato a la pantalla principal según su rol:
      - Admin: `admin.dashboard` (o primera carga si está pendiente).
      - Operativo: `web.operativo.dashboard`.
      - Profesor: `web.clases.index`.
-   - Por lo tanto, la app instalada **no vuelve a pedir la clave** mientras la sesión siga activa.
+   - La aplicación instalada no vuelve a solicitar la clave mientras la sesión continúe vigente.
 2. **Navegación interna (`scope: "/"`):**
-   - Todos los links internos (`/alumnos`, `/caja`, `/clases`, etc.) abren dentro del contenedor de la aplicación.
-   - Los recibos PDF (`/recibos/{id}/pdf`) se visualizan dentro del visor del sistema y al presionar volver se regresa a la pantalla previa sin salir de la app.
+   - Todos los links internos (`/alumnos`, `/caja`, `/clases`, etc.) abren dentro del contenedor de la aplicación instalada.
 
 ---
 
-## 5. Qué hay que hacer en el servidor (VPS)
+## 7. Qué pasa en iPhone (Safari)
 
-En el sitio de prueba (`test.gestionar-te.com.ar`), el servidor web es Nginx. Como Nginx sirve archivos estáticos directamente desde el sistema de archivos sin pasar por PHP/Laravel, el tipo de contenido MIME de `.webmanifest` debe estar declarado en Nginx.
-
-Para asegurar que entregue `application/manifest+json`:
-- **Opción A (Recomendada):** En `/etc/nginx/mime.types`, comprobar o agregar la línea:
-  ```nginx
-  application/manifest+json webmanifest;
-  ```
-- **Opción B:** En el bloque de configuración del sitio Nginx:
-  ```nginx
-  location = /site.webmanifest {
-      default_type application/manifest+json;
-  }
-  ```
-- Aplicar con: `nginx -t && systemctl reload nginx`.
-
-*(Nota: Conforme a las instrucciones, ningún agente entra al servidor para esto; queda asentado para el momento del despliegue).*
+- En iOS (Safari) no existe la API de instalación de Chromium. La instalación se realiza mediante el menú de Compartir de Safari -> «Agregar a pantalla de inicio».
+- Safari utiliza el `<link rel="apple-touch-icon" sizes="180x180" href="...">`, presente en el layout de Wings.
+- **Qué no se probó:** No se dispone de un dispositivo físico iOS en el entorno de desarrollo; el comportamiento en iPhone no fue probado físicamente.
 
 ---
 
-## 6. Qué pasa en iPhone (Safari)
+## 8. Pruebas automatizadas permanentes
 
-- En iOS (Safari) no existe el menú "Instalar aplicación" nativo de Chromium. La instalación se realiza mediante el menú de Compartir de Safari -> «Agregar a pantalla de inicio».
-- Safari utiliza el `<link rel="apple-touch-icon" sizes="180x180" href="...">`, que ya está presente en el layout de Wings.
-- Para abrir en modo aplicación independiente sin la barra de Safari, iOS responde al meta tag `<meta name="apple-mobile-web-app-capable" content="yes">`.
-- **Qué no se probó:** No disponemos de un dispositivo físico iOS en el entorno de desarrollo, por lo que el comportamiento en iPhone no fue probado físicamente.
+Se actualizó la suite permanente `tests/Feature/PwaInstalacionTest.php`:
+1. `test_manifest_es_valido_y_declara_arranque_en_login`:
+   - Valida JSON, `start_url`, `scope`, `id`, `display: standalone`, colores de tema.
+   - Valida existencia física y purposes (`any`, `maskable`) de los íconos de 192 y 512.
+   - **Novedad segunda vuelta:** Valida existencia de `description`, arreglo `screenshots`, presencia física de los archivos PNG en `public/`, coincidencia de dimensiones reales (`getimagesize`) con el atributo `sizes`, límites de Chrome (320px–3840px), y presencia obligatoria de capturas `wide` y `narrow`.
+2. `test_login_y_plantillas_enlazan_el_manifest`: Valida layout y enlace en `/login`.
+3. `test_usuario_autenticado_al_abrir_la_app_en_login_es_redirigido_al_inicio_de_su_rol`: Valida redirección por rol para sesión activa.
 
----
-
-## 7. Pruebas automatizadas permanentes
-
-Se creó la suite permanente `tests/Feature/PwaInstalacionTest.php` con 3 pruebas:
-1. `test_manifest_es_valido_y_declara_arranque_en_login`: Valida la estructura del JSON, `start_url = /login`, `scope = /`, `id = /login`, `display = standalone`, existencia física de los íconos de 192 y 512, y presencia de purposes `any` y `maskable`.
-2. `test_login_y_plantillas_enlazan_el_manifest`: Valida que el layout y la vista de login contengan el enlace al manifest y el theme-color.
-3. `test_usuario_autenticado_al_abrir_la_app_en_login_es_redirigido_al_inicio_de_su_rol`: Valida que la apertura de la app para un usuario autenticado redirija inmediatamente según el rol (Admin -> Inicio, Operativo -> Inicio operativo, Profesor -> Clases).
-
-Resultado: **3/3 pruebas aprobadas (29 aserciones)** en `wings_testing_gemini`.
+Resultado: **3/3 pruebas aprobadas (63 aserciones)** en base propia `wings_testing_gemini`.
 
 ---
 
-## 8. Evidencia generada
+## 9. Evidencia generada
 
 Guardada en `docs/06-pruebas/PRU-04/evidencia-t11/`:
-- `chrome-devtools-manifest.png`: Captura de Chrome DevTools mostrando el panel **Application > Manifest**, con Identity, Presentation, Start URL (`/login`), íconos cargados y cero errores de instalabilidad.
-- `login-escritorio.png`: Captura del Login oficial de Wings en escritorio (1366 × 768).
-- `login-celular-360.png`: Captura del Login oficial de Wings en marco de 360 px para celular.
-- `cdp-installability.json`: Telemetría directa del Chrome DevTools Protocol confirmando `installabilityErrors: []`.
-- `generar-evidencia-t11.mjs`: Script reproducible para regenerar la evidencia contra la aplicación levantada localmente.
+- `chrome-devtools-manifest.png`: Captura real de Chrome DevTools (`devtools_app.html`) mostrando el panel **Application > Manifest**, con Identity, Presentation, Start URL (`/login`), íconos cargados y la sección **Errors and warnings sin ningún error ni advertencia**.
+- `chrome-devtools-manifest-screenshots.png`: Captura de DevTools mostrando las tarjetas de previsualización de capturas (*Screenshot #1* wide 1280x720 y *Screenshot #2* narrow 720x1280) reconocidas y parseadas por Chrome.
+- `application-manifest-dom.txt`: Volcado completo del árbol de accesibilidad (Accessibility tree) del panel de manifiesto en DevTools, confirmando ausencia de avisos de Richer PWA Install UI.
+- `cdp-installability.json`: Telemetría directa de Chrome DevTools Protocol (`Page.getAppManifest` y `Page.getInstallabilityErrors`) confirmando `installabilityErrors: []` y `manifest.errors: []`.
+- `generar-evidencia-t11.mjs`: Script reproducible para regenerar la evidencia contra la aplicación local.
 
 ---
 
-## 9. Qué no se probó
+## 10. Qué no se probó (Límites explícitos)
 
-- **Teléfono físico real:** La instalación física en un dispositivo Android real sobre el sitio de prueba no se realizó. Esa prueba la realizará Carlos en su teléfono tras el despliegue al VPS.
+- **Teléfono físico Android real:** La instalación física y la visualización de la ventana independiente en el teléfono real de Carlos sobre el sitio de prueba no se ejecutaron; esa comprobación la realizará Carlos tras el despliegue.
+- **Dispositivos iOS / Safari:** No se probó en un dispositivo Apple físico.
+- **Timeout del servidor:** No se probó el comportamiento tras la expiración natural del timeout de sesión por inactividad prolongada del servidor PHP.
 
 ---
 
-## 10. Próximo paso
+## 11. Próximo paso
 
-Desplegar al sitio de prueba (`test.gestionar-te.com.ar`) y que Carlos pruebe la instalación de la aplicación desde Chrome en su teléfono Android.
+Pase a Codex para verificación independiente de la segunda vuelta (arreglo `screenshots` en manifest, ausencia de avisos en DevTools, capturas en `public/` y correcciones del informe). Tras el visto bueno, queda listo para despliegue y prueba física de Carlos en su teléfono Android.
