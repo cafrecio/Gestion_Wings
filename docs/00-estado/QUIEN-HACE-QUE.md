@@ -53,13 +53,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Segunda vuelta: avisos de screenshots resueltos e informe corregido. Verifica Codex; telefono pendiente de Carlos |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Devuelto (hizo Gemini, verifica Codex) | Corregir soporte WebP y enlace oficial del informe; despues Codex repite Chrome local y suite: entorno bloqueado. Sin despliegue ni cierre |
 
 ## Sin empezar (46)
 
