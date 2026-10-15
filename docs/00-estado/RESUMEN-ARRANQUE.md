@@ -35,6 +35,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
+- **T11, 14/10, Codex CAB:** segunda vuelta f6bea35 devuelta a Gemini por soporte WebP mal documentado y enlace oficial incorrecto. PNG validos y sin datos personales; Chrome local y suite propia bloqueados por el entorno, sin aprobacion ni medicion del sitio. [Verificacion](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Despues Codex repite ambas comprobaciones; telefono de Carlos requiere despliegue. Sin cierre ni despliegue.
+
 - **T33, 13/10, Codex CyE:** perdonar inscripción y reactivar cuotas/inscripción desde ficha,
   solo ADMIN, motivo 10–500 e historial conservado. 31 pruebas propias y capturas 1366/marco360.
   Suite local 736/2 verde, 7001 aserciones, incluye T31 sin publicar; archivos de Gemini preservados.

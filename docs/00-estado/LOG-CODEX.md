@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-14 - Codex CAB - T11 segunda vuelta: devolucion documental y entorno bloqueado
+
+Examinado f6bea35: PNG reales 1280x720 y 720x1280, proporcion 1,7778; sin datos personales.
+Fuente oficial consultada: solo JPEG/PNG; informe dice WebP y enlaza URL incorrecta. Vuelve a Gemini.
+Apache y limites de cache corregidos; despliegue separado por entrega, sin medir el sitio hoy.
+Leidos cuerpos de PwaInstalacionTest: no controla MIME real, proporcion ni avisos Chrome; sintaxis correcta.
+Suite intentada solo wings_testing_codex: PHPUnit rechaza bootstrap antes de ejecutar; no hay verde propio.
+Navegador/Computer Use no inicia; intento CDP local rechazado EACCES. Sin evidencia propia de Manifest.
+[Informe](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Tablero devuelto a Gemini, no cerrado.
+Sigue: corregir informe; Codex repite Chrome local y suite antes del pase a Carlos. Sin despliegue.
+
 ## 2026-10-13 — Codex CyE — T11 devuelta a Gemini, verificación independiente
 
 Chrome 155 del sitio: dos avisos por screenshots de instalación ausentes; criterio sin avisos incumplido.
@@ -115,16 +126,6 @@ Cualquier mes anterior, sin límite. Caja validada: «Solo consulta».
 Pendientes liquidación pagada y mes cerrado/fecha del contraasiento.
 T27 en_curso, tiene Carlos: responde las decisiones restantes antes de implementar.
 
-## 2026-10-12 — Codex CAB — T30, porcentaje junto al rubro en celular
-
-Carlos marcó el desborde de la leyenda y pidió porcentaje junto al título.
-Nombre/porcentaje arriba, importe debajo a 360; escritorio conserva porcentaje junto al monto.
-Misma fórmula y formato; texto del importe móvil a 0,85 rem para que entre completo.
-Control nuevo de límites de la leyenda y fuentes cargadas: detectó dos fallos anteriores.
-Revisión: 563 controles/0 fallas, 162 PNG y login; respuestas reales en base propia.
-Suite propia: 669/2, 6395 aserciones, 530,97 s; 671. Sin sitio de prueba/reloj/despliegue ni cierre.
-[Captura de celular](../06-pruebas/PRU-04/evidencia-t30/revision-porcentajes-ultima/capturas/reportes-millones-marco-360.png).
-Carlos aprobó todas las vistas: «El resto de las vistas OK» y «Esta OK» (12/10). Solo falta Claude para la regla. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).
-
-
 [Archivo al verificar T7 y T11](../99-archivo/bitacoras/2026-10-13/LOG-CODEX-ARCHIVO-T7-T11.md).
+
+[Entrada T30 archivada al verificar T11 segunda vuelta](../99-archivo/bitacoras/2026-10-14/LOG-CODEX-T30.md).
