@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
 
+## 2026-10-15 — Claude CAB — Pasar a produccion lo de prueba: comparacion hecha, sigue en CyE
+
+Pedido de Carlos (chat del 13–15/10): pasar a produccion lo que hoy funciona en prueba para
+que Vanina haga la primera carga, sin esperar el gate completo de `PLAN-PRODUCCION.md`.
+**Verificado por `ssh vps` (solo git):** produccion `/home/wings/app` en `314e485` (22/09);
+prueba `/home/wingstest/app` en `d4f02d4` (13/10). Son **327 commits y 15 migraciones**, no
+solo `create_primera_carga`: una reescribe datos (`clasificar_subrubros_existentes`), suma
+`chart.js` y `locale` queda fijo en `es`. Se despliega `d4f02d4`, lo probado, no la punta de main.
+**Sin verificar:** si produccion tiene datos reales y su `migrate:status`; la lectura de la base
+la bloqueo el permiso automatico. Sigue: leer eso con autorizacion de Carlos, proponer pasos
+(respaldo `/root/wings-backup/respaldar.sh`, checkout, composer, npm build, migrate) y esperar su OK.
+Tambien: T10/T12 cargadas en el tablero (`8ad2d87`); trabajo de Codex T11 subido sin cambios (`adcb344`).
+
 ## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
 
 Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
