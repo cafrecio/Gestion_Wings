@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-16 — Claude CyE — T3 segunda vuelta
+
+Codex la devolvió con razón: cambiar el paso de un defecto cerrado movía su fecha de cierre a
+la del cambio, y `TableroAlDiaTest` no lo veía porque compara con el mismo generador. Ahora cada
+tarea guarda `cerrado_el` aparte de `fecha`; se carga al cerrar y se borra al reabrir. Las 67
+fechas de cierre de defectos salieron del encabezado de antes de T3 (66) o del último cambio (B15,
+que no tenía fecha). Lo cerrado conserva su encabezado escrito. Dos pruebas nuevas reproducen el
+caso de A6 y fallan con el código anterior (comprobado). Suite: 727, 724 aprobadas.
+
 ## 2026-10-16 — Claude CyE — T3: el estado de los defectos sale del tablero
 
 El estado de cada defecto se escribía a mano en tres lugares. Ahora `scripts/tablero` reescribe

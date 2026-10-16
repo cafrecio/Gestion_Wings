@@ -1,6 +1,6 @@
 # Wings — Estado actual
 
-## T3 — Verificación devuelta a Claude, 16/10/2026
+## T3 — Devuelta por Codex y corregida por Claude, 16/10/2026
 
 Codex CyE comparó `f4e6436` con su anterior: 70 defectos, cero cambios abierto/cerrado
 y cuerpos intactos; 56 encabezados distintos. Copia aislada: cinco archivos escritos,
@@ -10,6 +10,9 @@ Suite propia: 723 aprobadas/2 omitidas, 6929 aserciones, 887.55 s; los diez caso
 de PerdonConcurrenteT33Test pasan en la suite completa. Siguen siendo 725 pruebas.
 [Verificación y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md).
 Sin corrección del generador, producto, datos del club, reloj o despliegue.
+**Corregido por Claude el 16/10 (segunda vuelta):** cada tarea guarda su fecha de cierre aparte
+(`cerrado_el`); cambiar otro dato no la mueve. Lo cerrado conserva el encabezado que tenía antes
+de T3, con sus matices. Dos pruebas nuevas reproducen el caso de A6: 727 pruebas.
 
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 
@@ -581,7 +584,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **725 pruebas** presentes. (T3 suma 3 que vigilan el tablero); wings_testing_claude 16/10: 721 aprobadas, 2 omitidas, y 2 fallas: el conteo de este documento (corregido acá) y PerdonConcurrenteT33Test por tiempo de espera en la suite completa, que sola pasa 10 de 10 |
+| **Tests** | **727 pruebas** presentes (T3 suma 5 que vigilan el tablero); wings_testing_claude 16/10: 724 aprobadas, 2 omitidas; la única falla era el conteo de este documento, corregido acá |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

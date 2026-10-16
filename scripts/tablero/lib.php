@@ -37,7 +37,9 @@ const TABLERO_AGENTES = ['Claude', 'Codex', 'Gemini'];
 const TABLERO_GRAVEDADES = ['Frena', 'Molesta', 'Falta', ''];
 // Prioridad que le da Carlos a una tarea que todavia no se empieza. Vacia = sin marcar.
 const TABLERO_PRIORIDADES = ['alta' => 'Prioritaria', '' => '', 'baja' => 'Muy a futuro'];
-const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'prioridad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha'];
+// fecha = ultimo cambio; cerrado_el = dia en que se cerro. No son lo mismo: cambiar el paso de algo
+// cerrado no puede mover su fecha de cierre (lo encontro Codex al verificar T3, 16/10/2026).
+const TABLERO_CAMPOS = ['id', 'titulo', 'gravedad', 'prioridad', 'estado', 'tiene', 'hizo', 'verifica', 'paso', 'ref', 'fecha', 'cerrado_el'];
 
 function tablero_ruta(string $relativa): string
 {
@@ -108,6 +110,12 @@ function tablero_validar(array $tareas): array
         }
         if (! in_array($t['gravedad'], TABLERO_GRAVEDADES, true)) {
             $errores[] = "{$id}: gravedad '{$t['gravedad']}' no existe. Son: Frena, Molesta, Falta o vacia.";
+        }
+        if ($t['estado'] === 'cerrado' && ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $t['cerrado_el'])) {
+            $errores[] = "{$id}: esta cerrada y no dice cuando se cerro (cerrado_el).";
+        }
+        if ($t['estado'] !== 'cerrado' && $t['cerrado_el'] !== '') {
+            $errores[] = "{$id}: no esta cerrada y tiene fecha de cierre.";
         }
         if (! isset(TABLERO_PRIORIDADES[$t['prioridad']])) {
             $errores[] = "{$id}: prioridad '{$t['prioridad']}' no existe. Son: alta, baja o vacia.";
@@ -556,10 +564,37 @@ function tablero_hoja(array $tareas, string $hojaActual): string
 }
 
 /** Escribe los datos y todo lo que se arma desde ellos. */
+/**
+ * Aplica un cambio a una tarea. Devuelve null si no existe. Al cerrar, guarda el dia del cierre
+ * y la pelota no la tiene nadie; al reabrir, borra la fecha de cierre. Cambiar otro dato de algo
+ * cerrado no toca su fecha de cierre.
+ */
+function tablero_cambiar(array $tareas, string $id, array $cambios, string $hoy): ?array
+{
+    $hallada = false;
+    foreach ($tareas as &$t) {
+        if ($t['id'] !== $id) {
+            continue;
+        }
+        $hallada = true;
+        $antes = $t['estado'];
+        $t = array_merge($t, $cambios, ['fecha' => $hoy]);
+        if ($t['estado'] === 'cerrado' && $antes !== 'cerrado') {
+            $t['cerrado_el'] = $hoy;
+            $t['tiene'] = $cambios['tiene'] ?? 'nadie';
+            $t['paso'] = $cambios['paso'] ?? '';
+        } elseif ($t['estado'] !== 'cerrado') {
+            $t['cerrado_el'] = '';
+        }
+    }
+    unset($t);
+
+    return $hallada ? $tareas : null;
+}
 /** Como figura el estado de un defecto en DEFECTOS.md y DEFECTOS.html. Sale del tablero, nunca a mano. */
 function tablero_estado_defecto(array $t): string
 {
-    $fecha = substr($t['fecha'], 8, 2) . '/' . substr($t['fecha'], 5, 2);
+    $fecha = substr($t['cerrado_el'], 8, 2) . '/' . substr($t['cerrado_el'], 5, 2);
     if ($t['estado'] === 'cerrado') {
         return 'CERRADO ' . $fecha . ($t['verifica'] !== '' ? ', verificó ' . $t['verifica'] : '');
     }
@@ -587,6 +622,11 @@ function tablero_defectos_md(array $tareas, string $actual): string
     $md = preg_replace_callback('/^### ([AB]\d+)\.\s*(.*)$/mu', function ($m) use ($porId) {
         $t = $porId[$m[1]] ?? null;
         if ($t === null) {
+            return $m[0];
+        }
+        // Un cerrado que ya dice CERRADO conserva su encabezado: guarda matices que el tablero no tiene
+        // (aprobo Carlos, verificaron dos, cerrado por decision). Lo abierto se reescribe siempre.
+        if ($t['estado'] === 'cerrado' && str_contains(mb_strtoupper($m[2]), 'CERRADO')) {
             return $m[0];
         }
         $titulo = trim(explode(' · ', $m[2])[0]);
@@ -617,6 +657,9 @@ function tablero_defectos_html(array $tareas, string $actual): string
         }
         $t = $porId[$m[1]];
         $cerrado = $t['estado'] === 'cerrado';
+        if ($cerrado && $m[2] === ' checked' && str_contains($l, '<span class="tag done">')) {
+            continue; // ya figura cerrado: conserva su sello escrito
+        }
         $l = str_replace($m[0], '<input id="' . $m[1] . '" type="checkbox"' . ($cerrado ? ' checked' : '') . '>', $l);
         $l = preg_replace('#\s*<span class="sello">.*?</span>#u', '', $l, 1);
         $sello = ' <span class="sello">' . tablero_e(tablero_estado_defecto($t)) . '</span>';

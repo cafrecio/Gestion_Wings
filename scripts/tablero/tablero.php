@@ -32,7 +32,7 @@ function pares(array $args): array
             salir("No entiendo '{$arg}'. Los cambios van como campo=valor.");
         }
         [$campo, $valor] = explode('=', $arg, 2);
-        if (! in_array($campo, TABLERO_CAMPOS, true) || in_array($campo, ['id', 'fecha'], true)) {
+        if (! in_array($campo, TABLERO_CAMPOS, true) || in_array($campo, ['id', 'fecha', 'cerrado_el'], true)) {
             salir("El campo '{$campo}' no se puede cambiar. Son: titulo, gravedad, prioridad, estado, tiene, hizo, verifica, paso, ref.");
         }
         $pares[$campo] = $valor;
@@ -99,24 +99,8 @@ switch ($orden) {
         if (! $cambios) {
             salir('No dijiste que cambiar.');
         }
-        $tareas = tablero_leer();
-        $hallada = false;
-        foreach ($tareas as &$t) {
-            if ($t['id'] !== $id) {
-                continue;
-            }
-            $hallada = true;
-            $t = array_merge($t, $cambios, ['fecha' => date('Y-m-d')]);
-            // Al cerrar, la pelota no la tiene nadie y no queda paso pendiente.
-            if (($cambios['estado'] ?? '') === 'cerrado') {
-                $t['tiene'] = $cambios['tiene'] ?? 'nadie';
-                $t['paso'] = $cambios['paso'] ?? '';
-            }
-        }
-        unset($t);
-        if (! $hallada) {
-            salir("No existe la tarea {$id}. Para crearla: nueva {$id} \"Titulo\".");
-        }
+        $tareas = tablero_cambiar(tablero_leer(), $id, $cambios, date('Y-m-d'))
+            ?? salir("No existe la tarea {$id}. Para crearla: nueva {$id} \"Titulo\".");
         guardar_si_vale($tareas);
         echo "{$id} actualizada. " . resumen(tablero_leer()) . "\n";
         break;
@@ -125,10 +109,14 @@ switch ($orden) {
         $id = array_shift($args) ?? salir('Falta el identificador.');
         $titulo = array_shift($args) ?? salir('Falta el titulo.');
         $tareas = tablero_leer();
-        $tareas[] = array_merge(
+        $nueva = array_merge(
             ['id' => $id, 'titulo' => $titulo, 'estado' => 'sin_empezar', 'tiene' => 'nadie', 'fecha' => date('Y-m-d')],
             pares($args)
         );
+        if ($nueva['estado'] === 'cerrado') {
+            $nueva['cerrado_el'] = date('Y-m-d');
+        }
+        $tareas[] = $nueva;
         guardar_si_vale(array_map('tablero_normalizar', $tareas));
         echo "{$id} creada.\n";
         break;

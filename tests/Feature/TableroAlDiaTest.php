@@ -59,6 +59,55 @@ class TableroAlDiaTest extends TestCase
         $this->assertSame($enTablero, $enLista, 'Un defecto está en el tablero y no en DEFECTOS.md, o al revés.');
     }
 
+    /**
+     * Lo encontró Codex al verificar T3 (16/10): cambiar el paso de un defecto cerrado movía su
+     * fecha de cierre a la del cambio, y la prueba de arriba no lo veía porque compara contra el
+     * mismo generador.
+     */
+    public function test_cambiar_otro_dato_de_un_cerrado_no_mueve_su_fecha_de_cierre(): void
+    {
+        $tareas = tablero_leer();
+        $a6 = array_column($tareas, null, 'id')['A6'];
+        $this->assertSame('cerrado', $a6['estado'], 'El control necesita un defecto cerrado.');
+        $md = file_get_contents(tablero_ruta(TABLERO_DEFECTOS));
+        $html = file_get_contents(tablero_ruta(TABLERO_DEFECTOS_HTML));
+
+        $despues = tablero_cambiar($tareas, 'A6', ['paso' => 'Un dato cualquiera'], '2030-01-01');
+
+        $this->assertSame($a6['cerrado_el'], array_column($despues, null, 'id')['A6']['cerrado_el']);
+        $this->assertSame($this->linea('/^### A6\..*$/m', $md), $this->linea('/^### A6\..*$/m', tablero_defectos_md($despues, $md)));
+        $this->assertSame($this->linea('/^.*<input id="A6".*$/m', $html), $this->linea('/^.*<input id="A6".*$/m', tablero_defectos_html($despues, $html)));
+    }
+
+    public function test_al_cerrar_se_guarda_el_dia_del_cierre_y_no_cambia_despues(): void
+    {
+        $tareas = tablero_leer();
+        $abierto = array_values(array_filter($tareas, fn ($t) => tablero_es_defecto($t) && $t['estado'] !== 'cerrado'))[0]
+            ?? $this->markTestSkipped('No queda ningún defecto abierto para probar el cierre.');
+        $id = $abierto['id'];
+        $md = file_get_contents(tablero_ruta(TABLERO_DEFECTOS));
+
+        $cerradas = tablero_cambiar($tareas, $id, ['estado' => 'cerrado', 'hizo' => 'Claude', 'verifica' => 'Codex'], '2030-01-02');
+        $this->assertSame([], tablero_validar($cerradas));
+        $this->assertSame('2030-01-02', array_column($cerradas, null, 'id')[$id]['cerrado_el']);
+        $this->assertStringContainsString('CERRADO 02/01, verificó Codex', $this->linea("/^### {$id}\\..*$/m", tablero_defectos_md($cerradas, $md)));
+
+        $despues = tablero_cambiar($cerradas, $id, ['paso' => 'Otro dato'], '2030-02-05');
+        $this->assertSame('2030-01-02', array_column($despues, null, 'id')[$id]['cerrado_el']);
+        $this->assertStringContainsString('CERRADO 02/01', $this->linea("/^### {$id}\\..*$/m", tablero_defectos_md($despues, $md)));
+
+        $reabierta = tablero_cambiar($despues, $id, ['estado' => 'devuelto', 'tiene' => 'Claude'], '2030-02-06');
+        $this->assertSame('', array_column($reabierta, null, 'id')[$id]['cerrado_el']);
+        $this->assertStringNotContainsString('CERRADO', $this->linea("/^### {$id}\\..*$/m", tablero_defectos_md($reabierta, $md)));
+    }
+
+    private function linea(string $patron, string $texto): string
+    {
+        $this->assertSame(1, preg_match($patron, $texto, $m), "No encuentro la línea {$patron}.");
+
+        return $m[0];
+    }
+
     private function sinRetornos(string $texto): string
     {
         return str_replace("\r\n", "\n", $texto);
