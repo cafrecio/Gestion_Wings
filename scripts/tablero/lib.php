@@ -657,7 +657,7 @@ function tablero_defectos_html(array $tareas, string $actual): string
         }
         $t = $porId[$m[1]];
         $cerrado = $t['estado'] === 'cerrado';
-        if ($cerrado && $m[2] === ' checked' && str_contains($l, '<span class="tag done">')) {
+        if ($cerrado && ($m[2] ?? '') === ' checked' && str_contains($l, '<span class="tag done">')) {
             continue; // ya figura cerrado: conserva su sello escrito
         }
         $l = str_replace($m[0], '<input id="' . $m[1] . '" type="checkbox"' . ($cerrado ? ' checked' : '') . '>', $l);

@@ -101,6 +101,35 @@ class TableroAlDiaTest extends TestCase
         $this->assertStringNotContainsString('CERRADO', $this->linea("/^### {$id}\\..*$/m", tablero_defectos_md($reabierta, $md)));
     }
 
+    /**
+     * Segunda devolución de Codex (16/10): cerrar un defecto abierto guardaba bien, pero el
+     * generador del HTML leía un dato que solo existe si la casilla ya estaba tildada y PHP
+     * avisaba «Undefined array key 2». Acá cualquier aviso es una falla.
+     */
+    public function test_cerrar_un_defecto_abierto_marca_el_html_sin_avisos(): void
+    {
+        $tareas = tablero_leer();
+        $abierto = array_values(array_filter($tareas, fn ($t) => tablero_es_defecto($t) && $t['estado'] !== 'cerrado'))[0]
+            ?? $this->markTestSkipped('No queda ningún defecto abierto para probar el cierre.');
+        $id = $abierto['id'];
+        $html = file_get_contents(tablero_ruta(TABLERO_DEFECTOS_HTML));
+        $this->assertStringNotContainsString(' checked', $this->linea("/^.*<input id=\"{$id}\".*$/m", $html));
+
+        $cerradas = tablero_cambiar($tareas, $id, ['estado' => 'cerrado', 'hizo' => 'Claude', 'verifica' => 'Codex'], '2030-01-02');
+        set_error_handler(function (int $nivel, string $mensaje, string $archivo, int $linea): never {
+            throw new \ErrorException($mensaje, 0, $nivel, $archivo, $linea);
+        });
+        try {
+            $renglon = $this->linea("/^.*<input id=\"{$id}\".*$/m", tablero_defectos_html($cerradas, $html));
+        } finally {
+            restore_error_handler();
+        }
+
+        $this->assertStringContainsString("<input id=\"{$id}\" type=\"checkbox\" checked>", $renglon);
+        $this->assertStringContainsString('<span class="sello">CERRADO 02/01, verificó Codex</span>', $renglon);
+        $this->assertStringContainsString('<span class="tag done">Cerrado</span></div>', $renglon);
+    }
+
     private function linea(string $patron, string $texto): string
     {
         $this->assertSame(1, preg_match($patron, $texto, $m), "No encuentro la línea {$patron}.");
