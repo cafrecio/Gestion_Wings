@@ -9,7 +9,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-CLAUDE.md)
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
-· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md)
+· [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
+
+## 2026-10-16 — Claude CyE — Tabla de pruebas al día
+
+Carlos respondió DU-60: el Inicio de la operativa muestra los vencidos y, aparte, los que
+están en plazo. Es T74 (caso nuevo CBZ-022). En la tabla, los 39 casos que seguían «a definir»
+con su duda ya respondida pasaron a «no implementado» con el esperado reescrito según la
+decisión (33) o a «vigente» cuando Carlos aceptó lo que hay (ACC-006, ASI-002, REP-015,
+USU-012) o ya está hecho (CBZ-010, T33). Copia del repositorio rehecha. Corregida la dirección
+de la primera carga en los documentos vigentes: es `/sistema/primera-carga`, no `/primera-carga`.
 
 ## 2026-10-15 — Claude CAB — Pasar a produccion lo de prueba: comparacion hecha, sigue en CyE
 
@@ -24,25 +33,39 @@ la bloqueo el permiso automatico. Sigue: leer eso con autorizacion de Carlos, pr
 (respaldo `/root/wings-backup/respaldar.sh`, checkout, composer, npm build, migrate) y esperar su OK.
 Tambien: T10/T12 cargadas en el tablero (`8ad2d87`); trabajo de Codex T11 subido sin cambios (`adcb344`).
 
-## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
+## 13/10/2026 — Corte para seguir en CAB
 
-Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
-bitácoras como algo que no puede pasar»). Regla completa en `AGENTS.md` §5-bis.
+**Repaso de las tareas sin empezar, con Carlos, DE A UNA** (nunca en tandas: «De a 10 no»). Un
+mensaje = una tarea: que es en palabras de usuario, que comprobe hoy en el codigo, mi
+recomendacion y la pregunta «ahora, mejora futura o se cierra». Lo que decide se carga en el
+tablero en el momento. Lo que pasa a mejora futura se renombra a MF; su prioridad va en el campo
+`prioridad` (alta = Prioritaria, baja = Muy a futuro).
+**Decidido hasta aca:** B3 la hace Codex, las cuatro excepciones, cuando termine lo que tiene
+(el prompt se le pasa en ese momento, no antes) · B5 → MF7 · B6 → MF6 prioritaria · B7 cerrada,
+fuera del alcance · B8 → MF8 muy a futuro · B9 → MF9 muy a futuro · B11 punitorios URGENTE, va
+en esta entrega, sin quien la programe todavia.
+**Sigue por:** T10 (privacidad). Ya se la presente y recomende hacerla en esta entrega; falta
+su respuesta. Despues T12, T13, T22, T25 y T34 en adelante, en el orden del tablero.
+**Otros:** T7 aprobada por Codex, falta el OK visual de Carlos. T11 devuelta por Codex a Gemini.
+El tablero visual hay que pulirlo cuando se haga CAB01.
 
-**1. Prohibido escribir JavaScript dentro de una vista.** Ni `<script>` sin `src`, ni
-`onclick` u otro atributo de evento. Va en un archivo de `resources/js/`. Antes de
-escribir, buscar en `ds-app.js` si ya existe. El botón de mostrar la contraseña del
-ingreso se escribió adentro de la pantalla el 21/07 y ahí sigue, aunque `ds-app.js` ya lo
-resuelve para el formulario de usuarios. Cada pantalla así rompe la política de seguridad
-y manda un aviso al servidor en cada carga. Quedan 11 bloques en 10 vistas: los saca T73.
+## 13/10/2026 — T7 y tablero
 
-**2. Una limpieza no queda «en avance» sin dueño ni fecha.** Sacar el código de las
-vistas empezó el 13/09 y quedó a medias un mes, sin tarea en el tablero. Si un trabajo se
-corta, queda una tarea T con lo que falta.
-
-**3. Un número en un documento se corrige cuando cambia.** `ESTADO-ACTUAL` y
-`PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
-Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
+**T7 hecha por mi, `d4f02d4`, desplegada en el sitio de prueba.** Las reglas del menu pasaron
+de `sidebar.css` al final de `app.css` sin cambios; `sidebar.css` ya no existe. Verificado:
+el CSS compilado de antes y el de despues tienen las mismas reglas en el mismo orden, y en el
+sitio de prueba compare los estilos calculados de los 67 elementos del menu a 1366 y 360:
+iguales. Suite en `wings_testing_claude`: 736 aprobadas, 2 omitidas. Falta el OK de Carlos.
+**Tablero:** T6 paso a MF5 y T9 a CAB01, en un grupo aparte «De otros proyectos» que no
+cuenta como pendiente de Wings (`tablero_es_de_otro_proyecto`). T2 la tiene Gemini.
+El cambio de estado de T7 quedo en la carpeta sin publicar: `tareas.json` tenia cambios de
+Gemini sin publicar y no los mezcle en mi commit.
+**T2 (Gemini), devuelta:** el retiro del codigo esta bien y la suite da 724 en mi base. Vuelve porque
+CHECKLIST-CARLOS y ENT-09 (los dos planes) siguen mandando a Carlos a importar el padron con el
+comando retirado. Detalle en `PRU-04/VERIFICACION-T2.md`. T7 y T11 las verifica Codex.
+**T2 cerrada en segunda vuelta** (`0847b37`): documentos corregidos y `wings:exportar-padron` retirado.
+Suite en mi base: 722. B13 y B7 cerradas por decision de Carlos; B5, B6, B8 y B9 pasaron a MF7, MF6,
+MF8 y MF9. El tablero tiene campo `prioridad` y el HTML se rehizo visual (Carlos: falta pulirlo, va en CAB01).
 
 ## 2026-10-13 — Claude CyE — Tabla de pruebas: donde vive y que hay que leer antes de actuar
 
@@ -67,97 +90,22 @@ Copia de la tabla para Codex y Gemini en `PRU-04/tabla-de-pruebas/` (ellos no ab
 **T32 hecho** (`c699bc1`) y hallazgo del sistema (`602efcc`): el limite de ingresos compartia
 contador con los avisos de seguridad; esa era la causa real de los Demasiados intentos.
 
-## 2026-10-12 — Claude CAB — T27 verificado y cerrado; sitio de prueba desplegado en b2efc2e
+## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
 
-**T27 (Codex), requisito de produccion:** el duenio edita o anula sus movimientos directos
-desde Cashflow, con historial y asiento en contra. Lei servicio, rutas y migracion; sus 18
-pruebas pasan en `wings_testing_claude`. Cerrado. Codex encontro y corrigio un error mio de
-T26: un gasto directo del duenio salia como ingreso en el Historial. Observacion: cualquier
-ADMIN corrige el directo de otro ADMIN; queda registrado quien.
-**Suite completa sobre `b2efc2e`: 687 aprobadas, 2 omitidas.**
-**Despliegue al sitio de prueba, por orden de Carlos:** `2e059ff` -> `b2efc2e`, a mano con el
-usuario `wingstest` siguiendo los pasos de `scripts/deploy.sh`. Respaldo previo comprobado:
-`/root/respaldos-manuales/wingstest_antes-del-despliegue_2026-10-12_2301.sql.gz` (46 tablas).
-Tres migraciones, sin errores; composer y npm sin cambios, solo recompilar el diseno.
-**Comprobado despues:** sin migraciones pendientes, fuera de mantenimiento, mismos datos
-(100 alumnos, 4 pagos, 1 caja, 5 de cashflow, 7 usuarios), login 200, archivos de diseno
-200, archivo de instalacion con arranque en el login y tipo correcto, cero errores en el log.
-**No comprobado:** ninguna pantalla con sesion iniciada; no tengo claves del sitio de prueba.
-Produccion no se toco.
+Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
+bitácoras como algo que no puede pasar»). Regla completa en `AGENTS.md` §5-bis.
 
-## 2026-10-12 — Claude CAB — ERROR MIO: borre una base local; T30 y T29 cerrados, suite verde
+**1. Prohibido escribir JavaScript dentro de una vista.** Ni `<script>` sin `src`, ni
+`onclick` u otro atributo de evento. Va en un archivo de `resources/js/`. Antes de
+escribir, buscar en `ds-app.js` si ya existe. El botón de mostrar la contraseña del
+ingreso se escribió adentro de la pantalla el 21/07 y ahí sigue, aunque `ds-app.js` ya lo
+resuelve para el formulario de usuarios. Cada pantalla así rompe la política de seguridad
+y manda un aviso al servidor en cada carga. Quedan 11 bloques en 10 vistas: los saca T73.
 
-**El error.** Para comprobar que las pruebas de T30 rechazaban la base del club, corri una
-con `DB_DATABASE=gestion_wings`. Las pruebas borran todas las tablas antes de ejecutar y el
-rechazo corre despues: la base quedo vacia, sin respaldo. Ademas informe mal el dano: dije
-que era la base de trabajo y que se perdian 70 alumnos. **La base de trabajo de CAB es
-`wings_test` (lo dice `.env`) y esta intacta**; `gestion_wings` era una base vieja que la
-aplicacion ya no usa. Carlos confirmo que no habia nada importante. La rearme: migraciones
-completas y catalogos; sin usuarios, porque `wings:crear-admin` es interactivo.
-**Regla que queda:** la suite se corre solo con `DB_DATABASE=wings_testing_claude`, nunca
-contra otra base ni «para comprobar que la rechaza». Antes de decir que se perdio, leer `.env`.
-**T30 cerrado.** Con permiso de Carlos corregi la condicion de `tests/Support/ImportesT30.php`:
-ahora admite las cuatro bases descartables, como T24. **Suite completa en
-`wings_testing_claude` sobre `ef12770`: 669 aprobadas, 2 omitidas, ningun rojo.**
-**T29 cerrado por Gemini** (`ef12770`); sus 11 pruebas corren verdes en mi base.
-Visto y no tocado: a `wings_test` le faltan 9 migraciones desde el 05/10.
+**2. Una limpieza no queda «en avance» sin dueño ni fecha.** Sacar el código de las
+vistas empezó el 13/09 y quedó a medias un mes, sin tarea en el tablero. Si un trabajo se
+corta, queda una tarea T con lo que falta.
 
-## 2026-10-12 — Claude CAB — T30 devuelto por sus pruebas; reloj del sitio de prueba en hora real
-
-**Sitio de prueba:** nadie podia entrar. El reloj simulado, fijado el 10/10, se freno en la
-medianoche del lunes 12 y el limite de 5 ingresos por minuto dejo de vencer; habia bloqueos
-con 19 y 14 intentos acumulados. Por orden de Carlos volvi el reloj a la hora real
-(`wings:fecha-simulada --real`) y limpie la cache del sitio de prueba. Sigue en `2e059ff`:
-**no se desplego nada**. Defecto de la herramienta, sin tarea todavia: con el reloj frenado
-el limite de intentos deja a todos afuera.
-**T30 (Codex), vistas aprobadas por Carlos:** lei el formateador unico `FormatoImporte` y
-busque restos: lo que queda sin centavos son porcentajes, DNI, cantidades y los graficos,
-que Carlos dejo afuera. Sus 5 pruebas pasan, pero **solo en `wings_testing_codex`**: tienen
-una condicion que las hace fallar en cualquier otra base. Las corri una vez en esa base para
-verlas pasar; en la mia la suite completa da 664 aprobadas, 2 omitidas y esas 5 en rojo.
-Devuelto a Codex solo por eso. T24 ya permite las cuatro bases descartables.
-**T29** lo verifica Gemini. Carlos instalo Wings en su telefono y abre como aplicacion.
-
-
-## 13/10/2026 — T7 y tablero
-
-**T7 hecha por mi, `d4f02d4`, desplegada en el sitio de prueba.** Las reglas del menu pasaron
-de `sidebar.css` al final de `app.css` sin cambios; `sidebar.css` ya no existe. Verificado:
-el CSS compilado de antes y el de despues tienen las mismas reglas en el mismo orden, y en el
-sitio de prueba compare los estilos calculados de los 67 elementos del menu a 1366 y 360:
-iguales. Suite en `wings_testing_claude`: 736 aprobadas, 2 omitidas. Falta el OK de Carlos.
-**Tablero:** T6 paso a MF5 y T9 a CAB01, en un grupo aparte «De otros proyectos» que no
-cuenta como pendiente de Wings (`tablero_es_de_otro_proyecto`). T2 la tiene Gemini.
-El cambio de estado de T7 quedo en la carpeta sin publicar: `tareas.json` tenia cambios de
-Gemini sin publicar y no los mezcle en mi commit.
-**T2 (Gemini), devuelta:** el retiro del codigo esta bien y la suite da 724 en mi base. Vuelve porque
-CHECKLIST-CARLOS y ENT-09 (los dos planes) siguen mandando a Carlos a importar el padron con el
-comando retirado. Detalle en `PRU-04/VERIFICACION-T2.md`. T7 y T11 las verifica Codex.
-**T2 cerrada en segunda vuelta** (`0847b37`): documentos corregidos y `wings:exportar-padron` retirado.
-Suite en mi base: 722. B13 y B7 cerradas por decision de Carlos; B5, B6, B8 y B9 pasaron a MF7, MF6,
-MF8 y MF9. El tablero tiene campo `prioridad` y el HTML se rehizo visual (Carlos: falta pulirlo, va en CAB01).
-
-## 13/10/2026 — Corte para seguir en CAB
-
-**Repaso de las tareas sin empezar, con Carlos, DE A UNA** (nunca en tandas: «De a 10 no»). Un
-mensaje = una tarea: que es en palabras de usuario, que comprobe hoy en el codigo, mi
-recomendacion y la pregunta «ahora, mejora futura o se cierra». Lo que decide se carga en el
-tablero en el momento. Lo que pasa a mejora futura se renombra a MF; su prioridad va en el campo
-`prioridad` (alta = Prioritaria, baja = Muy a futuro).
-**Decidido hasta aca:** B3 la hace Codex, las cuatro excepciones, cuando termine lo que tiene
-(el prompt se le pasa en ese momento, no antes) · B5 → MF7 · B6 → MF6 prioritaria · B7 cerrada,
-fuera del alcance · B8 → MF8 muy a futuro · B9 → MF9 muy a futuro · B11 punitorios URGENTE, va
-en esta entrega, sin quien la programe todavia.
-**Sigue por:** T10 (privacidad). Ya se la presente y recomende hacerla en esta entrega; falta
-su respuesta. Despues T12, T13, T22, T25 y T34 en adelante, en el orden del tablero.
-**Otros:** T7 aprobada por Codex, falta el OK visual de Carlos. T11 devuelta por Codex a Gemini.
-El tablero visual hay que pulirlo cuando se haga CAB01.
-
-## 2026-10-16 — Claude CyE — Tabla de pruebas al día
-
-Carlos respondió DU-60: el Inicio de la operativa muestra los vencidos y, aparte, los que
-están en plazo. Es T74 (caso nuevo CBZ-022). En la tabla, los 39 casos que seguían «a definir»
-con su duda ya respondida pasaron a «no implementado» con el esperado reescrito según la
-decisión (33) o a «vigente» cuando Carlos aceptó lo que hay (ACC-006, ASI-002, REP-015,
-USU-012) o ya está hecho (CBZ-010, T33). Copia del repositorio rehecha. Corregida la dirección
-de la primera carga en los documentos vigentes: es `/sistema/primera-carga`, no `/primera-carga`.
+**3. Un número en un documento se corrige cuando cambia.** `ESTADO-ACTUAL` y
+`PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
+Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
