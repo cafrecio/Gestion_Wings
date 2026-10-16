@@ -1,0 +1,191 @@
+[
+  {
+    "caso": "ACC-003",
+    "renglon": "a.1",
+    "descripcion": "Recarga de /login 10 veces sin ingresar no consume intentos",
+    "resultado": "PASA",
+    "detalle": "Pantalla de login recargada 10 veces sin bloqueos ni errores.",
+    "hora": "10:14:00",
+    "captura": "01-acc03-recargas-login.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "a.2",
+    "descripcion": "Ingreso 1: Dueño (admin@wings.test) entra sin error",
+    "resultado": "PASA",
+    "detalle": "Redirección exitosa a /dashboard",
+    "hora": "10:14:05",
+    "captura": "02-acc03-login1-duenio.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "a.3",
+    "descripcion": "Ingreso 2: Operativa (sandra.vidal@wings.test) entra sin error",
+    "resultado": "PASA",
+    "detalle": "Redirección exitosa a /operativo",
+    "hora": "10:14:10",
+    "captura": "03-acc03-login2-operativa.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "a.4",
+    "descripcion": "Ingreso 3: Profesora (veronica.salinas@wings.test) entra sin error",
+    "resultado": "PASA",
+    "detalle": "Redirección exitosa a /clases",
+    "hora": "10:14:15",
+    "captura": "04-acc03-login3-profesora.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "a.5",
+    "descripcion": "Ingreso 4: Dueño (admin@wings.test) reingresa sin error",
+    "resultado": "PASA",
+    "detalle": "Redirección exitosa a /dashboard",
+    "hora": "10:14:20",
+    "captura": "05-acc03-login4-duenio-reingreso.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "b",
+    "descripcion": "Sexto intento en menos de un minuto bloqueado por límite de IP",
+    "resultado": "PASA",
+    "detalle": "Muestra mensaje en castellano: «Esperá un momento · Demasiados intentos seguidos» con botón Volver",
+    "hora": "10:15:25",
+    "captura": "06-acc03-throttle-6to-intento.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "c",
+    "descripcion": "Durante el bloqueo de IP, otra cuenta también queda bloqueada",
+    "resultado": "PASA",
+    "detalle": "Sandra Vidal recibe el mismo bloqueo por IP",
+    "hora": "10:15:28",
+    "captura": "07-acc03-bloqueo-otra-cuenta.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "d",
+    "descripcion": "Pasado un minuto sin intentos, el ingreso vuelve a funcionar normalmente",
+    "resultado": "PASA",
+    "detalle": "Ingreso exitoso como admin tras 65s de espera",
+    "hora": "10:16:38",
+    "captura": "08-acc03-reingreso-post-minuto.png"
+  },
+  {
+    "caso": "ACC-003",
+    "renglon": "e",
+    "descripcion": "Sesión abierta previamente sigue trabajando normalmente",
+    "resultado": "PASA",
+    "detalle": "Sesión paralela de Sandra en /operativo activa y funcional",
+    "hora": "10:16:45",
+    "captura": "09-acc03-sesion-paralela-intacta.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "0",
+    "descripcion": "Tres clases disponibles en Hoy antes de la prueba",
+    "resultado": "PASA",
+    "detalle": "C1: ID 20 | C2: ID 79 | C3 (Control): ID 80",
+    "hora": "10:10:23",
+    "captura": "10-cla11-clases-hoy-inicial.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "a.1",
+    "descripcion": "Sin motivo no cancela y muestra «El motivo es obligatorio»",
+    "resultado": "PASA",
+    "detalle": "Aviso visible: El motivo es obligatorio.",
+    "hora": "10:10:30",
+    "captura": "11-cla11-sandra-sin-motivo.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "a.2",
+    "descripcion": "Con motivo se cancela: badge Cancelada y asistencia bloqueada",
+    "resultado": "PASA",
+    "detalle": "Badge: Cancelada, Guardar deshabilitado: true",
+    "hora": "10:10:33",
+    "captura": "12-cla11-sandra-cancelada-con-motivo.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "a.3",
+    "descripcion": "Sigue figurando en Hoy, al final, apagada, con «Cancelada» y el motivo",
+    "resultado": "PASA",
+    "detalle": "Card en Hoy: 16:00 – 17:00 Cancelada | Motivo: Lluvia y pista resbaladiza | Grupo: | Patín — Intermedias | Profesores: | Salinas | Asistencia: | Pendiente | Ver, Opacidad: 0.6",
+    "hora": "10:10:35",
+    "captura": "13-cla11-sandra-listado-hoy-cancelada.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "a.4",
+    "descripcion": "El filtro Cancelada del día la encuentra",
+    "resultado": "PASA",
+    "detalle": "Encontrada en filtro: true",
+    "hora": "10:10:38",
+    "captura": "14-cla11-sandra-filtro-cancelada.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "b.1",
+    "descripcion": "Dueño cancela Clase 2 con motivo",
+    "resultado": "PASA",
+    "detalle": "Badge: Cancelada",
+    "hora": "10:10:46",
+    "captura": "15-cla11-admin-cancelada-con-motivo.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "b.2",
+    "descripcion": "Dueño ve ambas clases canceladas al final en /clases",
+    "resultado": "PASA",
+    "detalle": "Visualización de listado Hoy con canceladas al final",
+    "hora": "10:10:49",
+    "captura": "16-cla11-admin-listado-hoy-canceladas.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "c",
+    "descripcion": "Profesora ve la clase cancelada y no puede tomar asistencia (Guardar deshabilitado y cartel)",
+    "resultado": "PASA",
+    "detalle": "Badge: Cancelada, Guardar deshabilitado: true, Banner: true",
+    "hora": "10:10:55",
+    "captura": "17-cla11-profesora-ve-cancelada.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "d.1",
+    "descripcion": "El encabezado de clases de hoy no cuenta las canceladas (muestra 1 activa)",
+    "resultado": "PASA",
+    "detalle": "Encabezado: WINGS DÍA A DÍA Inicio Alumnos Clases Sin asistencia 41 PLATA Cobranza Caja Movimientos Revisión EL CLUB Grupos Sandra Vidal Salir Clases CLASES DE HOY — VIERNES 16 DE OCTUBRE · 1 CLASE(S) 18:00 – 19:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver 16:00 – 17:00 Cancelada Motivo: Lluvia y pista resbaladiza Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver 17:00 – 18:00 Cancelada Motivo: Cancha anegada por temporal Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Deporte Fútbol Patín Grupo Fútbol — Avanzadas Fútbol — Principiantes Patín — Avanzadas Patín — Federadas Patín — Intermedias Patín — Principiantes Profesor Directora, Vanina Gaitán, Lucía Ocampo, Mariela Quintana, Hernán Salinas, Verónica Estado Programada Finalizada Cerrada Cancelada Orden Más recientes Más antiguas Grupo A–Z Limpiar Filtrar Mostrando 1 a 20 de 30 clase(s) Sáb 17/10/2026 — 10:00 a 11:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Sáb 17/10/2026 — 11:00 a 12:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Lun 19/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Lun 19/10/2026 — 16:00 a 17:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Lun 19/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Mar 20/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Mar 20/10/2026 — 18:00 a 19:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Mar 20/10/2026 — 19:00 a 20:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Mié 21/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Mié 21/10/2026 — 18:00 a 19:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Jue 22/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Jue 22/10/2026 — 18:00 a 19:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Jue 22/10/2026 — 19:00 a 20:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Vie 23/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Sáb 24/10/2026 — 10:00 a 11:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Sáb 24/10/2026 — 11:00 a 12:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Lun 26/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Lun 26/10/2026 — 16:00 a 17:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Lun 26/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Mar 27/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Mostrando 1 a 20 de 30 resultados 1 2 Wings",
+    "hora": "10:11:02",
+    "captura": "18-cla11-encabezado-hoy.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "d.2",
+    "descripcion": "No entra al contador «Sin asistencia» del menú",
+    "resultado": "PASA",
+    "detalle": "Menú visto: WINGS DÍA A DÍA Inicio Alumnos Clases Sin asistencia 41 PLATA Cobranza Caja Movimientos Revisión EL CLUB Grupos Sandra Vidal Salir Clases CLASES DE HOY — VIERNES 16 DE OCTUBRE · 1 CLASE(S) 18:00 – 19:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver 16:00 – 17:00 Cancelada Motivo: Lluvia y pista resbaladiza Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver 17:00 – 18:00 Cancelada Motivo: Cancha anegada por temporal Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Deporte Fútbol Patín Grupo Fútbol — Avanzadas Fútbol — Principiantes Patín — Avanzadas Patín — Federadas Patín — Intermedias Patín — Principiantes Profesor Directora, Vanina Gaitán, Lucía Ocampo, Mariela Quintana, Hernán Salinas, Verónica Estado Programada Finalizada Cerrada Cancelada Orden Más recientes Más antiguas Grupo A–Z Limpiar Filtrar Mostrando 1 a 20 de 30 clase(s) Sáb 17/10/2026 — 10:00 a 11:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Sáb 17/10/2026 — 11:00 a 12:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Lun 19/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Lun 19/10/2026 — 16:00 a 17:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Lun 19/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Mar 20/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Mar 20/10/2026 — 18:00 a 19:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Mar 20/10/2026 — 19:00 a 20:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Mié 21/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Mié 21/10/2026 — 18:00 a 19:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Jue 22/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Jue 22/10/2026 — 18:00 a 19:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Jue 22/10/2026 — 19:00 a 20:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Vie 23/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Sáb 24/10/2026 — 10:00 a 11:00 Programada Grupo: Patín — Federadas Profesores: Ocampo Asistencia: Pendiente Ver Sáb 24/10/2026 — 11:00 a 12:00 Programada Grupo: Fútbol — Avanzadas Profesores: Quintana Asistencia: Pendiente Ver Lun 26/10/2026 — 16:00 a 17:00 Programada Grupo: Patín — Principiantes Profesores: Gaitán Asistencia: Pendiente Ver Lun 26/10/2026 — 16:00 a 17:00 Programada Grupo: Fútbol — Principiantes Profesores: Quintana Asistencia: Pendiente Ver Lun 26/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Intermedias Profesores: Salinas Asistencia: Pendiente Ver Mar 27/10/2026 — 17:00 a 18:00 Programada Grupo: Patín — Avanzadas Profesores: Gaitán Asistencia: Pendiente Ver Mostrando 1 a 20 de 30 resultados 1 2 Wings",
+    "hora": "10:11:02",
+    "captura": "19-cla11-menu-sin-asistencia.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "d.3",
+    "descripcion": "Deja de figurar entre las clases de hoy en el Inicio de la operativa",
+    "resultado": "PASA",
+    "detalle": "Canceladas en inicio: false",
+    "hora": "10:11:05",
+    "captura": "20-cla11-inicio-operativo-sin-canceladas.png"
+  },
+  {
+    "caso": "CLA-011",
+    "renglon": "e",
+    "descripcion": "Tercera clase sigue normal (control activo, no cancelada, asistencia habilitada)",
+    "resultado": "PASA",
+    "detalle": "Badge: Activa, Guardar habilitado: true",
+    "hora": "10:11:07",
+    "captura": "21-cla11-clase-control-activa.png"
+  }
+]

@@ -10,6 +10,28 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 
+## 2026-10-16 — LOG GEM CYE — Ejecución T4: Repetición de los cuatro casos fallados en el sitio de prueba (ACC-003 y CLA-011)
+
+- **Objetivo y resultado:** Repetición integral en el sitio de prueba real (`https://test.gestionar-te.com.ar`, commit `d4f02d4`, hora real) de los 4 defectos del 11/10 previamente corregidos en `602efcc` y T21 (`44d5ba7`). Resultado: **21/21 comprobaciones PASA (100%)**.
+- **Caso ACC-003 (D02-04 — Límite de ingresos y recargas):**
+  - Se recargó `/login` 10 veces sin ingresar credenciales: no consumió intentos de rate limit.
+  - Se ingresó con 4 cuentas válidas sucesivamente (dueño, operativa, profesora, dueño): todas accedieron sin trabas.
+  - 6 intentos rápidos en menos de 1 minuto dispararon el bloqueo por IP con pantalla en castellano (*«Esperá un momento · Demasiados intentos seguidos»* y botón *Volver*).
+  - Durante el bloqueo, otra cuenta distinta recibió la misma restricción a nivel IP. Tras 65s sin peticiones, el login volvió a habilitarse con éxito.
+  - Una sesión paralela abierta previamente (Sandra en `/operativo`) se mantuvo intacta y operativa en todo momento.
+- **Caso CLA-011 (D03-01, D03-02, D03-03 — Cancelación de clases de hoy):**
+  - Se preparó escenario con 3 clases de hoy (1 para cancelar Sandra, 1 para cancelar Admin y 1 de control activa).
+  - Sandra canceló sin motivo: el frontend bloqueó la acción y exigió motivo en rojo (*«El motivo es obligatorio.»*).
+  - Sandra canceló con motivo (*«Lluvia y pista resbaladiza»*): la ficha pasó a `Cancelada`, asistencia bloqueada y al volver a `/clases` quedó al fondo de hoy con opacidad reducida (`opacity: 0.6`), badge `Cancelada` y motivo visible. El filtro `estado=cancelada&fecha=2026-10-16` la halló correctamente.
+  - El dueño canceló la segunda clase con motivo (*«Cancha anegada por temporal»*): modal operable sin trabas y en listado de hoy quedó al fondo junto a la primera.
+  - La profesora Salinas (`veronica.salinas@wings.test`) ingresó a su clase cancelada: visualizó badge `Cancelada`, cartel de advertencia y botón *Guardar* inexistente (imposibilitada de tomar asistencia).
+  - Verificaciones adicionales: el encabezado de hoy descontó las dos canceladas (mostró `1 CLASE(S)`), el menú *«Sin asistencia»* no sumó pendientes (se mantuvo en 41), el inicio de la operativa (`/operativo`) no mostró las canceladas, y la clase de control (ID 80) permaneció `Activa` con asistencia habilitada.
+- **Entregables:**
+  - Informe detallado: `docs/06-pruebas/PRU-04/REPETICION-T4.md`.
+  - 21 capturas reales: `docs/06-pruebas/PRU-04/evidencia-t4/` (`01-acc03...` a `21-cla11...`).
+  - Runner y telemetría de ejecución: `scripts/pruebas/cdp-helper.mjs`, `scripts/pruebas/ejecutar-t4-caso2-v2.mjs` y `resultados-ejecucion.json`.
+- **Tablero:** El estado de T4 en el tablero no se modifica (lo actualizará Claude en la tabla de pruebas al revisar el informe, según decisión 6a).
+
 ## 2026-10-16 — LOG GEM CYE — Tercera vuelta T11: Corrección documental de fuentes y formato de capturas
 
 - **Objetivo y resultado:** Resolución de la devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md`). Se subsanaron las observaciones documentales en `IMPLEMENTACION-T11.md` sin alterar código, manifest, imágenes PNG, vistas ni estilos CSS.
