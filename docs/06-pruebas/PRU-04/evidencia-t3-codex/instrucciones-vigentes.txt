@@ -1,0 +1,32 @@
+docs/00-estado/PROTOCOLO-CONTINUIDAD.md:45:- Separar IMPLEMENTADA, VERIFICADA y DESPLEGADA. No afirmar sincronización sin comprobarla.
+docs/00-estado/RESUMEN-ARRANQUE.md:12:- Las evaluaciones del 8/9 son históricas: no tratarlas como defectos actuales.
+docs/00-estado/RESUMEN-ARRANQUE.md:41:  solo ADMIN, motivo 10–500 e historial conservado. 31 pruebas propias y capturas 1366/marco360.
+docs/00-estado/RESUMEN-ARRANQUE.md:45:- **T24, 11/10, implementada por Codex CAB:** 16 pantallas/modos, componente y código comunes. Carlos decidió coma decimal aceptada, mostrar `48,000.50` y recortar el tercer decimal con texto rojo/aviso de 4 s sin bloquear. Pedidos directos inválidos rechazados sin escribir; cero/reglas/cálculos conservados. 1292 controles de navegador y 90 PNG en marco360/escritorio; 18/18 campos anteriores detectan regresión sobre dd62c64. Suite 641/2 verde. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni despliegue, sitio de prueba/reloj intactos por Codex. La integración de T24 en el controlador compartido entró en `03aaf11` de T23; trabajo ajeno de Historial/permisos fuera del commit propio.
+docs/00-estado/RESUMEN-ARRANQUE.md:52:- **T15,10/10:** pantallas404/500/503/429 en castellano e Inicio en el menú. Carlos confirmó «Sí, conservar permisos y login». Suite594/2 verde. Errores graves sin sesión/base: conexión al puerto1 y mantenimiento real comprobados. Capturas1366/marco360; entrega lista, a_verificar por Claude, sin desplegar. [Informe](../06-pruebas/PRU-02/IMPLEMENTACION-T15.md). B10 ya figura cerrado en el tablero; A42 cerrado, no duplicar consulta inicial.
+docs/00-estado/RESUMEN-ARRANQUE.md:56:- **A14/A27/A53, CERRADOS 07/10 (verificado Gemini, contrastado Claude; [informe](../06-pruebas/PRU-02/VERIFICACION-A14-A27-A53.md)):** Carlos abrió el visor ANTES/DESPUÉS y dio el OK. Cartel A14 dinámico con JS externo, barra móvil en cinco formularios y tarjetas completas. 74 capturas reales; tres roles, 20 alumnos y precios grandes. Suite propia **489 aprobadas/2 omitidas, 3924 aserciones, 257,64 s**; build/vistas correctos. [Propuesta aprobada](../06-pruebas/PRU-02/PROPUESTA-A14-A27-A53.md) y [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A14-A27-A53.md). **Cada defecto en a_verificar, hizo Codex, tiene nadie: falta asignar verificador.** Sin autocierre ni deploy. T1 conserva lo pendiente fuera de estas pantallas.
+docs/00-estado/RESUMEN-ARRANQUE.md:63:  Corte versionado: 41/72 y ningún defecto que frene. A53 fue DEVUELTO a Gemini por Codex CyE 06/10.
+AGENTS.md:46:El plan vigente identifica las tareas que pueden requerir vistas. Esa marca **no es
+AGENTS.md:77:**Y la captura de celular se saca dentro de un marco, no achicando la ventana** —
+AGENTS.md:81:defecto que no existia. La forma correcta es una pagina con un `<iframe>` de 375 de ancho
+AGENTS.md:83:`docs/06-pruebas/PRU-02/capturas-cashflow/marco-375.html`.
+AGENTS.md:369:la base por defecto para quien corra la suite sin variable, y la base de trabajo del club
+AGENTS.md:408:defectos no tenían dueño ni próximo paso, y Carlos dio por hecho algo que no lo estaba.
+AGENTS.md:410:Desde el 16/10 (T3) tampoco se marca a mano el estado de un defecto: el encabezado de cada uno
+AGENTS.md:411:en `DEFECTOS.md` y su tilde y sello en `DEFECTOS.html` los reescribe el mismo comando.
+AGENTS.md:413:El texto de cada defecto (qué pasa, por qué importa, dónde) se sigue escribiendo a mano.
+AGENTS.md:493:**AUD-021.** La auditoría lo marcaba CRÍTICO: ajustar una deuda deja plata sin
+AGENTS.md:519:| `docs/00-estado/PLAN-PRODUCCION.md` | Tareas marcadas pendientes que ya se hicieron |
+AGENTS.md:527:abierto y pendiente de decision un defecto que ya estaba cerrado.
+AGENTS.md:638:del `migrate --seed` literal, y que el defecto seguía presente.
+docs/00-estado/QUIEN-HACE-QUE.md:31:Último cambio: 16/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
+docs/00-estado/QUIEN-HACE-QUE.md:51:| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d4f02d4 desde el 13/10 (T7; incluye T31, T32, T33 y el limite de ingresos), reloj en hora real, 100 alumnos de la primera carga de PRU-03. Falta repetir en el sitio los casos de la tabla marcados arreglados y sin resolver: D02-04 (ACC-003, ingreso de Sandra, arreglado en T32) y D03-01 a D03-03 (CLA-011, clases canceladas, T21). Si pasan, se cierra |
+docs/00-estado/QUIEN-HACE-QUE.md:57:| **T3** Pasar el seguimiento al tablero unico | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude el 16/10. El estado de cada defecto en DEFECTOS.md y DEFECTOS.html sale del tablero al correr el comando; el comando traer se quito; TableroAlDiaTest (3 pruebas) falla si un archivo generado no coincide con tareas.json. Codex verifica: que cambiar una tarea reescriba los cuatro archivos, que la prueba detecte una edicion a mano y que ningun defecto haya cambiado de estado |
+docs/00-estado/QUIEN-HACE-QUE.md:95:7. **Los bloques del plan (P0, P1, P2…) se marcan igual que los defectos.** P1 figuraba sin
+docs/00-estado/QUIEN-HACE-QUE.md:97:8. **El estado de un defecto no se escribe a mano** (desde el 16/10, T3). El encabezado de cada
+docs/00-estado/QUIEN-HACE-QUE.md:98:   defecto en `DEFECTOS.md` y su tilde en `DEFECTOS.html` salen del tablero al correr el comando.
+docs/00-estado/QUIEN-HACE-QUE.md:100:9. **Las capturas de celular van en un marco de 375**, no achicando la ventana de Chrome:
+docs/00-estado/QUIEN-HACE-QUE.md:103:   `docs/06-pruebas/PRU-02/capturas-cashflow/marco-375.html`.
+CLAUDE.md:26:cambio, y sobre todo el barrido antes de cerrar una tarea. Los defectos de la semana del
+CLAUDE.md:57:nada. Un aviso diario por Telegram avisa si la sincronizacion quedo rota, en vez de
+CLAUDE.md:63:`ssh vps` falla, verificar la sincronizacion (`--verificar`), no agregar claves a mano.
+CLAUDE.md:165:`php artisan wings:crear-admin`. No importar un dump para sincronizar computadoras.

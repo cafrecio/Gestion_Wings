@@ -1,0 +1,29 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+.F.                                                                 3 / 3 (100%)
+
+Time: 00:00.422, Memory: 12.00 MB
+
+There was 1 failure:
+
+1) Tests\Feature\TableroAlDiaTest::test_lo_generado_coincide_con_tareas_json
+Estos archivos no coinciden con tareas.json:
+  docs/06-pruebas/PRU-02/DEFECTOS.html
+
+Se editaron a mano o falta regenerar: php scripts/tablero/tablero.php generar
+
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &0 []
++Array &0 [
++    0 => 'docs/06-pruebas/PRU-02/DEFECTOS.html',
++]
+
+C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-f4e6436\tests\Feature\TableroAlDiaTest.php:43
+
+FAILURES!
+Tests: 3, Assertions: 3, Failures: 1.

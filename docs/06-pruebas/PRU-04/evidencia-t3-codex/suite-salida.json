@@ -1,0 +1,1 @@
+{"exitCode":0,"base":"wings_testing_codex","commit":"f4e6436","comando":"DB_DATABASE=wings_testing_codex php artisan test --no-ansi"}

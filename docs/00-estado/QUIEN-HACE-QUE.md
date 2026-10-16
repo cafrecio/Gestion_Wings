@@ -48,13 +48,13 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T3** Pasar el seguimiento al tablero unico | Devuelto (hizo Claude, verifica Codex) | Conservar la fecha real del cierre: cambiar solo paso de A6 mueve CERRADO 08/10 a 16/10 y el guardian sigue verde. Agregar regresion. Ver VERIFICACION-T3-CODEX.md |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d4f02d4 desde el 13/10 (T7; incluye T31, T32, T33 y el limite de ingresos), reloj en hora real, 100 alumnos de la primera carga de PRU-03. Falta repetir en el sitio los casos de la tabla marcados arreglados y sin resolver: D02-04 (ACC-003, ingreso de Sandra, arreglado en T32) y D03-01 a D03-03 (CLA-011, clases canceladas, T21). Si pasan, se cierra |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T3** Pasar el seguimiento al tablero unico | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude el 16/10. El estado de cada defecto en DEFECTOS.md y DEFECTOS.html sale del tablero al correr el comando; el comando traer se quito; TableroAlDiaTest (3 pruebas) falla si un archivo generado no coincide con tareas.json. Codex verifica: que cambiar una tarea reescriba los cuatro archivos, que la prueba detecte una edicion a mano y que ningun defecto haya cambiado de estado |
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Tercera vuelta: informe corregido (WebP y enlaces). Codex repite Application > Manifest y la suite en su base |
 
 ## Gemini

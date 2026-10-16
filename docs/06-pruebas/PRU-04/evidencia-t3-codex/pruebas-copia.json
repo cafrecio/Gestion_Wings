@@ -1,0 +1,135 @@
+{
+  "copia": "C:\\xampp\\htdocs\\Gestion_Wings\\storage\\app\\verificacion-t3-codex-f4e6436",
+  "base": "wings_testing_codex",
+  "sinConexionBdEnEstasPruebas": true,
+  "casos": [
+    {
+      "nombre": "base-sana",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    },
+    {
+      "nombre": "cambiar-B11-paso",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    },
+    {
+      "nombre": "cambiar-B11-estado",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    },
+    {
+      "nombre": "casilla-a-mano",
+      "exitCode": 1,
+      "esperado": 1,
+      "archivoNombrado": "docs/06-pruebas/PRU-02/DEFECTOS.html",
+      "cumple": true
+    },
+    {
+      "nombre": "encabezado-a-mano",
+      "exitCode": 1,
+      "esperado": 1,
+      "archivoNombrado": "docs/06-pruebas/PRU-02/DEFECTOS.md",
+      "cumple": true
+    },
+    {
+      "nombre": "numero-a-mano",
+      "exitCode": 1,
+      "esperado": 1,
+      "archivoNombrado": "docs/00-estado/TABLERO.html",
+      "cumple": true
+    },
+    {
+      "nombre": "cinco-archivos-CRLF",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    },
+    {
+      "nombre": "ficha-html-ausente-guardian-nuevo",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    },
+    {
+      "nombre": "ficha-html-ausente-guardian-anterior",
+      "exitCode": 1,
+      "esperado": 1,
+      "archivoNombrado": "A1",
+      "cumple": true
+    },
+    {
+      "nombre": "restaurada-sana",
+      "exitCode": 0,
+      "esperado": 0,
+      "archivoNombrado": null,
+      "cumple": true
+    }
+  ],
+  "escrituraB11": [
+    {
+      "archivo": "docs/00-estado/tareas.json",
+      "contenidoCambio": true,
+      "mtimeCambio": true
+    },
+    {
+      "archivo": "docs/00-estado/TABLERO.html",
+      "contenidoCambio": true,
+      "mtimeCambio": true
+    },
+    {
+      "archivo": "docs/00-estado/QUIEN-HACE-QUE.md",
+      "contenidoCambio": false,
+      "mtimeCambio": true
+    },
+    {
+      "archivo": "docs/06-pruebas/PRU-02/DEFECTOS.md",
+      "contenidoCambio": false,
+      "mtimeCambio": true
+    },
+    {
+      "archivo": "docs/06-pruebas/PRU-02/DEFECTOS.html",
+      "contenidoCambio": false,
+      "mtimeCambio": true
+    }
+  ],
+  "escrituraEstado": [
+    {
+      "archivo": "docs/00-estado/tareas.json",
+      "contenidoCambio": true
+    },
+    {
+      "archivo": "docs/00-estado/TABLERO.html",
+      "contenidoCambio": true
+    },
+    {
+      "archivo": "docs/00-estado/QUIEN-HACE-QUE.md",
+      "contenidoCambio": true
+    },
+    {
+      "archivo": "docs/06-pruebas/PRU-02/DEFECTOS.md",
+      "contenidoCambio": true
+    },
+    {
+      "archivo": "docs/06-pruebas/PRU-02/DEFECTOS.html",
+      "contenidoCambio": true
+    }
+  ],
+  "restaurada": true,
+  "compartidaIntacta": true,
+  "shaCompartidos": {
+    "docs/00-estado/tareas.json": "ca502d0502e848d17d3239a38bc3820207561a6e48ca77cf5d40b46e4163d601",
+    "docs/00-estado/TABLERO.html": "e0f506a2bf5bc1df6de4cfaba87fd704ec0e3d0e6ff0292fa958294ac16494f0",
+    "docs/00-estado/QUIEN-HACE-QUE.md": "30bb975b356e720b5f9c0c6c37b9605c9ef68c27b7aa4bba4c61ce20f719559c",
+    "docs/06-pruebas/PRU-02/DEFECTOS.md": "374e9ff9ea71c8dc9b3e73fa349c438e363077da34d087650ec8be2833ac090b",
+    "docs/06-pruebas/PRU-02/DEFECTOS.html": "8d89bca054e79960894c258ecd6ef715e5334c662828a364b67be93fc651e9bc"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "comando": "php scripts/tablero/tablero.php cambiar A6 paso=\"prueba\"",
+  "antes": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "",
+      "ref": "",
+      "fecha": "2026-10-08"
+    },
+    "encabezado": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 08/10, verificó Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\" <span class=\"sello\">CERRADO 08/10, verificó Carlos</span><span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "despues": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "prueba",
+      "ref": "",
+      "fecha": "2026-10-16"
+    },
+    "encabezado": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 16/10, verificó Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\" <span class=\"sello\">CERRADO 16/10, verificó Carlos</span><span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "estadoSigueCerrado": true,
+  "fechaCierreTextoCambio": true,
+  "guardianExitCode": 0,
+  "compartidaIntacta": true
+}

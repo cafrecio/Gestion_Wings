@@ -1,0 +1,29 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+F..                                                                 3 / 3 (100%)
+
+Time: 00:00.020, Memory: 12.00 MB
+
+There was 1 failure:
+
+1) Tests\Feature\DefectosNoDivergenTest::test_los_dos_archivos_listan_los_mismos_defectos
+Estos defectos están en la lista y no en el tablero que abre Carlos:
+  A1
+
+Agregarlos a docs/06-pruebas/PRU-02/DEFECTOS.html
+
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &0 []
++Array &0 [
++    0 => 'A1',
++]
+
+C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-f4e6436\tests\Feature\DefectosNoDivergenTest.php:33
+
+FAILURES!
+Tests: 3, Assertions: 11, Failures: 1.

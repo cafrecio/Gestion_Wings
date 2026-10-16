@@ -1,5 +1,16 @@
 # Wings — Estado actual
 
+## T3 — Verificación devuelta a Claude, 16/10/2026
+
+Codex CyE comparó `f4e6436` con su anterior: 70 defectos, cero cambios abierto/cerrado
+y cuerpos intactos; 56 encabezados distintos. Copia aislada: cinco archivos escritos,
+tres ediciones manuales detectadas y CRLF verde. Se devuelve porque cambiar solo
+el paso de A6 altera el cierre de 08/10 a 16/10 y el guardián sigue verde.
+Suite propia: 723 aprobadas/2 omitidas, 6929 aserciones, 887.55 s; los diez casos
+de PerdonConcurrenteT33Test pasan en la suite completa. Siguen siendo 725 pruebas.
+[Verificación y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md).
+Sin corrección del generador, producto, datos del club, reloj o despliegue.
+
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 
 Gemini CyE retiró los importadores de consola antiguos (`wings:importar-padron`, `wings:importar-deuda-inicial` y `wings:exportar-padron`), sus servicios asociados (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 16 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/sistema/primera-carga`). Documentación histórica, órdenes y planillas archivadas en `docs/99-archivo/`. Suite en 722 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
