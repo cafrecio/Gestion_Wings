@@ -352,7 +352,8 @@ class ReciboService
         }
 
         foreach ($pago->cargos as $cargo) {
-            $periodos[] = ['periodo' => '', 'periodo_texto' => 'Inscripción al club — por única vez', 'monto_aplicado' => $cargo->pivot->monto_aplicado];
+            $periodos[] = ['periodo' => $cargo->deudaCuota?->periodo ?? '',
+                'periodo_texto' => $cargo->descripcion, 'monto_aplicado' => $cargo->pivot->monto_aplicado];
         }
         return $periodos;
     }

@@ -223,6 +223,37 @@
             @endif
         </div>
 
+        @if($punitorios->isNotEmpty())
+        <div id="recargos-mora" class="pt-3 mb-4" style="border-top:1px solid var(--color-border);">
+            <p class="text-xs mb-2 text-wings-muted">Recargos por mora</p>
+            @foreach($punitorios as $cargo)
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded mb-1"
+                 style="border:1px solid var(--color-border);">
+                <div class="text-xs min-w-0">
+                    <p>{{ $cargo->descripcion }}</p>
+                    <p class="text-wings-muted">Pendiente: {{ \App\Support\FormatoImporte::pesos(max(0, $cargo->saldo_pendiente)) }}
+                        @if((float) $cargo->monto_condonado > 0) · Condonado: {{ \App\Support\FormatoImporte::pesos($cargo->monto_condonado) }} @endif
+                    </p>
+                </div>
+                <div class="flex justify-end items-center gap-2">
+                    @if($cargo->saldo_pendiente > 0)
+                    <a href="{{ route('web.caja.cobrar', $alumno->id) }}" class="ds-btn-row ds-btn-row--sec">Cobrar</a>
+                    @endif
+                    @if(Auth::user()->isAdmin())
+                        @if((float) $cargo->monto_condonado > 0)
+                        <button type="button" class="ds-btn-row ds-btn-row--sec"
+                                data-abrir-reactivar="{{ route('web.punitorios.reactivar', $cargo->id) }}">Reactivar</button>
+                        @elseif($cargo->saldo_pendiente > 0)
+                        <button type="button" class="ds-btn-row ds-btn-row--dang"
+                                data-abrir-condonar="{{ route('web.punitorios.condonar', $cargo->id) }}">Condonar</button>
+                        @endif
+                    @endif
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+
         {{-- Tutor --}}
         @if($cuotasCondonadas->isNotEmpty())
         <div id="cuotas-condonadas" class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">

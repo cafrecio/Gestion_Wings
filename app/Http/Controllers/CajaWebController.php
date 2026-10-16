@@ -740,10 +740,14 @@ class CajaWebController extends Controller
             return redirect()->route('web.caja.index')->with('error', $e->getMessage());
         }
 
+        $punitorios = app(\App\Services\CobranzaEstadoService::class)
+            ->recargosPendientesPorAlumno(collect([$alumnoId]))->get($alumnoId, collect())->keyBy('deuda_cuota_id');
         $alumno = Alumno::with([
             'deporte', 'grupo.planesActivos',
             'planActivo.plan',
-            'deudaCuotas' => fn($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)->orderBy('periodo'),
+            'deudaCuotas' => fn($q) => $q->where(fn ($q) => $q
+                ->whereIn('estado', [DeudaCuota::ESTADO_PENDIENTE, DeudaCuota::ESTADO_AJUSTADA])
+                ->orWhereIn('id', $punitorios->keys()))->orderBy('periodo'),
         ])->findOrFail($alumnoId);
 
         // Bloquear cobro si el alumno no tiene un plan activo con precio válido
@@ -863,7 +867,7 @@ class CajaWebController extends Controller
                 : $precioDelMes;
         }
 
-        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento', 'mesesAdelantables'));
+        return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento', 'mesesAdelantables', 'punitorios'));
     }
 
     /**
@@ -960,12 +964,18 @@ class CajaWebController extends Controller
             }
         }
         $periodoMasAntiguo = $periodosSolicitados->first();
+        $recargosPendientes = app(\App\Services\CobranzaEstadoService::class)
+            ->recargosPendientesPorAlumno(collect([$alumnoId]))->get($alumnoId, collect())->keyBy('deuda_cuota_id');
         $deudasAnteriores = DeudaCuota::where('alumno_id', $alumnoId)
             ->when($periodoMasAntiguo === null, fn ($query) => $query->whereRaw('1 = 0'))
-            ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+            ->where(fn ($q) => $q->where('estado', DeudaCuota::ESTADO_PENDIENTE)
+                ->orWhereIn('id', $recargosPendientes->keys()))
             ->when($periodoMasAntiguo !== null, fn ($query) => $query->where('periodo', '<', $periodoMasAntiguo))
             ->orderBy('periodo')
             ->get();
+        $saldoAnterior = round((float) $deudasAnteriores->sum(fn ($deuda) =>
+            ($deuda->estado === DeudaCuota::ESTADO_CONDONADA ? 0 : $deuda->saldo_pendiente)
+            + ($recargosPendientes->get($deuda->id)?->saldo_para_cobranza ?? 0)), 2);
         $requiereAvisoDeudaAnterior = $deudasAnteriores->isNotEmpty();
 
         if ($requiereAvisoDeudaAnterior && !$request->boolean('confirmar_deuda_anterior')) {
@@ -974,11 +984,11 @@ class CajaWebController extends Controller
                 'requiere_confirmacion' => true,
                 'cantidad_meses' => $deudasAnteriores->count(),
                 'periodos' => $deudasAnteriores->pluck('periodo')->values()->all(),
-                'monto_total' => (float) $deudasAnteriores->sum('saldo_pendiente'),
+                'monto_total' => $saldoAnterior,
                 'message' => sprintf(
                     'Quedan %d meses anteriores impagos por $%s (%s).',
                     $deudasAnteriores->count(),
-                    \App\Support\FormatoImporte::numero((float) $deudasAnteriores->sum('saldo_pendiente')),
+                    \App\Support\FormatoImporte::numero($saldoAnterior),
                     $deudasAnteriores->pluck('periodo')->implode(', ')
                 ),
             ], 409);
@@ -1036,7 +1046,6 @@ class CajaWebController extends Controller
                 }
 
                 $deudas = DeudaCuota::where('alumno_id', $alumnoId)
-                    ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
                     ->whereIn('periodo', $request->input('periodos'))
                     ->orderBy('periodo')
                     ->get()
@@ -1048,6 +1057,9 @@ class CajaWebController extends Controller
                     $deuda = $deudas->get($periodo);
 
                     if ($deuda) {
+                        if (in_array($deuda->estado, [DeudaCuota::ESTADO_PAGADA, DeudaCuota::ESTADO_CONDONADA])) {
+                            return ['periodo' => $periodo, 'monto' => 0];
+                        }
                         $montoSolicitado = isset($montosEnviados[$periodo])
                             ? (float) $montosEnviados[$periodo]
                             : (float) $deuda->saldo_pendiente;
@@ -1102,7 +1114,7 @@ class CajaWebController extends Controller
                         alumno: $alumno,
                         pagoId: $resultadoPago['pago']->id,
                         periodos: $deudasAnteriores->pluck('periodo')->values()->all(),
-                        montoPendiente: (float) $deudasAnteriores->sum('saldo_pendiente'),
+                        montoPendiente: $saldoAnterior,
                         motivo: $motivoDeudaAnterior,
                         operativo: $user
                     ));

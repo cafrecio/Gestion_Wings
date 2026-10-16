@@ -45,7 +45,9 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar motor diario D1-D4, cobro por mes, permisos, recibo, saldos y PEN-001. Suite 761 aprobadas/2 omitidas, 7214 aserciones; 31 capturas reales. Entrega en commit local B11; hash se registra en el pase posterior. Sin publicar ni desplegar. |
 
 ## Codex
 
@@ -55,9 +57,9 @@ Nada en este momento.
 
 Nada en este momento.
 
-## Sin empezar (47)
+## Sin empezar (46)
 
-T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3, B11.
+T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>B11 — Punitorios por mora</title>
+    <style>
+        *{box-sizing:border-box}body{margin:0;padding:24px;font:15px system-ui,sans-serif;color:#18212b;background:#f4f6f8}
+        h1{font-size:24px;margin:0 0 8px}p{max-width:950px;line-height:1.5}.controles{display:flex;gap:18px;flex-wrap:wrap;margin:22px 0}
+        label{display:grid;gap:5px;font-weight:600}select{font:inherit;padding:8px;border:1px solid #c9d2dc;border-radius:6px;background:white}
+        .comparacion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+        article{background:white;border:1px solid #c9d2dc;border-radius:8px;padding:14px;overflow:auto}h2{font-size:18px;margin:0 0 12px}
+        .imagen{max-width:100%;overflow:hidden;border:1px solid #d8e0ea;background:white}.imagen img{display:block}
+        .movil{height:900px}.movil img{width:1366px;max-width:none;height:900px}.escritorio img{width:100%;height:auto}
+        .enlaces{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}a{color:#235976}.nota{color:#556476;font-size:13px}
+        @media(max-width:850px){body{padding:12px}.comparacion{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <h1>B11 — Punitorios por mora</h1>
+    <p>Comparación con el porcentaje en <strong>0</strong> y en <strong>5</strong>.
+        Las pantallas salen de Wings con datos ficticios. Los recibos son los PDF reales generados por el sistema.</p>
+    <div class="controles">
+        <label>Pantalla<select id="pantalla"><option value="cobrar">Cobrar</option><option value="ficha">Ficha del alumno</option><option value="configuracion">Configuración</option><option value="recibo">Recibo</option></select></label>
+        <label>Ver en<select id="ancho"><option value="360">Celular · 360</option><option value="375">Celular · 375</option><option value="1366">Escritorio · 1366</option></select></label>
+    </div>
+    <div class="comparacion">
+        <article data-porcentaje="0"><h2>Porcentaje 0</h2><div class="imagen"><img alt="Pantalla con el porcentaje en cero"></div><p class="enlaces"><a data-captura target="_blank">Abrir captura</a><a data-pantalla target="_blank">Abrir pantalla</a><a data-pdf target="_blank">PDF real</a></p></article>
+        <article data-porcentaje="5"><h2>Porcentaje 5</h2><div class="imagen"><img alt="Pantalla con el porcentaje en cinco"></div><p class="enlaces"><a data-captura target="_blank">Abrir captura</a><a data-pantalla target="_blank">Abrir pantalla</a><a data-pdf target="_blank">PDF real</a></p></article>
+    </div>
+    <p class="nota">En celular, Wings se maquetó dentro de un iframe de 360 o 375 píxeles en una ventana de 1366. Este visor muestra esa parte de la captura, sin modificar la imagen. La barra de desplazamiento puede reservar 15 píxeles dentro del marco. Configuración y ficha están desplazadas hasta los controles nuevos.</p>
+    <p class="enlaces"><a id="dia" target="_blank">Ver el día de mora</a><a href="cobro-parcial-1366.jpg" target="_blank">Pago parcial: $4,000 a cuota y $0 a recargo</a><a id="login" target="_blank">Control del ingreso</a><a href="mediciones.json" target="_blank">Mediciones</a></p>
+    <script src="visor.js"></script>
+</body>
+</html>

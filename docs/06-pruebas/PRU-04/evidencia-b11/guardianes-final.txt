@@ -1,0 +1,21 @@
+
+   PASS  Tests\Feature\AccesoSinPermisoTest
+  ✓ admin rechazado en cuenta protegida vuelve a su tablero                                                      6.76s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.02s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas
+  ✓ lo generado coincide con tareas json
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas                                                                    0.05s
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+  Tests:    10 passed (52 assertions)
+  Duration: 7.10s

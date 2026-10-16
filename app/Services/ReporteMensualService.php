@@ -69,7 +69,7 @@ class ReporteMensualService
     }
 
     /**
-     * Lo que deben los alumnos: cuotas más inscripciones, solo de alumnos activos.
+     * Lo que deben los alumnos: cuotas, inscripciones y punitorios de alumnos activos.
      *
      * T19 (Carlos, 10/10/2026): «Deuda real de los alumnos activos (cuotas + inscripciones)»,
      * la misma en Inicio, Reportes y Cobranza. Antes Reportes contaba solo cuotas y sumaba
@@ -78,14 +78,55 @@ class ReporteMensualService
     private function deudaDeAlumnos(string $fecha, string $mes, ?int $deporteId): array
     {
         $cuotas = $this->saldoHistorico('CUOTA', $fecha, $mes, $deporteId);
-        if (!$cuotas['disponible']) return $cuotas + ['cuotas' => null, 'inscripciones' => null];
+        if (!$cuotas['disponible']) return $cuotas + ['cuotas' => null, 'inscripciones' => null, 'punitorios' => null];
 
         $inscripciones = $this->inscripcionesPendientes($fecha, $deporteId);
-        $filas = collect($cuotas['filas'])->concat($inscripciones);
+        $punitorios = $this->punitoriosPendientes($fecha, $mes, $deporteId);
+        $filas = collect($cuotas['filas'])->concat($inscripciones)->concat($punitorios);
 
         return ['disponible' => true, 'total' => $filas->sum('centavos'), 'mes' => $filas->where('periodo', $mes)->sum('centavos'),
             'anteriores' => $filas->where('periodo', '<', $mes)->sum('centavos'), 'filas' => $filas->all(),
-            'cuotas' => $cuotas['total'], 'inscripciones' => $inscripciones->sum('centavos')];
+            'cuotas' => $cuotas['total'], 'inscripciones' => $inscripciones->sum('centavos'),
+            'punitorios' => $punitorios->sum('centavos')];
+    }
+
+    /** El perdón se reconstruye a la fecha del corte desde su auditoría. */
+    private function punitoriosPendientes(string $fecha, string $mes, ?int $deporteId): Collection
+    {
+        $cargos = CargoAlumno::where('tipo', 'PUNITORIO')->where('estado', 'VIGENTE')
+            ->whereDate('created_at', '<=', $fecha)
+            ->whereIn('alumno_id', Alumno::where('activo', true)
+                ->when($deporteId, fn ($q) => $q->where('deporte_id', $deporteId))->select('id'))
+            ->whereHas('deudaCuota', fn ($q) => $q->where('periodo', '<=', $mes))
+            ->with(['deudaCuota', 'pagos' => fn ($q) => $q->whereDate('fecha_pago', '<=', $fecha)])->get();
+        if ($cargos->isEmpty()) return collect();
+        $eventos = DB::table('cargo_alumno_eventos')->whereIn('cargo_alumno_id', $cargos->pluck('id'))
+            ->whereDate('created_at', '<=', $fecha)->orderBy('id')->get()->groupBy('cargo_alumno_id');
+        // Las anulaciones retiran el pivot. Para un corte anterior se conserva lo que
+        // ese pago había imputado hasta su anulación, sin afectar el saldo de hoy.
+        $anulados = \App\Models\Pago::whereIn('alumno_id', $cargos->pluck('alumno_id'))
+            ->where('estado', 'ANULADO')->whereDate('fecha_pago', '<=', $fecha)
+            ->whereDate('updated_at', '>', $fecha)->get();
+        $deportes = Alumno::whereIn('id', $cargos->pluck('alumno_id'))->pluck('deporte_id', 'id');
+        return $cargos->map(function ($cargo) use ($eventos, $anulados, $deportes) {
+            $condonado = 0;
+            foreach ($eventos->get($cargo->id, collect()) as $evento) {
+                $detalle = json_decode($evento->detalle, true);
+                if (in_array($evento->accion, ['CONDONAR', 'REACTIVAR'])) {
+                    $condonado = (float) $detalle['monto_condonado_nuevo'];
+                }
+            }
+            $pagado = (float) $cargo->pagos->sum('pivot.monto_aplicado');
+            foreach ($anulados->where('alumno_id', $cargo->alumno_id) as $pago) {
+                foreach ($pago->detalle_anulacion['cargos'] ?? [] as $imputacion) {
+                    if (($imputacion['cargo_alumno_id'] ?? null) === $cargo->id) $pagado += (float) $imputacion['monto_aplicado'];
+                }
+            }
+            return ['id' => $cargo->id, 'persona_id' => $cargo->alumno_id,
+                'periodo' => $cargo->deudaCuota->periodo, 'deporte_id' => (int) $deportes[$cargo->alumno_id],
+                'centavos' => max(0, (int) round(((float) $cargo->monto_original - $condonado - $pagado) * 100)),
+                'concepto' => $cargo->descripcion];
+        })->filter(fn ($fila) => $fila['centavos'] > 0)->values();
     }
 
     /**

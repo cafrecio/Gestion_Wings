@@ -31,6 +31,7 @@ import {pesos} from './formato-importe';
                 if (chk.dataset.adelantado) { total += Math.max(val, 0); return; }
                 var saldo = parseFloat(chk.dataset.saldo) || 0;
                 total += Math.min(Math.max(val, 0), saldo);
+                if (val >= saldo) total += parseFloat(chk.dataset.recargo || '0');
             }
         });
         return total;
@@ -45,8 +46,25 @@ import {pesos} from './formato-importe';
         var total = entregado && entregado.value !== '' ? window.WingsMoney.numero(entregado) : maximo;
         var detalle = document.getElementById('inscripcion-distribucion');
         if (detalle) {
+            var resto = Math.max(0, total - saldoInscripcion);
+            var cuotas = 0, recargos = 0;
+            Array.from(checks()).filter(chk => chk.checked).sort((a, b) => a.dataset.periodo.localeCompare(b.dataset.periodo)).forEach(function (chk) {
+                var inp = document.querySelector('.monto-cuota[data-periodo="' + chk.dataset.periodo + '"]');
+                var capital = inp ? Math.max(0, window.WingsMoney.numero(inp)) : 0;
+                var saldo = parseFloat(chk.dataset.saldo) || 0;
+                var cubierto = Math.min(resto, chk.dataset.adelantado ? capital : Math.min(capital, saldo));
+                cuotas += cubierto;
+                resto = Math.max(0, resto - cubierto);
+                if (cubierto >= saldo && !chk.dataset.adelantado) {
+                    var recargo = Math.min(resto, parseFloat(chk.dataset.recargo || '0'));
+                    recargos += recargo;
+                    resto = Math.max(0, resto - recargo);
+                }
+            });
             detalle.querySelector('[data-distribucion-inscripcion]').textContent = 'Inscripción ' + pesos(Math.min(total, saldoInscripcion));
-            detalle.querySelector('[data-distribucion-cuotas]').textContent = 'Cuotas ' + pesos(Math.max(0, total - saldoInscripcion));
+            detalle.querySelector('[data-distribucion-cuotas]').textContent = 'Cuotas ' + pesos(cuotas);
+            var detalleRecargos = detalle.querySelector('[data-distribucion-recargos]');
+            if (detalleRecargos) detalleRecargos.textContent = 'Recargos ' + pesos(recargos);
         }
 
         if ((algunaCuota || saldoInscripcion > 0) && tipoCaja && total > 0 && total <= maximo) {

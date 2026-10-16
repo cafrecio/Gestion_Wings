@@ -19,6 +19,12 @@ class CatalogosSeeder extends Seeder
         $this->seedRubrosYSubrubros();
         $this->seedTiposCaja();
         $this->seedReglasPrimerPago();
+        foreach ([
+            ['mora_dia_desde', '10', 'Último día del mes sin recargo por mora', 'integer'],
+            ['mora_porcentaje', '0', 'Porcentaje de recargo por mora; cero no genera recargos', 'string'],
+        ] as [$clave, $valor, $descripcion, $tipo]) {
+            \App\Models\Configuracion::firstOrCreate(['clave' => $clave], compact('valor', 'descripcion', 'tipo'));
+        }
     }
 
     private function seedDeportes(): void
@@ -55,6 +61,12 @@ class CatalogosSeeder extends Seeder
                 'tipo' => 'INGRESO', 'observacion' => 'Inscripción por única vez por persona',
                 'es_reservado_sistema' => true,
                 'subrubros' => [['nombre' => 'Inscripción al club', 'permitido_para' => 'OPERATIVO', 'afecta_caja' => true, 'es_reservado_sistema' => true]],
+            ],
+            'Punitorios' => [
+                'tipo' => 'INGRESO', 'observacion' => 'Recargos por mora de cuotas',
+                'es_reservado_sistema' => true,
+                'subrubros' => [['nombre' => 'Punitorio Cuota', 'permitido_para' => 'OPERATIVO',
+                    'afecta_caja' => true, 'es_reservado_sistema' => true, 'clasificacion' => 'NEGOCIO']],
             ],
             'Intereses' => [
                 'tipo' => 'INGRESO',

@@ -1,12 +1,10 @@
 # Wings — Contrato de Punitorios por Mora V1
 
-> Definido por Carlos entre el 05 y el 06/09/2026. **Especificación, sin implementar.**
-> Hasta hoy estas decisiones existían únicamente en el chat: no había una sola línea
-> escrita en contratos ni en estado.
->
-> Lo que dice este documento sobre el código está **verificado contra el código**, no
-> heredado de otro documento. Donde algo es una propuesta mía y no una decisión de
-> Carlos, está dicho.
+> Definido por Carlos entre el 05 y el 06/09/2026; enmendado el 22/09 y 16/10.
+> **Implementado localmente en B11; pendiente de verificación independiente de Claude.
+> Sin publicación ni despliegue.** [Implementación y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
+> Las advertencias de septiembre se conservan con su contexto histórico; las reglas
+> y referencias técnicas actualizadas al 16/10 se indican debajo.
 
 ## 1. Para qué existe
 
@@ -27,6 +25,11 @@ Dos valores nuevos en la tabla `configuraciones`, que es donde ya viven
 | `mora_dia_desde` | 10 | integer | Día del mes a partir del cual empieza a correr el recargo |
 | `mora_porcentaje` | 0 | string | Porcentaje que se suma a la cuota impaga |
 
+ADMIN edita ambas claves desde Configuración: día entero del 1 al 28 y porcentaje
+de 0 a 100 con coma o punto y hasta dos decimales. `12,5` se guarda como texto
+`12.50`, nunca como entero 12. Errores en castellano. Las claves y el catálogo se
+crean por migración y por `CatalogosSeeder`; repetir el seeder conserva los valores.
+
 **El porcentaje arranca en 0 a propósito.** Con 0, el sistema se comporta
 exactamente como hoy: no se aplica ningún recargo, no aparece ningún renglón nuevo,
 no cambia ningún importe. El club que quiera cobrar mora lo prende poniendo un
@@ -45,11 +48,12 @@ existentes; no hay ninguna ruta que dé de alta una. Y `Configuracion::set()` us
 `update()`: sobre una fila que no existe **no hace nada y no avisa**. Por eso las dos
 claves nuevas **tienen que entrar por una migración**, como las dos que ya hay.
 
-**Segunda, y peor: ya existe en el sistema una configuración que nadie lee.**
+**Advertencia histórica de septiembre: una configuración que nadie leía.**
 `dia_generacion_deuda` aparece únicamente en su migración. La generación mensual está
 programada en `routes/console.php:12` con `->monthlyOn(1, '06:00')`: el día está
-escrito en el código. El administrador puede cambiar ese valor, guardarlo, verlo
-guardado — y no pasa nada.
+escrito en el código. Actualmente ese día se muestra como fijo en Configuración
+y el controlador rechaza editarlo; el problema descrito motivó exigir que las dos
+claves de mora sí cambien el comportamiento del motor.
 
 **Este contrato no se da por cumplido si las dos claves nuevas terminan igual.** El
 criterio de aceptación de §11 es explícito sobre eso.
@@ -70,8 +74,18 @@ Decidido por Carlos el 06/09.
 Con el día en 10: el 11 de marzo, la cuota de marzo impaga ya tiene recargo. Es el
 mismo momento en que hoy el alumno pasa a MOROSO.
 
+**D1–D3, decisiones de Carlos del 16/10/2026:**
+
+- Solo se procesa el mes vigente de Wings. Activar el porcentaje no agrega recargos
+  a meses cerrados; una deuda antigua solo conserva el que se aplicó en su propio mes.
+- La cuota del mes de alta conserva el plazo más largo entre `dias_plazo_alta` y
+  la gracia general de ese mes, como T31. También debe haber pasado el día de mora.
+- No se aplican recargos nuevos a alumnos inactivos, cuotas pagadas o condonadas.
+  Una cuota parcialmente pagada conserva la base original mientras tenga saldo.
+
 **Sobre cada mes impago por separado.** Decidido por Carlos el 06/09. Si alguien debe
-marzo, abril y mayo, cada una de las tres cuotas suma su propio recargo. No es un
+marzo, abril y mayo, cada cuota conserva el recargo aplicado durante su propio mes.
+No se generan los tres al activar la configuración. No es un
 porcentaje único sobre el total: así se puede decir en el recibo qué recargo
 corresponde a qué mes, y el alumno que paga solo marzo paga el recargo de marzo.
 
@@ -114,10 +128,10 @@ para `deuda_cuotas`. No hay dos mecanismos ni se suma el recargo al capital mens
 sus imputaciones a cuotas y cargos; el recibo las muestra separadas. Ni inscripción
 ni punitorios integran comisiones docentes. Los pagos anteriores conservan su significado.
 
-ENT-01 prepara la estructura compartida. **El motor que aplica mora sigue pendiente
-como FIN-14**; tampoco se publican sus claves de configuración sin ese motor. No se
-cambian porcentaje/importe congelados, una vez por cuota, condonación ADMIN con
-motivo, mes en recibo ni el rubro Punitorios → Punitorio Cuota.
+ENT-01 preparó la estructura compartida. **B11 incorpora el motor y la configuración
+de FIN-14**, conservando porcentaje/importe congelados, una vez por cuota,
+condonación ADMIN con motivo, mes en recibo y el rubro Punitorios → Punitorio Cuota.
+El motor toma alumno y cuota con candado antes de crear el cargo y su evento CREAR.
 
 ## 6. Cómo se cobra
 
@@ -132,11 +146,14 @@ El orden completo, cuando alguien paga y debe varios meses:
 Así, quien paga apenas una parte está pagando cuota, no punitorios. El recargo es lo
 último que se cobra, no lo primero.
 
-> **Esto es lectura mía de la regla de Carlos, no una frase suya.** Él fijó que la
-> cuota se cubre antes que el recargo; que eso sea *dentro de cada mes* y no *todas
-> las cuotas de todos los meses antes que todos los recargos* lo deduzco de que el
-> FIFO existente cierra cada período antes de pasar al siguiente. Si querés la otra
-> lectura, cambia el orden de imputación.
+**Confirmado por la orden B11 del 16/10:** capital y después recargo dentro de cada
+mes. La inscripción pendiente conserva su prioridad anterior. El servidor controla
+el reparto aunque se manipulen los importes enviados. Pagar o condonar capital no
+elimina un recargo ya aplicado: se puede cobrar solo ese cargo. Los recargos viejos
+participan del aviso y confirmación con motivo existentes al saltear deuda.
+ADMIN cobra directo a cashflow; OPERATIVO por su caja. Anular el pago revierte sus
+imputaciones a capital y cargos y todos sus movimientos, conservando conceptos y
+meses en el detalle documental del recibo anulado.
 
 ## 7. Condonación
 
@@ -147,9 +164,12 @@ motivo obligatorio de 10 a 500 caracteres, validado dentro del servicio.
 tuvo un motivo atendible para pagar tarde, se le perdona el punitorio y paga la cuota
 completa. Al revés también vale.
 
-Condonar el recargo **no** cambia el estado de cobranza por sí solo: un alumno sin
-ningún pago sigue siendo DEUDOR, como fija hoy `CobranzaEstadoService` y el contrato
-de estados. Perdonar un recargo no es haber pagado.
+Condonar el recargo **no** limpia capital impago ni vuelve por sí solo al alumno
+Al día. Rigen sus deudas y plazos: MOROSO para mes corriente vencido y DEUDOR para
+mes cerrado, con la excepción del plazo de alta. Perdonar no equivale a pagar.
+ADMIN activo también puede reactivar con motivo de 10 a 500 caracteres. Se perdona
+solo el saldo y se conservan pagos, importe/cálculo congelados y auditoría; reactivar
+recupera lo perdonado. Rutas y servicio controlan el permiso.
 
 ## 8. En el recibo
 
@@ -158,6 +178,10 @@ adentro del importe de la cuota.
 
 Un recibo de alguien que paga marzo tarde muestra dos líneas: la cuota de marzo y el
 recargo por mora de marzo. Si el recargo fue condonado, no aparece.
+
+Etiqueta actual: **«Recargo por mora — <mes>»**. La inscripción conserva
+«Inscripción al club — por única vez». Si se perdona solo el saldo después de un
+pago parcial, no se borra del recibo la parte efectivamente cobrada.
 
 El motivo es que el alumno tiene que poder ver por qué paga de más, y el club tiene
 que poder mostrárselo sin explicarlo de memoria.
@@ -183,29 +207,30 @@ y la plata no habría entrado a la caja.
 | `permitido_para` | `OPERATIVO` — que en este sistema significa **admin y operativo**, no solo operativo |
 | `afecta_caja` | `true` — la plata entra por el mostrador y tiene que estar en el arqueo |
 | `es_reservado_sistema` | `true` |
+| `clasificacion_resultado` | `NEGOCIO`: ingreso del club |
 
 Es exactamente la configuración de `Cuota Mensual`, que ya funciona así.
 
 ### "Rubro reservado" ya existe, y no hace falta ninguna columna nueva
 
-**Verificado.** La tabla `rubros` tiene solo `id, nombre, tipo, observacion` y sus
-fechas: **no hay** `es_reservado_sistema` a nivel de rubro. Pero el comportamiento
-que pediste ya está, como propiedad emergente de tener un único subrubro reservado:
+**Actualizado al 16/10.** Tanto rubro como subrubro tienen
+`es_reservado_sistema`. `Punitorios` nace reservado; la protección existente impide
+agregarle otro subrubro y editarlo o borrarlo. También protege su subrubro:
 
 | Qué queda bloqueado | Dónde está |
 |---|---|
-| Agregarle otro subrubro al rubro | `SubrubroWebController.php:23` — si **todos** los subrubros de un rubro son reservados, rechaza el alta con "Este rubro es administrado por el sistema" |
-| Borrar el rubro | `RubroWebController.php:70` — no se puede eliminar un rubro que tenga subrubros |
-| Editar, desactivar o borrar el subrubro | `SubrubroWebController.php:49, 62, 86` — los tres rechazan si es reservado |
-| Elegirlo a mano en un movimiento de caja o cashflow | `CajaWebController.php:848` y `CashflowWebController.php:68` filtran `es_reservado_sistema = false`, así que ni aparece en la lista |
+| Agregar otro subrubro | `SubrubroWebController::guardarNuevo` rechaza el rubro reservado con "administrado por el sistema" |
+| Editar o borrar el rubro | `RubroWebController` rechaza la reserva |
+| Editar, desactivar o borrar el subrubro | `SubrubroWebController` rechaza la reserva |
+| Elegirlo manualmente en caja/cashflow | Los selectores excluyen `es_reservado_sistema = true`; el flujo de cobro sí lo registra |
 
 Ese último punto es el que importa entender: **reservado no quiere decir que el
 operativo no pueda cobrarlo.** Quiere decir que **nadie lo elige a mano**. La plata
 entra por el flujo de cobro de cuota, que lo escribe solo, igual que hoy hace con
 `Cuota Mensual`.
 
-**Conclusión: el rubro y el subrubro se crean en el seeder de catálogos y no hace
-falta tocar ningún controlador.**
+El rubro y subrubro se crean por migración y seeder. No se modifican los
+controladores de catálogos: se usa su protección existente.
 
 ### Cómo lo tiene que buscar el código
 
@@ -228,23 +253,26 @@ rubro o cambiarle el tipo.
 > `Punitorios` tiene que nacer del seeder marcado como reservado — igual que
 > `Sueldos` y `Cuotas`, marcados en esa misma migración.
 
-> **Agujero preexistente que este contrato no arregla, pero deja anotado:** eso ya
-> pasa hoy con `Sueldos`. `ProfesorWebController.php:116` hace
-> `Rubro::where('nombre', 'Sueldos')->first()`, y si alguien renombra ese rubro, el
-> alta de profesores deja de encontrarlo. Y cambiarle el `tipo` a un rubro de INGRESO
-> lo daría vuelta contablemente. Es una tarea aparte: proteger los rubros que el
-> sistema busca por nombre.
+> La advertencia original sobre renombrar `Sueldos` precede a esa protección.
+> No describe un permiso actual de edición de rubros reservados.
 
 ## 10. Con el porcentaje en 0, no existe
 
-Es un requisito, no una consecuencia. Con `mora_porcentaje = 0`:
+Es un requisito, no una consecuencia. Con `mora_porcentaje = 0` y sin recargos previos:
 
 - No se escribe ningún recargo, ni en 0.
 - No aparece ningún renglón en ningún recibo.
 - No cambia ningún importe ni ningún estado de cobranza.
-- Las pantallas se ven exactamente igual que hoy.
+- Cobrar, ficha y recibo conservan su aspecto anterior. Configuración incorpora
+  los dos controles necesarios para activar la regla.
 
 Es el estado en que se entrega el sistema.
+
+Si hubo recargos anteriores, volver a cero no los borra ni condona.
+**D4, 16/10:** el recargo impago es deuda de su mes incluso con capital pagado o
+condonado. Suma al mismo saldo en Cobranza, buscador de Cobrar, Inicio y Reportes,
+y el alumno no queda Al día mientras lo deba. Reportes lo distingue por concepto y
+conserva el corte anterior a un perdón o anulación posterior.
 
 ## 11. Qué hay que probar antes de darlo por hecho
 
@@ -253,7 +281,7 @@ un comando concreto no es un criterio.
 
 | # | Qué tiene que pasar | Cómo se comprueba |
 |---|---|---|
-| 1 | Con porcentaje 0 no cambia nada | La suite completa en verde **sin tocar ninguna prueba existente**. Si hay que ajustar pruebas viejas, el requisito no se cumplió |
+| 1 | Con porcentaje 0 no cambia nada | Suite completa en verde. Excepción expresa de Carlos, 16/10: cambiar solo los conteos de `CatalogosSeederTest`, de 11/18 a 12/19 por Punitorios. Ninguna otra prueba vieja cambia |
 | 2 | Las dos claves existen en una base recién migrada | `migrate:fresh` sobre base descartable y consulta de las dos filas |
 | 3 | **Las dos claves se leen de verdad** | Cambiar el valor por pantalla, y comprobar que el comportamiento cambia. Sin esta prueba repetimos `dia_generacion_deuda` |
 | 4 | El recargo se aplica una sola vez | Correr el proceso dos veces sobre la misma cuota y comprobar un solo cargo `punitorio:deuda:{id}`, su importe y fecha de aplicación congelados antes y después |
@@ -261,24 +289,27 @@ un comando concreto no es un criterio.
 | 6 | Cada mes impago lleva el suyo | Alumno con tres meses impagos: tres recargos, calculados sobre el `monto_original` de cada mes |
 | 7 | Se cobra la cuota antes que el recargo | Pago parcial menor a la cuota: la imputación no toca el recargo |
 | 8 | La invariante sigue en pie | `deuda.monto_pagado` = suma de sus imputaciones, después de cobrar cuota y recargo |
-| 9 | Solo ADMIN condona, con motivo | Intento como OPERATIVO: **la deuda queda sin cambios**. No se afirma el código de respuesta: `ensure.admin.web` redirige a `/caja` con 302, no devuelve 403 |
+| 9 | Solo ADMIN condona, con motivo | Intentos como OPERATIVO/PROFESOR: 403 y cargo/eventos sin cambios. Anónimo debe ingresar. Motivo 10–500 validado también por servicio |
 | 10 | Condonar el recargo no limpia al alumno | Alumno sin ningún pago con el recargo condonado: sigue DEUDOR |
 | 11 | El recibo lo muestra aparte | Recibo generado con cuota y recargo: dos renglones, con el mes en el del recargo |
 | 12 | La caja cuadra | Cobro con recargo y arqueo del día: el total incluye el recargo y no hay diferencia |
 | 13 | El rubro queda cerrado | Intentar agregarle un segundo subrubro a `Punitorios` por pantalla: rechazado con "administrado por el sistema". Intentar eliminar el rubro: rechazado. Intentar editar o desactivar `Punitorio Cuota`: rechazado. **La base sin cambios en los tres intentos** |
 | 14 | No se puede elegir a mano | `Punitorio Cuota` **no aparece** en el selector de subrubros de un movimiento de caja ni de cashflow, y sí queda escrito por el flujo de cobro |
 
-## 12. Lo que este contrato NO resuelve
+## 12. Proceso y límites
 
-- **Cuándo corre el proceso que aplica los recargos.** Hoy lo único programado es
-  `cobranza:generar-deudas`, mensual el día 1. El recargo necesita mirar todos los
-  días si ya se pasó `mora_dia_desde`. Si se hace una tarea diaria nueva, o se aplica
-  al momento de consultar o cobrar, es decisión de implementación y hay que definirla
-  antes de escribir código.
+Comando **`php artisan cobranza:aplicar-punitorios`**, programado diariamente a
+las **06:15** en `routes/console.php`, sin solapamiento y en un solo servidor.
+El servicio usa `Carbon::now()`, con la fecha de Wings que establece
+`App\Support\RelojSimulado` al iniciar la aplicación; no cambia el reloj del servidor.
+Si se omite un día recupera la aplicación el siguiente dentro del mismo mes,
+nunca meses cerrados. No se aplica al abrir una pantalla.
+
+Quedan fuera:
 - **Notificar al alumno.** Este contrato no manda avisos.
 - **Intereses sobre el recargo.** No los hay: el recargo no genera recargo.
-- **Recargo sobre deuda importada del Excel.** La deuda vieja entra con su monto; si
-  además le corresponde recargo se define en la etapa 2 de `PRIMERA-CARGA-V1.md`.
+- **Retroactividad sobre deuda importada.** D1 excluye meses cerrados; una cuota
+  importada del mes vigente se rige por la misma regla de ese mes.
 
 ## 13. Decisiones y su fecha
 
@@ -296,4 +327,8 @@ un comando concreto no es un criterio.
 | También sobre el mes en curso, pasado el día | Carlos, 06/09 |
 | Los recargos aplicados no se recalculan | Carlos, 06/09 |
 | Pagado del recargo por imputaciones al cargo | Enmienda Carlos 22/09; `pago_cargo_alumno` (§5) |
-| Dentro de cada mes, cuota antes que recargo | **Lectura mía de la regla, §6** |
+| Dentro de cada mes, cuota antes que recargo; inscripción primero | Confirmado por la orden B11 de Carlos, 16/10/2026 |
+| D1 sin retroactividad; D2 plazo favorable de alta; D3 solo activos | Carlos, 16/10/2026 |
+| D4 recargo como deuda de su mes y saldo igual en todas las pantallas | Carlos, 16/10/2026 |
+| Comando diario idempotente y fecha de Wings | Decisión técnica fijada por la orden B11, 16/10/2026 |
+| Actualizar solo conteos de catálogos de la prueba vieja | Carlos, 16/10/2026: «Actualizar los conteos y seguir» |

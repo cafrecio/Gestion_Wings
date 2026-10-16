@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-16 — Codex CyE — B11 implementada localmente, a verificar
+
+Motor/configuración/cobro/recibo/perdón/saldos incorporados; 35 pruebas nuevas.
+Carlos autorizó «Actualizar los conteos y seguir»: solo CatalogosSeederTest 11/18 → 12/19.
+Suite completa wings_testing_codex: 761 aprobadas, 2 omitidas, 7214 aserciones, 1106,83 s; salida 0.
+Sintaxis, build y vistas correctos; 31 capturas reales, marcos 360/375 y PDF 0/5 inspeccionados.
+Contrato, estados y contadores actualizados; PEN-001 implementado, sin certificar revisión cruzada.
+[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). Tiene Claude para reglas y pantalla.
+Sin publicación ni despliegue: 52e6bdf y descendientes deben permanecer locales.
+
 ## 2026-10-16 — Codex CyE — T3 tercera vuelta y repetición local T11
 
 T3: arreglo local de Claude comprobado en copia; 6/27 verdes, biblioteca anterior da el aviso esperado.
@@ -112,17 +122,11 @@ Retirado solo el enlace temporal a node_modules; paquete real comprobado intacto
 [Recursos y reproducción](../06-pruebas/PRU-04/evidencia-t24/antes/RECURSOS-HISTORICOS.md). Sin producto, sitio, reloj ni suite.
 Publicar evidencia y registro; T27 ya figura cerrada por Claude, esta limpieza no altera su estado.
 
-## 2026-10-12 — Codex CAB — T27, aprobación visual final de Carlos
-
-Carlos aprobó Historial corregido: «Esta OK ahora» y «Sí, aprobado»; el resto ya estaba aprobado.
-Registrado en informe, visor, estado y resumen; tablero a_verificar, tiene Claude para las reglas.
-No se cierra T27: falta revisión independiente de validaciones, permisos, historial y contraasientos.
-Solo documentación; enlaces y diff comprobados, sin suite ni cambios de aplicación.
-[Informe y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Sin sitio de prueba/reloj/despliegue.
-
 
 
 
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
+
+[Entrada archivada al iniciar B11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-B11-ARRANQUE.md).

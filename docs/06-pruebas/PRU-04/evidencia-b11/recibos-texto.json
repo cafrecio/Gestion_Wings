@@ -1,0 +1,14 @@
+[
+  {
+    "porcentaje": 0,
+    "paginas": 1,
+    "recargos": 0,
+    "texto": "WINGS CLUB\nACADEMIA DEPORTIVA\nComprobante de Cobro de Cuota\nCUOTA-1\nEMISIÓN:  11/10/2026 10:00\nFECHA PAGO:  11/10/2026 \nDATOS DEL ALUMNO\nALUMNO / ALUMNA\nAna Prueba Mora\nDOCUMENTO (DNI)\n49000001\nDEPORTE / DISCIPLINA\nPrueba Mora\nDETALLE DE PERÍODOS COBRADOS\nCONCEPTO / PERÍODO IMPORTE\nOctubre 2026 $10,000.00\nTOTAL COBRADO $10,000.00\nINFORMACIÓN DE COBRO\nMEDIO DE COBRO\nEfectivo\nREGISTRADO POR\nAdmin\nClub Wings — Comprobante emitido por el sistema de gestión.\nDocumento no válido como factura comercial. FIRMA / SELLO RECEPTOR"
+  },
+  {
+    "porcentaje": 5,
+    "paginas": 1,
+    "recargos": 1,
+    "texto": "WINGS CLUB\nACADEMIA DEPORTIVA\nComprobante de Cobro de Cuota\nCUOTA-2\nEMISIÓN:  11/10/2026 10:00\nFECHA PAGO:  11/10/2026 \nDATOS DEL ALUMNO\nALUMNO / ALUMNA\nAna Prueba Mora\nDOCUMENTO (DNI)\n49000001\nDEPORTE / DISCIPLINA\nPrueba Mora\nDETALLE DE PERÍODOS COBRADOS\nCONCEPTO / PERÍODO IMPORTE\nOctubre 2026 $10,000.00\nRecargo por mora — Octubre 2026 $500.00\nTOTAL COBRADO $10,500.00\nINFORMACIÓN DE COBRO\nMEDIO DE COBRO\nEfectivo\nREGISTRADO POR\nAdmin\nClub Wings — Comprobante emitido por el sistema de gestión.\nDocumento no válido como factura comercial. FIRMA / SELLO RECEPTOR"
+  }
+]

@@ -1,0 +1,53 @@
+{
+    "name": "Wings — Gestión",
+    "short_name": "Wings",
+    "description": "Sistema de gestión integral para clubes y escuelas deportivas.",
+    "id": "/login",
+    "start_url": "/login",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#0F172A",
+    "background_color": "#080C14",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Pantalla de acceso a Wings en escritorio"
+        },
+        {
+            "src": "/screenshot-narrow.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Pantalla de acceso a Wings en teléfono móvil"
+        }
+    ]
+}

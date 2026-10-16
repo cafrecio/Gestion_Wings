@@ -7,6 +7,10 @@ carpeta es su copia, para que un código como `CBZ-005` o `DU-54` se pueda leer.
 **Copia tomada el 16/10/2026 por Claude CyE.** Desde el 16/10 ningún caso está «a definir»: los que Carlos decidió y falta programar figuran «no implementado», con su tarea; los que aceptó como están, «vigente». Si la tabla cambia, esta copia queda vieja
 hasta que Claude la vuelva a bajar. La que manda es la tabla viva.
 
+Actualización local de Codex, 16/10: PEN-001 incorpora la implementación B11 y su
+tarea; «vigente» describe la regla implementada, no certifica revisión independiente.
+Claude debe verificarla y sincronizar la tabla viva antes del cierre.
+
 ## Qué hay
 
 - `catalogo/` — un archivo por módulo (ACC, ALU, CAJ, COB…). Adentro, `casos`: cada caso

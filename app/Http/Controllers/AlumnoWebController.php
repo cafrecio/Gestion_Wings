@@ -135,7 +135,9 @@ class AlumnoWebController extends Controller
             ->sortBy(fn($as) => $as->clase?->fecha);
 
         $cuotasCondonadas = $alumno->deudaCuotas()->where('estado', 'CONDONADA')->orderBy('periodo')->get();
-        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas'));
+        $punitorios = \App\Models\CargoAlumno::where('alumno_id', $id)->where('tipo', 'PUNITORIO')
+            ->where('estado', 'VIGENTE')->with(['deudaCuota', 'pagos'])->orderBy('deuda_cuota_id')->get();
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios'));
     }
 
     public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)
@@ -196,6 +198,16 @@ class AlumnoWebController extends Controller
             return back()->with('error', $exception->getMessage());
         }
         return redirect()->route('web.alumnos.show', $registro->alumno_id)->with('success', $mensaje);
+    }
+
+    public function condonarPunitorio(Request $request, int $id, \App\Services\PunitorioService $service)
+    {
+        return $this->decidirPerdon($request, fn ($motivo, $usuario) => $service->condonar($id, $motivo, $usuario), 'Recargo condonado.');
+    }
+
+    public function reactivarPunitorio(Request $request, int $id, \App\Services\PunitorioService $service)
+    {
+        return $this->decidirPerdon($request, fn ($motivo, $usuario) => $service->reactivar($id, $motivo, $usuario), 'Recargo reactivado.');
     }
 
     /**

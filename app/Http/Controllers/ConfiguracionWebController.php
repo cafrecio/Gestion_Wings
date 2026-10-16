@@ -11,6 +11,18 @@ use Illuminate\Support\Facades\Validator;
 class ConfiguracionWebController extends Controller
 {
     private const CAMPOS = [
+        'mora_dia_desde' => [
+            'titulo' => 'Recargo por mora: día', 'etiqueta' => 'Último día sin recargo',
+            'descripcion' => 'Pasado este día, se aplica el porcentaje a la cuota impaga del mes en curso. Se respeta el plazo de los alumnos nuevos.',
+            'ayuda' => 'Elegí un día del 1 al 28. Con 10, el recargo puede aplicarse desde el día 11.',
+            'tipo' => 'number', 'min' => '1', 'max' => '28', 'step' => '1', 'obligatorio' => true,
+        ],
+        'mora_porcentaje' => [
+            'titulo' => 'Recargo por mora: porcentaje', 'etiqueta' => 'Porcentaje de recargo (%)',
+            'descripcion' => 'Se calcula una sola vez sobre el importe original de cada cuota. No cambia recargos anteriores ni se aplica a meses cerrados o alumnos inactivos.',
+            'ayuda' => 'De 0 a 100, con coma o punto y hasta dos decimales. Con 0 no se aplican recargos nuevos.',
+            'tipo' => 'text', 'obligatorio' => true,
+        ],
         'inscripcion_importe' => [
             'titulo' => 'Inscripción al club', 'etiqueta' => 'Importe de la inscripción ($)',
             'descripcion' => 'Se cobra una sola vez por persona. Cambiar este importe afecta las inscripciones nuevas; las deudas ya creadas conservan su precio.',
@@ -53,7 +65,12 @@ class ConfiguracionWebController extends Controller
 
         $rules = match ($clave) {
             'inscripcion_importe' => ['required', 'numeric', 'min:0.01', 'max:99999999.99', new ImportePesos],
-            'dias_gracia_cobranza' => 'required|integer|min:1|max:28',
+            'dias_gracia_cobranza', 'mora_dia_desde' => 'required|integer|min:1|max:28',
+            'mora_porcentaje' => ['required', function ($attribute, $value, $fail) {
+                if (\App\Services\PunitorioService::normalizarPorcentaje($value) === null) {
+                    $fail('Ingresá un porcentaje de 0 a 100, con coma o punto y hasta dos decimales.');
+                }
+            }],
             'avisos_email' => 'nullable|string|email|max:255',
             'avisos_telegram_chat_id' => 'nullable|string|regex:/^-?[1-9][0-9]*$/|max:255',
             default => [fn ($attribute, $value, $fail) => $fail('Este valor es fijo y no se cambia desde Configuración.')],
@@ -72,7 +89,7 @@ class ConfiguracionWebController extends Controller
                 ? 'El importe de la inscripción debe ser mayor que cero.' : 'Elegí un día del 1 al 28.',
             'valor.max' => match ($clave) {
                 'inscripcion_importe' => 'El importe no puede superar '.\App\Support\FormatoImporte::pesos('99999999.99').'.',
-                'dias_gracia_cobranza' => 'Elegí un día del 1 al 28.',
+                'dias_gracia_cobranza', 'mora_dia_desde' => 'Elegí un día del 1 al 28.',
                 default => 'Este valor no puede tener más de 255 caracteres.',
             },
             'valor.email' => 'Ingresá un correo válido, por ejemplo administracion@club.com.',
@@ -84,7 +101,10 @@ class ConfiguracionWebController extends Controller
         }
         $validated = $validator->validate();
 
-        $config->update(['valor' => (string) ($validated['valor'] ?? '')]);
+        $valor = $clave === 'mora_porcentaje'
+            ? \App\Services\PunitorioService::normalizarPorcentaje($validated['valor'])
+            : (string) ($validated['valor'] ?? '');
+        $config->update(['valor' => $valor]);
 
         if ($request->expectsJson()) {
             return response()->json(['ok' => true, 'valor' => $config->valor]);

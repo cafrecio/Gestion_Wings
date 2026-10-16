@@ -15,6 +15,19 @@ class CargoAlumno extends Model
         return $this->belongsToMany(Pago::class, 'pago_cargo_alumno')->withPivot('monto_aplicado')->withTimestamps();
     }
 
+    public function deudaCuota()
+    {
+        return $this->belongsTo(DeudaCuota::class);
+    }
+
+    public function getDescripcionAttribute(): string
+    {
+        if ($this->tipo === 'INSCRIPCION') return 'Inscripción al club — por única vez';
+        $periodo = $this->deudaCuota?->periodo ?? ($this->calculo['periodo'] ?? null);
+        return 'Recargo por mora'.($periodo
+            ? ' — '.ucfirst(\Carbon\Carbon::parse($periodo.'-01')->locale('es')->translatedFormat('F Y')) : '');
+    }
+
     public function getSaldoPendienteAttribute(): float
     {
         return $this->estado === 'ANULADO' ? 0 : round((float) $this->monto_original - (float) $this->monto_condonado - $this->monto_cobrado, 2);

@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **728 pruebas** presentes (T3 suma 6). Codex 16/10: suite 724 aprobadas/2 omitidas/1 fallo de conteo, 6943 aserciones; descubrió 727 antes del sexto método de T3. Después: T3 6/27 y guardián documental 1/7 verdes. No es una nueva suite completa verde |
+| Suite | **763 pruebas**: 761 aprobadas y 2 omitidas, 7214 aserciones, 1106,83 s; suite completa local de Codex, 16/10, en wings_testing_codex. B11 suma 35 pruebas nuevas; solo dos conteos viejos actualizados con autorización de Carlos |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -34,6 +34,12 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
+  Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.
+  35 pruebas nuevas; suite completa: **761 aprobadas/2 omitidas, 7214 aserciones**.
+  31 capturas reales y PDF, [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
+  Sin publicación ni despliegue; `52e6bdf` y descendientes permanecen locales.
 
 - **T3, segunda vuelta 16/10, devuelta por Codex CyE a Claude:** A6 y las fechas
   corregidos; 67 encabezados/renglones cerrados restaurados, B15 respaldado históricamente.
@@ -46,16 +52,13 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   guardianes finales 12/55 verdes: T3 cerrada por Codex. Sin producto de Codex.
 
 - **T11, 16/10, Codex CyE:** repetición local con Manifest sin errores/avisos, capturas reconocidas y CDP sin errores. Tres pruebas/63 aserciones verdes; suite 724/2 y un fallo de conteo, corregido después (guardián aislado 1/7 verde). [Tercera vuelta](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md). Se conserva el cierre registrado por Claude en `512f375` por prueba de Carlos en teléfono; Codex no comprobó esa prueba física. Se corrigió otro enlace 404 y el próximo paso viejo del informe, sin reabrir T11. Sin despliegue de Codex.
-
 - **T33, 13/10, Codex CyE:** perdonar inscripción y reactivar cuotas/inscripción desde ficha,
   solo ADMIN, motivo 10–500 e historial conservado. 31 pruebas propias y capturas 1366/marco360.
   Suite local 736/2 verde, 7001 aserciones, incluye T31 sin publicar; archivos de Gemini preservados.
   [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). Claude verifica; sin despliegue.
 
 - **T24, 11/10, implementada por Codex CAB:** 16 pantallas/modos, componente y código comunes. Carlos decidió coma decimal aceptada, mostrar `48,000.50` y recortar el tercer decimal con texto rojo/aviso de 4 s sin bloquear. Pedidos directos inválidos rechazados sin escribir; cero/reglas/cálculos conservados. 1292 controles de navegador y 90 PNG en marco360/escritorio; 18/18 campos anteriores detectan regresión sobre dd62c64. Suite 641/2 verde. [Inventario, visor y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T24.md). Carlos aprueba capturas; después otro agente verifica regla. Sin cierre ni despliegue, sitio de prueba/reloj intactos por Codex. La integración de T24 en el controlador compartido entró en `03aaf11` de T23; trabajo ajeno de Historial/permisos fuera del commit propio.
-
 - **T16, tercera vuelta cerrada por Codex CyE, 10/10:** `b8ede87` comprobado sobre copia fija `aa33399`: 12 controles/225 aserciones, ocho adicionales/269 y ocho cruces propios/220 aprobados. APORTE/RETIRO, edición/alta, ambos órdenes: espera real comprobada, uno guarda/otro rechaza; 16 pedidos en 0,263–0,943 s y ocho posteriores pasan. Suite 614 aprobadas/2 omitidas, 5.087 aserciones, 637,19 s, base propia. Carlos acotó a guardados desde Wings; comandos de consola fuera. Nombres nuevos en INGRESO para admin; DemoSeeder NULL, observación separada. Hizo Claude/verifica Codex/tiene nadie; aspecto aprobado por Carlos. Sin arreglo, visita al sitio ni despliegue. [Informe](../06-pruebas/PRU-04/VERIFICACION-T16.md).
-
 - **T14 Día 3, lunes simulado 12/10, recorrido Codex 10/10:** Sandra cancela las dos de las 16; admin Patín Intermedias 17–18, con motivo/Cancelar esta. Agenda 0 y Sin asistencia 33, sin fechas del 12. Frena: las canceladas de hoy quedan ocultas incluso al filtrar Cancelada + fecha; Lucía no puede abrir su clase. ADMIN ve Activar en la tercera; no se usó; opción de Sandra no comprobada. Inicio/Reportes $164.000 de ingresos/$2.010.000 de deuda/por pagar $0; Cobranza $2.010.000. Sueldos Gaitán/Salinas/Quintana $0; Mariela $18.000/6 asistencias. Molesta: ingreso bloqueado intermitente, luego entraron. Suplencias y oferta de Abrir en feriado autorizadas por Carlos. T14 abierta, Claude verifica; conservar tres cancelaciones para continuar el cuento. Sin base/código, cobros, apertura, arreglos ni cambio del reloj. [Informe único Día 3](../06-pruebas/PRU-04/DIA-03.md); [Día 2](../06-pruebas/PRU-04/DIA-02.md) y [Día 1](../06-pruebas/PRU-04/DIA-01.md) históricos.
 
 
@@ -86,24 +89,15 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   historial con enlace directo a Recibo (PDF con descarga e impresión); cobro adelantado de períodos futuros
   al precio vigente del plan con badge «Adelantado», omitido sin duplicar por `cobranza:generar-deudas` el día 1; búsqueda en caja para cualquier alumno activo. 8 pruebas / 40 aserciones verdes en `wings_testing_gemini`. Pendiente de control cruzado (§6a). Sin despliegue.
 - **P2 Entrega 1 aprobada por Codex CAB, segunda vuelta 05/10:** `abc346a` corrige A51/A52; deuda por registro, ayuda y estado solo por cuotas comprobados. Barras de filtros a 375 revisadas; suite propia **380/2242**. A53–A55 surgieron fuera de esta entrega; al 06/10 A54/A55 cerrados y A53 DEVUELTO a Gemini por Codex CyE 06/10. Sin despliegue; Gemini puede continuar Entrega 2. [Verificación](../06-pruebas/PRU-02/VERIFICACION-ENTREGA1.md). **A11: Configuración entregada**, con maqueta y línea Diseno-autorizado escritas por Carlos. Nombres humanos, grupos, validación y errores persistentes; generación mensual fija. [Evidencia](../06-pruebas/PRU-02/IMPLEMENTACION-A11.md). Gemini registró A11 aprobada el 04/10 en [su informe](../06-pruebas/PRU-02/VERIFICACION-A11.md); sin despliegue.
-
 - **P0 del 04/10 implementado en `ad24769`:** cuota del mes real de ingreso; A43 verificada por Gemini añade elección para mes cerrado. Inscripción manual por DNI, sin corte; cargos/pagos preservados. **P1 aprobada e implementada el 05/10:** Alumnos con 12 pares, plantilla vacía y catálogos reales, revisión sin escritura con informe Excel, carga transaccional y Deshacer protegido. Estado persistente, entrada ADMIN y bloqueo servidor. [Entrega y capturas](../06-pruebas/PRU-02/P1-IMPLEMENTACION-2026-10-05.md). Gemini verifica; no cerrar ni desplegar. Importadores antiguos conservados hasta aceptar P1; retirar en commit aparte. No limpiar el sitio de prueba ni producción en esta entrega.
-
 - **ENT-01:** inscripción primero, sin comisión, desglose caja/recibo; importe obligatorio. Editar ingreso sin pagos conserva cargo con auditoría; con pagos rechaza. [Regla y ENT-10 pendiente](../05-pendientes/ENT-01-INSCRIPCION-Y-PRIMERA-CARGA.md). Sin despliegue en esta tarea.
-
 - Reportes: gastos generales separados como «Gastos del club», sin reparto ni descuento del resultado por deporte; sí del total del negocio (22/09). [Decisiones de la encuesta](../05-pendientes/ENCUESTA-REPORTES-PROVISIONAL.md). La entrevista derivó en POS-07: [plan de canchas y liquidaciones v2026-09-21](../07-evaluacion/PLAN-CANCHAS-LIQUIDACIONES-v2026-09-21.md), ocho etapas y pruebas. Costos solo ADMIN; mes o fechas elegidas, únicamente clases dictadas y pendientes de liquidar, sin duplicarlas. Plan documentado; sin implementación ni despliegue. SaaS futuro fuera del alcance; particulares en rama separada.
-
 - FIN-12: Carlos prioriza para hoy (13/09) cancelar cerradas no pagadas, solo ADMIN. [Instrucciones](../05-pendientes/FIN-12-CANCELAR-LIQUIDACION-CERRADA.md). PENDIENTE; se adelanta de POS-06 sin implementar particulares.
-
 - POS-06: [contrato de particulares](../02-contratos/Wings-Contrato-Clases-Particulares-V1.md) documentado el 13/09; implementación PENDIENTE. [Ficha y siguiente paso: Reportes](../05-pendientes/CLASES-PARTICULARES.md).
 - FIN-10: revisión visual completada en Chrome el 13/09 sobre base descartable; error de motivo y guardado comprobados. Sin deploy.
-
 - FIN-10 implementada y probada 13/09: edición atómica y motivo de horario pasado; sin deploy. Falta aplicar migración motivo_cambio_horario y revisión cruzada.
-
 - FIN-11: pausa levantada el 13/09; seis cruces corregidos y probados, suite completa verde (187/1206). Sin deploy. Recálculo/cierre de liquidaciones sigue pendiente separado.
-
 - FIN-07 implementada y probada 12/09: solo ADMIN condona saldo pendiente, sin borrar pago ni imputaciones; concurrencia real en ambos órdenes. Sin despliegue.
-
 - FIN-03: verificar trabajo y criterio cruzado; no rehacer la implementación.
 - FIN-04: definición cerrada 22/09 en el contrato de Reportes. Saldo, resultado y proyecciones separados; gastos del club fuera de cada deporte, dentro del total. Implementación POS-01 pendiente.
 - FIN-06 a FIN-11: consultar estado/criterios individuales del plan; no asumir resueltos.
@@ -121,7 +115,6 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 - **Obligatorio antes de desplegar a producción (Carlos, 12/10):** T27, una sola pantalla desde donde el dueño edita o elimina sus movimientos; y clasificar los subrubros de producción uno por uno con Carlos (T16).
 - **T27 etapa 2 entregada (Codex, 12/10):** [informe](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Carlos aprobó propuesta y reglas: edición con historial, eliminación con contraasiento, motivo opcional, cualquier mes y reporte original; cajas validadas/liquidaciones pagadas solo consulta; sin pagar, editor existente. 18 pruebas propias, 53 PNG; suite 687/2, 6588 aserciones, 501,04 s. Todas las vistas finales aprobadas, incluida la alineación de Historial corregida: «Esta OK ahora» y «Sí, aprobado». Sigue Claude para verificar reglas. Sin despliegue ni cierre.
-
 - Profesores “por hora”: CERRADO 17/09, se paga por duración (FIN-13). Pantalla y recibo autorizados muestran "1 h 20 min" y centavos. Sin deploy.
 - Significado de pagos.monto_base con seña o varios períodos.
 - Red de unicidad para egresos de liquidación: propuesta documentada, no decisión ejecutada.

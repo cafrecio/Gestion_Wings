@@ -67,9 +67,9 @@ class PagoCuotaService
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
-            [$items, $cargoInscripcion, $montoInscripcion] = $this->distribuirInscripcion($data, $items);
+            [$items, $cargoInscripcion, $montoInscripcion, $punitorios] = $this->distribuirInscripcion($data, $items);
             $montoCuota = $this->calcularMontoTotal($items);
-            $montoTotal = round($montoCuota + $montoInscripcion, 2);
+            $montoTotal = round($montoCuota + $montoInscripcion + array_sum(array_column($punitorios, 'monto')), 2);
 
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
@@ -99,6 +99,9 @@ class PagoCuotaService
             if ($montoInscripcion > 0) {
                 $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);
             }
+            foreach ($punitorios as $imputacion) {
+                $pago->cargos()->attach($imputacion['cargo']->id, ['monto_aplicado' => $imputacion['monto']]);
+            }
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
@@ -123,6 +126,15 @@ class PagoCuotaService
                     'usuario_operativo_id' => $data['usuario_operativo_id'], 'tipo_caja_id' => $data['tipo_caja_id'],
                     'subrubro_id' => $cargoInscripcion->subrubro_id, 'monto' => $montoInscripcion,
                     'fecha' => $fechaPago, 'observaciones' => 'Inscripción al club - pago #'.$pago->id,
+                    'alumno_id' => $data['alumno_id'], 'pago_id' => $pago->id,
+                ]);
+                $movimiento ??= $movCargo;
+            }
+            foreach ($punitorios as $imputacion) {
+                $movCargo = $this->cajaService->registrarMovimientoOperativoInterno([
+                    'usuario_operativo_id' => $data['usuario_operativo_id'], 'tipo_caja_id' => $data['tipo_caja_id'],
+                    'subrubro_id' => $imputacion['cargo']->subrubro_id, 'monto' => $imputacion['monto'],
+                    'fecha' => $fechaPago, 'observaciones' => $imputacion['cargo']->descripcion.' - pago #'.$pago->id,
                     'alumno_id' => $data['alumno_id'], 'pago_id' => $pago->id,
                 ]);
                 $movimiento ??= $movCargo;
@@ -180,9 +192,9 @@ class PagoCuotaService
                 $items = $this->limitarAlSaldoConDescuento($items, $data['alumno_id'], $periodoConDescuento, $precioConDescuento);
             }
 
-            [$items, $cargoInscripcion, $montoInscripcion] = $this->distribuirInscripcion($data, $items);
+            [$items, $cargoInscripcion, $montoInscripcion, $punitorios] = $this->distribuirInscripcion($data, $items);
             $montoCuota = $this->calcularMontoTotal($items);
-            $montoTotal = round($montoCuota + $montoInscripcion, 2);
+            $montoTotal = round($montoCuota + $montoInscripcion + array_sum(array_column($punitorios, 'monto')), 2);
 
             // Validar FIFO antes de aplicar pagos
             $this->validarFifo($data['alumno_id'], $items, $montosOriginalesNuevasDeudas);
@@ -212,6 +224,9 @@ class PagoCuotaService
             if ($montoInscripcion > 0) {
                 $pago->cargos()->attach($cargoInscripcion->id, ['monto_aplicado' => $montoInscripcion]);
             }
+            foreach ($punitorios as $imputacion) {
+                $pago->cargos()->attach($imputacion['cargo']->id, ['monto_aplicado' => $imputacion['monto']]);
+            }
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
@@ -235,6 +250,16 @@ class PagoCuotaService
                     'fecha' => $fechaPago, 'subrubro_id' => $cargoInscripcion->subrubro_id,
                     'tipo_caja_id' => $data['tipo_caja_id'], 'monto' => $montoInscripcion,
                     'observaciones' => 'Inscripción al club - pago #'.$pago->id,
+                    'usuario_admin_id' => $data['usuario_admin_id'],
+                    'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA, 'referencia_id' => $pago->id,
+                ]);
+                $movimiento ??= $movCargo;
+            }
+            foreach ($punitorios as $imputacion) {
+                $movCargo = CashflowMovimiento::create([
+                    'fecha' => $fechaPago, 'subrubro_id' => $imputacion['cargo']->subrubro_id,
+                    'tipo_caja_id' => $data['tipo_caja_id'], 'monto' => $imputacion['monto'],
+                    'observaciones' => $imputacion['cargo']->descripcion.' - pago #'.$pago->id,
                     'usuario_admin_id' => $data['usuario_admin_id'],
                     'referencia_tipo' => CashflowMovimiento::REF_PAGO_CUOTA, 'referencia_id' => $pago->id,
                 ]);
@@ -962,7 +987,7 @@ class PagoCuotaService
             // Se guarda en la misma transaccion que la reversion del cobro.
             $pago->detalle_anulacion = [
                 'motivo' => $motivo,
-                'cargos' => $pago->cargos->map(fn ($c) => ['periodo' => '', 'periodo_texto' => 'Inscripción al club', 'monto_aplicado' => $c->pivot->monto_aplicado])->all(),
+                'cargos' => $pago->cargos->map(fn ($c) => [...($c->tipo === 'PUNITORIO' ? ['cargo_alumno_id' => $c->id] : []), 'periodo' => $c->deudaCuota?->periodo ?? '', 'periodo_texto' => $c->tipo === 'PUNITORIO' ? $c->descripcion : 'Inscripción al club', 'monto_aplicado' => $c->pivot->monto_aplicado])->all(),
                 'periodos' => $pagoDeudas->map(fn ($pd) => [
                     'periodo' => $pd->deudaCuota->periodo,
                     'monto_aplicado' => $pd->monto_aplicado,
@@ -1038,8 +1063,9 @@ class PagoCuotaService
             $pago->detalle_anulacion = [
                 'motivo' => $motivo,
                 'cargos' => $pago->cargos->map(fn ($c) => [
-                    'periodo' => '',
-                    'periodo_texto' => 'Inscripción al club',
+                    ...($c->tipo === 'PUNITORIO' ? ['cargo_alumno_id' => $c->id] : []),
+                    'periodo' => $c->deudaCuota?->periodo ?? '',
+                    'periodo_texto' => $c->tipo === 'PUNITORIO' ? $c->descripcion : 'Inscripción al club',
                     'monto_aplicado' => $c->pivot->monto_aplicado,
                 ])->all(),
                 'periodos' => $pagoDeudas->map(fn ($pd) => [
@@ -1097,26 +1123,56 @@ class PagoCuotaService
     }
 
     /**
-     * Distribuir el total entregado: primero inscripción, después cuotas.
+     * Inscripción primero; después cada mes, capital y su recargo, de viejo a nuevo.
      */
     private function distribuirInscripcion(array $data, array $items): array
     {
         $cargo = app(InscripcionService::class)->cargo(Alumno::findOrFail($data['alumno_id'])->dni);
         $saldo = $cargo?->saldo_pendiente ?? 0;
+        $deudas = DeudaCuota::where('alumno_id', $data['alumno_id'])
+            ->whereIn('periodo', array_column($items, 'periodo'))->orderBy('periodo')
+            ->lockForUpdate()->get()->keyBy('periodo');
+        $cargos = \App\Models\CargoAlumno::where('tipo', 'PUNITORIO')->where('estado', 'VIGENTE')
+            ->where('alumno_id', $data['alumno_id'])->whereIn('deuda_cuota_id', $deudas->pluck('id'))
+            ->orderBy('deuda_cuota_id')->lockForUpdate()->get()->keyBy('deuda_cuota_id');
+        $saldosRecargos = $cargos->map(fn ($c) => max(0, $c->saldo_pendiente));
         $totalCuotas = $this->calcularMontoTotal($items);
-        $entregado = round((float) ($data['monto_entregado'] ?? ($totalCuotas + $saldo)), 2);
-        if ($entregado <= 0 || $entregado > round($totalCuotas + $saldo, 2)) {
+        $recargosCobrables = 0;
+        foreach ($items as $item) {
+            $deuda = $deudas->get($item['periodo']);
+            if ($deuda && ($deuda->estado === DeudaCuota::ESTADO_CONDONADA || (float) $item['monto'] >= $deuda->saldo_pendiente)) {
+                $recargosCobrables += $saldosRecargos->get($deuda->id, 0);
+            }
+        }
+        $maximo = round($totalCuotas + $saldo + $recargosCobrables, 2);
+        $entregado = round((float) ($data['monto_entregado'] ?? $maximo), 2);
+        if ($entregado <= 0 || $entregado > $maximo) {
             throw new \RuntimeException('El importe entregado debe ser positivo y no superar la deuda seleccionada más la inscripción.');
         }
         $inscripcion = min($entregado, $saldo);
         $resto = round($entregado - $inscripcion, 2);
         $cuotas = [];
+        $punitorios = [];
         foreach ($items as $item) {
-            $monto = min($resto, (float) $item['monto']);
+            $deuda = $deudas->get($item['periodo']);
+            $punitorio = $deuda ? $cargos->get($deuda->id) : null;
+            $saldoCapital = $deuda && $deuda->estado === DeudaCuota::ESTADO_CONDONADA ? 0 : $deuda?->saldo_pendiente;
+            $monto = min($resto, max(0, (float) $item['monto']));
             if ($monto > 0) $cuotas[] = ['periodo' => $item['periodo'], 'monto' => $monto];
             $resto = round($resto - $monto, 2);
+            $saldoRecargo = $punitorio ? $saldosRecargos->get($deuda->id, 0) : 0;
+            if ($saldoRecargo > 0 && $resto > 0) {
+                // No saltear capital limitando desde el cliente el importe de su cuota.
+                if ($monto < $saldoCapital) {
+                    throw new \RuntimeException('Completá la cuota del mes antes de cobrar su recargo o pasar al siguiente mes.');
+                }
+                $aplicado = min($resto, $saldoRecargo);
+                $punitorios[] = ['cargo' => $punitorio, 'monto' => $aplicado];
+                $resto = round($resto - $aplicado, 2);
+            }
         }
-        return [$cuotas, $cargo, $inscripcion];
+        if ($resto > 0) throw new \RuntimeException('El importe entregado supera los importes que se pueden cobrar.');
+        return [$cuotas, $cargo, $inscripcion, $punitorios];
     }
 
     private function agregarObservacion(?string $existente, string $nueva): string

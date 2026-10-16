@@ -24,16 +24,16 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Contrato de punitorios por mora V1 (especificación, sin programar).",
-      "modulo": "Reglas definidas y todavía no programadas",
+      "estado": "vigente",
+      "fuente": "Contrato de punitorios por mora V1; B11 implementada localmente el 16/10/2026. Pendiente verificación independiente de Claude y sincronización de la tabla viva; evidencia en IMPLEMENTACION-B11.md.",
+      "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Configuración con día de inicio de la mora y porcentaje mayor que cero. Alumno con la cuota del mes impaga pasado ese día.",
       "roles": [
         "OPERATIVO",
         "ADMIN"
       ],
-      "tarea": "",
+      "tarea": "B11",
       "tipo": "normal",
       "titulo": "Recargo por mora"
     },

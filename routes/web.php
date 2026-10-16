@@ -143,6 +143,8 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::post('/deudas/{id}/reactivar', [AlumnoWebController::class, 'reactivarDeuda'])->name('web.deudas.reactivar');
         Route::post('/inscripciones/{id}/condonar', [AlumnoWebController::class, 'condonarInscripcion'])->name('web.inscripciones.condonar');
         Route::post('/inscripciones/{id}/reactivar', [AlumnoWebController::class, 'reactivarInscripcion'])->name('web.inscripciones.reactivar');
+        Route::post('/punitorios/{id}/condonar', [AlumnoWebController::class, 'condonarPunitorio'])->name('web.punitorios.condonar');
+        Route::post('/punitorios/{id}/reactivar', [AlumnoWebController::class, 'reactivarPunitorio'])->name('web.punitorios.reactivar');
 
         // A13/B1: el cobro del dueño no pasa por ninguna caja, asi que tampoco se puede
         // anular desde el detalle de una caja. Se anula desde el historial de la ficha.

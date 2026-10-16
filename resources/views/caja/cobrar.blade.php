@@ -38,7 +38,7 @@
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Total pendiente</p>
             <p style="font-size:0.85rem; font-weight:700; color:var(--color-danger);">
                 {{-- Un mes que todavía no empezó no es deuda (T18). --}}
-                {{ \App\Support\FormatoImporte::pesos($alumno->deudaCuotas->where('periodo', '<=', now()->format('Y-m'))->sum('saldo_pendiente') + $saldoInscripcion) }}
+                {{ \App\Support\FormatoImporte::pesos($alumno->deudaCuotas->where('periodo', '<=', now()->format('Y-m'))->reject(fn ($d) => $d->estado === 'CONDONADA')->sum('saldo_pendiente') + $saldoInscripcion + $punitorios->sum('saldo_para_cobranza')) }}
             </p>
         </div>
     </div>
@@ -114,6 +114,8 @@
                         $meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
                         $periodoLabel = $meses[(int)$month] . ' ' . $year;
                         $esAdelantado = ($deuda->periodo > now()->format('Y-m'));
+                        $saldoCuota = $deuda->estado === 'CONDONADA' ? 0 : $deuda->saldo_pendiente;
+                        $recargo = $punitorios->get($deuda->id);
                     @endphp
                     <div class="cuota-row" style="
                         display:flex; align-items:center; gap:12px;
@@ -126,7 +128,8 @@
                                name="periodos[]"
                                value="{{ $deuda->periodo }}"
                                class="cuota-check"
-                               data-saldo="{{ $deuda->saldo_pendiente }}"
+                               data-saldo="{{ $saldoCuota }}"
+                               data-recargo="{{ $recargo?->saldo_para_cobranza ?? 0 }}"
                                data-pagado="{{ (float) $deuda->monto_pagado }}"
                                data-periodo="{{ $deuda->periodo }}"
                                style="width:16px; height:16px; cursor:pointer; flex-shrink:0; accent-color:var(--color-btn-primary);">
@@ -144,13 +147,24 @@
                             @endif
                         </div>
                         <div style="display:flex; align-items:center; gap:8px;">
+                            @if($saldoCuota > 0)
                             <x-ds.money-input name="montos_cuota[{{ $deuda->periodo }}]"
                                               class="monto-cuota" data-periodo="{{ $deuda->periodo }}"
                                               data-saldo="{{ $deuda->saldo_pendiente }}"
                                               :value="old('montos_cuota.'.$deuda->periodo, $deuda->saldo_pendiente)"
                                               min="0.01" :prefix="false" wrapper-class="money-input-wrap--cuota" required disabled />
+                            @else
+                            <span class="text-xs text-wings-muted">{{ $deuda->estado === 'CONDONADA' ? 'Cuota condonada' : 'Cuota pagada' }}</span>
+                            @endif
                         </div>
                     </div>
+                    @if($recargo)
+                    <div class="flex items-center justify-between gap-2 text-xs text-wings-muted" style="padding:0 14px 8px 42px;"
+                         data-recargo-periodo="{{ $deuda->periodo }}">
+                        <span>Recargo por mora — {{ $periodoLabel }}</span>
+                        <strong style="white-space:nowrap;">{{ \App\Support\FormatoImporte::pesos($recargo->saldo_para_cobranza) }}</strong>
+                    </div>
+                    @endif
                 @endforeach
             </div>
             @error('periodos')
@@ -253,10 +267,15 @@
     </div>
 
     {{-- Acciones --}}
-    @if($saldoInscripcion > 0)
+    @if($saldoInscripcion > 0 || $punitorios->isNotEmpty())
     <div class="alumno-card mb-3">
-        <div class="alumno-card-header"><h3 class="alumno-nombre">Inscripción al club</h3></div>
+        <div class="alumno-card-header"><h3 class="alumno-nombre">{{ $saldoInscripcion > 0 ? 'Inscripción al club' : 'Importe del cobro' }}</h3></div>
+        @if($saldoInscripcion > 0)
         <p>Pendiente por única vez: {{ \App\Support\FormatoImporte::pesos($saldoInscripcion) }}. Se cubre antes que la cuota, en cualquiera de los deportes.</p>
+        @endif
+        @if($punitorios->isNotEmpty())
+        <p class="text-wings-muted">Por cada mes, primero se cubre la cuota y después su recargo, del mes más viejo al más nuevo.</p>
+        @endif
         <label for="monto-entregado" class="{{ $labelClass }}">
             <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v2m0 12v2m8-8a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
             Importe que entrega (dejar vacío para cobrar el total)
@@ -265,6 +284,7 @@
         <p id="inscripcion-distribucion" aria-live="polite">
             <span class="block" data-distribucion-inscripcion></span>
             <span class="block" data-distribucion-cuotas></span>
+            @if($punitorios->isNotEmpty())<span class="block" data-distribucion-recargos></span>@endif
         </p>
     </div>
     @endif

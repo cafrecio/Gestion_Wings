@@ -1,0 +1,186 @@
+{
+  "metodo": "Respuestas HTTP reales; teléfono dentro de iframe en viewport exterior 1366x900; recibos PDF reales renderizados con Poppler.",
+  "pantallas": [
+    {
+      "nombre": "cobrar-0",
+      "marco": 360,
+      "alto": 1312,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "cobrar-5",
+      "marco": 360,
+      "alto": 1597,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "ficha-0",
+      "marco": 360,
+      "alto": 1268,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "ficha-5",
+      "marco": 360,
+      "alto": 1407,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "configuracion-0",
+      "marco": 360,
+      "alto": 3776,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "configuracion-5",
+      "marco": 360,
+      "alto": 3776,
+      "ancho": 345,
+      "contenido": 345
+    },
+    {
+      "nombre": "cobrar-0",
+      "marco": 375,
+      "alto": 1294,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "cobrar-5",
+      "marco": 375,
+      "alto": 1578,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "ficha-0",
+      "marco": 375,
+      "alto": 1268,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "ficha-5",
+      "marco": 375,
+      "alto": 1407,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "configuracion-0",
+      "marco": 375,
+      "alto": 3728,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "configuracion-5",
+      "marco": 375,
+      "alto": 3728,
+      "ancho": 360,
+      "contenido": 360
+    },
+    {
+      "nombre": "cobrar-0",
+      "marco": 1366,
+      "alto": 900,
+      "ancho": 1366,
+      "contenido": 1366
+    },
+    {
+      "nombre": "cobrar-5",
+      "marco": 1366,
+      "alto": 1083,
+      "ancho": 1351,
+      "contenido": 1351
+    },
+    {
+      "nombre": "ficha-0",
+      "marco": 1366,
+      "alto": 900,
+      "ancho": 1366,
+      "contenido": 1366
+    },
+    {
+      "nombre": "ficha-5",
+      "marco": 1366,
+      "alto": 900,
+      "ancho": 1366,
+      "contenido": 1366
+    },
+    {
+      "nombre": "configuracion-0",
+      "marco": 1366,
+      "alto": 2879,
+      "ancho": 1351,
+      "contenido": 1351
+    },
+    {
+      "nombre": "configuracion-5",
+      "marco": 1366,
+      "alto": 2879,
+      "ancho": 1351,
+      "contenido": 1351
+    },
+    {
+      "nombre": "recibo-0",
+      "marco": 360,
+      "alto": 900,
+      "ancho": 360,
+      "contenido": 360,
+      "pdfReal": true
+    },
+    {
+      "nombre": "recibo-5",
+      "marco": 360,
+      "alto": 900,
+      "ancho": 360,
+      "contenido": 360,
+      "pdfReal": true
+    },
+    {
+      "nombre": "recibo-0",
+      "marco": 375,
+      "alto": 900,
+      "ancho": 375,
+      "contenido": 375,
+      "pdfReal": true
+    },
+    {
+      "nombre": "recibo-5",
+      "marco": 375,
+      "alto": 900,
+      "ancho": 375,
+      "contenido": 375,
+      "pdfReal": true
+    },
+    {
+      "nombre": "recibo-0",
+      "marco": 1366,
+      "alto": 910,
+      "ancho": 1351,
+      "contenido": 1351,
+      "pdfReal": true
+    },
+    {
+      "nombre": "recibo-5",
+      "marco": 1366,
+      "alto": 910,
+      "ancho": 1351,
+      "contenido": 1351,
+      "pdfReal": true
+    }
+  ],
+  "controlParcial": {
+    "entregado": 4000,
+    "cuota": 4000,
+    "recargo": 0,
+    "total": 4000
+  },
+  "limite": "Capturas de estados renderizados. Las escrituras y los permisos se comprueban por HTTP en la base propia."
+}

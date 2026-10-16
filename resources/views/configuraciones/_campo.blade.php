@@ -25,6 +25,7 @@
                           aria-invalid="{{ $errorCampo ? 'true' : 'false' }}" />
         @else
         <input id="cfg-{{ $clave }}" name="valor" value="{{ $valor }}" type="{{ $campo['tipo'] }}"
+               @if($clave === 'mora_porcentaje') inputmode="decimal" @endif
                class="wings-input w-full p-3 mb-3" maxlength="255"
                @if(isset($campo['min'])) min="{{ $campo['min'] }}" @endif
                @if(isset($campo['max'])) max="{{ $campo['max'] }}" @endif

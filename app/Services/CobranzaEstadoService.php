@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Alumno;
 use App\Models\Configuracion;
+use App\Models\CargoAlumno;
 use App\Models\DeudaCuota;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -39,7 +40,8 @@ class CobranzaEstadoService
             $fecha,
             $diasGracia,
             $diasPlazoAlta,
-            $fechaAlta
+            $fechaAlta,
+            $this->recargosPendientesPorAlumno(collect([$alumnoId]))->get($alumnoId, collect())
         );
 
         $estadoFinal = $infoCuotas['estado'];
@@ -89,8 +91,9 @@ class CobranzaEstadoService
         $diasGracia = $this->diasGracia();
         $diasPlazoAlta = $this->diasPlazoAlta();
         $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
+        $recargosPorAlumno = $this->recargosPendientesPorAlumno($alumnoIds);
 
-        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $inscripcionesPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
+        return $alumnos->mapWithKeys(function (Alumno $alumno) use ($deudasPorAlumno, $inscripcionesPorAlumno, $recargosPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
             $fechaAlta = !empty($alumno->fecha_alta)
                 ? Carbon::parse($alumno->fecha_alta)
                 : null;
@@ -100,7 +103,8 @@ class CobranzaEstadoService
                 $fecha,
                 $diasGracia,
                 $diasPlazoAlta,
-                $fechaAlta
+                $fechaAlta,
+                $recargosPorAlumno->get($alumno->id, collect())
             );
 
             $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
@@ -142,6 +146,7 @@ class CobranzaEstadoService
             ->groupBy('alumno_id');
 
         $inscripcionPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
+        $recargosPorAlumno = $this->recargosPendientesPorAlumno($alumnoIds);
 
         $necesitaFechas = $alumnos->contains(fn($a) => !array_key_exists('fecha_alta', $a->getAttributes()));
         $fechasAlta = $necesitaFechas
@@ -170,6 +175,12 @@ class CobranzaEstadoService
             }
 
             $inscripcion = (float) ($inscripcionPorAlumno[$alumno->id] ?? 0.0);
+            $recargos = $recargosPorAlumno->get($alumno->id, collect());
+            $punitorios = round((float) $recargos->sum('saldo_para_cobranza'), 2);
+            foreach ($recargos as $cargo) {
+                $periodo = $cargo->deudaCuota->periodo;
+                if ($masAntigua === null || $periodo < $masAntigua) $masAntigua = $periodo;
+            }
 
             // T31: Si debe inscripción, ordenar por antigüedad de esa deuda (fecha_alta Y-m)
             if ($inscripcion > 0) {
@@ -185,7 +196,8 @@ class CobranzaEstadoService
             $saldos[$alumno->id] = [
                 'cuotas' => round($cuotas, 2),
                 'inscripcion' => $inscripcion,
-                'total' => round($cuotas + $inscripcion, 2),
+                'punitorios' => $punitorios,
+                'total' => round($cuotas + $inscripcion + $punitorios, 2),
                 'cuotas_impagas' => $impagas,
                 'mas_antigua' => $masAntigua ?? '9999-99',
             ];
@@ -248,6 +260,20 @@ class CobranzaEstadoService
         return $pendientes;
     }
 
+    /** Recargos de su mes, incluso cuando el capital ya quedó pagado o condonado. */
+    public function recargosPendientesPorAlumno(Collection $alumnoIds): Collection
+    {
+        if ($alumnoIds->isEmpty()) return collect();
+        return CargoAlumno::where('tipo', 'PUNITORIO')->where('estado', 'VIGENTE')
+            ->whereIn('alumno_id', $alumnoIds)
+            ->whereHas('deudaCuota', fn ($q) => $q->where('periodo', '<=', now()->format('Y-m')))
+            ->with(['pagos', 'deudaCuota'])->get()
+            ->each(fn ($cargo) => $cargo->setAttribute('saldo_para_cobranza', round(max(0,
+                (float) $cargo->monto_original - (float) $cargo->monto_condonado
+                - (float) $cargo->pagos->sum('pivot.monto_aplicado')), 2)))
+            ->filter(fn ($cargo) => $cargo->saldo_para_cobranza > 0)->groupBy('alumno_id');
+    }
+
     /**
      * Filtrar alumnos activos por estado de cobranza computado.
      */
@@ -277,8 +303,9 @@ class CobranzaEstadoService
         $diasGracia = $this->diasGracia();
         $diasPlazoAlta = $this->diasPlazoAlta();
         $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
+        $recargosPorAlumno = $this->recargosPendientesPorAlumno($alumnos->pluck('id'));
 
-        $resultado = $alumnos->map(function (Alumno $alumno) use ($inscripcionesPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
+        $resultado = $alumnos->map(function (Alumno $alumno) use ($inscripcionesPorAlumno, $recargosPorAlumno, $fecha, $diasGracia, $diasPlazoAlta) {
             $fechaAlta = !empty($alumno->fecha_alta)
                 ? Carbon::parse($alumno->fecha_alta)
                 : null;
@@ -288,7 +315,8 @@ class CobranzaEstadoService
                 $fecha,
                 $diasGracia,
                 $diasPlazoAlta,
-                $fechaAlta
+                $fechaAlta,
+                $recargosPorAlumno->get($alumno->id, collect())
             );
 
             $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
@@ -338,6 +366,7 @@ class CobranzaEstadoService
             ->get();
 
         $saldos = $this->saldoDeAlumnos($todosAlumnos);
+        $recargosPorAlumno = $this->recargosPendientesPorAlumno($todosAlumnos->pluck('id'));
 
         // Calcular estado y deuda para cada registro individual
         foreach ($todosAlumnos as $alumno) {
@@ -350,7 +379,8 @@ class CobranzaEstadoService
                 $fecha,
                 $diasGracia,
                 $diasPlazoAlta,
-                $fechaAlta
+                $fechaAlta,
+                $recargosPorAlumno->get($alumno->id, collect())
             );
             $saldo = $saldos[$alumno->id];
 
@@ -366,6 +396,7 @@ class CobranzaEstadoService
             $alumno->setAttribute('deuda_total', $saldo['total']);
             $alumno->setAttribute('deuda_cuotas', $saldo['cuotas']);
             $alumno->setAttribute('inscripcion_pendiente', $saldo['inscripcion']);
+            $alumno->setAttribute('punitorios_pendientes', $saldo['punitorios']);
             $alumno->setAttribute('deuda_mas_antigua', $saldo['mas_antigua']);
             $alumno->setAttribute('cantidad_cuotas_impagas', $saldo['cuotas_impagas']);
         }
@@ -457,6 +488,7 @@ class CobranzaEstadoService
         $diasPlazoAlta = $this->diasPlazoAlta();
         $totalAdeudadoCuotas = 0.0;
         $inscripcionesPorAlumno = $this->inscripcionPendientePorAlumno($alumnos);
+        $recargosPorAlumno = $this->recargosPendientesPorAlumno($alumnos->pluck('id'));
 
         foreach ($alumnos as $alumno) {
             $fechaAlta = !empty($alumno->fecha_alta)
@@ -468,7 +500,8 @@ class CobranzaEstadoService
                 $fecha,
                 $diasGracia,
                 $diasPlazoAlta,
-                $fechaAlta
+                $fechaAlta,
+                $recargosPorAlumno->get($alumno->id, collect())
             );
 
             $montoInscripcion = (float) ($inscripcionesPorAlumno[$alumno->id] ?? 0.0);
@@ -519,7 +552,8 @@ class CobranzaEstadoService
         // Inscripciones pendientes para alumnos activos
         $totalAdeudadoInscripciones = $this->totalInscripcionesPendientes($alumnos);
 
-        $totalAdeudado = round($totalAdeudadoCuotas + $totalAdeudadoInscripciones, 2);
+        $totalPunitorios = $recargosPorAlumno->flatten(1)->sum('saldo_para_cobranza');
+        $totalAdeudado = round($totalAdeudadoCuotas + $totalAdeudadoInscripciones + $totalPunitorios, 2);
 
         return [
             'total_alumnos_activos' => $alumnos->count(),
@@ -582,7 +616,8 @@ class CobranzaEstadoService
         Carbon $fecha,
         int $diasGracia,
         int $diasPlazoAlta,
-        ?Carbon $fechaAlta = null
+        ?Carbon $fechaAlta = null,
+        ?Collection $recargos = null
     ): array {
         $periodoVigente = $fecha->format('Y-m');
         $diaActual = (int) $fecha->format('d');
@@ -596,12 +631,17 @@ class CobranzaEstadoService
         $diasGraciaRestantes = 0;
         $deudaVigente = null;
 
-        foreach ($deudas as $deuda) {
+        // Solo para clasificar el estado: el recargo nunca modifica el capital guardado.
+        $deudasRecargos = ($recargos ?? collect())->map(fn ($cargo) => new DeudaCuota([
+            'periodo' => $cargo->deudaCuota->periodo, 'monto_original' => $cargo->saldo_para_cobranza,
+            'monto_pagado' => 0, 'estado' => DeudaCuota::ESTADO_PENDIENTE,
+        ]));
+        foreach ($deudas->concat($deudasRecargos) as $deuda) {
             if (!$this->estaImpaga($deuda)) {
                 continue;
             }
 
-            if ($deuda->periodo === $periodoVigente) {
+            if ($deuda->periodo === $periodoVigente && $deuda->exists) {
                 $deudaVigente = $deuda;
             }
 
@@ -692,6 +732,13 @@ class CobranzaEstadoService
      * Rige el plazo propio del alumno nuevo (dias_plazo_alta) o el vencimiento general del mes de ingreso
      * (dias_gracia_cobranza), el que venza más tarde (el más favorable al alumno).
      */
+    public function limiteDeAlta(Alumno $alumno): ?Carbon
+    {
+        return $alumno->fecha_alta
+            ? $this->limiteVencimientoAlta(Carbon::parse($alumno->fecha_alta), $this->diasGracia(), $this->diasPlazoAlta())
+            : null;
+    }
+
     private function limiteVencimientoAlta(Carbon $fechaAlta, int $diasGracia, int $diasPlazoAlta): Carbon
     {
         $limitePlazoPropio = $fechaAlta->copy()->startOfDay()->addDays($diasPlazoAlta);

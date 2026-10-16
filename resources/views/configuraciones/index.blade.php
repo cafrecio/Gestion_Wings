@@ -26,6 +26,8 @@
 <section aria-labelledby="configuracion-cobranza">
     <div class="stats-bar mb-3"><h2 id="configuracion-cobranza" class="alumno-nombre">La cobranza</h2></div>
     @include('configuraciones._campo', ['clave' => 'dias_gracia_cobranza'])
+    @include('configuraciones._campo', ['clave' => 'mora_dia_desde'])
+    @include('configuraciones._campo', ['clave' => 'mora_porcentaje'])
     <article class="alumno-card">
         <div class="alumno-card-header"><h3 class="alumno-nombre">Generación de cuotas mensuales</h3></div>
         <p class="text-wings-muted mb-3">El sistema genera las cuotas automáticamente el día 1 de cada mes, a las 06:00.</p>

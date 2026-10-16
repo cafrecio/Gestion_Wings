@@ -1,5 +1,17 @@
 # Wings — Estado actual
 
+## B11 — Implementada localmente, a verificar por Claude, 16/10/2026
+
+Motor diario del mes vigente, configuración, cobro por mes con capital primero,
+recibo, perdón/reactivación y saldos incorporados; porcentaje inicial cero.
+Carlos autorizó «Actualizar los conteos y seguir»: solo dos cantidades de
+`CatalogosSeederTest` cambian (11/18 → 12/19); las demás pruebas viejas se conservan.
+Suite completa propia: **761 aprobadas, 2 omitidas, 7214 aserciones, 1106,83 s**.
+35 pruebas nuevas y 31 capturas reales en escritorio y marcos de 360/375.
+[Entrega, criterios y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
+Pendiente revisión independiente y visual; sin publicación ni despliegue.
+`52e6bdf` y sus descendientes permanecen locales por decisión de Carlos.
+
 ## T11 — Comprobación local de Codex, 16/10/2026
 
 Application > Manifest sin errores ni avisos; dos screenshots reconocidos y CDP
@@ -482,7 +494,8 @@ por DNI y cargo separado de cuotas; corte retirado en P0 del 04/10. Pago parcial
 inscripción; caja y recibo desglosan conceptos. Comisión y estado mensual excluyen
 inscripción. Corregir ingreso sin pagos conserva el cargo con auditoría; con pagos se rechaza.
 Autorización visual y reemplazo de §5 de Punitorios confirmados por Carlos el 22/09.
-FIN-14 conserva motor y configuración pendientes. Sin deploy; actualización por Claude.
+FIN-14 incorporó motor y configuración en B11 el 16/10; pendiente verificación
+independiente de Claude. Sin deploy.
 [Evidencia y límites](../06-pruebas/ENT-01-INSCRIPCION-2026-09-22.md).
 
 ## Decisión nueva 21/09/2026 — canchas y liquidaciones de clubes (POS-07)
@@ -610,7 +623,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **728 pruebas** presentes (T3 suma 6). Codex 16/10: suite 724 aprobadas/2 omitidas/1 fallo de conteo, 6943 aserciones; descubrió 727 antes del sexto método de T3. Después: T3 6/27 y guardián documental 1/7 verdes. No es una nueva suite completa verde |
+| **Tests** | **763 pruebas**: 761 aprobadas y 2 omitidas, 7214 aserciones, 1106,83 s; suite completa local de Codex, 16/10, en wings_testing_codex. B11 suma 35 pruebas nuevas; solo dos conteos viejos actualizados con autorización de Carlos |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
