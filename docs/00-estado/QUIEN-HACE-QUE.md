@@ -48,7 +48,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
+| **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d4f02d4 desde el 13/10 (T7; incluye T31, T32, T33 y el limite de ingresos), reloj en hora real, 100 alumnos de la primera carga de PRU-03. Falta repetir en el sitio los casos de la tabla marcados arreglados y sin resolver: D02-04 (ACC-003, ingreso de Sandra, arreglado en T32) y D03-01 a D03-03 (CLA-011, clases canceladas, T21). Si pasan, se cierra |
 
 ## Codex
 
