@@ -1,0 +1,84 @@
+{
+  "casos": [
+    {
+      "nombre": "cinco-actuales",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "A6-paso-actual",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "A6-fecha-y-ambos-documentos-estables",
+      "cumple": true
+    },
+    {
+      "nombre": "cerrar-B11",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "cierre-tiene-fecha-de-hoy",
+      "cumple": true
+    },
+    {
+      "nombre": "B11-dato-despues",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "otro-dato-no-mueve-fecha",
+      "cumple": true
+    },
+    {
+      "nombre": "helper-dia-distinto",
+      "cumple": true
+    },
+    {
+      "nombre": "fecha-cierre-independiente-del-ultimo-cambio",
+      "cumple": true
+    },
+    {
+      "nombre": "reabrir-B11",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "reabrir-borra-fecha-en-datos-y-cierre-en-documentos",
+      "cumple": true
+    },
+    {
+      "nombre": "dos-nuevas-actuales",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "dos-nuevas-rojas-con-codigo-anterior",
+      "cumple": true,
+      "exitCode": 2,
+      "motivo": "tablero_cambiar no existe en f4e6436; son errores de API ausente, no dos aserciones rojas de fecha"
+    },
+    {
+      "nombre": "A6-paso-codigo-f4e6436",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "bug-original-reproducido-por-comando-real",
+      "cumple": true
+    },
+    {
+      "nombre": "cinco-actuales-restauradas",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "restauracion-y-compartida-intactas",
+      "cumple": true
+    }
+  ],
+  "copiaRestaurada": true,
+  "compartidaIntacta": true
+}

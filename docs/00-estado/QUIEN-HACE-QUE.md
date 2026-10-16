@@ -46,13 +46,14 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T3** Pasar el seguimiento al tablero unico | Devuelto (hizo Claude, verifica Codex) | Segunda vuelta: A6 y fechas corregidos; cerrar B11 emite Undefined array key 2 en scripts/tablero/lib.php:660. Corregir acceso al grupo opcional y cubrir cierre HTML sin avisos. Ver Segunda vuelta en VERIFICACION-T3-CODEX.md |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T3** Pasar el seguimiento al tablero unico | Hecho, espera verificación (hizo Claude, verifica Codex) | Segunda vuelta, 16/10: cada tarea guarda su fecha de cierre aparte (cerrado_el) y cambiar otro dato no la mueve; lo cerrado conserva el encabezado que tenia antes de T3; dos pruebas nuevas reproducen el caso de A6 y fallan con el codigo anterior. Suite 727: 724 aprobadas, 2 omitidas, la falla era el conteo, corregido |
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Tercera vuelta: informe corregido (WebP y enlaces). Codex repite Application > Manifest y la suite en su base |
 
 ## Gemini

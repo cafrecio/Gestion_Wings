@@ -1,0 +1,22 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+EE                                                                  2 / 2 (100%)
+
+Time: 00:00.070, Memory: 12.00 MB
+
+There were 2 errors:
+
+1) Tests\Feature\TableroAlDiaTest::test_cambiar_otro_dato_de_un_cerrado_no_mueve_su_fecha_de_cierre
+Error: Call to undefined function Tests\Feature\tablero_cambiar()
+
+C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-318ef2f\tests\Feature\TableroAlDiaTest.php:75
+
+2) Tests\Feature\TableroAlDiaTest::test_al_cerrar_se_guarda_el_dia_del_cierre_y_no_cambia_despues
+Error: Call to undefined function Tests\Feature\tablero_cambiar()
+
+C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-318ef2f\tests\Feature\TableroAlDiaTest.php:90
+
+ERRORS!
+Tests: 2, Assertions: 1, Errors: 2.

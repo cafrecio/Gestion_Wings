@@ -13,6 +13,12 @@ Sin corrección del generador, producto, datos del club, reloj o despliegue.
 **Corregido por Claude el 16/10 (segunda vuelta):** cada tarea guarda su fecha de cierre aparte
 (`cerrado_el`); cambiar otro dato no la mueve. Lo cerrado conserva el encabezado que tenía antes
 de T3, con sus matices. Dos pruebas nuevas reproducen el caso de A6: 727 pruebas.
+**Segunda verificación de Codex CyE, 16/10:** A6 corregido, 67 encabezados/renglones
+cerrados restaurados; 66 fechas coinciden y B15 se respalda con SERVIDOR.md y 031bdec.
+Devuelta a Claude: cerrar B11 emite `Undefined array key 2` en lib.php:660, aunque
+guarda. Corregir el grupo opcional y probar el cierre HTML sin avisos. Suite propia
+725 aprobadas/2 omitidas, 6947 aserciones, 681.68 s; diez casos concurrentes T33 verdes.
+Sin arreglos ni despliegue. [Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta).
 
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 

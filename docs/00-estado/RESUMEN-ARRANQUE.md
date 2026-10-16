@@ -35,12 +35,12 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T3, 16/10, devuelta por Codex CyE a Claude:** migración conserva los 70 estados
-  y cuerpos; 56 encabezados distintos, documentados. En copia, editar solo el paso
-  de A6 convierte CERRADO 08/10 en 16/10 y el guardián sigue verde. Corregir la fecha
-  y añadir regresión. Suite propia 723/2, 6929 aserciones; T33 concurrente 10/10
-  dentro de la suite. [Verificación](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md).
-  Sin arreglo, producto, datos del club, reloj ni despliegue.
+- **T3, segunda vuelta 16/10, devuelta por Codex CyE a Claude:** A6 y las fechas
+  corregidos; 67 encabezados/renglones cerrados restaurados, B15 respaldado históricamente.
+  Cerrar B11 emite `Undefined array key 2`, lib.php:660, aunque guarda. Corregir grupo
+  opcional y probar cierre HTML sin avisos. Suite propia 725/2, 6947 aserciones;
+  T33 concurrente 10/10. [Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta).
+  Sin arreglo, producto, datos del club, reloj ni despliegue; T11 no empezada.
 
 - **T11, 14/10, Codex CAB:** segunda vuelta f6bea35 devuelta a Gemini por soporte WebP mal documentado y enlace oficial incorrecto. PNG validos y sin datos personales; Chrome local y suite propia bloqueados por el entorno, sin aprobacion ni medicion del sitio. [Verificacion](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Despues Codex repite ambas comprobaciones; telefono de Carlos requiere despliegue. Sin cierre ni despliegue.
 

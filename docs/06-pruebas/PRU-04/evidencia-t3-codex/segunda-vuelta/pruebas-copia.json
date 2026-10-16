@@ -1,0 +1,255 @@
+{
+  "origen": "318ef2f",
+  "base": "wings_testing_codex",
+  "copia": "C:\\xampp\\htdocs\\Gestion_Wings\\storage\\app\\verificacion-t3-codex-318ef2f",
+  "casos": [
+    {
+      "nombre": "cinco-actuales",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "A6-paso-actual",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "A6-fecha-y-ambos-documentos-estables",
+      "cumple": true
+    },
+    {
+      "nombre": "cerrar-B11",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "cierre-tiene-fecha-de-hoy",
+      "cumple": true
+    },
+    {
+      "nombre": "B11-dato-despues",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "otro-dato-no-mueve-fecha",
+      "cumple": true
+    },
+    {
+      "nombre": "helper-dia-distinto",
+      "cumple": true
+    },
+    {
+      "nombre": "fecha-cierre-independiente-del-ultimo-cambio",
+      "cumple": true
+    },
+    {
+      "nombre": "reabrir-B11",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "reabrir-borra-fecha-en-datos-y-cierre-en-documentos",
+      "cumple": true
+    },
+    {
+      "nombre": "dos-nuevas-actuales",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "dos-nuevas-rojas-con-codigo-anterior",
+      "cumple": true,
+      "exitCode": 2,
+      "motivo": "tablero_cambiar no existe en f4e6436; son errores de API ausente, no dos aserciones rojas de fecha"
+    },
+    {
+      "nombre": "A6-paso-codigo-f4e6436",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "bug-original-reproducido-por-comando-real",
+      "cumple": true
+    },
+    {
+      "nombre": "cinco-actuales-restauradas",
+      "cumple": true,
+      "exitCode": 0
+    },
+    {
+      "nombre": "restauracion-y-compartida-intactas",
+      "cumple": true
+    }
+  ],
+  "advertencias": [
+    {
+      "nombre": "cerrar-B11",
+      "comando": [
+        "php",
+        "scripts/tablero/tablero.php",
+        "cambiar",
+        "B11",
+        "estado=cerrado",
+        "hizo=Claude",
+        "verifica=Codex"
+      ],
+      "exitCode": 0,
+      "texto": "Warning: Undefined array key 2 in C:\\xampp\\htdocs\\Gestion_Wings\\storage\\app\\verificacion-t3-codex-318ef2f\\scripts\\tablero\\lib.php on line 660\nB11 actualizada. 68 defectos cerrados de 70. Frenan: ninguno.\nPHP Warning:  Undefined array key 2 in C:\\xampp\\htdocs\\Gestion_Wings\\storage\\app\\verificacion-t3-codex-318ef2f\\scripts\\tablero\\lib.php on line 660"
+    }
+  ],
+  "a6Antes": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "",
+      "ref": "",
+      "fecha": "2026-10-08",
+      "cerrado_el": "2026-10-08"
+    },
+    "md": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 08/10 · verificado Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\"<span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "a6Despues": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "prueba",
+      "ref": "",
+      "fecha": "2026-10-16",
+      "cerrado_el": "2026-10-08"
+    },
+    "md": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 08/10 · verificado Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\"<span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "b11Cerrada": {
+    "tarea": {
+      "id": "B11",
+      "titulo": "Los punitorios están definidos y sin motor",
+      "gravedad": "Falta",
+      "prioridad": "alta",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Claude",
+      "verifica": "Codex",
+      "paso": "",
+      "ref": "",
+      "fecha": "2026-10-16",
+      "cerrado_el": "2026-10-16"
+    },
+    "md": "### B11. Los punitorios están definidos y sin motor · Falta · CERRADO 16/10, verificó Codex",
+    "html": "      <div class=\"item\"><input id=\"B11\" type=\"checkbox\" checked><label for=\"B11\"><span class=\"id\">B11</span>Los punitorios están definidos y sin motor <span class=\"sello\">CERRADO 16/10, verificó Codex</span><span class=\"detail\">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "b11OtroDato": {
+    "tarea": {
+      "id": "B11",
+      "titulo": "Los punitorios están definidos y sin motor",
+      "gravedad": "Falta",
+      "prioridad": "alta",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Claude",
+      "verifica": "Codex",
+      "paso": "Otro dato",
+      "ref": "",
+      "fecha": "2026-10-16",
+      "cerrado_el": "2026-10-16"
+    },
+    "md": "### B11. Los punitorios están definidos y sin motor · Falta · CERRADO 16/10, verificó Codex",
+    "html": "      <div class=\"item\"><input id=\"B11\" type=\"checkbox\" checked><label for=\"B11\"><span class=\"id\">B11</span>Los punitorios están definidos y sin motor <span class=\"sello\">CERRADO 16/10, verificó Codex</span><span class=\"detail\">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "b11DiaDistinto": {
+    "tarea": {
+      "id": "B11",
+      "titulo": "Los punitorios están definidos y sin motor",
+      "gravedad": "Falta",
+      "prioridad": "alta",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Claude",
+      "verifica": "Codex",
+      "paso": "Otro dia simulado",
+      "ref": "",
+      "fecha": "2030-02-05",
+      "cerrado_el": "2026-10-16"
+    },
+    "md": "### B11. Los punitorios están definidos y sin motor · Falta · CERRADO 16/10, verificó Codex",
+    "html": "      <div class=\"item\"><input id=\"B11\" type=\"checkbox\" checked><label for=\"B11\"><span class=\"id\">B11</span>Los punitorios están definidos y sin motor <span class=\"sello\">CERRADO 16/10, verificó Codex</span><span class=\"detail\">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "b11Reabierta": {
+    "tarea": {
+      "id": "B11",
+      "titulo": "Los punitorios están definidos y sin motor",
+      "gravedad": "Falta",
+      "prioridad": "alta",
+      "estado": "devuelto",
+      "tiene": "Claude",
+      "hizo": "Claude",
+      "verifica": "Codex",
+      "paso": "Reabierta de prueba",
+      "ref": "",
+      "fecha": "2026-10-16",
+      "cerrado_el": ""
+    },
+    "md": "### B11. Los punitorios están definidos y sin motor · Falta · Devuelto, la tiene Claude",
+    "html": "      <div class=\"item\"><input id=\"B11\" type=\"checkbox\"><label for=\"B11\"><span class=\"id\">B11</span>Los punitorios están definidos y sin motor <span class=\"sello\">Devuelto, la tiene Claude</span><span class=\"detail\">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class=\"tag alta\">Devuelto</span></div>"
+  },
+  "a6AntesLegacy": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "",
+      "ref": "",
+      "fecha": "2026-10-08",
+      "cerrado_el": "2026-10-08"
+    },
+    "md": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 08/10 · verificado Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\"<span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "a6DespuesLegacy": {
+    "tarea": {
+      "id": "A6",
+      "titulo": "\"Modificar\" donde en todo el resto dice \"Editar\"",
+      "gravedad": "Molesta",
+      "prioridad": "",
+      "estado": "cerrado",
+      "tiene": "nadie",
+      "hizo": "Codex",
+      "verifica": "Carlos",
+      "paso": "prueba",
+      "ref": "",
+      "fecha": "2026-10-16"
+    },
+    "md": "### A6. \"Modificar\" donde en todo el resto dice \"Editar\" · Molesta · CERRADO 16/10, verificó Carlos",
+    "html": "      <div class=\"item\"><input id=\"A6\" type=\"checkbox\" checked><label for=\"A6\"><span class=\"id\">A6</span>\"Modificar\" donde en todo el resto dice \"Editar\" <span class=\"sello\">CERRADO 16/10, verificó Carlos</span><span class=\"detail\"><b>CERRADO 08/10 · verificado Carlos, AGENTS §6a:</b> Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. <a href=\"IMPLEMENTACION-A6-A10.md\">Entrega y capturas</a>. Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.</span></label><span class=\"tag done\">Cerrado</span></div>"
+  },
+  "copiaRestaurada": true,
+  "compartidaIntacta": true,
+  "hashesCompartida": {
+    "docs/00-estado/tareas.json": "65de80f146eac19d503a7806dd0a67f2d9ddaaa1fee3c6ec38d28157c64cdf0f",
+    "docs/00-estado/TABLERO.html": "d4fcc83b3c1835314225784f2b1b48e120dff70ca4f7fd120760d21f30803b66",
+    "docs/00-estado/QUIEN-HACE-QUE.md": "7e837108d67836c6497e1d5a441750d6837bce4adb0a062dfc201948f0344638",
+    "docs/06-pruebas/PRU-02/DEFECTOS.md": "906686f5a54c983027fcce0c5ad66c8bca30fffdfdee83ab61ecaca2bc1c65be",
+    "docs/06-pruebas/PRU-02/DEFECTOS.html": "a9172655a79018678402654b4b885da167a4ece5af231dfe76620c65554fe813",
+    "scripts/tablero/lib.php": "17a448023300854188f6a853d1a73907b7ed154b969cd7916e4daa8e0aea18a2",
+    "scripts/tablero/tablero.php": "a629819bc76b07cd55d95165c5fc4d3078146cd10ab21ba9dc490b347a420d33"
+  }
+}

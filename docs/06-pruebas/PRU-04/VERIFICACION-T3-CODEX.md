@@ -2,6 +2,9 @@
 
 16/10/2026 · Codex CyE · hizo Claude · commit `f4e64368daf2d217bf09cb2a48f5e520976833c4`.
 
+Esta primera parte conserva la revisión de `f4e6436`. La revisión actual de
+`318ef2f` está en [Segunda vuelta](#segunda-vuelta).
+
 **Veredicto: DEVUELTA a Claude.** La sincronización funciona en los casos pedidos,
 pero confunde la fecha del último cambio con la fecha de cierre. El error pasa el
 guardián nuevo. No corregí la implementación ni desplegué nada.
@@ -120,3 +123,82 @@ documentos siguen en 725: esta verificación no añade ni retira tests de la sui
 Tras devolverla, los cuatro guardianes vuelven a pasar: **9 pruebas/31 aserciones**,
 [salida final](evidencia-t3-codex/guardianes-finales.txt). Diff de vistas/CSS de
 producto vacío. No se cierra T3.
+
+## Segunda vuelta
+
+16/10/2026 · Codex CyE · corrección examinada `318ef2f` · carpeta al iniciar `3f0999c`.
+
+**Veredicto: DEVUELTA a Claude por un aviso al cerrar un defecto abierto.** El
+caso original de A6 está corregido. Las fechas históricas y los textos cerrados
+quedaron restaurados; B15 tiene respaldo complementario. No corregí el código.
+
+### Qué falta corregir
+
+En la nueva copia aislada ejecuté:
+
+```text
+php scripts/tablero/tablero.php cambiar B11 estado=cerrado hizo=Claude verifica=Codex
+```
+
+El cierre se guarda, con salida 0, pero emite **Warning: Undefined array key 2**
+en `scripts/tablero/lib.php:660`. El grupo `( checked)?` de :655 es opcional;
+una casilla que estaba abierta no tiene `$m[2]`. La condición nueva lo lee justo
+cuando se la está cerrando. [Salida real](evidencia-t3-codex/segunda-vuelta/cerrar-B11.txt).
+
+Claude debe evitar leer ese grupo cuando no existe y cubrir el cierre en HTML
+sin avisos. Las dos pruebas nuevas no lo cubren: el ciclo de cierre prueba datos
+y Markdown, mientras el control HTML solo recorre A6, que ya estaba cerrado.
+No afirmo que el aviso impida guardar: comprobé que el guardado termina.
+
+### Los seis controles
+
+| Nº | Resultado propio |
+|---|---|
+| 1 | Copia fija de `318ef2f`: `cambiar A6 paso="prueba"` cambia su último movimiento, pero conserva `cerrado_el=2026-10-08` y deja idénticos el encabezado Markdown y el renglón HTML. [Antes/después](evidencia-t3-codex/segunda-vuelta/pruebas-copia.json). |
+| 2 | B11 se cierra por el CLI con fecha de ese día; otro cambio del CLI la conserva. Además, con el argumento de fecha del helper simulado a 2030-02-05, el último cambio se mueve y el cierre sigue igual en datos y ambos documentos. El CLI lo reabre como devuelto y borra `cerrado_el`, CERRADO y la marca HTML. **El ciclo de datos funciona, con el aviso descrito al cerrar.** No se cambió el reloj del sistema. |
+| 3 | Las **67 filas cerradas** fueron cotejadas contra `f4e6436^:DEFECTOS.md`: **66 fechas coinciden**, ninguna difiere y B15 no tenía fecha en aquel encabezado. [Las 67 filas](evidencia-t3-codex/segunda-vuelta/FECHAS-CIERRE.md), [datos](evidencia-t3-codex/segunda-vuelta/historia.json). B15 se resuelve por la evidencia complementaria detallada abajo. |
+| 4 | Los **67 encabezados Markdown y 67 renglones HTML cerrados son idénticos** a los anteriores a T3. Esto incluye los 53 cerrados de mi lista anterior de 56; los otros tres eran B3/B11/B12, que ahora muestran su estado y dueño actuales y no tienen fecha de cierre. Se restauraron la aprobación de Carlos en A23, los dos verificadores en B10 y los motivos de B7/B13. Comprobación independiente, sin usar el generador como oráculo. |
+| 5 | Las dos pruebas nuevas pasan con `318ef2f`: **2 pruebas/18 aserciones**. Con lib.php y CLI de `f4e6436`, manteniendo las pruebas nuevas, dan **dos errores por función tablero_cambiar inexistente**, no dos fallos de aserción sobre fechas. Además ejecuté el CLI antiguo: vuelve a reproducir A6 08/10 → 16/10. Después restauré la copia y sus cinco pruebas pasaron. [Actual](evidencia-t3-codex/segunda-vuelta/dos-nuevas-actuales.txt), [antiguo](evidencia-t3-codex/segunda-vuelta/dos-nuevas-con-codigo-f4e6436.txt), [CLI antiguo](evidencia-t3-codex/segunda-vuelta/A6-paso-codigo-f4e6436.txt). |
+| 6 | Suite completa propia, solo `wings_testing_codex`: **725 aprobadas, 2 omitidas; 727 pruebas, 6947 aserciones, 681.68 s, salida 0**. PerdonConcurrenteT33Test pasa sus diez casos dentro de la suite. [Corrida completa](evidencia-t3-codex/segunda-vuelta/suite-completa.txt), [resultado terminal](evidencia-t3-codex/segunda-vuelta/suite-salida.json). |
+
+La copia de `318ef2f` se creó con git archive, sin `.env` ni vendor, bajo
+`storage/app/verificacion-t3-codex-318ef2f`. Los ensayos no usan Laravel ni base;
+el autoload es el existente y los tests se cargan desde la copia por ruta absoluta.
+Los documentos y el código de esa copia se restauran tras cada variante. SHA de
+los cinco documentos y de ambos archivos de código compartidos comprobados iguales
+durante el ensayo. [Runner](evidencia-t3-codex/segunda-vuelta/probar-copia.mjs).
+
+### B15: juicio sobre la fecha
+
+**No acepto «último cambio = cierre» como regla. En B15, el 23/09 sí tiene respaldo
+documental independiente del campo fecha:**
+
+- `f4e6436^:docs/04-tecnico/SERVIDOR.md:99–112` fecha el incidente y su corrección
+  el **23/09/2026**, con el arreglo del registro A explícito.
+- `031bdec5a65d1df235acc2441925117a0cb9a8f0`, fechado ese día, ya incluye B15 como
+  «Verificado y corregido». Leí el contenido de ese commit, no solo su fecha.
+- El encabezado inmediato anterior a T3 sigue sin acreditar un día, por eso la
+  tabla lo distingue de las otras 66 coincidencias. No se inventa una coincidencia.
+
+Por esos antecedentes considero aceptable `cerrado_el=2026-09-23` para B15.
+No es el motivo de la devolución. [Extractos comprobados](evidencia-t3-codex/segunda-vuelta/B15-RESPALDO.md).
+No se revalidó DNS ni se reconstruyó una intervención del servidor en esta revisión.
+
+### Alcance de la segunda vuelta
+
+Los cuatro guardianes actuales pasan juntos: **11 pruebas/49 aserciones**.
+[Salida](evidencia-t3-codex/segunda-vuelta/guardianes.txt). Sintaxis correcta en lib.php,
+CLI y TableroAlDiaTest.php. Las fuentes se leyeron completas en las funciones
+relevantes; el índice se reindexó, pero declaró cobertura no disponible, por lo que
+no se tomó como prueba de ausencia de defectos.
+
+Durante la corrida entró `31d805f`, cierre documental de T4 por otro agente. No se
+modificó código de T3. La copia examinada siguió fija en `318ef2f`; esa actualización
+ajena se conserva y no se atribuye a esta entrega.
+
+Solo verificación, documentación y devolución del tablero. Sin arreglos del
+generador, cambios de producto, datos del club, reloj ni despliegue. La primera
+vuelta conserva su evidencia; esta revisión tiene su propia carpeta de salidas.
+Después de devolver T3, los guardianes vuelven a pasar: **11/49**,
+[salida final](evidencia-t3-codex/segunda-vuelta/guardianes-finales.txt). La copia
+quedó restaurada y fue retirada. Diff de vistas/CSS de producto vacío.

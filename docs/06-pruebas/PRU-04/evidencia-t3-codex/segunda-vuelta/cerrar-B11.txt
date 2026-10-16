@@ -1,0 +1,4 @@
+
+Warning: Undefined array key 2 in C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-318ef2f\scripts\tablero\lib.php on line 660
+B11 actualizada. 68 defectos cerrados de 70. Frenan: ninguno.
+PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\Gestion_Wings\storage\app\verificacion-t3-codex-318ef2f\scripts\tablero\lib.php on line 660
