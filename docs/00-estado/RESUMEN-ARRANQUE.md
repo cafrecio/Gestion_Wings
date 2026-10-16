@@ -39,6 +39,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.
   35 pruebas nuevas; suite completa: **761 aprobadas/2 omitidas, 7214 aserciones**.
   31 capturas reales y PDF, [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
+  Carlos aprobó celular y Configuración/Cobrar en escritorio; falta lógica y resto visual por Claude.
   Sin publicación ni despliegue; `52e6bdf` y descendientes permanecen locales.
 
 - **T3, segunda vuelta 16/10, devuelta por Codex CyE a Claude:** A6 y las fechas

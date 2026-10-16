@@ -10,6 +10,8 @@ Contrato, estados y contadores actualizados; PEN-001 implementado, sin certifica
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). Tiene Claude para reglas y pantalla.
 Commit local de implementación y evidencia: 363346b; pase posterior registra el hash en el tablero.
 Sin publicación ni despliegue: 52e6bdf y descendientes deben permanecer locales.
+Carlos: celular «En celular esta bien»; Configuración escritorio «OK, aprobado»; Cobrar escritorio «OK».
+Registradas capturas y alcance en la entrega; falta Claude para lógica y resto visual. Solo documentación.
 
 ## 2026-10-16 — Codex CyE — T3 tercera vuelta y repetición local T11
 

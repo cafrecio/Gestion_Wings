@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar commit local 363346b: motor diario D1-D4, cobro por mes, permisos, recibo, saldos y PEN-001. Suite 761 aprobadas/2 omitidas, 7214 aserciones; 31 capturas reales. Sin publicar ni desplegar. |
+| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar commit local 363346b: motor D1-D4, cobro, permisos, recibo, saldos y PEN-001. Carlos aprobo celular y Configuracion/Cobrar escritorio; falta logica y resto visual. Suite 761/2, 7214 aserciones. Sin publicar ni desplegar. |
 
 ## Codex
 

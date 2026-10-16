@@ -161,7 +161,19 @@ El visor funciona con los archivos guardados. Para servir solo la evidencia loca
 
 ## Verificación independiente
 
+### Aprobaciones visuales de Carlos — 16/10/2026
+
+| Alcance mostrado | Respuesta de Carlos | Evidencia |
+|---|---|---|
+| Visor en celular | «En celular esta bien» | [Visor](evidencia-b11/visor.html), capturas 360/375 |
+| Configuración en escritorio | «OK, aprobado» | [Captura 1366](evidencia-b11/configuracion-dia-1366.jpg) |
+| Cobrar en escritorio, cuota $10.000 y recargo $500 | «OK» | [Captura 1366](evidencia-b11/cobrar-5-1366.jpg) |
+
+Verificador visual de esos alcances: **Carlos**, conforme a AGENTS §6a.
+No se extiende esta aprobación a capturas de ficha/recibo en escritorio que no se
+mostraron individualmente ni a reglas, permisos o cálculos del servidor.
+
 Claude debe contrastar reglas, permisos, importes, evidencia y prueba funcional
-PEN-001 antes del cierre. El aspecto queda sujeto a su revisión o a la aprobación
-visual de Carlos. B11 no se cierra por autoevaluación. Sin despliegue; todo permanece
+PEN-001 antes del cierre; de lo visual, resta revisar los alcances no aprobados arriba.
+B11 no se cierra por autoevaluación. Sin despliegue; todo permanece
 local conforme a la decisión de Carlos sobre `52e6bdf` y sus descendientes.

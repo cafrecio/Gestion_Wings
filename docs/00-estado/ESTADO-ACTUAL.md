@@ -9,7 +9,9 @@ Carlos autorizó «Actualizar los conteos y seguir»: solo dos cantidades de
 Suite completa propia: **761 aprobadas, 2 omitidas, 7214 aserciones, 1106,83 s**.
 35 pruebas nuevas y 31 capturas reales en escritorio y marcos de 360/375.
 [Entrega, criterios y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
-Pendiente revisión independiente y visual; sin publicación ni despliegue.
+Carlos aprobó el visor celular («En celular esta bien»), Configuración escritorio
+(«OK, aprobado») y Cobrar escritorio («OK»); ver capturas y alcance en la entrega.
+Pendiente revisión independiente de lógica y del resto visual; sin publicación ni despliegue.
 `52e6bdf` y sus descendientes permanecen locales por decisión de Carlos.
 
 ## T11 — Comprobación local de Codex, 16/10/2026
