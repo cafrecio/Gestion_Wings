@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 16/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 16/10/2026. Avance: **68 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -45,9 +45,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar commit local 363346b: motor D1-D4, cobro, permisos, recibo, saldos y PEN-001. Carlos aprobo celular y Configuracion/Cobrar escritorio; falta logica y resto visual. Suite 761/2, 7214 aserciones. Sin publicar ni desplegar. |
+Nada en este momento.
 
 ## Codex
 

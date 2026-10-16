@@ -1,8 +1,8 @@
 # Wings — Contrato de Punitorios por Mora V1
 
 > Definido por Carlos entre el 05 y el 06/09/2026; enmendado el 22/09 y 16/10.
-> **Implementado localmente en B11; pendiente de verificación independiente de Claude.
-> Sin publicación ni despliegue.** [Implementación y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
+> **Implementado en B11 (Codex) y verificado por Claude el 16/10 ([verificación](../06-pruebas/PRU-04/VERIFICACION-B11.md)).**
+> [Implementación y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md).
 > Las advertencias de septiembre se conservan con su contexto histórico; las reglas
 > y referencias técnicas actualizadas al 16/10 se indican debajo.
 

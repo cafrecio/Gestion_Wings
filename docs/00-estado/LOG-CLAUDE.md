@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-16 — Claude CyE — B11 verificada, publicada y desplegada
+
+Punitorios por mora (Codex, aspecto aprobado por Carlos). Leí todo el código y probé por los
+caminos de la gente: porcentaje cargado por pantalla (12,5 % no es 12), una sola vez, congelado,
+0 % no existe, D1 a D4, cobro parcial y completo por pantalla con cada importe en su rubro,
+anulación y perdón. 6 controles propios y 35 de Codex verdes; suite 761 aprobadas, 2 omitidas.
+`PRU-04/VERIFICACION-B11.md`. Publiqué los cuatro commits locales de Codex y lo desplegué al sitio
+de prueba con el porcentaje en 0: no cambia nada hasta que Carlos decida prenderlo.
+
 ## 2026-10-16 — Claude CyE — T4 cerrada con la repetición de Gemini
 
 Gemini repitió en el sitio los cuatro casos pendientes (`3f0999c`, `REPETICION-T4.md`): ingreso

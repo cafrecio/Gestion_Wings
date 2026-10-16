@@ -8,7 +8,7 @@ como *verificado* se comprobaron en el código o en pantalla; los marcados como 
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
-> **Avance al 16/10/2026: 67 cerrados de 70.** Quedan 3 abiertos, de los cuales **0 frenan**.
+> **Avance al 16/10/2026: 68 cerrados de 70.** Quedan 2 abiertos, de los cuales **0 frenan**.
 > El estado de cada defecto sale del tablero (`docs/00-estado/tareas.json`) y se cambia con `scripts/tablero`; no se edita a mano.
 <!-- TABLERO:FIN -->
 
@@ -715,7 +715,7 @@ Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de V
 
 **Verificación independiente (Codex y Gemini):** Primera vuelta por Codex aprobó 69/73 puntos y devolvió por 2 fallas (espacios internos y mensaje en inglés). Segunda vuelta por Gemini (10/10) sobre commit `a33cd44` comprobó las correcciones con 19 pruebas dedicadas (114 aserciones): rechazo de espacios/tabs/newlines internos con mensaje en castellano, rechazo de texto de 200 caracteres en castellano, CBU con espacios/tabs limpiados a 22 dígitos, preservación de casing y NULLs, compatibilidad con roles y suite completa (581 pasadas). [Informe y evidencia](VERIFICACION-B10.md).
 
-### B11. Los punitorios están definidos y sin motor · Falta · Hecho, espera verificación, la tiene Claude
+### B11. Los punitorios están definidos y sin motor · Falta · CERRADO 16/10, verificó Claude
 
 Antecedente: existía el contrato, sin motor que calculara los recargos (FIN-14).
 16/10: motor diario, configuración, cobro, recibo, perdón y saldos desarrollados en
