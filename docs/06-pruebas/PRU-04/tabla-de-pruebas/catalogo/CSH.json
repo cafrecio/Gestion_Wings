@@ -697,20 +697,26 @@
       "duda": "DU-28",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Aviso",
           "l": "a",
-          "texto": "Lo acepta: el saldo del medio queda negativo, sin aviso.",
+          "texto": "Avisa que el saldo del medio va a quedar negativo y deja seguir.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Configuración",
+          "l": "b",
+          "texto": "Cada medio de pago dice si admite saldo negativo (descubierto).",
           "tipo": "directo"
         },
         {
           "donde": "Contraste",
-          "l": "b",
-          "texto": "Pagar una liquidación con saldo insuficiente sí se rechaza.",
+          "l": "c",
+          "texto": "Pagar una liquidación con saldo insuficiente sigue rechazándose.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "CashflowService::registrarMovimientoAdmin no controla saldo (código leído); LiquidacionWebController sí.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-28, 13/10). Falta programar: T60. Antes: CashflowService::registrarMovimientoAdmin no controla saldo (código leído); LiquidacionWebController sí.",
       "modulo": "Cashflow",
       "pantalla": "cashflow-movimiento",
       "requiere": "Medio de pago con saldo $10.000.",
@@ -763,20 +769,32 @@
       "duda": "DU-29",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Registro",
           "l": "a",
-          "texto": "No hay un movimiento entre medios: para reflejarlo tiene que cargar un egreso en Efectivo y un ingreso en Banco, que inflan gastos e ingresos salvo que use subrubros que no cuenten en el resultado.",
+          "texto": "Se carga un egreso en Efectivo y un ingreso en Banco, con subrubros de traspaso que no cuentan en el resultado.",
           "tipo": "directo"
         },
         {
-          "donde": "Saldos",
+          "donde": "Resultado",
           "l": "b",
-          "texto": "Sin registrarlo, el saldo de Efectivo queda más alto que la plata real y el de Banco más bajo.",
+          "texto": "Los gastos y los ingresos del mes no cambian.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Saldos",
+          "l": "c",
+          "texto": "Efectivo baja y Banco sube en $300.000.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Ayuda",
+          "l": "d",
+          "texto": "La ayuda lo explica como caso puntual.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "No existe traspaso entre medios (búsqueda en el código 13/10).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-29, 13/10). Falta programar: T61. Antes: No existe traspaso entre medios (búsqueda en el código 13/10).",
       "modulo": "Cashflow",
       "pantalla": "cashflow",
       "requiere": "Efectivo acumulado de las entregas de caja.",

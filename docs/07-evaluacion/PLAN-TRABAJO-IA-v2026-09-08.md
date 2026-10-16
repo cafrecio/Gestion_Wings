@@ -143,7 +143,7 @@ Cierre (Carlos, 17/09): la base es `PrimeraCargaCompletaSeeder` sobre una base r
 migrada — 60 alumnos con plan, 4 profesores, 7 cuentas, 2 cajas con saldo, sin deudas ni
 movimientos; 12 pruebas en `PrimeraCargaCompletaSeederTest`. Instructivo:
 [SEEDER-PRIMERA-CARGA.md](../06-pruebas/SEEDER-PRIMERA-CARGA.md). El primer paso de PRU-02
-es la primera carga unificada de alumnos y deuda inicial mediante la interfaz web (`/primera-carga`, P1).
+es la primera carga unificada de alumnos y deuda inicial mediante la interfaz web (`/sistema/primera-carga`, P1).
 
 ### PRU-02 · Recorrido humano completo
 
@@ -205,7 +205,7 @@ recorrido humano firmado y verificacion actual del servidor.
 | **ENT-06** | Avisos de cajas/revisiones/liquidaciones para ADMIN — IMPLEMENTADA 22/09 | Decisión 22/09: resumen diario a las 08:00 (hora Argentina) vía AvisoAdminService (email y Telegram), activo durante PRU-02. Contenido: cajas cerradas sin validar (total y más vieja), revisiones pendientes (más vieja) y liquidaciones cerradas sin pagar y abiertas (sin sumar al total a pagar). Comando avisos:resumen-diario en scheduler. 5 pruebas en AvisoAdminResumenDiarioTest |
 | **ENT-07** | Lista de cobranza util para llamar | Despues de prueba humana; importe, antiguedad, periodos y contacto |
 | **ENT-08** | Tablero administrativo util | Carlos adelanta A23 antes de la prueba humana, 09/10; [acuerdos B12/A23](ACUERDOS-B12-A23-2026-10-09.md). Mismos cálculos de Reportes y avisos breves; aprobación visual con imágenes |
-| **ENT-09** | Carga del saldo inicial de todo el padron | Importador web unificado (`/primera-carga`, P1). **Le toca a Carlos**: completar la plantilla descargada con alumnos y deuda inicial por período, y cargar por pantalla. |
+| **ENT-09** | Carga del saldo inicial de todo el padron | Importador web unificado (`/sistema/primera-carga`, P1). **Le toca a Carlos**: completar la plantilla descargada con alumnos y deuda inicial por período, y cargar por pantalla. |
 | **ENT-10** | Manuales de primera carga — PENDIENTE | Destacar ingreso real frente a fecha de carga, Excel sin inscripción por defecto y alta manual con inscripción; ejemplos para usuarios no técnicos. Ver detalle debajo |
 | **ENT-11** | Excepciones justificadas (contrato de cobranza §8, §9 y §9b) | Separada de ENT-06 el 22/09. El contrato pide motivo obligatorio y aviso al ADMIN en cobro parcial, cobro que deja impago un mes anterior, deudor o alumno nuevo desde la 3ª clase y exceso de plan. No existe en el código: ninguno pide motivo. Unificar los motivos dispersos en un registro único (§11). Después de PRU-02 |
 

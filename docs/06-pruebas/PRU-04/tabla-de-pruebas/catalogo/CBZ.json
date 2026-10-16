@@ -221,7 +221,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Decisión de Carlos 12/10; CO-07. Programado en T31 (d8bf91f), verificado por Claude el 13/10: en el sitio de prueba las tres pantallas dan 38.",
+      "fuente": "Decisión de Carlos 12/10; CO-07. Programado en T31 (d8bf91f), verificado por Claude el 13/10: en el sitio de prueba las tres pantallas dan 38. DU-60 (16/10): el Inicio de la operativa va a mostrar aparte a los que están en plazo (CBZ-022, T74).",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Tres alumnos que deben solo la inscripción, venidos de la primera carga: uno que ingresó este mes dentro de la gracia, uno que ingresó este mes y ya pasó la gracia, y uno que ingresó hace meses.",
@@ -426,20 +426,38 @@
       "duda": "DU-25",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Ficha",
           "l": "a",
-          "texto": "La ficha ofrece Condonar solo en las cuotas; la inscripción no se puede perdonar.",
+          "texto": "El dueño ve Condonar en la inscripción pendiente y tiene que escribir un motivo.",
           "tipo": "directo"
         },
         {
-          "donde": "Consecuencia",
+          "donde": "Cobranza",
           "l": "b",
-          "texto": "Con la regla nueva ese alumno queda moroso o deudor hasta que pague.",
+          "texto": "Perdonada entera, el alumno deja de figurar moroso o deudor por la inscripción y el total adeudado baja.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Reactivar",
+          "l": "c",
+          "texto": "Si se perdonó por error, el dueño la reactiva con motivo y vuelve a deberla.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Rastro",
+          "l": "d",
+          "texto": "Las dos decisiones quedan en el historial.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "e",
+          "texto": "La operativa no ve Condonar.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "alumnos/show (vista leída); AlumnoWebController::condonar actúa solo sobre cuotas.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-25 y DU-58, 13/10). Programado en T33, verificado por Claude el 13/10 (VERIFICACION-T33.md) y desplegado en el sitio de prueba. Antes: alumnos/show (vista leída); AlumnoWebController::condonar actúa solo sobre cuotas.",
       "modulo": "Cobranza",
       "pantalla": "alumnos-ficha",
       "requiere": "Alumno que debe solo la inscripción.",
@@ -858,32 +876,26 @@
       "duda": "DU-52",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Reintento",
           "l": "a",
-          "texto": "No hay cuotas del mes nuevo para nadie y nada lo avisa: todos los que estaban al día siguen Al día.",
+          "texto": "Si el proceso del día 1 no corrió, se vuelve a intentar solo los días siguientes y genera lo que falta sin duplicar.",
           "tipo": "directo"
         },
         {
-          "donde": "Recuperación",
+          "donde": "Aviso",
           "l": "b",
-          "texto": "El proceso solo está programado para el día 1; no hay un botón para lanzarlo. Lanzado a mano por un técnico, genera lo que falta sin duplicar.",
+          "texto": "El dueño recibe un aviso cuando el proceso no corrió.",
           "tipo": "directo"
-        },
-        {
-          "donde": "Cobro",
-          "l": "c",
-          "texto": "Mientras tanto, al cobrarle a un alumno se le ofrece la cuota del mes igual.",
-          "tipo": "indirecto"
         },
         {
           "donde": "Reportes",
-          "l": "d",
-          "texto": "El «por cobrar» del mes queda muy por debajo de lo real.",
+          "l": "c",
+          "texto": "Una vez generadas, el «por cobrar» del mes coincide con lo real.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "routes/console.php (programado solo el día 1 a las 06:00) y GenerarDeudasMensualesCommand (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-52, 13/10). Falta programar: T40. Antes: routes/console.php (programado solo el día 1 a las 06:00) y GenerarDeudasMensualesCommand (código leído).",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "El servidor estuvo apagado o en mantenimiento el día 1 a las 6 de la mañana.",
@@ -936,6 +948,48 @@
       "tarea": "",
       "tipo": "normal",
       "titulo": "Revisión: filtros e historia"
+    },
+    {
+      "accion": "Entre el 1 y el 10 del mes, la operativa abre su Inicio.",
+      "codigo": "CBZ-022",
+      "duda": "DU-60",
+      "esperado": [
+        {
+          "donde": "Vencidos",
+          "l": "a",
+          "texto": "El recuadro de deuda muestra cuántos están vencidos (morosos y deudores), igual que la lista por defecto de Cobranza.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "En plazo",
+          "l": "b",
+          "texto": "Aparte, muestra cuántos deben pero todavía están en plazo.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Coherencia",
+          "l": "c",
+          "texto": "Vencidos más en plazo es igual a la cantidad que anuncia el buscador de Cobrar.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Cobranza",
+          "l": "d",
+          "texto": "Cobranza no cambia: sigue listando por defecto a los vencidos.",
+          "tipo": "indirecto"
+        }
+      ],
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-60, 16/10): el Inicio de la operativa muestra los dos números. Falta programar: T74.",
+      "modulo": "Cobranza",
+      "pantalla": "inicio-operativo",
+      "requiere": "Alumnos que deben la cuota del mes y están en plazo, y alumnos vencidos.",
+      "roles": [
+        "OPERATIVO"
+      ],
+      "tarea": "T74",
+      "tipo": "normal",
+      "titulo": "Vencidos y en plazo en el Inicio de la operativa"
     }
   ],
   "modulo": "Cobranza",

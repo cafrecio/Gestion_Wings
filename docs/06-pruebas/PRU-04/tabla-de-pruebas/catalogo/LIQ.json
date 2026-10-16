@@ -236,30 +236,18 @@
         {
           "donde": "Mes en curso",
           "l": "a",
-          "texto": "Hoy el sistema lo permite: incluye las clases dictadas hasta hoy.",
+          "texto": "Se puede generar y mirar la liquidación, pero no cerrarla antes de que el mes termine; lo explica.",
           "tipo": "directo"
         },
         {
-          "donde": "Mes futuro",
+          "donde": "Mes completo",
           "l": "b",
-          "texto": "Lo permite y sale vacía o en cero.",
-          "tipo": "directo"
-        },
-        {
-          "donde": "Resto del mes",
-          "l": "c",
-          "texto": "Cerrada y pagada, las clases de la segunda mitad del mes ya no se pueden liquidar: no se puede generar otra del mismo mes.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Último día",
-          "l": "d",
-          "texto": "El último día del mes ofrece incluir las clases de hoy aunque todavía no tengan asistencia.",
+          "texto": "Cerrada después de fin de mes, incluye las clases de todo el mes.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "LiquidacionWebController::store no controla que el mes haya terminado (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-37, 13/10): impedir cerrar antes de que termine. Falta programar: T41. Antes: LiquidacionWebController::store no controla que el mes haya terminado (código leído).",
       "modulo": "Liquidaciones",
       "pantalla": "liquidaciones-crear",
       "requiere": "Estamos a mitad de mes.",

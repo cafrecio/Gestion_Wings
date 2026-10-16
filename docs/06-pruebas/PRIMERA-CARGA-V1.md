@@ -406,7 +406,7 @@ cualquier corrección.
 
 La guía operativa histórica y los comandos retirados están en
 [`../99-archivo/CARGA-DEUDA-INICIAL-EXCEL.md`](../99-archivo/CARGA-DEUDA-INICIAL-EXCEL.md) (archivados el 13/10/2026, T2).
-La primera carga oficial vigente es P1 mediante la interfaz web (`/primera-carga`).
+La primera carga oficial vigente es P1 mediante la interfaz web (`/sistema/primera-carga`).
 
 ## Lo que ya no queda abierto
 

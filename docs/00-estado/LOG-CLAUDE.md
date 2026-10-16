@@ -152,3 +152,12 @@ en esta entrega, sin quien la programe todavia.
 su respuesta. Despues T12, T13, T22, T25 y T34 en adelante, en el orden del tablero.
 **Otros:** T7 aprobada por Codex, falta el OK visual de Carlos. T11 devuelta por Codex a Gemini.
 El tablero visual hay que pulirlo cuando se haga CAB01.
+
+## 2026-10-16 — Claude CyE — Tabla de pruebas al día
+
+Carlos respondió DU-60: el Inicio de la operativa muestra los vencidos y, aparte, los que
+están en plazo. Es T74 (caso nuevo CBZ-022). En la tabla, los 39 casos que seguían «a definir»
+con su duda ya respondida pasaron a «no implementado» con el esperado reescrito según la
+decisión (33) o a «vigente» cuando Carlos aceptó lo que hay (ACC-006, ASI-002, REP-015,
+USU-012) o ya está hecho (CBZ-010, T33). Copia del repositorio rehecha. Corregida la dirección
+de la primera carga en los documentos vigentes: es `/sistema/primera-carga`, no `/primera-carga`.

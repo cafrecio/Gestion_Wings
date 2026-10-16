@@ -372,32 +372,26 @@
       "duda": "DU-06",
       "esperado": [
         {
-          "donde": "Guardado",
+          "donde": "Hasta el mes siguiente",
           "l": "a",
-          "texto": "Hoy el sistema lo acepta y crea la cuota del mes futuro.",
+          "texto": "Acepta una fecha de ingreso hasta el último día del mes siguiente.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Más lejos",
+          "l": "b",
+          "texto": "Una fecha posterior se rechaza con un aviso en castellano, tanto en el alta por pantalla como en la primera carga por Excel.",
           "tipo": "directo"
         },
         {
           "donde": "Cobranza",
-          "l": "b",
-          "texto": "Esa cuota no cuenta como deuda hasta que empiece el mes: el alumno figura Al día.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Clases",
           "l": "c",
-          "texto": "Aparece desde hoy en las listas de asistencia de su grupo aunque todavía no ingresó.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Plan",
-          "l": "d",
-          "texto": "El plan rige desde la fecha futura: si se le quiere cobrar este mes, no tiene plan aplicable.",
+          "texto": "La cuota de un mes que todavía no empezó no cuenta como deuda: el alumno figura Al día hasta que empiece.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "AlumnoWebController::store no limita la fecha de ingreso (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-06, 13/10): solo hasta el mes siguiente. Falta programar: T50. Antes: AlumnoWebController::store no limita la fecha de ingreso (código leído).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-alta",
       "requiere": "Mismo que ALU-001.",
@@ -813,20 +807,32 @@
       "duda": "DU-10",
       "esperado": [
         {
-          "donde": "Rechazo",
+          "donde": "Dueño",
           "l": "a",
-          "texto": "«El DNI está vinculado a una inscripción. Su corrección requiere revisar ese cargo.»",
+          "texto": "El dueño puede corregir el DNI escribiendo un motivo; sin motivo no guarda.",
           "tipo": "directo"
         },
         {
-          "donde": "Datos",
+          "donde": "Inscripción",
           "l": "b",
-          "texto": "El alumno conserva el DNI anterior.",
+          "texto": "La inscripción pasa al DNI nuevo: no se genera otra ni se pierde lo pagado.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Rastro",
+          "l": "c",
+          "texto": "Queda registrado el DNI anterior, quién lo cambió, cuándo y por qué.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "d",
+          "texto": "La operativa no puede corregirlo: el aviso le dice que lo corrige el dueño.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "AlumnoWebController::update (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-10, 13/10): lo corrige el dueño con motivo. Falta programar: T53. Antes: AlumnoWebController::update (código leído).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-edicion",
       "requiere": "Un alumno con inscripción registrada (paga o pendiente).",
@@ -917,32 +923,26 @@
           "tipo": "directo"
         },
         {
-          "donde": "Cobranza",
+          "donde": "Deuda vieja",
           "l": "b",
-          "texto": "Vuelve a figurar con su deuda vieja, como deudor. Total adeudado sube por esa deuda.",
+          "texto": "La deuda que tenía se mantiene y vuelve a figurar en Cobranza.",
           "tipo": "indirecto"
         },
         {
           "donde": "Mes en curso",
           "l": "c",
-          "texto": "No se le crea sola la cuota del mes en curso; se ofrece al cobrarle.",
-          "tipo": "indirecto"
+          "texto": "Se le genera la cuota del mes en curso con el porcentaje de reingreso del día, salvo que ya la tenga generada.",
+          "tipo": "directo"
         },
         {
           "donde": "Clases",
           "l": "d",
           "texto": "Vuelve a las listas de asistencia de su grupo.",
           "tipo": "indirecto"
-        },
-        {
-          "donde": "Descuento",
-          "l": "e",
-          "texto": "Si tiene pagos anteriores, al cobrarle el mes en que vuelve se aplica el porcentaje de reingreso según el día.",
-          "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "AlumnoWebController::toggleActivo y PagoCuotaService::calcularReglaPrimerPago (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-12, 13/10). Falta programar: T38. Antes: AlumnoWebController::toggleActivo y PagoCuotaService::calcularReglaPrimerPago (código leído).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Alumno inactivo con deuda vieja, dado de baja el mes pasado.",
@@ -1095,20 +1095,20 @@
       "duda": "DU-14",
       "esperado": [
         {
-          "donde": "Guardado",
+          "donde": "Primero",
           "l": "a",
-          "texto": "Los dos guardados terminan sin error.",
+          "texto": "El primero guarda sin problema.",
           "tipo": "directo"
         },
         {
-          "donde": "Resultado",
+          "donde": "Segundo",
           "l": "b",
-          "texto": "Queda un solo plan activo. Los datos que guardó la segunda persona pisan los de la primera sin aviso.",
-          "tipo": "indirecto"
+          "texto": "Al guardar con la pantalla vieja, se le avisa que el alumno cambió mientras lo editaba; no pisa lo del primero sin que lo vea.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "AlumnoWebController::update bloquea la fila pero no detecta el formulario viejo (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-14, 13/10): avisar al segundo. Falta programar: T55. Antes: AlumnoWebController::update bloquea la fila pero no detecta el formulario viejo (código leído).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-edicion",
       "requiere": "La misma ficha abierta en dos equipos.",
@@ -1163,32 +1163,38 @@
       "duda": "DU-48",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Dueño",
           "l": "a",
-          "texto": "No se puede eliminar: solo se puede dar de baja.",
+          "texto": "El dueño puede eliminar un alumno que no tiene cobros ni asistencias.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con movimiento",
+          "l": "b",
+          "texto": "Si tiene algún cobro o asistencia no se elimina: lo explica y ofrece darlo de baja.",
           "tipo": "directo"
         },
         {
           "donde": "Deuda",
-          "l": "b",
-          "texto": "Su cuota y su inscripción quedan generadas; dado de baja dejan de sumar, pero siguen en su ficha.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Inscripción",
           "l": "c",
-          "texto": "Si la persona ya existía en otro deporte, la inscripción es compartida y no se toca.",
+          "texto": "Eliminado, no queda deuda suya en Cobranza. Si la inscripción es compartida con otro deporte, no se toca.",
           "tipo": "indirecto"
         },
         {
           "donde": "DNI",
           "l": "d",
-          "texto": "El DNI queda ocupado en ese deporte: para cargarlo bien hay que reactivarlo y editarlo, y el DNI no se puede corregir si tiene inscripción.",
+          "texto": "El DNI queda libre para cargarlo bien.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "e",
+          "texto": "La operativa no ve la opción de eliminar.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "routes/web.php: no hay eliminación de alumnos; Contrato ABM Admin §9.b permite borrado real solo si está vacío.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-48, 13/10): eliminar si no tiene cobros ni asistencias. Falta programar: T65. Antes: routes/web.php: no hay eliminación de alumnos; Contrato ABM Admin §9.b permite borrado real solo si está vacío.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Un alumno recién dado de alta por error (persona equivocada o duplicada en otro deporte por error), sin cobros ni asistencias.",

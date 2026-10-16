@@ -28,7 +28,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 <!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
 
-Último cambio: 15/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
+Último cambio: 16/10/2026. Avance: **67 defectos cerrados de 70**. Frenan: ninguno.
 
 ## Esperan por Carlos
 
@@ -61,9 +61,9 @@ Nada en este momento.
 |---|---|---|
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Devuelto (hizo Gemini, verifica Codex) | Corregir soporte WebP y enlace oficial del informe; despues Codex repite Chrome local y suite: entorno bloqueado. Sin despliegue ni cierre |
 
-## Sin empezar (46)
+## Sin empezar (47)
 
-T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, B3, B11.
+T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T48, T49, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3, B11.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 

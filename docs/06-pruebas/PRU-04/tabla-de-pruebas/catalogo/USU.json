@@ -176,12 +176,12 @@
         {
           "donde": "Rubro de sueldo",
           "l": "e",
-          "texto": "El subrubro «Op-<nombre anterior>» conserva su nombre viejo.",
+          "texto": "El subrubro de sueldo pasa a llamarse «Op-<nombre nuevo>» al guardar.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Los listados leen el nombre actual del usuario (código leído); recibos emitidos se conservan (T30).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-04, 13/10): renombrar el rubro al guardar. Falta programar: T48. Antes: Los listados leen el nombre actual del usuario (código leído); recibos emitidos se conservan (T30).",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Una operativa con cobros, cajas y movimientos hechos.",
@@ -282,38 +282,26 @@
       "duda": "DU-05",
       "esperado": [
         {
-          "donde": "Estado",
+          "donde": "Con caja abierta",
           "l": "a",
-          "texto": "Queda inactiva de inmediato; no puede volver a entrar.",
+          "texto": "No la deja desactivar; avisa que primero hay que cerrar su caja.",
           "tipo": "directo"
         },
         {
-          "donde": "Su caja",
+          "donde": "Después del cierre",
           "l": "b",
-          "texto": "La caja sigue abierta a su nombre. Nadie más puede abrir otro turno hasta que se cierre.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Cierre",
-          "l": "c",
-          "texto": "El dueño cuenta y cierra esa caja; queda registrado que la cerró él.",
-          "tipo": "indirecto"
+          "texto": "Con la caja cerrada se desactiva normalmente y no puede volver a entrar.",
+          "tipo": "directo"
         },
         {
           "donde": "Cobros",
-          "l": "d",
-          "texto": "Los cobros del turno se conservan y pasan a Cashflow al validar, a nombre de ella.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Aviso",
-          "l": "e",
-          "texto": "El sistema no avisa al desactivar que esa persona tiene una caja abierta.",
+          "l": "c",
+          "texto": "Los cobros de su turno se conservan y pasan a Cashflow al validar, a su nombre.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "UsuarioWebController::toggleActivo no mira cajas (código leído); Contrato Caja V5.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::toggleActivo no mira cajas (código leído); Contrato Caja V5.",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Operativa con turno abierto y cobros hechos.",
@@ -330,38 +318,32 @@
       "duda": "DU-05",
       "esperado": [
         {
-          "donde": "Cambio",
+          "donde": "Con caja abierta",
           "l": "a",
-          "texto": "El sistema lo permite y lo guarda.",
+          "texto": "No deja cambiarle el rol mientras tenga la caja abierta; avisa que primero hay que cerrarla.",
           "tipo": "directo"
         },
         {
-          "donde": "Menú",
+          "donde": "Sin caja abierta",
           "l": "b",
-          "texto": "En su próximo ingreso cada una ve el menú del rol nuevo.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Caja de la ex operativa",
-          "l": "c",
-          "texto": "Su caja abierta queda sin nadie que la pueda operar salvo el dueño.",
-          "tipo": "indirecto"
+          "texto": "Lo permite: en su próximo ingreso ve el menú del rol nuevo.",
+          "tipo": "directo"
         },
         {
           "donde": "Historia",
-          "l": "d",
-          "texto": "Lo que hicieron con el rol anterior se conserva a su nombre.",
+          "l": "c",
+          "texto": "Lo que hizo con el rol anterior se conserva a su nombre.",
           "tipo": "indirecto"
         },
         {
           "donde": "Vínculo",
-          "l": "e",
+          "l": "d",
           "texto": "La ex profesora queda sin profesora vinculada y esa profesora vuelve a estar libre para otro usuario.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "UsuarioWebController::update (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-05, 13/10). Falta programar: T49. Antes: UsuarioWebController::update (código leído).",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Una operativa con caja abierta e historial; una profesora con clases.",
@@ -504,8 +486,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "routes/web.php: no hay ruta de perfil ni de recuperación de clave.",
+      "estado": "vigente",
+      "fuente": "Aceptado por Carlos (DU-47, 13/10): queda como está. La mejora quedó como MF4. Antes: routes/web.php: no hay ruta de perfil ni de recuperación de clave.",
       "modulo": "Usuarios",
       "pantalla": "sis-usuarios",
       "requiere": "Una operativa que quiere cambiar su clave y una profesora que la olvidó.",

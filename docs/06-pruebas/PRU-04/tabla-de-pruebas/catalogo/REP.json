@@ -607,9 +607,9 @@
       "duda": "DU-49",
       "esperado": [
         {
-          "donde": "Definición",
+          "donde": "Quiénes",
           "l": "a",
-          "texto": "Dejó de venir quien faltó a la cantidad de clases que su plan cubre en un mes, contadas en clases dictadas, no en días.",
+          "texto": "Figuran los que faltaron a todas sus clases de las últimas dos semanas.",
           "tipo": "directo"
         },
         {
@@ -619,26 +619,20 @@
           "tipo": "directo"
         },
         {
-          "donde": "Operativa",
+          "donde": "Dónde",
           "l": "c",
-          "texto": "La operativa también la ve: es trabajo de seguimiento.",
+          "texto": "La ven el dueño y la operativa, en Cobranza y en el Inicio de la operativa; no en Reportes.",
           "tipo": "directo"
         },
         {
           "donde": "Sin clases",
           "l": "d",
-          "texto": "En un mes sin clases nadie acumula faltas.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Hoy",
-          "l": "e",
-          "texto": "El Reporte de Alumnos muestra «activos sin presentes en el mes» y es solo del dueño; la operativa solo ve las revisiones pendientes.",
+          "texto": "Si en esas dos semanas no hubo clases, nadie figura.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Contrato de reportes V1 §5d y §1; ReporteAlumnosService (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-49, 13/10). Falta programar: T72. Antes: Contrato de reportes V1 §5d y §1; ReporteAlumnosService (código leído).",
       "modulo": "Reportes e Inicio",
       "pantalla": "reportes-alumnos",
       "requiere": "Alumno de 2 veces por semana que faltó a 8 clases seguidas dictadas; otro que faltó a 3; un mes sin clases dictadas.",
@@ -656,14 +650,14 @@
       "duda": "DU-50",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Reporte de Sueldos",
           "l": "a",
-          "texto": "El Reporte de Sueldos lo muestra por profesor y por deporte, no por grupo.",
+          "texto": "Muestra cuánto cuesta y cuánto deja cada profesor y cada deporte. No hay un corte por grupo, y así queda.",
           "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Contrato de reportes V1 §4 («qué grupo me conviene»); ReporteSueldosService (código leído 13/10).",
+      "estado": "vigente",
+      "fuente": "Aceptado por Carlos (DU-50, 13/10): alcanza por profesor y deporte. Antes: Contrato de reportes V1 §4 («qué grupo me conviene»); ReporteSueldosService (código leído 13/10).",
       "modulo": "Reportes e Inicio",
       "pantalla": "reportes-sueldos",
       "requiere": "Mes cerrado con grupos de distinto tamaño.",

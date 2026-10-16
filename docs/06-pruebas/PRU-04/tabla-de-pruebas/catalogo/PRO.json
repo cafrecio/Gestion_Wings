@@ -132,38 +132,32 @@
       "duda": "DU-44",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Aviso",
           "l": "a",
-          "texto": "Se desactiva sin avisar ni controlar nada.",
+          "texto": "Al desactivarla avisa cuántas clases futuras tiene y pide reasignarlas.",
           "tipo": "directo"
         },
         {
-          "donde": "Clases futuras",
-          "l": "b",
-          "texto": "Siguen programadas a su nombre.",
-          "tipo": "indirecto"
-        },
-        {
           "donde": "Liquidación",
-          "l": "c",
-          "texto": "No se le puede generar liquidación por las clases ya dictadas: el sistema exige profesor activo.",
-          "tipo": "indirecto"
+          "l": "b",
+          "texto": "Se le puede liquidar lo que dictó aunque esté inactiva.",
+          "tipo": "directo"
         },
         {
           "donde": "Usuario",
-          "l": "d",
-          "texto": "Su usuario sigue activo y puede seguir entrando a tomar asistencia.",
-          "tipo": "indirecto"
+          "l": "c",
+          "texto": "Su usuario queda desactivado: no puede volver a entrar.",
+          "tipo": "directo"
         },
         {
           "donde": "Clases nuevas",
-          "l": "e",
+          "l": "d",
           "texto": "Deja de ofrecerse para clases nuevas.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "ProfesorWebController::toggleActivo no controla nada; LiquidacionService exige profesor activo (código leído); SI-08.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-44, 13/10). Falta programar: T46. Antes: ProfesorWebController::toggleActivo no controla nada; LiquidacionService exige profesor activo (código leído); SI-08.",
       "modulo": "Profesores",
       "pantalla": "cat-profesores",
       "requiere": "Profesora con clases programadas, clases dictadas sin liquidar y un usuario para ingresar.",

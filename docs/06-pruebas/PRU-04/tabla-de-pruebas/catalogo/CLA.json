@@ -520,38 +520,26 @@
       "duda": "DU-30",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Aviso",
           "l": "a",
-          "texto": "El sistema la cancela sin avisar que ya tenía asistencia.",
+          "texto": "Antes de cancelar avisa que la clase ya tiene la lista tomada y pide confirmar.",
           "tipo": "directo"
         },
         {
-          "donde": "Presentes",
+          "donde": "Si confirma",
           "l": "b",
-          "texto": "Las marcas quedan guardadas pero la clase deja de contar.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Sueldos",
-          "l": "c",
-          "texto": "La profesora deja de cobrar esa clase aunque la dio.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Comisión",
-          "l": "d",
-          "texto": "Esos presentes dejan de contar para la comisión del profesor.",
+          "texto": "Las marcas quedan guardadas pero la clase deja de contar: la profesora no la cobra y esos presentes no suman comisión.",
           "tipo": "indirecto"
         },
         {
           "donde": "Mes siguiente",
-          "l": "e",
+          "l": "c",
           "texto": "Un alumno cuyo único presente del mes fue en esa clase puede terminar en Revisión.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "ClaseWebController::toggleCancelada no mira asistencias (código leído). Comprobado por Claude el 13/10 en la base descartable: la cancela sin aviso y el presente queda guardado.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-30, 13/10): avisar y pedir confirmación. Falta programar: T62. Antes: ClaseWebController::toggleCancelada no mira asistencias (código leído). Comprobado por Claude el 13/10 en la base descartable: la cancela sin aviso y el presente queda guardado.",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Clase de ayer con ocho presentes.",
@@ -569,26 +557,20 @@
       "duda": "DU-30",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Liquidación cerrada o pagada",
           "l": "a",
-          "texto": "El sistema las cancela sin avisar.",
+          "texto": "No la deja cancelar; explica que la clase está en una liquidación cerrada o pagada.",
           "tipo": "directo"
         },
         {
-          "donde": "Liquidación",
-          "l": "b",
-          "texto": "La liquidación cerrada o pagada conserva su importe, con una clase que ahora figura cancelada.",
-          "tipo": "indirecto"
-        },
-        {
           "donde": "Reporte de Sueldos",
-          "l": "c",
-          "texto": "Lo pagado y las clases dictadas dejan de coincidir.",
+          "l": "b",
+          "texto": "Lo pagado y las clases dictadas siguen coincidiendo.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "ClaseWebController::toggleCancelada no mira liquidaciones (código leído); Contrato de liquidaciones (una cerrada no se modifica).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-30, 13/10): impedirlo. Falta programar: T62. Antes: ClaseWebController::toggleCancelada no mira liquidaciones (código leído); Contrato de liquidaciones (una cerrada no se modifica).",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una clase incluida en una liquidación cerrada y otra en una liquidación pagada.",
@@ -653,15 +635,15 @@
           "tipo": "directo"
         },
         {
-          "donde": "Motivo",
+          "donde": "Choque",
           "l": "b",
-          "texto": "El motivo de la cancelación se borra: no queda rastro de que estuvo cancelada.",
+          "texto": "Si la profesora ya tiene otra clase a esa hora, no la reactiva y lo explica.",
           "tipo": "directo"
         },
         {
-          "donde": "Choque",
+          "donde": "Rastro",
           "l": "c",
-          "texto": "Hoy el sistema la reactiva sin controlar el choque: la profesora queda con dos clases a la misma hora.",
+          "texto": "Se conserva que estuvo cancelada, con su motivo.",
           "tipo": "indirecto"
         },
         {
@@ -671,8 +653,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "ClaseWebController::toggleCancelada (código leído); D03-4 (no se probó Activar).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-31, 13/10). Falta programar: T62. Antes: ClaseWebController::toggleCancelada (código leído); D03-4 (no se probó Activar).",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Clase futura cancelada por error. Mientras estuvo cancelada, a su profesora se le cargó otra clase en ese horario.",
@@ -894,26 +876,32 @@
       "duda": "DU-48",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Dueño",
           "l": "a",
-          "texto": "No se puede eliminar: solo cancelar, con motivo, y solo de hoy en adelante.",
+          "texto": "El dueño puede eliminar una clase o una serie sin asistencias.",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Con asistencia",
+          "l": "b",
+          "texto": "Una clase con asistencia no se elimina: se cancela con motivo.",
           "tipo": "directo"
         },
         {
           "donde": "Listado",
-          "l": "b",
-          "texto": "Las 16 quedan para siempre como canceladas en los listados y filtros.",
+          "l": "c",
+          "texto": "Lo eliminado no queda en los listados ni en los filtros.",
           "tipo": "indirecto"
         },
         {
           "donde": "Grupo",
-          "l": "c",
-          "texto": "El grupo de una clase ya creada no se puede cambiar al editarla: hay que cancelarla y crear otra.",
+          "l": "d",
+          "texto": "El grupo de una clase ya creada no se cambia al editarla: hay que cancelarla y crear otra.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "routes/web.php: no hay eliminación de clases; clases/edit (vista leída el 13/10).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-48, 13/10). Falta programar: T65. Antes: routes/web.php: no hay eliminación de clases; clases/edit (vista leída el 13/10).",
       "modulo": "Clases",
       "pantalla": "clases-edicion",
       "requiere": "Una serie de 16 clases creada con el grupo equivocado, sin asistencias.",
@@ -992,38 +980,20 @@
       "duda": "DU-55",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Alta",
           "l": "a",
-          "texto": "El sistema la crea: la profesora es opcional. La ficha dice «Sin profesor asignado».",
+          "texto": "No deja crear ni guardar una clase sin al menos una profesora.",
           "tipo": "directo"
         },
         {
           "donde": "Sueldos",
           "l": "b",
-          "texto": "Nadie cobra esa clase y no aparece en ninguna liquidación.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Comisión",
-          "l": "c",
-          "texto": "Sus presentes no generan comisión para nadie.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Alumnos",
-          "l": "d",
-          "texto": "Los presentes sí cuentan para la cuota del mes siguiente.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Aviso",
-          "l": "e",
-          "texto": "Nada avisa al dueño que hay clases dictadas sin profesora.",
+          "texto": "Toda clase dictada tiene a quién pagarle y entra en una liquidación.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "clases/create («Profesores (opcional)») y clases/show (vistas leídas el 13/10).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-55, 13/10). Falta programar: T66. Antes: clases/create («Profesores (opcional)») y clases/show (vistas leídas el 13/10).",
       "modulo": "Clases",
       "pantalla": "clases-alta",
       "requiere": "Formulario de clase.",

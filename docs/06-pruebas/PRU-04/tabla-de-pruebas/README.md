@@ -4,7 +4,7 @@ La tabla viva es un artifact privado de Carlos y Claude
 (https://claude.ai/artifact/Dc1Ya2fCaxGGiZxGcDgA46). Codex y Gemini no pueden abrirlo: esta
 carpeta es su copia, para que un código como `CBZ-005` o `DU-54` se pueda leer.
 
-**Copia tomada el 13/10/2026 por Claude CyE.** Si la tabla cambia, esta copia queda vieja
+**Copia tomada el 16/10/2026 por Claude CyE.** Desde el 16/10 ningún caso está «a definir»: los que Carlos decidió y falta programar figuran «no implementado», con su tarea; los que aceptó como están, «vigente». Si la tabla cambia, esta copia queda vieja
 hasta que Claude la vuelva a bajar. La que manda es la tabla viva.
 
 ## Qué hay
@@ -20,7 +20,7 @@ hasta que Claude la vuelva a bajar. La que manda es la tabla viva.
 
 ## Cómo se usa con el tablero
 
-Cada tarea T32 a T72 del tablero empieza su «paso» con «Tabla: DU-xx · casos …». Antes de
+Cada tarea T32 a T72 y T74 del tablero empieza su «paso» con «Tabla: DU-xx · casos …». Antes de
 programar o verificar:
 
 1. Leé la duda en `dudas/DU-xx.json`: ahí está la regla, con las palabras de Carlos.

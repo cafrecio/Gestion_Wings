@@ -13,5 +13,5 @@
   "pregunta": "En el sitio de prueba, con el reloj simulado detenido, el límite de intentos de ingreso no se libera. ¿Creo la tarea?",
   "recomendacion": "Crear la tarea: es chica y evita frenos en las próximas pruebas.",
   "respondida_en": "2026-10-13T11:30:41.325Z",
-  "respuesta": "Crear la tarea"
+  "respuesta": "Crear la tarea. Es T32, hecha por Claude el 13/10 y desplegada en el sitio de prueba. Al probarla apareció otra causa, que no era de la herramienta sino del sistema: el límite de ingresos compartía contador con los avisos de seguridad (ver D02-04)."
 }

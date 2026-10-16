@@ -43,7 +43,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "T29 (verificado por Gemini 12/10); CajaWebController::cobrarCuotaSelect (código propio); CobranzaEstadoService::saldoDeAlumnos; T31.",
+      "fuente": "T29 (verificado por Gemini 12/10); CajaWebController::cobrarCuotaSelect (código propio); CobranzaEstadoService::saldoDeAlumnos; T31. DU-60 (16/10): el Inicio de la operativa va a mostrar aparte a los que están en plazo (CBZ-022, T74).",
       "modulo": "Cobrar",
       "pantalla": "caja-buscador",
       "requiere": "Alumnos activos con deuda, sin deuda e inactivos con deuda. Caja abierta.",
@@ -1469,20 +1469,26 @@
       "duda": "DU-23",
       "esperado": [
         {
-          "donde": "Resultado",
+          "donde": "Ficha",
           "l": "a",
-          "texto": "No lo ofrece; forzándolo responde que la deuda debe crearla un administrador.",
+          "texto": "El dueño crea desde la ficha del alumno la cuota de un mes pasado que nunca se generó.",
           "tipo": "directo"
         },
         {
-          "donde": "Salida",
+          "donde": "Cobro",
           "l": "b",
-          "texto": "El dueño no tiene una pantalla para crear esa cuota.",
+          "texto": "Después se cobra como cualquier cuota.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Operativa",
+          "l": "c",
+          "texto": "La operativa no puede crearla.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "PagoCuotaService (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-23, 13/10). Falta programar: T58. Antes: PagoCuotaService (código leído).",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
       "requiere": "Alumno activo desde agosto al que nunca se le generó septiembre.",

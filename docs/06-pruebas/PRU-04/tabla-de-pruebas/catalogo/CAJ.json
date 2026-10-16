@@ -54,26 +54,26 @@
       "duda": "DU-16",
       "esperado": [
         {
-          "donde": "Rechazo",
+          "donde": "Sin caja abierta",
           "l": "a",
-          "texto": "«El medio del cajón ya está configurado.» No cambia, con o sin turno abierto.",
+          "texto": "El dueño puede elegir otro medio para el cajón.",
           "tipo": "directo"
         },
         {
-          "donde": "Turno abierto",
+          "donde": "Con caja abierta",
           "l": "b",
-          "texto": "El turno abierto sigue contando con el medio con el que abrió.",
-          "tipo": "indirecto"
+          "texto": "No lo deja cambiar mientras haya un turno abierto; lo explica.",
+          "tipo": "directo"
         },
         {
-          "donde": "Salida",
+          "donde": "Turno",
           "l": "c",
-          "texto": "El sistema no ofrece ningún camino para corregir una elección equivocada.",
+          "texto": "Cada turno sigue contando con el medio con el que abrió.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "CajaWebController (mostrador) (código leído); Contrato Caja V5 (el medio queda guardado en el turno).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-16 y DU-59, 13/10). Falta programar: T57. Antes: CajaWebController (mostrador) (código leído); Contrato Caja V5 (el medio queda guardado en el turno).",
       "modulo": "Caja",
       "pantalla": "caja-configuracion",
       "requiere": "Mostrador ya configurado. Probar sin turno abierto y con un turno abierto.",
@@ -1177,44 +1177,32 @@
       "duda": "DU-18",
       "esperado": [
         {
-          "donde": "Estado",
+          "donde": "Sin motivo",
           "l": "a",
-          "texto": "La caja pasa a Rechazada.",
+          "texto": "No deja rechazar la caja sin escribir un motivo.",
           "tipo": "directo"
         },
         {
-          "donde": "Motivo",
+          "donde": "Estado",
           "l": "b",
-          "texto": "Hoy el motivo es opcional.",
+          "texto": "Con motivo, la caja pasa a Rechazada.",
           "tipo": "directo"
         },
         {
           "donde": "Operativa",
           "l": "c",
-          "texto": "En su Inicio aparece una caja rechazada. Puede corregir sus movimientos y volver a cerrarla.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Turno siguiente",
-          "l": "d",
-          "texto": "La apertura del día siguiente no cambia.",
+          "texto": "En su Inicio aparece la caja rechazada con el motivo. Puede corregir sus movimientos y volver a cerrarla.",
           "tipo": "indirecto"
         },
         {
           "donde": "Cashflow",
-          "l": "e",
-          "texto": "No pasa ningún movimiento.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Reportes",
-          "l": "f",
-          "texto": "Los movimientos siguen como pendientes.",
+          "l": "d",
+          "texto": "No pasa ningún movimiento; en Reportes siguen como pendientes.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Contrato Caja V5; CajaService::rechazar (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-18, 13/10): motivo obligatorio. Falta programar: T37. Antes: Contrato Caja V5; CajaService::rechazar (código leído).",
       "modulo": "Caja",
       "pantalla": "caja-validacion",
       "requiere": "Caja cerrada con un ingreso mal cargado. La operativa ya abrió el turno del día siguiente.",
@@ -1604,32 +1592,32 @@
       "duda": "DU-54",
       "esperado": [
         {
-          "donde": "Contador",
+          "donde": "Validar",
           "l": "a",
-          "texto": "El detalle muestra «3 de 8 verificados» y cambia el color del botón recién cuando están todos tildados.",
+          "texto": "El dueño solo puede validar con todos los movimientos tildados; mientras falte alguno, Validar no lo deja y dice cuántos faltan.",
           "tipo": "directo"
         },
         {
-          "donde": "Hoy",
+          "donde": "Desde el Resumen",
           "l": "b",
-          "texto": "Validar funciona igual con tres tildes, con ninguno, o desde el Resumen sin tildar nada.",
+          "texto": "No se puede validar sin pasar por los tildes.",
           "tipo": "directo"
         },
         {
           "donde": "Tildes",
           "l": "c",
-          "texto": "Los tildes no se guardan: al recargar la pantalla se pierden y no queda registro de qué se verificó.",
-          "tipo": "directo"
+          "texto": "Los tildes se guardan: al volver a la pantalla siguen marcados.",
+          "tipo": "indirecto"
         },
         {
           "donde": "Cashflow",
           "l": "d",
-          "texto": "Pasan todos los movimientos activos, estén o no tildados.",
+          "texto": "Al validar pasan todos los movimientos activos, todos verificados.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "caja/detalle (vista y script leídos el 13/10): los tildes solo cambian el color del botón.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-54, 13/10): exigir todos tildados. Falta programar: T36. Antes: caja/detalle (vista y script leídos el 13/10): los tildes solo cambian el color del botón.",
       "modulo": "Caja",
       "pantalla": "caja-detalle",
       "requiere": "Caja cerrada con ocho movimientos.",

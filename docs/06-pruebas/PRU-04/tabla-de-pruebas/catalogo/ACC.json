@@ -262,8 +262,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "bootstrap/app.php, respuesta 419 (código leído).",
+      "estado": "vigente",
+      "fuente": "Aceptado por Carlos (DU-01, 13/10): lo que se estaba cargando se pierde. Antes: bootstrap/app.php, respuesta 419 (código leído).",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-ingreso",
       "requiere": "Un formulario cargado (cobro, alta de alumno, asistencia) y la sesión vencida por tiempo.",
@@ -567,18 +567,24 @@
         {
           "donde": "Aviso",
           "l": "a",
-          "texto": "No ejecuta la acción. Muestra un aviso en castellano, no una página técnica en inglés.",
+          "texto": "No ejecuta la acción. Muestra una página en castellano que explica que esa dirección no se abre a mano, con un botón para volver.",
           "tipo": "directo"
         },
         {
           "donde": "Datos",
           "l": "b",
           "texto": "La caja, el pago y la deuda quedan como estaban.",
+          "tipo": "indirecto"
+        },
+        {
+          "donde": "Registro que no existe",
+          "l": "c",
+          "texto": "Si la acción apunta a una cuota, inscripción o pago que no existe, el aviso también sale en castellano, sin nombres internos.",
           "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "T15 errores en castellano; rutas (código leído). El aviso para «método no permitido» no tiene pantalla propia.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-02, 13/10): página en castellano. Falta programar: T47. Antes: T15 errores en castellano; rutas (código leído). El aviso para «método no permitido» no tiene pantalla propia.",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-errores",
       "requiere": "Usuario ingresado.",

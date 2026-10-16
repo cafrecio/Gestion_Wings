@@ -2,7 +2,7 @@
 
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 
-Gemini CyE retiró los importadores de consola antiguos (`wings:importar-padron`, `wings:importar-deuda-inicial` y `wings:exportar-padron`), sus servicios asociados (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 16 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/primera-carga`). Documentación histórica, órdenes y planillas archivadas en `docs/99-archivo/`. Suite en 722 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
+Gemini CyE retiró los importadores de consola antiguos (`wings:importar-padron`, `wings:importar-deuda-inicial` y `wings:exportar-padron`), sus servicios asociados (`CargaSaldoInicialPadronService`, `CargaDeudaInicialExcelService`) y sus 16 pruebas asociadas, cumpliendo la decisión P0/P1 de PRU-02 tras consolidarse el importador web único (`/sistema/primera-carga`). Documentación histórica, órdenes y planillas archivadas en `docs/99-archivo/`. Suite en 722 pruebas. [Informe de entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T2.md).
 
 ## T33 — Perdón de inscripción y reactivación, 13/10/2026
 
@@ -579,7 +579,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Cashflow | Integra cajas validadas y saldo inicial; definición FIN-04 cerrada 22/09; aplicación del contrato de Reportes pendiente |
 | Clases | FIN-10 implementada y probada: edición atómica con control de profesores/presentes, fechas y liquidación cerrada; migración pendiente de deploy |
 | Liquidaciones | Generacion, cierre, pago, recibos y cancelacion. FIN-05 corregida el 11/09: dos pagos a la vez de la misma liquidacion ya no registran dos egresos. FIN-06 implementada y probada: comisión histórica y porcentaje congelado en BD. FIN-13 cerrada 17/09: liquidación por duración. FIN-12 cerrada 21/09: cancelación de liquidación cerrada no pagada por ADMIN con auditoría, desbloqueo de asistencias y concurrencia protegida contra pago. Migración pendiente de deploy |
-| Carga inicial | P1 implementada el 05/10: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Importadores de consola antiguos y exportador retirados el 13/10/2026 (T2). Rige el importador web único (`/primera-carga`). |
+| Carga inicial | P1 implementada el 05/10: plantilla vacía, revisión sin escritura, informe Excel, carga atómica y Deshacer. Importadores de consola antiguos y exportador retirados el 13/10/2026 (T2). Rige el importador web único (`/sistema/primera-carga`). |
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |

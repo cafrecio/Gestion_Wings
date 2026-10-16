@@ -22,7 +22,7 @@ Verificado sobre `c0858de`. Sin despliegue.
 - `docs/07-evaluacion/PLAN-TRABAJO-IA-v2026-09-08.md:146-147` y `:209` (ENT-09): lo mismo.
 - `docs/07-evaluacion/PLAN-TRABAJO-CARLOS-v2026-09-08.html:153` (ENT-09, «Te toca a vos»): lo mismo.
 
-Hoy la deuda inicial se carga en `/primera-carga`, en la misma planilla que los alumnos. Los
+Hoy la deuda inicial se carga en `/sistema/primera-carga`, en la misma planilla que los alumnos. Los
 tres lugares tienen que decir eso.
 
 **2. Quedó en `docs/00-estado/` una orden de trabajo de lo retirado.**
@@ -58,7 +58,7 @@ Verificado sobre `0847b37`. Sin despliegue.
 
 | Qué se había devuelto | Cómo quedó |
 |---|---|
-| El paso pendiente de `CHECKLIST-CARLOS.md` mandaba a importar el padrón | Reescrito: plantilla y carga en `/primera-carga`. Sigue pendiente, sin tildar |
+| El paso pendiente de `CHECKLIST-CARLOS.md` mandaba a importar el padrón | Reescrito: plantilla y carga en `/sistema/primera-carga`. Sigue pendiente, sin tildar |
 | ENT-09 en los dos planes | Los dos hablan de la primera carga por pantalla; el de Carlos, sin comandos ni archivos |
 | `ORDEN-CODEX-DEUDA-INICIAL.md` en `docs/00-estado/` | En `docs/99-archivo/`, con cabecera de archivado |
 | `DISENO-DEUDA-INICIAL-V1.md` y los dos scripts en `docs/06-pruebas/` | En `docs/99-archivo/`, con cabecera. En `docs/06-pruebas/` no queda ningún `.php` ni `.xlsx` de lo retirado |

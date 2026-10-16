@@ -353,20 +353,50 @@
       "duda": "DU-51",
       "esperado": [
         {
-          "donde": "Cada una",
+          "donde": "Caja validada con un movimiento mal",
           "l": "a",
-          "texto": "El sistema dice con claridad que no se puede y por qué; no deja la pantalla trabada ni da error interno.",
+          "texto": "Se corrige con un ajuste directo en Cashflow, con motivo (DU-27).",
           "tipo": "directo"
         },
         {
-          "donde": "Salida",
+          "donde": "Liquidación pagada de más",
           "l": "b",
-          "texto": "Para cada una hay un camino documentado para compensarla (un asiento en contra, una corrección con motivo) o se define que no lo hay.",
+          "texto": "Se compensa en la liquidación siguiente (DU-38).",
           "tipo": "directo"
+        },
+        {
+          "donde": "Alumno o clase creados por error",
+          "l": "c",
+          "texto": "El dueño los elimina si no tienen cobros ni asistencias (T65).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Medio del cajón mal elegido",
+          "l": "d",
+          "texto": "El dueño lo cambia cuando no hay caja abierta (T57).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "DNI mal tipeado con inscripción",
+          "l": "e",
+          "texto": "Lo corrige el dueño con motivo (T53).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Condonación por error",
+          "l": "f",
+          "texto": "El dueño la reactiva con motivo (T33, ya hecho).",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Cada una",
+          "l": "g",
+          "texto": "El sistema dice con claridad qué se puede hacer y por qué; no deja la pantalla trabada ni da error interno.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Recorrido del código 13/10: ninguna de estas tiene hoy un camino de corrección.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-51, 13/10): un camino para cada una. Hechos: condonación (T33). Falta programar: T53, T57 y T65. Antes: Recorrido del código 13/10: ninguna de estas tiene hoy un camino de corrección.",
       "modulo": "Transversales",
       "pantalla": "acceso-errores",
       "requiere": "Recorrido de las acciones que no se pueden deshacer desde el sistema.",
@@ -420,20 +450,14 @@
       "duda": "DU-57",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Fichas",
           "l": "a",
-          "texto": "La ficha del grupo dice «Próximamente: horario de clases del grupo». La del profesor dice «Historial de liquidaciones: Próximamente» y «Clases asignadas: Próximamente».",
+          "texto": "Ni la ficha del grupo ni la del profesor muestran carteles de «Próximamente».",
           "tipo": "directo"
-        },
-        {
-          "donde": "Club",
-          "l": "b",
-          "texto": "Son promesas visibles para la gente del club sobre cosas que no existen.",
-          "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "grupos/show y profesores/show (vistas leídas el 13/10).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-57, 13/10): quitarlos. Falta programar: T68. Antes: grupos/show y profesores/show (vistas leídas el 13/10).",
       "modulo": "Transversales",
       "pantalla": "acceso-errores",
       "requiere": "Recorrido de la ficha de un grupo y de la ficha de un profesor.",

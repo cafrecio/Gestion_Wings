@@ -194,7 +194,7 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
 - [ ] Cargar deportes, niveles, grupos, planes, tipos de caja y demas datos reales por
   las pantallas acordadas.
 - [ ] **Primera carga de alumnos y deuda inicial:** descargar la plantilla desde
-  `/primera-carga`, completarla con los alumnos y la deuda inicial por período, y
+  `/sistema/primera-carga`, completarla con los alumnos y la deuda inicial por período, y
   realizar la carga inicial unificada por pantalla.
 - [x] **Ensayo de restauracion hecho el 22/09** por Claude, contra el respaldo real del
   dia: se restaura completo. El respaldo del servidor sirve.

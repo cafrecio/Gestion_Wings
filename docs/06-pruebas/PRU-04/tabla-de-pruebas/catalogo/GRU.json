@@ -234,38 +234,20 @@
       "duda": "DU-41",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Con alumnos o clases",
           "l": "a",
-          "texto": "El sistema lo desactiva sin avisar ni controlar nada.",
+          "texto": "No deja desactivar el grupo; dice cuántos alumnos activos y clases futuras tiene.",
           "tipo": "directo"
         },
         {
-          "donde": "Alumnos",
+          "donde": "Libre",
           "l": "b",
-          "texto": "Sus alumnos siguen activos, en Cobranza y con deuda.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Altas",
-          "l": "c",
-          "texto": "El grupo deja de ofrecerse para altas nuevas.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Clases",
-          "l": "d",
-          "texto": "Sus clases futuras siguen programadas y se puede tomar asistencia.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Generación",
-          "l": "e",
-          "texto": "El día 1 se les sigue generando la cuota.",
+          "texto": "Sin alumnos activos ni clases futuras se desactiva y deja de ofrecerse para altas.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "GrupoWebController::toggleActivo no controla nada (código leído); SI-05.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-41, 13/10). Falta programar: T63. Antes: GrupoWebController::toggleActivo no controla nada (código leído); SI-05.",
       "modulo": "Grupos y planes",
       "pantalla": "cat-grupos",
       "requiere": "Grupo con alumnos activos, deuda y clases futuras.",

@@ -108,10 +108,16 @@
           "l": "d",
           "texto": "No queda guardado quién tomó la lista.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Corrección",
+          "l": "e",
+          "texto": "Para pagársela a la que la dio, la operativa cambia la profesora asignada; el dueño también puede corregirlo al liquidar.",
+          "tipo": "directo"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Permisos y roles (decisión de Carlos 10/10, D01-7); LiquidacionService (código leído); CL-07.",
+      "estado": "vigente",
+      "fuente": "Aceptado por Carlos (DU-32, 13/10): lo corrige la operativa cambiando la profesora; el dueño también al liquidar. Tomar asistencia no prueba quién dio la clase, y una clase puede tener más de una profesora. Antes: Permisos y roles (decisión de Carlos 10/10, D01-7); LiquidacionService (código leído); CL-07.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Clase de hoy asignada a otra profesora.",
@@ -136,13 +142,13 @@
         {
           "donde": "Sin asistencia",
           "l": "b",
-          "texto": "La clase sigue contando en «Sin asistencia» porque no tiene ningún presente.",
-          "tipo": "indirecto"
+          "texto": "Con la lista tomada, la clase sale del contador «Sin asistencia» aunque no haya ningún presente.",
+          "tipo": "directo"
         },
         {
           "donde": "Sueldo",
           "l": "c",
-          "texto": "No se paga, salvo que el dueño la valide a mano.",
+          "texto": "Queda para que el dueño decida si la paga; hasta que decida, no entra en la liquidación.",
           "tipo": "indirecto"
         },
         {
@@ -152,8 +158,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "Contrato de liquidaciones §2.3; ClaseWebController::index (código leído); CL-08.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-33, 13/10). Falta programar: T34. Antes: Contrato de liquidaciones §2.3; ClaseWebController::index (código leído); CL-08.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Clase de hoy.",
@@ -466,26 +472,26 @@
       "duda": "DU-35",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Antes del día",
           "l": "a",
-          "texto": "El sistema lo acepta: no controla que la clase ya haya ocurrido.",
+          "texto": "No deja guardar la asistencia de una clase cuyo día todavía no llegó; lo explica.",
           "tipo": "directo"
         },
         {
-          "donde": "Sueldo",
+          "donde": "Desde el día",
           "l": "b",
-          "texto": "Esa clase futura pasa a contar como dictada.",
-          "tipo": "indirecto"
+          "texto": "El día de la clase y después se toma normalmente.",
+          "tipo": "directo"
         },
         {
-          "donde": "Comisión y mes siguiente",
+          "donde": "Sueldo y comisión",
           "l": "c",
-          "texto": "Esos presentes cuentan para comisión y para la generación del mes siguiente.",
+          "texto": "Ninguna clase futura cuenta como dictada ni suma presentes para comisión ni para el mes siguiente.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "ClaseWebController::storeAsistencias no controla la fecha (código leído). Comprobado por Claude el 13/10 en la base descartable: guarda el presente de una clase de la semana que viene.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-35, 13/10): solo desde el día de la clase. Falta programar: T35. Antes: ClaseWebController::storeAsistencias no controla la fecha (código leído). Comprobado por Claude el 13/10 en la base descartable: guarda el presente de una clase de la semana que viene.",
       "modulo": "Asistencia",
       "pantalla": "clases-ficha",
       "requiere": "Clase de mañana.",

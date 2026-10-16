@@ -48,32 +48,32 @@
       "duda": "DU-42",
       "esperado": [
         {
-          "donde": "Hoy",
+          "donde": "Con liquidaciones abiertas",
           "l": "a",
-          "texto": "El sistema lo permite.",
+          "texto": "No deja cambiar la forma de liquidar; lo explica.",
           "tipo": "directo"
         },
         {
-          "donde": "Pagada",
+          "donde": "Sin abiertas",
           "l": "b",
-          "texto": "La liquidación pagada conserva su tipo e importe.",
-          "tipo": "indirecto"
+          "texto": "Lo deja cambiar, y el cambio rige desde el mes siguiente.",
+          "tipo": "directo"
         },
         {
-          "donde": "Abierta",
+          "donde": "Pagadas",
           "l": "c",
-          "texto": "Al recalcular la abierta, ¿con qué tipo se calcula?",
+          "texto": "Las liquidaciones pagadas conservan su tipo e importe.",
           "tipo": "indirecto"
         },
         {
           "donde": "Mes siguiente",
           "l": "d",
-          "texto": "Las nuevas liquidaciones salen por comisión; los profesores necesitan porcentaje cargado.",
+          "texto": "Las liquidaciones nuevas salen con la forma nueva; si es comisión, los profesores necesitan su porcentaje cargado.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "DeporteWebController::update no controla liquidaciones (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-42, 13/10). Falta programar: T45. Antes: DeporteWebController::update no controla liquidaciones (código leído).",
       "modulo": "Catálogos",
       "pantalla": "cat-deportes",
       "requiere": "Deporte por hora con una liquidación pagada y otra abierta.",
@@ -92,30 +92,24 @@
         {
           "donde": "Nivel",
           "l": "a",
-          "texto": "No se borra: está en uso por un grupo; lo explica.",
+          "texto": "Un nivel en uso por un grupo no se borra; lo explica.",
           "tipo": "directo"
         },
         {
-          "donde": "Deporte hoy",
+          "donde": "Deporte en uso",
           "l": "b",
-          "texto": "Se desactiva sin avisar.",
+          "texto": "No deja desactivar un deporte con alumnos activos o clases futuras; dice cuántos tiene.",
           "tipo": "directo"
         },
         {
-          "donde": "Alumnos y clases",
+          "donde": "Deporte libre",
           "l": "c",
-          "texto": "Los alumnos, grupos y clases de ese deporte siguen funcionando.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Altas",
-          "l": "d",
-          "texto": "El deporte deja de ofrecerse en altas, grupos nuevos y primera carga.",
+          "texto": "Sin alumnos activos ni clases futuras se desactiva, y deja de ofrecerse en altas, grupos nuevos y primera carga.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "DeporteWebController::toggleActivo y NivelWebController::destroy (código leído); SI-05.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-41, 13/10). Falta programar: T63. Antes: DeporteWebController::toggleActivo y NivelWebController::destroy (código leído); SI-05.",
       "modulo": "Catálogos",
       "pantalla": "cat-deportes",
       "requiere": "Deporte con grupos, alumnos activos, profesores y clases. Nivel usado por un grupo.",
@@ -212,30 +206,24 @@
         {
           "donde": "Con cobros",
           "l": "a",
-          "texto": "Deja de ofrecerse al cobrar; sus cobros anteriores se siguen viendo y su saldo sigue en Cashflow.",
+          "texto": "Un medio con cobros se puede desactivar: deja de ofrecerse al cobrar; sus cobros anteriores se siguen viendo y su saldo sigue en Cashflow.",
           "tipo": "directo"
         },
         {
-          "donde": "Efectivo del cajón hoy",
+          "donde": "Efectivo del cajón",
           "l": "b",
-          "texto": "El sistema deja desactivarlo sin avisar.",
+          "texto": "No deja desactivar el medio elegido para el cajón; explica que primero hay que elegir otro.",
           "tipo": "directo"
         },
         {
-          "donde": "Consecuencia",
+          "donde": "Operación",
           "l": "c",
-          "texto": "No se puede abrir la caja, y el medio del cajón no se puede volver a elegir: la operación queda trabada hasta reactivarlo.",
-          "tipo": "indirecto"
-        },
-        {
-          "donde": "Turno abierto",
-          "l": "d",
-          "texto": "Con un turno abierto, el cierre y el arqueo de ese turno siguen usando ese medio.",
+          "texto": "La caja se sigue pudiendo abrir: la operación nunca queda trabada.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "TipoCajaWebController::toggleActivo no controla nada (código leído); SI-07. Comprobado por Claude el 13/10 en la base descartable: el medio queda inactivo, la apertura queda trabada y reconfigurar el cajón responde «Elegí un medio de pago activo».",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-16, 13/10): solo impedir desactivarlo. Falta programar: T57. Antes: TipoCajaWebController::toggleActivo no controla nada (código leído); SI-07. Comprobado por Claude el 13/10 en la base descartable: el medio queda inactivo, la apertura queda trabada y reconfigurar el cajón responde «Elegí un medio de pago activo».",
       "modulo": "Catálogos",
       "pantalla": "cat-tipos-caja",
       "requiere": "Un medio con cobros hechos; el medio que es el efectivo del cajón, con y sin turno abierto.",

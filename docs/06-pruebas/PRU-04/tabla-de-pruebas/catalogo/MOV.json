@@ -228,26 +228,20 @@
       "duda": "DU-24",
       "esperado": [
         {
-          "donde": "Resultado",
+          "donde": "Destino",
           "l": "a",
-          "texto": "No lo carga en la caja de la operativa: el dueño no tiene caja. Lo manda a abrir caja o le avisa.",
-          "tipo": "directo"
-        },
-        {
-          "donde": "Camino",
-          "l": "b",
-          "texto": "Sus gastos se cargan desde Cashflow.",
+          "texto": "El dueño que entra a Nuevo movimiento de caja va directo a Cashflow.",
           "tipo": "directo"
         },
         {
           "donde": "Caja operativa",
-          "l": "c",
+          "l": "b",
           "texto": "El turno abierto no recibe ningún movimiento del dueño.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "CajaWebController::storeMovimiento (código leído). El mensaje que recibe el dueño («Debés abrir la caja») no le sirve: él no abre caja.",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-24, 13/10). Falta programar: T59. Antes: CajaWebController::storeMovimiento (código leído). El mensaje que recibe el dueño («Debés abrir la caja») no le sirve: él no abre caja.",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Dueño ingresado, con un turno operativo abierto.",
@@ -326,18 +320,18 @@
         {
           "donde": "Rastro",
           "l": "c",
-          "texto": "No queda ningún rastro de que existió, ni para el dueño.",
-          "tipo": "indirecto"
+          "texto": "Queda registro de lo eliminado: qué era, quién lo eliminó y cuándo, igual que en Cashflow.",
+          "tipo": "directo"
         },
         {
           "donde": "Cobros",
           "l": "d",
-          "texto": "Un cobro de cuota no se puede eliminar: se cancela con motivo y queda a la vista.",
+          "texto": "Un cobro de cuota no se elimina: se cancela con motivo y queda a la vista.",
           "tipo": "indirecto"
         }
       ],
-      "estado": "a_definir",
-      "fuente": "CajaWebController::destroyMovimiento (código leído).",
+      "estado": "no_implementado",
+      "fuente": "Decidido por Carlos (DU-07, 13/10). Falta programar: T51. Antes: CajaWebController::destroyMovimiento (código leído).",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Caja abierta con un movimiento manual cargado por error.",
