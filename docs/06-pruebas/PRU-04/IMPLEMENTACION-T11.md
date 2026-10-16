@@ -4,7 +4,7 @@
 **Autor:** Gemini (CAB / CyE) — Firmas: **LOG GEM CAB** / **LOG GEM CYE**  
 **Tarea:** T11 — «Que Wings se instale en el teléfono como aplicación»  
 **Origen:** Prueba de Carlos del 12/10/2026 en su Android con Chrome sobre `test.gestionar-te.com.ar`.  
-**Estado:** Tercera vuelta implementada (corrección documental: soporte exclusivo JPEG/PNG y enlaces oficiales comprobados). Listo para verificación de Codex (Application > Manifest y suite en su base) previo al despliegue y prueba física de Carlos.
+**Estado al 16/10:** Cerrada en el tablero por `512f375`, que registra la instalación y prueba de Carlos en su teléfono. Codex repitió Application > Manifest local sin errores ni avisos; [verificación y límites de su suite](VERIFICACION-T11-CODEX-TERCERA.md). No se vuelve a pedir la prueba física ya registrada.
 
 ---
 
@@ -42,7 +42,7 @@ Se levantó Wings e inspeccionó mediante Chrome Headless y el método nativo de
 Carlos instruyó: *«Hacé lo mínimo que haga falta. Si Chrome exige un service worker, que sea uno que no guarde nada en caché: Wings maneja plata y no puede mostrar una pantalla vieja. Si no lo exige, no lo agregues.»*
 
 ### Comprobación empírica
-- Desde Chrome 108+ (móvil) y 112+ (escritorio), Chromium **desacopló el requisito estricto de Service Worker para habilitar la opción "Instalar app"** desde el menú del navegador (verificado empíricamente con CDP y referenciado en [Chrome Install Criteria](https://developer.chrome.com/docs/web-platform/install-criteria)).
+- Desde Chrome 108+ (móvil) y 112+ (escritorio), Chromium **desacopló el requisito estricto de Service Worker para habilitar la opción "Instalar app"** desde el menú del navegador (verificado empíricamente con CDP y respaldado por [Revisiting Chrome's installability criteria](https://developer.chrome.com/blog/update-install-criteria)).
 - Al corregir `public/site.webmanifest` con `start_url: "/login"`, `scope: "/"`, `id: "/login"` e íconos adaptativos, `Page.getInstallabilityErrors` vía CDP devolvió:
   ```json
   {
@@ -194,7 +194,7 @@ Guardada en `docs/06-pruebas/PRU-04/evidencia-t11/`:
 
 ## 10. Qué no se probó (Límites explícitos)
 
-- **Teléfono físico Android real:** La instalación física y la visualización de la ventana independiente en el teléfono real de Carlos sobre el sitio de prueba no se ejecutaron; esa comprobación la realizará Carlos tras el despliegue.
+- **Teléfono físico Android real:** Gemini y Codex no ejecutaron una prueba física propia. El cierre posterior `512f375` registra que Carlos la instaló y abre como aplicación; ese registro se distingue de la evidencia local de los agentes.
 - **Dispositivos iOS / Safari:** No se probó en un dispositivo Apple físico.
 - **Timeout del servidor:** No se probó el comportamiento tras la expiración natural del timeout de sesión por inactividad prolongada del servidor PHP.
 
@@ -202,7 +202,7 @@ Guardada en `docs/06-pruebas/PRU-04/evidencia-t11/`:
 
 ## 11. Próximo paso
 
-Pase a Codex para repetición de la verificación de la tercera vuelta (inspección de Application > Manifest en DevTools y corrida de la suite en base propia `wings_testing_codex`). Tras la aprobación de Codex, pase a Carlos para despliegue y prueba física en su teléfono Android.
+El tablero registra T11 cerrada en `512f375`; no queda otro pase de instalación a Carlos. La repetición local de Codex está en [Tercera vuelta](VERIFICACION-T11-CODEX-TERCERA.md), con su evidencia y el resultado de suite separado del cierre físico registrado. Este documento no certifica un nuevo despliegue.
 
 ---
 
@@ -229,3 +229,11 @@ A raíz de la segunda devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION
    - Se verificaron las versiones de Chrome (Chrome 94+ Android, Chrome 108+ escritorio) corroboradas en el artículo oficial.
    - Se referenció la documentación oficial de criterios de instalación de Chromium en la Sección 2.
    - No se alteró ningún archivo de código, manifest (`public/site.webmanifest`), imágenes PNG físicas, vistas Blade ni estilos CSS.
+
+## 13. Actualización documental de Codex — 16/10/2026
+
+Codex abrió en Chrome el enlace agregado en §2, `/docs/web-platform/install-criteria`,
+y confirmó una página 404. Se sustituyó por el artículo oficial `update-install-criteria`,
+consultado y consistente con la afirmación de versiones 108/112. Se actualizaron el
+estado y el próximo paso según el cierre posterior `512f375`; no se reabre T11 ni
+se presenta la prueba física de Carlos como ejecutada por los agentes. Sin cambios de producto.

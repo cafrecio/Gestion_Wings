@@ -1,6 +1,19 @@
 # Wings — Estado actual
 
-## T3 — Devuelta por Codex y corregida por Claude, 16/10/2026
+## T11 — Comprobación local de Codex, 16/10/2026
+
+Application > Manifest sin errores ni avisos; dos screenshots reconocidos y CDP
+sin errores de manifest/instalabilidad. Tres pruebas propias pasan (63 aserciones).
+Se corrigió un enlace 404 del informe; la observación y la evidencia están en
+[Tercera vuelta](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md).
+Durante la revisión entró `512f375`: Claude registra el cierre por instalación y
+prueba de Carlos en su teléfono. Codex conserva ese cierre; no comprobó la prueba
+física ni leyó el chat privado citado. Suite propia: 724 aprobadas, 2 omitidas,
+1 fallo documental (727 pruebas descubiertas, 728 en árbol); contadores corregidos
+después y guardián aislado 1/7 verde. No se afirma suite completa verde.
+Sin despliegue.
+
+## T3 — Verificada por Codex y cerrada, 16/10/2026
 
 Codex CyE comparó `f4e6436` con su anterior: 70 defectos, cero cambios abierto/cerrado
 y cuerpos intactos; 56 encabezados distintos. Copia aislada: cinco archivos escritos,
@@ -19,6 +32,13 @@ Devuelta a Claude: cerrar B11 emite `Undefined array key 2` en lib.php:660, aunq
 guarda. Corregir el grupo opcional y probar el cierre HTML sin avisos. Suite propia
 725 aprobadas/2 omitidas, 6947 aserciones, 681.68 s; diez casos concurrentes T33 verdes.
 Sin arreglos ni despliegue. [Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta).
+**Tercera vuelta local de Codex, 16/10:** seis pruebas/27 aserciones pasan; la nueva
+detecta el aviso con la biblioteca anterior. Cerrar B11 solo en copia genera HTML
+sin avisos y con sello/casilla correctos; origen intacto. Codex actualizó los cuatro
+contadores a 728; guardián aislado 1/7 verde. El commit de Claude `c6ef9b6` conserva
+los hashes comprobados; los cuatro guardianes finales pasan 12/55. T3 cerrada por
+Codex, sin presentar como verde la suite inicial con el fallo de conteo.
+[Evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#tercera-vuelta).
 
 ## T2 — Retiro de los importadores viejos de la primera carga, 13/10/2026
 
@@ -590,7 +610,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **727 pruebas** presentes (T3 suma 5 que vigilan el tablero); wings_testing_claude 16/10: 724 aprobadas, 2 omitidas; la única falla era el conteo de este documento, corregido acá |
+| **Tests** | **728 pruebas** presentes (T3 suma 6). Codex 16/10: suite 724 aprobadas/2 omitidas/1 fallo de conteo, 6943 aserciones; descubrió 727 antes del sexto método de T3. Después: T3 6/27 y guardián documental 1/7 verdes. No es una nueva suite completa verde |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

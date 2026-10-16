@@ -1,0 +1,65 @@
+{
+  "manifest": {
+    "url": "http://127.0.0.1:62372/site.webmanifest",
+    "errors": [],
+    "data": "{\n    \"name\": \"Wings — Gestión\",\n    \"short_name\": \"Wings\",\n    \"description\": \"Sistema de gestión integral para clubes y escuelas deportivas.\",\n    \"id\": \"/login\",\n    \"start_url\": \"/login\",\n    \"scope\": \"/\",\n    \"display\": \"standalone\",\n    \"theme_color\": \"#0F172A\",\n    \"background_color\": \"#080C14\",\n    \"icons\": [\n        {\n            \"src\": \"/android-chrome-192x192.png\",\n            \"sizes\": \"192x192\",\n            \"type\": \"image/png\",\n            \"purpose\": \"any\"\n        },\n        {\n            \"src\": \"/android-chrome-192x192.png\",\n            \"sizes\": \"192x192\",\n            \"type\": \"image/png\",\n            \"purpose\": \"maskable\"\n        },\n        {\n            \"src\": \"/android-chrome-512x512.png\",\n            \"sizes\": \"512x512\",\n            \"type\": \"image/png\",\n            \"purpose\": \"any\"\n        },\n        {\n            \"src\": \"/android-chrome-512x512.png\",\n            \"sizes\": \"512x512\",\n            \"type\": \"image/png\",\n            \"purpose\": \"maskable\"\n        }\n    ],\n    \"screenshots\": [\n        {\n            \"src\": \"/screenshot-wide.png\",\n            \"sizes\": \"1280x720\",\n            \"type\": \"image/png\",\n            \"form_factor\": \"wide\",\n            \"label\": \"Pantalla de acceso a Wings en escritorio\"\n        },\n        {\n            \"src\": \"/screenshot-narrow.png\",\n            \"sizes\": \"720x1280\",\n            \"type\": \"image/png\",\n            \"form_factor\": \"narrow\",\n            \"label\": \"Pantalla de acceso a Wings en teléfono móvil\"\n        }\n    ]\n}\n",
+    "parsed": {
+      "scope": "http://127.0.0.1:62372/"
+    },
+    "manifest": {
+      "backgroundColor": "rgba(8,12,20,1)",
+      "description": "Sistema de gestión integral para clubes y escuelas deportivas.",
+      "display": "kStandalone",
+      "icons": [
+        {
+          "url": "http://127.0.0.1:62372/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:62372/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:62372/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "url": "http://127.0.0.1:62372/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "id": "http://127.0.0.1:62372/login",
+      "name": "Wings — Gestión",
+      "orientation": "DEFAULT",
+      "preferRelatedApplications": false,
+      "scope": "http://127.0.0.1:62372/",
+      "screenshots": [
+        {
+          "image": {
+            "url": "http://127.0.0.1:62372/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png"
+          },
+          "formFactor": "kWide",
+          "label": "Pantalla de acceso a Wings en escritorio"
+        },
+        {
+          "image": {
+            "url": "http://127.0.0.1:62372/screenshot-narrow.png",
+            "sizes": "720x1280",
+            "type": "image/png"
+          },
+          "formFactor": "kNarrow",
+          "label": "Pantalla de acceso a Wings en teléfono móvil"
+        }
+      ],
+      "startUrl": "http://127.0.0.1:62372/login",
+      "themeColor": "rgba(15,23,42,1)"
+    }
+  },
+  "installabilityErrors": []
+}

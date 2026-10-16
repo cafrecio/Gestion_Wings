@@ -1,0 +1,70 @@
+- link "Ir al contenido principal":
+  - /url: "#main-content"
+- banner:
+  - text: menu
+  - link "Chrome for Developers":
+    - /url: /
+    - img "Chrome for Developers"
+  - navigation "Pestañas superiores":
+    - link "Documentos":
+      - /url: https://developer.chrome.com/docs
+    - button "Menú desplegable de Documentos": arrow_drop_down
+    - link "Casos de éxito":
+      - /url: https://developer.chrome.com/case-studies
+    - link "Blog":
+      - /url: https://developer.chrome.com/blog
+    - link "Novedades de Chrome":
+      - /url: https://developer.chrome.com/new
+    - text: arrow_drop_down
+  - combobox "Buscar"
+  - generic: /
+  - 'button "Apariencia: Tema claro"': light_mode
+  - text: light_mode dark_mode brightness_medium
+  - link "Acceder":
+    - /url: https://developer.chrome.com/_d/signin?continue=https%3A%2F%2Fdeveloper.chrome.com%2Fdocs%2Fweb-platform%2Finstall-criteria&prompt=select_account
+- text: filter_list close close arrow_forward chevron_left
+- main:
+  - navigation "En esta página"
+  - article:
+    - article:
+      - heading "404" [level=3]
+      - generic: No se encontró la página.
+      - combobox "Buscar"
+      - generic: search
+      - generic: /
+- navigation "Vínculos a pie de página":
+  - list:
+    - heading "Contribuir" [level=3]
+    - list:
+      - link "Informar un error":
+        - /url: https://issuetracker.google.com/issues/new?component=1400036&template=1897236
+      - link "Ver incidentes abiertos":
+        - /url: https://issuetracker.google.com/issues?q=status:open%20componentid:1400036&s=created_time:desc
+    - heading "Contenido relacionado" [level=3]
+    - list:
+      - link "Actualizaciones de Chromium":
+        - /url: https://blog.chromium.org/
+      - link "Casos de éxito":
+        - /url: /case-studies
+      - link "Archivar":
+        - /url: /deprecated
+      - link "Podcasts y programas":
+        - /url: https://web.dev/shows
+    - heading "Seguir" [level=3]
+    - list:
+      - link "@ChromiumDev en X":
+        - /url: https://twitter.com/ChromiumDev
+      - link "YouTube":
+        - /url: https://www.youtube.com/user/ChromeDevelopers
+      - link "Chrome para desarrolladores en LinkedIn":
+        - /url: https://www.linkedin.com/showcase/chrome-for-developers
+      - link "RSS":
+        - /url: /static/blog/feed.xml
+- navigation "Vínculos de utilidad":
+  - list:
+    - link "Condiciones":
+      - /url: //policies.google.com/terms
+    - text: "|"
+    - link "Privacidad":
+      - /url: //policies.google.com/privacy
+    - text: "|"

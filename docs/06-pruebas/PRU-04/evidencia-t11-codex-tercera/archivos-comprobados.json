@@ -1,0 +1,60 @@
+{
+    "fecha": "2026-10-16T18:38:07+02:00",
+    "imagenes": [
+        {
+            "src": "\/android-chrome-192x192.png",
+            "declarado": "192x192",
+            "real": "192x192",
+            "mime": "image\/png",
+            "proporcion": 1,
+            "sha256": "8cbbf199c59ac56a94f45c6eb4bf132757ef5c0954d4add3d924f395e92ab7da",
+            "form_factor": null
+        },
+        {
+            "src": "\/android-chrome-192x192.png",
+            "declarado": "192x192",
+            "real": "192x192",
+            "mime": "image\/png",
+            "proporcion": 1,
+            "sha256": "8cbbf199c59ac56a94f45c6eb4bf132757ef5c0954d4add3d924f395e92ab7da",
+            "form_factor": null
+        },
+        {
+            "src": "\/android-chrome-512x512.png",
+            "declarado": "512x512",
+            "real": "512x512",
+            "mime": "image\/png",
+            "proporcion": 1,
+            "sha256": "983a872cba3143f7874c5689793ba85cf309eaef618a2bb31cef11e22d19d3cc",
+            "form_factor": null
+        },
+        {
+            "src": "\/android-chrome-512x512.png",
+            "declarado": "512x512",
+            "real": "512x512",
+            "mime": "image\/png",
+            "proporcion": 1,
+            "sha256": "983a872cba3143f7874c5689793ba85cf309eaef618a2bb31cef11e22d19d3cc",
+            "form_factor": null
+        },
+        {
+            "src": "\/screenshot-wide.png",
+            "declarado": "1280x720",
+            "real": "1280x720",
+            "mime": "image\/png",
+            "proporcion": 1.7777777777777777,
+            "sha256": "a053e30c0d157ab32baac1f4b801729651d1e480f43561b4838115dfd00929a5",
+            "form_factor": "wide"
+        },
+        {
+            "src": "\/screenshot-narrow.png",
+            "declarado": "720x1280",
+            "real": "720x1280",
+            "mime": "image\/png",
+            "proporcion": 1.7777777777777777,
+            "sha256": "5490b1095a4ea4c5659054981de4b8acc7e919b2c8deddef122a5f8194907889",
+            "form_factor": "narrow"
+        }
+    ],
+    "manifest_sin_errores": true
+}

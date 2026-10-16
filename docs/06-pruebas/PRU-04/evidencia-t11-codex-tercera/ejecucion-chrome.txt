@@ -1,0 +1,20 @@
+Iniciando generador de evidencia T11 (Segunda Vuelta)...
+node:internal/deps/undici/undici:13502
+      Error.captureStackTrace(err);
+            ^
+
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:13502:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///C:/xampp/htdocs/Gestion_Wings/docs/06-pruebas/PRU-04/evidencia-t11-codex-tercera/repetir-manifest.mjs:53:21 {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:62404
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1634:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 62404
+  }
+}
+
+Node.js v22.14.0

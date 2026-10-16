@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **727 pruebas** presentes (T3 suma 5 que vigilan el tablero); wings_testing_claude 16/10: 724 aprobadas, 2 omitidas; la única falla era el conteo de este documento, corregido acá |
+| Suite | **728 pruebas** presentes (T3 suma 6). Codex 16/10: suite 724 aprobadas/2 omitidas/1 fallo de conteo, 6943 aserciones; descubrió 727 antes del sexto método de T3. Después: T3 6/27 y guardián documental 1/7 verdes. No es una nueva suite completa verde |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -40,9 +40,12 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Cerrar B11 emite `Undefined array key 2`, lib.php:660, aunque guarda. Corregir grupo
   opcional y probar cierre HTML sin avisos. Suite propia 725/2, 6947 aserciones;
   T33 concurrente 10/10. [Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta).
-  Sin arreglo, producto, datos del club, reloj ni despliegue; T11 no empezada.
+  Tercera vuelta local 16/10: aviso corregido, 6 pruebas/27 aserciones verdes y CLI
+  en copia sin avisos; código viejo da el error esperado. Conteo actualizado a 728,
+  guardián aislado 1/7 verde. Arreglo confirmado en `c6ef9b6`, hashes iguales y
+  guardianes finales 12/55 verdes: T3 cerrada por Codex. Sin producto de Codex.
 
-- **T11, 14/10, Codex CAB:** segunda vuelta f6bea35 devuelta a Gemini por soporte WebP mal documentado y enlace oficial incorrecto. PNG validos y sin datos personales; Chrome local y suite propia bloqueados por el entorno, sin aprobacion ni medicion del sitio. [Verificacion](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Despues Codex repite ambas comprobaciones; telefono de Carlos requiere despliegue. Sin cierre ni despliegue.
+- **T11, 16/10, Codex CyE:** repetición local con Manifest sin errores/avisos, capturas reconocidas y CDP sin errores. Tres pruebas/63 aserciones verdes; suite 724/2 y un fallo de conteo, corregido después (guardián aislado 1/7 verde). [Tercera vuelta](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md). Se conserva el cierre registrado por Claude en `512f375` por prueba de Carlos en teléfono; Codex no comprobó esa prueba física. Se corrigió otro enlace 404 y el próximo paso viejo del informe, sin reabrir T11. Sin despliegue de Codex.
 
 - **T33, 13/10, Codex CyE:** perdonar inscripción y reactivar cuotas/inscripción desde ficha,
   solo ADMIN, motivo 10–500 e historial conservado. 31 pruebas propias y capturas 1366/marco360.

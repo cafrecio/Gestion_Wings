@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **727 pruebas** presentes (T3 suma 5 que vigilan el tablero); wings_testing_claude 16/10: 724 aprobadas, 2 omitidas; la única falla era el conteo de este documento, corregido acá |
+| Suite | **728 pruebas** presentes (T3 suma 6). Codex 16/10: suite 724 aprobadas/2 omitidas/1 fallo de conteo, 6943 aserciones; descubrió 727 antes del sexto método de T3. Después: T3 6/27 y guardián documental 1/7 verdes. No es una nueva suite completa verde |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | Cloudflare | Proxy activo y acceso web directo al servidor cerrado |

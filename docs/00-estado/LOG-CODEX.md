@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-16 — Codex CyE — T3 tercera vuelta y repetición local T11
+
+T3: arreglo local de Claude comprobado en copia; 6/27 verdes, biblioteca anterior da el aviso esperado.
+CLI de cierre B11 solo en copia sin avisos, HTML correcto y ocho hashes del origen intactos. Copia retirada.
+Conteo actualizado en cuatro documentos: 728; guardián posterior 1/7 verde, tres guardianes del tablero 11/48.
+Suite propia wings_testing_codex: 724 aprobadas, 2 omitidas, 1 fallo de conteo, 6943 aserciones, 1085,72 s.
+Descubrió 727 antes de la sexta prueba de T3; no es suite completa verde. c6ef9b6 coincide con lo medido, guardianes 12/55; T3 cerrada.
+T11: Manifest local sin errores/avisos, capturas reconocidas, CDP sin errores; tres pruebas/63 aserciones verdes.
+Conservado cierre de 512f375 por prueba de Carlos registrada por Claude; sin comprobación física propia.
+Corregidos enlace 404 y próximo paso viejo del informe. [T3](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#tercera-vuelta) · [T11](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md).
+B11 sin empezar: Carlos confirmó mantener T3 → T11 → B11. Sin producto, pruebas existentes, reloj ni despliegue de Codex.
+
 ## 2026-10-16 — Codex CyE — T3 segunda vuelta: fechas correctas, aviso al cerrar
 
 318ef2f en copia: A6 conserva cierre; cerrar, editar otro día y reabrir B11 conserva/borra fecha correctamente.
@@ -108,16 +120,9 @@ No se cierra T27: falta revisión independiente de validaciones, permisos, histo
 Solo documentación; enlaces y diff comprobados, sin suite ni cambios de aplicación.
 [Informe y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Sin sitio de prueba/reloj/despliegue.
 
-## 2026-10-12 — Codex CAB — T27, alineación de Historial solicitada por Carlos
 
-Carlos aprobó el resto de las vistas; señaló $1,250,000.50 desalineado en Historial celular.
-La columna de 120 px dejaba el texto 15,6875 px más a la derecha; pasó a 176 px.
-Sin reglas, cálculos ni otro cambio visual; se mantienen signos y dos decimales.
-Control de geometría rojo antes, verde después: diez importes, escritorio/marco360, login; 4 visitas/0 fallos.
-Respuestas reales recapturadas en base propia: 1 prueba/33 aserciones; vistas compilan, sintaxis correcta.
-Suite completa propia: 687 aprobadas/2 omitidas, 6588 aserciones, 501,04 s; siguen siendo 689 pruebas.
-[Informe y captura corregida](../06-pruebas/PRU-04/IMPLEMENTACION-T27.md). Sin sitio de prueba/reloj/despliegue.
-Sigue: Carlos revisa Historial corregido; después otro agente verifica reglas. T27 a_verificar, sin autocierre.
 
 
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
+
+[Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).

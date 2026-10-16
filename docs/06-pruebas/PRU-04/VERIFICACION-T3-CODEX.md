@@ -2,8 +2,9 @@
 
 16/10/2026 · Codex CyE · hizo Claude · commit `f4e64368daf2d217bf09cb2a48f5e520976833c4`.
 
-Esta primera parte conserva la revisión de `f4e6436`. La revisión actual de
-`318ef2f` está en [Segunda vuelta](#segunda-vuelta).
+Esta primera parte conserva la revisión de `f4e6436`. La revisión de `318ef2f`
+está en [Segunda vuelta](#segunda-vuelta); la corrección local posterior,
+en [Tercera vuelta](#tercera-vuelta).
 
 **Veredicto: DEVUELTA a Claude.** La sincronización funciona en los casos pedidos,
 pero confunde la fecha del último cambio con la fecha de cierre. El error pasa el
@@ -202,3 +203,55 @@ vuelta conserva su evidencia; esta revisión tiene su propia carpeta de salidas.
 Después de devolver T3, los guardianes vuelven a pasar: **11/49**,
 [salida final](evidencia-t3-codex/segunda-vuelta/guardianes-finales.txt). La copia
 quedó restaurada y fue retirada. Diff de vistas/CSS de producto vacío.
+
+## Tercera vuelta
+
+16/10/2026 · Codex CyE. Corrección local de Claude, todavía sin commit al medir.
+SHA256 de lib.php: `ce6cdd7a0b44ab074029e536efbae533241f983652422d88b0b4f4be11af2c01`.
+No modifiqué lib.php ni las pruebas permanentes.
+
+**La corrección del aviso pasa la verificación acotada.** Falta publicación de
+Claude antes de cerrar la tarea. El conteo documental fue corregido por Codex.
+
+**Cierre posterior de esta revisión:** Claude guardó el arreglo en
+`c6ef9b63a62042975f4aab9d7c3bea7a1ed5c5b3`. Leí su diff: solo la protección del
+grupo opcional y la prueba nueva. Los SHA256 de ambos archivos coinciden con los
+ya medidos en la copia. Los cuatro guardianes finales pasan: **12 pruebas,
+55 aserciones** ([salida](evidencia-t3-codex/tercera-vuelta/guardianes-finales.txt)).
+T3 queda **APROBADA por Codex y cerrada en el tablero**, manteniendo abajo el
+resultado exacto de la suite y su corrección documental posterior.
+
+- Copia de los dos scripts, la prueba y los cinco documentos bajo
+  `storage/app/verificacion-t3-codex-tercera`; no se modifica el tablero real.
+- Las seis pruebas actuales pasan: **6 pruebas, 27 aserciones**.
+  [Salida](evidencia-t3-codex/tercera-vuelta/seis-pruebas-actuales.txt).
+- La prueba nueva con lib.php anterior de HEAD da **un error, precisamente
+  `ErrorException: Undefined array key 2`**, en :660. Tiene un control real de la
+  regresión, independiente de la presencia del helper.
+  [Salida](evidencia-t3-codex/tercera-vuelta/prueba-nueva-con-lib-anterior.txt).
+- El CLI actual cierra B11 **solo en la copia**, termina con salida 0 y no emite
+  Warning, Notice ni Undefined. HTML con casilla tildada, sello y estado Cerrado.
+  [Salida](evidencia-t3-codex/tercera-vuelta/cerrar-B11-actual.txt).
+- Hash de los ocho archivos del origen idéntico antes/después.
+  [Resultado y hashes](evidencia-t3-codex/tercera-vuelta/resultado.json),
+  [reproductor](evidencia-t3-codex/tercera-vuelta/verificar.mjs).
+- La captura adicional del HTML local fue rechazada por la política del navegador
+  (protocolo file no permitido). No se obtuvo captura nueva ni se eludió el bloqueo;
+  el HTML generado se comprobó directamente y mediante la prueba permanente.
+
+En la suite propia en curso, sobre la carpeta compartida, apareció el conteo:
+existían **728 pruebas** y los documentos declaraban 727. El control aislado lo
+reprodujo. Se actualizaron los cuatro documentos, sin cambiar ninguna prueba:
+**DocumentacionNoMienteTest pasa, 1 prueba/7 aserciones**.
+[Resultado posterior](evidencia-t3-codex/tercera-vuelta/conteo-corregido.txt).
+Los tres guardianes del tablero también pasan: **11 pruebas/48 aserciones**.
+[Salida](evidencia-t3-codex/tercera-vuelta/guardianes.txt). La copia fue retirada.
+Esto no convierte retrospectivamente en verde el fallo de la corrida inicial.
+
+La suite propia, solo `wings_testing_codex`, terminó: **724 aprobadas, 2 omitidas,
+1 fallo documental, 6943 aserciones, 1085,72 s, salida 1**.
+[Salida íntegra](evidencia-t11-codex-tercera/suite-completa.txt). Descubrió 727
+pruebas antes de que Claude agregara el sexto método de T3; su sección de T3 tiene
+los cinco métodos anteriores. El nuevo método quedó cubierto por la corrida
+acotada de seis/27, y el único fallo del conjunto por el guardián posterior de
+una/7. No se presenta este conjunto de comprobaciones como una suite completa verde.

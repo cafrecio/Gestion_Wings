@@ -45,9 +45,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T3** Pasar el seguimiento al tablero unico | Devuelto (hizo Claude, verifica Codex) | Segunda vuelta: A6 y fechas corregidos; cerrar B11 emite Undefined array key 2 en scripts/tablero/lib.php:660. Corregir acceso al grupo opcional y cubrir cierre HTML sin avisos. Ver Segunda vuelta en VERIFICACION-T3-CODEX.md |
+Nada en este momento.
 
 ## Codex
 

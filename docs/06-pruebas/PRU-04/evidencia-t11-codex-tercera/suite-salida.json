@@ -1,0 +1,12 @@
+{
+  "salida": 1,
+  "aprobadas": 724,
+  "omitidas": 2,
+  "fallidas": 1,
+  "aserciones": 6943,
+  "duracion_segundos": 1085.72,
+  "pruebas_descubiertas": 727,
+  "pruebas_actuales": 728,
+  "fallo": "DocumentacionNoMienteTest: 728 reales frente a 727 declaradas",
+  "control_posterior": "DocumentacionNoMienteTest 1 test / 7 assertions verde; TableroAlDiaTest 6 / 27 verde"
+}

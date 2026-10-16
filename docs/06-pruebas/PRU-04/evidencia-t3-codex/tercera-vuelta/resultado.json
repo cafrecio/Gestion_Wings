@@ -1,0 +1,33 @@
+{
+  "fecha": "2026-10-16T16:34:45.737Z",
+  "copia": "C:\\xampp\\htdocs\\Gestion_Wings\\storage\\app\\verificacion-t3-codex-tercera",
+  "seis_pruebas": 0,
+  "prueba_nueva_con_lib_anterior": 2,
+  "defecto_anterior_detectado": true,
+  "cierre_B11": 0,
+  "cierre_sin_avisos": true,
+  "html_tildado": true,
+  "html_cerrado": true,
+  "fila_html": "      <div class=\"item\"><input id=\"B11\" type=\"checkbox\" checked><label for=\"B11\"><span class=\"id\">B11</span>Los punitorios están definidos y sin motor <span class=\"sello\">CERRADO 16/10, verificó Codex</span><span class=\"detail\">Contrato completo en <code>Wings-Contrato-Punitorios-Mora-V1.md</code>, con su configuración. Nada los calcula (FIN-14).</span></label><span class=\"tag done\">Cerrado</span></div>",
+  "origen_sin_cambios": true,
+  "hashes_antes": {
+    "scripts/tablero/lib.php": "ce6cdd7a0b44ab074029e536efbae533241f983652422d88b0b4f4be11af2c01",
+    "scripts/tablero/tablero.php": "a629819bc76b07cd55d95165c5fc4d3078146cd10ab21ba9dc490b347a420d33",
+    "tests/Feature/TableroAlDiaTest.php": "6be6e682b697db38f4c62617f529c96ee77d66bcd2b714d54d3c79a4f1c4604e",
+    "docs/00-estado/tareas.json": "94a7cd96fe4e8369ad360937a4fa25767763fe639aaebe9db67592ddddce41e5",
+    "docs/00-estado/TABLERO.html": "87faf0a8c0ff16b281ea6740eb779ff0ae9b088fa2af39c88d8036efe0f97dc3",
+    "docs/00-estado/QUIEN-HACE-QUE.md": "e74734625ed88fb85f2c594db288da770509791152c290bf5f13f31dbae62bbd",
+    "docs/06-pruebas/PRU-02/DEFECTOS.md": "ed6b2eba607b9a1dc82833c786a85c1b5b29a3ad700413f1c512a6539797e8e4",
+    "docs/06-pruebas/PRU-02/DEFECTOS.html": "d143bc173fbcd1dc4171e4a4a64c594160435e188aed3db27873530d37d6c4f5"
+  },
+  "hashes_despues": {
+    "scripts/tablero/lib.php": "ce6cdd7a0b44ab074029e536efbae533241f983652422d88b0b4f4be11af2c01",
+    "scripts/tablero/tablero.php": "a629819bc76b07cd55d95165c5fc4d3078146cd10ab21ba9dc490b347a420d33",
+    "tests/Feature/TableroAlDiaTest.php": "6be6e682b697db38f4c62617f529c96ee77d66bcd2b714d54d3c79a4f1c4604e",
+    "docs/00-estado/tareas.json": "94a7cd96fe4e8369ad360937a4fa25767763fe639aaebe9db67592ddddce41e5",
+    "docs/00-estado/TABLERO.html": "87faf0a8c0ff16b281ea6740eb779ff0ae9b088fa2af39c88d8036efe0f97dc3",
+    "docs/00-estado/QUIEN-HACE-QUE.md": "e74734625ed88fb85f2c594db288da770509791152c290bf5f13f31dbae62bbd",
+    "docs/06-pruebas/PRU-02/DEFECTOS.md": "ed6b2eba607b9a1dc82833c786a85c1b5b29a3ad700413f1c512a6539797e8e4",
+    "docs/06-pruebas/PRU-02/DEFECTOS.html": "d143bc173fbcd1dc4171e4a4a64c594160435e188aed3db27873530d37d6c4f5"
+  }
+}

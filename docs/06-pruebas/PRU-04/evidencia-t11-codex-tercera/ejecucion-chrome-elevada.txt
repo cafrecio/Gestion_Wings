@@ -1,0 +1,8 @@
+Iniciando generador de evidencia T11 (Segunda Vuelta)...
+Manifest CDP URL: http://127.0.0.1:62372/site.webmanifest
+Manifest CDP Errors: []
+Installability CDP Errors: []
+Captura DevTools superior guardada en chrome-devtools-manifest.png
+Captura DevTools screenshots guardada en chrome-devtools-manifest-screenshots.png
+DOM/AX tree guardado en application-manifest-dom.txt (longitud: 10344 caracteres)
+Evidencia T11 generada exitosamente.
