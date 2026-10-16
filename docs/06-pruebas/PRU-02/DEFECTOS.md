@@ -717,8 +717,11 @@ Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de V
 
 ### B11. Los punitorios están definidos y sin motor · Falta · Hecho, espera verificación, la tiene Claude
 
-Contrato completo en `Wings-Contrato-Punitorios-Mora-V1.md`, con su configuración. Nada los
-calcula (FIN-14).
+Antecedente: existía el contrato, sin motor que calculara los recargos (FIN-14).
+16/10: motor diario, configuración, cobro, recibo, perdón y saldos desarrollados en
+el commit local `363346b`; 35 pruebas nuevas, suite completa 761 aprobadas/2 omitidas.
+Tiene Claude para verificar reglas y pantallas antes del cierre; sin publicación ni
+despliegue. [Entrega y capturas](../PRU-04/IMPLEMENTACION-B11.md).
 
 ### B12. No hay reportes · Falta · En curso, la tiene Carlos
 
