@@ -4,6 +4,9 @@ Codex CyE, 16/10/2026. **Pendiente de verificación independiente de Claude,
 sin publicación ni despliegue.** `52e6bdf` sigue local por decisión
 de Carlos. No publicar ese commit ni sus descendientes sin nueva autorización.
 
+Implementación y evidencia guardadas en el commit local **`363346b`**. El pase
+posterior registra ese hash en el tablero; B11 permanece `a_verificar`, tiene Claude.
+
 ## Excepción de prueba aprobada
 
 La orden pide crear el rubro `Punitorios` por migración y por `CatalogosSeeder`,

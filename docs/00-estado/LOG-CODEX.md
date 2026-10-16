@@ -8,6 +8,7 @@ Suite completa wings_testing_codex: 761 aprobadas, 2 omitidas, 7214 aserciones, 
 Sintaxis, build y vistas correctos; 31 capturas reales, marcos 360/375 y PDF 0/5 inspeccionados.
 Contrato, estados y contadores actualizados; PEN-001 implementado, sin certificar revisión cruzada.
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). Tiene Claude para reglas y pantalla.
+Commit local de implementación y evidencia: 363346b; pase posterior registra el hash en el tablero.
 Sin publicación ni despliegue: 52e6bdf y descendientes deben permanecer locales.
 
 ## 2026-10-16 — Codex CyE — T3 tercera vuelta y repetición local T11

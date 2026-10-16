@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar motor diario D1-D4, cobro por mes, permisos, recibo, saldos y PEN-001. Suite 761 aprobadas/2 omitidas, 7214 aserciones; 31 capturas reales. Entrega en commit local B11; hash se registra en el pase posterior. Sin publicar ni desplegar. |
+| **B11** Los punitorios están definidos y sin motor | Hecho, espera verificación (hizo Codex) | Verificar commit local 363346b: motor diario D1-D4, cobro por mes, permisos, recibo, saldos y PEN-001. Suite 761 aprobadas/2 omitidas, 7214 aserciones; 31 capturas reales. Sin publicar ni desplegar. |
 
 ## Codex
 
