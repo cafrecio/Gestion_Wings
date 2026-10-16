@@ -407,8 +407,10 @@ cinco estados están en `QUIEN-HACE-QUE.md`.
 Existe porque el estado se llevaba a mano en tres documentos y se atrasaba: 27 de 72
 defectos no tenían dueño ni próximo paso, y Carlos dio por hecho algo que no lo estaba.
 
-Transición: `DEFECTOS.md` y `DEFECTOS.html` se siguen marcando como hasta ahora hasta que
-Claude avise que el estado salió de ahí.
+Desde el 16/10 (T3) tampoco se marca a mano el estado de un defecto: el encabezado de cada uno
+en `DEFECTOS.md` y su tilde y sello en `DEFECTOS.html` los reescribe el mismo comando.
+`TableroAlDiaTest` pone la suite en rojo si alguno de estos archivos no coincide con `tareas.json`.
+El texto de cada defecto (qué pasa, por qué importa, dónde) se sigue escribiendo a mano.
 
 ## 6b. Frenar ante contradicciones — NO improvisar
 

@@ -8,14 +8,14 @@
  *   php scripts/tablero/tablero.php nueva T9 "Titulo de la tarea" tiene=Gemini estado=en_curso paso="Que sigue"
  *   php scripts/tablero/tablero.php validar
  *   php scripts/tablero/tablero.php generar
- *   php scripts/tablero/tablero.php traer      (transicion: trae cierres anotados en DEFECTOS.md)
  *
  * Estados: sin_empezar, en_curso, a_verificar, devuelto, cerrado.
  * Campos: titulo, gravedad, prioridad, estado, tiene, hizo, verifica, paso, ref.
  * prioridad la decide Carlos: alta (Prioritaria), baja (Muy a futuro) o vacia.
  * "tiene" es quien tiene la pelota ahora: Carlos, Claude, Codex, Gemini o nadie.
  *
- * cambiar y nueva validan antes de escribir y regeneran TABLERO.html y QUIEN-HACE-QUE.md.
+ * cambiar y nueva validan antes de escribir y regeneran TABLERO.html, QUIEN-HACE-QUE.md y el estado
+ * de cada defecto en DEFECTOS.md y DEFECTOS.html (desde el 16/10, T3).
  */
 
 require __DIR__ . '/lib.php';
@@ -154,34 +154,6 @@ switch ($orden) {
         echo 'Importadas ' . count(tablero_desde_defectos()) . " tareas desde DEFECTOS.md.\n";
         break;
 
-    case 'traer':
-        // Solo avanza: nunca reabre algo que el tablero ya tiene cerrado.
-        $alla = tablero_desde_defectos();
-        $tareas = tablero_leer();
-        $traidas = [];
-        foreach ($tareas as &$t) {
-            $d = $alla[$t['id']] ?? null;
-            if ($d === null || $t['estado'] === 'cerrado') {
-                continue;
-            }
-            if ($d['estado'] === 'cerrado') {
-                $t = array_merge($t, ['estado' => 'cerrado', 'tiene' => 'nadie', 'paso' => '', 'fecha' => $d['fecha'],
-                    'verifica' => $d['verifica'] ?: $t['verifica']]);
-                $traidas[] = $t['id'] . ' cerrado';
-            } elseif ($d['estado'] === 'a_verificar' && $t['estado'] === 'sin_empezar') {
-                $t = array_merge($t, ['estado' => 'a_verificar', 'hizo' => $d['hizo'], 'fecha' => $d['fecha']]);
-                $traidas[] = $t['id'] . ' hecho';
-            }
-        }
-        unset($t);
-        foreach (array_diff_key($alla, array_column($tareas, null, 'id')) as $nueva) {
-            $tareas[] = tablero_normalizar($nueva);
-            $traidas[] = $nueva['id'] . ' nueva';
-        }
-        guardar_si_vale($tareas);
-        echo ($traidas ? 'Traido: ' . implode(', ', $traidas) : 'Nada nuevo en DEFECTOS.md') . ".\n";
-        break;
-
     default:
-        salir("Orden desconocida: {$orden}. Ordenes: ver, cambiar, nueva, validar, generar, traer.");
+        salir("Orden desconocida: {$orden}. Ordenes: ver, cambiar, nueva, validar, generar.");
 }

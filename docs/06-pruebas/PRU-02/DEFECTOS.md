@@ -7,10 +7,15 @@ Cada punto dice **qué pasa**, **por qué importa para el club** y **dónde est�
 como *verificado* se comprobaron en el código o en pantalla; los marcados como *por
 diagnosticar* se vieron pero todavía no se sabe la causa.
 
-> **Avance al 13/10/2026: 67 cerrados de 70.** Quedan 3 abiertos (B5, B6, B8 y B9 pasaron a mejoras futuras: MF7, MF6, MF8 y MF9), de los
-> cuales **0 frenan**. Un defecto se marca **CERRADO solo cuando
-> otro agente lo verificó**; desde el 08/10, lo exclusivamente visual también se cierra con aprobación de Carlos (§6a). El que implementa lógica deja `HECHO, a revisar`. El tablero para
-> mirar en el navegador es [DEFECTOS.html](DEFECTOS.html) y tiene los mismos estados.
+<!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->
+> **Avance al 16/10/2026: 67 cerrados de 70.** Quedan 3 abiertos, de los cuales **0 frenan**.
+> El estado de cada defecto sale del tablero (`docs/00-estado/tareas.json`) y se cambia con `scripts/tablero`; no se edita a mano.
+<!-- TABLERO:FIN -->
+
+> Un defecto se cierra **solo cuando otro agente lo verificó**; desde el 08/10, lo exclusivamente
+> visual también se cierra con la aprobación de Carlos (§6a). El que lo hace lo deja «Hecho, espera
+> verificación». Desde el 16/10 (T3) el estado se cambia solo con `php scripts/tablero/tablero.php
+> cambiar ...`: el encabezado de cada defecto acá y en [DEFECTOS.html](DEFECTOS.html) se reescribe solo.
 >
 > B10: **CERRADO 10/10, verificado Codex y Gemini**. CBU y alias bancario del profesor y operativo. Segunda vuelta aprobada (19 pruebas, 100% OK); alias con espacios rechazados, mensajes en castellano y compatibilidad total. [Informe](VERIFICACION-B10.md).
 >
@@ -32,7 +37,7 @@ se puede trabajar, con fricción · **Falta** = el club lo necesita y no existe.
 
 ## Parte A — Lo que se ve
 
-### A1. Cobranza no sirve para cobrar · Frena · CERRADO, verificado 05/10
+### A1. Cobranza no sirve para cobrar · Frena · CERRADO 05/10
 
 La pantalla de Cobranza lista a los alumnos con su estado y un botón **Ver**. No muestra
 **cuánto debe** cada uno ni tiene botón de **Cobrar**. Para cobrarle a alguien hay que salir,
@@ -74,7 +79,7 @@ todo el tiempo.
 **Resuelto en Entrega 2 de P2 (05/10):**
 `CajaWebController::cobrar()` ahora proyecta y ofrece en memoria los períodos futuros inmediatos (los próximos 2 meses) al precio de lista vigente del plan activo (`$plan->precio_mensual`), con badge identificatorio «Adelantado». Al cobrar un período adelantado, se crea la `DeudaCuota` con estado `PAGADA` y el `Pago` correspondiente. Al llegar el día 1 del mes, el comando mensual `cobranza:generar-deudas` comprueba que la deuda ya existe y la omite (`$contSkipped++`), evitando duplicaciones. Además, el selector `/caja/cobrar` permite buscar a cualquier alumno activo por nombre, apellido o DNI para cobrarle por adelantado. Cubierto en `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A4. Editar alumno no avisa por qué no guardó · Frena · CERRADO 06/10, verificado Gemini
+### A4. Editar alumno no avisa por qué no guardó · Frena · CERRADO 06/10, verificó Gemini
 
 Al cambiar la fecha de nacimiento, el tutor pasa a ser obligatorio. El error aparece **abajo
 de todo**, en una pantalla más alta que el monitor. La persona aprieta Guardar, no pasa nada
@@ -94,7 +99,7 @@ Diseño aprobado por Carlos el 05/10.
 
 **Verificación independiente Gemini CyE, 06/10:** comprobado en Chrome interactivo el aviso al salir por menú/Cancelar y `beforeunload`; aviso superior visible sin scroll en escritorio y móvil 375 px dentro de marco; datos y plan conservados. [Informe de verificación](VERIFICACION-A4-A5.md).
 
-### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · CERRADO 06/10, verificado Gemini
+### A5. Los profesores se eligen sin saber de qué deporte es la clase · Frena · CERRADO 06/10, verificó Gemini
 
 Una fila de casillas con todos los profesores del club, sin filtrar. En una clase de patín
 se puede tildar al profesor de fútbol. El formulario no conoce el deporte de la clase.
@@ -106,23 +111,23 @@ ni borra asignaciones históricas. [Entrega y capturas](IMPLEMENTACION-A4-A5.md)
 
 **Verificación independiente Gemini CyE, 06/10:** comprobado filtrado dinámico en frontend, rechazo de profesores de otro deporte o inactivos en backend con `ValidationException`, y comportamiento sin grupo definido. 11 pruebas pasando. [Informe de verificación](VERIFICACION-A4-A5.md).
 
-### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta · CERRADO 08/10 · verificado Carlos
+### A6. "Modificar" donde en todo el resto dice "Editar" · Molesta · CERRADO 08/10, verificó Carlos
 
 **Cierre visual, AGENTS §6a:** Carlos: «Dejalo con el mismo formato que tiene originalmente y cambia solo el texto». Modificar → Editar, una sola palabra; seis capturas reales, formato original conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A7. El listado de alumnos desperdicia la pantalla · Molesta · CERRADO 08/10 · verificado Carlos
+### A7. El listado de alumnos desperdicia la pantalla · Molesta · CERRADO 08/10, verificó Carlos
 
 **Cierre visual, AGENTS §6a:** Carlos: «Muy buen trabajo, me gusta». Una tarjeta por fila, plan/celular y columnas móviles Cobrar/Editar, Ver/Nuevo alineadas; escritorio conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A8. Puntos grises que no dicen nada · Molesta · CERRADO 08/10 · verificado Carlos
+### A8. Puntos grises que no dicen nada · Molesta · CERRADO 08/10, verificó Carlos
 
 **Cierre visual, AGENTS §6a:** Carlos: «A-8 APROBADO». Estados útiles en Grupos, Niveles y Profesores; distintivo original de Profesores conservado. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A9. El interruptor "Activo" en las tarjetas · Molesta · CERRADO 08/10 · verificado Carlos
+### A9. El interruptor "Activo" en las tarjetas · Molesta · CERRADO 08/10, verificó Carlos
 
 **Cierre visual, AGENTS §6a:** Carlos: «Perfecto, APROBADO A-9 Entonces». Acciones móviles a derecha; último botón y Nuevo x=224–320 en las tres pantallas; interruptor termina en x=320. [Entrega y capturas](IMPLEMENTACION-A6-A10.md). Suite final del paquete 507 aprobadas/2 omitidas; sin deploy.
 
-### A10. El botón "Nuevo" del cashflow · Molesta · CERRADO 08/10 · verificado Claude
+### A10. El botón "Nuevo" del cashflow · Molesta · CERRADO 08/10, verificó Claude
 
 Está suelto en la barra de totales y lleva a **Movimiento directo**. Nadie puede adivinar
 qué crea. En el resto del sistema el botón Nuevo vive en su propia barra, con el contador al
@@ -152,12 +157,12 @@ sin CSS nuevo ni deploy. [Pruebas y capturas](IMPLEMENTACION-A11.md).
 
 **Verificación independiente por Gemini (04/10):** Aprobada en código y navegador real en escritorio y celular (375px). Se comprobó el rechazo de valores inválidos (-100, 29, email inválido), la persistencia del resumen y avisos de error (>5s sin desaparecer), el guardado asíncrono con estado "Guardado", el parámetro inmutable de generación mensual y la validación en castellano del editor de reglas de primer pago. Suite verde (356 pruebas / 2073 aserciones). [Informe de verificación y evidencia](VERIFICACION-A11.md). Defecto CERRADO.
 
-### A12. El inicio del operativo no ayuda a trabajar · Molesta · CERRADO 08/10, verificado Claude
+### A12. El inicio del operativo no ayuda a trabajar · Molesta · CERRADO 08/10, verificó Claude
 
 Tres cuadros en cero, una tarjeta que dice "Sin caja hoy" y nada que diga por dónde empezar
 el día.
 
-### A13. El admin termina con caja propia · Frena · CERRADO 06/10, verificado Codex
+### A13. El admin termina con caja propia · Frena · CERRADO 06/10, verificó Codex
 
 ADMIN cobró y anuló desde la ficha con motivo obligatorio. No abrió caja ni agregó movimientos al cajón del operativo. Historial anulado conserva Agosto y Septiembre; Cashflow muestra los contraasientos como egresos negativos en rojo. A25 conserva el esperado del operativo en $58.000.
 
@@ -165,7 +170,7 @@ ADMIN cobró y anuló desde la ficha con motivo obligatorio. No abrió caja ni a
 
 El [control anterior](VERIFICACION-A13-A54.md) queda como antecedente; sus observaciones fueron resueltas y revalidadas el 06/10 sobre el merge `6d3f68a`.
 
-### A14. Pantallas más altas que el monitor · Molesta · CERRADO 07/10, verificado Gemini
+### A14. Pantallas más altas que el monitor · Molesta · CERRADO 07/10, verificó Gemini
 
 
 Formularios largos donde los botones y los errores quedan fuera de la vista, sin nada fijo
@@ -175,7 +180,7 @@ arriba ni abajo.
 
 **Entrega 07/10 (Codex CyE), a revisar:** acciones fijas en celular y resumen visible que se actualiza al modificar los datos, con JavaScript externo. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
-### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · CERRADO 07/10, verificado Gemini
+### A15. Una clase de 17:30 a 18:30 se acepta sin decir nada · Molesta · CERRADO 07/10, verificó Gemini
 
 Para el club son **dos horas de cancha**, porque se paga por bloque de reloj ocupado. Wings
 no lo sabía ni lo advertía. Ver también I6.
@@ -186,7 +191,7 @@ Confirmar guarda el horario revisado. Una carga modificada exige renovar el avis
 Sin precios ni implementación de alquiler POS-07. Diseño aprobado con capturas reales.
 [Entrega, pruebas y capturas](IMPLEMENTACION-A15-A16.md). Otro agente verifica; sin deploy.
 
-### A16. Cargar el horario obliga a repetir la carga · Molesta · CERRADO 07/10, verificado Gemini
+### A16. Cargar el horario obliga a repetir la carga · Molesta · CERRADO 07/10, verificó Gemini
 
 Un grupo que entrena lunes a las 17:00 y viernes a las 16:00 no se puede cargar de una vez:
 hay que hacer dos series separadas, porque la carga repetida usa un solo horario para todos
@@ -220,7 +225,7 @@ Capturas: `evidencia/audit_admin_clases_index_mobile.png`, `evidencia/audit_admi
 
 **Corregido en commit `abc346a`:** Regla responsive `@media (max-width: 768px)` en `resources/css/app.css` para `.filtros-row` y sus controles (`filtros-select`, `filtros-control[type="date"]`). En pantallas de 375px los selectores y fechas comunes se apilan con altura de 48px, texto identificable y acciones (`filtros-actions`) contenidas dentro de la tarjeta. Cadenas largas conservan elipsis; Historial mantiene fechas de 160px y Caja su campo de mes de 230px. **Verificación independiente Codex CAB 05/10 aprobada**, con todas las barras consumidoras recorridas, capturas propias y suite 380/2242; [segunda vuelta](VERIFICACION-ENTREGA1.md). Hallazgos fuera de los filtros: A53–A55.
 
-### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · CERRADO 06/10, verificado Codex
+### A20. El botón "Nuevo" del cashflow en celular tapa el saldo · Molesta · CERRADO 06/10, verificó Codex
 
 
 En `/cashflow` visto desde un teléfono, el botón **Nuevo** se monta directamente sobre el número del saldo inicial y balance ("$1.570.000"), tapando la cifra, y el contador de movimientos desborda hacia la derecha fuera de la tarjeta.
@@ -242,20 +247,20 @@ Captura: `evidencia/audit_admin_cobranza_desktop.png`.
 
 **Resuelto en Entrega 1 de P2 (04/10):** Se agregó tarjeta destacada "Total adeudado" en pesos en el resumen superior. Cubierto en `CobranzaEntrega1Test`.
 
-### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · CERRADO 10/10, aspecto aprobado por Carlos, lógica verificada por Claude
+### A23. El dashboard de administración está casi vacío y no tiene acciones rápidas · Molesta · CERRADO 10/10, verificó Claude
 
 **Antecedente del relevamiento:** más de la mitad de la pantalla principal del administrador era espacio blanco vacío. Solo exhibe cuatro contadores y tres accesos repetidos (Alumnos, Grupos, Rubros) que ya están en el menú lateral. No ofrece atajos de apertura de caja, cobro rápido, movimientos del día ni alertas de revisiones pendientes.
 Captura: `evidencia/audit_admin_admin_dashboard_desktop.png`.
 
 **Actualización09/10:** Inicio aprobado por Carlos («Ok, aprobado»), aplicado y verificado; cifras mensuales, cajas por tipo, cuatro avisos y acceso a Reportes. [Entrega](../B12-A23/IMPLEMENTACION-INICIO-2026-10-09.md). En ese corte seguía abierto para prueba manual integral junto a B12. A23 cerrado por Claude el 10/10; [verificación](../B12-A23/VERIFICACION-A23-INICIO.md). El texto anterior describe el defecto original.
 
-### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · CERRADO 08/10, verificado Claude
+### A24. El inicio del operativo invita a "Cobrar" sin tener la caja abierta · Molesta · CERRADO 08/10, verificó Claude
 
 Cuando Sandra Vidal entra a su turno sin caja abierta, la tarjeta dice "No hay turno abierto hoy" y ofrece el botón **Abrir**, guiándola a abrir la caja del día con su cambio inicial. Si un compañero tiene una caja abierta, muestra "Caja abierta de [Nombre]" con botón **Caja**, sin botones trampa. Si dejó su caja abierta ayer, muestra "Tu caja sigue abierta" con botón **Cerrar**.
 Pruebas permanentes en `tests/Feature/InicioOperativoTest.php` (8 situaciones). [Implementación y evidencia](IMPLEMENTACION-A24-VUELTA-2.md).
 Captura: `evidencia/a24-vuelta-2/finales/situacion-3-desktop.png`.
 
-### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · CERRADO 06/10, verificado Gemini
+### A25. La apertura de caja no contempla saldo inicial ni cambio para vuelto · CERRADO 06/10, verificó Gemini
 La caja se abre automáticamente al primer movimiento **sin guardar un importe inicial**.
 Revalidado en código el 06/10: tampoco hay un arqueo de cierre que compare contado y
 esperado; el cierre solo cambia estado/fecha. No es una comparación existente contra cero.
@@ -272,14 +277,14 @@ herencia confirmada/motivo, conteo/diferencia, retenido/entrega y conservación 
 26 pruebas permanentes (142 aserciones) pasando; capturas reales en marco 375 y desktop aprobadas por Carlos. [Entrega y capturas](IMPLEMENTACION-A25.md).
 Captura: `evidencia/audit_operativo_caja_desktop.png`.
 
-### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · CERRADO 08/10, verificado Gemini
+### A26. El formulario de alta exige celular personal obligatorio para menores · Molesta · CERRADO 08/10, verificó Gemini
 
 En `/alumnos/create`, el campo "Celular" lleva asterisco rojo obligatorio (`*`) incluso para niños que no tienen teléfono propio. Si se marca "Mismo que el teléfono del tutor", igual se traba si los datos del tutor no fueron cargados previamente más abajo.
 Captura original: `evidencia/audit_admin_alumnos_create_desktop.png`.
 
 **Verificado por Gemini el 08/10:** CERRADO. Verificado en base de datos `wings_testing_gemini` y con navegador Chrome Headless vía CDP interactivo. Menor sin celular hereda teléfono de tutor en alta y edición; mayor sin celular es rechazado; bordes exactos verificados (cumple 18 hoy exige celular, cumple 18 mañana permite celular vacío); menor sin celular ni tutor rechaza por tutor sin error 500; asterisco rojo desaparece/aparece en vivo al cambiar la fecha de nacimiento en el DOM y tilde sincroniza. [Informe de verificación](VERIFICACION-A26-A39-A35.md). Capturas: `evidencia/verificacion-a26-a39-a35/a26-asterisco-menor.png` y `a26-asterisco-mayor.png`.
 
-### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · CERRADO 07/10, verificado Gemini
+### A27. Cargar movimiento de caja en celular oculta los botones de acción · Molesta · CERRADO 07/10, verificó Gemini
 
 
 El formulario de `/caja/movimiento` en 375px es tan vertical que los botones Guardar y Cancelar quedan fuera de la pantalla sin una barra fija inferior. Además, el campo Observaciones es obligatorio (`*`) para cualquier gasto ínfimo.
@@ -289,7 +294,7 @@ Captura original: `evidencia/audit_operativo_caja_movimiento_mobile.png`.
 
 **Entrega 07/10 (Codex CyE), a revisar:** Registrar/Cancelar visibles en barra móvil para ADMIN y OPERATIVO; Observaciones sigue opcional. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
-### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · CERRADO 06/10, verificado Codex
+### A28. En Grupos móvil las tarifas desbordan y el interruptor Activo está pegado a Editar · Molesta · CERRADO 06/10, verificó Codex
 
 
 En `/grupos` desde el teléfono, el texto de los planes ("Planes: 1x/sem — $38.000 · 2x/sem — $48.000") sobresale por el lateral derecho. Además, el interruptor "Activo" está pegado al botón Editar, facilitando que un toque táctil desactive el grupo por error.
@@ -319,11 +324,11 @@ Suite final propia 380/2242 verde; tres roles normal/375 px y Volver comprobados
 [Implementación, pruebas y capturas](IMPLEMENTACION-PERMISOS.md).
 **Verificación independiente por Gemini (05/10):** Aprobada en código y navegador real en escritorio y celular (375 px). Se recorrieron manualmente las rutas con los tres roles (`sandra.vidal@wings.test`, `lucia.gaitan@wings.test` y `admin@wings.test`). Operativo recibe 403 en `/cashflow`, `/liquidaciones`, `/configuraciones`, `/usuarios` y `/admin/dashboard`, y el botón Volver regresa a `/operativo` con la sesión activa; `/admin` y `/caja/validaciones` devuelven 404 sin exponer datos. Profesor recibe 403 en las de administración y en `/alumnos`, `/caja`, `/grupos`, con Volver a `/clases` conservando su sesión. Admin común intentando editar cuenta protegida recibe 403 con Volver a `/admin/dashboard`. Cero datos filtrados. Suite completa verde en `wings_testing_gemini` (380 pruebas / 2242 aserciones). [Informe de verificación y evidencia](VERIFICACION-A43-PERMISOS.md). Defectos A29, A30 y A31 CERRADOS.
 
-### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · CERRADO 08/10, verificado Carlos
+### A32. El interruptor de usuario muestra apagado al usuario activo · Molesta · CERRADO 08/10, verificó Carlos
 
 Carlos aprobó el retoque: «Ok, APROBADO A32». Nombre de la persona en el título; Profesor toma Apellido, Nombre de su ficha vinculada y no repite ese dato abajo. Todas las tarjetas muestran Email y Rol en columnas consistentes. Pedro/Sandra/Victoria son nombres ficticios del ensayo. Se conservan Activo/Tu cuenta/candado y Editar/Nuevo x=224–320 en celular. Seis capturas reales y medidas correctas; controlador, CSS y toggle compartido intactos. CERRADO, verifica Carlos; sin despliegue. [Entrega y capturas](IMPLEMENTACION-A32.md).
 
-### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · CERRADO 06/10, verificado Codex
+### A33. La toma de asistencia de clases en celular exige scroll masivo · Molesta · CERRADO 06/10, verificó Codex
 
 
 En la ficha de la clase (`/clases/{id}`), cada alumno ocupa una tarjeta individual completa. Para una clase habitual de 15 o 20 alumnos, el profesor debe desplazarse metros de pantalla en la cancha para marcar los presentes y llegar al botón inferior de guardar.
@@ -346,7 +351,7 @@ Captura original: `evidencia/audit_admin_alumnos_show_desktop.png`.
 **Resuelto en Entrega 2 de P2 (05/10):**
 En `resources/views/alumnos/show.blade.php`, la sección «Historial de pagos» expone el listado cronológico de cobros con enlace directo **Recibo** (`ds-btn-row ds-btn-row--sec`) con `target="_blank"`, que abre el comprobante oficial en PDF generado por `ReciboService` / DomPDF (con opciones nativas de impresión y descarga). Los pagos anulados se indican explícitamente con badge «Anulado», importe tachado y sello de anulación en el PDF. Se amplió el límite en `AlumnoWebController::show()` de 8 a 12 pagos para brindar un año completo de historial. Cubierto en `CobroReciboAccesoTest` y `P2Entrega2FichaCobroAdelantadoTest`.
 
-### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · CERRADO 08/10, verificado Gemini
+### A35. Botón redundante "Historial" dentro de la propia pantalla de historial de cajas · Molesta · CERRADO 08/10, verificó Gemini
 
 En `/caja/historial`, la cabecera incluye un botón **Historial** que enlaza a la misma pantalla en la que el usuario ya está navegando.
 Captura original: `evidencia/audit_admin_cajas_historial_mobile.png`.
@@ -355,14 +360,14 @@ Captura original: `evidencia/audit_admin_cajas_historial_mobile.png`.
 
 ---
 
-### A36. Rubros en celular · Molesta · CERRADO 06/10, verificado Codex
+### A36. Rubros en celular · Molesta · CERRADO 06/10, verificó Codex
 
 
 esperaba identificar cada subrubro y sus permisos; los encabezados se superponen y desaparece el nombre del subrubro, mientras se sigue viendo OPERATIVO y los botones. Captura original: `evidencia/audit_admin_rubros_index_mobile.png`.
 
 **Control independiente 06/10 (Codex CyE):** CERRADO por Codex: Opción A elegida por Carlos, tabla única con desplazamiento horizontal local. Nombre y permiso visibles al inicio; desplazamiento de 189 px permite Caja/Editar/Pausar sin ampliar la página (360/360). No hay tarjetas móviles alternativas. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A37. Ficha del alumno en celular · Molesta · CERRADO 06/10, verificado por Claude
+### A37. Ficha del alumno en celular · Molesta · CERRADO 06/10, verificó Claude
 
 **Verificado por Claude el 06/10, contra la pantalla real.** El HTML sale de la aplicación
 —ya no quedan rastros de la maqueta— y a 375 la ficha entra: los datos en una columna, los
@@ -387,31 +392,31 @@ incluidos (`Cobrar`, `Editar`, `Recibo`, `Anular`).
 - Botón Volver inferior adaptado con `justify-start sm:justify-end`.
 - Cubierto por prueba automatizada `tests/Feature/FichaAlumnoResponsiveA37Test.php`. Capturas de evidencia real tomadas sobre el sistema corriendo (`tests/Feature/CapturaFichaAnularTest.php`) en `docs/06-pruebas/PRU-02/capturas-a37/`.
 
-### A38. Paginación de Clases · Molesta · CERRADO 08/10, aprobado por Carlos
+### A38. Paginación de Clases · Molesta · CERRADO 08/10, verificó Carlos
 
 esperaba indicaciones en español como el resto de la pantalla; al pie aparece “Showing 1 to 20 of 76 results”. Captura.
 
-### A39. Acceso a Movimientos del OPERATIVO · Falta · CERRADO 08/10, verificado Gemini
+### A39. Acceso a Movimientos del OPERATIVO · Falta · CERRADO 08/10, verificó Gemini
 
 esperaba encontrar Movimientos en su navegación para consultar los cobros; Sandra puede abrir esa pantalla con su dirección, pero el menú no ofrece el acceso. Captura.
 
 **Verificado por Gemini el 08/10:** CERRADO. Verificado en base de datos `wings_testing_gemini` y con navegador Chrome Headless vía CDP interactivo. El menú lateral ofrece "Movimientos" bajo el grupo "Plata" tanto para ADMIN como OPERATIVO; PROFESOR recibe 403 y no lo ve en menú. Sandra ve su movimiento y el de su compañero de mostrador; no ve filas ni importes de rubros reservados a Admin (sueldos, alquileres); totales de ingresos, egresos y neto calculados exactamente sin incluir datos de admin; filtros excluyen rubros y subrubros de admin; ataques por GET directo con IDs de rubros/subrubros de admin devuelven cero filas y totales en cero; rubros mixtos exponen exclusivamente los subrubros y movimientos operativos. [Informe de verificación](VERIFICACION-A26-A39-A35.md). Captura: `evidencia/verificacion-a26-a39-a35/a39-sandra-movimientos.png`.
 
-### A40. Inicio de ADMIN en celular · Molesta · CERRADO 06/10, verificado Codex
+### A40. Inicio de ADMIN en celular · Molesta · CERRADO 06/10, verificó Codex
 
 
 esperaba ver la deuda total contenida en su indicador; “$1.263.000” sobresale de la tarjeta. Captura original: `evidencia/audit_admin_dashboard_mobile.png`.
 
 **Control independiente 06/10 (Codex CyE):** CERRADO por Codex: deuda $24.691.358 contenida en el indicador del inicio ADMIN a 375 y en escritorio. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A41. Fechas del filtro de Movimientos · Molesta · CERRADO 06/10, verificado Codex
+### A41. Fechas del filtro de Movimientos · Molesta · CERRADO 06/10, verificó Codex
 
 
 esperaba distinguir visualmente fecha inicial y final; aparecen dos campos con el mismo “dd/mm/aaaa”, sin rótulos visibles que expliquen cuál es Desde y cuál es Hasta. Captura original: `evidencia/audit_admin_movimientos_index_mobile.png`.
 
 **Control independiente 06/10 (Codex CyE):** CERRADO por Codex: Desde y Hasta visibles junto a cada fecha en ADMIN y OPERATIVO, a 375 y en escritorio. [Informe y capturas](VERIFICACION-CELULAR-COMPARTIDO.md).
 
-### A42. Aviso de inscripción al editar alumno · Molesta · CERRADO 10/10, verificado Claude
+### A42. Aviso de inscripción al editar alumno · Molesta · CERRADO 10/10, verificó Claude
 
 **Antecedente:** esperaba que consultara el DNI y la fecha ya cargados; al abrir la edición pide ingresarlos aunque están completos y solo informa que no corresponde inscripción después de reingresar el mismo DNI. Al abrir · Tras reingresar el DNI.
 
@@ -447,7 +452,7 @@ alta **avisa antes de guardar** y ofrece una sola decisión:
 Cuando exista la primera carga por Excel, los alumnos viejos entran por ahí y este caso
 debería volverse raro. El aviso queda igual, para el que no entró en el padrón.
 
-### A44. El aviso diario llega firmado por Laravel · Molesta · CERRADO 08/10, aprobado por Carlos
+### A44. El aviso diario llega firmado por Laravel · Molesta · CERRADO 08/10, verificó Carlos
 
 El resumen diario que recibe el dueño usa la **plantilla por defecto de Laravel**: logo de
 Laravel arriba, "Regards, Laravel" al pie y "© 2026 Laravel" abajo. Al dueño del club le
@@ -495,13 +500,13 @@ fila de tabla: 64. Los dos salieron del mismo commit, `e32ce0c`.
 
 **Resuelto en Entrega 1 de P2 (04/10, commit `abc346a`):** Ambos botones `Cobrar` y `Ver` tienen ancho uniforme y fijo de 64px respetando Objeto C de `DESIGN-RULES.md` con clase `ds-btn-row`.
 
-### A48. P2 agregó JavaScript adentro del HTML · Molesta · CERRADO 06/10, verificado Claude
+### A48. P2 agregó JavaScript adentro del HTML · Molesta · CERRADO 06/10, verificó Claude
 
 Verificación de Claude del 06/10 asentada por pedido de Carlos. Búsqueda repetida sobre main integrado: alumnos/_form.blade.php no contiene bloques <script>; el aviso de cambios sin guardar vive en resources/js/alumnos-form.js. CspSinCodigoIncrustadoTest aprueba.
 
 [Verificación, capturas y límites](VERIFICACION-A13-B1-A55-CIERRE.md).
 
-### A49. P2 agregó un confirm escrito en el HTML · Molesta · CERRADO 06/10, verificado Claude
+### A49. P2 agregó un confirm escrito en el HTML · Molesta · CERRADO 06/10, verificó Claude
 
 Verificación de Claude del 06/10 asentada por pedido de Carlos. Búsqueda repetida sobre main integrado: caja/resumen.blade.php no contiene onsubmit ni confirm escrito en HTML. Conserva un script ajeno a este defecto. Los manejadores antiguos de otras vistas quedan fuera de este cierre. CspSinCodigoIncrustadoTest aprueba.
 
@@ -551,7 +556,7 @@ probarlo en pantalla. [Evidencia y límites](VERIFICACION-ENTREGA1.md).
 
 ## Hallazgos de la segunda verificación de Entrega 1 — 05/10/2026
 
-### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · CERRADO 07/10, verificado Gemini
+### A53. Las tarjetas de Grupos y del selector de cobro cortan datos en celular · Molesta · CERRADO 07/10, verificó Gemini
 
 
 Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos el precio queda fuera del borde derecho y la página alcanza 457px, y en el selector de cobro el grupo también sobresale; los filtros sí caben. [Grupos](evidencia/verificacion-entrega1-v2/grupos-375.jpg), [selector](evidencia/verificacion-entrega1-v2/seleccionar-cobro-375.jpg).
@@ -560,7 +565,7 @@ Esperaba leer el precio del plan y los datos de cada tarjeta a 375px; en Grupos 
 
 **Entrega 07/10 (Codex CyE), a revisar:** nombres de grupo largos y tres tarifas millonarias completos en varias líneas a 375, para ADMIN y OPERATIVO. Carlos aprobó el ANTES/DESPUÉS. Falta asignar verificador independiente. [Propuesta y capturas](PROPUESTA-A14-A27-A53.md), [alcance y pruebas del autor](IMPLEMENTACION-A14-A27-A53.md). No cerrado.
 
-### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · CERRADO 06/10, verificado por Codex CAB
+### A54. El selector de cobro cuenta alumnos sin saldo como deuda pendiente · Molesta · CERRADO 06/10, verificó Codex
 
 **Antecedente:** «alumnos con deuda pendiente» contaba 6 cuando solo 5 tenían saldo.
 Corregido por Claude en `4571dbc`; verificación independiente de Codex: una cuota
@@ -569,7 +574,7 @@ la lista además conserva al alumno sin deuda para adelantar (A3). Con casos adi
 8 positivos y encabezado 8. [Informe §7](VERIFICACION-A13-A54.md#7-contador-y-saldo-entre-selector-cobranza-y-ficha),
 [captura de cero pendiente](evidencia/verificacion-a13-a54/selector-cero-pendiente.png).
 
-### A55. El saldo del selector de cobro omite la inscripción · Molesta · CERRADO 06/10, verificado Codex
+### A55. El saldo del selector de cobro omite la inscripción · Molesta · CERRADO 06/10, verificó Codex
 
 Una persona ficticia en Patín y Fútbol: una sola inscripción de $5.000. Selector y ficha propietaria imputan $5.000 a Patín; Fútbol no repite deuda y remite dinámicamente a esa ficha. Total pendiente inicial $5.000, una sola persona con deuda. Pago y anulación actualizan el cargo compartido. Texto exacto aprobado aplicado y capturas reales renovadas en escritorio y marco de 375.
 
@@ -593,7 +598,7 @@ Recorrido exclusivamente por navegador, ADMIN / OPERATIVO / PROFESOR, escritorio
 
 ## Parte B — Lo que no se ve
 
-### A56. Cashflow en celular se corta y sus filtros no se apilan · Molesta · CERRADO 06/10, verificado Codex CyE
+### A56. Cashflow en celular se corta y sus filtros no se apilan · Molesta · CERRADO 06/10, verificó Codex
 
 **Control independiente Codex CyE 06/10:** cobro/anulación reales y gasto normal por POST.
 Contraasiento −$48.000 y gasto −$2.500: E y color de salida; original I y color de ingreso.
@@ -625,19 +630,19 @@ empuja el ancho de toda la pantalla.
 Es la misma familia que A37, A53 y A14: cada pantalla resuelve el celular por su cuenta en
 vez de usar lo compartido. Conviene tomarlas juntas.
 
-### A57. Los campos de los filtros tienen anchos distintos en celular · Molesta · CERRADO 10/10, aprobado por Carlos
+### A57. Los campos de los filtros tienen anchos distintos en celular · Molesta · CERRADO 10/10, verificó Carlos
 
 En Caja (`/caja`) en móvil (360px), el desplegable «Operativo» ocupaba todo el ancho (278px) y el campo de fecha «octubre de 2026», debajo, era más angosto (230px). Carlos: «El tamaño de los select debería ser el mismo […] fecha es más chico que operativo y queda feo.»
 
 Causa: la regla `@media (max-width: 768px)` en `resources/css/app.css` solo expandía a 100% los `.filtros-select` y los `input[type="date"]`, omitiendo `input[type="month"]` y otros controles. Resuelto generalizando la regla en `resources/css/app.css` para todos los controles dentro de `.filtros-row`. Auditadas 82 pantallas a 360px, 375px y 320px; filtros parejos en todo el sistema. Aspecto aprobado por Carlos sobre el visor y capturas finales. [Evidencia y visor](evidencia/a57-a58/visor.html).
 
-### A58. La pantalla se desliza hacia el costado sin que haya nada a la derecha · Molesta · CERRADO 10/10, aprobado por Carlos
+### A58. La pantalla se desliza hacia el costado sin que haya nada a la derecha · Molesta · CERRADO 10/10, verificó Carlos
 
 En Clases (`/clases`) en móvil (360px). Carlos: «tiene un scroll lateral la pantalla al pedo, no hay nada a la derecha.»
 
 Causa: la tarjeta de clase en `clases/_card.blade.php` tenía `grid-template-columns: repeat(3, 1fr)` inline que en 360px forzaba un ancho de 451px, y `#clases-hoy-container` con `overflow-y: auto` activaba desplazamiento horizontal (`scrollWidth: 455px` contra `clientWidth: 328px`). Resuelto en `resources/css/app.css` con regla `@media (max-width: 640px)` apilando las tarjetas a 1 columna y fijando `overflow-x: hidden` en el contenedor. Ancho final 328px sin scroll horizontal y escritorio (1280px) 100% intacto. Aspecto aprobado por Carlos sobre el visor y capturas finales. [Evidencia y visor](evidencia/a57-a58/visor.html).
 
-### B1. El admin está modelado como un operativo más · Frena · CERRADO 06/10, verificado Codex
+### B1. El admin está modelado como un operativo más · Frena · CERRADO 06/10, verificó Codex
 
 El ADMIN usa el cobro directo a Cashflow; el OPERATIVO usa su caja. Ensayo HTTP y navegador sobre main integrado: cobro admin $101.000, anulación con motivo y caja operativa con solo su movimiento $48.000. Inicial $10.000, esperado $58.000. Los hallazgos de historial y contraasiento de A13 quedaron comprobados en pantalla.
 
@@ -655,7 +660,7 @@ estado leída en el código, sin rastros de "tiene pagos" en los listados masivo
 que no se aplica dos veces y suite corrida (331 pruebas). De esa verificación salió A43.
 Falta desplegarlo al sitio de prueba.
 
-### B3. Las excepciones del contrato no existen · Falta
+### B3. Las excepciones del contrato no existen · Falta · Sin empezar, la tiene Codex
 
 El contrato de cobranza exige **motivo obligatorio y aviso al admin** en cuatro situaciones:
 cobro parcial, cobro que deja impago un mes anterior, deudor que entra a clase, y alumno
@@ -685,7 +690,7 @@ rentabilidad. Contrato escrito en `Wings-Contrato-Clases-Particulares-V1.md` (PO
 Hoy se resuelven a mano: una clase del grupo de la alumna con ella sola presente, y el cobro
 cargado como movimiento suelto.
 
-### B7. Se vende ropa pero no hay stock ni compra · CERRADO 13/10, fuera del alcance por decisión de Carlos
+### B7. Se vende ropa pero no hay stock ni compra · Falta · CERRADO 13/10, verificó Carlos
 
 **Cerrado el 13/10/2026 sin programar nada:** Carlos lo dejó fuera del alcance. La indumentaria
 es un negocio aparte de los dueños (decisión del 10/10); Wings solo registra su paso por la caja.
@@ -704,24 +709,24 @@ una cuenta por casa.
 Se le puede pagar un adelanto como egreso, pero nada lo ata a su liquidación de fin de mes.
 **Si nadie se acuerda, el club le paga dos veces.**
 
-### B10. No hay dónde guardar el CBU del profesor · Falta · CERRADO 10/10, verificado Codex y Gemini
+### B10. No hay dónde guardar el CBU del profesor · Falta · CERRADO 10/10, verificó Gemini
 
 Para pagarle hace falta su alias o su cuenta. Ese dato vive en el teléfono de Vanina.
 
 **Verificación independiente (Codex y Gemini):** Primera vuelta por Codex aprobó 69/73 puntos y devolvió por 2 fallas (espacios internos y mensaje en inglés). Segunda vuelta por Gemini (10/10) sobre commit `a33cd44` comprobó las correcciones con 19 pruebas dedicadas (114 aserciones): rechazo de espacios/tabs/newlines internos con mensaje en castellano, rechazo de texto de 200 caracteres en castellano, CBU con espacios/tabs limpiados a 22 dígitos, preservación de casing y NULLs, compatibilidad con roles y suite completa (581 pasadas). [Informe y evidencia](VERIFICACION-B10.md).
 
-### B11. Los punitorios están definidos y sin motor · Falta
+### B11. Los punitorios están definidos y sin motor · Falta · Sin empezar
 
 Contrato completo en `Wings-Contrato-Punitorios-Mora-V1.md`, con su configuración. Nada los
 calcula (FIN-14).
 
-### B12. No hay reportes · En curso 09/10
+### B12. No hay reportes · Falta · En curso, la tiene Carlos
 
 Al cerrar el día el dueño tiene que poder contestar cuatro preguntas: cuánto entró, cuánto
 salió, cuánto le deben y cuánto debe. Hoy se contestan abriendo varias pantallas y sumando a
 mano (antecedente del relevamiento). FIN-04/POS-01 en desarrollo: Finanzas V3 y Alumnos aprobados por Carlos e integrados; Sueldos e historia monetaria implementados y probados; Sueldos y acceso Plata → Reportes aprobados por Carlos («Esta OK el acceso», 10/10). [Entrega Sueldos](../B12-A23/IMPLEMENTACION-SUELDOS-2026-10-09.md). Aspecto del ajuste aprobado por Carlos («Sí, así»,10/10); Monto ajustado e íconos. Faltan manual integral y clasificación de antecedentes; B12 sigue abierto.
 
-### B13. Los datos de prueba no representan al club · CERRADO 13/10 por decisión de Carlos
+### B13. Los datos de prueba no representan al club · Molesta · CERRADO 13/10, verificó Carlos
 
 Los hizo Claude y están mal: **los 60 alumnos son adultos** —nacidos entre 1986 y 2005— en
 una escuela de patín y fútbol infantil; sin tutores ni celulares cargados. El catálogo trae
@@ -733,7 +738,7 @@ cambiar eso ahora». Los alumnos se arreglaron con la primera carga de PRU-03: e
 prueba son 100, nacidos entre 2005 y 2021, todos con tutor y celular (mirado por Claude el
 13/10). Servicios (Luz, Internet) y los saldos iniciales de $1.570.000 siguen como estaban.
 
-### B14. El despliegue no limpiaba la caché de rutas · Verificado y CERRADO 04/10
+### B14. El despliegue no limpiaba la caché de rutas · CERRADO 04/10
 
 El servidor de prueba servía la lista de rutas del 13/09: las pantallas nuevas reventaban
 con "Route [...] not defined" aunque el código estuviera al día, y desde afuera parecía un
@@ -742,12 +747,12 @@ problema de login. Se limpió a mano el 23/09.
 **Corregido el 04/10:** `montar-test.sh` limpia rutas, configuración y vistas como paso
 propio del despliegue, y después comprueba que las rutas se puedan leer; si no, el
 despliegue falla en vez de dejar el sitio roto.
-### B15. El SPF del subdominio anuló su comodín de DNS · CERRADO, verificado
+### B15. El SPF del subdominio anuló su comodín de DNS · CERRADO 23/09
 
 Documentado en `docs/04-tecnico/SERVIDOR.md`. Queda como lección de proceso: comprobar desde
 afuera, no desde el servidor.
 
-### B16. `/movimientos` filtraba por caja propia · CERRADO 23/09, verificado
+### B16. `/movimientos` filtraba por caja propia · CERRADO 23/09
 
 El mostrador no veía los cobros del otro turno. Ahora filtra por rubro, como manda
 `PERMISOS-ROLES.md`. Cubierto por `MovimientosVisibilidadPorRubroTest`.

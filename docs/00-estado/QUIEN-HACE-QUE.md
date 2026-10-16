@@ -48,13 +48,13 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T3** Pasar el seguimiento al tablero unico | En curso | Cuando Codex y Gemini entreguen: sacar el estado de DEFECTOS.md y DEFECTOS.html y agregar la prueba que vigila el tablero |
 | **T4** Desplegar main al sitio de prueba, borrar alumnos y deudas y probar la primera carga | En curso | Sitio de prueba en d8bf91f desde el 13/10 (T31, T32, T33, limite de ingresos, excepcion de Cloudflare), reloj en hora real. Mismos datos: 100 alumnos, 4 pagos, 1 caja. Falta repetir en el sitio los casos marcados Arreglado en la tabla |
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T3** Pasar el seguimiento al tablero unico | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude el 16/10. El estado de cada defecto en DEFECTOS.md y DEFECTOS.html sale del tablero al correr el comando; el comando traer se quito; TableroAlDiaTest (3 pruebas) falla si un archivo generado no coincide con tareas.json. Codex verifica: que cambiar una tarea reescriba los cuatro archivos, que la prueba detecte una edicion a mano y que ningun defecto haya cambiado de estado |
 | **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Tercera vuelta: informe corregido (WebP y enlaces). Codex repite Application > Manifest y la suite en su base |
 
 ## Gemini
@@ -94,10 +94,9 @@ CAB01 Armar el metodo de trabajo comun para proyectos nuevos.
    hecho y sin revisar todavía no es avance.
 7. **Los bloques del plan (P0, P1, P2…) se marcan igual que los defectos.** P1 figuraba sin
    terminar un día después de estar verificada, y Carlos lo vio antes que los tres agentes.
-8. **Mientras dure la transición, `DEFECTOS.md` y `DEFECTOS.html` se siguen marcando** en el
-   mismo commit, como hasta ahora: `DefectosNoDivergenTest` los sigue vigilando. Claude trae
-   esos cierres al tablero con `tablero.php traer`. Cuando Codex y Gemini entreguen lo que
-   tienen en curso, el estado sale de esos dos archivos y queda solo en el tablero.
+8. **El estado de un defecto no se escribe a mano** (desde el 16/10, T3). El encabezado de cada
+   defecto en `DEFECTOS.md` y su tilde en `DEFECTOS.html` salen del tablero al correr el comando.
+   `TableroAlDiaTest` pone la suite en rojo si alguien los edita a mano.
 9. **Las capturas de celular van en un marco de 375**, no achicando la ventana de Chrome:
    Windows no deja ventanas de menos de 500 píxeles y recorta. El control es capturar el
    login: si sale cortado, el que mide mal es el método. Usar

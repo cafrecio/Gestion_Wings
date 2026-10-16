@@ -570,7 +570,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **722 pruebas** presentes en la carpeta (T2 retira 16 pruebas de comandos obsoletos); 720 aprobadas/2 omitidas. Suite completa en wings_testing_gemini, 13/10. |
+| **Tests** | **725 pruebas** presentes. (T3 suma 3 que vigilan el tablero); wings_testing_claude 16/10: 721 aprobadas, 2 omitidas, y 2 fallas: el conteo de este documento (corregido acá) y PerdonConcurrenteT33Test por tiempo de espera en la suite completa, que sola pasa 10 de 10 |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

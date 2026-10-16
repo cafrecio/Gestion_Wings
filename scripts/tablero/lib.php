@@ -17,6 +17,7 @@ const TABLERO_DATOS = 'docs/00-estado/tareas.json';
 const TABLERO_HTML = 'docs/00-estado/TABLERO.html';
 const TABLERO_HOJA = 'docs/00-estado/QUIEN-HACE-QUE.md';
 const TABLERO_DEFECTOS = 'docs/06-pruebas/PRU-02/DEFECTOS.md';
+const TABLERO_DEFECTOS_HTML = 'docs/06-pruebas/PRU-02/DEFECTOS.html';
 
 const TABLERO_MARCA_INICIO = '<!-- TABLERO:INICIO — generado por scripts/tablero, no editar a mano -->';
 const TABLERO_MARCA_FIN = '<!-- TABLERO:FIN -->';
@@ -284,7 +285,8 @@ function tablero_html(array $tareas): string
 {
     $g = tablero_grupos($tareas);
     $cambio = tablero_ultimo_cambio($tareas);
-    $hoy = date('Y-m-d');
+    // Fecha del ultimo cambio, no la de hoy: lo generado depende solo de tareas.json. Al abrir, el script recalcula.
+    $hoy = max(array_column($tareas, 'fecha') ?: ['2026-10-06']);
     $dias = fn (array $t): int => max(0, (int) floor((strtotime($hoy) - strtotime($t['fecha'])) / 86400));
     $empezada = fn (array $t): bool => in_array($t['estado'], ['en_curso', 'a_verificar', 'devuelto'], true);
     $atrasada = fn (array $t): bool => $empezada($t) && $dias($t) >= TABLERO_DIAS_ATRASO;
@@ -554,18 +556,122 @@ function tablero_hoja(array $tareas, string $hojaActual): string
 }
 
 /** Escribe los datos y todo lo que se arma desde ellos. */
-function tablero_guardar_y_generar(array $tareas): void
+/** Como figura el estado de un defecto en DEFECTOS.md y DEFECTOS.html. Sale del tablero, nunca a mano. */
+function tablero_estado_defecto(array $t): string
 {
-    $tareas = array_map('tablero_normalizar', $tareas);
-    file_put_contents(tablero_ruta(TABLERO_DATOS), tablero_texto_datos($tareas));
-    file_put_contents(tablero_ruta(TABLERO_HTML), tablero_html($tareas));
-    $hoja = file_get_contents(tablero_ruta(TABLERO_HOJA));
-    file_put_contents(tablero_ruta(TABLERO_HOJA), tablero_hoja($tareas, $hoja));
+    $fecha = substr($t['fecha'], 8, 2) . '/' . substr($t['fecha'], 5, 2);
+    if ($t['estado'] === 'cerrado') {
+        return 'CERRADO ' . $fecha . ($t['verifica'] !== '' ? ', verificó ' . $t['verifica'] : '');
+    }
+
+    return TABLERO_ESTADOS[$t['estado']] . ($t['tiene'] !== 'nadie' ? ', la tiene ' . $t['tiene'] : '');
+}
+
+/** El avance de los defectos, en una frase. */
+function tablero_frase_avance(array $tareas): array
+{
+    $av = tablero_avance($tareas);
+    $fecha = tablero_ultimo_cambio($tareas);
+    $abiertos = $av['total'] - $av['cerrados'];
+
+    return [$fecha, $av['cerrados'], $av['total'], $abiertos, count($av['frenan'])];
 }
 
 /**
- * Lee los titulos de DEFECTOS.md. Sirve para el arranque y, mientras dure la transicion,
- * para traer los cierres que los agentes sigan anotando alla.
+ * DEFECTOS.md con el estado tomado del tablero: el encabezado de cada defecto y el avance.
+ * El texto de cada defecto (que pasa, por que importa, donde) se sigue escribiendo a mano.
+ */
+function tablero_defectos_md(array $tareas, string $actual): string
+{
+    $porId = array_column(array_filter($tareas, 'tablero_es_defecto'), null, 'id');
+    $md = preg_replace_callback('/^### ([AB]\d+)\.\s*(.*)$/mu', function ($m) use ($porId) {
+        $t = $porId[$m[1]] ?? null;
+        if ($t === null) {
+            return $m[0];
+        }
+        $titulo = trim(explode(' · ', $m[2])[0]);
+
+        return '### ' . $m[1] . '. ' . $titulo . ($t['gravedad'] !== '' ? ' · ' . $t['gravedad'] : '') . ' · ' . tablero_estado_defecto($t);
+    }, $actual);
+
+    [$fecha, $cerrados, $total, $abiertos, $frenan] = tablero_frase_avance($tareas);
+    $bloque = TABLERO_MARCA_INICIO . "\n> **Avance al {$fecha}: {$cerrados} cerrados de {$total}.** Quedan {$abiertos} abiertos, de los cuales **{$frenan} frenan**.\n"
+        . "> El estado de cada defecto sale del tablero (`docs/00-estado/tareas.json`) y se cambia con `scripts/tablero`; no se edita a mano.\n"
+        . TABLERO_MARCA_FIN;
+    $patron = '/' . preg_quote(TABLERO_MARCA_INICIO, '/') . '.*?' . preg_quote(TABLERO_MARCA_FIN, '/') . '/su';
+    if (! preg_match($patron, $md)) {
+        throw new RuntimeException(TABLERO_DEFECTOS . ' no tiene las marcas del tablero.');
+    }
+
+    return preg_replace_callback($patron, fn () => $bloque, $md);
+}
+
+/** DEFECTOS.html con el estado tomado del tablero: tilde, sello y etiqueta de cada defecto, y el avance. */
+function tablero_defectos_html(array $tareas, string $actual): string
+{
+    $porId = array_column(array_filter($tareas, 'tablero_es_defecto'), null, 'id');
+    $lineas = explode("\n", $actual);
+    foreach ($lineas as &$l) {
+        if (! preg_match('/<input id="([AB]\d+)" type="checkbox"( checked)?>/', $l, $m) || ! isset($porId[$m[1]])) {
+            continue;
+        }
+        $t = $porId[$m[1]];
+        $cerrado = $t['estado'] === 'cerrado';
+        $l = str_replace($m[0], '<input id="' . $m[1] . '" type="checkbox"' . ($cerrado ? ' checked' : '') . '>', $l);
+        $l = preg_replace('#\s*<span class="sello">.*?</span>#u', '', $l, 1);
+        $sello = ' <span class="sello">' . tablero_e(tablero_estado_defecto($t)) . '</span>';
+        $l = preg_replace('#(<span class="id">' . $m[1] . '</span>.*?)(<span class="detail">|</label>)#u', '$1' . $sello . '$2', $l, 1);
+        $etiqueta = $cerrado ? '<span class="tag done">Cerrado</span>' : '<span class="tag alta">' . tablero_e(TABLERO_ESTADOS[$t['estado']]) . '</span>';
+        $l = preg_replace('#<span class="tag [a-z]+">[^<]*</span></div>\s*$#u', $etiqueta . '</div>', $l, 1);
+    }
+    unset($l);
+
+    [$fecha, $cerrados, $total, $abiertos, $frenan] = tablero_frase_avance($tareas);
+    $html = implode("\n", $lineas);
+    $html = preg_replace(
+        '#<b>Avance al [^<]*</b>.*?<b>\d+ frenan</b>\.#u',
+        "<b>Avance al {$fecha}: {$cerrados} cerrados de {$total}.</b> Quedan {$abiertos} abiertos; <b>{$frenan} frenan</b>.",
+        $html,
+        1,
+        $hechos
+    );
+    if ($hechos !== 1) {
+        throw new RuntimeException(TABLERO_DEFECTOS_HTML . ' no tiene la línea de avance.');
+    }
+
+    return $html;
+}
+
+/**
+ * Todo lo que se genera desde tareas.json: ruta => contenido. Lo usa el guardado y la prueba
+ * que comprueba que ninguno de estos archivos se edito a mano.
+ *
+ * @return array<string,string>
+ */
+function tablero_generados(array $tareas): array
+{
+    $tareas = array_map('tablero_normalizar', $tareas);
+    $leer = fn (string $ruta) => file_get_contents(tablero_ruta($ruta));
+
+    return [
+        TABLERO_DATOS => tablero_texto_datos($tareas),
+        TABLERO_HTML => tablero_html($tareas),
+        TABLERO_HOJA => tablero_hoja($tareas, $leer(TABLERO_HOJA)),
+        TABLERO_DEFECTOS => tablero_defectos_md($tareas, $leer(TABLERO_DEFECTOS)),
+        TABLERO_DEFECTOS_HTML => tablero_defectos_html($tareas, $leer(TABLERO_DEFECTOS_HTML)),
+    ];
+}
+
+function tablero_guardar_y_generar(array $tareas): void
+{
+    foreach (tablero_generados($tareas) as $ruta => $contenido) {
+        file_put_contents(tablero_ruta($ruta), $contenido);
+    }
+}
+
+/**
+ * Lee los titulos de DEFECTOS.md. Sirvio para el arranque (importar). Desde el 16/10 (T3)
+ * el estado de esos titulos sale del tablero, no al reves.
  *
  * @return array<string,array<string,string>>
  */
