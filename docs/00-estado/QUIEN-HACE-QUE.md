@@ -51,9 +51,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T11** Que Wings instalado en el telefono abra en la pantalla correcta | Hecho, espera verificación (hizo Gemini, verifica Codex) | Tercera vuelta: informe corregido (WebP y enlaces). Codex repite Application > Manifest y la suite en su base |
+Nada en este momento.
 
 ## Gemini
 
