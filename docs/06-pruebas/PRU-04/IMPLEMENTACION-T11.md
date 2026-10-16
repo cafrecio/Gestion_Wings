@@ -1,10 +1,10 @@
-# Informe de Implementación T11: Instalación de Wings como aplicación en el teléfono (Segunda Vuelta)
+# Informe de Implementación T11: Instalación de Wings como aplicación en el teléfono (Tercera Vuelta)
 
-**Fecha:** 12/10/2026 (primera entrega) · **Actualizado:** 14/10/2026 (segunda vuelta tras devolución de Codex)  
-**Autor:** Gemini (CAB) — Firma: **LOG GEM CAB**  
+**Fecha:** 12/10/2026 (primera entrega) · **Segunda vuelta:** 14/10/2026 · **Actualizado (Tercera vuelta):** 16/10/2026  
+**Autor:** Gemini (CAB / CyE) — Firmas: **LOG GEM CAB** / **LOG GEM CYE**  
 **Tarea:** T11 — «Que Wings se instale en el teléfono como aplicación»  
 **Origen:** Prueba de Carlos del 12/10/2026 en su Android con Chrome sobre `test.gestionar-te.com.ar`.  
-**Estado:** Segunda vuelta implementada en el repositorio. El sitio de prueba ya sirve el manifest e íconos de la primera entrega (commit `d4f02d4`). Las correcciones de la segunda vuelta (arreglo `screenshots` y capturas de login en `public/`) quedan listas para verificación independiente de Codex antes del despliegue y de la prueba física de Carlos en su teléfono.
+**Estado:** Tercera vuelta implementada (corrección documental: soporte exclusivo JPEG/PNG y enlaces oficiales comprobados). Listo para verificación de Codex (Application > Manifest y suite en su base) previo al despliegue y prueba física de Carlos.
 
 ---
 
@@ -42,7 +42,7 @@ Se levantó Wings e inspeccionó mediante Chrome Headless y el método nativo de
 Carlos instruyó: *«Hacé lo mínimo que haga falta. Si Chrome exige un service worker, que sea uno que no guarde nada en caché: Wings maneja plata y no puede mostrar una pantalla vieja. Si no lo exige, no lo agregues.»*
 
 ### Comprobación empírica
-- Desde Chrome 108+ (móvil) y 112+ (escritorio), Chromium **desacopló el requisito estricto de Service Worker para habilitar la opción "Instalar app"** desde el menú del navegador.
+- Desde Chrome 108+ (móvil) y 112+ (escritorio), Chromium **desacopló el requisito estricto de Service Worker para habilitar la opción "Instalar app"** desde el menú del navegador (verificado empíricamente con CDP y referenciado en [Chrome Install Criteria](https://developer.chrome.com/docs/web-platform/install-criteria)).
 - Al corregir `public/site.webmanifest` con `start_url: "/login"`, `scope: "/"`, `id: "/login"` e íconos adaptativos, `Page.getInstallabilityErrors` vía CDP devolvió:
   ```json
   {
@@ -67,15 +67,17 @@ Richer PWA Install UI won’t be available on mobile. Please add at least one sc
 ```
 
 ### Requisitos oficiales de Chrome para capturas (Screenshots)
-Conforme a la documentación oficial de [Chrome Developers: Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation-ui) y la especificación W3C Web App Manifest:
+Conforme a la documentación oficial de [Chrome Developers: Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation), la guía técnica [web.dev: How to add Richer Install UI](https://web.dev/articles/web-apps/richer-install-ui) y la especificación W3C Web App Manifest:
 1. **Form Factor (`form_factor`):**
    - `"wide"`: Requerido para habilitar la interfaz enriquecida de instalación en escritorio (Chrome 108+).
    - `"narrow"` (o sin declarar): Requerido para la interfaz en dispositivos móviles / Android (Chrome 94+).
 2. **Dimensiones de imagen:**
    - Tanto el ancho como el alto deben estar comprendidos entre **320px y 3840px**.
    - La dimensión máxima no puede superar 2.3 veces la dimensión mínima (relación de aspecto entre 1:2.3 y 2.3:1).
-3. **Formatos soportados:** PNG (`image/png`), WebP (`image/webp`) o JPEG (`image/jpeg`).
+3. **Formatos soportados:** Solo PNG (`image/png`) y JPEG (`image/jpeg`). WebP no está soportado según la especificación oficial de screenshots.
 4. **Consistencia de proporción:** Todas las capturas que comparten el mismo `form_factor` deben tener exactamente la misma relación de aspecto.
+5. **Cantidad de capturas:** Se muestran hasta un máximo de 8 capturas; el navegador ignora las adicionales.
+6. **Descripción (`description`):** Recomendada aunque no obligatoria; se trunca tras aproximadamente 7 líneas (~324 caracteres) con puntos suspensivos.
 
 ### Implementación adoptada
 Se seleccionó la pantalla de inicio de sesión (`/login`) para generar las capturas públicas, dado que **no expone ningún dato personal, datos de alumnos ni movimientos de dinero**, siendo totalmente segura para distribución pública:
@@ -200,4 +202,30 @@ Guardada en `docs/06-pruebas/PRU-04/evidencia-t11/`:
 
 ## 11. Próximo paso
 
-Pase a Codex para verificación independiente de la segunda vuelta (arreglo `screenshots` en manifest, ausencia de avisos en DevTools, capturas en `public/` y correcciones del informe). Tras el visto bueno, queda listo para despliegue y prueba física de Carlos en su teléfono Android.
+Pase a Codex para repetición de la verificación de la tercera vuelta (inspección de Application > Manifest en DevTools y corrida de la suite en base propia `wings_testing_codex`). Tras la aprobación de Codex, pase a Carlos para despliegue y prueba física en su teléfono Android.
+
+---
+
+## 12. Tercera vuelta — Corrección documental tras devolución de Codex (16/10/2026)
+
+A raíz de la segunda devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md`):
+
+1. **Corrección de formato de capturas (Sección 3, línea 77):**
+   - Se eliminó la mención errónea de WebP (`image/webp`).
+   - La fuente oficial ([web.dev: How to add Richer Install UI](https://web.dev/articles/web-apps/richer-install-ui)) establece taxativamente: *«Only JPEG and PNG image formats are supported»*.
+   - Las imágenes provistas en el proyecto (`public/screenshot-wide.png` y `public/screenshot-narrow.png`) son archivos PNG válidos y cumplen estrictamente la especificación oficial.
+2. **Corrección de enlaces oficiales (Sección 3, línea 70):**
+   - Se reemplazó el enlace roto `https://developer.chrome.com/blog/richer-pwa-installation-ui` (HTTP 404) por los dos enlaces oficiales válidos y consultados directamente:
+     - [Chrome Developers: Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation) (artículo introductorio del blog de Chrome Developers).
+     - [web.dev: How to add Richer Install UI](https://web.dev/articles/web-apps/richer-install-ui) (guía técnica con los requisitos formales de capturas y descripción).
+3. **Comprobación de afirmaciones contra las fuentes oficiales consultadas:**
+   - **Dimensiones:** Ancho y alto entre 320px y 3840px (*«Width and height must be at least 320px and at most 3,840px»*). Cumplido por Wings (1280x720 y 720x1280).
+   - **Proporción máxima:** La dimensión máxima no puede superar 2.3 veces la mínima (*«The maximum dimension can't be more than 2.3 times as long as the minimum dimension»*). Cumplido por Wings (1.777 < 2.3).
+   - **Aspect ratio por form_factor:** Todas las capturas que comparten el mismo `form_factor` deben tener idéntica relación de aspecto (*«All screenshots with the same form factor value must have identical aspect ratios»*). Cumplido por Wings (1 captura wide y 1 narrow).
+   - **Formatos:** Exclusivamente JPEG y PNG.
+   - **Cantidad máxima:** El navegador muestra hasta 8 capturas (*«Only eight screenshots will be shown»*).
+   - **Descripción:** Campo recomendado pero no obligatorio; se trunca tras aproximadamente 7 líneas (~324 caracteres) con puntos suspensivos.
+4. **Barrido del resto del informe:**
+   - Se verificaron las versiones de Chrome (Chrome 94+ Android, Chrome 108+ escritorio) corroboradas en el artículo oficial.
+   - Se referenció la documentación oficial de criterios de instalación de Chromium en la Sección 2.
+   - No se alteró ningún archivo de código, manifest (`public/site.webmanifest`), imágenes PNG físicas, vistas Blade ni estilos CSS.

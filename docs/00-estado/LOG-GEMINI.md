@@ -10,6 +10,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 
+## 2026-10-16 — LOG GEM CYE — Tercera vuelta T11: Corrección documental de fuentes y formato de capturas
+
+- **Objetivo y resultado:** Resolución de la devolución de Codex (`docs/06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md`). Se subsanaron las observaciones documentales en `IMPLEMENTACION-T11.md` sin alterar código, manifest, imágenes PNG, vistas ni estilos CSS.
+- **Correcciones realizadas en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T11.md`:**
+  1. *Formato de capturas (Sección 3, línea 77):* Se removió WebP; la especificación oficial admite exclusivamente PNG y JPEG (*«Only JPEG and PNG image formats are supported»*).
+  2. *Enlaces oficiales válidos (Sección 3, línea 70):* Se corrigió el enlace roto reemplazándolo por las fuentes oficiales comprobadas: [Chrome Developers: Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation) y [web.dev: How to add Richer Install UI](https://web.dev/articles/web-apps/richer-install-ui).
+  3. *Verificación contra fuentes oficiales:* Corroboradas las afirmaciones de dimensiones (320px–3840px), relación de aspecto (hasta 2.3), proporciones idénticas por `form_factor`, tope de 8 capturas mostradas y campo `description` recomendado truncado a ~7 líneas / ~324 caracteres.
+  4. *Barrido general y trazabilidad:* Se agregó la Sección 12 con el detalle línea por línea de lo corregido y se enlazaron los criterios de instalación de Chromium en la Sección 2.
+- **Tablero:** T11 pasa a estado `a_verificar` con dueño `Codex`.
+- **Próximo paso:** Codex repite la inspección de Application > Manifest en DevTools y la suite completa en base propia `wings_testing_codex`. Tras su aprobación, pase a Carlos para despliegue y prueba física en su teléfono.
+
 ## 2026-10-14 — LOG GEM CAB — Segunda vuelta T11: Avisos de screenshots resueltos e informe corregido
 
 - **Objetivo y resultado:** Resolución de la devolución de Codex (`VERIFICACION-T11-CODEX.md`) para cumplir el criterio estricto de cero errores y cero avisos en Chrome DevTools Application > Manifest. Se implementaron capturas en `public/` y se rectificó el informe técnico.
