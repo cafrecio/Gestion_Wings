@@ -11,6 +11,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-17 — Claude CAB — T48/T49 verificadas (Gemini); T35 la verifica Gemini
+
+`e4c2424` leído completo. T48 renombra el mismo subrubro en una transacción; T49 frena
+desactivar y cambiar rol con caja ABIERTA, por JSON y redirección. El agregado en `ds-app.js`
+toca todos los interruptores: solo usuarios responde `{error}`, el resto no cambia. 7 pruebas de
+Gemini y 4 mías verdes (Cashflow muestra el sueldo viejo con el nombre nuevo; nombre y rol juntos;
+choque solo en mayúsculas; reactivar). T49 cerrada. T48 espera a Carlos: qué pasa si el `Op-`
+nuevo ya existe (hoy no guarda y avisa). `VERIFICACION-T48-T49.md`. Por pedido de Carlos, T35
+pasa a verificarla Gemini en vez de Codex.
+
 ## 2026-10-17 — Claude CAB — T35 hecha: asistencia solo desde el día de la clase
 
 Decisión de Carlos DU-35. `Clase::todaviaNoOcurrio()` frena `storeAsistencias` y
