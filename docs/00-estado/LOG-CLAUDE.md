@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-17 — Claude CAB — T10: borradores legales sin abogado
+
+Carlos: «actuá como abogado», buscar lo mínimo exigible; abono acordado USD 30 por mes.
+`docs/01-producto/legal/`: condiciones de servicio con anexo de encargo de tratamiento (art. 25),
+política de privacidad con la leyenda de la AAIP (Res. 14/2018) y la de la ficha de inscripción
+(consentimiento para transferir fuera del país, Decreto 1558/2001 art. 12), y cookies (solo
+necesarias, sin cartel). Plazos de los arts. 14, 16 y 25 confirmados en el texto oficial. Escritos
+sobre los datos reales de alumnos, profesores y usuarios. Pendientes de Carlos en el checklist:
+datos entre corchetes, moneda de pago, IVA, país del servidor, inscripción en la AAIP. El enlace
+desde el ingreso queda para otra tarea. Tablero de T10 sin actualizar: tareas.json tenía cambios
+sin commitear de Codex y Gemini.
+
 ## 2026-10-17 — Claude CAB — T48/T49 verificadas (Gemini); T35 la verifica Gemini
 
 `e4c2424` leído completo. T48 renombra el mismo subrubro en una transacción; T49 frena

@@ -202,6 +202,13 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   los defectos prioritarios de cobro.
 - [ ] Acompañar la apertura y cierre de la primera caja real.
 - [ ] Firmar el gate final de produccion.
+- [ ] **Lo legal (T10, borradores del 17/10):** leer `docs/01-producto/legal/README.md` y:
+  completar los datos entre corchetes (razon social, CUIT, domicilio, correo, ciudad);
+  elegir si el abono de USD 30 se paga en dolares o en pesos al cambio BNA; confirmar con el
+  contador si lleva IVA; confirmar el pais del centro de datos de Hostinger; inscribir a
+  Gestionar-te en el Registro Nacional de Bases de Datos de la AAIP (TAD, clave fiscal
+  nivel 2) y pedirle a cada club que inscriba su base; imprimir la leyenda en la ficha de
+  inscripcion de cada club.
 
 ## 5. Ya resuelto — no volver a pedir
 

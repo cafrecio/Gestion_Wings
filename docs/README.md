@@ -47,6 +47,7 @@ El mapa visual de trabajo esta en:
 | `00-estado/` | Estado actual, contradicciones, pendientes y prioridades confirmadas. |
 | `00-mapa-proyecto/` | Mapa HTML navegable del repo y sus modulos. |
 | `01-producto/` | Vision de producto, plan maestro, menu y decisiones funcionales generales. |
+| `01-producto/legal/` | Borradores legales (17/10/2026): condiciones de servicio con cada club, politica de privacidad, cookies y leyenda de inscripcion. Empezar por su `README.md`. |
 | `02-contratos/` | Contratos de negocio cerrados o semi-cerrados por modulo. |
 | `03-diseno-ui/` | Design system, reglas visuales, skill de UI y referencias de implementacion. |
 | `04-tecnico/` | Setup, entorno, base de datos, despliegue y notas tecnicas. |
