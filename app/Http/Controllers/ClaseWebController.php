@@ -288,10 +288,12 @@ class ClaseWebController extends Controller
         $esPasada             = $clase->fecha->lt(today());
         $correccionAsistencia = $esPasada && $clase->asistencias->isNotEmpty();
         $correccionProfesores = $esPasada && $clase->profesores->isNotEmpty();
+        $todaviaNoOcurrio     = $clase->todaviaNoOcurrio();
 
         return view('clases.show', compact(
             'clase', 'alumnos', 'asistenciasMap', 'infoSemana', 'profesoresDisponibles',
-            'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores'
+            'esAdmin', 'esProfesor', 'esPasada', 'correccionAsistencia', 'correccionProfesores',
+            'todaviaNoOcurrio'
         ));
     }
 
@@ -308,6 +310,14 @@ class ClaseWebController extends Controller
                 ], 422);
             }
             return back()->with('error', 'La clase está cancelada.');
+        }
+
+        if ($clase->todaviaNoOcurrio()) {
+            $mensaje = 'La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.';
+            if ($esJson) {
+                return response()->json(['success' => false, 'message' => $mensaje], 422);
+            }
+            return back()->with('error', $mensaje);
         }
 
         // Si la clase integra una liquidación cerrada, no se pueden tocar asistencias (FIN-12).

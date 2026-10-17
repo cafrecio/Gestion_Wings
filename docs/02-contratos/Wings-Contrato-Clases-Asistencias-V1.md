@@ -53,6 +53,20 @@ por desactivar posteriormente un profesor.
 - **Editar** una clase ya pasada (cambiar profesor, corregir asistencia): **permitido**. En la operación real las correcciones llegan después, no todo se carga en el momento.
 - Toda edición retroactiva deja un motivo obligatorio (ver 4.d y 4.e) — es la forma en que "queda asentado el cambio".
 
+### Enmienda 17/10/2026 — la asistencia se toma desde el día de la clase (T35)
+
+Decisión de Carlos del 13/10 (DU-35): **no se toma asistencia de una clase que todavía no
+ocurrió.** Un presente cargado de antemano cuenta como clase dictada, para la comisión y para
+la cuota del mes siguiente.
+
+- Vale para todos los perfiles y para la primera carga y la corrección. El límite es la fecha,
+  no la hora: desde las 00:00 del día de la clase, hora de Wings, se puede tomar.
+- La regla vive en `Clase::todaviaNoOcurrio()` y la aplican `ClaseWebController::storeAsistencias`
+  y `ClaseService::registrarAsistencia`. La pantalla de una clase futura avisa, muestra los
+  presentes deshabilitados y no ofrece Guardar.
+- Lo ya cargado antes de esta regla no se toca.
+- Cubierto por `tests/Feature/AsistenciaClaseFuturaTest.php`.
+
 ### Enmienda 13/09/2026 — mover la fecha y el horario
 
 Lo de arriba nombraba *cambiar profesor* y *corregir asistencia*, y **no decía nada de
@@ -189,6 +203,7 @@ Estos tres puntos quedan fuera de alcance de esta resolución (no se pidió reso
 - No existe cambio de horario en una clase pasada sin motivo, ni en una clase ya liquidada.
 - No existe reasignación de profesores sin motivo en una clase pasada.
 - No existe corrección de asistencia sin motivo en una clase pasada.
+- No existe asistencia tomada antes del día de la clase (enmienda 17/10/2026, T35).
 - Un profesor nunca queda con dos clases solapadas asignadas; un alumno nunca queda `presente=true` en dos clases solapadas.
 - Cambiar de profesor en una clase pasada y ya pagada en liquidación PAGADA requiere confirmación explícita del admin.
 

@@ -94,6 +94,10 @@ class ClaseService
         $clase = Clase::findOrFail($claseId);
         $alumno = Alumno::findOrFail($alumnoId);
 
+        if ($clase->todaviaNoOcurrio()) {
+            throw new \Exception('La clase todavía no ocurrió. La asistencia se toma desde el día de la clase.');
+        }
+
         // Si se marca como presente, validar solapamiento
         if ($presente) {
             $this->validarSolapamientoAlumno($alumno, $clase);

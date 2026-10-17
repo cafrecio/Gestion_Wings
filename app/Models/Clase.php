@@ -100,6 +100,16 @@ class Clase extends Model
     }
 
     /**
+     * La asistencia se toma desde el día de la clase, no antes (T35, DU-35).
+     * Un presente cargado de antemano cuenta como clase dictada, para la
+     * comisión y para la cuota del mes siguiente.
+     */
+    public function todaviaNoOcurrio(): bool
+    {
+        return $this->fecha->gt(today());
+    }
+
+    /**
      * Verificar si la clase tiene asistencias registradas
      */
     public function tieneAsistencias(): bool

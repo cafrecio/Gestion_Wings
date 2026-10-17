@@ -269,6 +269,10 @@
     <div class="ds-flash ds-flash--error mb-4">
         Esta clase está cancelada. No se pueden registrar asistencias.
     </div>
+@elseif($todaviaNoOcurrio)
+    <div class="ds-flash ds-flash--error mb-4">
+        Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase.
+    </div>
 @endif
 
 {{-- ── Stats bar ──────────────────────────────────────────────────────────── --}}
@@ -342,6 +346,7 @@
                            class="presente-checkbox"
                            data-alumno-id="{{ $alumno->id }}"
                            {{ $estaPresente ? 'checked' : '' }}
+                           {{ $todaviaNoOcurrio ? 'disabled' : '' }}
                            style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
                 </label>
             </div>
@@ -387,7 +392,7 @@
             box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>
 
 {{-- Botón guardar asistencias --}}
-@if($alumnos->isNotEmpty())
+@if($alumnos->isNotEmpty() && !$todaviaNoOcurrio)
 @if($correccionAsistencia)
     <div style="margin-top:16px; padding:12px 16px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
                 border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); border-radius:var(--radius-card);">
