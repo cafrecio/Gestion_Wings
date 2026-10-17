@@ -39,7 +39,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 
 {{-- ── Info de la caja ─────────────────────────────────────────────────── --}}
 <div class="filtros-card mb-4">
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem;">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted);">Operativo</p>
             <p style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $caja->usuarioOperativo->name ?? '–' }}</p>
@@ -60,15 +60,15 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 </div>
 
 {{-- ── Stats + acciones ─────────────────────────────────────────────────── --}}
-<div class="stats-bar mb-3">
-    <div class="stats-info">
+<div class="stats-bar mb-3" style="flex-wrap:wrap;">
+    <div class="stats-info" style="flex-shrink:0;">
         @if($hasCheckbox)
             <span id="verificados-counter">0 de {{ $totalMovs }} verificados</span>
         @else
             <strong>{{ $totalMovs }}</strong> movimiento{{ $totalMovs !== 1 ? 's' : '' }}
         @endif
     </div>
-    <div style="display:flex; gap:8px; align-items:center;">
+    <div class="w-full sm:w-auto" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
         @if($hasCheckbox)
             <form method="POST" action="{{ route('web.cajas.validar', $caja->id) }}">
                 @csrf
@@ -83,8 +83,10 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 
 {{-- ── Tabla de movimientos ─────────────────────────────────────────────── --}}
 @if($caja->movimientos->isNotEmpty())
+<p class="text-xs text-wings-muted mb-2 sm:hidden">Deslizá la tabla para ver todas las columnas.</p>
 <div class="alumno-card" style="padding:0; overflow:hidden;">
-    <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
+    <div style="overflow-x:auto;" tabindex="0" role="region" aria-label="Movimientos de la caja">
+    <table style="width:100%; min-width:800px; border-collapse:collapse; table-layout:fixed;">
         <colgroup>
             <col style="width:90px">
             <col style="width:30px">
@@ -239,6 +241,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             </tr>
         </tfoot>
     </table>
+    </div>
 </div>
 @else
 <div class="empty-state" style="padding:2rem 0;">

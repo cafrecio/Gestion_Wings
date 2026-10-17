@@ -10,6 +10,8 @@ Chrome local con ADMIN sintético: cuatro recorridos Detalle/Resumen a 1366/360 
 Sintaxis y compilación de vistas correctas; sin JS incrustado nuevo, T36 ni despliegue.
 [Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md); a verificar por Claude, sin autocierre.
 Carlos por §6b: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
+Seguimiento visual 17/10 pedido por Carlos: Detalle móvil corregido; 48 visitas 360/375/1366, ocho controles de acciones y 18 capturas guardadas.
+[Corrección y capturas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md), pendientes de aprobación visual o revisión por Claude; suite posterior 783/2/1 (Excel ausente), repetición con carpeta exclusiva 42/714 verde.
 
 ## 2026-10-16 — Codex CyE — B11 implementada localmente, a verificar
 

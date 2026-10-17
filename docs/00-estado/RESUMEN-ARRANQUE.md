@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 965,22 s; suite completa local de Codex, 17/10, en wings_testing_codex. Incluye T37 (8 nuevas), T35 y T48/T49; estas últimas registradas por sus autores antes de esta entrega |
+| Suite | **786 pruebas**: 783 aprobadas, 2 omitidas y 1 fallida, 7388 aserciones, 1039,20 s; última suite completa local de Codex, 17/10, wings_testing_codex, tras corregir Detalle móvil. Falló un archivo temporal ausente en PrimeraCargaExcelTest; detalle y repetición en DETALLE-CAJA-MOBILE.md |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -41,6 +41,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Suite completa propia: 784 aprobadas/2 omitidas, 7395 aserciones, 965,22 s; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
   Entrega a Claude para revisión independiente; sin despliegue, T36 ni archivos de usuarios/clases propios.
   Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
+  Seguimiento visual 17/10: Detalle adaptable, botones dentro de la tarjeta y tabla deslizable;
+  48 variantes y ocho controles de acciones a 375. [Capturas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md), pendientes de aprobación visual.
+  Suite posterior: 783 aprobadas, 2 omitidas y 1 fallida por Excel temporal de Primera carga;
+  repetición dirigida 40 aprobadas/2 fallidas por el mismo motivo. T37 y guardianes aprobados.
+  Misma repetición con carpeta temporal exclusiva: 42 aprobadas/714 aserciones; no equivale a suite completa verde.
 
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.

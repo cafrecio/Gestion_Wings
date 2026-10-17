@@ -8,8 +8,16 @@ Los dos modales requieren motivo y muestran errores al inicio de la pantalla.
 Ocho pruebas nuevas; T37/A25 y regresiones: 102 aprobadas/853 aserciones. Cuatro recorridos Chrome
 con dueño sintético, Detalle/Resumen y anchos 1366/360, pasaron; 14 capturas reales.
 Suite completa propia: 784 aprobadas/2 omitidas, 7395 aserciones, 965,22 s; [informe y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
-Observación fuera de T37: Detalle a 360 desborda en información/acciones del fondo;
-no se corrige ni se atribuye su origen con este cambio. Modal y error sí visibles.
+Seguimiento visual pedido por Carlos el 17/10: corregido localmente el desborde de Detalle.
+Información adaptable como Resumen; contador y botones envuelven; tabla con desplazamiento
+interno en celular. 48 variantes comprobadas (ADMIN/OPERATIVO, cuatro estados, con/sin
+movimientos, 360/375/1366); ocho comprobaciones adicionales de acciones al deslizar a 375.
+[Capturas y alcance](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Falta aprobación visual de Carlos o revisión independiente.
+Suite posterior al ajuste: 783 aprobadas, 2 omitidas, 1 fallida por Excel temporal ausente
+en PrimeraCargaExcelTest; T37 aprobada. Repetición dirigida: 40 aprobadas, 2 fallidas por
+archivos temporales de Primera carga. No se certifica suite completa verde; ver informe.
+Con carpeta temporal exclusiva, repetición de los mismos casos: 42 aprobadas/714 aserciones,
+52,19 s. Sin modificar código. El fallo de la corrida completa sigue registrado.
 Pendiente revisión independiente de Claude; capturas disponibles para Carlos. Sin despliegue.
 Alcance resuelto por Carlos (17/10): «Entregar según el prompt; Inicio queda pendiente». CAJ-029.c exige el motivo en Inicio,
 pero el prompt de T37 pide verlo en Resumen y solo autoriza las dos vistas de caja.
@@ -641,7 +649,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 965,22 s; suite completa local de Codex, 17/10, en wings_testing_codex. Incluye T37 (8 nuevas), T35 y T48/T49; estas últimas registradas por sus autores antes de esta entrega |
+| **Tests** | **786 pruebas**: 783 aprobadas, 2 omitidas y 1 fallida, 7388 aserciones, 1039,20 s; última suite completa local de Codex, 17/10, wings_testing_codex, tras corregir Detalle móvil. Falló un archivo temporal ausente en PrimeraCargaExcelTest; detalle y repetición en DETALLE-CAJA-MOBILE.md |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

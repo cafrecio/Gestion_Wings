@@ -3,6 +3,10 @@
 17/10/2026 — Codex CAB. Implementación local; entrega para revisión de Claude.
 No desplegada. Inicio de tarea registrado en `cca651d`, solo los tres archivos del tablero.
 
+Seguimiento posterior del 17/10, por pedido explícito de Carlos: [corrección visual de Detalle en celular](DETALLE-CAJA-MOBILE.md).
+El desborde observado en las capturas originales se corrigió en esa entrega posterior;
+las imágenes T37 originales se conservan como evidencia histórica.
+
 ## Regla y cambio
 
 Decisión de Carlos: motivo obligatorio, hasta 500 caracteres, sin mínimo adicional.
@@ -108,7 +112,7 @@ No se fabricó el contenido de las pantallas ni se modificó la protección del 
 La imagen celular muestra el DOM después de la interacción; el globo de validación nativo
 no se traslada al srcdoc. Su bloqueo se comprobó con `validity.valueMissing` en la página viva.
 
-Observación fuera del cambio: en Detalle a 360 se ve desborde horizontal del bloque
+Observación del corte original, subsanada en el seguimiento enlazado arriba: en Detalle a 360 se ve desborde horizontal del bloque
 de información/acciones del fondo. T37 conserva esa estructura; no certifica que
 toda la pantalla sea responsive. No se arregló ni se atribuye aquí su origen temporal.
 

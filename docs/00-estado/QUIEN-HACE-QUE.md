@@ -45,13 +45,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Motivo obligatorio entregado en f0e2509 y Detalle móvil corregido por pedido de Carlos: capturas 360/375/1366 en DETALLE-CAJA-MOBILE.md. Falta aprobación visual de Carlos o revisión de Claude y revisión independiente de reglas. Suite 783/2/1 por Excel temporal ausente; repetición con carpeta exclusiva 42/714 verde. Inicio sigue pendiente por decisión de Carlos. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T37** Rechazar una caja exige motivo | En curso (hizo Codex, verifica Claude) | Corregir desborde de Detalle solicitado por Carlos; comprobar cuatro estados con y sin movimientos a 360/375 y escritorio, entregar nuevas capturas a Carlos y Claude. Inicio sigue pendiente. |
+Nada en este momento.
 
 ## Gemini
 

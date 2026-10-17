@@ -1,0 +1,74 @@
+[
+  {
+    "archivo": "antes/admin-abierta-movimientos-360.png",
+    "sha256": "2a129a9bc173fc7dab61086fac5a68c18015716ac88c5e7beba239bce62da85b"
+  },
+  {
+    "archivo": "antes/admin-cerrada-error-360.png",
+    "sha256": "3c4fc47f25f1cb17afe29b25c2f185666019cfee6f4710b8c0a51d51d1838934"
+  },
+  {
+    "archivo": "antes/operativo-rechazada-movimientos-360.png",
+    "sha256": "8fec98271af59d6048a8d23c09739c4c07f17e0fb1ba00a805536689e5d39fd8"
+  },
+  {
+    "archivo": "complemento/admin-cerrada-movimientos-375-derecha.png",
+    "sha256": "9ab607d7da7c5ab0a7b0c44fbb09781b78c748b4beeb39e4b77235d0f628f491"
+  },
+  {
+    "archivo": "complemento/admin-cerrada-movimientos-375.png",
+    "sha256": "cbbf0a74ffcdbe10deefe5d91729e78254468b6ac6577699c5fc4a051dfbe066"
+  },
+  {
+    "archivo": "complemento/operativo-abierta-movimientos-375-derecha.png",
+    "sha256": "4f4116d688c1cce20500de5db92f8e8af6172b9f60af03b8d90b52cd66c4cecd"
+  },
+  {
+    "archivo": "complemento/operativo-abierta-movimientos-375.png",
+    "sha256": "b1ecaa499a9c8df2149e32a6ccd74d3370d2792dca05e9e22b1aab58aa9742bf"
+  },
+  {
+    "archivo": "despues/admin-abierta-movimientos-360.png",
+    "sha256": "d0a79a5b1cd203320fe7d102788aa44d5e9788c3a071b81f25fafd6cbc24a57b"
+  },
+  {
+    "archivo": "despues/admin-cerrada-error-360.png",
+    "sha256": "f30b86c71a46c7546de6526087d052cc3d41ee8e26dc5b08087375ca361dd4e7"
+  },
+  {
+    "archivo": "despues/admin-cerrada-modal-360.png",
+    "sha256": "fb56bf0f2cef249da049007fad371540d2c6b82f4306ea477368fb9f9c8ba63c"
+  },
+  {
+    "archivo": "despues/admin-cerrada-movimientos-1366.png",
+    "sha256": "04ba899e325d89e984f84e68d780b0894c9d8bc3337c08bf15f4166a62ae718c"
+  },
+  {
+    "archivo": "despues/admin-cerrada-vacia-360.png",
+    "sha256": "9b2500b688bc4de4f178cbe20f486dfc48bb2ac08a17a7d09a95fcfc70848e89"
+  },
+  {
+    "archivo": "despues/admin-rechazada-vacia-360.png",
+    "sha256": "285588877f7b15bcd37be145e16ed91fff8a37bb30b14d40c792f9e0af2925d0"
+  },
+  {
+    "archivo": "despues/admin-validada-vacia-360.png",
+    "sha256": "aa2f5e773749af1a63161bb03ebb65d9ed24fc0804930c8f75de358a8186921e"
+  },
+  {
+    "archivo": "despues/login-control-360.png",
+    "sha256": "e1c06f531bad4ce65f086d583f863870ab173dc51d27a854c4e56254f28415f3"
+  },
+  {
+    "archivo": "despues/operativo-abierta-movimientos-1366.png",
+    "sha256": "a68bf14f7e84a967fcfc8ae7e6f41fe9b26cddfb05c8ea83fd652cb677f812fe"
+  },
+  {
+    "archivo": "despues/operativo-abierta-movimientos-360.png",
+    "sha256": "4134b4c98915427a9e38fb51007d464d85abe8e6cfccb7fabcbb2d743668346e"
+  },
+  {
+    "archivo": "despues/operativo-rechazada-movimientos-360.png",
+    "sha256": "5d52c2a7353364ae31500104c39ed6eb9ff4e523ee26852cb8992b45178e3ad4"
+  }
+]
