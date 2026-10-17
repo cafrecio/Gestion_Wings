@@ -68,11 +68,11 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             <strong>{{ $totalMovs }}</strong> movimiento{{ $totalMovs !== 1 ? 's' : '' }}
         @endif
     </div>
-    <div class="w-full sm:w-auto" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+    <div class="grid w-full sm:w-auto sm:flex" style="grid-template-columns:repeat(2,max-content); justify-content:end; gap:8px; align-items:center;">
         @if($hasCheckbox)
             <form method="POST" action="{{ route('web.cajas.validar', $caja->id) }}">
                 @csrf
-                <button type="submit" id="btn-validar" style="{{ $btnBPrim }}">Validar</button>
+                <button type="submit" id="btn-validar" class="w-full" style="{{ $btnBPrim }}">Validar</button>
             </form>
             <button type="button" data-abrir-rechazar style="{{ $btnBDang }}">Rechazar</button>
         @endif

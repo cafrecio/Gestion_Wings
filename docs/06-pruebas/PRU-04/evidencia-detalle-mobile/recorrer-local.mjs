@@ -5,9 +5,10 @@ import { ChromeBrowser } from '../../../../scripts/pruebas/cdp-helper.mjs';
 
 const etapa = process.argv[2] || 'despues';
 const complemento = process.argv[3] === '--complemento';
+const alineacion = process.argv.includes('--alineacion');
 assert(['antes', 'despues'].includes(etapa));
 const fixture = JSON.parse(fs.readFileSync('storage/app/detalle-mobile-local.json', 'utf8'));
-const output = path.resolve(`docs/06-pruebas/PRU-04/evidencia-detalle-mobile/${complemento ? 'complemento' : etapa}`);
+const output = path.resolve(`docs/06-pruebas/PRU-04/evidencia-detalle-mobile/${alineacion ? 'alineacion' : complemento ? 'complemento' : etapa}`);
 fs.mkdirSync(output, { recursive: true });
 const base = 'http://127.0.0.1:8737';
 const browser = new ChromeBrowser({ userDataDir: path.resolve(`storage/app/chrome-detalle-${Date.now()}`) });
@@ -68,6 +69,7 @@ try {
         assert(!await page.evaluate('location.pathname === "/login"'));
         for (const ancho of complemento ? [375] : etapa === 'antes' ? [360] : [360, 375, 1366]) {
             for (const caso of fixture.casos) {
+                if (alineacion && !(rol === 'ADMIN' && caso.estado === 'CERRADA' && !caso.movimientos) && !(rol === 'OPERATIVO' && caso.estado === 'ABIERTA' && caso.movimientos)) continue;
                 if (complemento && !caso.movimientos) continue;
                 await visitar(`/caja/${caso.id}/detalle`, ancho);
                 assert(await page.evaluate((estado) => document.body.textContent.includes(estado), caso.estado));
@@ -92,7 +94,13 @@ try {
                         });
                         contenedor.scrollLeft = 0;
                     }
-                    return { ancho: limite, anchoDocumento: document.documentElement.scrollWidth, cortados,
+                    const barra = document.querySelector('.stats-bar');
+                    const bordeDerecho = barra.getBoundingClientRect().right - parseFloat(getComputedStyle(barra).paddingRight);
+                    const botones = [...barra.querySelectorAll('a, button')].map(el => {
+                        const r = el.getBoundingClientRect();
+                        return { texto: el.textContent.trim(), x: r.x, y: r.y, derecha: r.right, ancho: r.width };
+                    });
+                    return { ancho: limite, anchoDocumento: document.documentElement.scrollWidth, cortados, bordeDerecho, botones,
                         tabla: !!tabla, anchoTabla: tabla?.getBoundingClientRect().width,
                         tablaDesplazable: desplazable, accionesVisibles,
                         casillas: document.querySelectorAll('.mov-check').length,
@@ -103,6 +111,19 @@ try {
                     assert.deepEqual(medicion.cortados, []);
                     if (caso.movimientos && ancho < 640) assert(medicion.tablaDesplazable);
                     assert(medicion.accionesVisibles);
+                    if (alineacion) {
+                        const b = medicion.botones;
+                        assert(Math.abs(b.at(-1).derecha - medicion.bordeDerecho) < 1);
+                        if (ancho < 640 && b.length === 4) {
+                            assert.equal(b[0].y, b[1].y);
+                            assert.equal(b[2].y, b[3].y);
+                            assert(b[2].y > b[0].y);
+                            assert(Math.abs(b[0].x - b[2].x) < 1);
+                            assert(Math.abs(b[1].derecha - b[3].derecha) < 1);
+                        } else {
+                            assert(b.every(btn => btn.y === b[0].y));
+                        }
+                    }
                     if (rol === 'ADMIN' && caso.estado === 'CERRADA' && caso.movimientos) {
                         await page.click('.mov-check');
                         assert(await page.evaluate('document.querySelector("#verificados-counter").textContent.includes("1 de 1")'));
@@ -110,7 +131,7 @@ try {
                 }
                 const nombre = `${rol.toLowerCase()}-${caso.estado.toLowerCase()}-${caso.movimientos ? 'movimientos' : 'vacia'}-${ancho}`;
                 // Todas las variantes móviles; escritorio representativo de las cuatro ramas.
-                if (complemento || (ancho !== 375 && (ancho !== 1366 || caso.movimientos))) await capturar(nombre, ancho);
+                if (alineacion || complemento || (ancho !== 375 && (ancho !== 1366 || caso.movimientos))) await capturar(nombre, ancho);
                 if (complemento) await capturar(`${nombre}-derecha`, ancho, true);
                 resultados.push({ rol, estado: caso.estado, movimientos: caso.movimientos, ...medicion });
                 console.log(nombre, JSON.stringify(medicion));
@@ -123,6 +144,7 @@ try {
         });
         await new Promise(r => setTimeout(r, 700));
     }
+    if (!alineacion) {
     // Error de T37 en el mismo contexto que señaló Carlos.
     await visitar('/login', 360);
     await page.type('input[name=email]', fixture.usuarios.ADMIN);
@@ -137,6 +159,7 @@ try {
     await capturar('admin-cerrada-error-360', 360);
     await page.click('[data-abrir-rechazar]');
     await capturar('admin-cerrada-modal-360', 360);
+    }
     fs.writeFileSync(path.join(output, 'resultado.json'), JSON.stringify({ fecha: new Date().toISOString(), etapa, base: 'wings_testing_codex', resultados }, null, 2));
 } finally {
     if (page) await page.close();

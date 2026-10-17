@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **786 pruebas**: 783 aprobadas, 2 omitidas y 1 fallida, 7388 aserciones, 1039,20 s; última suite completa local de Codex, 17/10, wings_testing_codex, tras corregir Detalle móvil. Falló un archivo temporal ausente en PrimeraCargaExcelTest; detalle y repetición en DETALLE-CAJA-MOBILE.md |
+| Suite | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 901,37 s; última suite completa local de Codex, 17/10, wings_testing_codex y archivos temporales exclusivos, tras alinear los botones de Detalle. Historia y capturas en DETALLE-CAJA-MOBILE.md |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -35,17 +35,11 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T37, 17/10, Codex CAB:** motivo obligatorio hasta 500, sin mínimo extra,
-  controlador/servicio y ambos modales. 102 pruebas/853 aserciones verdes; cuatro
-  recorridos Chrome del dueño sintético, 14 capturas reales 1366/marco360.
-  Suite completa propia: 784 aprobadas/2 omitidas, 7395 aserciones, 965,22 s; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
-  Entrega a Claude para revisión independiente; sin despliegue, T36 ni archivos de usuarios/clases propios.
-  Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
-  Seguimiento visual 17/10: Detalle adaptable, botones dentro de la tarjeta y tabla deslizable;
-  48 variantes y ocho controles de acciones a 375. [Capturas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md), pendientes de aprobación visual.
-  Suite posterior: 783 aprobadas, 2 omitidas y 1 fallida por Excel temporal de Primera carga;
-  repetición dirigida 40 aprobadas/2 fallidas por el mismo motivo. T37 y guardianes aprobados.
-  Misma repetición con carpeta temporal exclusiva: 42 aprobadas/714 aserciones; no equivale a suite completa verde.
+- **T37, 17/10, Codex CAB:** motivo obligatorio hasta 500, sin mínimo extra, controlador/servicio y ambos modales; [entrega original](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
+  Detalle adaptable: 48 variantes y ocho controles de acciones; [capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md).
+  Carlos aceptó scroll y modal. Segunda vuelta: botones 2 × 2 a la derecha, o Resumen/Volver juntos a la derecha; seis capturas 360/375/1366 para revisar.
+  Primera suite visual: 783/2/1 por Excel temporal ausente; repetición dirigida 40/2, con carpeta exclusiva 42/714 verde. La última suite completa figura en la tabla superior.
+  Claude verifica reglas; sin despliegue, T36 ni cambios propios en usuarios/clases. Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
 
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.
@@ -54,15 +48,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
   Carlos aprobó celular y Configuración/Cobrar en escritorio; falta lógica y resto visual por Claude.
   Sin publicación ni despliegue; `52e6bdf` y descendientes permanecen locales.
 
-- **T3, segunda vuelta 16/10, devuelta por Codex CyE a Claude:** A6 y las fechas
-  corregidos; 67 encabezados/renglones cerrados restaurados, B15 respaldado históricamente.
-  Cerrar B11 emite `Undefined array key 2`, lib.php:660, aunque guarda. Corregir grupo
-  opcional y probar cierre HTML sin avisos. Suite propia 725/2, 6947 aserciones;
-  T33 concurrente 10/10. [Segunda vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta).
-  Tercera vuelta local 16/10: aviso corregido, 6 pruebas/27 aserciones verdes y CLI
-  en copia sin avisos; código viejo da el error esperado. Conteo actualizado a 728,
-  guardián aislado 1/7 verde. Arreglo confirmado en `c6ef9b6`, hashes iguales y
-  guardianes finales 12/55 verdes: T3 cerrada por Codex. Sin producto de Codex.
+- **T3, corte 16/10, Codex CyE:** cierre registrado en `c6ef9b6`; grupo opcional del tablero corregido, seis pruebas/27 aserciones y CLI en copia sin avisos, guardianes finales 12/55 verdes. Sin producto de Codex.
+  [Historia y segunda/tercera vuelta](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta); A6/fechas, 67 renglones restaurados y respaldo B15 conservados allí. Los conteos de esas corridas son históricos.
 
 - **T11, 16/10, Codex CyE:** repetición local con Manifest sin errores/avisos, capturas reconocidas y CDP sin errores. Tres pruebas/63 aserciones verdes; suite 724/2 y un fallo de conteo, corregido después (guardián aislado 1/7 verde). [Tercera vuelta](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md). Se conserva el cierre registrado por Claude en `512f375` por prueba de Carlos en teléfono; Codex no comprobó esa prueba física. Se corrigió otro enlace 404 y el próximo paso viejo del informe, sin reabrir T11. Sin despliegue de Codex.
 - **T33, 13/10, Codex CyE:** perdonar inscripción y reactivar cuotas/inscripción desde ficha,

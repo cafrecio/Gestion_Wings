@@ -1,0 +1,30 @@
+[
+  {
+    "archivo": "admin-cerrada-vacia-1366.png",
+    "sha256": "1d60c7c277aae75354f1e56d81817e353a8038c40123286b827e7579f804dd8f"
+  },
+  {
+    "archivo": "admin-cerrada-vacia-360.png",
+    "sha256": "fa8dda70232658b57d7622c1dc71b97f48fcf4bc8c292bc4c507252449684822"
+  },
+  {
+    "archivo": "admin-cerrada-vacia-375.png",
+    "sha256": "25d2c0af259ec202e8fd85527176a55bb4849ca9751cd4397d9ceb7154be5641"
+  },
+  {
+    "archivo": "login-control-360.png",
+    "sha256": "e1c06f531bad4ce65f086d583f863870ab173dc51d27a854c4e56254f28415f3"
+  },
+  {
+    "archivo": "operativo-abierta-movimientos-1366.png",
+    "sha256": "ca484f9c5ea7824ba6891f7d8ada5ce3f8bb95d09884e75fea787005f54d20e5"
+  },
+  {
+    "archivo": "operativo-abierta-movimientos-360.png",
+    "sha256": "18de886bd0d12bab76ebc0da99d5bb97d6287e5092d04ee13e970efac9ec6a55"
+  },
+  {
+    "archivo": "operativo-abierta-movimientos-375.png",
+    "sha256": "ae0b879f6176d1dd1f6a426803c6aaa1249be114984b18159e3dac83f2c1ac9a"
+  }
+]

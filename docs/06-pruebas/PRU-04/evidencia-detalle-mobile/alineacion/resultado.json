@@ -1,0 +1,232 @@
+{
+  "fecha": "2026-10-17T15:54:33.878Z",
+  "etapa": "despues",
+  "base": "wings_testing_codex",
+  "resultados": [
+    {
+      "rol": "ADMIN",
+      "estado": "CERRADA",
+      "movimientos": false,
+      "ancho": 360,
+      "anchoDocumento": 360,
+      "cortados": [],
+      "bordeDerecho": 320,
+      "botones": [
+        {
+          "texto": "Validar",
+          "x": 137.46875,
+          "y": 501.796875,
+          "derecha": 224.46875,
+          "ancho": 87
+        },
+        {
+          "texto": "Rechazar",
+          "x": 232.46875,
+          "y": 501.796875,
+          "derecha": 320,
+          "ancho": 87.53125
+        },
+        {
+          "texto": "Resumen",
+          "x": 137.46875,
+          "y": 541.796875,
+          "derecha": 224.46875,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 232.46875,
+          "y": 541.796875,
+          "derecha": 320,
+          "ancho": 87.53125
+        }
+      ],
+      "tabla": false,
+      "tablaDesplazable": false,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": false
+    },
+    {
+      "rol": "ADMIN",
+      "estado": "CERRADA",
+      "movimientos": false,
+      "ancho": 375,
+      "anchoDocumento": 375,
+      "cortados": [],
+      "bordeDerecho": 335,
+      "botones": [
+        {
+          "texto": "Validar",
+          "x": 152.46875,
+          "y": 501.796875,
+          "derecha": 239.46875,
+          "ancho": 87
+        },
+        {
+          "texto": "Rechazar",
+          "x": 247.46875,
+          "y": 501.796875,
+          "derecha": 335,
+          "ancho": 87.53125
+        },
+        {
+          "texto": "Resumen",
+          "x": 152.46875,
+          "y": 541.796875,
+          "derecha": 239.46875,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 247.46875,
+          "y": 541.796875,
+          "derecha": 335,
+          "ancho": 87.53125
+        }
+      ],
+      "tabla": false,
+      "tablaDesplazable": false,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": false
+    },
+    {
+      "rol": "ADMIN",
+      "estado": "CERRADA",
+      "movimientos": false,
+      "ancho": 1366,
+      "anchoDocumento": 1366,
+      "cortados": [],
+      "bordeDerecho": 1326,
+      "botones": [
+        {
+          "texto": "Validar",
+          "x": 986.578125,
+          "y": 307,
+          "derecha": 1058.71875,
+          "ancho": 72.140625
+        },
+        {
+          "texto": "Rechazar",
+          "x": 1066.71875,
+          "y": 307,
+          "derecha": 1154.25,
+          "ancho": 87.53125
+        },
+        {
+          "texto": "Resumen",
+          "x": 1162.25,
+          "y": 307,
+          "derecha": 1249.25,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 1257.25,
+          "y": 307,
+          "derecha": 1326,
+          "ancho": 68.75
+        }
+      ],
+      "tabla": false,
+      "tablaDesplazable": false,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": false
+    },
+    {
+      "rol": "OPERATIVO",
+      "estado": "ABIERTA",
+      "movimientos": true,
+      "ancho": 360,
+      "anchoDocumento": 360,
+      "cortados": [],
+      "bordeDerecho": 320,
+      "botones": [
+        {
+          "texto": "Resumen",
+          "x": 156.25,
+          "y": 501.796875,
+          "derecha": 243.25,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 251.25,
+          "y": 501.796875,
+          "derecha": 320,
+          "ancho": 68.75
+        }
+      ],
+      "tabla": true,
+      "anchoTabla": 800,
+      "tablaDesplazable": true,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": true
+    },
+    {
+      "rol": "OPERATIVO",
+      "estado": "ABIERTA",
+      "movimientos": true,
+      "ancho": 375,
+      "anchoDocumento": 375,
+      "cortados": [],
+      "bordeDerecho": 335,
+      "botones": [
+        {
+          "texto": "Resumen",
+          "x": 171.25,
+          "y": 501.796875,
+          "derecha": 258.25,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 266.25,
+          "y": 501.796875,
+          "derecha": 335,
+          "ancho": 68.75
+        }
+      ],
+      "tabla": true,
+      "anchoTabla": 800,
+      "tablaDesplazable": true,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": true
+    },
+    {
+      "rol": "OPERATIVO",
+      "estado": "ABIERTA",
+      "movimientos": true,
+      "ancho": 1366,
+      "anchoDocumento": 1366,
+      "cortados": [],
+      "bordeDerecho": 1326,
+      "botones": [
+        {
+          "texto": "Resumen",
+          "x": 1162.25,
+          "y": 307,
+          "derecha": 1249.25,
+          "ancho": 87
+        },
+        {
+          "texto": "Volver",
+          "x": 1257.25,
+          "y": 307,
+          "derecha": 1326,
+          "ancho": 68.75
+        }
+      ],
+      "tabla": true,
+      "anchoTabla": 1089,
+      "tablaDesplazable": false,
+      "accionesVisibles": true,
+      "casillas": 0,
+      "edicion": true
+    }
+  ]
+}

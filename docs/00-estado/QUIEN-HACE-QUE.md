@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Motivo obligatorio entregado en f0e2509 y Detalle móvil corregido por pedido de Carlos: capturas 360/375/1366 en DETALLE-CAJA-MOBILE.md. Falta aprobación visual de Carlos o revisión de Claude y revisión independiente de reglas. Suite 783/2/1 por Excel temporal ausente; repetición con carpeta exclusiva 42/714 verde. Inicio sigue pendiente por decisión de Carlos. |
+| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Segunda revisión: botones 2 x 2 a la derecha en celular y Resumen/Volver a la derecha. Seis visitas y siete capturas 360/375/1366 en DETALLE-CAJA-MOBILE.md. Suite completa con carpeta propia 784 aprobadas/2 omitidas, 7395 aserciones. Carlos acepta scroll y Modal OK; falta aprobar nueva alineación y revisión independiente de reglas T37. Inicio pendiente por decisión de Carlos. |
 
 ## Codex
 

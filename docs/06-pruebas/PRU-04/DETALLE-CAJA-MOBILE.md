@@ -4,6 +4,44 @@
 «Detalle de caja esta desbordada. en Detalle 360 […] La captura que te paso es un desastre visual […] En resumen no esta mal».
 Implementación local, pendiente de aprobación visual de Carlos o revisión independiente. Sin despliegue.
 
+## Segunda revisión — botones a la derecha, 17/10
+
+Carlos pidió: «Que los botones queden 2 y 2, alineados a la derecha» y
+«en celular botones a la derecha». La primera entrega no respetó esa alineación.
+La nueva botonera coloca Validar/Rechazar arriba y Resumen/Volver abajo, con ambas
+columnas alineadas. Cuando solo existen Resumen/Volver quedan juntos a la derecha.
+En escritorio se mantienen en una fila. Solo dos líneas de la vista cambian en esta vuelta.
+
+Carlos aceptó la tabla con desplazamiento: «Detalla con scroll, si no tenemos nada mejor. Ok»
+y el modal: «Modal OK». Se registra su aprobación de esas dos partes; la nueva alineación
+queda para su revisión y las reglas T37 siguen a verificar por Claude.
+
+Seis visitas reales: ADMIN CERRADA sin movimientos y OPERATIVO ABIERTA con movimiento,
+cada una a 360/375/1366. Se comprueban coordenadas de botones: dos filas de dos,
+columnas coincidentes y borde derecho igual al interior de la tarjeta en celular;
+una sola fila en escritorio. Sin desbordes. Login de control en marco de 360.
+Mismo método de captura real descrito abajo. Recursos compilados con `npm run build`.
+Vista real leída y contraste de coordenadas en navegador; la reindexación solicitada
+devolvió que había otra operación activa, por lo que no se usó el índice para certificar esta modificación.
+
+| Botonera | 360 | 375 | Escritorio |
+|---|---|---|---|
+| Cuatro botones, 2 × 2 en celular | [Captura](evidencia-detalle-mobile/alineacion/admin-cerrada-vacia-360.png) | [Captura](evidencia-detalle-mobile/alineacion/admin-cerrada-vacia-375.png) | [Captura](evidencia-detalle-mobile/alineacion/admin-cerrada-vacia-1366.png) |
+| Solo Resumen/Volver, a la derecha | [Captura](evidencia-detalle-mobile/alineacion/operativo-abierta-movimientos-360.png) | [Captura](evidencia-detalle-mobile/alineacion/operativo-abierta-movimientos-375.png) | [Captura](evidencia-detalle-mobile/alineacion/operativo-abierta-movimientos-1366.png) |
+
+[Mediciones de alineación](evidencia-detalle-mobile/alineacion/resultado.json).
+[Inventario de las siete capturas nuevas](evidencia-detalle-mobile/alineacion/capturas.json).
+Repetir con el mismo preparador/servidor y `node docs/06-pruebas/PRU-04/evidencia-detalle-mobile/recorrer-local.mjs despues --alineacion`.
+Esta opción comprueba la botonera; no repite el modal ya aprobado. Las imágenes de las
+secciones siguientes pertenecen al primer ajuste y se conservan como historia.
+
+Suite completa posterior a esta segunda revisión: **784 aprobadas, 2 omitidas,
+7395 aserciones, 901,37 s, salida 0** (786 pruebas). Base `wings_testing_codex`
+y `LARAVEL_STORAGE_PATH=storage/app/detalle-mobile-botones-runtime`, carpeta exclusiva
+creada con los subdirectorios del bloque de reproducción al final del informe.
+Sintaxis y compilación de vistas correctas; siete capturas nuevas inspeccionadas y hashes comprobados.
+Guardianes finales de documentos, tablero y CSP: **14 aprobadas/57 aserciones**.
+
 ## Qué se comprobó y corrigió
 
 La misma vista sirve a los cuatro estados. Su cabecera imponía cuatro columnas aun en
@@ -44,7 +82,7 @@ Resultados completos: [antes](evidencia-detalle-mobile/antes/resultado.json),
 [acciones a 375](evidencia-detalle-mobile/complemento/resultado.json).
 Inventario de las 18 imágenes conservadas: [archivos y SHA-256](evidencia-detalle-mobile/capturas.json).
 
-## Capturas para Carlos
+## Capturas del primer ajuste
 
 | Caso | Antes | Después |
 |---|---|---|
@@ -78,7 +116,7 @@ Las capturas redundantes generadas se retiran; los JSON conservan todas las medi
 La suite posterior rehace la base descartable. No se agregan pruebas PHP que solo comparen markup;
 la evidencia de adaptación es conductual en navegador.
 
-## Comprobaciones generales
+## Comprobaciones del primer ajuste
 
 Sintaxis PHP y JavaScript correcta, vistas compiladas y caché retirada. Sin cambios en
 `resources/css` ni otras vistas. Índice actualizado; enlaces y 18 hashes de capturas correctos.
