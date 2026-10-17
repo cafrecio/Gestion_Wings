@@ -1,6 +1,6 @@
-# T48 y T49 — Verificación de Claude · 17/10/2026 · APROBADA
+# T48 y T49 — Verificación de Claude · 17/10/2026 · APROBADA Y CERRADA
 
-Verificado sobre `e4c2424` (Gemini CAB). Falta una sola decisión de Carlos: el choque de nombres.
+Verificado sobre `e4c2424` (Gemini CAB). Carlos aprobó el 17/10 que el choque de nombres no guarde y avise.
 
 ## Qué leí
 
@@ -35,12 +35,12 @@ Mis controles, [`evidencia-t48-t49-claude/VerificacionT48T49ClaudeTest.php`](evi
 
 Capturas de Gemini 04 y 05 miradas: el cartel aparece arriba y el interruptor queda en Activo.
 
-## Para que decida Carlos
+## Decisión de Carlos
 
-**El choque de nombres.** Si se renombra a una operativa con un nombre cuyo `Op-...` ya existe
-(dos personas con el mismo nombre y apellido), hoy el sistema no guarda y dice «Ya existe un
-subrubro de sueldo con ese nombre.» Gemini lo dejó así como medida segura y lo pregunta en su
-informe (§2). Falta el sí de Carlos o la regla que prefiera.
+**El choque de nombres — Carlos lo aprobó el 17/10: queda así.** Si se renombra a una operativa
+con un nombre cuyo `Op-...` ya existe (dos personas con el mismo nombre y apellido), el sistema no
+guarda y dice «Ya existe un subrubro de sueldo con ese nombre.» Gemini lo había dejado así como
+medida segura y lo preguntaba en su informe (§2).
 
 ## Observaciones que no cambian el veredicto
 
