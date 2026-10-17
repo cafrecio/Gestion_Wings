@@ -37,9 +37,9 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 - **T37, 17/10, Codex CAB:** motivo obligatorio hasta 500, sin mínimo extra, controlador/servicio y ambos modales; [entrega original](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
   Detalle adaptable: 48 variantes y ocho controles de acciones; [capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md).
-  Carlos aceptó scroll y modal. Segunda vuelta: botones 2 × 2 a la derecha, o Resumen/Volver juntos a la derecha; seis capturas 360/375/1366 para revisar.
+  Visual aprobado por Carlos, 17/10: «Bien ambas imagenes!!» (ambas botoneras a 375 de `4b050ac`); scroll y modal ya aceptados. Verificador visual Carlos (§6a), sin revisión adicional de IA.
   Primera suite visual: 783/2/1 por Excel temporal ausente; repetición dirigida 40/2, con carpeta exclusiva 42/714 verde. La última suite completa figura en la tabla superior.
-  Claude verifica reglas; sin despliegue, T36 ni cambios propios en usuarios/clases. Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
+  Claude verifica solo reglas de rechazo; visual no pendiente. Sin despliegue, T36 ni cambios propios en usuarios/clases. Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
 
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.

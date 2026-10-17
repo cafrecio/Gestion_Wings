@@ -2,7 +2,7 @@
 
 17/10/2026 — Codex CAB. Seguimiento de T37, solicitado por Carlos al mirar la captura:
 «Detalle de caja esta desbordada. en Detalle 360 […] La captura que te paso es un desastre visual […] En resumen no esta mal».
-Implementación local, pendiente de aprobación visual de Carlos o revisión independiente. Sin despliegue.
+Implementación local. Corrección visual aprobada por Carlos el 17/10/2026: «Bien ambas imagenes!!». Sin despliegue.
 
 ## Segunda revisión — botones a la derecha, 17/10
 
@@ -13,8 +13,13 @@ columnas alineadas. Cuando solo existen Resumen/Volver quedan juntos a la derech
 En escritorio se mantienen en una fila. Solo dos líneas de la vista cambian en esta vuelta.
 
 Carlos aceptó la tabla con desplazamiento: «Detalla con scroll, si no tenemos nada mejor. Ok»
-y el modal: «Modal OK». Se registra su aprobación de esas dos partes; la nueva alineación
-queda para su revisión y las reglas T37 siguen a verificar por Claude.
+y el modal: «Modal OK». Después de recibir las dos imágenes a 375 de la nueva botonera,
+Carlos confirmó: «Bien ambas imagenes!! Registralo asi Claude no lo deja como pendiente».
+**Verificador visual: Carlos. Alineación móvil, scroll y modal aprobados.** Las imágenes aprobadas
+son `alineacion/admin-cerrada-vacia-375.png` y `alineacion/operativo-abierta-movimientos-375.png`,
+entregadas en `4b050ac`. Según AGENTS.md §6a, lo visual aprobado por Carlos no requiere
+otra IA. A Claude le queda solo la revisión de las reglas de rechazo de T37; no dejar la
+aprobación visual como pendiente ni reabrirla por falta de verificación de otra IA.
 
 Seis visitas reales: ADMIN CERRADA sin movimientos y OPERATIVO ABIERTA con movimiento,
 cada una a 360/375/1366. Se comprueban coordenadas de botones: dos filas de dos,

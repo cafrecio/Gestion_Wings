@@ -47,7 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Segunda revisión: botones 2 x 2 a la derecha en celular y Resumen/Volver a la derecha. Seis visitas y siete capturas 360/375/1366 en DETALLE-CAJA-MOBILE.md. Suite completa con carpeta propia 784 aprobadas/2 omitidas, 7395 aserciones. Carlos acepta scroll y Modal OK; falta aprobar nueva alineación y revisión independiente de reglas T37. Inicio pendiente por decisión de Carlos. |
+| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | VISUAL APROBADO por Carlos el 17/10: Bien ambas imagenes!! (dos botoneras a 375 de 4b050ac). Scroll y Modal OK también aprobados. Verificador visual Carlos según AGENTS 6a; no dejar pendiente ni exigir otra IA para lo visual. A Claude le queda SOLO verificar reglas de rechazo T37. Evidencia: DETALLE-CAJA-MOBILE.md. Suite 784 aprobadas/2 omitidas, 7395 aserciones. Inicio pendiente por decisión de Carlos. |
 
 ## Codex
 

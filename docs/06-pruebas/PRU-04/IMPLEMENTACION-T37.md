@@ -77,7 +77,8 @@ sin escribir en el origen ni usar otra base. No se presenta la corrida local
 como una corrida aislada del contenido exclusivo de T37.
 Contador del corte fijo `e4c2424` más T37: **1 prueba/7 aserciones verde**.
 Guardianes finales después del pase de tablero: **14 pruebas/57 aserciones verdes**.
-T37 figura `a_verificar`, hizo Codex, tiene/verifica Claude; no se autocierra.
+T37 figura `a_verificar`, hizo Codex, tiene/verifica Claude para las reglas de rechazo; no se autocierra.
+Visual de Detalle aprobado por Carlos el 17/10: «Bien ambas imagenes!!»; scroll y modal también aceptados. Verificador visual Carlos (§6a), sin pendiente visual para Claude. Evidencia en el seguimiento enlazado al inicio.
 Sintaxis PHP de controlador, servicio, dos vistas, prueba y preparador correcta.
 Sintaxis del capturador JavaScript correcta. `view:cache` y `view:clear` correctos.
 
@@ -150,7 +151,7 @@ Verificado que la API está deshabilitada en `bootstrap/app.php`. Su request con
 `required|string|max:1000`; no se modificó. Si se reactivara, una petición de 501–1000
 pasaría ese request y fallaría ahora en el servicio: inferencia de lectura, sin ensayo API.
 
-No se presenta esta entrega como verificación independiente ni aprobación visual de Carlos.
-El recorrido del dueño fue con una cuenta ADMIN sintética, no una prueba humana de Carlos.
-Claude debe repetir código/pantalla y registrar su revisión. Carlos puede revisar las capturas.
+La entrega original no fue verificación independiente: su recorrido fue con una cuenta ADMIN sintética.
+Posteriormente Carlos aprobó el aspecto de Detalle: «Bien ambas imagenes!!», además del scroll y modal; véase el seguimiento visual.
+Claude debe verificar solo las reglas de rechazo y registrar su revisión; la aprobación visual de Carlos ya está completa y no requiere otra IA (§6a).
 Sin despliegue ni cambio de datos del club o del sitio de prueba.

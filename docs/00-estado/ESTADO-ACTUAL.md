@@ -12,10 +12,10 @@ Seguimiento visual pedido por Carlos el 17/10: corregido localmente el desborde 
 Información adaptable como Resumen; contador y botones envuelven; tabla con desplazamiento
 interno en celular. 48 variantes comprobadas (ADMIN/OPERATIVO, cuatro estados, con/sin
 movimientos, 360/375/1366); ocho comprobaciones adicionales de acciones al deslizar a 375.
-[Capturas y alcance](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Falta aprobación visual de Carlos o revisión independiente.
-Segunda revisión de Carlos: tabla con scroll aceptada y «Modal OK»; solo falta la nueva
-botonera 2 × 2 a la derecha en celular (Resumen/Volver también a la derecha). Seis
-visitas 360/375/1366 con coordenadas y capturas; pendiente de su revisión visual.
+[Capturas y alcance](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Visual aprobado por Carlos, 17/10: «Bien ambas imagenes!!».
+Tabla con scroll y «Modal OK» ya aceptados; también aprobadas las dos imágenes a 375
+de botones 2 × 2 a la derecha y Resumen/Volver a la derecha, entregadas en `4b050ac`.
+Verificador visual: Carlos (§6a); no requiere otra IA. Seis visitas 360/375/1366 documentadas.
 Suite posterior a la alineación: 784 aprobadas/2 omitidas, 7395 aserciones, 901,37 s,
 base y archivos temporales exclusivos de Codex; salida 0.
 Suite del primer ajuste: 783 aprobadas, 2 omitidas, 1 fallida por Excel temporal ausente
@@ -23,7 +23,7 @@ en PrimeraCargaExcelTest; T37 aprobada. Repetición dirigida: 40 aprobadas, 2 fa
 archivos temporales de Primera carga. Esa corrida no fue verde; se conserva en el informe.
 Con carpeta temporal exclusiva, repetición de los mismos casos: 42 aprobadas/714 aserciones,
 52,19 s. Sin modificar código. El fallo de la corrida completa sigue registrado.
-Pendiente revisión independiente de Claude; capturas disponibles para Carlos. Sin despliegue.
+Pendiente solo revisión independiente de Claude de las reglas de rechazo T37. Visual aprobado por Carlos. Sin despliegue.
 Alcance resuelto por Carlos (17/10): «Entregar según el prompt; Inicio queda pendiente». CAJ-029.c exige el motivo en Inicio,
 pero el prompt de T37 pide verlo en Resumen y solo autoriza las dos vistas de caja.
 `OperativoDashboardController` pasa un conteo de rechazadas y `operativo/dashboard`
