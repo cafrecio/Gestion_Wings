@@ -10,6 +10,13 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 
+## 2026-10-17 — LOG GEM CAB — Verificación independiente de T35: La asistencia se toma desde el día de la clase
+
+- **Objetivo y veredicto:** Verificar de forma independiente el commit `8f2be1f` de Claude (T35 / DU-35: no se toma asistencia de una clase que todavía no ocurrió). **Veredicto: APROBADO (`estado=cerrado`, `verifica=Gemini`)**.
+- **Código y puertas de entrada:** Revisado el diff completo de `8f2be1f` y barrido con `codebase-memory` en `app/` y `routes/`. La única puerta HTTP activa (`ClaseWebController::storeAsistencias`, `POST /clases/{id}/asistencias`) y el servicio (`ClaseService::registrarAsistencia`) bloquean clases futuras con `$clase->todaviaNoOcurrio()` (`$this->fecha->gt(today())`). `AsistenciaController::storeBulk` no tiene la regla pero pertenece a `routes/api.php`, deshabilitado en `bootstrap/app.php:17`.
+- **Límite de fecha y navegador real (`wings_testing_gemini`):** Comprobado el corte exacto entre las `23:59` del día anterior y las `00:00` del día de la clase en `America/Argentina/Buenos_Aires` con `RelojSimulado`. Recorrida la pantalla en Chrome Headless CDP a `1366 px` y `360 px` (en marco `<iframe>` de 360 px + control de `/login`): clase futura con `OPERATIVO` y con `PROFESOR` (cartel visible, casillas `disabled=true`, sin botón `Guardar`, y `POST` directo como `PROFESOR` rechazado con HTTP `422`), clase de hoy, clase pasada con motivo de corrección y clase cancelada.
+- **Pruebas, efectos y entregables:** Revisadas las 8 pruebas de `AsistenciaClaseFuturaTest.php` y ejecutada la suite sobre `wings_testing_gemini` (8/8 en `AsistenciaClaseFuturaTest` y suite general en verde). Analizados los efectos de asistencias futuras previas sobre «Sin asistencia», cancelación, liquidación anticipada y cupo semanal. Informe en `docs/06-pruebas/PRU-04/VERIFICACION-T35-GEMINI.md` y 11 capturas + `verificacion-dom.json` en `docs/06-pruebas/PRU-04/evidencia-t35-gemini/`.
+
 ## 2026-10-17 — LOG GEM CAB — Implementación T48 y T49: Operativa renombrada y operativa con la caja abierta
 
 - **Objetivo:** Implementar T48 (renombrar el subrubro de sueldo `Op-<nombre>` al guardar la ficha de una operativa que ya tiene `subrubro_id`) y T49 (impedir desactivar o cambiar de rol a una operativa con la caja abierta avisando que primero se cierre la caja).

@@ -1,0 +1,144 @@
+{
+  "seeded": {
+    "db": "wings_testing_gemini",
+    "hoy": "2026-10-17",
+    "operativoRol": "OPERATIVO",
+    "profesorRol": "PROFESOR",
+    "claseFuturaId": 1,
+    "claseHoyId": 2,
+    "clasePasadaId": 3,
+    "claseCanceladaId": 4,
+    "alumno1Id": 1,
+    "alumno2Id": 2
+  },
+  "checks": {
+    "futuraOperativo": {
+      "url": "http://127.0.0.1:8096/clases/1",
+      "title": "Domingo 18 de octubre de 2026 — Fútbol — Inicial – Wings",
+      "badgeEstado": "Activa",
+      "flashes": [
+        "Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase."
+      ],
+      "checkboxes": [
+        {
+          "id": "presente-1",
+          "checked": false,
+          "disabled": true
+        },
+        {
+          "id": "presente-2",
+          "checked": false,
+          "disabled": true
+        }
+      ],
+      "clickOnUncheckedToggled": false,
+      "btnGuardarPresent": false,
+      "btnGuardarDisabled": null,
+      "inputMotivoAsistenciaPresent": false,
+      "btnCancelarPresent": true
+    },
+    "hoyOperativo": {
+      "url": "http://127.0.0.1:8096/clases/2",
+      "title": "Sábado 17 de octubre de 2026 — Fútbol — Inicial – Wings",
+      "badgeEstado": "Activa",
+      "flashes": [],
+      "checkboxes": [
+        {
+          "id": "presente-1",
+          "checked": true,
+          "disabled": false
+        },
+        {
+          "id": "presente-2",
+          "checked": false,
+          "disabled": false
+        }
+      ],
+      "clickOnUncheckedToggled": true,
+      "btnGuardarPresent": true,
+      "btnGuardarDisabled": false,
+      "inputMotivoAsistenciaPresent": false,
+      "btnCancelarPresent": true
+    },
+    "pasadaOperativo": {
+      "url": "http://127.0.0.1:8096/clases/3",
+      "title": "Viernes 16 de octubre de 2026 — Fútbol — Inicial – Wings",
+      "badgeEstado": "Activa",
+      "flashes": [],
+      "checkboxes": [
+        {
+          "id": "presente-1",
+          "checked": true,
+          "disabled": false
+        },
+        {
+          "id": "presente-2",
+          "checked": false,
+          "disabled": false
+        }
+      ],
+      "clickOnUncheckedToggled": true,
+      "btnGuardarPresent": true,
+      "btnGuardarDisabled": false,
+      "inputMotivoAsistenciaPresent": true,
+      "btnCancelarPresent": true
+    },
+    "canceladaOperativo": {
+      "url": "http://127.0.0.1:8096/clases/4",
+      "title": "Domingo 18 de octubre de 2026 — Fútbol — Inicial – Wings",
+      "badgeEstado": "Cancelada",
+      "flashes": [
+        "Esta clase está cancelada. No se pueden registrar asistencias."
+      ],
+      "checkboxes": [
+        {
+          "id": "presente-1",
+          "checked": false,
+          "disabled": true
+        },
+        {
+          "id": "presente-2",
+          "checked": false,
+          "disabled": true
+        }
+      ],
+      "clickOnUncheckedToggled": false,
+      "btnGuardarPresent": false,
+      "btnGuardarDisabled": null,
+      "inputMotivoAsistenciaPresent": false,
+      "btnCancelarPresent": false
+    },
+    "futuraProfesor": {
+      "url": "http://127.0.0.1:8096/clases/1",
+      "title": "Domingo 18 de octubre de 2026 — Fútbol — Inicial – Wings",
+      "badgeEstado": "Activa",
+      "flashes": [
+        "Esta clase todavía no ocurrió. La asistencia se toma desde el día de la clase."
+      ],
+      "checkboxes": [
+        {
+          "id": "presente-1",
+          "checked": false,
+          "disabled": true
+        },
+        {
+          "id": "presente-2",
+          "checked": false,
+          "disabled": true
+        }
+      ],
+      "clickOnUncheckedToggled": false,
+      "btnGuardarPresent": false,
+      "btnGuardarDisabled": null,
+      "inputMotivoAsistenciaPresent": false,
+      "btnCancelarPresent": false
+    },
+    "postFuturaProfesor": {
+      "status": 422,
+      "body": {
+        "success": false,
+        "message": "La clase todavía no ocurrió. La asistencia se toma desde el día de la clase."
+      }
+    }
+  }
+}
