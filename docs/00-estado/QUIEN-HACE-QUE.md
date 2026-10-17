@@ -45,7 +45,9 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T35** No se toma asistencia de una clase que todavia no ocurrio | En curso (hizo Claude) | Tabla: DU-35 · ASI-011, CLA-024 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] Carlos: solo desde el dia de la clase. TOCA: ClaseWebController::storeAsistencias, ClaseService::registrarAsistencia, vista clases/show. POR QUE ANTES: hoy esos presentes cuentan para comision y para la cuota del mes siguiente; un dia del cuento puede ensuciar los datos. ORDEN: junto con T34 o enseguida despues, mismo archivo |
 
 ## Codex
 
@@ -58,9 +60,9 @@ Nada en este momento.
 | **T48** Al renombrar a una operativa se renombra su rubro de sueldo | En curso (hizo Gemini) | Tabla: DU-04 · USU-004 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Como ya pasa con los profesores. TOCA: UsuarioWebController::update, SubrubroSueldoService. ORDEN: junto con T49, mismo archivo |
 | **T49** No se desactiva ni se cambia de rol a una operativa con la caja abierta | En curso (hizo Gemini) | Tabla: DU-05 · USU-007, USU-008 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Carlos: avisar y pedir que primero se cierre la caja. TOCA: UsuarioWebController::update y toggleActivo. ORDEN: junto con T48 |
 
-## Sin empezar (44)
+## Sin empezar (43)
 
-T10, T12, T22, T25, T34, T35, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T10, T12, T22, T25, T34, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
