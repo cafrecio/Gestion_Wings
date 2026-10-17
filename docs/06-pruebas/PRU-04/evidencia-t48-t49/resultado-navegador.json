@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-10-17T10:42:50.587Z",
+  "base": "wings_testing_gemini",
+  "operativa_id": 2,
+  "subrubro_id": 144,
+  "caja_id": 1,
+  "verificaciones": {
+    "rubroAntes": "Op-Sandra Vidal",
+    "renombradoEnUsuarios": "Sandra Vidal Renombrada",
+    "rubroDespues": "Op-Sandra Vidal Renombrada",
+    "toggleAjaxResult": {
+      "checkedAfterClick": true,
+      "flashText": "Este usuario tiene una caja abierta. Primero hay que cerrar la caja."
+    },
+    "bloqueoCambioRolCajaAbierta": "Este usuario tiene una caja abierta. Primero hay que cerrar la caja."
+  }
+}

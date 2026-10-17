@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profesor;
 use App\Models\User;
 use App\Rules\CbuOAlias;
+use App\Services\CajaService;
 use App\Services\SubrubroSueldoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,8 @@ use Illuminate\Validation\Rules\Password;
 
 class UsuarioWebController extends Controller
 {
+    public const AVISO_CAJA_ABIERTA = 'Este usuario tiene una caja abierta. Primero hay que cerrar la caja.';
+
     /**
      * Minimo de caracteres para cualquier contraseña de Wings.
      *
@@ -152,6 +155,15 @@ class UsuarioWebController extends Controller
             return back()->withInput()->with('error', 'No podés cambiar tu propio rol.');
         }
 
+        if (
+            $usuario->isOperativo()
+            && $request->filled('rol')
+            && $request->input('rol') !== $usuario->rol
+            && app(CajaService::class)->obtenerCajaAbierta($usuario->id)
+        ) {
+            return back()->withInput()->with('error', self::AVISO_CAJA_ABIERTA);
+        }
+
         $rules = [
             'name'  => 'required|string|max:255',
             'email' => "required|email|unique:users,email,{$usuario->id}",
@@ -186,11 +198,6 @@ class UsuarioWebController extends Controller
             }
             $profesorId = $profesor->id;
         }
-        $usuario->name        = $request->name;
-        $usuario->email       = $request->email;
-        $usuario->rol         = $request->rol;
-        $usuario->profesor_id = $profesorId;
-        $usuario->cbu_alias   = $this->cbuAliasSegunRol($request);
 
         $cambioLaClave = $request->filled('password');
 
@@ -200,21 +207,43 @@ class UsuarioWebController extends Controller
             ], [
                 'password.confirmed' => 'Las contraseñas no coinciden.',
             ]);
-            $usuario->password = Hash::make($request->password);
-
-            // Una clave se cambia justamente cuando se filtró o la tiene quien ya no
-            // debería. Sin esto, cambiarla no echaba a nadie: la sesión abierta seguía
-            // viva y, si había tildado "Recordarme", su cookie lo volvía a autenticar
-            // durante cinco años con una contraseña que ya no existe.
-            $this->revocarAccesosAnteriores($request, $usuario);
         }
 
-        $usuario->save();
+        $subrubroService = app(SubrubroSueldoService::class);
 
-        // Cubre al que pasa a OPERATIVO después del alta. Si ya tiene
-        // subrubro no hace nada, y nunca se le quita: puede tener
-        // movimientos históricos imputados.
-        app(SubrubroSueldoService::class)->paraUsuarioOperativo($usuario);
+        if (
+            $request->input('rol') === User::ROL_OPERATIVO
+            && $usuario->subrubro_id
+            && $usuario->name !== $request->name
+            && $subrubroService->existeChoqueParaOperativo($usuario, $request->name)
+        ) {
+            return back()->withInput()->with('error', 'Ya existe un subrubro de sueldo con ese nombre.');
+        }
+
+        DB::transaction(function () use ($request, $usuario, $profesorId, $cambioLaClave, $subrubroService) {
+            $usuario->name        = $request->name;
+            $usuario->email       = $request->email;
+            $usuario->rol         = $request->rol;
+            $usuario->profesor_id = $profesorId;
+            $usuario->cbu_alias   = $this->cbuAliasSegunRol($request);
+
+            if ($cambioLaClave) {
+                $usuario->password = Hash::make($request->password);
+
+                // Una clave se cambia justamente cuando se filtró o la tiene quien ya no
+                // debería. Sin esto, cambiarla no echaba a nadie: la sesión abierta seguía
+                // viva y, si había tildado "Recordarme", su cookie lo volvía a autenticar
+                // durante cinco años con una contraseña que ya no existe.
+                $this->revocarAccesosAnteriores($request, $usuario);
+            }
+
+            $usuario->save();
+
+            // Cubre al que pasa a OPERATIVO después del alta. Si ya tiene
+            // subrubro no hace nada, y nunca se le quita: puede tener
+            // movimientos históricos imputados.
+            $subrubroService->paraUsuarioOperativo($usuario);
+        });
 
         return redirect()->route('web.usuarios.index')
             ->with('success', 'Usuario actualizado correctamente.');
@@ -230,6 +259,13 @@ class UsuarioWebController extends Controller
                 return response()->json(['error' => 'No podés inactivarte a vos mismo.'], 403);
             }
             return back()->with('error', 'No podés inactivarte a vos mismo.');
+        }
+
+        if ($usuario->activo && app(CajaService::class)->obtenerCajaAbierta($usuario->id)) {
+            if ($request->expectsJson()) {
+                return response()->json(['error' => self::AVISO_CAJA_ABIERTA], 422);
+            }
+            return back()->with('error', self::AVISO_CAJA_ABIERTA);
         }
 
         $usuario->activo = !$usuario->activo;

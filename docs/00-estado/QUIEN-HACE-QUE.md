@@ -45,7 +45,10 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T48** Al renombrar a una operativa se renombra su rubro de sueldo | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado: renombrar operativa actualiza su subrubro Op- y rechaza choque. Verifica Claude |
+| **T49** No se desactiva ni se cambia de rol a una operativa con la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado: no desactiva ni cambia rol de operativa con caja abierta. Verifica Claude |
 
 ## Codex
 
@@ -56,10 +59,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T48** Al renombrar a una operativa se renombra su rubro de sueldo | En curso (hizo Gemini) | Tabla: DU-04 · USU-004 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Como ya pasa con los profesores. TOCA: UsuarioWebController::update, SubrubroSueldoService. ORDEN: junto con T49, mismo archivo |
-| **T49** No se desactiva ni se cambia de rol a una operativa con la caja abierta | En curso (hizo Gemini) | Tabla: DU-05 · USU-007, USU-008 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Carlos: avisar y pedir que primero se cierre la caja. TOCA: UsuarioWebController::update y toggleActivo. ORDEN: junto con T48 |
+Nada en este momento.
 
 ## Sin empezar (42)
 

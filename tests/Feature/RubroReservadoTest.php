@@ -198,7 +198,127 @@ class RubroReservadoTest extends TestCase
             ->assertSessionHas('success');
 
         $this->assertSame($subrubroOriginal, $operativo->fresh()->subrubro_id);
+        $this->assertSame('Op-Nombre Cambiado', Subrubro::findOrFail($subrubroOriginal)->nombre);
         $this->assertSame(1, Subrubro::where('nombre', 'like', 'Op-%')->count());
+    }
+
+    public function test_renombrar_operativo_renombra_su_subrubro_y_preserva_movimientos_imputados(): void
+    {
+        $this->rubroSueldos();
+        $admin = $this->admin();
+
+        $operativo = User::factory()->create([
+            'name'   => 'Sandra Vidal',
+            'rol'    => User::ROL_OPERATIVO,
+            'activo' => true,
+        ]);
+
+        $subrubro = app(\App\Services\SubrubroSueldoService::class)->paraUsuarioOperativo($operativo);
+        $this->assertNotNull($subrubro);
+        $this->assertSame('Op-Sandra Vidal', $subrubro->nombre);
+
+        $tipoCaja = \App\Models\TipoCaja::create([
+            'nombre' => 'Transferencia Bancaria',
+            'activo' => true,
+        ]);
+
+        $movimiento = \App\Models\CashflowMovimiento::create([
+            'fecha'            => '2026-10-15',
+            'subrubro_id'      => $subrubro->id,
+            'tipo_caja_id'     => $tipoCaja->id,
+            'monto'            => 150000,
+            'observaciones'    => 'Sueldo octubre Sandra',
+            'usuario_admin_id' => $admin->id,
+        ]);
+
+        $this->actingAs($admin)
+            ->put(route('web.usuarios.update', $operativo->id), [
+                'name'  => 'Sandra Gomez',
+                'email' => $operativo->email,
+                'rol'   => User::ROL_OPERATIVO,
+            ])
+            ->assertSessionHas('success');
+
+        $this->assertSame($subrubro->id, $operativo->fresh()->subrubro_id);
+        $this->assertSame('Op-Sandra Gomez', $subrubro->fresh()->nombre);
+        $this->assertSame(1, Subrubro::where('nombre', 'like', 'Op-%')->count());
+
+        $movimientoFresco = $movimiento->fresh();
+        $this->assertSame($subrubro->id, $movimientoFresco->subrubro_id);
+        $this->assertSame('150000.00', (string) $movimientoFresco->monto);
+        $this->assertSame('Sueldo octubre Sandra', $movimientoFresco->observaciones);
+    }
+
+    public function test_editar_operativo_sin_cambiar_el_nombre_no_toca_el_subrubro(): void
+    {
+        $this->rubroSueldos();
+
+        $operativo = User::factory()->create([
+            'name'   => 'Sandra Vidal',
+            'email'  => 'sandra@wings.test',
+            'rol'    => User::ROL_OPERATIVO,
+            'activo' => true,
+        ]);
+
+        $subrubro = app(\App\Services\SubrubroSueldoService::class)->paraUsuarioOperativo($operativo);
+        $fechaOriginal = now()->subDays(3)->startOfSecond();
+        \Illuminate\Support\Facades\DB::table('subrubros')
+            ->where('id', $subrubro->id)
+            ->update(['updated_at' => $fechaOriginal]);
+
+        $this->actingAs($this->admin())
+            ->put(route('web.usuarios.update', $operativo->id), [
+                'name'  => 'Sandra Vidal',
+                'email' => 'sandra.nuevo@wings.test',
+                'rol'   => User::ROL_OPERATIVO,
+            ])
+            ->assertSessionHas('success');
+
+        $this->assertSame('sandra.nuevo@wings.test', $operativo->fresh()->email);
+        $this->assertSame($subrubro->id, $operativo->fresh()->subrubro_id);
+        $this->assertSame('Op-Sandra Vidal', $subrubro->fresh()->nombre);
+        $this->assertTrue($subrubro->fresh()->updated_at->equalTo($fechaOriginal));
+        $this->assertSame(1, Subrubro::where('nombre', 'like', 'Op-%')->count());
+    }
+
+    public function test_renombrar_operativo_con_choque_de_subrubro_no_guarda_nada(): void
+    {
+        $this->rubroSueldos();
+        $servicio = app(\App\Services\SubrubroSueldoService::class);
+
+        $sandra = User::factory()->create([
+            'name'   => 'Sandra Vidal',
+            'email'  => 'sandra@wings.test',
+            'rol'    => User::ROL_OPERATIVO,
+            'activo' => true,
+        ]);
+        $subrubroSandra = $servicio->paraUsuarioOperativo($sandra);
+
+        $pablo = User::factory()->create([
+            'name'   => 'Pablo Ledesma',
+            'email'  => 'pablo@wings.test',
+            'rol'    => User::ROL_OPERATIVO,
+            'activo' => true,
+        ]);
+        $subrubroPablo = $servicio->paraUsuarioOperativo($pablo);
+
+        $this->actingAs($this->admin())
+            ->from(route('web.usuarios.edit', $pablo->id))
+            ->put(route('web.usuarios.update', $pablo->id), [
+                'name'  => 'Sandra Vidal',
+                'email' => 'pablo.modificado@wings.test',
+                'rol'   => User::ROL_OPERATIVO,
+            ])
+            ->assertRedirect(route('web.usuarios.edit', $pablo->id))
+            ->assertSessionHas('error');
+
+        $pabloFresco = $pablo->fresh();
+        $this->assertSame('Pablo Ledesma', $pabloFresco->name);
+        $this->assertSame('pablo@wings.test', $pabloFresco->email);
+        $this->assertSame($subrubroPablo->id, $pabloFresco->subrubro_id);
+        $this->assertSame('Op-Pablo Ledesma', $subrubroPablo->fresh()->nombre);
+        $this->assertSame('Op-Sandra Vidal', $subrubroSandra->fresh()->nombre);
+        $this->assertSame(2, Subrubro::where('nombre', 'like', 'Op-%')->count());
     }
 
     // ── Helpers ──────────────────────────────────────────────────────────

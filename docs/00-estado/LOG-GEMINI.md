@@ -10,6 +10,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 
+## 2026-10-17 — LOG GEM CAB — Implementación T48 y T49: Operativa renombrada y operativa con la caja abierta
+
+- **Objetivo:** Implementar T48 (renombrar el subrubro de sueldo `Op-<nombre>` al guardar la ficha de una operativa que ya tiene `subrubro_id`) y T49 (impedir desactivar o cambiar de rol a una operativa con la caja abierta avisando que primero se cierre la caja).
+- **Cambios en código (`UsuarioWebController.php`, `SubrubroSueldoService.php`, `resources/js/ds-app.js`):**
+  - **T48:** En `SubrubroSueldoService::paraUsuarioOperativo`, cuando el usuario es `OPERATIVO` y ya tiene `subrubro_id`, si `$usuario->wasChanged('name')` delega en `renombrarParaUsuarioOperativo($usuario)`, actualizando el mismo subrubro (mismo `id`) a `Op-<nombre nuevo>` sin tocar movimientos imputados; si el nombre no cambió, no hace nada. En `UsuarioWebController::update`, si `Op-<nombre nuevo>` ya existe en otro subrubro (`existeChoqueParaOperativo`), rechaza antes de tocar la base y envuelve el guardado en `DB::transaction` («todo o nada»). Caso de choque documentado y consultado a Carlos en el informe.
+  - **T49:** En `UsuarioWebController::toggleActivo` y `update`, si la operativa tiene caja abierta (`CajaService::obtenerCajaAbierta($usuario->id)`), impide desactivarla (vía JSON HTTP `422` y redirección) o cambiarle el rol, devolviendo el aviso `Este usuario tiene una caja abierta. Primero hay que cerrar la caja.`. La edición de nombre, email, clave y CBU/alias con caja abierta sigue permitida. En `resources/js/ds-app.js` se revierte el interruptor `.ds-toggle[data-url]` y se muestra el cartel `.ds-flash--error` cuando la respuesta JSON trae `data.error`.
+- **Pruebas y verificación:** 7 pruebas nuevas en `RubroReservadoTest.php` y `UsuarioActivoWebTest.php` (renombrar, nombre sin cambios, choque de nombres, desactivar con/sin caja abierta por JSON y redirección, cambiar rol con caja abierta, editar nombre/mail/clave con caja abierta). Suite completa en `wings_testing_gemini`: **786 pruebas (784 aprobadas y 2 omitidas, 7395 aserciones, 1040,70 s)**. Recorrido real en Chrome local con 5 capturas en `docs/06-pruebas/PRU-04/evidencia-t48-t49/` e informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T48-T49.md`.
+- **Próximo paso:** T48 y T49 pasan a `a_verificar` por Claude en el tablero.
+
 ## 2026-10-16 — LOG GEM CYE — Ejecución T4: Repetición de los cuatro casos fallados en el sitio de prueba (ACC-003 y CLA-011)
 
 - **Objetivo y resultado:** Repetición integral en el sitio de prueba real (`https://test.gestionar-te.com.ar`, commit `d4f02d4`, hora real) de los 4 defectos del 11/10 previamente corregidos en `602efcc` y T21 (`44d5ba7`). Resultado: **21/21 comprobaciones PASA (100%)**.

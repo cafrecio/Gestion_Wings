@@ -47,7 +47,15 @@ class SubrubroSueldoService
      */
     public function paraUsuarioOperativo(User $usuario): ?Subrubro
     {
-        if ($usuario->rol !== User::ROL_OPERATIVO || $usuario->subrubro_id) {
+        if ($usuario->rol !== User::ROL_OPERATIVO) {
+            return null;
+        }
+
+        if ($usuario->subrubro_id) {
+            if ($usuario->wasChanged('name')) {
+                return $this->renombrarParaUsuarioOperativo($usuario);
+            }
+
             return null;
         }
 
@@ -57,6 +65,51 @@ class SubrubroSueldoService
         $usuario->save();
 
         return $subrubro;
+    }
+
+    /**
+     * Renombra el subrubro ya vinculado al usuario operativo (mismo id) a
+     * "Op-<nombre nuevo>" cuando cambia su nombre en la ficha.
+     */
+    public function renombrarParaUsuarioOperativo(User $usuario): ?Subrubro
+    {
+        if ($usuario->rol !== User::ROL_OPERATIVO || ! $usuario->subrubro_id) {
+            return null;
+        }
+
+        $subrubro = Subrubro::find($usuario->subrubro_id);
+        if (! $subrubro) {
+            return null;
+        }
+
+        $nuevoNombre = 'Op-' . $usuario->name;
+        if ($subrubro->nombre === $nuevoNombre) {
+            return $subrubro;
+        }
+
+        $subrubro->nombre = $nuevoNombre;
+        $subrubro->save();
+
+        if ($usuario->relationLoaded('subrubro')) {
+            $usuario->setRelation('subrubro', $subrubro);
+        }
+
+        return $subrubro;
+    }
+
+    /**
+     * Verifica si "Op-<nombreNuevo>" ya está ocupado por otro subrubro
+     * distinto al del propio usuario operativo.
+     */
+    public function existeChoqueParaOperativo(User $usuario, string $nombreNuevo): bool
+    {
+        if (! $usuario->subrubro_id) {
+            return false;
+        }
+
+        return Subrubro::where('nombre', 'Op-' . $nombreNuevo)
+            ->where('id', '!=', $usuario->subrubro_id)
+            ->exists();
     }
 
     /**

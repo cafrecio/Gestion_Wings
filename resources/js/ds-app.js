@@ -37,6 +37,19 @@ import './money-input';
             })
             .then(function (r) { return r.json(); })
             .then(function (data) {
+                if (data.error) {
+                    input.checked = !input.checked;
+                    input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
+                    var content = document.querySelector('.ds-content');
+                    if (content) {
+                        content.querySelectorAll('.ds-flash--error').forEach(function (el) { el.remove(); });
+                        var flash = document.createElement('div');
+                        flash.className = 'ds-flash ds-flash--error';
+                        flash.textContent = data.error;
+                        content.insertBefore(flash, content.firstChild);
+                    }
+                    return;
+                }
                 if (data.activo !== undefined && card) {
                     card.style.opacity = data.activo ? '' : '0.6';
                 }
