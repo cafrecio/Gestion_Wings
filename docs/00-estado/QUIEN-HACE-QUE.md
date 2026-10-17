@@ -51,7 +51,9 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T37** Rechazar una caja exige motivo | En curso (hizo Codex) | Tabla: DU-18 · CAJ-029 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] TOCA: CajaWebController::rechazar, CajaService::rechazarCaja, vista del rechazo. POR QUE ANTES: es parte del mismo paso diario; chica. ORDEN: va junto con T36, mismo archivo |
 
 ## Gemini
 
@@ -60,9 +62,9 @@ Nada en este momento.
 | **T48** Al renombrar a una operativa se renombra su rubro de sueldo | En curso (hizo Gemini) | Tabla: DU-04 · USU-004 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Como ya pasa con los profesores. TOCA: UsuarioWebController::update, SubrubroSueldoService. ORDEN: junto con T49, mismo archivo |
 | **T49** No se desactiva ni se cambia de rol a una operativa con la caja abierta | En curso (hizo Gemini) | Tabla: DU-05 · USU-007, USU-008 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Carlos: avisar y pedir que primero se cierre la caja. TOCA: UsuarioWebController::update y toggleActivo. ORDEN: junto con T48 |
 
-## Sin empezar (43)
+## Sin empezar (42)
 
-T10, T12, T22, T25, T34, T36, T37, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T10, T12, T22, T25, T34, T36, T38, T39, T40, T41, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
