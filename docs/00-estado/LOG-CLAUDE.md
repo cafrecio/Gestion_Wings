@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-17 — Claude CAB — T35 hecha: asistencia solo desde el día de la clase
+
+Decisión de Carlos DU-35. `Clase::todaviaNoOcurrio()` frena `storeAsistencias` y
+`ClaseService::registrarAsistencia`; la pantalla de una clase futura avisa, deshabilita Presente
+y saca Guardar (el botón tiene estilos en línea y deshabilitado se veía igual). Límite por fecha,
+00:00 hora de Wings. 8 pruebas verdes. Suite: 762/2 omitidas/15 fallidas, ninguna de T35: 14 por
+el `public/build` viejo de CAB (faltaba `alumnos-show.js` de B11; `npm run build` local) y el
+contador de documentos movido por Codex y Gemini trabajando en la misma carpeta; repetidas, 73
+verdes. **Sin verificar:** la pantalla en navegador (no hay clases futuras en la base local y no
+creé datos). Pasa a Codex. `8f2be1f`, `IMPLEMENTACION-T35.md`. En paralelo: Codex T37, Gemini T48/T49.
+
 ## 2026-10-16 — Claude CyE — Corte para seguir en CAB
 
 Publicado todo, sitio de prueba en `3773c0b`. Cerradas hoy: T2, T3, T4, T7, T11, B11 (B13 y B7 por

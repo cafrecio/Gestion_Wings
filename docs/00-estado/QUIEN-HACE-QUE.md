@@ -45,14 +45,13 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T35** No se toma asistencia de una clase que todavia no ocurrio | En curso (hizo Claude) | Tabla: DU-35 · ASI-011, CLA-024 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] Carlos: solo desde el dia de la clase. TOCA: ClaseWebController::storeAsistencias, ClaseService::registrarAsistencia, vista clases/show. POR QUE ANTES: hoy esos presentes cuentan para comision y para la cuota del mes siguiente; un dia del cuento puede ensuciar los datos. ORDEN: junto con T34 o enseguida despues, mismo archivo |
+Nada en este momento.
 
 ## Codex
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T35** No se toma asistencia de una clase que todavia no ocurrio | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude en 8f2be1f: Clase::todaviaNoOcurrio() en storeAsistencias y registrarAsistencia; la pantalla de una clase futura avisa, deshabilita Presente y no ofrece Guardar. Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md |
 | **T37** Rechazar una caja exige motivo | En curso (hizo Codex) | Tabla: DU-18 · CAJ-029 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] TOCA: CajaWebController::rechazar, CajaService::rechazarCaja, vista del rechazo. POR QUE ANTES: es parte del mismo paso diario; chica. ORDEN: va junto con T36, mismo archivo |
 
 ## Gemini
