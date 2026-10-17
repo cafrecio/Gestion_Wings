@@ -11,6 +11,11 @@ Actualización local de Codex, 16/10: PEN-001 incorpora la implementación B11 y
 tarea; «vigente» describe la regla implementada, no certifica revisión independiente.
 Claude debe verificarla y sincronizar la tabla viva antes del cierre.
 
+Actualización local de Codex, 17/10: CAJ-029 incorpora T37 (motivo obligatorio y
+visible en Resumen), pendiente de revisión. Carlos decidió «Entregar según el prompt;
+Inicio queda pendiente». El caso completo conserva `no_implementado` por su punto c.
+Claude debe sincronizar esta distinción con la tabla viva; no se certifica Inicio.
+
 ## Qué hay
 
 - `catalogo/` — un archivo por módulo (ACC, ALU, CAJ, COB…). Adentro, `casos`: cada caso

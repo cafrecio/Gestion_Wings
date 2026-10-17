@@ -86,6 +86,13 @@ Solo movimientos ACTIVO del medio físico guardado en el turno:
 
 ## Rechazadas y conservación de la entrega
 
+T37, decisión de Carlos del 17/10/2026: rechazar exige un motivo de texto
+obligatorio, de hasta 500 caracteres; solo espacios equivale a vacío. No hay
+un mínimo de longitud adicional. Controlador web y servicio verifican la regla.
+Detalle y Resumen lo piden y muestran el error del servidor aunque el modal se cierre.
+Se conserva el motivo en el resumen para que la operativa sepa qué corregir.
+Las cajas rechazadas históricas sin motivo se conservan, sin rellenarlas.
+
 Se conserva la posibilidad existente de corregir movimientos de una RECHAZADA.
 Al volver a cerrarla, recalcular esperado/diferencia pero conservar contado, cambio,
 retiro, fecha y actor del cierre físico original. Ni un POST directo puede reescribirlos.

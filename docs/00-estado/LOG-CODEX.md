@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-17 — Codex CAB — T37 implementada localmente, entrega a Claude
+
+Motivo de rechazo obligatorio, texto hasta 500 y solo espacios vacío; sin mínimo adicional.
+Controlador y servicio protegidos; ambos modales required y error superior visible tras recarga.
+Ocho pruebas nuevas; T37/A25 y regresiones: 102 aprobadas/853 aserciones. Suite propia: 784/2, 7395 aserciones, 965,22 s.
+Chrome local con ADMIN sintético: cuatro recorridos Detalle/Resumen a 1366/360 correctos.
+14 capturas reales inspeccionadas; móvil en marco con DOM de Wings, login de control correcto.
+Sintaxis y compilación de vistas correctas; sin JS incrustado nuevo, T36 ni despliegue.
+[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md); a verificar por Claude, sin autocierre.
+Carlos por §6b: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
+
 ## 2026-10-16 — Codex CyE — B11 implementada localmente, a verificar
 
 Motor/configuración/cobro/recibo/perdón/saldos incorporados; 35 pruebas nuevas.
@@ -114,22 +125,10 @@ corta, queda una tarea T con lo que falta.
 `PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
 Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
 
-## 2026-10-13 — Codex CAB — Limpieza de temporales propios y evidencia portable
-
-Carlos pidió subir lo útil y eliminar lo descartable, solo propio y sin afectar el producto.
-Comprobados los commits publicados en origin/main; sin cambios de producto pendientes.
-Preservados 118 recursos históricos de T24 en su evidencia, con igualdad SHA256 comprobada.
-Comparador de 18 casos usa esos recursos; pasa sin la copia temporal ni base de datos.
-Eliminados 77 borradores/listas/salidas propios, 7 montajes duplicados y copia aislada T24.
-Retirado solo el enlace temporal a node_modules; paquete real comprobado intacto. Archivos ajenos excluidos.
-[Recursos y reproducción](../06-pruebas/PRU-04/evidencia-t24/antes/RECURSOS-HISTORICOS.md). Sin producto, sitio, reloj ni suite.
-Publicar evidencia y registro; T27 ya figura cerrada por Claude, esta limpieza no altera su estado.
-
-
-
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
 
 [Entrada archivada al iniciar B11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-B11-ARRANQUE.md).
+
+[Entrada archivada al iniciar T37](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T37-ARRANQUE.md).

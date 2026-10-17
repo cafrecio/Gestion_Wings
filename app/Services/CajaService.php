@@ -445,6 +445,12 @@ class CajaService
      */
     public function rechazarCaja(int $cajaId, int $adminId, string $motivo): CajaOperativa
     {
+        $motivo = trim($motivo);
+        validator(['motivo' => $motivo], ['motivo' => 'required|string|max:500'], [
+            'motivo.required' => 'El motivo del rechazo es obligatorio.',
+            'motivo.max' => 'El motivo no puede superar los 500 caracteres.',
+        ])->validate();
+
         return DB::transaction(function () use ($cajaId, $adminId, $motivo) {
             $admin = User::findOrFail($adminId);
             abort_unless($admin->isAdmin() && $admin->activo, 403);

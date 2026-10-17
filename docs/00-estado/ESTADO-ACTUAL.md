@@ -1,5 +1,21 @@
 # Wings — Estado actual
 
+## T37 — Motivo obligatorio de rechazo, implementación local 17/10/2026
+
+Controlador web y servicio exigen texto no vacío de hasta 500 caracteres; solo
+espacios es vacío. Sin mínimo adicional ni cambios a rechazos históricos.
+Los dos modales requieren motivo y muestran errores al inicio de la pantalla.
+Ocho pruebas nuevas; T37/A25 y regresiones: 102 aprobadas/853 aserciones. Cuatro recorridos Chrome
+con dueño sintético, Detalle/Resumen y anchos 1366/360, pasaron; 14 capturas reales.
+Suite completa propia: 784 aprobadas/2 omitidas, 7395 aserciones, 965,22 s; [informe y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
+Observación fuera de T37: Detalle a 360 desborda en información/acciones del fondo;
+no se corrige ni se atribuye su origen con este cambio. Modal y error sí visibles.
+Pendiente revisión independiente de Claude; capturas disponibles para Carlos. Sin despliegue.
+Alcance resuelto por Carlos (17/10): «Entregar según el prompt; Inicio queda pendiente». CAJ-029.c exige el motivo en Inicio,
+pero el prompt de T37 pide verlo en Resumen y solo autoriza las dos vistas de caja.
+`OperativoDashboardController` pasa un conteo de rechazadas y `operativo/dashboard`
+muestra ese aviso, sin motivos. Inicio queda pendiente por esa decisión; T37 se entrega con el alcance del prompt.
+
 ## B11 — Implementada localmente, a verificar por Claude, 16/10/2026
 
 Motor diario del mes vigente, configuración, cobro por mes con capital primero,
@@ -625,7 +641,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **763 pruebas**: 761 aprobadas y 2 omitidas, 7214 aserciones, 1106,83 s; suite completa local de Codex, 16/10, en wings_testing_codex. B11 suma 35 pruebas nuevas; solo dos conteos viejos actualizados con autorización de Carlos |
+| **Tests** | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 965,22 s; suite completa local de Codex, 17/10, en wings_testing_codex. Incluye T37 (8 nuevas), T35 y T48/T49; estas últimas registradas por sus autores antes de esta entrega |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

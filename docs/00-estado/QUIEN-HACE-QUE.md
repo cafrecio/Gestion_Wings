@@ -47,6 +47,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar motivo vacio/espacios, maximo 500, servicio directo y ambos modales; informe IMPLEMENTACION-T37.md y capturas 1366/360. Carlos: Inicio CAJ-029.c queda pendiente. Sin despliegue ni T36. |
 | **T48** Al renombrar a una operativa se renombra su rubro de sueldo | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado: renombrar operativa actualiza su subrubro Op- y rechaza choque. Verifica Claude |
 | **T49** No se desactiva ni se cambia de rol a una operativa con la caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Implementado: no desactiva ni cambia rol de operativa con caja abierta. Verifica Claude |
 
@@ -55,7 +56,6 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T35** No se toma asistencia de una clase que todavia no ocurrio | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude en 8f2be1f: Clase::todaviaNoOcurrio() en storeAsistencias y registrarAsistencia; la pantalla de una clase futura avisa, deshabilita Presente y no ofrece Guardar. Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md |
-| **T37** Rechazar una caja exige motivo | En curso (hizo Codex) | Tabla: DU-18 · CAJ-029 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] TOCA: CajaWebController::rechazar, CajaService::rechazarCaja, vista del rechazo. POR QUE ANTES: es parte del mismo paso diario; chica. ORDEN: va junto con T36, mismo archivo |
 
 ## Gemini
 

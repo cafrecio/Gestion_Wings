@@ -1202,7 +1202,7 @@
         }
       ],
       "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-18, 13/10): motivo obligatorio. Falta programar: T37. Antes: Contrato Caja V5; CajaService::rechazar (código leído).",
+      "fuente": "Decidido por Carlos (DU-18, 13/10): motivo obligatorio. T37 implementada localmente por Codex el 17/10, pendiente de revisión independiente: controlador, servicio y ambos modales; motivo visible en Resumen. Carlos resolvió: Entregar según el prompt; Inicio queda pendiente. Se conserva no_implementado para el caso completo por el punto c de Inicio. Evidencia: docs/06-pruebas/PRU-04/IMPLEMENTACION-T37.md.",
       "modulo": "Caja",
       "pantalla": "caja-validacion",
       "requiere": "Caja cerrada con un ingreso mal cargado. La operativa ya abrió el turno del día siguiente.",

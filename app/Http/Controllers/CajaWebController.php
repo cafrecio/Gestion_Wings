@@ -672,10 +672,14 @@ class CajaWebController extends Controller
 
     public function rechazar(Request $request, int $id)
     {
-        $request->validate(['motivo' => 'nullable|string|max:500']);
+        $data = $request->validate(['motivo' => 'required|string|max:500'], [
+            'motivo.required' => 'El motivo del rechazo es obligatorio.',
+            'motivo.string' => 'El motivo debe ser texto.',
+            'motivo.max' => 'El motivo no puede superar los 500 caracteres.',
+        ]);
 
         try {
-            $this->cajaService->rechazarCaja($id, Auth::id(), $request->input('motivo', ''));
+            $this->cajaService->rechazarCaja($id, Auth::id(), $data['motivo']);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

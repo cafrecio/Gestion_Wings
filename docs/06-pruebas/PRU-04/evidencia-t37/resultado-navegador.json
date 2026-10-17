@@ -1,0 +1,44 @@
+{
+  "fecha": "2026-10-17T10:47:48.763Z",
+  "base": "wings_testing_codex",
+  "usuario": "ADMIN sintético",
+  "metodoCelular": "iframe real 360 dentro de ventana 1366",
+  "results": [
+    {
+      "screen": "detalle",
+      "width": 1366,
+      "caja": 53,
+      "vacioBloqueado": true,
+      "espaciosRechazados": true,
+      "errorVisible": true,
+      "motivoGuardadoYVisible": true
+    },
+    {
+      "screen": "resumen",
+      "width": 1366,
+      "caja": 54,
+      "vacioBloqueado": true,
+      "espaciosRechazados": true,
+      "errorVisible": true,
+      "motivoGuardadoYVisible": true
+    },
+    {
+      "screen": "detalle",
+      "width": 360,
+      "caja": 55,
+      "vacioBloqueado": true,
+      "espaciosRechazados": true,
+      "errorVisible": true,
+      "motivoGuardadoYVisible": true
+    },
+    {
+      "screen": "resumen",
+      "width": 360,
+      "caja": 56,
+      "vacioBloqueado": true,
+      "espaciosRechazados": true,
+      "errorVisible": true,
+      "motivoGuardadoYVisible": true
+    }
+  ]
+}

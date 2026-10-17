@@ -5,6 +5,10 @@
 
 @section('content')
 
+@error('motivo')
+<div class="ds-flash ds-flash--error" role="alert">{{ $message }}</div>
+@enderror
+
 @php
 $user      = Auth::user();
 $esAdmin   = $user->isAdmin();
@@ -269,10 +273,10 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 @if($hasCheckbox)
 <div id="modal-rechazar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
     <div style="background:var(--color-surface); border-radius:var(--radius-card); padding:1.5rem; max-width:440px; width:100%; margin:1rem;">
-        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:1rem;">Motivo del rechazo <span style="font-size:0.75rem; color:var(--color-text-muted); font-weight:400;">(opcional)</span></p>
+        <p style="font-size:0.9rem; font-weight:600; color:var(--color-text); margin-bottom:1rem;">Motivo del rechazo</p>
         <form method="POST" action="{{ route('web.cajas.rechazar', $caja->id) }}">
             @csrf
-            <input type="text" name="motivo" maxlength="500"
+            <input type="text" name="motivo" required maxlength="500" value="{{ is_string(old('motivo')) ? old('motivo') : '' }}"
                    placeholder="Describí el motivo..."
                    class="w-full px-4 py-2.5 text-sm wings-input"
                    style="display:block; width:100%; margin-bottom:1rem;">

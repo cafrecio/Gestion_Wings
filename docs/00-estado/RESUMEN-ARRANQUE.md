@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **763 pruebas**: 761 aprobadas y 2 omitidas, 7214 aserciones, 1106,83 s; suite completa local de Codex, 16/10, en wings_testing_codex. B11 suma 35 pruebas nuevas; solo dos conteos viejos actualizados con autorización de Carlos |
+| Suite | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 965,22 s; suite completa local de Codex, 17/10, en wings_testing_codex. Incluye T37 (8 nuevas), T35 y T48/T49; estas últimas registradas por sus autores antes de esta entrega |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -34,6 +34,13 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | Base del club | Carlos informó el 05/10: cero alumnos, deudas y pagos; usuarios/catálogos existentes se conservan. No inspeccionada ni modificada por Codex en P1. No limpiar ni cargar datos reales sin autorización |
 
 ## Trabajo que continúa
+
+- **T37, 17/10, Codex CAB:** motivo obligatorio hasta 500, sin mínimo extra,
+  controlador/servicio y ambos modales. 102 pruebas/853 aserciones verdes; cuatro
+  recorridos Chrome del dueño sintético, 14 capturas reales 1366/marco360.
+  Suite completa propia: 784 aprobadas/2 omitidas, 7395 aserciones, 965,22 s; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
+  Entrega a Claude para revisión independiente; sin despliegue, T36 ni archivos de usuarios/clases propios.
+  Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
 
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.
