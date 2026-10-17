@@ -53,13 +53,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T35** No se toma asistencia de una clase que todavia no ocurrio | Hecho, espera verificación (hizo Claude, verifica Codex) | Hecho por Claude en 8f2be1f: Clase::todaviaNoOcurrio() en storeAsistencias y registrarAsistencia; la pantalla de una clase futura avisa, deshabilita Presente y no ofrece Guardar. Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T35** No se toma asistencia de una clase que todavia no ocurrio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude en 8f2be1f. Verifica Gemini (Carlos, 17/10). Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md |
 
 ## Sin empezar (42)
 
