@@ -51,15 +51,17 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T75** En celular, todos los botones a la derecha | En curso (hizo Codex, verifica Carlos) | Codex revisa todas las vistas a 360/375, aplica alineacion movil y captura antes/despues con escritorio intacto. Carlos indico que Gemini NO avance con esta implementacion para evitar tocar las mismas vistas. Casos de tablas, ingreso y modales quedan para decision de Carlos con capturas. |
 
 ## Gemini
 
 Nada en este momento.
 
-## Sin empezar (39)
+## Sin empezar (38)
 
-T12, T22, T25, T34, T39, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, T75, B3.
+T12, T22, T25, T34, T39, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
