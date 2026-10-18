@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 901,37 s; última suite completa local de Codex, 17/10, wings_testing_codex y archivos temporales exclusivos, tras alinear los botones de Detalle. Historia y capturas en DETALLE-CAJA-MOBILE.md |
+| Suite | **818 pruebas** versionadas con T36 (**823 en la carpeta compartida**). Suite completa Codex 17/10: **821 ejecutadas: 818 aprobadas, 2 omitidas y 1 fallida (T38)**; 7584 aserciones, 1332,77 s, salida 1, base y archivos temporales exclusivos. Tras cbc851e de Claude: repetición integrada T38/T36/FIN-11/guardianes, 50 aprobadas/314 aserciones, 34,81 s. No se certifica suite completa verde; detalle en IMPLEMENTACION-T36.md |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -35,11 +35,12 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T37, 17/10, Codex CAB:** motivo obligatorio hasta 500, sin mínimo extra, controlador/servicio y ambos modales; [entrega original](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
-  Detalle adaptable: 48 variantes y ocho controles de acciones; [capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md).
-  Visual aprobado por Carlos, 17/10: «Bien ambas imagenes!!» (ambas botoneras a 375 de `4b050ac`); scroll y modal ya aceptados. Verificador visual Carlos (§6a), sin revisión adicional de IA.
-  Primera suite visual: 783/2/1 por Excel temporal ausente; repetición dirigida 40/2, con carpeta exclusiva 42/714 verde. La última suite completa figura en la tabla superior.
-  Claude verifica solo reglas de rechazo; visual no pendiente. Sin despliegue, T36 ni cambios propios en usuarios/clases. Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
+- **T36, 17/10, Codex CAB:** tildes persistentes y obligatorios en servicio; Resumen lleva a Detalle si faltan. Solo ADMIN activo. Carlos: «Destildar solo los movimientos que cambien».
+  Rechazar conserva revisiones vigentes; editar/cancelar invalida las afectadas. Detalle/Resumen sin JS incrustado; T73 queda en 8 bloques/8 vistas/8 manejadores.
+  68 pruebas dirigidas/449 aserciones y 9 de cancelación/concurrencia real/125 aserciones aprobadas. Chrome y capturas reales; suite completa 818/2/1 T38; tras cbc851e repetición integrada 50/314 aprobada. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue ni autocierre.
+- **T37 cerrada por Claude (`870cbb4`):** motivo obligatorio hasta 500; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
+  Visual verifica Carlos: «Bien ambas imagenes!!» (botoneras a 375 de `4b050ac`); scroll y «Modal OK» aceptados. [Capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Sin otra revisión de IA del aspecto.
+  Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c). Sin despliegue. Última suite completa en la tabla superior.
 
 - **B11, 16/10, Codex CyE:** implementada localmente, a verificar por Claude.
   Carlos autorizó solo los conteos 11/18 → 12/19 de `CatalogosSeederTest`.

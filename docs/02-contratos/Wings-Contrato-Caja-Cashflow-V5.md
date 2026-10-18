@@ -84,6 +84,24 @@ Solo movimientos ACTIVO del medio físico guardado en el turno:
   saldo inicial histórico del TipoCaja. Solo se documenta custodia física; no se
   automatizan ajustes financieros por faltantes/sobrantes.
 
+## Revisión de movimientos antes de validar — T36
+
+Decisión de Carlos (DU-54), 17/10/2026: «Exigir todos tildados para validar».
+Solo ADMIN activo puede tildar y destildar, sobre una caja CERRADA con conteo.
+La revisión queda guardada por movimiento, con fecha, autor y huella del contenido.
+Validar exige revisar todos los renglones de Detalle, incluidos los cancelados;
+estos últimos siguen sin sumarse en Cashflow. Una caja vacía conserva su validación.
+El control está en el servicio: también alcanza a Resumen y a las llamadas directas.
+Si faltan revisiones, informa cuántas en castellano; desde Resumen lleva a Detalle.
+No modifica el cierre físico ni genera asientos hasta completar la revisión.
+
+Sobre un rechazo, Carlos decidió: «Destildar solo los movimientos que cambien».
+Rechazar conserva las marcas vigentes. Editar o cancelar invalida la revisión de los
+movimientos afectados; los demás conservan su tilde. Una pantalla vieja no puede
+marcar como revisado un contenido que cambió después de abrirla.
+Las cajas históricas ya VALIDADA mantienen la validación idempotente existente.
+Implementación local; revisión independiente de Claude y aspecto con Carlos, sin despliegue.
+
 ## Rechazadas y conservación de la entrega
 
 T37, decisión de Carlos del 17/10/2026: rechazar exige un motivo de texto

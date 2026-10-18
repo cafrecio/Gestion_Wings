@@ -237,17 +237,3 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 @endif
 
 @endsection
-
-@push('scripts')
-@if(Auth::user()->isAdmin() && $caja->estado === 'CERRADA' && $caja->efectivo_contado !== null)
-<script>
-function abrirRechazar() {
-    var m = document.getElementById('modal-rechazar');
-    if (m) { m.style.display = 'flex'; }
-}
-document.getElementById('modal-rechazar')?.addEventListener('click', function(e) {
-    if (e.target === this) this.style.display = 'none';
-});
-</script>
-@endif
-@endpush

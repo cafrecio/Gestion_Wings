@@ -46,13 +46,13 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T36** Validar una caja exige todos los movimientos tildados | Hecho, espera verificación (hizo Codex, verifica Claude) | Claude: verificar persistencia, todos tildados, Resumen, permisos, vacía y solo cambios destildan (Carlos). 14 pruebas nuevas y navegador aprobados, 12 capturas. Suite inicial 818/2/1 T38; tras cbc851e de Claude, repetición integrada T38/T36/FIN-11/guardianes 50 aprobadas/314 aserciones. Ver IMPLEMENTACION-T36.md. Disposición aprobada en T37 conservada. Sin despliegue. |
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T36** Validar una caja exige todos los movimientos tildados | En curso (hizo Codex, verifica Claude) | Tabla: DU-54 · CAJ-040 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de seguir la prueba] Hoy los tildes no se guardan y Validar funciona sin tildar nada, tambien desde el Resumen. TOCA: migracion para guardar el tilde por movimiento, CajaWebController::validar, CajaService::validarCaja, vistas caja/detalle y caja/resumen y su script. POR QUE ANTES: cambia el paso de validacion que el cuento repite cada dia. ORDEN: comparte CajaWebController con T37, T51 y T59 |
+Nada en este momento.
 
 ## Gemini
 

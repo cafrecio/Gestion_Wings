@@ -9,6 +9,8 @@
 <div class="ds-flash ds-flash--error" role="alert">{{ $message }}</div>
 @enderror
 
+<div id="verificacion-error" class="ds-flash ds-flash--error" role="alert" @if(!$errors->has('movimientos')) hidden @endif>{{ $errors->first('movimientos') }}</div>
+
 @php
 $user      = Auth::user();
 $esAdmin   = $user->isAdmin();
@@ -34,6 +36,7 @@ $movimientosActivos = $caja->movimientos->where('estado', 'ACTIVO');
 $ingresos  = $movimientosActivos->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'INGRESO')->sum('monto');
 $egresos   = $movimientosActivos->filter(fn($m) => $m->subrubro?->rubro?->tipo === 'EGRESO')->sum('monto');
 $totalMovs = $caja->movimientos->count();
+$totalVerificados = $caja->movimientos->filter(fn ($movimiento) => $movimiento->estaVerificado())->count();
 $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 @endphp
 
@@ -63,7 +66,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 <div class="stats-bar mb-3" style="flex-wrap:wrap;">
     <div class="stats-info" style="flex-shrink:0;">
         @if($hasCheckbox)
-            <span id="verificados-counter">0 de {{ $totalMovs }} verificados</span>
+            <span id="verificados-counter">{{ $totalVerificados }} de {{ $totalMovs }} verificados</span>
         @else
             <strong>{{ $totalMovs }}</strong> movimiento{{ $totalMovs !== 1 ? 's' : '' }}
         @endif
@@ -190,7 +193,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                                class="ds-btn-row ds-btn-row--sec">Editar</a>
                             <form method="POST"
                                   action="{{ route('web.caja.movimientos.destroy', [$caja->id, $mov->id]) }}"
-                                  onsubmit="return confirm('¿Eliminar este movimiento?')"
+                                  data-confirmar-eliminacion="¿Eliminar este movimiento?"
                                   style="display:contents;">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="ds-btn-row ds-btn-row--dang">Eliminar</button>
@@ -205,10 +208,16 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                         <a href="{{ route('web.recibos.cuota', $mov->pago_id) }}?inline=1"
                            class="ds-btn-row ds-btn-row--sec" target="_blank">Recibo</a>
                         <input type="checkbox" class="mov-check"
+                               data-verificar-url="{{ route('web.cajas.movimientos.verificar', [$caja->id, $mov->id]) }}"
+                               data-huella="{{ $mov->huellaVerificacion() }}" @checked($mov->estaVerificado())
+                               @disabled($caja->efectivo_contado === null) aria-label="Verificar movimiento {{ $mov->id }}"
                                style="width:15px; height:15px; cursor:pointer; accent-color:var(--color-btn-primary);">
                     </div>
                     @else
                     <input type="checkbox" class="mov-check"
+                           data-verificar-url="{{ route('web.cajas.movimientos.verificar', [$caja->id, $mov->id]) }}"
+                           data-huella="{{ $mov->huellaVerificacion() }}" @checked($mov->estaVerificado())
+                           @disabled($caja->efectivo_contado === null) aria-label="Verificar movimiento {{ $mov->id }}"
                            style="width:15px; height:15px; cursor:pointer; accent-color:var(--color-btn-primary);">
                     @endif
                 </td>
@@ -296,54 +305,5 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 @endsection
 
 @push('scripts')
-@if($hasEditar)
-<script>
-function abrirCancelar(movId, actionUrl) {
-    var form = document.getElementById('form-cancelar');
-    if (form) form.action = actionUrl;
-    var m = document.getElementById('modal-cancelar');
-    if (m) m.style.display = 'flex';
-}
-function cerrarCancelar() {
-    var m = document.getElementById('modal-cancelar');
-    if (m) m.style.display = 'none';
-}
-document.getElementById('modal-cancelar')?.addEventListener('click', function(e) {
-    if (e.target === this) cerrarCancelar();
-});
-</script>
-@endif
-@if($hasCheckbox)
-<script>
-(function () {
-    var checks  = document.querySelectorAll('.mov-check');
-    var counter = document.getElementById('verificados-counter');
-    var btnVal  = document.getElementById('btn-validar');
-    var total   = checks.length;
-
-    function update() {
-        var checked = document.querySelectorAll('.mov-check:checked').length;
-        if (counter) counter.textContent = checked + ' de ' + total + ' verificados';
-        if (btnVal) {
-            btnVal.style.background = (checked === total && total > 0)
-                ? 'var(--color-success)'
-                : 'var(--color-btn-primary)';
-        }
-    }
-
-    checks.forEach(function (c) { c.addEventListener('change', update); });
-    update();
-
-    function abrirRechazar() {
-        var m = document.getElementById('modal-rechazar');
-        if (m) m.style.display = 'flex';
-    }
-    window.abrirRechazar = abrirRechazar;
-
-    document.getElementById('modal-rechazar')?.addEventListener('click', function (e) {
-        if (e.target === this) this.style.display = 'none';
-    });
-})();
-</script>
-@endif
+@vite('resources/js/caja-detalle.js')
 @endpush

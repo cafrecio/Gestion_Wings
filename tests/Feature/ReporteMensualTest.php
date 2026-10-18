@@ -12,6 +12,7 @@ use Tests\TestCase;
 
 class ReporteMensualTest extends TestCase
 {
+    use \Tests\Concerns\VerificaMovimientosDeCaja;
     use RefreshDatabase;
 
     protected function setUp(): void
@@ -70,6 +71,7 @@ class ReporteMensualTest extends TestCase
         $antes = $s->obtener('2026-10');
         $caja = CajaOperativa::where('estado', 'CERRADA')->firstOrFail();
         $admin = User::where('rol', 'ADMIN')->firstOrFail();
+        $this->verificarMovimientosDeCaja($caja, $admin);
         app(CajaService::class)->validarCaja($caja->id, $admin->id);
         app(CajaService::class)->validarCaja($caja->id, $admin->id);
         $despues = $s->obtener('2026-10');
@@ -429,6 +431,7 @@ class ReporteMensualTest extends TestCase
         $this->assertSame($octubre['egresos'], $despues['egresos']);
         $this->assertSame($octubre['disponible'], $despues['disponible']);
         $pendiente = \App\Models\MovimientoOperativo::whereHas('cajaOperativa', fn ($q) => $q->where('estado', 'CERRADA'))->firstOrFail();
+        $this->verificarMovimientosDeCaja(CajaOperativa::findOrFail($pendiente->caja_operativa_id), User::where('rol', 'ADMIN')->firstOrFail());
         app(CajaService::class)->validarCaja($pendiente->caja_operativa_id, User::where('rol', 'ADMIN')->first()->id);
         $this->assertSame($octubre['disponible'], $s->obtener('2026-10')['disponible']);
         $sinClasificar = Subrubro::create(['nombre' => 'Concepto sin clasificar', 'rubro_id' => $rubro->id,

@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-17 — Codex CAB — T36 implementada localmente, entrega a Claude
+
+Tildes persistentes con autor/fecha/huella, solo ADMIN activo; validar exige todos en servicio.
+Resumen redirige a Detalle si faltan; vacías e idempotencia previa conservadas.
+Carlos: «Destildar solo los movimientos que cambien»; rechazar conserva los demás.
+Detalle/Resumen sin JavaScript incrustado; quedan 8 bloques/8 vistas/8 manejadores (T73).
+68 dirigidas/449 aserciones y 9 de cancelación/concurrencia real/125 aserciones aprobadas.
+Chrome comprobó persistencia, validación, ambos modales, fallo de red y confirmación.
+Suite propia: 818/2/1 T38, 7584 aserciones; tras cbc851e de Claude, repetición integrada 50/314 aprobada; [informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md).
+Sin despliegue ni autocierre. Reglas para Claude y aspecto para Carlos; T37 ya cerrada por Claude.
+
 ## 2026-10-17 — Codex CAB — T37 implementada localmente, entrega a Claude
 
 Motivo de rechazo obligatorio, texto hasta 500 y solo espacios vacío; sin mínimo adicional.
@@ -107,26 +118,6 @@ Capturas reales renovadas: ocho visitas sin fallos; seis botones a derecha, cuat
 Suite de revisión: 734 aprobadas/2 omitidas/2 fallidas, 6981 aserciones, 1186.19 s; T33 31 verdes.
 Dos fallos de disponible en CashflowCorreccionesT27Test confirmados por separado; causa sin atribuir.
 
-## 2026-10-13 — ORDEN DE CARLOS PARA LOS TRES AGENTES — esto no puede volver a pasar
-
-Escrito por Claude CyE en las tres bitácoras por orden de Carlos («ponelo en todas las
-bitácoras como algo que no puede pasar»). Regla completa en `AGENTS.md` §5-bis.
-
-**1. Prohibido escribir JavaScript dentro de una vista.** Ni `<script>` sin `src`, ni
-`onclick` u otro atributo de evento. Va en un archivo de `resources/js/`. Antes de
-escribir, buscar en `ds-app.js` si ya existe. El botón de mostrar la contraseña del
-ingreso se escribió adentro de la pantalla el 21/07 y ahí sigue, aunque `ds-app.js` ya lo
-resuelve para el formulario de usuarios. Cada pantalla así rompe la política de seguridad
-y manda un aviso al servidor en cada carga. Quedan 11 bloques en 10 vistas: los saca T73.
-
-**2. Una limpieza no queda «en avance» sin dueño ni fecha.** Sacar el código de las
-vistas empezó el 13/09 y quedó a medias un mes, sin tarea en el tablero. Si un trabajo se
-corta, queda una tarea T con lo que falta.
-
-**3. Un número en un documento se corrige cuando cambia.** `ESTADO-ACTUAL` y
-`PLAN-PRODUCCION` decían «19 bloques en 17 vistas» y `AGENTS.md` «24», cuando eran 11.
-Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los documentos.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -134,3 +125,5 @@ Quien baja el número en `CspSinCodigoIncrustadoTest` lo baja también en los do
 [Entrada archivada al iniciar B11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-B11-ARRANQUE.md).
 
 [Entrada archivada al iniciar T37](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T37-ARRANQUE.md).
+
+[Orden del 13/10 archivada al iniciar T36; reglas vigentes en AGENTS.md](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T36-ARRANQUE.md).

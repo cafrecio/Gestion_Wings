@@ -18,6 +18,7 @@ use Tests\TestCase;
  */
 class CobrarCancelarValidarConcurrenteTest extends TestCase
 {
+    use \Tests\Concerns\VerificaMovimientosDeCaja;
     private array $creados = [];
     private Alumno $alumno;
     private DeudaCuota $deuda;
@@ -113,6 +114,7 @@ class CobrarCancelarValidarConcurrenteTest extends TestCase
                 'efectivo_contado' => $service->arqueoCaja($id)['efectivo_esperado'], 'cambio_retenido' => 0,
             ]);
         }
+        $this->verificarMovimientosDeCaja(\App\Models\CajaOperativa::findOrFail($id), $this->admin);
         app(CajaService::class)->validarCaja($id, $this->admin->id);
     }
 

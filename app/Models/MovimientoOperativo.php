@@ -35,7 +35,42 @@ class MovimientoOperativo extends Model
         'fecha'  => 'date',
         'monto'  => 'decimal:2',
         'estado' => 'string',
+        'verificado_at' => 'datetime',
+        'verificado_por' => 'integer',
     ];
+
+    protected static function booted(): void
+    {
+        static::updating(function (self $movimiento) {
+            if ($movimiento->isDirty($movimiento->getFillable())) {
+                $movimiento->verificado_at = null;
+                $movimiento->verificado_por = null;
+                $movimiento->verificacion_huella = null;
+            }
+        });
+    }
+
+    public function huellaVerificacion(): string
+    {
+        // Incluye todo el contenido del movimiento, no la marca ni updated_at.
+        // También detecta actualizaciones masivas que no disparan eventos Eloquent.
+        $contenido = [];
+        foreach ($this->getFillable() as $campo) {
+            $valor = $this->getOriginal($campo);
+            $contenido[$campo] = $valor instanceof \DateTimeInterface
+                ? $valor->format('Y-m-d')
+                : ($valor === null ? null : (string) $valor);
+        }
+
+        return hash('sha256', json_encode($contenido, JSON_THROW_ON_ERROR));
+    }
+
+    public function estaVerificado(): bool
+    {
+        return $this->verificado_at !== null
+            && is_string($this->verificacion_huella)
+            && hash_equals($this->verificacion_huella, $this->huellaVerificacion());
+    }
 
     /**
      * Relación con CajaOperativa

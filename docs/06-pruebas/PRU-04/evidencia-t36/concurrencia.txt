@@ -1,0 +1,18 @@
+
+   PASS  Tests\Feature\CajaVerificacionConcurrenteT36Test
+  ✓ validar espera la verificacion y refleja una sola vez                                                       42.58s
+  ✓ destildar espera validacion y no altera una caja validada                                                   42.94s
+
+   PASS  Tests\Feature\CancelarCobroOperativoTest
+  ✓ cancelacion elimina imputaciones y restablece el invariante de la deuda                                      1.99s
+
+   PASS  Tests\Feature\CobrarCancelarValidarConcurrenteTest
+  ✓ cobrar primero cancelar despues                                                                              4.18s
+  ✓ cancelar primero cobrar despues                                                                              3.88s
+  ✓ cobrar primero validar despues                                                                               4.76s
+  ✓ validar primero cobrar despues                                                                               3.38s
+  ✓ cancelar primero validar despues                                                                             2.70s
+  ✓ validar primero cancelar despues                                                                             2.86s
+
+  Tests:    9 passed (125 assertions)
+  Duration: 109.57s

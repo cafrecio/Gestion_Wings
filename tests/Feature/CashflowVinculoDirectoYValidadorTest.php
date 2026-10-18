@@ -36,6 +36,7 @@ use Tests\TestCase;
  */
 class CashflowVinculoDirectoYValidadorTest extends TestCase
 {
+    use \Tests\Concerns\VerificaMovimientosDeCaja;
     use RefreshDatabase;
 
     private User $adminCarlos;
@@ -131,6 +132,7 @@ class CashflowVinculoDirectoYValidadorTest extends TestCase
         $caja->efectivo_contado = 30800;
         $caja->save();
 
+        $this->verificarMovimientosDeCaja($caja, $this->adminCarlos);
         $this->cajaService->validarCaja($caja->id, $this->adminCarlos->id);
 
         $movimientosCashflow = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_CAJA)
@@ -168,6 +170,7 @@ class CashflowVinculoDirectoYValidadorTest extends TestCase
         $caja->efectivo_contado = 35000;
         $caja->save();
 
+        $this->verificarMovimientosDeCaja($caja, $this->adminCarlos);
         $this->cajaService->validarCaja($caja->id, $this->adminCarlos->id);
 
         $cfMov = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_CAJA)
@@ -212,6 +215,7 @@ class CashflowVinculoDirectoYValidadorTest extends TestCase
         $caja->efectivo_contado = 35000;
         $caja->save();
 
+        $this->verificarMovimientosDeCaja($caja, $this->adminCarlos);
         $this->cajaService->validarCaja($caja->id, $this->adminCarlos->id);
 
         $cfMov = CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_CAJA)
@@ -265,6 +269,7 @@ class CashflowVinculoDirectoYValidadorTest extends TestCase
         $caja->estado = CajaOperativa::ESTADO_CERRADA;
         $caja->efectivo_contado = 35000;
         $caja->save();
+        $this->verificarMovimientosDeCaja($caja, $adminVanina);
         $this->cajaService->validarCaja($caja->id, $adminVanina->id);
 
         // 2. Movimiento directo del dueño sin caja (cargado por Carlos)

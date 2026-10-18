@@ -177,7 +177,7 @@ colores y los rails de deporte quedan sin pintar.
 |---|---|
 | Atributos `style="..."` escritos a mano en las vistas | **1.054** |
 | Archivos de vista que los contienen | **66** |
-| Archivos con `<script>` incrustado | **24** (al 13/10/2026 quedan 11 bloques en 10 vistas; ver §5-bis) |
+| Archivos con `<script>` incrustado | **24** históricos (al 17/10/2026, T36: quedan 8 bloques en 8 vistas; ver §5-bis) |
 
 Una CSP de manual bloquea las 1.054 de una sola vez. La aplicación queda sin
 colores, sin layout y sin los rieles de color por deporte.
@@ -301,7 +301,9 @@ hubiera regla. Desde ese día la prueba no deja agregar ninguno y bajaron a 11, 
 vistas. Lo que falló fue otra cosa: la limpieza quedó «en avance» desde el 13/09 y los
 documentos de estado siguieron diciendo «19 bloques en 17 vistas» cuando ya eran 11.
 
-**Pendiente:** T73 saca los 11 que quedan, empezando por el ingreso.
+T36 (17/10/2026) retiró los tres bloques de Detalle/Resumen de caja y su confirmación
+incrustada de eliminación: quedan **8 bloques en 8 vistas y 8 manejadores**.
+**Pendiente:** T73 saca los 8 bloques que quedan, empezando por el ingreso.
 
 ---
 

@@ -15,6 +15,7 @@ use Tests\TestCase;
 
 class CashflowIntegracionCajaServiceTest extends TestCase
 {
+    use \Tests\Concerns\VerificaMovimientosDeCaja;
     use RefreshDatabase;
 
     public function test_caja_validada_refleja_solo_movimientos_activos(): void
@@ -45,6 +46,7 @@ class CashflowIntegracionCajaServiceTest extends TestCase
 
         $service = app(CajaService::class);
         $service->cerrarCajaOperativa($caja->id, $admin->id, true, ['efectivo_contado' => 1000, 'cambio_retenido' => 0]);
+        $this->verificarMovimientosDeCaja($caja, $admin);
         $service->validarCaja($caja->id, $admin->id);
         $service->validarCaja($caja->id, $admin->id);
 

@@ -99,6 +99,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
     // ── Admin: validación/rechazo de cajas ────────────────────────────────
     Route::middleware('ensure.admin.web')->group(function () {
         Route::post('/cajas/{id}/validar', [CajaWebController::class, 'validar'])->name('web.cajas.validar');
+        Route::patch('/cajas/{id}/movimientos/{movId}/verificar', [CajaWebController::class, 'verificarMovimiento'])->name('web.cajas.movimientos.verificar');
         Route::post('/cajas/{id}/rechazar', [CajaWebController::class, 'rechazar'])->name('web.cajas.rechazar');
     });
     });

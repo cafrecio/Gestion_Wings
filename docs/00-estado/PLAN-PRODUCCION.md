@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **804 pruebas** en lo publicado al 17/10, con T38. Última suite completa: Claude, 17/10, wings_testing_claude, 819 aprobadas y 2 omitidas, 7585 aserciones, con T36 y T41 todavía sin publicar en la carpeta. Antes: Codex, 784 aprobadas (DETALLE-CAJA-MOBILE.md) |
+| Suite | **818 pruebas** versionadas con T36 (**823 en la carpeta compartida**). Suite completa Codex 17/10: **821 ejecutadas: 818 aprobadas, 2 omitidas y 1 fallida (T38)**; 7584 aserciones, 1332,77 s, salida 1, base y archivos temporales exclusivos. Tras cbc851e de Claude: repetición integrada T38/T36/FIN-11/guardianes, 50 aprobadas/314 aserciones, 34,81 s. No se certifica suite completa verde; detalle en IMPLEMENTACION-T36.md |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | B11 / FIN-14 | Punitorios implementados localmente el 16/10; porcentaje inicial cero. [Entrega y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). A verificar por Claude; sin publicación ni despliegue, conforme al límite de `52e6bdf` y descendientes |
@@ -29,7 +29,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
 | Permisos A29/A30/A31 | Entregados: rechazo explícito y Volver al inicio propio, sin ampliar accesos. Suite 380/2242, tres roles normal/375 px. Pendiente Gemini; sin deploy |
-| CSP | En modo reporte, ya recolectando avisos en report-uri /csp-reporte. Corte T33 13/10: 11 bloques script en 10 vistas y 9 manejadores inline, contados en fuente. |
+| CSP | En modo reporte, recolectando avisos en /csp-reporte. Corte T36 17/10: 8 bloques script en 8 vistas y 8 manejadores inline, contados en fuente. Detalle y Resumen de caja sin código incrustado. |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 

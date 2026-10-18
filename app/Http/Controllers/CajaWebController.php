@@ -663,11 +663,26 @@ class CajaWebController extends Controller
     {
         try {
             $this->cajaService->validarCaja($id, Auth::id());
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->route('web.caja.detalle', $id)->withErrors($e->errors());
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
 
         return redirect()->route('web.caja.index')->with('success', 'Caja validada y reflejada en cashflow.');
+    }
+
+    public function verificarMovimiento(Request $request, int $id, int $movId)
+    {
+        $data = $request->validate([
+            'verificado' => 'required|boolean',
+            'huella' => 'required|string|size:64',
+        ]);
+        $movimiento = $this->cajaService->verificarMovimiento(
+            $id, $movId, Auth::id(), (bool) $data['verificado'], $data['huella']
+        );
+
+        return response()->json(['verificado' => $movimiento->estaVerificado()]);
     }
 
     public function rechazar(Request $request, int $id)

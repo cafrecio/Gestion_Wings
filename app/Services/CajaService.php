@@ -421,6 +421,16 @@ class CajaService
                 throw new \Exception('Falta declarar el efectivo contado y el cambio retenido antes de validar.');
             }
 
+            // Se revisa lo mismo que muestra Detalle, incluidos los cancelados.
+            $movimientos = $caja->movimientos()->orderBy('id')->lockForUpdate()->get();
+            $faltantes = $movimientos->filter(fn ($movimiento) => !$movimiento->estaVerificado())->count();
+            if ($faltantes > 0) {
+                $mensaje = $faltantes === 1
+                    ? 'Falta 1 movimiento por verificar antes de validar la caja.'
+                    : "Faltan {$faltantes} movimientos por verificar antes de validar la caja.";
+                throw ValidationException::withMessages(['movimientos' => $mensaje]);
+            }
+
             // Marcar como validada
             $caja->estado = 'VALIDADA';
             $caja->usuario_admin_validacion_id = $adminId;
@@ -431,6 +441,30 @@ class CajaService
             $this->getCashflowIntegracion()->reflejarCajaEnCashflow($cajaId, $adminId);
 
             return $caja;
+        });
+    }
+
+    public function verificarMovimiento(int $cajaId, int $movimientoId, int $adminId, bool $verificado, string $huella): MovimientoOperativo
+    {
+        return DB::transaction(function () use ($cajaId, $movimientoId, $adminId, $verificado, $huella) {
+            $admin = User::findOrFail($adminId);
+            abort_unless($admin->isAdmin() && $admin->activo, 403);
+            $this->bloquearMostrador();
+            $caja = CajaOperativa::whereKey($cajaId)->lockForUpdate()->firstOrFail();
+            if ($caja->estado !== 'CERRADA' || $caja->efectivo_contado === null) {
+                throw ValidationException::withMessages(['movimientos' => 'Solo se verifican movimientos de una caja cerrada con el efectivo contado.']);
+            }
+            $movimiento = $caja->movimientos()->whereKey($movimientoId)->lockForUpdate()->firstOrFail();
+            if (!hash_equals($movimiento->huellaVerificacion(), $huella)) {
+                throw ValidationException::withMessages(['movimientos' => 'El movimiento cambió. Recargá el detalle antes de verificarlo.']);
+            }
+            $movimiento->forceFill([
+                'verificado_at' => $verificado ? now() : null,
+                'verificado_por' => $verificado ? $adminId : null,
+                'verificacion_huella' => $verificado ? $movimiento->huellaVerificacion() : null,
+            ])->save();
+
+            return $movimiento;
         });
     }
 

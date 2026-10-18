@@ -1,0 +1,69 @@
+
+   PASS  Tests\Feature\CajaVerificacionMovimientosT36Test
+  ✓ tildar destildar y recargar conserva el estado guardado                                                     11.25s
+  ✓ validar con todo tildado conserva marcas y refleja una sola vez                                              0.09s
+  ✓ validar con uno sin tildar avisa y no escribe                                                                0.09s
+  ✓ validar desde resumen lleva a detalle con cantidad faltante                                                  0.08s
+  ✓ servicio directo no salta la verificacion                                                                    0.04s
+  ✓ caja sin movimientos se valida                                                                               0.05s
+  ✓ la operativa y el profesor no pueden tildar                                                                  0.07s
+  ✓ rechazar conserva marcas y corregir solo destilda el movimiento cambiado                                     0.08s
+  ✓ una actualizacion masiva tambien invalida la revision                                                        0.06s
+  ✓ cancelados visibles exigen tilde pero no se suman en cashflow                                                0.08s
+  ✓ una pantalla vieja no puede marcar contenido distinto                                                        0.08s
+  ✓ no se verifica un movimiento por otra caja                                                                   0.06s
+
+   PASS  Tests\Feature\CobrarCancelarValidarConcurrenteTest
+  ✓ cobrar primero cancelar despues                                                                              2.25s
+  ✓ cancelar primero cobrar despues                                                                              3.03s
+  ✓ cobrar primero validar despues                                                                               3.05s
+  ✓ validar primero cobrar despues                                                                               3.00s
+  ✓ cancelar primero validar despues                                                                             3.00s
+  ✓ validar primero cancelar despues                                                                             3.01s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.09s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.05s
+
+   PASS  Tests\Feature\DefectosNoDivergenTest
+  ✓ los dos archivos listan los mismos defectos
+  ✓ lo cerrado esta cerrado en los dos
+  ✓ el avance figura arriba de los dos
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.04s
+
+   PASS  Tests\Feature\ReingresoCuotaT38Test
+  ✓ reactivar genera la cuota del mes con el porcentaje del dia y conserva la deuda vieja                        0.18s
+  ✓ lo que ve la operativa despues de reactivar                                                                  1.43s
+  ✓ el interruptor del listado tambien la genera                                                                 0.15s
+  ✓ si ya tiene la cuota del mes no se genera otra ni se toca                                                    0.15s
+  ✓ dar de baja y volver a reactivar en el mismo mes no duplica                                                  0.19s
+  ✓ dar de baja no genera nada                                                                                   0.16s
+  ✓ sin plan para el mes no se reactiva y avisa                                                                  0.17s
+  ✓ si todavia no empezo reactivar no genera la cuota de este mes                                                0.13s
+  ✓ sin una unica regla para el dia va al 100                                                                    0.19s
+  ✓ reactivar responde la revision pendiente del mes                                                             0.16s
+  ✓ la cuota del reingreso esta en plazo siete dias y despues vence                                              0.18s
+  ✓ reactivado a fin de mes el plazo cruza al mes siguiente                                                      0.16s
+  ✓ las demas cuotas del alumno siguen con su vencimiento                                                        0.19s
+  ✓ el recargo por mora espera el plazo del reingreso                                                            0.24s
+  ✓ cobrar solo deuda vieja a un inactivo genera la cuota del mes                                                0.30s
+  ✓ cobrar parte del mes a un inactivo deja el saldo con plazo                                                   0.36s
+  ✓ cobrar a un activo no cambia                                                                                 0.26s
+  ✓ el cobro no recalcula la cuota del reingreso en el mes del alta                                              0.22s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas                                                                                       0.02s
+  ✓ lo generado coincide con tareas json                                                                         0.01s
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas                                                                    0.01s
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+  Tests:    50 passed (314 assertions)
+  Duration: 34.81s

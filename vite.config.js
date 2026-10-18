@@ -19,6 +19,7 @@ export default defineConfig({
                 'resources/js/configuraciones.js',
                 'resources/js/primera-carga.js',
                 'resources/js/caja-arqueo.js',
+                'resources/js/caja-detalle.js',
                 'resources/js/caja-movimiento.js',
                 'resources/js/cashflow-movimiento.js',
                 'resources/js/reportes.js',

@@ -1,0 +1,64 @@
+{
+  "fecha": "2026-10-18T01:15:15.121Z",
+  "base": "wings_testing_codex",
+  "resultados": [
+    "Tilde guardado después de recargar",
+    "Detalle rechaza validar con uno faltante",
+    "Resumen lleva al Detalle con cantidad faltante",
+    "Rechazo abre y cierra con botón y fondo en ambas vistas",
+    "Fallo de red revierte la casilla y muestra error en castellano",
+    "Todos tildados permiten validar",
+    "Operativa sin casillas; cancelación abre y cierra desde archivo externo",
+    "Eliminar pide confirmación y Cancelar permite seguir usando el formulario"
+  ],
+  "capturas": [
+    {
+      "nombre": "cancelacion-operativa-360.png",
+      "sha256": "49be69cad4cb541087ade7ecc89a124a3a39fdd4e8120df673c3ca19bc6e28e9"
+    },
+    {
+      "nombre": "detalle-falta-uno-360.png",
+      "sha256": "cb6a36e7a24d606f97b96e614280d20179480bad661e38329b643041cb5af3f2"
+    },
+    {
+      "nombre": "detalle-tildes-derecha-360.png",
+      "sha256": "4066b92871b157d021439b5458e8bc2758f4c1190258cc95414751197cc20097"
+    },
+    {
+      "nombre": "detalle-tildes-derecha-375.png",
+      "sha256": "3cfad6c510d06ee3613e37bd07dcb9ab0aa29e11483b6ec864ff84bf3ab66718"
+    },
+    {
+      "nombre": "detalle-uno-verificado-1366.png",
+      "sha256": "d83d089d3ffbb23938e1fba84d9e892a18a63f9599f5bf2604ba79e794513d7b"
+    },
+    {
+      "nombre": "detalle-uno-verificado-360.png",
+      "sha256": "6732187e9bf66cd0ab604413996c2a8025dfa93feb3465cccb560fdef544ef31"
+    },
+    {
+      "nombre": "detalle-uno-verificado-375.png",
+      "sha256": "43feaff3dc5d1245adc3e11e49bebf6b204cda007409dbb1914bc29d9c798891"
+    },
+    {
+      "nombre": "login-control-360.png",
+      "sha256": "e1c06f531bad4ce65f086d583f863870ab173dc51d27a854c4e56254f28415f3"
+    },
+    {
+      "nombre": "rechazo-detalle-360.png",
+      "sha256": "285942a370337c3b1d369169799ed92447890e5948ad073aa255c7907267a289"
+    },
+    {
+      "nombre": "rechazo-resumen-360.png",
+      "sha256": "6c1c247f9dffee426ab772ac5b57892be0f6ddac360621395ece320eac1d0f91"
+    },
+    {
+      "nombre": "resumen-1366.png",
+      "sha256": "4c5f523c2babd566f189e838ec06273981330ac540ba1ce64ef426c2806e72df"
+    },
+    {
+      "nombre": "resumen-375.png",
+      "sha256": "8c085bcabb371f312887db7f8674f87514494fbc5319ac7f1b318bb0241b501b"
+    }
+  ]
+}

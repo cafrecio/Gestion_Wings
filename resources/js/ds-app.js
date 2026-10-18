@@ -263,6 +263,12 @@ import './money-input';
     document.addEventListener('click', function (evento) {
         if (!evento.target || !evento.target.closest) return;
 
+        // Fondo de los modales compartidos de caja: apertura y botones ya se delegan aquí.
+        if (evento.target.matches('#modal-rechazar, #modal-cancelar')) {
+            evento.target.style.display = 'none';
+            return;
+        }
+
         // 1. Confirmación de acción (ej. reactivar alumno)
         var elConfirmar = evento.target.closest('[data-confirmar]');
         if (elConfirmar) {

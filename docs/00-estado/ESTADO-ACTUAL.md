@@ -9,6 +9,22 @@ plazo de un alta en estados y en la mora. El cobro que reactiva a un inactivo co
 18 pruebas nuevas; suite completa 819 aprobadas/2 omitidas. Pendiente: verificación de otro
 agente y mirar la pantalla. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md).
 
+## T36 — Revisión persistente de caja, implementación local 17/10/2026
+
+El tilde se guarda con autor, fecha y huella del movimiento. Solo ADMIN activo revisa
+una caja CERRADA con conteo; validar controla todos los renglones de Detalle en el
+servicio, también desde Resumen. Si faltan, informa cuántos y lleva a Detalle.
+Caja vacía e idempotencia de las ya VALIDADA conservadas; cancelados no suman en Cashflow.
+Carlos: «Destildar solo los movimientos que cambien». Rechazar conserva marcas vigentes;
+editar o cancelar invalida las afectadas, incluso en actualizaciones masivas.
+Las dos vistas sin JavaScript incrustado: quedan 8 bloques en 8 vistas y 8 manejadores.
+68 pruebas dirigidas/449 aserciones y 9 de cancelación/concurrencia real/125 aserciones,
+aprobadas. Chrome comprobó persistencia, ambas puertas de validación, modales, error
+de red y confirmación de eliminar. Suite completa: 818 aprobadas, 2 omitidas y 1 fallo
+en `ReingresoCuotaT38Test`, trabajo paralelo de Claude en esa corrida: esperaba 4000.00 y obtuvo 7000.00.
+7584 aserciones, 1332,77 s, salida 1. Tras cbc851e de Claude, 50 pruebas integradas aprobadas/314 aserciones (34,81 s), incluido ese caso. Sin reparación propia de T38 ni certificación de suite completa verde.
+[Informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue ni autocierre.
+
 ## T37 — Motivo obligatorio de rechazo, implementación local 17/10/2026
 
 Controlador web y servicio exigen texto no vacío de hasta 500 caracteres; solo
@@ -32,7 +48,7 @@ en PrimeraCargaExcelTest; T37 aprobada. Repetición dirigida: 40 aprobadas, 2 fa
 archivos temporales de Primera carga. Esa corrida no fue verde; se conserva en el informe.
 Con carpeta temporal exclusiva, repetición de los mismos casos: 42 aprobadas/714 aserciones,
 52,19 s. Sin modificar código. El fallo de la corrida completa sigue registrado.
-Pendiente solo revisión independiente de Claude de las reglas de rechazo T37. Visual aprobado por Carlos. Sin despliegue.
+Claude verificó y cerró T37 en `870cbb4`; visual aprobado por Carlos. Sin despliegue.
 Alcance resuelto por Carlos (17/10): «Entregar según el prompt; Inicio queda pendiente». CAJ-029.c exige el motivo en Inicio,
 pero el prompt de T37 pide verlo en Resumen y solo autoriza las dos vistas de caja.
 `OperativoDashboardController` pasa un conteo de rechazadas y `operativo/dashboard`
@@ -663,7 +679,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **804 pruebas** en lo publicado al 17/10, con T38. Última suite completa: Claude, 17/10, wings_testing_claude, 819 aprobadas y 2 omitidas, 7585 aserciones, con T36 y T41 todavía sin publicar en la carpeta. Antes: Codex, 784 aprobadas (DETALLE-CAJA-MOBILE.md) |
+| **Tests** | **818 pruebas** versionadas con T36 (**823 en la carpeta compartida**). Suite completa Codex 17/10: **821 ejecutadas: 818 aprobadas, 2 omitidas y 1 fallida (T38)**; 7584 aserciones, 1332,77 s, salida 1, base y archivos temporales exclusivos. Tras cbc851e de Claude: repetición integrada T38/T36/FIN-11/guardianes, 50 aprobadas/314 aserciones, 34,81 s. No se certifica suite completa verde; detalle en IMPLEMENTACION-T36.md |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
@@ -676,7 +692,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only con endpoint /csp-reporte; corte T33 13/10: 11 bloques script en 10 vistas y 9 manejadores inline, contados en fuente. |
+| CSP | Report-only con endpoint /csp-reporte; corte T36 17/10: 8 bloques script en 8 vistas y 8 manejadores inline, contados en fuente. Detalle y Resumen de caja sin código incrustado. |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre

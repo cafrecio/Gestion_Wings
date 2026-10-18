@@ -1,0 +1,85 @@
+
+   PASS  Tests\Feature\CajaCambioInicialA25Test
+  ✓ no se abre automaticamente sin declarar el efectivo                                                         20.12s
+  ✓ primera apertura conserva importe sin crear ingresos                                                         0.08s
+  ✓ esperado excluye transferencias cancelados y cobros admin                                                    0.09s
+  ✓ cierra con faltante y separa el cambio del retiro                                                            0.06s
+  ✓ puede dejar mas cambio que en la apertura                                                                    0.05s
+  ✓ siguiente operativa hereda ultimo cierre del club sin esperar validacion                                     0.04s
+  ✓ corregir lo heredado requiere motivo                                                                         0.16s
+  ✓ corregir lo heredado con motivo conserva ambos importes                                                      0.06s
+  ✓ otro operativo no puede abrir un turno simultaneo                                                            0.06s
+  ✓ admin no valida una caja abierta sin conteo                                                                  0.04s
+  ✓ cerrar sin conteo no cambia el estado                                                                        0.06s
+  ✓ no puede dejar mas cambio que efectivo contado                                                               0.07s
+  ✓ corregir rechazada conserva la entrega y el turno siguiente                                                  0.20s
+  ✓ rechazada no permite reescribir el conteo fisico                                                             0.08s
+  ✓ rechazar no cierra una caja sin conteo                                                                       0.06s
+  ✓ admin abre para la operativa sin crearse caja propia                                                         0.07s
+  ✓ formulario no permite inicial negativo ni sin confirmacion                                                   0.07s
+  ✓ cierre web normaliza miles y admin puede contar turno ajeno                                                  0.08s
+  ✓ operativo no configura y profesor no accede al arqueo                                                        0.15s
+  ✓ segundo operativo no cierra turno ajeno por url                                                              0.21s
+  ✓ pantalla vieja no abre con cierre origen desactualizado                                                      0.08s
+  ✓ caja historica no inventa inicial ni diferencia                                                              0.05s
+
+   PASS  Tests\Feature\CajaVerificacionMovimientosT36Test
+  ✓ tildar destildar y recargar conserva el estado guardado                                                      0.12s
+  ✓ validar con todo tildado conserva marcas y refleja una sola vez                                              0.07s
+  ✓ validar con uno sin tildar avisa y no escribe                                                                0.10s
+  ✓ validar desde resumen lleva a detalle con cantidad faltante                                                  0.06s
+  ✓ servicio directo no salta la verificacion                                                                    0.05s
+  ✓ caja sin movimientos se valida                                                                               0.06s
+  ✓ la operativa y el profesor no pueden tildar                                                                  0.06s
+  ✓ rechazar conserva marcas y corregir solo destilda el movimiento cambiado                                     0.06s
+  ✓ una actualizacion masiva tambien invalida la revision                                                        0.06s
+  ✓ cancelados visibles exigen tilde pero no se suman en cashflow                                                0.11s
+  ✓ una pantalla vieja no puede marcar contenido distinto                                                        0.18s
+  ✓ no se verifica un movimiento por otra caja                                                                   0.33s
+
+   PASS  Tests\Feature\CashflowDetalleAlumnoYUsuarioTest
+  ✓ cobro de operativa validado muestra alumno y operativa en cashflow                                           0.80s
+  ✓ cobro del duenio sin caja muestra alumno y duenio en cashflow                                                0.58s
+  ✓ inscripcion muestra alumno y quien cobro en caja y sin caja                                                  0.82s
+  ✓ gasto sin alumno conserva su observacion y muestra quien cargo                                               0.32s
+  ✓ validar caja dos veces no duplica movimientos en cashflow                                                    0.89s
+
+   PASS  Tests\Feature\CashflowIntegracionCajaServiceTest
+  ✓ caja validada refleja solo movimientos activos                                                               0.18s
+
+   PASS  Tests\Feature\CashflowVinculoDirectoYValidadorTest
+  ✓ validacion de caja guarda el id del movimiento operativo en cada renglon de cashflow                         1.74s
+  ✓ renglon con id muestra alumno del movimiento y quien lo cargo sin mirar observacion                          0.48s
+  ✓ renglon viejo sin id coincidencia exacta muestra alumno y sin coincidencia exacta muestra observacion        0.78s
+  ✓ columna valido muestra iniciales correctas cuando viene de caja y vacia cuando es directo                    0.74s
+  ✓ desempate de iniciales cuando dos administradores comparten iniciales                                        0.06s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.06s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.07s
+
+   PASS  Tests\Feature\ReporteMensualTest
+  ✓ seis meses y mes actual concilian sin arrastre en el resultado                                               8.39s
+  ✓ cobro posterior no borra deuda del cierre anterior                                                           5.48s
+  ✓ validar caja solo traslada pendiente a confirmado sin duplicar                                               5.15s
+  ✓ gastos comunes se restaron una vez y afecta caja no es clasificacion                                         6.06s
+  ✓ historia insuficiente y clasificacion desconocida no simulan cero                                            5.32s
+  ✓ fecha real anterior corrige su mes y ajuste actual conserva el anterior                                      5.31s
+  ✓ creacion y pago del mismo objeto no suman dos veces y deshacer limpia                                        5.25s
+  ✓ cierre y pago de liquidacion conservan el saldo del cierre anterior                                          7.75s
+  ✓ evento y deuda se desatan juntos si falla guardar la historia                                                5.54s
+  ✓ descuento retroactivo no deja deuda artificial en su mes                                                     6.66s
+  ✓ sueldo generado conserva deporte al pagar y anular no borra historia                                        12.86s
+  ✓ reportes reales filtran mes y deporte con historia del corte                                                15.53s
+  ✓ reportes rechazan filtros invalidos sin error del servidor                                                  14.94s
+  ✓ reportes solo admin y primera carga conserva su bloqueo                                                      6.09s
+  ✓ reportes detalles y enlaces concilian inicio y saldos historicos                                             5.22s
+  ✓ reportes no inventan comparacion con movimientos sin clasificar                                              5.43s
+  ✓ inicio admin usa el motor mensual y no cambia por parametros                                                 5.46s
+  ✓ avisos abren exactamente los pendientes incluidos meses antiguos                                             5.91s
+  ✓ inicio y enlaces admin no exponen importes a otros roles                                                     5.07s
+  ✓ inicio sin migracion muestra indisponible sin consultar historia                                             4.98s
+  ✓ modificar saldo inicial no reescribe disponible anterior                                                     5.94s
+
+  Tests:    68 passed (449 assertions)
+  Duration: 179.44s

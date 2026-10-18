@@ -37,6 +37,7 @@ use Tests\TestCase;
  */
 class CashflowDetalleAlumnoYUsuarioTest extends TestCase
 {
+    use \Tests\Concerns\VerificaMovimientosDeCaja;
     use RefreshDatabase;
 
     private User $admin;
@@ -171,6 +172,7 @@ class CashflowDetalleAlumnoYUsuarioTest extends TestCase
         $caja->estado = CajaOperativa::ESTADO_CERRADA;
         $caja->efectivo_contado = 35000;
         $caja->save();
+        $this->verificarMovimientosDeCaja($caja, $this->admin);
         $this->cajaService->validarCaja($caja->id, $this->admin->id);
 
         // Verificación en Cashflow
@@ -252,6 +254,7 @@ class CashflowDetalleAlumnoYUsuarioTest extends TestCase
         $caja->estado = CajaOperativa::ESTADO_CERRADA;
         $caja->efectivo_contado = 5000;
         $caja->save();
+        $this->verificarMovimientosDeCaja($caja, $this->admin);
         $this->cajaService->validarCaja($caja->id, $this->admin->id);
 
         // 3.2 Inscripción cobrada por dueño directo
@@ -313,6 +316,7 @@ class CashflowDetalleAlumnoYUsuarioTest extends TestCase
         $caja->estado = CajaOperativa::ESTADO_CERRADA;
         $caja->efectivo_contado = 0;
         $caja->save();
+        $this->verificarMovimientosDeCaja($caja, $this->admin);
         $this->cajaService->validarCaja($caja->id, $this->admin->id);
 
         // 4.2 Gasto directo del admin en cashflow
@@ -366,8 +370,10 @@ class CashflowDetalleAlumnoYUsuarioTest extends TestCase
         $caja->save();
 
         // Validar por primera vez
+        $this->verificarMovimientosDeCaja($caja, $this->admin);
         $this->cajaService->validarCaja($caja->id, $this->admin->id);
         // Validar por segunda vez (idempotente)
+        $this->verificarMovimientosDeCaja($caja, $this->admin);
         $this->cajaService->validarCaja($caja->id, $this->admin->id);
 
         $respuesta = $this->actingAs($this->admin)->get(route('web.cashflow.index'))->assertOk();

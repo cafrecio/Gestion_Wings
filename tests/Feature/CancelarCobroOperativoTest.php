@@ -16,6 +16,7 @@ use App\Models\Subrubro;
 use App\Models\TipoCaja;
 use App\Models\User;
 use App\Services\PagoCuotaService;
+use App\Services\CajaService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -96,11 +97,21 @@ class CancelarCobroOperativoTest extends TestCase
             'estado' => MovimientoOperativo::ESTADO_ACTIVO,
         ]);
 
+        $admin = User::factory()->create(['rol' => User::ROL_ADMIN, 'activo' => true]);
+        $caja->update(['estado' => 'CERRADA', 'cierre_at' => now(), 'efectivo_contado' => 10000]);
+        app(CajaService::class)->verificarMovimiento(
+            $caja->id, $movimiento->id, $admin->id, true, $movimiento->fresh()->huellaVerificacion()
+        );
+        app(CajaService::class)->rechazarCaja($caja->id, $admin->id, 'Revisar el cobro duplicado');
+        $this->assertTrue($movimiento->fresh()->estaVerificado());
+
         app(PagoCuotaService::class)->cancelarCobroOperativo(
             $movimiento->id,
             'Pago duplicado',
             $operativo->id
         );
+
+        $this->assertFalse($movimiento->fresh()->estaVerificado());
 
         $this->assertDatabaseHas('pagos', [
             'id' => $pago->id,
