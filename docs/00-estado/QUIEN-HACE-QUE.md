@@ -47,7 +47,10 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T39** Al anular un cobro del duenio, la resta va con la fecha del original | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-21 · COB-021 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Carlos: los dos casos (anular un cobro y eliminar un movimiento directo) con la fecha del original, como en Cashflow. TOCA: PagoCuotaService::anularCobroAdmin y el asiento en contra en cashflow. POR QUE ANTES: decide a que mes va la resta; toda anulacion que haga el cuento quedaria con el criterio viejo. ORDEN: comparte PagoCuotaService con T33 y T38: en serie |
+| **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-23 · COB-029 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el sistema dice que debe crearla un administrador y no existe la pantalla. TOCA: ficha del alumno, PagoCuotaService::crearDeudaSiNoExiste, rutas del duenio. ORDEN: DESPUES de T33, misma ficha |
 
 ## Codex
 
@@ -57,11 +60,14 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T57** Medio del cajon: no se puede desactivar, y el duenio lo cambia solo si no hay caja abierta | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-16, DU-59 · CAJ-002, CAT-006 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: TipoCajaWebController::toggleActivo, CajaService::configurarMostrador, vista caja/configuracion |
+| **T63** No se desactiva un deporte o un grupo con alumnos activos o clases futuras | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-41 · GRU-006, CAT-003, SIS-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: DeporteWebController::toggleActivo, GrupoWebController::toggleActivo |
 
-## Sin empezar (38)
+## Sin empezar (34)
 
-T12, T22, T25, T34, T39, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T12, T22, T25, T34, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T59, T60, T61, T62, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
