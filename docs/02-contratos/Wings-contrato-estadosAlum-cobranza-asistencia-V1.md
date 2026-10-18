@@ -282,7 +282,7 @@ Implementado el 17/10/2026 por Claude: `PagoCuotaService::crearCuotaReingreso` y
 `completarReingresoPorCobro`, `AlumnoWebController::toggleActivo`,
 `CobranzaEstadoService::limiteDeLaCuota` (estados y recargo por mora) y la columna
 `deuda_cuotas.fecha_reingreso`. Cubierto por `tests/Feature/ReingresoCuotaT38Test.php`.
-Pendiente de verificación independiente.
+Verificado por Gemini el 18/10/2026 ([VERIFICACION-T38-GEMINI.md](../06-pruebas/PRU-04/VERIFICACION-T38-GEMINI.md)) y cerrado.
 
 ---
 

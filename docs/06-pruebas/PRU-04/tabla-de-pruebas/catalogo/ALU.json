@@ -948,7 +948,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Decidido por Carlos (DU-12, 13/10; plazo de alta para el reingreso, 17/10). Implementado en T38 (17/10): AlumnoWebController::toggleActivo, PagoCuotaService::crearCuotaReingreso y CobranzaEstadoService::limiteDeLaCuota (código leído). Pendiente de verificación independiente.",
+      "fuente": "Decidido por Carlos (DU-12, 13/10; plazo de alta para el reingreso, 17/10). Implementado en T38 (17/10): AlumnoWebController::toggleActivo, PagoCuotaService::crearCuotaReingreso y CobranzaEstadoService::limiteDeLaCuota (código leído). Verificado por Gemini y cerrado el 18/10 (VERIFICACION-T38-GEMINI.md).",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Alumno inactivo con deuda vieja, dado de baja el mes pasado.",
