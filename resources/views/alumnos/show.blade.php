@@ -45,7 +45,7 @@
 @endphp
 
 {{-- Barra de acciones --}}
-<div class="flex flex-wrap items-center gap-2 mb-4 justify-start sm:justify-end">
+<div class="flex flex-wrap items-center gap-2 mb-4 acciones-celular-derecha justify-start sm:justify-end">
     <span style="
         font-size: 0.7rem; font-weight: 600;
         padding: 0.2rem 0.65rem; border-radius: 999px;
@@ -443,7 +443,7 @@
 @endif
 
 {{-- Volver --}}
-<div class="flex flex-wrap items-center gap-2 mt-4 justify-start sm:justify-end">
+<div class="flex flex-wrap items-center gap-2 mt-4 acciones-celular-derecha justify-start sm:justify-end">
     <x-ds.button variant="secondary" href="{{ route('web.alumnos.index') }}">Volver</x-ds.button>
 </div>
 

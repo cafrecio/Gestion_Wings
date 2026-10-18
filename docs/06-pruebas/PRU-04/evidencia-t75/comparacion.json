@@ -1,0 +1,6053 @@
+{
+  "escritorio_diferencias": [],
+  "desbordes": [],
+  "paneles_desbordados": [],
+  "regresiones": [
+    {
+      "slug": "admin-alumnos",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-alumnos",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-alumnos",
+      "ancho": 1366,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 1366,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 1366,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 1366,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 1366,
+      "diferencias": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 360,
+      "diferencias": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 375,
+      "diferencias": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 1366,
+      "diferencias": []
+    }
+  ],
+  "detalle_caja": [
+    {
+      "ancho": 360,
+      "filas": "2x2",
+      "derecha": true
+    },
+    {
+      "ancho": 375,
+      "filas": "2x2",
+      "derecha": true
+    }
+  ],
+  "pantallas_movil_con_cambios": [
+    "admin-caja",
+    "admin-caja-cobrar",
+    "admin-caja-id-resumen",
+    "admin-operativo",
+    "admin-revision-cobranza",
+    "admin-deportes",
+    "admin-clases",
+    "admin-clases-id",
+    "admin-liquidaciones",
+    "admin-liquidaciones-id",
+    "admin-tipos-caja",
+    "operativo-0",
+    "operativo-3",
+    "operativo-4",
+    "operativo-5",
+    "operativo-7",
+    "operativo-9",
+    "profesor-0",
+    "admin-caja-cerrada-resumen",
+    "admin-caja-rechazada-resumen",
+    "admin-caja-validada-resumen",
+    "admin-liquidacion-mes_actual",
+    "admin-liquidacion-cerrada",
+    "admin-liquidacion-pagada",
+    "admin-clase-futura",
+    "primera-carga-pendiente",
+    "error-403",
+    "error-404",
+    "error-429",
+    "error-500",
+    "error-503",
+    "operativo-companero",
+    "operativo-turno-antiguo",
+    "operativo-ultimo-cierre",
+    "operativo-primera-apertura",
+    "admin-alumnos-id",
+    "operativo-2"
+  ],
+  "comparaciones": [
+    {
+      "slug": "admin-sistema-primera-carga",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 3562,
+      "alto_despues": 3562,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-sistema-primera-carga",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 3442,
+      "alto_despues": 3442,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-sistema-primera-carga",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1933,
+      "alto_despues": 1933,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1924,
+      "alto_despues": 1924,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1924,
+      "alto_despues": 1924,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1251,
+      "alto_despues": 1251,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja-apertura",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-apertura",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-apertura",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-configuracion",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-configuracion",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-configuracion",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-movimiento",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-movimiento",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-movimiento",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-historial",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1249,
+      "alto_despues": 1249,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-historial",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1227,
+      "alto_despues": 1227,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-historial",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-cobrar",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cobrar",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              138
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              144,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-cobrar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-cobrar-alumnoId",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1539,
+      "alto_despues": 1539,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-cobrar-alumnoId",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1500,
+      "alto_despues": 1500,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cobrar-alumnoId",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1045,
+      "alto_despues": 1045,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Rectificar",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(4)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1535,
+      "alto_despues": 1535,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Rectificar",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(4)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1535,
+      "alto_despues": 1535,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1023,
+      "alto_despues": 1023,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-id-editar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-id-editar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-id-editar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-id-rectificar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-id-rectificar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-id-rectificar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-id-cerrar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-id-cerrar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-id-cerrar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-editar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-editar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-editar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-cancelar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-cancelar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-cajaId-movimientos-movId-cancelar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-operativo",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              516.33,
+              556.33
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              673.73,
+              713.73
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              822.16,
+              862.16
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              822.16,
+              862.16
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1292,
+      "alto_despues": 1538,
+      "ancho_antes": 352,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-operativo",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              491.14,
+              531.14
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              648.55,
+              688.55
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              796.97,
+              836.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              796.97,
+              836.97
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1266,
+      "alto_despues": 1513,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-operativo",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-movimientos",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1082,
+      "alto_despues": 1082,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-movimientos",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1082,
+      "alto_despues": 1082,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-movimientos",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1160,
+      "alto_despues": 1160,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1160,
+      "alto_despues": 1160,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-revision-cobranza",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Limpiar",
+          "cambios": {
+            "x": [
+              41,
+              224.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Continúa",
+          "cambios": {
+            "x": [
+              48,
+              120.3
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+          "etiqueta": "Inactivo",
+          "cambios": {
+            "x": [
+              145.34,
+              217.64
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1029,
+      "alto_despues": 1029,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-revision-cobranza",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Limpiar",
+          "cambios": {
+            "x": [
+              41,
+              239.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Continúa",
+          "cambios": {
+            "x": [
+              48,
+              135.3
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+          "etiqueta": "Inactivo",
+          "cambios": {
+            "x": [
+              145.34,
+              232.64
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1009,
+      "alto_despues": 1009,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-revision-cobranza",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1418,
+      "alto_despues": 1418,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1382,
+      "alto_despues": 1382,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1380,
+      "alto_despues": 1380,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 2340,
+      "alto_despues": 2340,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 2306,
+      "alto_despues": 2306,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1739,
+      "alto_despues": 1739,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-reportes-alumnos",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 3000,
+      "alto_despues": 3000,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-reportes-alumnos",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 2874,
+      "alto_despues": 2874,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-reportes-alumnos",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1752,
+      "alto_despues": 1752,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 2396,
+      "alto_despues": 2396,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 2314,
+      "alto_despues": 2314,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1657,
+      "alto_despues": 1657,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1845,
+      "alto_despues": 1845,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1784,
+      "alto_despues": 1784,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1509,
+      "alto_despues": 1509,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-cashflow-movimiento",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cashflow-movimiento",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-cashflow-movimiento",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-editar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1043,
+      "alto_despues": 1043,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-editar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1043,
+      "alto_despues": 1043,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-editar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-alumnos",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 5177,
+      "alto_despues": 5177,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-alumnos",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 5177,
+      "alto_despues": 5177,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-alumnos",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 2648,
+      "alto_despues": 2648,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-alumnos-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1838,
+      "alto_despues": 1838,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-alumnos-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1814,
+      "alto_despues": 1814,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-alumnos-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1200,
+      "alto_despues": 1200,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-alumnos-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1663,
+      "alto_despues": 1663,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-alumnos-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1663,
+      "alto_despues": 1663,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-alumnos-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1093,
+      "alto_despues": 1093,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-deportes",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>label:nth-of-type(1)",
+          "etiqueta": "Activo Inactivo",
+          "cambios": {
+            "x": [
+              36,
+              129.98
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              137.02,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>label:nth-of-type(1)",
+          "etiqueta": "Activo Inactivo",
+          "cambios": {
+            "x": [
+              36,
+              129.98
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              137.02,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-deportes",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>label:nth-of-type(1)",
+          "etiqueta": "Activo Inactivo",
+          "cambios": {
+            "x": [
+              36,
+              144.98
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              137.02,
+              246
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>label:nth-of-type(1)",
+          "etiqueta": "Activo Inactivo",
+          "cambios": {
+            "x": [
+              36,
+              144.98
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              137.02,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-deportes",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-deportes-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-deportes-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-deportes-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-deportes-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-deportes-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-deportes-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-rubros",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 4050,
+      "alto_despues": 4050,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-rubros",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 4032,
+      "alto_despues": 4032,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-rubros",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 3728,
+      "alto_despues": 3728,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-rubros-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-rubros-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-rubros-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-rubros-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-rubros-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-rubros-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-rubros-rubroId-subrubros-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1995,
+      "alto_despues": 1995,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1995,
+      "alto_despues": 1995,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-grupos",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1310,
+      "alto_despues": 1310,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-grupos-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-grupos-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-grupos-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-grupos-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-grupos-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-grupos-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-grupos-id",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1271,
+      "alto_despues": 1271,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-grupos-id",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1251,
+      "alto_despues": 1251,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-grupos-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-clases-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-clases-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-clases-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-clases-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-clases-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-clases-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-clases",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1282,
+      "alto_despues": 1282,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-clases",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1282,
+      "alto_despues": 1282,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-clases",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-clases-id",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              249.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1535,
+      "alto_despues": 1535,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-clases-id",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              264.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1512,
+      "alto_despues": 1512,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-clases-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1396,
+      "alto_despues": 1396,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-liquidaciones",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1363,
+      "alto_despues": 1363,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-liquidaciones",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1340,
+      "alto_despues": 1340,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidaciones",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1030,
+      "alto_despues": 1030,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-liquidaciones-crear",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidaciones-crear",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-liquidaciones-crear",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              47,
+              104
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Recalcular",
+          "cambios": {
+            "x": [
+              151,
+              208
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              47,
+              104
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              151,
+              208
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1018,
+      "alto_despues": 1018,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              47,
+              119
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Recalcular",
+          "cambios": {
+            "x": [
+              151,
+              223
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              47,
+              119
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              151,
+              223
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1018,
+      "alto_despues": 1018,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-tipos-caja",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Desactivar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Desactivar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1345,
+      "alto_despues": 1345,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-tipos-caja",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Activar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Desactivar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Desactivar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1345,
+      "alto_despues": 1345,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-tipos-caja",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1089,
+      "alto_despues": 1089,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-tipos-caja-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-tipos-caja-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-tipos-caja-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-tipos-caja-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-tipos-caja-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-tipos-caja-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-niveles",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-niveles-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-niveles-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-niveles-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-niveles-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-niveles-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-niveles-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-usuarios",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1771,
+      "alto_despues": 1771,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-usuarios",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1771,
+      "alto_despues": 1771,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-usuarios",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1348,
+      "alto_despues": 1348,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-usuarios-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-usuarios-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-usuarios-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-usuarios-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1016,
+      "alto_despues": 1016,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-usuarios-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1016,
+      "alto_despues": 1016,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-usuarios-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-configuraciones",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 3776,
+      "alto_despues": 3776,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-configuraciones",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 3728,
+      "alto_despues": 3728,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-configuraciones",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 2879,
+      "alto_despues": 2879,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1676,
+      "alto_despues": 1676,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1676,
+      "alto_despues": 1676,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-profesores",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1018,
+      "alto_despues": 1018,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-profesores-create",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1185,
+      "alto_despues": 1185,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-profesores-create",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1185,
+      "alto_despues": 1185,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-profesores-create",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-profesores-id",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-profesores-id",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-profesores-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-profesores-id-edit",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1313,
+      "alto_despues": 1313,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-profesores-id-edit",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1265,
+      "alto_despues": 1265,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-profesores-id-edit",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "login",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1100,
+      "alto_despues": 1100,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "login",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1100,
+      "alto_despues": 1100,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "login",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1100,
+      "alto_despues": 1100,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "operativo-0",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              56,
+              103.16
+            ],
+            "y": [
+              659.02,
+              699.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Registrar",
+          "cambios": {
+            "x": [
+              149.28,
+              196.44
+            ],
+            "y": [
+              659.02,
+              699.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              56,
+              194.84
+            ],
+            "y": [
+              703.02,
+              743.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              864.42,
+              904.42
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              1012.84,
+              1052.84
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              1012.84,
+              1052.84
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1482,
+      "alto_despues": 1729,
+      "ancho_antes": 438,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-0",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              56,
+              118.16
+            ],
+            "y": [
+              659.02,
+              699.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Registrar",
+          "cambios": {
+            "x": [
+              149.28,
+              211.44
+            ],
+            "y": [
+              659.02,
+              699.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              56,
+              209.84
+            ],
+            "y": [
+              703.02,
+              743.02
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              864.42,
+              904.42
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              1012.84,
+              1052.84
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              1012.84,
+              1052.84
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1482,
+      "alto_despues": 1729,
+      "ancho_antes": 438,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-0",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-1",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 5177,
+      "alto_despues": 5177,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-1",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 5177,
+      "alto_despues": 5177,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-1",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 2648,
+      "alto_despues": 2648,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "operativo-3",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1264,
+      "alto_despues": 1264,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-3",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1264,
+      "alto_despues": 1264,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-3",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-4",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              249.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1535,
+      "alto_despues": 1535,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-4",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              264.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1512,
+      "alto_despues": 1512,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-4",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1396,
+      "alto_despues": 1396,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "operativo-5",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              108
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1393,
+      "alto_despues": 1393,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-5",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Agregar",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(3)",
+          "etiqueta": "Resumen",
+          "cambios": {
+            "x": [
+              36,
+              123
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(3)>a:nth-of-type(4)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1393,
+      "alto_despues": 1393,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-5",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Nuevo",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(4)",
+          "etiqueta": "Rectificar",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(5)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(6)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1575,
+      "alto_despues": 1575,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Nuevo",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(4)",
+          "etiqueta": "Rectificar",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(5)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(6)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1575,
+      "alto_despues": 1575,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1023,
+      "alto_despues": 1023,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1160,
+      "alto_despues": 1160,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1160,
+      "alto_despues": 1160,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-9",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Limpiar",
+          "cambios": {
+            "x": [
+              41,
+              224.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Continúa",
+          "cambios": {
+            "x": [
+              48,
+              120.3
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+          "etiqueta": "Inactivo",
+          "cambios": {
+            "x": [
+              145.34,
+              217.64
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1029,
+      "alto_despues": 1029,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-9",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Limpiar",
+          "cambios": {
+            "x": [
+              41,
+              239.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Continúa",
+          "cambios": {
+            "x": [
+              48,
+              135.3
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+          "etiqueta": "Inactivo",
+          "cambios": {
+            "x": [
+              145.34,
+              232.64
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1009,
+      "alto_despues": 1009,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-9",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "profesor-0",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1264,
+      "alto_despues": 1264,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "profesor-0",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1264,
+      "alto_despues": 1264,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "profesor-0",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "profesor-1",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1531,
+      "alto_despues": 1531,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "profesor-1",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1508,
+      "alto_despues": 1508,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "profesor-1",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1392,
+      "alto_despues": 1392,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Rechazar",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Validar",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1497,
+      "alto_despues": 1497,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Rechazar",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Validar",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1497,
+      "alto_despues": 1497,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              40,
+              209
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1562,
+      "alto_despues": 1562,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              40,
+              224
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1562,
+      "alto_despues": 1562,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1050,
+      "alto_despues": 1050,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              105
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              209
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1457,
+      "alto_despues": 1457,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Detalle",
+          "cambios": {
+            "x": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              144,
+              224
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1457,
+      "alto_despues": 1457,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Recalcular",
+          "cambios": {
+            "x": [
+              47,
+              104
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              151,
+              208
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              47,
+              208
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1045,
+      "alto_despues": 1045,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Recalcular",
+          "cambios": {
+            "x": [
+              47,
+              119
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+          "etiqueta": "Eliminar",
+          "cambios": {
+            "x": [
+              151,
+              223
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              47,
+              223
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1045,
+      "alto_despues": 1045,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              47,
+              208
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1706,
+      "alto_despues": 1706,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              47,
+              223
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1651,
+      "alto_despues": 1651,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1252,
+      "alto_despues": 1252,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Recibo",
+          "cambios": {
+            "x": [
+              47,
+              119
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              151,
+              223
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Recibo",
+          "cambios": {
+            "x": [
+              47,
+              134
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(2)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              151,
+              238
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-clase-futura",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              249.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1544,
+      "alto_despues": 1544,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-clase-futura",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              135.53,
+              264.5
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1500,
+      "alto_despues": 1500,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-clase-futura",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1389,
+      "alto_despues": 1389,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "primera-carga-pendiente",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Continuar",
+          "cambios": {
+            "x": [
+              36,
+              216
+            ]
+          }
+        }
+      ],
+      "alto_antes": 3658,
+      "alto_despues": 3658,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "primera-carga-pendiente",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+          "etiqueta": "Continuar",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 3490,
+      "alto_despues": 3490,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "primera-carga-pendiente",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1945,
+      "alto_despues": 1945,
+      "ancho_antes": 1351,
+      "ancho_despues": 1351
+    },
+    {
+      "slug": "error-403",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "error-403",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "error-403",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "error-404",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "error-404",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "error-404",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "error-429",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "error-429",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "error-429",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "error-500",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(1)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "error-500",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(1)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "error-500",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "error-503",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(1)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              231
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "error-503",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(1)>main:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              36,
+              246
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "error-503",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "welcome-sin-ruta-en-wings",
+      "ancho": 360,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "welcome-sin-ruta-en-wings",
+      "ancho": 375,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 375,
+      "ancho_despues": 375
+    },
+    {
+      "slug": "welcome-sin-ruta-en-wings",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-companero",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              516.33,
+              556.33
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              673.73,
+              713.73
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              822.16,
+              862.16
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              822.16,
+              862.16
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1292,
+      "alto_despues": 1538,
+      "ancho_antes": 352,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-companero",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              491.14,
+              531.14
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              648.55,
+              688.55
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              796.97,
+              836.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              796.97,
+              836.97
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1266,
+      "alto_despues": 1513,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-companero",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-turno-antiguo",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              679.41,
+              719.41
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              836.81,
+              876.81
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              985.23,
+              1025.23
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              985.23,
+              1025.23
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1455,
+      "alto_despues": 1701,
+      "ancho_antes": 430,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-turno-antiguo",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Cerrar",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              679.41,
+              719.41
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              836.81,
+              876.81
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              985.23,
+              1025.23
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              985.23,
+              1025.23
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1455,
+      "alto_despues": 1701,
+      "ancho_antes": 430,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-turno-antiguo",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-ultimo-cierre",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              196
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Abrir",
+          "cambios": {
+            "x": [
+              56,
+              211.17
+            ],
+            "y": [
+              679.41,
+              719.41
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              840.81,
+              880.81
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              989.23,
+              1029.23
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              989.23,
+              1029.23
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1459,
+      "alto_despues": 1705,
+      "ancho_antes": 438,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-ultimo-cierre",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Ver",
+          "cambios": {
+            "x": [
+              56,
+              211
+            ],
+            "y": [
+              479.44,
+              519.44
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Abrir",
+          "cambios": {
+            "x": [
+              56,
+              226.17
+            ],
+            "y": [
+              679.41,
+              719.41
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              840.81,
+              880.81
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              989.23,
+              1029.23
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              989.23,
+              1029.23
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1459,
+      "alto_despues": 1705,
+      "ancho_antes": 438,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-ultimo-cierre",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-primera-apertura",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              113
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              217
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              217
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Abrir",
+          "cambios": {
+            "x": [
+              56,
+              211.17
+            ],
+            "y": [
+              491.14,
+              531.14
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              652.55,
+              692.55
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              800.97,
+              840.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              800.97,
+              840.97
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1270,
+      "alto_despues": 1517,
+      "ancho_antes": 352,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-primera-apertura",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Caja",
+          "cambios": {
+            "x": [
+              32,
+              128
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Cobranza",
+          "cambios": {
+            "x": [
+              136,
+              232
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+          "etiqueta": "Alumnos",
+          "cambios": {
+            "x": [
+              240,
+              232
+            ],
+            "y": [
+              295.78,
+              335.78
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Abrir",
+          "cambios": {
+            "x": [
+              56,
+              226.17
+            ],
+            "y": [
+              491.14,
+              531.14
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Lista",
+          "cambios": {
+            "y": [
+              652.55,
+              692.55
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "etiqueta": "Con deuda 1 Ir a cobranza →",
+          "cambios": {
+            "y": [
+              800.97,
+              840.97
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+          "cambios": {
+            "y": [
+              800.97,
+              840.97
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1270,
+      "alto_despues": 1517,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-primera-apertura",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "admin-alumnos-id",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              79.36,
+              129
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              183.36,
+              233
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              16,
+              233
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1365,
+      "alto_despues": 1365,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "admin-alumnos-id",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              79.36,
+              144
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              183.36,
+              248
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(5)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              16,
+              248
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1365,
+      "alto_despues": 1365,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "admin-alumnos-id",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    },
+    {
+      "slug": "operativo-2",
+      "ancho": 360,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              79.36,
+              129
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              183.36,
+              233
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              16,
+              233
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1365,
+      "alto_despues": 1365,
+      "ancho_antes": 345,
+      "ancho_despues": 345
+    },
+    {
+      "slug": "operativo-2",
+      "ancho": 375,
+      "diferencias": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+          "etiqueta": "Cobrar",
+          "cambios": {
+            "x": [
+              79.36,
+              144
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(2)",
+          "etiqueta": "Editar",
+          "cambios": {
+            "x": [
+              183.36,
+              248
+            ]
+          }
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+          "etiqueta": "Volver",
+          "cambios": {
+            "x": [
+              16,
+              248
+            ]
+          }
+        }
+      ],
+      "alto_antes": 1365,
+      "alto_despues": 1365,
+      "ancho_antes": 360,
+      "ancho_despues": 360
+    },
+    {
+      "slug": "operativo-2",
+      "ancho": 1366,
+      "diferencias": [],
+      "alto_antes": 1000,
+      "alto_despues": 1000,
+      "ancho_antes": 1366,
+      "ancho_despues": 1366
+    }
+  ]
+}

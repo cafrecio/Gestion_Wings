@@ -1,0 +1,29 @@
+{
+  "fecha": "2026-10-18",
+  "base": "wings_testing_codex",
+  "storage": "storage/app/t75-runtime",
+  "total": 823,
+  "aprobadas": 821,
+  "omitidas": 2,
+  "fallidas": 0,
+  "aserciones": 7593,
+  "duracion_segundos": 908.56,
+  "salida": 0,
+  "log_privado_sha256": "c39d4b9a486be758e51142309de193cbcc67fdf1bcee2af5855fd8480a690772",
+  "primera_corrida": {
+    "aprobadas": 819,
+    "omitidas": 2,
+    "fallidas": 2,
+    "aserciones": 7578,
+    "duracion_segundos": 910.73,
+    "fallos": [
+      "FichaAlumnoResponsiveA37Test: expectativa de clase base",
+      "PerdonConcurrenteT33Test: proceso excede 20 segundos"
+    ]
+  },
+  "repeticion_aislada": {
+    "aprobadas": 2,
+    "aserciones": 20,
+    "segundos": 50.0
+  }
+}

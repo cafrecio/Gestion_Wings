@@ -57,7 +57,7 @@
                 @endforeach
             </select>
         </div>
-        <div>
+        <div class="acciones-celular-derecha acciones-celular-fila">
             @if($estadoFiltro || $periodoFiltro)
             <a href="{{ route('web.revision-cobranza.index') }}"
                style="display:inline-flex; align-items:center; justify-content:center; height:38px; padding:0 16px;
@@ -168,7 +168,7 @@
                                      border-radius:var(--radius-btn); background:var(--color-surface); color:var(--color-text);
                                      font-family:inherit; resize:vertical;"></textarea>
                 </div>
-                <div style="display:flex; gap:8px;">
+                <div class="acciones-celular-derecha" style="display:flex; gap:8px;">
                     <button type="submit"
                             style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
                                    font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
@@ -185,7 +185,7 @@
                 </div>
             </form>
         </div>
-        <div id="botones-{{ $revision->id }}" style="display:flex; gap:8px;">
+        <div id="botones-{{ $revision->id }}" class="acciones-celular-derecha" style="display:flex; gap:8px;">
             <button type="button" data-abrir-revision="{{ $revision->id }}" data-tipo="CONTINUA"
                     style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
                            font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;

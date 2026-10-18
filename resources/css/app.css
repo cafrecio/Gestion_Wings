@@ -1189,6 +1189,14 @@ a:hover {
     align-items: center;
 }
 
+/* T75: la alineación de acciones cambia solo en celular. */
+@media (max-width: 640px) {
+    .alumno-actions { justify-content: flex-end; }
+    .acciones-celular-fila { display: flex; width: 100%; }
+    .accion-celular-final { display: flex; margin-left: auto; }
+    .resumen-operativo-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
+
 /* empty-state (copia exacta de CyE, hex → tokens) */
 .empty-state {
     text-align: center;

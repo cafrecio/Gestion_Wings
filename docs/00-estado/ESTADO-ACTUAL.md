@@ -1,5 +1,15 @@
 # Wings — Estado actual
 
+## T75 — Acciones móviles a derecha, entrega local 18/10/2026
+
+CSS/clases únicamente: regla general de tarjeta y barras propias; escritorio conservado.
+101 fuentes revisadas (94 renderizadas más paginación Laravel), 99 casos a 360/375/1366,
+297 mediciones por fase y 428 PNG; 37 casos móviles cambiados, cero desbordes finales.
+Las cuatro grillas y Detalle de caja aprobado permanecen sin diferencias.
+Suite final propia: 821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 908.56 s, salida 0. Primera corrida con dos fallos y repetición aislada 2/20 conservadas en informe.
+Carlos verifica T75; 19 casos fuera de tarjeta/barra conservan su disposición para su decisión.
+[Informe, inventario y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Sin despliegue ni autocierre.
+
 ## T38 — Reactivar genera la cuota del mes, cerrada por Gemini 18/10/2026
 
 DU-12 y decisión de Carlos del 17/10 (plazo de alta para el reingreso). Reactivar desde la
@@ -11,7 +21,10 @@ código, puertas de entrada, importes, plazos, mora, cobro a inactivos, Chrome a
 (12 capturas) y suite completa (**821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 852,91 s**).
 [Implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md) · [Verificación Gemini](../06-pruebas/PRU-04/VERIFICACION-T38-GEMINI.md).
 
-## T36 — Revisión persistente de caja, implementación local 17/10/2026
+## T36 — Revisión persistente de caja, cerrada por Claude 18/10/2026
+
+Claude verificó reglas y registró aprobación visual de Carlos («visualmente están bien»).
+Las cifras siguientes conservan el corte de implementación del 17/10.
 
 El tilde se guarda con autor, fecha y huella del movimiento. Solo ADMIN activo revisa
 una caja CERRADA con conteo; validar controla todos los renglones de Detalle en el
@@ -27,7 +40,9 @@ en `ReingresoCuotaT38Test`, trabajo paralelo de Claude en esa corrida: esperaba 
 7584 aserciones, 1332,77 s, salida 1. Tras cbc851e de Claude, 50 pruebas integradas aprobadas/314 aserciones (34,81 s), incluido ese caso. Sin reparación propia de T38 ni certificación de suite completa verde.
 [Informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue ni autocierre.
 
-## T37 — Motivo obligatorio de rechazo, implementación local 17/10/2026
+## T37 — Motivo obligatorio de rechazo, cerrada por Claude 17/10/2026
+
+Las pruebas siguientes conservan el corte de implementación; el aspecto lo verificó Carlos.
 
 Controlador web y servicio exigen texto no vacío de hasta 500 caracteres; solo
 espacios es vacío. Sin mínimo adicional ni cambios a rechazos históricos.

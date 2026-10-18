@@ -24,7 +24,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 | A15/A16 | CERRADOS 07/10, verificado Gemini y contrastado por Claude ([informe](../06-pruebas/PRU-02/VERIFICACION-A15-A16.md)). Aviso/confirmación y horarios por día; 76 clases con seis cargas, rollback completo. Diseño aprobado por Carlos con capturas reales. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A15-A16.md); otro agente verifica, sin deploy |
 | COB-05, COB-09, FIN-02 | Verificadas el 11/09 sobre e921e5d; 15 cobros en navegador. [Evidencia](../06-pruebas/COB-05-CIERRE-2026-09-11.md) |
 | FIN-03 | Implementada en c1bef8a: detalle documental de nuevas anulaciones; contrato Recibos V2. No reconstruye imputaciones antiguas borradas. Pendiente revisión cruzada y despliegue según pase de Codex |
-| Suite | **823 pruebas** en la carpeta compartida (**818 versionadas con T36**). Suite completa Codex 17/10: **821 ejecutadas: 818 aprobadas, 2 omitidas y 1 fallida (T38)**; 7584 aserciones, 1332,77 s, salida 1, base y archivos temporales exclusivos. Tras cbc851e de Claude: repetición integrada T38/T36/FIN-11/guardianes, 50 aprobadas/314 aserciones, 34,81 s. No se certifica suite completa verde; detalle en IMPLEMENTACION-T36.md |
+| Suite | **823 pruebas versionadas**. Suite completa Codex 18/10 (T75 final): **821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 908.56 s**, salida 0, base y almacenamiento exclusivos. Primera corrida T75 con 2 fallos y repetición aislada 2/20 conservadas en [el informe](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Sin pruebas nuevas de negocio |
 | FDS-04 | Roles de Cobranza y protección de catálogos verificadas 11/09. [Evidencia](../06-pruebas/FDS-04-2026-09-11.md) |
 | FIN-01 | No aplica por decisión de Carlos 11/09; no ejecutar seeders contra datos existentes |
 | FIN-05 | Claude registra corrección de pago concurrente y prueba con dos conexiones; consultar criterio antes de dar por cerrada toda la concurrencia |
@@ -35,9 +35,8 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T36, 17/10, Codex CAB:** tildes persistentes y obligatorios en servicio; Resumen lleva a Detalle si faltan. Solo ADMIN activo. Carlos: «Destildar solo los movimientos que cambien».
-  Rechazar conserva revisiones vigentes; editar/cancelar invalida las afectadas. Detalle/Resumen sin JS incrustado; T73 queda en 8 bloques/8 vistas/8 manejadores.
-  68 pruebas dirigidas/449 aserciones y 9 de cancelación/concurrencia real/125 aserciones aprobadas. Chrome y capturas reales; suite completa 818/2/1 T38; tras cbc851e repetición integrada 50/314 aprobada. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue ni autocierre.
+- **T75 entregada, 18/10, Codex CAB:** acciones móviles a derecha; 99 casos sin desborde y escritorio sin diferencias. [Galería e inventario](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Carlos verifica; 19 controles fuera de tarjeta/barra para su decisión. Gemini no implementar. Sin despliegue.
+- **T36 cerrada por Claude (`9b98067`):** tildes persistentes y obligatorios; Carlos: «Destildar solo los movimientos que cambien» y «visualmente están bien». [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue.
 - **T37 cerrada por Claude (`870cbb4`):** motivo obligatorio hasta 500; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
   Visual verifica Carlos: «Bien ambas imagenes!!» (botoneras a 375 de `4b050ac`); scroll y «Modal OK» aceptados. [Capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Sin otra revisión de IA del aspecto.
   Carlos: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c). Sin despliegue. Última suite completa en la tabla superior.

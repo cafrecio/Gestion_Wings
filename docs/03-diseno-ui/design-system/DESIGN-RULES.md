@@ -122,7 +122,7 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 
 - Todos los elementos interactivos de una misma "zona" (ej: pie de card) terminan en el mismo borde derecho.
 - No mezclar elementos con `margin-left: auto` que desalineen el grupo visual de acciones.
-- El `alumno-actions` es `justify-content: flex-start` con el botón secundario ("+ hijo") en `margin-left: auto`.
+- En escritorio, `alumno-actions` es `justify-content: flex-start` con el botón secundario ("+ hijo") en `margin-left: auto`.
 
 ---
 
@@ -130,7 +130,8 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 
 - En celular, los botones y el interruptor del pie de tarjeta se alinean a la derecha, también cuando ocupan más de una fila.
 - Carlos: «Dijimos que los botones en el celular se alinean todos a la derecha».
-- Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. Ajustes locales: Alumnos, Grupos, Profesores, Configuración (campos y reglas) y Guardar del ajuste de Liquidación. No se cambia el tamaño ni el funcionamiento del interruptor.
+- Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. T75 lo aplica como regla general de `.alumno-actions` en `app.css` hasta 640 px; las barras propias reutilizan `.acciones-celular-derecha`. Se conservan las grillas específicas de Alumnos, Grupos, Profesores y Niveles, y el 2 × 2 aprobado de Detalle de caja. No se cambia el tamaño ni el funcionamiento del interruptor.
+- Los botones de fila de tabla, el ingreso, los modales y los controles fuera de tarjetas/barras se relevan con capturas para que Carlos decida; no se les asigna otra posición por inferencia. [Relevamiento T75](../../06-pruebas/PRU-04/IMPLEMENTACION-T75.md).
 
 ## 8. DÓNDE VIVE EL JAVASCRIPT
 

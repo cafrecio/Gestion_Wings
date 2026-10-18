@@ -1,0 +1,835 @@
+[
+  {
+    "tipo": "Filas de tabla · Caja",
+    "slug": "admin-caja-id-editar",
+    "ruta": "/caja/4/editar",
+    "captura": "despues/admin-caja-id-editar--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Registrar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Filas de tabla · Cashflow",
+    "slug": "admin-cashflow",
+    "ruta": "/cashflow",
+    "captura": "despues/admin-cashflow--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Nuevo"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "",
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "",
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "",
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Filas de tabla · Historial",
+    "slug": "admin-caja-historial",
+    "ruta": "/caja/historial",
+    "captura": "despues/admin-caja-historial--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Filtrar",
+          "Limpiar"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Volver"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Ingreso",
+    "slug": "login",
+    "ruta": "/login",
+    "captura": "despues/login--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "centrados",
+        "controles": [
+          "Ingresar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Agregar período junto al importe",
+    "slug": "admin-caja-cobrar-alumnoId",
+    "ruta": "/caja/cobrar/1",
+    "captura": "despues/admin-caja-cobrar-alumnoId--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          "Agregar"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Cobrar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Interruptor del campo Afecta caja",
+    "slug": "admin-rubros-rubroId-subrubros-create",
+    "ruta": "/rubros/13/subrubros/create",
+    "captura": "despues/admin-rubros-rubroId-subrubros-create--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "Afecta caja No afecta caja"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Guardar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Interruptor del campo Descubierto",
+    "slug": "admin-tipos-caja-create",
+    "ruta": "/tipos-caja/create",
+    "captura": "despues/admin-tipos-caja-create--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "Descubierto permitido Sin descubierto"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Guardar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Ojo de contraseña",
+    "slug": "admin-usuarios-create",
+    "ruta": "/usuarios/create",
+    "captura": "despues/admin-usuarios-create--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          ""
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Crear"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Pasos de primera carga",
+    "slug": "admin-sistema-primera-carga",
+    "ruta": "/sistema/primera-carga",
+    "captura": "despues/admin-sistema-primera-carga--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "1. Catálogos",
+          "2. Plantilla",
+          "3. Revisión"
+        ]
+      },
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "4. Carga"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Enlaces de Reportes",
+    "slug": "admin-reportes",
+    "ruta": "/reportes",
+    "captura": "despues/admin-reportes--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Volver"
+        ]
+      },
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          "Alumnos",
+          "Sueldos"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Filtrar"
+        ]
+      },
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "Alumnos",
+          "Sueldos"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Enlaces de Reporte alumnos",
+    "slug": "admin-reportes-alumnos",
+    "ruta": "/reportes/alumnos",
+    "captura": "despues/admin-reportes-alumnos--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Volver"
+        ]
+      },
+      {
+        "alineacion": "distribuidos",
+        "controles": [
+          "Ingresos y egresos",
+          "Sueldos"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Filtrar"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ver"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Enlaces de Reporte sueldos",
+    "slug": "admin-reportes-sueldos",
+    "ruta": "/reportes/sueldos",
+    "captura": "despues/admin-reportes-sueldos--360--principal.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Volver"
+        ]
+      },
+      {
+        "alineacion": "izquierda",
+        "controles": [
+          "Ingresos y egresos",
+          "Alumnos"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Filtrar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Enlace Ver todos de un grupo",
+    "slug": "admin-grupos-id",
+    "ruta": "/grupos/1",
+    "captura": "despues/admin-grupos-id--360--pie.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Editar"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Arias, Valentina"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Bustos, Daniela"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cáceres, Eugenia"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ferreyra, Agustina"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Ledesma, Josefina"
+        ]
+      },
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          "Ver todos (11)"
+        ]
+      },
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          "Eliminar"
+        ]
+      },
+      {
+        "alineacion": "intermedia",
+        "controles": [
+          "Eliminar"
+        ]
+      },
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Volver"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-deuda-anterior",
+    "slug": "admin-caja-cobrar-alumnoId",
+    "ruta": "/caja/cobrar/1",
+    "captura": "despues/admin-caja-cobrar-alumnoId--360--panel-modal-deuda-anterior.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cerrar",
+          "Cobrar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-cancelar",
+    "slug": "operativo-6",
+    "ruta": "/caja/4/detalle",
+    "captura": "despues/operativo-6--360--panel-modal-cancelar.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cerrar",
+          "Confirmar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-rechazar",
+    "slug": "admin-caja-cerrada-detalle",
+    "ruta": "/caja/1/detalle",
+    "captura": "despues/admin-caja-cerrada-detalle--360--panel-modal-rechazar.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Rechazar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-rechazar",
+    "slug": "admin-caja-cerrada-resumen",
+    "ruta": "/caja/1/resumen",
+    "captura": "despues/admin-caja-cerrada-resumen--360--panel-modal-rechazar.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cancelar",
+          "Rechazar"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-anular",
+    "slug": "admin-alumnos-id",
+    "ruta": "/alumnos/1",
+    "captura": "despues/admin-alumnos-id--360--panel-modal-anular.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cerrar",
+          "Anular"
+        ]
+      }
+    ]
+  },
+  {
+    "tipo": "Modal existente · modal-condonar",
+    "slug": "admin-alumnos-id",
+    "ruta": "/alumnos/1",
+    "captura": "despues/admin-alumnos-id--360--panel-modal-condonar.png",
+    "posiciones": [
+      {
+        "alineacion": "derecha",
+        "controles": [
+          "Cerrar",
+          "Condonar"
+        ]
+      }
+    ]
+  }
+]

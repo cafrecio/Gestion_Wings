@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-18 — Codex CAB — T75 implementada, revisión visual de Carlos
+
+Regla general móvil a derecha y seis vistas con barras propias; escritorio conservado.
+101 fuentes revisadas, 99 casos/297 mediciones por fase, 428 PNG reales; 37 casos cambiados.
+Cero desbordes 360/375; 99 escritorios y 18 controles de grillas/Detalle sin diferencias.
+Solo CSS/clases; sin JavaScript, reglas ni pruebas de negocio. Build/sintaxis/vistas correctos.
+Suite completa final propia: 821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 908.56 s; salida 0. Primera 819/2/2; aislada 2/20, registradas.
+[Informe, inventario y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md); Carlos revisa T75 y 19 casos de controles ajenos a tarjetas/barras.
+T36/T37 y sus imágenes aprobadas siguen cerradas; «Destildar solo los movimientos que cambien» conservado.
+Gemini: no implementar; anotado en tablero, sin chat disponible para mensaje directo. Sin despliegue/autocierre.
+
 ## 2026-10-17 — Codex CAB — T36 implementada localmente, entrega a Claude
 
 Tildes persistentes con autor/fecha/huella, solo ADMIN activo; validar exige todos en servicio.
@@ -102,22 +113,6 @@ Suite propia: 722 aprobadas, 2 omitidas, 6910 aserciones, 1106.41 s; carpeta com
 APROBADO en Chrome medido; navegador sin color-mix y teléfono físico no verificados. Sin arreglo, datos, reloj ni despliegue.
 [Informe y capturas](../06-pruebas/PRU-04/VERIFICACION-T7-CODEX.md). Tablero: tiene Carlos, espera OK visual; no cerrado.
 
-## 2026-10-13 — Codex CyE — T33 implementada, entrega a Claude
-
-DU-25/DU-58: ADMIN perdona inscripción y reactiva cuota/inscripción desde ficha, con motivo 10–500.
-Original y parciales intactos; historial de las dos decisiones; bloqueos persona, alumno, deuda/cargo.
-31 pruebas propias verdes; suite completa local 736 aprobadas/2 omitidas, 7001 aserciones, 895.64 s.
-Incluye 18 pruebas T31 sin publicar; primer intento con 3 fallos propios, corregidos solo en los controles.
-Capturas reales 1366/marco360 y login: ocho visitas sin fallos; sin CSS compartido ni archivos de Gemini.
-Contrato, contadores y evidencia actualizados; 720 pruebas versionadas al publicar solo T33.
-Las tres rutas propias entraron en 602efcc de Claude; comprobadas en HEAD, sin repetir el archivo.
-[Informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). Tablero a_verificar, hizo Codex, verifica/tiene Claude.
-Sin sitio de prueba, reloj ni despliegue. Carlos revisa capturas; Claude verifica lógica; no se autocierra.
-Corrección pedida por Carlos: inscripción ahora a derecha en ambos anchos, 12 px bajo la línea.
-Capturas reales renovadas: ocho visitas sin fallos; seis botones a derecha, cuatro separaciones de 12 px.
-Suite de revisión: 734 aprobadas/2 omitidas/2 fallidas, 6981 aserciones, 1186.19 s; T33 31 verdes.
-Dos fallos de disponible en CashflowCorreccionesT27Test confirmados por separado; causa sin atribuir.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -127,3 +122,5 @@ Dos fallos de disponible en CashflowCorreccionesT27Test confirmados por separado
 [Entrada archivada al iniciar T37](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T37-ARRANQUE.md).
 
 [Orden del 13/10 archivada al iniciar T36; reglas vigentes en AGENTS.md](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T36-ARRANQUE.md).
+
+[Entrada T33 archivada al entregar T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-ARRANQUE.md).

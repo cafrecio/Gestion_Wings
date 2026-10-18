@@ -64,7 +64,7 @@
                     @endif
                 </span>
                 @if(!$clase->cancelada && $puedeModificarProfesores)
-                    <button id="btn-modificar-profesores"
+                    <button id="btn-modificar-profesores" class="accion-celular-final"
                             style="font-size:0.72rem; font-weight:600; padding:2px 10px; border-radius:var(--radius-btn);
                                    border:1px solid var(--color-border); background:transparent;
                                    color:var(--color-text-muted); cursor:pointer; font-family:inherit;">
@@ -171,7 +171,7 @@
         <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
             Indicá el motivo de cancelación
         </p>
-        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <input type="text" id="input-motivo-cancelacion"
                    placeholder="Ej: Feriado, Pista insegura, Lluvia..."
                    maxlength="255"
@@ -242,7 +242,7 @@
                               background:var(--color-surface); color:var(--color-text); font-family:inherit;">
             </div>
         @endif
-        <div style="display:flex; gap:8px; align-items:center;">
+        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;">
             <button id="btn-guardar-profesores"
                     style="display:inline-flex; align-items:center; justify-content:center;
                            width:96px; height:32px; font-size:0.82rem; font-weight:600;

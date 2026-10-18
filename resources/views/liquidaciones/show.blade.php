@@ -121,7 +121,7 @@
                 </div>
             @endif
 
-            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <div class="acciones-celular-derecha" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
 
                 @if($estaAbierta)
                     @if($liquidacion->puedeCerrarse())

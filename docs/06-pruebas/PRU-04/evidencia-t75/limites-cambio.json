@@ -1,0 +1,44 @@
+[
+  {
+    "archivo": "resources/css/app.css",
+    "prueba": "Solo bloque nuevo @media max-width 640px; resto del CSS idéntico",
+    "antes_sha256": "c1bf94156ff80d76834c3064c9b08f3da5b97f938e560ed7c900c2c748b9e8ad",
+    "despues_sha256": "9d701dec0ce155c8ac7f1bbbfe8bb9f93fad6840fa727ab341c385a25eb62e7d"
+  },
+  {
+    "archivo": "resources/views/alumnos/show.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "b73f460bedc8a602b84f7389dd4ad363133ec19739113b425a493621b409f8c6",
+    "despues_sha256": "3b84d3749abf8692032bf0113b29f37202a9b0d2f88c91f2ec3a7cbb9e5cf7c2"
+  },
+  {
+    "archivo": "resources/views/caja/resumen.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "6534798118e69e5e059e2f1b21cb3ad0eeee4f4104c6c73d0716ad8a1fe41e75",
+    "despues_sha256": "09a8cc69a958c50d9e76caedb208d580e5b32681520200b8d79553850e4a9795"
+  },
+  {
+    "archivo": "resources/views/clases/show.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "d5dc57e750d19aa9905e7882347979afabba4715e9196fc65010db87a9a79261",
+    "despues_sha256": "b2ec752bc8ce9c2abdb916313646760e194153248d7f962da4eb0b989b8a4345"
+  },
+  {
+    "archivo": "resources/views/liquidaciones/show.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "92941adb8518e65bedeb98af13f62a34289b02edb198b2e3ba56a1469f4f2516",
+    "despues_sha256": "64bee0199a6281b1d4a9ccb59fb57a17d8ceb4d9f00cf2896adc725b1ce3b505"
+  },
+  {
+    "archivo": "resources/views/operativo/dashboard.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "3bb56f4e6cff0fbdb1610a116b5c3e93a598fbdddd961493c8b6ca263e6da254",
+    "despues_sha256": "2febe997b3b844b912fa3695a8b697fd455b6af81bac4087f51b7d250cc96606"
+  },
+  {
+    "archivo": "resources/views/revision-cobranza/index.blade.php",
+    "prueba": "Solo atributos class; lógica, etiquetas, textos, estilos inline y JavaScript idénticos",
+    "antes_sha256": "5e0766a6a6b626805932d53f77de276973834f1ab1ed55dec8fc7a2977ae748c",
+    "despues_sha256": "7012ca6272d882e0eb69ad4ce587e32680de945841937a0c521abf9343e3a247"
+  }
+]

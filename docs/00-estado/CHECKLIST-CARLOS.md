@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 823 pruebas en carpeta compartida; 818 versionadas con T36. Suite Codex: 818 aprobadas/2 omitidas/1 fallo T38; tras cbc851e repetición integrada 50 aprobadas/314 aserciones; ver IMPLEMENTACION-T36.md
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 823 pruebas. Suite final Codex 18/10 T75: 821 aprobadas/2 omitidas, 7593 aserciones; base y storage propios. Ver IMPLEMENTACION-T75.md
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

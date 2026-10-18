@@ -19,7 +19,7 @@
                 {{ ucfirst($hoyAr->locale('es')->isoFormat('dddd D [de] MMMM [de] YYYY')) }} · Turno de {{ auth()->user()->name }}
             </p>
         </div>
-        <div style="display:flex; gap:8px;">
+        <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px;">
             <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">Caja</a>
             <a href="{{ route('web.cobranza.index') }}" class="ds-btn ds-btn--sec">Cobranza</a>
             <a href="{{ route('web.alumnos.index') }}" class="ds-btn ds-btn--sec">Alumnos</a>
@@ -38,7 +38,7 @@
                     El administrador rechazó el cierre. Revisá las observaciones y corregí el arqueo.
                 </p>
             </div>
-            <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--primary">Ver</a>
+            <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--primary accion-celular-final">Ver</a>
         </div>
     </div>
     @endif
@@ -52,7 +52,7 @@
         <p style="font-size:0.82rem; color:var(--color-text-muted); margin-bottom:8px;">
             {{ $bloqueo['mensaje'] }}
         </p>
-        <a href="{{ $bloqueo['url'] ?? route('web.caja.resumen', $bloqueo['caja_id'] ?? 1) }}" class="ds-btn ds-btn--primary">Ver</a>
+        <a href="{{ $bloqueo['url'] ?? route('web.caja.resumen', $bloqueo['caja_id'] ?? 1) }}" class="ds-btn ds-btn--primary accion-celular-final">Ver</a>
     </div>
     @endif
 
@@ -72,7 +72,7 @@
                     Abierta por vos a las {{ \Carbon\Carbon::parse($cajaPropia->apertura_at)->setTimezone('America/Argentina/Buenos_Aires')->format('H:i') }}
                 </p>
             </div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px; flex-wrap:wrap;">
                 <a href="{{ route('web.caja.cobrar-cuota') }}"
                    style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 20px;
                           font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
@@ -109,7 +109,7 @@
                     Abierta {{ $aperturaCompaneroTexto ?? 'en este momento' }}. Para atender tu turno, {{ explode(' ', $cajaCompanero->usuarioOperativo->name ?? 'tu compañero')[0] }} debe cerrar su caja.
                 </p>
             </div>
-            <div style="display:flex; gap:8px;">
+            <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px;">
                 <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">
                     Caja
                 </a>
@@ -131,7 +131,7 @@
                     Abierta {{ $aperturaPropiaTexto ?? 'en un turno anterior' }}. Cerrá este turno para poder comenzar el día.
                 </p>
             </div>
-            <div style="display:flex; gap:8px;">
+            <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px;">
                 <a href="{{ route('web.caja.cierre', $cajaPropia->id) }}" class="ds-btn ds-btn--primary">
                     Cerrar
                 </a>
@@ -157,7 +157,7 @@
                 </p>
             </div>
             @if(!$bloqueo['activo'])
-            <a href="{{ route('web.caja.apertura') }}"
+            <a href="{{ route('web.caja.apertura') }}" class="accion-celular-final"
                style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 24px;
                       font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
                       text-decoration:none; background:var(--color-btn-primary); color:#fff;">
@@ -182,7 +182,7 @@
                 </p>
             </div>
             @if(!$bloqueo['activo'])
-            <a href="{{ route('web.caja.apertura') }}"
+            <a href="{{ route('web.caja.apertura') }}" class="accion-celular-final"
                style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 24px;
                       font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
                       text-decoration:none; background:var(--color-btn-primary); color:#fff;">
@@ -257,7 +257,7 @@
     <div class="stats-bar mb-2">
         <div class="stats-info">Recaudación de hoy</div>
     </div>
-    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-bottom:1.5rem;">
+    <div class="resumen-operativo-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-bottom:1.5rem;">
         <div class="filtros-card" style="text-align:center; padding:0.85rem 1rem;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:2px;">Cobrado hoy</p>
             <p style="font-size:1.5rem; font-weight:800; color:var(--color-success);">

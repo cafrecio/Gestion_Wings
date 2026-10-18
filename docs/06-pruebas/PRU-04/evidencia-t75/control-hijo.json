@@ -1,0 +1,161 @@
+{
+  "metodo": "Control de la regla documentada: declarar margin-left:auto sobre Subrubro en el DOM real, sin agregar markup ni modificar producto",
+  "resultados": [
+    {
+      "ancho": 360,
+      "margenDeclarado": "auto",
+      "antes": [
+        {
+          "x": 60.90625,
+          "y": 745,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 144
+        },
+        {
+          "x": 152,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 228
+        },
+        {
+          "x": 236,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 312
+        }
+      ],
+      "despues": [
+        {
+          "x": 60.90625,
+          "y": 745,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 144
+        },
+        {
+          "x": 152,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 228
+        },
+        {
+          "x": 236,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 312
+        }
+      ],
+      "bordeDerecho": 312,
+      "hijoVisible": true
+    },
+    {
+      "ancho": 375,
+      "margenDeclarado": "auto",
+      "antes": [
+        {
+          "x": 75.90625,
+          "y": 745,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 159
+        },
+        {
+          "x": 167,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 243
+        },
+        {
+          "x": 251,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 327
+        }
+      ],
+      "despues": [
+        {
+          "x": 75.90625,
+          "y": 745,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 159
+        },
+        {
+          "x": 167,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 243
+        },
+        {
+          "x": 251,
+          "y": 745,
+          "w": 76,
+          "h": 32,
+          "derecha": 327
+        }
+      ],
+      "bordeDerecho": 327,
+      "hijoVisible": true
+    },
+    {
+      "ancho": 1366,
+      "margenDeclarado": "auto",
+      "antes": [
+        {
+          "x": 1066.90625,
+          "y": 694.6875,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 1150
+        },
+        {
+          "x": 1158,
+          "y": 694.6875,
+          "w": 76,
+          "h": 32,
+          "derecha": 1234
+        },
+        {
+          "x": 1242,
+          "y": 694.6875,
+          "w": 76,
+          "h": 32,
+          "derecha": 1318
+        }
+      ],
+      "despues": [
+        {
+          "x": 1066.90625,
+          "y": 694.6875,
+          "w": 83.09375,
+          "h": 32,
+          "derecha": 1150
+        },
+        {
+          "x": 1158,
+          "y": 694.6875,
+          "w": 76,
+          "h": 32,
+          "derecha": 1234
+        },
+        {
+          "x": 1242,
+          "y": 694.6875,
+          "w": 76,
+          "h": 32,
+          "derecha": 1318
+        }
+      ],
+      "bordeDerecho": 1318,
+      "hijoVisible": true
+    }
+  ]
+}
