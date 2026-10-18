@@ -274,7 +274,8 @@ Si hubo recargos anteriores, volver a cero no los borra ni condona.
 **D4, 16/10:** el recargo impago es deuda de su mes incluso con capital pagado o
 condonado. Suma al mismo saldo en Cobranza, buscador de Cobrar, Inicio y Reportes,
 y el alumno no queda Al día mientras lo deba. Reportes lo distingue por concepto y
-conserva el corte anterior a un perdón o anulación posterior.
+conserva el corte anterior a un perdón posterior. Una anulación, en cambio, cuenta desde
+la fecha del cobro anulado (T39, Carlos 18/10): ese mes vuelve a deber lo que el cobro pagaba.
 
 ## 11. Qué hay que probar antes de darlo por hecho
 

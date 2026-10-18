@@ -250,10 +250,20 @@ class ReporteMensualTest extends TestCase
         $this->assertSame('NEGOCIO', $m->reporte_clasificacion);
         $s = app(ReporteMensualService::class);
         $septiembre = $s->obtener('2026-09');
+        $octubre = $s->obtener('2026-10');
         $pago = \App\Models\Pago::where('fecha_pago', '2026-09-06')->firstOrFail();
+        $cuota = (int) round((float) $pago->monto_cuota * 100);
+        $cobrado = (int) round((float) CashflowMovimiento::where('referencia_tipo', CashflowMovimiento::REF_PAGO_CUOTA)
+            ->where('referencia_id', $pago->id)->sum('monto') * 100);
         app(PagoCuotaService::class)->anularCobroAdmin($pago->id, 'Anulación ficticia para probar el cierre', User::where('rol', 'ADMIN')->first()->id);
-        $this->assertSame($septiembre['deuda']['total'], $s->obtener('2026-09')['deuda']['total']);
-        $this->assertSame($septiembre['resultado'], $s->obtener('2026-09')['resultado']);
+        // T39 (DU-21, Carlos 13/10): la anulación va con la fecha del cobro original. Septiembre
+        // queda como si ese cobro no hubiera existido. En octubre, el mes en que se anuló, no se
+        // mueve lo cobrado; la deuda es un saldo al corte, así que la cuota impaga sigue figurando.
+        $despues = $s->obtener('2026-09');
+        $this->assertSame($septiembre['deuda']['total'] + $cuota, $despues['deuda']['total']);
+        $this->assertSame($septiembre['resultado_global'] - $cobrado, $despues['resultado_global']);
+        $this->assertSame($octubre['resultado_global'], $s->obtener('2026-10')['resultado_global']);
+        $this->assertSame($octubre['deuda']['total'] + $cuota, $s->obtener('2026-10')['deuda']['total']);
     }
 
     public function test_reportes_reales_filtran_mes_y_deporte_con_historia_del_corte(): void

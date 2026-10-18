@@ -49,7 +49,6 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T39** Al anular un cobro del duenio, la resta va con la fecha del original | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-21 · COB-021 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Carlos: los dos casos (anular un cobro y eliminar un movimiento directo) con la fecha del original, como en Cashflow. TOCA: PagoCuotaService::anularCobroAdmin y el asiento en contra en cashflow. POR QUE ANTES: decide a que mes va la resta; toda anulacion que haga el cuento quedaria con el criterio viejo. ORDEN: comparte PagoCuotaService con T33 y T38: en serie |
 | **T57** Medio del cajon: no se puede desactivar, y el duenio lo cambia solo si no hay caja abierta | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar T57 y aprobación visual de Carlos |
 | **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-23 · COB-029 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el sistema dice que debe crearla un administrador y no existe la pantalla. TOCA: ficha del alumno, PagoCuotaService::crearDeudaSiNoExiste, rutas del duenio. ORDEN: DESPUES de T33, misma ficha |
 | **T63** No se desactiva un deporte o un grupo con alumnos activos o clases futuras | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar T63 |
@@ -62,7 +61,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T39** Al anular un cobro del duenio, la resta va con la fecha del original | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude: la anulacion de un cobro del duenio va con la fecha del original y la deuda (cuota, inscripcion, recargo) vuelve en ese mes (Carlos 18/10). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T39.md |
 
 ## Sin empezar (34)
 

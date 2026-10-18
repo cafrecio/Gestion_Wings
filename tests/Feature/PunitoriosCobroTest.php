@@ -274,14 +274,16 @@ class PunitoriosCobroTest extends TestCase
         $this->assertSame('0.00', DeudaCuota::where('periodo', '2026-11')->sole()->monto_pagado);
     }
 
-    public function test_reporte_de_mes_cerrado_conserva_recargo_anterior_a_perdon_y_anulacion(): void
+    public function test_reporte_de_mes_cerrado_conserva_recargo_anterior_a_perdon_y_la_anulacion_vuelve_al_mes_del_cobro(): void
     {
         $pago = $this->cobrar(10200)['pago'];
         Carbon::setTestNow('2026-11-02');
         app(PagoCuotaService::class)->anularCobroAdmin($pago->id, 'Reversión en el mes siguiente', $this->admin->id);
         app(PunitorioService::class)->condonar($this->cargo->id, 'Perdón después del cierre de mes', $this->admin->id);
         $octubre = app(ReporteMensualService::class)->obtener('2026-10');
-        $this->assertSame(30000, $octubre['deuda']['punitorios']);
+        // T39 (Carlos, 18/10): la anulación cuenta desde el día del cobro, así que octubre vuelve a
+        // deber el recargo completo ($500). El perdón de noviembre no toca octubre (D4).
+        $this->assertSame(50000, $octubre['deuda']['punitorios']);
         $this->assertSame(0, app(ReporteMensualService::class)->obtener('2026-11')['deuda']['punitorios']);
     }
 

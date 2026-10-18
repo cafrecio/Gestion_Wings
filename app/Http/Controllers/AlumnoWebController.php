@@ -137,7 +137,9 @@ class AlumnoWebController extends Controller
         $cuotasCondonadas = $alumno->deudaCuotas()->where('estado', 'CONDONADA')->orderBy('periodo')->get();
         $punitorios = \App\Models\CargoAlumno::where('alumno_id', $id)->where('tipo', 'PUNITORIO')
             ->where('estado', 'VIGENTE')->with(['deudaCuota', 'pagos'])->orderBy('deuda_cuota_id')->get();
-        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios'));
+        // T58: solo el dueño ve los meses pasados que puede crear.
+        $mesesPasados = auth()->user()?->isAdmin() ? app(PagoCuotaService::class)->mesesPasadosSinCuota($alumno) : [];
+        return view('alumnos.show', compact('alumno', 'estadoCobranza', 'ultimosPagos', 'asistenciasMes', 'cuotasCondonadas', 'punitorios', 'mesesPasados'));
     }
 
     public function condonarDeuda(Request $request, int $id, PagoCuotaService $pagoCuotaService)
@@ -168,6 +170,25 @@ class AlumnoWebController extends Controller
         return redirect()
             ->route('web.alumnos.show', $deuda->alumno_id)
             ->with('success', 'Deuda condonada correctamente.');
+    }
+
+    /** T58: el dueño crea la cuota de un mes pasado que nunca se generó. */
+    public function crearCuotaPasada(Request $request, int $id, PagoCuotaService $pagoCuotaService)
+    {
+        $periodo = (string) $request->input('periodo', '');
+
+        try {
+            $deuda = $pagoCuotaService->crearCuotaMesPasado($id, $periodo, (int) $request->user()->id);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface $e) {
+            throw $e;
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+
+        $mes = Carbon::createFromFormat('Y-m-d', $deuda->periodo . '-01')->locale('es')->translatedFormat('F Y');
+        return redirect()
+            ->route('web.alumnos.show', $id)
+            ->with('success', 'Se creó la cuota de ' . $mes . ': ' . \App\Support\FormatoImporte::pesos((float) $deuda->monto_original) . '.');
     }
 
     public function reactivarDeuda(Request $request, int $id, PagoCuotaService $service)

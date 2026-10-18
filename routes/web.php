@@ -140,6 +140,7 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
         Route::get('/cashflow/movimientos/{id}/eliminar', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'eliminarForm'])->name('web.cashflow.movimientos.eliminar');
         Route::put('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'update'])->name('web.cashflow.movimientos.update');
         Route::delete('/cashflow/movimientos/{id}', [\App\Http\Controllers\CashflowCorreccionWebController::class, 'destroy'])->name('web.cashflow.movimientos.destroy');
+        Route::post('/alumnos/{id}/cuotas-pasadas', [AlumnoWebController::class, 'crearCuotaPasada'])->name('web.alumnos.cuotas-pasadas');
         Route::post('/deudas/{id}/condonar', [AlumnoWebController::class, 'condonarDeuda'])->name('web.deudas.condonar');
         Route::post('/deudas/{id}/reactivar', [AlumnoWebController::class, 'reactivarDeuda'])->name('web.deudas.reactivar');
         Route::post('/inscripciones/{id}/condonar', [AlumnoWebController::class, 'condonarInscripcion'])->name('web.inscripciones.condonar');

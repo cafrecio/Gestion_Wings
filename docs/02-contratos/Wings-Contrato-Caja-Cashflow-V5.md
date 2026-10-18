@@ -166,6 +166,10 @@ La autorización de diseño no equivale a verificación independiente ni desplie
   decimales. El signo contable lo determina el subrubro, no el texto ingresado.
 - Cobro/inscripción del dueño lleva a la ficha y a su anulación actual. Si un Pago
   reúne ambos, se anula ese Pago completo. Su motivo y reglas existentes siguen.
+- T39 (DU-21, Carlos 13/10 y 18/10): la anulación de un cobro del dueño lleva la fecha
+  del cobro original, como el contraasiento de un directo. Plata, cuota, inscripción y
+  recargo vuelven en ese mismo mes: queda como si el cobro no hubiera existido. El mes en
+  que se anula no cambia lo cobrado.
 - Caja ABIERTA/RECHAZADA lleva a su detalle o editor existentes. La caja VALIDADA
   queda solo para consulta; no se habilita rechazarla ni corregir su reflejo.
 - Liquidaciones pagadas no se tocan. Las no pagadas llevan a su edición/detalle

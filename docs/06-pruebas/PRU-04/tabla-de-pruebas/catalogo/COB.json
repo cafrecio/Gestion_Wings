@@ -1133,13 +1133,13 @@
         {
           "donde": "Fecha",
           "l": "e",
-          "texto": "El asiento en contra lleva la fecha de hoy, aunque el cobro sea de un mes anterior.",
+          "texto": "El asiento en contra lleva la fecha del cobro original, aunque se anule en otro mes.",
           "tipo": "indirecto"
         },
         {
           "donde": "Reportes",
           "l": "f",
-          "texto": "El mes del cobro original conserva el ingreso y el mes en curso muestra la resta.",
+          "texto": "El mes del cobro original pierde ese ingreso y vuelve a deber la cuota (y la inscripción o el recargo que incluía); el mes en curso no cambia lo cobrado.",
           "tipo": "indirecto"
         },
         {
@@ -1162,7 +1162,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "A13; PagoCuotaService::anularPagoAdmin (código leído); CJ-25.",
+      "fuente": "DU-21 (Carlos 13/10) y deuda en el mismo mes (Carlos 18/10). T39: PagoCuotaService::anularCobroAdmin y ReporteMensualService (código leído). Antes: A13, CJ-25.",
       "modulo": "Cobrar",
       "pantalla": "alumnos-ficha",
       "requiere": "Cobro del dueño sin caja, de un mes anterior y otro de hoy.",

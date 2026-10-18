@@ -102,13 +102,10 @@ class ReporteMensualService
         if ($cargos->isEmpty()) return collect();
         $eventos = DB::table('cargo_alumno_eventos')->whereIn('cargo_alumno_id', $cargos->pluck('id'))
             ->whereDate('created_at', '<=', $fecha)->orderBy('id')->get()->groupBy('cargo_alumno_id');
-        // Las anulaciones retiran el pivot. Para un corte anterior se conserva lo que
-        // ese pago había imputado hasta su anulación, sin afectar el saldo de hoy.
-        $anulados = \App\Models\Pago::whereIn('alumno_id', $cargos->pluck('alumno_id'))
-            ->where('estado', 'ANULADO')->whereDate('fecha_pago', '<=', $fecha)
-            ->whereDate('updated_at', '>', $fecha)->get();
+        // T39 (Carlos, 18/10): una anulación cuenta desde la fecha del cobro anulado, como su
+        // asiento en Cashflow. Anular retira el pivot, así que ningún corte lo ve como pagado.
         $deportes = Alumno::whereIn('id', $cargos->pluck('alumno_id'))->pluck('deporte_id', 'id');
-        return $cargos->map(function ($cargo) use ($eventos, $anulados, $deportes) {
+        return $cargos->map(function ($cargo) use ($eventos, $deportes) {
             $condonado = 0;
             foreach ($eventos->get($cargo->id, collect()) as $evento) {
                 $detalle = json_decode($evento->detalle, true);
@@ -117,11 +114,6 @@ class ReporteMensualService
                 }
             }
             $pagado = (float) $cargo->pagos->sum('pivot.monto_aplicado');
-            foreach ($anulados->where('alumno_id', $cargo->alumno_id) as $pago) {
-                foreach ($pago->detalle_anulacion['cargos'] ?? [] as $imputacion) {
-                    if (($imputacion['cargo_alumno_id'] ?? null) === $cargo->id) $pagado += (float) $imputacion['monto_aplicado'];
-                }
-            }
             return ['id' => $cargo->id, 'persona_id' => $cargo->alumno_id,
                 'periodo' => $cargo->deudaCuota->periodo, 'deporte_id' => (int) $deportes[$cargo->alumno_id],
                 'centavos' => max(0, (int) round(((float) $cargo->monto_original - $condonado - $pagado) * 100)),

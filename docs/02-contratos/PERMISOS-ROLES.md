@@ -101,7 +101,7 @@ El operativo ve todos los movimientos de subrubros `OPERATIVO` de los últimos 9
 - todos los rubros, también los que son solo suyos;
 - los movimientos cancelados, marcados y sin sumar en los totales.
 
-La anulación de un cobro del dueño es un asiento en contra con importe negativo: resta del total, no se muestra como otro ingreso.
+La anulación de un cobro del dueño es un asiento en contra con importe negativo, con la fecha del cobro original (T39): resta del total, no se muestra como otro ingreso.
 
 ### Cobranza y revisión de cobranza (`web.cobranza.index`, `web.revision-cobranza.*`)
 Decidir si a un alumno que no vino se le genera la cuota del mes es trabajo del mostrador (Carlos, 17/09/2026).

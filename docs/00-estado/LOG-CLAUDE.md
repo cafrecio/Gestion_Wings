@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-18 — Claude CAB — T39 hecha; T58 sin la pantalla todavía
+
+T39 (DU-21): la anulación de un cobro del dueño lleva la fecha del cobro original. Carlos decidió
+hoy que la deuda (cuota, inscripción, recargo) vuelva en ese mismo mes; se quitó de Reportes la
+reconstrucción que seguía viendo pagado el recargo. Dos pruebas viejas (A13, D4) controlaban la
+regla anterior y ahora controlan la nueva. 5 pruebas nuevas; suite 856/3 omitidas, solo falló el
+contador de documentos (ajustado a 860). A verificar por Gemini. T58: servicio, ruta y 6 pruebas
+listos; falta la ficha, que Codex tiene tomada por T75.
+
+**Dos errores míos:** commiteé la toma de T57/T63 de Gemini junto con la mía (encadené
+`git status` con el comando del tablero sin mirar), y corrí pruebas sobre `wings_testing_claude`
+mientras corría mi propia suite en la misma base. Nunca dos corridas a la vez sobre una base.
+
 ## 2026-10-18 — Claude CAB — T36 cerrada; T41 lógica aprobada, espera el visual de Carlos
 
 T36 (Codex, `8a7d102`): tilde por movimiento con huella del contenido; validar exige todos,

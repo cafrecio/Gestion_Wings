@@ -551,6 +551,75 @@ class PagoCuotaService
     }
 
     /**
+     * T58 (DU-23, Carlos 13/10): meses pasados que el dueño puede crear desde la ficha. Van
+     * del mes de alta al anterior al actual, sin cuota y con plan, como los que habría creado
+     * el generador del día 1.
+     *
+     * @return array<int, array{periodo:string, precio:float}>
+     */
+    public function mesesPasadosSinCuota(Alumno $alumno): array
+    {
+        if (!$alumno->fecha_alta) {
+            return [];
+        }
+
+        $existentes = DeudaCuota::where('alumno_id', $alumno->id)->pluck('periodo')->all();
+        $mes = Carbon::parse($alumno->fecha_alta)->startOfMonth();
+        $actual = now()->startOfMonth();
+        $meses = [];
+        while ($mes->lt($actual)) {
+            $periodo = $mes->format('Y-m');
+            $plan = in_array($periodo, $existentes, true) ? null : $this->obtenerPlanParaPeriodo($alumno->id, $periodo);
+            if ($plan?->plan) {
+                $meses[] = ['periodo' => $periodo, 'precio' => (float) $plan->plan->precio_mensual];
+            }
+            $mes->addMonthNoOverflow();
+        }
+
+        return $meses;
+    }
+
+    /**
+     * T58: el dueño crea la cuota de un mes pasado que nunca se generó. Vale lo mismo que la
+     * habría creado el generador (precio del plan de ese mes); el cobro aplica sus reglas de
+     * siempre. Queda anotado quién la creó.
+     */
+    public function crearCuotaMesPasado(int $alumnoId, string $periodo, int $adminId): DeudaCuota
+    {
+        return DB::transaction(function () use ($alumnoId, $periodo, $adminId) {
+            $admin = \App\Models\User::findOrFail($adminId);
+            abort_unless($admin->isAdmin() && $admin->activo, 403);
+            $alumno = Alumno::whereKey($alumnoId)->lockForUpdate()->firstOrFail();
+
+            if (!preg_match('/^\d{4}-(0[1-9]|1[0-2])$/D', $periodo)) {
+                throw new \Exception('El mes elegido no es válido.');
+            }
+            if ($periodo >= now()->format('Y-m')) {
+                throw new \Exception('Solo se crean desde acá las cuotas de meses que ya pasaron.');
+            }
+            if (!$alumno->fecha_alta || $periodo < $alumno->fecha_alta->format('Y-m')) {
+                throw new \Exception('Ese mes es anterior al ingreso del alumno.');
+            }
+            if (DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', $periodo)->lockForUpdate()->exists()) {
+                throw new \Exception('Ese mes ya tiene su cuota.');
+            }
+            $plan = $this->obtenerPlanParaPeriodo($alumno->id, $periodo);
+            if (!$plan?->plan) {
+                throw new \Exception('El alumno no tenía un plan en ese mes.');
+            }
+
+            return DeudaCuota::create([
+                'alumno_id' => $alumno->id,
+                'periodo' => $periodo,
+                'monto_original' => (float) $plan->plan->precio_mensual,
+                'monto_pagado' => 0,
+                'estado' => DeudaCuota::ESTADO_PENDIENTE,
+                'observaciones' => 'Creada por ' . $admin->name . ' el ' . now()->format('d/m/Y') . ': el mes no se había generado.',
+            ]);
+        });
+    }
+
+    /**
      * Aplicar pagos a las deudas del alumno.
      *
      * @param int $alumnoId
@@ -651,7 +720,7 @@ class PagoCuotaService
         $periodoVigente = Carbon::now()->format('Y-m');
         if ($periodo < $periodoVigente) {
             throw new \Exception(
-                "No se puede crear deuda para un período pasado ({$periodo}). Debe crearla un administrador."
+                "No se puede crear deuda para un período pasado ({$periodo}). La crea el dueño desde la ficha del alumno."
             );
         }
 
@@ -1172,8 +1241,14 @@ class PagoCuotaService
                 ])->all(),
             ];
 
+            // T39 (DU-21, Carlos 13/10): la anulación lleva la fecha del cobro original, como al
+            // eliminar un movimiento directo en Cashflow. Plata y deuda vuelven en el mismo mes:
+            // el mes del cobro queda como si ese cobro no hubiera existido.
+            $fechaOriginal = Carbon::parse($pago->fecha_pago)->toDateString();
+
             foreach ($pagoDeudas as $pd) {
                 $deuda = $pd->deudaCuota;
+                $deuda->fechaHistorial = $fechaOriginal;
                 $deuda->monto_pagado = max(0, (float) $deuda->monto_pagado - (float) $pd->monto_aplicado);
                 $deuda->estado = (float) $deuda->monto_pagado >= (float) $deuda->monto_original
                     ? DeudaCuota::ESTADO_PAGADA
@@ -1204,7 +1279,7 @@ class PagoCuotaService
                 }
 
                 CashflowMovimiento::create([
-                    'fecha' => now()->toDateString(),
+                    'fecha' => $original->fecha->toDateString(),
                     'subrubro_id' => $original->subrubro_id,
                     'tipo_caja_id' => $original->tipo_caja_id,
                     'monto' => -1 * (float) $original->monto,
