@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 901,37 s; última suite completa local de Codex, 17/10, wings_testing_codex y archivos temporales exclusivos, tras alinear los botones de Detalle. Historia y capturas en DETALLE-CAJA-MOBILE.md |
+| Suite | **804 pruebas** en lo publicado al 17/10, con T38. Última suite completa: Claude, 17/10, wings_testing_claude, 819 aprobadas y 2 omitidas, 7585 aserciones, con T36 y T41 todavía sin publicar en la carpeta. Antes: Codex, 784 aprobadas (DETALLE-CAJA-MOBILE.md) |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | B11 / FIN-14 | Punitorios implementados localmente el 16/10; porcentaje inicial cero. [Entrega y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). A verificar por Claude; sin publicación ni despliegue, conforme al límite de `52e6bdf` y descendientes |

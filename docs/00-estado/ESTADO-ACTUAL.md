@@ -1,5 +1,14 @@
 # Wings — Estado actual
 
+## T38 — Reactivar genera la cuota del mes, implementación de Claude 17/10/2026
+
+DU-12 y decisión de Carlos del 17/10 (plazo de alta para el reingreso). Reactivar desde la
+ficha o el listado crea la cuota del mes en curso con el porcentaje de reingreso del día, salvo
+que ya exista; sin plan para el mes no reactiva. La cuota guarda `fecha_reingreso` y tiene el
+plazo de un alta en estados y en la mora. El cobro que reactiva a un inactivo completa lo mismo.
+18 pruebas nuevas; suite completa 819 aprobadas/2 omitidas. Pendiente: verificación de otro
+agente y mirar la pantalla. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md).
+
 ## T37 — Motivo obligatorio de rechazo, implementación local 17/10/2026
 
 Controlador web y servicio exigen texto no vacío de hasta 500 caracteres; solo
@@ -654,7 +663,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **786 pruebas**: 784 aprobadas y 2 omitidas, 7395 aserciones, 901,37 s; última suite completa local de Codex, 17/10, wings_testing_codex y archivos temporales exclusivos, tras alinear los botones de Detalle. Historia y capturas en DETALLE-CAJA-MOBILE.md |
+| **Tests** | **804 pruebas** en lo publicado al 17/10, con T38. Última suite completa: Claude, 17/10, wings_testing_claude, 819 aprobadas y 2 omitidas, 7585 aserciones, con T36 y T41 todavía sin publicar en la carpeta. Antes: Codex, 784 aprobadas (DETALLE-CAJA-MOBILE.md) |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |
