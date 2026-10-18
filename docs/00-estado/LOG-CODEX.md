@@ -10,6 +10,8 @@ Suite completa final propia: 821 aprobadas, 2 omitidas, 0 fallidas, 7593 asercio
 [Informe, inventario y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md); Carlos revisa T75 y 19 casos de controles ajenos a tarjetas/barras.
 T36/T37 y sus imágenes aprobadas siguen cerradas; «Destildar solo los movimientos que cambien» conservado.
 Gemini: no implementar; anotado en tablero, sin chat disponible para mensaje directo. Sin despliegue/autocierre.
+Seguimiento 18/10, Carlos señala tamaños y márgenes distintos: pide registrar tamaño Cobrar, padding común y ubicación estable por repetición en el Design System.
+Reglas y checklist actualizados en DESIGN-RULES y wings-design; solo documentación, enlaces/diff revisados. Aplicación uniforme pendiente; T75 no aprobada ni cerrada.
 
 ## 2026-10-17 — Codex CAB — T36 implementada localmente, entrega a Claude
 

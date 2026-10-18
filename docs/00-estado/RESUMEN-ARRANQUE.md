@@ -35,7 +35,7 @@ A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica l�
 
 ## Trabajo que continúa
 
-- **T75 entregada, 18/10, Codex CAB:** acciones móviles a derecha; 99 casos sin desborde y escritorio sin diferencias. [Galería e inventario](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Carlos verifica; 19 controles fuera de tarjeta/barra para su decisión. Gemini no implementar. Sin despliegue.
+- **T75 a verificar, seguimiento 18/10:** Carlos señala tamaños y márgenes distintos; pide registrar en el Design System tamaño Cobrar, padding común, borde derecho y ubicación estable por repetición. Reglas documentadas; aplicación uniforme pendiente, sin aprobación ni cierre. [Entrega y seguimiento](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Gemini no implementar. Sin despliegue.
 - **T36 cerrada por Claude (`9b98067`):** tildes persistentes y obligatorios; Carlos: «Destildar solo los movimientos que cambien» y «visualmente están bien». [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md). Sin despliegue.
 - **T37 cerrada por Claude (`870cbb4`):** motivo obligatorio hasta 500; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md).
   Visual verifica Carlos: «Bien ambas imagenes!!» (botoneras a 375 de `4b050ac`); scroll y «Modal OK» aceptados. [Capturas e historia de pruebas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md). Sin otra revisión de IA del aspecto.

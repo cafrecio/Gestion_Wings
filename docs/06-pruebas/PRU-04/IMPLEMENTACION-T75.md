@@ -8,6 +8,16 @@ Estado de entrega: **a verificar por Carlos**, sin autocierre ni despliegue.
 [Casos para Carlos](evidencia-t75/GALERIA.html#consultas) ·
 [Reproducir](evidencia-t75/REPRODUCIR.md).
 
+## Seguimiento de Carlos — 18/10/2026
+
+Carlos observa botones de tamaños distintos y bordes desalineados entre cabecera y deuda
+de la ficha. Pide registrar en el Design System: tamaño Cobrar como referencia, padding
+común, mismo borde derecho y ubicación estable de cada acción aunque falten otros botones.
+Reglas y checklist asentados en [DESIGN-RULES.md §7](../../03-diseno-ui/design-system/DESIGN-RULES.md)
+y en wings-design. Este seguimiento modifica solo documentación: la aplicación uniforme
+de estas reglas queda pendiente. T75 no está aprobada ni cerrada; las mediciones siguientes
+conservan el alcance de la entrega anterior y no certifican esta nueva consistencia.
+
 ## Qué cambió
 
 La regla general de `.alumno-actions` alinea a la derecha hasta 640 px, incluidas

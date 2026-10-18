@@ -40,6 +40,8 @@
 
 Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamaño fijo. Dentro de cada objeto, **todos los botones son idénticos** en dimensiones.
 
+En celular, la decisión de Carlos del 18/10/2026 en §7 tiene prioridad sobre estas diferencias: los botones de acción con texto comparten el tamaño del botón Cobrar aprobado como referencia, también entre zonas de una misma vista.
+
 ### Objeto A — Botón primario de página (stats-bar)
 - Uso: única acción primaria de la página (ej: "Nuevo").
 - Componente: `x-ds.button variant="primary"` → clase `.ds-btn` → `width: 112px; height: 36px`.
@@ -133,6 +135,18 @@ Hay **tres objetos de botón** en el sistema. Cada objeto tiene su propio tamañ
 - Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. T75 lo aplica como regla general de `.alumno-actions` en `app.css` hasta 640 px; las barras propias reutilizan `.acciones-celular-derecha`. Se conservan las grillas específicas de Alumnos, Grupos, Profesores y Niveles, y el 2 × 2 aprobado de Detalle de caja. No se cambia el tamaño ni el funcionamiento del interruptor.
 - Los botones de fila de tabla, el ingreso, los modales y los controles fuera de tarjetas/barras se relevan con capturas para que Carlos decida; no se les asigna otra posición por inferencia. [Relevamiento T75](../../06-pruebas/PRU-04/IMPLEMENTACION-T75.md).
 
+### Celular — consistencia y ubicación predecible, decisión de Carlos 18/10/2026
+
+Carlos: «Que el usuario sepa donde esta el boton sin ver, por repeticion».
+
+- **Un mismo tamaño de botón:** tomar Cobrar, señalado por Carlos en las capturas de la ficha del alumno, como referencia. Mantener el mismo ancho, alto, padding y tipografía para los botones de acción con texto en todas las vistas móviles. No usar un Cobrar grande en la cabecera y otro más chico en la deuda de esa misma ficha.
+- **Un mismo padding de contenido y acciones:** todas las vistas móviles comparten los mismos márgenes y padding laterales. Las tarjetas, sus secciones internas y las barras deben respetar esa referencia común; el padding anidado no debe desplazar los botones a un borde distinto.
+- **Un mismo borde derecho:** las acciones terminan en la misma línea vertical de referencia del contenido, también al ocupar varias filas. Alinear cada grupo a su propio contenedor no alcanza si sus contenedores tienen márgenes diferentes.
+- **Una ubicación estable por acción:** conservar la zona, el orden y la posición de cada acción entre pantallas equivalentes. La presencia o ausencia de otros botones no debe centrarla ni trasladarla a otro lugar. También se cumple cuando queda un solo botón.
+- **Objetivo de aceptación:** el usuario encuentra la acción por repetición. No se aprueba una vista móvil solo porque los botones caben o no hay desborde; debe cumplir tamaño, padding, borde y ubicación constantes.
+
+Esta decisión amplía el criterio móvil anterior y prevalece sobre las diferencias de tamaño de los objetos A/B/C para botones con texto. Los controles de ícono y los interruptores conservan su tipo; no se convierten en botones de texto. Las medidas y posiciones de escritorio se conservan. El registro de estas reglas no certifica que las pantallas actuales ya las cumplan: la revisión de Carlos de T75 señaló diferencias por corregir.
+
 ## 8. DÓNDE VIVE EL JAVASCRIPT
 
 Decidido por Carlos el 13/09/2026, mientras se sacaba el código incrustado de las
@@ -175,6 +189,9 @@ Antes de aprobar cualquier vista, verificar:
 - [ ] ¿Las acciones del card están en `alumno-actions` al pie, con `border-top`?
 - [ ] ¿El botón "hijo" (+ Subrubro, etc.) está en `margin-left:auto` dentro de `alumno-actions`?
 - [ ] ¿Todos los botones del mismo objeto (B o C) tienen exactamente el mismo tamaño?
+- [ ] ¿En celular, los botones de acción con texto tienen el tamaño y padding del Cobrar de referencia, también entre secciones de la misma vista?
+- [ ] ¿Las vistas móviles comparten padding lateral y una misma línea derecha para sus acciones, sin desplazamientos por contenedores anidados?
+- [ ] ¿Cada acción conserva su ubicación y orden cuando faltan otros botones o queda sola?
 - [ ] ¿Los textos de botones son mínimos y sin redundancia de contexto?
 - [ ] ¿Las tablas usan `table-layout:fixed` con `<colgroup>`?
 - [ ] ¿La columna Nombre no roba todo el ancho?

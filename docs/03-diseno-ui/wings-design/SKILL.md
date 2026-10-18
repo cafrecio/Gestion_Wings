@@ -114,6 +114,8 @@ ds-sidebar (240px) | ds-main
 
 ### Objetos de botón — tamaños fijos
 
+**Prioridad en celular, Carlos 18/10/2026:** aplicar la regla de consistencia y ubicación predecible de [DESIGN-RULES.md §7](../design-system/DESIGN-RULES.md). Los botones de acción con texto usan el mismo tamaño que el Cobrar de referencia, incluso entre secciones; comparten padding y borde derecho, y cada acción conserva su ubicación aunque falten otros botones. Esta decisión prevalece en celular sobre las diferencias A/B/C siguientes; escritorio se conserva.
+
 **Objeto A — Stats-bar (acción primaria de página)**
 - `width: 112px; height: 36px`
 - Solo uno por sección, siempre a la derecha del stats-bar
@@ -238,6 +240,8 @@ Antes de entregar cualquier vista, verificar:
 - [ ] ¿Las acciones están en `alumno-actions` al pie, con `border-top`?
 - [ ] ¿El botón secundario ("+ hijo") tiene `margin-left: auto`?
 - [ ] ¿Todos los botones del mismo objeto (A, B o C) tienen el mismo tamaño?
+- [ ] ¿En celular, todos los botones con texto respetan el Cobrar de referencia, el padding común y el mismo borde derecho entre secciones?
+- [ ] ¿Cada acción mantiene su lugar y orden aunque quede sola, de modo que el usuario la encuentre por repetición?
 - [ ] ¿Los labels de botones son una sola palabra, sin redundancia de contexto?
 - [ ] ¿Las tablas usan `table-layout: fixed` con `<colgroup>`?
 - [ ] ¿Los botones de fila tienen `width` fijo?
