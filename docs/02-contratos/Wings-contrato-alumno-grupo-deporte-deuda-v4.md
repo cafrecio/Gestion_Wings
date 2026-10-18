@@ -16,6 +16,7 @@ Representa una disciplina (Patín, Fútbol, Vóley, etc.).
 - El deporte define reglas globales (por ejemplo liquidación de profesores).
 - El deporte no define precios de alumnos.
 - Un deporte puede tener múltiples grupos.
+- **No se puede desactivar un deporte si tiene alumnos activos o clases futuras en cualquiera de sus grupos** (DU-41, T63).
 
 ---
 
@@ -32,6 +33,7 @@ Ejemplos:
 - Un grupo no puede mezclar deportes.
 - El grupo es el contenedor comercial visible del alumno.
 - Un grupo puede tener múltiples planes de cuota (según clases por semana).
+- **No se puede desactivar un grupo si tiene alumnos activos o clases futuras** (DU-41, T63).
 
 ---
 

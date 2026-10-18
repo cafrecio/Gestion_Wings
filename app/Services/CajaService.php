@@ -33,6 +33,12 @@ class CajaService
         return DB::table('caja_mostrador')->where('id', 1)->lockForUpdate()->firstOrFail();
     }
 
+    public function tipoCajaMostradorId(): ?int
+    {
+        $id = DB::table('caja_mostrador')->where('id', 1)->value('tipo_caja_id');
+        return $id !== null ? (int) $id : null;
+    }
+
     public function configurarMostrador(int $tipoCajaId, int $adminId): void
     {
         DB::transaction(function () use ($tipoCajaId, $adminId) {
@@ -44,13 +50,15 @@ class CajaService
                 throw ValidationException::withMessages(['tipo_caja_id' => 'Elegí un medio de pago activo.']);
             }
             if ($configuracion->tipo_caja_id !== null && (int) $configuracion->tipo_caja_id !== $tipoCajaId) {
-                throw ValidationException::withMessages(['tipo_caja_id' => 'El medio del cajón ya está configurado.']);
+                if (CajaOperativa::where('estado', 'ABIERTA')->exists()) {
+                    throw new \DomainException('No se puede cambiar el medio del cajón mientras haya una caja abierta. Cerrá la caja abierta antes de cambiarlo.');
+                }
             }
-            if ($configuracion->tipo_caja_id === null) {
-                DB::table('caja_mostrador')->where('id', 1)->update([
-                    'tipo_caja_id' => $tipoCajaId, 'configurado_por_id' => $adminId, 'configurado_at' => now(),
-                ]);
-            }
+            DB::table('caja_mostrador')->where('id', 1)->update([
+                'tipo_caja_id' => $tipoCajaId,
+                'configurado_por_id' => $adminId,
+                'configurado_at' => now(),
+            ]);
         });
     }
 

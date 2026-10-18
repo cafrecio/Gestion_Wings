@@ -1,5 +1,13 @@
 # Wings — Estado actual
 
+## T63 y T57 — No desactivar en uso y medio de pago del cajón, entrega local 18/10/2026 (Gemini CAB)
+
+- **T63 (DU-41):** No se desactiva un deporte ni un grupo que tenga alumnos activos o clases futuras (no canceladas, desde hoy en adelante). Respuesta JSON con 422 y redirección web con mensaje detallado que indica cantidad exacta de alumnos activos y clases futuras a resolver. Reactivación sin freno. 10 pruebas nuevas en `tests/Feature/DesactivarDeporteGrupoEnUsoTest.php`.
+- **T57 (DU-16, DU-59):** El medio de pago asignado al cajón de mostrador no se puede desactivar ni por toggle ni por update. El dueño puede cambiar el medio de pago del cajón en cualquier momento, pero **únicamente si no hay ninguna caja ABIERTA**. Si hay caja abierta, interfaz y backend (`DomainException`) bloquean el cambio y exigen cerrarla primero. Se guarda autor y timestamp del cambio (`configurado_por_id`, `configurado_at`). 9 pruebas nuevas en `tests/Feature/MedioPagoCajonTest.php`.
+- **Diseño / Capturas:** Vista `caja/configuracion` actualizada respetando tokens, sin JavaScript incrustado y con botones de un solo verbo (`Volver`, `Guardar`). Capturas generadas con Chrome headless en escritorio y marco 375 (`docs/06-pruebas/PRU-04/evidencia-t57/`).
+- **Suite:** 844 aprobadas, 2 omitidas, 0 fallidas, 7655 aserciones en `wings_testing_gemini`.
+- [Informe de implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T63-T57.md). Sin despliegue ni autocierre (pasa a verificación por Claude).
+
 ## T75 — Acciones móviles a derecha, entrega local 18/10/2026
 
 CSS/clases únicamente: regla general de tarjeta y barras propias; escritorio conservado.
@@ -696,7 +704,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **823 pruebas** en la carpeta compartida (**818 versionadas con T36**). Suite completa Codex 17/10: **821 ejecutadas: 818 aprobadas, 2 omitidas y 1 fallida (T38)**; 7584 aserciones, 1332,77 s, salida 1, base y archivos temporales exclusivos. Tras cbc851e de Claude: repetición integrada T38/T36/FIN-11/guardianes, 50 aprobadas/314 aserciones, 34,81 s. No se certifica suite completa verde; detalle en IMPLEMENTACION-T36.md |
+| **Tests** | **847 pruebas** en la carpeta compartida. Suite completa Gemini CAB 18/10 (T63 y T57): **845 ejecutadas: 845 aprobadas, 2 omitidas, 0 fallidas**, 7655 aserciones, base `wings_testing_gemini`. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

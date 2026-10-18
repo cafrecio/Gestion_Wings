@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\TipoCaja;
 use App\Rules\NombreUnico;
 use App\Rules\ImportePesos;
+use App\Services\CajaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class TipoCajaWebController extends Controller
 {
+    public function __construct(
+        private CajaService $cajaService
+    ) {}
     public function index()
     {
         $tiposCaja = TipoCaja::withCount(['movimientosOperativos', 'cashflowMovimientos'])
@@ -88,6 +92,13 @@ class TipoCajaWebController extends Controller
             $datos['abreviatura'] = strtoupper($datos['abreviatura']);
             $datos['descripcion'] = $datos['descripcion'] ?? null;
             $datos['permite_descubierto'] = $request->boolean('permite_descubierto');
+
+            if ($request->has('activo') && !$request->boolean('activo') && (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId()) {
+                throw \Illuminate\Validation\ValidationException::withMessages([
+                    'activo' => 'No se puede desactivar porque es el medio de pago del cajón de mostrador.',
+                ]);
+            }
+
             $tipoCaja->update($datos);
         });
 
@@ -102,10 +113,23 @@ class TipoCajaWebController extends Controller
             && !$tipoCaja->cashflowMovimientos()->exists();
     }
 
-    public function toggleActivo(int $id)
+    public function toggleActivo(Request $request, int $id)
     {
         $tipoCaja = TipoCaja::findOrFail($id);
+
+        if ($tipoCaja->activo && (int) $tipoCaja->id === (int) $this->cajaService->tipoCajaMostradorId()) {
+            $mensaje = 'No se puede desactivar porque es el medio de pago del cajón de mostrador.';
+            if ($request->expectsJson()) {
+                return response()->json(['error' => $mensaje], 422);
+            }
+            return back()->with('error', $mensaje);
+        }
+
         $tipoCaja->update(['activo' => !$tipoCaja->activo]);
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $tipoCaja->activo]);
+        }
 
         $estado = $tipoCaja->activo ? 'activado' : 'desactivado';
         return redirect()->route('web.tipos-caja.index')

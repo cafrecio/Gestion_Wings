@@ -43,13 +43,18 @@ class CajaWebController extends Controller
     {
         $propuesta = $this->cajaService->propuestaApertura();
         $tiposCaja = TipoCaja::where('activo', true)->orderBy('nombre')->get();
-        return view('caja.configuracion', compact('propuesta', 'tiposCaja'));
+        $hayCajaAbierta = CajaOperativa::where('estado', 'ABIERTA')->exists();
+        return view('caja.configuracion', compact('propuesta', 'tiposCaja', 'hayCajaAbierta'));
     }
 
     public function configurarMostrador(Request $request)
     {
         $datos = $request->validate(['tipo_caja_id' => 'required|integer|exists:tipos_caja,id']);
-        $this->cajaService->configurarMostrador((int) $datos['tipo_caja_id'], Auth::id());
+        try {
+            $this->cajaService->configurarMostrador((int) $datos['tipo_caja_id'], Auth::id());
+        } catch (\DomainException $e) {
+            return back()->with('error', $e->getMessage());
+        }
         return redirect()->route('web.caja.index')->with('success', 'Medio de efectivo configurado.');
     }
 

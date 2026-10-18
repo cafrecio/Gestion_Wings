@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
 use App\Models\AlumnoPlan;
+use App\Models\Clase;
 use App\Models\Deporte;
 use App\Models\Grupo;
 use App\Models\GrupoPlan;
@@ -227,6 +229,33 @@ class GrupoWebController extends Controller
     public function toggleActivo(Request $request, int $id)
     {
         $grupo = Grupo::findOrFail($id);
+
+        if ($grupo->activo) {
+            $alumnosActivos = $grupo->alumnos()->where('activo', true)->count();
+            $clasesFuturas = $grupo->clases()
+                ->where('cancelada', false)
+                ->whereDate('fecha', '>=', today())
+                ->count();
+
+            if ($alumnosActivos > 0 || $clasesFuturas > 0) {
+                $partes = [];
+                if ($alumnosActivos > 0) {
+                    $partes[] = $alumnosActivos === 1 ? '1 alumno activo' : "{$alumnosActivos} alumnos activos";
+                }
+                if ($clasesFuturas > 0) {
+                    $partes[] = $clasesFuturas === 1 ? '1 clase futura' : "{$clasesFuturas} clases futuras";
+                }
+                $motivo = implode(' y ', $partes);
+                $mensaje = "No se puede desactivar el grupo porque tiene {$motivo}.";
+
+                if ($request->expectsJson()) {
+                    return response()->json(['error' => $mensaje], 422);
+                }
+
+                return back()->with('error', $mensaje);
+            }
+        }
+
         $grupo->update(['activo' => !$grupo->activo]);
 
         if ($request->expectsJson()) {

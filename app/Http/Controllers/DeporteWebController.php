@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
+use App\Models\Clase;
 use App\Models\Deporte;
 use App\Rules\NombreUnico;
 use Illuminate\Http\Request;
@@ -66,6 +68,39 @@ class DeporteWebController extends Controller
     public function toggleActivo(Request $request, int $id)
     {
         $deporte = Deporte::findOrFail($id);
+
+        if ($deporte->activo) {
+            $alumnosActivos = Alumno::where('activo', true)
+                ->where(function ($q) use ($deporte) {
+                    $q->where('deporte_id', $deporte->id)
+                      ->orWhereIn('grupo_id', $deporte->grupos()->select('id'));
+                })
+                ->count();
+
+            $clasesFuturas = Clase::whereHas('grupo', fn ($q) => $q->where('deporte_id', $deporte->id))
+                ->where('cancelada', false)
+                ->whereDate('fecha', '>=', today())
+                ->count();
+
+            if ($alumnosActivos > 0 || $clasesFuturas > 0) {
+                $partes = [];
+                if ($alumnosActivos > 0) {
+                    $partes[] = $alumnosActivos === 1 ? '1 alumno activo' : "{$alumnosActivos} alumnos activos";
+                }
+                if ($clasesFuturas > 0) {
+                    $partes[] = $clasesFuturas === 1 ? '1 clase futura' : "{$clasesFuturas} clases futuras";
+                }
+                $motivo = implode(' y ', $partes);
+                $mensaje = "No se puede desactivar el deporte porque tiene {$motivo}.";
+
+                if ($request->expectsJson()) {
+                    return response()->json(['error' => $mensaje], 422);
+                }
+
+                return back()->with('error', $mensaje);
+            }
+        }
+
         $deporte->update(['activo' => !$deporte->activo]);
 
         if ($request->expectsJson()) {
