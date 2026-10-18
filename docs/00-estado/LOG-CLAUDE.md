@@ -20,10 +20,11 @@ vía `CobranzaEstadoService::limiteDeLaCuota`). El cobro que reactiva a un inact
 mismo. Ajuste en el caso 1 del primer pago para no recalcular un reingreso en el mes del alta.
 18 pruebas; mutaciones de las cuatro piezas detectadas. Suite 819/2 omitidas/0 fallidas (con
 T36 y T41 sin commitear en la carpeta). Tabla viva y copia sincronizadas (ALU-018, COB-028, y de
-paso CAJ-029 y PEN-001). Sin tocar vistas. **No commiteé** `tareas.json` ni los tres documentos con
-el número de pruebas: tienen cambios sin commitear de Codex y Gemini. El número lo ajusta quien
-commitee último; T38 pasa a verificar en el tablero cuando esos archivos estén libres.
-`IMPLEMENTACION-T38.md`.
+paso CAJ-029 y PEN-001). Sin tocar vistas. Después, en `3cef48b`, T38 pasó a verificar (Gemini) y
+el número de pruebas de lo publicado quedó en 804, armando el commit desde la versión publicada
+de esos archivos para no llevarme lo de Codex y Gemini; en sus copias de trabajo agregué la línea
+de T38 y la entrada de ESTADO. Recorrido en Chrome sobre `wings_testing_claude` (ficha, interruptor
+del listado, Cobranza, 375 sin desborde): `evidencia-t38-claude/`. `IMPLEMENTACION-T38.md`.
 
 ## 2026-10-17 — Claude CAB — T37 verificada y cerrada; T35 cerrada con el OK de Gemini
 

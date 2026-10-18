@@ -72,10 +72,25 @@ la prueba de lo que ve la operativa); después repetí T38 y las pruebas de cobr
 alta y revisión: 147 aprobadas. El único fallo fue el contador de pruebas de los documentos,
 que en ese momento estaba editando Codex.
 
+## En el navegador
+
+Chrome real, base descartable `wings_testing_claude`, servidor local en el puerto 8738,
+operativa sintética. Scripts y resultado en
+[`evidencia-t38-claude/`](evidencia-t38-claude/) (`preparar-local.php`, `recorrer-local.mjs`,
+`resultado-navegador.json`); las credenciales efímeras se borraron al terminar.
+
+| Paso | Qué se vio |
+|---|---|
+| Ana (debe septiembre), ficha, Reactivar | Pidió confirmación («¿Reactivar a Ana Reingreso?»). Aviso: «Alumno activado correctamente. Se generó la cuota de octubre: $7,000.00 (70 % por reingreso).» Septiembre $10.000 y octubre $7.000; estado Deudor por septiembre. [1366](evidencia-t38-claude/02-ficha-reactivado-1366.png), [375 sin desborde](evidencia-t38-claude/03-ficha-reactivado-375.png) |
+| Cobranza filtrada por Deudor | Ana figura: manda la deuda de septiembre. [Captura](evidencia-t38-claude/04-cobranza-deudor-ana-1366.png) |
+| Bruno (sin deuda), interruptor del listado de inactivos | Se reactivó por el interruptor; en Cobranza figura En plazo, octubre $7.000 (1 cuota). Totales: $24.000 adeudado, 1 en plazo, 1 deudor. [Cobranza](evidencia-t38-claude/05-cobranza-en-plazo-bruno-1366.png), [ficha](evidencia-t38-claude/06-ficha-bruno-1366.png) |
+
 ## Sin verificar o fuera de alcance
 
-- **Pantalla:** no se tocó ninguna vista. El aviso usa los mensajes que ya existen. No lo miré
-  en un navegador. En el listado, el interruptor no muestra qué cuota se generó; la ficha sí.
+- **Vistas:** no se tocó ninguna. El aviso usa los mensajes que ya existen. En el listado, el
+  interruptor no muestra qué cuota se generó; la ficha sí. La ficha pinta todas las cuotas
+  impagas con el color del estado general del alumno (ya era así).
+- **Celular:** solo la ficha a 375. Cobranza no se miró en celular.
 - **Cobro a un inactivo que nunca pagó:** sigue la regla del alumno nuevo (§4, caso 1), no la
   del reingreso: su descuento es el del mes de alta. El botón Reactivar, en cambio, siempre
   usa el porcentaje del día. Lo dejé como estaba porque el código lo documenta como decisión.

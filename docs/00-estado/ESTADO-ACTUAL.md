@@ -7,7 +7,7 @@ ficha o el listado crea la cuota del mes en curso con el porcentaje de reingreso
 que ya exista; sin plan para el mes no reactiva. La cuota guarda `fecha_reingreso` y tiene el
 plazo de un alta en estados y en la mora. El cobro que reactiva a un inactivo completa lo mismo.
 18 pruebas nuevas; suite completa 819 aprobadas/2 omitidas. Pendiente: verificación de otro
-agente y mirar la pantalla. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md).
+agente. Pantalla mirada en Chrome (ficha, listado y Cobranza). [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md).
 
 ## T36 — Revisión persistente de caja, implementación local 17/10/2026
 
