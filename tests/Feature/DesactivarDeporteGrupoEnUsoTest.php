@@ -229,4 +229,26 @@ class DesactivarDeporteGrupoEnUsoTest extends TestCase
         $response->assertSessionHas('success', 'Grupo activado correctamente.');
         $this->assertTrue($this->grupo->fresh()->activo);
     }
+
+    public function test_operativo_no_puede_desactivar_deporte(): void
+    {
+        $operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+
+        $response = $this->actingAs($operativo)
+            ->patch(route('web.deportes.toggle-activo', $this->deporte->id));
+
+        $response->assertForbidden();
+        $this->assertTrue($this->deporte->fresh()->activo);
+    }
+
+    public function test_operativo_no_puede_desactivar_grupo(): void
+    {
+        $operativo = User::factory()->create(['rol' => User::ROL_OPERATIVO, 'activo' => true]);
+
+        $response = $this->actingAs($operativo)
+            ->patch(route('web.grupos.toggle-activo', $this->grupo->id));
+
+        $response->assertForbidden();
+        $this->assertTrue($this->grupo->fresh()->activo);
+    }
 }

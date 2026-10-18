@@ -14,17 +14,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 - **T63 — Cambios en código y reglas:**
   - `DeporteWebController::toggleActivo` y `GrupoWebController::toggleActivo`: si el elemento está activo y se intenta desactivar, se comprueba si existen alumnos activos o clases futuras (no canceladas, `fecha >= today()` en hora de Wings, según definición canónica de `ClaseWebController:528`).
   - Si existen dependencias activas, frena la desactivación con mensaje claro indicando cantidades exactas (singular/plural) y devuelve HTTP 422 `{error: ...}` en JSON y flash `error` en redirección. Reactivación sin restricciones.
-  - 10 pruebas en `tests/Feature/DesactivarDeporteGrupoEnUsoTest.php` (100% aprobadas).
+  - 12 pruebas en `tests/Feature/DesactivarDeporteGrupoEnUsoTest.php` (100% aprobadas, incluye rechazo 403 a operativo).
 - **T57 — Cambios en código, servicio y vista:**
   - `app/Services/CajaService.php`: nuevo método `tipoCajaMostradorId(): ?int`. En `configurarMostrador(int $tipoCajaId, int $adminId)`: si ya está configurado y se cambia el medio, comprueba `CajaOperativa::where('estado', 'ABIERTA')->exists()`; si hay caja abierta arroja `DomainException` («No se puede cambiar el medio del cajón mientras haya una caja abierta. Cerrá la caja abierta antes de cambiarlo.»). Registra `configurado_por_id` y `configurado_at`.
   - `app/Http/Controllers/TipoCajaWebController.php`: en `toggleActivo` y `update` bloquea la desactivación del medio de pago configurado en el mostrador («No se puede desactivar porque es el medio de pago del cajón de mostrador.»).
   - `app/Http/Controllers/CajaWebController.php`: pasa `$hayCajaAbierta` a la vista y captura `DomainException` en `configurarMostrador`.
   - `resources/views/caja/configuracion.blade.php`: con caja abierta muestra el select `disabled`, aviso de advertencia y oculta botón `Guardar`; sin caja abierta permite elegir y guardar. Sin JavaScript incrustado y respetando tokens de diseño.
-  - 9 pruebas en `tests/Feature/MedioPagoCajonTest.php` (100% aprobadas).
+  - 13 pruebas en `tests/Feature/MedioPagoCajonTest.php` (100% aprobadas, incluye uso del nuevo medio en siguiente apertura y rechazo 403 a operativo).
 - **Evidencia visual y contratos:**
-  - 4 capturas PNG en escritorio y marco 375 generadas con Chrome headless (`docs/06-pruebas/PRU-04/evidencia-t57/`).
+  - 8 capturas PNG en escritorio (1366 px) y celular (marco 360 px) generadas con Chrome headless (`docs/06-pruebas/PRU-04/evidencia-t57/`).
   - Actualizados `docs/02-contratos/Wings-contrato-alumno-grupo-deporte-deuda-v4.md` y `docs/02-contratos/Wings-Contrato-Caja-Cashflow-V5.md`.
-  - Suite completa: **847 pruebas** (845 ejecutadas, 2 omitidas, 0 fallidas) sobre `wings_testing_gemini`.
+  - Suite completa: **853 pruebas** (851 ejecutadas, 2 omitidas, 0 fallidas) sobre `wings_testing_gemini`.
 - **Próximo paso:** T63 y T57 pasan a `a_verificar` para Claude en el tablero; aprobación visual de T57 para Carlos.
 
 ## 2026-10-18 — LOG GEM CAB — Verificación independiente de T38: Reactivar a un alumno le genera la cuota del mes

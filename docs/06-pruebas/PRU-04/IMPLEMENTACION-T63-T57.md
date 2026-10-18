@@ -73,29 +73,44 @@
 
 ## 3. Evidencia visual para aprobación de Carlos
 
-Siguiendo AGENTS.md §1 (Chrome headless sobre vistas reales del sistema y marco para ancho 375):
+Siguiendo AGENTS.md §1 (Chrome headless sobre vistas reales del sistema a 1366 px y marco para ancho 360 px / 375 px):
 
-| Estado | Pantalla | Captura Escritorio | Captura Celular (375) |
+| Pantalla / Estado | Qué muestra | Captura Escritorio (1366 px) | Captura Celular (Marco 360 px) |
 |---|---|---|---|
-| **Habilitada** (sin caja abierta) | Configuración cajón | [Ver PNG](evidencia-t57/caja-configuracion-habilitada-escritorio.png) | [Ver PNG](evidencia-t57/caja-configuracion-habilitada-marco-375.png) |
-| **Deshabilitada** (con caja abierta) | Configuración cajón | [Ver PNG](evidencia-t57/caja-configuracion-deshabilitada-escritorio.png) | [Ver PNG](evidencia-t57/caja-configuracion-deshabilitada-marco-375.png) |
+| **Configuración cajón (Habilitada)** | Selector disponible y botón Guardar visible | [Ver PNG](evidencia-t57/caja-configuracion-habilitada-escritorio-1366.png) | [Ver PNG](evidencia-t57/caja-configuracion-habilitada-marco-360.png) |
+| **Configuración cajón (Deshabilitada)** | Selector bloqueado, aviso de caja abierta y sin Guardar | [Ver PNG](evidencia-t57/caja-configuracion-deshabilitada-escritorio-1366.png) | [Ver PNG](evidencia-t57/caja-configuracion-deshabilitada-marco-360.png) |
+| **Aviso Medio de Cajón** | Cartel al intentar desactivar el medio del cajón | [Ver PNG](evidencia-t57/tipo-caja-cajon-aviso-escritorio-1366.png) | [Ver PNG](evidencia-t57/tipo-caja-cajon-aviso-marco-360.png) |
+| **Aviso Grupo en Uso** | Cartel al intentar desactivar un grupo con alumnos activos | [Ver PNG](evidencia-t57/grupo-en-uso-aviso-escritorio-1366.png) | [Ver PNG](evidencia-t57/grupo-en-uso-aviso-marco-360.png) |
 
 Archivos HTML fuente:
 - `docs/06-pruebas/PRU-04/evidencia-t57/caja-configuracion-habilitada.html`
 - `docs/06-pruebas/PRU-04/evidencia-t57/caja-configuracion-deshabilitada.html`
-- `docs/06-pruebas/PRU-04/evidencia-t57/caja-configuracion-habilitada-marco-375.html`
-- `docs/06-pruebas/PRU-04/evidencia-t57/caja-configuracion-deshabilitada-marco-375.html`
+- `docs/06-pruebas/PRU-04/evidencia-t57/tipo-caja-cajon-aviso.html`
+- `docs/06-pruebas/PRU-04/evidencia-t57/grupo-en-uso-aviso.html`
 
 ---
 
 ## 4. Pruebas y Verificación
 
-### Pruebas Específicas
-- `tests/Feature/DesactivarDeporteGrupoEnUsoTest.php` (10 pruebas) — 100% PASS.
-- `tests/Feature/MedioPagoCajonTest.php` (9 pruebas) — 100% PASS.
+### Pruebas Específicas (25 pruebas nuevas)
+- `tests/Feature/DesactivarDeporteGrupoEnUsoTest.php` (12 pruebas) — 100% PASS:
+  - Rechazo web y JSON con alumnos activos.
+  - Rechazo con clases futuras.
+  - Mensaje plural combinado (alumnos activos y clases futuras).
+  - Desactivación permitida con alumnos inactivos y clases pasadas o canceladas.
+  - Reactivación sin freno.
+  - Rechazo de permisos para rol `OPERATIVO` al intentar desactivar deportes o grupos (HTTP 403).
+- `tests/Feature/MedioPagoCajonTest.php` (13 pruebas) — 100% PASS:
+  - Rechazo de desactivación del medio de mostrador vía toggle (web y JSON) y vía update.
+  - Desactivación permitida de otro medio activo.
+  - Dueño cambia medio sin caja abierta (actualiza `tipo_caja_id`, `configurado_por_id` y `configurado_at`).
+  - Bloqueo en backend (`DomainException`) y web al intentar cambiar con caja abierta.
+  - Interfaz de configuración adaptada (selector `disabled` y sin botón Guardar con caja abierta).
+  - Verificación de que el nuevo medio configurado se propone y utiliza en la apertura siguiente.
+  - Rechazo de permisos para rol `OPERATIVO` al intentar desactivar tipos de caja, ver o cambiar la configuración del cajón (HTTP 403).
 
 ### Suite Completa
 Ejecutada sobre `wings_testing_gemini`:
-- **847 pruebas** registradas (845 ejecutadas, 2 omitidas, 0 fallidas).
-- 7655 aserciones.
+- **853 pruebas** registradas (851 ejecutadas, 2 omitidas, 0 fallidas).
+- 7.666 aserciones.
 - `DocumentacionNoMienteTest` pasa sin discrepancias.

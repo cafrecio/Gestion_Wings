@@ -187,4 +187,51 @@ class MedioPagoCajonTest extends TestCase
         $response->assertSee('ds-btn--primary', false);
         $response->assertSee('Guardar');
     }
+
+    public function test_cambio_de_medio_sin_caja_abierta_se_usa_en_la_apertura_siguiente(): void
+    {
+        $this->actingAs($this->admin)
+            ->post(route('web.caja.configuracion.store'), [
+                'tipo_caja_id' => $this->tipoCajaOtro->id,
+            ]);
+
+        $propuesta = $this->cajaService->propuestaApertura();
+        $this->assertEquals($this->tipoCajaOtro->id, $propuesta['tipo_caja_id']);
+
+        $caja = $this->cajaService->abrirCajaOperativa($this->operativo->id, [
+            'efectivo_inicial' => 1000,
+            'confirmacion' => true,
+            'motivo_apertura' => 'Primer turno con nuevo medio',
+        ]);
+
+        $this->assertEquals($this->tipoCajaOtro->id, $caja->tipo_caja_efectivo_id);
+    }
+
+    public function test_operativo_no_puede_desactivar_tipo_caja(): void
+    {
+        $response = $this->actingAs($this->operativo)
+            ->patch(route('web.tipos-caja.toggle-activo', $this->tipoCajaOtro->id));
+
+        $response->assertForbidden();
+        $this->assertTrue($this->tipoCajaOtro->fresh()->activo);
+    }
+
+    public function test_operativo_no_puede_ver_configuracion_del_cajon(): void
+    {
+        $response = $this->actingAs($this->operativo)
+            ->get(route('web.caja.configuracion'));
+
+        $response->assertForbidden();
+    }
+
+    public function test_operativo_no_puede_cambiar_medio_del_cajon(): void
+    {
+        $response = $this->actingAs($this->operativo)
+            ->post(route('web.caja.configuracion.store'), [
+                'tipo_caja_id' => $this->tipoCajaOtro->id,
+            ]);
+
+        $response->assertForbidden();
+        $this->assertEquals($this->tipoCajaMostrador->id, $this->cajaService->tipoCajaMostradorId());
+    }
 }

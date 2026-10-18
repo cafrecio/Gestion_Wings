@@ -8,20 +8,22 @@ const chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 
 const paginas = [
     { nombre: 'caja-configuracion-habilitada', alto: 800 },
-    { nombre: 'caja-configuracion-deshabilitada', alto: 800 }
+    { nombre: 'caja-configuracion-deshabilitada', alto: 800 },
+    { nombre: 'tipo-caja-cajon-aviso', alto: 900 },
+    { nombre: 'grupo-en-uso-aviso', alto: 900 }
 ];
 
 for (const p of paginas) {
     const htmlPath = path.join(base, `${p.nombre}.html`);
     if (!fs.existsSync(htmlPath)) throw new Error(`Falta ${htmlPath}`);
 
-    // Marco 375
-    const marcoHtml = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Wings · ${p.nombre} a375</title></head><body style="margin:0;background:#eef2f6"><iframe title="Wings a375" src="${p.nombre}.html" style="display:block;width:375px;height:${p.alto}px;border:0;margin:20px auto"></iframe></body></html>\n`;
-    fs.writeFileSync(path.join(base, `${p.nombre}-marco-375.html`), marcoHtml);
+    // Marco 360
+    const marcoHtml = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Wings · ${p.nombre} a360</title></head><body style="margin:0;background:#eef2f6"><iframe title="Wings a360" src="${p.nombre}.html" style="display:block;width:360px;height:${p.alto}px;border:0;margin:20px auto"></iframe></body></html>\n`;
+    fs.writeFileSync(path.join(base, `${p.nombre}-marco-360.html`), marcoHtml);
 
     for (const [modo, archivo, tamano] of [
-        ['escritorio', `${p.nombre}.html`, '1440,900'],
-        ['marco-375', `${p.nombre}-marco-375.html`, `900,${p.alto + 100}`],
+        ['escritorio-1366', `${p.nombre}.html`, '1366,900'],
+        ['marco-360', `${p.nombre}-marco-360.html`, `900,${p.alto + 100}`],
     ]) {
         const destino = path.join(base, `${p.nombre}-${modo}.png`);
         const perfil = path.resolve(`storage/app/chrome-t57-${p.nombre}-${modo}`);
