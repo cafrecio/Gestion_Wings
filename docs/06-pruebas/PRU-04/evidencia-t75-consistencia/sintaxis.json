@@ -1,0 +1,17 @@
+{
+  "php": [
+    "No syntax errors detected in resources/views/alumnos/show.blade.php",
+    "No syntax errors detected in resources/views/auth/login.blade.php",
+    "No syntax errors detected in resources/views/caja/cobrar.blade.php",
+    "No syntax errors detected in resources/views/caja/detalle.blade.php",
+    "No syntax errors detected in resources/views/caja/resumen.blade.php",
+    "No syntax errors detected in resources/views/clases/show.blade.php",
+    "No syntax errors detected in resources/views/cobranza/index.blade.php",
+    "No syntax errors detected in resources/views/liquidaciones/index.blade.php",
+    "No syntax errors detected in resources/views/liquidaciones/show.blade.php",
+    "No syntax errors detected in resources/views/operativo/dashboard.blade.php",
+    "No syntax errors detected in resources/views/rubros/index.blade.php"
+  ],
+  "javascript": "Todos los mjs del instrumental compilan",
+  "python": "AST válido"
+}

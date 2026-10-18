@@ -1,0 +1,11 @@
+{
+  "salida": 0,
+  "aprobadas": 846,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7655,
+  "duracionSegundos": 1091.37,
+  "base": "c2db5d4",
+  "fuentes": "fuentes-suite.json",
+  "alcance": "alcance-suite.json"
+}

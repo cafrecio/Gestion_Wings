@@ -1,7 +1,8 @@
 # Wings Design System — Tokens
 
 > Fuente de verdad visual del proyecto. Los tokens se definen como CSS custom properties
-> en `resources/css/app.css` dentro del bloque `@theme` (Tailwind v4).
+> en `resources/css/app.css`: base en `@theme` (Tailwind v4), y ajustes móviles
+> en `:root` dentro de `@media (max-width: 640px)`.
 > **Ningún valor hex puede aparecer hardcodeado en archivos Blade.**
 
 ---
@@ -75,6 +76,29 @@ Nota: valores inspirados en el sistema CyE, ajustables tras verificar en pantall
 | `--space-icon-gap`    | `8px`  | Gap entre ícono y texto adyacente        |
 
 Nota: valores inspirados en el sistema CyE, ajustables tras verificar en pantalla real.
+
+---
+
+## Acciones en celular — T75
+
+Decisión de Carlos del 18/10/2026. Estos tokens rigen hasta 640 px; escritorio conserva sus medidas.
+
+| Token | Valor | Uso |
+|---|---|---|
+| `--mobile-action-width` | `96px` | Todos los botones de acción con texto |
+| `--mobile-action-height` | `32px` | Alto común |
+| `--mobile-action-gap` | `var(--space-icon-gap)` = `8px` | Separación entre acciones |
+| `--mobile-page-pad` | `var(--space-card-pad)` = `16px` | Margen lateral del contenido |
+| `--mobile-actions-inset` | `calc(var(--space-card-pad) + var(--space-icon-gap))` = `24px` | Referencia interior común para el borde derecho |
+
+Botón: padding `0`, `box-sizing:border-box`, fuente `var(--font-sans)`, tamaño `0.82rem`,
+peso `600`, interlínea `1`. La referencia es el Cobrar de la ficha del alumno.
+El padding efectivo de una superficie descuenta su borde o riel; los grupos anidados
+no suman otro margen. Los pies fijos de formulario suman 16 + 24 px para llegar al
+mismo borde del contenido. Los controles de ícono y los interruptores conservan su tipo.
+
+[Reglas de posición y aceptación](DESIGN-RULES.md#celular--consistencia-y-ubicación-predecible-decisión-de-carlos-18102026) ·
+[Implementación y capturas](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md).
 
 ---
 

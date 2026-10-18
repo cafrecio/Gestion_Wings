@@ -1,0 +1,2263 @@
+{
+  "css_sha256": "9d701dec0ce155c8ac7f1bbbfe8bb9f93fad6840fa727ab341c385a25eb62e7d",
+  "vistas": [
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "sha256": "9579fe3cb22ea9d675a5decd96217546270d40eb884c476b759f87d60356050f",
+      "lineas": 48,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "@if($enlaceReportes)<a class=\"ds-btn ds-btn--secondary\" href=\"{{ $enlaceReportes }}\">Ver</a>@else<button type=\"button\" class=\"ds-btn ds-btn--secondary\" disabled>Ver</button>@endif"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/_errores.blade.php",
+      "sha256": "70ea6535a32e6246df854d182fa05fb443a505ee28e076f1f97e1b747e185394",
+      "lineas": 12,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/_form.blade.php",
+      "sha256": "b0d52c04555d1183dcfcb560faae25988b0bb208c8860b257ed6c7ccd3eaa403",
+      "lineas": 215,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/create.blade.php",
+      "sha256": "ef7b9a978a92e5c9d1376f82973cc8b7eac4c7130511ed72913eb0f79cd2c511",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "alumnos._errores",
+        "alumnos._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/edit.blade.php",
+      "sha256": "39e53b22d3ba228948d76e60b90b3f28927cefc8eca976686f112c8ea754fcb3",
+      "lineas": 35,
+      "marcas_interactivas": [
+        {
+          "linea": 29,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 30,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "alumnos._errores",
+        "alumnos._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/index.blade.php",
+      "sha256": "d412604aafeac83866811d7f1285a3a48e08cdb8de685b819fc4e2e87466b33b",
+      "lineas": 396,
+      "marcas_interactivas": [
+        {
+          "linea": 63,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 81,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.alumnos.create') }}\">"
+        },
+        {
+          "linea": 202,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        },
+        {
+          "linea": 205,
+          "fuente": "<x-ds.button variant=\"primary\""
+        },
+        {
+          "linea": 210,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        },
+        {
+          "linea": 215,
+          "fuente": "<x-ds.toggle"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/alumnos/show.blade.php",
+      "sha256": "3b84d3749abf8692032bf0113b29f37202a9b0d2f88c91f2ec3a7cbb9e5cf7c2",
+      "lineas": 457,
+      "marcas_interactivas": [
+        {
+          "linea": 28,
+          "fuente": "<button type=\"button\" class=\"ds-btn-row ds-btn-row--sec\""
+        },
+        {
+          "linea": 31,
+          "fuente": "<button type=\"button\" class=\"ds-btn-row ds-btn-row--dang\""
+        },
+        {
+          "linea": 58,
+          "fuente": "<button type=\"submit\" class=\"ds-btn ds-btn--primary\""
+        },
+        {
+          "linea": 65,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.cobrar', $alumno->id) }}\">Cobrar</x-ds.button>"
+        },
+        {
+          "linea": 67,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.edit', $alumno->id) }}\">Editar</x-ds.button>"
+        },
+        {
+          "linea": 207,
+          "fuente": "class=\"ds-btn-row\""
+        },
+        {
+          "linea": 213,
+          "fuente": "<button type=\"button\""
+        },
+        {
+          "linea": 214,
+          "fuente": "class=\"ds-btn-row ds-btn-row--dang\""
+        },
+        {
+          "linea": 240,
+          "fuente": "<a href=\"{{ route('web.caja.cobrar', $alumno->id) }}\" class=\"ds-btn-row ds-btn-row--sec\">Cobrar</a>"
+        },
+        {
+          "linea": 244,
+          "fuente": "<button type=\"button\" class=\"ds-btn-row ds-btn-row--sec\""
+        },
+        {
+          "linea": 247,
+          "fuente": "<button type=\"button\" class=\"ds-btn-row ds-btn-row--dang\""
+        },
+        {
+          "linea": 267,
+          "fuente": "<button type=\"button\" class=\"ds-btn-row ds-btn-row--sec\""
+        },
+        {
+          "linea": 349,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\""
+        },
+        {
+          "linea": 355,
+          "fuente": "<button type=\"button\""
+        },
+        {
+          "linea": 356,
+          "fuente": "class=\"ds-btn-row ds-btn-row--dang\""
+        },
+        {
+          "linea": 414,
+          "fuente": "<button type=\"button\" data-cerrar-anular"
+        },
+        {
+          "linea": 415,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cerrar</button>"
+        },
+        {
+          "linea": 416,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 417,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:var(--color-surface);\">Anular</button>"
+        },
+        {
+          "linea": 435,
+          "fuente": "<button type=\"button\" data-cerrar-condonar"
+        },
+        {
+          "linea": 436,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cerrar</button>"
+        },
+        {
+          "linea": 437,
+          "fuente": "<button id=\"perdon-confirmar\" type=\"submit\""
+        },
+        {
+          "linea": 438,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:var(--color-surface);\">Condonar</button>"
+        },
+        {
+          "linea": 447,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.index') }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/auth/login.blade.php",
+      "sha256": "81b007eddbae5d08f58126d0b7768df7e32bf6a233c1ddaaf2523243fd2c371a",
+      "lineas": 112,
+      "marcas_interactivas": [
+        {
+          "linea": 56,
+          "fuente": "<button type=\"button\" id=\"toggle-password\" aria-label=\"Mostrar contraseña\""
+        },
+        {
+          "linea": 82,
+          "fuente": "<button"
+        },
+        {
+          "linea": 83,
+          "fuente": "type=\"submit\""
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/apertura.blade.php",
+      "sha256": "81d4994e154589627ef40edbd54744cd2dae08710026054fe0b9dbaa55ab1136",
+      "lineas": 91,
+      "marcas_interactivas": [
+        {
+          "linea": 17,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 19,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.cierre', $turnoAbierto->id) }}\">Cerrar</x-ds.button>"
+        },
+        {
+          "linea": 25,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 26,
+          "fuente": "@if(auth()->user()->isAdmin())<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.configuracion') }}\">Configurar</x-ds.button>@endif"
+        },
+        {
+          "linea": 84,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 85,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Abrir</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/cancelar-movimiento.blade.php",
+      "sha256": "1a4ee495441b332d5fe3adb3a3c572551a926fbc0c6c3030fff1f579076cd47e",
+      "lineas": 58,
+      "marcas_interactivas": [
+        {
+          "linea": 51,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Volver</a>"
+        },
+        {
+          "linea": 52,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 53,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:#fff;\">Cancelar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/cierre.blade.php",
+      "sha256": "f41a9e63165b0036269b8e4b9b61500f5729a85188562d7ad538ead2f4dea33f",
+      "lineas": 57,
+      "marcas_interactivas": [
+        {
+          "linea": 48,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.resumen', $caja->id) }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 49,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Cerrar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/cobrar-cuota.blade.php",
+      "sha256": "f7ceeab2b4d7e36a0b04b6e66d02656b811661d86150e8cd9794895891d82526",
+      "lineas": 101,
+      "marcas_interactivas": [
+        {
+          "linea": 22,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Buscar</x-ds.button>"
+        },
+        {
+          "linea": 23,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.cobrar-cuota') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 42,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Volver</a>"
+        },
+        {
+          "linea": 76,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.alumnos.show', $alumno->id) }}\">Ver</x-ds.button>"
+        },
+        {
+          "linea": 77,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.cobrar', $alumno->id) }}\">Cobrar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/cobrar.blade.php",
+      "sha256": "4abcc1e1100375370e627e38b42cab1ff8c31567d17ddf7ea89b7f7494fb9f41",
+      "lineas": 328,
+      "marcas_interactivas": [
+        {
+          "linea": 208,
+          "fuente": "<button type=\"button\" id=\"adelanto-agregar\" class=\"ds-btn\" disabled"
+        },
+        {
+          "linea": 293,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.cobrar-cuota') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 294,
+          "fuente": "<button type=\"submit\" id=\"btn-cobrar\" disabled"
+        },
+        {
+          "linea": 295,
+          "fuente": "class=\"ds-btn\""
+        },
+        {
+          "linea": 314,
+          "fuente": "<button type=\"button\" id=\"cerrar-deuda-anterior\""
+        },
+        {
+          "linea": 315,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cerrar</button>"
+        },
+        {
+          "linea": 316,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 317,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-primary); color:var(--color-surface);\">Cobrar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/configuracion.blade.php",
+      "sha256": "b69871debb13c0ae9708573309945aba88a9510d4d0f512285c9c9f0a08c2507",
+      "lineas": 30,
+      "marcas_interactivas": [
+        {
+          "linea": 24,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 25,
+          "fuente": "@if($propuesta['tipo_caja_id'] === null)<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>@endif"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "sha256": "54be5228b00c4b0d8ac3c75ea0f09dd33375ea8e014d140bf65b53d76a09f644",
+      "lineas": 310,
+      "marcas_interactivas": [
+        {
+          "linea": 78,
+          "fuente": "<button type=\"submit\" id=\"btn-validar\" class=\"w-full\" style=\"{{ $btnBPrim }}\">Validar</button>"
+        },
+        {
+          "linea": 80,
+          "fuente": "<button type=\"button\" data-abrir-rechazar style=\"{{ $btnBDang }}\">Rechazar</button>"
+        },
+        {
+          "linea": 181,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\" target=\"_blank\">Recibo</a>"
+        },
+        {
+          "linea": 183,
+          "fuente": "<button type=\"button\""
+        },
+        {
+          "linea": 184,
+          "fuente": "class=\"ds-btn-row ds-btn-row--dang\""
+        },
+        {
+          "linea": 193,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\">Editar</a>"
+        },
+        {
+          "linea": 199,
+          "fuente": "<button type=\"submit\" class=\"ds-btn-row ds-btn-row--dang\">Eliminar</button>"
+        },
+        {
+          "linea": 209,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\" target=\"_blank\">Recibo</a>"
+        },
+        {
+          "linea": 228,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\" target=\"_blank\">Recibo</a>"
+        },
+        {
+          "linea": 274,
+          "fuente": "<button type=\"button\" data-cerrar-cancelar"
+        },
+        {
+          "linea": 275,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cerrar</button>"
+        },
+        {
+          "linea": 276,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 277,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:#fff;\">Confirmar</button>"
+        },
+        {
+          "linea": 296,
+          "fuente": "<button type=\"button\" data-cerrar-rechazar"
+        },
+        {
+          "linea": 298,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBDang }}\">Rechazar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/editar.blade.php",
+      "sha256": "3379b9f1995542e068f6550eed7b81e249bd44a9ce871e98b344da5d942a24c9",
+      "lineas": 262,
+      "marcas_interactivas": [
+        {
+          "linea": 171,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.resumen', $caja->id) }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 172,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">{{ session('aviso_fecha_vieja') ? 'Confirmar' : ($editando ? 'Guardar' : 'Registrar') }}</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/historial.blade.php",
+      "sha256": "00b968104bda7340c0f8788ce0c939e98852970e1fb16996123cbe0fbb34dff8",
+      "lineas": 184,
+      "marcas_interactivas": [
+        {
+          "linea": 74,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Filtrar</x-ds.button>"
+        },
+        {
+          "linea": 75,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.historial') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 90,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/index.blade.php",
+      "sha256": "fbff05a7da6291d4f54b8284045365de6c663ab89bf7e938d3717446773a62c2",
+      "lineas": 184,
+      "marcas_interactivas": [
+        {
+          "linea": 33,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Filtrar</x-ds.button>"
+        },
+        {
+          "linea": 34,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 43,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.cobrar-cuota') }}\">Cobrar</x-ds.button>"
+        },
+        {
+          "linea": 47,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ $mostradorConfigurado ? route('web.caja.apertura') : route('web.caja.configuracion') }}\">{{ $mostradorConfigurado ? 'Abrir' : 'Configurar' }}</x-ds.button>"
+        },
+        {
+          "linea": 75,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.apertura') }}\">Abrir</x-ds.button>"
+        },
+        {
+          "linea": 88,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.historial') }}\">Historial</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/movimiento.blade.php",
+      "sha256": "1f1e0b4da0d1faf6e9769d30b152cdb26c865a1e876b8869e74eb2f9d45e15ab",
+      "lineas": 169,
+      "marcas_interactivas": [
+        {
+          "linea": 158,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 159,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Registrar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/rectificar.blade.php",
+      "sha256": "26393e4ecd70b7898c6f70686a3a4f14952f190878f1cb0363119bf3b9e9e8a7",
+      "lineas": 48,
+      "marcas_interactivas": [
+        {
+          "linea": 42,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.resumen', $caja->id) }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 43,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "sha256": "09a8cc69a958c50d9e76caedb208d580e5b32681520200b8d79553850e4a9795",
+      "lineas": 240,
+      "marcas_interactivas": [
+        {
+          "linea": 61,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cobrar</a>"
+        },
+        {
+          "linea": 63,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Nuevo</a>"
+        },
+        {
+          "linea": 66,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.caja.cierre', $caja->id) }}\">Cerrar</x-ds.button>"
+        },
+        {
+          "linea": 69,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.caja.rectificar', $caja->id) }}\">Rectificar</x-ds.button>"
+        },
+        {
+          "linea": 72,
+          "fuente": "<button type=\"button\" data-abrir-rechazar"
+        },
+        {
+          "linea": 73,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:#fff;\">Rechazar</button>"
+        },
+        {
+          "linea": 76,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 77,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-primary); color:#fff;\">Validar</button>"
+        },
+        {
+          "linea": 81,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Detalle</a>"
+        },
+        {
+          "linea": 83,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Volver</a>"
+        },
+        {
+          "linea": 229,
+          "fuente": "<button type=\"button\" data-cerrar-rechazar"
+        },
+        {
+          "linea": 230,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-btn-secondary); color:var(--color-surface);\">Cancelar</button>"
+        },
+        {
+          "linea": 231,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 232,
+          "fuente": "class=\"ds-btn\" style=\"background:var(--color-danger); color:#fff;\">Rechazar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/_acciones.blade.php",
+      "sha256": "4f5bbda605c2ce41e61f1708c89df14b41ff5239de72f0c00b8b262712016ed4",
+      "lineas": 18,
+      "marcas_interactivas": [
+        {
+          "linea": 3,
+          "fuente": "<a class=\"ds-btn-row {{ in_array($accion['nombre'], ['Eliminar', 'Anular'], true) ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}\" style=\"width:28px; height:28px;\" href=\"{{ $accion['url'] }}\" title=\"{{ $accion['nombre'] }}\" aria-label=\"{{ $accion['nombre'] }}\">"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/_historial.blade.php",
+      "sha256": "2ce5272df5408eee1310f017c53b06beec565c0868b5d32588764e9c958016cf",
+      "lineas": 26,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/detalle.blade.php",
+      "sha256": "552bd9feaf5e6da5e1509bb13d834c5a7eb7bc9cc40ce9e503519749049437d6",
+      "lineas": 23,
+      "marcas_interactivas": [
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"secondary\" style=\"width:96px; height:32px; font-size:0.82rem;\" :href=\"route('web.cashflow.index')\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 17,
+          "fuente": "<x-ds.button variant=\"secondary\" style=\"width:96px; height:32px; font-size:0.82rem;\" :href=\"route('web.cashflow.movimientos.editar', $movimiento->id)\">Editar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app",
+        "cashflow._historial"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/eliminar.blade.php",
+      "sha256": "c6e5706e78567a75e0648c7e71f87c883c92b544951b3313e9490bfcd2da7455",
+      "lineas": 29,
+      "marcas_interactivas": [
+        {
+          "linea": 23,
+          "fuente": "<x-ds.button variant=\"secondary\" style=\"width:96px; height:32px; font-size:0.82rem;\" :href=\"route('web.cashflow.index')\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 24,
+          "fuente": "<x-ds.button variant=\"danger\" type=\"submit\" style=\"width:96px; height:32px; font-size:0.82rem; background:none; color:var(--color-btn-danger); border-color:var(--color-btn-danger);\">Eliminar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "sha256": "a033f50b6ce4a71140a212be8d8ff78cf13e7d8720c9d5d58475168c43174365",
+      "lineas": 345,
+      "marcas_interactivas": [
+        {
+          "linea": 75,
+          "fuente": "<x-ds.button variant=\"secondary\" :href=\"route('web.cashflow.index', ['periodo' => $modo, 'anio' => $anio, 'mes' => $mes, 'fecha' => $fechaReferencia->toDateString()])\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 123,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.cashflow.movimiento') }}\">Nuevo</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app",
+        "cashflow._acciones",
+        "cashflow._acciones",
+        "cashflow._acciones",
+        "cashflow._acciones"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/movimiento.blade.php",
+      "sha256": "926fd241a1c887f2bfd2fb2fc68f98e7c4e05b8f7e8b0110e4864df41f4b183d",
+      "lineas": 216,
+      "marcas_interactivas": [
+        {
+          "linea": 202,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ $movimiento ? route('web.cashflow.index') : route('web.caja.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 203,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">{{ $movimiento ? 'Guardar' : (session('aviso_fecha_vieja') ? 'Confirmar' : 'Registrar') }}</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app",
+        "cashflow._historial"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/_aviso-cancha.blade.php",
+      "sha256": "eefc7528045f42c4aa1b0ca1a5221ae757fc3cd4e24f62dc9aba81c0432b5ffb",
+      "lineas": 13,
+      "marcas_interactivas": [
+        {
+          "linea": 9,
+          "fuente": "<a href=\"#{{ session('aviso_cancha.campo', 'hora_inicio') }}\" class=\"ds-btn-row ds-btn-row--sec mt-2\">Revisar</a>"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/_card.blade.php",
+      "sha256": "ba9223f77afe51eb6c6850c0d81ca155cbf6931bd270c4e09a24e7e28210f66a",
+      "lineas": 103,
+      "marcas_interactivas": [
+        {
+          "linea": 90,
+          "fuente": "<x-ds.button variant=\"primary\""
+        },
+        {
+          "linea": 95,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/create.blade.php",
+      "sha256": "089f6e4013761f7af3f2d534a1238ffd326b1f71bb28ece14c62ce34c9841bb5",
+      "lineas": 226,
+      "marcas_interactivas": [
+        {
+          "linea": 209,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.clases.index') }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 212,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\" data-confirmar-cancha>Confirmar</x-ds.button>"
+        },
+        {
+          "linea": 214,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "clases._aviso-cancha"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/edit.blade.php",
+      "sha256": "03b751e1513a935eb04f88d89207496b5c69b474e31f8b791d7c7a59ef922ce2",
+      "lineas": 139,
+      "marcas_interactivas": [
+        {
+          "linea": 120,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.clases.show', $clase->id) }}\">Ver</x-ds.button>"
+        },
+        {
+          "linea": 127,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.clases.show', $clase->id) }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 128,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/index.blade.php",
+      "sha256": "8423593150c31debecda0ec264bda844c2d3be0a005b0f57e3c7218e5273509c",
+      "lineas": 294,
+      "marcas_interactivas": [
+        {
+          "linea": 81,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.clases.create') }}\">"
+        },
+        {
+          "linea": 185,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        },
+        {
+          "linea": 189,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "clases._card",
+        "clases._card",
+        "clases._card"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/clases/show.blade.php",
+      "sha256": "b2ec752bc8ce9c2abdb916313646760e194153248d7f962da4eb0b989b8a4345",
+      "lineas": 705,
+      "marcas_interactivas": [
+        {
+          "linea": 67,
+          "fuente": "<button id=\"btn-modificar-profesores\" class=\"accion-celular-final\""
+        },
+        {
+          "linea": 102,
+          "fuente": "<button id=\"btn-abrir-cancelar\""
+        },
+        {
+          "linea": 117,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 132,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 181,
+          "fuente": "<button id=\"btn-confirmar-cancelar\""
+        },
+        {
+          "linea": 190,
+          "fuente": "<button id=\"btn-cancelar-serie\""
+        },
+        {
+          "linea": 199,
+          "fuente": "<button id=\"btn-cerrar-cancelar\""
+        },
+        {
+          "linea": 246,
+          "fuente": "<button id=\"btn-guardar-profesores\""
+        },
+        {
+          "linea": 254,
+          "fuente": "<button id=\"btn-cerrar-profesores\""
+        },
+        {
+          "linea": 411,
+          "fuente": "<button id=\"btn-guardar-asistencias\""
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "sha256": "f02cfdb50fea932262ecc686f2c7d0d85659e6bfa595953869595aa78c3a50e8",
+      "lineas": 240,
+      "marcas_interactivas": [
+        {
+          "linea": 73,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Filtrar</x-ds.button>"
+        },
+        {
+          "linea": 75,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.cobranza.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 224,
+          "fuente": "class=\"ds-btn-row\""
+        },
+        {
+          "linea": 227,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\""
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/button.blade.php",
+      "sha256": "52e64e3698867f50761bd12a5305ce05c2f4202dc329634360cd42cabf02c89f",
+      "lineas": 69,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "'ds-btn',"
+        },
+        {
+          "linea": 15,
+          "fuente": "'ds-btn--' . $variant,"
+        },
+        {
+          "linea": 16,
+          "fuente": "$iconOnly ? 'ds-btn--icon' : null,"
+        },
+        {
+          "linea": 17,
+          "fuente": "$loading  ? 'ds-btn--loading' : null,"
+        },
+        {
+          "linea": 21,
+          "fuente": "{{-- Renderizar como <a role=\"button\"> solo si hay href y no está deshabilitado --}}"
+        },
+        {
+          "linea": 26,
+          "fuente": "role=\"button\">"
+        },
+        {
+          "linea": 47,
+          "fuente": "<button {{ $attributes->class([$classes]) }}"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/card.blade.php",
+      "sha256": "ac88942e9fc2e1e87b5323a70668ee83ba8b223735fef78d370b50aeb194ade9",
+      "lineas": 52,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/mobile-errors.blade.php",
+      "sha256": "fe459bb0c7e062dd69812d178ff9c96c2e6866609e48ee2c1576bb763eb4d21c",
+      "lineas": 13,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/module-header.blade.php",
+      "sha256": "3a2895a8a749e38edadfa4eec6fcf6f198f7e88945284f02ace47827af8f4254",
+      "lineas": 11,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/money-input.blade.php",
+      "sha256": "bc37857f144c2da937d34d812faa9bd5ec2fdba0367717bcd7fb36f33836af6a",
+      "lineas": 40,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/components/ds/toggle.blade.php",
+      "sha256": "ca13ed883da27602c80908d75a9979c34f2094a024ae19c7242feb287825caaf",
+      "lineas": 51,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/configuraciones/_campo.blade.php",
+      "sha256": "2365e73cab8cd93bfe03ee1a0f1f0667da039a6b8846b73a552be8e5a2747483",
+      "lineas": 48,
+      "marcas_interactivas": [
+        {
+          "linea": 43,
+          "fuente": "<x-ds.button type=\"submit\" variant=\"secondary\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/configuraciones/_regla.blade.php",
+      "sha256": "17a526fa35d136ecc97d9be668d5499ab0c928c0409377d4ac68fd7ad5d60a28",
+      "lineas": 70,
+      "marcas_interactivas": [
+        {
+          "linea": 27,
+          "fuente": "<x-ds.button variant=\"secondary\" class=\"btn-editar-regla\" data-id=\"{{ $id }}\">Editar</x-ds.button>"
+        },
+        {
+          "linea": 28,
+          "fuente": "<x-ds.button variant=\"danger\"    class=\"btn-eliminar-regla\" data-id=\"{{ $id }}\">Eliminar</x-ds.button>"
+        },
+        {
+          "linea": 64,
+          "fuente": "<x-ds.button variant=\"primary\"   class=\"btn-guardar-regla\"  data-id=\"{{ $id }}\">Guardar</x-ds.button>"
+        },
+        {
+          "linea": 65,
+          "fuente": "<x-ds.button variant=\"secondary\" class=\"btn-cancelar-edit\"  data-id=\"{{ $id }}\">Cancelar</x-ds.button>"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/configuraciones/index.blade.php",
+      "sha256": "7f510c3e6b167374d8742da371f5b9980e723cb87cb4aaec82c4412d8c3b46b2",
+      "lineas": 116,
+      "marcas_interactivas": [
+        {
+          "linea": 48,
+          "fuente": "<x-ds.button variant=\"primary\" id=\"btn-agregar-regla\">Nuevo</x-ds.button>"
+        },
+        {
+          "linea": 95,
+          "fuente": "<x-ds.button variant=\"primary\"   id=\"btn-guardar-add\">Guardar</x-ds.button>"
+        },
+        {
+          "linea": 96,
+          "fuente": "<x-ds.button variant=\"secondary\" id=\"btn-cancelar-add\">Cancelar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "configuraciones._campo",
+        "configuraciones._campo",
+        "configuraciones._campo",
+        "configuraciones._campo",
+        "configuraciones._regla",
+        "configuraciones._regla",
+        "configuraciones._campo",
+        "configuraciones._campo"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/deportes/create.blade.php",
+      "sha256": "16b8b5d41fad16148ad1ee463f764420f312078082479c21a125981aea20f9e9",
+      "lineas": 68,
+      "marcas_interactivas": [
+        {
+          "linea": 60,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.deportes.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 61,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/deportes/edit.blade.php",
+      "sha256": "abaa4d17f340c29e8f0c8d4e1cc0ce408d1c5f6f03cc1b245b52862852087ba8",
+      "lineas": 69,
+      "marcas_interactivas": [
+        {
+          "linea": 61,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.deportes.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 62,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/deportes/index.blade.php",
+      "sha256": "30fb324498ce21ae7f6236d4c4030df4111c5d9ccda14f75d3b20ce68649564b",
+      "lineas": 76,
+      "marcas_interactivas": [
+        {
+          "linea": 13,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.deportes.create') }}\">"
+        },
+        {
+          "linea": 46,
+          "fuente": "<x-ds.toggle"
+        },
+        {
+          "linea": 53,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/403.blade.php",
+      "sha256": "1c17b06920c1093e50d548fd266cc3578077d22e76c30bad6a1fdc32d96f0c79",
+      "lineas": 25,
+      "marcas_interactivas": [
+        {
+          "linea": 21,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ $inicio }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/404.blade.php",
+      "sha256": "0870d3becd87cda1abad375a9fe37c9bb725566ddf95aecca9e3117d36489953",
+      "lineas": 22,
+      "marcas_interactivas": [],
+      "incluye": [
+        "layouts.app",
+        "errors._contenido"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/429.blade.php",
+      "sha256": "8da31bb95a504790726f9ac1711f4bb38cb2b82b84664a0f2dad5f6293d86e76",
+      "lineas": 22,
+      "marcas_interactivas": [],
+      "incluye": [
+        "layouts.app",
+        "errors._contenido"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/500.blade.php",
+      "sha256": "b8dc87e60895b3cbc3cb2701fed07094c565ae3bf62fc259ec2d89ed94381a5a",
+      "lineas": 14,
+      "marcas_interactivas": [],
+      "incluye": [
+        "errors.sin-contexto",
+        "errors._contenido"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/503.blade.php",
+      "sha256": "2453757bfbfc37111c32f0a08dd4bbec4c5f1825b5395c6775c693e5d28258a4",
+      "lineas": 14,
+      "marcas_interactivas": [],
+      "incluye": [
+        "errors.sin-contexto",
+        "errors._contenido"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/_contenido.blade.php",
+      "sha256": "b4bcfc0c9142efa25e5c7360421eb9674eb80359799f5ac3fd499de5d35ce810",
+      "lineas": 10,
+      "marcas_interactivas": [
+        {
+          "linea": 7,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ $inicio }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/errors/sin-contexto.blade.php",
+      "sha256": "a2124e5cbe0277a870acf98049852de37f40c8eca3d0a58ce4234f0b014178db",
+      "lineas": 33,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/grupos/_form.blade.php",
+      "sha256": "bde08ac708751e54cf19cfb0ef64e617d750c718cb60e1ae2cd877a07e3e8c55",
+      "lineas": 136,
+      "marcas_interactivas": [
+        {
+          "linea": 77,
+          "fuente": "<button type=\"button\" id=\"btn-add-plan\" class=\"ds-btn ds-btn--secondary\">"
+        },
+        {
+          "linea": 97,
+          "fuente": "<button type=\"button\" class=\"btn-remove-plan ds-btn ds-btn--secondary\""
+        },
+        {
+          "linea": 126,
+          "fuente": "<button type=\"button\" class=\"btn-remove-plan ds-btn ds-btn--secondary\""
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/grupos/create.blade.php",
+      "sha256": "53f0aafc3a8266aefa84b24a1433fabfd4bcdcc93a3690a48ae6e0f87e14de10",
+      "lineas": 19,
+      "marcas_interactivas": [
+        {
+          "linea": 13,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.grupos.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "grupos._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/grupos/edit.blade.php",
+      "sha256": "617d2f6392d8c2381834069b494deb6b26ea9c553ec2de8969bef785ea72a921",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.grupos.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "grupos._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/grupos/index.blade.php",
+      "sha256": "2e33dff609ac4c082eae2d0cfe1f9e5d7d08121dacd5d8d9548c1621fbd3ef0c",
+      "lineas": 160,
+      "marcas_interactivas": [
+        {
+          "linea": 26,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.grupos.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 44,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.grupos.create') }}\">"
+        },
+        {
+          "linea": 106,
+          "fuente": "<x-ds.toggle"
+        },
+        {
+          "linea": 113,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        },
+        {
+          "linea": 118,
+          "fuente": "<x-ds.button variant=\"primary\""
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/grupos/show.blade.php",
+      "sha256": "a8dc44a497ad4f1691fa88d2d2a3858ca06bd2a6f499b0165b88ad6469aa1447",
+      "lineas": 177,
+      "marcas_interactivas": [
+        {
+          "linea": 26,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.grupos.edit', $grupo->id) }}\">Editar</x-ds.button>"
+        },
+        {
+          "linea": 140,
+          "fuente": "<button type=\"submit\" style=\""
+        },
+        {
+          "linea": 173,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.grupos.index') }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 1
+    },
+    {
+      "archivo": "resources/views/layouts/app.blade.php",
+      "sha256": "759d8c39c10a9b1f8db8df538288f6ce4bfdb609bca0e6f9771e164b412b534d",
+      "lineas": 7,
+      "marcas_interactivas": [],
+      "incluye": [
+        "layouts.app",
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/layouts/ds-app.blade.php",
+      "sha256": "53242742717068d3d586821b00c4530e102bce929945b68988b5d9833e645461",
+      "lineas": 360,
+      "marcas_interactivas": [
+        {
+          "linea": 301,
+          "fuente": "<button type=\"button\" id=\"ds-menu-toggle\" class=\"ds-menu-toggle\" aria-label=\"Abrir menú\">"
+        },
+        {
+          "linea": 310,
+          "fuente": "<x-ds.button variant=\"ghost\" type=\"submit\">Salir</x-ds.button>"
+        },
+        {
+          "linea": 333,
+          "fuente": "class=\"ds-btn-row ds-btn-row--sec\""
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/layouts/panel.blade.php",
+      "sha256": "f0f58f180da08d3ef2c74f39a451456140c1d8e1a2d5001fc420f7a62f0bc62e",
+      "lineas": 13,
+      "marcas_interactivas": [],
+      "incluye": [
+        "layouts.app",
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/liquidaciones/create.blade.php",
+      "sha256": "879ca5dbb45f786a471d927ce088b666e4c71d7402cd488861c9aa4dd8e6163c",
+      "lineas": 307,
+      "marcas_interactivas": [
+        {
+          "linea": 30,
+          "fuente": "<button type=\"button\" id=\"btn-incluir\""
+        },
+        {
+          "linea": 37,
+          "fuente": "<button type=\"button\" id=\"btn-no-incluir\""
+        },
+        {
+          "linea": 216,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.liquidaciones.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 217,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Generar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/liquidaciones/index.blade.php",
+      "sha256": "dcaba683b3d0cdf934b693e81d38ae0debb97f0f137459e6332a1a341d79c242",
+      "lineas": 202,
+      "marcas_interactivas": [
+        {
+          "linea": 93,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBPrim }}\">Filtrar</button>"
+        },
+        {
+          "linea": 176,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBDang }}\">Eliminar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 1
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "sha256": "64bee0199a6281b1d4a9ccb59fb57a17d8ceb4d9f00cf2896adc725b1ce3b505",
+      "lineas": 551,
+      "marcas_interactivas": [
+        {
+          "linea": 131,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 149,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 162,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 316,
+          "fuente": "<div class=\"alumno-actions acciones-celular-derecha mt-3\"><x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button></div>"
+        },
+        {
+          "linea": 514,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">{{ session('aviso_fecha_vieja') ? 'Confirmar' : 'Pagar' }}</x-ds.button>"
+        },
+        {
+          "linea": 541,
+          "fuente": "<x-ds.button variant=\"danger\" type=\"submit\""
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 3
+    },
+    {
+      "archivo": "resources/views/movimientos/index.blade.php",
+      "sha256": "84c552f46a29d93c8ca6dc25f128facff141a1f0c4800920337ec023386a3071",
+      "lineas": 182,
+      "marcas_interactivas": [
+        {
+          "linea": 62,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.movimientos.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 63,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Filtrar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/niveles/_form.blade.php",
+      "sha256": "f5a51cb74867b45b3b6e020b1ba8c7a0bcd9b6651e490cd2e3165cc9d3333ba8",
+      "lineas": 47,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/niveles/create.blade.php",
+      "sha256": "1664719063e7a1201ad8e6e0acbb306a4cb5027eba92758016eb21a853ea878f",
+      "lineas": 25,
+      "marcas_interactivas": [
+        {
+          "linea": 19,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.niveles.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 20,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "niveles._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/niveles/edit.blade.php",
+      "sha256": "53723090f419787ef202b8f712dda84297562e50945b0381b0110bd1f951508b",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.niveles.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "niveles._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/niveles/index.blade.php",
+      "sha256": "ca9b1fe700dee6159bc23509b4f7a9407f10c8e9533e6ddd85e98c39b98fd29c",
+      "lineas": 86,
+      "marcas_interactivas": [
+        {
+          "linea": 61,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBDang }}\">Eliminar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 1
+    },
+    {
+      "archivo": "resources/views/operativo/dashboard.blade.php",
+      "sha256": "2febe997b3b844b912fa3695a8b697fd455b6af81bac4087f51b7d250cc96606",
+      "lineas": 279,
+      "marcas_interactivas": [
+        {
+          "linea": 23,
+          "fuente": "<a href=\"{{ route('web.caja.index') }}\" class=\"ds-btn ds-btn--sec\">Caja</a>"
+        },
+        {
+          "linea": 24,
+          "fuente": "<a href=\"{{ route('web.cobranza.index') }}\" class=\"ds-btn ds-btn--sec\">Cobranza</a>"
+        },
+        {
+          "linea": 25,
+          "fuente": "<a href=\"{{ route('web.alumnos.index') }}\" class=\"ds-btn ds-btn--sec\">Alumnos</a>"
+        },
+        {
+          "linea": 41,
+          "fuente": "<a href=\"{{ route('web.caja.index') }}\" class=\"ds-btn ds-btn--primary accion-celular-final\">Ver</a>"
+        },
+        {
+          "linea": 55,
+          "fuente": "<a href=\"{{ $bloqueo['url'] ?? route('web.caja.resumen', $bloqueo['caja_id'] ?? 1) }}\" class=\"ds-btn ds-btn--primary accion-celular-final\">Ver</a>"
+        },
+        {
+          "linea": 113,
+          "fuente": "<a href=\"{{ route('web.caja.index') }}\" class=\"ds-btn ds-btn--sec\">"
+        },
+        {
+          "linea": 135,
+          "fuente": "<a href=\"{{ route('web.caja.cierre', $cajaPropia->id) }}\" class=\"ds-btn ds-btn--primary\">"
+        },
+        {
+          "linea": 224,
+          "fuente": "<a href=\"{{ route('web.clases.show', $clase->id) }}\" class=\"ds-btn-row ds-btn-row--sec\">Lista</a>"
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/pdfs/recibo-cuota.blade.php",
+      "sha256": "fd8ebfdeea6c2283a7a309fadf800d5ca55127405c4c31a137b40b10f597d61b",
+      "lineas": 451,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/pdfs/recibo-liquidacion.blade.php",
+      "sha256": "e7c08ba61884b750d92d2bba1aa345f8262eace47af27811c0ee4643e0ad7b32",
+      "lineas": 523,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/primera-carga/index.blade.php",
+      "sha256": "9c871f0b0c74c5dfdc21158c84c791965567af484249eecdb003b0221b00a42b",
+      "lineas": 142,
+      "marcas_interactivas": [
+        {
+          "linea": 48,
+          "fuente": "@if($catalogos)<form method=\"POST\" action=\"{{ route('web.primera-carga.continuar') }}\">@csrf<x-ds.button type=\"submit\" variant=\"primary\">Continuar</x-ds.button></form>"
+        },
+        {
+          "linea": 49,
+          "fuente": "@else<x-ds.button href=\"{{ route('web.grupos.index') }}\">Preparar</x-ds.button>@endif"
+        },
+        {
+          "linea": 77,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.primera-carga.plantilla') }}\" data-descargar-plantilla data-volver=\"{{ route('web.primera-carga.index') }}#paso-3\">Descargar</x-ds.button>"
+        },
+        {
+          "linea": 78,
+          "fuente": "<x-ds.button href=\"{{ route('web.primera-carga.index', ['paso' => 1]) }}\">Volver</x-ds.button>"
+        },
+        {
+          "linea": 108,
+          "fuente": "<x-ds.button type=\"submit\" variant=\"primary\">Revisar</x-ds.button>"
+        },
+        {
+          "linea": 109,
+          "fuente": "@if($erroresRevision)<x-ds.button href=\"{{ route('web.primera-carga.informe') }}\">Descargar</x-ds.button>@endif"
+        },
+        {
+          "linea": 124,
+          "fuente": "@else<form method=\"POST\" action=\"{{ route('web.primera-carga.deshacer') }}\" data-confirmar=\"¿Deshacer solamente esta carga? Se conservan los usuarios y catálogos.\">@csrf<div class=\"alumno-actions flex-wrap\"><x-ds.button type=\"submit\">Deshacer</x-ds.button><span class=\"text-wings-muted\">Disponible mientras no haya cobros ni actividad posterior.</span></div></form>@endif"
+        },
+        {
+          "linea": 128,
+          "fuente": "<div class=\"alumno-actions\"><x-ds.button variant=\"primary\" data-carga-confirmar>Cargar</x-ds.button><x-ds.button href=\"{{ route('web.primera-carga.index', ['paso' => 3]) }}#paso-3\">Volver</x-ds.button></div>"
+        },
+        {
+          "linea": 132,
+          "fuente": "<div class=\"alumno-actions\"><x-ds.button type=\"submit\" variant=\"primary\">Confirmar</x-ds.button><x-ds.button data-carga-volver>Volver</x-ds.button></div>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/profesores/_form.blade.php",
+      "sha256": "5268f1f913baac8f00cc8a23f46426fd561b5bdc9a9910aaaad28a41de60c01b",
+      "lineas": 173,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/profesores/create.blade.php",
+      "sha256": "b00b80ab7667c038cf01ec9dfeba22d4419e356a30c1f3a0f40aec4ddf5b112c",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.profesores.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "profesores._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/profesores/edit.blade.php",
+      "sha256": "305f1d718d1cd3cb5f1f3906a53abd8dda6b7690f4de23bc4c43dd65f0cab462",
+      "lineas": 21,
+      "marcas_interactivas": [
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.profesores.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 16,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "profesores._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/profesores/index.blade.php",
+      "sha256": "6f91501f7c55465e68f664f053cc38c8ff8051ba1033cb05d6da9beea0e011cf",
+      "lineas": 217,
+      "marcas_interactivas": [
+        {
+          "linea": 40,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.profesores.index') }}\">Limpiar</x-ds.button>"
+        },
+        {
+          "linea": 58,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.profesores.create') }}\">"
+        },
+        {
+          "linea": 163,
+          "fuente": "<x-ds.button variant=\"primary\""
+        },
+        {
+          "linea": 168,
+          "fuente": "<x-ds.button variant=\"secondary\""
+        },
+        {
+          "linea": 173,
+          "fuente": "<x-ds.toggle"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 1,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/profesores/show.blade.php",
+      "sha256": "f992650c484389eca035d9b26b3dad997938ad18c8bf86622046c234d07e6ee6",
+      "lineas": 139,
+      "marcas_interactivas": [
+        {
+          "linea": 23,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.profesores.edit', $profesor->id) }}\">Editar</x-ds.button>"
+        },
+        {
+          "linea": 135,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.profesores.index') }}\">Volver</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/reportes/alumnos.blade.php",
+      "sha256": "819dd01e1e39941535a9164bfb4e1a33fb4c4e2895a84b75fbe65847680963a6",
+      "lineas": 63,
+      "marcas_interactivas": [
+        {
+          "linea": 17,
+          "fuente": "<div class=\"stats-bar mb-4\"><div class=\"stats-info\"><strong>Reportes</strong></div><a class=\"ds-btn ds-btn--secondary\" href=\"{{ route('web.reportes.index',$contexto) }}\">Volver</a></div>"
+        },
+        {
+          "linea": 23,
+          "fuente": "<button class=\"ds-btn ds-btn--secondary\" type=\"submit\">Filtrar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "sha256": "3d021e292630df95de4610c3eb948c8b8d7acfc75570fdae76226c5b5ad5bb95",
+      "lineas": 115,
+      "marcas_interactivas": [
+        {
+          "linea": 36,
+          "fuente": "<div class=\"stats-bar mb-4\"><div class=\"stats-info\"><strong>Reportes</strong></div><a class=\"ds-btn ds-btn--secondary\" href=\"{{ route('admin.dashboard') }}\">Volver</a></div>"
+        },
+        {
+          "linea": 42,
+          "fuente": "<button type=\"submit\" class=\"ds-btn ds-btn--secondary\">Filtrar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "sha256": "e648749b1ed01f0d7e0e083d5da9b6b8a9769f52dba8867cb810b66980e4e3c6",
+      "lineas": 53,
+      "marcas_interactivas": [
+        {
+          "linea": 17,
+          "fuente": "<div class=\"stats-bar mb-4\"><div class=\"stats-info\"><strong>Reportes</strong></div><a class=\"ds-btn ds-btn--secondary\" href=\"{{ route('web.reportes.index',$contexto) }}\">Volver</a></div>"
+        },
+        {
+          "linea": 23,
+          "fuente": "<button class=\"ds-btn ds-btn--secondary\" type=\"submit\">Filtrar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/revision-cobranza/index.blade.php",
+      "sha256": "7012ca6272d882e0eb69ad4ce587e32680de945841937a0c521abf9343e3a247",
+      "lineas": 211,
+      "marcas_interactivas": [
+        {
+          "linea": 138,
+          "fuente": "<a href=\"{{ route('web.alumnos.show', $alumno->id) }}\" class=\"ds-btn-row ds-btn-row--sec\">Ver</a>"
+        },
+        {
+          "linea": 172,
+          "fuente": "<button type=\"submit\""
+        },
+        {
+          "linea": 178,
+          "fuente": "<button type=\"button\" data-cerrar-revision=\"{{ $revision->id }}\""
+        },
+        {
+          "linea": 189,
+          "fuente": "<button type=\"button\" data-abrir-revision=\"{{ $revision->id }}\" data-tipo=\"CONTINUA\""
+        },
+        {
+          "linea": 195,
+          "fuente": "<button type=\"button\" data-abrir-revision=\"{{ $revision->id }}\" data-tipo=\"INACTIVO\""
+        }
+      ],
+      "incluye": [
+        "layouts.ds-app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/rubros/_form.blade.php",
+      "sha256": "29cfba194e55e441b6b718d7771968ec143489b2c1d5ec0605eea18de003dc20",
+      "lineas": 49,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/rubros/create.blade.php",
+      "sha256": "1487bcd91f0b28beea98d28dd30da208e0e0ed9e65f1c3947c133d548b563217",
+      "lineas": 19,
+      "marcas_interactivas": [
+        {
+          "linea": 13,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.rubros.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "rubros._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/rubros/edit.blade.php",
+      "sha256": "e8c8d62bd06147f1a6ec7cad03e10f4a0929ab1ab03b57f74541cbd9d729c0f9",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.rubros.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "rubros._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/rubros/index.blade.php",
+      "sha256": "dc0573a20fc20a864f5313bdf9131da5169a39459e524d28e511a1516c8bcbd6",
+      "lineas": 209,
+      "marcas_interactivas": [
+        {
+          "linea": 83,
+          "fuente": "<a href=\"{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}\" class=\"ds-btn-row ds-btn-row--sec\">Editar</a>"
+        },
+        {
+          "linea": 86,
+          "fuente": "<button type=\"submit\" class=\"ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}\">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>"
+        },
+        {
+          "linea": 105,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBDang }}\">Eliminar</button>"
+        },
+        {
+          "linea": 175,
+          "fuente": "<a href=\"{{ route('web.subrubros.edit', [$rubro->id, $subrubro->id]) }}\" class=\"ds-btn-row ds-btn-row--sec\">Editar</a>"
+        },
+        {
+          "linea": 178,
+          "fuente": "<button type=\"submit\" class=\"ds-btn-row {{ $subrubro->activo ? 'ds-btn-row--dang' : 'ds-btn-row--sec' }}\">{{ $subrubro->activo ? 'Pausar' : 'Activar' }}</button>"
+        },
+        {
+          "linea": 198,
+          "fuente": "<button type=\"submit\" style=\"{{ $btnBDang }}\">Eliminar</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 2
+    },
+    {
+      "archivo": "resources/views/subrubros/_form.blade.php",
+      "sha256": "e38aa8791f13fd4f3085345ce94c643bdb82614c2dc6bfb0c69f8d4e8f6f4aec",
+      "lineas": 86,
+      "marcas_interactivas": [
+        {
+          "linea": 77,
+          "fuente": "<x-ds.toggle"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/subrubros/create.blade.php",
+      "sha256": "699e47448dc172e57c4b0cd3cb20e0ccdcf867ccbbd96d4413942f73a018641a",
+      "lineas": 19,
+      "marcas_interactivas": [
+        {
+          "linea": 13,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.rubros.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "subrubros._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/subrubros/edit.blade.php",
+      "sha256": "0cc4d58ab8a7a896340e5074dbc3d6466c1d482455b80056101539bd83f0ff12",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.rubros.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "subrubros._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/tipos-caja/_form.blade.php",
+      "sha256": "40c34d34d0436c2ed86c927ddb60c60393205ebf15987e535205b2c6d0aaeede",
+      "lineas": 97,
+      "marcas_interactivas": [
+        {
+          "linea": 82,
+          "fuente": "<x-ds.toggle"
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/tipos-caja/create.blade.php",
+      "sha256": "821b33f3fe29a23db7de1080c6569ca1b16b5bab70a78a7b112bb03bbe8de336",
+      "lineas": 19,
+      "marcas_interactivas": [
+        {
+          "linea": 13,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.tipos-caja.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "tipos-caja._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/tipos-caja/edit.blade.php",
+      "sha256": "d4c11c4092c000ec26c51ac36543fe8bdea8172d62aa906b43060906d03f6337",
+      "lineas": 20,
+      "marcas_interactivas": [
+        {
+          "linea": 14,
+          "fuente": "<x-ds.button variant=\"secondary\" href=\"{{ route('web.tipos-caja.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"primary\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "tipos-caja._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/tipos-caja/index.blade.php",
+      "sha256": "0c652460e55293cf37ba2ceda0c18979567f364f28d86a19986c634baae85126",
+      "lineas": 103,
+      "marcas_interactivas": [
+        {
+          "linea": 78,
+          "fuente": "<button type=\"submit\" style=\"{{ $tipoCaja->activo ? $btnBDang : $btnBSec }}\">{{ $tipoCaja->activo ? 'Desactivar' : 'Activar' }}</button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/usuarios/_form.blade.php",
+      "sha256": "5bdff2c6b5f4c8ce0b638c65b85b5bdadf92fb017f46e4048e46e7f9c87f7734",
+      "lineas": 198,
+      "marcas_interactivas": [
+        {
+          "linea": 54,
+          "fuente": "<button type=\"button\" class=\"btn-toggle-password\" data-target=\"password\" aria-label=\"Mostrar contraseña\""
+        },
+        {
+          "linea": 83,
+          "fuente": "<button type=\"button\" class=\"btn-toggle-password\" data-target=\"password_confirmation\" aria-label=\"Mostrar contraseña\""
+        }
+      ],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/usuarios/create.blade.php",
+      "sha256": "75880aab6689c17310cc3d8c6cd550e8800666f966aeebc1d36753551e660924",
+      "lineas": 22,
+      "marcas_interactivas": [
+        {
+          "linea": 15,
+          "fuente": "<x-ds.button variant=\"secondary\" tabindex=\"8\" href=\"{{ route('web.usuarios.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 16,
+          "fuente": "<x-ds.button variant=\"primary\" tabindex=\"9\" type=\"submit\">Crear</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "usuarios._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/usuarios/edit.blade.php",
+      "sha256": "cec26046af305909ca5fde66d39ef58cb73b3c9988a330904ebb055f15251728",
+      "lineas": 23,
+      "marcas_interactivas": [
+        {
+          "linea": 16,
+          "fuente": "<x-ds.button variant=\"secondary\" tabindex=\"8\" href=\"{{ route('web.usuarios.index') }}\">Cancelar</x-ds.button>"
+        },
+        {
+          "linea": 17,
+          "fuente": "<x-ds.button variant=\"primary\" tabindex=\"9\" type=\"submit\">Guardar</x-ds.button>"
+        }
+      ],
+      "incluye": [
+        "layouts.app",
+        "usuarios._form"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/usuarios/index.blade.php",
+      "sha256": "4a768a1653210f29734544d6c2148a6c07796c73536dbf3170a8b6b4c18ce7ac",
+      "lineas": 131,
+      "marcas_interactivas": [
+        {
+          "linea": 35,
+          "fuente": "<x-ds.button variant=\"primary\" href=\"{{ route('web.usuarios.create') }}\">Nuevo</x-ds.button>"
+        },
+        {
+          "linea": 100,
+          "fuente": "<x-ds.toggle"
+        }
+      ],
+      "incluye": [
+        "layouts.app"
+      ],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/vendor/mail/html/layout.blade.php",
+      "sha256": "3fbf398aba28ee617f0d5c503fa3070a339228a1cb69838082e456edf7270b5f",
+      "lineas": 59,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/vendor/mail/html/message.blade.php",
+      "sha256": "7aef37dd05d238600f847ff8c971a2649401c4f92a3c73cd64f7893fff3a04e8",
+      "lineas": 32,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/vendor/mail/text/message.blade.php",
+      "sha256": "5c759b95e4775bf38e85919df6cea2e196ffa103e4a9b901d9dfa7e71aa9f5cf",
+      "lineas": 28,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    },
+    {
+      "archivo": "resources/views/welcome.blade.php",
+      "sha256": "e50e41602994840b788471625fec54a4db6138ec971be05cfdfba40daf906c22",
+      "lineas": 278,
+      "marcas_interactivas": [],
+      "incluye": [],
+      "javascript_incrustado": 0,
+      "manejadores": 0
+    }
+  ]
+}

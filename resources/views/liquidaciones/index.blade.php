@@ -89,7 +89,7 @@
             </select>
         </div>
 
-        <div style="display:flex; gap:8px; align-items:flex-end;">
+        <div class="acciones-movil" style="display:flex; gap:8px; align-items:flex-end;">
             <button type="submit" style="{{ $btnBPrim }}">Filtrar</button>
             @if(request()->hasAny(['profesor_id','mes','anio','estado']))
                 <a href="{{ route('web.liquidaciones.index') }}" style="{{ $btnBSec }}">Limpiar</a>

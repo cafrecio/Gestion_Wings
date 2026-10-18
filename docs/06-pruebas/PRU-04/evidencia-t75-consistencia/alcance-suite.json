@@ -1,0 +1,29 @@
+{
+  "base": "c2db5d4",
+  "fuentesPropias": "fuentes-suite.json",
+  "pruebasIncluidas": 849,
+  "ajustesSoloEnCopia": [
+    {
+      "archivo": "docs/00-estado/ESTADO-ACTUAL.md",
+      "antes": 853,
+      "copiaAislada": 849
+    },
+    {
+      "archivo": "docs/00-estado/CHECKLIST-CARLOS.md",
+      "antes": 853,
+      "copiaAislada": 849
+    },
+    {
+      "archivo": "docs/00-estado/PLAN-PRODUCCION.md",
+      "antes": 853,
+      "copiaAislada": 849
+    }
+  ],
+  "excluye": "Cambios posteriores a c2db5d4; 687262f se confirmó después del aislamiento.",
+  "ajusteCSSPosterior": "ajuste-css-final.json",
+  "guardianDocumentalCompartido": {
+    "base": "687262f",
+    "aprobadas": 1,
+    "aserciones": 7
+  }
+}

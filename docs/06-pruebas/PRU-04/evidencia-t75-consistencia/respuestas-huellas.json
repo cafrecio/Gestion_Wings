@@ -1,0 +1,1290 @@
+{
+  "HTML": [
+    {
+      "fase": "antes",
+      "caso": "admin-sistema-primera-carga",
+      "bytes": 24097,
+      "sha256": "5030da9b0e40285f59acce5ebb0a07c2c37cfb296463ff2d58e5a2701d228df5"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja",
+      "bytes": 28000,
+      "sha256": "44c35c17991535c0c9c3a7f6bba50583ec228da64e7766a1ce9c97d8226ccfe0"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-apertura",
+      "bytes": 15946,
+      "sha256": "af4cae36cac4b744438dd69194f63116d374f419f1b9d06535a8a96e95637d90"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-configuracion",
+      "bytes": 16885,
+      "sha256": "97436a86faad17cb7323fa43f69ed107ab06e97ffbbb8a1c1cb563bae8b21ad9"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-movimiento",
+      "bytes": 30125,
+      "sha256": "8d1fb8ea6f756f0f5b92b81b3a69028faf1b6891a650c3ad54bb3b3235ceb974"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-historial",
+      "bytes": 33117,
+      "sha256": "48326f39df4b82ecb433fdb9f99b6d9e0f8baf88aa7d795a43527139d91f1106"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cobrar",
+      "bytes": 18282,
+      "sha256": "f6da64a2aa69f858fa1643e1b6cef446d27efeaba261fe5e88d91d64577d2211"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cobrar-alumnoId",
+      "bytes": 31894,
+      "sha256": "c7e14061edf554ff80a18823874c234084dba82b137117492ec37bf71e8e1430"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-id-resumen",
+      "bytes": 24216,
+      "sha256": "c6a7384e0ee2df5b4e26d5100d38d358038a4bd8a77fb0a5a7824abf51d24731"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-id-detalle",
+      "bytes": 24053,
+      "sha256": "20f2e73d768b81687125d2794caf17c1e632b88ec8cc2e34ae905c70bee0db70"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-id-editar",
+      "bytes": 34156,
+      "sha256": "7f300a4cdf0665218ef70e2729688a622f432e7b0322fffaf97e21397cc49835"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-id-rectificar",
+      "bytes": 18360,
+      "sha256": "d5f650c1feb343a5f269085da8fe1514af37639e77a931620b936cae436ed462"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-id-cerrar",
+      "bytes": 19551,
+      "sha256": "329a7ac893d5f87d65de50d378b591121c84a93d26bb86d2eb9ffd97d5cd8856"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cajaId-movimientos-movId-editar",
+      "bytes": 34283,
+      "sha256": "a12f9766dd83bec7cd14ec9068d54cc69c052596a91c8200aca2a190f994d46d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cajaId-movimientos-movId-cancelar",
+      "bytes": 17424,
+      "sha256": "3b48c9075875a53b2392c1af19036a0e85a2f9a13bc984179d08172452451926"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-operativo",
+      "bytes": 21760,
+      "sha256": "c1bbb646912e842d10f869b0e2b966027ad6cae774d46120b4be8e543a94ef29"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-movimientos",
+      "bytes": 33732,
+      "sha256": "323adcf7b8dd46a61a274cb521f85e6286a7c4c61bba07c79d916d79fabd135d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cobranza",
+      "bytes": 25040,
+      "sha256": "d03dce8aa5ba12d5adab5e90ece62cde95de6ce6f549ebb067f3ed689f31a311"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-revision-cobranza",
+      "bytes": 22773,
+      "sha256": "3f462053e4bd1305a26b91400c94b4a21c8d986a6053bca2254527c0a7dccce8"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-admin-dashboard",
+      "bytes": 20220,
+      "sha256": "1cbbba51104248689b5bdfa1bfb024c6d3e46203d95856d12edb0b6a1938d428"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-reportes",
+      "bytes": 23810,
+      "sha256": "fa22327b4a8a99f7b6cd163de4aed874b6a99e53b2ed1b60a678288a2e18c6f1"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-reportes-alumnos",
+      "bytes": 33782,
+      "sha256": "230e094c5762ef919375dc9740640b98ad63c0fba2fa3e2e2e7d0861e5f54e3f"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-reportes-sueldos",
+      "bytes": 22743,
+      "sha256": "62e930dfae53e3f89f95c9a23c9b85f20e9bfe290d5a38aded19b6a223cf530c"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cashflow",
+      "bytes": 36185,
+      "sha256": "ad8db15d1125416f60ce2b3aaccd2ede814d3488ed99d12c9d3dac9dee38410c"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cashflow-movimiento",
+      "bytes": 30244,
+      "sha256": "3df9d002e93795f45e521683f7ca3972a09a7d9f16ac5dbc2b9de5108e7a5441"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cashflow-movimientos-id",
+      "bytes": 16946,
+      "sha256": "c618eeee5bc935736086daf9f5304823935e3741245bf4fb2178159d94fb1394"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cashflow-movimientos-id-editar",
+      "bytes": 31349,
+      "sha256": "2b5f6b692a0118bf3a380f71a9489bdc49b098289e3f89e92096885a5c19e06f"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-cashflow-movimientos-id-eliminar",
+      "bytes": 17505,
+      "sha256": "b2ff7d0a55a493c652bb3177151c3cc37b282520fd378e06dfdf536df506ed0b"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-alumnos",
+      "bytes": 111871,
+      "sha256": "97344d6de8b32218ec0a7990bd6b12a4ae83c4a567e5fd20804d23379c751eb5"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-alumnos-create",
+      "bytes": 29870,
+      "sha256": "a2ae141345e478e0401f524fa736ef6f02b8cac5953bcffabd1950be1fbcb284"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-alumnos-id",
+      "bytes": 33147,
+      "sha256": "ee98b0e4ea588aae9b634e82c2adb6b96ab4ef9ba8c1ebf22da7c8106b6993c3"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-alumnos-id-edit",
+      "bytes": 28584,
+      "sha256": "884f38204b91bc74803a805dd23341c5c625c8ffde06ef458caff13c6d99b95a"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-deportes",
+      "bytes": 19353,
+      "sha256": "5f2f4c0bd21aaa2c3bbd68b1c926e0910e045fb8d9814e0c875b969049c060fe"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-deportes-create",
+      "bytes": 18058,
+      "sha256": "357f93db335358c102386a5eaf7df6ba23ca60a6354c1c794db2803989d46963"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-deportes-id-edit",
+      "bytes": 18125,
+      "sha256": "c19cba0d76bfaa7850895c995612db9bea7a1fc791e7c591cdf29228f940a513"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-rubros",
+      "bytes": 101110,
+      "sha256": "df3f42da7f9c19bc7815773be3bc0b26bbad98876bb531d49f9cc7a460761ed0"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-rubros-create",
+      "bytes": 18269,
+      "sha256": "369aae272e5ef8fd1f13a17a7903115b634393256041843ced8782b0417bb524"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-rubros-id-edit",
+      "bytes": 18401,
+      "sha256": "b96a3534220d7831ebf61d6ac18dab3c59ba1faca926cb51a2a7e23794b9ec4d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-rubros-rubroId-subrubros-create",
+      "bytes": 20593,
+      "sha256": "35fb69e17e73903f4776098e1a56c888f018cd41be754f1a01f4d1f8260390c3"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-rubros-rubroId-subrubros-id-edit",
+      "bytes": 20672,
+      "sha256": "996ee1840aec2a79ee4623694d1665a49c087950b862e53a2435f782fe542b9d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-grupos",
+      "bytes": 38598,
+      "sha256": "807fc07a9483208e3fbc403914687147eb10f24385b7dd684ab59534a40bbf6b"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-grupos-create",
+      "bytes": 21000,
+      "sha256": "6c430b456a7d08a52f21fd19fc3891f2042365231527706d23f0b294c75b95fc"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-grupos-id-edit",
+      "bytes": 23839,
+      "sha256": "cfa2649ac69f7f2407e6da6b4c742a55501aeeb2e67b85155a1c5b3cb445321b"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-grupos-id",
+      "bytes": 28347,
+      "sha256": "8a2d58a2b81c062814cdc29363ddfe6f49c213701841f66de2e7f2f3173bce9f"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-clases-create",
+      "bytes": 41847,
+      "sha256": "6b95e6761484024ff8813c68a35025fcb213542a1c2cdc772c986fa7eebc733d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-clases-id-edit",
+      "bytes": 22965,
+      "sha256": "b0960edc0db485984c37c8ff81396df57bf17990c4dff5104b7a1b2b5ab26923"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-clases",
+      "bytes": 28164,
+      "sha256": "fba7680ffd77d1e71bf12fbad81195fa46a4fda95bf3db128f7fe940750981cc"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-clases-id",
+      "bytes": 75393,
+      "sha256": "7b3f8fa0b1706891a44b5c3607e48b860619aecb28b40302859bc39a2816be4e"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidaciones",
+      "bytes": 30583,
+      "sha256": "c09250add05f4fff51079b5134fb64ad21bbcdf253408419bfbcaf52ae1d984a"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidaciones-crear",
+      "bytes": 35478,
+      "sha256": "8133904cb26913f7c597a853a5ceea43fa9dbaa17728ada156f6e94caf4883dc"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidaciones-id",
+      "bytes": 24936,
+      "sha256": "abb9ef3fa3fccd8f61b72d6f9c6eb55454623dd33ea58803e56575a9993672f6"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-tipos-caja",
+      "bytes": 32117,
+      "sha256": "41b6030eb698784a7f7397abb6debd41a4f3c6b21eb92753e40e4b660503a684"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-tipos-caja-create",
+      "bytes": 20709,
+      "sha256": "c942749c1829d29525e11010bd8244dce1232bb99e7fe5205a45c4c02c1754c6"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-tipos-caja-id-edit",
+      "bytes": 20910,
+      "sha256": "90408f5e20ba05f1afa8e17b0bbefffb3ec429289dfe84c8721fcf36589d78ad"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-niveles",
+      "bytes": 24657,
+      "sha256": "712e43ff4402378cd8cab2a61315196abd68edc9428bea1cac6685642c267bd4"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-niveles-create",
+      "bytes": 18124,
+      "sha256": "785f0b7a028fa39b477dfd30a67ffc9f6261f0159e07ab7320c0cc63cb45ca5d"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-niveles-id-edit",
+      "bytes": 18029,
+      "sha256": "69a126481e45b02a9ba2e112fe20a7185d30dd98700ce06373712ddbf91c944b"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-usuarios",
+      "bytes": 37081,
+      "sha256": "b387b4f247552b8856c8bab8513ae261739ae48d87668d91835d08a24778232a"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-usuarios-create",
+      "bytes": 28405,
+      "sha256": "447cb26de58406b6c3644c02a87d296a91d338678241f99e1054b53b05757cda"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-usuarios-id-edit",
+      "bytes": 28557,
+      "sha256": "00ade78ad1be22475f60a63b639e6b5dffd8507e46bf407b40c5aac68b5d5d2e"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-configuraciones",
+      "bytes": 48663,
+      "sha256": "591f3c47f3a8ba920066c2066cb95e11efde04735d026b27eaae52cca66f35c3"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-profesores",
+      "bytes": 38676,
+      "sha256": "dd272e899461d6f09d4fa53e642da257b9aac84fea3818a1371e6c3d7ab82576"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-profesores-create",
+      "bytes": 26231,
+      "sha256": "6ad7cdd4cefb7550826fcadb0a110c55cec50c41155a7904a470385379993504"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-profesores-id",
+      "bytes": 22289,
+      "sha256": "b2754c94b1d2c91789124480252ff92885aed064c11d2758f301e267fc44c555"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-profesores-id-edit",
+      "bytes": 26416,
+      "sha256": "38d598054a882505f50163db3571a934a50aed237435d12da6dbaced9239c443"
+    },
+    {
+      "fase": "antes",
+      "caso": "login",
+      "bytes": 7041,
+      "sha256": "9df80dc9a049c065673a02d508ff24b5037d90a0429575fd4b87bd394293c3a9"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-0",
+      "bytes": 17304,
+      "sha256": "3d52fd0df94f8c3c29d142cdd97fc8f4ec9e309f445e92b48cd6e89467c5b993"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-1",
+      "bytes": 105458,
+      "sha256": "4ba9cda3530281307381a44483640de389cee3e12f6ded7182b48355c866bedf"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-2",
+      "bytes": 22990,
+      "sha256": "1d5aa7c285690b48fee4ef65544daea6ba10d5f246f99003d874b23d20e7b06d"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-3",
+      "bytes": 21114,
+      "sha256": "931e6d12da9bec994db147be5ee45adae2ec88684f55bca7be97c27e5e6f5969"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-4",
+      "bytes": 68980,
+      "sha256": "1b3d36d8c3811e1a4453feb03ae0ff3bf255f59632ac48495358735f3674d6a7"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-5",
+      "bytes": 19155,
+      "sha256": "572ad9575f9581d3423b62c525e147766c2b53ca8821344ac0525be8b9dbe466"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-6",
+      "bytes": 20652,
+      "sha256": "7ffaccf7885b5b006fae51d5f61e0b96fc54bd6b6c45462b7c67a78db85c802f"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-7",
+      "bytes": 18175,
+      "sha256": "b10bdcbfbc71f493d86b181ab63a0180928674051b0b73de2d81eb8f6a3bd372"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-8",
+      "bytes": 18627,
+      "sha256": "5e36d05ba3c9429333ed37bb5d9f2e575eef02eff87c91645d352f6579e90f96"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-9",
+      "bytes": 16360,
+      "sha256": "3cb30a690292a11db49a96969ddc00adefd9890f84ed360892d1fcf7e13f1f07"
+    },
+    {
+      "fase": "antes",
+      "caso": "profesor-0",
+      "bytes": 16557,
+      "sha256": "013dafd345891e413f9aed570671bcefc86c42a79b6e241a35e6bd930863b4da"
+    },
+    {
+      "fase": "antes",
+      "caso": "profesor-1",
+      "bytes": 63330,
+      "sha256": "c9275a5d8ae6f7d8a4eeaa6fecfc60df0bb35819da8e09a69410ed8f58cab697"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cerrada-detalle",
+      "bytes": 25764,
+      "sha256": "f27cfa19d85011ba962caa2e156239d3952263992a338611b830bc5b17dc318e"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-cerrada-resumen",
+      "bytes": 25019,
+      "sha256": "146402885598730ef5d6b72120458edd6bb9c7a8232d3a185fc69ce47cf888e7"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-rechazada-detalle",
+      "bytes": 22018,
+      "sha256": "bb33d89207e7e2740623297e5325623f5fc9a43bd2ba4004b30950290a1f3851"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-rechazada-resumen",
+      "bytes": 23727,
+      "sha256": "0bdf3103129360999d1b4e8b3e8733817c66227d953b7eaee0b9b12be552ae46"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-validada-detalle",
+      "bytes": 22018,
+      "sha256": "79332d206737d6d8aca1accd2d81990ba591290e7f6723162002c8618c263495"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-caja-validada-resumen",
+      "bytes": 23122,
+      "sha256": "b754c1bc868760178a9f0b0108f06681cfc63e1d793774f1318413cf6d2060b6"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidacion-mes_actual",
+      "bytes": 24110,
+      "sha256": "0603b49f848bec0641178e91c1fcf54387ab3e962a9355e17fe7f5ce0de3fcad"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidacion-cerrada",
+      "bytes": 28001,
+      "sha256": "d62c6455952d72317b0be3e5cc42600d20285a0d4331948111ce6ac6a7c5d0d2"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-liquidacion-pagada",
+      "bytes": 22492,
+      "sha256": "02df7b5d503553b1c099375bf9b9e084c3a7de5024ec54343576f892d9cd5e09"
+    },
+    {
+      "fase": "antes",
+      "caso": "admin-clase-futura",
+      "bytes": 75001,
+      "sha256": "d9ccdf8f31523321a49f7d1906ca47f8b3f92b9c3675f20ab4d98dc692aa059a"
+    },
+    {
+      "fase": "antes",
+      "caso": "primera-carga-pendiente",
+      "bytes": 25066,
+      "sha256": "8e9380671921dbd515225c34216812af2ef47353f5918c8f038ea2b8c5f3f0a0"
+    },
+    {
+      "fase": "antes",
+      "caso": "error-403",
+      "bytes": 15721,
+      "sha256": "3e55baa58870efbe967bc09bad06be03067e4c425649acb2fce7163df278f54a"
+    },
+    {
+      "fase": "antes",
+      "caso": "error-404",
+      "bytes": 15686,
+      "sha256": "1b3de9dfc59b6d06b7fe0f86f3916bd3775d5e5d5c254bee8d864fb4bcf357c3"
+    },
+    {
+      "fase": "antes",
+      "caso": "error-429",
+      "bytes": 15665,
+      "sha256": "bfbe032e26ea3bf90bf2c08301cca645acd9e0a3944d21efd5ac586e7a734bb3"
+    },
+    {
+      "fase": "antes",
+      "caso": "error-500",
+      "bytes": 2109,
+      "sha256": "f876eb0dfa2b3daa596fd193c63dff711497eb8edc523a7e3308c16d75c8a338"
+    },
+    {
+      "fase": "antes",
+      "caso": "error-503",
+      "bytes": 2098,
+      "sha256": "8f4dec04f6fb44f65e9337a09043fc8cb911579fb2e5617d528eaa6eea505637"
+    },
+    {
+      "fase": "antes",
+      "caso": "welcome-sin-ruta-en-wings",
+      "bytes": 53310,
+      "sha256": "cc0fb95d9d31df586c6c382f179f6b9359679a15abb360fe4c455e29d164fe4b"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-companero",
+      "bytes": 15360,
+      "sha256": "69d2370a8834de1fc11848d9a80cd4ff593a322d0d16e1d5989c7abb34d7f8b7"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-turno-antiguo",
+      "bytes": 16180,
+      "sha256": "365a3aa76154b428381c249a539cfa1ba9eadfb03288e6d73fcc3c9f8570fd28"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-ultimo-cierre",
+      "bytes": 16407,
+      "sha256": "083a5f033177aa4e61eed1ff80425e496c8955ed776b3a366c4ec05dea260bde"
+    },
+    {
+      "fase": "antes",
+      "caso": "operativo-primera-apertura",
+      "bytes": 15575,
+      "sha256": "67a7d0e4cadbea933170b8a6070571e39decf2209e5f50319bd05d5132bade35"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-sistema-primera-carga",
+      "bytes": 24097,
+      "sha256": "fcdd008f710524819376899cd326f7767ccb4043b69eef7a3e35f3431a3d336e"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja",
+      "bytes": 28000,
+      "sha256": "caf7be8a416cbc676bd4ce59f41c99626c205b73f67bc57f4f503509adc92bbb"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-apertura",
+      "bytes": 15946,
+      "sha256": "d92d3d71eaf7d976ba2bdc6ebddc614ecb8079434553f57fd99e77d08933f39e"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-configuracion",
+      "bytes": 16972,
+      "sha256": "d50b1817adf39eb63cd3fecacccea41f21f48a896c2b154e722dd56e68bc5c07"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-movimiento",
+      "bytes": 30125,
+      "sha256": "617214e90c86babbb330887fc788b484cdb1ca967d6e171e621f3ca90bc65266"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-historial",
+      "bytes": 33117,
+      "sha256": "f27a8e0a4c64edae1009454c80aee30e6e2af171a92fe4e110f9b0cedcdbd4f2"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cobrar",
+      "bytes": 18282,
+      "sha256": "078fffc475491dd98bc22495ab59ad72f359842a3e6138eec1a3db44f8cc841a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cobrar-alumnoId",
+      "bytes": 31927,
+      "sha256": "f5942c8cee7d3afc8166582dc5e3340c7d17b62cbf730bbd054e206c6acf22be"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-id-resumen",
+      "bytes": 24239,
+      "sha256": "2ffe35852a6ea0086b1688fd36325d1e0fd4093508a053a97d96ce8a4de69d86"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-id-detalle",
+      "bytes": 24108,
+      "sha256": "4a06e64bc870ffd5269012f1905380f4814832c605ca76fbffe11e21ccf0496a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-id-editar",
+      "bytes": 34156,
+      "sha256": "7c50a7c1e863604d0a3998b194216412fb2e441d9789c3e114f3a967915e7acd"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-id-rectificar",
+      "bytes": 18360,
+      "sha256": "7e0b2d9271a69060e4e1116b20b783a070b7b2d4760b2ff83f324907ec78849f"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-id-cerrar",
+      "bytes": 19551,
+      "sha256": "ada2cdafc3b4bbfce07674c60a3ae7ace8176696f6bd44e10ecee0d0f6abfc7a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cajaId-movimientos-movId-editar",
+      "bytes": 34283,
+      "sha256": "03ee42d6753d9e4537aa7022533f85609fccf39958761ff302f6437da1c7d61e"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cajaId-movimientos-movId-cancelar",
+      "bytes": 17424,
+      "sha256": "b6755b2cf65f9f4818fafbfdfd441ca30a178e187a2e9e27b546bd1719ff4209"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-operativo",
+      "bytes": 21799,
+      "sha256": "9e1752a82c34ae1aa9829a7e4cce1b97a53613380a6fd301251002c0bf8c1d8c"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-movimientos",
+      "bytes": 33732,
+      "sha256": "bab5d7aad3ee3f6730b1bdfb3096c97738dc0ef424285f312cd4735629b66e27"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cobranza",
+      "bytes": 25069,
+      "sha256": "9eab9e6929d7cb9c3cd0ab8ed3c39bb69de63c75989f611b7c00a42fad60d5f6"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-revision-cobranza",
+      "bytes": 22773,
+      "sha256": "8055c05741962852d0d610ca1e99d526b435585f0fc6e3848a8235cce1a6e8fe"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-admin-dashboard",
+      "bytes": 20220,
+      "sha256": "806387446215f1340e9f953146d21c55b8e4716057c3a80b76d9ebc4e0d9252e"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-reportes",
+      "bytes": 23768,
+      "sha256": "14db1fdf0443cac1b78a735fc22d1c16966aa41967eeeaaef103cfa9ddd3c86a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-reportes-alumnos",
+      "bytes": 33782,
+      "sha256": "5a82a0aadd2788b7489c174dff7ba9d7f8885ce9baf5485385389d047719977d"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-reportes-sueldos",
+      "bytes": 22743,
+      "sha256": "a21a99195b9dbef466ab8f55684362f0b9f01f5551019161f55e109f3c5bd48e"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cashflow",
+      "bytes": 36185,
+      "sha256": "9ed5de0136d8184cf331e9a65536105a0f912da536c20d8c68a813008caf2d7c"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cashflow-movimiento",
+      "bytes": 30244,
+      "sha256": "7441fcd4c0abe608276f31db08a673398c812002a1e080edad65c9f60818939a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cashflow-movimientos-id",
+      "bytes": 16946,
+      "sha256": "091b7a3d9589da99862f78874e6c0dc4fd32c6e12ecd111fa93105d5a22d91e5"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cashflow-movimientos-id-editar",
+      "bytes": 31349,
+      "sha256": "7a80405477ef4fd9c3f0c6482ea13fc2f41338d11459ffe7f7522836e8efdde8"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-cashflow-movimientos-id-eliminar",
+      "bytes": 17505,
+      "sha256": "68a9ad1f65c0cd820e32b186a6f73a23a52a9c8e4068ccec8030a8ff51549609"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-alumnos",
+      "bytes": 111871,
+      "sha256": "5c877ac10bd9352d7544133426eec47fc44d7e9478463f41e004e04c954de635"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-alumnos-create",
+      "bytes": 29870,
+      "sha256": "bf3f3ca59333469226ffa1180162aaca095c1a71e3c390dad63202a4550eceda"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-alumnos-id",
+      "bytes": 33521,
+      "sha256": "ac578de745788ff0041beeee5e01c73e48a1ef36f033a6e09b6c12262486c324"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-alumnos-id-edit",
+      "bytes": 28584,
+      "sha256": "85b84c28c6f8ceb5d0002b1973514d6661b0a37f86d3052c39989251bd58c8ee"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-deportes",
+      "bytes": 19353,
+      "sha256": "2841008f1fb0ebeced7ec15813942b2e2b643e4fcf66ef04e6de1a7974f24163"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-deportes-create",
+      "bytes": 18058,
+      "sha256": "56a1a2580cb97b413d7f0b3a5456a9bd2409d55cff7c28e399bbed0afdbaff85"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-deportes-id-edit",
+      "bytes": 18125,
+      "sha256": "87bd600e63635baf3f851160f63a183c42f1ebf05127dafcbb7d8df432d420a2"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-rubros",
+      "bytes": 101487,
+      "sha256": "6ce1c7da9909a56fa9c1b96eeb8c4d3a94f628d1bea94ee0dedb48164dfe8c9b"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-rubros-create",
+      "bytes": 18269,
+      "sha256": "6f548d29a05a63d188f41b7723a34e7af45de8412d83a754fa22d3144bde58c7"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-rubros-id-edit",
+      "bytes": 18401,
+      "sha256": "61b380c0c9ada628d868379133a24c64206131621cf27603d190d2942aa7a254"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-rubros-rubroId-subrubros-create",
+      "bytes": 20593,
+      "sha256": "33ddccf855377981cf947ea8120f3ea60179a730ddb9dbc001135b6dc08c4f3b"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-rubros-rubroId-subrubros-id-edit",
+      "bytes": 20672,
+      "sha256": "8a177f892b344769327fc07609c1b2b125e2dd443148665644680afe6bf6d59d"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-grupos",
+      "bytes": 38598,
+      "sha256": "c8f10e36677637616c31f3fb80b6878e5c0414c9840c2e14397f68f19a6842f5"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-grupos-create",
+      "bytes": 21000,
+      "sha256": "ecb2cf93c401bc1fea25a45291858a041f7a48884c287e86cd2882dd65c5d584"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-grupos-id-edit",
+      "bytes": 23839,
+      "sha256": "44185b12994f045f74584c120eb56f3c2985d10c0e0315f193c33750283f0dca"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-grupos-id",
+      "bytes": 28162,
+      "sha256": "ddea0428f9d4a2cd5af0c35e681a0ecaf395b6534e553baad8268b08acdb2756"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clases-create",
+      "bytes": 41847,
+      "sha256": "1c6cc00357de8b8ec0729d63a7e124a64e71877c90bf1be159558a3afce446e3"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clases-id-edit",
+      "bytes": 22965,
+      "sha256": "57892e616e5846ac76d2404fb40163776813b8c2b2c0cc643938e33eaf5975aa"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clases",
+      "bytes": 28164,
+      "sha256": "f5c6199c82f66c3b3762c3f1578f12c5401e0202737c10255cb06122c3736394"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clases-id",
+      "bytes": 75518,
+      "sha256": "9eea93683f02f4b83c50a774a36755a5dbb902126ca84be641928ea42b1fd4db"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidaciones",
+      "bytes": 30606,
+      "sha256": "63026586c4a20aab9b6fa03b5eadd7ff29d3d7c6d06f54a2f5cab0e8a45ef907"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidaciones-crear",
+      "bytes": 35478,
+      "sha256": "a0a554c2556ed13d585b5100ebbdd99a2911c53159d49439e1118dd1b5ef4384"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidaciones-id",
+      "bytes": 24983,
+      "sha256": "7cd9224e724f63b35689f19580e6b83025e5a3367588b1368bb642ae09df5633"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-tipos-caja",
+      "bytes": 32117,
+      "sha256": "760adfee4270f2e4e0bf9c9b54c689becd7f20990066b6b7031e70fdf2c1523b"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-tipos-caja-create",
+      "bytes": 20709,
+      "sha256": "fb8dc8dcc2223ec0033398146771682fb3a7f43ac18bb30cab2b398c3744ff97"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-tipos-caja-id-edit",
+      "bytes": 20910,
+      "sha256": "76f3f7ab35212dca1e00ae2ad427d37e10c9be5b59866923c962fb33de0779ad"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-niveles",
+      "bytes": 24657,
+      "sha256": "3d0bb8b5ebcc906792977af7096bf53d19456cdbd5035427f7ee944ba7441846"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-niveles-create",
+      "bytes": 18124,
+      "sha256": "9c1a8e6c2ed25d6ad97b8c36d30b5c774522203573accce30503041c4fd73c3d"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-niveles-id-edit",
+      "bytes": 18029,
+      "sha256": "940b08be37cb09215d458c6196c02d457a159344a620d5e2afd5d870b53861d7"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-usuarios",
+      "bytes": 37081,
+      "sha256": "a6f6775b23a6c2a152f44f3ea17efcdbc7768f75756990cb029289abc58724df"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-usuarios-create",
+      "bytes": 28405,
+      "sha256": "854b64f4761ef019252913792dc2fb478db44972fc3e140dbcf3b0d5825a52eb"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-usuarios-id-edit",
+      "bytes": 28557,
+      "sha256": "5f25d598976af4cb83cb76c6bcdfc24824bbf917b366581b0f555232e4105fe3"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-configuraciones",
+      "bytes": 48403,
+      "sha256": "2013663e640537c743df322a98020e3d222b8fd4cbdb866d9b9266fcb6054e0a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-profesores",
+      "bytes": 38676,
+      "sha256": "ff3b4bd8f15c916bc4abf93695fbe0a18aa79d01deadc78da4e49636df051461"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-profesores-create",
+      "bytes": 26231,
+      "sha256": "75215a7ae71e757b2922a7fa686d84c507662f32962742af04ffe68ef61bfc0d"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-profesores-id",
+      "bytes": 22289,
+      "sha256": "a3aa6a9b12e58a03a1ba4fa3f148d1684303d495bec019f92975aee9055e24e9"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-profesores-id-edit",
+      "bytes": 26416,
+      "sha256": "189ccb2b320d2b6fede1a630845007d548430aa1771eb58940bca667006f993f"
+    },
+    {
+      "fase": "despues",
+      "caso": "login",
+      "bytes": 7055,
+      "sha256": "40c73cb5ce7464324c54f4f79d8bfe6df851973bf3d992fc4b82ee823bd40ad7"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-0",
+      "bytes": 17364,
+      "sha256": "f6a2b7cc4cd4ff4cfa16ea2324c3da1833bda6ee271bdef23f62a10c77f3d99d"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-1",
+      "bytes": 105458,
+      "sha256": "f29ad469842218f0fd2532b77f3f93e1b3c1cf9e41e59b05eca2cc54dc51d12f"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-2",
+      "bytes": 23320,
+      "sha256": "1ae381285347c0036a99f0cc09474f823df8649efe448e3874b29cd00c0fa7ff"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-3",
+      "bytes": 21114,
+      "sha256": "a16cd5f5e9aad5009846a9c03781ec043139aecd62d2fe83ab1fae93816e71b7"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-4",
+      "bytes": 69105,
+      "sha256": "ec8b41198bc238648dc5f8d09c025f6f75a312cece3bedc5233b998f2452d7a8"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-5",
+      "bytes": 19155,
+      "sha256": "c011cf4ab6548ff32a021ad6a712e30e2720f42a01da238e26e7b8c293adce47"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-6",
+      "bytes": 20709,
+      "sha256": "05282fbcbfde0fc5f4a10a3e50a0ca2dfdf4faa31ad1201012b2a3f0d4ea4721"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-7",
+      "bytes": 18198,
+      "sha256": "e94463c4a5ae1a09d82cb166772038df95dcf23135df37a00997bf898cccc359"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-8",
+      "bytes": 18656,
+      "sha256": "86fcd1b805816318150527541311c52b367cabdb36107e18b8efeace0ce90c01"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-9",
+      "bytes": 16360,
+      "sha256": "7bd197bd535a300988974ba48043df623518a38d6e123512ae5e426cab12d4ac"
+    },
+    {
+      "fase": "despues",
+      "caso": "profesor-0",
+      "bytes": 16557,
+      "sha256": "4ea400a79dc3b6756691a3fd07533b75cd7945411dcc2ed7cc19f7525c98edf0"
+    },
+    {
+      "fase": "despues",
+      "caso": "profesor-1",
+      "bytes": 63455,
+      "sha256": "71af1d6cd19061e5a1a9d2a6c2bd504b1d860b685d55cb69b12c985dd831742b"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cerrada-detalle",
+      "bytes": 25821,
+      "sha256": "98001a38d5fd8f31f11f4f15c8b40d928e956d55e0926d6f8904962ce39fde21"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-cerrada-resumen",
+      "bytes": 25042,
+      "sha256": "20004c71ad20f33480d7d7d0a1cf61538ef0deb72434f1dfa9b931bf9a981e8a"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-rechazada-detalle",
+      "bytes": 22048,
+      "sha256": "6159377f702f63627cb49c30cefe28d8a7b96fc6905f3875543198dfc033c63b"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-rechazada-resumen",
+      "bytes": 23750,
+      "sha256": "8b0a627cb29f728607fe682340ac2a2b593e30295e230caa71b97ac5000e9a46"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-validada-detalle",
+      "bytes": 22048,
+      "sha256": "f937d4e0a29dfe776acbde911c55484f90b06c2e89252fbc9397e0100a407ef9"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-caja-validada-resumen",
+      "bytes": 23145,
+      "sha256": "63566f3e843af0f6e6339252c79ab62c3c464bfe84b5edf5c6ca3056166d56a0"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidacion-mes_actual",
+      "bytes": 24157,
+      "sha256": "b17304ce36f3d720ff85254d55d7b9e3f77e198f0a1e78a4dd6a226ae0fc6830"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidacion-cerrada",
+      "bytes": 28048,
+      "sha256": "5f44dc831d1c8604c2e1c033684a75e52d8ece85f859f3761a9126aa1ebecee5"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidacion-pagada",
+      "bytes": 22539,
+      "sha256": "ed4db9b2f9ad66fff6181e9ee897e361609f42a9dda835314616b47ec9978e58"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clase-futura",
+      "bytes": 75126,
+      "sha256": "56b96e4f1ede4d40a3ec73793f106a3f61feb4217fc2442499f339061f309635"
+    },
+    {
+      "fase": "despues",
+      "caso": "primera-carga-pendiente",
+      "bytes": 25066,
+      "sha256": "e4611059a128fcbecce15f959ec7e4459c21ac23e66c274cb59b7b7f6f0d9c6c"
+    },
+    {
+      "fase": "despues",
+      "caso": "error-403",
+      "bytes": 15721,
+      "sha256": "820fc1cbb409f47038eac894d7516bd2271e692ab3e9ee6752dbcf3b65b5e7ad"
+    },
+    {
+      "fase": "despues",
+      "caso": "error-404",
+      "bytes": 15686,
+      "sha256": "69e08eda96a135d1efb3c7b150f598a207092aa3a38f109b80d445d10025ea4f"
+    },
+    {
+      "fase": "despues",
+      "caso": "error-429",
+      "bytes": 15665,
+      "sha256": "f685c7e31d703b510df5e752f15ef3a6a8feb37f3a7fa6d35e7437cdcc0f9925"
+    },
+    {
+      "fase": "despues",
+      "caso": "error-500",
+      "bytes": 2109,
+      "sha256": "1c50eb6b05681cd68a8712bcae5dbc6d0167776534b031f53a020566ba4fea84"
+    },
+    {
+      "fase": "despues",
+      "caso": "error-503",
+      "bytes": 2098,
+      "sha256": "6a78b146aa18cd26afcf4352970368120d5429ba96029c36f466d1f7cb5f282d"
+    },
+    {
+      "fase": "despues",
+      "caso": "welcome-sin-ruta-en-wings",
+      "bytes": 53312,
+      "sha256": "42ce3bd9a781b57b1f625ec2e831023a86f7bcc3ddf4df447a4d66c1057e437f"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-companero",
+      "bytes": 15399,
+      "sha256": "100de13e064a52188d4f18941ab8cce52abcd01f7f6e1486d9e69b6f75bbf28e"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-turno-antiguo",
+      "bytes": 16219,
+      "sha256": "fe9b6c2070f3c5e34ef63657a6d71a8e1f498030bf21063af2f9030630f236dc"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-ultimo-cierre",
+      "bytes": 16446,
+      "sha256": "4bb6d1d47848f2ad91cd17f0e322b68823f69150c0ba5a27b8b569d767c471c8"
+    },
+    {
+      "fase": "despues",
+      "caso": "operativo-primera-apertura",
+      "bytes": 15614,
+      "sha256": "5c9c4df2ae5678d2e49aec2ecc6592e0025ec4c68f126b539bb57016f5c1500d"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-liquidaciones-filtradas",
+      "bytes": 26295,
+      "sha256": "6bff764f17551acab324e6c61651440c51dec524e81909d5701d5f1b5180bca6"
+    },
+    {
+      "fase": "despues",
+      "caso": "admin-clase-serie",
+      "bytes": 75721,
+      "sha256": "19541b7b1ced86e332b8b4b5d821c72cfc5356f9f7caabce80d002cbec433e51"
+    }
+  ],
+  "assetsDespues": [
+    {
+      "archivo": "assets/alumnos-form-CeZSphBS.js",
+      "sha256": "bfb47948438af7f11ee79b33e17e2ffa7d6018bed42cac36e232d4a3e947ab36"
+    },
+    {
+      "archivo": "assets/alumnos-show-_IuC7pus.js",
+      "sha256": "d0fa7c1a77b72f604f2cff682b07211c84a1bf05196bafd22017b4b4f881b3d6"
+    },
+    {
+      "archivo": "assets/app-67zNTR4X.js",
+      "sha256": "7a771bc19996b6769bf23b33a0bffeb456d6266a59ef80cf5faf6b23c120bc1b"
+    },
+    {
+      "archivo": "assets/app-bxFAC1sX.css",
+      "sha256": "09843af082d1430192d41c603c0c38aa595ce0b3992bbcb4416b6bb64fcc7d5a"
+    },
+    {
+      "archivo": "assets/caja-arqueo-D5DoZafS.js",
+      "sha256": "4fa47051918a200cc88120e579a2024aef75637cb57954ccaea6107d66acd626"
+    },
+    {
+      "archivo": "assets/caja-detalle-64Kzp3Xk.js",
+      "sha256": "62406eaf1dfd3b0fb81828ee59368b99b3eb77a61bac49e8263c797dddcceaed"
+    },
+    {
+      "archivo": "assets/caja-movimiento-HxhZ2rhL.js",
+      "sha256": "d1f42bdeab2ebd2c0286efc0add9fa2ebeae8f2fcc4c1b532e3379fdb927b47d"
+    },
+    {
+      "archivo": "assets/cashflow-movimiento-Dw2pVl03.js",
+      "sha256": "3c25aa9231a34a0dba6410ae990efcdece9803cb119f6036f5af5d3f81c0748a"
+    },
+    {
+      "archivo": "assets/chart-DwLVCIBZ.js",
+      "sha256": "38064e106bc3de62545dd2e7f00332f5d39feade820fc784c9edea80a4a614ba"
+    },
+    {
+      "archivo": "assets/clases-form-D_y0Z8Yp.js",
+      "sha256": "dfc07d7013122d64c733c9229adaa2f163e4c4ef12d41c692943b72132b9a71f"
+    },
+    {
+      "archivo": "assets/cobrar-CsPX9ftN.js",
+      "sha256": "20923639a870243ec5f3c207f8309f86dd6f6b8ad2fc9dde6585ee0874a72867"
+    },
+    {
+      "archivo": "assets/configuraciones-BSODx-6m.js",
+      "sha256": "6089f036cab08a7aa1fce16d77876a2b0de029615f89ec4edb04cdd1f0bcf3a0"
+    },
+    {
+      "archivo": "assets/formato-importe-rshXORao.js",
+      "sha256": "505a9a30ad9dff0fae9a9ed448f4258a6bff6fd078a9c4f3ac0f7e98449527bf"
+    },
+    {
+      "archivo": "assets/grupos-H6UfBVrx.js",
+      "sha256": "7f586850549b0c793081ca08a67307c67395817b88482b9fd065e25974be1c83"
+    },
+    {
+      "archivo": "assets/primera-carga-DAqnaeS5.js",
+      "sha256": "83236a9f17371a82534aa655f2b97656a1c17cae2ff8d14b6684398e3e1f4e9f"
+    },
+    {
+      "archivo": "assets/profesores-form-nATmwIy6.js",
+      "sha256": "6de73fc04dedc499c9b28b4ac7387f7db47719aded42d09987c218afc5daebb3"
+    },
+    {
+      "archivo": "assets/reportes-analiticos-CoaqU5EL.js",
+      "sha256": "6efdd23dc0be4be3d8ff7082569e8e99969d114b63826ce525b09a08ee992ae8"
+    },
+    {
+      "archivo": "assets/reportes-analiticos-DwXpNXtk.css",
+      "sha256": "87950a39b33c3d3d20fe143d1fb5e274a243381dc8106637496fea7493754035"
+    },
+    {
+      "archivo": "assets/reportes-visual-BMGDEsow.js",
+      "sha256": "3c7d824d8bdfdbceb0f0909ad3e6ef26133a3450e13e27e1b995714110409fb9"
+    },
+    {
+      "archivo": "assets/reportes-visual-rLrUqhge.css",
+      "sha256": "6a8f99e8e7eceb5f3776d87b44819388b8fc885ef4fa2e3c2f38e073167f7cb7"
+    },
+    {
+      "archivo": "assets/usuarios-CUNm1laC.js",
+      "sha256": "bff899fb676b21075e6db69d826bc604d32b130391a1f0f5d5611bcbcd8c0c54"
+    }
+  ]
+}

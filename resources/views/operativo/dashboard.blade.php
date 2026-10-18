@@ -19,7 +19,7 @@
                 {{ ucfirst($hoyAr->locale('es')->isoFormat('dddd D [de] MMMM [de] YYYY')) }} · Turno de {{ auth()->user()->name }}
             </p>
         </div>
-        <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px;">
+        <div class="acciones-celular-derecha acciones-celular-fila barra-movil" style="display:flex; gap:8px;">
             <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">Caja</a>
             <a href="{{ route('web.cobranza.index') }}" class="ds-btn ds-btn--sec">Cobranza</a>
             <a href="{{ route('web.alumnos.index') }}" class="ds-btn ds-btn--sec">Alumnos</a>
@@ -72,7 +72,7 @@
                     Abierta por vos a las {{ \Carbon\Carbon::parse($cajaPropia->apertura_at)->setTimezone('America/Argentina/Buenos_Aires')->format('H:i') }}
                 </p>
             </div>
-            <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px; flex-wrap:wrap;">
+            <div class="acciones-celular-derecha acciones-celular-fila turno-acciones-movil" style="display:flex; gap:8px; flex-wrap:wrap;">
                 <a href="{{ route('web.caja.cobrar-cuota') }}"
                    style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 20px;
                           font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
@@ -208,7 +208,7 @@
                 <p style="font-size:0.82rem; color:var(--color-text-muted);">No hay clases programadas para hoy.</p>
             </div>
             @else
-            <div style="display:flex; flex-direction:column; gap:6px; max-height:165px; overflow-y:auto; padding-right:4px;">
+            <div class="lista-clases-movil" style="display:flex; flex-direction:column; gap:6px; max-height:165px; overflow-y:auto; padding-right:4px;">
                 @foreach($clasesHoy as $clase)
                 @php $conLista = $clase->presentes_count > 0; @endphp
                 <div class="filtros-card" style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;">

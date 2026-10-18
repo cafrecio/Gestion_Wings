@@ -89,7 +89,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
 <p class="text-xs text-wings-muted mb-2 sm:hidden">Deslizá la tabla para ver todas las columnas.</p>
 <div class="alumno-card" style="padding:0; overflow:hidden;">
     <div style="overflow-x:auto;" tabindex="0" role="region" aria-label="Movimientos de la caja">
-    <table style="width:100%; min-width:800px; border-collapse:collapse; table-layout:fixed;">
+    <table class="tabla-operativa-movil" style="width:100%; min-width:800px; border-collapse:collapse; table-layout:fixed;">
         <colgroup>
             <col style="width:90px">
             <col style="width:30px">
@@ -98,11 +98,11 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             <col style="width:22%">
             <col style="width:100px">
             @if($hasEditar)
-                <col style="width:148px">
+                <col class="col-acciones-movil" style="width:148px">
             @elseif($hasCheckbox)
-                <col style="width:{{ $hasRecibo ? '110px' : '40px' }}">
+                <col class="col-revision-movil" style="width:{{ $hasRecibo ? '110px' : '40px' }}">
             @elseif($hasRecibo)
-                <col style="width:72px">
+                <col class="col-recibo-movil" style="width:72px">
             @endif
         </colgroup>
         <thead>

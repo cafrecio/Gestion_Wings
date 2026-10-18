@@ -96,7 +96,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 </div>
 
 <div class="alumno-card" style="padding:0; overflow-x:auto;">
-    <table style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:860px;">
+    <table class="tabla-acciones-movil" style="width:100%; border-collapse:collapse; table-layout:fixed; min-width:860px;">
         <colgroup>
             <col style="width:180px;">
             <col style="width:110px;">

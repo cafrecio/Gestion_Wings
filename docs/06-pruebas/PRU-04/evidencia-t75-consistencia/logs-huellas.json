@@ -1,0 +1,20 @@
+{
+  "normalizacion": "Solo finales de línea y espacios terminales de consola; contenido completo conservado.",
+  "archivos": [
+    {
+      "archivo": "suite-final.txt",
+      "sha256Original": "30ddcdc597c0a1710cb751aba529db0798c9b01d6b149e2ebf4206dcdc38b850",
+      "sha256Versionado": "7facf6ce3144b8d0be883cbd3d73db8a3f7b67ecb61767756f977f487015783a"
+    },
+    {
+      "archivo": "guardianes-finales.txt",
+      "sha256Original": "019b1931532e6b6c8670e1b57c8f48f65ff14c318b3f27375e928e5541a0bdaa",
+      "sha256Versionado": "d91328ec920ba31622920f8f6bd927db11a657e0348e81864c80821f0a035384"
+    },
+    {
+      "archivo": "tablero-final.txt",
+      "sha256Original": "9b16cbc8da3e5af34838ef58f6ee6821d111664341ce76330d875975b27de5ed",
+      "sha256Versionado": "a509f507907ed2ef38118f55eae4e6e071526eb63f2d2026130031cd76f8e65d"
+    }
+  ]
+}

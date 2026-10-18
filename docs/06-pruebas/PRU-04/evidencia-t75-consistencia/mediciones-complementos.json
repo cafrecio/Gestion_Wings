@@ -1,0 +1,3658 @@
+{
+  "fase": "despues",
+  "fecha": "2026-10-18T17:36:50.410Z",
+  "metodo": "Respuestas reales Laravel + iframe 360/375/1366 en Chrome 1366",
+  "casos": [
+    {
+      "slug": "admin-liquidaciones-filtradas",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones?estado=abierta",
+      "vistas": [
+        "resources/views/liquidaciones/index.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1016,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)",
+          "clases": "stats-bar mb-3",
+          "rect": {
+            "x": 16,
+            "y": 189,
+            "w": 313,
+            "h": 56,
+            "derecha": 329
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 217,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Nuevo",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 201,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Nuevo",
+                  "href": "http://127.0.0.1:8735/liquidaciones/crear",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "stats-bar mb-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)",
+          "clases": "acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 486.8,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 502.8,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 486.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Filtrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 486.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Filtrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 697.27,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 713.27,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 697.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/2",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 697.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 891.73,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 907.73,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 891.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 891.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-filtradas--360--principal.png",
+          "sha256": "7fcfe1b1c143d0b77eb193ef6c1d3f13c14f1bf32f9d670e994c2bd41973974e"
+        },
+        {
+          "nombre": "admin-liquidaciones-filtradas--360--final.png",
+          "sha256": "a2f1a5f1fe41b3bac4f209ba7e0c801a1dae7c1eeafae9bed4c48a274f686ec7"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidaciones-filtradas",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones?estado=abierta",
+      "vistas": [
+        "resources/views/liquidaciones/index.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1016,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)",
+          "clases": "stats-bar mb-3",
+          "rect": {
+            "x": 16,
+            "y": 189,
+            "w": 328,
+            "h": 56,
+            "derecha": 344
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 217,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Nuevo",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 201,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Nuevo",
+                  "href": "http://127.0.0.1:8735/liquidaciones/crear",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "stats-bar mb-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)",
+          "clases": "acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 486.8,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 502.8,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 486.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Filtrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 486.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Filtrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 697.27,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 713.27,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 697.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/2",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 697.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 891.73,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 907.73,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 891.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 891.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-filtradas--375--principal.png",
+          "sha256": "ebcf23a8eb47c707fc31c62732ee28274edb183dc52ebc44745cdbe66ef2d093"
+        },
+        {
+          "nombre": "admin-liquidaciones-filtradas--375--final.png",
+          "sha256": "ad5f1f7f33ded98fe5002bfa2d348c7fdd3b68c6f2f21a38324b7b6185dba098"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidaciones-filtradas",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones?estado=abierta",
+      "vistas": [
+        "resources/views/liquidaciones/index.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)",
+          "clases": "stats-bar mb-3",
+          "rect": {
+            "x": 256,
+            "y": 185,
+            "w": 1094,
+            "h": 56,
+            "derecha": 1350
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 280,
+          "derecha": 1326,
+          "filas": [
+            {
+              "cy": 213,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Nuevo",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1230,
+                    "y": 197,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1326
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Nuevo",
+                  "href": "http://127.0.0.1:8735/liquidaciones/crear",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "stats-bar mb-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)",
+          "clases": "acciones-movil",
+          "rect": {
+            "x": 1125,
+            "y": 304.27,
+            "w": 200,
+            "h": 32,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 1125,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 320.27,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Filtrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 1125,
+                    "y": 304.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1221
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Filtrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1229,
+                    "y": 304.27,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1325
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-movil",
+                    "estilo": "display:flex; gap:8px; align-items:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 276,
+            "y": 466.67,
+            "w": 1057,
+            "h": 32,
+            "derecha": 1333
+          },
+          "display": "flex",
+          "justify": "flex-start",
+          "direccion": "row",
+          "izquierda": 276,
+          "derecha": 1333,
+          "filas": [
+            {
+              "cy": 482.67,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 276,
+                    "y": 466.67,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 372
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/2",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 384,
+                    "y": 466.67,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 480
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 276,
+            "y": 613.08,
+            "w": 1057,
+            "h": 32,
+            "derecha": 1333
+          },
+          "display": "flex",
+          "justify": "flex-start",
+          "direccion": "row",
+          "izquierda": 276,
+          "derecha": 1333,
+          "filas": [
+            {
+              "cy": 629.08,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 276,
+                    "y": 613.08,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 372
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/liquidaciones/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 384,
+                    "y": 613.08,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 480
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": "display:contents;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-filtradas--1366--principal.png",
+          "sha256": "4d09f4f8415369f439a7288a83874f246b35b0d74863d603e4d5a77afe28782f"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-clase-serie",
+      "rol": "ADMIN",
+      "ruta": "/clases/2",
+      "vistas": [
+        "resources/views/clases/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1553,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 360.7,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 376.7,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "btn-modificar-profesores",
+                  "etiqueta": "Editar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 360.7,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "accion-celular-final",
+                  "textoVisible": "Editar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+          "rect": {
+            "x": 40,
+            "y": 442.31,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 458.31,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "btn-abrir-cancelar",
+                  "etiqueta": "Cancelar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 442.31,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cancelar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 442.31,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "panel-cancelar",
+          "modal": false,
+          "etiquetas": [
+            "Cancelar esta",
+            "Cancelar serie",
+            "Cerrar"
+          ]
+        },
+        {
+          "id": "panel-profesores",
+          "modal": false,
+          "etiquetas": [
+            "Guardar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clase-serie--360--principal.png",
+          "sha256": "72db3b1b5680ed832fd1b74b84dbdb23edff59127b24ec78bf6b3452240aeaef"
+        },
+        {
+          "nombre": "admin-clase-serie--360--final.png",
+          "sha256": "c27b6c4a2ddd6ea0bbb5b107f6637d54c9386e86b947850fc0267f3b491cee3e"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "panel-cancelar",
+          "medicion": {
+            "ancho": 360,
+            "cliente": 345,
+            "referenciaDerecha": 305,
+            "anchoDocumento": 345,
+            "altoDocumento": 1746,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 40,
+                  "y": 360.7,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 376.7,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 360.7,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 40,
+                  "y": 442.31,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 458.31,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 105,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 201
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 209,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+                "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                "rect": {
+                  "x": 40,
+                  "y": 566,
+                  "w": 265,
+                  "h": 117.69,
+                  "derecha": 305
+                },
+                "display": "grid",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 627.69,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(3)",
+                        "id": "btn-cerrar-cancelar",
+                        "etiqueta": "Cerrar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 105,
+                          "y": 611.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 201
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cerrar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(1)",
+                        "id": "btn-confirmar-cancelar",
+                        "etiqueta": "Cancelar esta",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 611.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar esta",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  },
+                  {
+                    "cy": 667.69,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(2)",
+                        "id": "btn-cancelar-serie",
+                        "etiqueta": "Cancelar serie",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 651.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar serie",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-profesores",
+                "modal": false,
+                "etiquetas": [
+                  "Guardar",
+                  "Cancelar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 122,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 209,
+                  "y": 124,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 305
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--360--panel-panel-cancelar.png",
+            "sha256": "b6899638f2aed2f6cb693d98805ae1a3c4e4695be91a1f81306c99af9d55b800"
+          }
+        },
+        {
+          "panel": "panel-profesores",
+          "medicion": {
+            "ancho": 360,
+            "cliente": 345,
+            "referenciaDerecha": 305,
+            "anchoDocumento": 345,
+            "altoDocumento": 1726,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 40,
+                  "y": 360.7,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 376.7,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 360.7,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 40,
+                  "y": 442.31,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 458.31,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 105,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 201
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 209,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+                "clases": "acciones-celular-derecha",
+                "rect": {
+                  "x": 40,
+                  "y": 631.38,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 647.38,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "btn-cerrar-profesores",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 105,
+                          "y": 631.38,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 201
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "btn-guardar-profesores",
+                        "etiqueta": "Guardar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 631.38,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "accion-movil-principal",
+                        "textoVisible": "Guardar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-cancelar",
+                "modal": false,
+                "etiquetas": [
+                  "Cancelar esta",
+                  "Cancelar serie",
+                  "Cerrar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 112,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 209,
+                  "y": 114,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 305
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--360--panel-panel-profesores.png",
+            "sha256": "f691eebd91c1ef50ca1667a662dda6310c347d9b97fb5a8c3b289591a39b1960"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "admin-clase-serie",
+      "rol": "ADMIN",
+      "ruta": "/clases/2",
+      "vistas": [
+        "resources/views/clases/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1509,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 360.7,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 376.7,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "btn-modificar-profesores",
+                  "etiqueta": "Editar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 360.7,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "accion-celular-final",
+                  "textoVisible": "Editar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+          "rect": {
+            "x": 40,
+            "y": 442.31,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 458.31,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "btn-abrir-cancelar",
+                  "etiqueta": "Cancelar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 442.31,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cancelar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 442.31,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "panel-cancelar",
+          "modal": false,
+          "etiquetas": [
+            "Cancelar esta",
+            "Cancelar serie",
+            "Cerrar"
+          ]
+        },
+        {
+          "id": "panel-profesores",
+          "modal": false,
+          "etiquetas": [
+            "Guardar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clase-serie--375--principal.png",
+          "sha256": "3075b720d4ce13aca4ac3465bca18f1a0746d21ed4da53f6c6e95d99c97c3b7d"
+        },
+        {
+          "nombre": "admin-clase-serie--375--final.png",
+          "sha256": "0da5f7084631fa5b58944b1b211f7dbb53009cebe12a8afb7763f840e877a20d"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "panel-cancelar",
+          "medicion": {
+            "ancho": 375,
+            "cliente": 360,
+            "referenciaDerecha": 320,
+            "anchoDocumento": 360,
+            "altoDocumento": 1702,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 40,
+                  "y": 360.7,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 376.7,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 360.7,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 40,
+                  "y": 442.31,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 458.31,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 120,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 216
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 224,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+                "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                "rect": {
+                  "x": 40,
+                  "y": 566,
+                  "w": 280,
+                  "h": 117.69,
+                  "derecha": 320
+                },
+                "display": "grid",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 627.69,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(3)",
+                        "id": "btn-cerrar-cancelar",
+                        "etiqueta": "Cerrar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 120,
+                          "y": 611.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 216
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cerrar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(1)",
+                        "id": "btn-confirmar-cancelar",
+                        "etiqueta": "Cancelar esta",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 611.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar esta",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  },
+                  {
+                    "cy": 667.69,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(2)",
+                        "id": "btn-cancelar-serie",
+                        "etiqueta": "Cancelar serie",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 651.69,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar serie",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-profesores",
+                "modal": false,
+                "etiquetas": [
+                  "Guardar",
+                  "Cancelar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 122,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 224,
+                  "y": 124,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 320
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--375--panel-panel-cancelar.png",
+            "sha256": "4b68a466ef60104e93c00dd4195bc85fd48fb243164a38130d2c51e8cfc63e95"
+          }
+        },
+        {
+          "panel": "panel-profesores",
+          "medicion": {
+            "ancho": 375,
+            "cliente": 360,
+            "referenciaDerecha": 320,
+            "anchoDocumento": 360,
+            "altoDocumento": 1682,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 40,
+                  "y": 360.7,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 376.7,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 360.7,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 40,
+                  "y": 442.31,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 458.31,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 120,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 216
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 224,
+                          "y": 442.31,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+                "clases": "acciones-celular-derecha",
+                "rect": {
+                  "x": 40,
+                  "y": 631.38,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 647.38,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "btn-cerrar-profesores",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 120,
+                          "y": 631.38,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 216
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "btn-guardar-profesores",
+                        "etiqueta": "Guardar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 631.38,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "accion-movil-principal",
+                        "textoVisible": "Guardar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-cancelar",
+                "modal": false,
+                "etiquetas": [
+                  "Cancelar esta",
+                  "Cancelar serie",
+                  "Cerrar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 112,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 224,
+                  "y": 114,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 320
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--375--panel-panel-profesores.png",
+            "sha256": "98f2d50d7f41cfaba8e8e60baef4e6cb359c291a02e150905fcc46027c76c83d"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "admin-clase-serie",
+      "rol": "ADMIN",
+      "ruta": "/clases/2",
+      "vistas": [
+        "resources/views/clases/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "ancho": 1366,
+      "cliente": 1351,
+      "referenciaDerecha": 1311,
+      "anchoDocumento": 1351,
+      "altoDocumento": 1389,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "",
+          "rect": {
+            "x": 287,
+            "y": 271.09,
+            "w": 1023,
+            "h": 23.27,
+            "derecha": 1310
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 287,
+          "derecha": 1310,
+          "filas": [
+            {
+              "cy": 282.72,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "btn-modificar-profesores",
+                  "etiqueta": "Editar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 375.53,
+                    "y": 271.09,
+                    "w": 54.5,
+                    "h": 23.27,
+                    "derecha": 430.03
+                  },
+                  "disabled": false,
+                  "clases": "accion-celular-final",
+                  "textoVisible": "Editar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "2px 10px",
+                    "fontSize": "11.52px",
+                    "fontWeight": "600",
+                    "lineHeight": "17.28px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "intermedia"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+          "rect": {
+            "x": 287,
+            "y": 343.97,
+            "w": 1023,
+            "h": 32,
+            "derecha": 1310
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 287,
+          "derecha": 1310,
+          "filas": [
+            {
+              "cy": 359.97,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                  "id": "btn-abrir-cancelar",
+                  "etiqueta": "Cancelar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 1110,
+                    "y": 343.97,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1206
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cancelar",
+                  "href": null,
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1214,
+                    "y": 343.97,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1310
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "panel-cancelar",
+          "modal": false,
+          "etiquetas": [
+            "Cancelar esta",
+            "Cancelar serie",
+            "Cerrar"
+          ]
+        },
+        {
+          "id": "panel-profesores",
+          "modal": false,
+          "etiquetas": [
+            "Guardar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1239,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1335
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clase-serie--1366--principal.png",
+          "sha256": "9b13349950f067bc2ad93b9673c2db99539683a5c5001b856ebc3cb9e828a86e"
+        },
+        {
+          "nombre": "admin-clase-serie--1366--final.png",
+          "sha256": "9ce40a650f0e275dac998fbd8da2c4b32dddb81070e5acfdf504b7c99edac0d4"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "panel-cancelar",
+          "medicion": {
+            "ancho": 1366,
+            "cliente": 1351,
+            "referenciaDerecha": 1311,
+            "anchoDocumento": 1351,
+            "altoDocumento": 1503,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 287,
+                  "y": 271.09,
+                  "w": 1023,
+                  "h": 23.27,
+                  "derecha": 1310
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 287,
+                "derecha": 1310,
+                "filas": [
+                  {
+                    "cy": 282.72,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 375.53,
+                          "y": 271.09,
+                          "w": 54.5,
+                          "h": 23.27,
+                          "derecha": 430.03
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "2px 10px",
+                          "fontSize": "11.52px",
+                          "fontWeight": "600",
+                          "lineHeight": "17.28px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "intermedia"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 287,
+                  "y": 343.97,
+                  "w": 1023,
+                  "h": 32,
+                  "derecha": 1310
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 287,
+                "derecha": 1310,
+                "filas": [
+                  {
+                    "cy": 359.97,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 1110,
+                          "y": 343.97,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1206
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 1214,
+                          "y": 343.97,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1310
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+                "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                "rect": {
+                  "x": 277,
+                  "y": 467.66,
+                  "w": 1037,
+                  "h": 37.69,
+                  "derecha": 1314
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 277,
+                "derecha": 1314,
+                "filas": [
+                  {
+                    "cy": 486.5,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(1)",
+                        "id": "btn-confirmar-cancelar",
+                        "etiqueta": "Cancelar esta",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 988.44,
+                          "y": 470.5,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1084.44
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar esta",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(2)",
+                        "id": "btn-cancelar-serie",
+                        "etiqueta": "Cancelar serie",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 1092.44,
+                          "y": 470.5,
+                          "w": 117.56,
+                          "h": 32,
+                          "derecha": 1210
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar serie",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px 12px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>button:nth-of-type(3)",
+                        "id": "btn-cerrar-cancelar",
+                        "etiqueta": "Cerrar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 1218,
+                          "y": 470.5,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1314
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cerrar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha cancelacion-clase-movil",
+                          "estilo": "display:flex; gap:8px; align-items:center; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-profesores",
+                "modal": false,
+                "etiquetas": [
+                  "Guardar",
+                  "Cancelar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 1239,
+                  "y": 12,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 1335
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--1366--panel-panel-cancelar.png",
+            "sha256": "9577516af318d633c3a32e35fe08c200228a2535a8523476413ff9a4bdeecbcb"
+          }
+        },
+        {
+          "panel": "panel-profesores",
+          "medicion": {
+            "ancho": 1366,
+            "cliente": 1351,
+            "referenciaDerecha": 1311,
+            "anchoDocumento": 1351,
+            "altoDocumento": 1533,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+                "clases": "",
+                "rect": {
+                  "x": 287,
+                  "y": 271.09,
+                  "w": 1023,
+                  "h": 23.27,
+                  "derecha": 1310
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 287,
+                "derecha": 1310,
+                "filas": [
+                  {
+                    "cy": 282.72,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>button:nth-of-type(1)",
+                        "id": "btn-modificar-profesores",
+                        "etiqueta": "Editar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 375.53,
+                          "y": 271.09,
+                          "w": 54.5,
+                          "h": 23.27,
+                          "derecha": 430.03
+                        },
+                        "disabled": false,
+                        "clases": "accion-celular-final",
+                        "textoVisible": "Editar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "2px 10px",
+                          "fontSize": "11.52px",
+                          "fontWeight": "600",
+                          "lineHeight": "17.28px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "",
+                          "estilo": "display:flex; align-items:center; gap:10px; margin-bottom:0.75rem; flex-wrap:wrap;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "intermedia"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                "rect": {
+                  "x": 287,
+                  "y": 343.97,
+                  "w": 1023,
+                  "h": 32,
+                  "derecha": 1310
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 287,
+                "derecha": 1310,
+                "filas": [
+                  {
+                    "cy": 359.97,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>button:nth-of-type(1)",
+                        "id": "btn-abrir-cancelar",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 1110,
+                          "y": 343.97,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1206
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(192, 120, 120)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Volver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 1214,
+                          "y": 343.97,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 1310
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Volver",
+                        "href": "http://127.0.0.1:8735/clases",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "flex items-center justify-end gap-2 flex-wrap w-full sm:w-auto",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+                "clases": "acciones-celular-derecha",
+                "rect": {
+                  "x": 277,
+                  "y": 503.34,
+                  "w": 1037,
+                  "h": 32,
+                  "derecha": 1314
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 277,
+                "derecha": 1314,
+                "filas": [
+                  {
+                    "cy": 519.34,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "btn-guardar-profesores",
+                        "etiqueta": "Guardar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 277,
+                          "y": 503.34,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 373
+                        },
+                        "disabled": false,
+                        "clases": "accion-movil-principal",
+                        "textoVisible": "Guardar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "btn-cerrar-profesores",
+                        "etiqueta": "Cancelar",
+                        "categoria": "barra",
+                        "tag": "button",
+                        "rect": {
+                          "x": 381,
+                          "y": 503.34,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 477
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px; align-items:center;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "izquierda"
+                  }
+                ]
+              }
+            ],
+            "paneles": [
+              {
+                "id": "panel-cancelar",
+                "modal": false,
+                "etiquetas": [
+                  "Cancelar esta",
+                  "Cancelar serie",
+                  "Cerrar"
+                ]
+              }
+            ],
+            "navegacion": [
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 1239,
+                  "y": 12,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 1335
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-clase-serie--1366--panel-panel-profesores.png",
+            "sha256": "5bb329fd5e2b34789dbc1f86ddc4975e3fba67de863f3687b739197893e876fc"
+          }
+        }
+      ]
+    }
+  ]
+}

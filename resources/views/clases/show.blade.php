@@ -24,7 +24,7 @@
 @section('content')
 
 {{-- ── Header de la clase ─────────────────────────────────────────────────── --}}
-<div class="filtros-card mb-3" style="padding:0; overflow:hidden;">
+<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">
     <div style="display:flex;">
 
         {{-- Rail de deporte --}}
@@ -165,13 +165,13 @@
 
 {{-- Panel: motivo de cancelación --}}
 <div id="panel-cancelar" style="display:none; margin-bottom:12px;">
-    <div style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
+    <div class="superficie-movil" style="padding:16px 20px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
                 border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
                 border-radius:var(--radius-card);">
         <p style="font-size:0.82rem; font-weight:700; color:var(--color-danger); margin:0 0 10px;">
             Indicá el motivo de cancelación
         </p>
-        <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <div class="acciones-celular-derecha cancelacion-clase-movil" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
             <input type="text" id="input-motivo-cancelacion"
                    placeholder="Ej: Feriado, Pista insegura, Lluvia..."
                    maxlength="255"
@@ -211,7 +211,7 @@
 
 {{-- Panel: modificar profesores --}}
 <div id="panel-profesores" style="display:none; margin-bottom:12px;">
-    <div style="padding:16px 20px; background:var(--color-surface-alt);
+    <div class="superficie-movil" style="padding:16px 20px; background:var(--color-surface-alt);
                 border:1px solid var(--color-border); border-radius:var(--radius-card);">
         <p style="font-size:0.82rem; font-weight:700; color:var(--color-text); margin:0 0 12px;">
             Profesores asignados a esta clase
@@ -243,7 +243,7 @@
             </div>
         @endif
         <div class="acciones-celular-derecha" style="display:flex; gap:8px; align-items:center;">
-            <button id="btn-guardar-profesores"
+            <button id="btn-guardar-profesores" class="accion-movil-principal"
                     style="display:inline-flex; align-items:center; justify-content:center;
                            width:96px; height:32px; font-size:0.82rem; font-weight:600;
                            border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;

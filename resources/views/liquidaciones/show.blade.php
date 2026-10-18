@@ -27,7 +27,7 @@
 @section('content')
 
 {{-- ── SECCIÓN A — Header ─────────────────────────────────────────────────── --}}
-<div class="filtros-card mb-3" style="padding:0; overflow:hidden;">
+<div class="filtros-card mb-3 cabecera-rail-movil" style="padding:0; overflow:hidden;">
     <div style="display:flex;">
 
         <div style="width:6px; flex-shrink:0; background:var(--color-sport-{{ $rail }});"></div>
@@ -121,7 +121,7 @@
                 </div>
             @endif
 
-            <div class="acciones-celular-derecha" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <div class="acciones-celular-derecha liquidacion-acciones-movil" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
 
                 @if($estaAbierta)
                     @if($liquidacion->puedeCerrarse())

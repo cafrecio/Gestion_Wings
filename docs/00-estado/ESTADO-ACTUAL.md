@@ -16,15 +16,18 @@ dos pruebas viejas que controlaban la regla anterior se actualizaron. 5 pruebas 
 - **Suite:** 844 aprobadas, 2 omitidas, 0 fallidas, 7655 aserciones en `wings_testing_gemini`.
 - [Informe de implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T63-T57.md). Sin despliegue ni autocierre (pasa a verificación por Claude).
 
-## T75 — Acciones móviles a derecha, entrega local 18/10/2026
+## T75 — Consistencia móvil aplicada, entrega local 18/10/2026
 
-CSS/clases únicamente: regla general de tarjeta y barras propias; escritorio conservado.
-101 fuentes revisadas (94 renderizadas más paginación Laravel), 99 casos a 360/375/1366,
-297 mediciones por fase y 428 PNG; 37 casos móviles cambiados, cero desbordes finales.
-Las cuatro grillas y Detalle de caja aprobado permanecen sin diferencias.
-Suite final propia: 821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 908.56 s, salida 0. Primera corrida con dos fallos y repetición aislada 2/20 conservadas en informe.
-Carlos verifica T75; 19 casos fuera de tarjeta/barra conservan su disposición para su decisión.
-[Informe, inventario y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md). Sin despliegue ni autocierre.
+Carlos pidió aplicar tamaño Cobrar, padding común, mismo borde derecho y posiciones estables.
+CSS hasta 640 px y clases en once vistas: botones con texto 96 × 32, padding 0, gap 8;
+contenido 16 y referencia interior 24. Incluye ingreso, modales y acciones de tabla.
+101 fuentes revisadas, 99 casos antes/después a 360/375/1366 y dos complementos;
+1.476 mediciones de botones y 904 de filas, cero desbordes; 126 controles especiales conservados.
+99 escritorios sin cambios de geometría; Detalle conserva su 2 × 2. Volver de Liquidaciones a derecha.
+Suite aislada sobre c2db5d4 y fuentes propias: 846 aprobadas/3 omitidas, 7655 aserciones, salida 0; sin cambios posteriores a esa base.
+Último ajuste de dos reglas CSS: PHP idéntico, nueva captura completa y guardianes 9/36 aprobados.
+Carlos revisa la nueva uniformidad: 1.053 PNG reales, sin aprobación heredada de T36/T37.
+[Entrega y galería completa](../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md). Sin despliegue ni autocierre.
 
 ## T38 — Reactivar genera la cuota del mes, cerrada por Gemini 18/10/2026
 

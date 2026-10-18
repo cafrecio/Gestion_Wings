@@ -1,0 +1,11 @@
+{
+  "unicoArchivoPosteriorASuite": [
+    "resources/css/app.css"
+  ],
+  "declaracionesAgregadas": [
+    "    .liquidacion-acciones-movil > span { grid-column: 1 / -1; }\n",
+    "    .liquidacion-acciones-movil > form[action$=\"/recalcular\"] { grid-column: 2; }\n"
+  ],
+  "PHPsinCambios": true,
+  "verificacion": "Aviso ancho 200 y Recalcular en la misma columna, más recorrido completo"
+}

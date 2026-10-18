@@ -133,7 +133,7 @@ En celular, la decisión de Carlos del 18/10/2026 en §7 tiene prioridad sobre e
 - En celular, los botones y el interruptor del pie de tarjeta se alinean a la derecha, también cuando ocupan más de una fila.
 - Carlos: «Dijimos que los botones en el celular se alinean todos a la derecha».
 - Este criterio tiene prioridad sobre flex-start en celular; las posiciones de escritorio se conservan. T75 lo aplica como regla general de `.alumno-actions` en `app.css` hasta 640 px; las barras propias reutilizan `.acciones-celular-derecha`. Se conservan las grillas específicas de Alumnos, Grupos, Profesores y Niveles, y el 2 × 2 aprobado de Detalle de caja. No se cambia el tamaño ni el funcionamiento del interruptor.
-- Los botones de fila de tabla, el ingreso, los modales y los controles fuera de tarjetas/barras se relevan con capturas para que Carlos decida; no se les asigna otra posición por inferencia. [Relevamiento T75](../../06-pruebas/PRU-04/IMPLEMENTACION-T75.md).
+- El primer relevamiento T75 dejó botones de tabla, ingreso y modales para decisión de Carlos. Su pedido posterior de aplicar la consistencia a las pantallas móviles los incluye: los botones con texto comparten ahora la regla siguiente. [Seguimiento T75](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md).
 
 ### Celular — consistencia y ubicación predecible, decisión de Carlos 18/10/2026
 
@@ -145,7 +145,9 @@ Carlos: «Que el usuario sepa donde esta el boton sin ver, por repeticion».
 - **Una ubicación estable por acción:** conservar la zona, el orden y la posición de cada acción entre pantallas equivalentes. La presencia o ausencia de otros botones no debe centrarla ni trasladarla a otro lugar. También se cumple cuando queda un solo botón.
 - **Objetivo de aceptación:** el usuario encuentra la acción por repetición. No se aprueba una vista móvil solo porque los botones caben o no hay desborde; debe cumplir tamaño, padding, borde y ubicación constantes.
 
-Esta decisión amplía el criterio móvil anterior y prevalece sobre las diferencias de tamaño de los objetos A/B/C para botones con texto. Los controles de ícono y los interruptores conservan su tipo; no se convierten en botones de texto. Las medidas y posiciones de escritorio se conservan. El registro de estas reglas no certifica que las pantallas actuales ya las cumplan: la revisión de Carlos de T75 señaló diferencias por corregir.
+Esta decisión amplía el criterio móvil anterior y prevalece sobre las diferencias de tamaño de los objetos A/B/C para botones con texto. Los controles de ícono y los interruptores conservan su tipo; no se convierten en botones de texto. Las medidas y posiciones de escritorio se conservan.
+
+La implementación móvil T75 usa **96 × 32 px**, padding de botón **0**, tipografía **0.82rem/600**, separación **8 px**, margen exterior de contenido **16 px** y referencia interior de acciones **24 px**. Los bordes y rieles se descuentan del padding para que no sumen un desplazamiento. La acción principal ocupa el extremo derecho; sus complementarias van a la izquierda. Cobrar, Filtrar y las confirmaciones conservan esa columna al desaparecer acciones complementarias. Volver conserva la columna derecha en la ficha de Liquidaciones. Detalle mantiene su distribución aprobada 2 × 2. [Tokens móviles](tokens.md#acciones-en-celular--t75) · [Entrega y capturas reales para revisión de Carlos](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md). Implementada localmente no equivale a aprobada ni desplegada.
 
 ## 8. DÓNDE VIVE EL JAVASCRIPT
 

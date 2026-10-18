@@ -55,7 +55,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         <strong>{{ $numMovimientos }}</strong>
         movimiento{{ $numMovimientos !== 1 ? 's' : '' }}
     </div>
-    <div class="w-full sm:w-auto acciones-celular-derecha" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+    <div class="w-full sm:w-auto acciones-celular-derecha resumen-acciones-movil" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
         @if(in_array($caja->estado, ['ABIERTA', 'RECHAZADA']) && $esPropietario)
             <a href="{{ route('web.caja.cobrar-cuota') }}"
                class="ds-btn" style="background:var(--color-btn-secondary); color:var(--color-surface);">Cobrar</a>

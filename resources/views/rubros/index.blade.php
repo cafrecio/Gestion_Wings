@@ -50,7 +50,7 @@
         {{-- Tabla de subrubros ─────────────────────────────────────────────── --}}
         @if($rubro->subrubros->isNotEmpty())
             <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:0.5rem;">
-                <table style="width:100%; min-width:480px; border-collapse:collapse; font-size:0.8rem;">
+                <table class="tabla-acciones-movil" style="width:100%; min-width:480px; border-collapse:collapse; font-size:0.8rem;">
                     <colgroup>
                         <col style="min-width:140px;">   {{-- Nombre --}}
                         <col style="width:130px;">       {{-- Permitido para --}}
@@ -142,7 +142,7 @@
         {{-- Tabla de subrubros ─────────────────────────────────────────────── --}}
         @if($rubro->subrubros->isNotEmpty())
             <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:0.5rem;">
-                <table style="width:100%; min-width:480px; border-collapse:collapse; font-size:0.8rem;">
+                <table class="tabla-acciones-movil" style="width:100%; min-width:480px; border-collapse:collapse; font-size:0.8rem;">
                     <colgroup>
                         <col style="min-width:140px;">
                         <col style="width:130px;">

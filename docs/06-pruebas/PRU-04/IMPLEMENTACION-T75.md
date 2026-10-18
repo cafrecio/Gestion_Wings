@@ -14,9 +14,10 @@ Carlos observa botones de tamaños distintos y bordes desalineados entre cabecer
 de la ficha. Pide registrar en el Design System: tamaño Cobrar como referencia, padding
 común, mismo borde derecho y ubicación estable de cada acción aunque falten otros botones.
 Reglas y checklist asentados en [DESIGN-RULES.md §7](../../03-diseno-ui/design-system/DESIGN-RULES.md)
-y en wings-design. Este seguimiento modifica solo documentación: la aplicación uniforme
-de estas reglas queda pendiente. T75 no está aprobada ni cerrada; las mediciones siguientes
-conservan el alcance de la entrega anterior y no certifican esta nueva consistencia.
+y en wings-design. Carlos pidió después aplicar las reglas a las pantallas de celular:
+la [segunda entrega de consistencia](IMPLEMENTACION-T75-CONSISTENCIA.md) contiene esa aplicación,
+sus mediciones y nuevas capturas. T75 sigue esperando revisión visual de Carlos;
+las mediciones siguientes conservan el alcance histórico de la primera entrega.
 
 ## Qué cambió
 

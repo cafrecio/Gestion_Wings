@@ -116,6 +116,8 @@ ds-sidebar (240px) | ds-main
 
 **Prioridad en celular, Carlos 18/10/2026:** aplicar la regla de consistencia y ubicación predecible de [DESIGN-RULES.md §7](../design-system/DESIGN-RULES.md). Los botones de acción con texto usan el mismo tamaño que el Cobrar de referencia, incluso entre secciones; comparten padding y borde derecho, y cada acción conserva su ubicación aunque falten otros botones. Esta decisión prevalece en celular sobre las diferencias A/B/C siguientes; escritorio se conserva.
 
+Receta móvil: **96 × 32 px**, padding `0`, fuente `0.82rem/600`, separación `8px`, contenido `16px` y referencia interior `24px`. Descontar bordes y rieles; no acumular padding entre grupos anidados. Ver [tokens móviles](../design-system/tokens.md#acciones-en-celular--t75) y [entrega T75 con capturas](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md).
+
 **Objeto A — Stats-bar (acción primaria de página)**
 - `width: 112px; height: 36px`
 - Solo uno por sección, siempre a la derecha del stats-bar

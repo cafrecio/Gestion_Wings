@@ -45,7 +45,7 @@
 @endphp
 
 {{-- Barra de acciones --}}
-<div class="flex flex-wrap items-center gap-2 mb-4 acciones-celular-derecha justify-start sm:justify-end">
+<div class="flex flex-wrap items-center gap-2 mb-4 acciones-celular-derecha cobro-acciones-movil justify-start sm:justify-end">
     <span style="
         font-size: 0.7rem; font-weight: 600;
         padding: 0.2rem 0.65rem; border-radius: 999px;
@@ -190,7 +190,7 @@
                     $periodoLabel = ($meses[(int)$mo] ?? $mo) . ' ' . $yr;
                     $saldo = (float)$deuda->saldo_pendiente;
                 @endphp
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil"
                      style="background:color-mix(in srgb, {{ $ecColor }} 8%, transparent);">
                     <div class="flex justify-between items-center w-full sm:w-auto gap-2">
                         <span style="font-size:0.75rem; color:var(--color-text-muted);">{{ $periodoLabel }}</span>
@@ -198,7 +198,7 @@
                             {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
+                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto cobro-acciones-movil acciones-movil">
                         <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $ecColor }}; white-space:nowrap;">
                             {{ \App\Support\FormatoImporte::pesos($saldo) }}
                         </span>
@@ -227,7 +227,7 @@
         <div id="recargos-mora" class="pt-3 mb-4" style="border-top:1px solid var(--color-border);">
             <p class="text-xs mb-2 text-wings-muted">Recargos por mora</p>
             @foreach($punitorios as $cargo)
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded mb-1"
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil mb-1"
                  style="border:1px solid var(--color-border);">
                 <div class="text-xs min-w-0">
                     <p>{{ $cargo->descripcion }}</p>
@@ -235,7 +235,7 @@
                         @if((float) $cargo->monto_condonado > 0) · Condonado: {{ \App\Support\FormatoImporte::pesos($cargo->monto_condonado) }} @endif
                     </p>
                 </div>
-                <div class="flex justify-end items-center gap-2">
+                <div class="flex justify-end items-center gap-2 cobro-acciones-movil acciones-movil">
                     @if($cargo->saldo_pendiente > 0)
                     <a href="{{ route('web.caja.cobrar', $alumno->id) }}" class="ds-btn-row ds-btn-row--sec">Cobrar</a>
                     @endif
@@ -259,7 +259,7 @@
         <div id="cuotas-condonadas" class="pt-3 mb-4" style="border-top: 1px solid var(--color-border);">
             <p class="text-xs mb-2" style="color:var(--color-text-muted);">Cuotas condonadas</p>
             @foreach($cuotasCondonadas as $deuda)
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded mb-1"
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil mb-1"
                  style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
                 <span class="text-xs" style="color:var(--color-text-muted);">{{ $deuda->periodo }} · Condonada</span>
                 @if(Auth::user()->isAdmin())
@@ -324,7 +324,7 @@
                         $periodos = ($meses[$pago->mes] ?? $pago->mes) . ' ' . $pago->anio;
                     }
                 @endphp
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded"
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 p-2 rounded fila-acciones-movil"
                      style="background:color-mix(in srgb, var(--color-border) 40%, transparent);">
                     <div class="flex justify-between items-center w-full sm:w-auto gap-2">
                         <div>
@@ -340,7 +340,7 @@
                             {{ \App\Support\FormatoImporte::pesos($pago->monto_final) }}
                         </span>
                     </div>
-                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto">
+                    <div class="flex items-center gap-2 justify-end w-full sm:w-auto cobro-acciones-movil acciones-movil">
                         <span class="hidden sm:inline" style="font-size:0.75rem; font-weight:700; color:{{ $esAnulado ? 'var(--color-text-muted)' : 'var(--color-success)' }}; white-space:nowrap; {{ $esAnulado ? 'text-decoration:line-through;' : '' }}">
                             {{ \App\Support\FormatoImporte::pesos($pago->monto_final) }}
                         </span>

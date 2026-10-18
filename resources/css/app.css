@@ -1197,6 +1197,153 @@ a:hover {
     .resumen-operativo-grid { grid-template-columns: minmax(0, 1fr) !important; }
 }
 
+/* T75, decisión de Carlos 18/10: una medida y un borde común en celular. */
+@media (max-width: 640px) {
+    :root {
+        --mobile-action-width: 96px;
+        --mobile-action-height: 32px;
+        --mobile-action-gap: var(--space-icon-gap);
+        --mobile-page-pad: var(--space-card-pad);
+        --mobile-actions-inset: calc(var(--space-card-pad) + var(--space-icon-gap));
+    }
+
+    html { scrollbar-gutter: stable; }
+    .ds-content { padding-inline: var(--mobile-page-pad) !important; }
+    .ds-topbar { padding-right: calc(var(--mobile-page-pad) + var(--mobile-actions-inset)); }
+
+    :is(.ds-content, .ds-topbar) :is(
+        .ds-btn, .ds-btn-row, .wings-btn, .accion-movil,
+        a[style*="inline-flex"],
+        button:not([aria-label])
+    ):not(.ds-btn--icon):not(.ds-toggle):not(.btn-toggle-password):not(.btn-remove-plan):not(:has(> svg:only-child)) {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        width: var(--mobile-action-width) !important;
+        min-width: var(--mobile-action-width) !important;
+        max-width: var(--mobile-action-width) !important;
+        height: var(--mobile-action-height) !important;
+        min-height: var(--mobile-action-height) !important;
+        padding: 0 !important;
+        font-family: var(--font-sans) !important;
+        font-size: 0.82rem !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: normal !important;
+        text-transform: none !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    .filtros-card,
+    .glass-card,
+    .superficie-movil { padding-inline: calc(var(--mobile-actions-inset) - 1px) !important; }
+    .alumno-card {
+        padding-left: calc(var(--mobile-actions-inset) - 4px) !important;
+        padding-right: calc(var(--mobile-actions-inset) - 1px) !important;
+    }
+    .stats-bar { padding-inline: var(--mobile-actions-inset) !important; flex-wrap: wrap; }
+    .ds-content > .ds-surface { padding-inline: calc(var(--mobile-actions-inset) - 1px) !important; }
+    .cabecera-rail-movil { padding-inline: 0 !important; }
+    .cabecera-rail-movil > div > div:last-child {
+        min-width: 0;
+        padding-left: calc(var(--mobile-actions-inset) - 7px) !important;
+        padding-right: calc(var(--mobile-actions-inset) - 1px) !important;
+    }
+
+    .alumno-actions,
+    .filtros-actions,
+    .acciones-celular-derecha,
+    .acciones-movil {
+        justify-content: flex-end !important;
+        flex-wrap: wrap !important;
+        gap: var(--mobile-action-gap) !important;
+    }
+    .alumno-actions { padding-inline: 0 !important; }
+    .ds-content > .acciones-celular-derecha,
+    .ds-content > .filtros-actions,
+    .ds-content > div:is(.flex, [style*="display:flex"], [style*="display: flex"]):not(.filtros-card):not(.alumno-card):not(.stats-bar):has(> .ds-btn, > form > .ds-btn),
+    .barra-movil { padding-inline: var(--mobile-actions-inset) !important; }
+    .ds-content > .container { padding-inline: 0 !important; }
+    .filtros-actions:not(.mobile-form-actions):not(:where(.filtros-card, .alumno-card, .stats-bar, .ds-surface, .glass-card) .filtros-actions) {
+        padding-inline: var(--mobile-actions-inset) !important;
+    }
+    .fila-acciones-movil { padding-inline: 0 !important; }
+    .acciones-movil { display: flex; width: 100%; }
+    :is(.filtros-actions, .acciones-movil, .acciones-celular-derecha) > :is(button[type="submit"], .ds-btn--primary, .accion-movil-principal),
+    :is(.filtros-actions, .acciones-movil, .acciones-celular-derecha) > form:has(> :is(button[type="submit"], .ds-btn--primary, .accion-movil-principal)) { order: 2; }
+
+    .mobile-form .mobile-form-actions {
+        padding-inline: calc(var(--mobile-page-pad) + var(--mobile-actions-inset)) !important;
+        gap: var(--mobile-action-gap) !important;
+    }
+    .cobro-acciones-movil > a[href*="/cobrar"] { order: 2; }
+    .cobro-acciones-movil > :not(a[href*="/cobrar"]) { order: 1; }
+    .alumno-actions:has(> a[href*="/cobrar"]),
+    .resumen-acciones-movil {
+        display: grid !important;
+        grid-template-columns: repeat(2, var(--mobile-action-width));
+        grid-auto-flow: row;
+        justify-content: end !important;
+    }
+    .alumno-actions > a[href*="/cobrar"],
+    .resumen-acciones-movil > a[href*="/cobrar"] { grid-column: 2; grid-row: 1; }
+    .resumen-acciones-movil > a:nth-last-child(2) { grid-column: 1; order: 100; }
+    .resumen-acciones-movil > a:last-child { grid-column: 2; order: 101; }
+    .resumen-acciones-movil { --resumen-management-row: 1; }
+    .resumen-acciones-movil:has(> a[href*="/cobrar"]) { --resumen-management-row: 2; }
+    .resumen-acciones-movil > a:is([href$="/cerrar"], [href$="/cierre"]) { grid-column: 2; grid-row: var(--resumen-management-row); }
+    .resumen-acciones-movil > a[href$="/rectificar"] { grid-column: 1; grid-row: var(--resumen-management-row); }
+    .liquidacion-acciones-movil { display: grid !important; grid-template-columns: repeat(2, var(--mobile-action-width)); }
+    .liquidacion-acciones-movil > form { order: 0 !important; }
+    .liquidacion-acciones-movil > span { grid-column: 1 / -1; }
+    .liquidacion-acciones-movil > form[action$="/recalcular"] { grid-column: 2; }
+    .liquidacion-acciones-movil > a { grid-column: 1; order: 99; }
+    .liquidacion-acciones-movil > a[href$="/liquidaciones"] { grid-column: 2; order: 100; }
+    .alumnos-listado .alumno-actions > a[href*="/cobrar/"] { grid-column: 2; grid-row: 1; }
+    .alumnos-listado .alumno-actions > a[href$="/edit"] { grid-column: 1; grid-row: 2; }
+    .alumnos-listado .alumno-actions > a:not([href*="/cobrar/"]):not([href$="/edit"]) { grid-column: 1; grid-row: 1; }
+    .alumnos-listado .alumno-actions .ds-toggle { grid-column: 2; grid-row: 2; }
+    .turno-acciones-movil { display: grid !important; grid-template-columns: repeat(2, var(--mobile-action-width)); }
+    .turno-acciones-movil > a:nth-child(1) { grid-column: 2; grid-row: 1; }
+    .turno-acciones-movil > a:nth-child(2) { grid-column: 1; grid-row: 1; }
+    .turno-acciones-movil > a:nth-child(3) { grid-column: 2; grid-row: 2; }
+
+    .ingreso-movil { padding-inline: 0 !important; }
+    .ingreso-movil .glass-card { max-width: none; }
+    .ingreso-movil form { display: flex; flex-direction: column; }
+    .ingreso-movil button[type="submit"] { display: flex !important; margin-left: auto; }
+    .lista-clases-movil { max-height: none !important; overflow-y: visible !important; padding-right: 0 !important; }
+
+    .tabla-acciones-movil { table-layout: fixed !important; }
+    .tabla-acciones-movil col:last-child,
+    .tabla-operativa-movil .col-acciones-movil { width: calc(2 * var(--mobile-action-width) + var(--mobile-action-gap)) !important; }
+    .tabla-operativa-movil:has(.ds-btn-row) .col-revision-movil { width: 128px !important; }
+    .tabla-operativa-movil .col-recibo-movil { width: var(--mobile-action-width) !important; }
+    :is(.tabla-acciones-movil, .tabla-operativa-movil) td:last-child:has(.ds-btn-row) { padding-inline: 0 !important; text-align: right !important; }
+    :is(.tabla-acciones-movil, .tabla-operativa-movil) td:last-child > div:has(.ds-btn-row) {
+        display: flex !important;
+        justify-content: flex-end !important;
+        flex-wrap: wrap !important;
+        gap: var(--mobile-action-gap) !important;
+    }
+    .tabla-acciones-movil td a[href*="/cobrar"] { order: 2; }
+    .cancelacion-clase-movil { display: grid !important; grid-template-columns: minmax(0, 1fr) var(--mobile-action-width); }
+    .cancelacion-clase-movil #input-motivo-cancelacion { grid-column: 1 / -1; grid-row: 1; width: 100%; min-width: 0 !important; }
+    .cancelacion-clase-movil #btn-cerrar-cancelar { grid-column: 1; grid-row: 2; justify-self: end; }
+    .cancelacion-clase-movil #btn-confirmar-cancelar { grid-column: 2; grid-row: 2; }
+    .cancelacion-clase-movil #btn-cancelar-serie { grid-column: 2; grid-row: 3; }
+
+    .ds-content [id^="modal"] { padding: var(--mobile-page-pad) !important; }
+    .ds-content [id^="modal"] > div {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding-inline: var(--mobile-actions-inset) !important;
+    }
+}
+
 /* empty-state (copia exacta de CyE, hex → tokens) */
 .empty-state {
     text-align: center;

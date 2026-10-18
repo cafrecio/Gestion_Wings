@@ -1,0 +1,211 @@
+{
+  "resultado": "APROBADO",
+  "medicionesPrincipales": 297,
+  "complementos": 6,
+  "variantes": 80,
+  "accionesMovilesMedidas": 1476,
+  "filasAlineadas": 904,
+  "escritoriosSinCambiosDeGeometria": 99,
+  "fuentesSoloPresentacion": 12,
+  "posicionesEstables": [
+    {
+      "ancho": 360,
+      "casos": [
+        "admin-alumnos-id",
+        "operativo-2"
+      ],
+      "accion": "Cobrar",
+      "rectangulos": [
+        {
+          "x": 209,
+          "y": 189,
+          "w": 96,
+          "h": 32,
+          "derecha": 305
+        },
+        {
+          "x": 209,
+          "y": 792.75,
+          "w": 96,
+          "h": 32,
+          "derecha": 305
+        }
+      ]
+    },
+    {
+      "ancho": 360,
+      "casos": [
+        "admin-liquidaciones",
+        "admin-liquidaciones-filtradas"
+      ],
+      "accion": "Filtrar",
+      "rectangulos": [
+        {
+          "x": 209,
+          "y": 486.8,
+          "w": 96,
+          "h": 32,
+          "derecha": 305
+        }
+      ]
+    },
+    {
+      "ancho": 360,
+      "casos": [
+        "admin-clase-futura :: panel-cancelar",
+        "admin-clase-serie :: panel-cancelar"
+      ],
+      "accion": "Cerrar",
+      "rectangulos": [
+        {
+          "x": 105,
+          "y": 611.69,
+          "w": 96,
+          "h": 32,
+          "derecha": 201
+        }
+      ]
+    },
+    {
+      "ancho": 360,
+      "casos": [
+        "admin-clase-futura :: panel-cancelar",
+        "admin-clase-serie :: panel-cancelar"
+      ],
+      "accion": "Cancelar esta",
+      "rectangulos": [
+        {
+          "x": 209,
+          "y": 611.69,
+          "w": 96,
+          "h": 32,
+          "derecha": 305
+        }
+      ]
+    },
+    {
+      "ancho": 360,
+      "caso": "admin-liquidaciones-id",
+      "accion": "Volver",
+      "bordeDerecho": 305
+    },
+    {
+      "ancho": 360,
+      "caso": "admin-liquidacion-mes_actual",
+      "accion": "Volver",
+      "bordeDerecho": 305
+    },
+    {
+      "ancho": 360,
+      "caso": "admin-liquidacion-cerrada",
+      "accion": "Volver",
+      "bordeDerecho": 305
+    },
+    {
+      "ancho": 360,
+      "caso": "admin-liquidacion-pagada",
+      "accion": "Volver",
+      "bordeDerecho": 305
+    },
+    {
+      "ancho": 375,
+      "casos": [
+        "admin-alumnos-id",
+        "operativo-2"
+      ],
+      "accion": "Cobrar",
+      "rectangulos": [
+        {
+          "x": 224,
+          "y": 189,
+          "w": 96,
+          "h": 32,
+          "derecha": 320
+        },
+        {
+          "x": 224,
+          "y": 792.75,
+          "w": 96,
+          "h": 32,
+          "derecha": 320
+        }
+      ]
+    },
+    {
+      "ancho": 375,
+      "casos": [
+        "admin-liquidaciones",
+        "admin-liquidaciones-filtradas"
+      ],
+      "accion": "Filtrar",
+      "rectangulos": [
+        {
+          "x": 224,
+          "y": 486.8,
+          "w": 96,
+          "h": 32,
+          "derecha": 320
+        }
+      ]
+    },
+    {
+      "ancho": 375,
+      "casos": [
+        "admin-clase-futura :: panel-cancelar",
+        "admin-clase-serie :: panel-cancelar"
+      ],
+      "accion": "Cerrar",
+      "rectangulos": [
+        {
+          "x": 120,
+          "y": 611.69,
+          "w": 96,
+          "h": 32,
+          "derecha": 216
+        }
+      ]
+    },
+    {
+      "ancho": 375,
+      "casos": [
+        "admin-clase-futura :: panel-cancelar",
+        "admin-clase-serie :: panel-cancelar"
+      ],
+      "accion": "Cancelar esta",
+      "rectangulos": [
+        {
+          "x": 224,
+          "y": 611.69,
+          "w": 96,
+          "h": 32,
+          "derecha": 320
+        }
+      ]
+    },
+    {
+      "ancho": 375,
+      "caso": "admin-liquidaciones-id",
+      "accion": "Volver",
+      "bordeDerecho": 320
+    },
+    {
+      "ancho": 375,
+      "caso": "admin-liquidacion-mes_actual",
+      "accion": "Volver",
+      "bordeDerecho": 320
+    },
+    {
+      "ancho": 375,
+      "caso": "admin-liquidacion-cerrada",
+      "accion": "Volver",
+      "bordeDerecho": 320
+    },
+    {
+      "ancho": 375,
+      "caso": "admin-liquidacion-pagada",
+      "accion": "Volver",
+      "bordeDerecho": 320
+    }
+  ],
+  "iconosEInterruptoresConservados": 126
+}

@@ -1,0 +1,79 @@
+{
+  "base": "c2db5d4",
+  "fuentes": [
+    {
+      "archivo": "resources/css/app.css",
+      "sha256": "fdeff29e19842b2d40693aab11dc60d0a5f96ab6522ed534761e709925247245",
+      "soloClases": false,
+      "sha256Lf": "fdeff29e19842b2d40693aab11dc60d0a5f96ab6522ed534761e709925247245"
+    },
+    {
+      "archivo": "resources/views/alumnos/show.blade.php",
+      "sha256": "845b95ae65b0f17192d54130e8b583488a5e6f225692144396f5e239288abdd9",
+      "soloClases": true,
+      "sha256Lf": "7e389ff9b9faac9f898ce4e186b3f7650a74f3ff4cb5626b3ac7b4e5e74667fe"
+    },
+    {
+      "archivo": "resources/views/auth/login.blade.php",
+      "sha256": "f93cd656de34e4525cc1f3b02f00879d39726f782cf1f67bc6c9da7ca84d8a51",
+      "soloClases": true,
+      "sha256Lf": "f93cd656de34e4525cc1f3b02f00879d39726f782cf1f67bc6c9da7ca84d8a51"
+    },
+    {
+      "archivo": "resources/views/caja/cobrar.blade.php",
+      "sha256": "e6a5c612b514ae08b699ffb31a61ce0545e67eb5c228494c5f48f13beb9e5ec1",
+      "soloClases": true,
+      "sha256Lf": "e6a5c612b514ae08b699ffb31a61ce0545e67eb5c228494c5f48f13beb9e5ec1"
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "sha256": "b0da6fac30c21f4317476e0ae06fd75a6509abb6612cb88ca08d290cc3780899",
+      "soloClases": true,
+      "sha256Lf": "b0da6fac30c21f4317476e0ae06fd75a6509abb6612cb88ca08d290cc3780899"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "sha256": "54823079a534b70f4dbeb06b06351ce13077e348e57015e6dad3d3f5f2e4cc3e",
+      "soloClases": true,
+      "sha256Lf": "54823079a534b70f4dbeb06b06351ce13077e348e57015e6dad3d3f5f2e4cc3e"
+    },
+    {
+      "archivo": "resources/views/clases/show.blade.php",
+      "sha256": "eb4eee2bd76ac35709a7bb126ae05ed96e2ca4572d1ea4a7c84233b3f3cf51c2",
+      "soloClases": true,
+      "sha256Lf": "eb4eee2bd76ac35709a7bb126ae05ed96e2ca4572d1ea4a7c84233b3f3cf51c2"
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "sha256": "f3be71cf1fc8ab1bf1bd08e08f285cee5d5cddd807de33d2732172ef4220f2ed",
+      "soloClases": true,
+      "sha256Lf": "f3be71cf1fc8ab1bf1bd08e08f285cee5d5cddd807de33d2732172ef4220f2ed"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/index.blade.php",
+      "sha256": "3460522658791785ae691973d8de333096d466c187ca8c26be12e1093762a756",
+      "soloClases": true,
+      "sha256Lf": "3460522658791785ae691973d8de333096d466c187ca8c26be12e1093762a756"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "sha256": "684beb25d6f3a31589f866dd2f9d46d48cef810689b40248a34b409827e851f5",
+      "soloClases": true,
+      "sha256Lf": "684beb25d6f3a31589f866dd2f9d46d48cef810689b40248a34b409827e851f5"
+    },
+    {
+      "archivo": "resources/views/operativo/dashboard.blade.php",
+      "sha256": "1be6bd2136d4cfce83170f890fd141a7b99256934949ebdf4fb2ba8bfd1b0303",
+      "soloClases": true,
+      "sha256Lf": "1be6bd2136d4cfce83170f890fd141a7b99256934949ebdf4fb2ba8bfd1b0303"
+    },
+    {
+      "archivo": "resources/views/rubros/index.blade.php",
+      "sha256": "ef3f04b6ea23360d12bab9b1daa3f74f4e65ce3a9d19cc124df0c2914e8019cc",
+      "soloClases": true,
+      "sha256Lf": "ef3f04b6ea23360d12bab9b1daa3f74f4e65ce3a9d19cc124df0c2914e8019cc"
+    }
+  ],
+  "cambio": "CSS nuevo solo hasta 640px; Blade solo clases",
+  "hashes": "sha256: bytes de la captura; sha256Lf: fuente normalizada a LF para verificar también después de checkout Git."
+}

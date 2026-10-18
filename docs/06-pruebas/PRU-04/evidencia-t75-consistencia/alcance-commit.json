@@ -1,0 +1,25 @@
+{
+  "base": "687262f5c854b98a1b29db67201cb4e79c2751ed",
+  "metodosVersionados": 860,
+  "contadores": [
+    {
+      "archivo": "docs/00-estado/ESTADO-ACTUAL.md",
+      "versionadoAntes": 860,
+      "versionadoEntrega": 860,
+      "arbolCompartidoSinSobrescribir": true
+    },
+    {
+      "archivo": "docs/00-estado/CHECKLIST-CARLOS.md",
+      "versionadoAntes": 860,
+      "versionadoEntrega": 860,
+      "arbolCompartidoSinSobrescribir": true
+    },
+    {
+      "archivo": "docs/00-estado/PLAN-PRODUCCION.md",
+      "versionadoAntes": 860,
+      "versionadoEntrega": 860,
+      "arbolCompartidoSinSobrescribir": true
+    }
+  ],
+  "excluidos": "Fuentes y tests ajenos sin commit. Los valores del árbol compartido se conservan."
+}

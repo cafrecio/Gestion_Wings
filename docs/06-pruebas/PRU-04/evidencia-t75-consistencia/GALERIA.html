@@ -1,0 +1,1359 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T75 — Consistencia móvil</title>
+<style>body{font:16px system-ui;margin:24px;background:#f4f6f8;color:#111827}article{background:white;padding:20px;margin:24px 0;border:1px solid #d8e0ea;border-radius:12px}h1,h2{line-height:1.2}.pares{display:flex;gap:20px;flex-wrap:wrap}.pares img{width:100%;max-width:375px;height:auto;border:1px solid #d8e0ea}figure{margin:0}summary{cursor:pointer;margin:14px 0}li{margin:8px 0}a{color:#24496c}</style>
+<h1>T75 — Consistencia de botones en celular</h1><p>Entrega para revisión visual de Carlos. Botones con texto de 96 × 32, padding común y acciones al mismo borde derecho. No desplegada.</p>
+<p>Respuestas reales de Wings, datos sintéticos y Chrome dentro de un marco de 360/375 píxeles. Las imágenes de 1366 comprueban escritorio. Los paneles ocultos se muestran sobre el HTML real para revisar su presentación; esto no certifica el flujo de negocio.</p>
+<p><a href="../IMPLEMENTACION-T75-CONSISTENCIA.md">Informe</a> · <a href="verificacion.json">Mediciones verificadas</a> · <a href="INVENTARIO.md">Cobertura</a> · <a href="REPRODUCIR.md">Reproducción</a></p><nav><ol>
+<li><a href="#admin-sistema-primera-carga">admin-sistema-primera-carga</a></li>
+<li><a href="#admin-caja">admin-caja</a></li>
+<li><a href="#admin-caja-apertura">admin-caja-apertura</a></li>
+<li><a href="#admin-caja-configuracion">admin-caja-configuracion</a></li>
+<li><a href="#admin-caja-movimiento">admin-caja-movimiento</a></li>
+<li><a href="#admin-caja-historial">admin-caja-historial</a></li>
+<li><a href="#admin-caja-cobrar">admin-caja-cobrar</a></li>
+<li><a href="#admin-caja-cobrar-alumnoId">admin-caja-cobrar-alumnoId</a></li>
+<li><a href="#admin-caja-id-resumen">admin-caja-id-resumen</a></li>
+<li><a href="#admin-caja-id-detalle">admin-caja-id-detalle</a></li>
+<li><a href="#admin-caja-id-editar">admin-caja-id-editar</a></li>
+<li><a href="#admin-caja-id-rectificar">admin-caja-id-rectificar</a></li>
+<li><a href="#admin-caja-id-cerrar">admin-caja-id-cerrar</a></li>
+<li><a href="#admin-caja-cajaId-movimientos-movId-editar">admin-caja-cajaId-movimientos-movId-editar</a></li>
+<li><a href="#admin-caja-cajaId-movimientos-movId-cancelar">admin-caja-cajaId-movimientos-movId-cancelar</a></li>
+<li><a href="#admin-operativo">admin-operativo</a></li>
+<li><a href="#admin-movimientos">admin-movimientos</a></li>
+<li><a href="#admin-cobranza">admin-cobranza</a></li>
+<li><a href="#admin-revision-cobranza">admin-revision-cobranza</a></li>
+<li><a href="#admin-admin-dashboard">admin-admin-dashboard</a></li>
+<li><a href="#admin-reportes">admin-reportes</a></li>
+<li><a href="#admin-reportes-alumnos">admin-reportes-alumnos</a></li>
+<li><a href="#admin-reportes-sueldos">admin-reportes-sueldos</a></li>
+<li><a href="#admin-cashflow">admin-cashflow</a></li>
+<li><a href="#admin-cashflow-movimiento">admin-cashflow-movimiento</a></li>
+<li><a href="#admin-cashflow-movimientos-id">admin-cashflow-movimientos-id</a></li>
+<li><a href="#admin-cashflow-movimientos-id-editar">admin-cashflow-movimientos-id-editar</a></li>
+<li><a href="#admin-cashflow-movimientos-id-eliminar">admin-cashflow-movimientos-id-eliminar</a></li>
+<li><a href="#admin-alumnos">admin-alumnos</a></li>
+<li><a href="#admin-alumnos-create">admin-alumnos-create</a></li>
+<li><a href="#admin-alumnos-id">admin-alumnos-id</a></li>
+<li><a href="#admin-alumnos-id-edit">admin-alumnos-id-edit</a></li>
+<li><a href="#admin-deportes">admin-deportes</a></li>
+<li><a href="#admin-deportes-create">admin-deportes-create</a></li>
+<li><a href="#admin-deportes-id-edit">admin-deportes-id-edit</a></li>
+<li><a href="#admin-rubros">admin-rubros</a></li>
+<li><a href="#admin-rubros-create">admin-rubros-create</a></li>
+<li><a href="#admin-rubros-id-edit">admin-rubros-id-edit</a></li>
+<li><a href="#admin-rubros-rubroId-subrubros-create">admin-rubros-rubroId-subrubros-create</a></li>
+<li><a href="#admin-rubros-rubroId-subrubros-id-edit">admin-rubros-rubroId-subrubros-id-edit</a></li>
+<li><a href="#admin-grupos">admin-grupos</a></li>
+<li><a href="#admin-grupos-create">admin-grupos-create</a></li>
+<li><a href="#admin-grupos-id-edit">admin-grupos-id-edit</a></li>
+<li><a href="#admin-grupos-id">admin-grupos-id</a></li>
+<li><a href="#admin-clases-create">admin-clases-create</a></li>
+<li><a href="#admin-clases-id-edit">admin-clases-id-edit</a></li>
+<li><a href="#admin-clases">admin-clases</a></li>
+<li><a href="#admin-clases-id">admin-clases-id</a></li>
+<li><a href="#admin-liquidaciones">admin-liquidaciones</a></li>
+<li><a href="#admin-liquidaciones-crear">admin-liquidaciones-crear</a></li>
+<li><a href="#admin-liquidaciones-id">admin-liquidaciones-id</a></li>
+<li><a href="#admin-tipos-caja">admin-tipos-caja</a></li>
+<li><a href="#admin-tipos-caja-create">admin-tipos-caja-create</a></li>
+<li><a href="#admin-tipos-caja-id-edit">admin-tipos-caja-id-edit</a></li>
+<li><a href="#admin-niveles">admin-niveles</a></li>
+<li><a href="#admin-niveles-create">admin-niveles-create</a></li>
+<li><a href="#admin-niveles-id-edit">admin-niveles-id-edit</a></li>
+<li><a href="#admin-usuarios">admin-usuarios</a></li>
+<li><a href="#admin-usuarios-create">admin-usuarios-create</a></li>
+<li><a href="#admin-usuarios-id-edit">admin-usuarios-id-edit</a></li>
+<li><a href="#admin-configuraciones">admin-configuraciones</a></li>
+<li><a href="#admin-profesores">admin-profesores</a></li>
+<li><a href="#admin-profesores-create">admin-profesores-create</a></li>
+<li><a href="#admin-profesores-id">admin-profesores-id</a></li>
+<li><a href="#admin-profesores-id-edit">admin-profesores-id-edit</a></li>
+<li><a href="#login">login</a></li>
+<li><a href="#operativo-0">operativo-0</a></li>
+<li><a href="#operativo-1">operativo-1</a></li>
+<li><a href="#operativo-2">operativo-2</a></li>
+<li><a href="#operativo-3">operativo-3</a></li>
+<li><a href="#operativo-4">operativo-4</a></li>
+<li><a href="#operativo-5">operativo-5</a></li>
+<li><a href="#operativo-6">operativo-6</a></li>
+<li><a href="#operativo-7">operativo-7</a></li>
+<li><a href="#operativo-8">operativo-8</a></li>
+<li><a href="#operativo-9">operativo-9</a></li>
+<li><a href="#profesor-0">profesor-0</a></li>
+<li><a href="#profesor-1">profesor-1</a></li>
+<li><a href="#admin-caja-cerrada-detalle">admin-caja-cerrada-detalle</a></li>
+<li><a href="#admin-caja-cerrada-resumen">admin-caja-cerrada-resumen</a></li>
+<li><a href="#admin-caja-rechazada-detalle">admin-caja-rechazada-detalle</a></li>
+<li><a href="#admin-caja-rechazada-resumen">admin-caja-rechazada-resumen</a></li>
+<li><a href="#admin-caja-validada-detalle">admin-caja-validada-detalle</a></li>
+<li><a href="#admin-caja-validada-resumen">admin-caja-validada-resumen</a></li>
+<li><a href="#admin-liquidacion-mes_actual">admin-liquidacion-mes_actual</a></li>
+<li><a href="#admin-liquidacion-cerrada">admin-liquidacion-cerrada</a></li>
+<li><a href="#admin-liquidacion-pagada">admin-liquidacion-pagada</a></li>
+<li><a href="#admin-clase-futura">admin-clase-futura</a></li>
+<li><a href="#primera-carga-pendiente">primera-carga-pendiente</a></li>
+<li><a href="#error-403">error-403</a></li>
+<li><a href="#error-404">error-404</a></li>
+<li><a href="#error-429">error-429</a></li>
+<li><a href="#error-500">error-500</a></li>
+<li><a href="#error-503">error-503</a></li>
+<li><a href="#welcome-sin-ruta-en-wings">welcome-sin-ruta-en-wings</a></li>
+<li><a href="#operativo-companero">operativo-companero</a></li>
+<li><a href="#operativo-turno-antiguo">operativo-turno-antiguo</a></li>
+<li><a href="#operativo-ultimo-cierre">operativo-ultimo-cierre</a></li>
+<li><a href="#operativo-primera-apertura">operativo-primera-apertura</a></li>
+</ol><a href="#complementos">Casos con botones condicionales</a></nav>
+<article id="admin-sistema-primera-carga"><h2>admin-sistema-primera-carga</h2><p>ADMIN · /sistema/primera-carga</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-sistema-primera-carga--375--principal.png"><img loading="lazy" src="capturas/antes/admin-sistema-primera-carga--375--principal.png" alt="antes admin-sistema-primera-carga a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-sistema-primera-carga--375--principal.png"><img loading="lazy" src="capturas/despues/admin-sistema-primera-carga--375--principal.png" alt="despues admin-sistema-primera-carga a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-sistema-primera-carga--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-sistema-primera-carga--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-sistema-primera-carga--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-sistema-primera-carga--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-caja"><h2>admin-caja</h2><p>ADMIN · /caja</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja--375--principal.png" alt="antes admin-caja a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja--375--principal.png" alt="despues admin-caja a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-caja--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-caja--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-caja--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-caja--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-caja--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-caja--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-caja--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-caja-apertura"><h2>admin-caja-apertura</h2><p>ADMIN · /caja/apertura</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-apertura--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-apertura--375--principal.png" alt="antes admin-caja-apertura a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-apertura--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-apertura--375--principal.png" alt="despues admin-caja-apertura a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-apertura--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-apertura--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-apertura--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-apertura--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-apertura--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-apertura--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-configuracion"><h2>admin-caja-configuracion</h2><p>ADMIN · /caja/configuracion</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-configuracion--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-configuracion--375--principal.png" alt="antes admin-caja-configuracion a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-configuracion--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-configuracion--375--principal.png" alt="despues admin-caja-configuracion a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-configuracion--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-configuracion--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-configuracion--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-configuracion--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-configuracion--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-configuracion--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-movimiento"><h2>admin-caja-movimiento</h2><p>ADMIN · /caja/movimiento</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-movimiento--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-movimiento--375--principal.png" alt="antes admin-caja-movimiento a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-movimiento--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-movimiento--375--principal.png" alt="despues admin-caja-movimiento a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-movimiento--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-movimiento--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-caja-movimiento--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-movimiento--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-caja-movimiento--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-movimiento--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-movimiento--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-caja-movimiento--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-movimiento--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-caja-movimiento--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-historial"><h2>admin-caja-historial</h2><p>ADMIN · /caja/historial</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-historial--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-historial--375--principal.png" alt="antes admin-caja-historial a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-historial--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-historial--375--principal.png" alt="despues admin-caja-historial a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-historial--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-historial--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-historial--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-historial--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-historial--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-historial--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-historial--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-historial--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-cobrar"><h2>admin-caja-cobrar</h2><p>ADMIN · /caja/cobrar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cobrar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cobrar--375--principal.png" alt="antes admin-caja-cobrar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cobrar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cobrar--375--principal.png" alt="despues admin-caja-cobrar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cobrar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-cobrar-alumnoId"><h2>admin-caja-cobrar-alumnoId</h2><p>ADMIN · /caja/cobrar/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cobrar-alumnoId--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cobrar-alumnoId--375--principal.png" alt="antes admin-caja-cobrar-alumnoId a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cobrar-alumnoId--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cobrar-alumnoId--375--principal.png" alt="despues admin-caja-cobrar-alumnoId a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--360--panel-modal-deuda-anterior.png">antes · 360 · panel-modal-deuda-anterior</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--375--panel-modal-deuda-anterior.png">antes · 375 · panel-modal-deuda-anterior</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/antes/admin-caja-cobrar-alumnoId--1366--panel-modal-deuda-anterior.png">antes · 1366 · panel-modal-deuda-anterior</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--360--panel-modal-deuda-anterior.png">despues · 360 · panel-modal-deuda-anterior</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--375--panel-modal-deuda-anterior.png">despues · 375 · panel-modal-deuda-anterior</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--1366--final.png">despues · 1366 · final</a></li>
+<li><a href="capturas/despues/admin-caja-cobrar-alumnoId--1366--panel-modal-deuda-anterior.png">despues · 1366 · panel-modal-deuda-anterior</a></li>
+</ul></details></article>
+<article id="admin-caja-id-resumen"><h2>admin-caja-id-resumen</h2><p>ADMIN · /caja/4/resumen</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-id-resumen--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-id-resumen--375--principal.png" alt="antes admin-caja-id-resumen a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-id-resumen--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-id-resumen--375--principal.png" alt="despues admin-caja-id-resumen a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-id-resumen--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-resumen--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-resumen--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-resumen--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-caja-id-detalle"><h2>admin-caja-id-detalle</h2><p>ADMIN · /caja/4/detalle</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-id-detalle--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-id-detalle--375--principal.png" alt="antes admin-caja-id-detalle a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-id-detalle--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-id-detalle--375--principal.png" alt="despues admin-caja-id-detalle a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-id-detalle--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-detalle--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-caja-id-detalle--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-detalle--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-caja-id-detalle--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-detalle--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-detalle--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-caja-id-detalle--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-detalle--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-caja-id-detalle--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-id-editar"><h2>admin-caja-id-editar</h2><p>ADMIN · /caja/4/editar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-id-editar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-id-editar--375--principal.png" alt="antes admin-caja-id-editar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-id-editar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-id-editar--375--principal.png" alt="despues admin-caja-id-editar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-id-editar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-editar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-editar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-editar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-editar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-editar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-id-rectificar"><h2>admin-caja-id-rectificar</h2><p>ADMIN · /caja/4/rectificar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-id-rectificar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-id-rectificar--375--principal.png" alt="antes admin-caja-id-rectificar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-id-rectificar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-id-rectificar--375--principal.png" alt="despues admin-caja-id-rectificar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-id-rectificar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-rectificar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-rectificar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-rectificar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-rectificar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-rectificar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-id-cerrar"><h2>admin-caja-id-cerrar</h2><p>ADMIN · /caja/4/cerrar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-id-cerrar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-id-cerrar--375--principal.png" alt="antes admin-caja-id-cerrar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-id-cerrar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-id-cerrar--375--principal.png" alt="despues admin-caja-id-cerrar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-id-cerrar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-cerrar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-id-cerrar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-cerrar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-cerrar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-id-cerrar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-cajaId-movimientos-movId-editar"><h2>admin-caja-cajaId-movimientos-movId-editar</h2><p>ADMIN · /caja/4/movimientos/4/editar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-editar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cajaId-movimientos-movId-editar--375--principal.png" alt="antes admin-caja-cajaId-movimientos-movId-editar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-editar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cajaId-movimientos-movId-editar--375--principal.png" alt="despues admin-caja-cajaId-movimientos-movId-editar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-editar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-editar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-editar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-editar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-editar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-editar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-cajaId-movimientos-movId-cancelar"><h2>admin-caja-cajaId-movimientos-movId-cancelar</h2><p>ADMIN · /caja/4/movimientos/5/cancelar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png" alt="antes admin-caja-cajaId-movimientos-movId-cancelar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png" alt="despues admin-caja-cajaId-movimientos-movId-cancelar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-cancelar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cajaId-movimientos-movId-cancelar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-cancelar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-cancelar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cajaId-movimientos-movId-cancelar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-operativo"><h2>admin-operativo</h2><p>ADMIN · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-operativo--375--principal.png"><img loading="lazy" src="capturas/antes/admin-operativo--375--principal.png" alt="antes admin-operativo a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-operativo--375--principal.png"><img loading="lazy" src="capturas/despues/admin-operativo--375--principal.png" alt="despues admin-operativo a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-operativo--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-operativo--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-operativo--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-operativo--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-operativo--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-operativo--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-operativo--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-operativo--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-operativo--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-operativo--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-movimientos"><h2>admin-movimientos</h2><p>ADMIN · /movimientos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-movimientos--375--principal.png"><img loading="lazy" src="capturas/antes/admin-movimientos--375--principal.png" alt="antes admin-movimientos a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-movimientos--375--principal.png"><img loading="lazy" src="capturas/despues/admin-movimientos--375--principal.png" alt="despues admin-movimientos a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-movimientos--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-movimientos--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-movimientos--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-movimientos--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-movimientos--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-movimientos--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-movimientos--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-movimientos--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-movimientos--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-movimientos--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-movimientos--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-movimientos--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-cobranza"><h2>admin-cobranza</h2><p>ADMIN · /cobranza</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cobranza--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cobranza--375--principal.png" alt="antes admin-cobranza a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cobranza--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cobranza--375--principal.png" alt="despues admin-cobranza a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cobranza--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cobranza--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-cobranza--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-cobranza--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cobranza--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-cobranza--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-cobranza--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cobranza--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cobranza--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-cobranza--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-cobranza--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-cobranza--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cobranza--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-cobranza--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-cobranza--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-cobranza--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-revision-cobranza"><h2>admin-revision-cobranza</h2><p>ADMIN · /revision-cobranza</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-revision-cobranza--375--principal.png"><img loading="lazy" src="capturas/antes/admin-revision-cobranza--375--principal.png" alt="antes admin-revision-cobranza a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-revision-cobranza--375--principal.png"><img loading="lazy" src="capturas/despues/admin-revision-cobranza--375--principal.png" alt="despues admin-revision-cobranza a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-revision-cobranza--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-revision-cobranza--360--panel-form-1.png">antes · 360 · panel-form-1</a></li>
+<li><a href="capturas/antes/admin-revision-cobranza--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-revision-cobranza--375--panel-form-1.png">antes · 375 · panel-form-1</a></li>
+<li><a href="capturas/antes/admin-revision-cobranza--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-revision-cobranza--1366--panel-form-1.png">antes · 1366 · panel-form-1</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--360--panel-form-1.png">despues · 360 · panel-form-1</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--375--panel-form-1.png">despues · 375 · panel-form-1</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-revision-cobranza--1366--panel-form-1.png">despues · 1366 · panel-form-1</a></li>
+</ul></details></article>
+<article id="admin-admin-dashboard"><h2>admin-admin-dashboard</h2><p>ADMIN · /admin/dashboard</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-admin-dashboard--375--principal.png"><img loading="lazy" src="capturas/antes/admin-admin-dashboard--375--principal.png" alt="antes admin-admin-dashboard a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-admin-dashboard--375--principal.png"><img loading="lazy" src="capturas/despues/admin-admin-dashboard--375--principal.png" alt="despues admin-admin-dashboard a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-admin-dashboard--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-admin-dashboard--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-admin-dashboard--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-admin-dashboard--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-admin-dashboard--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-admin-dashboard--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-admin-dashboard--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-reportes"><h2>admin-reportes</h2><p>ADMIN · /reportes</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-reportes--375--principal.png"><img loading="lazy" src="capturas/antes/admin-reportes--375--principal.png" alt="antes admin-reportes a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-reportes--375--principal.png"><img loading="lazy" src="capturas/despues/admin-reportes--375--principal.png" alt="despues admin-reportes a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-reportes--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-reportes--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-reportes--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-reportes--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-reportes--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-reportes-alumnos"><h2>admin-reportes-alumnos</h2><p>ADMIN · /reportes/alumnos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-reportes-alumnos--375--principal.png"><img loading="lazy" src="capturas/antes/admin-reportes-alumnos--375--principal.png" alt="antes admin-reportes-alumnos a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-reportes-alumnos--375--principal.png"><img loading="lazy" src="capturas/despues/admin-reportes-alumnos--375--principal.png" alt="despues admin-reportes-alumnos a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-reportes-alumnos--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes-alumnos--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-reportes-alumnos--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes-alumnos--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-reportes-alumnos--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes-alumnos--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-reportes-alumnos--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-reportes-sueldos"><h2>admin-reportes-sueldos</h2><p>ADMIN · /reportes/sueldos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-reportes-sueldos--375--principal.png"><img loading="lazy" src="capturas/antes/admin-reportes-sueldos--375--principal.png" alt="antes admin-reportes-sueldos a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-reportes-sueldos--375--principal.png"><img loading="lazy" src="capturas/despues/admin-reportes-sueldos--375--principal.png" alt="despues admin-reportes-sueldos a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-reportes-sueldos--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes-sueldos--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-reportes-sueldos--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-reportes-sueldos--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-cashflow"><h2>admin-cashflow</h2><p>ADMIN · /cashflow</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cashflow--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cashflow--375--principal.png" alt="antes admin-cashflow a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cashflow--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cashflow--375--principal.png" alt="despues admin-cashflow a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cashflow--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-cashflow--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-cashflow--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-cashflow--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-cashflow--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-cashflow-movimiento"><h2>admin-cashflow-movimiento</h2><p>ADMIN · /cashflow/movimiento</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cashflow-movimiento--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cashflow-movimiento--375--principal.png" alt="antes admin-cashflow-movimiento a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cashflow-movimiento--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cashflow-movimiento--375--principal.png" alt="despues admin-cashflow-movimiento a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cashflow-movimiento--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimiento--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimiento--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimiento--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimiento--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimiento--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-cashflow-movimientos-id"><h2>admin-cashflow-movimientos-id</h2><p>ADMIN · /cashflow/movimientos/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cashflow-movimientos-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cashflow-movimientos-id--375--principal.png" alt="antes admin-cashflow-movimientos-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cashflow-movimientos-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cashflow-movimientos-id--375--principal.png" alt="despues admin-cashflow-movimientos-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-cashflow-movimientos-id-editar"><h2>admin-cashflow-movimientos-id-editar</h2><p>ADMIN · /cashflow/movimientos/1/editar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cashflow-movimientos-id-editar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cashflow-movimientos-id-editar--375--principal.png" alt="antes admin-cashflow-movimientos-id-editar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cashflow-movimientos-id-editar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cashflow-movimientos-id-editar--375--principal.png" alt="despues admin-cashflow-movimientos-id-editar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-editar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-editar--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-editar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-editar--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-editar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-editar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-cashflow-movimientos-id-eliminar"><h2>admin-cashflow-movimientos-id-eliminar</h2><p>ADMIN · /cashflow/movimientos/1/eliminar</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-cashflow-movimientos-id-eliminar--375--principal.png"><img loading="lazy" src="capturas/antes/admin-cashflow-movimientos-id-eliminar--375--principal.png" alt="antes admin-cashflow-movimientos-id-eliminar a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-cashflow-movimientos-id-eliminar--375--principal.png"><img loading="lazy" src="capturas/despues/admin-cashflow-movimientos-id-eliminar--375--principal.png" alt="despues admin-cashflow-movimientos-id-eliminar a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-eliminar--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-eliminar--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-cashflow-movimientos-id-eliminar--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-eliminar--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-eliminar--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-cashflow-movimientos-id-eliminar--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-alumnos"><h2>admin-alumnos</h2><p>ADMIN · /alumnos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-alumnos--375--principal.png"><img loading="lazy" src="capturas/antes/admin-alumnos--375--principal.png" alt="antes admin-alumnos a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-alumnos--375--principal.png"><img loading="lazy" src="capturas/despues/admin-alumnos--375--principal.png" alt="despues admin-alumnos a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-alumnos--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-alumnos-create"><h2>admin-alumnos-create</h2><p>ADMIN · /alumnos/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-alumnos-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-alumnos-create--375--principal.png" alt="antes admin-alumnos-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-alumnos-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-alumnos-create--375--principal.png" alt="despues admin-alumnos-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-alumnos-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-create--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-create--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-create--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-create--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-alumnos-id"><h2>admin-alumnos-id</h2><p>ADMIN · /alumnos/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-alumnos-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-alumnos-id--375--principal.png" alt="antes admin-alumnos-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-alumnos-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-alumnos-id--375--principal.png" alt="despues admin-alumnos-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-alumnos-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--360--panel-modal-anular.png">antes · 360 · panel-modal-anular</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--360--panel-modal-condonar.png">antes · 360 · panel-modal-condonar</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--375--panel-modal-anular.png">antes · 375 · panel-modal-anular</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--375--panel-modal-condonar.png">antes · 375 · panel-modal-condonar</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--1366--panel-modal-anular.png">antes · 1366 · panel-modal-anular</a></li>
+<li><a href="capturas/antes/admin-alumnos-id--1366--panel-modal-condonar.png">antes · 1366 · panel-modal-condonar</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--360--panel-modal-anular.png">despues · 360 · panel-modal-anular</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--360--panel-modal-condonar.png">despues · 360 · panel-modal-condonar</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--375--panel-modal-anular.png">despues · 375 · panel-modal-anular</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--375--panel-modal-condonar.png">despues · 375 · panel-modal-condonar</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--1366--panel-modal-anular.png">despues · 1366 · panel-modal-anular</a></li>
+<li><a href="capturas/despues/admin-alumnos-id--1366--panel-modal-condonar.png">despues · 1366 · panel-modal-condonar</a></li>
+</ul></details></article>
+<article id="admin-alumnos-id-edit"><h2>admin-alumnos-id-edit</h2><p>ADMIN · /alumnos/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-alumnos-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-alumnos-id-edit--375--principal.png" alt="antes admin-alumnos-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-alumnos-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-alumnos-id-edit--375--principal.png" alt="despues admin-alumnos-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-alumnos-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id-edit--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id-edit--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-alumnos-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-alumnos-id-edit--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-alumnos-id-edit--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-deportes"><h2>admin-deportes</h2><p>ADMIN · /deportes</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-deportes--375--principal.png"><img loading="lazy" src="capturas/antes/admin-deportes--375--principal.png" alt="antes admin-deportes a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-deportes--375--principal.png"><img loading="lazy" src="capturas/despues/admin-deportes--375--principal.png" alt="despues admin-deportes a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-deportes--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-deportes-create"><h2>admin-deportes-create</h2><p>ADMIN · /deportes/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-deportes-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-deportes-create--375--principal.png" alt="antes admin-deportes-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-deportes-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-deportes-create--375--principal.png" alt="despues admin-deportes-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-deportes-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-deportes-id-edit"><h2>admin-deportes-id-edit</h2><p>ADMIN · /deportes/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-deportes-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-deportes-id-edit--375--principal.png" alt="antes admin-deportes-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-deportes-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-deportes-id-edit--375--principal.png" alt="despues admin-deportes-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-deportes-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-deportes-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-deportes-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-rubros"><h2>admin-rubros</h2><p>ADMIN · /rubros</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-rubros--375--principal.png"><img loading="lazy" src="capturas/antes/admin-rubros--375--principal.png" alt="antes admin-rubros a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-rubros--375--principal.png"><img loading="lazy" src="capturas/despues/admin-rubros--375--principal.png" alt="despues admin-rubros a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-rubros--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-rubros--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-rubros--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-rubros--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-rubros--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-rubros--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-rubros--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-rubros--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-rubros--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-rubros--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-rubros--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-rubros--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-rubros--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-rubros-create"><h2>admin-rubros-create</h2><p>ADMIN · /rubros/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-rubros-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-rubros-create--375--principal.png" alt="antes admin-rubros-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-rubros-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-rubros-create--375--principal.png" alt="despues admin-rubros-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-rubros-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-rubros-id-edit"><h2>admin-rubros-id-edit</h2><p>ADMIN · /rubros/13/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-rubros-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-rubros-id-edit--375--principal.png" alt="antes admin-rubros-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-rubros-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-rubros-id-edit--375--principal.png" alt="despues admin-rubros-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-rubros-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-rubros-rubroId-subrubros-create"><h2>admin-rubros-rubroId-subrubros-create</h2><p>ADMIN · /rubros/13/subrubros/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-rubros-rubroId-subrubros-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-rubros-rubroId-subrubros-create--375--principal.png" alt="antes admin-rubros-rubroId-subrubros-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-rubros-rubroId-subrubros-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-rubros-rubroId-subrubros-create--375--principal.png" alt="despues admin-rubros-rubroId-subrubros-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-rubros-rubroId-subrubros-id-edit"><h2>admin-rubros-rubroId-subrubros-id-edit</h2><p>ADMIN · /rubros/13/subrubros/26/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-rubros-rubroId-subrubros-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-rubros-rubroId-subrubros-id-edit--375--principal.png" alt="antes admin-rubros-rubroId-subrubros-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-rubros-rubroId-subrubros-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-rubros-rubroId-subrubros-id-edit--375--principal.png" alt="despues admin-rubros-rubroId-subrubros-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-rubros-rubroId-subrubros-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-rubros-rubroId-subrubros-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-grupos"><h2>admin-grupos</h2><p>ADMIN · /grupos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-grupos--375--principal.png"><img loading="lazy" src="capturas/antes/admin-grupos--375--principal.png" alt="antes admin-grupos a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-grupos--375--principal.png"><img loading="lazy" src="capturas/despues/admin-grupos--375--principal.png" alt="despues admin-grupos a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-grupos--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-grupos--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-grupos--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-grupos--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-grupos--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-grupos-create"><h2>admin-grupos-create</h2><p>ADMIN · /grupos/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-grupos-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-grupos-create--375--principal.png" alt="antes admin-grupos-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-grupos-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-grupos-create--375--principal.png" alt="despues admin-grupos-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-grupos-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-grupos-id-edit"><h2>admin-grupos-id-edit</h2><p>ADMIN · /grupos/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-grupos-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-grupos-id-edit--375--principal.png" alt="antes admin-grupos-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-grupos-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-grupos-id-edit--375--principal.png" alt="despues admin-grupos-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-grupos-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-grupos-id"><h2>admin-grupos-id</h2><p>ADMIN · /grupos/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-grupos-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-grupos-id--375--principal.png" alt="antes admin-grupos-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-grupos-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-grupos-id--375--principal.png" alt="despues admin-grupos-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-grupos-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-id--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-grupos-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-grupos-id--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-grupos-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos-id--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-grupos-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-grupos-id--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-grupos-id--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-grupos-id--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-clases-create"><h2>admin-clases-create</h2><p>ADMIN · /clases/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-clases-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-clases-create--375--principal.png" alt="antes admin-clases-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-clases-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clases-create--375--principal.png" alt="despues admin-clases-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-clases-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-clases-id-edit"><h2>admin-clases-id-edit</h2><p>ADMIN · /clases/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-clases-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-clases-id-edit--375--principal.png" alt="antes admin-clases-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-clases-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clases-id-edit--375--principal.png" alt="despues admin-clases-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-clases-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-clases"><h2>admin-clases</h2><p>ADMIN · /clases</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-clases--375--principal.png"><img loading="lazy" src="capturas/antes/admin-clases--375--principal.png" alt="antes admin-clases a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-clases--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clases--375--principal.png" alt="despues admin-clases a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-clases--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-clases--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-clases--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-clases--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-clases--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clases--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-clases--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-clases--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-clases--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-clases--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-clases--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-clases--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-clases-id"><h2>admin-clases-id</h2><p>ADMIN · /clases/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-clases-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-clases-id--375--principal.png" alt="antes admin-clases-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-clases-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clases-id--375--principal.png" alt="despues admin-clases-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-clases-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-id--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-clases-id--360--panel-panel-cancelar.png">antes · 360 · panel-panel-cancelar</a></li>
+<li><a href="capturas/antes/admin-clases-id--360--panel-panel-profesores.png">antes · 360 · panel-panel-profesores</a></li>
+<li><a href="capturas/antes/admin-clases-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-id--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-clases-id--375--panel-panel-cancelar.png">antes · 375 · panel-panel-cancelar</a></li>
+<li><a href="capturas/antes/admin-clases-id--375--panel-panel-profesores.png">antes · 375 · panel-panel-profesores</a></li>
+<li><a href="capturas/antes/admin-clases-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-clases-id--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/antes/admin-clases-id--1366--panel-panel-cancelar.png">antes · 1366 · panel-panel-cancelar</a></li>
+<li><a href="capturas/antes/admin-clases-id--1366--panel-panel-profesores.png">antes · 1366 · panel-panel-profesores</a></li>
+<li><a href="capturas/despues/admin-clases-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-clases-id--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-clases-id--360--panel-panel-cancelar.png">despues · 360 · panel-panel-cancelar</a></li>
+<li><a href="capturas/despues/admin-clases-id--360--panel-panel-profesores.png">despues · 360 · panel-panel-profesores</a></li>
+<li><a href="capturas/despues/admin-clases-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-clases-id--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-clases-id--375--panel-panel-cancelar.png">despues · 375 · panel-panel-cancelar</a></li>
+<li><a href="capturas/despues/admin-clases-id--375--panel-panel-profesores.png">despues · 375 · panel-panel-profesores</a></li>
+<li><a href="capturas/despues/admin-clases-id--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clases-id--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-clases-id--1366--final.png">despues · 1366 · final</a></li>
+<li><a href="capturas/despues/admin-clases-id--1366--panel-panel-cancelar.png">despues · 1366 · panel-panel-cancelar</a></li>
+<li><a href="capturas/despues/admin-clases-id--1366--panel-panel-profesores.png">despues · 1366 · panel-panel-profesores</a></li>
+</ul></details></article>
+<article id="admin-liquidaciones"><h2>admin-liquidaciones</h2><p>ADMIN · /liquidaciones</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidaciones--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidaciones--375--principal.png" alt="antes admin-liquidaciones a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidaciones--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones--375--principal.png" alt="despues admin-liquidaciones a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidaciones--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-liquidaciones--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-liquidaciones--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-liquidaciones-crear"><h2>admin-liquidaciones-crear</h2><p>ADMIN · /liquidaciones/crear</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidaciones-crear--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidaciones-crear--375--principal.png" alt="antes admin-liquidaciones-crear a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidaciones-crear--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones-crear--375--principal.png" alt="despues admin-liquidaciones-crear a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidaciones-crear--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones-crear--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones-crear--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-crear--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-crear--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-crear--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-crear--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-liquidaciones-id"><h2>admin-liquidaciones-id</h2><p>ADMIN · /liquidaciones/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidaciones-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidaciones-id--375--principal.png" alt="antes admin-liquidaciones-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidaciones-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones-id--375--principal.png" alt="despues admin-liquidaciones-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidaciones-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidaciones-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-id--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-id--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-liquidaciones-id--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-tipos-caja"><h2>admin-tipos-caja</h2><p>ADMIN · /tipos-caja</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-tipos-caja--375--principal.png"><img loading="lazy" src="capturas/antes/admin-tipos-caja--375--principal.png" alt="antes admin-tipos-caja a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-tipos-caja--375--principal.png"><img loading="lazy" src="capturas/despues/admin-tipos-caja--375--principal.png" alt="despues admin-tipos-caja a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-tipos-caja--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-tipos-caja--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-tipos-caja--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-tipos-caja--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-tipos-caja-create"><h2>admin-tipos-caja-create</h2><p>ADMIN · /tipos-caja/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-tipos-caja-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-tipos-caja-create--375--principal.png" alt="antes admin-tipos-caja-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-tipos-caja-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-tipos-caja-create--375--principal.png" alt="despues admin-tipos-caja-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-tipos-caja-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-tipos-caja-id-edit"><h2>admin-tipos-caja-id-edit</h2><p>ADMIN · /tipos-caja/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-tipos-caja-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-tipos-caja-id-edit--375--principal.png" alt="antes admin-tipos-caja-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-tipos-caja-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-tipos-caja-id-edit--375--principal.png" alt="despues admin-tipos-caja-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-tipos-caja-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-tipos-caja-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-tipos-caja-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-niveles"><h2>admin-niveles</h2><p>ADMIN · /niveles</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-niveles--375--principal.png"><img loading="lazy" src="capturas/antes/admin-niveles--375--principal.png" alt="antes admin-niveles a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-niveles--375--principal.png"><img loading="lazy" src="capturas/despues/admin-niveles--375--principal.png" alt="despues admin-niveles a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-niveles--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-niveles-create"><h2>admin-niveles-create</h2><p>ADMIN · /niveles/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-niveles-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-niveles-create--375--principal.png" alt="antes admin-niveles-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-niveles-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-niveles-create--375--principal.png" alt="despues admin-niveles-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-niveles-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-niveles-id-edit"><h2>admin-niveles-id-edit</h2><p>ADMIN · /niveles/4/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-niveles-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-niveles-id-edit--375--principal.png" alt="antes admin-niveles-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-niveles-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-niveles-id-edit--375--principal.png" alt="despues admin-niveles-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-niveles-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-niveles-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-niveles-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-usuarios"><h2>admin-usuarios</h2><p>ADMIN · /usuarios</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-usuarios--375--principal.png"><img loading="lazy" src="capturas/antes/admin-usuarios--375--principal.png" alt="antes admin-usuarios a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-usuarios--375--principal.png"><img loading="lazy" src="capturas/despues/admin-usuarios--375--principal.png" alt="despues admin-usuarios a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-usuarios--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-usuarios--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-usuarios--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-usuarios--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-usuarios--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-usuarios--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-usuarios--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-usuarios--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-usuarios--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-usuarios-create"><h2>admin-usuarios-create</h2><p>ADMIN · /usuarios/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-usuarios-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-usuarios-create--375--principal.png" alt="antes admin-usuarios-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-usuarios-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-usuarios-create--375--principal.png" alt="despues admin-usuarios-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-usuarios-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-usuarios-id-edit"><h2>admin-usuarios-id-edit</h2><p>ADMIN · /usuarios/2/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-usuarios-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-usuarios-id-edit--375--principal.png" alt="antes admin-usuarios-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-usuarios-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-usuarios-id-edit--375--principal.png" alt="despues admin-usuarios-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-usuarios-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-usuarios-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-id-edit--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-usuarios-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-usuarios-id-edit--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-usuarios-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-configuraciones"><h2>admin-configuraciones</h2><p>ADMIN · /configuraciones</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-configuraciones--375--principal.png"><img loading="lazy" src="capturas/antes/admin-configuraciones--375--principal.png" alt="antes admin-configuraciones a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-configuraciones--375--principal.png"><img loading="lazy" src="capturas/despues/admin-configuraciones--375--principal.png" alt="despues admin-configuraciones a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-configuraciones--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-configuraciones--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-configuraciones--360--panel-panel-edit-1.png">antes · 360 · panel-panel-edit-1</a></li>
+<li><a href="capturas/antes/admin-configuraciones--360--panel-panel-edit-2.png">antes · 360 · panel-panel-edit-2</a></li>
+<li><a href="capturas/antes/admin-configuraciones--360--panel-panel-edit-3.png">antes · 360 · panel-panel-edit-3</a></li>
+<li><a href="capturas/antes/admin-configuraciones--360--panel-panel-add-regla.png">antes · 360 · panel-panel-add-regla</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--panel-panel-edit-1.png">antes · 375 · panel-panel-edit-1</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--panel-panel-edit-2.png">antes · 375 · panel-panel-edit-2</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--panel-panel-edit-3.png">antes · 375 · panel-panel-edit-3</a></li>
+<li><a href="capturas/antes/admin-configuraciones--375--panel-panel-add-regla.png">antes · 375 · panel-panel-add-regla</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--panel-panel-edit-1.png">antes · 1366 · panel-panel-edit-1</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--panel-panel-edit-2.png">antes · 1366 · panel-panel-edit-2</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--panel-panel-edit-3.png">antes · 1366 · panel-panel-edit-3</a></li>
+<li><a href="capturas/antes/admin-configuraciones--1366--panel-panel-add-regla.png">antes · 1366 · panel-panel-add-regla</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--panel-panel-edit-1.png">despues · 360 · panel-panel-edit-1</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--panel-panel-edit-2.png">despues · 360 · panel-panel-edit-2</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--panel-panel-edit-3.png">despues · 360 · panel-panel-edit-3</a></li>
+<li><a href="capturas/despues/admin-configuraciones--360--panel-panel-add-regla.png">despues · 360 · panel-panel-add-regla</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--panel-panel-edit-1.png">despues · 375 · panel-panel-edit-1</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--panel-panel-edit-2.png">despues · 375 · panel-panel-edit-2</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--panel-panel-edit-3.png">despues · 375 · panel-panel-edit-3</a></li>
+<li><a href="capturas/despues/admin-configuraciones--375--panel-panel-add-regla.png">despues · 375 · panel-panel-add-regla</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--final.png">despues · 1366 · final</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--panel-panel-edit-1.png">despues · 1366 · panel-panel-edit-1</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--panel-panel-edit-2.png">despues · 1366 · panel-panel-edit-2</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--panel-panel-edit-3.png">despues · 1366 · panel-panel-edit-3</a></li>
+<li><a href="capturas/despues/admin-configuraciones--1366--panel-panel-add-regla.png">despues · 1366 · panel-panel-add-regla</a></li>
+</ul></details></article>
+<article id="admin-profesores"><h2>admin-profesores</h2><p>ADMIN · /profesores</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-profesores--375--principal.png"><img loading="lazy" src="capturas/antes/admin-profesores--375--principal.png" alt="antes admin-profesores a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-profesores--375--principal.png"><img loading="lazy" src="capturas/despues/admin-profesores--375--principal.png" alt="despues admin-profesores a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-profesores--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-profesores--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-profesores--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-profesores-create"><h2>admin-profesores-create</h2><p>ADMIN · /profesores/create</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-profesores-create--375--principal.png"><img loading="lazy" src="capturas/antes/admin-profesores-create--375--principal.png" alt="antes admin-profesores-create a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-profesores-create--375--principal.png"><img loading="lazy" src="capturas/despues/admin-profesores-create--375--principal.png" alt="despues admin-profesores-create a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-profesores-create--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-create--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores-create--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-create--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores-create--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-create--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-create--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores-create--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-profesores-create--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-create--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores-create--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-profesores-create--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-profesores-id"><h2>admin-profesores-id</h2><p>ADMIN · /profesores/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-profesores-id--375--principal.png"><img loading="lazy" src="capturas/antes/admin-profesores-id--375--principal.png" alt="antes admin-profesores-id a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-profesores-id--375--principal.png"><img loading="lazy" src="capturas/despues/admin-profesores-id--375--principal.png" alt="despues admin-profesores-id a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-profesores-id--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-id--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-id--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-profesores-id-edit"><h2>admin-profesores-id-edit</h2><p>ADMIN · /profesores/1/edit</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-profesores-id-edit--375--principal.png"><img loading="lazy" src="capturas/antes/admin-profesores-id-edit--375--principal.png" alt="antes admin-profesores-id-edit a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-profesores-id-edit--375--principal.png"><img loading="lazy" src="capturas/despues/admin-profesores-id-edit--375--principal.png" alt="despues admin-profesores-id-edit a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-profesores-id-edit--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-id-edit--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores-id-edit--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-profesores-id-edit--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-profesores-id-edit--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-profesores-id-edit--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="login"><h2>login</h2><p>ANONIMO · /login</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/login--375--principal.png"><img loading="lazy" src="capturas/antes/login--375--principal.png" alt="antes login a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/login--375--principal.png"><img loading="lazy" src="capturas/despues/login--375--principal.png" alt="despues login a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/login--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/login--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/login--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/login--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/login--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/login--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/login--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/login--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/login--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="operativo-0"><h2>operativo-0</h2><p>OPERATIVO · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-0--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-0--375--principal.png" alt="antes operativo-0 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-0--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-0--375--principal.png" alt="despues operativo-0 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-0--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-0--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-0--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-0--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-0--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-0--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-0--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-0--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-0--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-0--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-0--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-0--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-1"><h2>operativo-1</h2><p>OPERATIVO · /alumnos</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-1--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-1--375--principal.png" alt="antes operativo-1 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-1--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-1--375--principal.png" alt="despues operativo-1 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-1--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-1--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-1--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-1--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-1--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/operativo-1--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/operativo-1--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-1--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-1--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-1--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-1--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-1--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-1--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-1--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/operativo-1--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="operativo-2"><h2>operativo-2</h2><p>OPERATIVO · /alumnos/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-2--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-2--375--principal.png" alt="antes operativo-2 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-2--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-2--375--principal.png" alt="despues operativo-2 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-2--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-2--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-2--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-2--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-2--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-2--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-2--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-2--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-2--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-2--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-2--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-2--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-3"><h2>operativo-3</h2><p>OPERATIVO · /clases</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-3--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-3--375--principal.png" alt="antes operativo-3 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-3--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-3--375--principal.png" alt="despues operativo-3 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-3--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-3--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-3--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-3--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-3--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-3--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-3--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-3--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-3--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-3--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-3--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-3--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-4"><h2>operativo-4</h2><p>OPERATIVO · /clases/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-4--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-4--375--principal.png" alt="antes operativo-4 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-4--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-4--375--principal.png" alt="despues operativo-4 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-4--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-4--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-4--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-4--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-4--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/operativo-4--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/operativo-4--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-4--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-4--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-4--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-4--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-4--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-4--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-4--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/operativo-4--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="operativo-5"><h2>operativo-5</h2><p>OPERATIVO · /caja</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-5--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-5--375--principal.png" alt="antes operativo-5 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-5--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-5--375--principal.png" alt="despues operativo-5 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-5--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-5--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-5--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-5--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-5--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-5--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-5--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-5--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-5--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-5--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-5--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-5--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-6"><h2>operativo-6</h2><p>OPERATIVO · /caja/4/detalle</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-6--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-6--375--principal.png" alt="antes operativo-6 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-6--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-6--375--principal.png" alt="despues operativo-6 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-6--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-6--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/operativo-6--360--panel-modal-cancelar.png">antes · 360 · panel-modal-cancelar</a></li>
+<li><a href="capturas/antes/operativo-6--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-6--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/operativo-6--375--panel-modal-cancelar.png">antes · 375 · panel-modal-cancelar</a></li>
+<li><a href="capturas/antes/operativo-6--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/operativo-6--1366--panel-modal-cancelar.png">antes · 1366 · panel-modal-cancelar</a></li>
+<li><a href="capturas/despues/operativo-6--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-6--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/operativo-6--360--panel-modal-cancelar.png">despues · 360 · panel-modal-cancelar</a></li>
+<li><a href="capturas/despues/operativo-6--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-6--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/operativo-6--375--panel-modal-cancelar.png">despues · 375 · panel-modal-cancelar</a></li>
+<li><a href="capturas/despues/operativo-6--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-6--1366--panel-modal-cancelar.png">despues · 1366 · panel-modal-cancelar</a></li>
+</ul></details></article>
+<article id="operativo-7"><h2>operativo-7</h2><p>OPERATIVO · /caja/4/resumen</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-7--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-7--375--principal.png" alt="antes operativo-7 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-7--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-7--375--principal.png" alt="despues operativo-7 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-7--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-7--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-7--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-7--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-7--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-7--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-7--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-7--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-7--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="operativo-8"><h2>operativo-8</h2><p>OPERATIVO · /cobranza</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-8--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-8--375--principal.png" alt="antes operativo-8 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-8--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-8--375--principal.png" alt="despues operativo-8 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-8--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-8--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-8--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/operativo-8--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-8--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-8--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/operativo-8--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-8--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-8--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-8--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/operativo-8--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-8--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-8--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-8--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/operativo-8--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-8--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-9"><h2>operativo-9</h2><p>OPERATIVO · /revision-cobranza</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-9--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-9--375--principal.png" alt="antes operativo-9 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-9--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-9--375--principal.png" alt="despues operativo-9 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-9--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-9--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-9--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-9--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-9--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-9--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-9--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-9--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="profesor-0"><h2>profesor-0</h2><p>PROFESOR · /clases</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/profesor-0--375--principal.png"><img loading="lazy" src="capturas/antes/profesor-0--375--principal.png" alt="antes profesor-0 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/profesor-0--375--principal.png"><img loading="lazy" src="capturas/despues/profesor-0--375--principal.png" alt="despues profesor-0 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/profesor-0--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/profesor-0--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/profesor-0--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/profesor-0--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/profesor-0--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/profesor-0--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/profesor-0--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/profesor-0--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/profesor-0--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/profesor-0--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/profesor-0--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/profesor-0--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="profesor-1"><h2>profesor-1</h2><p>PROFESOR · /clases/1</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/profesor-1--375--principal.png"><img loading="lazy" src="capturas/antes/profesor-1--375--principal.png" alt="antes profesor-1 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/profesor-1--375--principal.png"><img loading="lazy" src="capturas/despues/profesor-1--375--principal.png" alt="despues profesor-1 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/profesor-1--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/profesor-1--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/profesor-1--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/profesor-1--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/profesor-1--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/profesor-1--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/profesor-1--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/profesor-1--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/profesor-1--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/profesor-1--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/profesor-1--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/profesor-1--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/profesor-1--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/profesor-1--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/profesor-1--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-caja-cerrada-detalle"><h2>admin-caja-cerrada-detalle</h2><p>ADMIN · /caja/1/detalle</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cerrada-detalle--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cerrada-detalle--375--principal.png" alt="antes admin-caja-cerrada-detalle a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cerrada-detalle--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cerrada-detalle--375--principal.png" alt="despues admin-caja-cerrada-detalle a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--360--tabla-derecha.png">antes · 360 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--360--panel-modal-rechazar.png">antes · 360 · panel-modal-rechazar</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--375--tabla-derecha.png">antes · 375 · tabla-derecha</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--375--panel-modal-rechazar.png">antes · 375 · panel-modal-rechazar</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-detalle--1366--panel-modal-rechazar.png">antes · 1366 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--360--tabla-derecha.png">despues · 360 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--360--panel-modal-rechazar.png">despues · 360 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--375--tabla-derecha.png">despues · 375 · tabla-derecha</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--375--panel-modal-rechazar.png">despues · 375 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-detalle--1366--panel-modal-rechazar.png">despues · 1366 · panel-modal-rechazar</a></li>
+</ul></details></article>
+<article id="admin-caja-cerrada-resumen"><h2>admin-caja-cerrada-resumen</h2><p>ADMIN · /caja/1/resumen</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-cerrada-resumen--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-cerrada-resumen--375--principal.png" alt="antes admin-caja-cerrada-resumen a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-cerrada-resumen--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-cerrada-resumen--375--principal.png" alt="despues admin-caja-cerrada-resumen a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--360--panel-modal-rechazar.png">antes · 360 · panel-modal-rechazar</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--375--panel-modal-rechazar.png">antes · 375 · panel-modal-rechazar</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-cerrada-resumen--1366--panel-modal-rechazar.png">antes · 1366 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--360--panel-modal-rechazar.png">despues · 360 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--375--panel-modal-rechazar.png">despues · 375 · panel-modal-rechazar</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-cerrada-resumen--1366--panel-modal-rechazar.png">despues · 1366 · panel-modal-rechazar</a></li>
+</ul></details></article>
+<article id="admin-caja-rechazada-detalle"><h2>admin-caja-rechazada-detalle</h2><p>ADMIN · /caja/2/detalle</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-rechazada-detalle--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-rechazada-detalle--375--principal.png" alt="antes admin-caja-rechazada-detalle a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-rechazada-detalle--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-rechazada-detalle--375--principal.png" alt="despues admin-caja-rechazada-detalle a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-rechazada-detalle--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-rechazada-detalle--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-rechazada-detalle--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-detalle--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-detalle--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-detalle--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-rechazada-resumen"><h2>admin-caja-rechazada-resumen</h2><p>ADMIN · /caja/2/resumen</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-rechazada-resumen--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-rechazada-resumen--375--principal.png" alt="antes admin-caja-rechazada-resumen a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-rechazada-resumen--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-rechazada-resumen--375--principal.png" alt="despues admin-caja-rechazada-resumen a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-rechazada-resumen--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-rechazada-resumen--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-rechazada-resumen--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-rechazada-resumen--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-caja-validada-detalle"><h2>admin-caja-validada-detalle</h2><p>ADMIN · /caja/3/detalle</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-validada-detalle--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-validada-detalle--375--principal.png" alt="antes admin-caja-validada-detalle a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-validada-detalle--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-validada-detalle--375--principal.png" alt="despues admin-caja-validada-detalle a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-validada-detalle--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-validada-detalle--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-validada-detalle--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-detalle--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-detalle--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-detalle--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-caja-validada-resumen"><h2>admin-caja-validada-resumen</h2><p>ADMIN · /caja/3/resumen</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-caja-validada-resumen--375--principal.png"><img loading="lazy" src="capturas/antes/admin-caja-validada-resumen--375--principal.png" alt="antes admin-caja-validada-resumen a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-caja-validada-resumen--375--principal.png"><img loading="lazy" src="capturas/despues/admin-caja-validada-resumen--375--principal.png" alt="despues admin-caja-validada-resumen a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-caja-validada-resumen--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-validada-resumen--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-caja-validada-resumen--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-resumen--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-resumen--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-caja-validada-resumen--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-caja-validada-resumen--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-caja-validada-resumen--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-liquidacion-mes_actual"><h2>admin-liquidacion-mes_actual</h2><p>ADMIN · /liquidaciones/2</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidacion-mes_actual--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidacion-mes_actual--375--principal.png" alt="antes admin-liquidacion-mes_actual a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidacion-mes_actual--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidacion-mes_actual--375--principal.png" alt="despues admin-liquidacion-mes_actual a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidacion-mes_actual--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-mes_actual--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-mes_actual--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-mes_actual--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-mes_actual--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-liquidacion-mes_actual--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-mes_actual--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-liquidacion-mes_actual--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-liquidacion-cerrada"><h2>admin-liquidacion-cerrada</h2><p>ADMIN · /liquidaciones/3</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidacion-cerrada--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidacion-cerrada--375--principal.png" alt="antes admin-liquidacion-cerrada a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidacion-cerrada--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidacion-cerrada--375--principal.png" alt="despues admin-liquidacion-cerrada a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-cerrada--1366--pie.png">antes · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--1366--pie.png">despues · 1366 · pie</a></li>
+<li><a href="capturas/despues/admin-liquidacion-cerrada--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="admin-liquidacion-pagada"><h2>admin-liquidacion-pagada</h2><p>ADMIN · /liquidaciones/4</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-liquidacion-pagada--375--principal.png"><img loading="lazy" src="capturas/antes/admin-liquidacion-pagada--375--principal.png" alt="antes admin-liquidacion-pagada a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-liquidacion-pagada--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidacion-pagada--375--principal.png" alt="despues admin-liquidacion-pagada a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-liquidacion-pagada--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-pagada--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-liquidacion-pagada--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-pagada--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-pagada--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-liquidacion-pagada--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="admin-clase-futura"><h2>admin-clase-futura</h2><p>ADMIN · /clases/2</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/admin-clase-futura--375--principal.png"><img loading="lazy" src="capturas/antes/admin-clase-futura--375--principal.png" alt="antes admin-clase-futura a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/admin-clase-futura--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clase-futura--375--principal.png" alt="despues admin-clase-futura a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/admin-clase-futura--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/admin-clase-futura--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/admin-clase-futura--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clase-futura--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/admin-clase-futura--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/admin-clase-futura--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/admin-clase-futura--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/admin-clase-futura--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/admin-clase-futura--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="primera-carga-pendiente"><h2>primera-carga-pendiente</h2><p>ADMIN · /sistema/primera-carga</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/primera-carga-pendiente--375--principal.png"><img loading="lazy" src="capturas/antes/primera-carga-pendiente--375--principal.png" alt="antes primera-carga-pendiente a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/primera-carga-pendiente--375--principal.png"><img loading="lazy" src="capturas/despues/primera-carga-pendiente--375--principal.png" alt="despues primera-carga-pendiente a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/primera-carga-pendiente--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/primera-carga-pendiente--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/primera-carga-pendiente--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--1366--principal.png">despues · 1366 · principal</a></li>
+<li><a href="capturas/despues/primera-carga-pendiente--1366--final.png">despues · 1366 · final</a></li>
+</ul></details></article>
+<article id="error-403"><h2>error-403</h2><p>ADMIN · errors.403</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/error-403--375--principal.png"><img loading="lazy" src="capturas/antes/error-403--375--principal.png" alt="antes error-403 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/error-403--375--principal.png"><img loading="lazy" src="capturas/despues/error-403--375--principal.png" alt="despues error-403 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/error-403--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/error-403--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/error-403--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/error-403--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/error-403--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/error-403--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="error-404"><h2>error-404</h2><p>ADMIN · errors.404</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/error-404--375--principal.png"><img loading="lazy" src="capturas/antes/error-404--375--principal.png" alt="antes error-404 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/error-404--375--principal.png"><img loading="lazy" src="capturas/despues/error-404--375--principal.png" alt="despues error-404 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/error-404--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/error-404--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/error-404--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/error-404--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/error-404--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/error-404--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="error-429"><h2>error-429</h2><p>ADMIN · errors.429</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/error-429--375--principal.png"><img loading="lazy" src="capturas/antes/error-429--375--principal.png" alt="antes error-429 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/error-429--375--principal.png"><img loading="lazy" src="capturas/despues/error-429--375--principal.png" alt="despues error-429 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/error-429--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/error-429--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/error-429--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/error-429--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/error-429--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/error-429--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="error-500"><h2>error-500</h2><p>ADMIN · errors.500</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/error-500--375--principal.png"><img loading="lazy" src="capturas/antes/error-500--375--principal.png" alt="antes error-500 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/error-500--375--principal.png"><img loading="lazy" src="capturas/despues/error-500--375--principal.png" alt="despues error-500 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/error-500--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/error-500--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/error-500--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/error-500--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/error-500--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/error-500--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="error-503"><h2>error-503</h2><p>ADMIN · errors.503</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/error-503--375--principal.png"><img loading="lazy" src="capturas/antes/error-503--375--principal.png" alt="antes error-503 a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/error-503--375--principal.png"><img loading="lazy" src="capturas/despues/error-503--375--principal.png" alt="despues error-503 a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/error-503--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/error-503--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/error-503--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/error-503--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/error-503--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/error-503--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="welcome-sin-ruta-en-wings"><h2>welcome-sin-ruta-en-wings</h2><p>ANONIMO · welcome</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/welcome-sin-ruta-en-wings--375--principal.png"><img loading="lazy" src="capturas/antes/welcome-sin-ruta-en-wings--375--principal.png" alt="antes welcome-sin-ruta-en-wings a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/welcome-sin-ruta-en-wings--375--principal.png"><img loading="lazy" src="capturas/despues/welcome-sin-ruta-en-wings--375--principal.png" alt="despues welcome-sin-ruta-en-wings a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/welcome-sin-ruta-en-wings--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/welcome-sin-ruta-en-wings--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/welcome-sin-ruta-en-wings--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/welcome-sin-ruta-en-wings--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/welcome-sin-ruta-en-wings--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/welcome-sin-ruta-en-wings--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-companero"><h2>operativo-companero</h2><p>OPERATIVO · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-companero--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-companero--375--principal.png" alt="antes operativo-companero a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-companero--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-companero--375--principal.png" alt="despues operativo-companero a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-companero--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-companero--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-companero--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-companero--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-companero--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-companero--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-companero--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-companero--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-companero--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-companero--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-turno-antiguo"><h2>operativo-turno-antiguo</h2><p>OPERATIVO · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-turno-antiguo--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-turno-antiguo--375--principal.png" alt="antes operativo-turno-antiguo a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-turno-antiguo--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-turno-antiguo--375--principal.png" alt="despues operativo-turno-antiguo a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-turno-antiguo--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-turno-antiguo--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-turno-antiguo--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-turno-antiguo--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-turno-antiguo--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-turno-antiguo--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-ultimo-cierre"><h2>operativo-ultimo-cierre</h2><p>OPERATIVO · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-ultimo-cierre--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-ultimo-cierre--375--principal.png" alt="antes operativo-ultimo-cierre a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-ultimo-cierre--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-ultimo-cierre--375--principal.png" alt="despues operativo-ultimo-cierre a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-ultimo-cierre--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-ultimo-cierre--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-ultimo-cierre--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-ultimo-cierre--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-ultimo-cierre--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-ultimo-cierre--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<article id="operativo-primera-apertura"><h2>operativo-primera-apertura</h2><p>OPERATIVO · /operativo</p><div class="pares"><figure><figcaption>Antes · 375</figcaption><a href="capturas/antes/operativo-primera-apertura--375--principal.png"><img loading="lazy" src="capturas/antes/operativo-primera-apertura--375--principal.png" alt="antes operativo-primera-apertura a 375"></a></figure><figure><figcaption>Después · 375</figcaption><a href="capturas/despues/operativo-primera-apertura--375--principal.png"><img loading="lazy" src="capturas/despues/operativo-primera-apertura--375--principal.png" alt="despues operativo-primera-apertura a 375"></a></figure></div><details><summary>360, escritorio, pie, tablas y paneles</summary><ul>
+<li><a href="capturas/antes/operativo-primera-apertura--360--principal.png">antes · 360 · principal</a></li>
+<li><a href="capturas/antes/operativo-primera-apertura--360--pie.png">antes · 360 · pie</a></li>
+<li><a href="capturas/antes/operativo-primera-apertura--375--principal.png">antes · 375 · principal</a></li>
+<li><a href="capturas/antes/operativo-primera-apertura--375--pie.png">antes · 375 · pie</a></li>
+<li><a href="capturas/antes/operativo-primera-apertura--1366--principal.png">antes · 1366 · principal</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--360--principal.png">despues · 360 · principal</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--360--pie.png">despues · 360 · pie</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--360--final.png">despues · 360 · final</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--375--principal.png">despues · 375 · principal</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--375--pie.png">despues · 375 · pie</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--375--final.png">despues · 375 · final</a></li>
+<li><a href="capturas/despues/operativo-primera-apertura--1366--principal.png">despues · 1366 · principal</a></li>
+</ul></details></article>
+<h2 id="complementos">Presencia y ausencia de acciones complementarias</h2><p>Comparar Liquidaciones con/sin Limpiar y la clase futura con/sin Cancelar serie. Las coordenadas de Filtrar, Cerrar y Cancelar esta coinciden. En la ficha ADMIN/OPERATIVO, Cobrar conserva su lugar con/sin Condonar.</p>
+<article><h2>admin-liquidaciones-filtradas · 360</h2><a href="capturas/despues/admin-liquidaciones-filtradas--360--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones-filtradas--360--principal.png" alt="despues admin-liquidaciones-filtradas a 360"></a><ul>
+</ul></article>
+<article><h2>admin-liquidaciones-filtradas · 375</h2><a href="capturas/despues/admin-liquidaciones-filtradas--375--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones-filtradas--375--principal.png" alt="despues admin-liquidaciones-filtradas a 375"></a><ul>
+</ul></article>
+<article><h2>admin-liquidaciones-filtradas · 1366</h2><a href="capturas/despues/admin-liquidaciones-filtradas--1366--principal.png"><img loading="lazy" src="capturas/despues/admin-liquidaciones-filtradas--1366--principal.png" alt="despues admin-liquidaciones-filtradas a 1366"></a><ul>
+</ul></article>
+<article><h2>admin-clase-serie · 360</h2><a href="capturas/despues/admin-clase-serie--360--principal.png"><img loading="lazy" src="capturas/despues/admin-clase-serie--360--principal.png" alt="despues admin-clase-serie a 360"></a><ul>
+<li><a href="capturas/despues/admin-clase-serie--360--panel-panel-cancelar.png">admin-clase-serie--360--panel-panel-cancelar.png</a></li>
+<li><a href="capturas/despues/admin-clase-serie--360--panel-panel-profesores.png">admin-clase-serie--360--panel-panel-profesores.png</a></li>
+</ul></article>
+<article><h2>admin-clase-serie · 375</h2><a href="capturas/despues/admin-clase-serie--375--principal.png"><img loading="lazy" src="capturas/despues/admin-clase-serie--375--principal.png" alt="despues admin-clase-serie a 375"></a><ul>
+<li><a href="capturas/despues/admin-clase-serie--375--panel-panel-cancelar.png">admin-clase-serie--375--panel-panel-cancelar.png</a></li>
+<li><a href="capturas/despues/admin-clase-serie--375--panel-panel-profesores.png">admin-clase-serie--375--panel-panel-profesores.png</a></li>
+</ul></article>
+<article><h2>admin-clase-serie · 1366</h2><a href="capturas/despues/admin-clase-serie--1366--principal.png"><img loading="lazy" src="capturas/despues/admin-clase-serie--1366--principal.png" alt="despues admin-clase-serie a 1366"></a><ul>
+<li><a href="capturas/despues/admin-clase-serie--1366--panel-panel-cancelar.png">admin-clase-serie--1366--panel-panel-cancelar.png</a></li>
+<li><a href="capturas/despues/admin-clase-serie--1366--panel-panel-profesores.png">admin-clase-serie--1366--panel-panel-profesores.png</a></li>
+</ul></article>
+</html>

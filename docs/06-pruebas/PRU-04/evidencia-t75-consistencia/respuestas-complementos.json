@@ -1,0 +1,49 @@
+{
+    "fase": "despues",
+    "base": "wings_testing_codex",
+    "casos": [
+        {
+            "slug": "admin-liquidaciones-filtradas",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones?estado=abierta",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 26295
+        },
+        {
+            "slug": "admin-clase-serie",
+            "rol": "ADMIN",
+            "ruta": "\/clases\/2",
+            "serie_clase_id": 2,
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 75721
+        }
+    ]
+}

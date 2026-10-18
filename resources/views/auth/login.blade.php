@@ -3,7 +3,7 @@
 @section('title', 'Ingresar – Wings')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center px-4">
+<div class="min-h-screen flex items-center justify-center px-4 ingreso-movil">
     <div class="w-full max-w-sm glass-card p-8">
 
         {{-- Logo --}}

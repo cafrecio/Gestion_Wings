@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-18 — Codex CAB — T75 consistencia móvil aplicada, entrega en verificación
+
+Carlos pidió aplicar tamaño Cobrar, padding común y posiciones estables en todas las vistas móviles.
+CSS solo hasta 640 px y clases en once vistas; controles de ícono/interruptores conservados.
+99 casos antes/después a 360/375/1366, dos complementos y 80 variantes reales de paneles/tablas.
+Cobrar con/sin Condonar, Filtrar con/sin Limpiar y confirmación con/sin serie conservan posición; Volver de Liquidaciones a derecha.
+Suite aislada c2db5d4 y fuentes propias: 846 aprobadas/3 omitidas, 7655 aserciones, 1091.37 s, salida 0.
+Dos reglas CSS finales tras la suite: PHP idéntico; recorrido completo repetido y guardianes 9/36 aprobados.
+[Entrega y galería completa](../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md); nuevas capturas no se heredan como aprobadas.
+Reglas/tokens actualizados; T36/T37 y «Destildar solo los movimientos que cambien» conservados.
+Sin lógica de negocio, despliegue ni autocierre; Carlos verifica el aspecto. Gemini no implementar.
+
 ## 2026-10-18 — Codex CAB — T75 implementada, revisión visual de Carlos
 
 Regla general móvil a derecha y seis vistas con barras propias; escritorio conservado.
@@ -105,16 +117,6 @@ Sin instalación física ni ventana desde ícono verificadas; esas pruebas sigue
 [Informe y capturas](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX.md). Devuelto a Gemini: avisos e informe.
 Sin arreglos, datos del club, reloj ni despliegue. Chrome aislado retirado; T11 no cerrada.
 
-## 2026-10-13 — Codex CyE — T7 verificada, queda el OK visual de Carlos
-
-Verificación independiente de d4f02d4 (Claude): fuente y cascada del menú conservadas.
-Chrome del sitio: ADMIN/OPERATIVO/PROFESOR, 1366 y 360, activo Sin asistencia y contador 33.
-HTML real y CSS anterior/actual: ocho parejas menú/error idénticas; estilos iguales salvo fondo inexistente del logo.
-Renderer 500 del sitio comprobado con conexión a base bloqueada y cero consultas; sin provocar un fallo HTTP.
-Suite propia: 722 aprobadas, 2 omitidas, 6910 aserciones, 1106.41 s; carpeta compartida con cambios ajenos de T2.
-APROBADO en Chrome medido; navegador sin color-mix y teléfono físico no verificados. Sin arreglo, datos, reloj ni despliegue.
-[Informe y capturas](../06-pruebas/PRU-04/VERIFICACION-T7-CODEX.md). Tablero: tiene Carlos, espera OK visual; no cerrado.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -126,3 +128,5 @@ APROBADO en Chrome medido; navegador sin color-mix y teléfono físico no verifi
 [Orden del 13/10 archivada al iniciar T36; reglas vigentes en AGENTS.md](../99-archivo/bitacoras/2026-10-17/LOG-CODEX-T36-ARRANQUE.md).
 
 [Entrada T33 archivada al entregar T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-ARRANQUE.md).
+
+[Entrada T7 archivada al entregar consistencia móvil T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-CONSISTENCIA.md).
