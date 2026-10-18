@@ -49,6 +49,7 @@ Nada.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T36** Validar una caja exige todos los movimientos tildados | Hecho, espera verificación (hizo Codex, verifica Claude) | Claude: verificar persistencia, todos tildados, Resumen, permisos, vacía y solo cambios destildan (Carlos). 14 pruebas nuevas y navegador aprobados, 12 capturas. Suite inicial 818/2/1 T38; tras cbc851e de Claude, repetición integrada T38/T36/FIN-11/guardianes 50 aprobadas/314 aserciones. Ver IMPLEMENTACION-T36.md. Disposición aprobada en T37 conservada. Sin despliegue. |
+| **T41** No se puede cerrar una liquidacion antes de que termine el mes | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar en codigo y pantalla que cerrarLiquidacion impide cerrar antes del dia 1 del mes siguiente (hora Wings) y que la pantalla muestra desde que dia se puede cerrar en vez del boton Cerrar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T41.md |
 
 ## Codex
 
@@ -59,7 +60,6 @@ Nada en este momento.
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T38** Reactivar a un alumno le genera la cuota del mes | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude en cbc851e: reactivar genera la cuota del mes con el porcentaje de reingreso y plazo de alta; tambien el cobro que reactiva. Verifica Gemini cuando termine T41; incluye mirar la ficha y Cobranza en navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T38.md |
-| **T41** No se puede cerrar una liquidacion antes de que termine el mes | En curso (hizo Gemini, verifica Claude) | Tabla: DU-37 · LIQ-005 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de que la prueba llegue a fin de mes] TOCA: LiquidacionService::cerrarLiquidacion, LiquidacionWebController::cerrar, vista de la liquidacion. POR QUE DESPUES: recien importa cuando el cuento liquide octubre. ORDEN: comparte LiquidacionService con T42, T43, T45 y T46: en serie. Es la mas chica, puede ir primera |
 
 ## Sin empezar (38)
 

@@ -124,18 +124,24 @@
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
 
                 @if($estaAbierta)
-                    <form method="POST" action="{{ route('web.liquidaciones.cerrar', $liquidacion->id) }}"
-                          onsubmit="return confirm('¿Cerrar esta liquidación? No podrá ser modificada después.')">
-                        @csrf
-                        <button type="submit"
-                                style="display:inline-flex; align-items:center; justify-content:center;
-                                       width:96px; height:32px; font-size:0.82rem; font-weight:600;
-                                       border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
-                                       border:none; font-family:inherit;
-                                       background:var(--color-btn-primary); color:var(--color-surface);">
-                            Cerrar
-                        </button>
-                    </form>
+                    @if($liquidacion->puedeCerrarse())
+                        <form method="POST" action="{{ route('web.liquidaciones.cerrar', $liquidacion->id) }}"
+                              onsubmit="return confirm('¿Cerrar esta liquidación? No podrá ser modificada después.')">
+                            @csrf
+                            <button type="submit"
+                                    style="display:inline-flex; align-items:center; justify-content:center;
+                                           width:96px; height:32px; font-size:0.82rem; font-weight:600;
+                                           border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
+                                           border:none; font-family:inherit;
+                                           background:var(--color-btn-primary); color:var(--color-surface);">
+                                Cerrar
+                            </button>
+                        </form>
+                    @else
+                        <span style="font-size:0.78rem; font-weight:600; color:var(--color-text-muted);">
+                            Se puede cerrar desde el {{ $liquidacion->fechaHabilitacionCierre()->format('d/m/Y') }}
+                        </span>
+                    @endif
 
                     <form method="POST" action="{{ route('web.liquidaciones.recalcular', $liquidacion->id) }}"
                           onsubmit="return confirm('¿Recalcular? Los detalles actuales serán reemplazados.')">

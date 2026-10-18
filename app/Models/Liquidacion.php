@@ -236,6 +236,25 @@ class Liquidacion extends Model
     }
 
     /**
+     * Primer día en que el período liquidado ya terminó y se habilita el cierre (T41, DU-37).
+     * Una liquidación del mes M / año A solo se puede cerrar a partir del día 1 del mes siguiente.
+     */
+    public function fechaHabilitacionCierre(): \Carbon\Carbon
+    {
+        return \Carbon\Carbon::createFromDate($this->anio, $this->mes, 1, config('app.timezone'))
+            ->addMonthNoOverflow()
+            ->startOfDay();
+    }
+
+    /**
+     * Verificar si el mes de la liquidación ya terminó y puede cerrarse (T41, DU-37).
+     */
+    public function puedeCerrarse(): bool
+    {
+        return !today()->lt($this->fechaHabilitacionCierre());
+    }
+
+    /**
      * Scope para liquidaciones abiertas
      */
     public function scopeAbiertas($query)

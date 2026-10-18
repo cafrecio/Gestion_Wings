@@ -116,11 +116,20 @@ El **Deporte** es el eje del modelo. Define:
 ### 2.4 Liquidaciones
 
 - **Generación:** Automática por el sistema, nunca manual
+- **Cierre:** Solo a partir del día 1 del mes siguiente al período liquidado (enmienda 18/10/2026, DU-37 / T41).
 - **Modificación general:** Liquidaciones ABIERTAS; ajuste final de comisión según
   enmienda09/10 también en CERRADAS sin pagar, implementado en desarrollo.
 - **Inmutabilidad:** Liquidaciones CERRADAS no pueden modificarse ni eliminarse —
   **con las excepciones de cancelar13/09 y ajuste final09/10 documentadas aquí**.
 - **Permisos:** Solo Administrador puede crear/gestionar liquidaciones
+
+#### Enmienda 18/10/2026 — no se puede cerrar una liquidación antes de que termine el mes (T41, DU-37)
+
+Decisión de Carlos: **«Impedir cerrar antes de que termine el mes»** / **«A partir del 1ro de cada mes»**.
+
+- Una liquidación cerrada y luego pagada deja afuera las clases que restan del mes, porque no se admite una segunda liquidación activa para el mismo profesor y período.
+- Una liquidación del mes `M` y año `A` solo se puede cerrar cuando la fecha actual del sistema en la zona horaria de Wings (`America/Argentina/Buenos_Aires`, respetando el reloj simulado del sitio de prueba) es mayor o igual al día `01` del mes siguiente a las `00:00`.
+- Mientras el mes no haya terminado, `LiquidacionService::cerrarLiquidacion` rechaza el cierre con un aviso en castellano, y la pantalla de la liquidación (`resources/views/liquidaciones/show.blade.php`) oculta el botón `Cerrar` y muestra el texto `Se puede cerrar desde el DD/MM/AAAA`. El resto de las acciones de una liquidación abierta (`Recalcular`, `Eliminar`, `Volver`) permanece sin cambios.
 
 #### Enmienda 13/09/2026 — cancelar una cerrada que todavía no se pagó (FIN-12)
 
@@ -339,7 +348,8 @@ El monto viene del PAGO del alumno.
 
 ```
 1. Admin solicita cerrar liquidación
-2. Sistema valida que esté ABIERTA
+2. Sistema valida que esté ABIERTA y que el mes liquidado ya haya terminado
+   (hoy >= día 1 del mes siguiente en America/Argentina/Buenos_Aires, T41 / DU-37)
 3. Sistema cambia estado a CERRADA
 4. Documento/asistencia bloqueados; ajuste final de comisión según enmienda09/10
    implementado para cerradas sin pagar
@@ -418,6 +428,10 @@ Liquidación Prof. B: +$960 (8000 × 12%)
 - No puede existir liquidación previa para profesor+mes+año
 - Profesor debe tener deporte activo
 - Valores de cálculo deben ser > 0
+
+### Al cerrar Liquidación:
+- Estado actual debe ser `ABIERTA`
+- El mes liquidado debe haber terminado: `today() >= 01/(mes+1)` en hora de Wings (`T41` / `DU-37`)
 
 ### Al modificar Liquidación:
 - Regla general: estado = ABIERTA.

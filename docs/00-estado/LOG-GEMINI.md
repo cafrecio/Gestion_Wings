@@ -10,6 +10,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 · [Entradas archivadas el 06/10 (11/09 al 04/10)](../99-archivo/bitacoras/2026-10-06/LOG-GEMINI.md)
 
+## 2026-10-18 — LOG GEM CAB — Implementación T41: No se puede cerrar una liquidación antes de que termine el mes
+
+- **Objetivo y regla (DU-37 · LIQ-005):** Impedir cerrar una liquidación antes de que termine el mes liquidado. Según decisión de Carlos (*«Impedir cerrar antes de que termine el mes»* / *«A partir del 1ro de cada mes»*), una liquidación del período `(mes, anio)` solo puede cerrarse a partir del día `01` del mes siguiente a las `00:00` en la hora de Wings (`America/Argentina/Buenos_Aires`, respetando `today()` y `RelojSimulado`).
+- **Cambios en código y vista:**
+  - `app/Models/Liquidacion.php`: agregados `fechaHabilitacionCierre(): Carbon` y `puedeCerrarse(): bool`.
+  - `app/Services/LiquidacionService.php`: en `cerrarLiquidacion(int $liquidacionId)`, si `!$liquidacion->puedeCerrarse()` lanza excepción en castellano (`No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el DD/MM/AAAA.`), protegiendo tanto `LiquidacionWebController::cerrar` como `LiquidacionController::cerrar`.
+  - `resources/views/liquidaciones/show.blade.php`: cuando la liquidación está `ABIERTA` y el mes no terminó, oculta el botón `Cerrar` y muestra el texto `Se puede cerrar desde el DD/MM/AAAA` sin JavaScript incrustado. `Recalcular`, `Eliminar` y `Volver` siguen igual. En `liquidaciones/index.blade.php` y `liquidaciones/create.blade.php` no se ofrece cerrar.
+- **Pruebas, capturas y contrato:** 5 pruebas nuevas con reloj fijo (`travelTo`) en `tests/Feature/CerrarLiquidacionMesTerminadoTest.php` (`5 passed, 24 assertions`); las pruebas existentes de liquidaciones (`CancelarLiquidacionCerradaTest`, `LiquidacionHoraPorDuracionTest`, `LiquidacionHoraVistaYReciboTest`, `ImportesPesosT24Test`) y `CspSinCodigoIncrustadoTest` pasan sin requerir ajustes de fecha. Capturas a `1366` y `360` (en marco `<iframe>` de 360px + control de `/login`) en `docs/06-pruebas/PRU-04/evidencia-t41/`. Actualizado `docs/02-contratos/LIQUIDACIONES_CONTRATO_V2.md` e informe en `docs/06-pruebas/PRU-04/IMPLEMENTACION-T41.md`.
+- **Próximo paso:** T41 pasa a `a_verificar` con dueño `Claude` en el tablero.
+
 ## 2026-10-17 — LOG GEM CAB — Verificación independiente de T35: La asistencia se toma desde el día de la clase
 
 - **Objetivo y veredicto:** Verificar de forma independiente el commit `8f2be1f` de Claude (T35 / DU-35: no se toma asistencia de una clase que todavía no ocurrió). **Veredicto: APROBADO (`estado=cerrado`, `verifica=Gemini`)**.

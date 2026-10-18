@@ -257,6 +257,11 @@ class LiquidacionService
             throw new \Exception('La liquidación ya está cerrada.');
         }
 
+        if (!$liquidacion->puedeCerrarse()) {
+            $desde = $liquidacion->fechaHabilitacionCierre()->format('d/m/Y');
+            throw new \Exception("No se puede cerrar la liquidación antes de que termine el mes. Se puede cerrar desde el {$desde}.");
+        }
+
         $liquidacion->update(['estado' => Liquidacion::ESTADO_CERRADA]);
 
         return $liquidacion->fresh();
