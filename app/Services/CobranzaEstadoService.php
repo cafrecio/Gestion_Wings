@@ -648,13 +648,19 @@ class CobranzaEstadoService
             $estadoDeuda = self::ESTADO_AL_DIA;
             $diasDeuda = 0;
 
+            // T38: la cuota generada al reactivar tiene el mismo plazo que la del alta,
+            // contado desde el día del reingreso. Las demás cuotas del alumno no cambian.
+            $limiteDeLaCuota = $deuda->fecha_reingreso
+                ? $this->limiteVencimientoAlta(Carbon::parse($deuda->fecha_reingreso), $diasGracia, $diasPlazoAlta)
+                : (($mesIngreso && $deuda->periodo === $mesIngreso) ? $limiteVencimientoAlta : null);
+
             if ($deuda->periodo < $periodoVigente) {
                 // Mes anterior/cerrado
-                if ($mesIngreso && $deuda->periodo === $mesIngreso && $limiteVencimientoAlta) {
-                    // Es la cuota del mes de ingreso y cruza de mes dentro del plazo de alta
-                    if ($fecha->copy()->startOfDay()->lt($limiteVencimientoAlta)) {
+                if ($limiteDeLaCuota) {
+                    // Es la cuota del mes de ingreso (o de reingreso) y cruza de mes dentro del plazo
+                    if ($fecha->copy()->startOfDay()->lt($limiteDeLaCuota)) {
                         $estadoDeuda = self::ESTADO_EN_PLAZO;
-                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteVencimientoAlta, false) - 1);
+                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteDeLaCuota, false) - 1);
                     } else {
                         // Vencido el plazo con mes de ingreso cerrado: DEUDOR
                         $estadoDeuda = self::ESTADO_DEUDOR;
@@ -664,11 +670,11 @@ class CobranzaEstadoService
                 }
             } elseif ($deuda->periodo === $periodoVigente) {
                 // Mes corriente
-                if ($mesIngreso && $deuda->periodo === $mesIngreso && $limiteVencimientoAlta) {
-                    // Es la cuota del mes de ingreso dentro del mes corriente
-                    if ($fecha->copy()->startOfDay()->lt($limiteVencimientoAlta)) {
+                if ($limiteDeLaCuota) {
+                    // Es la cuota del mes de ingreso (o de reingreso) dentro del mes corriente
+                    if ($fecha->copy()->startOfDay()->lt($limiteDeLaCuota)) {
                         $estadoDeuda = self::ESTADO_EN_PLAZO;
-                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteVencimientoAlta, false) - 1);
+                        $diasDeuda = max(0, (int) $fecha->copy()->startOfDay()->diffInDays($limiteDeLaCuota, false) - 1);
                     } else {
                         // Vencido el plazo mientras el mes sigue en curso: MOROSO
                         $estadoDeuda = self::ESTADO_MOROSO;
@@ -737,6 +743,19 @@ class CobranzaEstadoService
         return $alumno->fecha_alta
             ? $this->limiteVencimientoAlta(Carbon::parse($alumno->fecha_alta), $this->diasGracia(), $this->diasPlazoAlta())
             : null;
+    }
+
+    /**
+     * Límite de la cuota: el de su reingreso si se generó al reactivar (T38), el del alta si
+     * es la cuota del mes de ingreso, o ninguno (vence con la gracia general del mes).
+     */
+    public function limiteDeLaCuota(Alumno $alumno, DeudaCuota $deuda): ?Carbon
+    {
+        if ($deuda->fecha_reingreso) {
+            return $this->limiteVencimientoAlta(Carbon::parse($deuda->fecha_reingreso), $this->diasGracia(), $this->diasPlazoAlta());
+        }
+
+        return $alumno->fecha_alta?->format('Y-m') === $deuda->periodo ? $this->limiteDeAlta($alumno) : null;
     }
 
     private function limiteVencimientoAlta(Carbon $fechaAlta, int $diasGracia, int $diasPlazoAlta): Carbon

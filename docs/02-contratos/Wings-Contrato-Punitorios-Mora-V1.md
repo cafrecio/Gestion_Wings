@@ -80,6 +80,8 @@ mismo momento en que hoy el alumno pasa a MOROSO.
   a meses cerrados; una deuda antigua solo conserva el que se aplicó en su propio mes.
 - La cuota del mes de alta conserva el plazo más largo entre `dias_plazo_alta` y
   la gracia general de ese mes, como T31. También debe haber pasado el día de mora.
+  Desde el 17/10/2026 (T38) vale lo mismo para la cuota que se genera al reactivar a un
+  alumno, con el plazo contado desde el día del reingreso (`deuda_cuotas.fecha_reingreso`).
 - No se aplican recargos nuevos a alumnos inactivos, cuotas pagadas o condonadas.
   Una cuota parcialmente pagada conserva la base original mientras tenga saldo.
 

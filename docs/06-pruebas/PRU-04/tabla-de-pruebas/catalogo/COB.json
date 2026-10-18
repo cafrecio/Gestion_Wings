@@ -1452,10 +1452,10 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "CajaWebController::cobrar y PagoCuotaService (código leído); Contrato de estados.",
+      "fuente": "CajaWebController::cobrar y PagoCuotaService (código leído); Contrato de estados. Desde T38 (17/10) el reactivado ya tiene su cuota al reactivar: ver ALU-018.",
       "modulo": "Cobrar",
       "pantalla": "caja-cobrar",
-      "requiere": "Alumno activo sin cuota del mes: uno dado de alta con «No generar», uno reactivado, y uno que quedó en Revisión.",
+      "requiere": "Alumno activo sin cuota del mes: uno dado de alta con «No generar» y uno que quedó en Revisión.",
       "roles": [
         "OPERATIVO"
       ],

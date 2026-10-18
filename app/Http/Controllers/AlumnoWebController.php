@@ -336,15 +336,42 @@ class AlumnoWebController extends Controller
 
     public function toggleActivo(Request $request, int $id)
     {
-        $alumno = Alumno::findOrFail($id);
-        $alumno->update(['activo' => !$alumno->activo]);
-
-        if ($request->expectsJson()) {
-            return response()->json(['activo' => (bool) $alumno->activo]);
+        try {
+            // T38: reactivar le genera la cuota del mes en curso con el porcentaje de
+            // reingreso del día, salvo que ya la tenga. Todo o nada.
+            [$alumno, $cuota] = DB::transaction(function () use ($id) {
+                $alumno = Alumno::whereKey($id)->lockForUpdate()->firstOrFail();
+                $alumno->update(['activo' => !$alumno->activo]);
+                $cuota = null;
+                if ($alumno->activo) {
+                    $cuota = app(PagoCuotaService::class)->crearCuotaReingreso($alumno);
+                    // Reactivarlo responde la pregunta de la cola: sigue siendo alumno.
+                    \App\Models\AlumnoRevisionCobranza::reactivarAuto($alumno->id, now()->format('Y-m'));
+                }
+                return [$alumno, $cuota];
+            });
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            if ($request->expectsJson()) {
+                return response()->json(['error' => $e->getMessage()], 422);
+            }
+            return back()->with('error', $e->getMessage());
         }
 
-        $estado = $alumno->activo ? 'activado' : 'desactivado';
-        return back()->with('success', "Alumno {$estado} correctamente.");
+        $mensaje = 'Alumno ' . ($alumno->activo ? 'activado' : 'desactivado') . ' correctamente.';
+        if ($cuota) {
+            $mes = Carbon::createFromFormat('Y-m-d', $cuota->periodo . '-01')->locale('es')->translatedFormat('F');
+            $porcentaje = (float) $cuota->porcentaje_alta;
+            $mensaje .= ' Se generó la cuota de ' . $mes . ': ' . \App\Support\FormatoImporte::pesos((float) $cuota->monto_original)
+                . ($porcentaje < 100 ? ' (' . rtrim(rtrim(number_format($porcentaje, 2, ',', ''), '0'), ',') . ' % por reingreso)' : '') . '.';
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json(['activo' => (bool) $alumno->activo, 'mensaje' => $mensaje]);
+        }
+
+        return back()->with('success', $mensaje);
     }
 
     public function edit(int $id)

@@ -40,7 +40,12 @@ class PagoCuotaService
         return DB::transaction(function () use ($data) {
             $dni = Alumno::findOrFail($data['alumno_id'])->dni;
             app(InscripcionService::class)->bloquear($dni, false);
-            $this->bloquearAlumnoParaPago($data['alumno_id']);
+            $alumnoAntes = $this->bloquearAlumnoParaPago($data['alumno_id']);
+            // T38: si este cobro reactiva al alumno, la cuota del mes queda como la de un reingreso.
+            $reingreso = $alumnoAntes->activo ? null : [
+                'cuota_del_mes_existia' => DeudaCuota::where('alumno_id', $data['alumno_id'])
+                    ->where('periodo', now()->format('Y-m'))->exists(),
+            ];
 
             // Tomar deuda y caja antes de escribir. Comparte las filas con
             // condonar/cancelar y validar; esperar no debe dejar lecturas viejas.
@@ -105,6 +110,9 @@ class PagoCuotaService
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+            if ($montoCuota > 0 && $reingreso !== null) {
+                $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+            }
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
@@ -172,7 +180,12 @@ class PagoCuotaService
         return DB::transaction(function () use ($data) {
             $dni = Alumno::findOrFail($data['alumno_id'])->dni;
             app(InscripcionService::class)->bloquear($dni, false);
-            $this->bloquearAlumnoParaPago($data['alumno_id']);
+            $alumnoAntes = $this->bloquearAlumnoParaPago($data['alumno_id']);
+            // T38: si este cobro reactiva al alumno, la cuota del mes queda como la de un reingreso.
+            $reingreso = $alumnoAntes->activo ? null : [
+                'cuota_del_mes_existia' => DeudaCuota::where('alumno_id', $data['alumno_id'])
+                    ->where('periodo', now()->format('Y-m'))->exists(),
+            ];
 
             $subruboCuota = $this->obtenerSubrubroCuota();
             $fechaPago = $this->parsearFecha($data['fecha_pago'] ?? null);
@@ -230,6 +243,9 @@ class PagoCuotaService
 
             // Si el alumno estaba inactivo o en revisión, reactivar al pagar
             if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+            if ($montoCuota > 0 && $reingreso !== null) {
+                $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+            }
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
             }
@@ -458,6 +474,79 @@ class PagoCuotaService
             'monto_pagado' => 0,
             'estado' => DeudaCuota::ESTADO_PENDIENTE,
             'porcentaje_alta' => $vista['porcentaje'],
+        ]);
+    }
+
+    /**
+     * T38 (DU-12, Carlos 13/10): al reactivar a un alumno se le genera la cuota del mes en
+     * curso con el porcentaje de reingreso del día, salvo que ya la tenga. Lo que debía
+     * antes queda como estaba. La cuota guarda el día del reingreso, que le da el mismo
+     * plazo que una cuota de alta (Carlos, 17/10).
+     *
+     * Se invoca dentro de la transacción que reactiva, con el alumno bloqueado. Devuelve
+     * null si la cuota del mes ya existía.
+     */
+    public function crearCuotaReingreso(Alumno $alumno): ?DeudaCuota
+    {
+        $hoy = now();
+        $periodo = $hoy->format('Y-m');
+
+        // Todavía no empezó (ingreso de un mes que viene): su primera cuota es la del alta.
+        if ($alumno->fecha_alta && $alumno->fecha_alta->gt($hoy->copy()->endOfMonth())) {
+            return null;
+        }
+
+        if (DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', $periodo)->lockForUpdate()->exists()) {
+            return null;
+        }
+
+        $alumnoPlan = $this->obtenerPlanParaPeriodo($alumno->id, $periodo);
+        if (!$alumnoPlan?->plan) {
+            throw new \Exception('El alumno no tiene un plan para este mes. Asigná un plan antes de reactivarlo.');
+        }
+
+        [$porcentaje] = $this->reglaDelDia($hoy->day, $periodo);
+
+        return DeudaCuota::create([
+            'alumno_id' => $alumno->id,
+            'periodo' => $periodo,
+            'monto_original' => $this->aplicarPorcentaje((float) $alumnoPlan->plan->precio_mensual, $porcentaje),
+            'monto_pagado' => 0,
+            'estado' => DeudaCuota::ESTADO_PENDIENTE,
+            'porcentaje_alta' => $porcentaje,
+            'fecha_reingreso' => $hoy->toDateString(),
+        ]);
+    }
+
+    /**
+     * T38: un cobro a un alumno inactivo lo reactiva; su cuota del mes queda como la de un
+     * reingreso. Si el cobro no la incluyó, se genera; si la creó este mismo cobro, se le
+     * graba el día del reingreso (plazo) y el porcentaje con que nació, para que no se
+     * vuelva a calcular. Una cuota que ya existía antes del cobro no se toca.
+     *
+     * Sin plan para el mes no se genera nada: el cobro de la deuda vieja no debe fallar.
+     */
+    private function completarReingresoPorCobro(Alumno $alumno, bool $cuotaDelMesExistia, float $porcentaje, ?string $periodoConDescuento): void
+    {
+        $periodo = now()->format('Y-m');
+        AlumnoRevisionCobranza::reactivarAuto($alumno->id, $periodo);
+
+        if ($cuotaDelMesExistia) {
+            return;
+        }
+
+        $deuda = DeudaCuota::where('alumno_id', $alumno->id)->where('periodo', $periodo)->lockForUpdate()->first();
+
+        if ($deuda === null) {
+            if ($this->obtenerPlanParaPeriodo($alumno->id, $periodo)?->plan) {
+                $this->crearCuotaReingreso($alumno);
+            }
+            return;
+        }
+
+        $deuda->update([
+            'fecha_reingreso' => now()->toDateString(),
+            'porcentaje_alta' => $deuda->porcentaje_alta ?? ($periodoConDescuento === $periodo ? $porcentaje : 100.0),
         ]);
     }
 
@@ -764,7 +853,10 @@ class PagoCuotaService
         // Caso 1: alumno sin pagos previos (nuevo) — el descuento es por el mes en
         // que se dio de alta, y solo corre si ese mes es uno de los que se cobran.
         if (!$tienePagos && $alumno->fecha_alta) {
-            $porcentajeAlta = DeudaCuota::where('alumno_id', $alumnoId)->whereNotNull('porcentaje_alta')->value('porcentaje_alta');
+            // Solo la cuota del alta: la de un reingreso (T38) también guarda su porcentaje,
+            // pero no es el del mes en que el alumno entró.
+            $porcentajeAlta = DeudaCuota::where('alumno_id', $alumnoId)->whereNotNull('porcentaje_alta')
+                ->whereNull('fecha_reingreso')->value('porcentaje_alta');
             if ($porcentajeAlta !== null) {
                 // Metadato del pago; período NULL impide recalcular o ajustar la deuda.
                 return [(float) $porcentajeAlta, null, null];
@@ -772,6 +864,12 @@ class PagoCuotaService
             $periodoAlta = $alumno->fecha_alta->format('Y-m');
 
             if (!in_array($periodoAlta, $periodosCobrados, true)) {
+                return [100.0, null, null];
+            }
+
+            // Reactivado en el mismo mes del alta (T38): esa cuota ya nació con el porcentaje
+            // de reingreso y no se vuelve a calcular.
+            if (DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodoAlta)->whereNotNull('porcentaje_alta')->exists()) {
                 return [100.0, null, null];
             }
 

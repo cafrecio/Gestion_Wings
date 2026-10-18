@@ -939,10 +939,16 @@
           "l": "d",
           "texto": "Vuelve a las listas de asistencia de su grupo.",
           "tipo": "indirecto"
+        },
+        {
+          "donde": "Plazo",
+          "l": "e",
+          "texto": "Esa cuota queda En plazo los días del plazo de alta contados desde hoy, sin recargo por mora; vencido, Moroso.",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-12, 13/10). Falta programar: T38. Antes: AlumnoWebController::toggleActivo y PagoCuotaService::calcularReglaPrimerPago (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-12, 13/10; plazo de alta para el reingreso, 17/10). Implementado en T38 (17/10): AlumnoWebController::toggleActivo, PagoCuotaService::crearCuotaReingreso y CobranzaEstadoService::limiteDeLaCuota (código leído). Pendiente de verificación independiente.",
       "modulo": "Alumnos",
       "pantalla": "alumnos-ficha",
       "requiere": "Alumno inactivo con deuda vieja, dado de baja el mes pasado.",

@@ -50,10 +50,9 @@ class PunitorioService
                             || !in_array($deuda->estado, [DeudaCuota::ESTADO_PENDIENTE, DeudaCuota::ESTADO_AJUSTADA])
                             || $deuda->saldo_pendiente <= 0) return 0;
 
-                        if ($alumno->fecha_alta?->format('Y-m') === $deuda->periodo) {
-                            $limite = app(CobranzaEstadoService::class)->limiteDeAlta($alumno);
-                            if ($limite && $hoy->lt($limite)) return 0;
-                        }
+                        // D2 y T38: la cuota del alta o del reingreso no lleva recargo dentro de su plazo.
+                        $limite = app(CobranzaEstadoService::class)->limiteDeLaCuota($alumno, $deuda);
+                        if ($limite && $hoy->lt($limite)) return 0;
                         $origen = 'punitorio:deuda:'.$deuda->id;
                         if (CargoAlumno::where('clave_origen', $origen)->lockForUpdate()->exists()) return 0;
                         $baseCentavos = (int) round((float) $deuda->monto_original * 100);

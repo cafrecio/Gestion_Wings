@@ -1202,7 +1202,7 @@
         }
       ],
       "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-18, 13/10): motivo obligatorio. T37 implementada localmente por Codex el 17/10, pendiente de revisión independiente: controlador, servicio y ambos modales; motivo visible en Resumen. Carlos resolvió: Entregar según el prompt; Inicio queda pendiente. Se conserva no_implementado para el caso completo por el punto c de Inicio. Evidencia: docs/06-pruebas/PRU-04/IMPLEMENTACION-T37.md.",
+      "fuente": "Decidido por Carlos (DU-18, 13/10): motivo obligatorio. T37 hecha por Codex y verificada por Claude el 17/10 (VERIFICACION-T37.md): motivo obligatorio en controlador, servicio y los dos modales, visible en el Resumen de la caja. El punto c (Inicio de la operativa) quedó afuera por decisión de Carlos: el caso completo sigue no_implementado.",
       "modulo": "Caja",
       "pantalla": "caja-validacion",
       "requiere": "Caja cerrada con un ingreso mal cargado. La operativa ya abrió el turno del día siguiente.",

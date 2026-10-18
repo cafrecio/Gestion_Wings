@@ -241,13 +241,48 @@ Cómo funciona:
    - A partir del 05/10: **DEUDOR** (el mes de septiembre ya cerró y el plazo venció).
    - Nunca queda moroso en octubre por una deuda de septiembre: una vez vencido el plazo, la deuda de un mes cerrado es DEUDOR.
 3. **Cuotas de meses posteriores al de ingreso:**
-   - Rigen por el calendario general (`dias_gracia_cobranza` del mes en curso). El plazo propio solo aplica a la cuota del mes de ingreso y a la inscripción.
+   - Rigen por el calendario general (`dias_gracia_cobranza` del mes en curso). El plazo propio solo aplica a la cuota del mes de ingreso y a la inscripción, y desde el 17/10/2026 también a la cuota que se genera al reactivar (ver la enmienda siguiente).
 4. **Configuración:**
    - Clave nueva: `dias_plazo_alta` (entero, días corridos, valor inicial 7).
    - Tipada a int en el servicio, falla con `\LogicException` si no está o es `<= 0`.
    - `dias_gracia_restantes`: cuando está EN PLAZO por plazo propio, devuelve los días que le quedan de ese plazo (o del general, el que venza más tarde).
 
 > El día de gracia y el plazo de alta son **configuraciones**, nunca números fijos en el código. Los ejemplos usan 10 y 7 porque son los valores por defecto; si mañana cambian, los estados acompañan solos.
+
+### Enmienda del 17/10/2026 — reactivar genera la cuota del mes (T38)
+
+Decisiones de Carlos: DU-12 (13/10) «Generarla al reactivar, con el porcentaje de reingreso
+del día. Siempre que no tenga ya generada la cuota del mes. La deuda que pudiese tener se
+mantiene.» y, el 17/10, que esa cuota tenga **el mismo plazo que una cuota de alta**.
+
+Antes, un alumno reactivado figuraba Al día y no aparecía en Cobranza hasta que alguien le
+cobraba.
+
+1. **Al reactivar** (botón Reactivar de la ficha o interruptor del listado), en la misma
+   operación:
+   - si no tiene cuota del mes en curso, se crea con el precio de su plan por el porcentaje de
+     la regla de primer pago del día (si hay cero o más de una regla para ese día, 100 %);
+   - la cuota guarda el porcentaje (`porcentaje_alta`) y el día (`fecha_reingreso`): el cobro
+     no la vuelve a calcular;
+   - si ya tenía la cuota del mes, no se crea otra ni se toca;
+   - lo que debía de meses anteriores queda como estaba;
+   - una revisión pendiente del mes se da por respondida («sigue»), como con un pago;
+   - sin plan para el mes, **no se reactiva** y se avisa que hay que asignarle uno.
+2. **Plazo:** el de una cuota de alta, contado desde el día del reingreso: el más largo entre
+   `dias_plazo_alta` y la gracia general de ese mes. Dentro del plazo, EN PLAZO y sin recargo
+   por mora; vencido, MOROSO si el mes sigue y DEUDOR si ya cerró. Las demás cuotas del alumno
+   siguen con su vencimiento.
+3. **Cobrarle a un inactivo** también lo reactiva (ya era así). Si ese cobro no incluyó la
+   cuota del mes, se genera igual que en el punto 1. Si la creó ese mismo cobro (con el
+   descuento de §4 para quien ya pagó alguna vez), queda marcada con el día del reingreso para
+   que el saldo tenga el mismo plazo. Si no hay plan para el mes, el cobro de la deuda vieja se
+   hace igual y no se genera la cuota.
+
+Implementado el 17/10/2026 por Claude: `PagoCuotaService::crearCuotaReingreso` y
+`completarReingresoPorCobro`, `AlumnoWebController::toggleActivo`,
+`CobranzaEstadoService::limiteDeLaCuota` (estados y recargo por mora) y la columna
+`deuda_cuotas.fecha_reingreso`. Cubierto por `tests/Feature/ReingresoCuotaT38Test.php`.
+Pendiente de verificación independiente.
 
 ---
 

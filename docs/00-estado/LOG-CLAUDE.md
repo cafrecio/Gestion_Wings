@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-17 — Claude CAB — T38 hecha: reactivar genera la cuota del mes
+
+DU-12 y, al empezar, Carlos: la cuota del reingreso tiene el plazo de un alta. Reactivar (ficha o
+listado) crea en una transacción la cuota del mes con el porcentaje del día, salvo que ya exista;
+sin plan no reactiva. `deuda_cuotas.fecha_reingreso` da el plazo a esa cuota sola (estados y mora,
+vía `CobranzaEstadoService::limiteDeLaCuota`). El cobro que reactiva a un inactivo completa lo
+mismo. Ajuste en el caso 1 del primer pago para no recalcular un reingreso en el mes del alta.
+18 pruebas; mutaciones de las cuatro piezas detectadas. Suite 819/2 omitidas/0 fallidas (con
+T36 y T41 sin commitear en la carpeta). Tabla viva y copia sincronizadas (ALU-018, COB-028, y de
+paso CAJ-029 y PEN-001). Sin tocar vistas. **No commiteé** `tareas.json` ni los tres documentos con
+el número de pruebas: tienen cambios sin commitear de Codex y Gemini. El número lo ajusta quien
+commitee último; T38 pasa a verificar en el tablero cuando esos archivos estén libres.
+`IMPLEMENTACION-T38.md`.
+
 ## 2026-10-17 — Claude CAB — T37 verificada y cerrada; T35 cerrada con el OK de Gemini
 
 T37 (Codex): motivo obligatorio en controlador y servicio, espacios solos cuentan como vacío,

@@ -25,7 +25,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Contrato de punitorios por mora V1; B11 implementada localmente el 16/10/2026. Pendiente verificación independiente de Claude y sincronización de la tabla viva; evidencia en IMPLEMENTACION-B11.md.",
+      "fuente": "Contrato de punitorios por mora V1. B11 hecha por Codex y verificada por Claude el 16/10 (VERIFICACION-B11.md). En el sitio de prueba el porcentaje está en 0 hasta que Carlos lo prenda.",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Configuración con día de inicio de la mora y porcentaje mayor que cero. Alumno con la cuota del mes impaga pasado ese día.",
