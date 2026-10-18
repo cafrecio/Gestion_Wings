@@ -72,6 +72,10 @@ la prueba de lo que ve la operativa); después repetí T38 y las pruebas de cobr
 alta y revisión: 147 aprobadas. El único fallo fue el contador de pruebas de los documentos,
 que en ese momento estaba editando Codex.
 
+**Suite final, sobre lo publicado en `544ace4`** (ya con T36 de Codex y T41 de Gemini
+commiteadas, carpeta igual a GitHub): **821 aprobadas, 2 omitidas, 0 fallidas**, 7593
+aserciones, 1009 s, `wings_testing_claude`. Lo publicado declara 823 pruebas y tiene 823.
+
 ## En el navegador
 
 Chrome real, base descartable `wings_testing_claude`, servidor local en el puerto 8738,

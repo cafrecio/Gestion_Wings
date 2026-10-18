@@ -24,7 +24,8 @@ paso CAJ-029 y PEN-001). Sin tocar vistas. Después, en `3cef48b`, T38 pasó a v
 el número de pruebas de lo publicado quedó en 804, armando el commit desde la versión publicada
 de esos archivos para no llevarme lo de Codex y Gemini; en sus copias de trabajo agregué la línea
 de T38 y la entrada de ESTADO. Recorrido en Chrome sobre `wings_testing_claude` (ficha, interruptor
-del listado, Cobranza, 375 sin desborde): `evidencia-t38-claude/`. `IMPLEMENTACION-T38.md`.
+del listado, Cobranza, 375 sin desborde): `evidencia-t38-claude/`. Suite final sobre `544ace4`, con
+T36 y T41 ya publicadas: 821 aprobadas, 2 omitidas, 0 fallidas. `IMPLEMENTACION-T38.md`.
 
 ## 2026-10-17 — Claude CAB — T37 verificada y cerrada; T35 cerrada con el OK de Gemini
 
