@@ -287,7 +287,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 @if($enCajasEditables->isNotEmpty())
 <section class="alumno-card mt-4" id="cashflow-cajas-editables">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Mostrador · sin validar</h3></div>
-    <div style="padding:0 24px 16px; font-size:0.85rem;">
+    <div class="card-body-alineado" style="padding:0 24px 16px; font-size:0.85rem;">
         <p class="mb-3" style="color:var(--color-text-muted);">Se corrigen por el recorrido de su caja. No suman a los totales de Cashflow de arriba.</p>
         @foreach($enCajasEditables as $movCaja)
         <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
@@ -313,7 +313,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
 @if($liquidacionesPendientes->isNotEmpty())
 <section class="alumno-card mt-4" id="cashflow-liquidaciones-pendientes">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Liquidaciones · sin pagar</h3></div>
-    <div style="padding:0 24px 16px; font-size:0.85rem;">
+    <div class="card-body-alineado" style="padding:0 24px 16px; font-size:0.85rem;">
         <p class="mb-3" style="color:var(--color-text-muted);">No son egresos pagados. Editar lleva a la liquidación y conserva sus reglas.</p>
         @foreach($liquidacionesPendientes as $liqPendiente)
         <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">

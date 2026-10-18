@@ -248,3 +248,13 @@ Antes de aprobar cualquier vista, verificar:
   comisión, días y cantidades no son pesos.
 
 [Inventario, pruebas y capturas de T30](../../06-pruebas/PRU-04/IMPLEMENTACION-T30.md).
+
+
+### Controles y cifras comparables — observaciones de Carlos, 18/10/2026
+
+- En celular, fecha, hora y mes ocupan todo el ancho disponible de su campo, igual que un selector; no limitar una fecha a 220 px dentro de una columna más ancha.
+- El cuerpo y las acciones de una tarjeta comparten borde interior. No sumar padding lateral al cuerpo dentro de una tarjeta que ya lo aporta.
+- Usar variantes existentes de botón (`secondary`, nunca `sec` en `ds-btn`); los accesos de Inicio son navegación secundaria agrupada.
+- En un detalle financiero, importes comparables usan `ds-money-value`: misma familia, tamaño, peso, color y cifras tabulares. Los conteos usan `ds-count-value` y no superan visualmente al dinero. Separar etiquetas de valores; en celular, un resumen estrecho usa filas con importes a la derecha.
+- Revisión elige Activo/Inactivo con `x-ds.toggle`, pero la elección se guarda solo al Confirmar con nota. Activo genera la cuota del período; Inactivo da de baja y conserva deudas anteriores. No conectar ese interruptor a la ruta genérica de activar/desactivar alumnos.
+- Mostrar a Carlos únicamente las pantallas observadas en esta revisión. La comprobación interna de piezas compartidas abarca las demás pantallas afectadas.

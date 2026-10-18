@@ -9,7 +9,7 @@
     <input type="hidden" name="version" value="{{ old('version', $movimiento->version_correccion) }}">
     <section class="alumno-card">
         <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">{{ $movimiento->subrubro?->nombre }}</h3></div>
-        <div style="padding:0 24px 16px; font-size:0.85rem;">
+        <div class="card-body-alineado" style="padding:0 24px 16px; font-size:0.85rem;">
             <p>{{ $movimiento->observaciones }}</p>
             <p class="mt-2"><strong>{{ \App\Support\FormatoImporte::pesos($movimiento->monto) }}</strong> · {{ $movimiento->fecha->format('d/m/Y') }} · {{ $movimiento->tipoCaja?->nombre }}</p>
             <p class="mt-3">Se conserva el original y se crea un asiento en contra. El reporte de {{ $movimiento->fecha->format('m/Y') }} se actualizará.</p>

@@ -1,0 +1,13 @@
+{
+  "base": "wings_testing_codex",
+  "entorno": "testing",
+  "resultado": 0,
+  "aprobadas": 857,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7692,
+  "duracion_segundos": 946.92,
+  "sha256_original": "c7db9e9c283c068a7cf58bf0dc077dfc9c4c5d9ee85ff01c9ac03f2fe1fc9db1",
+  "sha256_texto_publicado": "d7aee140459030da8c2a5b81e8a3667d94b6e5eb7db7d087c2241d0c872dae59",
+  "normalizacion": "Quitar ANSI, espacios finales y lineas vacias finales; saltos LF; conservar texto y lineas interiores"
+}

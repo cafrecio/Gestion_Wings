@@ -1668,3 +1668,37 @@ a:hover {
         transform: none;
     }
 }
+
+/* T75: cifras comparables y elección explícita de continuidad. */
+.ds-money-value,
+.ds-money-summary.ds-money-value {
+    font-family: var(--font-sans) !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text) !important;
+    white-space: nowrap;
+}
+.ds-count-value { font-size: 0.85rem !important; font-weight: 600 !important; }
+.resumen-cifras > div > div:not(:empty) { display: flex; flex-direction: column; justify-content: flex-end; }
+.resumen-cifras > div > div:not(:empty) > span:first-child { min-height: 2.25rem; }
+.liquidacion-total { flex-wrap: wrap; }
+.revision-resolucion { width: 100%; }
+.revision-eleccion, .revision-confirmar { display: flex; justify-content: flex-end; }
+.revision-consecuencia { font-size: 0.78rem; color: var(--color-text-muted); margin: 8px 0; }
+.revision-confirmar { margin-top: 12px; }
+@media (max-width: 640px) {
+    .ds-content input.w-full:is([type="date"], [type="time"], [type="month"]) {
+        width: 100%; max-width: none !important; min-width: 0; box-sizing: border-box;
+    }
+    .alumno-card > .card-body-alineado { padding-inline: 0 !important; }
+    .resumen-cifras { padding-inline: 0 !important; }
+    .resumen-cifras > div { display: flex !important; flex-direction: column; }
+    .resumen-cifras > div > div:empty { height: 1px; }
+    .resumen-cifras > div > div:not(:empty) {
+        flex-direction: row; justify-content: space-between; align-items: baseline;
+        gap: 12px; padding: 12px 23px !important; text-align: left !important;
+    }
+    .resumen-cifras > div > div:not(:empty) > span:first-child { min-height: 0; margin-bottom: 0 !important; }
+}

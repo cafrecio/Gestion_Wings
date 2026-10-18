@@ -554,3 +554,15 @@ import './money-input';
     });
 })();
 
+
+/* Revisión: el interruptor elige; únicamente Confirmar envía la resolución. */
+document.addEventListener('change', function (evento) {
+    var input = evento.target.closest('[data-revision-estado] input');
+    if (!input) return;
+    var form = input.closest('form');
+    form.elements.resolucion.value = input.checked ? 'CONTINUA' : 'INACTIVO';
+    input.setAttribute('aria-checked', input.checked ? 'true' : 'false');
+    var aviso = form.querySelector('[data-revision-consecuencia]');
+    if (!aviso.dataset.activo) aviso.dataset.activo = aviso.textContent;
+    aviso.textContent = input.checked ? aviso.dataset.activo : 'Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.';
+});

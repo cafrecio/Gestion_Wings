@@ -154,51 +154,21 @@
     {{-- Formulario de resolución (solo pendientes) --}}
     @if($isPendiente && $alumno)
     <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding:10px 12px; gap:8px; flex-direction:column; align-items:stretch;">
-        <div id="form-{{ $revision->id }}" style="display:none;">
-            <form method="POST" action="{{ route('web.revision-cobranza.resolver', $revision->id) }}">
-                @csrf
-                <input type="hidden" name="resolucion" id="res-tipo-{{ $revision->id }}">
-                <div style="margin-bottom:8px;">
-                    <label style="display:block; font-size:0.7rem; font-weight:600; color:var(--color-text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.05em;">
-                        Nota (contacto y motivo)
-                    </label>
-                    <textarea name="nota_resolucion" rows="2" required minlength="5" maxlength="500"
-                              placeholder="Ej: WhatsApp con Margarita — alumno de vacaciones en julio"
-                              style="width:100%; padding:8px 10px; font-size:0.83rem; border:1px solid var(--color-border);
-                                     border-radius:var(--radius-btn); background:var(--color-surface); color:var(--color-text);
-                                     font-family:inherit; resize:vertical;"></textarea>
-                </div>
-                <div class="acciones-celular-derecha" style="display:flex; gap:8px;">
-                    <button type="submit"
-                            style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
-                                   font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                                   border:none; font-family:inherit; background:var(--color-btn-primary); color:#fff;">
-                        Confirmar
-                    </button>
-                    <button type="button" data-cerrar-revision="{{ $revision->id }}"
-                            style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
-                                   font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                                   border:1px solid var(--color-border); font-family:inherit;
-                                   background:transparent; color:var(--color-text-muted);">
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div id="botones-{{ $revision->id }}" class="acciones-celular-derecha" style="display:flex; gap:8px;">
-            <button type="button" data-abrir-revision="{{ $revision->id }}" data-tipo="CONTINUA"
-                    style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
-                           font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                           border:none; font-family:inherit; background:var(--color-success); color:#fff;">
-                Continúa
-            </button>
-            <button type="button" data-abrir-revision="{{ $revision->id }}" data-tipo="INACTIVO"
-                    style="display:inline-flex; align-items:center; justify-content:center; height:32px; padding:0 16px;
-                           font-size:0.82rem; font-weight:600; border-radius:var(--radius-btn); cursor:pointer;
-                           border:none; font-family:inherit; background:var(--color-danger); color:#fff;">
-                Inactivo
-            </button>
-        </div>
+        <form method="POST" action="{{ route('web.revision-cobranza.resolver', $revision->id) }}" class="revision-resolucion">
+            @csrf
+            <input type="hidden" name="resolucion" value="CONTINUA">
+            <div class="revision-eleccion">
+                <x-ds.toggle :id="'continuidad-'.$revision->id" :checked="true" data-revision-estado />
+            </div>
+            <p class="revision-consecuencia" data-revision-consecuencia>Se generará la cuota de {{ $revision->periodo_objetivo }} al confirmar.</p>
+            <label for="nota-{{ $revision->id }}" class="info-label">Nota (contacto y motivo)</label>
+            <textarea id="nota-{{ $revision->id }}" name="nota_resolucion" rows="2" required minlength="5" maxlength="500"
+                      class="w-full px-3 py-2 text-sm wings-input"
+                      placeholder="Registrá el contacto y el motivo"></textarea>
+            <div class="acciones-celular-derecha revision-confirmar">
+                <x-ds.button variant="primary" type="submit">Confirmar</x-ds.button>
+            </div>
+        </form>
     </div>
     @endif
 </div>

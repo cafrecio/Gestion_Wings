@@ -9,8 +9,8 @@
         <div><span class="info-label">Medio</span><p class="info-value">{{ $movimiento->tipoCaja?->nombre }}</p></div>
         <div><span class="info-label">Importe</span><p class="info-value">{{ \App\Support\FormatoImporte::pesos($movimiento->monto) }}</p></div>
     </div>
-    <p style="padding:0 24px 16px; font-size:0.85rem;">{{ $movimiento->observaciones }}</p>
-    @if($movimiento->anulado_at)<p style="padding:0 24px 16px; color:var(--color-danger);">Anulado · el original y el asiento en contra se conservan.</p>@endif
+    <p class="card-body-alineado" style="padding:0 24px 16px; font-size:0.85rem;">{{ $movimiento->observaciones }}</p>
+    @if($movimiento->anulado_at)<p class="card-body-alineado" style="padding:0 24px 16px; color:var(--color-danger);">Anulado · el original y el asiento en contra se conservan.</p>@endif
     <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;">
         <x-ds.button variant="secondary" style="width:96px; height:32px; font-size:0.82rem;" :href="route('web.cashflow.index')">Volver</x-ds.button>
         @if($movimiento->puedeCorregirse())

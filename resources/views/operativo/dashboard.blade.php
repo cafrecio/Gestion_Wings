@@ -20,9 +20,9 @@
             </p>
         </div>
         <div class="acciones-celular-derecha acciones-celular-fila barra-movil" style="display:flex; gap:8px;">
-            <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">Caja</a>
-            <a href="{{ route('web.cobranza.index') }}" class="ds-btn ds-btn--sec">Cobranza</a>
-            <a href="{{ route('web.alumnos.index') }}" class="ds-btn ds-btn--sec">Alumnos</a>
+            <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--secondary">Caja</a>
+            <a href="{{ route('web.cobranza.index') }}" class="ds-btn ds-btn--secondary">Cobranza</a>
+            <a href="{{ route('web.alumnos.index') }}" class="ds-btn ds-btn--secondary">Alumnos</a>
         </div>
     </div>
 
@@ -110,7 +110,7 @@
                 </p>
             </div>
             <div class="acciones-celular-derecha acciones-celular-fila" style="display:flex; gap:8px;">
-                <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--sec">
+                <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--secondary">
                     Caja
                 </a>
             </div>

@@ -1,0 +1,1481 @@
+{
+  "criterio": "Mismo texto de importe en una misma pantalla con estilos calculados diferentes. Es un candidato a revisar, no prueba por si solo un defecto: puede comparar resumen y fila o estados diferentes.",
+  "hallazgos": [
+    {
+      "pantalla": "admin-caja",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 821.3,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 871.83,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 1091.61,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 1142.14,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 1401.92,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 1452.45,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 1672.23,
+            "w": 63.8,
+            "h": 17.27,
+            "derecha": 156.7
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 1722.77,
+            "w": 66.53,
+            "h": 17.27,
+            "derecha": 138.5
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-id-resumen",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1149.28,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1400.16,
+            "w": 101.64,
+            "h": 26.39,
+            "derecha": 141.64
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 226.7,
+            "y": 1400.16,
+            "w": 101.64,
+            "h": 26.39,
+            "derecha": 328.34
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-id-detalle",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 111.41,
+            "y": 715.19,
+            "w": 73.92,
+            "h": 15,
+            "derecha": 185.33
+          },
+          "font": "700 12.8px / 19.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.8px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 644,
+            "y": 702.98,
+            "w": 100,
+            "h": 38.61,
+            "derecha": 744
+          },
+          "font": "700 14.4px / 21.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "14.4px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-cobranza",
+      "importe": "$30,000.00",
+      "presentaciones": [
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 227.61,
+            "w": 110,
+            "h": 25.19,
+            "derecha": 150
+          },
+          "font": "800 16.8px / 25.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16.8px",
+          "color": "rgb(185, 28, 28)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 620,
+            "y": 1007.69,
+            "w": 130,
+            "h": 60.66,
+            "derecha": 750
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(185, 28, 28)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-admin-dashboard",
+      "importe": "$222,002.00",
+      "presentaciones": [
+        {
+          "texto": "$222,002.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 40,
+            "y": 359.5,
+            "w": 110,
+            "h": 20.39,
+            "derecha": 150
+          },
+          "font": "750 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 180,
+            "y": 631.52,
+            "w": 140,
+            "h": 32.39,
+            "derecha": 320
+          },
+          "font": "700 21.6px / 32.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "21.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-admin-dashboard",
+      "importe": "$0.00",
+      "presentaciones": [
+        {
+          "texto": "$0.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 210,
+            "y": 359.5,
+            "w": 110,
+            "h": 20.39,
+            "derecha": 320
+          },
+          "font": "750 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(185, 28, 28)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 56,
+            "y": 841.31,
+            "w": 47.25,
+            "h": 20,
+            "derecha": 103.25
+          },
+          "font": "700 16px / 24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 187,
+            "y": 841.31,
+            "w": 47.25,
+            "h": 20,
+            "derecha": 234.25
+          },
+          "font": "700 16px / 24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 56,
+            "y": 915.31,
+            "w": 47.25,
+            "h": 20,
+            "derecha": 103.25
+          },
+          "font": "700 16px / 24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-reportes",
+      "importe": "$222,002.00",
+      "presentaciones": [
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 25,
+            "y": 1151.38,
+            "w": 70.52,
+            "h": 14,
+            "derecha": 95.52
+          },
+          "font": "700 10.88px / 16.32px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "10.88px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 249,
+            "y": 1151.38,
+            "w": 70.52,
+            "h": 14,
+            "derecha": 319.52
+          },
+          "font": "700 10.88px / 16.32px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "10.88px",
+          "color": "rgb(37, 99, 235)"
+        },
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 241.19,
+            "y": 2426.91,
+            "w": 78.81,
+            "h": 47.42,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-reportes",
+      "importe": "$0.00",
+      "presentaciones": [
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 137,
+            "y": 1151.38,
+            "w": 32.14,
+            "h": 14,
+            "derecha": 169.14
+          },
+          "font": "700 10.88px / 16.32px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "10.88px",
+          "color": "rgb(185, 28, 28)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 266.08,
+            "y": 1879.44,
+            "w": 35.92,
+            "h": 18.23,
+            "derecha": 302
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 266.08,
+            "y": 1918.67,
+            "w": 35.92,
+            "h": 18.23,
+            "derecha": 302
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 284.08,
+            "y": 2074.75,
+            "w": 35.92,
+            "h": 32.83,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 284.08,
+            "y": 2128.58,
+            "w": 35.92,
+            "h": 32.83,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 284.08,
+            "y": 2182.41,
+            "w": 35.92,
+            "h": 32.83,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-reportes",
+      "importe": "$30,000.00",
+      "presentaciones": [
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 202,
+            "y": 1400.7,
+            "w": 100,
+            "h": 20.39,
+            "derecha": 302
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 230.28,
+            "y": 1661.34,
+            "w": 71.72,
+            "h": 32.83,
+            "derecha": 302
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 137,
+            "y": 1993.52,
+            "w": 64.17,
+            "h": 14,
+            "derecha": 201.17
+          },
+          "font": "700 10.88px / 16.32px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "10.88px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 248.28,
+            "y": 2173.22,
+            "w": 71.72,
+            "h": 32.83,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-reportes",
+      "importe": "$12,000.00",
+      "presentaciones": [
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 249,
+            "y": 1993.52,
+            "w": 61.67,
+            "h": 14,
+            "derecha": 310.67
+          },
+          "font": "700 10.88px / 16.32px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "10.88px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 251.08,
+            "y": 2211.22,
+            "w": 68.92,
+            "h": 32.83,
+            "derecha": 320
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-reportes-sueldos",
+      "importe": "$12,000.00",
+      "presentaciones": [
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 233.08,
+            "y": 1603.95,
+            "w": 68.92,
+            "h": 32.83,
+            "derecha": 302
+          },
+          "font": "700 12.16px / 18.24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.16px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 58,
+            "y": 1754.75,
+            "w": 126.95,
+            "h": 33.61,
+            "derecha": 184.95
+          },
+          "font": "700 22.4px / 33.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "22.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 196.95,
+            "y": 1827.36,
+            "w": 132.09,
+            "h": 33.61,
+            "derecha": 329.05
+          },
+          "font": "700 22.4px / 33.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "22.4px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-cashflow",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 60,
+            "y": 434.59,
+            "w": 87.55,
+            "h": 22.8,
+            "derecha": 147.55
+          },
+          "font": "600 15.2px / 22.8px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "15.2px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 60,
+            "y": 500.19,
+            "w": 87.55,
+            "h": 22.8,
+            "derecha": 147.55
+          },
+          "font": "600 15.2px / 22.8px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "15.2px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 209.45,
+            "y": 627.98,
+            "w": 96.55,
+            "h": 24,
+            "derecha": 306
+          },
+          "font": "800 16px / 24px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 957.64,
+            "w": 80.02,
+            "h": 16,
+            "derecha": 120.02
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1071.81,
+            "w": 80.02,
+            "h": 16,
+            "derecha": 120.02
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-alumnos-id",
+      "importe": "$30,000.00",
+      "presentaciones": [
+        {
+          "texto": "$30,000.00",
+          "clases": "sm:hidden",
+          "rect": {
+            "x": 249.23,
+            "y": 766.75,
+            "w": 70.77,
+            "h": 18,
+            "derecha": 320
+          },
+          "font": "700 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(245, 158, 11)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "sm:hidden",
+          "rect": {
+            "x": 249.23,
+            "y": 977.36,
+            "w": 70.77,
+            "h": 18,
+            "derecha": 320
+          },
+          "font": "700 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-2",
+      "importe": "$30,000.00",
+      "presentaciones": [
+        {
+          "texto": "$30,000.00",
+          "clases": "sm:hidden",
+          "rect": {
+            "x": 249.23,
+            "y": 766.75,
+            "w": 70.77,
+            "h": 18,
+            "derecha": 320
+          },
+          "font": "700 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(245, 158, 11)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "sm:hidden",
+          "rect": {
+            "x": 249.23,
+            "y": 977.36,
+            "w": 70.77,
+            "h": 18,
+            "derecha": 320
+          },
+          "font": "700 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-5",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 359.33,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 409.86,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 606.45,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 656.98,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 893.58,
+            "w": 64.94,
+            "h": 17.27,
+            "derecha": 157.84
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 944.11,
+            "w": 67.78,
+            "h": 17.27,
+            "derecha": 139.75
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-5",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 92.91,
+            "y": 1140.7,
+            "w": 63.8,
+            "h": 17.27,
+            "derecha": 156.7
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 71.97,
+            "y": 1191.23,
+            "w": 66.53,
+            "h": 17.27,
+            "derecha": 138.5
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-6",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 111.41,
+            "y": 726.8,
+            "w": 73.92,
+            "h": 15,
+            "derecha": 185.33
+          },
+          "font": "700 12.8px / 19.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.8px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 540,
+            "y": 714.59,
+            "w": 100,
+            "h": 38.61,
+            "derecha": 640
+          },
+          "font": "700 14.4px / 21.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "14.4px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-7",
+      "importe": "$78,000.50",
+      "presentaciones": [
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1189.28,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1440.16,
+            "w": 101.64,
+            "h": 26.39,
+            "derecha": 141.64
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$78,000.50",
+          "clases": "",
+          "rect": {
+            "x": 226.7,
+            "y": 1440.16,
+            "w": 101.64,
+            "h": 26.39,
+            "derecha": 328.34
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "operativo-8",
+      "importe": "$30,000.00",
+      "presentaciones": [
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 227.61,
+            "w": 110,
+            "h": 25.19,
+            "derecha": 150
+          },
+          "font": "800 16.8px / 25.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "16.8px",
+          "color": "rgb(185, 28, 28)"
+        },
+        {
+          "texto": "$30,000.00",
+          "clases": "",
+          "rect": {
+            "x": 620,
+            "y": 1007.69,
+            "w": 130,
+            "h": 60.66,
+            "derecha": 750
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(185, 28, 28)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-cerrada-detalle",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 700,
+            "y": 656.09,
+            "w": 100,
+            "h": 41.5,
+            "derecha": 800
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 111.41,
+            "y": 709.8,
+            "w": 75.31,
+            "h": 15,
+            "derecha": 186.72
+          },
+          "font": "700 12.8px / 19.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.8px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 700,
+            "y": 697.59,
+            "w": 100,
+            "h": 38.61,
+            "derecha": 800
+          },
+          "font": "700 14.4px / 21.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "14.4px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-cerrada-resumen",
+      "importe": "$0.00",
+      "presentaciones": [
+        {
+          "texto": "$0.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 849.39,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 159.55,
+            "y": 1362.77,
+            "w": 53.06,
+            "h": 26.39,
+            "derecha": 212.61
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(185, 28, 28)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-cerrada-resumen",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 963.92,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1149.28,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1263.27,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1362.77,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 143.55
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 228.61,
+            "y": 1362.77,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 332.16
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-rechazada-detalle",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 740,
+            "y": 616.09,
+            "w": 100,
+            "h": 37.89,
+            "derecha": 840
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 111.41,
+            "y": 666.19,
+            "w": 75.31,
+            "h": 15,
+            "derecha": 186.72
+          },
+          "font": "700 12.8px / 19.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.8px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 740,
+            "y": 653.98,
+            "w": 100,
+            "h": 38.61,
+            "derecha": 840
+          },
+          "font": "700 14.4px / 21.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "14.4px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-rechazada-resumen",
+      "importe": "$0.00",
+      "presentaciones": [
+        {
+          "texto": "$0.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 914.05,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 159.55,
+            "y": 1427.42,
+            "w": 53.06,
+            "h": 26.39,
+            "derecha": 212.61
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(185, 28, 28)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-rechazada-resumen",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 1028.58,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1213.94,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1327.92,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1427.42,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 143.55
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 228.61,
+            "y": 1427.42,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 332.16
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-validada-detalle",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 740,
+            "y": 616.09,
+            "w": 100,
+            "h": 37.89,
+            "derecha": 840
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 111.41,
+            "y": 666.19,
+            "w": 75.31,
+            "h": 15,
+            "derecha": 186.72
+          },
+          "font": "700 12.8px / 19.2px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12.8px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 740,
+            "y": 653.98,
+            "w": 100,
+            "h": 38.61,
+            "derecha": 840
+          },
+          "font": "700 14.4px / 21.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "14.4px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-validada-resumen",
+      "importe": "$0.00",
+      "presentaciones": [
+        {
+          "texto": "$0.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 809.39,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "",
+          "rect": {
+            "x": 159.55,
+            "y": 1322.77,
+            "w": 53.06,
+            "h": 26.39,
+            "derecha": 212.61
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(185, 28, 28)"
+        }
+      ]
+    },
+    {
+      "pantalla": "admin-caja-validada-resumen",
+      "importe": "$48,000.50",
+      "presentaciones": [
+        {
+          "texto": "$48,000.50",
+          "clases": "info-value",
+          "rect": {
+            "x": 40,
+            "y": 923.92,
+            "w": 280,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "500 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1109.28,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 200,
+            "y": 1223.27,
+            "w": 120,
+            "h": 37.39,
+            "derecha": 320
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1322.77,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 143.55
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        },
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 228.61,
+            "y": 1322.77,
+            "w": 103.55,
+            "h": 26.39,
+            "derecha": 332.16
+          },
+          "font": "700 17.6px / 26.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "17.6px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ]
+    }
+  ]
+}

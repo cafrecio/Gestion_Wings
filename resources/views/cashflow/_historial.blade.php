@@ -1,6 +1,6 @@
 <section class="alumno-card mt-4" id="cashflow-historial-correcciones">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--info"></span><h3 class="alumno-nombre">Historial de correcciones</h3></div>
-    <div style="padding:0 24px 16px; font-size:0.85rem;">
+    <div class="card-body-alineado" style="padding:0 24px 16px; font-size:0.85rem;">
     @forelse($historial as $cambio)
         <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
             <p><strong>{{ $cambio->accion === 'EDITAR' ? 'Edición' : 'Anulación' }}</strong> · {{ $cambio->created_at->format('d/m/Y H:i') }} · {{ $cambio->admin?->name }}</p>

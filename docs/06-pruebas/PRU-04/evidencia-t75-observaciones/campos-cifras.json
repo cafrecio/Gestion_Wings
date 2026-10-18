@@ -1,0 +1,260 @@
+{
+  "resultados": [
+    {
+      "slug": "admin-clases-create",
+      "ancho": 360,
+      "antes": [
+        {
+          "id": "fecha",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        }
+      ],
+      "despues": [
+        {
+          "id": "fecha_desde",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "fecha_hasta",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        }
+      ],
+      "cifras": [],
+      "conteos": [],
+      "desborde": false,
+      "recortes": 0
+    },
+    {
+      "slug": "admin-clases-id-edit",
+      "ancho": 360,
+      "antes": [
+        {
+          "id": "fecha",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        }
+      ],
+      "despues": [
+        {
+          "id": "fecha",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 265,
+          "disponible": 265,
+          "max": "none"
+        }
+      ],
+      "cifras": [],
+      "conteos": [],
+      "desborde": false,
+      "recortes": 0
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 360,
+      "antes": [],
+      "despues": [],
+      "cifras": [
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        }
+      ],
+      "conteos": [
+        13.6
+      ],
+      "desborde": false,
+      "recortes": 0
+    },
+    {
+      "slug": "admin-clases-create",
+      "ancho": 375,
+      "antes": [
+        {
+          "id": "fecha",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        }
+      ],
+      "despues": [
+        {
+          "id": "fecha_desde",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "fecha_hasta",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        }
+      ],
+      "cifras": [],
+      "conteos": [],
+      "desborde": false,
+      "recortes": 0
+    },
+    {
+      "slug": "admin-clases-id-edit",
+      "ancho": 375,
+      "antes": [
+        {
+          "id": "fecha",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        }
+      ],
+      "despues": [
+        {
+          "id": "fecha",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_inicio",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        },
+        {
+          "id": "hora_fin",
+          "ancho": 280,
+          "disponible": 280,
+          "max": "none"
+        }
+      ],
+      "cifras": [],
+      "conteos": [],
+      "desborde": false,
+      "recortes": 0
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 375,
+      "antes": [],
+      "despues": [],
+      "cifras": [
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        },
+        {
+          "fuente": "",
+          "color": "rgb(17, 24, 39)",
+          "tamano": 14.4
+        }
+      ],
+      "conteos": [
+        13.6
+      ],
+      "desborde": false,
+      "recortes": 0
+    }
+  ]
+}

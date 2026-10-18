@@ -118,3 +118,13 @@ mismo borde del contenido. Los controles de ícono y los interruptores conservan
 3. **Semánticos sin bloques grandes.** Solo en texto, íconos, bordes de alerta.
 4. **Brand como acento.** Reservar para CTAs y highlights, no pintar fondos enteros.
 5. **Radius y spacing son base.** Vienen inspirados en CyE; se ajustan tras ver en pantalla.
+
+
+## Cifras comparables — T75, 18/10/2026
+
+`ds-money-value`: familia `var(--font-sans)`, `0.9rem`, peso `700`, interlínea `1.5`,
+color `var(--color-text)` y cifras tabulares. Se aplica a los importes comparables de Liquidación,
+incluidos encabezado, resumen, detalles y pie, sin modificar el valor ni su formato.
+`ds-count-value`: `0.85rem` y peso `600`; el conteo no supera visualmente al dinero.
+El criterio del resto de los módulos sigue en consulta: no extender estos tamaños a tablas
+compactas o indicadores de forma automática. [Alcance comprobado](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-OBSERVACIONES.md).

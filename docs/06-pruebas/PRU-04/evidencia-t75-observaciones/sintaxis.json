@@ -1,0 +1,40 @@
+{
+  "php": [
+    {
+      "archivo": "resources/views/cashflow/_historial.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/cashflow/_historial.blade.php"
+    },
+    {
+      "archivo": "resources/views/cashflow/detalle.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/cashflow/detalle.blade.php"
+    },
+    {
+      "archivo": "resources/views/cashflow/eliminar.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/cashflow/eliminar.blade.php"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/cashflow/index.blade.php"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/liquidaciones/show.blade.php"
+    },
+    {
+      "archivo": "resources/views/operativo/dashboard.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/operativo/dashboard.blade.php"
+    },
+    {
+      "archivo": "resources/views/revision-cobranza/index.blade.php",
+      "codigo": 0,
+      "salida": "No syntax errors detected in resources/views/revision-cobranza/index.blade.php"
+    }
+  ],
+  "javascript": 0
+}

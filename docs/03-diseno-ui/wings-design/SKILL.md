@@ -254,3 +254,8 @@ Antes de entregar cualquier vista, verificar:
 - [ ] ¿`surface-alt` se usa solo en inputs y controles?
 - [ ] ¿Los colores de deporte se usan solo en rail e íconos?
 - [ ] ¿Toda vista tiene `@php($title = '...')`?
+
+- [ ] ¿Fecha, hora y mes ocupan el ancho de su campo como el selector, sin un tope fijo que los achique en celular?
+- [ ] ¿El cuerpo y las acciones de una tarjeta evitan sumar padding lateral dos veces?
+- [ ] ¿Los importes comparables de Liquidación usan `ds-money-value`, con conteos secundarios y etiquetas alineadas? Ver [reglas de cifras](../design-system/DESIGN-RULES.md#controles-y-cifras-comparables--observaciones-de-carlos-18102026).
+- [ ] ¿Revisión conserva nota y Confirmar al elegir con el interruptor, sin enviar al cambiarlo?

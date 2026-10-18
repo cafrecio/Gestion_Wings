@@ -1,0 +1,26 @@
+{
+  "base": "aadbb754368e3a030fef7e4755e89d952dc28b18",
+  "fuentes": {
+    "resources/css/app.css": "9807c8ca4ba1e8d07e1bc8538db8e464e942e3227bb7a4447b42069bf6c70fb3",
+    "resources/js/ds-app.js": "53d7a25034eb46febe83b066e3f427f9bd30acc2168ff4975715a1e0b1c89392",
+    "resources/views/cashflow/_historial.blade.php": "707f64f656dce60ceafd1dadf4385c5a154ca46efbaa15c4f8b1728874153463",
+    "resources/views/cashflow/detalle.blade.php": "ffe748a4dbaf6d34f2e87502ef22f4ecc505188826856b658dbab75a52af3469",
+    "resources/views/cashflow/eliminar.blade.php": "e88c2cdfc6017e54e7c039350fc4c4aa3d6c31035a0ce87665756e845daecdea",
+    "resources/views/cashflow/index.blade.php": "3ff726fcecb13214c94c1d9f14ffeddf9bac0bd4f09534a3e894052a20393052",
+    "resources/views/liquidaciones/show.blade.php": "c9c7fce99e4d4e2549418232fdee8f0e5faf5d0dcfc88e3360ba48bf1ec5416f",
+    "resources/views/operativo/dashboard.blade.php": "38deac79681bc0f8e5ee488b507618da21bf3b18c8871cee0ff38fad04465f9e",
+    "resources/views/revision-cobranza/index.blade.php": "8552d54d1a60eedf957666ef05408410acf93b151c0270337f76839136fd206e"
+  },
+  "huellas_originales_sin_normalizar": {
+    "resources/css/app.css": "8f0a443c67aea973316a74ddee87d01389a3b6943bdc0a6733abff5c6d18ee8c",
+    "resources/js/ds-app.js": "7ad5d87e68de6a3b6909e0806b7b532740326a13683dd59419987d1dc8e729d0",
+    "resources/views/cashflow/_historial.blade.php": "a54536d2e4d2b8c786f403a3ad6b52a565137d4942a5df1f6bd07df9fc6aaead",
+    "resources/views/cashflow/detalle.blade.php": "b3abc9d2ac0765701d655a36e9333524a09b18b80ed1a48ed4639da9928feb74",
+    "resources/views/cashflow/eliminar.blade.php": "0689aebebf0f69af372f87d3d2a3f294b65f3a54d4af5c48aea1b1a3b0c982d1",
+    "resources/views/cashflow/index.blade.php": "9eecd68ac5796623f5da453e3fb9f39fb8cf7e1d56e38873405fe38dcaef9663",
+    "resources/views/liquidaciones/show.blade.php": "eceead360ce4b56492d60dc25ca324257ed4fdbf9dd1e333e70c7ae52373216a",
+    "resources/views/operativo/dashboard.blade.php": "c69a218cb935d7627cad88c6ec695560ae34aabbec5ddffcd0f7041c38df208c",
+    "resources/views/revision-cobranza/index.blade.php": "8ed432fcd1ae26569650c32767bc3b75286b73ffd1f502dbab5f41c59425880e"
+  },
+  "normalizacion": "CRLF a LF en archivos de texto; permite verificar la misma fuente tras checkout en otra plataforma"
+}

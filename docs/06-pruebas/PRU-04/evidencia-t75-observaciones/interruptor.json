@@ -1,0 +1,137 @@
+{
+  "metodo": "HTML real Laravel; eventos nativos; submit interceptado sin escrituras",
+  "resultados": [
+    {
+      "estados": [
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        },
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        }
+      ],
+      "sinNota": 0,
+      "envios": [
+        {
+          "resolucion": "INACTIVO",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        },
+        {
+          "resolucion": "CONTINUA",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        }
+      ],
+      "ancho": 360
+    },
+    {
+      "estados": [
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        },
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        }
+      ],
+      "sinNota": 0,
+      "envios": [
+        {
+          "resolucion": "INACTIVO",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        },
+        {
+          "resolucion": "CONTINUA",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        }
+      ],
+      "ancho": 375
+    },
+    {
+      "estados": [
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        },
+        {
+          "activo": true,
+          "tipo": "CONTINUA",
+          "aria": "true",
+          "aviso": "Se generará la cuota de 2026-11 al confirmar.",
+          "envios": 0
+        },
+        {
+          "activo": false,
+          "tipo": "INACTIVO",
+          "aria": "false",
+          "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan.",
+          "envios": 0
+        }
+      ],
+      "sinNota": 0,
+      "envios": [
+        {
+          "resolucion": "INACTIVO",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        },
+        {
+          "resolucion": "CONTINUA",
+          "nota": "Contacto confirmado para la prueba de interfaz."
+        }
+      ],
+      "ancho": 1366
+    }
+  ]
+}

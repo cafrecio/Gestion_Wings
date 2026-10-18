@@ -1,0 +1,5448 @@
+{
+  "fase": "antes",
+  "fecha": "2026-10-18T23:06:03.904Z",
+  "metodo": "Respuestas reales Laravel + iframe 360/375/1366 en Chrome 1366",
+  "casos": [
+    {
+      "slug": "admin-revision-cobranza",
+      "rol": "ADMIN",
+      "ruta": "/revision-cobranza",
+      "vistas": [
+        "resources/views/revision-cobranza/index.blade.php",
+        "vendor/laravel/framework/src/Illuminate/Pagination/resources/views/tailwind.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 409.94,
+            "w": 265,
+            "h": 37,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 389.14,
+            "w": 265,
+            "h": 57.8,
+            "derecha": 305
+          }
+        },
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 479.73,
+            "w": 265,
+            "h": 37,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 458.94,
+            "w": 265,
+            "h": 57.8,
+            "derecha": 305
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1027,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha acciones-celular-fila",
+          "rect": {
+            "x": 40,
+            "y": 528.73,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 544.73,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 528.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "info-item",
+          "rect": {
+            "x": 209,
+            "y": 837.56,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 209,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 853.56,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 837.56,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/alumnos/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "info-item",
+                    "estilo": "margin-left:auto;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 881.56,
+            "w": 265,
+            "h": 53,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "column",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 908.56,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Continúa",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 892.56,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Continúa",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(22, 163, 74)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Inactivo",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 892.56,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Inactivo",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(185, 28, 28)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "form-1",
+          "modal": false,
+          "etiquetas": [
+            "Confirmar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-revision-cobranza--360--principal.png",
+          "sha256": "e16a849d6edea7ae23b48e3f154f8bf51aa36be84c059832096bdf026dfdbe86"
+        },
+        {
+          "nombre": "admin-revision-cobranza--360--final.png",
+          "sha256": "02c122b07eec2e40386a03afac2e306c535700f8fa7373be15f858f14de7b002"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "form-1",
+          "medicion": {
+            "campos": [
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 40,
+                  "y": 409.94,
+                  "w": 265,
+                  "h": 37,
+                  "derecha": 305
+                },
+                "padre": {
+                  "x": 40,
+                  "y": 389.14,
+                  "w": 265,
+                  "h": 57.8,
+                  "derecha": 305
+                }
+              },
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 40,
+                  "y": 479.73,
+                  "w": 265,
+                  "h": 37,
+                  "derecha": 305
+                },
+                "padre": {
+                  "x": 40,
+                  "y": 458.94,
+                  "w": 265,
+                  "h": 57.8,
+                  "derecha": 305
+                }
+              }
+            ],
+            "importes": [],
+            "cuerpos": [],
+            "ancho": 360,
+            "cliente": 345,
+            "referenciaDerecha": 305,
+            "anchoDocumento": 345,
+            "altoDocumento": 1119,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+                "clases": "acciones-celular-derecha acciones-celular-fila",
+                "rect": {
+                  "x": 40,
+                  "y": 528.73,
+                  "w": 265,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 544.73,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Limpiar",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 209,
+                          "y": 528.73,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Limpiar",
+                        "href": "http://127.0.0.1:8735/revision-cobranza",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha acciones-celular-fila",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "info-item",
+                "rect": {
+                  "x": 209,
+                  "y": 837.56,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 209,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 853.56,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Ver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 209,
+                          "y": 837.56,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "ds-btn-row ds-btn-row--sec",
+                        "textoVisible": "Ver",
+                        "href": "http://127.0.0.1:8735/alumnos/1",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "info-item",
+                          "estilo": "margin-left:auto;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+                "clases": "alumno-actions",
+                "rect": {
+                  "x": 40,
+                  "y": 881.56,
+                  "w": 265,
+                  "h": 145.64,
+                  "derecha": 305
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "column",
+                "izquierda": 40,
+                "derecha": 305,
+                "filas": [
+                  {
+                    "cy": 1001.2,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "",
+                        "etiqueta": "Cancelar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 105,
+                          "y": 985.2,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 201
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": "button",
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Confirmar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 209,
+                          "y": 985.2,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 305
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Confirmar",
+                        "href": null,
+                        "tipo": "submit",
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 131,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 209,
+                  "y": 133,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 305
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-revision-cobranza--360--panel-form-1.png",
+            "sha256": "6f9ed2b7cd6ef43c5163327c4949b6570a8c434cfaa19f0fea008c863126eac5"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "admin-revision-cobranza",
+      "rol": "ADMIN",
+      "ruta": "/revision-cobranza",
+      "vistas": [
+        "resources/views/revision-cobranza/index.blade.php",
+        "vendor/laravel/framework/src/Illuminate/Pagination/resources/views/tailwind.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 390.75,
+            "w": 280,
+            "h": 37,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 369.95,
+            "w": 280,
+            "h": 57.8,
+            "derecha": 320
+          }
+        },
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 460.55,
+            "w": 280,
+            "h": 37,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 439.75,
+            "w": 280,
+            "h": 57.8,
+            "derecha": 320
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1007,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha acciones-celular-fila",
+          "rect": {
+            "x": 40,
+            "y": 509.55,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 525.55,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 509.55,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "info-item",
+          "rect": {
+            "x": 224,
+            "y": 818.38,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 224,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 834.38,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 818.38,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/alumnos/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "info-item",
+                    "estilo": "margin-left:auto;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 40,
+            "y": 862.38,
+            "w": 280,
+            "h": 53,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "column",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 889.38,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Continúa",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 873.38,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Continúa",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(22, 163, 74)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Inactivo",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 873.38,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Inactivo",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(185, 28, 28)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "form-1",
+          "modal": false,
+          "etiquetas": [
+            "Confirmar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-revision-cobranza--375--principal.png",
+          "sha256": "71fc2080d3e8353e1d76304f7a08436b939dd977e86905b5ecf610d67e8ed02f"
+        },
+        {
+          "nombre": "admin-revision-cobranza--375--final.png",
+          "sha256": "c9008620b1a7e498907bc8a31d61f0c9043ac3e14344f96b675271901d9f2abd"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "form-1",
+          "medicion": {
+            "campos": [
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 40,
+                  "y": 390.75,
+                  "w": 280,
+                  "h": 37,
+                  "derecha": 320
+                },
+                "padre": {
+                  "x": 40,
+                  "y": 369.95,
+                  "w": 280,
+                  "h": 57.8,
+                  "derecha": 320
+                }
+              },
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 40,
+                  "y": 460.55,
+                  "w": 280,
+                  "h": 37,
+                  "derecha": 320
+                },
+                "padre": {
+                  "x": 40,
+                  "y": 439.75,
+                  "w": 280,
+                  "h": 57.8,
+                  "derecha": 320
+                }
+              }
+            ],
+            "importes": [],
+            "cuerpos": [],
+            "ancho": 375,
+            "cliente": 360,
+            "referenciaDerecha": 320,
+            "anchoDocumento": 360,
+            "altoDocumento": 1100,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+                "clases": "acciones-celular-derecha acciones-celular-fila",
+                "rect": {
+                  "x": 40,
+                  "y": 509.55,
+                  "w": 280,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "row",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 525.55,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Limpiar",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 224,
+                          "y": 509.55,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Limpiar",
+                        "href": "http://127.0.0.1:8735/revision-cobranza",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha acciones-celular-fila",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "info-item",
+                "rect": {
+                  "x": 224,
+                  "y": 818.38,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 224,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 834.38,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Ver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 224,
+                          "y": 818.38,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "ds-btn-row ds-btn-row--sec",
+                        "textoVisible": "Ver",
+                        "href": "http://127.0.0.1:8735/alumnos/1",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "info-item",
+                          "estilo": "margin-left:auto;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+                "clases": "alumno-actions",
+                "rect": {
+                  "x": 40,
+                  "y": 862.38,
+                  "w": 280,
+                  "h": 145.64,
+                  "derecha": 320
+                },
+                "display": "flex",
+                "justify": "flex-end",
+                "direccion": "column",
+                "izquierda": 40,
+                "derecha": 320,
+                "filas": [
+                  {
+                    "cy": 982.02,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "",
+                        "etiqueta": "Cancelar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 120,
+                          "y": 966.02,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 216
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": "button",
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Confirmar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 224,
+                          "y": 966.02,
+                          "w": 96,
+                          "h": 32,
+                          "derecha": 320
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Confirmar",
+                        "href": null,
+                        "tipo": "submit",
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "13.12px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              }
+            ],
+            "paneles": [],
+            "navegacion": [
+              {
+                "etiqueta": "Abrir menú",
+                "icono": true,
+                "rect": {
+                  "x": 16,
+                  "y": 112,
+                  "w": 36,
+                  "h": 36,
+                  "derecha": 52
+                }
+              },
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 224,
+                  "y": 114,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 320
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-revision-cobranza--375--panel-form-1.png",
+            "sha256": "698a50044c872e935584bc118e37616205865c0d863a3c5d775fb24793ab4d92"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "admin-revision-cobranza",
+      "rol": "ADMIN",
+      "ruta": "/revision-cobranza",
+      "vistas": [
+        "resources/views/revision-cobranza/index.blade.php",
+        "vendor/laravel/framework/src/Illuminate/Pagination/resources/views/tailwind.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 281,
+            "y": 348.38,
+            "w": 470.48,
+            "h": 37,
+            "derecha": 751.48
+          },
+          "padre": {
+            "x": 281,
+            "y": 327.58,
+            "w": 470.48,
+            "h": 57.8,
+            "derecha": 751.48
+          }
+        },
+        {
+          "id": "",
+          "tipo": "select-one",
+          "rect": {
+            "x": 763.48,
+            "y": 348.38,
+            "w": 470.48,
+            "h": 37,
+            "derecha": 1233.97
+          },
+          "padre": {
+            "x": 763.48,
+            "y": 327.58,
+            "w": 470.48,
+            "h": 57.8,
+            "derecha": 1233.97
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+          "clases": "filtros-row",
+          "rect": {
+            "x": 281,
+            "y": 327.58,
+            "w": 1044,
+            "h": 57.8,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 281,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 366.38,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Limpiar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1245.97,
+                    "y": 347.38,
+                    "w": 79.03,
+                    "h": 38,
+                    "derecha": 1325
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Limpiar",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px 16px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+          "clases": "info-item",
+          "rect": {
+            "x": 1261,
+            "y": 540.97,
+            "w": 72,
+            "h": 37.44,
+            "derecha": 1333
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 1261,
+          "derecha": 1333,
+          "filas": [
+            {
+              "cy": 559.69,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1261,
+                    "y": 545.69,
+                    "w": 72,
+                    "h": 28,
+                    "derecha": 1333
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/alumnos/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "11.52px",
+                    "fontWeight": "600",
+                    "lineHeight": "11.52px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "info-item",
+                    "estilo": "margin-left:auto;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+          "clases": "alumno-actions",
+          "rect": {
+            "x": 276,
+            "y": 590.41,
+            "w": 1057,
+            "h": 53,
+            "derecha": 1333
+          },
+          "display": "flex",
+          "justify": "flex-start",
+          "direccion": "column",
+          "izquierda": 288,
+          "derecha": 1321,
+          "filas": [
+            {
+              "cy": 617.41,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Continúa",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 288,
+                    "y": 601.41,
+                    "w": 89.34,
+                    "h": 32,
+                    "derecha": 377.34
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Continúa",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px 16px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(22, 163, 74)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(2)>button:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Inactivo",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 385.34,
+                    "y": 601.41,
+                    "w": 82.36,
+                    "h": 32,
+                    "derecha": 467.7
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Inactivo",
+                  "href": null,
+                  "tipo": "button",
+                  "estilo": {
+                    "padding": "0px 16px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(185, 28, 28)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        }
+      ],
+      "paneles": [
+        {
+          "id": "form-1",
+          "modal": false,
+          "etiquetas": [
+            "Confirmar",
+            "Cancelar"
+          ]
+        }
+      ],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-revision-cobranza--1366--principal.png",
+          "sha256": "00897f4518e947332e95327cce6159fec431abb0966e46988f66adf60e1d9900"
+        }
+      ],
+      "variantes": [
+        {
+          "panel": "form-1",
+          "medicion": {
+            "campos": [
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 281,
+                  "y": 348.38,
+                  "w": 470.48,
+                  "h": 37,
+                  "derecha": 751.48
+                },
+                "padre": {
+                  "x": 281,
+                  "y": 327.58,
+                  "w": 470.48,
+                  "h": 57.8,
+                  "derecha": 751.48
+                }
+              },
+              {
+                "id": "",
+                "tipo": "select-one",
+                "rect": {
+                  "x": 763.48,
+                  "y": 348.38,
+                  "w": 470.48,
+                  "h": 37,
+                  "derecha": 1233.97
+                },
+                "padre": {
+                  "x": 763.48,
+                  "y": 327.58,
+                  "w": 470.48,
+                  "h": 57.8,
+                  "derecha": 1233.97
+                }
+              }
+            ],
+            "importes": [],
+            "cuerpos": [],
+            "ancho": 1366,
+            "cliente": 1366,
+            "referenciaDerecha": 1326,
+            "anchoDocumento": 1366,
+            "altoDocumento": 1000,
+            "desborde": false,
+            "zonas": [
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+                "clases": "filtros-row",
+                "rect": {
+                  "x": 281,
+                  "y": 327.58,
+                  "w": 1044,
+                  "h": 57.8,
+                  "derecha": 1325
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 281,
+                "derecha": 1325,
+                "filas": [
+                  {
+                    "cy": 366.38,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Limpiar",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 1245.97,
+                          "y": 347.38,
+                          "w": 79.03,
+                          "h": 38,
+                          "derecha": 1325
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Limpiar",
+                        "href": "http://127.0.0.1:8735/revision-cobranza",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px 16px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(104, 136, 160)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha acciones-celular-fila",
+                          "estilo": null
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)",
+                "clases": "info-item",
+                "rect": {
+                  "x": 1261,
+                  "y": 540.97,
+                  "w": 72,
+                  "h": 37.44,
+                  "derecha": 1333
+                },
+                "display": "flex",
+                "justify": "normal",
+                "direccion": "row",
+                "izquierda": 1261,
+                "derecha": 1333,
+                "filas": [
+                  {
+                    "cy": 559.69,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(5)>a:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Ver",
+                        "categoria": "barra",
+                        "tag": "a",
+                        "rect": {
+                          "x": 1261,
+                          "y": 545.69,
+                          "w": 72,
+                          "h": 28,
+                          "derecha": 1333
+                        },
+                        "disabled": false,
+                        "clases": "ds-btn-row ds-btn-row--sec",
+                        "textoVisible": "Ver",
+                        "href": "http://127.0.0.1:8735/alumnos/1",
+                        "tipo": null,
+                        "estilo": {
+                          "padding": "0px",
+                          "fontSize": "11.52px",
+                          "fontWeight": "600",
+                          "lineHeight": "11.52px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "info-item",
+                          "estilo": "margin-left:auto;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "derecha"
+                  }
+                ]
+              },
+              {
+                "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)",
+                "clases": "alumno-actions",
+                "rect": {
+                  "x": 276,
+                  "y": 590.41,
+                  "w": 1057,
+                  "h": 145.64,
+                  "derecha": 1333
+                },
+                "display": "flex",
+                "justify": "flex-start",
+                "direccion": "column",
+                "izquierda": 288,
+                "derecha": 1321,
+                "filas": [
+                  {
+                    "cy": 710.05,
+                    "controles": [
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                        "id": "",
+                        "etiqueta": "Confirmar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 288,
+                          "y": 694.05,
+                          "w": 96.19,
+                          "h": 32,
+                          "derecha": 384.19
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Confirmar",
+                        "href": null,
+                        "tipo": "submit",
+                        "estilo": {
+                          "padding": "0px 16px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgb(74, 104, 128)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      },
+                      {
+                        "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(3)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(2)",
+                        "id": "",
+                        "etiqueta": "Cancelar",
+                        "categoria": "pie-tarjeta",
+                        "tag": "button",
+                        "rect": {
+                          "x": 392.19,
+                          "y": 694.05,
+                          "w": 90.81,
+                          "h": 32,
+                          "derecha": 483
+                        },
+                        "disabled": false,
+                        "clases": "",
+                        "textoVisible": "Cancelar",
+                        "href": null,
+                        "tipo": "button",
+                        "estilo": {
+                          "padding": "0px 16px",
+                          "fontSize": "13.12px",
+                          "fontWeight": "600",
+                          "lineHeight": "19.68px",
+                          "boxSizing": "border-box",
+                          "background": "rgba(0, 0, 0, 0)"
+                        },
+                        "padre": {
+                          "tag": "DIV",
+                          "clases": "acciones-celular-derecha",
+                          "estilo": "display:flex; gap:8px;"
+                        },
+                        "esAccion": true
+                      }
+                    ],
+                    "alineacion": "izquierda"
+                  }
+                ]
+              }
+            ],
+            "paneles": [],
+            "navegacion": [
+              {
+                "etiqueta": "Salir",
+                "icono": false,
+                "rect": {
+                  "x": 1254,
+                  "y": 12,
+                  "w": 96,
+                  "h": 32,
+                  "derecha": 1350
+                }
+              }
+            ],
+            "avisosAcciones": [],
+            "tablasConAccionesDesplazables": 0,
+            "fuentes": "loaded"
+          },
+          "foto": {
+            "nombre": "admin-revision-cobranza--1366--panel-form-1.png",
+            "sha256": "63d6dba89fbfb55848cdb230bd0d8c9988f8a94470c191db57663faf5504ae6c"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "rol": "ADMIN",
+      "ruta": "/cashflow/movimientos/1/eliminar",
+      "vistas": [
+        "resources/views/cashflow/eliminar.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "motivo",
+          "tipo": "text",
+          "rect": {
+            "x": 64,
+            "y": 451.53,
+            "w": 217,
+            "h": 42,
+            "derecha": 281
+          },
+          "padre": {
+            "x": 40,
+            "y": 288.8,
+            "w": 265,
+            "h": 220.73,
+            "derecha": 305
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 64,
+            "y": 319.19,
+            "w": 80.02,
+            "h": 16,
+            "derecha": 144.02
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 360,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)",
+          "clases": "alumno-actions acciones-celular-derecha",
+          "rect": {
+            "x": 40,
+            "y": 509.53,
+            "w": 265,
+            "h": 45,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 538.53,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cancelar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 522.53,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Cancelar",
+                  "href": "http://127.0.0.1:8735/cashflow",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 522.53,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--danger",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-cashflow-movimientos-id-eliminar--360--principal.png",
+          "sha256": "5c37ad5c8df5805abab71c19df1aa5bd349ce24952ecf567108f0f7e7a3703c6"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "rol": "ADMIN",
+      "ruta": "/cashflow/movimientos/1/eliminar",
+      "vistas": [
+        "resources/views/cashflow/eliminar.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "motivo",
+          "tipo": "text",
+          "rect": {
+            "x": 64,
+            "y": 431.14,
+            "w": 232,
+            "h": 42,
+            "derecha": 296
+          },
+          "padre": {
+            "x": 40,
+            "y": 288.8,
+            "w": 280,
+            "h": 200.34,
+            "derecha": 320
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 64,
+            "y": 319.19,
+            "w": 80.02,
+            "h": 16,
+            "derecha": 144.02
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 375,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)",
+          "clases": "alumno-actions acciones-celular-derecha",
+          "rect": {
+            "x": 40,
+            "y": 489.14,
+            "w": 280,
+            "h": 45,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 518.14,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cancelar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 502.14,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Cancelar",
+                  "href": "http://127.0.0.1:8735/cashflow",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 502.14,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--danger",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-cashflow-movimientos-id-eliminar--375--principal.png",
+          "sha256": "addc79ddca5c7ef627a5debe1d18d3c376d289e182ccbbbc011beb2c49bf91fe"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-cashflow-movimientos-id-eliminar",
+      "rol": "ADMIN",
+      "ruta": "/cashflow/movimientos/1/eliminar",
+      "vistas": [
+        "resources/views/cashflow/eliminar.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "motivo",
+          "tipo": "text",
+          "rect": {
+            "x": 300,
+            "y": 338.36,
+            "w": 1009,
+            "h": 42,
+            "derecha": 1309
+          },
+          "padre": {
+            "x": 276,
+            "y": 236.8,
+            "w": 1057,
+            "h": 159.56,
+            "derecha": 1333
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$48,000.50",
+          "clases": "",
+          "rect": {
+            "x": 300,
+            "y": 267.19,
+            "w": 80.02,
+            "h": 16,
+            "derecha": 380.02
+          },
+          "font": "700 13.6px / 20.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "13.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)",
+          "clases": "alumno-actions acciones-celular-derecha",
+          "rect": {
+            "x": 276,
+            "y": 396.36,
+            "w": 1057,
+            "h": 45,
+            "derecha": 1333
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 276,
+          "derecha": 1333,
+          "filas": [
+            {
+              "cy": 425.36,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cancelar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1129,
+                    "y": 409.36,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1225
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Cancelar",
+                  "href": "http://127.0.0.1:8735/cashflow",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 1237,
+                    "y": 409.36,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1333
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--danger",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha",
+                    "estilo": "justify-content:flex-end; border-top:1px solid var(--color-border); padding-top:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-cashflow-movimientos-id-eliminar--1366--principal.png",
+          "sha256": "f50b4b7ad0b0a6b25c9f6b2d8ee5b85702ff7308354af8f1631fe8c8dbf096b6"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-clases-create",
+      "rol": "ADMIN",
+      "ruta": "/clases/create",
+      "vistas": [
+        "resources/views/clases/create.blade.php",
+        "resources/views/clases/_aviso-cancha.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "fecha",
+          "tipo": "date",
+          "rect": {
+            "x": 40,
+            "y": 385.38,
+            "w": 220,
+            "h": 42,
+            "derecha": 260
+          },
+          "padre": {
+            "x": 40,
+            "y": 363.38,
+            "w": 265,
+            "h": 64,
+            "derecha": 305
+          }
+        },
+        {
+          "id": "grupo_id",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 482.38,
+            "w": 265,
+            "h": 41,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 460.38,
+            "w": 265,
+            "h": 63,
+            "derecha": 305
+          }
+        },
+        {
+          "id": "hora_inicio",
+          "tipo": "time",
+          "rect": {
+            "x": 40,
+            "y": 577.38,
+            "w": 265,
+            "h": 42.69,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 555.38,
+            "w": 265,
+            "h": 64.69,
+            "derecha": 305
+          }
+        },
+        {
+          "id": "hora_fin",
+          "tipo": "time",
+          "rect": {
+            "x": 40,
+            "y": 658.06,
+            "w": 265,
+            "h": 42.69,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 636.06,
+            "w": 265,
+            "h": 64.69,
+            "derecha": 305
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 360,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)",
+          "clases": "filtros-actions mt-6 pt-4",
+          "rect": {
+            "x": 40,
+            "y": 798.75,
+            "w": 265,
+            "h": 49,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 831.75,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 815.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 815.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clases-create--360--principal.png",
+          "sha256": "967b92185aa5dd8d1d516fb49e9d6b4646f595b50aa7bacd0bedba43941deb8a"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-clases-create",
+      "rol": "ADMIN",
+      "ruta": "/clases/create",
+      "vistas": [
+        "resources/views/clases/create.blade.php",
+        "resources/views/clases/_aviso-cancha.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "fecha",
+          "tipo": "date",
+          "rect": {
+            "x": 40,
+            "y": 385.38,
+            "w": 220,
+            "h": 42,
+            "derecha": 260
+          },
+          "padre": {
+            "x": 40,
+            "y": 363.38,
+            "w": 280,
+            "h": 64,
+            "derecha": 320
+          }
+        },
+        {
+          "id": "grupo_id",
+          "tipo": "select-one",
+          "rect": {
+            "x": 40,
+            "y": 482.38,
+            "w": 280,
+            "h": 41,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 460.38,
+            "w": 280,
+            "h": 63,
+            "derecha": 320
+          }
+        },
+        {
+          "id": "hora_inicio",
+          "tipo": "time",
+          "rect": {
+            "x": 40,
+            "y": 577.38,
+            "w": 280,
+            "h": 42.69,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 555.38,
+            "w": 280,
+            "h": 64.69,
+            "derecha": 320
+          }
+        },
+        {
+          "id": "hora_fin",
+          "tipo": "time",
+          "rect": {
+            "x": 40,
+            "y": 658.06,
+            "w": 280,
+            "h": 42.69,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 636.06,
+            "w": 280,
+            "h": 64.69,
+            "derecha": 320
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 375,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)",
+          "clases": "filtros-actions mt-6 pt-4",
+          "rect": {
+            "x": 40,
+            "y": 782.75,
+            "w": 280,
+            "h": 49,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 815.75,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 799.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 799.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clases-create--375--principal.png",
+          "sha256": "b8045c3038735afb5d962e7dde35f74f0be147596200d66983da3f63deaeaf0c"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-clases-create",
+      "rol": "ADMIN",
+      "ruta": "/clases/create",
+      "vistas": [
+        "resources/views/clases/create.blade.php",
+        "resources/views/clases/_aviso-cancha.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [
+        {
+          "id": "fecha",
+          "tipo": "date",
+          "rect": {
+            "x": 281,
+            "y": 339.69,
+            "w": 220,
+            "h": 42,
+            "derecha": 501
+          },
+          "padre": {
+            "x": 281,
+            "y": 317.69,
+            "w": 1044,
+            "h": 64,
+            "derecha": 1325
+          }
+        },
+        {
+          "id": "grupo_id",
+          "tipo": "select-one",
+          "rect": {
+            "x": 281,
+            "y": 436.69,
+            "w": 514,
+            "h": 41,
+            "derecha": 795
+          },
+          "padre": {
+            "x": 281,
+            "y": 414.69,
+            "w": 514,
+            "h": 63,
+            "derecha": 795
+          }
+        },
+        {
+          "id": "hora_inicio",
+          "tipo": "time",
+          "rect": {
+            "x": 281,
+            "y": 515.69,
+            "w": 514,
+            "h": 42.69,
+            "derecha": 795
+          },
+          "padre": {
+            "x": 281,
+            "y": 493.69,
+            "w": 514,
+            "h": 64.69,
+            "derecha": 795
+          }
+        },
+        {
+          "id": "hora_fin",
+          "tipo": "time",
+          "rect": {
+            "x": 811,
+            "y": 515.69,
+            "w": 514,
+            "h": 42.69,
+            "derecha": 1325
+          },
+          "padre": {
+            "x": 811,
+            "y": 493.69,
+            "w": 514,
+            "h": 64.69,
+            "derecha": 1325
+          }
+        }
+      ],
+      "importes": [],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)",
+          "clases": "filtros-actions mt-6 pt-4",
+          "rect": {
+            "x": 281,
+            "y": 640.38,
+            "w": 1044,
+            "h": 49,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 281,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 673.38,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1125,
+                    "y": 657.38,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1221
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--secondary",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/clases",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 1229,
+                    "y": 657.38,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1325
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-actions mt-6 pt-4",
+                    "estilo": "border-top:1px solid var(--color-border); justify-content:flex-end;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-clases-create--1366--principal.png",
+          "sha256": "2827a7dcd5d5687d73c76476c3729b22a340eab6823001d4262d179141c80629"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 119.48,
+            "y": 351.8,
+            "w": 130.19,
+            "h": 27,
+            "derecha": 249.67
+          },
+          "font": "800 22.4px / 33.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "22.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 137.61,
+            "y": 635.83,
+            "w": 69.75,
+            "h": 15,
+            "derecha": 207.36
+          },
+          "font": "800 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 226.28,
+            "y": 619.52,
+            "w": 69.75,
+            "h": 15,
+            "derecha": 296.03
+          },
+          "font": "800 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(74, 104, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 239.7,
+            "y": 834.34,
+            "w": 65.3,
+            "h": 17.27,
+            "derecha": 305
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 169.52,
+            "y": 914.3,
+            "w": 139.48,
+            "h": 36,
+            "derecha": 309
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(74, 104, 128)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1041,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 459.2,
+            "w": 265,
+            "h": 72,
+            "derecha": 305
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 475.2,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 459.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 459.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 515.2,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 499.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 499.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-id--360--principal.png",
+          "sha256": "0b27ed6e6ebdee794d1ec1a8924ed43c21ce65e33fb43c3e97ec5b95c0c61158"
+        },
+        {
+          "nombre": "admin-liquidaciones-id--360--final.png",
+          "sha256": "c5a0639aac951ceb24f77943f7ba7662f141683469af958cc858faf352f216a8"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 119.48,
+            "y": 351.8,
+            "w": 130.19,
+            "h": 27,
+            "derecha": 249.67
+          },
+          "font": "800 22.4px / 33.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "22.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 145.11,
+            "y": 635.83,
+            "w": 69.75,
+            "h": 15,
+            "derecha": 214.86
+          },
+          "font": "800 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 238.78,
+            "y": 619.52,
+            "w": 69.75,
+            "h": 15,
+            "derecha": 308.53
+          },
+          "font": "800 12px / 18px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "12px",
+          "color": "rgb(74, 104, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 254.7,
+            "y": 811.55,
+            "w": 65.3,
+            "h": 17.27,
+            "derecha": 320
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 184.52,
+            "y": 891.5,
+            "w": 139.48,
+            "h": 36,
+            "derecha": 324
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(74, 104, 128)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1018,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 459.2,
+            "w": 280,
+            "h": 72,
+            "derecha": 320
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 475.2,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 459.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 459.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 515.2,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 499.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 499.2,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-id--375--principal.png",
+          "sha256": "f12c33fde5a4a4a1df4d783abb528438cdf65be300cd4b5b849583d8f5b4c14d"
+        },
+        {
+          "nombre": "admin-liquidaciones-id--375--final.png",
+          "sha256": "b0591875e3f5762b05159d114244202dcad3f56001d3310bd4aa8cdcdb525084"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 366.48,
+            "y": 264.19,
+            "w": 130.19,
+            "h": 27,
+            "derecha": 496.67
+          },
+          "font": "800 22.4px / 33.6px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "22.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 728.59,
+            "y": 424.11,
+            "w": 148.78,
+            "h": 31,
+            "derecha": 877.38
+          },
+          "font": "800 25.6px / 38.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "25.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money-summary",
+          "rect": {
+            "x": 1092.94,
+            "y": 424.11,
+            "w": 148.78,
+            "h": 31,
+            "derecha": 1241.72
+          },
+          "font": "800 25.6px / 38.4px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "25.6px",
+          "color": "rgb(74, 104, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "info-value",
+          "rect": {
+            "x": 1267.7,
+            "y": 552.3,
+            "w": 65.3,
+            "h": 17.27,
+            "derecha": 1333
+          },
+          "font": "700 11.52px / 17.28px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "11.52px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "",
+          "rect": {
+            "x": 1190.52,
+            "y": 630.56,
+            "w": 139.48,
+            "h": 36,
+            "derecha": 1330
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(74, 104, 128)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 287,
+            "y": 306.8,
+            "w": 1038,
+            "h": 32,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 287,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 322.8,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 287,
+                    "y": 306.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 383
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 391,
+                    "y": 306.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 487
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 495,
+                    "y": 306.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 591
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 599,
+                    "y": 306.8,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 695
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidaciones-id--1366--principal.png",
+          "sha256": "b64cfb662d38dd7ffa58fc3f44ccac4a9ff6bc2b0ac34f5d87cc6919d52b12e0"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "operativo-0",
+      "rol": "OPERATIVO",
+      "ruta": "/operativo",
+      "vistas": [
+        "resources/views/operativo/dashboard.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1289.75,
+            "w": 265,
+            "h": 36,
+            "derecha": 305
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1701,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+          "rect": {
+            "x": 16,
+            "y": 295.78,
+            "w": 313,
+            "h": 72,
+            "derecha": 329
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 311.78,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Caja",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 295.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Caja",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Cobranza",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 295.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Cobranza",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 351.78,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Alumnos",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 335.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Alumnos",
+                  "href": "http://127.0.0.1:8735/alumnos",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "",
+          "rect": {
+            "x": 43,
+            "y": 400.78,
+            "w": 262,
+            "h": 130.97,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 43,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 515.75,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 499.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary accion-celular-final",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+          "rect": {
+            "x": 43,
+            "y": 679.33,
+            "w": 262,
+            "h": 72,
+            "derecha": 305
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 43,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 695.33,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Registrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 105,
+                    "y": 679.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Registrar",
+                  "href": "http://127.0.0.1:8735/caja/movimiento",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cobrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 679.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cobrar",
+                  "href": "http://127.0.0.1:8735/caja/cobrar",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 735.33,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Resumen",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 719.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Resumen",
+                  "href": "http://127.0.0.1:8735/caja/4/resumen",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "filtros-card",
+          "rect": {
+            "x": 16,
+            "y": 851.13,
+            "w": 313,
+            "h": 79.23,
+            "derecha": 329
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 890.73,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Lista",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 874.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Lista",
+                  "href": "http://127.0.0.1:8735/clases/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-card",
+                    "estilo": "display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)",
+          "clases": "",
+          "rect": {
+            "x": 16,
+            "y": 1025.16,
+            "w": 313,
+            "h": 161.59,
+            "derecha": 329
+          },
+          "display": "grid",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 16,
+          "derecha": 329,
+          "filas": [
+            {
+              "cy": 1105.96,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Con deuda 1 Ir a cobranza →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 16,
+                    "y": 1025.16,
+                    "w": 150.5,
+                    "h": 161.59,
+                    "derecha": 166.5
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Con deuda 1 Ir a cobranza →",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 23px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 178.5,
+                    "y": 1025.16,
+                    "w": 150.5,
+                    "h": 161.59,
+                    "derecha": 329
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Posibles inactivos 1 Ir a revisión →",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 23px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "operativo-0--360--principal.png",
+          "sha256": "e1a2b5c43ce2bba73d48a04c42c7976561df7c0aab64d8d595283e0806f41e97"
+        },
+        {
+          "nombre": "operativo-0--360--pie.png",
+          "sha256": "740a5cb2bf21751766b94c91258a2fe17127689d0f8caccd88717747257fb1e6"
+        },
+        {
+          "nombre": "operativo-0--360--final.png",
+          "sha256": "b0b1fc86106b73d69b9860e534838a4904aab0e718d8e15ac39786c7f641ccad"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "operativo-0",
+      "rol": "OPERATIVO",
+      "ruta": "/operativo",
+      "vistas": [
+        "resources/views/operativo/dashboard.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 40,
+            "y": 1289.75,
+            "w": 280,
+            "h": 36,
+            "derecha": 320
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1701,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+          "rect": {
+            "x": 16,
+            "y": 295.78,
+            "w": 328,
+            "h": 72,
+            "derecha": 344
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 311.78,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Caja",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 295.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Caja",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Cobranza",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 295.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Cobranza",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 351.78,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Alumnos",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 335.78,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Alumnos",
+                  "href": "http://127.0.0.1:8735/alumnos",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "",
+          "rect": {
+            "x": 43,
+            "y": 400.78,
+            "w": 277,
+            "h": 130.97,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 43,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 515.75,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 499.75,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary accion-celular-final",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+          "rect": {
+            "x": 43,
+            "y": 679.33,
+            "w": 277,
+            "h": 72,
+            "derecha": 320
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 43,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 695.33,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Registrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 120,
+                    "y": 679.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Registrar",
+                  "href": "http://127.0.0.1:8735/caja/movimiento",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cobrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 679.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cobrar",
+                  "href": "http://127.0.0.1:8735/caja/cobrar",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 735.33,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Resumen",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 719.33,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Resumen",
+                  "href": "http://127.0.0.1:8735/caja/4/resumen",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "filtros-card",
+          "rect": {
+            "x": 16,
+            "y": 851.13,
+            "w": 328,
+            "h": 79.23,
+            "derecha": 344
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 890.73,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Lista",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 874.73,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Lista",
+                  "href": "http://127.0.0.1:8735/clases/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-card",
+                    "estilo": "display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)",
+          "clases": "",
+          "rect": {
+            "x": 16,
+            "y": 1025.16,
+            "w": 328,
+            "h": 161.59,
+            "derecha": 344
+          },
+          "display": "grid",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 16,
+          "derecha": 344,
+          "filas": [
+            {
+              "cy": 1105.96,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Con deuda 1 Ir a cobranza →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 16,
+                    "y": 1025.16,
+                    "w": 158,
+                    "h": 161.59,
+                    "derecha": 174
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Con deuda 1 Ir a cobranza →",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 23px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 186,
+                    "y": 1025.16,
+                    "w": 158,
+                    "h": 161.59,
+                    "derecha": 344
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Posibles inactivos 1 Ir a revisión →",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 23px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "operativo-0--375--principal.png",
+          "sha256": "664a245afe54a5b5f8efe92212c3831b23bfb835cdddc4d703e6644f3565a825"
+        },
+        {
+          "nombre": "operativo-0--375--pie.png",
+          "sha256": "dcb4afa74b8a9dae19164984649fe954e929e41658db4b68db8cf451fcccc8e4"
+        },
+        {
+          "nombre": "operativo-0--375--final.png",
+          "sha256": "da980b8dab5f81d823654e6404b4ab2f2c65b7b74925ba91d80b209dbb884dad"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "operativo-0",
+      "rol": "OPERATIVO",
+      "ruta": "/operativo",
+      "vistas": [
+        "resources/views/operativo/dashboard.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "campos": [],
+      "importes": [
+        {
+          "texto": "$222,002.00",
+          "clases": "",
+          "rect": {
+            "x": 289,
+            "y": 817.23,
+            "w": 312,
+            "h": 36,
+            "derecha": 601
+          },
+          "font": "800 24px / 36px Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "fontSize": "24px",
+          "color": "rgb(22, 163, 74)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+          "rect": {
+            "x": 1030,
+            "y": 201,
+            "w": 304,
+            "h": 32,
+            "derecha": 1334
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 1030,
+          "derecha": 1334,
+          "filas": [
+            {
+              "cy": 217,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Caja",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1030,
+                    "y": 201,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1126
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Caja",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Cobranza",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1134,
+                    "y": 201,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1230
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Cobranza",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Alumnos",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1238,
+                    "y": 201,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1334
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--sec",
+                  "textoVisible": "Alumnos",
+                  "href": "http://127.0.0.1:8735/alumnos",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila barra-movil",
+                    "estilo": "display:flex; gap:8px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "",
+          "rect": {
+            "x": 296,
+            "y": 292.39,
+            "w": 1017,
+            "h": 44.48,
+            "derecha": 1313
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 296,
+          "derecha": 1313,
+          "filas": [
+            {
+              "cy": 314.63,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Ver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1217,
+                    "y": 298.63,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 1313
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary accion-celular-final",
+                  "textoVisible": "Ver",
+                  "href": "http://127.0.0.1:8735/caja",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+          "rect": {
+            "x": 1019,
+            "y": 415.66,
+            "w": 294,
+            "h": 36,
+            "derecha": 1313
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 1019,
+          "derecha": 1313,
+          "filas": [
+            {
+              "cy": 433.66,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cobrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1019,
+                    "y": 415.66,
+                    "w": 85.28,
+                    "h": 36,
+                    "derecha": 1104.28
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cobrar",
+                  "href": "http://127.0.0.1:8735/caja/cobrar",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px 20px",
+                    "fontSize": "13.6px",
+                    "fontWeight": "600",
+                    "lineHeight": "20.4px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Registrar",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1112.28,
+                    "y": 415.66,
+                    "w": 95.56,
+                    "h": 36,
+                    "derecha": 1207.84
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Registrar",
+                  "href": "http://127.0.0.1:8735/caja/movimiento",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px 18px",
+                    "fontSize": "13.6px",
+                    "fontWeight": "600",
+                    "lineHeight": "20.4px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>a:nth-of-type(3)",
+                  "id": "",
+                  "etiqueta": "Resumen",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1215.84,
+                    "y": 415.66,
+                    "w": 97.16,
+                    "h": 36,
+                    "derecha": 1313
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Resumen",
+                  "href": "http://127.0.0.1:8735/caja/4/resumen",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px 18px",
+                    "fontSize": "13.6px",
+                    "fontWeight": "600",
+                    "lineHeight": "20.4px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha acciones-celular-fila turno-acciones-movil",
+                    "estilo": "display:flex; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+          "clases": "filtros-card",
+          "rect": {
+            "x": 272,
+            "y": 568.25,
+            "w": 519,
+            "h": 58.84,
+            "derecha": 791
+          },
+          "display": "flex",
+          "justify": "space-between",
+          "direccion": "row",
+          "izquierda": 287.4,
+          "derecha": 775.6,
+          "filas": [
+            {
+              "cy": 597.67,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Lista",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 703.61,
+                    "y": 583.67,
+                    "w": 72,
+                    "h": 28,
+                    "derecha": 775.61
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn-row ds-btn-row--sec",
+                  "textoVisible": "Lista",
+                  "href": "http://127.0.0.1:8735/clases/1",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "11.52px",
+                    "fontWeight": "600",
+                    "lineHeight": "11.52px",
+                    "boxSizing": "border-box",
+                    "background": "rgba(0, 0, 0, 0)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "filtros-card",
+                    "estilo": "display:flex; justify-content:space-between; align-items:center; gap:10px; padding:0.6rem 0.9rem;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)",
+          "clases": "",
+          "rect": {
+            "x": 811,
+            "y": 568.25,
+            "w": 523,
+            "h": 145.98,
+            "derecha": 1334
+          },
+          "display": "grid",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 811,
+          "derecha": 1334,
+          "filas": [
+            {
+              "cy": 641.24,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Con deuda 1 Ir a cobranza →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 811,
+                    "y": 568.25,
+                    "w": 255.5,
+                    "h": 145.98,
+                    "derecha": 1066.5
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Con deuda 1 Ir a cobranza →",
+                  "href": "http://127.0.0.1:8735/cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 12.8px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+                  "id": "",
+                  "etiqueta": "Posibles inactivos 1 Ir a revisión →",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 1078.5,
+                    "y": 568.25,
+                    "w": 255.5,
+                    "h": 145.98,
+                    "derecha": 1334
+                  },
+                  "disabled": false,
+                  "clases": "filtros-card",
+                  "textoVisible": "Posibles inactivos 1 Ir a revisión →",
+                  "href": "http://127.0.0.1:8735/revision-cobranza",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "17.6px 12.8px",
+                    "fontSize": "16px",
+                    "fontWeight": "400",
+                    "lineHeight": "24px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(255, 255, 255)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "",
+                    "estilo": "display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;"
+                  },
+                  "esAccion": false
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "operativo-0--1366--principal.png",
+          "sha256": "7141f4c2c03c9bf8e59c2281cc651233ba2fdc1109519a64aecc785287d4c33f"
+        }
+      ],
+      "variantes": []
+    }
+  ]
+}

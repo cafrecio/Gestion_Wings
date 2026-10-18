@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-18 — Codex CAB — T75, cinco observaciones corregidas y criterio del resto en consulta
+
+Carlos pidió corregir cinco vistas y mostrar solo esas; se entregan en una galería enfocada.
+Fecha/hora a ancho completo, doble padding de Cashflow retirado, importes de Liquidación uniformes,
+accesos secundarios de Inicio y Revisión con interruptor, nota y Confirmar; sin cambiar servidor/permisos.
+99 respuestas reales/297 medidas sin desbordes; pruebas de campos, importes grandes e interruptor correctas.
+Suite propia: 857 aprobadas/3 omitidas, 7692 aserciones, 946.92 s, salida 0; build/vistas/sintaxis correctos.
+[Entrega, cinco vistas y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T75-OBSERVACIONES.md).
+Barrido del resto: candidatos en Caja/Cobranza/Reportes; Carlos elige tamaño único o jerarquía fija.
+T75 a_verificar, tiene Carlos; Claude controla interacción de Revisión. T36/T37 conservados cerrados.
+Sin despliegue/autocierre; el aspecto nuevo todavía no está aprobado.
+
 ## 2026-10-18 — Codex CAB — T75 consistencia móvil aplicada, entrega en verificación
 
 Carlos pidió aplicar tamaño Cobrar, padding común y posiciones estables en todas las vistas móviles.
@@ -106,17 +118,6 @@ Navegador/Computer Use no inicia; intento CDP local rechazado EACCES. Sin eviden
 [Informe](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Tablero devuelto a Gemini, no cerrado.
 Sigue: corregir informe; Codex repite Chrome local y suite antes del pase a Carlos. Sin despliegue.
 
-## 2026-10-13 — Codex CyE — T11 devuelta a Gemini, verificación independiente
-
-Chrome 155 del sitio: dos avisos por screenshots de instalación ausentes; criterio sin avisos incumplido.
-Motor sin errores de instalabilidad; manifest/PNG/MIME/CSP correctos. Apache comprobado, no Nginx.
-Arranque real por tres roles correcto; cookie ADMIN vencida vuelve al login, con autorización expresa de Carlos.
-Sin SW ni Cache storage en perfil nuevo; no garantiza ausencia de caché HTTP ni frescura universal.
-Suite propia: 720 aprobadas, 2 omitidas, 6892 aserciones, 1089.50 s, wings_testing_codex.
-Sin instalación física ni ventana desde ícono verificadas; esas pruebas siguen con Carlos.
-[Informe y capturas](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX.md). Devuelto a Gemini: avisos e informe.
-Sin arreglos, datos del club, reloj ni despliegue. Chrome aislado retirado; T11 no cerrada.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -130,3 +131,5 @@ Sin arreglos, datos del club, reloj ni despliegue. Chrome aislado retirado; T11 
 [Entrada T33 archivada al entregar T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-ARRANQUE.md).
 
 [Entrada T7 archivada al entregar consistencia móvil T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-CONSISTENCIA.md).
+
+[Entrada T11 del 13/10 archivada al revisar observaciones T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-OBSERVACIONES.md).
