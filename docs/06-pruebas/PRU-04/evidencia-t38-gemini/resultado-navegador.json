@@ -1,0 +1,48 @@
+{
+  "fecha": "2026-10-18T10:46:31.200Z",
+  "base": "wings_testing_gemini",
+  "usuario": "OPERATIVO sintético",
+  "pasos": [
+    {
+      "paso": "control_login_360",
+      "metricas": {
+        "innerWidth": 360,
+        "scrollWidth": 345,
+        "clientWidth": 345
+      }
+    },
+    {
+      "paso": "ficha_reactivar_ana",
+      "confirmacion": "¿Reactivar a Ana Reingreso?",
+      "aviso": "Alumno activado correctamente. Se generó la cuota de octubre: $7,000.00 (70 % por reingreso).",
+      "metricas_360": {
+        "innerWidth": 360,
+        "scrollWidth": 345,
+        "clientWidth": 345
+      }
+    },
+    {
+      "paso": "listado_toggle_bruno",
+      "metricas_360": {
+        "innerWidth": 360,
+        "scrollWidth": 345,
+        "clientWidth": 345
+      }
+    },
+    {
+      "paso": "cobranza_estados",
+      "deudor_incluye_ana": true,
+      "en_plazo_incluye_bruno": true,
+      "metricas_deudor_360": {
+        "innerWidth": 360,
+        "scrollWidth": 345,
+        "clientWidth": 345
+      },
+      "metricas_en_plazo_360": {
+        "innerWidth": 360,
+        "scrollWidth": 345,
+        "clientWidth": 345
+      }
+    }
+  ]
+}

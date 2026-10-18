@@ -1,13 +1,15 @@
 # Wings — Estado actual
 
-## T38 — Reactivar genera la cuota del mes, implementación de Claude 17/10/2026
+## T38 — Reactivar genera la cuota del mes, cerrada por Gemini 18/10/2026
 
 DU-12 y decisión de Carlos del 17/10 (plazo de alta para el reingreso). Reactivar desde la
 ficha o el listado crea la cuota del mes en curso con el porcentaje de reingreso del día, salvo
 que ya exista; sin plan para el mes no reactiva. La cuota guarda `fecha_reingreso` y tiene el
 plazo de un alta en estados y en la mora. El cobro que reactiva a un inactivo completa lo mismo.
-18 pruebas nuevas; suite completa 819 aprobadas/2 omitidas. Pendiente: verificación de otro
-agente. Pantalla mirada en Chrome (ficha, listado y Cobranza). [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md).
+18 pruebas nuevas; verificada de forma independiente por Gemini CAB sobre `wings_testing_gemini`:
+código, puertas de entrada, importes, plazos, mora, cobro a inactivos, Chrome a 1366 y marco 360px
+(12 capturas) y suite completa (**821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 852,91 s**).
+[Implementación](../06-pruebas/PRU-04/IMPLEMENTACION-T38.md) · [Verificación Gemini](../06-pruebas/PRU-04/VERIFICACION-T38-GEMINI.md).
 
 ## T36 — Revisión persistente de caja, implementación local 17/10/2026
 

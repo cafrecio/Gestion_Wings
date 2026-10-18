@@ -55,9 +55,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T38** Reactivar a un alumno le genera la cuota del mes | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude en cbc851e: reactivar genera la cuota del mes con el porcentaje de reingreso y plazo de alta; tambien el cobro que reactiva. Verifica Gemini cuando termine T41; incluye mirar la ficha y Cobranza en navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T38.md |
+Nada en este momento.
 
 ## Sin empezar (38)
 
