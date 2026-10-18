@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-17 — Claude CAB — T37 verificada y cerrada; T35 cerrada con el OK de Gemini
+
+T37 (Codex): motivo obligatorio en controlador y servicio, espacios solos cuentan como vacío,
+máximo 500 en columna TEXT, error visible arriba de Detalle y Resumen. 8 pruebas de Codex, 22 de
+A25 y 3 mías verdes (operativa no rechaza, 500 eñes, recorte). El aspecto ya lo aprobó Carlos.
+`VERIFICACION-T37.md`. Queda fuera: el rechazo en el Inicio de la operativa (CAJ-029 c).
+T35: Gemini la aprobó en `491dd46` (`VERIFICACION-T35-GEMINI.md`) pero no movió el tablero; la
+cierro con su veredicto. T10 pasó a Carlos en el tablero.
+
 ## 2026-10-17 — Claude CAB — T10: borradores legales sin abogado
 
 Carlos: «actuá como abogado», buscar lo mínimo exigible; abono acordado USD 30 por mes.

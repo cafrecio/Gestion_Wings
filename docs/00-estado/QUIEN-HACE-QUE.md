@@ -46,9 +46,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T37** Rechazar una caja exige motivo | Hecho, espera verificación (hizo Codex, verifica Claude) | VISUAL APROBADO por Carlos el 17/10: Bien ambas imagenes!! (dos botoneras a 375 de 4b050ac). Scroll y Modal OK también aprobados. Verificador visual Carlos según AGENTS 6a; no dejar pendiente ni exigir otra IA para lo visual. A Claude le queda SOLO verificar reglas de rechazo T37. Evidencia: DETALLE-CAJA-MOBILE.md. Suite 784 aprobadas/2 omitidas, 7395 aserciones. Inicio pendiente por decisión de Carlos. |
+Nada en este momento.
 
 ## Codex
 
@@ -56,9 +54,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T35** No se toma asistencia de una clase que todavia no ocurrio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Hecho por Claude en 8f2be1f. Verifica Gemini (Carlos, 17/10). Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md |
+Nada en este momento.
 
 ## Sin empezar (41)
 

@@ -72,13 +72,13 @@
 
   <div class="fichas">
     <a class="ficha f-vos" href="#vos"><b>5</b><span>Te toca a vos</span><small>esperan una decisión o tu OK</small></a>
-    <a class="ficha f-marcha" href="#marcha"><b>2</b><span>En marcha</span><small>las tienen los agentes</small></a>
+    <a class="ficha f-marcha" href="#marcha"><b>0</b><span>En marcha</span><small>las tienen los agentes</small></a>
     <a class="ficha f-atraso" href="#marcha"><b>3</b><span>Atrasadas</span><small>3 días o más sin moverse</small></a>
-    <a class="ficha f-hecho" href="#listas"><b>94</b><span>Hechas</span><small>de 142 tareas de Wings</small></a>
+    <a class="ficha f-hecho" href="#listas"><b>96</b><span>Hechas</span><small>de 142 tareas de Wings</small></a>
   </div>
-  <div class="barra"><i class="s-hecho" style="width:66.2%"></i><i class="s-marcha" style="width:1.41%"></i><i class="s-vos" style="width:3.52%"></i><i class="s-resto" style="width:28.87%"></i></div>
+  <div class="barra"><i class="s-hecho" style="width:67.61%"></i><i class="s-marcha" style="width:0%"></i><i class="s-vos" style="width:3.52%"></i><i class="s-resto" style="width:28.87%"></i></div>
   <div class="leyenda">
-    <span><i class="s-hecho"></i>Hecho 94</span><span><i class="s-marcha"></i>En marcha 2</span>
+    <span><i class="s-hecho"></i>Hecho 96</span><span><i class="s-marcha"></i>En marcha 0</span>
     <span><i class="s-vos"></i>Te toca a vos 5</span><span><i class="s-resto"></i>Sin empezar 41</span>
   </div>
 
@@ -92,8 +92,8 @@
   </section>
 
   <section id="marcha">
-    <h2><i class="s-marcha"></i>En marcha <span class="n">2</span></h2>
-    <div class="carriles"><div class="carril"><h3>Claude <span class="n">1</span></h3><article class="t e-a_verificar" data-fecha="2026-10-17" data-empezada="1"><div class="cab"><b class="id">T37</b><span class="tit">Rechazar una caja exige motivo</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip edad" data-edad>ayer</span></div><div class="quien">hizo Codex → verifica Claude</div><p class="corto">VISUAL APROBADO por Carlos el 17/10: Bien ambas imagenes!! (dos botoneras a 375 de 4b050ac).</p><details><summary>Detalle</summary><p>VISUAL APROBADO por Carlos el 17/10: Bien ambas imagenes!! (dos botoneras a 375 de 4b050ac). Scroll y Modal OK también aprobados. Verificador visual Carlos según AGENTS 6a; no dejar pendiente ni exigir otra IA para lo visual. A Claude le queda SOLO verificar reglas de rechazo T37. Evidencia: DETALLE-CAJA-MOBILE.md. Suite 784 aprobadas/2 omitidas, 7395 aserciones. Inicio pendiente por decisión de Carlos.</p></details></article></div><div class="carril"><h3>Codex <span class="n">0</span></h3><p class="libre">Libre</p></div><div class="carril"><h3>Gemini <span class="n">1</span></h3><article class="t e-a_verificar" data-fecha="2026-10-17" data-empezada="1"><div class="cab"><b class="id">T35</b><span class="tit">No se toma asistencia de una clase que todavia no ocurrio</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip edad" data-edad>ayer</span></div><div class="quien">hizo Claude → verifica Gemini</div><p class="corto">Hecho por Claude en 8f2be1f.</p><details><summary>Detalle</summary><p>Hecho por Claude en 8f2be1f. Verifica Gemini (Carlos, 17/10). Falta mirar la pantalla en un navegador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T35.md</p></details></article></div></div>
+    <h2><i class="s-marcha"></i>En marcha <span class="n">0</span></h2>
+    <div class="carriles"><div class="carril"><h3>Claude <span class="n">0</span></h3><p class="libre">Libre</p></div><div class="carril"><h3>Codex <span class="n">0</span></h3><p class="libre">Libre</p></div><div class="carril"><h3>Gemini <span class="n">0</span></h3><p class="libre">Libre</p></div></div>
     
   </section>
 
@@ -139,7 +139,9 @@
 <li title="Tabla: DU-11 · ALU-017, ALU-025 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] No suma al por cobrar (decision del 10/10). GRANDE. TOCA: AlumnoWebController::toggleActivo, CobranzaEstadoService y la pantalla de Cobranza, ReporteMensualService, un estado nuevo para lo dado por perdido. ORDEN: DESPUES de T31 y T33, mismo calculo"><b class="id">T71</b><span class="tit">Deuda de alumnos dados de baja: se muestra aparte, la baja avisa cuanto debe y pide motivo, y el duenio puede darla por perdida</span></li>
 <li title="Tabla: DU-49 · REP-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [EN PARALELO, sin apuro] Carlos: los que faltaron a todas sus clases de las ultimas dos semanas, primero los que deben. Va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes. Que hoy la lista de quienes no vinieron la vea solo el duenio es un DEFECTO. TOCA: consulta nueva, cobranza/index, OperativoDashboardController"><b class="id">T72</b><span class="tit">Lista de alumnos que estan faltando, para duenio y operativa</span></li>
 <li title="Orden de Carlos, 13/10: no puede haber JavaScript dentro de una vista (AGENTS.md 5-bis). Quedan: auth/login (boton de mostrar la clave; ds-app.js ya lo resuelve con .btn-toggle-password), alumnos/index, caja/detalle (2), caja/editar, caja/resumen, clases/index, clases/show, grupos/index, liquidaciones/create, profesores/index. Cada uno a su archivo en resources/js y bajar el numero en CspSinCodigoIncrustadoTest y en ESTADO-ACTUAL y PLAN-PRODUCCION, que dicen 19 en 17 vistas y son 11 en 10. ORDEN: despues de que Codex publique T33, que tiene abierta esa prueba. Empezo como SEG-11 el 13/09 y quedo a medias"><b class="id">T73</b><span class="tit">Sacar el codigo escrito dentro de las pantallas: quedan 11 bloques en 10 vistas, empezando por el ingreso</span></li>
-<li title="Tabla: DU-60 · CBZ-022 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Decidido por Carlos el 16/10: el recuadro de deuda del Inicio de la operativa muestra los vencidos (como Cobranza) y aparte los que deben pero estan en plazo; vencidos mas en plazo = lo que anuncia el buscador de Cobrar. Cobranza no cambia. TOCA: OperativoDashboardController y su vista (CobranzaEstadoService ya tiene los estados)"><b class="id">T74</b><span class="tit">Inicio de la operativa: vencidos y, aparte, los que estan en plazo</span></li></ul></details><details class="lista l-hecho"><summary><i class="punto"></i>Hecho <span class="n">94</span></summary><ul><li><b class="id">T48</b><span class="tit">Al renombrar a una operativa se renombra su rubro de sueldo</span></li>
+<li title="Tabla: DU-60 · CBZ-022 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Decidido por Carlos el 16/10: el recuadro de deuda del Inicio de la operativa muestra los vencidos (como Cobranza) y aparte los que deben pero estan en plazo; vencidos mas en plazo = lo que anuncia el buscador de Cobrar. Cobranza no cambia. TOCA: OperativoDashboardController y su vista (CobranzaEstadoService ya tiene los estados)"><b class="id">T74</b><span class="tit">Inicio de la operativa: vencidos y, aparte, los que estan en plazo</span></li></ul></details><details class="lista l-hecho"><summary><i class="punto"></i>Hecho <span class="n">96</span></summary><ul><li><b class="id">T35</b><span class="tit">No se toma asistencia de una clase que todavia no ocurrio</span></li>
+<li><b class="id">T37</b><span class="tit">Rechazar una caja exige motivo</span></li>
+<li><b class="id">T48</b><span class="tit">Al renombrar a una operativa se renombra su rubro de sueldo</span></li>
 <li><b class="id">T49</b><span class="tit">No se desactiva ni se cambia de rol a una operativa con la caja abierta</span></li>
 <li><b class="id">B11</b><span class="tit">Los punitorios están definidos y sin motor</span><span class="chip p-alta">Prioritaria</span></li>
 <li><b class="id">T3</b><span class="tit">Pasar el seguimiento al tablero unico</span></li>
