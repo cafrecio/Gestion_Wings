@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
+| **T41** No se puede cerrar una liquidacion antes de que termine el mes | Hecho, espera verificación (hizo Gemini, verifica Claude) | Logica verificada por Claude el 18/10 (VERIFICACION-T41.md). Falta el visto bueno visual de Carlos: texto 'Se puede cerrar desde el ...' en lugar del boton Cerrar |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -46,10 +47,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T36** Validar una caja exige todos los movimientos tildados | Hecho, espera verificación (hizo Codex, verifica Claude) | Claude: verificar persistencia, todos tildados, Resumen, permisos, vacía y solo cambios destildan (Carlos). 14 pruebas nuevas y navegador aprobados, 12 capturas. Suite inicial 818/2/1 T38; tras cbc851e de Claude, repetición integrada T38/T36/FIN-11/guardianes 50 aprobadas/314 aserciones. Ver IMPLEMENTACION-T36.md. Disposición aprobada en T37 conservada. Sin despliegue. |
-| **T41** No se puede cerrar una liquidacion antes de que termine el mes | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar en codigo y pantalla que cerrarLiquidacion impide cerrar antes del dia 1 del mes siguiente (hora Wings) y que la pantalla muestra desde que dia se puede cerrar en vez del boton Cerrar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T41.md |
+Nada en este momento.
 
 ## Codex
 

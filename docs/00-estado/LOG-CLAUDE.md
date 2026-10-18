@@ -11,6 +11,20 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-18 — Claude CAB — T36 cerrada; T41 lógica aprobada, espera el visual de Carlos
+
+T36 (Codex, `8a7d102`): tilde por movimiento con huella del contenido; validar exige todos,
+también los cancelados, en el servicio. 14 pruebas de Codex, 162 de caja/Cashflow/reportes y 3
+mías verdes; aspecto aprobado por Carlos («visualmente están bien»). Cerrada. T41 (Gemini,
+`ee65b57`): la regla vive en `cerrarLiquidacion`, el único lugar que cierra; 62 pruebas de
+liquidación y 3 mías (diciembre a enero, corte en hora de Buenos Aires con el servidor en UTC)
+verdes. Queda para Carlos el texto que reemplaza al botón Cerrar. Mis controles se corren desde
+`evidencia-*-claude/`, no desde `tests/`.
+
+**Error mío que no se repite:** el fallo de T38 en la suite de Codex (4000 contra 7000) lo causé
+yo al romper código a propósito en la carpeta compartida mientras él corría pruebas. Las
+mutaciones van en una copia aparte, nunca en la carpeta que usan los otros agentes.
+
 ## 2026-10-17 — Claude CAB — T38 hecha: reactivar genera la cuota del mes
 
 DU-12 y, al empezar, Carlos: la cuota del reingreso tiene el plazo de un alta. Reactivar (ficha o
