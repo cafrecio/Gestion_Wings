@@ -58,11 +58,13 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T41** No se puede cerrar una liquidacion antes de que termine el mes | En curso (hizo Gemini, verifica Claude) | Tabla: DU-37 · LIQ-005 (docs/06-pruebas/PRU-04/tabla-de-pruebas). [ANTES de que la prueba llegue a fin de mes] TOCA: LiquidacionService::cerrarLiquidacion, LiquidacionWebController::cerrar, vista de la liquidacion. POR QUE DESPUES: recien importa cuando el cuento liquide octubre. ORDEN: comparte LiquidacionService con T42, T43, T45 y T46: en serie. Es la mas chica, puede ir primera |
 
-## Sin empezar (39)
+## Sin empezar (38)
 
-T12, T22, T25, T34, T39, T40, T41, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T12, T22, T25, T34, T39, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T57, T58, T59, T60, T61, T62, T63, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
