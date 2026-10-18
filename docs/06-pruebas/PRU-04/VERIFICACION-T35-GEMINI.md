@@ -86,8 +86,8 @@ Se leyó el cuerpo completo de las 8 pruebas (líneas `60–178`):
 ### 4.2. Corrida de la suite sobre `wings_testing_gemini`
 
 - Se ejecutó `$env:DB_DATABASE='wings_testing_gemini'; php artisan test`.
-- En la corrida completa mientras otro agente ejecutaba pruebas en paralelo, pasaron 783 de 784 tests (falló únicamente `PrimeraCargaExcelTest::test_revision_con_errores_no_habilita_carga_y_descarga_informe_privado` por colisión en el directorio en disco `storage/framework/testing/disks/local` al limpiarse `Storage::fake('local')` en paralelo).
-- Reejecutados inmediatamente `tests/Feature/AsistenciaClaseFuturaTest.php` y `tests/Feature/PrimeraCargaExcelTest.php` sobre `wings_testing_gemini`: **28 passed (579 assertions)** en verde.
+- **Resultado de la corrida completa (`wings_testing_gemini`):** **786 pruebas ejecutadas** (`783 passed, 2 skipped, 1 failed` — **7.389 aserciones** en **1.004,00 s**). El único rojo fue `PrimeraCargaExcelTest::test_revision_con_errores_no_habilita_carga_y_descarga_informe_privado` por colisión en el directorio compartido `storage/framework/testing/disks/local` mientras otro agente corría `Storage::fake('local')` en paralelo.
+- **Reejecución aislada inmediata (`tests/Feature/AsistenciaClaseFuturaTest.php` + `tests/Feature/PrimeraCargaExcelTest.php` sobre `wings_testing_gemini`):** **28 passed (579 assertions)** en **39,70 s** (`AsistenciaClaseFuturaTest`: **8/8 aprobadas**, 0 fallos).
 
 ---
 
