@@ -26,8 +26,8 @@ DU-60 (CBZ-022): Inicio separa Vencidos y En plazo; sumados coinciden con Cobrar
 
 ## Corrección T34 C1 y C2 — Gemini CyE, 19/10/2026
 
-**A VERIFICAR por Codex.** Subsanados C1 y C2 señalados por Codex CyE en `ba471ce2`.
-- C1: Memoización de `badgeClasesPendientes` en `$request->attributes` en `AppServiceProvider`. El COUNT se ejecuta como máximo 1 vez por petición; se eliminan las 56 consultas redundantes en listados de tarjetas múltiples y se recalcula fresco al cambiar de request.
+**CERRADA: verificación APROBADA por Codex CyE sobre c017bac3.** C1: 20 consultas con 2 y 16 tarjetas, un COUNT por petición y valor fresco tras PATCH. C2: dos rollbacks reales después de UPDATE (HORA/COMISIÓN), filas intactas; período y generación exitosa correctos. H1/H2 se conservan. Dirigidas 27/321 verdes; rápida 820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0. Completa ya ejecutada con esta corrección: 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s. [Reverificación actual](../06-pruebas/PRU-04/VERIFICACION-T34-C1-C2-CODEX.md). T67 cerrada; sin cambios de producto ni despliegue.
+- C1: Memoización de `badgeClasesPendientes` en `$request->attributes` en `AppServiceProvider`. Verificado por Codex: 20 consultas con 2 y 16 tarjetas, un solo COUNT en cada petición; secuencia web 1→0→1 al validar/desvalidar, sin valor viejo.
 - C2: `LiquidacionWebController::store` envuelve validación y generación en `DB::transaction(...)`. Cualquier fallo o duplicado produce rollback sin dejar clases validadas. `incluir_hoy` restringido a clases cuyo mes y año coincidan con el período solicitado y valida `!$clase->integraLiquidacionCerrada()`.
 - Pruebas: 5 regresiones permanentes en `ClaseSinAsistenciaYDniT34T67Test.php` (11 tests, 78 aserciones, 10.68 s, verdes). Suite completa en `wings_testing_gemini`: 934 aprobadas, 4 omitidas, 0 fallidas de código (8239 aserciones, 1498.66 s). Suite rápida: 820 aprobadas, 4 omitidas (291.24 s). Contador a 939 pruebas. Sin cambios visuales. [Informe de entrega](../06-pruebas/PRU-04/CORRECCION-T34-C1-C2-GEMINI.md). Sin despliegue.
 

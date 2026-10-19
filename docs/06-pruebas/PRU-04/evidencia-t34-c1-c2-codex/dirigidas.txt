@@ -1,0 +1,37 @@
+
+   PASS  Tests\Feature\CierreT34CodexTest
+  ✓ estados tarjeta y ficha coinciden                                                                            9.99s  
+  ✓ consultas no crecen por tarjeta en hoy y listado                                                             0.57s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pendiente"                         0.32s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pagada"                            0.26s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pendiente"                     0.49s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pagada"                        0.52s  
+  ✓ sin cerrada permite validar y desvalidar with data set "hora"                                                0.30s  
+  ✓ sin cerrada permite validar y desvalidar with data set "comision"                                            0.36s  
+  ✓ permisos y campo inyectado por edicion                                                                       0.43s  
+  ✓ incluir hoy no deja validacion tras rechazo ni altera clase cerrada                                          0.30s  
+  ✓ rollback real del mes vigente despues de intentar update with data set "hora"                                0.30s  
+  ✓ rollback real del mes vigente despues de intentar update with data set "comision"                            0.26s  
+  ✓ badge se refresca despues de validar y desvalidar por web                                                    0.34s  
+  ✓ incluir hoy valida solo candidatas y conserva las otras                                                      0.36s  
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.45s  
+  ✓ permisos filtro sin presentes                                                                                0.42s  
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.26s  
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.24s  
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.44s  
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.48s  
+  ✓ c1 consultas no crecen por tarjeta en listado de clases                                                      0.50s  
+  ✓ c1 contador se actualiza entre peticiones sucesivas                                                          0.13s  
+  ✓ c2 generacion rechazada no deja validaciones persistidas                                                     0.12s  
+  ✓ c2 incluir hoy no modifica clases ajenas al periodo solicitado                                               0.17s  
+  ✓ c2 incluir hoy en periodo vigente valida clases y genera correctamente                                       0.15s  
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.10s  
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.07s  
+
+  Tests:    27 passed (321 assertions)
+  Duration: 18.62s
+

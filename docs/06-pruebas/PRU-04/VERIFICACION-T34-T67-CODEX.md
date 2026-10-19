@@ -1,6 +1,6 @@
 # Verificación independiente de T34 y T67 — Codex CAB
 
-> Primera verificación histórica; la revisión vigente de T34 está en [Verificación de la corrección](#verificación-de-la-corrección). T67 sigue cerrada.
+> Estado vigente T34: [reverificación de C1/C2 sobre c017bac3](VERIFICACION-T34-C1-C2-CODEX.md). Las secciones siguientes conservan las revisiones históricas y sus hallazgos anteriores. T67 sigue cerrada.
 
 19/10/2026. Base exclusiva: `wings_testing_codex`. Producto sin modificaciones, sin despliegue.
 

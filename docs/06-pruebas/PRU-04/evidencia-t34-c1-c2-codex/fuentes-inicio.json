@@ -1,0 +1,38 @@
+[
+  {
+    "path": "app/Providers/AppServiceProvider.php",
+    "sha256": "3fe554306852802647dae790d82257d4d5e4c3a28cad20d75e8f6da49cb5305f"
+  },
+  {
+    "path": "app/Http/Controllers/LiquidacionWebController.php",
+    "sha256": "7c3c3a9dbaf03472081e628ac0521e40f73730c8739100545fd9bf14ab254688"
+  },
+  {
+    "path": "app/Http/Controllers/ClaseWebController.php",
+    "sha256": "f9db6d50082722ac1914425c8312071eea478de36401b35e97c984743b227866"
+  },
+  {
+    "path": "app/Models/Clase.php",
+    "sha256": "99d9227f475e129adf32afa56266a7d99223ef8b62961ab8a6cab439e02d9360"
+  },
+  {
+    "path": "app/Services/LiquidacionService.php",
+    "sha256": "619a0e056db517a4cef4743982cbbb78bab3f5b06433b7ad5cee3d812f1fe881"
+  },
+  {
+    "path": "tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php",
+    "sha256": "ffd5ac02743f9a8bf6a878e6e783e4d8c6c5df4257c7f1ed82f44f51ffb633d3"
+  },
+  {
+    "path": "resources/views/clases/_card.blade.php",
+    "sha256": "89a4456db0904175b78f411596535557e27ceb3805f01d88b2fa79635b15267b"
+  },
+  {
+    "path": "resources/views/clases/show.blade.php",
+    "sha256": "c77db4fd1850461832422ec7c3b96b6c8e81e58a1aadfb1c63131cf5ca2d7dec"
+  },
+  {
+    "path": "resources/views/clases/index.blade.php",
+    "sha256": "a92ef4e881b51a07a90516eb277cb6b865d98dbc2d770d56fa4180e51cd6940c"
+  }
+]

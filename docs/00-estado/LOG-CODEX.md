@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CyE — T34, reverificación C1/C2 aprobada
+
+Verifico c017bac3 de Gemini; sin cambios de producto ni diseño.
+C1: 20→20 consultas con 2→16 tarjetas, un COUNT; badge 1→0→1 tras PATCH reales.
+C2: HORA/COMISIÓN, UPDATE intentado y rollback tras duplicado del mes vigente; filas intactas.
+H1/H2 y permisos conservados; generación válida filtra profesor, fecha, cancelada y presentes.
+Dirigidas 27/321 verdes, 18,62 s; rápida 820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0.
+Completa verde ya ejecutada con la corrección: 935/4 omitidas, 8243 aserciones, 1283,46 s; no se repite.
+[Informe, SQL y capturas](../06-pruebas/PRU-04/VERIFICACION-T34-C1-C2-CODEX.md); 10 combinaciones de navegador sin desborde.
+T34 cerrada: hizo Gemini/verifica Codex. Visual previo de Carlos conservado; T67 cerrada. Sin despliegue.
+
 ## 2026-10-19 — Codex CyE — T74, lógica aprobada y visual aprobado por Carlos
 
 Toma publicada en 5bbf5047 antes de editar. Lógica de Claude c1b761e8/09409f9f contrastada con fuente y HTTP.
@@ -93,18 +104,6 @@ Carlos aprobó las cinco vistas: «Esas opciones estan muy bien aprobadas»; ver
 T36/T37 conservados cerrados. Solo falta control de la interacción de Revisión por Claude.
 Sin despliegue ni autocierre.
 
-## 2026-10-18 — Codex CAB — T75, cinco observaciones corregidas y criterio del resto en consulta
-
-Carlos pidió corregir cinco vistas y mostrar solo esas; se entregan en una galería enfocada.
-Fecha/hora a ancho completo, doble padding de Cashflow retirado, importes de Liquidación uniformes,
-accesos secundarios de Inicio y Revisión con interruptor, nota y Confirmar; sin cambiar servidor/permisos.
-99 respuestas reales/297 medidas sin desbordes; pruebas de campos, importes grandes e interruptor correctas.
-Suite propia: 857 aprobadas/3 omitidas, 7692 aserciones, 946.92 s, salida 0; build/vistas/sintaxis correctos.
-[Entrega, cinco vistas y límites](../06-pruebas/PRU-04/IMPLEMENTACION-T75-OBSERVACIONES.md).
-Barrido del resto: candidatos en Caja/Cobranza/Reportes; Carlos elige tamaño único o jerarquía fija.
-T75 a_verificar, tiene Carlos; Claude controla interacción de Revisión. T36/T37 conservados cerrados.
-Sin despliegue/autocierre; el aspecto nuevo todavía no está aprobado.
-
 [Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
 
 [Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
@@ -138,3 +137,5 @@ Sin despliegue/autocierre; el aspecto nuevo todavía no está aprobado.
 [Entrada T75 archivada al verificar corrección T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-REVERIFICACION.md).
 
 [Entrada T75 archivada al verificar T74](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T74-ARRANQUE.md).
+
+[Entrada T75 archivada al cerrar T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-CIERRE.md).

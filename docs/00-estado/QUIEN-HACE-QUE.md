@@ -52,9 +52,7 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | En curso (hizo Gemini, verifica Codex) | Codex CyE reverifica c017bac3: C1 SQL y frescura por peticion; C2 periodo, rollback real y proteccion de cerradas. H1/H2 conservados; sin cambios de producto |
+Nada en este momento.
 
 ## Gemini
 

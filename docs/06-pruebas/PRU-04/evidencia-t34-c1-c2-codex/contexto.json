@@ -1,0 +1,15 @@
+{
+  "head": "94a31ee591ca0e8d3c6901e9424e36cf25ca8dcc",
+  "correccion": "c017bac3",
+  "core_identico_a_la_correccion": [
+    "app/Providers/AppServiceProvider.php",
+    "app/Http/Controllers/LiquidacionWebController.php",
+    "app/Http/Controllers/ClaseWebController.php",
+    "app/Models/Clase.php",
+    "app/Services/LiquidacionService.php",
+    "tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php"
+  ],
+  "fuentes_9_identicas": true,
+  "suite_rapida": "820 aprobadas, 4 omitidas, 6657 aserciones, 404.38 s, salida 0",
+  "completa_reutilizada": "evidencia-t74-codex/suite-completa.txt"
+}

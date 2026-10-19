@@ -1,0 +1,57 @@
+
+   FAIL  Tests\Feature\CierreT34CodexTest
+  ✓ estados tarjeta y ficha coinciden                                                                           12.03s  
+  ✓ consultas no crecen por tarjeta en hoy y listado                                                             0.41s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pendiente"                         0.41s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pagada"                            0.31s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pendiente"                     0.31s  
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pagada"                        0.24s  
+  ✓ sin cerrada permite validar y desvalidar with data set "hora"                                                0.27s  
+  ✓ sin cerrada permite validar y desvalidar with data set "comision"                                            0.28s  
+  ✓ permisos y campo inyectado por edicion                                                                       0.22s  
+  ✓ incluir hoy no deja validacion tras rechazo ni altera clase cerrada                                          0.20s  
+  ✓ rollback real del mes vigente despues de intentar update with data set "hora"                                0.18s  
+  ✓ rollback real del mes vigente despues de intentar update with data set "comision"                            0.18s  
+  ✓ badge se refresca despues de validar y desvalidar por web                                                    0.17s  
+  ⨯ incluir hoy valida solo candidatas y conserva las otras                                                      0.17s  
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.27s  
+  ✓ permisos filtro sin presentes                                                                                0.21s  
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.14s  
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.10s  
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.17s  
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.17s  
+  ✓ c1 consultas no crecen por tarjeta en listado de clases                                                      0.24s  
+  ✓ c1 contador se actualiza entre peticiones sucesivas                                                          0.11s  
+  ✓ c2 generacion rechazada no deja validaciones persistidas                                                     0.12s  
+  ✓ c2 incluir hoy no modifica clases ajenas al periodo solicitado                                               0.13s  
+  ✓ c2 incluir hoy en periodo vigente valida clases y genera correctamente                                       0.15s  
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.06s  
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.06s  
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\CierreT34CodexTest > incluir hoy valida solo candidatas y conserva las otra…  QueryException   
+  SQLSTATE[HY000]: General error: 1364 Field 'dni' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: wings_testing_codex, SQL: insert into `profesores` (`deporte_id`, `nombre`, `apellido`, `valor_hora`, `activo`, `updated_at`, `created_at`) values (14, Otra, Prueba, 1000, 1, 2026-10-18 12:00:00, 2026-10-18 12:00:00))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕ 
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      NunoMaduro\Collision\Exceptions\TestException::("SQLSTATE[HY000]: General error: 1364 Field 'dni' doesn't have a default value")
+
+
+  Tests:    1 failed, 26 passed (311 assertions)
+  Duration: 17.60s
+
