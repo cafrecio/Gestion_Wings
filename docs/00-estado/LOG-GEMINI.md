@@ -7,6 +7,19 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CYE — Adopción de la regla de testeo en dos velocidades y verificación T59/T47
+
+- **Nueva regla de testeo (decisión de Carlos, 19/10/2026, AGENTS.md §6-ter):**
+  - **Suite rápida por tarea:** `DB_DATABASE=wings_testing_gemini php artisan test --exclude-group=lento` (~4 min) para cambios cotidianos de código + pruebas dirigidas del área tocada.
+  - **Suite completa (`php artisan test`):** reservada para antes de desplegar, cuando la tarea toque plata compartida (caja, cobros, deuda, cashflow, liquidaciones, recibos), toque un área marcada `lento`, o por impacto cruzado de codebase-memory.
+  - **Regla de concurrencia:** una sola suite completa a la vez por máquina (comprobar previamente con `Get-CimInstance Win32_Process`).
+- **Verificación de T59 y T47 (Claude CAB, commit `d7b0a5c8`):**
+  - **T59 (APROBADA):** El dueño es redirigido a Cashflow al abrir `/caja/movimiento`; si envía el formulario de caja, se aborta sin escribir movimientos en la base ni afectar el turno operativo.
+  - **T47 (APROBADA):** Nueva pantalla 405 en castellano con cabecera `Allow` y botón `Volver` al inicio del rol; `AvisoError::texto` sanitiza fallos técnicos y excepciones de modelos sin tocar mensajes de negocio; los 29 `catch` en controladores web usan `AvisoError`. Visual aprobado por Carlos en `04bb9228`.
+  - **Pruebas y suite (`wings_testing_gemini`):** 23 dirigidas pasando (431 aserciones, 16.53 s). Suite completa ejecutada al tocar plata compartida: 921 aprobadas, 4 omitidas, 0 fallidas, 8179 aserciones, 1118.68 s. Salida 0.
+  - **Informe y cierre:** `docs/06-pruebas/PRU-04/VERIFICACION-T59-T47-GEMINI.md`. T59 y T47 cerradas en `tareas.json`.
+- **Próximo paso:** Continuar según prioridades del plan.
+
 ## 2026-10-19 — LOG GEM CYE — Vistas de T68 aprobadas por Carlos y rediseño de Grupos y Profesores
 
 - **Objetivo y aprobación:** Carlos aprobó el 19/10/2026 las vistas de T68 («Las vistas están aprobadas») tras revisar las capturas reales generadas del sistema andando.

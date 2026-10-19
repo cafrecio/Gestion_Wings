@@ -44,13 +44,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: página 405 en castellano para la dirección de una acción abierta a mano; registro inexistente y fallos de base avisan en castellano (AvisoError, 29 catch en 6 controladores). Visual aprobado por Carlos el 19/10: T47 visual aprobado. Falta verificar lógica (propuesto Gemini, junto con T59); puede cerrar si pasa. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
-| **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: el dueño que entra a Nuevo movimiento de caja va a Cashflow; si envía el formulario de caja no se registra nada. 3 pruebas, Chrome. Falta verificador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
 | **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: Inicio con Vencidos (= Cobranza) y En plazo; suman el buscador de Cobrar. 5 pruebas, Chrome 1366/375 con fecha simulada 05/10. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T74.md |
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | En curso | [ANTES DEL 1/11, Carlos 18/10] Tabla: DU-52 · CBZ-020 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: routes/console.php (programacion), GenerarDeudasMensualesCommand, AvisoAdminService y el resumen diario. POR QUE DESPUES: recien importa cuando el cuento llegue al 1 de noviembre. ORDEN: no choca con otras |
 
 ## Codex
 
@@ -62,9 +62,9 @@ Nada en este momento.
 |---|---|---|
 | **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Codex CyE: H1 y PATCH H2 pasan. CON HALLAZGOS c/f: C1 contador por tarjeta, C2 incluir_hoy persiste tras generacion rechazada. Ver seccion Verificacion de la correccion en VERIFICACION-T34-T67-CODEX.md. Ambos preexistentes; no se demuestra bypass de cerrada. Visual aprobado por Carlos 19/10. T67 cerrada |
 
-## Sin empezar (25)
+## Sin empezar (24)
 
-T12, T22, T25, T40, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
+T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
