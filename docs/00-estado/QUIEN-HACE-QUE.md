@@ -48,7 +48,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | En curso | [AHORA, Carlos 18/10] Orden de Carlos, 13/10: sin JavaScript dentro de vistas (AGENTS 5-bis). T36 retiró 3 bloques y 1 onsubmit de caja/detalle y caja/resumen. Quedan 8 bloques en auth/login, alumnos/index, caja/editar, clases/index, clases/show, grupos/index, liquidaciones/create y profesores/index; 8 manejadores. Cada pantalla usa su archivo resources/js, lo compartido ds-app.js. Bajar a la vez CspSinCodigoIncrustadoTest, AGENTS, ESTADO-ACTUAL y PLAN-PRODUCCION. No reintroducir lo retirado por T36. |
+| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: cero bloques script y cero manejadores en las vistas (eran 8 y 8). Ingreso con el ojo de ds-app; filtros con data-enviar-al-cambiar; 5 módulos nuevos en resources/js; confirmaciones con form[data-confirmar-envio]. CspSinCodigoIncrustadoTest en cero. Sin cambios de aspecto. Falta verificar EN NAVEGADOR con clics (lista en el informe). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T73.md |
 
 ## Codex
 

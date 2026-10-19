@@ -173,8 +173,9 @@ resources/js/usuarios.js    lo usa solo usuarios/_form
 
 **`ds-app.js` es solo para lo que comparten varias pantallas.** Ahí van el
 comportamiento delegado y los componentes reutilizables: `data-enviar-al-cambiar`,
-`data-elevar`, el ojo de contraseña, el cierre de avisos, el validador de nombre
-repetido. Nada que sirva a una sola vista.
+`data-elevar`, el ojo de contraseña (`.btn-toggle-password`), el cierre de avisos, el
+validador de nombre repetido y la confirmación antes de enviar un formulario
+(`form[data-confirmar-envio="¿Eliminar…?"]`, T73). Nada que sirva a una sola vista.
 
 **Por qué.** `ds-app.js` se carga en todas las pantallas. Amontonar ahí la lógica
 de las 24 vistas obliga a cada persona a descargar el código de todas para usar el

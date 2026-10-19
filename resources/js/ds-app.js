@@ -62,6 +62,22 @@ import './money-input';
     });
 })();
 
+/* ── confirmar antes de enviar: form[data-confirmar-envio] (T73) ─────────
+   Reemplaza a onsubmit="return confirm(...)" escrito dentro del HTML.
+   Escucha en captura para correr antes que el anti doble-submit de abajo:
+   si la persona cancela, ese ve el envío cancelado y no traba el formulario.
+──────────────────────────────────────────────────────────────────── */
+(function () {
+    document.addEventListener('submit', function (e) {
+        var form = e.target;
+        if (!form || !form.matches || !form.matches('form[data-confirmar-envio]')) return;
+        if (!window.confirm(form.getAttribute('data-confirmar-envio'))) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+        }
+    }, true);
+})();
+
 /* ── anti doble-submit global: la segunda pulsación no dispara otro POST ── */
 (function () {
     document.addEventListener('submit', function (e) {

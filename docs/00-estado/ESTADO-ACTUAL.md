@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T73 — Sin JavaScript dentro de las vistas, Claude CyE 19/10/2026
+
+Implementada localmente, **a verificar en navegador** (orden de Carlos 13/10, AGENTS §5-bis). Salen los 8 bloques `<script>` y los 8 `onsubmit=confirm` que quedaban: el ingreso usa `.btn-toggle-password` de `ds-app.js`; grupos y profesores, `data-enviar-al-cambiar`; caja/editar, clases/show, clases/index, liquidaciones/create y alumnos/index, su módulo en `resources/js/`; las confirmaciones de borrado, `form[data-confirmar-envio]` resuelto en `ds-app.js` antes del anti doble-submit. `CspSinCodigoIncrustadoTest` en cero. Sin cambios de aspecto. [Entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T73.md).
+
 ## T40 — Las cuotas del día 1 se reintentan solas y avisan, Claude CyE 19/10/2026
 
 Implementada localmente, **a verificar** (DU-52, caso CBZ-020). `cobranza:generar-deudas --si-falta` corre todos los días a las 6:00; el día 1 genera y los días siguientes solo si el mes no figura generado y el anterior sí. Constancia en la tabla nueva `generaciones_cuotas` (migración que anota el mes en curso al instalarse). Avisos al dueño por `AvisoAdminService`: generación con atraso, intento fallido y línea en el resumen diario. Regla en el [contrato de cobranza §2](../02-contratos/Wings-contrato-estadosAlum-cobranza-asistencia-V1.md). 9 pruebas en `GeneracionCuotasReintentoT40Test`. Sin despliegue: requiere migrar en el servidor.
@@ -794,7 +798,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Dump | Fuera de Git e ignorado; `DemoSeeder` ya no lo exporta |
 | PHP | `composer audit` sin avisos el 08/09 |
 | JavaScript | SEG-01: Axios retirado y lock actualizado; audit cero, build y 154 pruebas/920 aserciones en copia aislada el 11/09. Sin deploy |
-| CSP | Report-only con endpoint /csp-reporte; corte T36 17/10: 8 bloques script en 8 vistas y 8 manejadores inline, contados en fuente. Detalle y Resumen de caja sin código incrustado. |
+| CSP | Report-only con endpoint /csp-reporte. T73 19/10 (local, a verificar): **cero** bloques script y **cero** manejadores inline en las vistas, contados en fuente. Falta desplegar y recorrer en modo reporte antes de pasar a bloqueo. |
 | Diseño | Protegido por `AGENTS.md` y hook de commit |
 
 ## 5. Lo cerrado del 5 al 7 de septiembre

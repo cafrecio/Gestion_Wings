@@ -25,7 +25,7 @@
                 </div>
 
                 {{-- Deporte --}}
-                <select id="filter-deporte" name="deporte_id" class="filtros-control filtros-select">
+                <select id="filter-deporte" data-enviar-al-cambiar name="deporte_id" class="filtros-control filtros-select">
                     <option value="">Deporte</option>
                     @foreach($deportes as $deporte)
                         <option value="{{ $deporte->id }}"
@@ -202,15 +202,3 @@
 
 @endsection
 
-@push('scripts')
-<script>
-(function () {
-    const filterForm    = document.querySelector('form[method="GET"]');
-    const deporteSelect = document.getElementById('filter-deporte');
-
-    if (deporteSelect) {
-        deporteSelect.addEventListener('change', () => filterForm.submit());
-    }
-})();
-</script>
-@endpush

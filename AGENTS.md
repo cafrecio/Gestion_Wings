@@ -177,7 +177,7 @@ colores y los rails de deporte quedan sin pintar.
 |---|---|
 | Atributos `style="..."` escritos a mano en las vistas | **1.054** |
 | Archivos de vista que los contienen | **66** |
-| Archivos con `<script>` incrustado | **24** históricos (al 17/10/2026, T36: quedan 8 bloques en 8 vistas; ver §5-bis) |
+| Archivos con `<script>` incrustado | **24** históricos; **cero** desde T73 (19/10/2026), ver §5-bis |
 
 Una CSP de manual bloquea las 1.054 de una sola vez. La aplicación queda sin
 colores, sin layout y sin los rieles de color por deporte.
@@ -302,8 +302,11 @@ vistas. Lo que falló fue otra cosa: la limpieza quedó «en avance» desde el 1
 documentos de estado siguieron diciendo «19 bloques en 17 vistas» cuando ya eran 11.
 
 T36 (17/10/2026) retiró los tres bloques de Detalle/Resumen de caja y su confirmación
-incrustada de eliminación: quedan **8 bloques en 8 vistas y 8 manejadores**.
-**Pendiente:** T73 saca los 8 bloques que quedan, empezando por el ingreso.
+incrustada de eliminación: quedaron 8 bloques en 8 vistas y 8 manejadores.
+**T73 (19/10/2026) los sacó todos: cero bloques y cero manejadores.** El ingreso usa el ojo de
+contraseña de `ds-app.js`; las confirmaciones de borrado, `form[data-confirmar-envio]`.
+`CspSinCodigoIncrustadoTest` quedó en cero: cualquier código nuevo dentro de una vista pone la
+suite en rojo. Pasar la CSP a modo bloqueo es un paso aparte (§2: recorrer primero en modo reporte).
 
 ---
 

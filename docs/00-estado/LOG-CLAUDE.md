@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — T73: cero JavaScript dentro de las vistas
+
+- Pedido de Carlos («Hace T73»); orden del 13/10 (AGENTS §5-bis). Salen 8 bloques y 8 `onsubmit`.
+- Ingreso: ojo de `ds-app.js`. Grupos/Profesores: `data-enviar-al-cambiar`. Cinco módulos nuevos
+  (caja-editar, clases-show, clases-index, liquidaciones-create, alumnos-index), datos por `data-*`.
+  Confirmaciones: `form[data-confirmar-envio]` en `ds-app.js`, en captura, antes del anti doble-submit.
+- `CspSinCodigoIncrustadoTest` en 0/0. `AlumnoAutocompleteViewSecurityTest` apunta al módulo.
+- Suite rápida `wings_testing_claude`: 819 aprobadas, 4 omitidas, 1 fallida (esa prueba, corregida
+  después; las dos en verde). Build, `php -l`, `node --check`, vistas compilan.
+- No lo probé en navegador: por indicación de Carlos no tomo trabajo con imágenes. Falta verificador
+  con clics reales (lista en IMPLEMENTACION-T73.md). Sin despliegue.
+
 ## 2026-10-19 — Claude CyE — T40: las cuotas del día 1 se reintentan solas y avisan
 
 - DU-52 / CBZ-020. `cobranza:generar-deudas --si-falta` todos los días a las 6; día 1 genera; después

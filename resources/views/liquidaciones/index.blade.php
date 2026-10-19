@@ -171,7 +171,7 @@
         @if($liq->estaAbierta())
             <form method="POST" action="{{ route('web.liquidaciones.eliminar', $liq->id) }}"
                   style="display:contents;"
-                  onsubmit="return confirm('¿Eliminar esta liquidación?')">
+                  data-confirmar-envio="¿Eliminar esta liquidación?">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>

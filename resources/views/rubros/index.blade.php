@@ -100,7 +100,7 @@
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem; display:flex; justify-content:flex-end; gap:0.5rem; flex-wrap:nowrap; width:100%;">
             <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }}">Subrubro</a>
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
-            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
+            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" data-confirmar-envio="¿Eliminar {{ $rubro->nombre }}?">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>
@@ -193,7 +193,7 @@
         <div class="alumno-actions" style="border-top:1px solid var(--color-border); padding-top:0.6rem; margin-top:0.25rem; display:flex; justify-content:flex-end; gap:0.5rem; flex-wrap:nowrap; width:100%;">
             <a href="{{ route('web.subrubros.create', $rubro->id) }}" style="{{ $btnBPrim }}">Subrubro</a>
             <a href="{{ route('web.rubros.edit', $rubro->id) }}" style="{{ $btnBSec }}">Editar</a>
-            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" onsubmit="return confirm('¿Eliminar {{ addslashes($rubro->nombre) }}?')">
+            <form method="POST" action="{{ route('web.rubros.destroy', $rubro->id) }}" style="display:contents;" data-confirmar-envio="¿Eliminar {{ $rubro->nombre }}?">
                 @csrf @method('DELETE')
                 <button type="submit" style="{{ $btnBDang }}">Eliminar</button>
             </form>

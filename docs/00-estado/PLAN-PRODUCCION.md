@@ -29,7 +29,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | PHP | `composer audit` sin avisos |
 | JavaScript | SEG-01 probada 11/09: sin Axios, lock con cero avisos npm; build y suite aislados verdes. Sin deploy |
 | Permisos A29/A30/A31 | Entregados: rechazo explícito y Volver al inicio propio, sin ampliar accesos. Suite 380/2242, tres roles normal/375 px. Pendiente Gemini; sin deploy |
-| CSP | En modo reporte, recolectando avisos en /csp-reporte. Corte T36 17/10: 8 bloques script en 8 vistas y 8 manejadores inline, contados en fuente. Detalle y Resumen de caja sin código incrustado. |
+| CSP | En modo reporte, recolectando avisos en /csp-reporte. T73 19/10 (local, a verificar): cero bloques script y cero manejadores inline en las vistas. Falta desplegar y recorrer en modo reporte antes de pasar a bloqueo. |
 | Backups | Diarios, cifrados y con copia a Drive; restauracion SQL probada |
 | Monitoreo | Cerrado FDS-02 el 09/09: HTTPS Up, scheduler/backup con fallo y recuperacion; Carlos confirmo email y Telegram |
 

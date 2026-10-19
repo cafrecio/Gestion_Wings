@@ -48,7 +48,11 @@ class CspSinCodigoIncrustadoTest extends TestCase
     // T27 (12/10): Cashflow comparte su módulo externo entre alta y edición; sale un script.
     // T33 (13/10): la ficha usa alumnos-show.js para condonar/reactivar con el mismo modal.
     // T36 (17/10): Detalle y Resumen delegan modales; Detalle usa caja-detalle.js.
-    private const BLOQUES_SCRIPT_PERMITIDOS = 8;
+    // T73 (19/10): salen los 8 últimos. El ingreso usa .btn-toggle-password de
+    // ds-app.js; grupos y profesores, data-enviar-al-cambiar; caja/editar,
+    // clases/show, clases/index, liquidaciones/create y alumnos/index, su módulo.
+    // Desde acá no se escribe ninguno: cero es el número.
+    private const BLOQUES_SCRIPT_PERMITIDOS = 0;
 
     /**
      * Atributos de evento escritos en el HTML: onclick, onsubmit, onchange y demas.
@@ -71,7 +75,9 @@ class CspSinCodigoIncrustadoTest extends TestCase
      */
     // A25: Cerrar navega al formulario de conteo; sale el confirm sin arqueo anterior.
     // T36: confirmar eliminación de Detalle pasa al módulo externo.
-    private const MANEJADORES_PERMITIDOS = 8;
+    // T73 (19/10): los 8 confirm() que quedaban pasan a form[data-confirmar-envio],
+    // resuelto en ds-app.js antes del anti doble-submit. Cero es el número.
+    private const MANEJADORES_PERMITIDOS = 0;
 
     public function test_no_crece_la_cantidad_de_bloques_de_codigo_incrustado(): void
     {

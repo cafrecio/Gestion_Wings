@@ -126,7 +126,7 @@
                 @if($estaAbierta)
                     @if($liquidacion->puedeCerrarse())
                         <form method="POST" action="{{ route('web.liquidaciones.cerrar', $liquidacion->id) }}"
-                              onsubmit="return confirm('¿Cerrar esta liquidación? No podrá ser modificada después.')">
+                              data-confirmar-envio="¿Cerrar esta liquidación? No podrá ser modificada después.">
                             @csrf
                             <button type="submit"
                                     style="display:inline-flex; align-items:center; justify-content:center;
@@ -144,7 +144,7 @@
                     @endif
 
                     <form method="POST" action="{{ route('web.liquidaciones.recalcular', $liquidacion->id) }}"
-                          onsubmit="return confirm('¿Recalcular? Los detalles actuales serán reemplazados.')">
+                          data-confirmar-envio="¿Recalcular? Los detalles actuales serán reemplazados.">
                         @csrf
                         <button type="submit"
                                 style="display:inline-flex; align-items:center; justify-content:center;
@@ -157,7 +157,7 @@
                     </form>
 
                     <form method="POST" action="{{ route('web.liquidaciones.eliminar', $liquidacion->id) }}"
-                          onsubmit="return confirm('¿Eliminar esta liquidación permanentemente?')">
+                          data-confirmar-envio="¿Eliminar esta liquidación permanentemente?">
                         @csrf @method('DELETE')
                         <button type="submit"
                                 style="display:inline-flex; align-items:center; justify-content:center;

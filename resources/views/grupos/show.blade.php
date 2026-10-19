@@ -128,7 +128,7 @@
                             @if($isAdmin)
                                 <td style="padding: 0.5rem 0.5rem; text-align: right;">
                                     <form method="POST" action="{{ route('web.grupos.plans.destroy', $plan->id) }}"
-                                          onsubmit="return confirm('¿Eliminar este plan?')">
+                                          data-confirmar-envio="¿Eliminar este plan?">
                                         @csrf @method('DELETE')
                                         <button type="submit" style="
                                             font-size: 0.72rem; font-weight: 500;
