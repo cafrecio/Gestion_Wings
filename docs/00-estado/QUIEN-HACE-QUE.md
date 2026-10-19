@@ -48,7 +48,10 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-02 · ACC-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: resources/views/errors (falta la 405) y PantallasErrorTest. Sumado el 13/10 al verificar T33: condonar o reactivar una cuota o inscripcion inexistente responde No query results for model [App\Models\CargoAlumno]; pasa en web.deudas.condonar, web.deudas.reactivar, web.inscripciones.condonar y web.inscripciones.reactivar (AlumnoWebController::decidirPerdon y condonarDeuda atrapan cualquier excepcion y muestran su texto). Buscar el mismo patron en otros controladores. No choca con nada |
+| **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-24 · MOV-006 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: CajaWebController::movimientoForm. Chica. ORDEN: despues de T36 y T37, mismo archivo |
 
 ## Codex
 
@@ -64,9 +67,9 @@ Nada en este momento.
 | **T56** Un alumno activo no puede quedar sin plan | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-15 · ALU-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el generador lo saltea y queda fuera de la cobranza sin que nadie lo vea. TOCA: AlumnoWebController, GrupoWebController::destroyPlan y toggleActivo, generador mensual |
 | **T68** Quitar los carteles de Proximamente | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-57 · SIS-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: grupos/show (linea 166) y profesores/show (lineas 117 y 126). Chica y visual |
 
-## Sin empezar (27)
+## Sin empezar (25)
 
-T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T59, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
+T12, T22, T25, T40, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
