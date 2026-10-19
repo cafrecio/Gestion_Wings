@@ -2,7 +2,7 @@
 
 ## Verificación T56/T68 — Claude CAB 19/10/2026
 
-T56 cerrada: la lógica de Gemini (plan obligatorio al cambiar de grupo; el cobro no reactiva a un inactivo sin plan del mes) pasa sus 5 pruebas y 5 controles propios. T68: datos y acciones intactos, sin «Próximamente»; falta el visto visual de Carlos. El commit 0414b68 se llevó cambios ajenos y no actualizó el contador (corregido en d7b0a5c). [Informe](../06-pruebas/PRU-04/VERIFICACION-T56-T68.md).
+T56 cerrada: la lógica de Gemini (plan obligatorio al cambiar de grupo; el cobro no reactiva a un inactivo sin plan del mes) pasa sus 5 pruebas y 5 controles propios. **T68: la aprobación anterior no vale para la versión con datos reales de e5b4695a, conforme a DU-57 aclarada el 19/10.** Codex CyE reproduce que la ficha del profesor muestra $15,000.00 de cálculo original aunque el total ajustado sea $18,000.50; el detalle muestra el final correcto. También subsiste un onsubmit anterior en la ficha del grupo, identificado para T73. T68 devuelta a Gemini, sin corrección de producto; visual corresponde a Carlos. [Verificación actual de T68](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md). El commit 0414b68 se llevó cambios ajenos y no actualizó el contador (corregido en d7b0a5c). [Informe histórico T56/T68](../06-pruebas/PRU-04/VERIFICACION-T56-T68.md).
 
 ## T59 y T47 — Dueño a Cashflow; avisos en castellano, Claude CAB 19/10/2026
 

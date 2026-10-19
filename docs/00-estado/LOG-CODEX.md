@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CyE — Verificación de lógica T68, con hallazgos
+
+Verificación independiente de e5b4695a, con DU-57 aclarada: se conservan las secciones con datos o avisos vacíos.
+H1: ficha del profesor muestra cálculo original, aunque el monto ajustado sea otro; detalle muestra el final.
+H2: onsubmit preexistente en grupo, identificado para T73; no se atribuye como agregado de Gemini.
+Fechas, orden, roles, estados vacíos y consultas contrastados con fuentes y peticiones reales; sin corrección de producto.
+Originales/CSP: 7/40; propias: 7 pasan y 2 fallan (H1/H2), 105 aserciones. Suite: 912 aprobadas/4 omitidas/8 fallidas, 8071 aserciones, 1450,81 s. Ocho por compilado local ausente; build correcto y repetición de clases/guardianes: 36/390 verdes. Solo wings_testing_codex.
+[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md). T68 devuelta a Gemini; visual corresponde a Carlos.
+Sin servidor, despliegue, checkout, stash ni reset; cambios ajenos preservados.
+
 ## 2026-10-19 — Codex CAB — T66, profesora obligatoria y clases liquidadas protegidas
 
 Única/serie, edición y reasignación exigen al menos una profesora activa del deporte; serie atómica.
@@ -99,18 +109,7 @@ Chrome comprobó persistencia, validación, ambos modales, fallo de red y confir
 Suite propia: 818/2/1 T38, 7584 aserciones; tras cbc851e de Claude, repetición integrada 50/314 aprobada; [informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md).
 Sin despliegue ni autocierre. Reglas para Claude y aspecto para Carlos; T37 ya cerrada por Claude.
 
-## 2026-10-17 — Codex CAB — T37 implementada localmente, entrega a Claude
-
-Motivo de rechazo obligatorio, texto hasta 500 y solo espacios vacío; sin mínimo adicional.
-Controlador y servicio protegidos; ambos modales required y error superior visible tras recarga.
-Ocho pruebas nuevas; T37/A25 y regresiones: 102 aprobadas/853 aserciones. Suite propia: 784/2, 7395 aserciones, 965,22 s.
-Chrome local con ADMIN sintético: cuatro recorridos Detalle/Resumen a 1366/360 correctos.
-14 capturas reales inspeccionadas; móvil en marco con DOM de Wings, login de control correcto.
-Sintaxis y compilación de vistas correctas; sin JS incrustado nuevo, T36 ni despliegue.
-[Entrega y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T37.md); a verificar por Claude, sin autocierre.
-Carlos por §6b: «Entregar según el prompt; Inicio queda pendiente» (CAJ-029.c).
-Seguimiento visual 17/10: desborde corregido (48 visitas y ocho controles); Carlos acepta scroll y modal. Segunda vuelta: botones 2 × 2 a la derecha y pareja Resumen/Volver también; seis visitas 360/375/1366.
-[Corrección y capturas](../06-pruebas/PRU-04/DETALLE-CAJA-MOBILE.md): Carlos aprobó ambas imágenes a 375 de `4b050ac`: «Bien ambas imagenes!!»; visual verifica Carlos, solo reglas pendientes de Claude. Suite final con carpeta propia: 784/2, 7395 aserciones, 901,37 s, salida 0; historia de Excel conservada en informe.
+[Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
 
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 

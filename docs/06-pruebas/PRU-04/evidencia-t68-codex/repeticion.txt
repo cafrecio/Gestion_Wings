@@ -1,0 +1,51 @@
+
+   PASS  Tests\Feature\CajaRechazoMotivoT37Test
+  ✓ rechazar sin motivo muestra el error en ambas pantallas                                                      7.87s
+  ✓ rechazar con solo espacios no cambia la caja                                                                 0.16s
+  ✓ rechazar con mas de 500 caracteres no guarda                                                                 0.21s
+  ✓ motivo valido se guarda y la operativa lo ve en el resumen                                                   0.12s
+  ✓ servicio directo rechaza vacio y espacios sin escribir                                                       0.10s
+  ✓ servicio directo rechaza mas de 500 y acepta 500                                                             0.09s
+  ✓ ambos modales exigen motivo y no inventan un minimo                                                          0.16s
+  ✓ consultar rechazada historica no rellena su motivo                                                           0.10s
+
+   PASS  Tests\Feature\CajaVerificacionMovimientosT36Test
+  ✓ tildar destildar y recargar conserva el estado guardado                                                      0.24s
+  ✓ validar con todo tildado conserva marcas y refleja una sola vez                                              0.13s
+  ✓ validar con uno sin tildar avisa y no escribe                                                                0.12s
+  ✓ validar desde resumen lleva a detalle con cantidad faltante                                                  0.12s
+  ✓ servicio directo no salta la verificacion                                                                    0.08s
+  ✓ caja sin movimientos se valida                                                                               0.09s
+  ✓ la operativa y el profesor no pueden tildar                                                                  0.12s
+  ✓ rechazar conserva marcas y corregir solo destilda el movimiento cambiado                                     0.15s
+  ✓ una actualizacion masiva tambien invalida la revision                                                        0.15s
+  ✓ cancelados visibles exigen tilde pero no se suman en cashflow                                                0.18s
+  ✓ una pantalla vieja no puede marcar contenido distinto                                                        0.12s
+  ✓ no se verifica un movimiento por otra caja                                                                   0.10s
+
+   PASS  Tests\Feature\DefectosNoDivergenTest
+  ✓ los dos archivos listan los mismos defectos                                                                  0.02s
+  ✓ lo cerrado esta cerrado en los dos
+  ✓ el avance figura arriba de los dos
+
+   PASS  Tests\Feature\MostrarImportesT30Test
+  ✓ cada pantalla muestra centavos e importes largos sin cambiar lo guardado                                    92.75s
+  ✓ avisos del servidor mail y telegram conservan centavos sin enviar mensajes reales                            1.44s
+  ✓ excel mantiene celdas numericas y el informe conserva el original                                            5.24s
+  ✓ totales visibles coinciden con la suma de renglones visibles                                                 2.20s
+  ✓ un recibo ya emitido se conserva sin regenerarlo                                                            14.90s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas                                                                                       0.03s
+  ✓ lo generado coincide con tareas json                                                                         0.02s
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues                                                    0.01s
+  ✓ cerrar un defecto abierto marca el html sin avisos                                                           0.01s
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas                                                                    0.02s
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+  Tests:    36 passed (390 assertions)
+  Duration: 127.58s

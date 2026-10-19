@@ -1,0 +1,14 @@
+
+   PASS  Tests\Feature\AlumnoSinPlanT56T68Test
+  ✓ cambiar grupo exige plan del nuevo grupo                                                                    19.53s
+  ✓ alumno sin plan valido en edicion exige plan                                                                 0.53s
+  ✓ cobro de deuda a inactivo sin plan vigente no lo reactiva                                                    0.70s
+  ✓ cobro a inactivo con plan vigente si lo reactiva y crea reingreso                                            0.72s
+  ✓ vistas grupo y profesor muestran secciones y datos reales sin proximamente                                   9.16s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.83s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.21s
+
+  Tests:    7 passed (40 assertions)
+  Duration: 32.46s

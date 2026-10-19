@@ -1,0 +1,18 @@
+{
+  "tests/Feature/AlumnoSinPlanT56T68Test.php": "ae0cee9a80b25b6e81076950f7599a8cb3face6c2fce7192b648b992d667b709",
+  "app/Models/Liquidacion.php": "af0d470eb786fff1e3dc4bd2b9ccdeb850ac27c45b8c8a7118c4cfce099186ed",
+  "app/Services/LiquidacionPagoService.php": "06e6f3e25bd61040e53db7daf2fff387ec569aa11b64a59d322f0cdc3314f889",
+  "routes/web.php": "8ce53249fad8bfd345a30aeda89bdfb04f9dcc3c356b75ce7a33566f3aae41ba",
+  "resources/views/grupos/show.blade.php": "a18beba15975669936ddebd07ddc468c662216c26872863d85b770478970e171",
+  "resources/views/profesores/show.blade.php": "fed551ecf28224b2f99fa6a9cb899de5aef928ed3e4f519379777cda959e082f",
+  "app/Http/Controllers/GrupoWebController.php": "f2c7e92964cd652f5c60c69a4418238618b16a73ced18621e5e067fac314bfca",
+  "bootstrap/app.php": "790292e43314f82276d1b627deb25094e4165faec5cb30ce8924b1a7a9b523cb",
+  "app/Models/Profesor.php": "345662ca0f39385b644fc6b3548acf6c695f9396e10056cb7f169d3cd86b9090",
+  "app/Models/Grupo.php": "dbae8c87df354128f37d39e8e851ba4a9b932093ad072947078f05bc9de23251",
+  "app/Http/Controllers/ProfesorWebController.php": "34655d74c06c325afc0e128492f361547f3a6e816348b4a7c66366a9f6fbbe79",
+  "app/Http/Middleware/EnsureAdminWeb.php": "cb7c07c70b695f932a3fe88827b107616cca1b30bb09690a7a2a8135126ffb2f",
+  "app/Models/Deporte.php": "8c0b7801ffe64bcc2168ff35553c289c779117c14b972edc5511e3411b06d0a8",
+  "app/Http/Controllers/LiquidacionWebController.php": "d171718a4556b6bb283031da707a6c1361bc32b52ca4b7f3460fd8dac05fd835",
+  "resources/views/liquidaciones/show.blade.php": "76fcf3f0386f8cae1ecfd081f742c508bf1660fadfff85b2e64436ea6f2bfe20",
+  "resources/views/clases/show.blade.php": "ae2907e82180be427cb4b4026b3c20e7f99b8cee43d85ea99b5b0b0b017a313c"
+}
