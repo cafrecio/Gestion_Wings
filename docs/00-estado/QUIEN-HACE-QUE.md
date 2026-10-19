@@ -59,7 +59,6 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T39** Al anular un cobro del duenio, la resta va con la fecha del original | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude: la anulacion de un cobro del duenio va con la fecha del original y la deuda (cuota, inscripcion, recargo) vuelve en ese mes (Carlos 18/10). Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T39.md |
 | **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude: el duenio crea desde la ficha la cuota de un mes pasado que nunca se genero (precio del plan de ese mes). Falta el visto bueno visual de Carlos del bloque nuevo en la ficha. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T58.md |
 
 ## Sin empezar (34)
