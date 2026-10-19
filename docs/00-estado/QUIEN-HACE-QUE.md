@@ -50,7 +50,9 @@ Nada en este momento.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | En curso (hizo Codex, verifica Claude) | Relevar precios y vigencias para aplicar DU-40 en todos los calculos; consultar casos no definidos |
 
 ## Gemini
 
@@ -58,9 +60,9 @@ Nada en este momento.
 |---|---|---|
 | **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude. Visual aprobado por Carlos el 18/10 (las imagenes estan bien). Solo falta la verificacion de Gemini; si aprueba, cierra. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T58.md |
 
-## Sin empezar (34)
+## Sin empezar (33)
 
-T12, T22, T25, T34, T40, T42, T43, T44, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T59, T60, T61, T62, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T12, T22, T25, T34, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T59, T60, T61, T62, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
