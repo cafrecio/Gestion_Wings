@@ -7,6 +7,15 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CYE — Verificación de Lógica T66: Profesora obligatoria y liquidaciones protegidas
+
+- **Objetivo y resultado:** Verificación independiente de la lógica implementada por Codex CAB en commit `9bb7bd68` (T66). Resultado: **APROBADA** (sin hallazgos de lógica, validaciones ni permisos).
+- **Aspecto visual:** Aprobado previamente por Carlos el 19/10/2026 («Vista aprobadas»); no se reevaluó ni se pidieron capturas conforme a AGENTS.md §6a.
+- **Lógica comprobada:** `store` (alta única y serie) exige al menos una profesora activa del deporte y rechaza antes de cualquier persistencia (serie atómica con rollback). `update` impide vaciar profesoras y revierte fecha/horario ante fallos. `actualizarProfesores` bloquea la clase bajo transacción (`lockForUpdate`), rechaza clases canceladas y en liquidación cerrada o pagada (por HORA y COMISIÓN), y retira el bypass `confirmar=true`. Permisos según `PERMISOS-ROLES.md` (ADMIN acceso total; OPERATIVO solo clases de hoy/futuras; PROFESOR 403).
+- **Pruebas y suite:** 16 dirigidas pasando en `ClaseProfesoraObligatoriaT66Test` (115 aserciones); 60 pruebas de clases (593 aserciones); suite completa en `wings_testing_gemini`: 920 aprobadas, 4 omitidas, 0 fallidas, 8167 aserciones, 1246.60 s (salida 0). Vistas y sintaxis PHP sin errores.
+- **Informe y cierre:** Registrado informe en `docs/06-pruebas/PRU-04/VERIFICACION-T66-GEMINI.md` y cerrada en tablero único (`tareas.json`).
+- **Próximo paso:** Continuar con tareas pendientes según asignación de Carlos.
+
 ## 2026-10-19 — LOG GEM CAB — Corrección de T68: Datos reales en Cronograma semanal de Grupos y Liquidaciones/Clases de Profesores
 
 - **Objetivo y alcance:** Reemplazar los carteles de «Próximamente» por datos reales del sistema conforme a la indicación de Carlos (19/10), manteniendo la disposición y estructura visual de las vistas.

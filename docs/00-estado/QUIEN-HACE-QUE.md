@@ -50,9 +50,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T66** Una clase necesita al menos una profesora | Hecho, espera verificación (hizo Codex, verifica Claude) | Visual aprobado por Carlos 19/10: Vista aprobadas; no volver a preguntar. Verificar solo logica, permisos, atomicidad y FIN-12; ver IMPLEMENTACION-T66.md. Sin deploy |
+Nada en este momento.
 
 ## Codex
 

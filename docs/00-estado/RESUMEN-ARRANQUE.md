@@ -15,7 +15,7 @@
 
 ## Últimos resultados documentados (fecha y alcance por fila)
 
-T66 entregada localmente por Codex CAB el 19/10: profesora activa del deporte obligatoria en alta/serie/edición/reasignación. Carlos confirmó cancelar cerrada antes de modificar y pagada intocable. Suite completa 920 aprobadas/4 omitidas, 8155 aserciones, 960,48 s, salida 0 en base Codex, corte 924. [Entrega y tres vistas](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md); verifica Claude solo lógica; visual aprobado por Carlos el 19/10: «Vista aprobadas», sin volver a consultar. Sin despliegue ni reparación histórica; T46 separada.
+T66 CERRADA 19/10: aspecto aprobado por Carlos («Vista aprobadas») y lógica verificada por Gemini CyE (resultado APROBADA). Profesora activa del deporte obligatoria en alta/serie/edición/reasignación. Carlos confirmó cancelar cerrada antes de modificar y pagada intocable. Suite completa 920 aprobadas/4 omitidas, 8167 aserciones, salida 0 en base Gemini, corte 924. [Entrega Codex](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md) · [Verificación Gemini](../06-pruebas/PRU-04/VERIFICACION-T66-GEMINI.md). Sin despliegue ni reparación histórica; T46 separada.
 
 A6–A10 cerrados 08/10: Carlos verifica aspecto A6–A9/A10; Claude verifica lógica A10 en segunda revisión. Limpiar corregido y pulsado en los cuatro modos. Suite final Codex 508/2, 4077 aserciones, 423,14 s; 510 pruebas. [Entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A6-A10.md) · [Verificación independiente](../06-pruebas/PRU-02/VERIFICACION-A10.md). A32 cerrado, candado y retoque aprobados; [entrega](../06-pruebas/PRU-02/IMPLEMENTACION-A32.md). Sin despliegue.
 
