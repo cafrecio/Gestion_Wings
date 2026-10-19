@@ -1,0 +1,7 @@
+
+   PASS  Tests\Feature\VerificacionT74CodexTest
+  ✓ capturas de las variantes reales                                                                            27.67s  
+
+  Tests:    1 passed (5 assertions)
+  Duration: 27.93s
+

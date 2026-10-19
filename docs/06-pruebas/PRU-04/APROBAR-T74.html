@@ -1,0 +1,40 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>T74 — Aprobación visual</title>
+<style>body{font:17px/1.5 system-ui,sans-serif;margin:24px;color:#182c3b;background:#f2f5f8}main{max-width:1400px;margin:auto}h1{font-size:28px}h2{font-size:22px;margin-top:32px}h3{font-size:18px}section{background:white;padding:20px;margin:16px 0;border:1px solid #cbd5df;border-radius:10px}img{display:block;border:1px solid #b7c5d2;margin:12px 0}.desktop{max-width:100%;height:auto}.columns{display:flex;gap:24px;overflow-x:auto;align-items:flex-start}.phone{width:375px;min-width:375px}.phone img{width:375px;height:auto;max-width:none}.detail img{width:416px;max-width:none}table{border-collapse:collapse}td,th{border:1px solid #cbd5df;padding:8px;text-align:left}a{color:#174c89}.status{border-left:5px solid #a85b13;padding:12px;background:#fff6e8}</style>
+<main><h1>T74 — Inicio de la operativa</h1><p>19/10/2026 · Codex CyE · Capturas reales de Wings con datos sintéticos.</p>
+<p class="status">Visual aprobado por Carlos el 19/10: «Apruebo el visual T74 actualizado». Lógica aprobada por Codex: 32 pruebas dirigidas y suite completa en verde (935 aprobadas, 4 omitidas, 8243 comprobaciones). Capturas renovadas tras unificar las medidas de los botones. Sin despliegue.</p>
+<section><h2>Qué cambió</h2><p>Alumnos y Resumen ahora terminan en la misma línea: diferencia de <strong>21 px antes → 0 px después</strong> en escritorio. Los accesos superiores quedan debajo del título, según la regla del sistema visual. Se conserva el margen de celular: <strong>0 px antes y después</strong>.</p><p><strong>Corrección tras la observación de Carlos:</strong> los botones del cajón tenían 36 px de alto y anchos variables en escritorio. Ahora Caja, Cobranza, Alumnos, Cobrar, Registrar y Resumen miden todos <strong>96 × 32 px</strong>, con las clases existentes del sistema. Abrir usa las mismas clases; se retiraron sus medidas manuales. En celular se conserva el tamaño común de 96 × 32.</p><p>Las tarjetas Vencidos, En plazo y Posibles inactivos conservan sus números y enlaces. Las clases existentes conservan los colores mediante tokens. Sin cambios de controlador, CSS compartido ni JavaScript.</p><p>Las imágenes de celular tienen 375 px reales dentro de un marco; cada tramo se muestra a tamaño original, desde arriba hasta el pie. Hay solapamiento entre tramos para no perder contenido. Pulsá cualquier imagen para abrirla completa.</p></section>
+<section><h2>Escritorio — detalle de los botones</h2><div class="columns detail">
+<div><h3>Antes</h3><a href="evidencia-t74-codex/antes/propia-1366-botones.png" target="_blank"><img class="" src="evidencia-t74-codex/antes/propia-1366-botones.png" alt="Antes: botones de escritorio"></a></div>
+<div><h3>Después</h3><a href="evidencia-t74-codex/despues/propia-1366-botones.png" target="_blank"><img class="" src="evidencia-t74-codex/despues/propia-1366-botones.png" alt="Después: botones de escritorio"></a></div>
+</div></section><section><h2>Escritorio — pantalla completa a 1366</h2>
+<h3>Antes</h3><a href="evidencia-t74-codex/antes/propia-1366.png" target="_blank"><img class="desktop" src="evidencia-t74-codex/antes/propia-1366.png" alt="Antes: pantalla completa"></a>
+<h3>Después</h3><a href="evidencia-t74-codex/despues/propia-1366.png" target="_blank"><img class="desktop" src="evidencia-t74-codex/despues/propia-1366.png" alt="Después: pantalla completa"></a>
+</section><section><h2>Celular — pantalla completa en tramos legibles</h2><div class="columns">
+<div class="phone"><h3>Antes · 375 px</h3>
+<p>Tramo 1 · desde 0 px</p><a href="evidencia-t74-codex/antes/propia-375-tramo-01.png" target="_blank"><img class="" src="evidencia-t74-codex/antes/propia-375-tramo-01.png" alt="Antes, celular, tramo 1"></a>
+<p>Tramo 2 · desde 600 px</p><a href="evidencia-t74-codex/antes/propia-375-tramo-02.png" target="_blank"><img class="" src="evidencia-t74-codex/antes/propia-375-tramo-02.png" alt="Antes, celular, tramo 2"></a>
+<p>Tramo 3 · desde 1075 px</p><a href="evidencia-t74-codex/antes/propia-375-tramo-03.png" target="_blank"><img class="" src="evidencia-t74-codex/antes/propia-375-tramo-03.png" alt="Antes, celular, tramo 3"></a>
+<p><a href="evidencia-t74-codex/antes/propia-375.png" target="_blank">Abrir pantalla larga completa</a></p></div>
+<div class="phone"><h3>Después · 375 px</h3>
+<p>Tramo 1 · desde 0 px</p><a href="evidencia-t74-codex/despues/propia-375-tramo-01.png" target="_blank"><img class="" src="evidencia-t74-codex/despues/propia-375-tramo-01.png" alt="Después, celular, tramo 1"></a>
+<p>Tramo 2 · desde 600 px</p><a href="evidencia-t74-codex/despues/propia-375-tramo-02.png" target="_blank"><img class="" src="evidencia-t74-codex/despues/propia-375-tramo-02.png" alt="Después, celular, tramo 2"></a>
+<p>Tramo 3 · desde 1075 px</p><a href="evidencia-t74-codex/despues/propia-375-tramo-03.png" target="_blank"><img class="" src="evidencia-t74-codex/despues/propia-375-tramo-03.png" alt="Después, celular, tramo 3"></a>
+<p><a href="evidencia-t74-codex/despues/propia-375.png" target="_blank">Abrir pantalla larga completa</a></p></div>
+</div></section><section><h2>Otras variantes de caja</h2><p>Se capturaron las cuatro situaciones, antes y después, a ambos anchos. No se detectó desborde horizontal. En cada variante el borde de Alumnos coincide ahora con la última acción del cajón.</p><table><tr><th>Situación</th><th>Escritorio</th><th>Celular</th></tr>
+<tr><td>Caja propia</td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/propia-1366.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/propia-1366.png">Después</a></td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/propia-375.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/propia-375.png">Después</a></td>
+</tr>
+<tr><td>Caja de otra operativa</td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/companero-1366.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/companero-1366.png">Después</a></td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/companero-375.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/companero-375.png">Después</a></td>
+</tr>
+<tr><td>Cierre pendiente</td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/pendiente-1366.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/pendiente-1366.png">Después</a></td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/pendiente-375.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/pendiente-375.png">Después</a></td>
+</tr>
+<tr><td>Sin caja abierta</td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/sin-caja-1366.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/sin-caja-1366.png">Después</a></td>
+<td><a target="_blank" href="evidencia-t74-codex/antes/sin-caja-375.png">Antes</a> · <a target="_blank" href="evidencia-t74-codex/despues/sin-caja-375.png">Después</a></td>
+</tr>
+</table><p>Control del método: <a href="evidencia-t74-codex/despues/login-375.png" target="_blank">login a 375 px</a>. <a href="evidencia-t74-codex/antes/mediciones.json">Medidas antes</a> · <a href="evidencia-t74-codex/despues/mediciones.json">Medidas después</a>.</p></section><p><a href="VERIFICACION-T74-CODEX.md">Informe de verificación de lógica y pruebas</a></p></main></html>

@@ -12,14 +12,14 @@
 <div class="container mx-auto px-4 py-4" style="max-width:1100px;">
 
     {{-- Encabezado unificado --}}
-    <div class="mb-4" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+    <div class="mb-4" style="display:flex; flex-direction:column; gap:12px;">
         <div>
             <h1 class="ds-h1" style="font-size:1.5rem; margin-bottom:2px;">Mostrador Operativo</h1>
             <p style="font-size:0.85rem; color:var(--color-text-muted);">
                 {{ ucfirst($hoyAr->locale('es')->isoFormat('dddd D [de] MMMM [de] YYYY')) }} · Turno de {{ auth()->user()->name }}
             </p>
         </div>
-        <div class="acciones-celular-derecha acciones-celular-fila barra-movil" style="display:flex; gap:8px;">
+        <div class="acciones-celular-derecha acciones-celular-fila barra-movil" style="display:flex; justify-content:flex-end; gap:8px; padding-inline:calc(1.25rem + 1px);">
             <a href="{{ route('web.caja.index') }}" class="ds-btn ds-btn--secondary">Caja</a>
             <a href="{{ route('web.cobranza.index') }}" class="ds-btn ds-btn--secondary">Cobranza</a>
             <a href="{{ route('web.alumnos.index') }}" class="ds-btn ds-btn--secondary">Alumnos</a>
@@ -73,22 +73,13 @@
                 </p>
             </div>
             <div class="acciones-celular-derecha acciones-celular-fila turno-acciones-movil" style="display:flex; gap:8px; flex-wrap:wrap;">
-                <a href="{{ route('web.caja.cobrar-cuota') }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 20px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-primary); color:#fff;">
+                <a href="{{ route('web.caja.cobrar-cuota') }}" class="ds-btn ds-btn--primary">
                     Cobrar
                 </a>
-                <a href="{{ route('web.caja.movimiento') }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 18px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
+                <a href="{{ route('web.caja.movimiento') }}" class="ds-btn ds-btn--secondary">
                     Registrar
                 </a>
-                <a href="{{ route('web.caja.resumen', $cajaPropia->id) }}"
-                   style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 18px;
-                          font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                          text-decoration:none; background:var(--color-btn-secondary); color:var(--color-surface);">
+                <a href="{{ route('web.caja.resumen', $cajaPropia->id) }}" class="ds-btn ds-btn--secondary">
                     Resumen
                 </a>
             </div>
@@ -157,10 +148,7 @@
                 </p>
             </div>
             @if(!$bloqueo['activo'])
-            <a href="{{ route('web.caja.apertura') }}" class="accion-celular-final"
-               style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 24px;
-                      font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                      text-decoration:none; background:var(--color-btn-primary); color:#fff;">
+            <a href="{{ route('web.caja.apertura') }}" class="ds-btn ds-btn--primary accion-celular-final">
                 Abrir
             </a>
             @endif
@@ -182,10 +170,7 @@
                 </p>
             </div>
             @if(!$bloqueo['activo'])
-            <a href="{{ route('web.caja.apertura') }}" class="accion-celular-final"
-               style="display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 24px;
-                      font-size:0.85rem; font-weight:600; border-radius:var(--radius-btn);
-                      text-decoration:none; background:var(--color-btn-primary); color:#fff;">
+            <a href="{{ route('web.caja.apertura') }}" class="ds-btn ds-btn--primary accion-celular-final">
                 Abrir
             </a>
             @endif

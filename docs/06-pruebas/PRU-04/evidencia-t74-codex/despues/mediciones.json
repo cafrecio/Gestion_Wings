@@ -1,0 +1,561 @@
+[
+  {
+    "file": "companero.html",
+    "ancho": 1366,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "hojas": 1,
+    "alumnos": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Caja",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 1009,
+        "right": 1105,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 1113,
+        "right": 1209,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Caja",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [],
+    "altoTramos": null
+  },
+  {
+    "file": "companero.html",
+    "ancho": 375,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "hojas": 1,
+    "alumnos": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Caja",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 120,
+        "right": 216,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Caja",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [
+      {
+        "archivo": "companero-375-tramo-01.png",
+        "scrollY": 0
+      },
+      {
+        "archivo": "companero-375-tramo-02.png",
+        "scrollY": 600
+      },
+      {
+        "archivo": "companero-375-tramo-03.png",
+        "scrollY": 1055
+      }
+    ],
+    "altoTramos": 1775
+  },
+  {
+    "file": "login.html",
+    "ancho": 1366,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "hojas": 1,
+    "alumnos": null,
+    "accionCajon": null,
+    "delta": null,
+    "botones": [],
+    "fuera": [],
+    "tramos": [],
+    "altoTramos": null
+  },
+  {
+    "file": "login.html",
+    "ancho": 375,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "hojas": 1,
+    "alumnos": null,
+    "accionCajon": null,
+    "delta": null,
+    "botones": [],
+    "fuera": [],
+    "tramos": [
+      {
+        "archivo": "login-375-tramo-01.png",
+        "scrollY": 0
+      },
+      {
+        "archivo": "login-375-tramo-02.png",
+        "scrollY": 100
+      }
+    ],
+    "altoTramos": 820
+  },
+  {
+    "file": "pendiente.html",
+    "ancho": 1366,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "hojas": 1,
+    "alumnos": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Cerrar",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 1009,
+        "right": 1105,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 1113,
+        "right": 1209,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cerrar",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [],
+    "altoTramos": null
+  },
+  {
+    "file": "pendiente.html",
+    "ancho": 375,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "hojas": 1,
+    "alumnos": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Cerrar",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 120,
+        "right": 216,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cerrar",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [
+      {
+        "archivo": "pendiente-375-tramo-01.png",
+        "scrollY": 0
+      },
+      {
+        "archivo": "pendiente-375-tramo-02.png",
+        "scrollY": 600
+      },
+      {
+        "archivo": "pendiente-375-tramo-03.png",
+        "scrollY": 1055
+      }
+    ],
+    "altoTramos": 1775
+  },
+  {
+    "file": "propia.html",
+    "ancho": 1366,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "hojas": 1,
+    "alumnos": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Resumen",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 1009,
+        "right": 1105,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 1113,
+        "right": 1209,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobrar",
+        "x": 1009,
+        "right": 1105,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Registrar",
+        "x": 1113,
+        "right": 1209,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Resumen",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [],
+    "altoTramos": null
+  },
+  {
+    "file": "propia.html",
+    "ancho": 375,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "hojas": 1,
+    "alumnos": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Resumen",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 120,
+        "right": 216,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobrar",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Registrar",
+        "x": 120,
+        "right": 216,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Resumen",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [
+      {
+        "archivo": "propia-375-tramo-01.png",
+        "scrollY": 0
+      },
+      {
+        "archivo": "propia-375-tramo-02.png",
+        "scrollY": 600
+      },
+      {
+        "archivo": "propia-375-tramo-03.png",
+        "scrollY": 1075
+      }
+    ],
+    "altoTramos": 1795
+  },
+  {
+    "file": "sin-caja.html",
+    "ancho": 1366,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "hojas": 1,
+    "alumnos": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 1217,
+      "right": 1313,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Abrir",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 1009,
+        "right": 1105,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 1113,
+        "right": 1209,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Abrir",
+        "x": 1217,
+        "right": 1313,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [],
+    "altoTramos": null
+  },
+  {
+    "file": "sin-caja.html",
+    "ancho": 375,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "hojas": 1,
+    "alumnos": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionCajon": {
+      "x": 224,
+      "right": 320,
+      "width": 96,
+      "height": 32
+    },
+    "accionTexto": "Abrir",
+    "delta": 0,
+    "botones": [
+      {
+        "texto": "Caja",
+        "x": 120,
+        "right": 216,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Cobranza",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Alumnos",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      },
+      {
+        "texto": "Abrir",
+        "x": 224,
+        "right": 320,
+        "width": 96,
+        "height": 32
+      }
+    ],
+    "fuera": [],
+    "tramos": [
+      {
+        "archivo": "sin-caja-375-tramo-01.png",
+        "scrollY": 0
+      },
+      {
+        "archivo": "sin-caja-375-tramo-02.png",
+        "scrollY": 600
+      },
+      {
+        "archivo": "sin-caja-375-tramo-03.png",
+        "scrollY": 1055
+      }
+    ],
+    "altoTramos": 1775
+  }
+]

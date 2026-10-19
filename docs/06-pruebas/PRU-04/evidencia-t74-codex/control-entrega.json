@@ -1,0 +1,13 @@
+{
+  "resultado": "APROBADO",
+  "controles": [
+    "antes: 10 combinaciones, capturas y cobertura completas",
+    "despues: 10 combinaciones, capturas y cobertura completas",
+    "Casos de borde: sumas y medición SQL consistentes con las observaciones",
+    "Suite completa: salida 0 y once fuentes registradas sin cambios",
+    "Cinco capturas principales de la vista aprobada idénticas por SHA-256",
+    "Galería: enlaces presentes; aprobación explícita en galería, informe y log; límites de continuidad respetados",
+    "Tablero: T74 cerrada, lógica Claude/Codex, referencia al informe actual"
+  ],
+  "aprobacion_visual": "Apruebo el visual T74 actualizado"
+}

@@ -1,0 +1,44 @@
+
+   PASS  Tests\Feature\VerificacionT74CodexTest
+  ✓ corte gracia contra las dos listas y cobrar with data set "antes"                                           24.25s  
+  ✓ corte gracia contra las dos listas y cobrar with data set "ultimo dia"                                       1.72s  
+  ✓ corte gracia contra las dos listas y cobrar with data set "despues"                                          1.82s  
+  ✓ saldo parcial futuro e inactiva se comparan por filas                                                        1.91s  
+  ✓ solo inscripcion y cuota parcial no duplican alumno                                                          1.56s  
+  ✓ plazo del alta que cruza el mes respeta su corte                                                             1.85s  
+  ✓ cobro adelantado real no se cuenta como deuda corriente                                                      1.49s  
+  ✓ enlaces salen de su tarjeta y roles                                                                          3.37s  
+  ✓ consultas del inicio no crecen por alumno                                                                    1.68s  
+  ✓ capturas de las variantes reales                                                                             1.51s  
+
+   PASS  Tests\Feature\InicioVencidosEnPlazoT74Test
+  ✓ el inicio separa vencidos de en plazo y suman lo del buscador de cobrar                                      1.67s  
+  ✓ cuando pasa el plazo el alumno cambia de tarjeta y la suma no cambia                                         1.86s  
+  ✓ quien debe solo la inscripcion cuenta una vez y la suma sigue cerrando                                       2.26s  
+  ✓ la pantalla muestra las dos tarjetas y cada una lleva a su lista                                             2.86s  
+  ✓ cobranza no cambia sigue mostrando solo los vencidos                                                         3.31s  
+
+   PASS  Tests\Feature\CuotaAltaEstadoTest
+  ✓ alta crea cuota con los tres porcentajes configurados                                                        2.12s  
+  ✓ cobro y preview respetan importe del alta aunque cambien reglas y precio                                     5.85s  
+  ✓ alta el 30 y generacion el 1 no duplican periodos                                                            1.45s  
+  ✓ padron conciliado sin pagos y contadores coinciden                                                          10.68s  
+  ✓ nuevo sin pagos pasa de en plazo a moroso y deudor                                                           2.22s  
+  ✓ mes cerrado impago gana sobre corriente pagado                                                               0.90s  
+  ✓ fallo despues de insertar cuota revierte toda el alta                                                        0.73s  
+  ✓ reintento no duplica y alumnos existentes no reciben cuotas                                                  0.80s  
+  ✓ ingreso antiguo con si crea mes corriente completo                                                           1.83s  
+  ✓ no para ingreso antiguo no genera cuota                                                                      1.46s  
+  ✓ cobrar cuota corriente de ingreso antiguo no reaplica porcentaje                                             2.63s  
+  ✓ ingreso antiguo fin de mes no descuenta cuota corriente                                                      1.73s  
+  ✓ ingreso del mes proximo genera la cuota de ese mes                                                           1.92s  
+  ✓ fecha de ingreso define mes aunque no sea el proximo                                                         2.20s  
+  ✓ parcial anulacion y recobro conservan la cuota del alta                                                      3.31s  
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.44s  
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.25s  
+
+  Tests:    32 passed (251 assertions)
+  Duration: 94.15s
+

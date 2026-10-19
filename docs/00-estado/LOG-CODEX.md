@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CyE — T74, lógica aprobada y visual aprobado por Carlos
+
+Toma publicada en 5bbf5047 antes de editar. Lógica de Claude c1b761e8/09409f9f contrastada con fuente y HTTP.
+Dirigidas 32/251 verdes; gracia, inscripción sola, parcial, adelanto real e inactiva; consultas 24 con 1 y 12 alumnos.
+Alumnos/Resumen: diferencia de 21 a 0 px. Carlos observó medidas distintas; retirados estilos manuales de acciones del cajón.
+Seis botones principales y Abrir ahora 96 × 32 en escritorio/celular; capturas reales renovadas, 1/5 verde.
+[Informe](../06-pruebas/PRU-04/VERIFICACION-T74-CODEX.md) y [galería](../06-pruebas/PRU-04/APROBAR-T74.html), celular completo en tres tramos legibles.
+Suite completa 935 aprobadas/4 omitidas, 8243 aserciones, 1283,46 s, salida 0 en wings_testing_codex; cero pruebas ajenas al comenzar, once fuentes registradas idénticas al terminar.
+Carlos aprobó: «Apruebo el visual T74 actualizado». Sin controlador, CSS compartido ni servidor; cambios paralelos preservados.
+Cierre T74: hizo Claude/verifica Codex para lógica, visual verifica Carlos; entrega en este commit. Sin despliegue.
+
 ## 2026-10-19 — Codex CyE — Verificación de corrección T34
 
 Verifico f2b065f7/c5c0f41f; T67 permanece cerrada y visual T34 aprobado por Carlos en fb88bd3c.
@@ -94,18 +105,6 @@ Barrido del resto: candidatos en Caja/Cobranza/Reportes; Carlos elige tamaño ú
 T75 a_verificar, tiene Carlos; Claude controla interacción de Revisión. T36/T37 conservados cerrados.
 Sin despliegue/autocierre; el aspecto nuevo todavía no está aprobado.
 
-## 2026-10-18 — Codex CAB — T75 consistencia móvil aplicada, entrega en verificación
-
-Carlos pidió aplicar tamaño Cobrar, padding común y posiciones estables en todas las vistas móviles.
-CSS solo hasta 640 px y clases en once vistas; controles de ícono/interruptores conservados.
-99 casos antes/después a 360/375/1366, dos complementos y 80 variantes reales de paneles/tablas.
-Cobrar con/sin Condonar, Filtrar con/sin Limpiar y confirmación con/sin serie conservan posición; Volver de Liquidaciones a derecha.
-Suite aislada c2db5d4 y fuentes propias: 846 aprobadas/3 omitidas, 7655 aserciones, 1091.37 s, salida 0.
-Dos reglas CSS finales tras la suite: PHP idéntico; recorrido completo repetido y guardianes 9/36 aprobados.
-[Entrega y galería completa](../06-pruebas/PRU-04/IMPLEMENTACION-T75-CONSISTENCIA.md); nuevas capturas no se heredan como aprobadas.
-Reglas/tokens actualizados; T36/T37 y «Destildar solo los movimientos que cambien» conservados.
-Sin lógica de negocio, despliegue ni autocierre; Carlos verifica el aspecto. Gemini no implementar.
-
 [Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
 
 [Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
@@ -137,3 +136,5 @@ Sin lógica de negocio, despliegue ni autocierre; Carlos verifica el aspecto. Ge
 [Entrada B11 archivada al entregar T66](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T66-ARRANQUE.md).
 
 [Entrada T75 archivada al verificar corrección T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-REVERIFICACION.md).
+
+[Entrada T75 archivada al verificar T74](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T74-ARRANQUE.md).

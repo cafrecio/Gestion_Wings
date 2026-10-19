@@ -1,0 +1,108 @@
+{
+  "imagenes": [
+    {
+      "src": "evidencia-t74-codex/antes/propia-1366-botones.png",
+      "ok": true,
+      "width": 416,
+      "height": 430,
+      "visible": 418
+    },
+    {
+      "src": "evidencia-t74-codex/despues/propia-1366-botones.png",
+      "ok": true,
+      "width": 416,
+      "height": 430,
+      "visible": 418
+    },
+    {
+      "src": "evidencia-t74-codex/antes/propia-1366.png",
+      "ok": true,
+      "width": 1366,
+      "height": 900,
+      "visible": 1351.984375
+    },
+    {
+      "src": "evidencia-t74-codex/despues/propia-1366.png",
+      "ok": true,
+      "width": 1366,
+      "height": 932,
+      "visible": 1351.984375
+    },
+    {
+      "src": "evidencia-t74-codex/antes/propia-375-tramo-01.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    },
+    {
+      "src": "evidencia-t74-codex/antes/propia-375-tramo-02.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    },
+    {
+      "src": "evidencia-t74-codex/antes/propia-375-tramo-03.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    },
+    {
+      "src": "evidencia-t74-codex/despues/propia-375-tramo-01.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    },
+    {
+      "src": "evidencia-t74-codex/despues/propia-375-tramo-02.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    },
+    {
+      "src": "evidencia-t74-codex/despues/propia-375-tramo-03.png",
+      "ok": true,
+      "width": 375,
+      "height": 720,
+      "visible": 377
+    }
+  ],
+  "enlaces": [
+    "evidencia-t74-codex/antes/propia-1366-botones.png",
+    "evidencia-t74-codex/despues/propia-1366-botones.png",
+    "evidencia-t74-codex/antes/propia-1366.png",
+    "evidencia-t74-codex/despues/propia-1366.png",
+    "evidencia-t74-codex/antes/propia-375-tramo-01.png",
+    "evidencia-t74-codex/antes/propia-375-tramo-02.png",
+    "evidencia-t74-codex/antes/propia-375-tramo-03.png",
+    "evidencia-t74-codex/antes/propia-375.png",
+    "evidencia-t74-codex/despues/propia-375-tramo-01.png",
+    "evidencia-t74-codex/despues/propia-375-tramo-02.png",
+    "evidencia-t74-codex/despues/propia-375-tramo-03.png",
+    "evidencia-t74-codex/despues/propia-375.png",
+    "evidencia-t74-codex/antes/propia-1366.png",
+    "evidencia-t74-codex/despues/propia-1366.png",
+    "evidencia-t74-codex/antes/propia-375.png",
+    "evidencia-t74-codex/despues/propia-375.png",
+    "evidencia-t74-codex/antes/companero-1366.png",
+    "evidencia-t74-codex/despues/companero-1366.png",
+    "evidencia-t74-codex/antes/companero-375.png",
+    "evidencia-t74-codex/despues/companero-375.png",
+    "evidencia-t74-codex/antes/pendiente-1366.png",
+    "evidencia-t74-codex/despues/pendiente-1366.png",
+    "evidencia-t74-codex/antes/pendiente-375.png",
+    "evidencia-t74-codex/despues/pendiente-375.png",
+    "evidencia-t74-codex/antes/sin-caja-1366.png",
+    "evidencia-t74-codex/despues/sin-caja-1366.png",
+    "evidencia-t74-codex/antes/sin-caja-375.png",
+    "evidencia-t74-codex/despues/sin-caja-375.png",
+    "evidencia-t74-codex/despues/login-375.png",
+    "evidencia-t74-codex/antes/mediciones.json",
+    "evidencia-t74-codex/despues/mediciones.json",
+    "VERIFICACION-T74-CODEX.md"
+  ]
+}

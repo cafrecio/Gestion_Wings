@@ -1,0 +1,46 @@
+[
+  {
+    "path": "app/Http/Controllers/OperativoDashboardController.php",
+    "sha256": "A991D76D71C4722049CFE979DB687C6958D36779C9844B8E9CEAE644EE211DC9"
+  },
+  {
+    "path": "app/Http/Controllers/CobranzaWebController.php",
+    "sha256": "D1BF5CC59FC9D74A87500E5715AC699FD7EA7AFE9A668A8B12733B5EC97C9783"
+  },
+  {
+    "path": "app/Http/Controllers/CajaWebController.php",
+    "sha256": "0F0A6FD36F92C4A17587D559DA32F83C467A43620508E2F64388666B42AC75F6"
+  },
+  {
+    "path": "app/Services/CobranzaEstadoService.php",
+    "sha256": "4AB855C04E6B7821ED13C01907F5E563186BB6C2107564B8B4BADBBE1A6D140F"
+  },
+  {
+    "path": "app/Services/OperativoEstadoService.php",
+    "sha256": "B5534BA0C0A3F401C808346AD379CB2C94C91435219817742836D6DC9C3089B6"
+  },
+  {
+    "path": "app/Providers/AppServiceProvider.php",
+    "sha256": "3FE554306852802647DAE790D82257D4D5E4C3A28CAD20D75E8F6DA49CB5305F"
+  },
+  {
+    "path": "resources/views/operativo/dashboard.blade.php",
+    "sha256": "B783610806769E79E2058782279EBCCC0C614B6B6189149C6CCCD8B225C30460"
+  },
+  {
+    "path": "resources/css/app.css",
+    "sha256": "3C901A4C5A028DE719EF2232740F362E1AC4971FF3734C3C3ED708AE890B640F"
+  },
+  {
+    "path": "tests/Feature/InicioVencidosEnPlazoT74Test.php",
+    "sha256": "21A00181C0DFE25EACA5ABD6B336E7CD962223B0CEE87028B49977EFBECBD13D"
+  },
+  {
+    "path": "tests/Feature/CuotaAltaEstadoTest.php",
+    "sha256": "4073B335D84C6CA3EA1B39209225383B55CE773CB1F40E101EF99EC0077016DC"
+  },
+  {
+    "path": "tests/Feature/CspSinCodigoIncrustadoTest.php",
+    "sha256": "9A77667A00D75F21811C37D747091AF21C1748B43A32CEF20C03F7CFEB76091E"
+  }
+]
