@@ -44,7 +44,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: página 405 en castellano para la dirección de una acción abierta a mano (el fallback la daba como 404); registro inexistente y fallos de base avisan en castellano (AvisoError, 29 catch en 6 controladores). 7 pruebas, Chrome 1366/375. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
+| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: página 405 en castellano para la dirección de una acción abierta a mano; registro inexistente y fallos de base avisan en castellano (AvisoError, 29 catch en 6 controladores). Visual aprobado por Carlos el 19/10: T47 visual aprobado. Falta verificar lógica (propuesto Gemini, junto con T59); puede cerrar si pasa. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
 | **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: el dueño que entra a Nuevo movimiento de caja va a Cashflow; si envía el formulario de caja no se registra nada. 3 pruebas, Chrome. Falta verificador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
 | **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: Inicio con Vencidos (= Cobranza) y En plazo; suman el buscador de Cobrar. 5 pruebas, Chrome 1366/375 con fecha simulada 05/10. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T74.md |
 
@@ -56,7 +56,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificar correccion de H1 (etiqueta Sin presentes en tarjeta) y H2 (bloqueo en liquidacion cerrada). Visual aprobado por Carlos el 19/10: T34 visual aprobado; Codex verifica solo logica y puede cerrar |
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex CyE verifica ahora correccion H1 y H2 de f2b065f7 y c5c0f41f. Visual aprobado por Carlos el 19/10: T34 visual aprobado; puede cerrar si logica pasa. T67 permanece cerrada |
 
 ## Gemini
 
