@@ -70,19 +70,22 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
 {{-- Precios por frecuencia --}}
 <div class="mt-5 pt-4" style="border-top: 1px solid var(--color-border);">
 
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
+    <div style="margin-bottom:0.75rem;">
         <span style="font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-muted);">
             Precios por frecuencia
         </span>
-        <button type="button" id="btn-add-plan" class="ds-btn ds-btn--secondary">
-            Nuevo
-        </button>
     </div>
 
     <p class="text-xs mb-3" style="color:var(--color-text-muted);">
         Al guardar un precio: altas nuevas desde {{ today()->format('d/m/Y') }};
         alumnos existentes desde {{ today()->addMonthNoOverflow()->startOfMonth()->format('d/m/Y') }}. Las cuotas generadas se conservan.
     </p>
+
+    <div class="filtros-actions mb-3" style="justify-content:flex-end;">
+        <button type="button" id="btn-add-plan" class="ds-btn ds-btn--secondary">
+            Nuevo
+        </button>
+    </div>
 
     <div id="planes-container" data-initial-idx="{{ $planesExistentes->count() }}">
         @foreach($planesExistentes as $i => $plan)

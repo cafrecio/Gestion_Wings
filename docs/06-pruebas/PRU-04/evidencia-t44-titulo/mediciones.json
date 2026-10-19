@@ -1,0 +1,450 @@
+{
+  "metodo": "Respuestas de Laravel en iframe de ancho real",
+  "resultados": [
+    {
+      "slug": "planes-editar",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1109,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 305,
+        "derechaGuardar": 305,
+        "antes": 3,
+        "despues": 4
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-360-inicio.png",
+          "sha256": "1572c93150aa8387e7d868e575a60ea9e139a1b049ff1d506c345789c2d88b9c"
+        },
+        {
+          "archivo": "capturas/planes-editar-360-pie.png",
+          "sha256": "4690f7280940185ef831d45ce1c5c8b0dad744fc2b53aa9ff91c401321e2c60a"
+        }
+      ]
+    },
+    {
+      "slug": "planes-editar",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 320,
+        "derechaGuardar": 320,
+        "antes": 3,
+        "despues": 4
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-375-inicio.png",
+          "sha256": "1059e6084b1fdc0a907d56cc4b9bb60c818f1b6d2235cb21c79dba3a7feb26f6"
+        }
+      ]
+    },
+    {
+      "slug": "planes-editar",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1125,
+          "derecha": 1221,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 1325,
+        "derechaGuardar": 1325,
+        "antes": 3,
+        "despues": 4
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-1366-inicio.png",
+          "sha256": "d8c2071df6bdfe1762c082bbd8d93766e149543794cba6548d29f8acdd50a4f2"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 305,
+        "derechaGuardar": 305,
+        "antes": 0,
+        "despues": 1
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-360-inicio.png",
+          "sha256": "7676d256927389d8ac1a7c8ea6aa380494673e88535eb34f8da4bc341af78223"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 320,
+        "derechaGuardar": 320,
+        "antes": 0,
+        "despues": 1
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-375-inicio.png",
+          "sha256": "3e39a5329ddf18cf41342f19e4e517007a72539d5dc116646c3e51e2c6a97e3a"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nNuevo\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1125,
+          "derecha": 1221,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "separacion": {
+        "padresSeparados": true,
+        "tituloSinBotones": true,
+        "debajo": true,
+        "derechaNuevo": 1325,
+        "derechaGuardar": 1325,
+        "antes": 0,
+        "despues": 1
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-1366-inicio.png",
+          "sha256": "1547b70e4171d92aa1afe4b929b10b216b1e52d490c1f925a2e2a771422e6c47"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 267.40625,
+          "derecha": 295.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-360-inicio.png",
+          "sha256": "eae52e48aff767285e67ee2752fec1daecf420c7335acf83d8eafcd4255177ad"
+        },
+        {
+          "archivo": "capturas/login-360-pie.png",
+          "sha256": "4d212e2836cbca33666ad9216dee3bbd9ba01dabebb3859abf89068a84f3d82f"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 282.40625,
+          "derecha": 310.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-375-inicio.png",
+          "sha256": "6b81347a17e5c4088fdeb2fd97457bdddafe1fcec63a143896f8d17a158f781e"
+        },
+        {
+          "archivo": "capturas/login-375-pie.png",
+          "sha256": "468b5349b98735f27c006b7678cb14055a8fc2f47cfc097a8a968ba96e637717"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 916.90625,
+          "derecha": 944.90625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 636.5,
+          "derecha": 954.5,
+          "ancho": 318,
+          "alto": 44
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-1366-inicio.png",
+          "sha256": "f250c19cae63b36671c95337b4401d7dce447a1917eb9fb7051effa10310a1bd"
+        },
+        {
+          "archivo": "capturas/login-1366-pie.png",
+          "sha256": "04bad8f7dc3482209dd972ba53215b47030a33b827bdcdd2efe2f556e9c6f314"
+        }
+      ]
+    }
+  ]
+}

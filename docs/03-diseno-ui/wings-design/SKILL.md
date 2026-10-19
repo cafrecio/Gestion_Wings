@@ -94,6 +94,7 @@ ds-sidebar (240px) | ds-main
 
 **Reglas de layout:**
 - Module header: solo título. Sin botones, sin breadcrumbs.
+- **Todo título tiene su bloque exclusivo**: nunca compartir `div`, encabezado o fila con «Nuevo» ni otra acción, también en secciones y subsecciones, al crear/editar y en todos los anchos. Las acciones van en otro bloque a la derecha. [Decisión de Carlos, 19/10/2026](../design-system/DESIGN-RULES.md#títulos-y-acciones-siempre-separados--carlos-19102026).
 - Toda vista debe setear `@php($title = 'Nombre')`.
 - Nav links: usar `.ds-nav-link` y `.ds-nav-link--active`. Sin inline styles.
 

@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 885 pruebas. Suite T44 Codex CAB: 878 aprobadas/3 omitidas, 7792 aserciones; corte 881, wings_testing_codex. Ver IMPLEMENTACION-T44.md; T34/T67 paralelos no certificados.
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 885 pruebas. Suite T44 corrección visual Codex CAB 19/10: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s, wings_testing_codex, corte 885. Ver IMPLEMENTACION-T44.md.
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.

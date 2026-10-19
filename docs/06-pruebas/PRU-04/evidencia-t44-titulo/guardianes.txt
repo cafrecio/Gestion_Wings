@@ -1,0 +1,17 @@
+PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.03s
+
+   PASS  Tests\Feature\TableroAlDiaTest
+  ✓ las tareas son validas                                                                                       0.01s
+  ✓ lo generado coincide con tareas json
+  ✓ cada defecto del tablero esta en la lista y al reves
+  ✓ cambiar otro dato de un cerrado no mueve su fecha de cierre
+  ✓ al cerrar se guarda el dia del cierre y no cambia despues
+  ✓ cerrar un defecto abierto marca el html sin avisos
+
+   PASS  Tests\Feature\TablerosNoDivergenTest
+  ✓ los dos tableros listan las mismas tareas
+  ✓ lo cerrado para los agentes esta tildado para carlos
+
+  Tests:    9 passed (43 assertions)
+  Duration: 0.42s

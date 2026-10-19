@@ -1,0 +1,10 @@
+{
+  "fecha": "2026-10-19",
+  "base": "10a42cd",
+  "metodos": 885,
+  "fuentes": {
+    "resources/views/grupos/_form.blade.php": "b619e6cdbc3687ec2b32c7eaf96cf605d9c21e719b223271064c9a8887d8f132",
+    "docs/03-diseno-ui/design-system/DESIGN-RULES.md": "29f433a4713c4c20fab45b837a056c3c7667c9ddaa9bc91b83f79c52d3424e4b",
+    "docs/03-diseno-ui/wings-design/SKILL.md": "8d66bd68fe0a6de5fcebca708928ef5f3eba7a214abc53c14e415e542a1459e5"
+  }
+}

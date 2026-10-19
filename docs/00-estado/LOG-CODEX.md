@@ -1,5 +1,14 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CAB — T44, Nuevo separado del título
+
+Carlos rechazó Nuevo junto al título en Crear/Editar, celular y escritorio.
+Separados en _form; Design Rules §1.1/§6/checklist y skill explicitan la regla en todos los anchos.
+Tres respuestas reales y nueve medidas 360/375/1366; seis controles de ubicación y agregar fila correctos.
+Sin lógica financiera, JS ni CSS. Suite: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s en wings_testing_codex, salida 0.
+[Capturas, solo dos formularios](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html).
+T44 sigue a verificar por Claude y pendiente de aprobación visual de Carlos. Sin despliegue.
+
 ## 2026-10-18 — Codex CAB — T44, vigencia de precios y cambios de plan
 
 T44 implementada localmente: historial de tarifas y resolución común por alumno/mes.
@@ -109,17 +118,6 @@ Conservado cierre de 512f375 por prueba de Carlos registrada por Claude; sin com
 Corregidos enlace 404 y próximo paso viejo del informe. [T3](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#tercera-vuelta) · [T11](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-TERCERA.md).
 B11 sin empezar: Carlos confirmó mantener T3 → T11 → B11. Sin producto, pruebas existentes, reloj ni despliegue de Codex.
 
-## 2026-10-16 — Codex CyE — T3 segunda vuelta: fechas correctas, aviso al cerrar
-
-318ef2f en copia: A6 conserva cierre; cerrar, editar otro día y reabrir B11 conserva/borra fecha correctamente.
-67 encabezados y renglones cerrados restaurados; tres abiertos actuales. 66 fechas coinciden con encabezados.
-B15 23/09 aceptable por SERVIDOR.md y registro contemporáneo 031bdec; no por el último cambio solo.
-Devuelta a Claude: cerrar B11 emite Undefined array key 2, lib.php:660; guarda, pero no sale limpio.
-Pruebas nuevas: 2/18 verdes; en código viejo dos errores por helper ausente, y CLI viejo reproduce fecha falsa.
-Suite propia wings_testing_codex: 2 skipped, 725 passed (6947 assertions); salida 0. Sin pruebas en otra base.
-[Segunda vuelta y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta). Tiene Claude: grupo opcional y regresión HTML.
-Sin arreglo de código, producto, datos del club, reloj ni despliegue; copia restaurada y retirada. T11 no empezada.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -139,3 +137,5 @@ Sin arreglo de código, producto, datos del club, reloj ni despliegue; copia res
 [Entrada T11 del 14/10 archivada al aplicar jerarquía T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-JERARQUIA.md).
 
 [Entrada T3 archivada al iniciar T44](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T44-ARRANQUE.md).
+
+[Entrada antigua archivada al corregir título T44](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T44-TITULO.md).

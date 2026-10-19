@@ -107,3 +107,30 @@ respuestas reales y marcos de ancho exacto; no fabrican pantallas de Wings.
 
 Entregado a Claude para verificar reglas y código; T44 permanece a_verificar.
 Lo visual de T44 lo aprueba Carlos; no se hereda la aprobación de T75. Sin publicación ni despliegue.
+
+
+## Corrección visual — 19/10/2026
+
+Carlos rechazó que «Nuevo» compartiera bloque con «Precios por frecuencia», tanto al crear
+como al editar, en celular y escritorio. Se separó el encabezado de su barra de acciones:
+título, explicación de vigencia y luego «Nuevo» en un bloque propio a la derecha, antes de las filas.
+
+La regla quedó explícita en DESIGN-RULES §1.1, §6 y su checklist, y en wings-design/SKILL.md:
+ningún título de página, tarjeta, sección o subsección comparte div, encabezado o fila con botones,
+en ningún ancho. Un conteo puede compartir barra con acciones; un título nunca.
+
+[Capturas corregidas, solo Crear y Editar](evidencia-t44-titulo/GALERIA.html).
+Tres respuestas reales de Laravel (incluido login de control), nueve medidas a 360/375/1366 y trece capturas (incluyen inicio/pie cuando hay scroll).
+Las seis combinaciones de formulario verifican bloques separados, botón debajo del título,
+borde derecho común con Guardar y agregado/eliminación de una fila. Sin desbordes.
+Render: 1 prueba instrumental / 5 aserciones, 12.62 s, exclusivamente wings_testing_codex.
+No se modifica lógica financiera, JavaScript ni CSS. Las fuentes y capturas originales del 18/10
+se conservan como corte histórico; la galería anterior ahora muestra las imágenes corregidas.
+La huella nueva del formulario está en evidencia-t44-titulo/fuentes.json: el verificador histórico
+que compara las 22 fuentes con el corte del 18/10 deja de representar esta revisión visual.
+
+Suite completa de la corrección: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, salida 0, corte de 885 métodos en wings_testing_codex. [Salida](evidencia-t44-titulo/suite-final.txt).
+Sintaxis del formulario e instrumentos correcta; vistas compiladas y limpiadas sin errores.
+Guardianes finales de documentación y tablero: 9 aprobadas / 43 aserciones, 0.42 s.
+Durante la corrida otro agente cambió la prueba y vista de Clases de T34/T67 y sus capturas; no se incluyen ni se certifican esas revisiones posteriores. Las 22 fuentes propias conservan sus huellas.
+Aspecto pendiente de Carlos; T44 sigue a verificar por Claude.

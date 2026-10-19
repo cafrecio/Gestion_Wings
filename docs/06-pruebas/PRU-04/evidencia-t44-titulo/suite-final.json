@@ -1,0 +1,12 @@
+{
+  "base": "wings_testing_codex",
+  "aprobadas": 882,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7821,
+  "duracion_segundos": 1134.95,
+  "salida": 0,
+  "metodos_al_inicio": 885,
+  "sha256": "77169aeb1238bd8f5f2027c257c387e09873388943973b0e6c27fb30efeb6a26",
+  "limite": "Solo se certifica esta correccion y sus 22 fuentes propias; cambios paralelos en prueba/vista Clases y su evidencia no incluidos ni certificados"
+}

@@ -15,6 +15,14 @@
 - **Prohibido en el header**: botones, badges, observaciones, subtítulos, íconos de acción, fechas.
 - La observación/descripción va **debajo** del header como `<p>` separado, con el mismo indentado que el texto del título (`padding-left: 1.5rem`).
 
+### Títulos y acciones siempre separados — Carlos, 19/10/2026
+
+- **Nunca colocar «Nuevo» ni otro botón en el mismo `div`, encabezado o fila que un título**, sea de página, tarjeta, sección o subsección. Rige en celular, tablet y escritorio, tanto al crear como al editar.
+- El título tiene su bloque exclusivo. Las acciones tienen otro bloque, separado y alineado a la derecha; cambiar a `flex-wrap` o apilar dentro del mismo encabezado no cumple esta regla.
+- Una barra de acciones puede compartir espacio con un conteo o información operativa, nunca con el título. La regla de `stats-bar` de §6 no autoriza a mezclar título y botones.
+- En «Precios por frecuencia»: título y explicación de vigencia primero; «Nuevo» en su propia barra debajo de la explicación y antes de las filas. Conserva el borde derecho de Guardar.
+- Carlos: «no puede nuevo estar en el mismo div que el titulo. NUNCA. En ninguna de las dos pantallas, ni en celular ni en escritorio».
+
 ### Listado de Alumnos — decisión de Carlos, 07/10/2026
 
 - Una tarjeta por fila, también en escritorio. No distribuir alumnos en dos tarjetas por fila.
@@ -113,7 +121,7 @@ En celular, la decisión de Carlos del 18/10/2026 en §7 tiene prioridad sobre e
 
 - Estructura: `display: flex; justify-content: space-between; align-items: center`.
 - Izquierda: conteo/info del módulo (puede incluir badge de tipo si aplica).
-- Derecha: único botón primario de la sección (Objeto A).
+- Derecha: único botón primario de la sección (Objeto A). El título siempre queda fuera de esta barra, en un bloque separado (§1.1).
 - Un `stats-bar` por sección, no por card individual.
 - **Aplica también a subsecciones dentro de una misma vista** (ej: "Reglas de primer cobro" dentro de Configuración). Si una subsección tiene acción primaria (Agregar, Nuevo), va en el `stats-bar` de esa subsección, no debajo de las cards ni flotando solo en la página.
 - El botón de acción primaria de una subsección inline (sin página propia) usa `x-ds.button variant="primary"` igual que en vistas completas.
@@ -187,6 +195,7 @@ lo acepta porque viene del propio dominio.
 
 Antes de aprobar cualquier vista, verificar:
 
+- [ ] ¿Todo título de página, tarjeta, sección o subsección tiene su bloque separado de «Nuevo» y del resto de botones, en celular y escritorio?
 - [ ] ¿El header de cada card tiene SOLO dot + título?
 - [ ] ¿Las acciones del card están en `alumno-actions` al pie, con `border-top`?
 - [ ] ¿El botón "hijo" (+ Subrubro, etc.) está en `margin-left:auto` dentro de `alumno-actions`?

@@ -1,0 +1,23 @@
+[
+    {
+        "slug": "planes-editar",
+        "url": "http://127.0.0.1:8744/grupos/1/edit",
+        "estado": 200,
+        "sha256": "7ce863a2aac687448d47c1110eeceb41675c102dc2b5a565de77328ce02b83f9",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "planes-nuevo",
+        "url": "http://127.0.0.1:8744/grupos/create",
+        "estado": 200,
+        "sha256": "c3cda1e4faa028794f203bdcbebb3b3dd896d2bc197d309c058dbaa8bd1dcd0b",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "login",
+        "url": "http://127.0.0.1:8744/login",
+        "estado": 200,
+        "sha256": "364ff84b33535881c487d57e3a11481a57754f831085c2a3f07f95ed53c0075b",
+        "normalizacion": "CRLF a LF"
+    }
+]

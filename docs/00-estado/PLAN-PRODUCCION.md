@@ -16,7 +16,7 @@ toma de los bloques D1-D6 del plan de agosto.
 | Aplicacion | Publicada para preparacion; gate final no firmado |
 | Servidor | Producción `314e485`, leído por consola el 06/10 (el 09/09 era `81f27ef`). Sitio de prueba `671a3ea` desde el 10/10; scripts de monitoreo instalados y probados |
 | Base del servidor | Estado minimo para carga humana; Vanina tiene cuenta ADMIN |
-| Suite | **885 pruebas versionadas**. Suite T44 Codex CAB 18/10: **878 aprobadas, 3 omitidas, 0 fallidas**, 7792 aserciones, 1102.93 s en `wings_testing_codex`; corte 881 métodos, sin certificar cambios paralelos T34/T67. Sin despliegue |
+| Suite | **885 pruebas versionadas**. T44 corrección visual Codex CAB 19/10: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, 0 fallidas, salida 0, `wings_testing_codex`; corte 885. Cambios paralelos posteriores de Clases no certificados. Sin despliegue |
 | Dump | Fuera de Git y sin reexportacion automatica desde el 05/09 |
 | T33 | Implementación de perdón de inscripción y reactivación de cuota/inscripción por ADMIN, 13/10; [entrega](../06-pruebas/PRU-04/IMPLEMENTACION-T33.md). A verificar por Claude, sin despliegue. |
 | B11 / FIN-14 | Punitorios implementados localmente el 16/10; porcentaje inicial cero. [Entrega y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-B11.md). A verificar por Claude; sin publicación ni despliegue, conforme al límite de `52e6bdf` y descendientes |

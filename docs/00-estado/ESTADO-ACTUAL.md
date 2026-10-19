@@ -2,6 +2,8 @@
 
 ## T44 — Vigencia de precios a verificar, Codex CAB 18/10/2026
 
+**Corrección visual 19/10:** Carlos rechazó Nuevo junto al título. Separado en ambos formularios y todos los anchos; regla explícita en Design Rules y skill. [Capturas nuevas](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html); pendiente de su aprobación. Suite de corrección: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s, sin fallas; corte 885.
+
 Historial y tarifa común incorporados: 19 casos nuevos; selección de precios/formato 24/251; regresión 89/455 aprobada.
 Carlos permite varios aumentos al mes: existentes toman el último al mes siguiente; altas usan su día.
 Cambios de frecuencia: baja siempre al mes siguiente; subida ahora con cuota pendiente o parcial;
@@ -748,7 +750,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **885 pruebas** en la carpeta compartida. Suite T44 Codex CAB 18/10: **878 aprobadas, 3 omitidas, 0 fallidas**, 7792 aserciones, 1102.93 s, base `wings_testing_codex`; corte de 881 métodos, sin certificar cambios paralelos T34/T67. |
+| **Tests** | **885 pruebas**. Suite T44 corrección visual Codex CAB 19/10: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, 0 fallidas, base `wings_testing_codex`, corte 885. Cambios paralelos posteriores de Clases no certificados. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

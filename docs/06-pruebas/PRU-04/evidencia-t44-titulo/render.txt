@@ -1,0 +1,5 @@
+PASS  Tests\CapturasT44Titulo\CapturaT44Test
+  ✓ capturas reales t44                                                                                         12.43s
+
+  Tests:    1 passed (5 assertions)
+  Duration: 12.62s
