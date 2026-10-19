@@ -50,9 +50,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T68** Completar las fichas de grupos y profesores con datos reales | Hecho, espera verificación (hizo Codex, verifica Claude) | H1 corregido y probado: importe vigente. Claude revisa logica en Correccion de H1 de VERIFICACION-T68-CODEX.md; Carlos visual con APROBAR-T68.html. Carlos autorizo H1 y su publicacion. H2 para T73; cambios visuales paralelos excluidos del alcance |
+Nada en este momento.
 
 ## Codex
 

@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — T68 cerrada; idea de suite en dos velocidades
+
+- T68: verifiqué la lógica de H1 de Codex (02b72588: la ficha del profesor usa `monto_a_pagar`,
+  regresión 15.000 → 18.000,50) y las vistas de Gemini (2cfe295d: conservan H1, sin JS nuevo).
+  `AlumnoSinPlanT56T68Test` + `CspSinCodigoIncrustadoTest`: 8 aprobadas, 52 aserciones.
+  Visual aprobado por Carlos el 19/10 («Las vistas están aprobadas»). Cerrada con el script.
+  H2 (`onsubmit` de Eliminar plan, anterior a T68) queda en T73. Sin despliegue.
+- Suite de Codex en H1: 2 fallas (T30 recibo, T33 concurrencia) que pasan al repetir. Causa
+  probable, no comprobada: Gemini corría T33 en la misma máquina a la vez.
+- Propuesta a Carlos, sin decidir: suite rápida por tarea (12 de 144 archivos se llevan 13 de
+  los 16 min) y completa antes de desplegar o si se toca plata compartida, un agente a la vez.
+
 ## 2026-10-19 — Claude CyE — DU-57 corregida en la tabla de pruebas; T66 pasa a Gemini
 
 - DU-57: respuesta corregida a «Completarlos con datos reales» (aclaración de Carlos del 19/10);
