@@ -71,8 +71,13 @@ fuente/espacio, y `recorrer-local.mjs` fotografía dentro de marcos de ancho rea
 `publicar.py` mantiene la selección de cinco vistas y guarda las capturas afectadas internamente.
 Los montos de estrés se inyectan solo para medir maquetación; no prueban una escritura financiera.
 
-Sin despliegue ni autocierre. Carlos revisa el aspecto; Claude conserva el control independiente
-de la interacción de Revisión entregada en la vuelta anterior. T36 y T37 permanecen cerradas.
+Aprobación visual de Carlos, 18/10/2026: «Esas opciones estan muy bien aprobadas»,
+sobre el enlace «Ver únicamente las cinco pantallas observadas» de esta entrega.
+**Visual verificado por Carlos:** Eliminar movimiento, Nueva clase, Liquidación, Inicio operativo
+y Revisión, en la [galería enfocada](evidencia-t75-jerarquia/GALERIA.html).
+No se extiende esta aprobación a las pantallas financieras adicionales de la evidencia interna.
+Claude conserva el control independiente de la interacción de Revisión entregada en la vuelta
+anterior; es lo único pendiente de T75. Sin despliegue. T36 y T37 permanecen cerradas.
 
 Guardianes finales: 7 aprobados/34 aserciones. Al ejecutarlos había 862 métodos en la carpeta
 compartida: 860 del corte versionado y dos nuevos de T58 ajenos a esta entrega. El conteo

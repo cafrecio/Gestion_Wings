@@ -9,7 +9,8 @@ Expresiones Blade y bloques PHP idénticos a a8ab707; sin JavaScript ni reglas d
 126 controles positivos/negativos correctos; corregidos 5 px de exceso y padding doble en Cashflow.
 Suite: 858 aprobadas/3 omitidas, 7704 aserciones (incluye temporal T39); PHP final idéntico, CSS recapturado.
 [Entrega y galería de solo las cinco vistas observadas](../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
-T36/T37 conservados cerrados. Falta revisión visual de Carlos y control de Revisión por Claude.
+Carlos aprobó las cinco vistas: «Esas opciones estan muy bien aprobadas»; verifica visual=Carlos.
+T36/T37 conservados cerrados. Solo falta control de la interacción de Revisión por Claude.
 Sin despliegue ni autocierre.
 
 ## 2026-10-18 — Codex CAB — T75, cinco observaciones corregidas y criterio del resto en consulta

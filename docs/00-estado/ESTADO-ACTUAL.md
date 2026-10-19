@@ -34,7 +34,8 @@ Carlos eligió «Jerarquía fija y consistente»: total 1.1rem/800, resumen 0.9r
 Aplicado a ocho vistas de Caja/Cashflow, Cobranza, Inicio administrativo, Liquidación y Reportes.
 126 controles de jerarquía/espacio con montos largos positivos/negativos, sin desbordes.
 [Seguimiento y galería vigente de cinco vistas](../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
-T75 no está cerrada. Suite: 858 aprobadas/3 omitidas, 7704 aserciones; incluye una prueba temporal de T39.
+Carlos aprobó las cinco vistas: «Esas opciones estan muy bien aprobadas» (verifica visual=Carlos).
+Solo queda el control de la interacción de Revisión por Claude. T75 no está cerrada. Suite: 858 aprobadas/3 omitidas, 7704 aserciones; incluye una prueba temporal de T39.
 PHP final idéntico al de la suite; solo CSS móvil de Cashflow posterior, comprobado nuevamente en navegador.
 La interacción de Revisión lleva JavaScript externo; el alcance sin JavaScript de abajo es histórico.
 
