@@ -7,6 +7,23 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CYE — Verificación de Lógica T40: Reintento automático de cuotas y constancia
+
+- **Objetivo y resultado:** Verificación independiente de la lógica implementada por Claude CyE en commit `c9624c47` (T40, DU-52 / CBZ-020). Resultado: **APROBADA** (sin fallas lógicas, sin riesgo de duplicación y con avisos tolerantes a fallos). Sin cambios de pantallas ni revisión visual requerida.
+- **Lógica verificada:**
+  - `GenerarDeudasMensualesCommand::generar`: lógica nuclear preservada (elegibilidad por asistencias/alta+pago previo, planes, precios y envío a revisión sin tocar cuotas ya existentes).
+  - `GeneracionCuotas::faltaGenerar`: día 1 genera; día 2+ exige que el mes anterior figure generado; cambio de año comprobado (enero mira diciembre del año anterior).
+  - Idempotencia y cortes: `crearDeudaSiNoExiste` y `AlumnoRevisionCobranza::firstOrCreate` evitan duplicar; la constancia se graba al final de la corrida; si un corte abrupto interrumpe el proceso, se completa al día siguiente sin duplicar.
+  - El mes atendido queda congelado frente al scheduler durante el resto del mes.
+  - Ejecución manual técnica con `--periodo` o sin él registra constancia; rechazo estricto de `--si-falta` con `--periodo`.
+  - `AvisoAdminService`: fallos de envío capturados con log sin voltear la generación; resumen diario de las 08:00 muestra advertencia hasta que el mes se genera.
+  - `routes/console.php`: programado a las 06:00 todos los días con `withoutOverlapping()` y `onOneServer()`.
+  - Migración `generaciones_cuotas`: anota el mes en curso en entornos no-testing evitando corridas extemporáneas al desplegar.
+  - Reloj simulado: respeta `Carbon::now()`.
+- **Pruebas y suite (`wings_testing_gemini`):** 9 dirigidas en `GeneracionCuotasReintentoT40Test` (39 aserciones, 8.92 s) y `GenerarDeudasMensualesCommandTest` (6 aserciones, 10.09 s) en verde. Suite rápida (`--exclude-group=lento`): 820 aprobadas, 4 omitidas, 0 fallidas (6657 aserciones, 325.79 s, salida 0). Vistas y sintaxis PHP sin errores.
+- **Informe y cierre:** `docs/06-pruebas/PRU-04/VERIFICACION-T40-GEMINI.md`. T40 cerrada en el tablero único (`tareas.json`).
+- **Próximo paso:** Continuar según asignación de Carlos.
+
 ## 2026-10-19 — LOG GEM CYE — Corrección de C1 y C2 en T34: View Composer y transacción en liquidaciones
 
 - **Objetivo y alcance:** Subsanar los hallazgos C1 (consultas por tarjeta) y C2 (validación alternativa en incluir_hoy) señalados por Codex CyE en `docs/06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md`.

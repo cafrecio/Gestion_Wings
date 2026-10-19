@@ -54,13 +54,11 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica correccion de C1 (contador composer) y C2 (transaccion y periodo en incluir_hoy) en T34 |
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | En curso (hizo Gemini, verifica Codex) | Codex CyE reverifica c017bac3: C1 SQL y frescura por peticion; C2 periodo, rollback real y proteccion de cerradas. H1/H2 conservados; sin cambios de producto |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica logica de T40 en wings_testing_gemini |
+Nada en este momento.
 
 ## Sin empezar (23)
 
