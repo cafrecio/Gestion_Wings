@@ -46,7 +46,9 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-60 · CBZ-022 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Decidido por Carlos el 16/10: el recuadro de deuda del Inicio de la operativa muestra los vencidos (como Cobranza) y aparte los que deben pero estan en plazo; vencidos mas en plazo = lo que anuncia el buscador de Cobrar. Cobranza no cambia. TOCA: OperativoDashboardController y su vista (CobranzaEstadoService ya tiene los estados) |
 
 ## Codex
 
@@ -62,9 +64,9 @@ Nada en este momento.
 | **T56** Un alumno activo no puede quedar sin plan | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-15 · ALU-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el generador lo saltea y queda fuera de la cobranza sin que nadie lo vea. TOCA: AlumnoWebController, GrupoWebController::destroyPlan y toggleActivo, generador mensual |
 | **T68** Quitar los carteles de Proximamente | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-57 · SIS-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: grupos/show (linea 166) y profesores/show (lineas 117 y 126). Chica y visual |
 
-## Sin empezar (29)
+## Sin empezar (28)
 
-T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T59, T60, T61, T62, T64, T65, T66, T69, T70, T71, T72, T73, T74, B3.
+T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T59, T60, T61, T62, T64, T65, T66, T69, T70, T71, T72, T73, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
