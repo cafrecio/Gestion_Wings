@@ -1,0 +1,22 @@
+{
+  "fecha": "2026-10-19T05:55:11.281Z",
+  "base": "wings_testing_claude",
+  "pasos": [
+    {
+      "paso": "T59 dueño abre /caja/movimiento",
+      "destino": "/cashflow/movimiento"
+    },
+    {
+      "paso": "T47 dueño abre /deudas/1/condonar",
+      "aviso": "Esta dirección no se abre a mano"
+    },
+    {
+      "paso": "T47 operativa abre /cajas/1/validar",
+      "aviso": "Esta dirección no se abre a mano"
+    },
+    {
+      "paso": "T47 Volver",
+      "destino": "/operativo"
+    }
+  ]
+}

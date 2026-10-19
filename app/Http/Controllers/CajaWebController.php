@@ -53,7 +53,7 @@ class CajaWebController extends Controller
         try {
             $this->cajaService->configurarMostrador((int) $datos['tipo_caja_id'], Auth::id());
         } catch (\DomainException $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
         return redirect()->route('web.caja.index')->with('success', 'Medio de efectivo configurado.');
     }
@@ -475,7 +475,7 @@ class CajaWebController extends Controller
                 );
             }
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage())->withInput();
+            return back()->with('error', \App\Support\AvisoError::texto($e))->withInput();
         }
 
         return redirect()->route('web.caja.resumen', $id)->with('success', 'Movimiento registrado.');
@@ -553,7 +553,7 @@ class CajaWebController extends Controller
                 );
             }
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage())->withInput();
+            return back()->with('error', \App\Support\AvisoError::texto($e))->withInput();
         }
 
         return redirect()->route('web.caja.detalle', $cajaId)->with('success', 'Movimiento actualizado.');
@@ -633,7 +633,7 @@ class CajaWebController extends Controller
         try {
             $this->pagoCuotaService->cancelarCobroOperativo($movimiento->id, $request->input('motivo'), Auth::id());
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.caja.detalle', $cajaId)
@@ -658,7 +658,7 @@ class CajaWebController extends Controller
         } catch (\Illuminate\Validation\ValidationException $e) {
             throw $e;
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.caja.index')->with('success', 'Caja cerrada.');
@@ -671,7 +671,7 @@ class CajaWebController extends Controller
         } catch (\Illuminate\Validation\ValidationException $e) {
             return redirect()->route('web.caja.detalle', $id)->withErrors($e->errors());
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.caja.index')->with('success', 'Caja validada y reflejada en cashflow.');
@@ -701,7 +701,7 @@ class CajaWebController extends Controller
         try {
             $this->cajaService->rechazarCaja($id, Auth::id(), $data['motivo']);
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.caja.index')->with('success', 'Caja rechazada.');
@@ -717,7 +717,7 @@ class CajaWebController extends Controller
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);
         } catch (\Exception $e) {
-            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+            return redirect()->route('web.caja.index')->with('error', \App\Support\AvisoError::texto($e));
         }
 
         // A54/A55: cuanto debe cada alumno lo decide un solo calculo, el de cobranza.
@@ -761,7 +761,7 @@ class CajaWebController extends Controller
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);
         } catch (\Exception $e) {
-            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+            return redirect()->route('web.caja.index')->with('error', \App\Support\AvisoError::texto($e));
         }
 
         $punitorios = app(\App\Services\CobranzaEstadoService::class)
@@ -1105,7 +1105,7 @@ class CajaWebController extends Controller
                 ->with('success', "Pago registrado para {$alumno->apellido}, {$alumno->nombre}.")
                 ->with('recibo_pago_id', $resultadoPago['pago']->id);
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -1114,12 +1114,14 @@ class CajaWebController extends Controller
     public function movimientoForm()
     {
         $user = Auth::user();
+        // T59 (DU-24): el dueño no abre caja; sus movimientos van por Cashflow.
+        if ($user->isAdmin()) return redirect()->route('web.cashflow.movimiento');
         if ($this->aperturaNecesaria()) return redirect()->route('web.caja.apertura');
 
         try {
             $this->cajaService->validarCajaViejaAbierta($user->id);
         } catch (\Exception $e) {
-            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+            return redirect()->route('web.caja.index')->with('error', \App\Support\AvisoError::texto($e));
         }
 
         $rubros       = $this->cargarRubros($user);
@@ -1133,8 +1135,13 @@ class CajaWebController extends Controller
 
     public function movimientoStore(Request $request)
     {
-        ImportePesos::preparar($request, ['monto']);
         $user = Auth::user();
+        // T59 (DU-24): ningún movimiento del dueño entra al turno de la operativa.
+        if ($user->isAdmin()) {
+            return redirect()->route('web.cashflow.movimiento')
+                ->with('error', 'Tus movimientos se cargan en Cashflow; la caja es de la operativa. No se registró nada.');
+        }
+        ImportePesos::preparar($request, ['monto']);
 
         $request->validate([
             'tipo_caja_id'  => 'required|exists:tipos_caja,id',
@@ -1146,7 +1153,7 @@ class CajaWebController extends Controller
         try {
             $caja = $this->cajaService->abrirCajaSiNoExiste($user->id);
         } catch (\Exception $e) {
-            return redirect()->route('web.caja.index')->with('error', $e->getMessage());
+            return redirect()->route('web.caja.index')->with('error', \App\Support\AvisoError::texto($e));
         }
 
         try {
@@ -1157,7 +1164,7 @@ class CajaWebController extends Controller
                 'observaciones' => $request->input('observaciones'),
             ]);
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.caja.index')->with('success', 'Movimiento registrado.');

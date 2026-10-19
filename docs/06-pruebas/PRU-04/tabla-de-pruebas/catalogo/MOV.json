@@ -240,8 +240,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-24, 13/10). Falta programar: T59. Antes: CajaWebController::storeMovimiento (código leído). El mensaje que recibe el dueño («Debés abrir la caja») no le sirve: él no abre caja.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-24, 13/10). Programado en T59 por Claude el 19/10 (CajaWebController::movimientoForm y movimientoStore; DuenoMovimientoCajaT59Test), a verificar. Si el dueño igual envía el formulario de caja, vuelve a Cashflow con el aviso «Tus movimientos se cargan en Cashflow… No se registró nada.» y el turno no recibe nada.",
       "modulo": "Movimientos de caja",
       "pantalla": "caja-movimiento",
       "requiere": "Dueño ingresado, con un turno operativo abierto.",

@@ -221,7 +221,7 @@ class ClaseWebController extends Controller
                 return $creadas;
             });
         } catch (\Exception $e) {
-            return back()->withInput($request->except('confirmar_cancha'))->with('error', $e->getMessage());
+            return back()->withInput($request->except('confirmar_cancha'))->with('error', \App\Support\AvisoError::texto($e));
         }
 
         return redirect()->route('web.clases.index')

@@ -149,7 +149,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.show', $liquidacion->id)
                 ->with('success', 'Liquidación generada correctamente.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', $e->getMessage());
+            return back()->withInput()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -204,7 +204,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación cerrada correctamente.');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -215,7 +215,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación recalculada correctamente.');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -237,7 +237,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación cancelada. Ya podés revisar asistencias y regenerarla.');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -248,7 +248,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.index')
                 ->with('success', 'Liquidación eliminada.');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -323,7 +323,7 @@ class LiquidacionWebController extends Controller
             return redirect()->route('web.liquidaciones.show', $id)
                 ->with('success', 'Liquidación pagada. Movimiento registrado en cashflow.');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 
@@ -346,7 +346,7 @@ class LiquidacionWebController extends Controller
             report($e);
             return back()->withInput()->with('error', 'No se pudo guardar el ajuste. Recargá la liquidación e intentá nuevamente.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', $e->getMessage());
+            return back()->withInput()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 

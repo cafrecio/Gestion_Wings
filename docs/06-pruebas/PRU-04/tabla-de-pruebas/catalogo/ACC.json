@@ -583,8 +583,8 @@
           "tipo": "directo"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-02, 13/10): página en castellano. Falta programar: T47. Antes: T15 errores en castellano; rutas (código leído). El aviso para «método no permitido» no tiene pantalla propia.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-02, 13/10): página en castellano. Programado en T47 por Claude el 19/10 (errors/405, Route::fallback, App\\Support\\AvisoError; AvisosCastellanoT47Test), a verificar. Antes de T47, abrir a mano una acción ya no daba la página en inglés sino «Página no disponible» (404): el fallback de rutas atrapaba la dirección. Ahora dice «Esta dirección no se abre a mano». Un registro inexistente avisa «Ese registro no existe o ya no está» y un fallo de base no muestra la consulta.",
       "modulo": "Acceso y seguridad",
       "pantalla": "acceso-errores",
       "requiere": "Usuario ingresado.",

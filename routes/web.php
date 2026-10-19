@@ -304,6 +304,13 @@ Route::middleware(['auth', 'ensure.active.web', \App\Http\Middleware\PrepararPri
 
 // La ruta inexistente conserva el contexto web para Volver al inicio del rol.
 // No lleva auth: una dirección inventada también muestra el aviso sin sesión.
-Route::fallback(function () {
+Route::fallback(function (\Illuminate\Http\Request $request) {
+    // T47 (DU-02): si la dirección existe pero es de una acción (cerrar caja, condonar…),
+    // no es «la página no existe»: es una dirección que no se abre a mano.
+    $accion = collect(app('router')->getRoutes()->getRoutes())
+        ->first(fn ($ruta) => !$ruta->isFallback && $ruta->matches($request, false));
+    if ($accion) {
+        abort(405, '', ['Allow' => implode(', ', $accion->methods())]);
+    }
     abort(404);
 });

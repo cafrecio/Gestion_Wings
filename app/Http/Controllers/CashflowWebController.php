@@ -291,7 +291,7 @@ class CashflowWebController extends Controller
                 );
             }
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage())->withInput();
+            return back()->with('error', \App\Support\AvisoError::texto($e))->withInput();
         }
 
         return redirect()->route('web.cashflow.index')->with('success', 'Movimiento directo registrado en cashflow.');

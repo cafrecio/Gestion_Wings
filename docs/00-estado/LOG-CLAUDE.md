@@ -11,6 +11,19 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CAB — T59 y T47 hechas
+
+T59 (DU-24): el dueño que abre Nuevo movimiento de caja va a Nuevo movimiento de Cashflow; si
+envía el formulario de caja vuelve a Cashflow con aviso y el turno no recibe nada. T47 (DU-02):
+al leer el código, la premisa había cambiado: el `Route::fallback` de T15 convertía la dirección
+de una acción en «Página no disponible». Ahora el fallback distingue la dirección que existe con
+otro método (405, página nueva «Esta dirección no se abre a mano») de la que no existe (404).
+`AvisoError` traduce registro inexistente y fallos de base en 29 `catch` de 6 controladores de
+pantalla. 10 pruebas; Chrome 1366/375. Suite sola: 901/4 omitidas, solo el contador.
+**Choque con Gemini:** su commit 0414b68 (T56/T68) se llevó mis 6 líneas de `AlumnoWebController`
+sin la clase `AvisoError`; HEAD dio 500 en esos `catch` hasta este commit. Tampoco actualizó el
+contador (896 contra 890 declarado): queda en 906 con las mías. A verificar.
+
 ## 2026-10-19 — Claude CAB — T74 hecha: Inicio con vencidos y en plazo
 
 DU-60: el Inicio de la operativa separa **Vencidos** (= Cobranza) de **En plazo** (deben y no

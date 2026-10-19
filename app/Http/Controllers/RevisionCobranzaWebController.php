@@ -63,7 +63,7 @@ class RevisionCobranzaWebController extends Controller
 
             return redirect()->route('web.revision-cobranza.index')->with('success', $msg);
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->with('error', \App\Support\AvisoError::texto($e));
         }
     }
 }

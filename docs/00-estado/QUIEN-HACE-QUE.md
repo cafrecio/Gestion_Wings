@@ -44,15 +44,15 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: página 405 en castellano para la dirección de una acción abierta a mano (el fallback la daba como 404); registro inexistente y fallos de base avisan en castellano (AvisoError, 29 catch en 6 controladores). 7 pruebas, Chrome 1366/375. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
+| **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: el dueño que entra a Nuevo movimiento de caja va a Cashflow; si envía el formulario de caja no se registra nada. 3 pruebas, Chrome. Falta verificador. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md |
 | **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: Inicio con Vencidos (= Cobranza) y En plazo; suman el buscador de Cobrar. 5 pruebas, Chrome 1366/375 con fecha simulada 05/10. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T74.md |
 
 ## Claude
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-02 · ACC-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: resources/views/errors (falta la 405) y PantallasErrorTest. Sumado el 13/10 al verificar T33: condonar o reactivar una cuota o inscripcion inexistente responde No query results for model [App\Models\CargoAlumno]; pasa en web.deudas.condonar, web.deudas.reactivar, web.inscripciones.condonar y web.inscripciones.reactivar (AlumnoWebController::decidirPerdon y condonarDeuda atrapan cualquier excepcion y muestran su texto). Buscar el mismo patron en otros controladores. No choca con nada |
 | **T56** Un alumno activo no puede quedar sin plan | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar bloqueo de alumno sin plan al cambiar de grupo y al cobrar a inactivo |
-| **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-24 · MOV-006 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: CajaWebController::movimientoForm. Chica. ORDEN: despues de T36 y T37, mismo archivo |
 | **T68** Quitar los carteles de Proximamente | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar retiro de carteles Proximamente en grupo y profesor |
 
 ## Codex
