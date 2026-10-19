@@ -1,0 +1,28 @@
+[
+    {
+        "estado_pago": "PENDIENTE",
+        "clase_id": 3,
+        "validada": false,
+        "detalle": {
+            "id": 1,
+            "liquidacion_id": 1,
+            "referencia_id": 3,
+            "tipo_referencia": "clase",
+            "monto": "1000.00"
+        },
+        "total": "1000.00"
+    },
+    {
+        "estado_pago": "PAGADA",
+        "clase_id": 3,
+        "validada": false,
+        "detalle": {
+            "id": 1,
+            "liquidacion_id": 1,
+            "referencia_id": 3,
+            "tipo_referencia": "clase",
+            "monto": "1000.00"
+        },
+        "total": "1000.00"
+    }
+]

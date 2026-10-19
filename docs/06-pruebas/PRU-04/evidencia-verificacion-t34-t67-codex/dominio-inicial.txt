@@ -1,0 +1,23 @@
+FAIL  Tests\Feature\DominioClasesT34T67Test
+  ✓ dominio dos profesores cuentan sin duplicar y profesor ve otra clase                                        19.31s
+  ⨯ dominio desmarcar clase cerrada conserva filas y total economico                                             0.21s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\DominioClasesT34T67Test > dominio desmarcar clase cerrada conserva filas y total economico
+  Failed asserting that true is false.
+
+  at docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\DominioClasesT34T67Test.php:40
+     36▕         foreach(['PENDIENTE','PAGADA'] as $estado){
+     37▕             // Preparar dos variantes de fixture; el cambio bajo prueba es el PATCH.
+     38▕             $c->update(['validada_para_liquidacion'=>true]);$l->update(['estado_pago'=>$estado]);
+     39▕             $this->actingAs($admin)->patch(route('web.clases.toggle-validada',$c->id))->assertRedirect();
+  ➜  40▕             $this->assertFalse($c->fresh()->validada_para_liquidacion);
+     41▕             $detalle=$l->detalles()->sole();
+     42▕             $this->assertSame($antes,$detalle->getAttributes());$this->assertSame($total,$l->fresh()->total_calculado);
+     43▕             $observaciones[]=['estado_pago'=>$estado,'clase_id'=>$c->id,'validada'=>$c->fresh()->validada_para_liquidacion,'detalle'=>$detalle->only(['id','liquidacion_id','referencia_id','tipo_referencia','monto']),'total'=>$l->fresh()->total_calculado];
+     44▕         }
+
+  1   docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\DominioClasesT34T67Test.php:40
+
+
+  Tests:    1 failed, 1 passed (17 assertions)
+  Duration: 19.71s

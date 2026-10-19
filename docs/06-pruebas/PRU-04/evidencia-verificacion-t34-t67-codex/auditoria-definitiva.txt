@@ -1,0 +1,86 @@
+FAIL  Tests\Feature\VerificacionAmpliadaT34T67Test
+  ✓ auditoria matriz sincronizada incluye clases antiguas y limite del dia                                      12.26s
+  ✓ auditoria paginacion y filtros combinados no pierden clases                                                  0.48s
+  ✓ auditoria filtro exclusivo compara ids reales para cada rol                                                  0.12s
+  ✓ auditoria post real todos ausentes actualiza los cuatro consumidores                                         0.23s
+  ✓ auditoria corregir ausente presente y ausente exige motivo y reclasifica                                     0.23s
+  ✓ auditoria validacion admin sale de pendientes y genera detalle persistido                                    0.14s
+  ✓ auditoria cancelacion y reactivacion no olvidan la lista                                                     0.15s
+  ✓ auditoria tanda con alumno ajeno no toma lista ni cambia contadores                                          0.08s
+  ✓ auditoria todos los roles reciben solo sufijos y homonimos se distinguen                                     0.09s
+  ✓ auditoria profesor no accede a rutas que exponen dni completo                                                0.19s
+  ✓ auditoria dni ausente y sufijo con ceros no rompen el formulario                                             0.08s
+  ✓ auditoria futuras y canceladas rechazan lista sin crear registros                                            0.07s
+  ⨯ auditoria tarjeta no debe marcar pendiente una lista ya tomada                                               0.07s
+  ⨯ auditoria clase cerrada no debe reaparecer para decidir pago                                                 0.08s
+  ✓ auditoria guardar sin items y lista parcial se registran como limites                                        0.10s
+  ⨯ auditoria clase pagada no debe reaparecer para decidir pago                                                  0.15s
+  ✓ auditoria anonimo e inactivo no pueden leer el dni                                                           0.07s
+  ✓ auditoria capturas reales para comprobar interaccion y etiqueta                                              0.07s
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.14s
+  ✓ permisos filtro sin presentes                                                                                0.15s
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.07s
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.10s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.06s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.04s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionAmpliadaT34T67Test > auditoria tarjeta no debe marcar pendiente una lista ya to…
+  Una lista guardada no debe presentarse como pendiente de carga.
+Failed asserting that two strings are not identical.
+
+  at docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:299
+    295▕         $r=$this->estado('sin_presentes');$d=new \DOMDocument();@$d->loadHTML('<?xml encoding="UTF-8">'.$r->getContent());$x=new \DOMXPath($d);
+    296▕         $labels=$x->query('//span[contains(@class,"info-label") and normalize-space(.)="Asistencia:"]/following-sibling::span[1]');
+    297▕         $this->assertSame(1,$labels->length);$label=trim($labels->item(0)->textContent);
+    298▕         $this->anotar('lista_tomada_etiqueta',['asistencias'=>$c->asistencias()->count(),'etiqueta'=>$label,'filtro'=>'sin_presentes']);
+  ➜ 299▕         $this->assertNotSame('Pendiente',$label,'Una lista guardada no debe presentarse como pendiente de carga.');
+    300▕     }
+    301▕
+    302▕     public function test_auditoria_clase_cerrada_no_debe_reaparecer_para_decidir_pago(): void
+    303▕     {
+
+  1   docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:299
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionAmpliadaT34T67Test > auditoria clase cerrada no debe reaparecer para decidir pa…
+  Una clase ya liquidada no debe volver a la cola de decidir si se paga.
+Failed asserting that an array does not contain 49.
+
+  at docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:310
+    306▕         $this->assertTrue($c->fresh()->integraLiquidacionCerrada());
+    307▕         $r=$this->actingAs($this->admin)->patch(route('web.clases.toggle-validada',$c->id));
+    308▕         $ids=$this->ids($this->estado('sin_presentes'));
+    309▕         $this->anotar('clase_en_liquidacion_cerrada',['clase_id'=>$c->id,'http'=>$r->status(),'validada'=>$c->fresh()->validada_para_liquidacion,'reaparece_en_sin_presentes'=>in_array($c->id,$ids),'total_cerrado'=>$l->fresh()->total_calculado]);
+  ➜ 310▕         $this->assertNotContains($c->id,$ids,'Una clase ya liquidada no debe volver a la cola de decidir si se paga.');
+    311▕     }
+    312▕
+    313▕     public function test_auditoria_guardar_sin_items_y_lista_parcial_se_registran_como_limites(): void
+    314▕     {
+
+  1   docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:310
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\VerificacionAmpliadaT34T67Test > auditoria clase pagada no debe reaparecer para decidir pag…
+  Una clase en una liquidación pagada no debe volver a la cola de decisión.
+Failed asserting that an array does not contain 51.
+
+  at docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:333
+    329▕         $l->update(['estado_pago'=>'PAGADA']);
+    330▕         $this->actingAs($this->admin)->patch(route('web.clases.toggle-validada',$c->id))->assertRedirect();
+    331▕         $ids=$this->ids($this->estado('sin_presentes'));
+    332▕         $this->anotar('clase_en_liquidacion_pagada',['clase_id'=>$c->id,'estado'=>$l->fresh()->estado,'estado_pago'=>$l->fresh()->estado_pago,'validada'=>$c->fresh()->validada_para_liquidacion,'reaparece_en_sin_presentes'=>in_array($c->id,$ids),'total_conservado'=>$l->fresh()->total_calculado]);
+  ➜ 333▕         $this->assertNotContains($c->id,$ids,'Una clase en una liquidación pagada no debe volver a la cola de decisión.');
+    334▕     }
+    335▕
+    336▕     public function test_auditoria_anonimo_e_inactivo_no_pueden_leer_el_dni(): void
+    337▕     {
+
+  1   docs\06-pruebas\PRU-04\evidencia-verificacion-t34-t67-codex\VerificacionAmpliadaT34T67Test.php:333
+
+
+  Tests:    3 failed, 21 passed (227 assertions)
+  Duration: 15.36s

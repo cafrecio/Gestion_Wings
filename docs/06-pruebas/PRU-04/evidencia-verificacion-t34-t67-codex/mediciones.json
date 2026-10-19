@@ -1,0 +1,370 @@
+{
+  "metodo": "Respuestas de Laravel en iframe de ancho real",
+  "resultados": [
+    {
+      "slug": "sin-presentes",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1159,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nErika Conn\nSalir\nClases\nCLASES DE HOY — DOMINGO 18 DE OCTUBRE · 0 CLASE(S)\nNo hay clases programadas para hoy.\nDeporte\nPatin\nGrupo\nPatin — Inicial\nProfesor\nMendez, Lucia\nEstado\nProgramada\nSin asistencia\nSin presentes\nCerrada\nCancelada\nOrden\nMás recientes\nMás antiguas\nGrupo A–Z\nLimpiar\nFiltrar\nMostrando 1 a 1 de 1 clase(s)\nNuevo\nSáb 10/10/2026 — 10:00 a 11:00 Finalizada\nGrupo:\nPatin — Inicial\nProfesores:\nMendez\nAsistencia:\nPendiente\nVer\nEditar\nWings",
+      "botones": [
+        {
+          "texto": "Limpiar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Filtrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Nuevo",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/sin-presentes-360-inicio.png",
+          "sha256": "332466cd538877c78a44de16a272ebaf258a720702ff1dd4ddd9c8ce6974abc3"
+        },
+        {
+          "archivo": "capturas/sin-presentes-360-pie.png",
+          "sha256": "7f61809a6766ca1ca687733c4842e47f1739913f0a2c8ee74074365fd6413bcc"
+        }
+      ]
+    },
+    {
+      "slug": "sin-presentes",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1159,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nErika Conn\nSalir\nClases\nCLASES DE HOY — DOMINGO 18 DE OCTUBRE · 0 CLASE(S)\nNo hay clases programadas para hoy.\nDeporte\nPatin\nGrupo\nPatin — Inicial\nProfesor\nMendez, Lucia\nEstado\nProgramada\nSin asistencia\nSin presentes\nCerrada\nCancelada\nOrden\nMás recientes\nMás antiguas\nGrupo A–Z\nLimpiar\nFiltrar\nMostrando 1 a 1 de 1 clase(s)\nNuevo\nSáb 10/10/2026 — 10:00 a 11:00 Finalizada\nGrupo:\nPatin — Inicial\nProfesores:\nMendez\nAsistencia:\nPendiente\nVer\nEditar\nWings",
+      "botones": [
+        {
+          "texto": "Limpiar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Filtrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Nuevo",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/sin-presentes-375-inicio.png",
+          "sha256": "5ded7d9c0a9eec89b14ecbc11cb09e133d745ded550a7c9e14376d7065a1352d"
+        },
+        {
+          "archivo": "capturas/sin-presentes-375-pie.png",
+          "sha256": "18adf150e0f2f60f448a1b66bdc89da8345ca2307dc697ab96474fe3518b805e"
+        }
+      ]
+    },
+    {
+      "slug": "sin-presentes",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nErika Conn\nSalir\nClases\nCLASES DE HOY — DOMINGO 18 DE OCTUBRE · 0 CLASE(S)\nNo hay clases programadas para hoy.\nDeporte\nPatin\nGrupo\nPatin — Inicial\nProfesor\nMendez, Lucia\nEstado\nProgramada\nSin asistencia\nSin presentes\nCerrada\nCancelada\nOrden\nMás recientes\nMás antiguas\nGrupo A–Z\nLimpiar\nFiltrar\nMostrando 1 a 1 de 1 clase(s)\nNuevo\nSáb 10/10/2026 — 10:00 a 11:00 Finalizada\nGrupo:\nPatin — Inicial\nProfesores:\nMendez\nAsistencia:\nPendiente\nVer\nEditar\nWings",
+      "botones": [
+        {
+          "texto": "Limpiar",
+          "x": 1125,
+          "derecha": 1221,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Filtrar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Nuevo",
+          "x": 1230,
+          "derecha": 1326,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Ver",
+          "x": 276,
+          "derecha": 372,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 384,
+          "derecha": 480,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/sin-presentes-1366-inicio.png",
+          "sha256": "8c5213ecc90fb02542766c3e4e450bce726a0ba7c20a03f6bf5d4699e07a835d"
+        }
+      ]
+    },
+    {
+      "slug": "asistencia-profesor",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nClases\nClaire Dickinson\nSalir\nClase — Patin — Inicial\nSábado 10 De Octubre De 2026\n10:00 – 11:00\nPatin\nPatin — Inicial\nMendez, Lucia\nActiva\nVolver\n2 alumnos en el grupo  ·  0 presentes\nGomez, Sofia\n0/2\n· DNI …456\nGomez, Sofia\n0/2\n· DNI …457\n\nEstás corrigiendo una lista ya tomada — indicá el motivo\n\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "funcional": {
+        "alumnos": 2,
+        "antes": 0,
+        "uno": 1,
+        "dos": 2,
+        "final": 0,
+        "dniCompletoEnHtml": false,
+        "sufijos": true,
+        "guardar": true,
+        "motivo": true
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/asistencia-profesor-360-inicio.png",
+          "sha256": "784a9423e1b707404ec311328abd6fd3e83a40437600482b4f90f6e7a1f94b1d"
+        }
+      ]
+    },
+    {
+      "slug": "asistencia-profesor",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nClases\nClaire Dickinson\nSalir\nClase — Patin — Inicial\nSábado 10 De Octubre De 2026\n10:00 – 11:00\nPatin\nPatin — Inicial\nMendez, Lucia\nActiva\nVolver\n2 alumnos en el grupo  ·  0 presentes\nGomez, Sofia\n0/2\n· DNI …456\nGomez, Sofia\n0/2\n· DNI …457\n\nEstás corrigiendo una lista ya tomada — indicá el motivo\n\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "funcional": {
+        "alumnos": 2,
+        "antes": 0,
+        "uno": 1,
+        "dos": 2,
+        "final": 0,
+        "dniCompletoEnHtml": false,
+        "sufijos": true,
+        "guardar": true,
+        "motivo": true
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/asistencia-profesor-375-inicio.png",
+          "sha256": "dcedf60943334edf7ad3097af3c91c26861baf9aacfb014f38fa6d475b544e28"
+        }
+      ]
+    },
+    {
+      "slug": "asistencia-profesor",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nClases\nClaire Dickinson\nSalir\nClase — Patin — Inicial\nSábado 10 De Octubre De 2026\n10:00 – 11:00\nPatin\nPatin — Inicial\nMendez, Lucia\nActiva\nVolver\n2 alumnos en el grupo  ·  0 presentes\nGomez, Sofia\n0/2\n· DNI …456\nPresente\nGomez, Sofia\n0/2\n· DNI …457\nPresente\n\nEstás corrigiendo una lista ya tomada — indicá el motivo\n\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Guardar",
+          "x": 1230,
+          "derecha": 1326,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "funcional": {
+        "alumnos": 2,
+        "antes": 0,
+        "uno": 1,
+        "dos": 2,
+        "final": 0,
+        "dniCompletoEnHtml": false,
+        "sufijos": true,
+        "guardar": true,
+        "motivo": true
+      },
+      "fotos": [
+        {
+          "archivo": "capturas/asistencia-profesor-1366-inicio.png",
+          "sha256": "bff2c413ea9e70b002e445260ba72182ddbe0bea71d27862e415587bd4a34eb8"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 267.40625,
+          "derecha": 295.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-360-inicio.png",
+          "sha256": "eae52e48aff767285e67ee2752fec1daecf420c7335acf83d8eafcd4255177ad"
+        },
+        {
+          "archivo": "capturas/login-360-pie.png",
+          "sha256": "4d212e2836cbca33666ad9216dee3bbd9ba01dabebb3859abf89068a84f3d82f"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 282.40625,
+          "derecha": 310.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-375-inicio.png",
+          "sha256": "6b81347a17e5c4088fdeb2fd97457bdddafe1fcec63a143896f8d17a158f781e"
+        },
+        {
+          "archivo": "capturas/login-375-pie.png",
+          "sha256": "468b5349b98735f27c006b7678cb14055a8fc2f47cfc097a8a968ba96e637717"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 916.90625,
+          "derecha": 944.90625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 636.5,
+          "derecha": 954.5,
+          "ancho": 318,
+          "alto": 44
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-1366-inicio.png",
+          "sha256": "f250c19cae63b36671c95337b4401d7dce447a1917eb9fb7051effa10310a1bd"
+        },
+        {
+          "archivo": "capturas/login-1366-pie.png",
+          "sha256": "04bad8f7dc3482209dd972ba53215b47030a33b827bdcdd2efe2f556e9c6f314"
+        }
+      ]
+    }
+  ]
+}

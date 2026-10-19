@@ -1,0 +1,12 @@
+{
+  "base": "wings_testing_codex",
+  "aprobadas": 882,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7823,
+  "duracion_segundos": 1399.67,
+  "salida": 0,
+  "metodos_al_inicio": 885,
+  "sha256": "f4f59157df8f218e052babc085867deba39bfb284c55a93ca3eed3068eaba477",
+  "limite": "Suite permanente; no incluye los instrumentos de esta auditoria ni los cambios paralelos posteriores de T74/T56/T68"
+}

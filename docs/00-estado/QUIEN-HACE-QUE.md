@@ -52,15 +52,13 @@ Nada.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica T34 |
-| **T67** La lista de asistencia muestra solo los tres ultimos numeros del DNI | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica T67 |
+Nada en este momento.
 
 ## Gemini
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Corregir H1 etiqueta Pendiente con lista tomada y H2 clase ya liquidada que vuelve a Sin presentes; ver VERIFICACION-T34-T67-CODEX.md. Sin cambiar diseno aprobado |
 | **T56** Un alumno activo no puede quedar sin plan | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-15 · ALU-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el generador lo saltea y queda fuera de la cobranza sin que nadie lo vea. TOCA: AlumnoWebController, GrupoWebController::destroyPlan y toggleActivo, generador mensual |
 | **T68** Quitar los carteles de Proximamente | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-57 · SIS-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: grupos/show (linea 166) y profesores/show (lineas 117 y 126). Chica y visual |
 

@@ -1,0 +1,15 @@
+{
+  "fuentes_intactas": 13,
+  "archivos_producto": 12,
+  "prueba_original": 1,
+  "respuestas_reales": 3,
+  "mediciones": 9,
+  "capturas": 14,
+  "interacciones": 3,
+  "desbordes": 0,
+  "auditoria_fallos_reproducidos": 3,
+  "suite_salida": 0,
+  "enlaces": true,
+  "T34": "devuelto",
+  "T67": "cerrado"
+}

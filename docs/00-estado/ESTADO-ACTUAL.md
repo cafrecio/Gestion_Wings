@@ -1,5 +1,11 @@
 # Wings — Estado actual
 
+## Verificación ampliada T34/T67 — Codex CAB, 19/10/2026
+
+T34 devuelta a Gemini por dos huecos reproducidos: una lista tomada con todos ausentes sigue mostrando «Asistencia: Pendiente», y un PATCH directo del dueño desmarca una clase de liquidación CERRADA (también con estado PAGADA) y la devuelve a Sin presentes. El importe cerrado no cambia; no se demostró doble pago. Ambos consumidores ya existían antes de T34; la cola nueva expone su integración incompleta.
+T67 pasó controles de DNI para los tres roles, homónimos, ceros, DNI ausente, rutas restringidas y formulario. Se conserva la aprobación visual de Carlos; T67 cerrada por Codex tras la suite completa: 882 aprobadas, 3 omitidas, 7823 aserciones, 1399.67 s, salida 0, corte 885.
+Auditoría adicional: 26 pruebas, 23 aprobadas y 3 fallidas (dos hallazgos T34), 246 aserciones; originales 4/31 y CSP 2/2 pasan. [Informe](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md). Sin cambios de producto ni despliegue.
+
 ## T44 — Vigencia de precios a verificar, Codex CAB 18/10/2026
 
 **Corrección visual 19/10:** Carlos rechazó Nuevo junto al título. Separado en ambos formularios y todos los anchos; regla explícita en Design Rules y skill. [Capturas nuevas](../06-pruebas/PRU-04/evidencia-t44-titulo/GALERIA.html); Carlos aprobó ambas pantallas el 19/10: «Ok, pasan» (verifica visual=Carlos). Suite de corrección: 882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s, sin fallas; corte 885.

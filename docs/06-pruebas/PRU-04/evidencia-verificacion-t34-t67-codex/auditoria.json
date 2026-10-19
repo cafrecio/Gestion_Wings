@@ -1,0 +1,44 @@
+{
+  "base": "wings_testing_codex",
+  "pruebas": 24,
+  "aprobadas": 21,
+  "fallidas": 3,
+  "aserciones": 227,
+  "salida": 1,
+  "duracion_segundos": 15.36,
+  "suites": [
+    {
+      "name": "Tests\\Feature\\VerificacionAmpliadaT34T67Test",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\docs\\06-pruebas\\PRU-04\\evidencia-verificacion-t34-t67-codex\\VerificacionAmpliadaT34T67Test.php",
+      "tests": "18",
+      "assertions": "194",
+      "errors": "0",
+      "failures": "3",
+      "skipped": "0",
+      "time": "14.647177"
+    },
+    {
+      "name": "Tests\\Feature\\ClaseSinAsistenciaYDniT34T67Test",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\ClaseSinAsistenciaYDniT34T67Test.php",
+      "tests": "4",
+      "assertions": "31",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "0.457116"
+    },
+    {
+      "name": "Tests\\Feature\\CspSinCodigoIncrustadoTest",
+      "file": "C:\\xampp\\htdocs\\gestion-wings\\tests\\Feature\\CspSinCodigoIncrustadoTest.php",
+      "tests": "2",
+      "assertions": "2",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "time": "0.098602"
+    }
+  ],
+  "sha256": "5ca96f003ccbcfab7c0e16737b06f0266261c342c4a41e396ede4cf19f06c228",
+  "instrumental_sha256": "8de2d97948bc5d14a9d13885612bbd9417637ed08d5b597e1ff9d18e0fb3266b",
+  "formato_final": "CRLF a LF y un solo salto final; se retir\u00f3 una l\u00ednea vac\u00eda al preparar el commit, sin cambio de c\u00f3digo"
+}

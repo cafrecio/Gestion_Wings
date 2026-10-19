@@ -1,0 +1,18 @@
+{
+  "commit": "f8496cadd90227c79ea24540c21ece5b074b8e08",
+  "fuentes": {
+    "app/Http/Controllers/ClaseWebController.php": "f3eca08c99def66225c6391e745e02fd5ec51c0725fd568a2a52bd779fdeb4c7",
+    "app/Http/Controllers/LiquidacionWebController.php": "ad63bf9416ba394abf155f75cfbf2f9bfdf344b288090ec8169c4fdbd3cde913",
+    "app/Providers/AppServiceProvider.php": "80d9cfa911425dec7a484b9891197c1eff9bb5bb4ee2b5477306e3e2d309a6e5",
+    "app/Services/ReporteMensualService.php": "2166e663397ccfb13c2dc2e2ad658857ebb6ca24bc1c36eaf7a902e1c4bb3fc0",
+    "app/Services/LiquidacionService.php": "619a0e056db517a4cef4743982cbbb78bab3f5b06433b7ad5cee3d812f1fe881",
+    "app/Services/ClaseService.php": "02c6be253521c4f94c654d81b64d2596130d9065cad389521035a4a179644f8b",
+    "app/Models/Clase.php": "99d9227f475e129adf32afa56266a7d99223ef8b62961ab8a6cab439e02d9360",
+    "app/Models/Asistencia.php": "42d4b829c917d2d5b3f2913d0177e41ae2aab95de5c1e171afff0197cbf81ef1",
+    "resources/views/clases/index.blade.php": "95ebb4e84f91ee101e0849cb36d1b8e44e307c806411f95267af1ff6679c1748",
+    "resources/views/clases/show.blade.php": "574334be0794c72679065853c01ee0704721c874adb34135638fa8866711edb0",
+    "resources/views/clases/_card.blade.php": "ba9223f77afe51eb6c6850c0d81ca155cbf6931bd270c4e09a24e7e28210f66a",
+    "routes/web.php": "50639b5dc1b294a87edb3da21d5e7c925bf5eb8d3450737edb547c5b5ee8c5a7",
+    "tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php": "a31a9d7763fc4af78c18bdf972d10981479be7b9cbe3b2d199cc7c219f87ebf7"
+  }
+}

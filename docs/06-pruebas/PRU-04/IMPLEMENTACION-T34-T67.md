@@ -6,6 +6,8 @@
 
 ---
 
+> Verificación independiente de Codex CAB, 19/10: T34 devuelta a Gemini por H1/H2; T67 aprobada y cerrada por Codex tras la suite completa. [Informe y reproducción](VERIFICACION-T34-T67-CODEX.md). El corte visual aprobado por Carlos se conserva.
+
 ## 1. Decisiones de Carlos
 
 - **T34 (DU-33):** *«Con lista tomada sale del contador y queda para que el dueño decida si la paga».*
@@ -40,7 +42,7 @@
    - En `resources/views/clases/show.blade.php` (línea 335): Se reemplazó `<span>· DNI {{ $alumno->dni }}</span>` por `<span>· DNI …{{ substr((string) $alumno->dni, -3) }}</span>`.
    - Se preserva el resguardo para alumnos homónimos sin exponer el documento completo.
 2. **Búsqueda de DNI en rutas y vistas accesibles al profesor:**
-   - El profesor solo tiene acceso a `GET /clases`, `GET /clases/{id}`, `POST /clases/{id}/asistencias` y `PATCH /clases/{id}/profesores`.
+   - El profesor tiene acceso a `GET /clases`, `GET /clases/{id}` y `POST /clases/{id}/asistencias`. La ruta `PATCH /clases/{id}/profesores` está bajo autenticación, pero el controlador rechaza al rol PROFESOR con 403 (comprobación independiente de Codex, 19/10).
    - No tiene acceso a `alumnos` (index, show, autocomplete ni forms), ni a `caja` o `cobranza`.
    - En `clases/index.blade.php` y en las cards de clases (`clases/_card.blade.php`) no se renderiza ningún DNI de alumno.
    - En `clases/show.blade.php`, el DNI del alumno solo aparecía en esa línea ahora modificada. El HTML generado no contiene el DNI completo de los alumnos.

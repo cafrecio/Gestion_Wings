@@ -1,0 +1,6 @@
+PASS  Tests\Feature\DominioClasesT34T67Test
+  ✓ dominio dos profesores cuentan sin duplicar y profesor ve otra clase                                        26.64s
+  ✓ dominio desmarcar clase cerrada conserva filas y total economico                                             0.84s
+
+  Tests:    2 passed (19 assertions)
+  Duration: 27.67s

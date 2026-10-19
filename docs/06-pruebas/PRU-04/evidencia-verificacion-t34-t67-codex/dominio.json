@@ -1,0 +1,10 @@
+{
+  "base": "wings_testing_codex",
+  "aprobadas": 2,
+  "aserciones": 19,
+  "fallidas": 0,
+  "salida": 0,
+  "duracion_segundos": 27.67,
+  "sha256": "e549f7d0d00f5ab0811fd16f6ce4d90fac54f26bbe225e7061e21a4c718cfed8",
+  "fuente_sha256": "5f7601483d8744ca63008fbe05cab3ea08a4700d366ea6b4ac7ff5ecaad25ab3"
+}

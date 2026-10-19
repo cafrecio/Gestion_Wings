@@ -1,0 +1,20 @@
+[
+    {
+        "slug": "sin-presentes",
+        "estado": 200,
+        "sha256": "38e2cd242acaa05bd1980d941707761816165a0b271e31b173bdf189f9478b06",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "asistencia-profesor",
+        "estado": 200,
+        "sha256": "b9613cc7aea0900744079e981560681a2424488c1c716d9db8b1f17b0c136d00",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "login",
+        "estado": 200,
+        "sha256": "2d134c6fb5d0ad645bd54855783d4ffe9f9d798c9ba32e397a956262ff2d3251",
+        "normalizacion": "CRLF a LF"
+    }
+]
