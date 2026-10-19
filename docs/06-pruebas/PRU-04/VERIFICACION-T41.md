@@ -1,4 +1,4 @@
-# T41 — Verificación de Claude · 18/10/2026 · LÓGICA APROBADA
+# T41 — Verificación de Claude · 18/10/2026 · APROBADA Y CERRADA
 
 Verificado sobre `ee65b57` (Gemini CAB). Decisión de Carlos (DU-37): «Impedir cerrar antes de
 que termine el mes», desde el día 1 del mes siguiente. Falta el visto bueno visual de Carlos.
@@ -31,6 +31,8 @@ aprobadas en `wings_testing_claude`. Mis controles,
 Captura de Gemini mirada: octubre en curso muestra el aviso en lugar de Cerrar; Recalcular,
 Eliminar y Volver siguen.
 
-## Pendiente
+## Aspecto
 
-El aspecto: un texto donde estaba el botón Cerrar. Lo aprueba Carlos.
+Aprobado por Carlos el 18/10 («Están OK») sobre capturas de celular tomadas con el código
+actual, ya con T75: [evidencia-t41-claude/](evidencia-t41-claude/) (octubre en curso a 375 y 360, octubre
+el 1/11 con fecha simulada y septiembre terminado).
