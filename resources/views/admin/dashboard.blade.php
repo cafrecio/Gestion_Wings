@@ -17,26 +17,26 @@
 @if($reporte['sin_clasificar'] > 0)
 <p style="color:var(--color-warning);font-size:.8rem;margin-bottom:16px">{{ $reporte['sin_clasificar'] }} movimientos por clasificar. El resultado está incompleto.</p>
 @endif
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px">
+<div class="money-kpis" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px">
 @foreach([['Ingresos del mes',$reporte['ingresos'],'success','ingresos'],['Egresos del mes',$reporte['egresos'],'danger','egresos'],['Alumnos por cobrar',$reporte['deuda']['total'],'warning','deuda'],['Profesores por pagar',$reporte['por_pagar']['total'],'info','profesores']] as [$nombre,$valor,$color,$ancla])
     <a @if($enlaceReportes) href="{{ $enlaceReportes }}#{{ $ancla }}" @else role="link" aria-disabled="true" @endif class="filtros-card" style="text-decoration:none;display:block;min-width:0">
         <p style="color:var(--color-text-muted);font-size:.78rem;margin-bottom:6px">{{ $nombre }}</p>
-        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-{{ $color }});overflow-wrap:anywhere">{{ $dinero($valor) }}</p>
+        <p class="ds-money-summary" style="font-size:clamp(1.15rem,3vw,1.9rem);font-weight:750;color:var(--color-{{ $color }});overflow-wrap:anywhere"><span class="ds-money ds-money--total">{{ $dinero($valor) }}</span></p>
     </a>
 @endforeach
 </div>
 <div class="filtros-card" style="margin-bottom:20px;display:flex;justify-content:space-between;gap:12px;align-items:center">
-    <span style="font-weight:600">Resultado de {{ $mes->translatedFormat('F') }}</span><strong style="font-size:1.35rem;color:var(--color-{{ $reporte['resultado'] < 0 ? 'danger' : 'success' }})">{{ $reporte['resultado'] === null && $reporte['sin_clasificar'] > 0 ? 'Sin clasificar' : $dinero($reporte['resultado']) }}</strong>
+    <span style="font-weight:600">Resultado de {{ $mes->translatedFormat('F') }}</span><strong style="font-size:1.35rem;color:var(--color-{{ $reporte['resultado'] < 0 ? 'danger' : 'success' }})"><span class="ds-money ds-money--total">{{ $reporte['resultado'] === null && $reporte['sin_clasificar'] > 0 ? 'Sin clasificar' : $dinero($reporte['resultado']) }}</span></strong>
 </div>
 <div class="alumno-card" style="margin-bottom:20px">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--success"></span><h3 class="alumno-nombre">Disponible</h3></div>
-    <p style="font-size:1.7rem;font-weight:750;padding:0 16px 12px">{{ $dinero($reporte['disponible']) }}</p>
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px">
+    <p style="font-size:1.7rem;font-weight:750;padding:0 16px 12px"><span class="ds-money ds-money--total">{{ $dinero($reporte['disponible']) }}</span></p>
+    <div class="money-summary-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0 16px 16px">
     @foreach($reporte['cajas'] ?? [] as $caja)
-        <div><p style="font-size:.75rem;color:var(--color-text-muted)">{{ $caja['nombre'] }}</p><strong>{{ $dinero($caja['total']) }}</strong></div>
+        <div><p style="font-size:.75rem;color:var(--color-text-muted)">{{ $caja['nombre'] }}</p><strong><span class="ds-money ds-money--row">{{ $dinero($caja['total']) }}</span></strong></div>
     @endforeach
     </div>
-    <div class="alumno-actions" style="border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted)">Incluye arrastre · {{ $dinero($reporte['cajas'] === null ? null : array_sum(array_column($reporte['cajas'],'pendiente'))) }} por validar</div>
+    <div class="alumno-actions" style="border-top:1px solid var(--color-border);font-size:.75rem;color:var(--color-text-muted)">Incluye arrastre · <span class="ds-money ds-money--row">{{ $dinero($reporte['cajas'] === null ? null : array_sum(array_column($reporte['cajas'],'pendiente'))) }}</span> por validar</div>
 </div>
 <div class="alumno-card">
     <div class="alumno-card-header"><span class="alumno-dot alumno-dot--warning"></span><h3 class="alumno-nombre">Para revisar</h3></div>

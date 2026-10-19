@@ -1,0 +1,370 @@
+{
+  "decision": "Carlos: Jerarquia fija y consistente",
+  "importes": [
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $dinero($valor) }}"
+    },
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $reporte['resultado'] === null && $reporte['sin_clasificar'] > 0 ? 'Sin clasificar' : $dinero($reporte['resultado']) }}"
+    },
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $dinero($reporte['disponible']) }}"
+    },
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($caja['total']) }}"
+    },
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($reporte['cajas'] === null ? null : array_sum(array_column($reporte['cajas'],'pendiente'))) }}"
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($mov->monto) }}"
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($ingresos) }}"
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($egresos) }}"
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $netoDetalle < 0 ? '−' : '' }}{{ \\App\\Support\\FormatoImporte::pesos(abs($netoDetalle)) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $importe === null ? 'Sin declarar' : \\App\\Support\\FormatoImporte::pesos($importe) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($caja->efectivo_inicial_anterior) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $fila['total'] < 0 ? '−' : '' }}{{ \\App\\Support\\FormatoImporte::pesos(abs($fila['total'])) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($fila['total']) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($ingresos) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($egresos) }}"
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $neto < 0 ? '–' : '' }}{{ \\App\\Support\\FormatoImporte::pesos(abs($neto)) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($totalIngresos) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($totalEgresos) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($balance) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $saleDeLaCaja ? '−' : '' }}{{ \\App\\Support\\FormatoImporte::pesos(abs((float)$mov->monto)) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $saleDeLaCaja ? '−' : '' }}{{ \\App\\Support\\FormatoImporte::pesos(abs((float)$mov->monto)) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($movCaja->monto) }}"
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($liqPendiente->monto_a_pagar) }}"
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($totalAdeudado) }}"
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos($alumno->deuda_total ?? 0) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)($liquidacion->profesor->valor_hora ?? 0)) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$totalSum) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$detalle->monto) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$liquidacion->total_calculado) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos(0) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$totalSum) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $montoPagado }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "row",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$detalle->monto) }}"
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "nivel": "total",
+      "expresion": "{{ \\App\\Support\\FormatoImporte::pesos((float)$totalSum) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $dinero($ultimo[$clave]) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $cambio }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($r['ingresos']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($r['egresos']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($r['resultado']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero(abs($cambio['importe'])) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero(abs($cambios->sum('importe'))) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $dinero($reporte[$clave]) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($rubro['importe']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero(collect($rubros)->flatMap(fn ($r) => $r['filas'])->where('confirmado', (bool) $confirmado)->sum('centavos')*($tipo === 'INGRESO' ? 1 : -1)) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($rubro['importe']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($f['centavos']*($tipo === 'INGRESO' ? 1 : -1)) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $dinero($importe) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($caja['confirmado']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($caja['pendiente']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($caja['total']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($reporte['aportes']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($reporte['retiros']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($reporte['resultado_global']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($reporte['deuda']['total']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($reporte['deuda'][$clave]) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($fila['centavos']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($reporte['por_pagar']['total']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $dinero($fila['centavos']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $dinero($reporte['gastos_club']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $plata($reporte['costo']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $plata($reporte['ingreso']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "total",
+      "expresion": "{{ $reporte['costo_por_asistencia'] === null ? 'Sin datos' : $plata($reporte['costo_por_asistencia']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $plata($r['ingreso']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $plata($r['costo']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $plata($d['ingreso']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $plata($d['costo']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $plata($p['costo']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $plata($p['ingreso']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "summary",
+      "expresion": "{{ $p['costo_por_asistencia'] === null ? 'Sin datos' : $plata($p['costo_por_asistencia']) }}"
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "nivel": "row",
+      "expresion": "{{ $plata($reporte['sin_asistencia']) }}"
+    }
+  ]
+}

@@ -122,9 +122,17 @@ mismo borde del contenido. Los controles de ícono y los interruptores conservan
 
 ## Cifras comparables — T75, 18/10/2026
 
-`ds-money-value`: familia `var(--font-sans)`, `0.9rem`, peso `700`, interlínea `1.5`,
-color `var(--color-text)` y cifras tabulares. Se aplica a los importes comparables de Liquidación,
-incluidos encabezado, resumen, detalles y pie, sin modificar el valor ni su formato.
-`ds-count-value`: `0.85rem` y peso `600`; el conteo no supera visualmente al dinero.
-El criterio del resto de los módulos sigue en consulta: no extender estos tamaños a tablas
-compactas o indicadores de forma automática. [Alcance comprobado](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-OBSERVACIONES.md).
+Carlos eligió «Jerarquía fija y consistente».
+
+| Token | Valor | Clase y uso |
+|---|---|---|
+| `--money-total-size` | `1.1rem` | `ds-money--total`, peso 800; total o indicador principal |
+| `--money-summary-size` | `0.9rem` | `ds-money--summary`, peso 700; resumen agrupado |
+| `--money-row-size` | `0.8rem` | `ds-money--row`, peso 600; importe individual |
+
+Las tres clases acompañan `ds-money`: `var(--font-sans)`, interlínea `1.5`, cifras tabulares,
+espaciado normal, sin saltos dentro del importe y color heredado del significado del dato.
+`ds-count-value`: `0.85rem` y peso 600 para conteos secundarios dentro de un bloque financiero.
+`ds-money-value` queda como base compatible de Liquidación; sus textos usan ahora los niveles anteriores.
+La columna `col-importe` mide 176 px y usa el scroll existente cuando la tabla no entra.
+[Reglas y alcance](DESIGN-RULES.md#jerarquía-fija-de-importes--decisión-de-carlos-18102026).

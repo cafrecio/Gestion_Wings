@@ -1702,3 +1702,59 @@ a:hover {
     }
     .resumen-cifras > div > div:not(:empty) > span:first-child { min-height: 0; margin-bottom: 0 !important; }
 }
+
+/* T75: jerarquía fija elegida por Carlos; el color conserva su significado. */
+:root {
+    --money-total-size: 1.1rem;
+    --money-summary-size: 0.9rem;
+    --money-row-size: 0.8rem;
+}
+.ds-content .ds-money {
+    font-family: var(--font-sans) !important;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5 !important;
+    letter-spacing: normal !important;
+    color: inherit !important;
+    white-space: nowrap;
+}
+.ds-content .ds-money--total { font-size: var(--money-total-size) !important; font-weight: 800 !important; }
+.ds-content .ds-money--summary { font-size: var(--money-summary-size) !important; font-weight: 700 !important; }
+.ds-content .ds-money--row { font-size: var(--money-row-size) !important; font-weight: 600 !important; }
+@media (max-width: 640px) {
+    .money-kpis > :has(.ds-money--total),
+    .rv-current > :has(.ds-money--total),
+    .rv-kpis:has(.ds-money) > * { grid-column: 1 / -1; }
+    .rv-kpis:has(.ds-money) .ra-count { font-size: 0.85rem !important; font-weight: 600 !important; }
+    .reporte-analitico .ra-duo:has(.ds-money) { grid-template-columns: minmax(0, 1fr); }
+    .col-importe { width: 176px !important; }
+    .alumno-card:has(> table .col-importe) { overflow-x: auto !important; }
+    .alumno-card > table:has(.col-importe) { min-width: 480px; }
+}
+
+.reporte-visual .rv-amount:has(.ds-money) { font-size: var(--money-total-size) !important; line-height: 1.5 !important; }
+.reporte-analitico .alumno-card:has(.ds-money) .ra-duo > div > strong {
+    font-size: 0.85rem !important; font-weight: 600 !important; line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .money-summary-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .stats-info > span:has(.ds-money) { flex-wrap: wrap; }
+}
+
+.col-importe { width: 176px !important; }
+@media (max-width: 640px) {
+    .money-totals { grid-template-columns: minmax(0, 1fr) !important; }
+    .reporte-visual .rv-donut-grid:has(.ds-money),
+    .reporte-visual .rv-detail-row:has(.ds-money) { grid-template-columns: minmax(0, 1fr); }
+    .reporte-visual .rv-detail-row:has(.ds-money) > strong { justify-self: end; }
+}
+
+.money-kpis--cobranza > :has(.ds-money--total) { grid-column: 1 / -1; }
+
+@media (max-width: 640px) {
+    .cashflow-mobile-cards > div > div:first-child:has(.ds-money) { flex-wrap: wrap; gap: 6px; }
+    .cashflow-mobile-cards > div > div:first-child > span:has(.ds-money) { margin-left: auto; }
+}
+
+@media (max-width: 640px) {
+    .cashflow-mobile-cards > div { padding-inline: 0 !important; }
+}

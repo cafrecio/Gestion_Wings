@@ -30,8 +30,12 @@ al eliminar, el ancho móvil de fechas/horas, la tipografía y jerarquía de Liq
 inexistentes de los accesos de Inicio y la elección Activo/Inactivo de Revisión con nota y Confirmar.
 99 casos nuevos a 360/375/1366 sin desbordes; interruptor y campos comprobados en navegador.
 [Entrega y galería de solo las cinco observaciones](../06-pruebas/PRU-04/IMPLEMENTACION-T75-OBSERVACIONES.md).
-El barrido detectó candidatos en otros módulos: se consultó tamaño único o jerarquía consistente;
-ese criterio sigue pendiente. T75 no está cerrada; suite de esta vuelta: 857 aprobadas/3 omitidas, 7692 aserciones, salida 0.
+Carlos eligió «Jerarquía fija y consistente»: total 1.1rem/800, resumen 0.9rem/700 y fila 0.8rem/600.
+Aplicado a ocho vistas de Caja/Cashflow, Cobranza, Inicio administrativo, Liquidación y Reportes.
+126 controles de jerarquía/espacio con montos largos positivos/negativos, sin desbordes.
+[Seguimiento y galería vigente de cinco vistas](../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
+T75 no está cerrada. Suite: 858 aprobadas/3 omitidas, 7704 aserciones; incluye una prueba temporal de T39.
+PHP final idéntico al de la suite; solo CSS móvil de Cashflow posterior, comprobado nuevamente en navegador.
 La interacción de Revisión lleva JavaScript externo; el alcance sin JavaScript de abajo es histórico.
 
 **Entrega anterior:**
@@ -733,7 +737,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **862 pruebas** en la carpeta compartida. Suite completa Codex CAB 18/10 (observaciones T75): **857 aprobadas, 3 omitidas, 0 fallidas**, 7692 aserciones, 946.92 s; base `wings_testing_codex`. |
+| **Tests** | **860 pruebas** en la carpeta compartida. Suite completa Codex CAB 18/10 (jerarquía T75): **858 aprobadas, 3 omitidas, 0 fallidas**, 7704 aserciones, 1921.19 s; incluye temporal T39, base `wings_testing_codex`. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

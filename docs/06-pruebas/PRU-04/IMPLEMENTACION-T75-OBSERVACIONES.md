@@ -1,6 +1,8 @@
 # T75 — Correcciones a las cinco observaciones de Carlos, 18/10/2026
 
-Cinco observaciones entregadas; criterio de tipografía del resto en consulta. No reemplaza la aprobación anterior de T36/T37 ni da por aceptada T75.
+**Seguimiento:** Carlos eligió «Jerarquía fija y consistente». Aplicación y galería actual en [Jerarquía T75](IMPLEMENTACION-T75-JERARQUIA.md).
+
+Esta entrega anterior se conserva como evidencia histórica. No reemplaza la aprobación anterior de T36/T37 ni da por aceptada T75.
 
 ## Alcance pedido
 
@@ -44,7 +46,7 @@ JavaScript externo en `ds-app.js`; sin código incrustado nuevo.
 - Liquidación por comisión: respuesta real adicional y tres mediciones, importes uniformes y sin desbordes. Tablero/documentos después del registro final: 7 pruebas/34 aserciones aprobadas.
 - Build y compilación/limpieza de vistas correctos. Suite completa Codex: **857 aprobadas, 3 omitidas, 0 fallidas, 7692 aserciones, 946.92 s**, salida 0. [Salida](evidencia-t75-observaciones/suite-final.txt) y [fuentes cubiertas](evidencia-t75-observaciones/fuentes-suite.json).
 
-## Barrido de importes pendiente de criterio
+## Consulta del barrido — resuelta en el seguimiento
 
 El barrido calculó estilos reales, no solo buscó nombres de clases. Hay 29 candidatos en 20 casos
 (incluyen variantes del mismo módulo y roles). [Datos](evidencia-t75-observaciones/auditoria-importes.json).

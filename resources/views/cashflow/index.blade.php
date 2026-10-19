@@ -93,14 +93,14 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-success);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
             </svg>
-            <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($totalIngresos) }}</strong>
+            <strong style="color:var(--color-success);"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($totalIngresos) }}</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">ingresos</span>
         </span>
         <span class="inline-flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--color-danger);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
             </svg>
-            <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($totalEgresos) }}</strong>
+            <strong style="color:var(--color-danger);"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($totalEgresos) }}</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">egresos</span>
         </span>
 
@@ -108,7 +108,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:{{ $balanceColor }};">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 18h12l3-18H3z"/>
             </svg>
-            <strong style="color:{{ $balanceColor }};">{{ \App\Support\FormatoImporte::pesos($balance) }}</strong>
+            <strong style="color:{{ $balanceColor }};"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($balance) }}</span></strong>
             <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700; color:var(--color-text-muted);">resultado del período</span>
         </span>
 
@@ -137,7 +137,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
             <col style="width:90px">
             <col style="width:210px">
             <col>
-            <col style="width:125px">
+            <col class="col-importe" style="width:125px">
             <col style="width:145px">
             <col style="width:50px">
             <col style="width:86px">
@@ -198,7 +198,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                     <small style="display:block; margin-top:3px; font-size:0.7rem;">{{ $mov->origenCorreccion }}</small>
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right; color:{{ $montoColor }};">
-                    {{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}
+                    <span class="ds-money ds-money--row">{{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}</span>
                 </td>
                 <td style="padding:8px 12px; font-size:0.75rem; color:var(--color-text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="{{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '' }}">
                     {{ $mov->quienRegistro ?? $mov->usuarioAdmin?->name ?? '–' }}
@@ -243,7 +243,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
                 <span style="font-size:0.7rem; font-weight:700; color:{{ $ieColor }};">{{ $ieLabel }}</span>
             </div>
             <span style="font-size:1rem; font-weight:800; color:{{ $montoColor }};">
-                {{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}
+                <span class="ds-money ds-money--row">{{ $saleDeLaCaja ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs((float)$mov->monto)) }}</span>
             </span>
         </div>
         <div style="font-size:0.85rem; font-weight:600; color:var(--color-text); margin-bottom:2px;">
@@ -293,7 +293,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
             <p>{{ $movCaja->observaciones ?? $movCaja->subrubro?->nombre }}</p>
             <small style="color:var(--color-text-muted);">Caja {{ strtolower($movCaja->cajaOperativa->estado) }} · {{ $movCaja->usuario?->name }}</small>
-            <p><strong>{{ \App\Support\FormatoImporte::pesos($movCaja->monto) }}</strong></p>
+            <p><strong><span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($movCaja->monto) }}</span></strong></p>
             <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end;">
                 @php
                     $accionesCaja = [['nombre' => 'Ver', 'url' => route('web.caja.detalle', $movCaja->caja_operativa_id)]];
@@ -318,7 +318,7 @@ $balanceColor = $balance >= 0 ? 'var(--color-success)' : 'var(--color-danger)';
         @foreach($liquidacionesPendientes as $liqPendiente)
         <div style="margin-top:12px; border-top:1px solid var(--color-border); padding-top:12px;">
             <p>{{ $liqPendiente->profesor?->apellido }}, {{ $liqPendiente->profesor?->nombre }} · {{ $mesesNombres[$liqPendiente->mes] }} {{ $liqPendiente->anio }}</p>
-            <p><strong>{{ \App\Support\FormatoImporte::pesos($liqPendiente->monto_a_pagar) }}</strong></p>
+            <p><strong><span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($liqPendiente->monto_a_pagar) }}</span></strong></p>
             <div class="alumno-actions acciones-celular-derecha" style="justify-content:flex-end;">
                 @include('cashflow._acciones', ['acciones' => [['nombre' => 'Editar', 'url' => route('web.liquidaciones.show', [$liqPendiente->id, 'editar' => 1])]]])
             </div>

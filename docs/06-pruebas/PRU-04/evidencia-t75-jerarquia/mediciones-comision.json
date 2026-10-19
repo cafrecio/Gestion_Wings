@@ -1,0 +1,1773 @@
+{
+  "fase": "despues",
+  "fecha": "2026-10-19T00:14:26.451Z",
+  "metodo": "Respuestas reales Laravel + iframe 360/375/1366 en Chrome 1366",
+  "casos": [
+    {
+      "slug": "admin-liquidacion-comision",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/components/ds/money-input.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "cifras": [
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 149.42,
+            "y": 350.8,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 250.03
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 619.98,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 681.59,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 81.23
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 743.2,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 158.42,
+            "y": 876.08,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 199.66
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 222.66,
+            "y": 944.86,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 305
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 128.38,
+            "y": 1080.53,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 220.02
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "row",
+          "rect": {
+            "x": 231.83,
+            "y": 1112.14,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 305
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "12.8px",
+          "peso": "600",
+          "linea": "19.2px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 208.39,
+            "y": 1220.44,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 309
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "campos": [
+        {
+          "id": "monto_final",
+          "tipo": "text",
+          "rect": {
+            "x": 40,
+            "y": 828.08,
+            "w": 265,
+            "h": 42,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 828.08,
+            "w": 265,
+            "h": 42,
+            "derecha": 305
+          }
+        },
+        {
+          "id": "motivo_ajuste",
+          "tipo": "text",
+          "rect": {
+            "x": 40,
+            "y": 951.69,
+            "w": 265,
+            "h": 38,
+            "derecha": 305
+          },
+          "padre": {
+            "x": 40,
+            "y": 927.69,
+            "w": 265,
+            "h": 62,
+            "derecha": 305
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 149.42,
+            "y": 350.8,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 250.03
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 619.98,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 681.59,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 81.23
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 743.2,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 158.42,
+            "y": 876.08,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 199.66
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 222.66,
+            "y": 944.86,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 305
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 128.38,
+            "y": 1080.53,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 220.02
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--row",
+          "rect": {
+            "x": 231.83,
+            "y": 1112.14,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 305
+          },
+          "font": "",
+          "fontSize": "12.8px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 208.39,
+            "y": 1220.44,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 309
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 360,
+      "cliente": 345,
+      "referenciaDerecha": 305,
+      "anchoDocumento": 345,
+      "altoDocumento": 1334,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 451.98,
+            "w": 265,
+            "h": 72,
+            "derecha": 305
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 467.98,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 451.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 451.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 507.98,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 105,
+                    "y": 491.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 201
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 209,
+                    "y": 491.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "alumno-actions acciones-celular-derecha mt-3",
+          "rect": {
+            "x": 40,
+            "y": 1001.69,
+            "w": 265,
+            "h": 32,
+            "derecha": 305
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 305,
+          "filas": [
+            {
+              "cy": 1017.69,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 209,
+                    "y": 1001.69,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 305
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha mt-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 209,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 305
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidacion-comision--360--principal.png",
+          "sha256": "2a5e837976a6598d65b896a47bd99d7625e69d33fb6a7bd88436e10e7eec034e"
+        },
+        {
+          "nombre": "admin-liquidacion-comision--360--pie.png",
+          "sha256": "7d9a24fc0417aca2204c222093ab7a8881ecc728715ecf2a760205ed41f32517"
+        },
+        {
+          "nombre": "admin-liquidacion-comision--360--final.png",
+          "sha256": "4fbe1488656342332a73b883ad7ec33c6c9092e20d5d9759f5f3032754e04f2e"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidacion-comision",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/components/ds/money-input.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "cifras": [
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 149.42,
+            "y": 350.8,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 250.03
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 619.98,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 681.59,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 81.23
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 40,
+            "y": 743.2,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 158.42,
+            "y": 876.08,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 199.66
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 237.66,
+            "y": 944.86,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 320
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 128.38,
+            "y": 1080.53,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 220.02
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "row",
+          "rect": {
+            "x": 246.83,
+            "y": 1112.14,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 320
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "12.8px",
+          "peso": "600",
+          "linea": "19.2px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 223.39,
+            "y": 1220.44,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 324
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "campos": [
+        {
+          "id": "monto_final",
+          "tipo": "text",
+          "rect": {
+            "x": 40,
+            "y": 828.08,
+            "w": 280,
+            "h": 42,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 828.08,
+            "w": 280,
+            "h": 42,
+            "derecha": 320
+          }
+        },
+        {
+          "id": "motivo_ajuste",
+          "tipo": "text",
+          "rect": {
+            "x": 40,
+            "y": 951.69,
+            "w": 280,
+            "h": 38,
+            "derecha": 320
+          },
+          "padre": {
+            "x": 40,
+            "y": 927.69,
+            "w": 280,
+            "h": 62,
+            "derecha": 320
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 149.42,
+            "y": 350.8,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 250.03
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 619.98,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 681.59,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 81.23
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 40,
+            "y": 743.2,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 122.34
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 158.42,
+            "y": 876.08,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 199.66
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 237.66,
+            "y": 944.86,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 320
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 128.38,
+            "y": 1080.53,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 220.02
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--row",
+          "rect": {
+            "x": 246.83,
+            "y": 1112.14,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 320
+          },
+          "font": "",
+          "fontSize": "12.8px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 223.39,
+            "y": 1220.44,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 324
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 375,
+      "cliente": 360,
+      "referenciaDerecha": 320,
+      "anchoDocumento": 360,
+      "altoDocumento": 1334,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 40,
+            "y": 451.98,
+            "w": 280,
+            "h": 72,
+            "derecha": 320
+          },
+          "display": "grid",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 467.98,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 451.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 451.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            },
+            {
+              "cy": 507.98,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 120,
+                    "y": 491.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 216
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 224,
+                    "y": 491.98,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "alumno-actions acciones-celular-derecha mt-3",
+          "rect": {
+            "x": 40,
+            "y": 1001.69,
+            "w": 280,
+            "h": 32,
+            "derecha": 320
+          },
+          "display": "flex",
+          "justify": "flex-end",
+          "direccion": "row",
+          "izquierda": 40,
+          "derecha": 320,
+          "filas": [
+            {
+              "cy": 1017.69,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 224,
+                    "y": 1001.69,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 320
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha mt-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "derecha"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Abrir menú",
+          "icono": true,
+          "rect": {
+            "x": 16,
+            "y": 12,
+            "w": 36,
+            "h": 36,
+            "derecha": 52
+          }
+        },
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 224,
+            "y": 14,
+            "w": 96,
+            "h": 32,
+            "derecha": 320
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidacion-comision--375--principal.png",
+          "sha256": "eec0a32693d1962e158f81e8239cb5e73b68f3ee4038e69672be75c4b877fcdc"
+        },
+        {
+          "nombre": "admin-liquidacion-comision--375--pie.png",
+          "sha256": "092a9f2afd66e2566bf4fc0fef8ebf756a4d9c4aa299e9413892076620fbf298"
+        },
+        {
+          "nombre": "admin-liquidacion-comision--375--final.png",
+          "sha256": "9c26855e7f3224b4df80115ebb79cfa3f76f6093befaba3cf10384cf8643714c"
+        }
+      ],
+      "variantes": []
+    },
+    {
+      "slug": "admin-liquidacion-comision",
+      "rol": "ADMIN",
+      "ruta": "/liquidaciones/1",
+      "vistas": [
+        "resources/views/liquidaciones/show.blade.php",
+        "resources/views/components/ds/money-input.blade.php",
+        "resources/views/components/ds/button.blade.php",
+        "resources/views/layouts/app.blade.php",
+        "resources/views/layouts/ds-app.blade.php",
+        "resources/views/components/ds/module-header.blade.php"
+      ],
+      "cifras": [
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 396.42,
+            "y": 263.19,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 497.03
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 281,
+            "y": 427.58,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 363.34
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 634.33,
+            "y": 427.58,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 675.56
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 987.66,
+            "y": 427.58,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 1070
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 399.42,
+            "y": 560.45,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 440.66
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 1125.83,
+            "y": 584.45,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 1208.17
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "nivel": "summary",
+          "rect": {
+            "x": 719.38,
+            "y": 698.86,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 811.02
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "14.4px",
+          "peso": "700",
+          "linea": "21.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "row",
+          "rect": {
+            "x": 1259.83,
+            "y": 700.86,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 1333
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "12.8px",
+          "peso": "600",
+          "linea": "19.2px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "nivel": "total",
+          "rect": {
+            "x": 1229.39,
+            "y": 781.47,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 1330
+          },
+          "fuente": "Inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "tamano": "17.6px",
+          "peso": "800",
+          "linea": "26.4px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "campos": [
+        {
+          "id": "monto_final",
+          "tipo": "text",
+          "rect": {
+            "x": 281,
+            "y": 512.45,
+            "w": 514,
+            "h": 42,
+            "derecha": 795
+          },
+          "padre": {
+            "x": 281,
+            "y": 512.45,
+            "w": 514,
+            "h": 42,
+            "derecha": 795
+          }
+        },
+        {
+          "id": "motivo_ajuste",
+          "tipo": "text",
+          "rect": {
+            "x": 811,
+            "y": 512.45,
+            "w": 514,
+            "h": 38,
+            "derecha": 1325
+          },
+          "padre": {
+            "x": 811,
+            "y": 488.45,
+            "w": 514,
+            "h": 91.61,
+            "derecha": 1325
+          }
+        }
+      ],
+      "importes": [
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 396.42,
+            "y": 263.19,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 497.03
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 281,
+            "y": 427.58,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 363.34
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 634.33,
+            "y": 427.58,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 675.56
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 987.66,
+            "y": 427.58,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 1070
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$0.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 399.42,
+            "y": 560.45,
+            "w": 41.23,
+            "h": 17,
+            "derecha": 440.66
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(107, 114, 128)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 1125.83,
+            "y": 584.45,
+            "w": 82.34,
+            "h": 17,
+            "derecha": 1208.17
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$120,000.00",
+          "clases": "ds-money ds-money--summary",
+          "rect": {
+            "x": 719.38,
+            "y": 698.86,
+            "w": 91.64,
+            "h": 17,
+            "derecha": 811.02
+          },
+          "font": "",
+          "fontSize": "14.4px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--row",
+          "rect": {
+            "x": 1259.83,
+            "y": 700.86,
+            "w": 73.17,
+            "h": 15,
+            "derecha": 1333
+          },
+          "font": "",
+          "fontSize": "12.8px",
+          "color": "rgb(17, 24, 39)"
+        },
+        {
+          "texto": "$12,000.00",
+          "clases": "ds-money ds-money--total",
+          "rect": {
+            "x": 1229.39,
+            "y": 781.47,
+            "w": 100.61,
+            "h": 21,
+            "derecha": 1330
+          },
+          "font": "",
+          "fontSize": "17.6px",
+          "color": "rgb(17, 24, 39)"
+        }
+      ],
+      "cuerpos": [],
+      "ancho": 1366,
+      "cliente": 1366,
+      "referenciaDerecha": 1326,
+      "anchoDocumento": 1366,
+      "altoDocumento": 1000,
+      "desborde": false,
+      "zonas": [
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+          "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+          "rect": {
+            "x": 287,
+            "y": 299.58,
+            "w": 1038,
+            "h": 32,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "normal",
+          "direccion": "row",
+          "izquierda": 287,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 315.58,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(1)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Cerrar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 287,
+                    "y": 299.58,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 383
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Cerrar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Recalcular",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 391,
+                    "y": 299.58,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 487
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Recalcular",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>form:nth-of-type(3)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Eliminar",
+                  "categoria": "barra",
+                  "tag": "button",
+                  "rect": {
+                    "x": 495,
+                    "y": 299.58,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 591
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Eliminar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(192, 120, 120)"
+                  },
+                  "padre": {
+                    "tag": "FORM",
+                    "clases": "",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                },
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>a:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Volver",
+                  "categoria": "barra",
+                  "tag": "a",
+                  "rect": {
+                    "x": 599,
+                    "y": 299.58,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 695
+                  },
+                  "disabled": false,
+                  "clases": "",
+                  "textoVisible": "Volver",
+                  "href": "http://127.0.0.1:8735/liquidaciones",
+                  "tipo": null,
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "19.68px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(104, 136, 160)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "acciones-celular-derecha liquidacion-acciones-movil",
+                    "estilo": "display:flex; align-items:center; gap:8px; flex-wrap:wrap;"
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        },
+        {
+          "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)",
+          "clases": "alumno-actions acciones-celular-derecha mt-3",
+          "rect": {
+            "x": 281,
+            "y": 592.06,
+            "w": 1044,
+            "h": 32,
+            "derecha": 1325
+          },
+          "display": "flex",
+          "justify": "flex-start",
+          "direccion": "row",
+          "izquierda": 281,
+          "derecha": 1325,
+          "filas": [
+            {
+              "cy": 608.06,
+              "controles": [
+                {
+                  "ruta": "div:nth-of-type(1)>div:nth-of-type(2)>main:nth-of-type(1)>div:nth-of-type(2)>details:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(2)>button:nth-of-type(1)",
+                  "id": "",
+                  "etiqueta": "Guardar",
+                  "categoria": "pie-tarjeta",
+                  "tag": "button",
+                  "rect": {
+                    "x": 281,
+                    "y": 592.06,
+                    "w": 96,
+                    "h": 32,
+                    "derecha": 377
+                  },
+                  "disabled": false,
+                  "clases": "ds-btn ds-btn--primary",
+                  "textoVisible": "Guardar",
+                  "href": null,
+                  "tipo": "submit",
+                  "estilo": {
+                    "padding": "0px",
+                    "fontSize": "13.12px",
+                    "fontWeight": "600",
+                    "lineHeight": "13.12px",
+                    "boxSizing": "border-box",
+                    "background": "rgb(74, 104, 128)"
+                  },
+                  "padre": {
+                    "tag": "DIV",
+                    "clases": "alumno-actions acciones-celular-derecha mt-3",
+                    "estilo": null
+                  },
+                  "esAccion": true
+                }
+              ],
+              "alineacion": "izquierda"
+            }
+          ]
+        }
+      ],
+      "paneles": [],
+      "navegacion": [
+        {
+          "etiqueta": "Salir",
+          "icono": false,
+          "rect": {
+            "x": 1254,
+            "y": 12,
+            "w": 96,
+            "h": 32,
+            "derecha": 1350
+          }
+        }
+      ],
+      "avisosAcciones": [],
+      "tablasConAccionesDesplazables": 0,
+      "fuentes": "loaded",
+      "tablaDerecha": null,
+      "fotos": [
+        {
+          "nombre": "admin-liquidacion-comision--1366--principal.png",
+          "sha256": "9043e1e2f4ec333231c8455191f47b0ee90a480abf8b4f891cca28e5efc6271e"
+        }
+      ],
+      "variantes": []
+    }
+  ]
+}

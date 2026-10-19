@@ -1,0 +1,12 @@
+{
+  "aprobadas": 858,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7704,
+  "duracion_segundos": 1921.19,
+  "base": "wings_testing_codex",
+  "metodos_permanentes_del_corte": 860,
+  "prueba_temporal_concurrente": "VerificacionT39EscenarioCompletoTest: 1 prueba y 12 aserciones; retirada posteriormente",
+  "alcance": "Ocho vistas finales identicas a la suite; solo ajuste CSS Cashflow posterior, con nuevas respuestas y controles de navegador",
+  "sha256": "5c85e36bf827d885bfe32c26694ebdd013e2aacf1ce7d4956f523c65fed68986"
+}

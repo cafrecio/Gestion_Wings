@@ -1,5 +1,17 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-18 — Codex CAB — T75, jerarquía fija elegida y aplicada
+
+Carlos eligió «Jerarquía fija y consistente»; la decisión ya no queda pendiente.
+Total 1.1rem/800, resumen 0.9rem/700 y fila 0.8rem/600 en ocho vistas financieras; 73 definiciones.
+Colores semánticos conservados, conteos secundarios y grupos móviles apilados cuando no entran.
+Expresiones Blade y bloques PHP idénticos a a8ab707; sin JavaScript ni reglas de negocio nuevas.
+126 controles positivos/negativos correctos; corregidos 5 px de exceso y padding doble en Cashflow.
+Suite: 858 aprobadas/3 omitidas, 7704 aserciones (incluye temporal T39); PHP final idéntico, CSS recapturado.
+[Entrega y galería de solo las cinco vistas observadas](../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
+T36/T37 conservados cerrados. Falta revisión visual de Carlos y control de Revisión por Claude.
+Sin despliegue ni autocierre.
+
 ## 2026-10-18 — Codex CAB — T75, cinco observaciones corregidas y criterio del resto en consulta
 
 Carlos pidió corregir cinco vistas y mostrar solo esas; se entregan en una galería enfocada.
@@ -107,17 +119,6 @@ Suite propia wings_testing_codex: 2 skipped, 723 passed (6929 assertions); salid
 [Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md). Devuelta, tiene Claude: conservar fecha real y agregar regresión.
 Sin cambios de producto, reloj, datos del club ni despliegue; ensayos documentales solo en copia restaurada.
 
-## 2026-10-14 - Codex CAB - T11 segunda vuelta: devolucion documental y entorno bloqueado
-
-Examinado f6bea35: PNG reales 1280x720 y 720x1280, proporcion 1,7778; sin datos personales.
-Fuente oficial consultada: solo JPEG/PNG; informe dice WebP y enlaza URL incorrecta. Vuelve a Gemini.
-Apache y limites de cache corregidos; despliegue separado por entrega, sin medir el sitio hoy.
-Leidos cuerpos de PwaInstalacionTest: no controla MIME real, proporcion ni avisos Chrome; sintaxis correcta.
-Suite intentada solo wings_testing_codex: PHPUnit rechaza bootstrap antes de ejecutar; no hay verde propio.
-Navegador/Computer Use no inicia; intento CDP local rechazado EACCES. Sin evidencia propia de Manifest.
-[Informe](../06-pruebas/PRU-04/VERIFICACION-T11-CODEX-SEGUNDA.md). Tablero devuelto a Gemini, no cerrado.
-Sigue: corregir informe; Codex repite Chrome local y suite antes del pase a Carlos. Sin despliegue.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -133,3 +134,5 @@ Sigue: corregir informe; Codex repite Chrome local y suite antes del pase a Carl
 [Entrada T7 archivada al entregar consistencia móvil T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-CONSISTENCIA.md).
 
 [Entrada T11 del 13/10 archivada al revisar observaciones T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-OBSERVACIONES.md).
+
+[Entrada T11 del 14/10 archivada al aplicar jerarquía T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-JERARQUIA.md).

@@ -1,0 +1,4798 @@
+{
+  "negativos": true,
+  "metodo": "Respuestas reales y detalles abiertos; estres DOM sintetico sin guardar",
+  "resultados": [
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-id-resumen",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-id-detalle",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-cobranza",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(245, 158, 11)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(245, 158, 11)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-admin-dashboard",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(245, 158, 11)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$298,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$298,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(37, 99, 235)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$192,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,792,002.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$298,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$174,001.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$472,002.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$1,320,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$222,002.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-reportes-sueldos",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin historial"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": [
+        0
+      ]
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": [
+        0
+      ]
+    },
+    {
+      "slug": "admin-cashflow",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidaciones-id",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-6",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-7",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$88,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "Sin declarar"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$78,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "operativo-8",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$30,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-detalle",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-cerrada-resumen",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-detalle",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-rechazada-resumen",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-detalle",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-caja-validada-resumen",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$58,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$10,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(185, 28, 28)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(22, 163, 74)",
+          "texto": "$48,000.50"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-mes_actual",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-cerrada",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-pagada",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-comision",
+      "ancho": 360,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$120,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-comision",
+      "ancho": 375,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$120,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    },
+    {
+      "slug": "admin-liquidacion-comision",
+      "ancho": 1366,
+      "estilos": [
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(107, 114, 128)",
+          "texto": "$0.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "summary",
+          "tamano": 14.4,
+          "peso": "700",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$120,000.00"
+        },
+        {
+          "nivel": "row",
+          "tamano": 12.8,
+          "peso": "600",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        },
+        {
+          "nivel": "total",
+          "tamano": 17.6,
+          "peso": "800",
+          "color": "rgb(17, 24, 39)",
+          "texto": "$12,000.00"
+        }
+      ],
+      "antes": false,
+      "despues": false,
+      "fuera": [],
+      "bordes": []
+    }
+  ]
+}

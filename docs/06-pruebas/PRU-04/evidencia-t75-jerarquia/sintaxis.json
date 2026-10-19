@@ -1,0 +1,37 @@
+{
+  "vistas": [
+    {
+      "archivo": "resources/views/admin/dashboard.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/caja/detalle.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/caja/resumen.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/cashflow/index.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/cobranza/index.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/liquidaciones/show.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/reportes/index.blade.php",
+      "codigo": 0
+    },
+    {
+      "archivo": "resources/views/reportes/sueldos.blade.php",
+      "codigo": 0
+    }
+  ],
+  "vistas_compiladas": true
+}

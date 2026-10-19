@@ -1,0 +1,25 @@
+{
+  "base": "a8ab70706e59a92b3fbd419e9cd75a6bfeab4dcf",
+  "normalizacion": "CRLF a LF",
+  "fuentes": {
+    "resources/css/app.css": "3c901a4c5a028de719ef2232740f362e1ac4971ff3734c3c3ed708ae890b640f",
+    "resources/views/admin/dashboard.blade.php": "e8e4d46d2e5c4533c193a4303a93b22d701247fd1a1389b0fa692a20d832d308",
+    "resources/views/caja/detalle.blade.php": "de4cdc4348eef040a2420359e120b1e455ce99bc7bc3de097fdc2ce48cd62ef1",
+    "resources/views/caja/resumen.blade.php": "207fa56dd28c47218d45966fc62a58600dd5b81d70d573ccf744a7b2ea8d1be4",
+    "resources/views/cashflow/index.blade.php": "befb9a2a53ea1ad4a04f4b9675755fd602b9411db58d559bb88a5565224547c3",
+    "resources/views/cobranza/index.blade.php": "bc2e00f73c4e7dd78f9ce4be49e7d53459301b9f2bc5991b2470786fe188a923",
+    "resources/views/liquidaciones/show.blade.php": "76fcf3f0386f8cae1ecfd081f742c508bf1660fadfff85b2e64436ea6f2bfe20",
+    "resources/views/reportes/index.blade.php": "1cefdda20e8d68dd4f328758520cae707b3e99db65f599f1da7b7426bff68784",
+    "resources/views/reportes/sueldos.blade.php": "bd0a4dac961d491d414bc670f63712d399a36a4b358d5394cda784c2e592383b"
+  },
+  "expresiones_y_bloques_php_identicos": [
+    "resources/views/admin/dashboard.blade.php",
+    "resources/views/caja/detalle.blade.php",
+    "resources/views/caja/resumen.blade.php",
+    "resources/views/cashflow/index.blade.php",
+    "resources/views/cobranza/index.blade.php",
+    "resources/views/liquidaciones/show.blade.php",
+    "resources/views/reportes/index.blade.php",
+    "resources/views/reportes/sueldos.blade.php"
+  ]
+}

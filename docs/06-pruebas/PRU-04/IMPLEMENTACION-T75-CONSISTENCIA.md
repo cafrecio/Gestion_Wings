@@ -1,7 +1,7 @@
 # T75 — Tamaño, padding y ubicación de acciones en celular
 
 > Seguimiento posterior, 18/10: Carlos observó cinco pantallas. La corrección y la galería vigente,
-> limitada a esas cinco, están en [Observaciones T75](IMPLEMENTACION-T75-OBSERVACIONES.md).
+> limitada a esas cinco, están en [Jerarquía T75, elegida por Carlos](IMPLEMENTACION-T75-JERARQUIA.md).
 > Esta entrega y su galería completa se conservan como evidencia histórica, sin aprobación heredada.
 
 Entrega local de Codex CAB, 18/10/2026. **Para revisión visual de Carlos; sin despliegue ni autocierre.**

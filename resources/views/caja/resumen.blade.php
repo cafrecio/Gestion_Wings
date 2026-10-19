@@ -88,7 +88,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
     <div class="alumno-card-header"><h3 class="alumno-nombre">Efectivo del mostrador</h3></div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
         @foreach(['Inicial' => $caja->efectivo_inicial, 'Esperado' => $efectivoEsperado, 'Contado' => $caja->efectivo_contado, 'Diferencia' => $diferenciaEfectivo, 'Cambio que queda' => $caja->cambio_retenido, 'Retiro / entrega' => $caja->efectivo_retirado] as $rotulo => $importe)
-        <div><span class="info-label">{{ $rotulo }}</span><p class="info-value">{{ $importe === null ? 'Sin declarar' : \App\Support\FormatoImporte::pesos($importe) }}</p></div>
+        <div><span class="info-label">{{ $rotulo }}</span><p class="info-value"><span class="ds-money ds-money--summary">{{ $importe === null ? 'Sin declarar' : \App\Support\FormatoImporte::pesos($importe) }}</span></p></div>
         @endforeach
         @if($caja->rectificado_at)
         <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--color-border);" class="col-span-full">
@@ -96,7 +96,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
             <p style="font-size:0.85rem; color:var(--color-text); margin-top:2px;">
                 Rectificado el {{ $caja->rectificado_at->format('d/m/Y H:i') }}
                 @if($caja->usuarioRectificacion) por {{ $caja->usuarioRectificacion->name }} @endif
-                (inicial anterior: {{ \App\Support\FormatoImporte::pesos($caja->efectivo_inicial_anterior) }}). Motivo: {{ $caja->motivo_rectificacion }}
+                (inicial anterior: <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($caja->efectivo_inicial_anterior) }}</span>). Motivo: {{ $caja->motivo_rectificacion }}
             </p>
         </div>
         @endif
@@ -124,7 +124,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         <colgroup>
             <col style="width:56px">
             <col>
-            <col style="width:120px">
+            <col class="col-importe" style="width:120px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -144,7 +144,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; text-align:right;
                            color:{{ $fila['total'] >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                    {{ $fila['total'] < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($fila['total'])) }}
+                    <span class="ds-money ds-money--summary">{{ $fila['total'] < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($fila['total'])) }}</span>
                 </td>
             </tr>
             @endforeach
@@ -161,7 +161,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
         <colgroup>
             <col>
             <col style="width:90px">
-            <col style="width:120px">
+            <col class="col-importe" style="width:120px">
         </colgroup>
         <thead>
             <tr style="background:var(--color-surface-alt); border-bottom:1px solid var(--color-border);">
@@ -184,7 +184,7 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
                     {{ $fila['rubro']?->tipo ?? '–' }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:{{ $totalColor }}; text-align:right;">
-                    {{ \App\Support\FormatoImporte::pesos($fila['total']) }}
+                    <span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos($fila['total']) }}</span>
                 </td>
             </tr>
             @endforeach
@@ -194,19 +194,19 @@ $esPropietario = Auth::id() === $caja->usuario_operativo_id;
 
 {{-- ── Totales generales ────────────────────────────────────────────────── --}}
 <div class="filtros-card">
-    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem;">
+    <div class="money-totals" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem;">
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Ingresos</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--color-success);"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</span></p>
         </div>
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Egresos</p>
-            <p style="font-size:1.1rem; font-weight:700; color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($egresos) }}</p>
+            <p style="font-size:1.1rem; font-weight:700; color:var(--color-danger);"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($egresos) }}</span></p>
         </div>
         <div style="text-align:center;">
             <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Neto</p>
             <p style="font-size:1.1rem; font-weight:700; color:{{ $neto >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                {{ $neto < 0 ? '–' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($neto)) }}
+                <span class="ds-money ds-money--total">{{ $neto < 0 ? '–' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($neto)) }}</span>
             </p>
         </div>
     </div>

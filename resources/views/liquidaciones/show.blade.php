@@ -56,7 +56,7 @@
                 <div>
                             <span style="font-size:0.7rem; color:var(--color-text-muted); display:block;">Monto final</span>
                     <span style="font-size:1.4rem; font-weight:800; color:var(--color-text);" class="ds-money-value">
-                                {{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}
+                                <span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span>
                     </span>
                 </div>
                 <div>
@@ -219,7 +219,7 @@
                 Valor por hora
             </span>
             <span class="ds-money-summary ds-money-value" style="font-size:1.6rem; font-weight:800; color:var(--color-text);">
-                {{ \App\Support\FormatoImporte::pesos((float)($liquidacion->profesor->valor_hora ?? 0)) }}
+                <span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)($liquidacion->profesor->valor_hora ?? 0)) }}</span>
             </span>
         </div>
         <div style="background:var(--color-border);"></div>
@@ -229,7 +229,7 @@
                 Total
             </span>
             <span class="ds-money-summary ds-money-value" style="font-size:1.6rem; font-weight:800; color:var(--color-btn-primary);">
-                {{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}
+                <span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}</span>
             </span>
         </div>
     </div>
@@ -274,7 +274,7 @@
         <div class="info-item" style="margin-left:auto;">
             <span class="info-label">Subtotal:</span>
             <span class="info-value ds-money-value" style="font-weight:700;">
-                {{ \App\Support\FormatoImporte::pesos((float)$detalle->monto) }}
+                <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos((float)$detalle->monto) }}</span>
             </span>
         </div>
     </div>
@@ -290,9 +290,9 @@
 {{-- Stats COMISION --}}
 <div class="filtros-card mb-3">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Cálculo original</span><p class="info-value ds-money-value">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->total_calculado) }}</p></div>
-        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>Ajuste del admin</span><p class="info-value ds-money-value">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado) }}</p></div>
-        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value ds-money-value">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Cálculo original</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->total_calculado) }}</span></p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M4 7h.01M16 17H4m16 0h.01M7 4v6m10 4v6"/></svg>Ajuste del admin</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar - (float)$liquidacion->total_calculado) }}</span></p></div>
+        <div><span class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monto final</span><p class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$liquidacion->monto_a_pagar) }}</span></p></div>
     </div>
     @if(!$esPagada && !$esCancelada && \App\Models\Liquidacion::ajustesDisponibles())
     <details class="mt-3" id="editar-liquidacion" {{ request()->boolean('editar') ? 'open' : '' }}>
@@ -305,7 +305,7 @@
                     <x-ds.money-input id="monto_final" name="monto_final" aria-describedby="monto_final_ayuda"
                                       min="0" max="9999999999.99" :prefix="false" required
                                       :value="old('monto_final', $liquidacion->monto_a_pagar)" />
-                    <p id="monto_final_ayuda" class="text-xs mt-1" style="color:var(--color-text-muted);">Total a pagar, desde {{ \App\Support\FormatoImporte::pesos(0) }}. La diferencia se calcula automáticamente.</p>
+                    <p id="monto_final_ayuda" class="text-xs mt-1" style="color:var(--color-text-muted);">Total a pagar, desde <span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos(0) }}</span>. La diferencia se calcula automáticamente.</p>
                     @error('monto_final')<p style="color:var(--color-danger);">{{ $message }}</p>@enderror
                 </div>
                 <div><label for="motivo_ajuste" class="info-label"><svg class="info-icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6M9 8h6M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>Motivo del ajuste</label>
@@ -344,7 +344,7 @@
                 Cálculo original
             </span>
             <span style="font-size:1.6rem; font-weight:800; color:var(--color-btn-primary);" class="ds-money-value">
-                {{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}
+                <span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}</span>
             </span>
         </div>
     </div>
@@ -377,12 +377,12 @@
         </div>
         <div class="info-item">
             <span class="info-label">Monto pagado:</span>
-            <span class="info-value ds-money-value">{{ $montoPagado }}</span>
+            <span class="info-value ds-money-value"><span class="ds-money ds-money--summary">{{ $montoPagado }}</span></span>
         </div>
         <div class="info-item" style="margin-left:auto;">
             <span class="info-label">Comisión:</span>
             <span class="info-value ds-money-value" style="font-weight:700; color:var(--color-success);">
-                {{ \App\Support\FormatoImporte::pesos((float)$detalle->monto) }}
+                <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos((float)$detalle->monto) }}</span>
             </span>
         </div>
     </div>
@@ -407,7 +407,7 @@
         Cálculo de los detalles
     </span>
     <span style="font-size:1.5rem; font-weight:800; color:var(--color-btn-primary);" class="ds-money-value">
-        {{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}
+        <span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos((float)$totalSum) }}</span>
     </span>
 </div>
 @endif

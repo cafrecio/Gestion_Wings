@@ -96,7 +96,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
             <col style="width:52px">
             <col>
             <col style="width:22%">
-            <col style="width:100px">
+            <col class="col-importe" style="width:100px">
             @if($hasEditar)
                 <col class="col-acciones-movil" style="width:148px">
             @elseif($hasCheckbox)
@@ -168,7 +168,7 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
                     {{ $alumnoObs }}
                 </td>
                 <td style="padding:8px 12px; font-size:0.85rem; font-weight:700; color:var(--color-text); text-align:right; {{ $textStyle }}">
-                    {{ \App\Support\FormatoImporte::pesos($mov->monto) }}
+                    <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($mov->monto) }}</span>
                 </td>
                 @if($hasEditar)
                 <td style="padding:8px 12px; text-align:center;">
@@ -235,14 +235,14 @@ $hasRecibo = $movimientosActivos->whereNotNull('pago_id')->isNotEmpty();
         <tfoot>
             <tr style="background:var(--color-surface-alt); border-top:2px solid var(--color-border);">
                 <td colspan="5" style="padding:8px 12px; font-size:0.8rem; color:var(--color-text-muted);">
-                    Ingresos: <strong style="color:var(--color-success);">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</strong>
+                    Ingresos: <strong style="color:var(--color-success);"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos($ingresos) }}</span></strong>
                     &nbsp;·&nbsp;
-                    Egresos: <strong style="color:var(--color-danger);">{{ \App\Support\FormatoImporte::pesos($egresos) }}</strong>
+                    Egresos: <strong style="color:var(--color-danger);"><span class="ds-money ds-money--summary">{{ \App\Support\FormatoImporte::pesos($egresos) }}</span></strong>
                 </td>
                 @php $netoDetalle = $ingresos - $egresos; @endphp
                 <td style="padding:8px 12px; font-size:0.9rem; font-weight:700; text-align:right;
                            color:{{ $netoDetalle >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};">
-                    {{ $netoDetalle < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($netoDetalle)) }}
+                    <span class="ds-money ds-money--summary">{{ $netoDetalle < 0 ? '−' : '' }}{{ \App\Support\FormatoImporte::pesos(abs($netoDetalle)) }}</span>
                 </td>
                 @if($hasEditar || $hasCheckbox || $hasRecibo)
                 <td></td>

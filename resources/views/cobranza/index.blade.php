@@ -15,30 +15,30 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 @endphp
 
 {{-- Cards resumen --}}
-<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap:12px; margin-bottom:1rem;">
+<div class="money-kpis money-kpis--cobranza" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap:12px; margin-bottom:1rem;">
     <div class="filtros-card" style="text-align:center; padding:1rem 0.5rem; border-top:3px solid var(--color-danger);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--color-danger); margin-bottom:4px;">Total adeudado</p>
-        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;">{{ \App\Support\FormatoImporte::pesos($totalAdeudado) }}</p>
+        <p style="font-size:1.05rem; font-weight:800; color:var(--color-danger); white-space:nowrap;"><span class="ds-money ds-money--total">{{ \App\Support\FormatoImporte::pesos($totalAdeudado) }}</span></p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-text-muted);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Total activos</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-text);">{{ $totalActivos }}</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-text);">{{ $totalActivos }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-success);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-success); margin-bottom:4px;">Al día</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-success);">{{ $cAlDia }}</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-success);">{{ $cAlDia }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-info);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-info); margin-bottom:4px;">En plazo</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-info);">{{ $cEnPlazo }}</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-info);">{{ $cEnPlazo }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-warning);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-warning); margin-bottom:4px;">Morosos</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-warning);">{{ $cMoroso }}</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-warning);">{{ $cMoroso }}</p>
     </div>
     <div class="filtros-card" style="text-align:center; padding:1rem; border-top:3px solid var(--color-danger);">
         <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-danger); margin-bottom:4px;">Deudores</p>
-        <p style="font-size:1.6rem; font-weight:800; color:var(--color-danger);">{{ $cDeudor }}</p>
+        <p class="ds-count-value" style="font-size:1.6rem; font-weight:800; color:var(--color-danger);">{{ $cDeudor }}</p>
     </div>
 </div>
 
@@ -102,7 +102,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
             <col style="width:110px;">
             <col style="width:140px;">
             <col style="width:150px;">
-            <col style="width:130px;">
+            <col class="col-importe" style="width:130px;">
             <col style="width:100px;">
             <col style="width:150px;">
         </colgroup>
@@ -207,7 +207,7 @@ $cDeudor = $resumen['por_estado']['DEUDOR'] ?? 0;
 
                 {{-- Deuda --}}
                 <td style="padding:10px 14px; text-align:right; font-size:0.85rem; font-weight:700; white-space:nowrap; color:{{ ($alumno->deuda_total ?? 0) > 0 ? 'var(--color-danger)' : 'var(--color-text-muted)' }};">
-                    {{ \App\Support\FormatoImporte::pesos($alumno->deuda_total ?? 0) }}
+                    <span class="ds-money ds-money--row">{{ \App\Support\FormatoImporte::pesos($alumno->deuda_total ?? 0) }}</span>
                 </td>
 
                 {{-- Estado --}}

@@ -1,0 +1,2192 @@
+{
+    "fase": "despues",
+    "base": "wings_testing_codex",
+    "casos": [
+        {
+            "slug": "admin-sistema-primera-carga",
+            "rol": "ADMIN",
+            "ruta": "\/sistema\/primera-carga",
+            "ruta_nombre": "web.primera-carga.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/primera-carga\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "primera-carga.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 24097
+        },
+        {
+            "slug": "admin-caja",
+            "rol": "ADMIN",
+            "ruta": "\/caja",
+            "ruta_nombre": "web.caja.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.index",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28000
+        },
+        {
+            "slug": "admin-caja-apertura",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/apertura",
+            "ruta_nombre": "web.caja.apertura",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/apertura.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.apertura",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 15946
+        },
+        {
+            "slug": "admin-caja-configuracion",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/configuracion",
+            "ruta_nombre": "web.caja.configuracion",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/configuracion.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.configuracion",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 16972
+        },
+        {
+            "slug": "admin-caja-movimiento",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/movimiento",
+            "ruta_nombre": "web.caja.movimiento",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/movimiento.blade.php",
+                "resources\/views\/components\/ds\/mobile-errors.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.movimiento",
+                "components.ds.mobile-errors",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 30125
+        },
+        {
+            "slug": "admin-caja-historial",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/historial",
+            "ruta_nombre": "web.caja.historial",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/historial.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.historial",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 33117
+        },
+        {
+            "slug": "admin-caja-cobrar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/cobrar",
+            "ruta_nombre": "web.caja.cobrar-cuota",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/cobrar-cuota.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.cobrar-cuota",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18282
+        },
+        {
+            "slug": "admin-caja-cobrar-alumnoId",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/cobrar\/1",
+            "ruta_nombre": "web.caja.cobrar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/cobrar.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.cobrar",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 31927
+        },
+        {
+            "slug": "admin-caja-id-resumen",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/resumen",
+            "ruta_nombre": "web.caja.resumen",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/resumen.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.resumen",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 25026
+        },
+        {
+            "slug": "admin-caja-id-detalle",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/detalle",
+            "ruta_nombre": "web.caja.detalle",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/detalle.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.detalle",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 24493
+        },
+        {
+            "slug": "admin-caja-id-editar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/editar",
+            "ruta_nombre": "web.caja.editar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/editar.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.editar",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 34156
+        },
+        {
+            "slug": "admin-caja-id-rectificar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/rectificar",
+            "ruta_nombre": "web.caja.rectificar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/rectificar.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.rectificar",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18360
+        },
+        {
+            "slug": "admin-caja-id-cerrar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/cerrar",
+            "ruta_nombre": "web.caja.cierre",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/cierre.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.cierre",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 19551
+        },
+        {
+            "slug": "admin-caja-cajaId-movimientos-movId-editar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/movimientos\/4\/editar",
+            "ruta_nombre": "web.caja.movimientos.editar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/editar.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.editar",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 34283
+        },
+        {
+            "slug": "admin-caja-cajaId-movimientos-movId-cancelar",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/4\/movimientos\/5\/cancelar",
+            "ruta_nombre": "web.caja.movimientos.cancelar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/cancelar-movimiento.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.cancelar-movimiento",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 17424
+        },
+        {
+            "slug": "admin-operativo",
+            "rol": "ADMIN",
+            "ruta": "\/operativo",
+            "ruta_nombre": "web.operativo.dashboard",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 21940
+        },
+        {
+            "slug": "admin-movimientos",
+            "rol": "ADMIN",
+            "ruta": "\/movimientos",
+            "ruta_nombre": "web.movimientos.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/movimientos\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "movimientos.index",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 33732
+        },
+        {
+            "slug": "admin-cobranza",
+            "rol": "ADMIN",
+            "ruta": "\/cobranza",
+            "ruta_nombre": "web.cobranza.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cobranza\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cobranza.index",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 25490
+        },
+        {
+            "slug": "admin-revision-cobranza",
+            "rol": "ADMIN",
+            "ruta": "\/revision-cobranza",
+            "ruta_nombre": "web.revision-cobranza.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/revision-cobranza\/index.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "vendor\/laravel\/framework\/src\/Illuminate\/Pagination\/resources\/views\/tailwind.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "revision-cobranza.index",
+                "components.ds.toggle",
+                "components.ds.button",
+                "pagination::tailwind",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 21193
+        },
+        {
+            "slug": "admin-admin-dashboard",
+            "rol": "ADMIN",
+            "ruta": "\/admin\/dashboard",
+            "ruta_nombre": "admin.dashboard",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/admin\/dashboard.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "admin.dashboard",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 20849
+        },
+        {
+            "slug": "admin-reportes",
+            "rol": "ADMIN",
+            "ruta": "\/reportes",
+            "ruta_nombre": "web.reportes.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/reportes\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "reportes.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 25746
+        },
+        {
+            "slug": "admin-reportes-alumnos",
+            "rol": "ADMIN",
+            "ruta": "\/reportes\/alumnos",
+            "ruta_nombre": "web.reportes.alumnos",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/reportes\/alumnos.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "reportes.alumnos",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 33782
+        },
+        {
+            "slug": "admin-reportes-sueldos",
+            "rol": "ADMIN",
+            "ruta": "\/reportes\/sueldos",
+            "ruta_nombre": "web.reportes.sueldos",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/reportes\/sueldos.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "reportes.sueldos",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 23715
+        },
+        {
+            "slug": "admin-cashflow",
+            "rol": "ADMIN",
+            "ruta": "\/cashflow",
+            "ruta_nombre": "web.cashflow.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cashflow\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/cashflow\/_acciones.blade.php",
+                "vendor\/laravel\/framework\/src\/Illuminate\/Pagination\/resources\/views\/tailwind.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cashflow.index",
+                "components.ds.button",
+                "cashflow._acciones",
+                "pagination::tailwind",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 36995
+        },
+        {
+            "slug": "admin-cashflow-movimiento",
+            "rol": "ADMIN",
+            "ruta": "\/cashflow\/movimiento",
+            "ruta_nombre": "web.cashflow.movimiento",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cashflow\/movimiento.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cashflow.movimiento",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 30244
+        },
+        {
+            "slug": "admin-cashflow-movimientos-id",
+            "rol": "ADMIN",
+            "ruta": "\/cashflow\/movimientos\/1",
+            "ruta_nombre": "web.cashflow.movimientos.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cashflow\/detalle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/cashflow\/_historial.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cashflow.detalle",
+                "components.ds.button",
+                "cashflow._historial",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 17017
+        },
+        {
+            "slug": "admin-cashflow-movimientos-id-editar",
+            "rol": "ADMIN",
+            "ruta": "\/cashflow\/movimientos\/1\/editar",
+            "ruta_nombre": "web.cashflow.movimientos.editar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cashflow\/movimiento.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cashflow.movimiento",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 31349
+        },
+        {
+            "slug": "admin-cashflow-movimientos-id-eliminar",
+            "rol": "ADMIN",
+            "ruta": "\/cashflow\/movimientos\/1\/eliminar",
+            "ruta_nombre": "web.cashflow.movimientos.eliminar",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cashflow\/eliminar.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cashflow.eliminar",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 17548
+        },
+        {
+            "slug": "admin-alumnos",
+            "rol": "ADMIN",
+            "ruta": "\/alumnos",
+            "ruta_nombre": "web.alumnos.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "vendor\/laravel\/framework\/src\/Illuminate\/Pagination\/resources\/views\/tailwind.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "pagination::tailwind",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 111871
+        },
+        {
+            "slug": "admin-alumnos-create",
+            "rol": "ADMIN",
+            "ruta": "\/alumnos\/create",
+            "ruta_nombre": "web.alumnos.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/create.blade.php",
+                "resources\/views\/alumnos\/_errores.blade.php",
+                "resources\/views\/alumnos\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.create",
+                "alumnos._errores",
+                "alumnos._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 29870
+        },
+        {
+            "slug": "admin-alumnos-id",
+            "rol": "ADMIN",
+            "ruta": "\/alumnos\/1",
+            "ruta_nombre": "web.alumnos.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/show.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.show",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 38038
+        },
+        {
+            "slug": "admin-alumnos-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/alumnos\/1\/edit",
+            "ruta_nombre": "web.alumnos.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/edit.blade.php",
+                "resources\/views\/alumnos\/_errores.blade.php",
+                "resources\/views\/alumnos\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.edit",
+                "alumnos._errores",
+                "alumnos._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28584
+        },
+        {
+            "slug": "admin-deportes",
+            "rol": "ADMIN",
+            "ruta": "\/deportes",
+            "ruta_nombre": "web.deportes.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/deportes\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "deportes.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 19353
+        },
+        {
+            "slug": "admin-deportes-create",
+            "rol": "ADMIN",
+            "ruta": "\/deportes\/create",
+            "ruta_nombre": "web.deportes.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/deportes\/create.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "deportes.create",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18058
+        },
+        {
+            "slug": "admin-deportes-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/deportes\/1\/edit",
+            "ruta_nombre": "web.deportes.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/deportes\/edit.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "deportes.edit",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18125
+        },
+        {
+            "slug": "admin-rubros",
+            "rol": "ADMIN",
+            "ruta": "\/rubros",
+            "ruta_nombre": "web.rubros.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/rubros\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "rubros.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 101487
+        },
+        {
+            "slug": "admin-rubros-create",
+            "rol": "ADMIN",
+            "ruta": "\/rubros\/create",
+            "ruta_nombre": "web.rubros.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/rubros\/create.blade.php",
+                "resources\/views\/rubros\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "rubros.create",
+                "rubros._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18269
+        },
+        {
+            "slug": "admin-rubros-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/rubros\/13\/edit",
+            "ruta_nombre": "web.rubros.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/rubros\/edit.blade.php",
+                "resources\/views\/rubros\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "rubros.edit",
+                "rubros._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18401
+        },
+        {
+            "slug": "admin-rubros-rubroId-subrubros-create",
+            "rol": "ADMIN",
+            "ruta": "\/rubros\/13\/subrubros\/create",
+            "ruta_nombre": "web.subrubros.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/subrubros\/create.blade.php",
+                "resources\/views\/subrubros\/_form.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "subrubros.create",
+                "subrubros._form",
+                "components.ds.toggle",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 20593
+        },
+        {
+            "slug": "admin-rubros-rubroId-subrubros-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/rubros\/13\/subrubros\/26\/edit",
+            "ruta_nombre": "web.subrubros.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/subrubros\/edit.blade.php",
+                "resources\/views\/subrubros\/_form.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "subrubros.edit",
+                "subrubros._form",
+                "components.ds.toggle",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 20672
+        },
+        {
+            "slug": "admin-grupos",
+            "rol": "ADMIN",
+            "ruta": "\/grupos",
+            "ruta_nombre": "web.grupos.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/grupos\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "grupos.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 38598
+        },
+        {
+            "slug": "admin-grupos-create",
+            "rol": "ADMIN",
+            "ruta": "\/grupos\/create",
+            "ruta_nombre": "web.grupos.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/grupos\/create.blade.php",
+                "resources\/views\/grupos\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "grupos.create",
+                "grupos._form",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 21000
+        },
+        {
+            "slug": "admin-grupos-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/grupos\/1\/edit",
+            "ruta_nombre": "web.grupos.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/grupos\/edit.blade.php",
+                "resources\/views\/grupos\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "grupos.edit",
+                "grupos._form",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 23839
+        },
+        {
+            "slug": "admin-grupos-id",
+            "rol": "ADMIN",
+            "ruta": "\/grupos\/1",
+            "ruta_nombre": "web.grupos.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/grupos\/show.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "grupos.show",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28347
+        },
+        {
+            "slug": "admin-clases-create",
+            "rol": "ADMIN",
+            "ruta": "\/clases\/create",
+            "ruta_nombre": "web.clases.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/create.blade.php",
+                "resources\/views\/clases\/_aviso-cancha.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.create",
+                "clases._aviso-cancha",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 41847
+        },
+        {
+            "slug": "admin-clases-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/clases\/1\/edit",
+            "ruta_nombre": "web.clases.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/edit.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.edit",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 22965
+        },
+        {
+            "slug": "admin-clases",
+            "rol": "ADMIN",
+            "ruta": "\/clases",
+            "ruta_nombre": "web.clases.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/clases\/_card.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.index",
+                "components.ds.button",
+                "clases._card",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28164
+        },
+        {
+            "slug": "admin-clases-id",
+            "rol": "ADMIN",
+            "ruta": "\/clases\/1",
+            "ruta_nombre": "web.clases.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 75518
+        },
+        {
+            "slug": "admin-liquidaciones",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones",
+            "ruta_nombre": "web.liquidaciones.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 30606
+        },
+        {
+            "slug": "admin-liquidaciones-crear",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/crear",
+            "ruta_nombre": "web.liquidaciones.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/create.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.create",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 35478
+        },
+        {
+            "slug": "admin-liquidaciones-id",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/1",
+            "ruta_nombre": "web.liquidaciones.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 25554
+        },
+        {
+            "slug": "admin-tipos-caja",
+            "rol": "ADMIN",
+            "ruta": "\/tipos-caja",
+            "ruta_nombre": "web.tipos-caja.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/tipos-caja\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "tipos-caja.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 32117
+        },
+        {
+            "slug": "admin-tipos-caja-create",
+            "rol": "ADMIN",
+            "ruta": "\/tipos-caja\/create",
+            "ruta_nombre": "web.tipos-caja.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/tipos-caja\/create.blade.php",
+                "resources\/views\/tipos-caja\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "tipos-caja.create",
+                "tipos-caja._form",
+                "components.ds.money-input",
+                "components.ds.toggle",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 20709
+        },
+        {
+            "slug": "admin-tipos-caja-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/tipos-caja\/1\/edit",
+            "ruta_nombre": "web.tipos-caja.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/tipos-caja\/edit.blade.php",
+                "resources\/views\/tipos-caja\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "tipos-caja.edit",
+                "tipos-caja._form",
+                "components.ds.money-input",
+                "components.ds.toggle",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 20910
+        },
+        {
+            "slug": "admin-niveles",
+            "rol": "ADMIN",
+            "ruta": "\/niveles",
+            "ruta_nombre": "web.niveles.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/niveles\/index.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "niveles.index",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 24657
+        },
+        {
+            "slug": "admin-niveles-create",
+            "rol": "ADMIN",
+            "ruta": "\/niveles\/create",
+            "ruta_nombre": "web.niveles.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/niveles\/create.blade.php",
+                "resources\/views\/niveles\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "niveles.create",
+                "niveles._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18124
+        },
+        {
+            "slug": "admin-niveles-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/niveles\/4\/edit",
+            "ruta_nombre": "web.niveles.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/niveles\/edit.blade.php",
+                "resources\/views\/niveles\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "niveles.edit",
+                "niveles._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18029
+        },
+        {
+            "slug": "admin-usuarios",
+            "rol": "ADMIN",
+            "ruta": "\/usuarios",
+            "ruta_nombre": "web.usuarios.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/usuarios\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "usuarios.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 37081
+        },
+        {
+            "slug": "admin-usuarios-create",
+            "rol": "ADMIN",
+            "ruta": "\/usuarios\/create",
+            "ruta_nombre": "web.usuarios.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/usuarios\/create.blade.php",
+                "resources\/views\/usuarios\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "usuarios.create",
+                "usuarios._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28405
+        },
+        {
+            "slug": "admin-usuarios-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/usuarios\/2\/edit",
+            "ruta_nombre": "web.usuarios.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/usuarios\/edit.blade.php",
+                "resources\/views\/usuarios\/_form.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "usuarios.edit",
+                "usuarios._form",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28557
+        },
+        {
+            "slug": "admin-configuraciones",
+            "rol": "ADMIN",
+            "ruta": "\/configuraciones",
+            "ruta_nombre": "web.configuraciones.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/configuraciones\/index.blade.php",
+                "resources\/views\/configuraciones\/_campo.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/configuraciones\/_regla.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "configuraciones.index",
+                "configuraciones._campo",
+                "components.ds.money-input",
+                "components.ds.button",
+                "configuraciones._regla",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 48663
+        },
+        {
+            "slug": "admin-profesores",
+            "rol": "ADMIN",
+            "ruta": "\/profesores",
+            "ruta_nombre": "web.profesores.index",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/profesores\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "profesores.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 38676
+        },
+        {
+            "slug": "admin-profesores-create",
+            "rol": "ADMIN",
+            "ruta": "\/profesores\/create",
+            "ruta_nombre": "web.profesores.create",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/profesores\/create.blade.php",
+                "resources\/views\/components\/ds\/mobile-errors.blade.php",
+                "resources\/views\/profesores\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "profesores.create",
+                "components.ds.mobile-errors",
+                "profesores._form",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 26231
+        },
+        {
+            "slug": "admin-profesores-id",
+            "rol": "ADMIN",
+            "ruta": "\/profesores\/1",
+            "ruta_nombre": "web.profesores.show",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/profesores\/show.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "profesores.show",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 22289
+        },
+        {
+            "slug": "admin-profesores-id-edit",
+            "rol": "ADMIN",
+            "ruta": "\/profesores\/1\/edit",
+            "ruta_nombre": "web.profesores.edit",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/profesores\/edit.blade.php",
+                "resources\/views\/components\/ds\/mobile-errors.blade.php",
+                "resources\/views\/profesores\/_form.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "profesores.edit",
+                "components.ds.mobile-errors",
+                "profesores._form",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 26416
+        },
+        {
+            "slug": "login",
+            "rol": "ANONIMO",
+            "ruta": "\/login",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/auth\/login.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php"
+            ],
+            "nombres_vistas": [
+                "auth.login",
+                "layouts.app",
+                "layouts.ds-app"
+            ],
+            "bytes": 7055
+        },
+        {
+            "slug": "operativo-0",
+            "rol": "OPERATIVO",
+            "ruta": "\/operativo",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 17527
+        },
+        {
+            "slug": "operativo-1",
+            "rol": "OPERATIVO",
+            "ruta": "\/alumnos",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "vendor\/laravel\/framework\/src\/Illuminate\/Pagination\/resources\/views\/tailwind.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.index",
+                "components.ds.button",
+                "components.ds.toggle",
+                "pagination::tailwind",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 105458
+        },
+        {
+            "slug": "operativo-2",
+            "rol": "OPERATIVO",
+            "ruta": "\/alumnos\/1",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/alumnos\/show.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "alumnos.show",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 23338
+        },
+        {
+            "slug": "operativo-3",
+            "rol": "OPERATIVO",
+            "ruta": "\/clases",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/index.blade.php",
+                "resources\/views\/clases\/_card.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.index",
+                "clases._card",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 21114
+        },
+        {
+            "slug": "operativo-4",
+            "rol": "OPERATIVO",
+            "ruta": "\/clases\/1",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 69105
+        },
+        {
+            "slug": "operativo-5",
+            "rol": "OPERATIVO",
+            "ruta": "\/caja",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.index",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 19155
+        },
+        {
+            "slug": "operativo-6",
+            "rol": "OPERATIVO",
+            "ruta": "\/caja\/4\/detalle",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/detalle.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.detalle",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 21130
+        },
+        {
+            "slug": "operativo-7",
+            "rol": "OPERATIVO",
+            "ruta": "\/caja\/4\/resumen",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/resumen.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.resumen",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 18989
+        },
+        {
+            "slug": "operativo-8",
+            "rol": "OPERATIVO",
+            "ruta": "\/cobranza",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/cobranza\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "cobranza.index",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 19077
+        },
+        {
+            "slug": "operativo-9",
+            "rol": "OPERATIVO",
+            "ruta": "\/revision-cobranza",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/revision-cobranza\/index.blade.php",
+                "resources\/views\/components\/ds\/toggle.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "vendor\/laravel\/framework\/src\/Illuminate\/Pagination\/resources\/views\/tailwind.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "revision-cobranza.index",
+                "components.ds.toggle",
+                "components.ds.button",
+                "pagination::tailwind",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 14780
+        },
+        {
+            "slug": "profesor-0",
+            "rol": "PROFESOR",
+            "ruta": "\/clases",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/index.blade.php",
+                "resources\/views\/clases\/_card.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.index",
+                "clases._card",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 16557
+        },
+        {
+            "slug": "profesor-1",
+            "rol": "PROFESOR",
+            "ruta": "\/clases\/1",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 63455
+        },
+        {
+            "slug": "admin-caja-cerrada-detalle",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/1\/detalle",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/detalle.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.detalle",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 26162
+        },
+        {
+            "slug": "admin-caja-cerrada-resumen",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/1\/resumen",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/resumen.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.resumen",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 25793
+        },
+        {
+            "slug": "admin-caja-rechazada-detalle",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/2\/detalle",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/detalle.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.detalle",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 22360
+        },
+        {
+            "slug": "admin-caja-rechazada-resumen",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/2\/resumen",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/resumen.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.resumen",
+                "components.ds.button",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 24482
+        },
+        {
+            "slug": "admin-caja-validada-detalle",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/3\/detalle",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/detalle.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.detalle",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 22360
+        },
+        {
+            "slug": "admin-caja-validada-resumen",
+            "rol": "ADMIN",
+            "ruta": "\/caja\/3\/resumen",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/caja\/resumen.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "caja.resumen",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 23873
+        },
+        {
+            "slug": "admin-liquidacion-mes_actual",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/2",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 24720
+        },
+        {
+            "slug": "admin-liquidacion-cerrada",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/3",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/show.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.show",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 28667
+        },
+        {
+            "slug": "admin-liquidacion-pagada",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/4",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 23084
+        },
+        {
+            "slug": "admin-clase-futura",
+            "rol": "ADMIN",
+            "ruta": "\/clases\/2",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/clases\/show.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "clases.show",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 75126
+        },
+        {
+            "slug": "primera-carga-pendiente",
+            "rol": "ADMIN",
+            "ruta": "\/sistema\/primera-carga",
+            "estado_carga": "PENDIENTE",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/primera-carga\/index.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "primera-carga.index",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 25066
+        },
+        {
+            "slug": "error-403",
+            "rol": "ADMIN",
+            "vista_directa": "errors.403",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/errors\/403.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "errors.403",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 15721
+        },
+        {
+            "slug": "error-404",
+            "rol": "ADMIN",
+            "vista_directa": "errors.404",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/errors\/404.blade.php",
+                "resources\/views\/errors\/_contenido.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "errors.404",
+                "errors._contenido",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 15686
+        },
+        {
+            "slug": "error-429",
+            "rol": "ADMIN",
+            "vista_directa": "errors.429",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/errors\/429.blade.php",
+                "resources\/views\/errors\/_contenido.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "errors.429",
+                "errors._contenido",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 15665
+        },
+        {
+            "slug": "error-500",
+            "rol": "ADMIN",
+            "vista_directa": "errors.500",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/errors\/500.blade.php",
+                "resources\/views\/errors\/_contenido.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/errors\/sin-contexto.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "errors.500",
+                "errors._contenido",
+                "components.ds.button",
+                "errors.sin-contexto",
+                "components.ds.module-header"
+            ],
+            "bytes": 2109
+        },
+        {
+            "slug": "error-503",
+            "rol": "ADMIN",
+            "vista_directa": "errors.503",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/errors\/503.blade.php",
+                "resources\/views\/errors\/_contenido.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/errors\/sin-contexto.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "errors.503",
+                "errors._contenido",
+                "components.ds.button",
+                "errors.sin-contexto",
+                "components.ds.module-header"
+            ],
+            "bytes": 2098
+        },
+        {
+            "slug": "welcome-sin-ruta-en-wings",
+            "rol": "ANONIMO",
+            "vista_directa": "welcome",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/welcome.blade.php"
+            ],
+            "nombres_vistas": [
+                "welcome"
+            ],
+            "bytes": 53310
+        },
+        {
+            "slug": "operativo-companero",
+            "rol": "OPERATIVO",
+            "usuario": 3,
+            "ruta": "\/operativo",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 15540
+        },
+        {
+            "slug": "operativo-turno-antiguo",
+            "rol": "OPERATIVO",
+            "estado_turno": "antiguo",
+            "ruta": "\/operativo",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 16367
+        },
+        {
+            "slug": "operativo-ultimo-cierre",
+            "rol": "OPERATIVO",
+            "estado_turno": "cerrado",
+            "ruta": "\/operativo",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 16596
+        },
+        {
+            "slug": "operativo-primera-apertura",
+            "rol": "OPERATIVO",
+            "usuario": 3,
+            "estado_turno": "cerrado",
+            "ruta": "\/operativo",
+            "status": 200,
+            "vistas": [
+                "resources\/views\/operativo\/dashboard.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "operativo.dashboard",
+                "layouts.ds-app",
+                "components.ds.button",
+                "components.ds.module-header"
+            ],
+            "bytes": 15750
+        }
+    ]
+}

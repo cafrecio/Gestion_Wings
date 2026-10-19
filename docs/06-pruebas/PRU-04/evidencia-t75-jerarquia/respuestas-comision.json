@@ -1,0 +1,30 @@
+{
+    "fase": "despues",
+    "base": "wings_testing_codex",
+    "casos": [
+        {
+            "slug": "admin-liquidacion-comision",
+            "rol": "ADMIN",
+            "ruta": "\/liquidaciones\/1",
+            "comision": true,
+            "status": 200,
+            "vistas": [
+                "resources\/views\/liquidaciones\/show.blade.php",
+                "resources\/views\/components\/ds\/money-input.blade.php",
+                "resources\/views\/components\/ds\/button.blade.php",
+                "resources\/views\/layouts\/app.blade.php",
+                "resources\/views\/layouts\/ds-app.blade.php",
+                "resources\/views\/components\/ds\/module-header.blade.php"
+            ],
+            "nombres_vistas": [
+                "liquidaciones.show",
+                "components.ds.money-input",
+                "components.ds.button",
+                "layouts.app",
+                "layouts.ds-app",
+                "components.ds.module-header"
+            ],
+            "bytes": 29428
+        }
+    ]
+}

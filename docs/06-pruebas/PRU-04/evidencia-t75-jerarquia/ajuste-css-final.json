@@ -1,0 +1,9 @@
+{
+  "motivo": "El monto maximo negativo excedia 5.14px el espacio del encabezado de un movimiento Cashflow a 360; no habia desborde de pagina pero invadia el padding.",
+  "cambio": "Retirar los 14px duplicados del interior de la fila Cashflow, igualando el borde derecho de importes y acciones; permitir dos filas en su encabezado si hace falta y conservar el importe a la derecha.",
+  "archivos": [
+    "resources/css/app.css"
+  ],
+  "momento": "Tras iniciar la suite; todas las fuentes PHP/Blade quedan identicas. Repetir control y capturas con CSS final.",
+  "comprobacion_previa": "A 375, acciones de la fila terminaban en 306 y la referencia comun era 320; las demas acciones de la vista ya terminaban en 320."
+}

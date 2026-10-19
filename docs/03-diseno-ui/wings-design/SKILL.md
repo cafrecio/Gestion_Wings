@@ -257,5 +257,5 @@ Antes de entregar cualquier vista, verificar:
 
 - [ ] ¿Fecha, hora y mes ocupan el ancho de su campo como el selector, sin un tope fijo que los achique en celular?
 - [ ] ¿El cuerpo y las acciones de una tarjeta evitan sumar padding lateral dos veces?
-- [ ] ¿Los importes comparables de Liquidación usan `ds-money-value`, con conteos secundarios y etiquetas alineadas? Ver [reglas de cifras](../design-system/DESIGN-RULES.md#controles-y-cifras-comparables--observaciones-de-carlos-18102026).
+- [ ] ¿Cada importe usa el nivel fijo `ds-money--total`, `--summary` o `--row`, igual entre módulos, con conteos secundarios y etiquetas alineadas? Ver [reglas de cifras](../design-system/DESIGN-RULES.md#controles-y-cifras-comparables--observaciones-de-carlos-18102026).
 - [ ] ¿Revisión conserva nota y Confirmar al elegir con el interruptor, sin enviar al cambiarlo?

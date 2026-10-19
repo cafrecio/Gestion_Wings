@@ -255,6 +255,26 @@ Antes de aprobar cualquier vista, verificar:
 - En celular, fecha, hora y mes ocupan todo el ancho disponible de su campo, igual que un selector; no limitar una fecha a 220 px dentro de una columna más ancha.
 - El cuerpo y las acciones de una tarjeta comparten borde interior. No sumar padding lateral al cuerpo dentro de una tarjeta que ya lo aporta.
 - Usar variantes existentes de botón (`secondary`, nunca `sec` en `ds-btn`); los accesos de Inicio son navegación secundaria agrupada.
-- En un detalle financiero, importes comparables usan `ds-money-value`: misma familia, tamaño, peso, color y cifras tabulares. Los conteos usan `ds-count-value` y no superan visualmente al dinero. Separar etiquetas de valores; en celular, un resumen estrecho usa filas con importes a la derecha.
+- Los importes comparables dentro de un mismo nivel usan el mismo tamaño y peso. Carlos eligió «Jerarquía fija y consistente» el 18/10: total destacado, resumen intermedio y fila menor, según la tabla siguiente. Los conteos usan `ds-count-value` y quedan en un nivel secundario. Separar etiquetas de valores; en celular, un resumen estrecho usa filas con importes a la derecha.
 - Revisión elige Activo/Inactivo con `x-ds.toggle`, pero la elección se guarda solo al Confirmar con nota. Activo genera la cuota del período; Inactivo da de baja y conserva deudas anteriores. No conectar ese interruptor a la ruta genérica de activar/desactivar alumnos.
 - Mostrar a Carlos únicamente las pantallas observadas en esta revisión. La comprobación interna de piezas compartidas abarca las demás pantallas afectadas.
+
+
+### Jerarquía fija de importes — decisión de Carlos, 18/10/2026
+
+Carlos: «Jerarquía fija y consistente».
+
+| Uso | Clase | Tamaño | Peso |
+|---|---|---|---|
+| Total de página, indicador financiero o monto final | `ds-money ds-money--total` | `1.1rem` | `800` |
+| Resumen por medio/rubro, cierre de tabla o valor por hora | `ds-money ds-money--summary` | `0.9rem` | `700` |
+| Importe individual, detalle, deuda de un alumno o anotación | `ds-money ds-money--row` | `0.8rem` | `600` |
+
+- Misma familia `var(--font-sans)`, interlínea `1.5`, cifras tabulares y espaciado normal en los tres niveles.
+- Los tamaños no cambian entre módulos ni por la longitud del valor. Una diferencia de tamaño exige una diferencia de función, no otra regla local.
+- El color conserva su significado: ingreso, egreso, deuda o estado. No elegir colores distintos para importes de la misma función y estado.
+- Poner la clase en el texto del importe, conservando el formato T30, los valores y los cálculos.
+- En celular, apilar los grupos financieros cuando no entren. No recortar cifras ni achicar la fuente para disimular un desborde.
+- Las columnas monetarias de las tablas usan `col-importe` (176 px) y conservan el desplazamiento horizontal.
+- Cantidades y porcentajes son secundarios dentro de un bloque financiero; gráficos y sus textos centrales conservan su tratamiento y formato propios.
+- Aplicado en Caja, Cashflow, Cobranza, Inicio administrativo, Liquidación y Reportes financieros/Sueldos. [Verificación y galería enfocada](../../06-pruebas/PRU-04/IMPLEMENTACION-T75-JERARQUIA.md).
