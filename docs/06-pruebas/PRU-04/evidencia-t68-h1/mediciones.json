@@ -1,0 +1,50 @@
+[
+  {
+    "file": "login-control.html",
+    "ancho": 375,
+    "divBalance": 0,
+    "divMinimo": 0,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "main": true,
+    "hojas": 1,
+    "fuera": []
+  },
+  {
+    "file": "login-control.html",
+    "ancho": 1366,
+    "divBalance": 0,
+    "divMinimo": 0,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "main": true,
+    "hojas": 1,
+    "fuera": []
+  },
+  {
+    "file": "profesor-ajuste.html",
+    "ancho": 375,
+    "divBalance": 0,
+    "divMinimo": 0,
+    "viewport": 375,
+    "client": 375,
+    "scroll": 360,
+    "main": true,
+    "hojas": 1,
+    "fuera": []
+  },
+  {
+    "file": "profesor-ajuste.html",
+    "ancho": 1366,
+    "divBalance": 0,
+    "divMinimo": 0,
+    "viewport": 1366,
+    "client": 1366,
+    "scroll": 1366,
+    "main": true,
+    "hojas": 1,
+    "fuera": []
+  }
+]

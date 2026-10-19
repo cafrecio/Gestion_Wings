@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CyE — T68, corrección H1 del importe vigente
+
+Alcance propio: usar monto_a_pagar en el historial; conservar cálculo, estilos, estructura y H2.
+Regresión permanente: sin ajuste muestra $15,000.00; POST real ajusta a $18,000.50 y ficha/detalle coinciden, sin el anterior en ficha.
+Roja antes: 1 fallida/11 aserciones, 11,80 s; después 16 dirigidas/108 aserciones verdes, 14,08 s.
+Captura real 1/14 y cuatro controles de navegador; cambios visuales paralelos de otras tareas preservados, fuera del alcance H1.
+Suite: 919 aprobadas, 4 omitidas, 2 fallidas, 8172 aserciones, 1963,93 s en wings_testing_codex. Repetición aislada 2/11 verde sin cambios; causa no comprobada. Corte 925 y contadores al día.
+Carlos respondió «Sí, autorizo H1 y su publicación»; preparación de Git autorizada, sin incluir cambios visuales ajenos.
+[Corrección y evidencia](../06-pruebas/PRU-04/VERIFICACION-T68-CODEX.md#corrección-de-h1). Claude revisa lógica; Carlos visual con APROBAR-T68.html. Sin servidor ni despliegue.
+
 ## 2026-10-19 — Codex CyE — Verificación de lógica T68, con hallazgos
 
 Verificación independiente de e5b4695a, con DU-57 aclarada: se conservan las secciones con datos o avisos vacíos.
@@ -98,16 +108,7 @@ Gemini: no implementar; anotado en tablero, sin chat disponible para mensaje dir
 Seguimiento 18/10, Carlos señala tamaños y márgenes distintos: pide registrar tamaño Cobrar, padding común y ubicación estable por repetición en el Design System.
 Reglas y checklist actualizados en DESIGN-RULES y wings-design; solo documentación, enlaces/diff revisados. Aplicación uniforme pendiente; T75 no aprobada ni cerrada.
 
-## 2026-10-17 — Codex CAB — T36 implementada localmente, entrega a Claude
-
-Tildes persistentes con autor/fecha/huella, solo ADMIN activo; validar exige todos en servicio.
-Resumen redirige a Detalle si faltan; vacías e idempotencia previa conservadas.
-Carlos: «Destildar solo los movimientos que cambien»; rechazar conserva los demás.
-Detalle/Resumen sin JavaScript incrustado; quedan 8 bloques/8 vistas/8 manejadores (T73).
-68 dirigidas/449 aserciones y 9 de cancelación/concurrencia real/125 aserciones aprobadas.
-Chrome comprobó persistencia, validación, ambos modales, fallo de red y confirmación.
-Suite propia: 818/2/1 T38, 7584 aserciones; tras cbc851e de Claude, repetición integrada 50/314 aprobada; [informe y capturas](../06-pruebas/PRU-04/IMPLEMENTACION-T36.md).
-Sin despliegue ni autocierre. Reglas para Claude y aspecto para Carlos; T37 ya cerrada por Claude.
+[Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
 
 [Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
 

@@ -1,0 +1,27 @@
+
+   PASS  Tests\Feature\AjusteFinalLiquidacionTest
+  ✓ admin ajusta abierta y cerrada sin cambiar calculo o detalle                                                 7.44s
+  ✓ operativo profesor inactivo y anonimo no ajustan                                                             0.71s
+  ✓ pagada cancelada y por hora rechazan ajustes                                                                 0.30s
+  ✓ pago usa final una sola vez y rechaza formulario viejo                                                       0.22s
+  ✓ ajuste conserva cortes anteriores y saldo pendiente coherente                                                0.11s
+  ✓ falla historial revierte importe y auditoria                                                                 0.14s
+  ✓ guardado directo sin auditoria y edicion vieja rechazados                                                    0.16s
+
+   PASS  Tests\Feature\AlumnoSinPlanT56T68Test
+  ✓ cambiar grupo exige plan del nuevo grupo                                                                     0.53s
+  ✓ alumno sin plan valido en edicion exige plan                                                                 0.38s
+  ✓ cobro de deuda a inactivo sin plan vigente no lo reactiva                                                    0.53s
+  ✓ cobro a inactivo con plan vigente si lo reactiva y crea reingreso                                            0.51s
+  ✓ ficha profesor muestra importe vigente tras ajuste t68 h1                                                    1.17s
+  ✓ vistas grupo y profesor muestran secciones y datos reales sin proximamente                                   1.15s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.14s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.10s
+
+   PASS  Tests\Feature\DocumentacionNoMienteTest
+  ✓ los documentos declaran la cantidad real de pruebas                                                          0.12s
+
+  Tests:    16 passed (108 assertions)
+  Duration: 14.08s

@@ -1,0 +1,9 @@
+
+   PASS  Tests\Feature\MostrarImportesT30Test
+  ✓ un recibo ya emitido se conserva sin regenerarlo                                                            21.85s
+
+   PASS  Tests\Feature\PerdonConcurrenteT33Test
+  ✓ pedido inscripcion espera commit y continua sin reintento ni timeout                                        16.25s
+
+  Tests:    2 passed (11 assertions)
+  Duration: 38.77s

@@ -266,6 +266,50 @@ class AlumnoSinPlanT56T68Test extends TestCase
         ]);
     }
 
+    public function test_ficha_profesor_muestra_importe_vigente_tras_ajuste_t68_h1(): void
+    {
+        $profesor = Profesor::create([
+            'nombre' => 'Prueba',
+            'apellido' => 'Importe vigente',
+            'dni' => '30111222',
+            'fecha_nacimiento' => '1990-01-01',
+            'direccion' => 'Direccion de prueba',
+            'localidad' => 'Prueba',
+            'telefono' => '1100000000',
+            'deporte_id' => Deporte::where('tipo_liquidacion', 'COMISION')->firstOrFail()->id,
+            'porcentaje_comision' => 20,
+            'activo' => true,
+        ]);
+        $liquidacion = Liquidacion::create([
+            'profesor_id' => $profesor->id,
+            'mes' => 9,
+            'anio' => 2026,
+            'tipo' => Liquidacion::TIPO_COMISION,
+            'total_calculado' => 15000,
+            'estado' => Liquidacion::ESTADO_CERRADA,
+            'estado_pago' => Liquidacion::ESTADO_PAGO_PENDIENTE,
+        ]);
+
+        $this->actingAs($this->admin)
+            ->get(route('web.profesores.show', $profesor->id))
+            ->assertOk()->assertSee('$15,000.00');
+
+        $this->post(route('web.liquidaciones.ajustar', $liquidacion->id), [
+            'monto_final' => '18000.50',
+            'monto_anterior' => '15000.00',
+            'motivo' => 'Ajuste de prueba T68 H1',
+        ])->assertRedirect(route('web.liquidaciones.show', $liquidacion->id))
+            ->assertSessionHasNoErrors();
+
+        $liquidacion->refresh();
+        $this->assertSame('15000.00', $liquidacion->total_calculado);
+        $this->assertSame('18000.50', $liquidacion->monto_a_pagar);
+        $this->get(route('web.liquidaciones.show', $liquidacion->id))
+            ->assertOk()->assertSee('$18,000.50');
+        $this->get(route('web.profesores.show', $profesor->id))
+            ->assertOk()->assertSee('$18,000.50')->assertDontSee('$15,000.00');
+    }
+
     public function test_vistas_grupo_y_profesor_muestran_secciones_y_datos_reales_sin_proximamente(): void
     {
         $this->actingAs($this->admin);

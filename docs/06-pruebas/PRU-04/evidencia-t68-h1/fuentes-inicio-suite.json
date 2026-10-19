@@ -1,0 +1,6 @@
+{
+  "resources/views/profesores/show.blade.php": "ee72f4e6e920bc9fdf606b1b80fcd0811847f53838c2e046196d35bc27c7b90a",
+  "resources/views/grupos/show.blade.php": "fc63e27d000ebf11a61a4044cdab6f785ecb174e5470eaca215d3dc970ff716a",
+  "tests/Feature/AlumnoSinPlanT56T68Test.php": "096ed8d4895c240143c803e00eb980f390d94ac2061edd2c30a697db79286be1",
+  "tests/Feature/CapturaT56T68Test.php": "79114001ffe8519f024dbb30e06deab059afc9398c51e82a50d70a8a5b47c774"
+}

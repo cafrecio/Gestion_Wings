@@ -50,7 +50,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T68** Completar las fichas de grupos y profesores con datos reales | Hecho, espera verificación (hizo Codex, verifica Claude) | H1 corregido y probado: importe vigente. Claude revisa logica en Correccion de H1 de VERIFICACION-T68-CODEX.md; Carlos visual con APROBAR-T68.html. Carlos autorizo H1 y su publicacion. H2 para T73; cambios visuales paralelos excluidos del alcance |
 
 ## Codex
 
@@ -60,9 +62,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T68** Completar las fichas de grupos y profesores con datos reales | Devuelto (hizo Gemini, verifica Codex) | Codex verifico logica de e5b4695a: H1 historial muestra calculo original y omite monto ajustado. H2 onsubmit anterior identificado para T73. Ver VERIFICACION-T68-CODEX.md. Carlos revisa visual; sin correcciones ni deploy |
+Nada en este momento.
 
 ## Sin empezar (25)
 
