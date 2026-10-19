@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi">
+    <meta name="csrf-token" content="Dxpr21m2ddO1BhmwWsAHsm5XtJeM8Ku0lHqLUxWQ">
     <title>Lunes 12 de octubre de 2026 — Patin — Inicial – Wings</title>
     <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
@@ -223,10 +223,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Palma Bailey</span>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Blair Nolan</span>
                 </div>
                 <form method="POST" action="http://gestion-wings/logout">
-                    <input type="hidden" name="_token" value="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+                    <input type="hidden" name="_token" value="Dxpr21m2ddO1BhmwWsAHsm5XtJeM8Ku0lHqLUxWQ" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
             type="submit"
             >
 
@@ -266,7 +266,7 @@
                     Lunes 12 de octubre de 2026
                 </h2>
                 <span style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);">
-                    14:00 – 15:00
+                    10:00 – 11:00
                 </span>
             </div>
 
@@ -318,8 +318,8 @@
                 
                 
                 
-                                    <form method="POST" action="http://gestion-wings/clases/2/validar" style="display:inline;">
-                        <input type="hidden" name="_token" value="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi" autocomplete="off"> <input type="hidden" name="_method" value="PATCH">                        <button type="submit"
+                                    <form method="POST" action="http://gestion-wings/clases/1/validar" style="display:inline;">
+                        <input type="hidden" name="_token" value="Dxpr21m2ddO1BhmwWsAHsm5XtJeM8Ku0lHqLUxWQ" autocomplete="off"> <input type="hidden" name="_method" value="PATCH">                        <button type="submit"
                                 style="display:inline-flex; align-items:center; justify-content:center;
                                        width:96px; height:32px; font-size:0.82rem; font-weight:600;
                                        border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -329,7 +329,7 @@
                             Validar
                         </button>
                     </form>
-                    <a href="http://gestion-wings/clases/2/edit"
+                    <a href="http://gestion-wings/clases/1/edit"
                        style="display:inline-flex; align-items:center; justify-content:center;
                               width:96px; height:32px; font-size:0.82rem; font-weight:600;
                               border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -452,21 +452,17 @@
 
 
 
-<div class="ds-card ds-surface alumno-asistencia-card"
-     id="card-2"
-     data-alumno-id="2"
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"
+     id="card-1"
+     data-alumno-id="1"
      data-plan="2"
      data-asistencias-semana="0"
-     style="margin-bottom:10px;
+     style="margin-bottom:10px; padding: 10px 14px;
             
             
             transition: background 200ms ease;">
 
-    <div class="ds-card__rail ds-rail ds-rail--patin"></div>
-
-    <div class="ds-card__content" style="padding: 10px 14px;">
-
-        <div class="flex items-center justify-between gap-3">
+    <div class="flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-2">
                     <span class="ds-dot ds-dot--success flex-shrink-0"></span>
@@ -479,73 +475,6 @@
                             0/2
                                                     </span>
                                                                 <span>· DNI …543</span>
-                                    </div>
-            </div>
-
-            <div class="flex-shrink-0">
-                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"
-                       for="presente-2">
-                    <span class="hidden sm:inline">Presente</span>
-                    <input type="checkbox"
-                           id="presente-2"
-                           class="presente-checkbox"
-                           data-alumno-id="2"
-                           
-                           
-                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
-                </label>
-            </div>
-        </div>
-
-        
-        <div id="exceso-2"
-             style="display:none; margin-top:8px; padding:8px 12px;
-                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);
-                    border-radius:var(--radius-btn);
-                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">
-            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;
-                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">
-                Excede el plan — indicar motivo
-            </span>
-            <select id="motivo-2"
-                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);
-                           border:1px solid var(--color-border); background:var(--color-surface);
-                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">
-                <option value="EXTRA">Clase adicional (EXTRA)</option>
-                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>
-            </select>
-        </div>
-
-    </div>
-</div>
-
-<div class="ds-card ds-surface alumno-asistencia-card"
-     id="card-1"
-     data-alumno-id="1"
-     data-plan="2"
-     data-asistencias-semana="0"
-     style="margin-bottom:10px;
-            
-            
-            transition: background 200ms ease;">
-
-    <div class="ds-card__rail ds-rail ds-rail--patin"></div>
-
-    <div class="ds-card__content" style="padding: 10px 14px;">
-
-        <div class="flex items-center justify-between gap-3">
-            <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-2">
-                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>
-                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">
-                        Gomez, Sofia
-                    </span>
-                </div>
-                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
-                                            <span style="font-weight:600; color:var(--color-success);">
-                            0/2
-                                                    </span>
-                                                                <span>· DNI …456</span>
                                     </div>
             </div>
 
@@ -584,7 +513,68 @@
         </div>
 
     </div>
-</div>
+
+<div class="alumno-card alumno-card--patin alumno-asistencia-card"
+     id="card-2"
+     data-alumno-id="2"
+     data-plan="2"
+     data-asistencias-semana="0"
+     style="margin-bottom:10px; padding: 10px 14px;
+            
+            
+            transition: background 200ms ease;">
+
+    <div class="flex items-center justify-between gap-3">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>
+                    <span style="font-weight:700; font-size:0.9rem;" class="truncate">
+                        Perez, Sofia
+                    </span>
+                </div>
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
+                                            <span style="font-weight:600; color:var(--color-success);">
+                            0/2
+                                                    </span>
+                                                                <span>· DNI …456</span>
+                                    </div>
+            </div>
+
+            <div class="flex-shrink-0">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.85rem; font-weight:700; user-select:none;"
+                       for="presente-2">
+                    <span class="hidden sm:inline">Presente</span>
+                    <input type="checkbox"
+                           id="presente-2"
+                           class="presente-checkbox"
+                           data-alumno-id="2"
+                           
+                           
+                           style="width:22px; height:22px; cursor:pointer; accent-color:var(--color-success);">
+                </label>
+            </div>
+        </div>
+
+        
+        <div id="exceso-2"
+             style="display:none; margin-top:8px; padding:8px 12px;
+                    background:color-mix(in srgb, var(--color-danger) 8%, transparent);
+                    border-radius:var(--radius-btn);
+                    border:1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);">
+            <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase;
+                         letter-spacing:0.05em; color:var(--color-danger); display:block; margin-bottom:6px;">
+                Excede el plan — indicar motivo
+            </span>
+            <select id="motivo-2"
+                    style="font-size:0.82rem; padding:4px 10px; border-radius:var(--radius-btn);
+                           border:1px solid var(--color-border); background:var(--color-surface);
+                           color:var(--color-text); cursor:pointer; font-family:inherit; width:100%; max-width:300px;">
+                <option value="EXTRA">Clase adicional (EXTRA)</option>
+                <option value="RECUPERA">Recupera clase perdida (RECUPERA)</option>
+            </select>
+        </div>
+
+    </div>
 
 
 <div id="toast-asistencias"
@@ -594,18 +584,6 @@
             box-shadow:0 8px 24px rgba(0,0,0,0.25);"></div>
 
 
-    <div style="margin-top:16px; padding:12px 16px; background:color-mix(in srgb, var(--color-danger) 6%, var(--color-surface));
-                border:1px solid color-mix(in srgb, var(--color-danger) 30%, transparent); border-radius:var(--radius-card);">
-        <p style="font-size:0.78rem; font-weight:700; color:var(--color-danger); margin:0 0 8px;">
-            Estás corrigiendo una lista ya tomada — indicá el motivo
-        </p>
-        <input type="text" id="input-motivo-asistencias"
-               placeholder="Ej: Se nos pasó cargar a un alumno, se marcó por error..."
-               maxlength="255"
-               style="width:100%; padding:8px 12px; font-size:0.82rem;
-                      border:1px solid var(--color-border); border-radius:var(--radius-btn);
-                      background:var(--color-surface); color:var(--color-text); font-family:inherit;">
-    </div>
 <div style="display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; margin-bottom:32px; padding-right:1.5rem;">
     <button id="btn-guardar-asistencias"
             
@@ -632,11 +610,11 @@
 
 <script>
 (function () {
-    const infoSemana = {"2":{"asistencias_semana":0,"plan_semana":2,"excede":false},"1":{"asistencias_semana":0,"plan_semana":2,"excede":false}};
-    const claseId    = 2;
+    const infoSemana = {"1":{"asistencias_semana":0,"plan_semana":2,"excede":false},"2":{"asistencias_semana":0,"plan_semana":2,"excede":false}};
+    const claseId    = 1;
     // El motivo solo se exige cuando se corrige algo YA cargado, no en la
     // primera carga de una clase que quedó sin tomar.
-    const requiereMotivoAsistencia = true;
+    const requiereMotivoAsistencia = false;
     const requiereMotivoProfesores = true;
     const csrf       = document.querySelector('meta[name="csrf-token"]').content;
 

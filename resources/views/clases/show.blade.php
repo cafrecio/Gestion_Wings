@@ -300,21 +300,17 @@
     else                                $dotEstado = 'success';
 @endphp
 
-<div class="ds-card ds-surface alumno-asistencia-card"
+<div class="alumno-card alumno-card--{{ $rail }} alumno-asistencia-card"
      id="card-{{ $alumno->id }}"
      data-alumno-id="{{ $alumno->id }}"
      data-plan="{{ $planSemana ?? 0 }}"
      data-asistencias-semana="{{ $asisSemana }}"
-     style="margin-bottom:10px;
+     style="margin-bottom:10px; padding: 10px 14px;
             {{ $estaPresente ? 'background:color-mix(in srgb, var(--color-success) 8%, var(--color-surface));' : '' }}
             {{ $clase->cancelada ? 'opacity:0.6; pointer-events:none;' : '' }}
             transition: background 200ms ease;">
 
-    <div class="ds-card__rail ds-rail ds-rail--{{ $rail }}"></div>
-
-    <div class="ds-card__content" style="padding: 10px 14px;">
-
-        <div class="flex items-center justify-between gap-3">
+    <div class="flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-2">
                     <span class="ds-dot ds-dot--{{ $dotEstado }} flex-shrink-0"></span>
@@ -372,7 +368,6 @@
         </div>
 
     </div>
-</div>
 @empty
     <div class="empty-state">
         <svg class="empty-state__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -9,6 +9,14 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 
+## 2026-10-19 — LOG GEM CAB — Corrección de borde en celular de la lista de asistencia (clases/show)
+
+- **Corrección de borde en tarjetas de alumnos (orden de Carlos):**
+  - En `resources/views/clases/show.blade.php`: las tarjetas de alumnos usaban `ds-card ds-surface` con un `<div class="ds-card__rail ds-rail">` interior. En móvil (`<= 768px`), la regla `app.css:1247` forzaba `padding-inline: calc(var(--mobile-actions-inset) - 1px) !important;` en `.ds-content > .ds-surface`, inyectando 23px de espacio blanco a la izquierda del riel y despegándolo del borde exterior como una píldora flotante.
+  - Se adaptó la tarjeta al estándar canónico de Wings: `<div class="alumno-card alumno-card--{{ $rail }} alumno-asistencia-card">`, eliminando el div interior `ds-rail` y `ds-card__content`. `alumno-card` define `border-left: 4px solid var(--color-sport-{{ $rail }})`, y en móvil `app.css:1242` descuenta los 4px (`padding-left: calc(var(--mobile-actions-inset) - 4px) !important;`), logrando que el borde izquierdo quede perfectamente integrado, continuo y al ras de la tarjeta.
+  - Se regeneraron `03-lista-asistencia-dni-recortado.html` y las capturas en escritorio (1366px) y móvil marco (360px). Comprobado visualmente: borde izquierdo continuo, sin píldora flotante ni margen blanco roto.
+- **Pruebas:** `ClaseSinAsistenciaYDniT34T67Test` y `CspSinCodigoIncrustadoTest` 100% en verde sobre `wings_testing_gemini`.
+
 ## 2026-10-19 — LOG GEM CAB — Corrección de diseño y evidencia en T34 y T67 (botón Nuevo fuera del título y planes activos en simulación)
 
 - **Corrección de diseño visual (orden de Carlos):**
