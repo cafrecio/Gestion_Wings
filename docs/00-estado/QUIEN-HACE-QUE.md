@@ -48,7 +48,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: el proceso de cuotas corre todos los días a las 6; el día 1 genera y los días siguientes solo si el mes no figura generado y el anterior sí; avisa al dueño si generó con atraso o falló, y el resumen diario lo muestra mientras falte. 9 pruebas. Sin pantallas: no necesita visual de Carlos. Falta verificador. Para desplegar requiere migrar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T40.md |
+| **T73** Sacar el codigo escrito dentro de las pantallas: quedan 8 bloques en 8 vistas, empezando por el ingreso | En curso | [AHORA, Carlos 18/10] Orden de Carlos, 13/10: sin JavaScript dentro de vistas (AGENTS 5-bis). T36 retiró 3 bloques y 1 onsubmit de caja/detalle y caja/resumen. Quedan 8 bloques en auth/login, alumnos/index, caja/editar, clases/index, clases/show, grupos/index, liquidaciones/create y profesores/index; 8 manejadores. Cada pantalla usa su archivo resources/js, lo compartido ds-app.js. Bajar a la vez CspSinCodigoIncrustadoTest, AGENTS, ESTADO-ACTUAL y PLAN-PRODUCCION. No reintroducir lo retirado por T36. |
 
 ## Codex
 
@@ -59,11 +59,13 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | Hecho, espera verificación (hizo Claude, verifica Gemini) | Gemini verifica logica de T40 en wings_testing_gemini |
 
-## Sin empezar (24)
+## Sin empezar (23)
 
-T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
+T12, T22, T25, T42, T43, T45, T46, T50, T51, T52, T53, T54, T55, T60, T61, T62, T64, T65, T69, T70, T71, T72, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
