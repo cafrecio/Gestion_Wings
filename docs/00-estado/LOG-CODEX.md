@@ -8,7 +8,7 @@ Motivos, roles y choques conservados; canceladas protegidas. Desactivar única p
 Lectura descartable/sitio de prueba: cero clases sin profesora en ambos; sin reparación ni datos personales.
 16 pruebas nuevas; 65 dirigidas/610 aserciones. Suite completa: 920 aprobadas, 4 omitidas, 8155 aserciones, 960,48 s, salida 0, corte 924, solo wings_testing_codex.
 Capturas reales: tres vistas y control de ingreso a 360/375/1366; 12 medidas, 19 PNG sin desbordes. Build, sintaxis y vistas correctos.
-[Entrega y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md). Toma bc02cef solo tablero; fuentes de la suite conservadas. T66 a Claude para verificar y a Carlos para aspecto; sin autocierre ni despliegue.
+[Entrega y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md). Toma bc02cef solo tablero; fuentes de la suite conservadas. Carlos aprobó las tres vistas el 19/10: «Vista aprobadas»; no volver a consultar. Claude verifica solo lógica; sin autocierre ni despliegue.
 
 ## 2026-10-19 — Codex CAB — Verificación ampliada T34/T67
 

@@ -52,7 +52,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T66** Una clase necesita al menos una profesora | Hecho, espera verificación (hizo Codex, verifica Claude) | Verificar minimo de profesora activa, atomicidad y FIN-12; pagadas intocables y cerradas requieren cancelar. Ver IMPLEMENTACION-T66.md. Carlos aprueba tres vistas; sin deploy |
+| **T66** Una clase necesita al menos una profesora | Hecho, espera verificación (hizo Codex, verifica Claude) | Visual aprobado por Carlos 19/10: Vista aprobadas; no volver a preguntar. Verificar solo logica, permisos, atomicidad y FIN-12; ver IMPLEMENTACION-T66.md. Sin deploy |
 
 ## Codex
 

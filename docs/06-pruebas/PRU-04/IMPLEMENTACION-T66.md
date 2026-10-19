@@ -2,6 +2,12 @@
 
 Codex CAB, 19/10/2026. Implementación local; sin despliegue ni reparación de datos históricos. Revisión independiente: Claude. Aspecto: Carlos.
 
+## Aprobación visual definitiva — Carlos, 19/10/2026
+
+Carlos aprobó las tres vistas de la galería entregada (Nueva clase, Editar clase y cambio de profesoras, en celular y escritorio): **«Vista aprobadas, poner esta decision en el reporte final, no quiero que claude me vuelva a preguntar»**.
+
+**Verificación visual: Carlos. No queda pendiente y Claude no debe volver a solicitar esta aprobación.** Según AGENTS.md §6a, lo visual aprobado por Carlos no necesita validación de otra IA. Claude conserva únicamente la revisión de lógica, permisos, validaciones y atomicidad de T66. Esta aprobación no autoriza rediseños posteriores ni sustituye esa revisión funcional.
+
 ## Decisiones y alcance
 
 DU-55 exige al menos una profesora activa del deporte del grupo. La verificación anterior de T34/T67 está entregada en [su informe](VERIFICACION-T34-T67-CODEX.md); esta tarea no reemplaza ni certifica la corrección posterior de Gemini.
@@ -70,8 +76,8 @@ Reproducir desde el repositorio: ejecutar por separado `CapturasT66Test.php --fi
 
 ## Entrega y límites
 
-Toma registrada en `bc02cef`, solo los tres archivos del tablero. T66 se entrega a Claude para revisión de código y comportamiento; Carlos aprueba el aspecto de las tres vistas. No se autocierra. No se tocaron los archivos reservados a T56/T68 ni T74. Cambios contemporáneos de otros agentes se conservan sin incorporarlos como autoría propia; la modificación ajena de `evidencia-correccion-t34/sin-presentes.html` queda fuera del commit. Sin despliegue.
+Toma registrada en `bc02cef`, solo los tres archivos del tablero. T66 se entrega a Claude para revisión de código y comportamiento; Carlos aprobó el aspecto de las tres vistas el 19/10: «Vista aprobadas» (verifica visual=Carlos); no se vuelve a consultar. No se autocierra. No se tocaron los archivos reservados a T56/T68 ni T74. Cambios contemporáneos de otros agentes se conservan sin incorporarlos como autoría propia; la modificación ajena de `evidencia-correccion-t34/sin-presentes.html` queda fuera del commit. Sin despliegue.
 
 Integridad comprobada por [verificar.mjs](evidencia-t66-codex/verificar.mjs): nueve fuentes, 12 medidas, 19 PNG, 102 recursos con hash, enlaces de entrega/galería, JUnit sin errores/fallos y T66 a verificar por Claude. [Resultado](evidencia-t66-codex/integridad-final.json). El script comprueba el corte entregado, no sustituye la revisión independiente ni certifica cambios posteriores.
 
-**Verificado:** reglas y rechazos anteriores mediante rutas reales y filas persistidas, capturas y fuentes del corte. **No verificado aquí:** aprobación visual de Carlos, revisión independiente de Claude, despliegue o concurrencia exhaustiva con generación/recálculo de liquidaciones. No se heredan como hechos de otros informes.
+**Verificado:** reglas y rechazos anteriores mediante rutas reales y filas persistidas, capturas y fuentes del corte. **Aprobado visualmente por Carlos:** las tres vistas de la galería. **No verificado aquí:** revisión independiente de Claude, despliegue o concurrencia exhaustiva con generación/recálculo de liquidaciones. No se heredan como hechos de otros informes.

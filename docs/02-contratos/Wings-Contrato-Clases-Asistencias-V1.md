@@ -227,4 +227,4 @@ Cualquier cambio futuro requiere versión V2 explícita.
 
 ## 4.j Estado
 
-🔒 CONTRATO CERRADO, con enmiendas fechadas. El corte histórico del 2026-07-26 probó 19 aserciones e incluía aviso de liquidación pagada con confirmación; esa excepción se retira por la decisión del 19/10/2026 en T66. La entrega local de T66 requiere verificación independiente y aprobación visual de Carlos; ver [informe T66](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md).
+🔒 CONTRATO CERRADO, con enmiendas fechadas. El corte histórico del 2026-07-26 probó 19 aserciones e incluía aviso de liquidación pagada con confirmación; esa excepción se retira por la decisión del 19/10/2026 en T66. La entrega local de T66 requiere verificación independiente de lógica; las tres vistas fueron aprobadas por Carlos el 19/10/2026 («Vista aprobadas») y no se vuelve a pedir aprobación visual; ver [informe T66](../06-pruebas/PRU-04/IMPLEMENTACION-T66.md).
