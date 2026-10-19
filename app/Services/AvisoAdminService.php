@@ -6,10 +6,12 @@ use App\Models\AlumnoRevisionCobranza;
 use App\Models\CajaOperativa;
 use App\Models\Clase;
 use App\Models\Configuracion;
+use App\Models\GeneracionCuotas;
 use App\Models\Liquidacion;
 use App\Models\MovimientoOperativo;
 use App\Models\User;
 use App\Notifications\AvisoOperativo;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 
@@ -62,6 +64,41 @@ class AvisoAdminService
     }
 
     /**
+     * Las cuotas del mes se generaron después del día 1 (T40, DU-52).
+     *
+     * Que se hayan generado solas no alcanza: el dueño tiene que saber que el
+     * proceso del día 1 no corrió, porque algo pasó con el servidor ese día.
+     */
+    public function cuotasGeneradasConAtraso(GeneracionCuotas $generacion, Carbon $hoy): void
+    {
+        $this->enviar(
+            'las cuotas del mes se generaron con atraso',
+            [
+                'Mes'                 => Carbon::parse($generacion->periodo.'-01')->format('m/Y'),
+                'Generadas el'        => $hoy->format('d/m/Y'),
+                'Cuotas creadas'      => (string) $generacion->creadas,
+                'Enviados a revisión' => (string) $generacion->a_revision,
+            ],
+            'El proceso del día 1 no corrió; se recuperó solo. Conviene revisar qué pasó con el servidor ese día.',
+        );
+    }
+
+    /**
+     * El intento de generar las cuotas del mes falló (T40, DU-52).
+     */
+    public function cuotasNoGeneradas(Carbon $hoy): void
+    {
+        $this->enviar(
+            'no se pudieron generar las cuotas del mes',
+            [
+                'Mes'     => $hoy->format('m/Y'),
+                'Intento' => $hoy->format('d/m/Y H:i'),
+            ],
+            'Se vuelve a intentar solo mañana a las 6. Lo que ya se generó no se duplica. Si se repite, avisá al técnico.',
+        );
+    }
+
+    /**
      * Resumen diario de pendientes operativos para el ADMIN (ENT-06).
      *
      * Informa:
@@ -108,19 +145,31 @@ class AvisoAdminService
             ->where('estado', Liquidacion::ESTADO_ABIERTA)
             ->count();
 
+        // T40: si las cuotas del mes siguen sin generarse, que el resumen lo diga
+        // todos los días hasta que se generen.
+        $hoy = Carbon::now();
+        $cuotasSinGenerar = GeneracionCuotas::faltaGenerar($hoy);
+
         $cantClasesSinAsistencia = $clasesSinAsistencia->count();
         $cantCajas = $cajasCerradas->count();
         $cantRevisiones = $revisiones->count();
         $cantLiqCerradas = $liqCerradasSinPagar->count();
 
         if ($cantCajas === 0 && $cantRevisiones === 0 && $cantLiqCerradas === 0 && $cantLiqAbiertas === 0
-            && $cantClasesSinAsistencia === 0) {
+            && $cantClasesSinAsistencia === 0 && !$cuotasSinGenerar) {
             return false;
         }
 
         $formatoMonto = fn (float|int $monto): string => \App\Support\FormatoImporte::pesos($monto);
 
         $datos = [];
+
+        if ($cuotasSinGenerar) {
+            $datos['Cuotas del mes sin generar'] = sprintf(
+                '%s — se reintenta solo cada día a las 6; hasta entonces Cobranza no muestra la deuda del mes',
+                $hoy->format('m/Y'),
+            );
+        }
 
         if ($cantCajas > 0) {
             $montoTotalCajas = 0.0;

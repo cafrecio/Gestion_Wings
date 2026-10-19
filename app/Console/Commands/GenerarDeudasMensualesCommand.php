@@ -6,29 +6,75 @@ use App\Models\Alumno;
 use App\Models\AlumnoRevisionCobranza;
 use App\Models\Asistencia;
 use App\Models\DeudaCuota;
+use App\Models\GeneracionCuotas;
 use App\Models\Pago;
+use App\Services\AvisoAdminService;
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class GenerarDeudasMensualesCommand extends Command
 {
     protected $signature = 'cobranza:generar-deudas
-        {--periodo= : Período objetivo YYYY-MM (default: mes actual)}';
+        {--periodo= : Período objetivo YYYY-MM (default: mes actual)}
+        {--si-falta : Solo si las cuotas del mes no se generaron todavía (lo usa el programador, T40)}';
 
     protected $description = 'Genera deudas de cuota mensual para alumnos activos elegibles';
 
     private PagoCuotaService $pagoCuotaService;
+    private AvisoAdminService $avisos;
 
-    public function __construct(PagoCuotaService $pagoCuotaService)
+    public function __construct(PagoCuotaService $pagoCuotaService, AvisoAdminService $avisos)
     {
         parent::__construct();
         $this->pagoCuotaService = $pagoCuotaService;
+        $this->avisos = $avisos;
     }
 
     public function handle(): int
     {
+        if (!$this->option('si-falta')) {
+            return $this->generar(Carbon::now());
+        }
+
+        // T40 (DU-52): el programador lo corre todos los días. Si el día 1 no
+        // corrió, el primer día en que el servidor esté arriba genera lo que
+        // falta. Repetir no duplica: cada alumno con la cuota del mes se saltea.
         $ahora = Carbon::now();
+        if ($this->option('periodo')) {
+            $this->error('--si-falta trabaja siempre sobre el mes actual; no se combina con --periodo.');
+            return Command::FAILURE;
+        }
+        if (!GeneracionCuotas::faltaGenerar($ahora)) {
+            $this->info('Las cuotas de '.$ahora->format('m/Y').' ya están generadas o no corresponde generarlas hoy.');
+            return Command::SUCCESS;
+        }
+
+        try {
+            $resultado = $this->generar($ahora);
+        } catch (\Throwable $e) {
+            Log::error('No se pudieron generar las cuotas del mes.', [
+                'periodo' => $ahora->format('Y-m'),
+                'motivo' => $e->getMessage(),
+            ]);
+            $this->avisos->cuotasNoGeneradas($ahora);
+            $this->error('No se pudieron generar las cuotas: '.$e->getMessage());
+            return Command::FAILURE;
+        }
+
+        if ($resultado === Command::SUCCESS && $ahora->day > 1) {
+            $this->avisos->cuotasGeneradasConAtraso(
+                GeneracionCuotas::where('periodo', $ahora->format('Y-m'))->firstOrFail(),
+                $ahora,
+            );
+        }
+
+        return $resultado;
+    }
+
+    private function generar(Carbon $ahora): int
+    {
 
         // Determinar período objetivo
         $periodoInput = $this->option('periodo');
@@ -135,6 +181,19 @@ class GenerarDeudasMensualesCommand extends Command
         if ($contSinPlan > 0) {
             $this->warn("Sin plan aplicable: {$contSinPlan}");
         }
+
+        // Constancia de que el mes terminó (T40). Solo al final: si algo corta la
+        // corrida a mitad, el mes sigue figurando como pendiente y se reintenta.
+        GeneracionCuotas::updateOrCreate(
+            ['periodo' => $periodo],
+            [
+                'terminada_at' => Carbon::now(),
+                'creadas' => $contCreados,
+                'a_revision' => $contRevision,
+                'ya_existian' => $contSkipped,
+                'sin_plan' => $contSinPlan,
+            ],
+        );
 
         return Command::SUCCESS;
     }

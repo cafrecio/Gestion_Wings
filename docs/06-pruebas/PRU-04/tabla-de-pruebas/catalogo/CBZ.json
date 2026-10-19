@@ -884,7 +884,7 @@
         {
           "donde": "Aviso",
           "l": "b",
-          "texto": "El dueño recibe un aviso cuando el proceso no corrió.",
+          "texto": "El dueño recibe un aviso cuando las cuotas se generaron después del día 1 o cuando un intento falló; mientras falten, el resumen diario de las 8 lo dice.",
           "tipo": "directo"
         },
         {
@@ -894,8 +894,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-52, 13/10). Falta programar: T40. Antes: routes/console.php (programado solo el día 1 a las 06:00) y GenerarDeudasMensualesCommand (código leído).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-52, 13/10). Implementado por Claude el 19/10 (T40), a verificar: el proceso corre todos los días a las 6; el día 1 genera y los días siguientes solo si el mes no figura generado y el anterior sí. Avisa al dueño si generó con atraso o si falló, y el resumen diario muestra «Cuotas del mes sin generar» mientras falte. Sin desplegar.",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "El servidor estuvo apagado o en mantenimiento el día 1 a las 6 de la mañana.",

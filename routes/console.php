@@ -8,8 +8,10 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-// Generar deudas mensuales el 1ro de cada mes a las 6:00 AM (hora Argentina)
-Schedule::command('cobranza:generar-deudas')->monthlyOn(1, '06:00');
+// Generar las cuotas del mes. Corre todos los días a las 6:00 (hora Argentina):
+// el día 1 genera; los días siguientes solo actúa si el día 1 no corrió, y
+// entonces genera lo que falta y avisa al dueño (T40, DU-52).
+Schedule::command('cobranza:generar-deudas --si-falta')->dailyAt('06:00')->withoutOverlapping()->onOneServer();
 
 // B11: consulta la fecha de Wings; recupera un día omitido dentro del mismo mes.
 Schedule::command('cobranza:aplicar-punitorios')->dailyAt('06:15')->withoutOverlapping()->onOneServer();

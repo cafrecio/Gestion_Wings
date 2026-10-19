@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — T40: las cuotas del día 1 se reintentan solas y avisan
+
+- DU-52 / CBZ-020. `cobranza:generar-deudas --si-falta` todos los días a las 6; día 1 genera; después
+  solo si el mes no figura en la tabla nueva `generaciones_cuotas` y el anterior sí. Avisos por
+  `AvisoAdminService` (atraso, fallo) y línea en el resumen diario. Contrato de cobranza §2 actualizado.
+- 9 pruebas nuevas; relacionadas 63 verdes. Suite completa en `wings_testing_claude`, esperó a que
+  terminara la de Gemini: 929 aprobadas, 4 omitidas, 1 fallida (contador de pruebas, corregido a 934).
+- En la carpeta quedan 5 pruebas de Gemini sin subir (T34): el contador local da 939; le toca a Gemini.
+- Mi entrada de T40 en ESTADO-ACTUAL la subió Gemini dentro de 13e26f3b; el contenido es el mío.
+- A verificar, sin verificador asignado. No necesita visual. Sin despliegue: requiere migrar.
+
 ## 2026-10-19 — Claude CyE — Suite en dos velocidades: regla para los tres agentes
 
 - Decisión de Carlos (19/10): «Ponelo como regla para todos los agentes».

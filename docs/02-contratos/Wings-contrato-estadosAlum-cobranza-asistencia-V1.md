@@ -35,6 +35,17 @@ El servicio se paga **por adelantado**, entendido así:
 
 Ejemplo: el 1 de septiembre se genera la cuota de **septiembre**, evaluando las asistencias de **agosto**.
 
+### Si el día 1 no corre — decisión de Carlos (DU-52, 13/10/2026; T40)
+
+El proceso se programa **todos los días a las 6:00**, pero solo actúa cuando hace falta:
+
+- **El día 1** genera, si ese mes no figura generado.
+- **Del día 2 en adelante** genera solo si el mes en curso no figura generado **y el mes anterior sí**. Eso prueba que el sistema venía funcionando y que lo que faltó es la corrida del día 1. En un servidor o una base nuevos, a mitad de mes, no genera nada a destiempo.
+- Repetir no duplica: cada alumno con la cuota del mes se saltea. Una corrida cortada a mitad se completa al día siguiente.
+- El mes queda anotado como generado (tabla `generaciones_cuotas`) solo cuando la corrida termina, sea la programada o la manual de un técnico.
+- **Aviso al dueño** (Telegram y correo): si se generó después del día 1 («las cuotas del mes se generaron con atraso») y si un intento falló («no se pudieron generar las cuotas del mes»). Mientras falte, el resumen diario de las 8:00 muestra «Cuotas del mes sin generar».
+- Al instalar este cambio, el mes en curso se anota como ya atendido.
+
 ### A quién se le genera
 
 El universo son los **alumnos activos**. Dentro de ese universo, se genera deuda automática si cumple **alguna** de estas dos:

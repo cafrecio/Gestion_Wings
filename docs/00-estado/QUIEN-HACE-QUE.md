@@ -48,7 +48,7 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | En curso | [ANTES DEL 1/11, Carlos 18/10] Tabla: DU-52 · CBZ-020 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: routes/console.php (programacion), GenerarDeudasMensualesCommand, AvisoAdminService y el resumen diario. POR QUE DESPUES: recien importa cuando el cuento llegue al 1 de noviembre. ORDEN: no choca con otras |
+| **T40** El generador de cuotas del dia 1 se reintenta solo y avisa si no corrio | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: el proceso de cuotas corre todos los días a las 6; el día 1 genera y los días siguientes solo si el mes no figura generado y el anterior sí; avisa al dueño si generó con atraso o falló, y el resumen diario lo muestra mientras falte. 9 pruebas. Sin pantallas: no necesita visual de Carlos. Falta verificador. Para desplegar requiere migrar. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T40.md |
 
 ## Codex
 
