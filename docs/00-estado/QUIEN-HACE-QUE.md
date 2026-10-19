@@ -54,13 +54,13 @@ Nada en este momento.
 
 ## Codex
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex CyE verifica ahora correccion H1 y H2 de f2b065f7 y c5c0f41f. Visual aprobado por Carlos el 19/10: T34 visual aprobado; puede cerrar si logica pasa. T67 permanece cerrada |
+Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Codex CyE: H1 y PATCH H2 pasan. CON HALLAZGOS c/f: C1 contador por tarjeta, C2 incluir_hoy persiste tras generacion rechazada. Ver seccion Verificacion de la correccion en VERIFICACION-T34-T67-CODEX.md. Ambos preexistentes; no se demuestra bypass de cerrada. Visual aprobado por Carlos 19/10. T67 cerrada |
 
 ## Sin empezar (25)
 

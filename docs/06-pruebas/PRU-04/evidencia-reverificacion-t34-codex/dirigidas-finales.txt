@@ -1,0 +1,62 @@
+
+   FAIL  Tests\Feature\CorreccionT34CodexTest
+  ✓ estados tarjeta y ficha coinciden                                                                           12.61s
+  ⨯ consultas no crecen por tarjeta en hoy y listado                                                             0.62s
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pendiente"                         0.36s
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "hora pagada"                            0.27s
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pendiente"                     0.25s
+  ✓ cerradas bloquean json y formulario y conservan filas with data set "comision pagada"                        0.26s
+  ✓ sin cerrada permite validar y desvalidar with data set "hora"                                                0.23s
+  ✓ sin cerrada permite validar y desvalidar with data set "comision"                                            0.22s
+  ✓ permisos y campo inyectado por edicion                                                                       0.34s
+  ⨯ incluir hoy no deja validacion tras rechazo ni altera clase cerrada                                          0.19s
+
+   PASS  Tests\Feature\ClaseSinAsistenciaYDniT34T67Test
+  ✓ contador menu y filtro sin asistencia y sin presentes                                                        0.33s
+  ✓ permisos filtro sin presentes                                                                                0.27s
+  ✓ liquidacion clase con lista y todos ausentes solo se paga si esta validada                                   0.12s
+  ✓ lista asistencia muestra solo ultimos tres digitos del dni                                                   0.12s
+  ✓ tarjeta muestra etiqueta adecuada segun asistencia                                                           0.42s
+  ✓ clase en liquidacion cerrada no puede desmarcar validacion                                                   0.29s
+
+   PASS  Tests\Feature\CspSinCodigoIncrustadoTest
+  ✓ no crece la cantidad de bloques de codigo incrustado                                                         0.13s
+  ✓ no crece la cantidad de manejadores escritos en el html                                                      0.10s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\CorreccionT34CodexTest > consultas no crecen por tarjeta en hoy y listado
+  Failed asserting that 75 is identical to 33.
+
+  at docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:189
+    185▕         [$despues,$qd,$resp]=$medir();
+    186▕         $this->assertCount(8,$resp->viewData('clasesHoy'));
+    187▕         $this->assertCount(8,$resp->viewData('clasesFiltradas'));
+    188▕         $this->registrar('consultas', ['antes'=>$antes,'despues'=>$despues,'hoy'=>8,'listado'=>8,'sql_antes'=>$qa,'sql_despues'=>$qd]);
+  ➜ 189▕         $this->assertSame($antes,$despues);
+    190▕     }
+    191▕
+    192▕     public static function cerradas(): array
+    193▕     {
+
+  1   docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:189
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\CorreccionT34CodexTest > incluir hoy no deja validacion tras rechazo ni altera clase cerrad…
+  Una generación rechazada no debería dejar validaciones nuevas.
+Failed asserting that true is false.
+
+  at docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:307
+    303▕         $this->assertTrue($pasada->fresh()->validada_para_liquidacion);
+    304▕         $this->assertStringContainsString('Ya existe una liquidación', session('error'));
+    305▕         $this->registrar('incluir_hoy', ['clase_cerrada_id'=>$pasada->id,'validada_cerrada'=>$pasada->fresh()->validada_para_liquidacion,
+    306▕             'clase_hoy_id'=>$hoy->id,'validada_hoy'=>$hoy->fresh()->validada_para_liquidacion,'error'=>session('error')]);
+  ➜ 307▕         $this->assertFalse($hoy->fresh()->validada_para_liquidacion, 'Una generación rechazada no debería dejar validaciones nuevas.');
+    308▕     }
+    309▕ }
+    310▕
+    311▕
+
+  1   docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:307
+
+
+  Tests:    2 failed, 16 passed (259 assertions)
+  Duration: 17.49s

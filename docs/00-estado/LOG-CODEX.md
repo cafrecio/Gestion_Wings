@@ -1,5 +1,16 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-19 — Codex CyE — Verificación de corrección T34
+
+Verifico f2b065f7/c5c0f41f; T67 permanece cerrada y visual T34 aprobado por Carlos en fb88bd3c.
+H1 y PATCH H2 pasan: estados coherentes; HORA/COMISIÓN, pendiente/pagada, JSON/formulario; filas intactas.
+C1: listado 33→75 consultas con 2→16 tarjetas, por contador compartido del provider.
+C2: incluir_hoy valida otra clase aun cuando la generación de septiembre se rechaza por duplicada.
+Ambos antecedentes anteriores a la corrección; no se demostró bypass de cerrada por ese otro camino.
+Selección final 16 pasan/2 fallan por C1/C2, 259 aserciones, 17,49 s; suite completa 921/4 omitidas, 8179 aserciones, 1343,15 s, verde.
+[Informe y reproducciones](../06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md#verificación-de-la-corrección). Solo wings_testing_codex; diez controles visuales sin desbordes.
+Sin corregir producto ni desplegar; T34 se entrega con hallazgos de c/f para Gemini.
+
 ## 2026-10-19 — Codex CyE — T68, corrección H1 del importe vigente
 
 Alcance propio: usar monto_a_pagar en el historial; conservar cálculo, estilos, estructura y H2.
@@ -95,19 +106,6 @@ Dos reglas CSS finales tras la suite: PHP idéntico; recorrido completo repetido
 Reglas/tokens actualizados; T36/T37 y «Destildar solo los movimientos que cambien» conservados.
 Sin lógica de negocio, despliegue ni autocierre; Carlos verifica el aspecto. Gemini no implementar.
 
-## 2026-10-18 — Codex CAB — T75 implementada, revisión visual de Carlos
-
-Regla general móvil a derecha y seis vistas con barras propias; escritorio conservado.
-101 fuentes revisadas, 99 casos/297 mediciones por fase, 428 PNG reales; 37 casos cambiados.
-Cero desbordes 360/375; 99 escritorios y 18 controles de grillas/Detalle sin diferencias.
-Solo CSS/clases; sin JavaScript, reglas ni pruebas de negocio. Build/sintaxis/vistas correctos.
-Suite completa final propia: 821 aprobadas, 2 omitidas, 0 fallidas, 7593 aserciones, 908.56 s; salida 0. Primera 819/2/2; aislada 2/20, registradas.
-[Informe, inventario y galería](../06-pruebas/PRU-04/IMPLEMENTACION-T75.md); Carlos revisa T75 y 19 casos de controles ajenos a tarjetas/barras.
-T36/T37 y sus imágenes aprobadas siguen cerradas; «Destildar solo los movimientos que cambien» conservado.
-Gemini: no implementar; anotado en tablero, sin chat disponible para mensaje directo. Sin despliegue/autocierre.
-Seguimiento 18/10, Carlos señala tamaños y márgenes distintos: pide registrar tamaño Cobrar, padding común y ubicación estable por repetición en el Design System.
-Reglas y checklist actualizados en DESIGN-RULES y wings-design; solo documentación, enlaces/diff revisados. Aplicación uniforme pendiente; T75 no aprobada ni cerrada.
-
 [Entrada T36 archivada al corregir H1 de T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-H1-ARRANQUE.md).
 
 [Entrada T37 archivada al verificar T68](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T68-ARRANQUE.md).
@@ -137,3 +135,5 @@ Reglas y checklist actualizados en DESIGN-RULES y wings-design; solo documentaci
 [Entrada antigua archivada al verificar T34/T67](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-VERIFICACION-T34-T67.md).
 
 [Entrada B11 archivada al entregar T66](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T66-ARRANQUE.md).
+
+[Entrada T75 archivada al verificar corrección T34](../99-archivo/bitacoras/2026-10-19/LOG-CODEX-T34-REVERIFICACION.md).

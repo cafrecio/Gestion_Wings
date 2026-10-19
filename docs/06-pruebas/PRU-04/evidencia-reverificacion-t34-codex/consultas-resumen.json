@@ -1,0 +1,136 @@
+{
+  "clases_antes": {
+    "hoy": 1,
+    "listado": 1
+  },
+  "clases_despues": {
+    "hoy": 8,
+    "listado": 8
+  },
+  "total_antes": 33,
+  "total_despues": 75,
+  "sql_antes": [
+    {
+      "cantidad": 1,
+      "sql": "select * from `clases` where date(`fecha`) = ? order by `cancelada` asc, `hora_inicio` asc"
+    },
+    {
+      "cantidad": 2,
+      "sql": "select * from `grupos` where `grupos`.`id` in (2)"
+    },
+    {
+      "cantidad": 3,
+      "sql": "select * from `deportes` where `deportes`.`id` in (2)"
+    },
+    {
+      "cantidad": 3,
+      "sql": "select * from `niveles` where `niveles`.`id` in (5)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `profesores`.*, `clase_profesor`.`clase_id` as `pivot_clase_id`, `clase_profesor`.`profesor_id` as `pivot_profesor_id`, `clase_profesor`.`created_at` as `pivot_created_at`, `clase_profesor`.`updated_at` as `pivot_updated_at` from `profesores` inner join `clase_profesor` on `profesores`.`id` = `clase_profesor`.`profesor_id` where `clase_profesor`.`clase_id` in (5)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `asistencias` where `asistencias`.`clase_id` in (5)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select count(*) as aggregate from `clases` where date(`fecha`) != ? and date(`fecha`) = ?"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `clases` where date(`fecha`) != ? and date(`fecha`) = ? order by `fecha` asc, `hora_inicio` asc limit 20 offset 0"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `profesores`.*, `clase_profesor`.`clase_id` as `pivot_clase_id`, `clase_profesor`.`profesor_id` as `pivot_profesor_id`, `clase_profesor`.`created_at` as `pivot_created_at`, `clase_profesor`.`updated_at` as `pivot_updated_at` from `profesores` inner join `clase_profesor` on `profesores`.`id` = `clase_profesor`.`profesor_id` where `clase_profesor`.`clase_id` in (4)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `asistencias` where `asistencias`.`clase_id` in (4)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `grupos`.* from `grupos` inner join `deportes` on `grupos`.`deporte_id` = `deportes`.`id` inner join `niveles` on `grupos`.`nivel_id` = `niveles`.`id` where `grupos`.`activo` = ? order by `deportes`.`nombre` asc, `niveles`.`nombre` asc"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `deportes` where `activo` = ? order by `nombre` asc"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `profesores` where `activo` = ? order by `apellido` asc"
+    },
+    {
+      "cantidad": 14,
+      "sql": "select count(*) as aggregate from `clases` where `cancelada` = ? and date(`fecha`) < ? and `validada_para_liquidacion` = ? and not exists (select * from `asistencias` where `clases`.`id` = `asistencias`.`clase_id`)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `estado` from `primera_carga` where `primera_carga`.`id` = ? limit 1"
+    }
+  ],
+  "sql_despues": [
+    {
+      "cantidad": 1,
+      "sql": "select * from `clases` where date(`fecha`) = ? order by `cancelada` asc, `hora_inicio` asc"
+    },
+    {
+      "cantidad": 2,
+      "sql": "select * from `grupos` where `grupos`.`id` in (2)"
+    },
+    {
+      "cantidad": 3,
+      "sql": "select * from `deportes` where `deportes`.`id` in (2)"
+    },
+    {
+      "cantidad": 3,
+      "sql": "select * from `niveles` where `niveles`.`id` in (5)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `profesores`.*, `clase_profesor`.`clase_id` as `pivot_clase_id`, `clase_profesor`.`profesor_id` as `pivot_profesor_id`, `clase_profesor`.`created_at` as `pivot_created_at`, `clase_profesor`.`updated_at` as `pivot_updated_at` from `profesores` inner join `clase_profesor` on `profesores`.`id` = `clase_profesor`.`profesor_id` where `clase_profesor`.`clase_id` in (5, 13, 14, 15, 16, 17, 18, 19)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `asistencias` where `asistencias`.`clase_id` in (5, 13, 14, 15, 16, 17, 18, 19)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select count(*) as aggregate from `clases` where date(`fecha`) != ? and date(`fecha`) = ?"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `clases` where date(`fecha`) != ? and date(`fecha`) = ? order by `fecha` asc, `hora_inicio` asc limit 20 offset 0"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `profesores`.*, `clase_profesor`.`clase_id` as `pivot_clase_id`, `clase_profesor`.`profesor_id` as `pivot_profesor_id`, `clase_profesor`.`created_at` as `pivot_created_at`, `clase_profesor`.`updated_at` as `pivot_updated_at` from `profesores` inner join `clase_profesor` on `profesores`.`id` = `clase_profesor`.`profesor_id` where `clase_profesor`.`clase_id` in (4, 6, 7, 8, 9, 10, 11, 12)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `asistencias` where `asistencias`.`clase_id` in (4, 6, 7, 8, 9, 10, 11, 12)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `grupos`.* from `grupos` inner join `deportes` on `grupos`.`deporte_id` = `deportes`.`id` inner join `niveles` on `grupos`.`nivel_id` = `niveles`.`id` where `grupos`.`activo` = ? order by `deportes`.`nombre` asc, `niveles`.`nombre` asc"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `deportes` where `activo` = ? order by `nombre` asc"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select * from `profesores` where `activo` = ? order by `apellido` asc"
+    },
+    {
+      "cantidad": 56,
+      "sql": "select count(*) as aggregate from `clases` where `cancelada` = ? and date(`fecha`) < ? and `validada_para_liquidacion` = ? and not exists (select * from `asistencias` where `clases`.`id` = `asistencias`.`clase_id`)"
+    },
+    {
+      "cantidad": 1,
+      "sql": "select `estado` from `primera_carga` where `primera_carga`.`id` = ? limit 1"
+    }
+  ]
+}

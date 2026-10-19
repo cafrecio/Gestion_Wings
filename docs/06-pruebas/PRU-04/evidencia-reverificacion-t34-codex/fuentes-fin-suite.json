@@ -1,0 +1,13 @@
+{
+  "app/Http/Controllers/ClaseWebController.php": "f9db6d50082722ac1914425c8312071eea478de36401b35e97c984743b227866",
+  "app/Http/Controllers/LiquidacionWebController.php": "d171718a4556b6bb283031da707a6c1361bc32b52ca4b7f3460fd8dac05fd835",
+  "app/Models/Clase.php": "99d9227f475e129adf32afa56266a7d99223ef8b62961ab8a6cab439e02d9360",
+  "app/Services/LiquidacionService.php": "619a0e056db517a4cef4743982cbbb78bab3f5b06433b7ad5cee3d812f1fe881",
+  "app/Providers/AppServiceProvider.php": "80d9cfa911425dec7a484b9891197c1eff9bb5bb4ee2b5477306e3e2d309a6e5",
+  "resources/views/clases/_card.blade.php": "89a4456db0904175b78f411596535557e27ceb3805f01d88b2fa79635b15267b",
+  "resources/views/clases/index.blade.php": "95ebb4e84f91ee101e0849cb36d1b8e44e307c806411f95267af1ff6679c1748",
+  "resources/views/clases/show.blade.php": "ae2907e82180be427cb4b4026b3c20e7f99b8cee43d85ea99b5b0b0b017a313c",
+  "tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php": "0862c4146a7dd4f0317b1941d559ee8dfdbd259cc313e1b283cfab3ffdff3cdd",
+  "routes/web.php": "8ce53249fad8bfd345a30aeda89bdfb04f9dcc3c356b75ce7a33566f3aae41ba",
+  "bootstrap/app.php": "790292e43314f82276d1b627deb25094e4165faec5cb30ce8924b1a7a9b523cb"
+}

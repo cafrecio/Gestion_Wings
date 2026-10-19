@@ -1,5 +1,7 @@
 # Verificación independiente de T34 y T67 — Codex CAB
 
+> Primera verificación histórica; la revisión vigente de T34 está en [Verificación de la corrección](#verificación-de-la-corrección). T67 sigue cerrada.
+
 19/10/2026. Base exclusiva: `wings_testing_codex`. Producto sin modificaciones, sin despliegue.
 
 ## Resultado
@@ -140,3 +142,70 @@ Sintaxis del instrumental correcta; vistas compiladas y limpiadas sin errores en
 ## Entrega
 
 T34 queda devuelta a Gemini con H1/H2 y sus reproducciones; no se aplican correcciones de producto sin su entrega posterior. T67 queda cerrada con verifica=Codex, conservando la aprobación visual informada por Carlos en el pedido. No se enviaron mensajes a otros chats ni se desplegó.
+
+## Verificación de la corrección
+
+19/10/2026, **Codex CyE**. Resultado: **CON HALLAZGOS** en los criterios c/f. La corrección original de H1 y el bloqueo de H2 en el PATCH pasan. T67 permanece cerrada; no se amplía su auditoría. Sin correcciones de producto ni despliegue.
+
+Referencias verificadas: `f2b065f7` y `c5c0f41f`, contenidos en `fb88bd3c` al comenzar; `git pull` devolvió actualizado. Se registró la toma con el script oficial del tablero. El único archivo modificado al comenzar era `evidencia-correccion-t34/sin-presentes.html`; se preservó una copia previa en almacenamiento local y se restauró al terminar la selección final, comprobando su huella. Se excluye de la entrega. La prueba permanente vuelve a escribir ese HTML como efecto secundario.
+
+### H1 y H2 originales: comprobados
+
+| Criterio | Comprobación actual |
+|---|---|
+| a. Tres estados | `_card.blade.php:83–89` usa la colección precargada: cero filas → Pendiente; filas sin presentes → Sin presentes; con un presente → Cargada. Se inspecciona el texto de cada tarjeta real, no el texto de una opción del filtro. |
+| b. Tarjeta y ficha | GET reales de tres clases: sin filas, `correccionAsistencia=false`, cero presentes y sin aviso de corrección; con filas ausentes, aviso de lista tomada y cero presentes; con presente, lista tomada y contador uno. La ficha no repite literalmente el badge de la tarjeta: comunica el mismo estado mediante el aviso y el contador (`ClaseWebController.php:303–329`, `clases/show.blade.php:284,394–404`). |
+| c. Consultas | La expresión nueva de la etiqueta no consulta la base; `index` precarga asistencias para hoy y listado (`ClaseWebController.php:35,63`). Pero la página completa mantiene consultas por tarjeta: hallazgo C1 abajo. |
+| d. CERRADA / PENDIENTE y PAGADA, HORA / COMISIÓN | Cuatro escenarios, cada uno con marca inicial true y false, tanto JSON como formulario: **16 PATCH rechazados**. JSON 422 con success=false; formulario redirige con error. Se comparan todos los atributos persistidos de clase, liquidación y detalle antes/después; permanecen idénticos. HORA usa detalle de clase; COMISIÓN, detalle de alumno y profesor/mes. |
+| e. Sin cerrada | Sin liquidación, ABIERTA y CANCELADA, tanto HORA como COMISIÓN: doce alternancias reales true/false persisten y conservan la respuesta habitual de éxito. |
+| f. Otras escrituras | Grafo y barrido completo de referencias en `app/` y `routes/`, confirmados en fuente: creación web inicializa false; toggle tiene guarda; edición web solo guarda fecha/horario e ignora el campo inyectado. Hay otra escritura activa sin esa guarda al generar con incluir_hoy: hallazgo C2. El update API acepta el campo, pero su router está deshabilitado en `bootstrap/app.php:17`; no se presenta como acceso web alcanzable. |
+| g. Permisos | ADMIN puede alternar fuera de cerradas; OPERATIVO y PROFESOR reciben 403 por PATCH y conservan la fila. Ambos acceden a listado/ficha del dominio compartido. Anónimo e ADMIN inactivo vuelven al login, sin cambiar la marca. Ruta bajo `ensure.admin.web`, `routes/web.php:216–221`; contrastado con PERMISOS-ROLES.md. |
+| h. Pruebas de Gemini | Leídos completos los dos casos agregados. H2 usa `fresh()` para la marca, importe, detalle y pago; comprueba IDs de la cola: sí lee la base, no solo HTTP. H1 crea filas y contrasta filtros, pero su `assertSee` global es menos preciso que inspeccionar cada tarjeta. La prueba permanente de H2 solo arma HORA; COMISIÓN y JSON quedan cubiertos por el instrumento independiente. |
+
+Los estados PAGADA y los importes de la matriz independiente son fixtures sintéticos; no se ejecutó un pago ni se certifica el circuito de comisión completo. El cierre sí se realiza con `cerrarLiquidacion` sobre septiembre, con reloj de prueba en octubre. Para ensayar ambos sentidos del bloqueo se prepara directamente la marca antes de cada petición; esa preparación no es una ruta del producto.
+
+### C1 — La página repite el contador global por tarjeta
+
+**Origen:** `app/Providers/AppServiceProvider.php:42,67–71`: `View::composer('*')` ejecuta el COUNT de clases pendientes para cada vista/componente, incluidas `clases._card` y sus dos botones.
+
+**Reproducir:** como ADMIN, pedir `/clases?fecha=2026-10-10` con una clase de hoy y una del listado; calentar el render y medir SQL. Repetir con ocho de hoy y ocho del listado, con las mismas relaciones y sin superar la página de veinte. Se pasa de **33 a 75 consultas**; el COUNT idéntico pasa de **14 a 56**: 42 consultas adicionales al agregar 14 tarjetas, tres por tarjeta. Las dos lecturas agrupadas de asistencias siguen siendo dos; no hay consulta individual de asistencia introducida por la etiqueta.
+
+[SQL completo y filas](evidencia-reverificacion-t34-codex/observaciones.jsonl) · [Resumen por consulta](evidencia-reverificacion-t34-codex/consultas-resumen.json) · [Repetición aislada roja](evidencia-reverificacion-t34-codex/consultas-repeticion.txt). El criterio de que el listado no tenga consultas por tarjeta no pasa. No se midió la latencia en producción ni se atribuye una severidad por el número de consultas.
+
+### C2 — Otra escritura de validación persiste aunque la generación se rechace
+
+**Origen:** `app/Http/Controllers/LiquidacionWebController.php:134–143`. `store` actualiza a true las clases de hoy de ese profesor antes de intentar generar la liquidación, sin usar `integraLiquidacionCerrada()` ni una transacción común con la generación.
+
+**Reproducir:** generar/cerrar septiembre de un profesor, agregar una clase de hoy no validada y enviar como ADMIN `POST /liquidaciones` con ese profesor, mes=9, anio=2026, incluir_hoy=1. El servicio rechaza la liquidación duplicada y se vuelve con error, pero la clase de hoy queda validada en la base. No corresponde al mes pedido y no hubo generación exitosa. Ruta activa solo ADMIN; se comprobó por petición real.
+
+La clase de septiembre cerrada queda intacta en esa reproducción. **No se demostró un bypass del PATCH para una clase cerrada por el flujo normal de cierre**: el otro escritor solo alcanza hoy, mientras el cierre normal exige un mes terminado. Lo demostrado es la escritura alternativa sin el control solicitado y su persistencia ante un rechazo; no se afirma un pago duplicado ni un cambio del importe cerrado.
+
+C1 y C2 ya existían antes de `f2b065f7`: los archivos del provider y del controlador de liquidaciones coinciden con su padre `d7b0a5c8` (normalizando CRLF). [Comparación SHA-256](evidencia-reverificacion-t34-codex/antecedentes.json). Son hallazgos del alcance c/f de esta verificación, no regresiones atribuidas a Gemini. No se corrigen aquí.
+
+### Ejecuciones, evidencia y límites
+
+Instrumental propio fuera de `tests/`, para no modificar la suite permanente ni su contador: [CorreccionT34CodexTest.php](evidencia-reverificacion-t34-codex/CorreccionT34CodexTest.php). Rechaza cualquier aplicación/base distinta de testing/wings_testing_codex antes de preparar las tablas.
+
+```powershell
+$env:APP_ENV='testing'
+$env:DB_DATABASE='wings_testing_codex'
+$env:VIEW_COMPILED_PATH='C:/xampp/htdocs/Gestion_Wings/storage/framework/views-t34-reverificacion-codex'
+php artisan test docs/06-pruebas/PRU-04/evidencia-reverificacion-t34-codex/CorreccionT34CodexTest.php tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php tests/Feature/CspSinCodigoIncrustadoTest.php
+```
+
+- Primera selección: **16 aprobadas, 1 fallida, 236 aserciones, 27,10 s, salida 1**. El rojo es C1. [Salida](evidencia-reverificacion-t34-codex/dirigidas-iniciales.txt). El caso incluir_hoy inicialmente comprueba la persistencia observada; después se agrega la exigencia de no dejar validaciones nuevas tras un rechazo, para que C2 también quede rojo.
+- Repetición de C1 con SQL guardado: **1 fallida, 6 aserciones, 14,02 s**. Mismos valores 33/75; no se cambió producto.
+- Selección final: **16 aprobadas, 2 fallidas, 259 aserciones, 17,49 s, salida 1**. [Salida final](evidencia-reverificacion-t34-codex/dirigidas-finales.txt). Los dos rojos son C1/C2; los seis casos permanentes de Gemini y los dos CSP pasan.
+- Suite completa permanente: **921 aprobadas, 4 omitidas, 0 fallidas, 8179 aserciones, 1343,15 s, salida 0**. [Salida íntegra](evidencia-reverificacion-t34-codex/suite-completa.txt). Se comprobó con Win32_Process que no había otra prueba activa inmediatamente antes de lanzarla. Sin `--exclude-group=lento`, exclusivamente `wings_testing_codex`. Los instrumentos rojos de esta auditoría no pertenecen a esa suite.
+
+Sintaxis PHP del instrumento y JavaScript del medidor correctas; `view:cache` y `view:clear` correctos en el directorio exclusivo indicado. Guardianes finales del tablero y contador: **12 aprobadas, 55 aserciones, 1,01 s**, salida 0. [Salida](evidencia-reverificacion-t34-codex/guardianes-finales.txt).
+
+Diez controles de navegador: listado con tres estados, tres fichas y login, cada uno a 1366 y 375 px reales mediante iframe. HTML obtenido por rutas reales; sin maqueta. Sin desbordes horizontales ni cierres div desbalanceados en esa muestra. Se miraron listado escritorio/móvil, ficha de ausentes y login móvil; no se emite aprobación estética. [Mediciones](evidencia-reverificacion-t34-codex/mediciones.json) · [Listado 375](evidencia-reverificacion-t34-codex/listado-estados-375.png) · [Listado escritorio](evidencia-reverificacion-t34-codex/listado-estados-1366.png).
+
+Codebase-memory se usó primero para símbolos, referencias y trazado. El reindexado encontró otra operación activa; cobertura parcial/no disponible y frescura metadata_changed. Se confirmaron los archivos reales y se buscaron todas las referencias del campo en el árbol de aplicación/rutas; no se considera el grafo prueba de exhaustividad ni sus enlaces inferidos una llamada real. No se ensayó concurrencia entre cierre y validación. No se inspeccionó ni modificó la base wings del servidor.
+
+[Huellas de fuentes al iniciar](evidencia-reverificacion-t34-codex/fuentes-inicio.json). Las once fuentes registradas permanecen idénticas tras la corrida. [Huellas finales de la suite](evidencia-reverificacion-t34-codex/fuentes-fin-suite.json). Se comprueban otra vez idénticas después de la selección y capturas finales: [cierre](evidencia-reverificacion-t34-codex/fuentes-finales.json).
+
+Durante esta verificación apareció el commit documental paralelo `04bb9228` (T47), además de trabajo ajeno de T47/T59 en el tablero. Se conserva; el commit de esta entrega prepara únicamente T34 mediante una copia del generador oficial sobre HEAD, dejando los otros cambios sin incluir. Las once fuentes de aplicación/prueba registradas permanecen iguales.
+
+**Entrega:** T34 se devuelve a Gemini por C1/C2, con H1 y PATCH H2 aprobados en el alcance anterior. La aprobación visual de Carlos del 19/10 («T34 visual aprobado») está registrada en `fb88bd3c` y se conserva. T67 no se reabre. No se envían mensajes a otros chats ni se aplican arreglos de producto.

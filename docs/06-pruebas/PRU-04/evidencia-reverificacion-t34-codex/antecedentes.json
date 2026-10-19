@@ -1,0 +1,15 @@
+{
+  "padre_correccion": "d7b0a5c86c000d28eeeda5fcbf29c99d0a02dc7f",
+  "comparacion": {
+    "app/Providers/AppServiceProvider.php": {
+      "sha256_antes": "80d9cfa911425dec7a484b9891197c1eff9bb5bb4ee2b5477306e3e2d309a6e5",
+      "sha256_actual_lf": "80d9cfa911425dec7a484b9891197c1eff9bb5bb4ee2b5477306e3e2d309a6e5",
+      "identicos_lf": true
+    },
+    "app/Http/Controllers/LiquidacionWebController.php": {
+      "sha256_antes": "d171718a4556b6bb283031da707a6c1361bc32b52ca4b7f3460fd8dac05fd835",
+      "sha256_actual_lf": "d171718a4556b6bb283031da707a6c1361bc32b52ca4b7f3460fd8dac05fd835",
+      "identicos_lf": true
+    }
+  }
+}

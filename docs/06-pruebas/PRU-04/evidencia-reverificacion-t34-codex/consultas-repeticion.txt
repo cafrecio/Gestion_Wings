@@ -1,0 +1,23 @@
+
+   FAIL  Tests\Feature\CorreccionT34CodexTest
+  ⨯ consultas no crecen por tarjeta en hoy y listado                                                            13.68s
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\CorreccionT34CodexTest > consultas no crecen por tarjeta en hoy y listado
+  Failed asserting that 75 is identical to 33.
+
+  at docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:189
+    185▕         [$despues,$qd,$resp]=$medir();
+    186▕         $this->assertCount(8,$resp->viewData('clasesHoy'));
+    187▕         $this->assertCount(8,$resp->viewData('clasesFiltradas'));
+    188▕         $this->registrar('consultas', ['antes'=>$antes,'despues'=>$despues,'hoy'=>8,'listado'=>8,'sql_antes'=>$qa,'sql_despues'=>$qd]);
+  ➜ 189▕         $this->assertSame($antes,$despues);
+    190▕     }
+    191▕
+    192▕     public static function cerradas(): array
+    193▕     {
+
+  1   docs\06-pruebas\PRU-04\evidencia-reverificacion-t34-codex\CorreccionT34CodexTest.php:189
+
+
+  Tests:    1 failed (6 assertions)
+  Duration: 14.02s
