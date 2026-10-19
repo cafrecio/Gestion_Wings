@@ -46,9 +46,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | Hecho, espera verificación (hizo Codex, verifica Claude) | Visual aprobado por Carlos el 19/10: Ok, pasan (Crear/Editar, celular y escritorio). Solo verificar reglas y codigo T44; sin otra revision visual de IA ni despliegue |
+Nada en este momento.
 
 ## Codex
 
@@ -59,7 +57,9 @@ Nada.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | Hecho, espera verificación (hizo Codex, verifica Gemini) | Verificacion independiente de reglas y codigo; visual aprobado por Carlos el 19/10: Ok, pasan |
 
 ## Sin empezar (31)
 
