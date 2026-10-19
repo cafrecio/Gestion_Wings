@@ -51,45 +51,66 @@ class CapturaT56T68Test extends TestCase
             'activo' => true,
         ]);
 
-        $alumno = Alumno::create([
-            'nombre' => 'Luz',
-            'apellido' => 'Gómez',
-            'dni' => '40123456',
-            'fecha_nacimiento' => '2005-01-01',
-            'fecha_alta' => '2026-09-01',
-            'deporte_id' => $deporte->id,
-            'grupo_id' => $grupo->id,
-            'celular' => '1144556677',
-            'activo' => true,
-        ]);
-        AlumnoPlan::create([
-            'alumno_id' => $alumno->id,
-            'plan_id' => $plan->id,
-            'fecha_desde' => '2026-09-01',
-            'activo' => true,
-        ]);
+        $alumnosNombres = [
+            ['Luz', 'Gómez'],
+            ['Martín', 'Álvarez'],
+            ['Sofía', 'Benítez'],
+            ['Lucas', 'Castro'],
+            ['Valentina', 'Díaz'],
+            ['Joaquín', 'Fernández'],
+            ['Camila', 'López'],
+            ['Mateo', 'Pérez'],
+        ];
+        $alumno = null;
+        foreach ($alumnosNombres as $i => [$nom, $ape]) {
+            $al = Alumno::create([
+                'nombre' => $nom,
+                'apellido' => $ape,
+                'dni' => '4012345' . $i,
+                'fecha_nacimiento' => '2005-01-01',
+                'fecha_alta' => '2026-09-01',
+                'deporte_id' => $deporte->id,
+                'grupo_id' => $grupo->id,
+                'celular' => '1144556677',
+                'activo' => true,
+            ]);
+            AlumnoPlan::create([
+                'alumno_id' => $al->id,
+                'plan_id' => $plan->id,
+                'fecha_desde' => '2026-09-01',
+                'activo' => true,
+            ]);
+            if ($alumno === null) {
+                $alumno = $al;
+            }
+        }
 
-        // Crear una clase futura para el grupo y una liquidación para el profesor
-        $clase = \App\Models\Clase::create([
-            'grupo_id' => $grupo->id,
-            'fecha' => Carbon::now()->addDays(2)->toDateString(),
-            'hora_inicio' => '16:00',
-            'hora_fin' => '17:00',
-            'cancelada' => false,
-            'validada_para_liquidacion' => false,
-        ]);
-        $clase->profesores()->attach($profesor->id);
+        // Crear clases futuras para el grupo y el profesor
+        for ($d = 2; $d <= 8; $d++) {
+            $cl = \App\Models\Clase::create([
+                'grupo_id' => $grupo->id,
+                'fecha' => Carbon::now()->addDays($d)->toDateString(),
+                'hora_inicio' => '16:00',
+                'hora_fin' => '17:00',
+                'cancelada' => false,
+                'validada_para_liquidacion' => false,
+            ]);
+            $cl->profesores()->attach($profesor->id);
+        }
 
-        \App\Models\Liquidacion::create([
-            'profesor_id' => $profesor->id,
-            'mes' => 9,
-            'anio' => 2026,
-            'tipo' => \App\Models\Liquidacion::TIPO_HORA,
-            'valor_hora_aplicado' => 5000,
-            'total_calculado' => 15000,
-            'estado' => \App\Models\Liquidacion::ESTADO_CERRADA,
-            'estado_pago' => \App\Models\Liquidacion::ESTADO_PAGO_PAGADA,
-        ]);
+        // Crear 6 liquidaciones (para mostrar que toma las últimas 5)
+        for ($m = 4; $m <= 9; $m++) {
+            \App\Models\Liquidacion::create([
+                'profesor_id' => $profesor->id,
+                'mes' => $m,
+                'anio' => 2026,
+                'tipo' => \App\Models\Liquidacion::TIPO_HORA,
+                'valor_hora_aplicado' => 5000,
+                'total_calculado' => 15000 + ($m * 1000),
+                'estado' => \App\Models\Liquidacion::ESTADO_CERRADA,
+                'estado_pago' => $m % 2 === 0 ? \App\Models\Liquidacion::ESTADO_PAGO_PAGADA : \App\Models\Liquidacion::ESTADO_PAGO_PENDIENTE,
+            ]);
+        }
 
         $dir = base_path('docs/06-pruebas/PRU-04/evidencia-t56-t68');
         if (!is_dir($dir)) {

@@ -23,13 +23,12 @@
     <x-ds.button variant="secondary" href="{{ route('web.profesores.edit', $profesor->id) }}">Editar</x-ds.button>
 </div>
 
-{{-- Layout 2 columnas --}}
-<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+{{-- Layout 3 columnas en desktop, 1 columna en móvil --}}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-    {{-- Columna izquierda: información (3/5) --}}
-    <div class="md:col-span-3 filtros-card">
-
-        <div class="grid grid-cols-2 gap-x-6 gap-y-4 mb-4">
+    {{-- Columna 1: Datos del profesor --}}
+    <div class="filtros-card">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-3.5">
 
             <div>
                 <p class="flex items-center gap-1.5 mb-0.5" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
@@ -102,27 +101,54 @@
             </div>
 
         </div>
-
     </div>
 
-    {{-- Columna derecha: liquidaciones y clases (2/5) --}}
-    <div class="md:col-span-2 flex flex-col gap-4">
+    {{-- Columna 2: Clases asignadas --}}
+    <div class="filtros-card">
+        <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+            <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Clases asignadas
+        </p>
 
-        {{-- Historial de liquidaciones --}}
-        <div class="filtros-card flex-1">
-            <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
-                <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Historial de liquidaciones
-            </p>
-
-            @if(isset($liquidaciones) && $liquidaciones->isNotEmpty())
+        @if(isset($clasesProximas) && $clasesProximas->isNotEmpty())
+            <div style="max-height: 220px; overflow-y: auto; padding-right: 4px;">
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                    @foreach($liquidaciones as $liq)
+                    @foreach($clasesProximas as $claseProf)
+                        <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
+                            <div>
+                                <span style="font-weight: 600; color: var(--color-text);">{{ $claseProf->grupo->nombre_completo ?? 'Clase' }}</span>
+                                <div style="font-size: 0.75rem; color: var(--color-text-muted);">
+                                    {{ ucfirst($claseProf->fecha->translatedFormat('D d/m')) }} · {{ \Carbon\Carbon::parse($claseProf->hora_inicio)->format('H:i') }} a {{ \Carbon\Carbon::parse($claseProf->hora_fin)->format('H:i') }}
+                                </div>
+                            </div>
+                            <a href="{{ route('web.clases.show', $claseProf->id) }}" style="font-size: 0.72rem; color: var(--color-brand); text-decoration: none; font-weight: 500;">
+                                Ver
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @else
+            <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin clases asignadas próximas.</p>
+        @endif
+    </div>
+
+    {{-- Columna 3: Historial de liquidaciones --}}
+    <div class="filtros-card">
+        <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+            <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Historial de liquidaciones
+        </p>
+
+        @if(isset($liquidaciones) && $liquidaciones->isNotEmpty())
+            <div style="max-height: 220px; overflow-y: auto; padding-right: 4px;">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                    @foreach($liquidaciones->take(5) as $liq)
                         <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
                             <div>
                                 <span style="font-weight: 600; color: var(--color-text);">{{ str_pad($liq->mes, 2, '0', STR_PAD_LEFT) }}/{{ $liq->anio }}</span>
                                 <span style="font-size: 0.75rem; margin-left: 0.35rem; color: var(--color-text-muted);">
-                                    {{ \App\Support\FormatoImporte::pesos($liq->monto_a_pagar) }}
+                                    {{ \App\Support\FormatoImporte::pesos($liq->monto_a_pagar ?? $liq->total_calculado) }}
                                 </span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -141,39 +167,10 @@
                         </li>
                     @endforeach
                 </ul>
-            @else
-                <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin liquidaciones registradas.</p>
-            @endif
-        </div>
-
-        {{-- Clases asignadas --}}
-        <div class="filtros-card flex-1">
-            <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
-                <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-                Clases asignadas
-            </p>
-
-            @if(isset($clasesProximas) && $clasesProximas->isNotEmpty())
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                    @foreach($clasesProximas as $claseProf)
-                        <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
-                            <div>
-                                <span style="font-weight: 600; color: var(--color-text);">{{ $claseProf->grupo->nombre_completo ?? 'Clase' }}</span>
-                                <div style="font-size: 0.75rem; color: var(--color-text-muted);">
-                                    {{ ucfirst($claseProf->fecha->translatedFormat('D d/m')) }} · {{ \Carbon\Carbon::parse($claseProf->hora_inicio)->format('H:i') }} a {{ \Carbon\Carbon::parse($claseProf->hora_fin)->format('H:i') }}
-                                </div>
-                            </div>
-                            <a href="{{ route('web.clases.show', $claseProf->id) }}" style="font-size: 0.72rem; color: var(--color-brand); text-decoration: none; font-weight: 500;">
-                                Ver
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            @else
-                <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin clases asignadas próximas.</p>
-            @endif
-        </div>
-
+            </div>
+        @else
+            <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin liquidaciones registradas.</p>
+        @endif
     </div>
 
 </div>

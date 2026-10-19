@@ -7,6 +7,14 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CYE — Vistas de T68 aprobadas por Carlos y rediseño de Grupos y Profesores
+
+- **Objetivo y aprobación:** Carlos aprobó el 19/10/2026 las vistas de T68 («Las vistas están aprobadas») tras revisar las capturas reales generadas del sistema andando.
+- **Grupos (`resources/views/grupos/show.blade.php`):** Tarjeta *«Alumnos en este grupo»* equipada con scroll vertical (`max-height: 190px; overflow-y: auto;`) eliminando la lista infinita y mostrando a todos los alumnos activos en orden alfabético; tarjeta *«Cronograma semanal»* con scroll vertical.
+- **Profesores (`resources/views/profesores/show.blade.php`):** Rediseño a 3 columnas en escritorio (`lg:grid-cols-3`): Col 1 Datos, Col 2 Clases asignadas (con scroll), Col 3 Historial de liquidaciones acotado a las últimas 5 (`$liquidaciones->take(5)`) con scroll vertical.
+- **Evidencia y pruebas:** `APROBAR-T68.html` actualizado con las nuevas capturas (`01-grupo-show-1366.png`, `02-grupo-show-marco-375.png`, `03-profesor-show-1366.png`, `04-profesor-show-marco-375.png`). `AlumnoSinPlanT56T68Test` (8 tests) y `CspSinCodigoIncrustadoTest` en verde. Sin JS incrustado.
+- **Próximo paso:** Codex / Claude finalizan la lógica de H1/T68 según corresponda.
+
 ## 2026-10-19 — LOG GEM CYE — Verificación de Lógica T66: Profesora obligatoria y liquidaciones protegidas
 
 - **Objetivo y resultado:** Verificación independiente de la lógica implementada por Codex CAB en commit `9bb7bd68` (T66). Resultado: **APROBADA** (sin hallazgos de lógica, validaciones ni permisos).

@@ -84,26 +84,19 @@
         @if($alumnosActivos->isEmpty())
             <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin alumnos activos en este grupo.</p>
         @else
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem;">
-                @foreach($alumnosActivos->sortBy('apellido')->take(5) as $alumno)
-                    <li>
-                        <a href="{{ route('web.alumnos.show', $alumno->id) }}"
-                           style="font-size: 0.82rem; color: var(--color-text); text-decoration: none; display: block; padding: 0.3rem 0.4rem; border-radius: var(--radius-sm);"
-                           data-hover-fondo="var(--color-surface-alt)">
-                            {{ $alumno->apellido }}, {{ $alumno->nombre }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-
-            @if($alumnosActivos->count() > 5)
-                <div class="mt-2">
-                    <a href="{{ route('web.alumnos.index', ['grupo_id' => $grupo->id]) }}"
-                       style="font-size: 0.75rem; color: var(--color-btn-primary); text-decoration: none; font-weight: 500;">
-                        Ver todos ({{ $alumnosActivos->count() }})
-                    </a>
-                </div>
-            @endif
+            <div style="max-height: 190px; overflow-y: auto; padding-right: 4px;">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                    @foreach($alumnosActivos->sortBy('apellido') as $alumno)
+                        <li>
+                            <a href="{{ route('web.alumnos.show', $alumno->id) }}"
+                               style="font-size: 0.82rem; color: var(--color-text); text-decoration: none; display: block; padding: 0.3rem 0.4rem; border-radius: var(--radius-sm);"
+                               data-hover-fondo="var(--color-surface-alt)">
+                                {{ $alumno->apellido }}, {{ $alumno->nombre }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
     </div>
 
@@ -165,19 +158,21 @@
         </p>
 
         @if(isset($clasesFuturas) && $clasesFuturas->isNotEmpty())
-            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                @foreach($clasesFuturas as $claseItem)
-                    <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
-                        <div>
-                            <span style="font-weight: 600; color: var(--color-text);">{{ ucfirst($claseItem->fecha->translatedFormat('D d/m')) }}</span>
-                            <span style="color: var(--color-text-muted); font-size: 0.75rem; margin-left: 0.35rem;">{{ \Carbon\Carbon::parse($claseItem->hora_inicio)->format('H:i') }} a {{ \Carbon\Carbon::parse($claseItem->hora_fin)->format('H:i') }}</span>
-                        </div>
-                        <a href="{{ route('web.clases.show', $claseItem->id) }}" style="font-size: 0.72rem; color: var(--color-brand); text-decoration: none; font-weight: 500;">
-                            Ver
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+            <div style="max-height: 190px; overflow-y: auto; padding-right: 4px;">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                    @foreach($clasesFuturas as $claseItem)
+                        <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
+                            <div>
+                                <span style="font-weight: 600; color: var(--color-text);">{{ ucfirst($claseItem->fecha->translatedFormat('D d/m')) }}</span>
+                                <span style="color: var(--color-text-muted); font-size: 0.75rem; margin-left: 0.35rem;">{{ \Carbon\Carbon::parse($claseItem->hora_inicio)->format('H:i') }} a {{ \Carbon\Carbon::parse($claseItem->hora_fin)->format('H:i') }}</span>
+                            </div>
+                            <a href="{{ route('web.clases.show', $claseItem->id) }}" style="font-size: 0.72rem; color: var(--color-brand); text-decoration: none; font-weight: 500;">
+                                Ver
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
             <div class="mt-2.5">
                 <a href="{{ route('web.clases.index', ['grupo_id' => $grupo->id]) }}" style="font-size: 0.75rem; color: var(--color-btn-primary); text-decoration: none; font-weight: 500;">
                     Ver todas las clases del grupo
