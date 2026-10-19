@@ -9,6 +9,21 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 
+## 2026-10-19 — LOG GEM CAB — Verificación independiente de T44: Historial de tarifas y vigencia por alumno y mes
+
+- **Objetivo y veredicto:** Verificación independiente del trabajo de Codex en los commits `10a42cd` y `9826e49` (T44: historial de tarifas y vigencia de cambios de plan, decisiones DU-40 de Carlos). Se reemplazó a Claude por falta de créditos. **Veredicto: APROBADA y CERRADA** (visual previamente aprobado por Carlos el 19/10: *«Ok, pasan»*).
+- **Inspección de código y reglas de negocio:**
+  - `GrupoPlan::precioParaPeriodo`: evaluada y probada la lógica de corte por fecha de alta original para altas nuevas en el mes, y fin de mes anterior para existentes. Casos de múltiples aumentos en el mismo mes y mismo día verificados.
+  - `CambioPlanService`: bajas de plan se difieren siempre al mes siguiente; subidas con cuota impaga o pago parcial son inmediatas y conservan lo pagado ($60.000 con $10.000 pagados deja saldo de $50.000); subidas con mes saldado se difieren al mes siguiente. Se conserva el `porcentaje_alta` original.
+  - Migración `grupo_plan_precios`: preserva precios iniciales sin fecha límite (`vigente_desde = null`) y sin pérdida de decimales.
+  - Sin lecturas de `precio_mensual` para cobros ni deudas en todo `app/` ni en vistas operativas. API deshabilitada en `bootstrap/app.php`.
+- **Pruebas y suite:**
+  - 19 pruebas de `PrecioPlanVigenciaT44Test` pasaron (89 aserciones).
+  - 17 pruebas de `CambioPlanCobroTest` y `CambioPlanConDescuentoMatrizTest` pasaron (105 aserciones).
+  - 5 pruebas sintéticas de verificación independiente ejecutadas y aprobadas.
+  - Suite completa: **882 pasadas, 3 omitidas, 0 fallidas (7.823 aserciones)** en 935,82 s en `wings_testing_gemini`.
+- **Cierre:** Informe redactado en `docs/06-pruebas/PRU-04/VERIFICACION-T44-GEMINI.md`. Tarea T44 cerrada en tablero con `hizo=Codex` y `verifica=Gemini`.
+
 ## 2026-10-19 — LOG GEM CAB — Corrección de borde en celular de la lista de asistencia (clases/show)
 
 - **Corrección de borde en tarjetas de alumnos (orden de Carlos):**

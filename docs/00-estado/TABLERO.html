@@ -72,13 +72,13 @@
 
   <div class="fichas">
     <a class="ficha f-vos" href="#vos"><b>5</b><span>Te toca a vos</span><small>esperan una decisión o tu OK</small></a>
-    <a class="ficha f-marcha" href="#marcha"><b>3</b><span>En marcha</span><small>las tienen los agentes</small></a>
+    <a class="ficha f-marcha" href="#marcha"><b>2</b><span>En marcha</span><small>las tienen los agentes</small></a>
     <a class="ficha f-atraso" href="#marcha"><b>3</b><span>Atrasadas</span><small>3 días o más sin moverse</small></a>
-    <a class="ficha f-hecho" href="#listas"><b>104</b><span>Hechas</span><small>de 143 tareas de Wings</small></a>
+    <a class="ficha f-hecho" href="#listas"><b>105</b><span>Hechas</span><small>de 143 tareas de Wings</small></a>
   </div>
-  <div class="barra"><i class="s-hecho" style="width:72.73%"></i><i class="s-marcha" style="width:2.1%"></i><i class="s-vos" style="width:3.5%"></i><i class="s-resto" style="width:21.68%"></i></div>
+  <div class="barra"><i class="s-hecho" style="width:73.43%"></i><i class="s-marcha" style="width:1.4%"></i><i class="s-vos" style="width:3.5%"></i><i class="s-resto" style="width:21.68%"></i></div>
   <div class="leyenda">
-    <span><i class="s-hecho"></i>Hecho 104</span><span><i class="s-marcha"></i>En marcha 3</span>
+    <span><i class="s-hecho"></i>Hecho 105</span><span><i class="s-marcha"></i>En marcha 2</span>
     <span><i class="s-vos"></i>Te toca a vos 5</span><span><i class="s-resto"></i>Sin empezar 31</span>
   </div>
 
@@ -92,9 +92,9 @@
   </section>
 
   <section id="marcha">
-    <h2><i class="s-marcha"></i>En marcha <span class="n">3</span></h2>
+    <h2><i class="s-marcha"></i>En marcha <span class="n">2</span></h2>
     <div class="carriles"><div class="carril"><h3>Claude <span class="n">0</span></h3><p class="libre">Libre</p></div><div class="carril"><h3>Codex <span class="n">2</span></h3><article class="t e-a_verificar" data-fecha="2026-10-19" data-empezada="1"><div class="cab"><b class="id">T34</b><span class="tit">Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip p-alta">Prioritaria</span><span class="chip edad" data-edad>hoy</span></div><div class="quien">hizo Gemini → verifica Codex</div><p class="corto">Codex verifica T34</p></article>
-<article class="t e-a_verificar" data-fecha="2026-10-19" data-empezada="1"><div class="cab"><b class="id">T67</b><span class="tit">La lista de asistencia muestra solo los tres ultimos numeros del DNI</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip p-alta">Prioritaria</span><span class="chip edad" data-edad>hoy</span></div><div class="quien">hizo Gemini → verifica Codex</div><p class="corto">Codex verifica T67</p></article></div><div class="carril"><h3>Gemini <span class="n">1</span></h3><article class="t e-a_verificar" data-fecha="2026-10-19" data-empezada="1"><div class="cab"><b class="id">T44</b><span class="tit">Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip p-alta">Prioritaria</span><span class="chip edad" data-edad>hoy</span></div><div class="quien">hizo Codex → verifica Gemini</div><p class="corto">Verificacion independiente de reglas y codigo; visual aprobado por Carlos el 19/10: Ok, pasan</p></article></div></div>
+<article class="t e-a_verificar" data-fecha="2026-10-19" data-empezada="1"><div class="cab"><b class="id">T67</b><span class="tit">La lista de asistencia muestra solo los tres ultimos numeros del DNI</span></div><div class="chips"><span class="chip estado">Hecho, espera verificación</span><span class="chip p-alta">Prioritaria</span><span class="chip edad" data-edad>hoy</span></div><div class="quien">hizo Gemini → verifica Codex</div><p class="corto">Codex verifica T67</p></article></div><div class="carril"><h3>Gemini <span class="n">0</span></h3><p class="libre">Libre</p></div></div>
     
   </section>
 
@@ -130,8 +130,9 @@
 <li title="[DESPUES, Carlos 18/10] Tabla: DU-14 · ALU-022, ASI-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy gana el ultimo sin avisar. TOCA: AlumnoWebController::update, ClaseWebController::storeAsistencias y sus formularios"><b class="id">T55</b><span class="tit">Si dos personas editan al mismo alumno o la misma lista de asistencia, se avisa al segundo que el dato cambio</span><span class="chip p-baja">Muy a futuro</span></li>
 <li title="[DESPUES, Carlos 18/10] Tabla: DU-28 · CSH-016 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Carlos: avisar y dejar seguir; el medio dice si admite o no negativos, podria tener descubierto. TOCA: tipos_caja (migracion), TipoCajaWebController y su formulario, CashflowService::registrarMovimientoAdmin, LiquidacionPagoService, CashflowSaldoService"><b class="id">T60</b><span class="tit">Cada medio de pago dice si admite saldo negativo</span><span class="chip p-baja">Muy a futuro</span></li>
 <li title="[DESPUES, Carlos 18/10] Tabla: DU-17 · CAJ-019, CAJ-020 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy la diferencia se ve caja por caja y en ningun resumen. TOCA: pantalla o seccion nueva, CajaResumenService. Decidir con Carlos donde se muestra"><b class="id">T69</b><span class="tit">Resumen de faltantes y sobrantes de caja por operativa y por mes</span><span class="chip p-baja">Muy a futuro</span></li>
-<li title="[DESPUES, Carlos 18/10] Tabla: DU-49 · REP-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Carlos: los que faltaron a todas sus clases de las ultimas dos semanas, primero los que deben. Va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes. Que hoy la lista de quienes no vinieron la vea solo el duenio es un DEFECTO. TOCA: consulta nueva, cobranza/index, OperativoDashboardController"><b class="id">T72</b><span class="tit">Lista de alumnos que estan faltando, para duenio y operativa</span><span class="chip p-baja">Muy a futuro</span></li></ul></details><details class="lista l-hecho"><summary><i class="punto"></i>Hecho <span class="n">104</span></summary><ul><li><b class="id">T39</b><span class="tit">Al anular un cobro del duenio, la resta va con la fecha del original</span><span class="chip p-alta">Prioritaria</span></li>
+<li title="[DESPUES, Carlos 18/10] Tabla: DU-49 · REP-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Carlos: los que faltaron a todas sus clases de las ultimas dos semanas, primero los que deben. Va donde trabaja la operativa (Cobranza y su Inicio), no en Reportes. Que hoy la lista de quienes no vinieron la vea solo el duenio es un DEFECTO. TOCA: consulta nueva, cobranza/index, OperativoDashboardController"><b class="id">T72</b><span class="tit">Lista de alumnos que estan faltando, para duenio y operativa</span><span class="chip p-baja">Muy a futuro</span></li></ul></details><details class="lista l-hecho"><summary><i class="punto"></i>Hecho <span class="n">105</span></summary><ul><li><b class="id">T39</b><span class="tit">Al anular un cobro del duenio, la resta va con la fecha del original</span><span class="chip p-alta">Prioritaria</span></li>
 <li><b class="id">T41</b><span class="tit">No se puede cerrar una liquidacion antes de que termine el mes</span></li>
+<li><b class="id">T44</b><span class="tit">Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia</span><span class="chip p-alta">Prioritaria</span></li>
 <li><b class="id">T57</b><span class="tit">Medio del cajon: no se puede desactivar, y el duenio lo cambia solo si no hay caja abierta</span><span class="chip p-alta">Prioritaria</span></li>
 <li><b class="id">T58</b><span class="tit">El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero</span><span class="chip p-alta">Prioritaria</span></li>
 <li><b class="id">T63</b><span class="tit">No se desactiva un deporte o un grupo con alumnos activos o clases futuras</span><span class="chip p-alta">Prioritaria</span></li>

@@ -57,9 +57,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T44** Un aumento de precio rige desde el mes siguiente para los que ya estan; a los nuevos, desde que cambia | Hecho, espera verificación (hizo Codex, verifica Gemini) | Verificacion independiente de reglas y codigo; visual aprobado por Carlos el 19/10: Ok, pasan |
+Nada en este momento.
 
 ## Sin empezar (31)
 
