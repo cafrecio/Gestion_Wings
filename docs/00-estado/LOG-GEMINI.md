@@ -7,6 +7,21 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CAB — Corrección de T34: H1 (etiqueta en tarjeta) y H2 (bloqueo en liquidación cerrada)
+
+- **Objetivo y alcance:** Subsanar los hallazgos H1 y H2 señalados por Codex en `docs/06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md` para la tarea T34 (T67 cerrada).
+- **H1 — Etiqueta en tarjeta de clase (`resources/views/clases/_card.blade.php`):**
+  - Se corrigió la condición de asistencia: si no hay filas registradas dice «Pendiente» (`var(--color-text-muted)`); si hay filas registradas pero 0 presentes dice «Sin presentes» (`var(--color-warning, #d97706)`); si hay presentes dice «Cargada» (`var(--color-success)`).
+  - Respetadas las reglas del Design System sin alterar tipografías, tokens ni estructura y sin JS incrustado.
+- **H2 — Protección en servidor (`app/Http/Controllers/ClaseWebController.php`):**
+  - En `toggleValidada($id)` se agregó chequeo previo: `$clase->integraLiquidacionCerrada()`.
+  - Si la clase integra una liquidación cerrada (por hora o por comisión de sus profesores en el mes), rechaza la petición con 422 (JSON) o `back()->with('error', '...')`, impidiendo revertir la validación y que vuelva a `sin_presentes`.
+- **Pruebas y capturas:**
+  - En `ClaseSinAsistenciaYDniT34T67Test.php`: agregados tests para H1 y H2 (6 pasadas en total).
+  - Capturas regeneradas con Chrome headless en 1366px y marco 360px en `docs/06-pruebas/PRU-04/evidencia-correccion-t34/` mostrando la tarjeta con `Asistencia: Sin presentes`.
+  - Suite completa: 903 pasadas, 4 omitidas, 0 fallidas (8024 aserciones) en `wings_testing_gemini` (corte 908 pruebas).
+- **Próximo paso:** Verificación independiente por Codex (`docs/06-pruebas/PRU-04/CORRECCION-T34-GEMINI.md`).
+
 ## 2026-10-19 — LOG GEM CAB — Implementación de T56 (alumno activo no puede quedar sin plan) y T68 (sacar carteles de «Próximamente»)
 
 - **Objetivo y alcance:** Implementar T56 (DU-15: impedir que un alumno activo quede sin plan) y T68 (DU-57: retirar los tres carteles de «Próximamente»).

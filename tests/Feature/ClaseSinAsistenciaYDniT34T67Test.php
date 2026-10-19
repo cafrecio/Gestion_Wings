@@ -246,4 +246,90 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
         $resp->assertDontSee('Sin plan');
         $resp->assertSee('0/2');
     }
+
+    /**
+     * T34 - H1: Una tarjeta de clase con asistencia tomada y todos ausentes no debe decir «Pendiente»,
+     * sino «Sin presentes». Si no tiene asistencias, debe decir «Pendiente». Con presentes, «Cargada».
+     */
+    public function test_tarjeta_muestra_etiqueta_adecuada_segun_asistencia(): void
+    {
+        // 1. Clase sin asistencias -> Pendiente
+        $claseSinLista = $this->crearClasePasada('2026-10-01');
+
+        // 2. Clase con lista tomada y todos ausentes -> Sin presentes
+        $claseSinPresentes = $this->crearClasePasada('2026-10-02');
+        Asistencia::create([
+            'clase_id' => $claseSinPresentes->id,
+            'alumno_id' => $this->alumno->id,
+            'presente' => false,
+        ]);
+
+        // 3. Clase con presentes -> Cargada
+        $claseCargada = $this->crearClasePasada('2026-10-03');
+        Asistencia::create([
+            'clase_id' => $claseCargada->id,
+            'alumno_id' => $this->alumno->id,
+            'presente' => true,
+        ]);
+
+        // En el filtro estado=sin_presentes (dueño)
+        $respSinPresentes = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'sin_presentes']));
+        $respSinPresentes->assertOk();
+        $respSinPresentes->assertSee('Sin presentes');
+        $respSinPresentes->assertDontSee('Pendiente');
+
+        // En el filtro estado=finalizada (Sin asistencia)
+        $respFinalizada = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'finalizada']));
+        $respFinalizada->assertOk();
+        $respFinalizada->assertSee('Pendiente');
+
+        // En el filtro estado=cerrada (Con presentes o validada)
+        $respCerrada = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'cerrada']));
+        $respCerrada->assertOk();
+        $respCerrada->assertSee('Cargada');
+
+        // Generar HTML para evidencia de la corrección H1 en estado=sin_presentes
+        $htmlSinPresentes = $respSinPresentes->getContent();
+        $htmlSinPresentes = str_replace(['src="/build/', 'href="/build/'], [
+            'src="' . str_replace('\\', '/', public_path('build')) . '/',
+            'href="' . str_replace('\\', '/', public_path('build')) . '/',
+        ], $htmlSinPresentes);
+
+        $dirDestino = base_path('docs/06-pruebas/PRU-04/evidencia-correccion-t34');
+        if (!is_dir($dirDestino)) {
+            mkdir($dirDestino, 0775, true);
+        }
+        file_put_contents($dirDestino . '/sin-presentes.html', $htmlSinPresentes);
+    }
+
+    /**
+     * T34 - H2: Una clase que integra una liquidación cerrada no puede desmarcar su validación ni volver a sin_presentes.
+     */
+    public function test_clase_en_liquidacion_cerrada_no_puede_desmarcar_validacion(): void
+    {
+        $clase = $this->crearClasePasada('2026-09-10');
+        $clase->update(['validada_para_liquidacion' => true]);
+        Asistencia::create([
+            'clase_id' => $clase->id,
+            'alumno_id' => $this->alumno->id,
+            'presente' => false,
+        ]);
+
+        $liqService = app(LiquidacionService::class);
+        $liq = $liqService->generarLiquidacionMensual($this->profesor->id, 9, 2026);
+        $liqService->cerrarLiquidacion($liq->id);
+
+        $this->assertTrue($clase->fresh()->integraLiquidacionCerrada());
+
+        // Intentar hacer toggleValidada como admin debe ser rechazado
+        $resp = $this->actingAs($this->admin)->patch(route('web.clases.toggle-validada', $clase->id));
+        $resp->assertSessionHas('error');
+        $this->assertTrue($clase->fresh()->validada_para_liquidacion);
+
+        // No debe reaparecer en estado=sin_presentes
+        $respFiltro = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'sin_presentes']));
+        $respFiltro->assertOk();
+        $clasesFiltradas = $respFiltro->viewData('clasesFiltradas');
+        $this->assertFalse($clasesFiltradas->pluck('id')->contains($clase->id));
+    }
 }

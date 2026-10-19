@@ -59,13 +59,12 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificar correccion de H1 (etiqueta Sin presentes en tarjeta) y H2 (bloqueo en liquidacion cerrada) |
 | **T66** Una clase necesita al menos una profesora | En curso (hizo Codex, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-55 · CLA-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: ClaseWebController::store/update y actualizarProfesores, ProgramacionClasesService, clases-form.js. ORDEN: despues de T34 y T35. Mirar antes cuantas clases ya cargadas no tienen profesora |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Corregir H1 etiqueta Pendiente con lista tomada y H2 clase ya liquidada que vuelve a Sin presentes; ver VERIFICACION-T34-T67-CODEX.md. Sin cambiar diseno aprobado |
+Nada en este momento.
 
 ## Sin empezar (25)
 

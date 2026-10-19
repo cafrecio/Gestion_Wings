@@ -79,9 +79,14 @@
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <span class="info-label">Asistencia:</span>
-            <span class="info-value"
-                  style="color:{{ $clase->asistencias->where('presente', true)->count() > 0 ? 'var(--color-success)' : 'var(--color-text-muted)' }};">
-                {{ $clase->asistencias->where('presente', true)->count() > 0 ? 'Cargada' : 'Pendiente' }}
+            @php
+                $tieneAsistencias = $clase->asistencias->isNotEmpty();
+                $tienePresentes   = $clase->asistencias->where('presente', true)->isNotEmpty();
+                $etiquetaAsistencia = $tienePresentes ? 'Cargada' : ($tieneAsistencias ? 'Sin presentes' : 'Pendiente');
+                $colorAsistencia = $tienePresentes ? 'var(--color-success)' : ($tieneAsistencias ? 'var(--color-warning, #d97706)' : 'var(--color-text-muted)');
+            @endphp
+            <span class="info-value" style="color:{{ $colorAsistencia }};">
+                {{ $etiquetaAsistencia }}
             </span>
         </div>
     </div>

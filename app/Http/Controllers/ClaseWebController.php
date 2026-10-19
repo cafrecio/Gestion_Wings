@@ -657,6 +657,15 @@ class ClaseWebController extends Controller
     public function toggleValidada(int $id)
     {
         $clase = Clase::findOrFail($id);
+
+        if ($clase->integraLiquidacionCerrada()) {
+            $mensaje = 'No se puede modificar la validación: la clase integra una liquidación cerrada.';
+            if (request()->expectsJson() || request()->header('X-Requested-With') === 'XMLHttpRequest') {
+                return response()->json(['success' => false, 'message' => $mensaje], 422);
+            }
+            return back()->with('error', $mensaje);
+        }
+
         $clase->update(['validada_para_liquidacion' => !$clase->validada_para_liquidacion]);
 
         $estado = $clase->validada_para_liquidacion ? 'validada para liquidación' : 'desmarcada de validación';
