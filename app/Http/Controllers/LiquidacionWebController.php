@@ -90,7 +90,7 @@ class LiquidacionWebController extends Controller
                 $q->where('clases.cancelada', false)
                   ->whereDate('clases.fecha', '<', today())
                   ->where('clases.validada_para_liquidacion', false)
-                  ->whereDoesntHave('asistencias', fn($a) => $a->where('presente', true))
+                  ->doesntHave('asistencias')
             ])
             ->orderBy('apellido')
             ->get();

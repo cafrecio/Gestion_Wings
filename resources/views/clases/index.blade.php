@@ -164,7 +164,10 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
                     class="filtros-control filtros-select">
                 <option value="">Estado</option>
                 <option value="programada" {{ request('estado') === 'programada' ? 'selected' : '' }}>Programada</option>
-                <option value="finalizada" {{ request('estado') === 'finalizada' ? 'selected' : '' }}>Finalizada</option>
+                <option value="finalizada" {{ request('estado') === 'finalizada' ? 'selected' : '' }}>Sin asistencia</option>
+                @if($esAdmin)
+                    <option value="sin_presentes" {{ request('estado') === 'sin_presentes' ? 'selected' : '' }}>Sin presentes</option>
+                @endif
                 <option value="cerrada"    {{ request('estado') === 'cerrada'    ? 'selected' : '' }}>Cerrada</option>
                 <option value="cancelada"  {{ request('estado') === 'cancelada'  ? 'selected' : '' }}>Cancelada</option>
             </select>

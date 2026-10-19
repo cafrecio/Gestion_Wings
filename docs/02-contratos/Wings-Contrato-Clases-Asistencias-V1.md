@@ -171,12 +171,22 @@ Por eso el menú expone un atajo permanente `Clases › Sin asistencia` con el c
 - El conteo usa exactamente la misma consulta que el filtro al que lleva, para que el número anunciado sea el que se ve al hacer click.
 - El recorte de 35 días hacia atrás que el listado aplica a OPERATIVO y PROFESOR **no rige en este filtro**: si no, el número no coincidiría y además no podrían abrir la clase vieja que tienen que cargar.
 
-Los dos estados de una clase pasada quedan complementarios y sin huecos:
+### Enmienda 18/10/2026 — Clase con lista tomada y nadie presente (T34, DU-33)
+
+Con lista tomada la clase sale del contador y del filtro «Sin asistencia» (`finalizada`) y pasa a estar a disposición del dueño para que decida si la paga o no:
+- `finalizada` («Sin asistencia»): clase pasada, no cancelada, no validada a la que **nunca se le tomó lista** (`doesntHave('asistencias')`).
+- `sin_presentes` («Sin presentes»): clase pasada, no cancelada, no validada con **lista tomada y cero presentes** (`has('asistencias')` y `doesntHave('asistencias', presente=true)`). Visible únicamente para el rol ADMIN en el selector de filtros de Clases.
+- La liquidación por hora (`LiquidacionService::clasesLiquidablesHora`) **no cambia**: una clase sin presentes no se paga salvo que esté `validada_para_liquidacion = true`.
 
 | Estado | Significado | Condición |
 |---|---|---|
-| `finalizada` | Sin resolver, no se paga | sin presentes **y** no validada |
+| `finalizada` | Sin asistencia tomada, no se paga | pasada, no cancelada, no validada y sin ningún registro de asistencia |
+| `sin_presentes` (filtro dueño) | Lista tomada, todos ausentes | pasada, no cancelada, no validada, con asistencias pero ningún presente |
 | `cerrada` | Resuelta para pago | con presentes **o** validada |
+
+### Enmienda 18/10/2026 — DNI recortado en lista de asistencia (T67, DU-56)
+
+En la lista de asistencia de `clases/show`, para resguardo de privacidad y desambiguación de homónimos, se muestran únicamente los tres últimos dígitos del DNI (ej: `DNI …123`). El DNI completo no aparece en el HTML de la vista para ningún rol.
 
 ## 4.g Cancelación de clase
 

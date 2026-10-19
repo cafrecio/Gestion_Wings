@@ -9,6 +9,24 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 
+## 2026-10-18 — LOG GEM CAB — Implementación de T34 y T67: Clases con lista tomada y DNI recortado en lista de asistencia
+
+- **Objetivo y alcance:** Implementar T34 (DU-33: con lista tomada sale del contador y de «Sin asistencia», y queda en filtro nuevo «Sin presentes» para decisión del dueño) y T67 (DU-56: en la lista de asistencia mostrar solo los últimos 3 números del DNI: `DNI …123`).
+- **T34 — Contador y filtros de clases:**
+  - `AppServiceProvider:67`: `$badge` ahora consulta con `doesntHave('asistencias')`. Mantiene sincronía con el filtro `estado=finalizada` («Sin asistencia»).
+  - `ClaseWebController:129`: filtro `estado=finalizada` usa `doesntHave('asistencias')`. Nuevo filtro `estado=sin_presentes` (solo admin) para clases pasadas, no canceladas, no validadas con asistencias tomadas pero cero presentes.
+  - `ReporteMensualService:193`: sincronizada la consulta del indicador `'asistencia'` con `doesntHave('asistencias')`.
+  - `LiquidacionWebController:93`: sincronizado el conteo de `clases_sin_asistencia` por profesor.
+  - `resources/views/clases/index.blade.php`: agregado `<option value="sin_presentes">Sin presentes</option>` para el admin.
+- **T67 — DNI recortado en asistencia:**
+  - `resources/views/clases/show.blade.php:335`: reemplazado `DNI {{ $alumno->dni }}` por `DNI …{{ substr((string)$alumno->dni, -3) }}`.
+  - Verificado que el profesor no tiene acceso a fichas de alumnos y que el HTML de `clases/show` no contiene el DNI completo.
+- **Pruebas y verificación empírica:**
+  - 4 pruebas nuevas en `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php` cubriendo contador, filtro sin asistencia, filtro sin presentes, permisos para roles, liquidación y recorte de DNI (100% aprobadas).
+  - 6 capturas reales en escritorio (1366 px) y marco celular (360 px) en `docs/06-pruebas/PRU-04/evidencia-t34-t67/`.
+  - Contrato actualizado en `docs/02-contratos/Wings-Contrato-Clases-Asistencias-V1.md`.
+- **Próximo paso:** T34 y T67 pasan a `a_verificar` para Claude en el tablero; Carlos evalúa si requiere registrar explícitamente «no se paga» para clases sin presentes.
+
 ## 2026-10-18 — LOG GEM CAB — Verificación independiente de T58: El dueño crea desde la ficha la cuota de un mes pasado
 
 - **Objetivo y veredicto:** Verificar de forma independiente el trabajo de Claude en los commits `687262f` y `c154ac4` (T58 / DU-23: «Que el dueño pueda crear la cuota de un mes pasado desde la ficha»). **Veredicto: APROBADO (pasa a Carlos para visto bueno visual: `tiene=Carlos`, `paso="Verificada por Gemini. Falta el visto bueno visual de Carlos"`).**

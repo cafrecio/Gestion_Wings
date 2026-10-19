@@ -125,12 +125,19 @@ class ClaseWebController extends Controller
                         ->where('cancelada', false)
                         ->whereDate('fecha', '>', today()),
                     // Sin resolver: no se puede liquidar hasta que se cargue la
-                    // lista o el admin la valide a mano.
+                    // lista. T34: solo clases a las que nunca se les tomó lista.
                     'finalizada' => $query
                         ->where('cancelada', false)
                         ->whereDate('fecha', '<', today())
                         ->where('validada_para_liquidacion', false)
-                        ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true)),
+                        ->doesntHave('asistencias'),
+                    // T34: Lista tomada pero nadie presente. Solo visible para el dueño.
+                    'sin_presentes' => $esAdmin ? $query
+                        ->where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->where('validada_para_liquidacion', false)
+                        ->whereHas('asistencias')
+                        ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true)) : null,
                     // Resuelta para pago: tiene presentes o fue validada a mano.
                     'cerrada'    => $query
                         ->where('cancelada', false)

@@ -67,7 +67,7 @@ class AppServiceProvider extends ServiceProvider
                 $badge = Clase::where('cancelada', false)
                     ->whereDate('fecha', '<', today())
                     ->where('validada_para_liquidacion', false)
-                    ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true))
+                    ->doesntHave('asistencias')
                     ->count();
             }
             $view->with('badgeClasesPendientes', $badge);

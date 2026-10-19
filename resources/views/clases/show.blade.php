@@ -332,7 +332,7 @@
                         <span>Sin plan</span>
                     @endif
                     @if($alumno->dni)
-                        <span>· DNI {{ $alumno->dni }}</span>
+                        <span>· DNI …{{ substr((string) $alumno->dni, -3) }}</span>
                     @endif
                 </div>
             </div>

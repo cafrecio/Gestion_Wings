@@ -46,7 +46,10 @@ Nada.
 
 ## Claude
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar contador de menú, filtro sin asistencia y filtro sin presentes (solo admin) |
+| **T67** La lista de asistencia muestra solo los tres ultimos numeros del DNI | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar que la lista de asistencia muestre solo los últimos 3 números del DNI y no exponga el DNI completo |
 
 ## Codex
 
@@ -56,10 +59,7 @@ Nada en este momento.
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-33 · ASI-003 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: el contador del menu (AppServiceProvider), ClaseWebController::index (filtro de pendientes) y toggleValidada, LiquidacionService (que clases se pagan). POR QUE ANTES: cambia el numero Sin asistencia que la prueba mira todos los dias. ORDEN: comparte ClaseWebController con T35, T52, T62, T66 y T67: un solo agente por vez en ese archivo |
-| **T67** La lista de asistencia muestra solo los tres ultimos numeros del DNI | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-56 · ASI-016 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: vista clases/show (linea 331). Chica y visual |
+Nada en este momento.
 
 ## Sin empezar (31)
 

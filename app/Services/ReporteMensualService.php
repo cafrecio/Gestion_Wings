@@ -191,7 +191,7 @@ class ReporteMensualService
             'liquidaciones' => Liquidacion::where('estado', 'CERRADA')->where('estado_pago', 'PENDIENTE')->count(),
             'liquidaciones_abiertas' => Liquidacion::where('estado', 'ABIERTA')->count(),
             'asistencia' => Clase::where('cancelada', false)->whereDate('fecha', '<', today())
-                ->where('validada_para_liquidacion', false)->whereDoesntHave('asistencias', fn ($q) => $q->where('presente', true))->count(),
+                ->where('validada_para_liquidacion', false)->doesntHave('asistencias')->count(),
             'revision' => AlumnoRevisionCobranza::where('estado_revision', 'PENDIENTE')->count(),
         ];
     }
