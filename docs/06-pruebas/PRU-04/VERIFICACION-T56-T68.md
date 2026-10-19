@@ -2,6 +2,12 @@
 
 Entrega de Gemini, commit 0414b68. Informe: `IMPLEMENTACION-T56-T68.md`.
 
+> **Corrección del 19/10, después de este informe:** Carlos aclaró que DU-57 no pedía retirar los
+> bloques de «Próximamente» sino completarlos con datos (profesor: clases asignadas y
+> liquidaciones, o «Sin clases» / «Sin liquidaciones»; grupo: clases futuras o «Sin clases
+> futuras»). El error salió de la pregunta DU-57 de Claude, que solo ofrecía quitarlos o dejarlos.
+> **La aprobación de T68 de abajo no vale**: T68 volvió a Gemini. T56 no cambia.
+
 ## Veredicto
 
 | Tarea | Lógica | Visual | Estado |

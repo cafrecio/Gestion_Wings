@@ -11,6 +11,36 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CAB — Pendientes al cerrar la sesión (sin respuesta de Carlos o inconclusos)
+
+Pedido de Carlos: dejar asentado todo lo que quedó sin responder o sin terminar.
+
+**Esperan respuesta de Carlos**
+- **Quién verifica T74, T59 y T47.** Las tres están «a verificar» sin verificador. T74 y T47
+  tocan pantalla: además falta su visto visual (capturas en `evidencia-t74-claude/` y
+  `evidencia-t59-t47-claude/`). Ofrecí armar el prompt para el verificador.
+- **DU-57 / T68.** Carlos aclaró que «Próximamente» no se retiraba: se completa con datos
+  (profesor: clases asignadas y liquidaciones, o «Sin clases» / «Sin liquidaciones»; grupo:
+  clases futuras o «Sin clases futuras»). El error salió de mi pregunta: DU-57 ofrecía solo
+  «Quitarlos / Dejarlos». El tablero ya lo actualizó Gemini (T68 en curso con Gemini); la
+  tabla de pruebas me toca a mí (ver inconclusos).
+- **Base de producción.** El informe de Gemini de T56 dice que contó alumnos en la base `wings`
+  del servidor. Se lo avisé a Carlos; no contestó si estaba autorizado.
+
+**Inconclusos míos**
+- **Tabla de pruebas, DU-57 y SIS-012:** corregir en la tabla viva y en la copia del repo la
+  respuesta (completar con datos, no quitar) y lo esperado de SIS-012. No hecho.
+- **T66 (Codex, 9bb7bd6):** me toca verificar la lógica; Carlos ya aprobó el visual (55ac057).
+  No empezado.
+- **`VERIFICACION-T56-T68.md`:** con la aclaración de Carlos, la aprobación de T68 no vale; dejé
+  la nota al principio del informe. T56 sigue cerrada.
+
+**Observaciones sin decisión (no bloquean)**
+- T56: si un inactivo sin plan paga, queda inactivo y la pantalla de cobro no lo dice. Hoy no es
+  alcanzable (ningún alumno sin plan).
+- Gemini propuso que el generador del día 1 avise al dueño si encuentra un activo sin plan, en
+  vez de solo escribirlo en el log. Es decisión de Carlos.
+
 ## 2026-10-19 — Claude CAB — T56 verificada y cerrada; T68 espera el visual de Carlos
 
 Lógica de Gemini correcta: al cambiar de grupo el plan es obligatorio y del grupo nuevo; el
