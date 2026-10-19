@@ -11,6 +11,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — DU-57 corregida en la tabla de pruebas; T66 pasa a Gemini
+
+- DU-57: respuesta corregida a «Completarlos con datos reales» (aclaración de Carlos del 19/10);
+  se conserva la original del 13/10 en `respuesta_original`. Tabla viva y copia del repo.
+- SIS-012 reescrito con lo esperado real: próximas clases del grupo o «Sin clases futuras
+  programadas»; liquidaciones y clases del profesor o sus avisos. La ficha del profesor es solo ADMIN.
+- `DUDAS-RESPONDIDAS-2026-10-13.md` actualizado en la fila de DU-57.
+- Carlos decidió: la lógica de T66 la verifica Gemini (ya no Claude); T68 la verifica Codex.
+  Prompts entregados a Carlos. Solo documental: sin código ni suite.
+
 ## 2026-10-19 — Claude CAB — Pendientes al cerrar la sesión (sin respuesta de Carlos o inconclusos)
 
 Pedido de Carlos: dejar asentado todo lo que quedó sin responder o sin terminar.
@@ -28,8 +38,7 @@ Pedido de Carlos: dejar asentado todo lo que quedó sin responder o sin terminar
   del servidor. Se lo avisé a Carlos; no contestó si estaba autorizado.
 
 **Inconclusos míos**
-- **Tabla de pruebas, DU-57 y SIS-012:** corregir en la tabla viva y en la copia del repo la
-  respuesta (completar con datos, no quitar) y lo esperado de SIS-012. No hecho.
+- **Tabla de pruebas, DU-57 y SIS-012:** hecho el 19/10 (ver entrada de arriba).
 - **T66 (Codex, 9bb7bd6):** me toca verificar la lógica; Carlos ya aprobó el visual (55ac057).
   No empezado.
 - **`VERIFICACION-T56-T68.md`:** con la aclaración de Carlos, la aprobación de T68 no vale; dejé

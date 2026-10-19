@@ -445,29 +445,53 @@
       "titulo": "Respaldo y vuelta atrás de los datos"
     },
     {
-      "accion": "Abre las dos fichas.",
+      "accion": "Abre la ficha de un grupo (ADMIN y OPERATIVO) y la de un profesor (solo ADMIN), con datos y sin datos.",
       "codigo": "SIS-012",
       "duda": "DU-57",
       "esperado": [
         {
-          "donde": "Fichas",
+          "donde": "Ficha del grupo",
           "l": "a",
-          "texto": "Ni la ficha del grupo ni la del profesor muestran carteles de «Próximamente».",
+          "texto": "En lugar del cartel, «Cronograma semanal» lista las próximas clases no canceladas del grupo (día, fecha y horario) con enlace a cada una.",
           "tipo": "directo"
+        },
+        {
+          "donde": "Ficha del grupo",
+          "l": "b",
+          "texto": "Si no tiene clases futuras dice «Sin clases futuras programadas.»; el ADMIN ve además «+ Programar clases».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha del profesor",
+          "l": "c",
+          "texto": "«Historial de liquidaciones» lista sus liquidaciones (mes, importe y si está pagada); si no tiene, «Sin liquidaciones registradas.».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Ficha del profesor",
+          "l": "d",
+          "texto": "«Clases asignadas» lista sus próximas clases no canceladas (grupo y horario); si no tiene, «Sin clases asignadas próximas.».",
+          "tipo": "directo"
+        },
+        {
+          "donde": "Fichas",
+          "l": "e",
+          "texto": "Ninguna de las dos fichas muestra la palabra «Próximamente».",
+          "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-57, 13/10): quitarlos. Falta programar: T68. Antes: grupos/show y profesores/show (vistas leídas el 13/10).",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-57, 13/10) y aclarado el 19/10: no se quitan, se completan con datos reales o con el aviso de que no hay. La primera respuesta («Quitarlos») salió de una pregunta mal planteada. Implementado por Gemini en e5b4695a (T68); falta visto visual de Carlos y verificación.",
       "modulo": "Transversales",
       "pantalla": "acceso-errores",
-      "requiere": "Recorrido de la ficha de un grupo y de la ficha de un profesor.",
+      "requiere": "Un grupo con clases futuras y otro sin; un profesor con liquidaciones y clases próximas y otro sin.",
       "roles": [
         "ADMIN",
         "OPERATIVO"
       ],
       "tarea": "T68",
       "tipo": "mal_uso",
-      "titulo": "Carteles de «Próximamente»"
+      "titulo": "Fichas sin «Próximamente»: datos reales"
     },
     {
       "accion": "Cada uno abre el menú, en computadora y en teléfono.",

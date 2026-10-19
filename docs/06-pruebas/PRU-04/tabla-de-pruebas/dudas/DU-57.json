@@ -1,4 +1,6 @@
 {
+  "aclaracion": "Carlos, 19/10: no se quitan. Grupo: próximas clases o «Sin clases futuras programadas». Profesor: liquidaciones y clases asignadas, o «Sin liquidaciones registradas» / «Sin clases asignadas próximas». La pregunta original solo ofrecía quitar o dejar.",
+  "aclarada_en": "2026-10-19",
   "casos": [
     "SIS-012"
   ],
@@ -7,11 +9,13 @@
   "modulo": "Transversales",
   "opciones": [
     "Quitarlos",
-    "Dejarlos"
+    "Dejarlos",
+    "Completarlos con datos reales"
   ],
   "orden": 55,
   "pregunta": "La ficha del grupo y la del profesor muestran carteles de «Próximamente». ¿Se quitan antes de salir a producción?",
   "recomendacion": "Quitarlos: prometen algo que no está.",
   "respondida_en": "2026-10-13T11:37:14.356Z",
-  "respuesta": "Quitarlos"
+  "respuesta": "Completarlos con datos reales",
+  "respuesta_original": "Quitarlos (13/10)"
 }

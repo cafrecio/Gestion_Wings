@@ -64,7 +64,7 @@ Cuidados al guardar y correcciones:
 | DU-48 | El dueño puede eliminar un alumno o una clase creados por error, si no tienen cobros ni asistencias. | Medio |
 | DU-55 | Una clase necesita al menos una profesora. | Chico |
 | DU-56 | La lista de asistencia muestra solo los tres últimos números del DNI. | Chico |
-| DU-57 | Quitar los carteles «Próximamente». | Chico |
+| DU-57 | Completar los carteles «Próximamente» con datos reales o con el aviso de que no hay (aclarado por Carlos el 19/10; la respuesta del 13/10 decía «quitarlos»). | Chico |
 
 Reportes:
 
