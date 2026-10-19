@@ -14,6 +14,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class PrimeraCargaExcelTest extends TestCase
 {
     use RefreshDatabase;

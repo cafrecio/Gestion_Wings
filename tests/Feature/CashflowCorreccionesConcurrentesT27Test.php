@@ -13,6 +13,7 @@ use Tests\Support\ImportesT24;
 use Tests\TestCase;
 
 /** Dos conexiones MariaDB reales: timeout sin escribir y reintento tras el commit. */
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class CashflowCorreccionesConcurrentesT27Test extends TestCase
 {
     use DatabaseMigrations;

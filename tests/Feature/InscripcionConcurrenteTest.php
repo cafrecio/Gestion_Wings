@@ -11,6 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Illuminate\Support\Facades\{DB, Storage};
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class InscripcionConcurrenteTest extends TestCase
 {
     private string $principal;

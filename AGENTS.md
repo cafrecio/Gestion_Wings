@@ -332,7 +332,7 @@ En tareas exclusivamente documentales, verificar enlaces, integridad y diff; no 
 suite, migraciones ni cachés por reorganizar documentación. Para cambios de código:
 
 ```bash
-php artisan test                                    # 129 tests deben pasar (corte 06/09/2026)
+php artisan test --exclude-group=lento              # suite rápida, ver §6-ter
 php -l <cada archivo tocado>                        # sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # las vistas compilan
 git diff --stat -- resources/views resources/css    # debe estar vacío
@@ -370,6 +370,44 @@ CREATE DATABASE wings_testing_claude CHARACTER SET utf8mb4 COLLATE utf8mb4_unico
 Son descartables: las migraciones las rehacen en cada corrida. `wings_testing` queda como
 la base por defecto para quien corra la suite sin variable, y la base de trabajo del club
 no se usa nunca para probar.
+
+## 6-ter. Suite en dos velocidades — decisión de Carlos, 19/10/2026
+
+La suite completa tarda de 16 a 33 minutos y la corrían todos en cada tarea, a veces dos
+agentes a la vez en la misma máquina. El 19/10, 12 de los 144 archivos se llevaban 13 de
+los 16 minutos (concurrencia y reportes pesados), y dos fallas falsas aparecieron por
+correr suites simultáneas.
+
+**En cada tarea con código: suite rápida + pruebas del área tocada.**
+
+```bash
+DB_DATABASE=wings_testing_<agente> php artisan test --exclude-group=lento   # ~4 min
+```
+
+Medida el 19/10 en CyE: 806 aprobadas, 4 omitidas, 216 s.
+
+**Suite completa (sin `--exclude-group`) solo en estos casos:**
+
+1. Antes de cada despliegue al servidor. Sin suite completa en verde, no se despliega.
+2. Cuando la tarea toca plata compartida: cobros, deuda, caja, cashflow, liquidaciones,
+   recibos, o cualquier servicio de la tabla «Servicios clave» de CLAUDE.md.
+3. Cuando la tarea toca el área de alguno de los archivos marcados `lento`: esos se
+   corren aunque no se corra el resto (`php artisan test tests/Feature/<Archivo>.php`).
+4. Cuando el barrido con codebase-memory muestra que lo tocado lo usan otras áreas.
+
+**Una suite completa a la vez por computadora.** Antes de lanzarla, mirar que ningún otro
+agente esté corriendo pruebas:
+
+```powershell
+Get-CimInstance Win32_Process -Filter "name='php.exe'" | Where-Object CommandLine -match 'artisan test|phpunit'
+```
+
+Si hay algo, esperar. Si igual falla una prueba ajena a la tarea, repetirla aislada y
+anotarlo sin atribuirle causa.
+
+**Grupo `lento`.** Se marca con `#[\PHPUnit\Framework\Attributes\Group('lento')]` sobre la
+clase. Entra un archivo nuevo si tarda más de 10 s en la suite. Nadie marca `lento` una
+prueba para que la suite rápida pase: lento es por tiempo, nunca por rojo.
 
 ## 6a. Lo que hace uno, lo controla otro — decisión de Carlos, 23/09/2026
 

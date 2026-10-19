@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class PunitoriosCobroTest extends TestCase
 {
     use RefreshDatabase;

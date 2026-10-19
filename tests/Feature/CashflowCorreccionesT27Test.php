@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Tests\Support\ImportesT24;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class CashflowCorreccionesT27Test extends TestCase
 {
     use RefreshDatabase;

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class CajaVerificacionConcurrenteT36Test extends TestCase
 {
     private string $principal;

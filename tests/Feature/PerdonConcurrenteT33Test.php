@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\{DB, Storage};
 use Tests\TestCase;
 use Symfony\Component\Process\Process;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class PerdonConcurrenteT33Test extends TestCase
 {
     private string $principal;

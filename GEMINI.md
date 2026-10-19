@@ -55,11 +55,14 @@ Identidad obligatoria según la computadora donde estés trabajando:
 Para documentación solamente, seguir las comprobaciones documentales del protocolo.
 Para cambios de código:
 ```bash
-php artisan test                                    # Todos los tests deben pasar
+php artisan test --exclude-group=lento              # Suite rápida (AGENTS.md §6-ter)
 php -l <cada archivo PHP o Blade tocado>            # Sin errores de sintaxis
 php artisan view:cache && php artisan view:clear    # Las vistas compilan sin error
 git diff --stat -- resources/views resources/css    # Solo lo autorizado
 ```
+La suite completa (`php artisan test`, sin excluir) va antes de desplegar, si se toca plata
+compartida o un área marcada `lento`, y nunca con otra suite corriendo en la misma máquina.
+Detalle en AGENTS.md §6-ter.
 
 ### D. Definición de terminado (no dejar documentos mintiendo)
 - Si una tarea modifica el estado de un módulo o bug, actualizar `docs/00-estado/ESTADO-ACTUAL.md`.

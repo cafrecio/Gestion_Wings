@@ -16,6 +16,7 @@ use Tests\TestCase;
  * Se fuerza timeout sin escrituras; después del commit se reintenta y verifica dinero,
  * estados e idempotencia. No equivale a una solicitud HTTP que se reanuda automáticamente.
  */
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class CobrarCancelarValidarConcurrenteTest extends TestCase
 {
     use \Tests\Concerns\VerificaMovimientosDeCaja;

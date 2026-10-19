@@ -11,6 +11,17 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CyE — Suite en dos velocidades: regla para los tres agentes
+
+- Decisión de Carlos (19/10): «Ponelo como regla para todos los agentes».
+- 12 archivos marcados `#[Group('lento')]` (concurrencia y reportes: 13 de 16 min en la corrida
+  de T66). Ninguna prueba se borró ni cambió de contenido.
+- Regla en AGENTS.md §6-ter; §6, GEMINI.md, CLAUDE.md y RESUMEN-ARRANQUE apuntan ahí.
+  CLAUDE.md ya no declara «129 tests» (cifra del 06/09).
+- Suite rápida en `wings_testing_claude`: 806 aprobadas, 4 omitidas, 0 fallidas, 216 s.
+  Guardianes documentales: 7 aprobadas. La suite completa no se corrió: no cambia código.
+- Nota propia: las pruebas de T68 de esta sesión las corrí sin `DB_DATABASE`, en `wings_testing`.
+
 ## 2026-10-19 — Claude CyE — T68 cerrada; idea de suite en dos velocidades
 
 - T68: verifiqué la lógica de H1 de Codex (02b72588: la ficha del profesor usa `monto_a_pagar`,

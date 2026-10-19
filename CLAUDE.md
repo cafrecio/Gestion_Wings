@@ -176,15 +176,16 @@ Setup tecnico detallado:
 
 ## Tests
 
-Comando:
+Dos velocidades (decisión de Carlos, 19/10/2026; detalle en `AGENTS.md` §6-ter):
 
 ```bash
-php artisan test
+DB_DATABASE=wings_testing_claude php artisan test --exclude-group=lento   # cada tarea, ~4 min
+DB_DATABASE=wings_testing_claude php artisan test                         # completa
 ```
 
-Estado verificado (2026-09-06):
-
-- La suite completa pasa sobre MariaDB: 129 tests, 705 aserciones.
+- La completa va antes de desplegar, si se toca plata compartida o un área marcada
+  `lento`, y nunca con otra suite corriendo en la misma máquina.
+- El número vigente de pruebas está en `ESTADO-ACTUAL.md` (lo controla `DocumentacionNoMienteTest`).
 - El esquema de prueba se prepara desde migraciones; no requiere un dump.
 
 ## Pruebas funcionales y seeders

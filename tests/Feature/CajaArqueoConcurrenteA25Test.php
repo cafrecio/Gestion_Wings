@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
 /** Dos conexiones reales: timeout sin escritura, commit y reintento con estado actual. */
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class CajaArqueoConcurrenteA25Test extends TestCase
 {
     private string $principal;

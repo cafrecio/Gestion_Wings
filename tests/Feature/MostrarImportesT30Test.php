@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Tests\Support\ImportesT30;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class MostrarImportesT30Test extends TestCase
 {
     use RefreshDatabase;

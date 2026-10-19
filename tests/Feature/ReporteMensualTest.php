@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
+#[\PHPUnit\Framework\Attributes\Group('lento')]
 class ReporteMensualTest extends TestCase
 {
     use \Tests\Concerns\VerificaMovimientosDeCaja;
