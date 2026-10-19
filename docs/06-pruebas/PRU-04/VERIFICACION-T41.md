@@ -1,7 +1,7 @@
 # T41 — Verificación de Claude · 18/10/2026 · APROBADA Y CERRADA
 
 Verificado sobre `ee65b57` (Gemini CAB). Decisión de Carlos (DU-37): «Impedir cerrar antes de
-que termine el mes», desde el día 1 del mes siguiente. Falta el visto bueno visual de Carlos.
+que termine el mes», desde el día 1 del mes siguiente. Aspecto aprobado por Carlos el 18/10.
 
 ## Qué leí
 
