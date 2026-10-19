@@ -5,11 +5,10 @@
 
 ## Lectura y coordinación
 
-- Leer este resumen y los tres logs activos; después, solo la tarea elegida.
+- Leer este resumen y los tres logs activos; después, solo la tarea elegida. No leer todo el histórico: buscar ID y fragmento.
 - [Codex](LOG-CODEX.md) · [Claude](LOG-CLAUDE.md) · [Gemini](LOG-GEMINI.md).
 - Cada agente escribe su bitácora. Actualizar este resumen sin pisar aportes simultáneos.
 - Las evaluaciones del 8/9 son históricas: no tratarlas como defectos actuales.
-- No leer todo el histórico para ponerse al día; buscar ID y fragmento relevante.
 - No ejecutar tareas por aparecer aquí: respetar el pedido actual de Carlos.
 - **Desde el 19/10, suite en dos velocidades** (AGENTS.md §6-ter): rápida por tarea (`--exclude-group=lento`, ~4 min); completa antes de desplegar, si se toca plata compartida o un área `lento`, y una sola a la vez por máquina.
 - **Desde el 17/09, para analizar o buscar en el repo usar primero `codebase-memory-mcp`** (AGENTS.md §6e): pista, no hecho; reindexar tras pull; se instala por máquina. CyE: sí.
