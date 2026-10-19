@@ -77,11 +77,6 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
         {{ $tituloHoy }} — {{ \Carbon\Carbon::now()->locale('es')->isoFormat('dddd D [de] MMMM') }}
         · <strong>{{ $misClasesHoy->where('cancelada', false)->count() }}</strong> clase(s)
     </div>
-    @if($esAdmin)
-        <x-ds.button variant="primary" href="{{ route('web.clases.create') }}">
-            Nuevo
-        </x-ds.button>
-    @endif
 </div>
 
 <div id="clases-hoy-container"
@@ -208,6 +203,11 @@ $diasSemana = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
             <strong>0</strong> clases encontradas
         @endif
     </div>
+    @if($esAdmin)
+        <x-ds.button variant="primary" href="{{ route('web.clases.create') }}">
+            Nuevo
+        </x-ds.button>
+    @endif
 </div>
 
 <div id="clases-listado">

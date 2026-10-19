@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="xoOhkqn2i5rz7JvHxugfB4aw7tUS7ZN2VjcGamHz">
+    <meta name="csrf-token" content="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi">
     <title>Lunes 12 de octubre de 2026 — Patin — Inicial – Wings</title>
     <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
@@ -223,10 +223,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Harmon Buckridge</span>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Palma Bailey</span>
                 </div>
                 <form method="POST" action="http://gestion-wings/logout">
-                    <input type="hidden" name="_token" value="xoOhkqn2i5rz7JvHxugfB4aw7tUS7ZN2VjcGamHz" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+                    <input type="hidden" name="_token" value="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
             type="submit"
             >
 
@@ -319,7 +319,7 @@
                 
                 
                                     <form method="POST" action="http://gestion-wings/clases/2/validar" style="display:inline;">
-                        <input type="hidden" name="_token" value="xoOhkqn2i5rz7JvHxugfB4aw7tUS7ZN2VjcGamHz" autocomplete="off"> <input type="hidden" name="_method" value="PATCH">                        <button type="submit"
+                        <input type="hidden" name="_token" value="tUpKsndGzgFE8pnIqAL73BydLDOxAhEplDGxrLKi" autocomplete="off"> <input type="hidden" name="_method" value="PATCH">                        <button type="submit"
                                 style="display:inline-flex; align-items:center; justify-content:center;
                                        width:96px; height:32px; font-size:0.82rem; font-weight:600;
                                        border-radius:var(--radius-btn); cursor:pointer; white-space:nowrap;
@@ -455,7 +455,7 @@
 <div class="ds-card ds-surface alumno-asistencia-card"
      id="card-2"
      data-alumno-id="2"
-     data-plan="0"
+     data-plan="2"
      data-asistencias-semana="0"
      style="margin-bottom:10px;
             
@@ -469,13 +469,15 @@
         <div class="flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-2">
-                    <span class="ds-dot ds-dot--neutral flex-shrink-0"></span>
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>
                     <span style="font-weight:700; font-size:0.9rem;" class="truncate">
                         Gomez, Camila
                     </span>
                 </div>
                 <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
-                                            <span>Sin plan</span>
+                                            <span style="font-weight:600; color:var(--color-success);">
+                            0/2
+                                                    </span>
                                                                 <span>· DNI …543</span>
                                     </div>
             </div>
@@ -520,7 +522,7 @@
 <div class="ds-card ds-surface alumno-asistencia-card"
      id="card-1"
      data-alumno-id="1"
-     data-plan="0"
+     data-plan="2"
      data-asistencias-semana="0"
      style="margin-bottom:10px;
             
@@ -534,13 +536,15 @@
         <div class="flex items-center justify-between gap-3">
             <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-2">
-                    <span class="ds-dot ds-dot--neutral flex-shrink-0"></span>
+                    <span class="ds-dot ds-dot--success flex-shrink-0"></span>
                     <span style="font-weight:700; font-size:0.9rem;" class="truncate">
                         Gomez, Sofia
                     </span>
                 </div>
                 <div class="flex items-center gap-2 mt-0.5 text-xs text-wings-muted" style="margin-left: 14px;">
-                                            <span>Sin plan</span>
+                                            <span style="font-weight:600; color:var(--color-success);">
+                            0/2
+                                                    </span>
                                                                 <span>· DNI …456</span>
                                     </div>
             </div>
@@ -628,7 +632,7 @@
 
 <script>
 (function () {
-    const infoSemana = {"2":{"asistencias_semana":0,"plan_semana":null,"excede":false},"1":{"asistencias_semana":0,"plan_semana":null,"excede":false}};
+    const infoSemana = {"2":{"asistencias_semana":0,"plan_semana":2,"excede":false},"1":{"asistencias_semana":0,"plan_semana":2,"excede":false}};
     const claseId    = 2;
     // El motivo solo se exige cuando se corrige algo YA cargado, no en la
     // primera carga de una clase que quedó sin tomar.

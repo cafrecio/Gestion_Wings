@@ -80,13 +80,15 @@
 
 ## 4. Evidencia Visual
 
-Las capturas fueron generadas utilizando Chrome headless sobre el HTML producido por Wings:
+Las capturas fueron generadas utilizando Chrome headless sobre el HTML producido por la aplicación:
 - **01. Contador del menú (Sin asistencia):**
   - Escritorio (1366px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/01-contador-menu-sin-asistencia-escritorio-1366.png`
   - Móvil (360px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/01-contador-menu-sin-asistencia-marco-360.png`
+  - *Detalle:* El botón `Nuevo` está ubicado exclusivamente en la barra de resultados (sección E, debajo de los filtros), sin invadir la barra de título de «Clases de hoy».
 - **02. Filtro nuevo «Sin presentes» (solo dueño):**
   - Escritorio (1366px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/02-filtro-sin-presentes-escritorio-1366.png`
   - Móvil (360px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/02-filtro-sin-presentes-marco-360.png`
-- **03. Lista de asistencia con DNI recortado:**
+- **03. Lista de asistencia con DNI recortado y planes activos:**
   - Escritorio (1366px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/03-lista-asistencia-dni-recortado-escritorio-1366.png`
   - Móvil (360px): `docs/06-pruebas/PRU-04/evidencia-t34-t67/03-lista-asistencia-dni-recortado-marco-360.png`
+  - *Detalle:* Alumnos con `GrupoPlan` y `AlumnoPlan` activos (`0/2`), DNI recortado (`…543` y `…456`), sin estado `Sin plan`.

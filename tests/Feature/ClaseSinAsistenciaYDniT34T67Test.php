@@ -8,6 +8,8 @@ use App\Models\Grupo;
 use App\Models\Nivel;
 use App\Models\Profesor;
 use App\Models\Alumno;
+use App\Models\GrupoPlan;
+use App\Models\AlumnoPlan;
 use App\Models\Asistencia;
 use App\Models\User;
 use App\Services\LiquidacionService;
@@ -70,6 +72,20 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
             'deporte_id' => $deporte->id,
             'grupo_id' => $this->grupo->id,
             'fecha_alta' => '2026-09-01',
+            'activo' => true,
+        ]);
+
+        $plan = GrupoPlan::create([
+            'grupo_id' => $this->grupo->id,
+            'clases_por_semana' => 2,
+            'precio_mensual' => 15000.00,
+            'activo' => true,
+        ]);
+
+        AlumnoPlan::create([
+            'alumno_id' => $this->alumno->id,
+            'plan_id' => $plan->id,
+            'fecha_desde' => '2026-09-01',
             'activo' => true,
         ]);
     }
@@ -225,5 +241,9 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
 
         // NO debe contener el DNI completo '42123456'
         $resp->assertDontSee('42123456');
+
+        // El alumno tiene plan activo: no debe figurar 'Sin plan' y debe mostrar el ratio semanal '0/2'
+        $resp->assertDontSee('Sin plan');
+        $resp->assertSee('0/2');
     }
 }

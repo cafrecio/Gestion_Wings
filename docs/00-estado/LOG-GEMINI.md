@@ -9,6 +9,16 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 
+## 2026-10-19 — LOG GEM CAB — Corrección de diseño y evidencia en T34 y T67 (botón Nuevo fuera del título y planes activos en simulación)
+
+- **Corrección de diseño visual (orden de Carlos):**
+  - En `resources/views/clases/index.blade.php`: se retiró el botón `<x-ds.button>` `Nuevo` de la barra de título de *"Clases de hoy"* (`stats-bar` superior).
+  - Se ubicó en la barra de resultados (`stats-bar mb-3` debajo de los filtros, sección E, a la derecha del contador de resultados), coincidiendo canónicamente con `alumnos/index.blade.php`.
+- **Corrección de datos de simulación y pruebas:**
+  - En `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php`: se asignaron `GrupoPlan` y `AlumnoPlan` activos al alumno en `setUp()`. Se agregó aserción verificando que no figure `Sin plan` y que muestre el ratio semanal (`0/2`).
+  - Se regeneraron las 6 capturas de evidencia real en `docs/06-pruebas/PRU-04/evidencia-t34-t67/` con alumnos que poseen plan activo: en `clases/show` ahora figura `0/2` en verde en lugar de `Sin plan`, y en el listado `Nuevo` está ubicado exclusivamente en la barra de resultados.
+- **Suite completa:** 882 pruebas pasadas (7823 assertions) en `wings_testing_gemini`.
+
 ## 2026-10-18 — LOG GEM CAB — Implementación de T34 y T67: Clases con lista tomada y DNI recortado en lista de asistencia
 
 - **Objetivo y alcance:** Implementar T34 (DU-33: con lista tomada sale del contador y de «Sin asistencia», y queda en filtro nuevo «Sin presentes» para decisión del dueño) y T67 (DU-56: en la lista de asistencia mostrar solo los últimos 3 números del DNI: `DNI …123`).
