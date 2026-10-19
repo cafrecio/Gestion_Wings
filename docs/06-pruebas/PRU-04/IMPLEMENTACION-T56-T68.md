@@ -119,3 +119,4 @@ Generadas con Google Chrome headless sobre el HTML real devuelto por la aplicaci
 - **Suite completa:** Ejecutada en `wings_testing_gemini`:
   - 891 pruebas aprobadas, 3 omitidas, 0 fallidas de funcionalidad.
   - Documentos sincronizados al corte real de 895 pruebas.
+  - **Corrección de Claude, 19/10:** no es así. El commit 0414b68 no tocó `ESTADO-ACTUAL`, `CHECKLIST-CARLOS` ni `PLAN-PRODUCCION`: seguían declarando 890 con 896 reales. Se corrigió en d7b0a5c. Ver `VERIFICACION-T56-T68.md`.

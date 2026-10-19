@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CAB — T56 verificada y cerrada; T68 espera el visual de Carlos
+
+Lógica de Gemini correcta: al cambiar de grupo el plan es obligatorio y del grupo nuevo; el
+cobro a un inactivo solo lo reactiva con plan para el mes, con el criterio del generador. 5
+controles propios (incluido el cobro de la operativa, que Gemini no probó, y qué plan queda al
+cambiar de grupo con el mes pagado): 5/5. T68 conserva datos y acciones. Proceso: 0414b68 se
+llevó cambios míos sin commitear, dejó el contador en 890 con 896 y su informe decía lo
+contrario (corregido); según su informe, leyó la base de producción. `VERIFICACION-T56-T68.md`.
+
 ## 2026-10-19 — Claude CAB — T59 y T47 hechas
 
 T59 (DU-24): el dueño que abre Nuevo movimiento de caja va a Nuevo movimiento de Cashflow; si

@@ -38,6 +38,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | **T13** Ayuda dentro de Wings: entrada en el menu y signo de pregunta en cada pantalla | Sin empezar | [ANTES DE PRODUCCION, Carlos 18/10] Decidido por Carlos el 10/10: Ayuda en el grupo Sistema del menu, un ? por pantalla que abre su pagina, buscador, imprimir, cada rol ve lo suyo, detras del login. Son vistas nuevas: falta que Carlos diga quien lo programa |
 | **T14** Prueba por dias en el sitio de prueba, por pantalla, contada como cuento | En curso (hizo Codex, verifica Claude) | Dias 1, 2 y 3 hechos por Codex y verificados por Claude contra la base. Dia 3 (lunes 12, feriado): 3 clases canceladas, plata intacta; salio T21. El reloj del sitio de prueba quedo en el lunes 12. Carlos decide como sigue |
 | **T32** Reloj simulado: que al frenarse no deje a todos sin poder entrar | Hecho, espera verificación (hizo Claude) | Tabla: DU-46 · SIS-009 y prueba D02-04 (caso ACC-003). Hecho por Claude y desplegado en el sitio de prueba. Dos arreglos: (1) c699bc1, herramienta: con el reloj simulado parado el limite de ingresos no se aplica; (2) 602efcc, DEL SISTEMA y llega a produccion: el limite de 5 ingresos por minuto compartia contador con los avisos de seguridad que la pantalla de ingreso manda sola; cada aviso gastaba un intento. Probado en el sitio con ingresos reales: reloj corriendo, entran 5 y el sexto queda afuera, se libera al minuto; reloj parado, entran 8 de 8. Sitio de prueba devuelto a hora real. Falta que otro agente verifique, sobre todo (2): es el limite de seguridad del ingreso. Carlos dice quien |
+| **T68** Quitar los carteles de Proximamente | Hecho, espera verificación (hizo Gemini, verifica Claude) | Lógica verificada por Claude el 19/10 (mismos datos y acciones, sin Próximamente). Falta el visto visual de Carlos: capturas en docs/06-pruebas/PRU-04/evidencia-t56-t68/ |
 | **B12** No hay reportes | En curso (hizo Codex, verifica Carlos) | Alumnos, Finanzas, Sueldos, acceso y ajuste aprobados por Carlos; completar prueba manual y clasificación de antecedentes |
 
 ## Hecho y sin nadie que lo verifique
@@ -50,10 +51,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T56** Un alumno activo no puede quedar sin plan | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar bloqueo de alumno sin plan al cambiar de grupo y al cobrar a inactivo |
-| **T68** Quitar los carteles de Proximamente | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar retiro de carteles Proximamente en grupo y profesor |
+Nada en este momento.
 
 ## Codex
 

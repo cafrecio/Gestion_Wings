@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## Verificación T56/T68 — Claude CAB 19/10/2026
+
+T56 cerrada: la lógica de Gemini (plan obligatorio al cambiar de grupo; el cobro no reactiva a un inactivo sin plan del mes) pasa sus 5 pruebas y 5 controles propios. T68: datos y acciones intactos, sin «Próximamente»; falta el visto visual de Carlos. El commit 0414b68 se llevó cambios ajenos y no actualizó el contador (corregido en d7b0a5c). [Informe](../06-pruebas/PRU-04/VERIFICACION-T56-T68.md).
+
 ## T59 y T47 — Dueño a Cashflow; avisos en castellano, Claude CAB 19/10/2026
 
 T59 (DU-24, MOV-006): el dueño que entra a Nuevo movimiento de caja va directo a Cashflow; si envía el formulario de caja no se registra nada. T47 (DU-02, ACC-014): abrir a mano la dirección de una acción muestra «Esta dirección no se abre a mano» (405) en lugar de «Página no disponible»; un registro inexistente avisa en castellano y un fallo de base no muestra la consulta (`App\Support\AvisoError`, 29 `catch` de 6 controladores). 10 pruebas nuevas, Chrome 1366/375. Suite sola: 901 aprobadas, 4 omitidas, solo el contador en rojo (906). El commit de Gemini 0414b68 se llevó parte de T47 sin la clase: HEAD daba 500 en esos `catch` hasta este commit. A verificar. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T59-T47.md). Sin despliegue.
