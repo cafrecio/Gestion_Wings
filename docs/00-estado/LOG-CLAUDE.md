@@ -20,7 +20,8 @@ con corrección visual tras el rechazo de Carlos), T34 (Codex), T40 (Gemini). DU
 **Sigue abierto**
 - **T73** a verificar en navegador con clics; sin verificador asignado.
 - **T40 debe desplegarse antes del 1/11** (incluye migrar `generaciones_cuotas`). Nada desplegado hoy.
-- **Base de producción:** Carlos no respondió si Gemini estaba autorizado a contar alumnos en `wings`.
+- ~~Base de producción~~ cerrado: Gemini solo leyó (0 activos sin plan, para T56) y Carlos aclaró que la base
+  de producción no tiene alumnos. Sin riesgo; no queda pregunta pendiente.
 - Observación T56 sin decisión: un inactivo sin plan que paga queda inactivo (no alcanzable hoy).
 
 **Aclaraciones de la sesión**
