@@ -52,7 +52,9 @@ Nada.
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T66** Una clase necesita al menos una profesora | En curso (hizo Codex, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-55 · CLA-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: ClaseWebController::store/update y actualizarProfesores, ProgramacionClasesService, clases-form.js. ORDEN: despues de T34 y T35. Mirar antes cuantas clases ya cargadas no tienen profesora |
 
 ## Gemini
 
@@ -62,9 +64,9 @@ Nada en este momento.
 | **T56** Un alumno activo no puede quedar sin plan | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-15 · ALU-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el generador lo saltea y queda fuera de la cobranza sin que nadie lo vea. TOCA: AlumnoWebController, GrupoWebController::destroyPlan y toggleActivo, generador mensual |
 | **T68** Quitar los carteles de Proximamente | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-57 · SIS-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: grupos/show (linea 166) y profesores/show (lineas 117 y 126). Chica y visual |
 
-## Sin empezar (28)
+## Sin empezar (27)
 
-T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T59, T60, T61, T62, T64, T65, T66, T69, T70, T71, T72, T73, B3.
+T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T59, T60, T61, T62, T64, T65, T69, T70, T71, T72, T73, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
