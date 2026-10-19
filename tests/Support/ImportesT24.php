@@ -26,7 +26,7 @@ final class ImportesT24
         'caja-agregar', 'caja-editar', 'caja-movimiento', 'cashflow', 'grupo-alta', 'grupo-editar',
         'plan-directo', 'profesor-alta', 'profesor-editar', 'medio-alta', 'medio-editar', 'configuracion', 'liquidacion'];
 
-    public function __construct(string $caso)
+    public function __construct(string $caso, string $precioPlan = '48000.50')
     {
         if (!in_array(config('database.connections.mysql.database'), ['wings_testing', 'wings_testing_codex', 'wings_testing_claude', 'wings_testing_gemini'], true)) {
             throw new \RuntimeException('T24 solo permite bases descartables de pruebas.');
@@ -46,7 +46,7 @@ final class ImportesT24
         $this->deporte = Deporte::create(['nombre' => 'Deporte T24', 'tipo_liquidacion' => 'HORA', 'activo' => true]);
         $nivel = Nivel::create(['nombre' => 'Nivel T24']);
         $this->grupo = Grupo::create(['deporte_id' => $this->deporte->id, 'nivel_id' => $nivel->id, 'activo' => true]);
-        $this->plan = GrupoPlan::create(['grupo_id' => $this->grupo->id, 'clases_por_semana' => 2, 'precio_mensual' => '48000.50', 'activo' => true]);
+        $this->plan = GrupoPlan::create(['grupo_id' => $this->grupo->id, 'clases_por_semana' => 2, 'precio_mensual' => $precioPlan, 'activo' => true]);
         $this->alumno = Alumno::create(['nombre' => 'Alumno', 'apellido' => 'Prueba T24', 'dni' => '39999241',
             'fecha_nacimiento' => '2000-01-01', 'celular' => '1100000000', 'fecha_alta' => '2026-08-01',
             'deporte_id' => $this->deporte->id, 'grupo_id' => $this->grupo->id, 'activo' => true]);

@@ -131,7 +131,7 @@
                 </p>
                 <p class="text-sm font-medium text-wings" style="overflow-wrap:anywhere;">
                     @if($alumno->planActivo && $alumno->planActivo->plan)
-                        {{ $alumno->planActivo->plan->clases_por_semana }}x sem. — {{ \App\Support\FormatoImporte::pesos($alumno->planActivo->plan->precio_mensual) }}/mes
+                        {{ $alumno->planActivo->plan->clases_por_semana }}x sem. — {{ \App\Support\FormatoImporte::pesos($alumno->planActivo->plan->precioParaPeriodo(now()->format('Y-m'), $alumno->fecha_alta)) }}/mes
                     @else
                         <span class="text-wings-muted">Sin plan asignado</span>
                     @endif

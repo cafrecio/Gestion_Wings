@@ -110,7 +110,7 @@ curl -fsSL https://raw.githubusercontent.com/cafrecio/Gestion_Wings/main/scripts
 7. Ejecutar la suite completa:
 
 ```bash
-$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 862 pruebas. Suite Codex CAB 18/10, observaciones T75: 857 aprobadas/3 omitidas, 7692 aserciones; base wings_testing_codex. Ver IMPLEMENTACION-T75-OBSERVACIONES.md
+$env:DB_DATABASE='wings_testing_gemini'; php artisan test  # 885 pruebas. Suite T44 Codex CAB: 878 aprobadas/3 omitidas, 7792 aserciones; corte 881, wings_testing_codex. Ver IMPLEMENTACION-T44.md; T34/T67 paralelos no certificados.
 ```
 
 Entrega P1 del 05/10: **427 pruebas / 2968 aserciones**, verdes en copia exclusiva, sin las 8 pruebas de P2 aún sin commit.
@@ -162,7 +162,7 @@ solo (`deploy-wings.bat`) se elimino el 11/09.
   filtros con `filtros-row` y `flex-wrap` para apilarse en celular, y retiro del `<script>`
   duplicado (scripts de CSP bajan a 21).
 - [x] **FIN-08:** decidido y hecho el 21/09. El operativo resuelve la revision; parcial ya no aplica;
-  "Continua" usa el precio vigente del plan.
+  "Continua" usa la tarifa aplicable al alumno y al período, por historial (T44).
   Ya decidido (17/09): la hace el operativo, no solo el admin; las notas viejas se conservan.
 - [x] **FIN-09:** decidido 17/09. Nada futuro; mes en curso y anterior normal; mas viejo
   se carga con su fecha real en la caja de hoy (no se tocan cajas controladas), avisa en

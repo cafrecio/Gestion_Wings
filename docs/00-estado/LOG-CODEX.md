@@ -1,5 +1,15 @@
 # Wings — Bitácora activa de CODEX
 
+## 2026-10-18 — Codex CAB — T44, vigencia de precios y cambios de plan
+
+T44 implementada localmente: historial de tarifas y resolución común por alumno/mes.
+Bajas al siguiente mes; subidas con saldo pendiente/parcial ahora, con mes saldado al siguiente.
+Varios aumentos por mes: existentes desde el siguiente; altas según su día. Cuotas conservadas.
+19 casos nuevos; suite 878 aprobadas/3 omitidas, 7792 aserciones, 1102.93 s en wings_testing_codex.
+22 fuentes idénticas al corte; build, sintaxis y vistas correctos. 33 medidas y tres interacciones.
+[Entrega y decisiones](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md). Verifica Claude; aspecto Carlos.
+Corte 881 métodos; cambios paralelos T34/T67 no certificados. Sin despliegue ni base del club.
+
 ## 2026-10-18 — Codex CAB — T75, jerarquía fija elegida y aplicada
 
 Carlos eligió «Jerarquía fija y consistente»; la decisión ya no queda pendiente.
@@ -110,16 +120,6 @@ Suite propia wings_testing_codex: 2 skipped, 725 passed (6947 assertions); salid
 [Segunda vuelta y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md#segunda-vuelta). Tiene Claude: grupo opcional y regresión HTML.
 Sin arreglo de código, producto, datos del club, reloj ni despliegue; copia restaurada y retirada. T11 no empezada.
 
-## 2026-10-16 — Codex CyE — T3 devuelta a Claude, fecha de cierre alterada
-
-Verificado f4e6436: 70 defectos, cero cambios abierto/cerrado y cuerpos intactos; 56 encabezados distintos.
-Copia aislada: cinco archivos escritos; tres corrupciones detectadas y CRLF verde. Guardianes 9/31 verdes.
-Solo cambiar paso de A6 altera CERRADO 08/10 a 16/10; el guardián sigue verde. Devolver, sin arreglar.
-Se pierden en encabezados aprobaciones, doble verificador y motivos de cierre; antecedentes siguen en cuerpos.
-Suite propia wings_testing_codex: 2 skipped, 723 passed (6929 assertions); salida 0. T33 concurrente pasa sus diez casos en la suite.
-[Informe y evidencia](../06-pruebas/PRU-04/VERIFICACION-T3-CODEX.md). Devuelta, tiene Claude: conservar fecha real y agregar regresión.
-Sin cambios de producto, reloj, datos del club ni despliegue; ensayos documentales solo en copia restaurada.
-
 [Entrada archivada al verificar T3 segunda vuelta](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-SEGUNDA.md).
 
 [Entrada archivada en la tercera vuelta T3/T11](../99-archivo/bitacoras/2026-10-16/LOG-CODEX-T3-T11-TERCERA.md).
@@ -137,3 +137,5 @@ Sin cambios de producto, reloj, datos del club ni despliegue; ensayos documental
 [Entrada T11 del 13/10 archivada al revisar observaciones T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-OBSERVACIONES.md).
 
 [Entrada T11 del 14/10 archivada al aplicar jerarquía T75](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T75-JERARQUIA.md).
+
+[Entrada T3 archivada al iniciar T44](../99-archivo/bitacoras/2026-10-18/LOG-CODEX-T44-ARRANQUE.md).

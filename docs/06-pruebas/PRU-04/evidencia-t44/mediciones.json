@@ -1,0 +1,1335 @@
+{
+  "metodo": "Respuestas de Laravel en iframe de ancho real",
+  "resultados": [
+    {
+      "slug": "planes-editar",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 271.5,
+          "derecha": 305,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-360-inicio.png",
+          "sha256": "5406737365c86426180c46321d22edf378c7399d5cae929eac77367aff9703f7"
+        }
+      ]
+    },
+    {
+      "slug": "planes-editar",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 286.5,
+          "derecha": 320,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-375-inicio.png",
+          "sha256": "70173f39573604d89a947d239d663e9489e89ce47a10438aea8d6f2239c98c3e"
+        }
+      ]
+    },
+    {
+      "slug": "planes-editar",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Patín T44 — Inicial T44\nDeporte\n\nPatín T44\n\nNivel\n*\n\nInicial T44\n\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\n1 vez/semana\n2 veces/semana\n3 veces/semana\n4 veces/semana\n5 veces/semana\n$\n✕\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "✕",
+          "x": 1291.5,
+          "derecha": 1325,
+          "ancho": 33.5,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1125,
+          "derecha": 1221,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-editar-1366-inicio.png",
+          "sha256": "96046ac6ced21f1d1f78db2a9a9596e0d92b7c4eaec6b5501a4bc9d69cd27384"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-360-inicio.png",
+          "sha256": "d39d343a9530229fe2a5402908ff57a5bd9a6d122601cca616d9211b5cf07b07"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-375-inicio.png",
+          "sha256": "cc6bf49531acb7c4ef47905965c452bbebcf55848a3790db9cee2d80dda5e511"
+        }
+      ]
+    },
+    {
+      "slug": "planes-nuevo",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Grupo\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nNivel\n*\nSeleccionar nivel...\nAvanzadas\nInicial T44\nIntermedias\nPrincipiantes\nPRECIOS POR FRECUENCIA\nNuevo\n\nAl guardar un precio: altas nuevas desde 20/10/2026; alumnos existentes desde 01/11/2026. Las cuotas generadas se conservan.\n\nSin precios cargados aún. Usá \"Nuevo\" para agregar.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Nuevo",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1125,
+          "derecha": 1221,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/planes-nuevo-1366-inicio.png",
+          "sha256": "bfef27a8f6016ad464afab265ca292c0cc35d61b15eecc1b1c9fc68d26420b58"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1330,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Volver",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-360-inicio.png",
+          "sha256": "4147e62360138f435a691aad3413be326fb72f0a11622ec66d835b3c73b440b9"
+        },
+        {
+          "archivo": "capturas/alumno-ficha-360-pie.png",
+          "sha256": "27dd9c6f97ed4af69c6eef1194bd2e15762fb5d4e48b92dd258ba1aa87175b73"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1330,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Volver",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-375-inicio.png",
+          "sha256": "1c18cad5d232ebd3a00730a2ae7fe3e2e171ef2353ddf6e705e50da7f1aa0ac9"
+        },
+        {
+          "archivo": "capturas/alumno-ficha-375-pie.png",
+          "sha256": "b3cd583d6533c10302e49037f44eaacd40322d386b645c7aa9c9d2994cabd403"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 1150,
+          "derecha": 1246,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 801,
+          "derecha": 873,
+          "ancho": 72,
+          "alto": 28
+        },
+        {
+          "texto": "Volver",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-1366-inicio.png",
+          "sha256": "330fc19b090c40ef7340ddd99b2812e10f5cdc5f56e0f1df52f6c4482864a384"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-nuevo",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1838,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Alumno\n\nIngrese el DNI y la fecha real de ingreso para consultar la inscripción.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCuota al dar de alta\n\nFailed to execute 'json' on 'Response': Unexpected end of JSON input\n\nSí. Generar la cuota completa de este mes.\nNo. Guardar sin generar la cuota de este mes.\n\nLa inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-nuevo-360-inicio.png",
+          "sha256": "41ec8a14da70c0f3cf89101c861337a60369af4823d70af198e91a550aa7e0ff"
+        },
+        {
+          "archivo": "capturas/alumno-nuevo-360-pie.png",
+          "sha256": "fd1a41a96d3df6a9b0eb45e4e7e29c51084c2fab8ac4d5700dc70ec1360df3f0"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-nuevo",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1818,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Alumno\n\nIngrese el DNI y la fecha real de ingreso para consultar la inscripción.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCuota al dar de alta\n\nFailed to execute 'json' on 'Response': Unexpected end of JSON input\n\nSí. Generar la cuota completa de este mes.\nNo. Guardar sin generar la cuota de este mes.\n\nLa inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-nuevo-375-inicio.png",
+          "sha256": "3d51f8a2240e9aaeb5719b6ec90b4bf30a9303cf9529ee6468e00b613916bc69"
+        },
+        {
+          "archivo": "capturas/alumno-nuevo-375-pie.png",
+          "sha256": "db38f7824837395e5d0b6a481df58c5ae69fc765f2695e5e7f444fb799acebd9"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-nuevo",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nNuevo Alumno\n\nIngrese el DNI y la fecha real de ingreso para consultar la inscripción.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n*\nSeleccionar...\nFútbol\nPatín\nPatín T44\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCuota al dar de alta\n\nFailed to execute 'json' on 'Response': Unexpected end of JSON input\n\nSí. Generar la cuota completa de este mes.\nNo. Guardar sin generar la cuota de este mes.\n\nLa inscripción es independiente y conserva el importe informado arriba. No se generarán cuotas de meses anteriores.\n\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 1110,
+          "derecha": 1206,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1214,
+          "derecha": 1310,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-nuevo-1366-inicio.png",
+          "sha256": "693a0f252dae97f6cd40948897a3468cb0296c97da400c43d9c43061fd7e9d57"
+        },
+        {
+          "archivo": "capturas/alumno-nuevo-1366-pie.png",
+          "sha256": "5db295e9c94ca9b402cb0f407adc88765582b2fe0a2234af7ce11d8b2af29e1a"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1799,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-360-inicio.png",
+          "sha256": "d327b31d51bc516b3dc5462ae4b62ffcabf679cdf08d7be0d1373cc260a6fcaa"
+        },
+        {
+          "archivo": "capturas/alumno-editar-360-pie.png",
+          "sha256": "de1fc630c61d05bedd8b4d9ae7aad4fb4cc91a04b2c98ec64ce17b538996aeb6"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1799,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-375-inicio.png",
+          "sha256": "8de9d1977513b8847cf14564e78a688d4f14b07e65dcd550a30c8aa8e5d4ef91"
+        },
+        {
+          "archivo": "capturas/alumno-editar-375-pie.png",
+          "sha256": "4d2cf4c684575aaad37552f8b7fcec24c4f003618f6c43d02d48fd042be93639"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1141,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 1110,
+          "derecha": 1206,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1214,
+          "derecha": 1310,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-1366-inicio.png",
+          "sha256": "623bfd2f076f0680942127c5d07685d1112242bbe36d2a03fa310eb02eaa5844"
+        },
+        {
+          "archivo": "capturas/alumno-editar-1366-pie.png",
+          "sha256": "fe3a0bfa006f150737b331c2471490ff70be34c517da25e1b289de7fc79af020"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1640,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-360-inicio.png",
+          "sha256": "5add333d13be1bc874fea45a54f6e2ec5ecbfb96f973e555d090059163ac184f"
+        },
+        {
+          "archivo": "capturas/cobrar-360-pie.png",
+          "sha256": "e73f8e4541ee08bc24e3f3dda5555aa405b592c6ba45e982a6e1e7ce0c971c7f"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1560,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-375-inicio.png",
+          "sha256": "3c2a4392664ab16edd17bf5629288df88d422e3637eb32f749f22e6d6dd4443a"
+        },
+        {
+          "archivo": "capturas/cobrar-375-pie.png",
+          "sha256": "41f48c5c621d16aee2cf607b671f4c58febcde6250eda2eaa11a4f712110e99f"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDNI\n\n44999999\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1150,
+          "derecha": 1246,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-1366-inicio.png",
+          "sha256": "72fbda0b08856b2a0ffb9a5ec67fe071e1fa7a5568d96a4804d93a1ef7bfbcf0"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 267.40625,
+          "derecha": 295.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-360-inicio.png",
+          "sha256": "eae52e48aff767285e67ee2752fec1daecf420c7335acf83d8eafcd4255177ad"
+        },
+        {
+          "archivo": "capturas/login-360-pie.png",
+          "sha256": "4d212e2836cbca33666ad9216dee3bbd9ba01dabebb3859abf89068a84f3d82f"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 282.40625,
+          "derecha": 310.40625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-375-inicio.png",
+          "sha256": "6b81347a17e5c4088fdeb2fd97457bdddafe1fcec63a143896f8d17a158f781e"
+        },
+        {
+          "archivo": "capturas/login-375-pie.png",
+          "sha256": "468b5349b98735f27c006b7678cb14055a8fc2f47cfc097a8a968ba96e637717"
+        }
+      ]
+    },
+    {
+      "slug": "login",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1200,
+      "css": "16px",
+      "texto": "WINGS\nIniciar sesión\nEmail\nContraseña\nRecordarme\nIngresar\nWings",
+      "botones": [
+        {
+          "texto": "",
+          "x": 916.90625,
+          "derecha": 944.90625,
+          "ancho": 28,
+          "alto": 28
+        },
+        {
+          "texto": "Ingresar",
+          "x": 636.5,
+          "derecha": 954.5,
+          "ancho": 318,
+          "alto": 44
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/login-1366-inicio.png",
+          "sha256": "f250c19cae63b36671c95337b4401d7dce447a1917eb9fb7051effa10310a1bd"
+        },
+        {
+          "archivo": "capturas/login-1366-pie.png",
+          "sha256": "04bad8f7dc3482209dd972ba53215b47030a33b827bdcdd2efe2f556e9c6f314"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha-programada",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1330,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Volver",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-programada-360-inicio.png",
+          "sha256": "4147e62360138f435a691aad3413be326fb72f0a11622ec66d835b3c73b440b9"
+        },
+        {
+          "archivo": "capturas/alumno-ficha-programada-360-pie.png",
+          "sha256": "27dd9c6f97ed4af69c6eef1194bd2e15762fb5d4e48b92dd258ba1aa87175b73"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha-programada",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1330,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Volver",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-programada-375-inicio.png",
+          "sha256": "1c18cad5d232ebd3a00730a2ae7fe3e2e171ef2353ddf6e705e50da7f1aa0ac9"
+        },
+        {
+          "archivo": "capturas/alumno-ficha-programada-375-pie.png",
+          "sha256": "b3cd583d6533c10302e49037f44eaacd40322d386b645c7aa9c9d2994cabd403"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-ficha-programada",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nVigencia, Ana\nActivo\nCobrar\nEditar\n\nDNI\n\n44999999\n\nNACIMIENTO\n\n01/01/2000\n\nCELULAR\n\n1144000000\n\nEMAIL\n\n–\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nPLAN\n\n2x sem. — $40,000.00/mes\n\nALTA\n\n01/09/2026\n\nESTADO DE COBRANZA\n\nAl día\n\nMeses sin cuota generada\n\nSeptiembre 2026 · $40,000.00\nCrear\n\nHISTORIAL DE PAGOS\n\nSin pagos registrados.\n\nASISTENCIAS — OCT 2026\n\nSin asistencias en Oct 2026.\n\nVolver\nWings",
+      "botones": [
+        {
+          "texto": "Cobrar",
+          "x": 1150,
+          "derecha": 1246,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Editar",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Crear",
+          "x": 801,
+          "derecha": 873,
+          "ancho": 72,
+          "alto": 28
+        },
+        {
+          "texto": "Volver",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-ficha-programada-1366-inicio.png",
+          "sha256": "330fc19b090c40ef7340ddd99b2812e10f5cdc5f56e0f1df52f6c4482864a384"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar-programada",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1799,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-programada-360-inicio.png",
+          "sha256": "d327b31d51bc516b3dc5462ae4b62ffcabf679cdf08d7be0d1373cc260a6fcaa"
+        },
+        {
+          "archivo": "capturas/alumno-editar-programada-360-pie.png",
+          "sha256": "afe8828927b88253a87b21f7ce2b055e116807588e0f5c8882f363fe172fb75d"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar-programada",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1799,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-programada-375-inicio.png",
+          "sha256": "8de9d1977513b8847cf14564e78a688d4f14b07e65dcd550a30c8aa8e5d4ef91"
+        },
+        {
+          "archivo": "capturas/alumno-editar-programada-375-pie.png",
+          "sha256": "e465c8e470db0b5f979ca9e8a56527c67aadb320d43507d4d253adeee6d3b5de"
+        }
+      ]
+    },
+    {
+      "slug": "alumno-editar-programada",
+      "ancho": 1366,
+      "contenido": 1351,
+      "alto": 1141,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nEditar: Vigencia, Ana\n\nNo se pudo consultar la inscripción. Revise la conexión antes de guardar.\n\nNombre\n*\nApellido\n*\nDNI\n*\nFecha de nacimiento\n*\nFecha de alta\n*\nCelular\n*\nMismo que el teléfono del tutor\nEmail\nDeporte\n\nPatín T44\n\nGrupo\n*\nSeleccionar...\nPatín T44 — Inicial T44\nMotivo si corrige la fecha de ingreso\n\nLas bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.\n\nFrecuencia semanal\n(define el precio mensual)\nSeleccionar frecuencia...\n1 vez/semana — $20,000.00\n2 veces/semana — $40,000.00\n3 veces/semana — $60,000.00\n\nDatos del tutor — obligatorio para menores de edad\n\nNombre del tutor\nTeléfono del tutor\nCancelar\nGuardar\nWings",
+      "botones": [
+        {
+          "texto": "Cancelar",
+          "x": 1110,
+          "derecha": 1206,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Guardar",
+          "x": 1214,
+          "derecha": 1310,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/alumno-editar-programada-1366-inicio.png",
+          "sha256": "24a39ab7dc74bdf74adb83d69c562f7df941a455005384cfc450cd1e1bf781d2"
+        },
+        {
+          "archivo": "capturas/alumno-editar-programada-1366-pie.png",
+          "sha256": "57d8e47076f11a1c1af8786e6a1b1fc98ca2e43c17110464382ab7def3c43fa9"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-programada",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1640,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-programada-360-inicio.png",
+          "sha256": "9ab285cb812f0e20eb1b8a1bec6cbd7b5f7cc6149c0f0601113eb056d32e3a40"
+        },
+        {
+          "archivo": "capturas/cobrar-programada-360-pie.png",
+          "sha256": "e73f8e4541ee08bc24e3f3dda5555aa405b592c6ba45e982a6e1e7ce0c971c7f"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-programada",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1560,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-programada-375-inicio.png",
+          "sha256": "f2179014e2fc29082f1c0773ea4b44aac9aa761c87d5d92212549707a1a3a024"
+        },
+        {
+          "archivo": "capturas/cobrar-programada-375-pie.png",
+          "sha256": "41f48c5c621d16aee2cf607b671f4c58febcde6250eda2eaa11a4f712110e99f"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-programada",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDNI\n\n44999999\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$40,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1150,
+          "derecha": 1246,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-programada-1366-inicio.png",
+          "sha256": "6b2a60df7dd938ea1a4c2445dccd9b3152be061786cbb44bd94ebf2f23eaeaea"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-parcial",
+      "ancho": 360,
+      "contenido": 345,
+      "alto": 1712,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$30,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026 Orig: $40,000.00 · Pagado: $10,000.00\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 105,
+          "derecha": 201,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 209,
+          "derecha": 305,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-parcial-360-inicio.png",
+          "sha256": "1eba1b417bfb34a28ce8cc2b766bd561d7b74009b89d40e6e4c18a06f7f5d556"
+        },
+        {
+          "archivo": "capturas/cobrar-parcial-360-pie.png",
+          "sha256": "cf3a00138cd41b12ae5a6666656b86d6a6d74da4f26a690b7d2803f0ac67cf71"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-parcial",
+      "ancho": 375,
+      "contenido": 360,
+      "alto": 1650,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$30,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026 Orig: $40,000.00 · Pagado: $10,000.00\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 120,
+          "derecha": 216,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 224,
+          "derecha": 320,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-parcial-375-inicio.png",
+          "sha256": "a99315d88040984875335ae42c0d7e3164214fd0ae5d3e3c8d23d17128404d0b"
+        },
+        {
+          "archivo": "capturas/cobrar-parcial-375-pie.png",
+          "sha256": "f462e41e3bbecccf6b4803d76dde8d005c75eca68ebfa0517055ee88c0625921"
+        }
+      ]
+    },
+    {
+      "slug": "cobrar-parcial",
+      "ancho": 1366,
+      "contenido": 1366,
+      "alto": 1100,
+      "css": "16px",
+      "texto": "WINGS\nDÍA A DÍA\nInicio\nAlumnos\nClases\nPLATA\nCobranza\nCaja\nMovimientos\nCashflow\nLiquidaciones\nReportes\nRevisión\nEL CLUB\nDeportes\nNiveles\nGrupos\nProfesores\nRubros\nTipos de Caja\nSISTEMA\nConfiguración\nUsuarios\nAdministración T44\nSalir\nCobrar: Vigencia, Ana\n\nDNI\n\n44999999\n\nDEPORTE\n\nPatín T44\n\nGRUPO\n\nPatín T44 — Inicial T44\n\nTOTAL PENDIENTE\n\n$30,000.00\n\nPLAN — FRECUENCIA SEMANAL\n\n1 vez/semana\n$20,000.00/mes\n2 veces/semana\n$40,000.00/mes\n3 veces/semana\n$60,000.00/mes\n\nLas subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.\n\nCUOTAS PENDIENTES — SELECCIONÁ LAS QUE QUERÉS COBRAR\n\nOctubre 2026 Orig: $40,000.00 · Pagado: $10,000.00\n\nCOBRO ADELANTADO — UN MES QUE TODAVÍA NO EMPEZÓ\n\nMes\nSeleccionar...\nNoviembre 2026\nDiciembre 2026\nEnero 2027\nFebrero 2027\nMarzo 2027\nAbril 2027\nMayo 2027\nJunio 2027\nJulio 2027\nAgosto 2027\nSeptiembre 2027\nOctubre 2027\nImporte\nAgregar\n\nEl importe sugerido es el precio de hoy. Si ya se anunció un aumento, cambialo. Lo que se cobre queda fijo para ese mes.\n\nMedio de pago\n*\nSeleccionar...\nBGA — Banco Galicia\nBNA — Banco Nación\nBanco Nacion ahorro\nEFT — Efectivo\nMP — Mercado Pago\nFecha del pago\nObservaciones\nCancelar\nCobrar\nWings",
+      "botones": [
+        {
+          "texto": "Agregar",
+          "x": 1229,
+          "derecha": 1325,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cancelar",
+          "x": 1150,
+          "derecha": 1246,
+          "ancho": 96,
+          "alto": 32
+        },
+        {
+          "texto": "Cobrar",
+          "x": 1254,
+          "derecha": 1350,
+          "ancho": 96,
+          "alto": 32
+        }
+      ],
+      "fotos": [
+        {
+          "archivo": "capturas/cobrar-parcial-1366-inicio.png",
+          "sha256": "700b762ad14f3576addfb132fca2535a730143252dd1585b5572628581ce6c5f"
+        }
+      ]
+    }
+  ]
+}

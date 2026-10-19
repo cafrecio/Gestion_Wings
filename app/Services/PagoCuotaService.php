@@ -445,7 +445,7 @@ class PagoCuotaService
             $query = \App\Models\GrupoPlan::query();
             if (DB::transactionLevel() > 0) $query->lockForUpdate();
             $plan = $query->findOrFail($planId);
-            $importe = $this->aplicarPorcentaje((float) $plan->precio_mensual, $porcentaje);
+            $importe = $this->aplicarPorcentaje($plan->precioParaPeriodo($periodo, $fecha), $porcentaje);
         }
 
         return ['mes_cerrado' => $mesCerrado, 'periodo' => $periodo,
@@ -510,7 +510,7 @@ class PagoCuotaService
         return DeudaCuota::create([
             'alumno_id' => $alumno->id,
             'periodo' => $periodo,
-            'monto_original' => $this->aplicarPorcentaje((float) $alumnoPlan->plan->precio_mensual, $porcentaje),
+            'monto_original' => $this->aplicarPorcentaje($alumnoPlan->plan->precioParaPeriodo($periodo, $alumno->fecha_alta), $porcentaje),
             'monto_pagado' => 0,
             'estado' => DeudaCuota::ESTADO_PENDIENTE,
             'porcentaje_alta' => $porcentaje,
@@ -571,7 +571,7 @@ class PagoCuotaService
             $periodo = $mes->format('Y-m');
             $plan = in_array($periodo, $existentes, true) ? null : $this->obtenerPlanParaPeriodo($alumno->id, $periodo);
             if ($plan?->plan) {
-                $meses[] = ['periodo' => $periodo, 'precio' => (float) $plan->plan->precio_mensual];
+                $meses[] = ['periodo' => $periodo, 'precio' => $plan->plan->precioParaPeriodo($periodo, $alumno->fecha_alta)];
             }
             $mes->addMonthNoOverflow();
         }
@@ -611,7 +611,7 @@ class PagoCuotaService
             return DeudaCuota::create([
                 'alumno_id' => $alumno->id,
                 'periodo' => $periodo,
-                'monto_original' => (float) $plan->plan->precio_mensual,
+                'monto_original' => $plan->plan->precioParaPeriodo($periodo, $alumno->fecha_alta),
                 'monto_pagado' => 0,
                 'estado' => DeudaCuota::ESTADO_PENDIENTE,
                 'observaciones' => 'Creada por ' . $admin->name . ' el ' . now()->format('d/m/Y') . ': el mes no se había generado.',
@@ -733,7 +733,7 @@ class PagoCuotaService
             );
         }
 
-        $montoOriginal = $montoOriginalAlCrear ?? (float) $alumnoPlan->plan->precio_mensual;
+        $montoOriginal = $montoOriginalAlCrear ?? $alumnoPlan->plan->precioParaPeriodo($periodo, Alumno::findOrFail($alumnoId)->fecha_alta);
 
         // firstOrCreate para idempotencia (protege contra race conditions por unique constraint)
         return DeudaCuota::firstOrCreate(
@@ -765,6 +765,7 @@ class PagoCuotaService
                       ->orWhere('fecha_hasta', '>=', $periodStart->toDateString());
             })
             ->orderByDesc('fecha_desde')
+            ->orderByDesc('id')
             ->first();
 
         return $alumnoPlan;
@@ -1001,7 +1002,7 @@ class PagoCuotaService
         $alumnoPlan = $this->obtenerPlanParaPeriodo($alumnoId, $periodo);
 
         if ($alumnoPlan?->plan) {
-            $base = (float) $alumnoPlan->plan->precio_mensual;
+            $base = $alumnoPlan->plan->precioParaPeriodo($periodo, Alumno::findOrFail($alumnoId)->fecha_alta);
         } else {
             $deuda = DeudaCuota::where('alumno_id', $alumnoId)->where('periodo', $periodo)->first();
             if (!$deuda) {

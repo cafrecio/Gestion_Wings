@@ -1,0 +1,44 @@
+project: C-xampp-htdocs-gestion-wings
+signal: best_effort
+indexed_at: 2026-10-19T01:35:03Z
+metadata:
+  generation: 2026-10-19T01:35:03Z
+  index_mode: full
+  recorded_at: 2026-10-19T01:35:07Z
+  recording_status: truncated
+  ignored_files_stored: 2000
+  ignored_files_total: 6431
+  hash_records_complete: true
+  coverage_version: 3
+  generation_matches: true
+paths: 20  (cols: requested_path path status freshness recommended_action coverage)
+  app/Console/Commands/GenerarDeudasMensualesCommand.php app/Console/Commands/GenerarDeudasMensualesCommand.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Http/Controllers/AlumnoWebController.php app/Http/Controllers/AlumnoWebController.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Http/Controllers/CajaWebController.php app/Http/Controllers/CajaWebController.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Http/Controllers/GrupoWebController.php app/Http/Controllers/GrupoWebController.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Models/Alumno.php app/Models/Alumno.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Models/GrupoPlan.php app/Models/GrupoPlan.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/CambioPlanService.php app/Services/CambioPlanService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/PagoCuotaService.php app/Services/PagoCuotaService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/PagoService.php app/Services/PagoService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/PrimeraCargaExcelService.php app/Services/PrimeraCargaExcelService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  app/Services/RevisionCobranzaService.php app/Services/RevisionCobranzaService.php coverage_unavailable metadata_changed read_source_and_reindex []
+  database/migrations/2026_10_18_230000_create_grupo_plan_precios.php database/migrations/2026_10_18_230000_create_grupo_plan_precios.php coverage_unavailable metadata_changed read_source_and_reindex []
+  database/seeders/DemoSeeder.php database/seeders/DemoSeeder.php coverage_unavailable metadata_changed read_source_and_reindex []
+  resources/views/alumnos/_form.blade.php resources/views/alumnos/_form.blade.php unusable metadata_changed read_source_and_reindex "[{\"path\":\"resources/views/alumnos/_form.blade.php\",\"kind\":\"parse_unusable\",\"match\":\"exact\",\"ranges\":[{\"start\":7,\"end\":217}]}]"
+  resources/views/alumnos/show.blade.php resources/views/alumnos/show.blade.php partial metadata_changed read_source_and_reindex "[{\"path\":\"resources/views/alumnos/show.blade.php\",\"kind\":\"parse_partial\",\"match\":\"exact\",\"ranges\":[{\"start\":3,\"end\":3},{\"start\":4,\"end\":4}]}]"
+  resources/views/caja/cobrar.blade.php resources/views/caja/cobrar.blade.php partial metadata_changed read_source_and_reindex "[{\"path\":\"resources/views/caja/cobrar.blade.php\",\"kind\":\"parse_partial\",\"match\":\"exact\",\"ranges\":[{\"start\":3,\"end\":3},{\"start\":4,\"end\":4}]}]"
+  resources/views/grupos/_form.blade.php resources/views/grupos/_form.blade.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/Feature/CambioPlanCobroTest.php tests/Feature/CambioPlanCobroTest.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/Feature/CambioPlanConDescuentoMatrizTest.php tests/Feature/CambioPlanConDescuentoMatrizTest.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/Feature/PrecioPlanVigenciaT44Test.php tests/Feature/PrecioPlanVigenciaT44Test.php coverage_unavailable metadata_changed read_source_and_reindex []
+path_total: 22
+path_returned: 20
+path_has_more: true
+path_next_offset: 20
+scopes: 0
+scope_total: 0
+scope_returned: 0
+scope_truncated: false
+has_more: false
+caveat: "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."

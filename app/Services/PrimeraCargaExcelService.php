@@ -31,7 +31,7 @@ class PrimeraCargaExcelService
             ->orderBy('grupo_id')->orderBy('clases_por_semana')->get();
         return $planes->map(fn ($p) => ['deporte' => $p->grupo->deporte->nombre, 'grupo' => $p->grupo->nivel->nombre,
             'plan' => $p->grupo->deporte->nombre.' / '.$p->grupo->nivel->nombre.' / '.$p->clases_por_semana.' clases',
-            'precio' => $p->precio_mensual, 'deporte_id' => $p->grupo->deporte_id, 'grupo_id' => $p->grupo_id, 'plan_id' => $p->id])->all();
+            'precio' => $p->precioParaPeriodo(now()->format('Y-m'), today()), 'deporte_id' => $p->grupo->deporte_id, 'grupo_id' => $p->grupo_id, 'plan_id' => $p->id])->all();
     }
 
     public function plantilla(): Spreadsheet

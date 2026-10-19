@@ -2,7 +2,7 @@
 
 **Caso de uso (Index):** 3) Cuotas – Pagos + Imputación  
 **Versión:** V1  
-**Estado:** CERRADO (TO-BE implementado y verificado)  
+**Estado:** HISTÓRICO. Continúa en [V2 — tarifas y cambios de plan](Wings-contrato-cuotas-deudas-pagos-V2.md), decisión de Carlos del 18/10/2026.
 **Incluye:** Registro de pago, auto-creación de deuda futura, imputación FIFO fuerte, integración con caja y cashflow.  
 **No incluye:** Motor mensual de generación de deuda, estados dinámicos (Al día / Moroso / Deudor), reglas de asistencia, recibos PDF (ver Caso 7).
 

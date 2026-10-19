@@ -100,14 +100,15 @@ class GenerarDeudasMensualesCommand extends Command
                 ->exists();
 
             if ($tieneAsistenciasMesAnterior || $tienePagoReciente) {
-                // Elegible: crear deuda
+                // Elegible: crear deuda con la tarifa histórica del período.
+                $precio = $alumnoPlan->plan->precioParaPeriodo($periodo, $alumno->fecha_alta);
                 $this->pagoCuotaService->crearDeudaSiNoExiste(
                     $alumno->id,
                     $periodo,
-                    $alumnoPlan->plan->precio_mensual
+                    $precio
                 );
                 $contCreados++;
-                $this->line("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): deuda creada - \${$alumnoPlan->plan->precio_mensual}");
+                $this->line("  Alumno #{$alumno->id} ({$alumno->nombre} {$alumno->apellido}): deuda creada - \${$precio}");
             } else {
                 // No elegible: enviar a revisión
                 AlumnoRevisionCobranza::firstOrCreate(

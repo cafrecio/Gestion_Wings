@@ -1,0 +1,90 @@
+[
+  {
+    "archivo": "app/Console/Commands/GenerarDeudasMensualesCommand.php",
+    "resultado": "No syntax errors detected in app/Console/Commands/GenerarDeudasMensualesCommand.php"
+  },
+  {
+    "archivo": "app/Http/Controllers/AlumnoWebController.php",
+    "resultado": "No syntax errors detected in app/Http/Controllers/AlumnoWebController.php"
+  },
+  {
+    "archivo": "app/Http/Controllers/CajaWebController.php",
+    "resultado": "No syntax errors detected in app/Http/Controllers/CajaWebController.php"
+  },
+  {
+    "archivo": "app/Http/Controllers/GrupoWebController.php",
+    "resultado": "No syntax errors detected in app/Http/Controllers/GrupoWebController.php"
+  },
+  {
+    "archivo": "app/Models/Alumno.php",
+    "resultado": "No syntax errors detected in app/Models/Alumno.php"
+  },
+  {
+    "archivo": "app/Models/GrupoPlan.php",
+    "resultado": "No syntax errors detected in app/Models/GrupoPlan.php"
+  },
+  {
+    "archivo": "app/Services/CambioPlanService.php",
+    "resultado": "No syntax errors detected in app/Services/CambioPlanService.php"
+  },
+  {
+    "archivo": "app/Services/PagoCuotaService.php",
+    "resultado": "No syntax errors detected in app/Services/PagoCuotaService.php"
+  },
+  {
+    "archivo": "app/Services/PagoService.php",
+    "resultado": "No syntax errors detected in app/Services/PagoService.php"
+  },
+  {
+    "archivo": "app/Services/PrimeraCargaExcelService.php",
+    "resultado": "No syntax errors detected in app/Services/PrimeraCargaExcelService.php"
+  },
+  {
+    "archivo": "app/Services/RevisionCobranzaService.php",
+    "resultado": "No syntax errors detected in app/Services/RevisionCobranzaService.php"
+  },
+  {
+    "archivo": "database/migrations/2026_10_18_230000_create_grupo_plan_precios.php",
+    "resultado": "No syntax errors detected in database/migrations/2026_10_18_230000_create_grupo_plan_precios.php"
+  },
+  {
+    "archivo": "database/seeders/DemoSeeder.php",
+    "resultado": "No syntax errors detected in database/seeders/DemoSeeder.php"
+  },
+  {
+    "archivo": "resources/views/alumnos/_form.blade.php",
+    "resultado": "No syntax errors detected in resources/views/alumnos/_form.blade.php"
+  },
+  {
+    "archivo": "resources/views/alumnos/show.blade.php",
+    "resultado": "No syntax errors detected in resources/views/alumnos/show.blade.php"
+  },
+  {
+    "archivo": "resources/views/caja/cobrar.blade.php",
+    "resultado": "No syntax errors detected in resources/views/caja/cobrar.blade.php"
+  },
+  {
+    "archivo": "resources/views/grupos/_form.blade.php",
+    "resultado": "No syntax errors detected in resources/views/grupos/_form.blade.php"
+  },
+  {
+    "archivo": "tests/Feature/CambioPlanCobroTest.php",
+    "resultado": "No syntax errors detected in tests/Feature/CambioPlanCobroTest.php"
+  },
+  {
+    "archivo": "tests/Feature/CambioPlanConDescuentoMatrizTest.php",
+    "resultado": "No syntax errors detected in tests/Feature/CambioPlanConDescuentoMatrizTest.php"
+  },
+  {
+    "archivo": "tests/Feature/PrecioPlanVigenciaT44Test.php",
+    "resultado": "No syntax errors detected in tests/Feature/PrecioPlanVigenciaT44Test.php"
+  },
+  {
+    "archivo": "tests/Support/ImportesT24.php",
+    "resultado": "No syntax errors detected in tests/Support/ImportesT24.php"
+  },
+  {
+    "archivo": "tests/Support/ImportesT30.php",
+    "resultado": "No syntax errors detected in tests/Support/ImportesT30.php"
+  }
+]

@@ -68,7 +68,7 @@ class DemoSeeder extends Seeder
             'cashflow_movimientos','liquidacion_detalles','liquidaciones',
             'pago_deuda_cuota','pagos','deuda_cuotas','asistencias',
             'clase_profesor','clases','movimientos_operativos','cajas_operativas',
-            'alumno_planes','alumnos','grupo_planes','grupos',
+            'alumno_planes','alumnos','grupo_plan_precios','grupo_planes','grupos',
             'profesores','niveles','deportes',
         ] as $t) {
             if (Schema::hasTable($t)) DB::table($t)->truncate();
@@ -261,7 +261,7 @@ class DemoSeeder extends Seeder
 
                 $result[] = [
                     'alumno'    => $alumno,
-                    'precio'    => (float) $pla[$d['plan']]->precio_mensual,
+                    'precio'    => $pla[$d['plan']]->precioParaPeriodo($this->now->format('Y-m'), $alumno->fecha_alta),
                     'grupo_key' => $d['grp'],
                 ];
             }
@@ -630,11 +630,9 @@ class DemoSeeder extends Seeder
                                 ->exists();
                             if (!$tieneAsist) continue;
 
-                            $precio = (float) (DB::table('alumno_planes')
-                                ->join('grupo_planes', 'alumno_planes.plan_id', '=', 'grupo_planes.id')
-                                ->where('alumno_planes.alumno_id', $al->id)
-                                ->where('alumno_planes.activo', true)
-                                ->value('grupo_planes.precio_mensual') ?? 25000);
+                            $periodo = sprintf('%04d-%02d', $anio, $mes);
+                            $plan = app(\App\Services\PagoCuotaService::class)->obtenerPlanParaPeriodo($al->id, $periodo);
+                            $precio = $plan?->plan?->precioParaPeriodo($periodo, $al->fecha_alta) ?? 25000;
 
                             $comAlums[] = ['alumno_id' => $al->id, 'precio' => $precio];
                         }

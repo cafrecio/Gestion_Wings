@@ -1,0 +1,12 @@
+{
+  "base": "wings_testing_codex",
+  "aprobadas": 878,
+  "omitidas": 3,
+  "fallidas": 0,
+  "aserciones": 7792,
+  "duracion_segundos": 1102.93,
+  "salida": 0,
+  "metodos_al_inicio": 881,
+  "sha256": "5a93b0e0ea26d1ae24843552e21e92c9e51e109dcea12464274461aa5ca3fe85",
+  "limite": "22 fuentes propias identicas; cambios paralelos T34/T67 no certificados"
+}

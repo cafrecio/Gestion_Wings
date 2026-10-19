@@ -64,23 +64,23 @@
             border:1px solid var(--color-border); border-radius:8px;
             background:var(--color-surface); cursor:pointer;
             transition:border-color 0.15s, background 0.15s;
-        " class="plan-label w-full justify-between {{ $alumno->planActivo?->plan_id == $plan->id ? 'plan-label--active' : '' }}">
+        " class="plan-label w-full justify-between {{ ($alumno->planProgramado?->plan_id ?? $alumno->planActivo?->plan_id) == $plan->id ? 'plan-label--active' : '' }}">
             <div style="display:flex; align-items:center; gap:8px;">
                 <input type="radio"
                        name="nuevo_plan_id"
                        value="{{ $plan->id }}"
-                       data-precio="{{ (int) $plan->precio_mensual }}"
+                       data-precio="{{ $plan->precio_ofrecido }}"
                        data-precio-mes="{{ $plan->precio_mes }}"
-                       {{ $alumno->planActivo?->plan_id == $plan->id ? 'checked' : '' }}
+                       {{ ($alumno->planProgramado?->plan_id ?? $alumno->planActivo?->plan_id) == $plan->id ? 'checked' : '' }}
                        style="accent-color:var(--color-btn-primary); width:15px; height:15px; flex-shrink:0;">
                 <span style="font-size:0.85rem; font-weight:600; color:var(--color-text);">{{ $veces }}</span>
             </div>
-            <span style="font-size:0.78rem; color:var(--color-text-muted);">{{ \App\Support\FormatoImporte::pesos($plan->precio_mensual) }}/mes</span>
+            <span style="font-size:0.78rem; color:var(--color-text-muted);">{{ \App\Support\FormatoImporte::pesos($plan->precio_ofrecido) }}/mes</span>
         </label>
         @endforeach
     </div>
     <p style="font-size:0.72rem; color:var(--color-text-muted); margin-top:8px;">
-        Las subidas aplican al mes en curso. Las bajas aplican al mes siguiente si ya hubo asistencia este mes.
+        Las subidas ajustan este mes si queda saldo pendiente, incluso con pago parcial. Las bajas y las subidas con el mes saldado rigen desde el mes siguiente.
     </p>
 </div>
 @endif

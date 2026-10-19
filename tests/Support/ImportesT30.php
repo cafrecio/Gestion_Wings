@@ -29,12 +29,12 @@ final class ImportesT30
         $this->importe = $importe;
         $this->totalMovimientos = number_format((float) $importe + 250.50, 2, '.', '');
         $this->totalHora = number_format((float) $importe * 1.5, 2, '.', '');
-        $this->f = $f = new ImportesT24($sinCaja ? 'apertura' : 't30');
+        // T44: este escenario prueba presentación, no un aumento dentro del mes.
+        $this->f = $f = new ImportesT24($sinCaja ? 'apertura' : 't30', $importe);
         $f->admin->update(['name' => 'Administración T30']);
         $f->operativo->update(['name' => 'Mostrador T30']);
         $f->alumno->update(['apellido' => 'Prueba T30']);
         $f->medio->update(['saldo_inicial' => $importe]);
-        $f->plan->update(['precio_mensual' => $importe]);
         $f->profesor->update(['valor_hora' => $importe]);
         Configuracion::set('inscripcion_importe', $importe);
         DeudaCuota::where('alumno_id', $f->alumno->id)->get()->each(fn ($deuda) => $deuda->update(['monto_original' => $importe]));

@@ -1,0 +1,8 @@
+{
+    "base": "wings_testing_codex",
+    "precio_antes": "40000.50",
+    "fecha_inicial": null,
+    "precio_2000_01": 40000.5,
+    "precio_2027_01": 40000.5,
+    "rollback_y_up": true
+}

@@ -1,0 +1,79 @@
+[
+    {
+        "slug": "planes-editar",
+        "url": "http://127.0.0.1:8744/grupos/1/edit",
+        "estado": 200,
+        "sha256": "b03121683764c2f3042975ee41b8fdf392abb4b0c800c3b6c6053e7868c27933",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "planes-nuevo",
+        "url": "http://127.0.0.1:8744/grupos/create",
+        "estado": 200,
+        "sha256": "dfdce19ddb5792817b4d64dba0a50e43c716e972bd2d9ddccbfca9004e25391e",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "alumno-ficha",
+        "url": "http://127.0.0.1:8744/alumnos/1",
+        "estado": 200,
+        "sha256": "5d6aaa8bfca2555157029fc18137a49a590f14772ccad317c4d1a371f586bb1c",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "alumno-nuevo",
+        "url": "http://127.0.0.1:8744/alumnos/create",
+        "estado": 200,
+        "sha256": "d752db338947febd4eb05d386b3afb87acd881eabf604c82774f92201ec0d66f",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "alumno-editar",
+        "url": "http://127.0.0.1:8744/alumnos/1/edit",
+        "estado": 200,
+        "sha256": "89cc1342b23057297069719df7e9d898c782fc3fd4d66b362eadc132b43db6fb",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "cobrar",
+        "url": "http://127.0.0.1:8744/caja/cobrar/1",
+        "estado": 200,
+        "sha256": "dd10ec85c989b6ca1b14235c621fb727c89142af868909fe35c4ef01a478ad94",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "login",
+        "url": "http://127.0.0.1:8744/login",
+        "estado": 200,
+        "sha256": "d2061a4cd718b898163693d00cb2e5cd88dadd78930f97c73e5160ce90111c62",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "alumno-ficha-programada",
+        "url": "http://127.0.0.1:8744/alumnos/1",
+        "estado": 200,
+        "sha256": "dde1099ecb4b34dad3f68a7b0560a2783ce3a0ab357b82318f3e0ef85e5536b9",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "alumno-editar-programada",
+        "url": "http://127.0.0.1:8744/alumnos/1/edit",
+        "estado": 200,
+        "sha256": "1ce5573ba0eb9ecbfbbd231b924de498adb915baed2e1f58314d7e1ba7dc362d",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "cobrar-programada",
+        "url": "http://127.0.0.1:8744/caja/cobrar/1",
+        "estado": 200,
+        "sha256": "48f496f5e35d4cedf6d3d177a2fd40c778e0535b034480f48164f854d00afb4d",
+        "normalizacion": "CRLF a LF"
+    },
+    {
+        "slug": "cobrar-parcial",
+        "url": "http://127.0.0.1:8744/caja/cobrar/1",
+        "estado": 200,
+        "sha256": "7631bab7543315f4d6dbb68bafa871017a9e2cf0d8d6316a604a7ad9825ed6b9",
+        "normalizacion": "CRLF a LF"
+    }
+]

@@ -1,0 +1,26 @@
+{
+  "base": "bc42f8563410a6827ab566f9e3f5f92cc9d0425d",
+  "metodos_de_prueba": 880,
+  "fuentes": {
+    "app/Console/Commands/GenerarDeudasMensualesCommand.php": "3d2e4f86a711e3f10d4b7bcd6c842e14786feb9b0198c23b1072d0a3af2eaa42",
+    "app/Http/Controllers/AlumnoWebController.php": "2adc7a3ac82d46a8a5d8b90c0da438767d50354e703af3237afd3b8cbcd290a2",
+    "app/Http/Controllers/CajaWebController.php": "c113e181a627825da637182aa7050f11b889418d802cb9749f70548607d68b6d",
+    "app/Http/Controllers/GrupoWebController.php": "2833d7b68181676347820b7a746b5f7a135c302b97920a16b1ad74deb9d709ec",
+    "app/Models/Alumno.php": "699cbd3dbf30b2c67ead0adbd09fab13c6cc4befcaec6b3b0fc31c717d4e1e94",
+    "app/Models/GrupoPlan.php": "1150f59b00804ed6af7dc20c30280d7835172fb099574f6099aa424a59ab96b1",
+    "app/Services/CambioPlanService.php": "10345309bf3b9e96990b57191371d80d83029ccd9ffef745c7b460b4c193e827",
+    "app/Services/PagoCuotaService.php": "40d865356970efd5c4698012af781d2f76262d52e0d3f8e47d9719644c2108e7",
+    "app/Services/PagoService.php": "c6d04d47e0e500273232f060e2d478df39b4e3eb57a70779b6da477867bfbfbf",
+    "app/Services/PrimeraCargaExcelService.php": "889708308b88b15efbdad38faf3df31dfe4a8e9f0609d9fa32d646b342d5d581",
+    "app/Services/RevisionCobranzaService.php": "991511bcedb42dcdc12d1aa2bcbc5f2c9d518df9ba53b663947291b42f9bb8c1",
+    "database/migrations/2026_10_18_230000_create_grupo_plan_precios.php": "f73775bed218f79e8f34bb1aafea0f4d5ff4f620efff427b2ce1791f33dde8b3",
+    "database/seeders/DemoSeeder.php": "82291c5c382a21bc95b38f223417a4606b45d371b77348f80895fe1296b66f2d",
+    "resources/views/alumnos/_form.blade.php": "e2bc80d1edcef6bc2fb4a21d918572b980d0447d2b5f07db808348801b544c8e",
+    "resources/views/alumnos/show.blade.php": "ca0f51396e17bfca019bc391e531e705c1fe97f6e416e74203494c1c99837dec",
+    "resources/views/caja/cobrar.blade.php": "2c5e4fcf7084a3f607567812006d03bf174ed83d23906c03b5165a93069d77d0",
+    "resources/views/grupos/_form.blade.php": "69573eac6728e92cff54c9fc6152c51dd27afca38fad56c8267269bf440c22ce",
+    "tests/Feature/CambioPlanCobroTest.php": "557867a9bae15b5d1977de5695e91a7c1876d6cf1bdc8228db3a900a2122a55f",
+    "tests/Feature/CambioPlanConDescuentoMatrizTest.php": "7c438d72dee74a1f46510860c8f6a8498f8add94fc1b45f2f5f119ee2077bb29",
+    "tests/Feature/PrecioPlanVigenciaT44Test.php": "a0f54e07fbaf0743ea8e93d901c9a58c17332e62171bab832434db7c70c2fdd2"
+  }
+}

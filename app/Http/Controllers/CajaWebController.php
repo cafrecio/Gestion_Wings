@@ -798,7 +798,7 @@ class CajaWebController extends Controller
             $deudas = $alumno->deudaCuotas->push(new DeudaCuota([
                 'alumno_id' => $alumno->id,
                 'periodo' => $periodoVigente,
-                'monto_original' => $planVigente->plan->precio_mensual,
+                'monto_original' => $planVigente->plan->precioParaPeriodo($periodoVigente, $alumno->fecha_alta),
                 'monto_pagado' => 0,
                 'estado' => DeudaCuota::ESTADO_PENDIENTE,
             ]))->sortBy('periodo')->values();
@@ -819,7 +819,7 @@ class CajaWebController extends Controller
                 return $plan?->plan ? [
                     'periodo' => $mes->format('Y-m'),
                     'etiqueta' => ucfirst($mes->locale('es')->translatedFormat('F Y')),
-                    'precio' => (float) $plan->plan->precio_mensual,
+                    'precio' => $plan->plan->precioParaPeriodo($mes->format('Y-m'), $alumno->fecha_alta),
                 ] : null;
             })->filter()->values();
         $alumno->setRelation('deudaCuotas', $alumno->deudaCuotas->sortBy('periodo')->values());
@@ -870,21 +870,13 @@ class CajaWebController extends Controller
             }
         }
 
-        // Cuanto cuesta el mes en curso con cada plan posible. Lo calcula el servidor con las
-        // mismas reglas del cobro —la bajada diferida y el descuento de primer pago— y la
-        // pantalla solo lo muestra. Antes el script hacia su propia cuenta (precio nuevo
-        // menos lo pagado) y anunciaba 60.000 donde el cobro registraba 42.000.
-        $planActual = $alumno->planActivo;
+        // La pantalla y el guardado comparten la fecha de efecto y el importe del cambio.
         $mesConDescuento = $reglaPrimerPago && $periodoConDescuento === $periodoActual;
 
         foreach ($planesDisponibles as $plan) {
-            $esElActual = $planActual && $planActual->plan_id === $plan->id;
-            $rigeElMesSiguiente = !$esElActual
-                && $this->cambioDePlanRigeElMesSiguiente($alumno, $planActual, $plan);
-
-            $precioDelMes = $rigeElMesSiguiente && $planActual?->plan
-                ? (float) $planActual->plan->precio_mensual
-                : (float) $plan->precio_mensual;
+            $plan->periodo_aplicacion = app(\App\Services\CambioPlanService::class)->periodoAplicacion($alumno, $plan);
+            $plan->precio_ofrecido = $plan->precioParaPeriodo($plan->periodo_aplicacion, $alumno->fecha_alta);
+            $precioDelMes = app(\App\Services\CambioPlanService::class)->precioDelMes($alumno, $plan, (bool) $mesConDescuento);
 
             $plan->precio_mes = $mesConDescuento
                 ? $this->pagoCuotaService->aplicarPorcentaje($precioDelMes, (float) $reglaPrimerPago->porcentaje)
@@ -892,32 +884,6 @@ class CajaWebController extends Controller
         }
 
         return view('caja.cobrar', compact('alumno', 'tiposCaja', 'reglaPrimerPago', 'motivoPrimerPago', 'planesDisponibles', 'periodoConDescuento', 'mesesAdelantables', 'punitorios'));
-    }
-
-    /**
-     * Si el cambio al plan nuevo rige ya o recien el mes que viene.
-     *
-     * Una bajada con asistencias este mes se difiere: el mes en curso ya se uso con el
-     * plan anterior. La usan el cobro y la pantalla que lo anuncia; si cada uno tuviera
-     * su version de la regla, anunciarian importes distintos.
-     */
-    private function cambioDePlanRigeElMesSiguiente(Alumno $alumno, ?AlumnoPlan $planAnterior, GrupoPlan $nuevoPlan): bool
-    {
-        $esBaja = $planAnterior?->plan
-            && $nuevoPlan->clases_por_semana < $planAnterior->plan->clases_por_semana;
-
-        if (!$esBaja) {
-            return false;
-        }
-
-        return Asistencia::where('alumno_id', $alumno->id)
-            ->where('presente', true)
-            ->whereHas('clase', fn($query) => $query
-                ->whereBetween('fecha', [
-                    now()->startOfMonth()->toDateString(),
-                    now()->endOfMonth()->toDateString(),
-                ]))
-            ->exists();
     }
 
     public function pagar(Request $request, int $alumnoId)
@@ -1040,32 +1006,7 @@ class CajaWebController extends Controller
                     $nuevoPlanId = (int) $request->input('nuevo_plan_id');
                     $alumno->loadMissing('planActivo.plan');
                     if (!$alumno->planActivo || $alumno->planActivo->plan_id !== $nuevoPlanId) {
-                        $planAnterior = $alumno->planActivo;
-                        $nuevoPlan = GrupoPlan::findOrFail($nuevoPlanId);
-                        $aplicaMesSiguiente = $this->cambioDePlanRigeElMesSiguiente($alumno, $planAnterior, $nuevoPlan);
-                        $fechaDesde = $aplicaMesSiguiente
-                            ? now()->addMonthNoOverflow()->startOfMonth()
-                            : today();
-
-                        AlumnoPlan::create([
-                            'alumno_id'   => $alumno->id,
-                            'plan_id'     => $nuevoPlanId,
-                            'fecha_desde' => $fechaDesde,
-                            'activo'      => true,
-                        ]);
-
-                        if ($aplicaMesSiguiente) {
-                            $planAnterior?->update([
-                                'fecha_hasta' => $fechaDesde->copy()->subDay(),
-                            ]);
-                        } else {
-                            $precioNuevo = (float) $nuevoPlan->precio_mensual;
-                            DeudaCuota::where('alumno_id', $alumno->id)
-                                ->where('periodo', now()->format('Y-m'))
-                                ->where('estado', DeudaCuota::ESTADO_PENDIENTE)
-                                ->whereRaw('monto_pagado <= ?', [$precioNuevo])
-                                ->lockForUpdate()->get()->each(fn ($deuda) => $deuda->update(['monto_original' => $precioNuevo]));
-                        }
+                        app(\App\Services\CambioPlanService::class)->cambiar($alumno, GrupoPlan::findOrFail($nuevoPlanId));
                     }
                 }
 
@@ -1096,7 +1037,7 @@ class CajaWebController extends Controller
 
                         $monto = isset($montosEnviados[$periodo])
                             ? (float) $montosEnviados[$periodo]
-                            : (float) $plan->plan->precio_mensual;
+                            : $plan->plan->precioParaPeriodo($periodo, $alumno->fecha_alta);
 
                         // T18 (Carlos, 10/10): pagar adelantado congela el precio, y el
                         // importe lo puede cambiar quien cobra —un aumento ya anunciado—.

@@ -149,8 +149,11 @@ $labelClass = 'flex items-center gap-1.5 text-xs font-medium mb-1.5 text-wings-m
 </div>
 
 {{-- Frecuencia semanal --}}
-@php $currentPlanId = old('plan_id', isset($alumno) ? ($alumno->planActivo?->plan_id ?? '') : ''); @endphp
+@php $currentPlanId = old('plan_id', isset($alumno) ? ($alumno->planProgramado?->plan_id ?? $alumno->planActivo?->plan_id ?? '') : ''); @endphp
 <div id="plan-section" class="mt-4" data-planes="{{ json_encode($grupoPlanesJson ?? []) }}" data-plan-actual="{{ $currentPlanId }}" style="{{ isset($alumno) ? '' : 'display:none' }}">
+    @isset($alumno)
+    <p class="text-xs mb-3" style="color:var(--color-text-muted);">Las bajas rigen desde el mes siguiente. Las subidas ajustan este mes si la cuota sigue impaga o parcial; si ya está saldada, rigen desde el mes siguiente.</p>
+    @endisset
     <label for="plan_id" class="{{ $labelClass }}">
         <svg {!! $iconAttr !!}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         Frecuencia semanal

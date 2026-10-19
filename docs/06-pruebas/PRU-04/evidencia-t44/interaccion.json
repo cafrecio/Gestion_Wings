@@ -1,0 +1,44 @@
+{
+  "alcance": "Seleccion real de radio en Chrome; no confirma pago. Persistencia cubierta por PrecioPlanVigenciaT44Test.",
+  "resultados": [
+    {
+      "ancho": 360,
+      "antes": 30000,
+      "despues": 50000,
+      "saldo": 50000,
+      "pagado": 10000,
+      "precio": 60000,
+      "recargo": 0,
+      "totalVisible": "$50,000.00",
+      "botonHabilitado": true,
+      "archivo": "capturas/subida-parcial-seleccionada-360.png",
+      "sha256": "a5e40d9b9a67008f542fa4ec5b9c20f6d34d440e7b0a3a8968731687bc3abb32"
+    },
+    {
+      "ancho": 375,
+      "antes": 30000,
+      "despues": 50000,
+      "saldo": 50000,
+      "pagado": 10000,
+      "precio": 60000,
+      "recargo": 0,
+      "totalVisible": "$50,000.00",
+      "botonHabilitado": true,
+      "archivo": "capturas/subida-parcial-seleccionada-375.png",
+      "sha256": "327d550d14e72149bcfe0fcd746efd86838984983da18e41c9b5d6b7df60de36"
+    },
+    {
+      "ancho": 1366,
+      "antes": 30000,
+      "despues": 50000,
+      "saldo": 50000,
+      "pagado": 10000,
+      "precio": 60000,
+      "recargo": 0,
+      "totalVisible": "$50,000.00",
+      "botonHabilitado": true,
+      "archivo": "capturas/subida-parcial-seleccionada-1366.png",
+      "sha256": "9388ac3bfff27b163be3d9a4e573ffe9083bf2467f88729fea75a0e1a743703f"
+    }
+  ]
+}

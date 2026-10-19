@@ -181,7 +181,7 @@ class GrupoWebController extends Controller
                 $planId = !empty($planData['id']) ? (int) $planData['id'] : null;
 
                 if ($planId) {
-                    GrupoPlan::where('id', $planId)->where('grupo_id', $id)->update([
+                    GrupoPlan::where('id', $planId)->where('grupo_id', $id)->firstOrFail()->update([
                         'clases_por_semana' => $planData['clases_por_semana'],
                         'precio_mensual'    => $planData['precio_mensual'],
                     ]);

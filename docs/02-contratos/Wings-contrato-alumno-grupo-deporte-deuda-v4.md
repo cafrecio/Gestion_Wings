@@ -2,7 +2,7 @@
 
 **Caso de uso (Index):** 2) Alumno–Grupo–Deporte–Deuda
 **Versión:** V4
-**Estado:** VIGENTE; P1 implementada, pendiente verificación independiente de Gemini (05/10/2026)
+**Estado:** HISTÓRICO. Continúa en [V5 — precios con vigencia](Wings-contrato-alumno-grupo-deporte-deuda-v5.md), decisión de Carlos del 18/10/2026.
 **Alcance:** Modelo base de identidad deportiva + estructura comercial (planes) + existencia de deuda por período.
 **No incluye:** Pagos, generación automática de deuda, estados dinámicos.
 

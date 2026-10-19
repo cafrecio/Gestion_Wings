@@ -1,0 +1,11 @@
+{
+  "fuentes_identicas_a_suite": 22,
+  "respuestas_reales": 11,
+  "mediciones": 33,
+  "interacciones": 3,
+  "capturas": 58,
+  "desbordes": 0,
+  "enlaces": true,
+  "entrega_a_claude": true,
+  "salida_suite": 0
+}

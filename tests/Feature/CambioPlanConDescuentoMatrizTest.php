@@ -103,7 +103,7 @@ class CambioPlanConDescuentoMatrizTest extends TestCase
     {
         $alumno = $this->alumnoNuevoDel20();
 
-        $this->cobrarLoAnunciado($alumno, $this->planBajo, 14000.0);
+        $this->cobrarLoAnunciado($alumno, $this->planBajo, 28000.0);
     }
 
     public function test_bajada_con_asistencia_se_difiere_y_el_mes_conserva_el_precio_con_descuento(): void

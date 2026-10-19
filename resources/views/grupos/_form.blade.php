@@ -75,9 +75,14 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
             Precios por frecuencia
         </span>
         <button type="button" id="btn-add-plan" class="ds-btn ds-btn--secondary">
-            + Frecuencia
+            Nuevo
         </button>
     </div>
+
+    <p class="text-xs mb-3" style="color:var(--color-text-muted);">
+        Al guardar un precio: altas nuevas desde {{ today()->format('d/m/Y') }};
+        alumnos existentes desde {{ today()->addMonthNoOverflow()->startOfMonth()->format('d/m/Y') }}. Las cuotas generadas se conservan.
+    </p>
 
     <div id="planes-container" data-initial-idx="{{ $planesExistentes->count() }}">
         @foreach($planesExistentes as $i => $plan)
@@ -101,7 +106,7 @@ if (isset($grupo) && $grupo->relationLoaded('planes')) {
     </div>
 
     <p id="planes-empty-msg" class="text-xs" style="color:var(--color-text-muted); opacity:0.7; padding:0.25rem 0; {{ $planesExistentes->isNotEmpty() ? 'display:none;' : '' }}">
-        Sin precios cargados aún. Usá "+ Frecuencia" para agregar.
+        Sin precios cargados aún. Usá "Nuevo" para agregar.
     </p>
 
     @php $hayErroresPlanes = collect($errors->keys())->contains(fn($k) => str_starts_with($k, 'planes.')); @endphp

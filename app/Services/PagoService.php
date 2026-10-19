@@ -52,7 +52,7 @@ class PagoService
         }
 
         // 2. Obtener el monto base del plan vigente
-        $montoBase = $planActivo->plan->precio_mensual;
+        $montoBase = $planActivo->plan->precioParaPeriodo(sprintf('%04d-%02d', $anio, $mes), $alumno->fecha_alta);
 
         // 3. Determinar si es primer pago
         $esPrimerPago = !$alumno->tienePagos();
@@ -174,16 +174,7 @@ class PagoService
     {
         $alumno = Alumno::findOrFail($alumnoId);
 
-        // Crear nuevo plan (el modelo se encarga de desactivar el anterior)
-        $nuevoPlan = AlumnoPlan::create([
-            'alumno_id' => $alumnoId,
-            'plan_id' => $nuevoPlanId,
-            'fecha_desde' => Carbon::now()->toDateString(),
-            'fecha_hasta' => null,
-            'activo' => true,
-        ]);
-
-        return $nuevoPlan;
+        return app(CambioPlanService::class)->cambiar($alumno, \App\Models\GrupoPlan::findOrFail($nuevoPlanId));
     }
 
     /**
@@ -243,7 +234,7 @@ class PagoService
         return [
             'mes' => $fecha->month,
             'anio' => $fecha->year,
-            'monto_estimado' => $planActivo->plan->precio_mensual,
+            'monto_estimado' => $planActivo->plan->precioParaPeriodo($fecha->format('Y-m'), $alumno->fecha_alta),
             'es_primer_pago' => false,
             'plan_nombre' => $planActivo->plan->grupo->nombre ?? 'Sin grupo',
             'clases_por_semana' => $planActivo->plan->clases_por_semana,

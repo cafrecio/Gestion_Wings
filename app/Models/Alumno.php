@@ -113,7 +113,19 @@ class Alumno extends Model
      */
     public function planActivo()
     {
-        return $this->hasOne(AlumnoPlan::class)->where('activo', true)->latest();
+        return $this->hasOne(AlumnoPlan::class)->where(function ($q) {
+            $q->where(fn ($vigente) => $vigente->where('fecha_desde', '<=', today()->endOfDay())
+                ->where(fn ($fin) => $fin->whereNull('fecha_hasta')->orWhere('fecha_hasta', '>=', today())))
+                // Conservar la asignación inicial de un ingreso que todavía no comenzó.
+                ->orWhere(fn ($futuro) => $futuro->where('activo', true)
+                    ->whereHas('alumno', fn ($a) => $a->where('fecha_alta', '>', today())));
+        })->orderByDesc('fecha_desde')->orderByDesc('id');
+    }
+
+    public function planProgramado(): HasOne
+    {
+        return $this->hasOne(AlumnoPlan::class)->where('activo', true)
+            ->where('fecha_desde', '>', today()->endOfDay())->orderByDesc('fecha_desde')->orderByDesc('id');
     }
 
     /**

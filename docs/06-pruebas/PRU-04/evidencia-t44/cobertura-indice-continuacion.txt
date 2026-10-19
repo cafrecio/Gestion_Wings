@@ -1,0 +1,25 @@
+project: C-xampp-htdocs-gestion-wings
+signal: best_effort
+indexed_at: 2026-10-19T01:35:03Z
+metadata:
+  generation: 2026-10-19T01:35:03Z
+  index_mode: full
+  recorded_at: 2026-10-19T01:35:07Z
+  recording_status: truncated
+  ignored_files_stored: 2000
+  ignored_files_total: 6431
+  hash_records_complete: true
+  coverage_version: 3
+  generation_matches: true
+paths: 2  (cols: requested_path path status freshness recommended_action coverage)
+  tests/Support/ImportesT24.php tests/Support/ImportesT24.php coverage_unavailable metadata_changed read_source_and_reindex []
+  tests/Support/ImportesT30.php tests/Support/ImportesT30.php coverage_unavailable metadata_changed read_source_and_reindex []
+path_total: 22
+path_returned: 2
+path_has_more: false
+scopes: 0
+scope_total: 0
+scope_returned: 0
+scope_truncated: false
+has_more: false
+caveat: "Best-effort signal only. No recorded issue does not prove graph or source completeness; read flagged source and qualify claims when metadata is changed or unavailable."

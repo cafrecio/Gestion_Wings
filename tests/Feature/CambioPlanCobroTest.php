@@ -179,19 +179,19 @@ class CambioPlanCobroTest extends TestCase
         ]);
     }
 
-    public function test_baja_sin_asistencia_aplica_al_mes_en_curso(): void
+    public function test_baja_sin_asistencia_aplica_al_mes_siguiente(): void
     {
-        $this->cobrarConPlan($this->planBajo, 20000);
+        $this->cobrarConPlan($this->planBajo, 40000);
 
         $this->assertDatabaseHas('alumno_planes', [
             'alumno_id' => $this->alumno->id,
             'plan_id' => $this->planBajo->id,
-            'fecha_desde' => '2026-08-15 00:00:00',
+            'fecha_desde' => '2026-09-01 00:00:00',
         ]);
         $this->assertDatabaseHas('deuda_cuotas', [
             'alumno_id' => $this->alumno->id,
             'periodo' => '2026-08',
-            'monto_original' => '20000.00',
+            'monto_original' => '40000.00',
         ]);
     }
 
@@ -215,7 +215,7 @@ class CambioPlanCobroTest extends TestCase
 
     public function test_fallo_del_pago_revierte_cambio_de_plan_y_deuda(): void
     {
-        $this->mock(\App\Services\PagoCuotaService::class, function (MockInterface $mock) {
+        $this->partialMock(\App\Services\PagoCuotaService::class, function (MockInterface $mock) {
             $mock->shouldReceive('registrarPagoCuotaOperativo')
                 ->once()
                 ->andThrow(new \RuntimeException('Fallo simulado del pago'));

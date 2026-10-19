@@ -1,0 +1,269 @@
+{
+  "alcance": "Inventario literal revisado en app, resources y database; excluye datos SQL y artefactos. Las lecturas restantes son catalogo, validacion o persistencia del historial, no calculos de cuotas.",
+  "ocurrencias": [
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 79,
+      "texto": "'precio_mensual' => 300.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 86,
+      "texto": "'precio_mensual' => 400.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 93,
+      "texto": "'precio_mensual' => 600.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 101,
+      "texto": "'precio_mensual' => 400.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 108,
+      "texto": "'precio_mensual' => 500.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/EjemploCompletoSeeder.php",
+      "linea": 115,
+      "texto": "'precio_mensual' => 800.00,",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/ReportesEscenarioSeeder.php",
+      "linea": 41,
+      "texto": "$plan = GrupoPlan::create(['grupo_id' => $grupo->id, 'clases_por_semana' => 2, 'precio_mensual' => 30000, 'activo' => true]);",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/DemoSeeder.php",
+      "linea": 131,
+      "texto": "$pla[\"{$k}_1x\"] = GrupoPlan::create(['grupo_id' => $grp[$k]->id, 'clases_por_semana' => 1, 'precio_mensual' => $p1, 'activo' => true]);",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/seeders/DemoSeeder.php",
+      "linea": 132,
+      "texto": "$pla[\"{$k}_2x\"] = GrupoPlan::create(['grupo_id' => $grp[$k]->id, 'clases_por_semana' => 2, 'precio_mensual' => $p2, 'activo' => true]);",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "database/migrations/2026_01_12_034453_create_grupo_planes_table.php",
+      "linea": 18,
+      "texto": "$table->decimal('precio_mensual', 10, 2)->unsigned();",
+      "clasificacion": "Esquema y precio inicial del historial"
+    },
+    {
+      "archivo": "database/seeders/PrimeraCargaCompletaSeeder.php",
+      "linea": 174,
+      "texto": "['precio_mensual' => $precio, 'activo' => true],",
+      "clasificacion": "Definicion de precios iniciales del catalogo ficticio"
+    },
+    {
+      "archivo": "resources/views/grupos/_form.blade.php",
+      "linea": 99,
+      "texto": "<x-ds.money-input name=\"planes[{{ $i }}][precio_mensual]\"",
+      "clasificacion": "Mostrar o editar catalogo, sin alumno ni cuota"
+    },
+    {
+      "archivo": "resources/views/grupos/_form.blade.php",
+      "linea": 100,
+      "texto": ":value=\"old('planes.'.$i.'.precio_mensual', $plan->precio_mensual)\"",
+      "clasificacion": "Mostrar o editar catalogo, sin alumno ni cuota"
+    },
+    {
+      "archivo": "resources/views/grupos/_form.blade.php",
+      "linea": 129,
+      "texto": "<x-ds.money-input name=\"planes[__IDX__][precio_mensual]\"",
+      "clasificacion": "Mostrar o editar catalogo, sin alumno ni cuota"
+    },
+    {
+      "archivo": "resources/views/grupos/show.blade.php",
+      "linea": 133,
+      "texto": "{{ \\App\\Support\\FormatoImporte::pesos($plan->precio_mensual) }}",
+      "clasificacion": "Mostrar o editar catalogo, sin alumno ni cuota"
+    },
+    {
+      "archivo": "resources/views/grupos/index.blade.php",
+      "linea": 63,
+      "texto": "->map(fn($p) => $p->clases_por_semana . 'x/sem — ' . \\App\\Support\\FormatoImporte::pesos($p->precio_mensual))",
+      "clasificacion": "Mostrar o editar catalogo, sin alumno ni cuota"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 18,
+      "texto": "'precio_mensual',",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 24,
+      "texto": "'precio_mensual' => 'decimal:2',",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 48,
+      "texto": "if ($plan->wasChanged('precio_mensual')) {",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 69,
+      "texto": "'precio_mensual' => $this->precio_mensual,",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 92,
+      "texto": "->orderByDesc('vigente_desde')->orderByDesc('id')->value('precio_mensual');",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Models/GrupoPlan.php",
+      "linea": 108,
+      "texto": "if ($this->precio_mensual < 0) {",
+      "clasificacion": "Campo de catalogo, validacion, registro y consulta del historial"
+    },
+    {
+      "archivo": "app/Services/PrimeraCargaExcelService.php",
+      "linea": 29,
+      "texto": "$planes = GrupoPlan::with('grupo.deporte', 'grupo.nivel')->where('activo', true)->where('precio_mensual', '>', 0)",
+      "clasificacion": "Filtro de catalogo positivo; el importe sale de precioParaPeriodo"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 49,
+      "texto": "ImportePesos::preparar($request, ['planes.*.precio_mensual']);",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 61,
+      "texto": "'planes.*.precio_mensual'        => ['required', 'numeric', 'gt:0', new ImportePesos],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 72,
+      "texto": "'planes.*.precio_mensual.required'       => 'Ingresá el precio.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 73,
+      "texto": "'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 74,
+      "texto": "'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 94,
+      "texto": "'precio_mensual'    => $planData['precio_mensual'],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 131,
+      "texto": "ImportePesos::preparar($request, ['planes.*.precio_mensual']);",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 138,
+      "texto": "'planes.*.precio_mensual'        => ['required', 'numeric', 'gt:0', new ImportePesos],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 145,
+      "texto": "'planes.*.precio_mensual.required'       => 'Ingresá el precio.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 146,
+      "texto": "'planes.*.precio_mensual.numeric'        => 'El precio debe ser un número.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 147,
+      "texto": "'planes.*.precio_mensual.gt'             => 'El precio debe ser mayor a cero.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 186,
+      "texto": "'precio_mensual'    => $planData['precio_mensual'],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 198,
+      "texto": "'precio_mensual'    => $planData['precio_mensual'],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 271,
+      "texto": "ImportePesos::preparar($request, ['precio_mensual']);",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 276,
+      "texto": "'precio_mensual'    => ['required', 'numeric', 'gt:0', new ImportePesos],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 278,
+      "texto": "'precio_mensual.required' => 'Ingresá el precio.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 279,
+      "texto": "'precio_mensual.numeric' => 'El precio debe ser un número.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 280,
+      "texto": "'precio_mensual.gt' => 'El precio debe ser mayor a cero.',",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "app/Http/Controllers/GrupoWebController.php",
+      "linea": 297,
+      "texto": "'precio_mensual'    => $validated['precio_mensual'],",
+      "clasificacion": "Entrada y validacion del catalogo; no calcula cuotas"
+    },
+    {
+      "archivo": "database/migrations/2026_10_18_230000_create_grupo_plan_precios.php",
+      "linea": 15,
+      "texto": "$table->decimal('precio_mensual', 12, 2);",
+      "clasificacion": "Esquema y precio inicial del historial"
+    },
+    {
+      "archivo": "database/migrations/2026_10_18_230000_create_grupo_plan_precios.php",
+      "linea": 25,
+      "texto": "'precio_mensual' => $plan->precio_mensual,",
+      "clasificacion": "Esquema y precio inicial del historial"
+    }
+  ]
+}

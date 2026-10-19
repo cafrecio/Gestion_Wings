@@ -274,7 +274,7 @@ class AlumnoWebController extends Controller
                 ->map(fn($p) => [
                     'id'     => $p->id,
                     'clases' => $p->clases_por_semana,
-                    'precio' => (float) $p->precio_mensual,
+                    'precio' => $p->precioParaPeriodo(now()->format('Y-m'), today()),
                 ]),
         ]);
 
@@ -415,7 +415,7 @@ class AlumnoWebController extends Controller
                 ->map(fn($p) => [
                     'id'     => $p->id,
                     'clases' => $p->clases_por_semana,
-                    'precio' => (float) $p->precio_mensual,
+                    'precio' => $p->precioParaPeriodo(app(\App\Services\CambioPlanService::class)->periodoAplicacion($alumno, $p), $alumno->fecha_alta),
                 ]),
         ]);
 
@@ -459,13 +459,9 @@ class AlumnoWebController extends Controller
         // Si se envía un plan distinto al activo, crear nuevo AlumnoPlan
         if ($request->filled('plan_id')) {
             $planId = (int) $request->input('plan_id');
-            if (!$alumno->planActivo || $alumno->planActivo->plan_id != $planId) {
-                AlumnoPlan::create([
-                    'alumno_id'   => $alumno->id,
-                    'plan_id'     => $planId,
-                    'fecha_desde' => today(),
-                    'activo'      => true,
-                ]);
+            if ((!$alumno->planActivo || $alumno->planActivo->plan_id != $planId)
+                && $alumno->planProgramado?->plan_id != $planId) {
+                app(\App\Services\CambioPlanService::class)->cambiar($alumno, \App\Models\GrupoPlan::findOrFail($planId));
             }
         }
 
