@@ -303,7 +303,8 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
     }
 
     /**
-     * T34 - H2: Una clase que integra una liquidación cerrada no puede desmarcar su validación ni volver a sin_presentes.
+     * T34 - H2: Una clase que integra una liquidación cerrada (tanto PENDIENTE de pago como PAGADA)
+     * no puede desmarcar su validación ni volver a sin_presentes, y sus detalles, importes y estado de pago quedan intactos.
      */
     public function test_clase_en_liquidacion_cerrada_no_puede_desmarcar_validacion(): void
     {
@@ -320,16 +321,34 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
         $liqService->cerrarLiquidacion($liq->id);
 
         $this->assertTrue($clase->fresh()->integraLiquidacionCerrada());
+        $this->assertSame('PENDIENTE', $liq->fresh()->estado_pago);
+        $this->assertSame('1000.00', $liq->fresh()->total_calculado);
 
-        // Intentar hacer toggleValidada como admin debe ser rechazado
+        // Caso 1: Liquidación CERRADA / PENDIENTE
         $resp = $this->actingAs($this->admin)->patch(route('web.clases.toggle-validada', $clase->id));
         $resp->assertSessionHas('error');
         $this->assertTrue($clase->fresh()->validada_para_liquidacion);
+        $this->assertSame('1000.00', $liq->fresh()->total_calculado);
+        $this->assertSame($clase->id, (int) $liq->fresh()->detalles()->sole()->referencia_id);
 
         // No debe reaparecer en estado=sin_presentes
         $respFiltro = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'sin_presentes']));
         $respFiltro->assertOk();
         $clasesFiltradas = $respFiltro->viewData('clasesFiltradas');
         $this->assertFalse($clasesFiltradas->pluck('id')->contains($clase->id));
+
+        // Caso 2: Liquidación CERRADA / PAGADA
+        $liq->update(['estado_pago' => 'PAGADA']);
+        $this->assertSame('PAGADA', $liq->fresh()->estado_pago);
+
+        $respPagada = $this->actingAs($this->admin)->patch(route('web.clases.toggle-validada', $clase->id));
+        $respPagada->assertSessionHas('error');
+        $this->assertTrue($clase->fresh()->validada_para_liquidacion);
+        $this->assertSame('PAGADA', $liq->fresh()->estado_pago);
+        $this->assertSame('1000.00', $liq->fresh()->total_calculado);
+
+        $respFiltroPagada = $this->actingAs($this->admin)->get(route('web.clases.index', ['estado' => 'sin_presentes']));
+        $respFiltroPagada->assertOk();
+        $this->assertFalse($respFiltroPagada->viewData('clasesFiltradas')->pluck('id')->contains($clase->id));
     }
 }

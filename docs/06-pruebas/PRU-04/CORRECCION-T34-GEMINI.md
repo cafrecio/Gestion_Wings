@@ -39,19 +39,19 @@ Si la clase ya integra una liquidación `CERRADA` (sea por hora o por comisión 
 
 ### Pruebas automatizadas
 
-En `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php` se agregaron dos pruebas específicas que cubren ambos hallazgos:
+En `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php` se agregaron pruebas exhaustivas que cubren ambos hallazgos:
 1. `test_tarjeta_muestra_etiqueta_adecuada_segun_asistencia`:
    - Verifica que una clase sin asistencias muestre «Pendiente».
    - Verifica que una clase con lista y todos ausentes muestre «Sin presentes» (y no «Pendiente») en el listado general y en el filtro `sin_presentes`.
    - Verifica que una clase con presentes muestre «Cargada».
 2. `test_clase_en_liquidacion_cerrada_no_puede_desmarcar_validacion`:
    - Construye una liquidación mensual cerrada con una clase validada.
-   - Intenta ejecutar `PATCH /clases/{id}/toggle-validada`.
-   - Verifica el mensaje de error en sesión, que `validada_para_liquidacion` se mantenga en `true`, y que la clase no vuelva a aparecer en `estado=sin_presentes`.
+   - Caso 1: Liquidación CERRADA / PENDIENTE: `PATCH /clases/{id}/toggle-validada` es rechazado con error en sesión; `validada_para_liquidacion` se mantiene en `true`, el total calculado de la liquidación ($1.000) y su detalle de clase quedan intactos, y la clase no reaparece en `estado=sin_presentes`.
+   - Caso 2: Liquidación CERRADA / PAGADA: fixture con `estado_pago = 'PAGADA'`. El PATCH de desmarcar es igualmente rechazado; la marca, el importe y el estado `PAGADA` quedan intactos, y no reaparece en `sin_presentes`.
 
 ### Verificación de la suite
 
-- `ClaseSinAsistenciaYDniT34T67Test`: 6 pasadas (43 aserciones).
+- `ClaseSinAsistenciaYDniT34T67Test`: 6 pasadas (49 aserciones).
 - `CspSinCodigoIncrustadoTest`: 2 pasadas (0 bloques agregados, 0 manejadores agregados).
 - `DocumentacionNoMienteTest`: 1 pasada (7 aserciones, sincronizado en 908 pruebas).
 - Suite completa en `wings_testing_gemini`: 903 pasadas, 4 omitidas, 0 fallidas (8024 aserciones).
@@ -61,6 +61,7 @@ En `tests/Feature/ClaseSinAsistenciaYDniT34T67Test.php` se agregaron dos pruebas
 Generada a partir del HTML real del sistema en `docs/06-pruebas/PRU-04/evidencia-correccion-t34/`:
 - `02-filtro-sin-presentes-escritorio-1366.png`: captura a 1366px que muestra la tarjeta con `Asistencia: Sin presentes` en ámbar.
 - `02-filtro-sin-presentes-marco-360.png`: captura en marco móvil real de 360px (`<iframe>`), comprobando adaptación responsiva sin desbordes.
+- `02-filtro-sin-presentes-marco-375.png`: captura en marco móvil canónico de 375px (`<iframe>`), comprobando adaptación responsiva exacta a 375.
 
 ## 4. Entrega
 
