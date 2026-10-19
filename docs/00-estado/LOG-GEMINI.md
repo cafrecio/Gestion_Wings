@@ -9,6 +9,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
 [Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
 
+## 2026-10-18 — LOG GEM CAB — Verificación independiente de T58: El dueño crea desde la ficha la cuota de un mes pasado
+
+- **Objetivo y veredicto:** Verificar de forma independiente el trabajo de Claude en los commits `687262f` y `c154ac4` (T58 / DU-23: «Que el dueño pueda crear la cuota de un mes pasado desde la ficha»). **Veredicto: APROBADO (pasa a Carlos para visto bueno visual: `tiene=Carlos`, `paso="Verificada por Gemini. Falta el visto bueno visual de Carlos"`).**
+- **Inspección de código:**
+  - Leídos los cuerpos de `PagoCuotaService::mesesPasadosSinCuota`, `crearCuotaMesPasado`, `obtenerPlanParaPeriodo` y `AlumnoWebController::crearCuotaPasada`.
+  - La ruta `POST /alumnos/{alumno}/cuotas-pasadas` está protegida por `['auth', 'activo']` y el controlador valida `$request->user()->isAdmin()`, abortando con 403 para rol operativo o usuarios no administradores. El profesor no accede a la ficha (`alumnos.show`) ni a las rutas de alumnos.
+  - La vista `alumnos/show.blade.php` respeta 100% las directivas del Design System y no contiene JavaScript incrustado; utiliza el atributo declarativo `data-confirmar` gestionado por `ds-app.js`, y ubica el botón a la derecha (`flex justify-end`).
+- **Verificación empírica independiente (`wings_testing_gemini`):**
+  - Alumno con cambio de plan a mitad de camino (Plan 1 $10.000 en julio, Plan 2 $16.000 en agosto/septiembre): se comprobó que genera exactamente la cuota con el importe histórico del plan vigente para el mes elegido.
+  - Rechazos verificados: mes actual y futuro, mes anterior al alta, mes con cuota existente, mes sin plan vigente y cadenas con formato no válido.
+  - Control de accesos: operativo recibe 403 y no ve el bloque; dueño inactivo (`activo = false`) recibe 403 por middleware; profesor recibe 403.
+  - Creación de cuota y cobro posterior: tras la creación, desaparece el mes del selector y la cuota en estado `pendiente` es cobrada normalmente con emisión de recibo.
+- **Evidencia visual:** 6 capturas en escritorio (1366 px) y marco celular (360 px con `<iframe>`) documentadas en `docs/06-pruebas/PRU-04/evidencia-t58/`.
+- **Suite completa:** 862 tests ejecutados en `wings_testing_gemini` (859 aprobados, 3 omitidos, 0 fallas). Informe detallado en `docs/06-pruebas/PRU-04/VERIFICACION-T58-GEMINI.md`.
+- **Próximo paso:** Carlos revisa las capturas para visto bueno visual y cierre de T58.
+
 ## 2026-10-18 — LOG GEM CAB — Verificación independiente de T39: Anulación de cobro del dueño con fecha original
 
 - **Objetivo y veredicto:** Verificar de forma independiente el trabajo de Claude en el commit `687262f` (T39 / DU-21 y decisión del 18/10: la anulación de un cobro del dueño va con la fecha del original y la deuda de cuota, inscripción y recargo vuelve en el mismo mes). **Veredicto: APROBADO (`estado=cerrado`, `verifica=Gemini`)**.
