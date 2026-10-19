@@ -15,6 +15,7 @@ use App\Services\LiquidacionPagoService;
 use App\Services\LiquidacionService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LiquidacionWebController extends Controller
 {
@@ -129,22 +130,31 @@ class LiquidacionWebController extends Controller
         ]);
 
         try {
-            // Si el admin eligió incluir las clases de hoy, las marca como validadas
-            // para que el servicio las incluya en el cálculo
-            if ($request->boolean('incluir_hoy')) {
-                Clase::whereHas('profesores', fn($q) => $q->where('profesores.id', $request->profesor_id))
-                    ->whereDate('fecha', today())
-                    ->where('cancelada', false)
-                    ->where('validada_para_liquidacion', false)
-                    ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true))
-                    ->update(['validada_para_liquidacion' => true]);
-            }
+            $liquidacion = DB::transaction(function () use ($request) {
+                // Si el admin eligió incluir las clases de hoy, las marca como validadas
+                // solo si hoy pertenece al período solicitado y no integran una liquidación cerrada.
+                if ($request->boolean('incluir_hoy') && today()->month === (int) $request->mes && today()->year === (int) $request->anio) {
+                    $clasesHoy = Clase::whereHas('profesores', fn($q) => $q->where('profesores.id', $request->profesor_id))
+                        ->whereDate('fecha', today())
+                        ->where('cancelada', false)
+                        ->where('validada_para_liquidacion', false)
+                        ->whereDoesntHave('asistencias', fn($q) => $q->where('presente', true))
+                        ->lockForUpdate()
+                        ->get();
 
-            $liquidacion = $this->liquidacionService->generarLiquidacionMensual(
-                (int) $request->profesor_id,
-                (int) $request->mes,
-                (int) $request->anio,
-            );
+                    foreach ($clasesHoy as $clase) {
+                        if (!$clase->integraLiquidacionCerrada()) {
+                            $clase->update(['validada_para_liquidacion' => true]);
+                        }
+                    }
+                }
+
+                return $this->liquidacionService->generarLiquidacionMensual(
+                    (int) $request->profesor_id,
+                    (int) $request->mes,
+                    (int) $request->anio,
+                );
+            });
 
             return redirect()->route('web.liquidaciones.show', $liquidacion->id)
                 ->with('success', 'Liquidación generada correctamente.');

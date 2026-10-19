@@ -54,13 +54,12 @@ Nada.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Codex verifica correccion de C1 (contador composer) y C2 (transaccion y periodo en incluir_hoy) en T34 |
 | **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | En curso (hizo Claude, verifica Codex) | Carlos rechazo el visual el 19/10: botones desalineados, Alumnos y Resumen deben terminar en la misma linea, y captura de celular ilegible. Codex verifica logica y corrige vista; cierre solo cuando Carlos apruebe el visual |
 
 ## Gemini
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Codex CyE: H1 y PATCH H2 pasan. CON HALLAZGOS c/f: C1 contador por tarjeta, C2 incluir_hoy persiste tras generacion rechazada. Ver seccion Verificacion de la correccion en VERIFICACION-T34-T67-CODEX.md. Ambos preexistentes; no se demuestra bypass de cerrada. Visual aprobado por Carlos 19/10. T67 cerrada |
+Nada en este momento.
 
 ## Sin empezar (24)
 

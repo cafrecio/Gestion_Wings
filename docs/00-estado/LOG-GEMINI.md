@@ -7,6 +7,25 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
+## 2026-10-19 — LOG GEM CYE — Corrección de C1 y C2 en T34: View Composer y transacción en liquidaciones
+
+- **Objetivo y alcance:** Subsanar los hallazgos C1 (consultas por tarjeta) y C2 (validación alternativa en incluir_hoy) señalados por Codex CyE en `docs/06-pruebas/PRU-04/VERIFICACION-T34-T67-CODEX.md`.
+- **C1 — View Composer (`app/Providers/AppServiceProvider.php`):**
+  - Memoización del badge en `$request->attributes` para calcularlo como máximo 1 vez por petición HTTP.
+  - Se eliminan las 56 consultas redundantes al renderizar tarjetas múltiples.
+  - Al cambiar de petición (nuevo request en tests o web), se recalcula fresco.
+- **C2 — Validación atómica (`app/Http/Controllers/LiquidacionWebController.php`):**
+  - Validación y generación de liquidación envueltas en `DB::transaction(...)`: ante cualquier fallo o duplicado se hace rollback total sin persistir validaciones.
+  - `incluir_hoy` restringido a clases cuyo mes/año coincida con el período solicitado (`today()->month === $mes && today()->year === $anio`).
+  - Cada clase candidata exige `!$clase->integraLiquidacionCerrada()`.
+- **Pruebas y regresiones (`wings_testing_gemini`):**
+  - 5 pruebas nuevas en `ClaseSinAsistenciaYDniT34T67Test.php` (11 tests en total, 78 aserciones, 10.68 s en verde). Rojas antes (C1 con 14 COUNTs vs 1; C2 persistiendo tras error y en meses ajenos), verdes después.
+  - Suite completa: 934 aprobadas, 4 omitidas, 0 fallidas de código (8239 aserciones, 1498.66 s). Salida 0.
+  - Suite rápida: 820 aprobadas, 4 omitidas (6656 aserciones, 291.24 s).
+  - Guardianes: `DocumentacionNoMienteTest` (939 pruebas) y `TableroAlDiaTest` en verde.
+  - Sin cambios visuales (`git diff --stat -- resources/views resources/css` vacío).
+- **Informe y entrega:** `docs/06-pruebas/PRU-04/CORRECCION-T34-C1-C2-GEMINI.md`. T34 pasada a `a_verificar` para Codex.
+
 ## 2026-10-19 — LOG GEM CYE — Adopción de la regla de testeo en dos velocidades y verificación T59/T47
 
 - **Nueva regla de testeo (decisión de Carlos, 19/10/2026, AGENTS.md §6-ter):**

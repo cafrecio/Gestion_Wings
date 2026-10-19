@@ -351,4 +351,131 @@ class ClaseSinAsistenciaYDniT34T67Test extends TestCase
         $respFiltroPagada->assertOk();
         $this->assertFalse($respFiltroPagada->viewData('clasesFiltradas')->pluck('id')->contains($clase->id));
     }
+
+    /**
+     * T34 - C1: El COUNT de clases pendientes del badge no debe recalcularse por tarjeta.
+     */
+    public function test_c1_consultas_no_crecen_por_tarjeta_en_listado_de_clases(): void
+    {
+        $this->actingAs($this->admin);
+
+        foreach (['2026-10-10', '2026-10-18'] as $fecha) {
+            $base = $this->crearClasePasada($fecha);
+            Asistencia::create(['clase_id' => $base->id, 'alumno_id' => $this->alumno->id, 'presente' => false]);
+        }
+
+        $medir = function () {
+            \Illuminate\Support\Facades\DB::enableQueryLog();
+            \Illuminate\Support\Facades\DB::flushQueryLog();
+            $r = $this->get(route('web.clases.index', ['fecha' => '2026-10-10']))->assertOk();
+            $queries = \Illuminate\Support\Facades\DB::getQueryLog();
+            \Illuminate\Support\Facades\DB::disableQueryLog();
+            return [count($queries), $queries, $r];
+        };
+
+        $medir(); // Calentar
+        [$antes, $qa] = $medir();
+
+        foreach (['2026-10-10', '2026-10-18'] as $fecha) {
+            for ($i = 0; $i < 7; $i++) {
+                $c = $this->crearClasePasada($fecha);
+                Asistencia::create(['clase_id' => $c->id, 'alumno_id' => $this->alumno->id, 'presente' => (bool) ($i % 2)]);
+            }
+        }
+
+        [$despues, $qd, $resp] = $medir();
+
+        $cuentaCountBadgeAntes = collect($qa)->filter(fn ($q) => str_contains($q['query'], 'validada_para_liquidacion') && str_contains($q['query'], 'count(*)'))->count();
+        $cuentaCountBadgeDespues = collect($qd)->filter(fn ($q) => str_contains($q['query'], 'validada_para_liquidacion') && str_contains($q['query'], 'count(*)'))->count();
+
+        $this->assertSame(1, $cuentaCountBadgeAntes, 'El COUNT de badge debe ejecutarse como máximo 1 vez con 2 tarjetas.');
+        $this->assertSame(1, $cuentaCountBadgeDespues, 'El COUNT de badge debe ejecutarse como máximo 1 vez con 16 tarjetas.');
+        $this->assertSame($antes, $despues, 'Las consultas totales no deben crecer por tarjeta en el listado.');
+    }
+
+    /**
+     * T34 - C1: El contador del badge se actualiza entre peticiones sucesivas.
+     */
+    public function test_c1_contador_se_actualiza_entre_peticiones_sucesivas(): void
+    {
+        $this->actingAs($this->admin);
+
+        $r1 = $this->get(route('web.clases.index'))->assertOk();
+        $this->assertEquals(0, $r1->viewData('badgeClasesPendientes'));
+
+        $this->crearClasePasada('2026-10-01');
+
+        $r2 = $this->get(route('web.clases.index'))->assertOk();
+        $this->assertEquals(1, $r2->viewData('badgeClasesPendientes'));
+    }
+
+    /**
+     * T34 - C2: Una generación rechazada no debe dejar validaciones persistidas.
+     */
+    public function test_c2_generacion_rechazada_no_deja_validaciones_persistidas(): void
+    {
+        $pasada = $this->crearClasePasada('2026-09-10');
+        $pasada->update(['validada_para_liquidacion' => true]);
+        $svc = app(LiquidacionService::class);
+        $liq = $svc->generarLiquidacionMensual($this->profesor->id, 9, 2026);
+        $svc->cerrarLiquidacion($liq->id);
+
+        $hoy = $this->crearClasePasada('2026-10-18');
+        $this->assertFalse($hoy->fresh()->validada_para_liquidacion);
+
+        $this->actingAs($this->admin)->post(route('web.liquidaciones.store'), [
+            'profesor_id' => $this->profesor->id,
+            'mes' => 9,
+            'anio' => 2026,
+            'incluir_hoy' => 1,
+        ])->assertRedirect()->assertSessionHas('error');
+
+        $this->assertTrue($pasada->fresh()->validada_para_liquidacion);
+        $this->assertFalse($hoy->fresh()->validada_para_liquidacion, 'Una generación rechazada no debe dejar validaciones nuevas.');
+    }
+
+    /**
+     * T34 - C2: incluir_hoy no debe modificar clases de meses ajenos al período solicitado.
+     */
+    public function test_c2_incluir_hoy_no_modifica_clases_ajenas_al_periodo_solicitado(): void
+    {
+        $pasada = $this->crearClasePasada('2026-09-10');
+        $pasada->update(['validada_para_liquidacion' => true]);
+
+        $hoy = $this->crearClasePasada('2026-10-18');
+        $this->assertFalse($hoy->fresh()->validada_para_liquidacion);
+
+        $this->actingAs($this->admin)->post(route('web.liquidaciones.store'), [
+            'profesor_id' => $this->profesor->id,
+            'mes' => 9,
+            'anio' => 2026,
+            'incluir_hoy' => 1,
+        ])->assertRedirect()->assertSessionHas('success');
+
+        $this->assertFalse($hoy->fresh()->validada_para_liquidacion, 'incluir_hoy no debe tocar clases de meses futuros/ajenos.');
+    }
+
+    /**
+     * T34 - C2: incluir_hoy en período vigente valida clases y genera correctamente.
+     */
+    public function test_c2_incluir_hoy_en_periodo_vigente_valida_clases_y_genera_correctamente(): void
+    {
+        $pasada = $this->crearClasePasada('2026-10-10');
+        $pasada->update(['validada_para_liquidacion' => true]);
+
+        $hoy = $this->crearClasePasada('2026-10-18');
+        $this->assertFalse($hoy->fresh()->validada_para_liquidacion);
+
+        $this->actingAs($this->admin)->post(route('web.liquidaciones.store'), [
+            'profesor_id' => $this->profesor->id,
+            'mes' => 10,
+            'anio' => 2026,
+            'incluir_hoy' => 1,
+        ])->assertRedirect()->assertSessionHas('success');
+
+        $this->assertTrue($hoy->fresh()->validada_para_liquidacion, 'incluir_hoy en el período vigente debe validar la clase de hoy.');
+        $liq = \App\Models\Liquidacion::where('profesor_id', $this->profesor->id)->where('mes', 10)->firstOrFail();
+        $this->assertTrue($liq->detalles()->where('referencia_id', $hoy->id)->exists());
+    }
 }
+

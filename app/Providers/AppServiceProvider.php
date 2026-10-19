@@ -50,26 +50,36 @@ class AppServiceProvider extends ServiceProvider
                 return;
             }
 
-            $badge = 0;
-            if (Auth::check()) {
-                // Clases pasadas que NO se van a poder liquidar hasta que
-                // alguien las resuelva: sin asistencia completada no se le
-                // paga al profesor. Por eso se cuentan TODAS, sin ventana de
-                // tiempo — una clase de enero sin cargar sigue trabando plata.
-                //
-                // Se excluyen las validadas para liquidación a mano: ya están
-                // resueltas y se pagan igual aunque no tengan asistencia
-                // (ver LIQUIDACIONES_CONTRATO_V2.md, 2.3).
-                //
-                // Misma consulta que el filtro estado=finalizada de
-                // ClaseWebController::index(), porque el badge es un acceso
-                // directo a ese listado y el número tiene que coincidir.
-                $badge = Clase::where('cancelada', false)
-                    ->whereDate('fecha', '<', today())
-                    ->where('validada_para_liquidacion', false)
-                    ->doesntHave('asistencias')
-                    ->count();
+            $request = app()->bound('request') ? request() : null;
+            $badge = $request !== null ? $request->attributes->get('wings.badge_clases_pendientes') : null;
+
+            if ($badge === null) {
+                $badge = 0;
+                if (Auth::check()) {
+                    // Clases pasadas que NO se van a poder liquidar hasta que
+                    // alguien las resuelva: sin asistencia completada no se le
+                    // paga al profesor. Por eso se cuentan TODAS, sin ventana de
+                    // tiempo — una clase de enero sin cargar sigue trabando plata.
+                    //
+                    // Se excluyen las validadas para liquidación a mano: ya están
+                    // resueltas y se pagan igual aunque no tengan asistencia
+                    // (ver LIQUIDACIONES_CONTRATO_V2.md, 2.3).
+                    //
+                    // Misma consulta que el filtro estado=finalizada de
+                    // ClaseWebController::index(), porque el badge es un acceso
+                    // directo a ese listado y el número tiene que coincidir.
+                    $badge = Clase::where('cancelada', false)
+                        ->whereDate('fecha', '<', today())
+                        ->where('validada_para_liquidacion', false)
+                        ->doesntHave('asistencias')
+                        ->count();
+                }
+
+                if ($request !== null) {
+                    $request->attributes->set('wings.badge_clases_pendientes', $badge);
+                }
             }
+
             $view->with('badgeClasesPendientes', $badge);
         });
     }
