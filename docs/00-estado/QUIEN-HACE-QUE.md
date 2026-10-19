@@ -42,9 +42,7 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: Inicio con Vencidos (= Cobranza) y En plazo; suman el buscador de Cobrar. 5 pruebas, Chrome 1366/375 con fecha simulada 05/10. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T74.md |
+Nada.
 
 ## Claude
 
@@ -54,7 +52,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Codex
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | En curso (hizo Claude, verifica Codex) | Carlos rechazo el visual el 19/10: botones desalineados, Alumnos y Resumen deben terminar en la misma linea, y captura de celular ilegible. Codex verifica logica y corrige vista; cierre solo cuando Carlos apruebe el visual |
 
 ## Gemini
 
