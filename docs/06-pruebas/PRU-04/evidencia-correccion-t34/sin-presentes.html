@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="lOzV5sfTr01hAscVekfqwr9wjUsC6TUVJZlHRpqJ">
+    <meta name="csrf-token" content="TOKEN-PRUEBA-OMITIDO">
     <title>Clases – Wings</title>
     <link rel="icon" type="image/x-icon" href="http://gestion-wings/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="http://gestion-wings/favicon-32x32.png">
@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://gestion-wings/apple-touch-icon.png">
     <link rel="manifest" href="http://gestion-wings/site.webmanifest">
     <meta name="theme-color" content="#0F172A">
-    <link rel="preload" as="style" href="http://gestion-wings/build/assets/app-D8rSYSjQ.css" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-BvcPPTQc.js" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="http://gestion-wings/build/assets/app-D8rSYSjQ.css" /><script type="module" src="http://gestion-wings/build/assets/app-BvcPPTQc.js"></script></head>
+    <link rel="preload" as="style" href="http://gestion-wings/build/assets/app-BtSh8RvZ.css" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/app-DQrgq1uX.js" /><link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/formato-importe-rshXORao.js" /><link rel="stylesheet" href="http://gestion-wings/build/assets/app-BtSh8RvZ.css" /><script type="module" src="http://gestion-wings/build/assets/app-DQrgq1uX.js"></script></head>
 <body>
 
 <div class="ds-layout">
@@ -223,10 +223,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
-                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Larry Gleason V</span>
+                    <span class="text-sm text-[var(--color-text-muted)]" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Gaston Mann V</span>
                 </div>
                 <form method="POST" action="http://gestion-wings/logout">
-                    <input type="hidden" name="_token" value="lOzV5sfTr01hAscVekfqwr9wjUsC6TUVJZlHRpqJ" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
+                    <input type="hidden" name="_token" value="TOKEN-PRUEBA-OMITIDO" autocomplete="off">                    <button class="ds-btn ds-btn--ghost"
             type="submit"
             >
 
@@ -284,7 +284,7 @@
             <select id="filter-deporte" name="deporte_id"
                     class="filtros-control filtros-select">
                 <option value="">Deporte</option>
-                                    <option value="54"
+                                    <option value="213"
                             >
                         Patin
                     </option>
@@ -293,8 +293,8 @@
             <select id="filter-grupo" name="grupo_id"
                     class="filtros-control filtros-select">
                 <option value="">Grupo</option>
-                                    <option value="34"
-                            data-deporte="54"
+                                    <option value="125"
+                            data-deporte="213"
                             >
                         Patin — Inicial
                     </option>
@@ -302,7 +302,7 @@
 
             <select name="profesor_id" class="filtros-control filtros-select">
                 <option value="">Profesor</option>
-                                    <option value="31"
+                                    <option value="72"
                             >
                         Mendez, Lucia
                     </option>
@@ -428,7 +428,7 @@
 
     <div class="alumno-actions">
         <a class="ds-btn ds-btn--primary"
-       href="http://gestion-wings/clases/15"
+       href="http://gestion-wings/clases/56"
        role="button">
 
                     
@@ -437,7 +437,7 @@
     </a>
 
                     <a class="ds-btn ds-btn--secondary"
-       href="http://gestion-wings/clases/15/edit"
+       href="http://gestion-wings/clases/56/edit"
        role="button">
 
                     
@@ -464,63 +464,6 @@
 
 </div>
 
-<script>
-(function () {
-    // 1. Auto-scroll de la ventana de hoy a la clase actual o próxima
-    (function () {
-        const container = document.getElementById('clases-hoy-container');
-        if (!container) return;
-
-        const prioridad = ['en_curso', 'por_comenzar', 'finalizada'];
-        let target = null;
-
-        for (const estado of prioridad) {
-            target = container.querySelector('[data-estado="' + estado + '"]');
-            if (target) break;
-        }
-
-        if (target) {
-            container.scrollTop = target.offsetTop - container.offsetTop;
-        }
-    })();
-
-    // 3. Filtro de grupo por deporte
-    (function () {
-        const filterForm    = document.getElementById('filter-form');
-        const deporteSelect = document.getElementById('filter-deporte');
-        const grupoSelect   = document.getElementById('filter-grupo');
-
-        function filtrarGrupos(deporteId) {
-            grupoSelect.querySelectorAll('option[data-deporte]').forEach(function (opt) {
-                opt.style.display = (!deporteId || opt.dataset.deporte === deporteId) ? '' : 'none';
-            });
-            if (deporteId) {
-                const sel = grupoSelect.querySelector('option[value="' + grupoSelect.value + '"]');
-                if (sel && sel.dataset.deporte && sel.dataset.deporte !== deporteId) {
-                    grupoSelect.value = '';
-                }
-            }
-        }
-
-        if (deporteSelect) {
-            deporteSelect.addEventListener('change', function () {
-                filtrarGrupos(this.value);
-                filterForm.submit();
-            });
-            if (deporteSelect.value) filtrarGrupos(deporteSelect.value);
-        }
-
-        if (grupoSelect) {
-            grupoSelect.addEventListener('change', function () { filterForm.submit(); });
-        }
-
-        const ordenSelect = document.getElementById('filter-orden');
-        if (ordenSelect) {
-            ordenSelect.addEventListener('change', function () { filterForm.submit(); });
-        }
-    })();
-})();
-</script>
-
+    <link rel="modulepreload" as="script" href="http://gestion-wings/build/assets/clases-index-Bac_rGxb.js" /><script type="module" src="http://gestion-wings/build/assets/clases-index-Bac_rGxb.js"></script>
 </body>
 </html>
