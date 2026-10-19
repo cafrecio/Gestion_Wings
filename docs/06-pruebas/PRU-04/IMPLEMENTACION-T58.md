@@ -44,6 +44,6 @@ con «Debe crearla un administrador», y no existía ninguna pantalla para hacer
 - avisó «Se creó la cuota de septiembre 2026: $12,000.00.»;
 - el bloque desapareció.
 
-## Pendiente
+## Aspecto
 
-El aspecto del bloque nuevo lo aprueba Carlos.
+Aprobado por Carlos el 18/10 («Las imágenes están bien»). Falta solo la verificación de Gemini.

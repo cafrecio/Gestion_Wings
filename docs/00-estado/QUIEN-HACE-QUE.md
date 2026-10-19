@@ -56,7 +56,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude: el duenio crea desde la ficha la cuota de un mes pasado que nunca se genero (precio del plan de ese mes). Falta el visto bueno visual de Carlos del bloque nuevo en la ficha. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T58.md |
+| **T58** El duenio crea desde la ficha la cuota de un mes pasado que nunca se genero | Hecho, espera verificación (hizo Claude, verifica Gemini) | [AHORA, Carlos 18/10] Hecho por Claude. Visual aprobado por Carlos el 18/10 (las imagenes estan bien). Solo falta la verificacion de Gemini; si aprueba, cierra. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T58.md |
 
 ## Sin empezar (34)
 
