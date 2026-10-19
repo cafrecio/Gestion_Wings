@@ -56,11 +56,14 @@ Nada en este momento.
 
 ## Gemini
 
-Nada en este momento.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-33 · ASI-003 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: el contador del menu (AppServiceProvider), ClaseWebController::index (filtro de pendientes) y toggleValidada, LiquidacionService (que clases se pagan). POR QUE ANTES: cambia el numero Sin asistencia que la prueba mira todos los dias. ORDEN: comparte ClaseWebController con T35, T52, T62, T66 y T67: un solo agente por vez en ese archivo |
+| **T67** La lista de asistencia muestra solo los tres ultimos numeros del DNI | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-56 · ASI-016 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: vista clases/show (linea 331). Chica y visual |
 
-## Sin empezar (33)
+## Sin empezar (31)
 
-T12, T22, T25, T34, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T59, T60, T61, T62, T64, T65, T66, T67, T68, T69, T70, T71, T72, T73, T74, B3.
+T12, T22, T25, T40, T42, T43, T45, T46, T47, T50, T51, T52, T53, T54, T55, T56, T59, T60, T61, T62, T64, T65, T66, T68, T69, T70, T71, T72, T73, T74, B3.
 
 ## Mejoras futuras, no se empiezan ahora (9)
 
