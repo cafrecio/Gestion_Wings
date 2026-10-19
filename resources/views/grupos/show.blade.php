@@ -108,7 +108,7 @@
     </div>
 
     {{-- Precios por frecuencia --}}
-    <div class="md:col-span-5 filtros-card">
+    <div class="md:col-span-3 filtros-card">
         <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
             <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Precios por frecuencia
@@ -156,6 +156,44 @@
             <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin precios cargados todavía.</p>
         @endif
     </div>
+
+    {{-- Cronograma semanal / Clases --}}
+    <div class="md:col-span-2 filtros-card">
+        <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
+            <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Cronograma semanal
+        </p>
+
+        @if(isset($clasesFuturas) && $clasesFuturas->isNotEmpty())
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                @foreach($clasesFuturas as $claseItem)
+                    <li style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; padding: 0.35rem 0.5rem; background: var(--color-surface-alt); border-radius: var(--radius-sm);">
+                        <div>
+                            <span style="font-weight: 600; color: var(--color-text);">{{ ucfirst($claseItem->fecha->translatedFormat('D d/m')) }}</span>
+                            <span style="color: var(--color-text-muted); font-size: 0.75rem; margin-left: 0.35rem;">{{ \Carbon\Carbon::parse($claseItem->hora_inicio)->format('H:i') }} a {{ \Carbon\Carbon::parse($claseItem->hora_fin)->format('H:i') }}</span>
+                        </div>
+                        <a href="{{ route('web.clases.show', $claseItem->id) }}" style="font-size: 0.72rem; color: var(--color-brand); text-decoration: none; font-weight: 500;">
+                            Ver
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+            <div class="mt-2.5">
+                <a href="{{ route('web.clases.index', ['grupo_id' => $grupo->id]) }}" style="font-size: 0.75rem; color: var(--color-btn-primary); text-decoration: none; font-weight: 500;">
+                    Ver todas las clases del grupo
+                </a>
+            </div>
+        @else
+            <p class="text-xs text-wings-muted" style="opacity: 0.7; margin-bottom: 0.75rem;">Sin clases futuras programadas.</p>
+            @if($isAdmin)
+                <a href="{{ route('web.clases.create', ['grupo_id' => $grupo->id]) }}" style="font-size: 0.75rem; color: var(--color-btn-primary); text-decoration: none; font-weight: 500;">
+                    + Programar clases
+                </a>
+            @endif
+        @endif
+    </div>
+
+</div>
 
 {{-- Volver --}}
 <div class="filtros-actions mt-4" style="justify-content: flex-end;">

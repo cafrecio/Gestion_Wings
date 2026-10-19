@@ -76,18 +76,20 @@ Actualmente, el comando emite un `Log::warning("Alumno {$alumno->id} activo pero
 
 ---
 
-## 2. T68: Retiro de los carteles «Próximamente» (DU-57)
+## 2. T68: Reemplazo de los carteles «Próximamente» por datos reales (DU-57)
 
 ### Decisión de Carlos
-> DU-57: «Sacar los tres carteles de Próximamente».
+> DU-57: «Sacar los tres carteles de Próximamente» (orden del 19/10: poner los horarios de las clases que tiene el grupo y las liquidaciones/clases del profesor; si no tiene, mostrar 'Sin clases futuras programadas', 'Sin liquidaciones registradas' o 'Sin clases asignadas próximas', sin eliminar ninguna sección).
 
 ### Vistas intervenidas y cambios visuales
 1. `resources/views/grupos/show.blade.php`:
-   - Se removió el recuadro punteado «Cronograma semanal» con el texto *«Próximamente: horario de clases del grupo.»*.
-   - El bloque «Precios por frecuencia» se expandió de `md:col-span-3` a `md:col-span-5` ocupando el ancho completo inferior, con alineación armónica y sin dejar espacios vacíos.
+   - Se conserva la estructura en dos columnas inferiores: `Precios por frecuencia` (3/5) y `Cronograma semanal` (2/5).
+   - En `Cronograma semanal` se listan las clases futuras no canceladas del grupo (fecha formateada, horario `H:i a H:i` y enlace a la clase).
+   - Si el grupo aún no tiene clases programadas, muestra el estado claro `Sin clases futuras programadas.` y acceso a `+ Programar clases` para el ADMIN.
 2. `resources/views/profesores/show.blade.php`:
-   - Se retiró la estructura de dos columnas que alojaba en su columna derecha los bloques de *«Historial de liquidaciones»* y *«Clases asignadas»* con el texto *«Próximamente.»*.
-   - Los datos del profesor se transformaron en una tarjeta única `filtros-card` a ancho completo, homogénea con el resto de las fichas del sistema.
+   - Se conserva la estructura en dos columnas: `Información del profesor` (3/5) a la izquierda y columna derecha (2/5) con las dos tarjetas.
+   - En `Historial de liquidaciones` se listan las liquidaciones del profesor (período `MM/AAAA`, importe en pesos con `FormatoImporte`, badge de estado de pago y enlace de vista para ADMIN). Si no tiene: `Sin liquidaciones registradas.`.
+   - En `Clases asignadas` se listan las próximas clases asignadas al profesor con grupo, día y horario. Si no tiene: `Sin clases asignadas próximas.`.
 3. Se verificó mediante búsqueda exhaustiva (`git grep -i "proximamente" resources/views`) que no queda **ninguna otra ocurrencia** de dicha leyenda en ninguna vista de la aplicación.
 
 ---
@@ -95,21 +97,16 @@ Actualmente, el comando emite un `Log::warning("Alumno {$alumno->id} activo pero
 ## 3. Pruebas y Evidencia
 
 ### Pruebas automatizadas
-Se implementó `tests/Feature/AlumnoSinPlanT56T68Test.php` con 5 pruebas específicas:
-1. `test_cambiar_grupo_exige_plan_del_nuevo_grupo`: Valida que al cambiar de grupo en edición se exija `plan_id`, que pertenezca al nuevo grupo, y que con los datos correctos guarde exitosamente.
-2. `test_alumno_sin_plan_valido_en_edicion_exige_plan`: Valida que un alumno que no tenga plan vigente sea obligado a seleccionar uno al editar.
-3. `test_cobro_de_deuda_a_inactivo_sin_plan_vigente_no_lo_reactiva`: Valida que al pagar deuda vieja un inactivo sin plan vigente para el mes actual, la deuda se pague pero el alumno permanezca inactivo.
-4. `test_cobro_a_inactivo_con_plan_vigente_si_lo_reactiva_y_crea_reingreso`: Valida que al pagar un inactivo con plan vigente, se reactive y cree la cuota de reingreso del mes actual.
-5. `test_vistas_grupo_y_profesor_no_muestran_proximamente`: Valida que las respuestas HTTP de `grupos.show` y `profesores.show` no contengan «Próximamente» ni los bloques retirados.
+En `tests/Feature/AlumnoSinPlanT56T68Test.php`:
+- `test_vistas_grupo_y_profesor_muestran_secciones_y_datos_reales_sin_proximamente`: Valida que tanto con clases/liquidaciones como sin ellas, las secciones se muestren con datos reales y estados vacíos claros, sin la palabra «Próximamente».
 
 ### Capturas visuales
 Generadas con Google Chrome headless sobre el HTML real devuelto por la aplicación (mediante `CapturaT56T68Test`):
-- `01-grupo-show-1366.png` — Ficha de grupo en escritorio (1366px), sin «Cronograma semanal».
-- `02-grupo-show-marco-360.png` — Ficha de grupo en celular dentro de marco de 360px.
-- `03-profesor-show-1366.png` — Ficha de profesor en escritorio (1366px), tarjeta a ancho completo sin «Próximamente».
-- `04-profesor-show-marco-360.png` — Ficha de profesor en celular dentro de marco de 360px.
-- `05-alumno-edit-error-1366.png` — Mensaje de validación al cambiar de grupo sin elegir nueva frecuencia semanal en escritorio.
-- `06-alumno-edit-error-marco-360.png` — Mensaje de validación al cambiar de grupo en celular dentro de marco de 360px.
+- `01-grupo-show-1366.png` — Ficha de grupo en escritorio (1366px), con precios (3/5) y cronograma semanal con clases reales (2/5).
+- `02-grupo-show-marco-360.png` y `02-grupo-show-marco-375.png` — Ficha de grupo en celular dentro de marco de 360px y 375px.
+- `03-profesor-show-1366.png` — Ficha de profesor en escritorio (1366px), con información (3/5) e historial de liquidaciones y clases asignadas reales (2/5).
+- `04-profesor-show-marco-360.png` y `04-profesor-show-marco-375.png` — Ficha de profesor en celular dentro de marco de 360px y 375px.
+- `05-alumno-edit-error-1366.png` y `06-alumno-edit-error-marco-360.png` — Error de validación al cambiar de grupo sin elegir plan.
 
 ---
 

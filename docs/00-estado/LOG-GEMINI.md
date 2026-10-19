@@ -22,6 +22,22 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
   - Suite completa: 903 pasadas, 4 omitidas, 0 fallidas (8024 aserciones) en `wings_testing_gemini` (corte 908 pruebas).
 - **Próximo paso:** Verificación independiente por Codex (`docs/06-pruebas/PRU-04/CORRECCION-T34-GEMINI.md`).
 
+## 2026-10-19 — LOG GEM CAB — Corrección de T68: Datos reales en Cronograma semanal de Grupos y Liquidaciones/Clases de Profesores
+
+- **Objetivo y alcance:** Reemplazar los carteles de «Próximamente» por datos reales del sistema conforme a la indicación de Carlos (19/10), manteniendo la disposición y estructura visual de las vistas.
+- **Grupos (`resources/views/grupos/show.blade.php`):**
+  - Se conserva la disposición en dos columnas inferiores: `Precios por frecuencia` (3/5) y `Cronograma semanal` (2/5).
+  - En `Cronograma semanal` se listan las clases futuras no canceladas del grupo (`$clasesFuturas`), con fecha, día y rango horario. Si no hay clases futuras, muestra `Sin clases futuras programadas.` y botón `+ Programar clases` para ADMIN.
+- **Profesores (`resources/views/profesores/show.blade.php`):**
+  - Se conserva la disposición en 2 columnas: información del profesor (3/5) y columna derecha (2/5) con dos tarjetas.
+  - En `Historial de liquidaciones` se listan las liquidaciones reales del profesor con mes/año, importe y badge de pago. Si no tiene: `Sin liquidaciones registradas.`.
+  - En `Clases asignadas` se listan las clases próximas asignadas con grupo y horario. Si no tiene: `Sin clases asignadas próximas.`.
+- **Pruebas y capturas:**
+  - `AlumnoSinPlanT56T68Test` actualizado con 5 pruebas en verde (38 aserciones).
+  - Capturas regeneradas en escritorio (1366px), marco móvil 360px y marco móvil 375px en `docs/06-pruebas/PRU-04/evidencia-t56-t68/`.
+  - Sin JavaScript incrustado (CSP intacto).
+- **Próximo paso:** Visto bueno visual de Carlos.
+
 ## 2026-10-19 — LOG GEM CAB — Implementación de T56 (alumno activo no puede quedar sin plan) y T68 (sacar carteles de «Próximamente»)
 
 - **Objetivo y alcance:** Implementar T56 (DU-15: impedir que un alumno activo quede sin plan) y T68 (DU-57: retirar los tres carteles de «Próximamente»).

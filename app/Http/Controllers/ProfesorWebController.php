@@ -43,7 +43,22 @@ class ProfesorWebController extends Controller
     {
         $profesor = Profesor::with('deporte')->findOrFail($id);
 
-        return view('profesores.show', compact('profesor'));
+        $liquidaciones = $profesor->liquidaciones()
+            ->orderByDesc('anio')
+            ->orderByDesc('mes')
+            ->take(5)
+            ->get();
+
+        $clasesProximas = $profesor->clases()
+            ->where('cancelada', false)
+            ->whereDate('fecha', '>=', today())
+            ->orderBy('fecha')
+            ->orderBy('hora_inicio')
+            ->with(['grupo.deporte', 'grupo.nivel'])
+            ->take(5)
+            ->get();
+
+        return view('profesores.show', compact('profesor', 'liquidaciones', 'clasesProximas'));
     }
 
     public function create()

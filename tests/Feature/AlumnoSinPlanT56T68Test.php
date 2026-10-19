@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\{Alumno, AlumnoPlan, Deporte, DeudaCuota, Grupo, GrupoPlan, Nivel, Pago, TipoCaja, User, Profesor};
+use App\Models\{Alumno, AlumnoPlan, Clase, Deporte, DeudaCuota, Grupo, GrupoPlan, Liquidacion, Nivel, Pago, TipoCaja, User, Profesor};
 use App\Services\PagoCuotaService;
 use Carbon\Carbon;
 use Database\Seeders\CatalogosSeeder;
@@ -266,17 +266,33 @@ class AlumnoSinPlanT56T68Test extends TestCase
         ]);
     }
 
-    public function test_vistas_grupo_y_profesor_no_muestran_proximamente(): void
+    public function test_vistas_grupo_y_profesor_muestran_secciones_y_datos_reales_sin_proximamente(): void
     {
         $this->actingAs($this->admin);
 
-        // Ficha de grupo
+        // 1. Ficha de grupo sin clases
         $resGrupo = $this->get(route('web.grupos.show', $this->grupo1->id));
         $resGrupo->assertOk();
         $resGrupo->assertDontSee('Próximamente');
-        $resGrupo->assertDontSee('Cronograma semanal');
+        $resGrupo->assertSee('Cronograma semanal');
+        $resGrupo->assertSee('Sin clases futuras programadas.');
 
-        // Ficha de profesor
+        // Crear una clase futura para el grupo1
+        $clase = Clase::create([
+            'grupo_id' => $this->grupo1->id,
+            'fecha' => Carbon::now()->addDays(2)->toDateString(),
+            'hora_inicio' => '16:00',
+            'hora_fin' => '17:00',
+            'cancelada' => false,
+            'validada_para_liquidacion' => false,
+        ]);
+
+        $resGrupoConClase = $this->get(route('web.grupos.show', $this->grupo1->id));
+        $resGrupoConClase->assertOk();
+        $resGrupoConClase->assertDontSee('Sin clases futuras programadas.');
+        $resGrupoConClase->assertSee('16:00 a 17:00');
+
+        // 2. Ficha de profesor sin liquidaciones ni clases
         $profesor = Profesor::create([
             'nombre' => 'Carlos',
             'apellido' => 'Profesor',
@@ -294,7 +310,30 @@ class AlumnoSinPlanT56T68Test extends TestCase
         $resProf = $this->get(route('web.profesores.show', $profesor->id));
         $resProf->assertOk();
         $resProf->assertDontSee('Próximamente');
-        $resProf->assertDontSee('Historial de liquidaciones');
-        $resProf->assertDontSee('Clases asignadas');
+        $resProf->assertSee('Historial de liquidaciones');
+        $resProf->assertSee('Sin liquidaciones registradas.');
+        $resProf->assertSee('Clases asignadas');
+        $resProf->assertSee('Sin clases asignadas próximas.');
+
+        // Asignar clase al profesor y crear una liquidación
+        $clase->profesores()->attach($profesor->id);
+        Liquidacion::create([
+            'profesor_id' => $profesor->id,
+            'mes' => 9,
+            'anio' => 2026,
+            'tipo' => Liquidacion::TIPO_HORA,
+            'valor_hora_aplicado' => 5000,
+            'total_calculado' => 15000,
+            'estado' => Liquidacion::ESTADO_CERRADA,
+            'estado_pago' => Liquidacion::ESTADO_PAGO_PAGADA,
+        ]);
+
+        $resProfConDatos = $this->get(route('web.profesores.show', $profesor->id));
+        $resProfConDatos->assertOk();
+        $resProfConDatos->assertDontSee('Sin liquidaciones registradas.');
+        $resProfConDatos->assertDontSee('Sin clases asignadas próximas.');
+        $resProfConDatos->assertSee('09/2026');
+        $resProfConDatos->assertSee('$15,000.00');
+        $resProfConDatos->assertSee($this->grupo1->nombre_completo);
     }
 }

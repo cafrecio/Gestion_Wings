@@ -110,7 +110,17 @@ class GrupoWebController extends Controller
             'alumnos',
         ])->findOrFail($id);
 
-        return view('grupos.show', compact('grupo'));
+        // Clases futuras no canceladas para el cronograma / clases próximas
+        $clasesFuturas = $grupo->clases()
+            ->where('cancelada', false)
+            ->whereDate('fecha', '>=', today())
+            ->orderBy('fecha')
+            ->orderBy('hora_inicio')
+            ->with('profesores')
+            ->take(6)
+            ->get();
+
+        return view('grupos.show', compact('grupo', 'clasesFuturas'));
     }
 
     public function edit(int $id)

@@ -69,6 +69,28 @@ class CapturaT56T68Test extends TestCase
             'activo' => true,
         ]);
 
+        // Crear una clase futura para el grupo y una liquidación para el profesor
+        $clase = \App\Models\Clase::create([
+            'grupo_id' => $grupo->id,
+            'fecha' => Carbon::now()->addDays(2)->toDateString(),
+            'hora_inicio' => '16:00',
+            'hora_fin' => '17:00',
+            'cancelada' => false,
+            'validada_para_liquidacion' => false,
+        ]);
+        $clase->profesores()->attach($profesor->id);
+
+        \App\Models\Liquidacion::create([
+            'profesor_id' => $profesor->id,
+            'mes' => 9,
+            'anio' => 2026,
+            'tipo' => \App\Models\Liquidacion::TIPO_HORA,
+            'valor_hora_aplicado' => 5000,
+            'total_calculado' => 15000,
+            'estado' => \App\Models\Liquidacion::ESTADO_CERRADA,
+            'estado_pago' => \App\Models\Liquidacion::ESTADO_PAGO_PAGADA,
+        ]);
+
         $dir = base_path('docs/06-pruebas/PRU-04/evidencia-t56-t68');
         if (!is_dir($dir)) {
             mkdir($dir, 0775, true);
