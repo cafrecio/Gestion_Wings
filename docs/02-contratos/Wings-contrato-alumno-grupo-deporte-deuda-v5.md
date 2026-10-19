@@ -159,5 +159,15 @@ Formato y pantalla: [maqueta aprobada](../05-pendientes/maqueta-primera-carga/RE
 - Cuotas de alta, reingreso, meses pasados T58, Revisión, generador y Cobrar consultan esa función.
   La primera carga mantiene su excepción: las deudas importadas valen el saldo declarado.
 
+## 2.k Alumno activo sin plan — T56, Carlos 19/10/2026
+
+Decisión: DU-15 («Impedir que un alumno activo quede sin plan»).
+- **Alta por pantalla:** Exige plan activo del grupo (`AlumnoWebController::store`).
+- **Primera carga por Excel:** Exige plan activo del grupo (`PrimeraCargaExcelService::validar`).
+- **Edición y cambio de grupo:** Si el alumno cambia de grupo (`grupo_id`), la selección de plan (`plan_id`) es obligatoria y debe pertenecer al nuevo grupo. Si no cambia de grupo pero carece de plan vigente, la selección de plan es obligatoria. No se permite actualizar un alumno sin plan aplicable (`AlumnoWebController::update`).
+- **Eliminación y cambio de planes de grupo:** Bloqueado si el plan tiene alumnos activos o si es el último plan del grupo (`GrupoWebController::destroyPlan`).
+- **Cobro a inactivos (T38):** Cobrarle una deuda vieja a un alumno inactivo solo lo reactiva a `activo = true` si el alumno cuenta con un plan vigente para el mes corriente. Si no tiene plan vigente, la deuda vieja se cobra y cancela normalmente, pero el alumno permanece `activo = false` evitando que ingrese al generador mensual del día 1 sin plan.
+
+
 [Cuotas, pagos y cambios de plan V2](Wings-contrato-cuotas-deudas-pagos-V2.md) ·
 [Implementación y evidencia](../06-pruebas/PRU-04/IMPLEMENTACION-T44.md).

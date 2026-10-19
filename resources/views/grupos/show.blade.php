@@ -108,7 +108,7 @@
     </div>
 
     {{-- Precios por frecuencia --}}
-    <div class="md:col-span-3 filtros-card">
+    <div class="md:col-span-5 filtros-card">
         <p class="flex items-center gap-1.5 mb-3" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
             <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Precios por frecuencia
@@ -156,17 +156,6 @@
             <p class="text-xs text-wings-muted" style="opacity: 0.7;">Sin precios cargados todavía.</p>
         @endif
     </div>
-
-    {{-- Cronograma semanal --}}
-    <div class="md:col-span-2 filtros-card" style="border: 1px dashed var(--color-border);">
-        <p class="flex items-center gap-1.5 mb-2" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--color-text-muted);">
-            <svg class="w-3 h-3 flex-shrink-0" style="color: {{ $sportColor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            Cronograma semanal
-        </p>
-        <p class="text-xs text-wings-muted" style="opacity: 0.6;">Próximamente: horario de clases del grupo.</p>
-    </div>
-
-</div>
 
 {{-- Volver --}}
 <div class="filtros-actions mt-4" style="justify-content: flex-end;">

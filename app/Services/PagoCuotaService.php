@@ -108,10 +108,13 @@ class PagoCuotaService
                 $pago->cargos()->attach($imputacion['cargo']->id, ['monto_aplicado' => $imputacion['monto']]);
             }
 
-            // Si el alumno estaba inactivo o en revisión, reactivar al pagar
-            if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
-            if ($montoCuota > 0 && $reingreso !== null) {
-                $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+            // Si el alumno estaba inactivo o en revisión, reactivar al pagar solo si tiene plan vigente para el mes
+            $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
+            if ($montoCuota > 0 && $planPeriodoActual?->plan) {
+                Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+                if ($reingreso !== null) {
+                    $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+                }
             }
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);
@@ -241,10 +244,13 @@ class PagoCuotaService
                 $pago->cargos()->attach($imputacion['cargo']->id, ['monto_aplicado' => $imputacion['monto']]);
             }
 
-            // Si el alumno estaba inactivo o en revisión, reactivar al pagar
-            if ($montoCuota > 0) Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
-            if ($montoCuota > 0 && $reingreso !== null) {
-                $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+            // Si el alumno estaba inactivo o en revisión, reactivar al pagar solo si tiene plan vigente para el mes
+            $planPeriodoActual = $this->obtenerPlanParaPeriodo($data['alumno_id'], now()->format('Y-m'));
+            if ($montoCuota > 0 && $planPeriodoActual?->plan) {
+                Alumno::where('id', $data['alumno_id'])->where('activo', false)->update(['activo' => true]);
+                if ($reingreso !== null) {
+                    $this->completarReingresoPorCobro($alumnoAntes, $reingreso['cuota_del_mes_existia'], $porcentaje, $periodoConDescuento);
+                }
             }
             foreach ($items as $item) {
                 AlumnoRevisionCobranza::reactivarAuto($data['alumno_id'], $item['periodo']);

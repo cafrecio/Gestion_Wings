@@ -7,7 +7,24 @@ Cada agente escribe solo aquí su trabajo. Nuevas entradas arriba.
 Los extractos del 11/09 fueron preparados por Codex CAB el 12/09 desde el histórico;
 no son nuevas verificaciones ni nuevas firmas del agente resumido.
 
-[Histórico completo hasta el corte](../99-archivo/bitacoras/2026-09-12/LOG-GEMINI.md)
+## 2026-10-19 — LOG GEM CAB — Implementación de T56 (alumno activo no puede quedar sin plan) y T68 (sacar carteles de «Próximamente»)
+
+- **Objetivo y alcance:** Implementar T56 (DU-15: impedir que un alumno activo quede sin plan) y T68 (DU-57: retirar los tres carteles de «Próximamente»).
+- **T56 — Alumno activo siempre con plan:**
+  - Inspección exhaustiva de 7 puertas de entrada de alumnos sin plan.
+  - Encontrados y corregidos 2 huecos:
+    1. `AlumnoWebController::update`: al cambiar de grupo (`$cambiaGrupo`), ahora se exige obligatoriamente seleccionar una frecuencia semanal del nuevo grupo (`plan_id` requerido y validado con `Rule::exists('grupo_planes')->where('grupo_id', $nuevoGrupo)`).
+    2. `PagoCuotaService::registrarPagoCuotaOperativo` y `registrarPagoCuotaAdmin`: pagar deuda vieja a un inactivo solo reactiva a `activo = true` si el alumno tiene plan vigente para el mes actual (`$this->obtenerPlanParaPeriodo(..., now()->format('Y-m'))?->plan`). De lo contrario se cobra la deuda pero permanece inactivo, evitando que el generador mensual del día 1 lo saltee sin cobrar.
+  - Relevamiento de bases: 0 alumnos activos sin plan en local, testing y VPS (`wingstest` sobre 100 alumnos activos, 0 sin plan).
+- **T68 — Retiro de «Próximamente»:**
+  - `resources/views/grupos/show.blade.php`: retirado el bloque «Cronograma semanal» («Próximamente: horario de clases del grupo.»); «Precios por frecuencia» se expandió a `md:col-span-5` ocupando el ancho completo inferior.
+  - `resources/views/profesores/show.blade.php`: retirada la columna derecha con «Historial de liquidaciones» y «Clases asignadas» («Próximamente.»); la tarjeta de profesor quedó a ancho completo.
+  - Comprobado que no queda ninguna otra ocurrencia en ninguna vista de la aplicación.
+- **Evidencia visual y pruebas:**
+  - `tests/Feature/AlumnoSinPlanT56T68Test.php`: 5 pruebas que validan cambio de grupo, edición sin plan, cobro a inactivo con/sin plan y ausencia de «Próximamente».
+  - Capturas generadas con Chrome headless en 1366px y marco móvil 360px en `docs/06-pruebas/PRU-04/evidencia-t56-t68/`.
+  - Suite completa: 891 aprobadas, 3 omitidas, 0 fallidas en `wings_testing_gemini` (corte 895 pruebas).
+- **Próximo paso:** Verificación por Claude y visto bueno visual por Carlos.
 
 ## 2026-10-19 — LOG GEM CAB — Verificación independiente de T44: Historial de tarifas y vigencia por alumno y mes
 

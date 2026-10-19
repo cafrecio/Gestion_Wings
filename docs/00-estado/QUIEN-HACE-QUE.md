@@ -51,7 +51,9 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T47** Avisos en ingles: pagina 405 al abrir a mano una accion, y pedidos sobre un registro que ya no existe | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-02 · ACC-014 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: resources/views/errors (falta la 405) y PantallasErrorTest. Sumado el 13/10 al verificar T33: condonar o reactivar una cuota o inscripcion inexistente responde No query results for model [App\Models\CargoAlumno]; pasa en web.deudas.condonar, web.deudas.reactivar, web.inscripciones.condonar y web.inscripciones.reactivar (AlumnoWebController::decidirPerdon y condonarDeuda atrapan cualquier excepcion y muestran su texto). Buscar el mismo patron en otros controladores. No choca con nada |
+| **T56** Un alumno activo no puede quedar sin plan | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar bloqueo de alumno sin plan al cambiar de grupo y al cobrar a inactivo |
 | **T59** El duenio que entra a Nuevo movimiento de caja va directo a Cashflow | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-24 · MOV-006 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: CajaWebController::movimientoForm. Chica. ORDEN: despues de T36 y T37, mismo archivo |
+| **T68** Quitar los carteles de Proximamente | Hecho, espera verificación (hizo Gemini, verifica Claude) | Verificar retiro de carteles Proximamente en grupo y profesor |
 
 ## Codex
 
@@ -64,8 +66,6 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
 | **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Devuelto (hizo Gemini, verifica Codex) | Corregir H1 etiqueta Pendiente con lista tomada y H2 clase ya liquidada que vuelve a Sin presentes; ver VERIFICACION-T34-T67-CODEX.md. Sin cambiar diseno aprobado |
-| **T56** Un alumno activo no puede quedar sin plan | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-15 · ALU-023 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Hoy el generador lo saltea y queda fuera de la cobranza sin que nadie lo vea. TOCA: AlumnoWebController, GrupoWebController::destroyPlan y toggleActivo, generador mensual |
-| **T68** Quitar los carteles de Proximamente | En curso (hizo Gemini, verifica Claude) | [AHORA, Carlos 18/10] Tabla: DU-57 · SIS-012 (docs/06-pruebas/PRU-04/tabla-de-pruebas). TOCA: grupos/show (linea 166) y profesores/show (lineas 117 y 126). Chica y visual |
 
 ## Sin empezar (25)
 

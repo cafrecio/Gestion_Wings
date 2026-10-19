@@ -164,7 +164,7 @@ class AlumnoWebController extends Controller
                 (int) $request->user()->id
             );
         } catch (\Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($exception));
         }
 
         return redirect()
@@ -182,7 +182,7 @@ class AlumnoWebController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException|\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface $e) {
             throw $e;
         } catch (\Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($exception));
         }
 
         $mes = Carbon::createFromFormat('Y-m-d', $deuda->periodo . '-01')->locale('es')->translatedFormat('F Y');
@@ -216,7 +216,7 @@ class AlumnoWebController extends Controller
         try {
             $registro = $accion($validator->validated()['motivo'], (int) $request->user()->id);
         } catch (\Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($exception));
         }
         return redirect()->route('web.alumnos.show', $registro->alumno_id)->with('success', $mensaje);
     }
@@ -248,7 +248,7 @@ class AlumnoWebController extends Controller
         try {
             $pagoCuotaService->anularCobroAdmin($id, $request->input('motivo'), (int) $request->user()->id);
         } catch (\Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($exception));
         }
 
         return redirect()
@@ -375,9 +375,9 @@ class AlumnoWebController extends Controller
             throw $e;
         } catch (\Exception $e) {
             if ($request->expectsJson()) {
-                return response()->json(['error' => $e->getMessage()], 422);
+                return response()->json(['error' => \App\Support\AvisoError::texto($e)], 422);
             }
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', \App\Support\AvisoError::texto($e));
         }
 
         $mensaje = 'Alumno ' . ($alumno->activo ? 'activado' : 'desactivado') . ' correctamente.';
@@ -426,17 +426,20 @@ class AlumnoWebController extends Controller
     {
         $alumno = Alumno::with('planActivo.plan')->findOrFail($id);
         $tienePlanValido = $alumno->planActivo && $alumno->planActivo->plan;
+        $cambiaGrupo = $request->filled('grupo_id') && (int) $request->input('grupo_id') !== (int) $alumno->grupo_id;
 
         $rules = $this->validationRules($request);
         $rules['dni'] = ['required', 'string', 'max:20', Rule::unique('alumnos', 'dni')->ignore($alumno->id)->where('deporte_id', $request->input('deporte_id', $alumno->deporte_id))];
 
-        // Plan obligatorio si el alumno no tiene uno vigente
-        if (!$tienePlanValido) {
+        // Plan obligatorio si el alumno no tiene uno vigente o si cambia de grupo
+        if (!$tienePlanValido || $cambiaGrupo) {
             $rules['plan_id'] = ['required', Rule::exists('grupo_planes', 'id')->where('grupo_id', $request->input('grupo_id'))];
+        } elseif ($request->filled('plan_id')) {
+            $rules['plan_id'] = [Rule::exists('grupo_planes', 'id')->where('grupo_id', $alumno->grupo_id)];
         }
 
         $validated = $request->validate($rules, array_merge($this->validationMessages(), [
-            'plan_id.required' => 'Debe seleccionar la frecuencia semanal.',
+            'plan_id.required' => $cambiaGrupo ? 'Debe seleccionar la frecuencia semanal del nuevo grupo.' : 'Debe seleccionar la frecuencia semanal.',
             'plan_id.exists'   => 'La frecuencia seleccionada no corresponde al grupo.',
         ]));
         $validated = $this->completarCelular($validated);
