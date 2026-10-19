@@ -11,6 +11,15 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-18 — Claude CAB — T39 y T75 cerradas
+
+T39: Gemini la aprobó pero no commiteó (el tablero estaba tomado por Codex); cuando Codex publicó
+T75, subí su informe, capturas y bitácora tal como estaban y cerré la tarea. T75: el visual lo
+aprobó Carlos; controlé en Chrome la interacción nueva de Revisión: lo que muestra el interruptor
+y lo que se envía coinciden al abrir, al apagarlo, al volver con Atrás y al recargar; Inactivo da
+de baja sin cuota y Continúa genera la cuota; sin nota no envía. Cerrada.
+`VERIFICACION-T75-REVISION.md`.
+
 ## 2026-10-18 — Claude CAB — T58 hecha; T63 y T57 verificadas y cerradas
 
 T58 (DU-23): la ficha muestra al dueño los meses pasados sin cuota (desde el alta, con plan) y los

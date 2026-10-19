@@ -1,0 +1,24 @@
+{
+  "fecha": "2026-10-19T00:22:19.935Z",
+  "base": "wings_testing_claude",
+  "observaciones": [
+    {
+      "paso": "al abrir",
+      "interruptor": true,
+      "oculto": "CONTINUA",
+      "aviso": "Se generará la cuota de 2026-10 al confirmar."
+    },
+    {
+      "paso": "interruptor apagado",
+      "interruptor": false,
+      "oculto": "INACTIVO",
+      "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan."
+    },
+    {
+      "paso": "despues de Atras",
+      "interruptor": false,
+      "oculto": "INACTIVO",
+      "aviso": "Se dará de baja al alumno al confirmar. Sus deudas anteriores se conservan."
+    }
+  ]
+}

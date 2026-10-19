@@ -47,9 +47,7 @@ Nada.
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T75** En celular, todos los botones a la derecha | Hecho, espera verificación (hizo Codex, verifica Claude) | Visual de las cinco vistas aprobado por Carlos: Esas opciones estan muy bien aprobadas (verifica visual=Carlos). Solo falta que Claude controle la interaccion de Revision; no pedir nueva aprobacion visual |
+Nada en este momento.
 
 ## Codex
 
