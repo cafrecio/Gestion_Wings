@@ -76,5 +76,6 @@ de la interacción de Revisión entregada en la vuelta anterior. T36 y T37 perma
 
 Guardianes finales: 7 aprobados/34 aserciones. Al ejecutarlos había 862 métodos en la carpeta
 compartida: 860 del corte versionado y dos nuevos de T58 ajenos a esta entrega. El conteo
-862 queda actualizado en los documentos locales; el commit T75 conserva 860 hasta que su
-autor versione esas pruebas. No se incorporan la vista ni las pruebas concurrentes de T58.
+862 se conservó separado mientras las pruebas de T58 no estaban versionadas. Su autor
+las versionó en `c154ac4` durante el commit T75: el ajuste documental posterior deja 862
+también en Estado y Resumen, sin incorporar código de T58 a esta entrega.
