@@ -111,7 +111,7 @@ class CuotaAltaEstadoTest extends TestCase
         $this->assertSame('AL_DIA', $service->estadosParaAlumnos(collect([$alumno]))[$alumno->id]);
         $this->assertCount(40, $service->filtrarAlumnosPorEstado('AL_DIA'));
         $this->get(route('web.cobranza.index'))->assertOk()->assertViewHas('resumen', fn ($r) => $r['por_estado']['DEUDOR'] === 20 && $r['por_estado']['AL_DIA'] === 40);
-        $this->get(route('web.operativo.dashboard'))->assertOk()->assertViewHas('alumnosConDeuda', 20);
+        $this->get(route('web.operativo.dashboard'))->assertOk()->assertViewHas('vencidos', 20)->assertViewHas('enPlazo', 0);
         $this->assertDatabaseCount('pagos', 0);
     }
 

@@ -210,7 +210,7 @@
         {
           "donde": "Coherencia",
           "l": "b",
-          "texto": "Cuando no hay nadie en plazo, la cantidad de Morosos más Deudores de Cobranza es igual al número que anuncia el buscador de Cobrar y al «Con deuda» del Inicio de la operativa. Quien está en plazo figura en el buscador y no en los otros dos (ver DU-60).",
+          "texto": "La cantidad de Morosos más Deudores de Cobranza es igual a «Vencidos» del Inicio de la operativa. Quien está en plazo figura en el buscador de Cobrar y en «En plazo» del Inicio, no en la lista por defecto de Cobranza; vencidos más en plazo es lo que anuncia el buscador (DU-60, T74).",
           "tipo": "indirecto"
         },
         {
@@ -221,7 +221,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "Decisión de Carlos 12/10; CO-07. Programado en T31 (d8bf91f), verificado por Claude el 13/10: en el sitio de prueba las tres pantallas dan 38. DU-60 (16/10): el Inicio de la operativa va a mostrar aparte a los que están en plazo (CBZ-022, T74).",
+      "fuente": "Decisión de Carlos 12/10; CO-07. Programado en T31 (d8bf91f), verificado por Claude el 13/10: en el sitio de prueba las tres pantallas dan 38. DU-60 (16/10): el Inicio de la operativa muestra aparte a los que están en plazo (CBZ-022, programado en T74 por Claude el 19/10, a verificar).",
       "modulo": "Cobranza",
       "pantalla": "cobranza",
       "requiere": "Tres alumnos que deben solo la inscripción, venidos de la primera carga: uno que ingresó este mes dentro de la gracia, uno que ingresó este mes y ya pasó la gracia, y uno que ingresó hace meses.",
@@ -979,8 +979,8 @@
           "tipo": "indirecto"
         }
       ],
-      "estado": "no_implementado",
-      "fuente": "Decidido por Carlos (DU-60, 16/10): el Inicio de la operativa muestra los dos números. Falta programar: T74.",
+      "estado": "vigente",
+      "fuente": "Decidido por Carlos (DU-60, 16/10): el Inicio de la operativa muestra los dos números. Programado en T74 por Claude el 19/10 (OperativoDashboardController; InicioVencidosEnPlazoT74Test), a verificar. Las tarjetas son «Vencidos» (lleva a Cobranza) y «En plazo» (lleva a Cobranza filtrada En plazo).",
       "modulo": "Cobranza",
       "pantalla": "inicio-operativo",
       "requiere": "Alumnos que deben la cuota del mes y están en plazo, y alumnos vencidos.",

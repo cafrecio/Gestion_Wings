@@ -43,7 +43,7 @@
         }
       ],
       "estado": "vigente",
-      "fuente": "T29 (verificado por Gemini 12/10); CajaWebController::cobrarCuotaSelect (código propio); CobranzaEstadoService::saldoDeAlumnos; T31. DU-60 (16/10): el Inicio de la operativa va a mostrar aparte a los que están en plazo (CBZ-022, T74).",
+      "fuente": "T29 (verificado por Gemini 12/10); CajaWebController::cobrarCuotaSelect (código propio); CobranzaEstadoService::saldoDeAlumnos; T31. DU-60 (16/10): el Inicio de la operativa muestra aparte a los que están en plazo (CBZ-022, programado en T74 por Claude el 19/10, a verificar).",
       "modulo": "Cobrar",
       "pantalla": "caja-buscador",
       "requiere": "Alumnos activos con deuda, sin deuda e inactivos con deuda. Caja abierta.",

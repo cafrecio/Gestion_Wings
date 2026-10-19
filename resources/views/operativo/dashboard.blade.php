@@ -233,11 +233,20 @@
             <div class="stats-bar mb-2">
                 <div class="stats-info">Atención a alumnos</div>
             </div>
-            <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;">
+            {{-- T74 (DU-60): vencidos es lo que muestra Cobranza; en plazo, los que deben sin vencer.
+                 Sumados dan lo que anuncia el buscador de Cobrar. --}}
+            <div class="resumen-operativo-grid" style="display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:12px;">
                 <a href="{{ route('web.cobranza.index') }}" class="filtros-card" style="text-align:center; padding:1.1rem 0.8rem; text-decoration:none; height:100%; box-sizing:border-box;">
-                    <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Con deuda</p>
-                    <p style="font-size:1.8rem; font-weight:800; color:{{ $alumnosConDeuda > 0 ? 'var(--color-danger)' : 'var(--color-success)' }};">
-                        {{ $alumnosConDeuda }}
+                    <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">Vencidos</p>
+                    <p style="font-size:1.8rem; font-weight:800; color:{{ $vencidos > 0 ? 'var(--color-danger)' : 'var(--color-success)' }};">
+                        {{ $vencidos }}
+                    </p>
+                    <p style="font-size:0.75rem; color:var(--color-brand); font-weight:600; margin-top:4px;">Ir a cobranza →</p>
+                </a>
+                <a href="{{ route('web.cobranza.index', ['estado' => 'EN_PLAZO']) }}" class="filtros-card" style="text-align:center; padding:1.1rem 0.8rem; text-decoration:none; height:100%; box-sizing:border-box;">
+                    <p style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; color:var(--color-text-muted); margin-bottom:4px;">En plazo</p>
+                    <p style="font-size:1.8rem; font-weight:800; color:{{ $enPlazo > 0 ? 'var(--color-info)' : 'var(--color-text)' }};">
+                        {{ $enPlazo }}
                     </p>
                     <p style="font-size:0.75rem; color:var(--color-brand); font-weight:600; margin-top:4px;">Ir a cobranza →</p>
                 </a>

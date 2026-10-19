@@ -105,8 +105,17 @@ class OperativoDashboardController extends Controller
             ->orderBy('hora_inicio')
             ->get();
 
-        // Cantidad de alumnos activos con deuda (mismo cálculo y total que Cobranza)
-        $alumnosConDeuda = $this->cobranzaService->listadoCobranza()->count();
+        // T74 (DU-60): vencidos es el mismo total que Cobranza (morosos y deudores); en plazo,
+        // los que deben y todavía no vencieron. Las dos cifras suman lo que anuncia el
+        // buscador de Cobrar, porque las dos salen del mismo saldo por alumno.
+        $estadosCobranza = $this->cobranzaService->listadoCobranza('TODOS');
+        $vencidos = $estadosCobranza
+            ->filter(fn ($a) => in_array($a->estado_cobranza, [CobranzaEstadoService::ESTADO_MOROSO, CobranzaEstadoService::ESTADO_DEUDOR], true))
+            ->count();
+        $enPlazo = $estadosCobranza
+            ->filter(fn ($a) => $a->deuda_total > 0
+                && !in_array($a->estado_cobranza, [CobranzaEstadoService::ESTADO_MOROSO, CobranzaEstadoService::ESTADO_DEUDOR], true))
+            ->count();
 
         // Cantidad de alumnos en revisión (posibles inactivos)
         $posiblesInactivos = AlumnoRevisionCobranza::where('estado_revision', AlumnoRevisionCobranza::ESTADO_PENDIENTE)
@@ -114,7 +123,7 @@ class OperativoDashboardController extends Controller
 
         return view('operativo.dashboard', compact(
             'estado', 'cajas', 'totalCobradoHoy', 'numCobrosHoy', 'hoyAr',
-            'cajasRechazadasCount', 'clasesHoy', 'alumnosConDeuda', 'posiblesInactivos',
+            'cajasRechazadasCount', 'clasesHoy', 'vencidos', 'enPlazo', 'posiblesInactivos',
             'cajaPropia', 'cajaClub', 'cajaCompanero', 'ultimaCaja',
             'aperturaCompaneroTexto', 'aperturaPropiaTexto'
         ));

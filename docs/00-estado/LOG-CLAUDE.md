@@ -11,6 +11,18 @@ no son nuevas verificaciones ni nuevas firmas del agente resumido.
 · [Índice y huellas](../99-archivo/bitacoras/2026-09-12/INDICE.md).
 · [Entradas archivadas el 17/09](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-17/LOG-CLAUDE-2.md) · [Entradas archivadas el 21/09](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-09-21/LOG-CLAUDE-2.md) · [Entradas archivadas el 02/10](../99-archivo/bitacoras/2026-10-02/LOG-CLAUDE.md) · [Entradas archivadas el 10/10](../99-archivo/bitacoras/2026-10-10/LOG-CLAUDE.md) · [Entradas archivadas el 13/10](../99-archivo/bitacoras/2026-10-13/LOG-CLAUDE.md) · [Entradas archivadas el 05/10](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE.md) y [segundo corte](../99-archivo/bitacoras/2026-10-05/LOG-CLAUDE-2.md) · [Entradas archivadas el 07/10](../99-archivo/bitacoras/2026-10-07/LOG-CLAUDE.md) · [Entradas archivadas el 08/10](../99-archivo/bitacoras/2026-10-08/LOG-CLAUDE.md) · [Entradas archivadas el 12/10](../99-archivo/bitacoras/2026-10-12/LOG-CLAUDE.md) · [Entradas archivadas el 16/10](../99-archivo/bitacoras/2026-10-16/LOG-CLAUDE.md)
 
+## 2026-10-19 — Claude CAB — T74 hecha: Inicio con vencidos y en plazo
+
+DU-60: el Inicio de la operativa separa **Vencidos** (= Cobranza) de **En plazo** (deben y no
+vencieron); la suma es el número del buscador de Cobrar, porque las dos cifras salen del mismo
+saldo por alumno. 5 pruebas, incluida la de pasar el plazo (el 15/10 los dos en plazo pasan a
+vencidos y la suma no cambia). Chrome 1366/375 con fecha simulada: 2 + 2 = 4. En celular las tres
+tarjetas en columnas partían «Ir a cobranza →» en tres renglones: se apilan con la clase de T75.
+Error mío evitable: el contador dio 895 y casi lo declaro, pero incluía un archivo de pruebas de
+Gemini sin commitear; conté en una copia limpia de HEAD: 885 + 5 = 890. Con el reloj simulado el
+navegador no podía entrar (la cookie nace vencida): servidor local con `SESSION_EXPIRE_ON_CLOSE=true`.
+Tabla: CBZ-022 vigente, CBZ-005 y COB ajustados en las dos copias. A verificar.
+
 ## 2026-10-18 — Claude CAB — T39 y T75 cerradas
 
 T39: Gemini la aprobó pero no commiteó (el tablero estaba tomado por Codex); cuando Codex publicó

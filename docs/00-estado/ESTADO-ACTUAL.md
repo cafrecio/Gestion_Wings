@@ -1,5 +1,9 @@
 # Wings — Estado actual
 
+## T74 — Inicio de la operativa: vencidos y en plazo, Claude CAB 19/10/2026
+
+DU-60 (CBZ-022): «Atención a alumnos» del Inicio de la operativa muestra **Vencidos** (morosos y deudores, el mismo número que Cobranza) y **En plazo** (deben y no vencieron); sumados dan lo que anuncia el buscador de Cobrar. Cobranza no cambia. 5 pruebas nuevas (`InicioVencidosEnPlazoT74Test`), recorrido en Chrome 1366/375 con fecha simulada 05/10: 2 + 2 = 4 del buscador. Suite completa sola: 886 aprobadas, 3 omitidas, solo el contador en rojo (890 con T74). A verificar. [Informe](../06-pruebas/PRU-04/IMPLEMENTACION-T74.md). Sin despliegue.
+
 ## Verificación ampliada T34/T67 — Codex CAB, 19/10/2026
 
 T34 devuelta a Gemini por dos huecos reproducidos: una lista tomada con todos ausentes sigue mostrando «Asistencia: Pendiente», y un PATCH directo del dueño desmarca una clase de liquidación CERRADA (también con estado PAGADA) y la devuelve a Sin presentes. El importe cerrado no cambia; no se demostró doble pago. Ambos consumidores ya existían antes de T34; la cola nueva expone su integración incompleta.
@@ -756,7 +760,7 @@ No crear un seeder ni limpiar datos reales; redefinir la tarea antes de ejecutar
 | Area | Estado |
 |---|---|
 | Stack | Laravel 12, PHP 8.2, MariaDB, Blade y Vite |
-| **Tests** | **885 pruebas**. Suite T44 corrección visual Codex CAB 19/10: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, 0 fallidas, base `wings_testing_codex`, corte 885. Cambios paralelos posteriores de Clases no certificados. |
+| **Tests** | **890 pruebas**. T74 Claude CAB 19/10: suite sola en `wings_testing_claude` con 886 aprobadas, 3 omitidas y el contador en rojo (contó un archivo sin commitear de Gemini); corte 890 con T74. Antes: Suite T44 corrección visual Codex CAB 19/10: **882 aprobadas, 3 omitidas, 7821 aserciones, 1134.95 s**, 0 fallidas, base `wings_testing_codex`, corte 885. Cambios paralelos posteriores de Clases no certificados. |
 | Roles | ADMIN, OPERATIVO y PROFESOR; superadmin protegido |
 | Cobranza | ADMIN y OPERATIVO entran; PROFESOR rechazado; T31 implementada 13/10 (Gemini CyE): inscripción impaga convierte en MOROSO o DEUDOR según fecha_alta y dias_plazo_alta (7) / dias_gracia_cobranza (10), jerarquía DEUDOR > MOROSO > EN_PLAZO > AL_DIA; paridad estricta con buscador de Cobrar; Entrega 1 aprobada por Codex 05/10: apertura deudores/morosos por antigüedad, fila por registro deporte + DNI con deuda propia y ayuda por otro deporte, filtros 375 y botones Cobrar/Ver de 64px |
 | Alumnos | CRUD, plan vigente, fecha de alta y grupo validado contra deporte |

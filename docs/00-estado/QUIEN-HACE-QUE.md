@@ -42,13 +42,13 @@ php scripts/tablero/tablero.php nueva T9 "Título" tiene=Gemini estado=en_curso 
 
 ## Hecho y sin nadie que lo verifique
 
-Nada.
+| Tarea | Estado | Próximo paso |
+|---|---|---|
+| **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | Hecho, espera verificación (hizo Claude) | Hecha por Claude el 19/10: Inicio con Vencidos (= Cobranza) y En plazo; suman el buscador de Cobrar. 5 pruebas, Chrome 1366/375 con fecha simulada 05/10. Falta verificador y el visual de Carlos. Informe: docs/06-pruebas/PRU-04/IMPLEMENTACION-T74.md |
 
 ## Claude
 
-| Tarea | Estado | Próximo paso |
-|---|---|---|
-| **T74** Inicio de la operativa: vencidos y, aparte, los que estan en plazo | En curso (hizo Claude) | [AHORA, Carlos 18/10] Tabla: DU-60 · CBZ-022 (docs/06-pruebas/PRU-04/tabla-de-pruebas). Decidido por Carlos el 16/10: el recuadro de deuda del Inicio de la operativa muestra los vencidos (como Cobranza) y aparte los que deben pero estan en plazo; vencidos mas en plazo = lo que anuncia el buscador de Cobrar. Cobranza no cambia. TOCA: OperativoDashboardController y su vista (CobranzaEstadoService ya tiene los estados) |
+Nada en este momento.
 
 ## Codex
 
