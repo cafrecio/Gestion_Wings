@@ -56,7 +56,7 @@ Nada en este momento.
 
 | Tarea | Estado | Próximo paso |
 |---|---|---|
-| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificar correccion de H1 (etiqueta Sin presentes en tarjeta) y H2 (bloqueo en liquidacion cerrada) |
+| **T34** Clase con lista tomada y nadie presente: sale de Sin asistencia y queda para que el duenio decida si la paga | Hecho, espera verificación (hizo Gemini, verifica Codex) | Verificar correccion de H1 (etiqueta Sin presentes en tarjeta) y H2 (bloqueo en liquidacion cerrada). Visual aprobado por Carlos el 19/10: T34 visual aprobado; Codex verifica solo logica y puede cerrar |
 
 ## Gemini
 
